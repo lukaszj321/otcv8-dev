@@ -3,60 +3,108 @@
 <title>RAG demo — OTCv8 Docs</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
+  :root { color-scheme: light dark; }
   body{font:14px system-ui,Segoe UI,Roboto,Arial;max-width:900px;margin:32px auto;padding:0 16px}
-  .row{display:flex;gap:8px}
+  .row{display:flex;gap:8px;margin:12px 0}
   input{flex:1;padding:10px;border:1px solid #ccc;border-radius:8px}
   button{padding:10px 14px;border:0;border-radius:8px;background:#222;color:#fff;cursor:pointer}
   li{margin:12px 0}
   .muted{opacity:.75}
+  #status{padding:8px 10px;border-radius:8px;background:#f3f3f3;margin:12px 0}
+  @media (prefers-color-scheme: dark){
+    #status{background:#2a2a2a}
+    input{border-color:#444}
+    button{background:#0f62fe}
+  }
 </style>
 
 <h2>RAG search (OTCv8 Docs)</h2>
+<div id="status">Ładuję model i indeks…</div>
+
 <div class="row">
   <input id="q" placeholder="np. Lua events / OTUI / Android build" />
   <button id="go">Szukaj</button>
 </div>
-<p class="muted">Uwaga: pierwszy start może chwilę ładować model (WASM).</p>
+<p class="muted">Uwaga: pierwszy start może zająć 20–60 s (pobranie modelu).</p>
 <ul id="out"></ul>
 
 <script type="module">
-  import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers/dist/transformers.min.js';
+  // ŚCIEŻKI (hardcoded, żeby nie było problemów z relatywnymi)
+  const EMB_URL = 'https://lukaszj321.github.io/otcv8-dev/rag/embeddings.json';
+  const BASE_URL = 'https://lukaszj321.github.io/otcv8-dev/';
 
-  const EMB_URL = './embeddings.json'; // leży obok tej strony
-  const extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+  const $ = (id) => document.getElementById(id);
+  const setStatus = (t) => { $('status').textContent = t; };
 
-  const data = await fetch(EMB_URL).then(r => r.json());
-
+  // ===== UTIL =====
   const dot = (a,b)=>a.reduce((s,v,i)=>s+v*b[i],0);
   const norm = a => Math.sqrt(dot(a,a));
   const cos = (a,b)=> dot(a,b)/(norm(a)*norm(b));
+  const docUrl = (path) => BASE_URL + path.replace(/^docs\//,'').replace(/\.md$/,'/');
 
-  async function search(q,k=5){
-    const qv = await extractor(q,{ pooling:'mean', normalize:true });
+  // ===== LOADERS =====
+  let data = null;
+  let extractor = null;
+
+  async function loadAll() {
+    setStatus('Ładuję indeks embeddings…');
+    data = await fetch(EMB_URL).then(r => {
+      if (!r.ok) throw new Error('Nie można pobrać embeddings.json');
+      return r.json();
+    });
+
+    setStatus('Ładuję model (pierwszy raz dłużej)…');
+    const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers/dist/transformers.min.js');
+    extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+    setStatus('Gotowe. Wpisz zapytanie i kliknij „Szukaj”.');
+  }
+
+  // ===== SEARCH =====
+  async function search(q, k = 5) {
+    if (!q.trim()) return [];
+    setStatus('Szukam…');
+    const qv = await extractor(q, { pooling:'mean', normalize:true });
     const qarr = Array.from(qv.data);
-    return data
+    const res = data
       .map(d => ({ ...d, score: cos(qarr, d.embedding) }))
-      .sort((a,b)=>b.score-a.score)
-      .slice(0,k);
+      .sort((a,b)=> b.score - a.score)
+      .slice(0,k)
+      .map(d => ({
+        url: docUrl(d.path),
+        score: d.score,
+        preview: d.text.slice(0,220).replace(/\s+/g,' ') + '…'
+      }));
+    setStatus('Gotowe.');
+    return res;
   }
 
-  function docUrl(path){
-    // zamień ścieżkę MD na stronę MkDocs
-    return '../' + path.replace(/^docs\//,'').replace(/\.md$/,'/');
-  }
-
-  document.getElementById('go').onclick = async () => {
-    const q = document.getElementById('q').value.trim();
-    if(!q) return;
-    const res = await search(q,5);
-    const out = document.getElementById('out');
+  function render(list) {
+    const out = $('out');
     out.innerHTML = '';
-    for(const r of res){
+    if (!list.length) { out.innerHTML = '<li class="muted">Brak wyników</li>'; return; }
+    for (const r of list) {
       const li = document.createElement('li');
-      const url = docUrl(r.path);
-      li.innerHTML = `<a href="${url}" target="_blank">${url}</a> — score: ${r.score.toFixed(3)}
-        <div class="muted">${r.text.slice(0,220).replace(/\s+/g,' ')}…</div>`;
+      li.innerHTML = `<a href="${r.url}" target="_blank" rel="noreferrer">${r.url}</a> — score: ${r.score.toFixed(3)}
+        <div class="muted">${r.preview}</div>`;
       out.appendChild(li);
     }
+  }
+
+  // ===== UI HOOKS =====
+  $('go').onclick = async () => {
+    try {
+      const q = $('q').value;
+      const res = await search(q, 5);
+      render(res);
+    } catch (e) {
+      console.error(e);
+      setStatus('Błąd: ' + (e?.message || e));
+    }
   };
+  $('q').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') $('go').click();
+  });
+
+  // start
+  loadAll().catch(e => { console.error(e); setStatus('Błąd inicjalizacji: ' + (e?.message || e)); });
 </script>
