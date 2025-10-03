@@ -16,11 +16,6 @@ theme:
     - search.highlight
 plugins:
   - search
-  - with-pdf:
-      output_path: downloads/OTCv8-Docs.pdf
-      cover_title: "OTCv8 Dev — Dokumentacja"
-      cover_subtitle: "Build • Architektura • Lua/OTUI • Realtime"
-      toc_level: 3
   - glightbox
   - macros
   - git-revision-date-localized:
