@@ -1,5 +1,4 @@
-// RAG bez API: generuje wektory przez @xenova/transformers (WASM)
-// Zapisuje do: docs/_rag/embeddings.json
+// Generuje wektory z @xenova/transformers i zapisuje do docs/_rag/embeddings.json
 import { pipeline } from '@xenova/transformers';
 import { glob } from 'glob';
 import fs from 'fs/promises';
@@ -21,12 +20,7 @@ for (const path of files) {
   for (let i = 0; i < chunks.length; i++) {
     const text = chunks[i];
     const emb = await extractor(text, { pooling: 'mean', normalize: true });
-    results.push({
-      path,
-      idx: i,
-      text,
-      embedding: Array.from(emb.data)
-    });
+    results.push({ path, idx: i, text, embedding: Array.from(emb.data) });
   }
 }
 
