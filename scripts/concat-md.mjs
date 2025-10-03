@@ -4,7 +4,10 @@ import path from "path";
 import { load as yamlLoad } from "js-yaml";
 
 const [, , mkdocsPath, outPath] = process.argv;
-if (!mkdocsPath || !outPath) process.exit(1);
+if (!mkdocsPath || !outPath) {
+  console.error("Użycie: node scripts/concat-md.mjs mkdocs.yml OUT.md");
+  process.exit(1);
+}
 
 const mk = yamlLoad(await fs.readFile(mkdocsPath, "utf8"));
 const docsDir = mk?.docs_dir || "docs";
