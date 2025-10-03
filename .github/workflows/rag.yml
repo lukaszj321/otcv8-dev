@@ -1,0 +1,24 @@
+name: Build RAG
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'docs/**'
+      - 'scripts/build-embeddings.mjs'
+jobs:
+  rag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm i openai glob
+      - run: node scripts/build-embeddings.mjs
+        env: { OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} }
+      - name: Commit embeddings
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add docs/_rag/embeddings.json
+          git commit -m "Update embeddings" || echo "No changes"
+          git push
