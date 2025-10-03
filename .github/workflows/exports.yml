@@ -1,4 +1,4 @@
-name: Exports (PDF/EPUB/DOCX/ZIP)
+name: Exports (DOCX/EPUB/ZIP)
 on:
   push: { branches: [ master ] }
   workflow_dispatch: {}
@@ -11,44 +11,35 @@ jobs:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
 
-      # Build MkDocs -> site/
+      # Zbuduj stronę -> site/
       - uses: actions/setup-python@v5
         with: { python-version: "3.x" }
       - run: python -m pip install --upgrade pip
       - run: pip install mkdocs mkdocs-material mkdocs-glightbox mkdocs-macros-plugin mkdocs-git-revision-date-localized-plugin
       - run: mkdocs build
 
-      # Połącz MD wg nav -> plik w KORZENIU repo (łatwo montować do Dockera)
+      # Scal markdown wg nav -> plik w KORZENIU repo (łatwo zamontować)
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
       - run: npm i js-yaml glob
       - run: node scripts/concat-md.mjs mkdocs.yml OTCv8-Docs.md
+      - run: mkdir -p docs/downloads && ls -lh . && test -f OTCv8-Docs.md
+
+      # DOCX/EPUB lokalnym pandoc (bez PDF – stabilnie)
       - run: |
-          echo "== ls -lh =="; ls -lh .
-          echo "== head -n 20 OTCv8-Docs.md =="; head -n 20 OTCv8-Docs.md
-      - run: mkdir -p docs/downloads
+          sudo apt-get update
+          sudo apt-get install -y pandoc zip
+          pandoc OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.docx
+          pandoc OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.epub --toc
 
-      # Konwersje w stabilnym kontenerze pandoc/extra
-      - name: Build DOCX/EPUB/PDF (Docker pandoc/extra)
-        run: |
-          docker pull pandoc/extra:latest
-          # -w /data ustawia working dir, więc używamy ścieżek względnych
-          docker run --rm -w /data -v "$PWD":/data pandoc/extra \
-            pandoc OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.docx
-          docker run --rm -w /data -v "$PWD":/data pandoc/extra \
-            pandoc OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.epub --toc
-          docker run --rm -w /data -v "$PWD":/data pandoc/extra \
-            pandoc OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.pdf --pdf-engine=xelatex -V geometry:margin=1in
-          ls -lh docs/downloads
-
-      # ZIP zbudowanego site/
+      # ZIP całego site/
       - run: zip -r docs/downloads/site.zip site
 
-      # Commit wygenerowanych plików
+      # Commit plików do Pages
       - name: Commit downloads
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/OTCv8-Docs.pdf docs/downloads/site.zip
-          git commit -m "export: PDF/EPUB/DOCX/ZIP" || echo "no changes"
+          git add docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/site.zip
+          git commit -m "export: DOCX/EPUB/ZIP" || echo "no changes"
           git push
