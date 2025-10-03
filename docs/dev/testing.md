@@ -14,7 +14,9 @@ y
 - C++: GoogleTest (jeśli dostępne).
 - E2E: scenariusze ręczne + checklisty w PR.
 
-## Rapo
+## Rap
+
+o
 
 r
 
