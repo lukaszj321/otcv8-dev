@@ -60,14 +60,11 @@
     setStatus('Szukam…');
     const qv = await extractor(q, { pooling:'mean', normalize:true });
     const qarr = Array.from(qv.data);
-
-    // lekkie „boostowanie” tytułu
     const scored = data.map(d => {
       const base = cos(qarr, d.embedding);
       const titleBoost = d.title && d.title.toLowerCase().includes(q.toLowerCase()) ? 0.05 : 0;
       return { ...d, score: base + titleBoost };
     }).sort((a,b)=> b.score - a.score).slice(0,k);
-
     setStatus('Gotowe.');
     return scored;
   }
