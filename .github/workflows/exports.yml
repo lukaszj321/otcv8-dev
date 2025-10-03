@@ -1,34 +1,49 @@
 name: Exports (PDF/EPUB/DOCX/ZIP)
-on: { push: {branches: [ master ]}, workflow_dispatch: {} }
+on:
+  push: { branches: [ master ] }
+  workflow_dispatch: {}
 permissions: { contents: write }
+
 jobs:
   export:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+
+      # Zbuduj stronę MkDocs -> site/
       - uses: actions/setup-python@v5
         with: { python-version: "3.x" }
       - run: python -m pip install --upgrade pip
       - run: pip install mkdocs mkdocs-material mkdocs-glightbox mkdocs-macros-plugin mkdocs-git-revision-date-localized-plugin
       - run: mkdocs build
+
+      # Przygotuj scalony MD wg nav
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
       - run: npm i js-yaml glob
-      - run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic zip
       - run: node scripts/concat-md.mjs mkdocs.yml /tmp/OTCv8-Docs.md
-      - run: mkdir -p docs/downloads
-      - run: |
-          pandoc /tmp/OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.docx
-          pandoc /tmp/OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.epub --toc
-          pandoc /tmp/OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.pdf --pdf-engine=xelatex -V geometry:margin=1in
+
+      # Generowanie formatów w stabilnym kontenerze Pandoc
+      - name: Build DOCX/EPUB/PDF (Docker pandoc/extra)
+        run: |
+          mkdir -p docs/downloads
+          docker pull pandoc/extra:latest
+          docker run --rm -v "$PWD":/data pandoc/extra \
+            pandoc /data/tmp/OTCv8-Docs.md -o /data/docs/downloads/OTCv8-Docs.docx
+          docker run --rm -v "$PWD":/data pandoc/extra \
+            pandoc /data/tmp/OTCv8-Docs.md -o /data/docs/downloads/OTCv8-Docs.epub --toc
+          docker run --rm -v "$PWD":/data pandoc/extra \
+            pandoc /data/tmp/OTCv8-Docs.md -o /data/docs/downloads/OTCv8-Docs.pdf --pdf-engine=xelatex -V geometry:margin=1in
+
+      # ZIP całego site/
       - run: zip -r docs/downloads/site.zip site
+
+      # Commit plików do Pages
       - name: Commit downloads
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add docs/downloads/OTCv8-Docs.* docs/downloads/site.zip
+          git add docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/OTCv8-Docs.pdf docs/downloads/site.zip
           git commit -m "export: PDF/EPUB/DOCX/ZIP" || echo "no changes"
           git push
