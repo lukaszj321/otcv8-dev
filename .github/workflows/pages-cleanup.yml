@@ -15,20 +15,28 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo  = context.repo.repo;
+            const { owner, repo } = context.repo?.owner ? context.repo : (() => {
+              const [o,r] = (process.env.GITHUB_REPOSITORY||'').split('/');
+              return { owner:o, repo:r };
+            })();
+            if (!owner || !repo) core.setFailed('owner/repo undefined');
 
-            // znajdź workflow "pages.yml" (lub zmień nazwę jeśli inna)
-            const wfs = await github.paginate(github.rest.actions.listRepoWorkflows, { owner, repo, per_page: 100 });
-            const pagesWf = wfs.find(w => w.path.endsWith('/pages.yml') || w.name.includes('Build & Deploy Docs'));
+            // znajdź workflow zawierający pages deploy (zmień jeśli używasz innej nazwy)
+            const workflows = await github.paginate(github.rest.actions.listRepoWorkflows, { owner, repo, per_page:100 });
+            const pagesWf = workflows.find(w =>
+              w.path.endsWith('/pages.yml') ||
+              /deploy.*pages/i.test(w.name||'') ||
+              /pages/i.test(w.name||'')
+            );
             if (!pagesWf) {
-              core.notice('Nie znaleziono pages.yml – pomijam runs.');
+              core.notice('Nie znaleziono workflowu Pages (pages.yml) – pomijam runs.');
             } else {
               for (const status of ['queued','in_progress']) {
                 for await (const resp of github.paginate.iterator(
-                  github.rest.actions.listWorkflowRuns, { owner, repo, workflow_id: pagesWf.id, status, per_page: 100 }
+                  github.rest.actions.listWorkflowRuns,
+                  { owner, repo, workflow_id: pagesWf.id, status, per_page: 100 }
                 )) {
-                  const runs = resp.data.workflow_runs || [];
+                  const runs = resp.data?.workflow_runs || [];
                   for (const run of runs) {
                     core.info(`Cancel run ${run.id} (${status})`);
                     await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
@@ -36,11 +44,12 @@ jobs:
                   }
                 }
               }
-              // usuń zakończone runs tej samej definicji
+              // usuń zakończone runy tego samego workflowu
               for await (const resp of github.paginate.iterator(
-                github.rest.actions.listWorkflowRuns, { owner, repo, workflow_id: pagesWf.id, status: 'completed', per_page: 100 }
+                github.rest.actions.listWorkflowRuns,
+                { owner, repo, workflow_id: pagesWf.id, status: 'completed', per_page: 100 }
               )) {
-                const runs = resp.data.workflow_runs || [];
+                const runs = resp.data?.workflow_runs || [];
                 for (const run of runs) {
                   core.info(`Delete completed run ${run.id}`);
                   await github.rest.actions.deleteWorkflowRun({ owner, repo, run_id: run.id });
@@ -53,14 +62,18 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo  = context.repo.repo;
+            const { owner, repo } = context.repo?.owner ? context.repo : (() => {
+              const [o,r] = (process.env.GITHUB_REPOSITORY||'').split('/');
+              return { owner:o, repo:r };
+            })();
+            if (!owner || !repo) core.setFailed('owner/repo undefined');
 
-            // anuluj WSZYSTKIE oczekujące / aktywne deploye Pages
+            // API Pages deployments (wymaga pages:write)
             for await (const resp of github.paginate.iterator(
-              github.request, 'GET /repos/{owner}/{repo}/pages/deployments', { owner, repo, per_page: 100 }
+              github.request, 'GET /repos/{owner}/{repo}/pages/deployments',
+              { owner, repo, per_page: 100 }
             )) {
-              const list = Array.isArray(resp.data) ? resp.data : (resp.data.deployments || []);
+              const list = Array.isArray(resp.data) ? resp.data : (resp.data?.deployments || []);
               for (const d of list) {
                 try {
                   core.info(`Cancel Pages deployment ${d.id} (${d.status})`);
@@ -69,7 +82,7 @@ jobs:
                   });
                   await new Promise(r => setTimeout(r, 150));
                 } catch (e) {
-                  core.warning(`Cancel failed ${d.id}: ${e.message}`);
+                  core.warning(`Cancel failed ${d?.id}: ${e.message}`);
                 }
               }
             }
