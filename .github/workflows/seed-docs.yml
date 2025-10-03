@@ -1,0 +1,520 @@
+name: SEED DOCS (one shot)
+on: { workflow_dispatch: {} }
+permissions: { contents: write }
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: master }
+
+      - name: Write full docs pack
+        run: |
+          set -e
+          mkdir -p docs/guides docs/build docs/lua docs/cpp docs/dev docs/tools docs/_assets/js docs/rag scripts .github/workflows
+
+          # ---------- mkdocs.yml ----------
+          cat > mkdocs.yml <<'EOF'
+site_name: OTCv8 Dev Docs
+site_description: Dokumentacja deweloperska OTCv8 (build, architektura, API, OTUI)
+site_url: https://lukaszj321.github.io/otcv8-dev/
+repo_url: https://github.com/lukaszj321/otcv8-dev
+edit_uri: blob/master/docs/
+
+theme:
+  name: material
+  language: pl
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.integrate
+
+plugins:
+  - search
+  - glightbox
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+  - tags
+  - macros
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - _assets/js/mermaid-init.js
+
+nav:
+  - Start: index.md
+  - Przewodniki:
+      - Architektura: guides/architecture.md
+      - Moduły (vBot): guides/modules.md
+      - Realtime (WebSocket): guides/websocket.md
+      - OTUI: ui/otui.md
+  - Build:
+      - Windows: build/windows.md
+      - Linux: build/linux.md
+      - Android: build/android.md
+  - Lua:
+      - API (przykłady): lua/api.md
+      - Style guide: lua/style-guide.md
+  - C++:
+      - Przegląd: cpp/overview.md
+  - Narzędzia: tools/index.md
+  - Deweloperzy:
+      - Contributing: dev/contributing.md
+      - Testy: dev/testing.md
+      - Release: dev/release.md
+      - Security: dev/security.md
+      - Troubleshooting: dev/troubleshooting.md
+      - FAQ: dev/faq.md
+      - Słownik: dev/glossary.md
+      - Roadmap: dev/roadmap.md
+  - RAG demo: rag/search.html
+EOF
+
+          # ---------- docs/index.md ----------
+          cat > docs/index.md <<'EOF'
+# OTCv8 Dev — Dokumentacja
+
+> Kompletna baza wiedzy: build, architektura, moduły Lua (vBot), OTUI, realtime (WebSocket) + wyszukiwarka RAG.
+
+- **Szybki start**: sekcja *Build* (Windows/Linux/Android)
+- **Architektura**: komponenty, przepływy i kontrakty
+- **Moduły (vBot)**: struktura, lifecycle, zdarzenia
+- **OTUI**: layouty UI i wiązania danych
+- **Realtime (WS)**: kanały, schematy wiadomości
+- **RAG**: `/rag/search.html` (lokalna wyszukiwarka semantyczna)
+
+!!! info "Wyszukiwarka"
+    Indeks RAG: `rag/embeddings.json`. Wyszukiwarka: `rag/search.html`.
+EOF
+
+          # ---------- guides/architecture.md ----------
+          cat > docs/guides/architecture.md <<'EOF'
+# Architektura
+
+~~~mermaid
+graph TD
+  Client[OTCv8 Client] -->|Lua| vBot[vBot Modules]
+  Client -->|OTUI| UI[OTUI System]
+  Client --> CppCore[C++ Core]
+  WS[WebSocket/IPC] --> Client
+~~~
+
+## Warstwy
+- **C++ Core** – render, IO, podstawy klienta
+- **Lua (vBot)** – logika modułów, zdarzenia, automaty
+- **OTUI** – deklaratywne layouty i wiązania
+- **WS/IPC** – komunikacja realtime z dashboardem / narzędziami
+
+## Kontrakty
+- **Lua ↔ UI**: eventy i aktualizacje właściwości
+- **Lua ↔ WS**: publikacja metryk/logów, odbiór komend
+- **Zasoby**: layouts, assets, konfiguracje
+
+## Zasady projektowe
+- Modułowość (każdy moduł ma swój katalog)
+- Zero efektów ubocznych przy `require`
+- Jawne API modułu (eksportowane funkcje)
+EOF
+
+          # ---------- guides/modules.md ----------
+          cat > docs/guides/modules.md <<'EOF'
+# Moduły (vBot) — przewodnik
+
+## Struktura katalogu
+```
+modules/
+  my-module/
+    init.lua
+    config.lua
+    README.md
+```
+
+## Minimalny moduł
+~~~lua
+-- modules/my-module/init.lua
+local M = {}
+
+function M.start()
+  print("[my-module] start")
+end
+
+function M.stop()
+  print("[my-module] stop")
+end
+
+return M
+~~~
+
+## Zdarzenia (przykład)
+~~~lua
+onTalk(function(name, level, mode, text)
+  if text:find("hello") then print("Hi " .. name) end
+end)
+~~~
+
+## Konfiguracja
+- `config.lua` – wartości domyślne (np. progi, hotkeye)
+- konfiguracje użytkownika trzymaj osobno i nie commituj
+
+## Debug
+- logi do konsoli lub `logs/my-module.log`
+- flaga `DEBUG=true` i warunkowe logowanie
+
+## Dobre praktyki
+- nazewnictwo `my_module.*`
+- pliki do ~300 linii, funkcje do ~50 linii
+- testy (busted) i przykłady w README modułu
+EOF
+
+          # ---------- guides/websocket.md ----------
+          cat > docs/guides/websocket.md <<'EOF'
+# Realtime (WebSocket)
+
+~~~mermaid
+sequenceDiagram
+  participant UI as Dashboard (SPA)
+  participant WS as WebSocket (wss)
+  participant S as Server (Node)
+
+  UI->>WS: handshake (token)
+  WS->>S: connect
+  S-->>UI: events: metrics, logs, char_info
+  UI->>S: cmd: START/STOP, settings
+~~~
+
+## Zalecenia
+- WSS + allowlista originów + rate-limit
+- Autoryzacja w handshake (JWT/cookie)
+- Walidacja schematów (JSON Schema / Zod)
+- Ograniczenia: rozmiar payloadu, pingTimeout
+
+## Minimalny serwer (socket.io)
+~~~ts
+io.use(authMiddleware);
+io.on('connection', (s) => {
+  s.join(`user:${s.user.id}`);
+  s.on('cmd', (payload) => { /* validate + run */ });
+});
+~~~
+EOF
+
+          # ---------- ui/otui.md ----------
+          mkdir -p docs/ui
+          cat > docs/ui/otui.md <<'EOF'
+# OTUI — podstawy
+
+## Przykład layoutu
+~~~otui
+Panel
+  id: main
+  anchor: top left
+  size: 400 300
+
+Label
+  text: "Status: OK"
+  anchors.centerIn: parent
+~~~
+
+## Wskazówki
+- layouty w `layouts/*`
+- wspólne klasy zamiast stylu inline
+- wiązania wartości przez Lua (eventy → aktualizacje UI)
+EOF
+
+          # ---------- build/*.md ----------
+          cat > docs/build/windows.md <<'EOF'
+# Build — Windows
+
+1. Zainstaluj Visual Studio 2019 (C++) i vcpkg.
+2. Zainstaluj zależności przez vcpkg (wg README projektu).
+3. Zbuduj projekt (uzupełnij realnymi komendami z repo).
+EOF
+
+          cat > docs/build/linux.md <<'EOF'
+# Build — Linux
+
+1. Zależności: gcc/clang, cmake, pkg-config, itp.
+2. Zbuduj projekt (kroki i komendy do uzupełnienia).
+EOF
+
+          cat > docs/build/android.md <<'EOF'
+# Build — Android
+
+1. Android NDK/SDK, Java.
+2. Generowanie assets i budowa APK (uzupełnij dokładnymi krokami).
+EOF
+
+          # ---------- lua/*.md ----------
+          cat > docs/lua/api.md <<'EOF'
+# Lua API — przykłady
+
+~~~lua
+-- zdarzenie rozmowy
+onTalk(function(name, level, mode, text)
+  -- ...
+end)
+
+-- cykliczny timer
+schedule(1000, function() print("tick") end)
+~~~
+
+> Docelowo: generowane referencje (LDoc/EmmyLua).
+EOF
+
+          cat > docs/lua/style-guide.md <<'EOF'
+# Lua — style guide
+
+- snake_case dla zmiennych i funkcji
+- moduł zwraca tabelę publicznego API
+- brak efektów ubocznych przy `require`
+- pliki < 300 linii, funkcje < 50 linii
+- obsługa błędów `pcall/xpcall`
+- logowanie pod `DEBUG`
+EOF
+
+          # ---------- cpp/overview.md ----------
+          cat > docs/cpp/overview.md <<'EOF'
+# C++ — przegląd
+
+- struktura katalogów i kluczowe klasy
+- punkty rozszerzeń (hooki/interfejsy)
+- integracja z Lua/OTUI
+EOF
+
+          # ---------- dev/*.md ----------
+          cat > docs/dev/contributing.md <<'EOF'
+# Contributing
+
+1. Fork → branch `feature/...`
+2. Commity: `type(scope): msg` (np. `docs(build): ...`)
+3. PR z opisem i screenami
+4. 1× LGTM + zielone CI
+
+## Style
+- Lua: patrz *Lua → Style guide*
+- C++: clang-format (styl projektu)
+
+## Commity dokumentacji
+- Zmiany w `docs/**` nie odpalają CMake (paths-ignore w workflow)
+EOF
+
+          cat > docs/dev/testing.md <<'EOF'
+# Testy
+
+- Lua: jednostkowe (busted)
+- C++: GoogleTest (jeśli dostępne)
+- E2E: scenariusze ręczne + checklisty PR
+EOF
+
+          cat > docs/dev/release.md <<'EOF'
+# Release
+
+1. Semver bump + tag
+2. Changelog z PR od ostatniego taga
+3. Build artefaktów (CI)
+4. Publikacja + checksumy
+
+## Docs
+- Strona buduje się z `master` (Pages via Actions)
+EOF
+
+          cat > docs/dev/security.md <<'EOF'
+# Security
+
+- HTTPS/WSS, HSTS, CSP, CORS
+- Auth: krótkie JWT + refresh, RBAC
+- WS: origin check, limit bufora, ping
+- Walidacja payloadów (Zod/JSON Schema)
+- Sekrety poza repo (env/CI)
+EOF
+
+          cat > docs/dev/troubleshooting.md <<'EOF'
+# Troubleshooting
+
+## Build
+- brak pakietów vcpkg → doinstaluj i przebuduj cache
+
+## Android
+- błędy NDK/SDK → sprawdź wersje i ścieżki
+
+## WS
+- rozłączenia → pingTimeout/pingInterval, proxy
+EOF
+
+          cat > docs/dev/faq.md <<'EOF'
+# FAQ
+
+**Czy mogę dodawać własne moduły?**  
+Tak — `modules/<nazwa>` i rejestracja w konfiguracji.
+
+**Na jakich systemach działa?**  
+Windows i Linux (patrz *Build*).
+EOF
+
+          cat > docs/dev/glossary.md <<'EOF'
+# Słownik
+
+- **OTUI** — język layoutów UI
+- **vBot** — moduły Lua automatyzujące zachowania
+- **RAG** — Retrieval Augmented Generation
+EOF
+
+          cat > docs/dev/roadmap.md <<'EOF'
+# Roadmap
+
+- [ ] Pełna referencja API Lua (LDoc)
+- [ ] Doxygen C++ i integracja z docs
+- [ ] Przykłady OTUI
+- [ ] Testy E2E dashboardu
+EOF
+
+          # ---------- tools/index.md ----------
+          cat > docs/tools/index.md <<'EOF'
+# Narzędzia
+
+Tu opisz skrypty z `tools/` (komenda, parametry, przykładowe wyjście).
+EOF
+
+          # ---------- assets js ----------
+          cat > docs/_assets/js/mermaid-init.js <<'EOF'
+window.mermaid = { startOnLoad: true };
+EOF
+
+          # ---------- RAG search page ----------
+          cat > docs/rag/search.html <<'EOF'
+<!doctype html>
+<meta charset="utf-8" />
+<title>RAG demo — OTCv8 Docs</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root { color-scheme: light dark; }
+  body{font:14px system-ui,Segoe UI,Roboto,Arial;max-width:900px;margin:32px auto;padding:0 16px}
+  .row{display:flex;gap:8px;margin:12px 0}
+  input{flex:1;padding:10px;border:1px solid #ccc;border-radius:8px}
+  button{padding:10px 14px;border:0;border-radius:8px;background:#222;color:#fff;cursor:pointer}
+  li{margin:12px 0}
+  .muted{opacity:.75}
+  #status{padding:8px 10px;border-radius:8px;background:color-mix(in oklab, Canvas 92%, CanvasText 8%);margin:12px 0}
+  mark{padding:0 2px;border-radius:3px}
+</style>
+
+<h2>RAG search (OTCv8 Docs)</h2>
+<div id="status">Ładuję model i indeks…</div>
+
+<div class="row">
+  <input id="q" placeholder="np. OTUI / Lua events / Android build" />
+  <button id="go">Szukaj</button>
+</div>
+<p class="muted">Pierwsze uruchomienie pobierze model (WASM) — może potrwać kilkanaście sekund.</p>
+<ul id="out"></ul>
+
+<script type="module">
+  const EMB_URL = 'https://lukaszj321.github.io/otcv8-dev/rag/embeddings.json';
+  const $ = (id) => document.getElementById(id);
+  const setStatus = (t) => { $('status').textContent = t; };
+
+  const dot = (a,b)=>a.reduce((s,v,i)=>s+v*b[i],0);
+  const norm = a => Math.sqrt(dot(a,a));
+  const cos = (a,b)=> dot(a,b)/(norm(a)*norm(b));
+
+  function hi(text, q){
+    if(!q) return text;
+    const esc = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    return text.replace(new RegExp(esc, 'ig'), m => `<mark>${m}</mark>`);
+  }
+
+  let data = null;
+  let extractor = null;
+
+  async function loadAll() {
+    setStatus('Ładuję embeddings.json…');
+    data = await fetch(EMB_URL).then(r => {
+      if (!r.ok) throw new Error('Nie można pobrać embeddings.json');
+      return r.json();
+    });
+
+    setStatus('Ładuję model (Xenova/all-MiniLM-L6-v2)…');
+    const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers/dist/transformers.min.js');
+    extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+    setStatus('Gotowe. Wpisz zapytanie i kliknij „Szukaj”.');
+  }
+
+  async function search(q, k = 5) {
+    if (!q.trim()) return [];
+    setStatus('Szukam…');
+    const qv = await extractor(q, { pooling:'mean', normalize:true });
+    const qarr = Array.from(qv.data);
+    const scored = data.map(d => {
+      const base = cos(qarr, d.embedding);
+      const titleBoost = d.title && d.title.toLowerCase().includes(q.toLowerCase()) ? 0.05 : 0;
+      return { ...d, score: base + titleBoost };
+    }).sort((a,b)=> b.score - a.score).slice(0,k);
+    setStatus('Gotowe.');
+    return scored;
+  }
+
+  function render(list, q) {
+    const out = $('out');
+    out.innerHTML = '';
+    if (!list.length) { out.innerHTML = '<li class="muted">Brak wyników</li>'; return; }
+    for (const r of list) {
+      const li = document.createElement('li');
+      const title = r.title || r.url;
+      const preview = (r.text || '').slice(0, 220).replace(/\s+/g,' ');
+      li.innerHTML = `
+        <div><strong>${hi(title, q)}</strong> — score: ${r.score.toFixed(3)}</div>
+        <div><a href="${r.url}" target="_blank" rel="noreferrer">${r.url}</a></div>
+        <div class="muted">${hi(preview, q)}…</div>`;
+      out.appendChild(li);
+    }
+  }
+
+  $('go').onclick = async () => {
+    try {
+      const q = $('q').value.trim();
+      if (!q) return;
+      const res = await search(q, 5);
+      render(res, q);
+    } catch (e) { console.error(e); setStatus('Błąd: ' + (e?.message || e)); }
+  };
+  $('q').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('go').click(); });
+
+  loadAll().catch(e => { console.error(e); setStatus('Błąd inicjalizacji: ' + (e?.message || e)); });
+</script>
+EOF
+
+      - name: Commit all
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add -A
+          git commit -m "seed: full docs + RAG" || echo "no changes"
+          git push
