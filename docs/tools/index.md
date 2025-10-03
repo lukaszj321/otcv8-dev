@@ -1,0 +1,4 @@
+# Narzędzia
+
+- Skrypty pomocnicze znajdziesz w `tools/` repo.
+- Uzupełnij listę narzędzi po weryfikacji w repo.
