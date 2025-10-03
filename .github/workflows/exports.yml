@@ -27,7 +27,7 @@ jobs:
             mkdocs-git-revision-date-localized-plugin
       - run: mkdocs build
 
-      # Zbierz treść -> DOCX/EPUB (bez modyfikacji package.json/lock)
+      # Zbierz treść -> DOCX/EPUB + ZIP (bez dotykania package.json)
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
       - run: npm install js-yaml glob --no-save
@@ -41,11 +41,31 @@ jobs:
           zip -r docs/downloads/site.zip site
           ls -lh docs/downloads
 
-      # Commit tylko wygenerowanych plików
-      - name: Commit downloads
+      # Commit z obsługą zaktualizowanego remote (pull --rebase + retry)
+      - name: Commit downloads (robust)
+        shell: bash
         run: |
+          set -e
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add -f docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/site.zip
-          git commit -m "export: DOCX/EPUB/ZIP" || echo "no changes"
-          git push
+
+          # 1) Zsynchronizuj lokalny stan z origin/master
+          git fetch origin master
+          git pull --rebase origin master || true
+
+          # 2) Dodaj wygenerowane pliki (wymuś mimo .gitignore)
+          git add -f docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/site.zip || true
+          git commit -m "export: DOCX/EPUB/ZIP" || echo "no changes to commit"
+
+          # 3) Push z 3 próbami; w razie kolizji — ponowny rebase i push
+          for i in 1 2 3; do
+            if git push --force-with-lease; then
+              echo "Push OK"
+              break
+            else
+              echo "Push failed (try $i). Rebasing and retrying..."
+              git fetch origin master
+              git pull --rebase origin master || true
+              sleep 2
+            fi
+          done
