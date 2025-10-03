@@ -1,4 +1,6 @@
-# Architektura (skrót
+# Architektura (skró
+
+t
 
 )
 

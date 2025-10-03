@@ -1,15 +1,23 @@
-# Troubleshootin
+# Troubleshooti
+
+n
 
 g
 
-## Build
+## Buil
+
+d
 
 - Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
 
-## Android
+## Androi
+
+d
 
 - Błąd NDK: sprawdź wersję i ścieżki SDK/NDK.
 
-## WS
+## W
+
+S
 
 - Rozłączenia: sprawdź pingTimeout/pingInterval oraz proxy.

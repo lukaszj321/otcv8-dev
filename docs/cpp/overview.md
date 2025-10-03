@@ -1,4 +1,6 @@
-# C++ — przeglą
+# C++ — przegl
+
+ą
 
 d
 

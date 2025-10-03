@@ -1,4 +1,6 @@
-# Realtime (WebSocket
+# Realtime (WebSocke
+
+t
 
 )
 
@@ -15,13 +17,17 @@ sequenceDiagram
 
 ```
 
-## Zasady
+## Zasad
+
+y
 
 - **WSS** + origin allowlist + rate-limit.
 - Autoryzacja w handshake (JWT / session).
 - Walidacja schematów wiadomości.
 
-## Przykład (Node + socket.io)
+## Przykład (Node + socket.io
+
+)
 
 ```ts
 io.use(authMiddleware);

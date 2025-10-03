@@ -1,4 +1,6 @@
-# Releas
+# Relea
+
+s
 
 e
 
@@ -7,6 +9,8 @@ e
 3. Build artefaktów (CI).
 4. Publikacja + checksumy.
 
-## Wersjonowanie dokumentacji
+## Wersjonowanie dokumentacj
+
+i
 
 - Docsy budują się z gałęzi `master`.

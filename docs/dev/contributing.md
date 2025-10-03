@@ -1,4 +1,6 @@
-# Contributin
+# Contributi
+
+n
 
 g
 
@@ -7,11 +9,15 @@ g
 3. PR z krótkim opisem i screenami.
 4. Review: 1 LGTM + zielone CI.
 
-## Style
+## Styl
+
+e
 
 - Lua: patrz _Lua → Style guide_.
 - C++: clang-format (domyślny styl projektu).
 
-## Commity dokumentacji
+## Commity dokumentacj
+
+i
 
 - Zmiany w `docs/**` nie uruchamiają CMake (paths-ignore).

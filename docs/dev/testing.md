@@ -1,4 +1,6 @@
-# Test
+# Tes
+
+t
 
 y
 
@@ -6,6 +8,8 @@ y
 - C++: GoogleTest (jeśli dostępne).
 - E2E: scenariusze ręczne + checklisty w PR.
 
-## Raport błędu
+## Raport błęd
+
+u
 
 - Kroki odtworzenia, logi, wersja, OS.
