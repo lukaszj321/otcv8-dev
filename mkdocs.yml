@@ -1,3 +1,6 @@
+
+**`mkdocs.yml`**
+```yaml
 site_name: OTCv8 Dev Docs
 site_description: Dokumentacja deweloperska OTCv8 (build, architektura, Lua/OTUI, realtime)
 site_url: https://lukaszj321.github.io/otcv8-dev/
@@ -60,4 +63,6 @@ nav:
       - FAQ: dev/faq.md
       - Słownik: dev/glossary.md
       - Roadmap: dev/roadmap.md
+  - API:
+      - Pełne API: api/otcv8-full-api.md
   - RAG demo: rag/search.html
