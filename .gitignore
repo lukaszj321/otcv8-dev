@@ -126,3 +126,7 @@ ipch/
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
+
+# allow published downloads
+!docs/downloads/
+!docs/downloads/**
