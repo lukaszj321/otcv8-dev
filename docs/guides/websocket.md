@@ -1,4 +1,6 @@
-# Realtime (Web
+# Realtime (We
+
+b
 
 S
 
@@ -45,7 +47,9 @@ y
 - Autoryzacja w handshake (JWT / session).
 - Walidacja schematów wiadomości.
 
-## Przykład (Node + soc
+## Przykład (Node + so
+
+c
 
 k
 
