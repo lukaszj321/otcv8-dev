@@ -1,44 +1,70 @@
-name: Exports (DOCX/EPUB/ZIP)
-on:
-  push: { branches: [ master ] }
-  workflow_dispatch: {}
-permissions: { contents: write }
-concurrency:
-  group: exports
-  cancel-in-progress: true
+site_name: OTCv8 Dev Docs
+site_description: Dokumentacja deweloperska OTCv8
+site_url: https://lukaszj321.github.io/otcv8-dev/
+repo_url: https://github.com/lukaszj321/otcv8-dev
+edit_uri: blob/master/docs/
 
-jobs:
-  export:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
+theme:
+  name: material
+  language: pl
+  features:
+    - navigation.instant
+    - toc.integrate
+    - content.code.copy
+    - search.suggest
+    - search.highlight
 
-      - uses: actions/setup-node@v4
-        with: { node-version: "20" }
-      - run: npm install js-yaml glob --no-save
-      - run: node scripts/concat-md.mjs mkdocs.yml OTCv8-Docs.md
+plugins:
+  - search
+  - macros
+  - git-revision-date-localized:
+      fallback_to_build_date: true
 
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.x" }
-      - run: python -m pip install --upgrade pip
-      - run: pip install mkdocs mkdocs-material
-      - run: mkdocs build
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
 
-      - run: |
-          sudo apt-get update && sudo apt-get install -y pandoc zip
-          mkdir -p docs/downloads
-          pandoc OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.docx
-          pandoc OTCv8-Docs.md -o docs/downloads/OTCv8-Docs.epub --toc
-          zip -r docs/downloads/site.zip site
-          ls -lh docs/downloads
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - _assets/js/mermaid-init.js
 
-      - name: Commit downloads (robust)
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git fetch origin master
-          git pull --rebase origin master || true
-          git add -f docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/site.zip
-          git commit -m "export: DOCX/EPUB/ZIP" || echo "no changes"
-          git push --force-with-lease
+nav:
+  - Start: index.md
+  - Przewodniki:
+      - Architektura: guides/architecture.md
+      - Moduły (vBot): guides/modules.md
+      - Realtime (WebSocket): guides/websocket.md
+      - OTUI: ui/otui.md
+  - Build:
+      - Windows: build/windows.md
+      - Linux: build/linux.md
+      - Android: build/android.md
+  - Lua:
+      - API (przykłady): lua/api.md
+      - Style guide: lua/style-guide.md
+  - C++:
+      - Przegląd: cpp/overview.md
+  - Narzędzia: tools/index.md
+  - Deweloperzy:
+      - Contributing: dev/contributing.md
+      - Testy: dev/testing.md
+      - Release: dev/release.md
+      - Security: dev/security.md
+      - Troubleshooting: dev/troubleshooting.md
+      - FAQ: dev/faq.md
+      - Słownik: dev/glossary.md
+      - Roadmap: dev/roadmap.md
+  - API:
+      - Pełne API (auto): api/otcv8-full-api.md
+  - RAG demo: rag/search.html
