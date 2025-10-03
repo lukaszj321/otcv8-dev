@@ -1,4 +1,6 @@
-# Architektura (skrót)
+# Architektura (skrót
+
+)
 
 ```mermaid
 graph TD
@@ -6,16 +8,17 @@ graph TD
   Client -->|OTUI| UI[UI System]
   Client --> CppCore[C++ Core]
   WS[WebSocket/IPC] --> Client
+
 ```
 
 === "Warstwy"
 
-  C++ Core – silnik render/UI/IO
+C++ Core – silnik render/UI/IO
 
-  Lua – logika modułów (vBot)
+Lua – logika modułów (vBot)
 
-  OTUI – deklaratywne layouty
+OTUI – deklaratywne layouty
 
 === "Kontrakty"
 
-  Eventy Lua ⟷ UI, IPC/WS, zasoby
+Eventy Lua ⟷ UI, IPC/WS, zasoby

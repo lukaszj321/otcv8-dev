@@ -1,4 +1,6 @@
-# Security
+# Securit
+
+y
 
 - HTTPS/WSS, HSTS, twardy CSP i CORS.
 - Auth: krótkie JWT + refresh, RBAC.
@@ -6,4 +8,4 @@
 - Walidacja payloadów (Zod/JSON Schema).
 - Sekrety nigdy w repo (env w CI).
 
-Zgłoszenia luk: security@twojadomena.example
+Zgłoszenia luk: <security@twojadomena.example>

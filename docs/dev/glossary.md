@@ -1,4 +1,6 @@
-# Słownik
+# Słowni
+
+k
 
 - **OTUI** — język layoutów UI.
 - **vBot** — moduły Lua automatyzujące zachowania.

@@ -1,4 +1,6 @@
-# Realtime (WebSocket)
+# Realtime (WebSocket
+
+)
 
 ```mermaid
 sequenceDiagram
@@ -10,18 +12,23 @@ sequenceDiagram
   WS->>S: connect
   S-->>UI: events: metrics, logs, char_info
   UI->>S: cmd: START/STOP, settings
+
 ```
 
 ## Zasady
+
 - **WSS** + origin allowlist + rate-limit.
 - Autoryzacja w handshake (JWT / session).
 - Walidacja schematów wiadomości.
 
 ## Przykład (Node + socket.io)
+
 ```ts
 io.use(authMiddleware);
-io.on('connection', (s) => {
+io.on("connection", (s) => {
   s.join(`user:${s.user.id}`);
-  s.on('cmd', (payload) => { /* validate + run */ });
+  s.on("cmd", (payload) => {
+    /* validate + run */
+  });
 });
 ```

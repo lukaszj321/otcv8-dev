@@ -1,4 +1,6 @@
-# C++ — przegląd
+# C++ — przeglą
+
+d
 
 - Struktura katalogów
 - Kluczowe klasy/entrypoints
