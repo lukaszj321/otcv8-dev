@@ -19,7 +19,9 @@ e
 3. Build artefaktów (CI).
 4. Publikacja + checksumy.
 
-## Wersjonowanie doku
+## Wersjonowanie dok
+
+u
 
 m
 

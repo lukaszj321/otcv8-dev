@@ -1,4 +1,6 @@
-# Con
+# Co
+
+n
 
 t
 
@@ -38,7 +40,9 @@ e
 - Lua: patrz _Lua → Style guide_.
 - C++: clang-format (domyślny styl projektu).
 
-## Commity doku
+## Commity dok
+
+u
 
 m
 

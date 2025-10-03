@@ -1,4 +1,6 @@
-# OTCv8 – Pełne
+# OTCv8 – Pełn
+
+e
 
 A
 
@@ -11,7 +13,9 @@ kodu).
 
 ---
 
-## 0. Konwen
+## 0. Konwe
+
+n
 
 c
 
@@ -29,7 +33,9 @@ e
 
 ---
 
-## 1. Runtime Lua / Moduły v
+## 1. Runtime Lua / Moduły
+
+v
 
 B
 
@@ -37,7 +43,9 @@ o
 
 t
 
-### 1.1. Cykl życia mod
+### 1.1. Cykl życia mo
+
+d
 
 u
 
@@ -77,7 +85,9 @@ return M
 
 > TODO: dopisz rzeczywiste metody `ctx` z projektu (HTTP? FS? IPC?).
 
-### 1.2. Zdarzenia globalne Lua (emiter silni
+### 1.2. Zdarzenia globalne Lua (emiter siln
+
+i
 
 k
 
@@ -110,7 +120,9 @@ cancel(timer_id)
 
 > TODO: uzupełnij pełną listę eventów i ich parametry.
 
-### 1.3. Błędy (L
+### 1.3. Błędy (
+
+L
 
 u
 
@@ -125,7 +137,9 @@ a
 
 ---
 
-## 2. OTUI (UI Brid
+## 2. OTUI (UI Bri
+
+d
 
 g
 
@@ -133,7 +147,9 @@ e
 
 )
 
-### 2.1. Identyfikacja i wiąza
+### 2.1. Identyfikacja i wiąz
+
+a
 
 n
 
@@ -160,7 +176,9 @@ ctx.emit("status", { text = "Running" })
 
 > TODO: dopisz Twoje id → obsługiwane pola.
 
-### 2.2. Layout – przyk
+### 2.2. Layout – przy
+
+k
 
 ł
 
@@ -181,7 +199,9 @@ Label
 
 ```
 
-### 2.3. Zdarzenia z UI do
+### 2.3. Zdarzenia z UI d
+
+o
 
 L
 
@@ -200,7 +220,9 @@ ctx.on("ui.click.status", function(args) end)
 
 ---
 
-## 3. WebSocket (protok
+## 3. WebSocket (proto
+
+k
 
 ó
 
@@ -208,7 +230,9 @@ ctx.on("ui.click.status", function(args) end)
 
 )
 
-### 3.1. Kanał i t
+### 3.1. Kanał i
+
+t
 
 r
 
@@ -220,7 +244,9 @@ b
 - Autoryzacja: JWT w `Authorization: Bearer <token>` lub cookie sesji.
 - `Origin` allowlist; `pingTimeout`; rate-limit i maks. payload (np. 32KB).
 
-### 3.2. Typy wiadomo
+### 3.2. Typy wiadom
+
+o
 
 ś
 
@@ -228,7 +254,9 @@ c
 
 i
 
-#### Serwer → Klient (dashboa
+#### Serwer → Klient (dashbo
+
+a
 
 r
 
@@ -244,7 +272,9 @@ type ServerEvent =
   | { type: "cmd.result"; ts: number; id: string; ok: boolean; error?: string; data?: any };
 ```
 
-#### Klient → Ser
+#### Klient → Se
+
+r
 
 w
 
@@ -265,7 +295,9 @@ type ClientEvent =
 { "type": "cmd", "id": "abc123", "name": "START", "args": { "profile": "pvp" } }
 ```
 
-### 3.3. JSON Schema (walidacja na serwer
+### 3.3. JSON Schema (walidacja na serwe
+
+r
 
 z
 
@@ -292,7 +324,9 @@ e
 
 > TODO: dodaj schematy `metrics.update`, `log.line`, `settings.update`, …
 
-### 3.4. Błęd
+### 3.4. Błę
+
+d
 
 y
 
@@ -307,7 +341,9 @@ S
 
 ---
 
-## 4. C++ / rozszerze
+## 4. C++ / rozszerz
+
+e
 
 n
 
@@ -339,7 +375,9 @@ using OttoEmitFn = void(*)(const OTEvent* ev); // emit from C++ -> Lua/UI
 
 ---
 
-## 5. Błędy i k
+## 5. Błędy i
+
+k
 
 o
 
@@ -371,7 +409,9 @@ Format odpowiedzi błędu (WS):
 
 ---
 
-## 6. Bezpieczeństwo (skr
+## 6. Bezpieczeństwo (sk
+
+r
 
 ó
 
@@ -387,7 +427,9 @@ t
 
 ---
 
-## 7. Version
+## 7. Versio
+
+n
 
 i
 
@@ -401,7 +443,9 @@ g
 
 ---
 
-## 8. Przykłady end‑to‑
+## 8. Przykłady end‑to
+
+‑
 
 e
 
@@ -409,7 +453,9 @@ n
 
 d
 
-### 8.1. Status d
+### 8.1. Status
+
+d
 
 o
 
@@ -427,7 +473,9 @@ return M
 
 ```
 
-### 8.2. Telemetria do dashboa
+### 8.2. Telemetria do dashbo
+
+a
 
 r
 
@@ -444,7 +492,9 @@ return M
 
 ```
 
-### 8.3. Komenda z dashboa
+### 8.3. Komenda z dashbo
+
+a
 
 r
 
@@ -466,7 +516,9 @@ u
 
 ---
 
-## 9. Generowanie referencji z kodu (automa
+## 9. Generowanie referencji z kodu (autom
+
+a
 
 t
 
@@ -474,7 +526,9 @@ y
 
 )
 
-### 9.1. Lua – L
+### 9.1. Lua –
+
+L
 
 D
 
@@ -494,7 +548,9 @@ function say(msg) ... end
 
 **Workflow**: `ldoc -d docs/lua/ref/ .` → włącz w `mkdocs.yml` (`nav`).
 
-### 9.2. C++ – Doxy
+### 9.2. C++ – Dox
+
+y
 
 g
 
@@ -504,7 +560,9 @@ n
 
 `Doxyfile` → HTML do `docs/cpp/ref/` → dodaj do `nav`.
 
-### 9.3. WS – JSON Schema → markd
+### 9.3. WS – JSON Schema → mark
+
+d
 
 o
 
@@ -515,7 +573,8 @@ n
 Trzymaj schematy w `schemas/ws/*.schema.json` i buduj referencję:
 
 ```bash
-# przykład narzędzi
+# przykład narzędz
+i
 
 a
 
@@ -525,7 +584,9 @@ npx @apitable/json-schema-to-markdown schemas/ws -o docs/ws/ref.md
 
 ---
 
-## 10. Lista TODO do uzupełnie
+## 10. Lista TODO do uzupełni
+
+e
 
 n
 

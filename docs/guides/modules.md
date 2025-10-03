@@ -1,4 +1,6 @@
-# Moduły (vBot) — p
+# Moduły (vBot) —
+
+p
 
 r
 
@@ -22,7 +24,9 @@ k
 
     Jak tworzyć i ładować moduły Lua dla klienta OTCv8.
 
-## Struktu
+## Strukt
+
+u
 
 r
 
@@ -49,7 +53,9 @@ README.md
 
 ```
 
-## Minimalny mo
+## Minimalny m
+
+o
 
 d
 
@@ -83,7 +89,9 @@ return M
 
 ```
 
-## Rejestrowanie zdarzeń (p
+## Rejestrowanie zdarzeń (
+
+p
 
 r
 
@@ -108,7 +116,9 @@ end)
 
 ```
 
-## Konf
+## Kon
+
+f
 
 i
 
@@ -129,7 +139,9 @@ a
 - `config.lua` – wartości domyślne (np. hotkeye, progi).
 - Pliki konfiguracyjne użytkownika trzymaj oddzielnie.
 
-## De
+## D
+
+e
 
 b
 
@@ -150,7 +162,9 @@ i
 - Pisz do konsoli lub pliku `logs/my-module.log`.
 - Dodaj flagę `DEBUG=true` i warunkowe logowanie.
 
-## Dobre
+## Dobr
+
+e
 
 p
 
