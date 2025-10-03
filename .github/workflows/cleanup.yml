@@ -1,4 +1,4 @@
-name: Bulk cleanup runs
+name: Bulk cleanup runs (safe)
 
 on:
   workflow_dispatch:
@@ -12,59 +12,67 @@ permissions:
   actions: write
   contents: read
 
-jobs:
-  cleanup:
-    runs-on: ubuntu-latest
+env:
+  OWNER: ${{ github.repository_owner }}
+  REPO:  ${{ github.event.repository.name || github.repository.split('/')[1] }}
 
+jobs:
+  cancel_and_delete:
+    runs-on: ubuntu-latest
     steps:
-      - name: Cancel queued & in_progress
+      - name: Sanity
+        run: |
+          echo "OWNER=$OWNER"
+          echo "REPO=$REPO"
+          test -n "$OWNER" && test -n "$REPO"
+
+      - name: Cancel queued & in_progress (all workflows)
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
+            const owner = process.env.OWNER;
+            const repo  = process.env.REPO;
 
-            async function eachRun(status, handler) {
+            async function cancelAll(status) {
               for await (const resp of github.paginate.iterator(
                 github.rest.actions.listWorkflowRunsForRepo,
                 { owner, repo, status, per_page: 100 }
               )) {
-                const runs = Array.isArray(resp.data) ? resp.data : (resp.data.workflow_runs || []);
-                for (const run of runs) await handler(run);
+                const runs = resp.data?.workflow_runs || [];
+                for (const run of runs) {
+                  core.info(`Cancel ${status} ${run.id} — ${run.name}`);
+                  try {
+                    await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
+                    await new Promise(r => setTimeout(r, 120));
+                  } catch (e) {
+                    core.warning(`Cancel failed ${run.id}: ${e.message}`);
+                  }
+                }
               }
             }
 
-            await eachRun('queued', async (run) => {
-              core.info(`Cancel queued ${run.id} — ${run.name}`);
-              await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
-              await new Promise(r => setTimeout(r, 150));
-            });
+            await cancelAll('queued');
+            await cancelAll('in_progress');
 
-            await eachRun('in_progress', async (run) => {
-              core.info(`Cancel in_progress ${run.id} — ${run.name}`);
-              await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
-              await new Promise(r => setTimeout(r, 150));
-            });
-
-      - name: Delete completed runs
+      - name: Delete completed runs (all workflows)
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
+            const owner = process.env.OWNER;
+            const repo  = process.env.REPO;
             let deleted = 0;
 
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listWorkflowRunsForRepo,
               { owner, repo, status: 'completed', per_page: 100 }
             )) {
-              const runs = Array.isArray(resp.data) ? resp.data : (resp.data.workflow_runs || []);
+              const runs = resp.data?.workflow_runs || [];
               for (const run of runs) {
+                core.info(`Delete ${run.id} — ${run.name}`);
                 try {
-                  core.info(`Delete ${run.id} — ${run.name}`);
                   await github.rest.actions.deleteWorkflowRun({ owner, repo, run_id: run.id });
                   deleted++;
-                  await new Promise(r => setTimeout(r, 100));
+                  await new Promise(r => setTimeout(r, 80));
                 } catch (e) {
                   core.warning(`Delete failed ${run.id}: ${e.message}`);
                 }
@@ -77,21 +85,21 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
+            const owner = process.env.OWNER;
+            const repo  = process.env.REPO;
             let count = 0;
 
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listArtifactsForRepo,
               { owner, repo, per_page: 100 }
             )) {
-              const arts = Array.isArray(resp.data) ? resp.data : (resp.data.artifacts || []);
+              const arts = resp.data?.artifacts || [];
               for (const art of arts) {
                 try {
                   core.info(`Delete artifact ${art.id} — ${art.name}`);
                   await github.rest.actions.deleteArtifact({ owner, repo, artifact_id: art.id });
                   count++;
-                  await new Promise(r => setTimeout(r, 80));
+                  await new Promise(r => setTimeout(r, 60));
                 } catch (e) {
                   core.warning(`Artifact delete failed ${art.id}: ${e.message}`);
                 }
