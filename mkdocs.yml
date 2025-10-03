@@ -1,5 +1,5 @@
 site_name: OTCv8 Dev Docs
-site_description: Dokumentacja deweloperska OTCv8 (build, API, architektura)
+site_description: Dokumentacja deweloperska OTCv8 (build, architektura, API, OTUI)
 site_url: https://lukaszj321.github.io/otcv8-dev/
 repo_url: https://github.com/lukaszj321/otcv8-dev
 edit_uri: blob/master/docs/
@@ -55,9 +55,26 @@ nav:
   - Start: index.md
   - Przewodniki:
       - Architektura: guides/architecture.md
+      - Moduły (vBot): guides/modules.md
+      - Realtime (WebSocket): guides/websocket.md
+      - OTUI: ui/otui.md
   - Build:
       - Windows: build/windows.md
       - Linux: build/linux.md
       - Android: build/android.md
-  - Lua: lua/api.md
-  - C++: cpp/overview.md
+  - Lua:
+      - API (przykłady): lua/api.md
+      - Style guide: lua/style-guide.md
+  - C++:
+      - Przegląd: cpp/overview.md
+  - Narzędzia: tools/index.md
+  - Deweloperzy:
+      - Contributing: dev/contributing.md
+      - Testy: dev/testing.md
+      - Release: dev/release.md
+      - Security: dev/security.md
+      - Troubleshooting: dev/troubleshooting.md
+      - FAQ: dev/faq.md
+      - Słownik: dev/glossary.md
+      - Roadmap: dev/roadmap.md
+  - RAG demo: rag/search.html
