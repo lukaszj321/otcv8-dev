@@ -1,4 +1,6 @@
-# Realtime (WebS
+# Realtime (Web
+
+S
 
 o
 
@@ -25,7 +27,9 @@ sequenceDiagram
 
 ```
 
-## Z
+##
+
+Z
 
 a
 
@@ -41,7 +45,9 @@ y
 - Autoryzacja w handshake (JWT / session).
 - Walidacja schematów wiadomości.
 
-## Przykład (Node + sock
+## Przykład (Node + soc
+
+k
 
 e
 

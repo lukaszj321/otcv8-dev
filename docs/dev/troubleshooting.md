@@ -1,4 +1,6 @@
-# Troublesh
+# Troubles
+
+h
 
 o
 
@@ -26,7 +28,9 @@ d
 
 - Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
 
-## An
+## A
+
+n
 
 d
 

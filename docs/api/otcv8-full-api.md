@@ -1,26 +1,33 @@
-# OTCv8 – Pełne API
+# OTCv8 – Pełne AP
 
-Wersja specyfikacji: 1.0
-Status: **draft** (uzupełnij pola `TODO:` realnymi nazwami/argumentami z kodu).
+I
 
----
-
-## 0. Konwencje
-
-* **Typy**: `string`, `number`, `boolean`, `table`, `nil`.
-* **Czas**: UNIX ms (`number`).
-* **Błędy**: kody `E_*` + opis; w WS pole `error`.
-* **Nazewnictwo**:
-
-  * Lua: `snake_case`
-  * Eventy: `dot.case` (`metrics.update`, `cmd.result`)
-  * OTUI: `id` unikalne, `class` do stylów.
+Wersja specyfikacji: 1.0 Status: **draft** (uzupełnij pola `TODO:` realnymi nazwami/argumentami z
+kodu).
 
 ---
 
-## 1. Runtime Lua / Moduły vBot
+## 0. Konwencj
 
-### 1.1. Cykl życia modułu
+e
+
+- **Typy**: `string`, `number`, `boolean`, `table`, `nil`.
+- **Czas**: UNIX ms (`number`).
+- **Błędy**: kody `E_*` + opis; w WS pole `error`.
+- **Nazewnictwo**:
+  - Lua: `snake_case`
+  - Eventy: `dot.case` (`metrics.update`, `cmd.result`)
+  - OTUI: `id` unikalne, `class` do stylów.
+
+---
+
+## 1. Runtime Lua / Moduły vBo
+
+t
+
+### 1.1. Cykl życia moduł
+
+u
 
 ```lua
 -- modules/<name>/init.lua
@@ -36,6 +43,7 @@ function M.stop(ctx) end
 function M.tick(ctx, dt_ms) end
 
 return M
+
 ```
 
 **`ctx` (context)** – most do UI/WS/IO:
@@ -53,7 +61,9 @@ return M
 
 > TODO: dopisz rzeczywiste metody `ctx` z projektu (HTTP? FS? IPC?).
 
-### 1.2. Zdarzenia globalne Lua (emiter silnika)
+### 1.2. Zdarzenia globalne Lua (emiter silnika
+
+)
 
 Rejestrujesz globalnie (przed startem lub w `M.start`). **Silnik emituje** m.in.:
 
@@ -75,29 +85,37 @@ onMouseEvent(function(x, y, btn, state) end)
 every(ms, function() end)        -- helper okresowy
 schedule(ms, function() end)     -- jednorazowy
 cancel(timer_id)
+
 ```
 
 > TODO: uzupełnij pełną listę eventów i ich parametry.
 
-### 1.3. Błędy (Lua)
+### 1.3. Błędy (Lua
 
-* `E_ARG` – zły typ/zakres argumentu
-* `E_STATE` – nieprawidłowy stan (np. brak UI id)
-* `E_TIMEOUT` – operacja przekroczyła czas
-* `E_INTERNAL` – błąd wewnętrzny
+)
+
+- `E_ARG` – zły typ/zakres argumentu
+- `E_STATE` – nieprawidłowy stan (np. brak UI id)
+- `E_TIMEOUT` – operacja przekroczyła czas
+- `E_INTERNAL` – błąd wewnętrzny
 
 ---
 
-## 2. OTUI (UI Bridge)
+## 2. OTUI (UI Bridge
 
-### 2.1. Identyfikacja i wiązania
+)
 
-* Każdy element ma `id` (unikalny w layoucie).
-* Zmiana właściwości przez emit:
+### 2.1. Identyfikacja i wiązani
+
+a
+
+- Każdy element ma `id` (unikalny w layoucie).
+- Zmiana właściwości przez emit:
 
 ```lua
 -- Tekst w Label#status
 ctx.emit("status", { text = "Running" })
+
 ```
 
 **Mapowanie domyślne (bridge po id):**
@@ -110,7 +128,9 @@ ctx.emit("status", { text = "Running" })
 
 > TODO: dopisz Twoje id → obsługiwane pola.
 
-### 2.2. Layout – przykład
+### 2.2. Layout – przykła
+
+d
 
 ```otui
 Panel
@@ -122,56 +142,72 @@ Label
   id: status
   text: "init"
   anchors.centerIn: parent
+
 ```
 
-### 2.3. Zdarzenia z UI do Lua
+### 2.3. Zdarzenia z UI do Lu
+
+a
 
 UI może wywołać event do Lua:
 
 ```lua
 ctx.on("ui.click.status", function(args) end)
+
 ```
 
 > TODO: lista eventów z UI (klik, input, select) i payloady.
 
 ---
 
-## 3. WebSocket (protokół)
+## 3. WebSocket (protokół
 
-### 3.1. Kanał i tryb
+)
 
-* Transport: `wss://<host>/ws` (JSON UTF-8).
-* Autoryzacja: JWT w `Authorization: Bearer <token>` lub cookie sesji.
-* `Origin` allowlist; `pingTimeout`; rate-limit i maks. payload (np. 32KB).
+### 3.1. Kanał i try
 
-### 3.2. Typy wiadomości
+b
 
-#### Serwer → Klient (dashboard)
+- Transport: `wss://<host>/ws` (JSON UTF-8).
+- Autoryzacja: JWT w `Authorization: Bearer <token>` lub cookie sesji.
+- `Origin` allowlist; `pingTimeout`; rate-limit i maks. payload (np. 32KB).
+
+### 3.2. Typy wiadomośc
+
+i
+
+#### Serwer → Klient (dashboard
+
+)
 
 ```ts
 type ServerEvent =
   | { type: "metrics.update"; ts: number; payload: { hp: number; mp: number; [k: string]: number } }
-  | { type: "log.line"; ts: number; level: "debug"|"info"|"warn"|"error"; msg: string }
+  | { type: "log.line"; ts: number; level: "debug" | "info" | "warn" | "error"; msg: string }
   | { type: "char.info"; ts: number; payload: { name: string; level: number; voc: string } }
   | { type: "cmd.result"; ts: number; id: string; ok: boolean; error?: string; data?: any };
 ```
 
-#### Klient → Serwer
+#### Klient → Serwe
+
+r
 
 ```ts
 type ClientEvent =
-  | { type: "cmd"; id: string; name: "START"|"STOP"|"RELOAD"; args?: any }
-  | { type: "subscribe"; topics: string[] }         // np. ["metrics.*","log.*"]
+  | { type: "cmd"; id: string; name: "START" | "STOP" | "RELOAD"; args?: any }
+  | { type: "subscribe"; topics: string[] } // np. ["metrics.*","log.*"]
   | { type: "settings.update"; patch: Record<string, any> };
 ```
 
 **Przykład**:
 
 ```json
-{ "type":"cmd","id":"abc123","name":"START","args":{"profile":"pvp"} }
+{ "type": "cmd", "id": "abc123", "name": "START", "args": { "profile": "pvp" } }
 ```
 
-### 3.3. JSON Schema (walidacja na serwerze)
+### 3.3. JSON Schema (walidacja na serwerze
+
+)
 
 `schemas/ws/cmd.schema.json`
 
@@ -179,11 +215,11 @@ type ClientEvent =
 {
   "$id": "ws/cmd.schema.json",
   "type": "object",
-  "required": ["type","id","name"],
+  "required": ["type", "id", "name"],
   "properties": {
     "type": { "const": "cmd" },
-    "id":   { "type": "string", "minLength": 1 },
-    "name": { "type": "string", "enum": ["START","STOP","RELOAD"] },
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "enum": ["START", "STOP", "RELOAD"] },
     "args": { "type": "object", "additionalProperties": true }
   },
   "additionalProperties": false
@@ -192,16 +228,20 @@ type ClientEvent =
 
 > TODO: dodaj schematy `metrics.update`, `log.line`, `settings.update`, …
 
-### 3.4. Błędy WS
+### 3.4. Błędy W
 
-* `401` – brak/niepoprawny token
-* `403` – brak uprawnień (RBAC)
-* `429` – limit
-* `4401` (app) – walidacja payloadu (`error: "E_SCHEMA"`)
+S
+
+- `401` – brak/niepoprawny token
+- `403` – brak uprawnień (RBAC)
+- `429` – limit
+- `4401` (app) – walidacja payloadu (`error: "E_SCHEMA"`)
 
 ---
 
-## 4. C++ / rozszerzenia
+## 4. C++ / rozszerzeni
+
+a
 
 **Szkic struktur (dopasuj do projektu):**
 
@@ -214,19 +254,22 @@ struct OTEvent {
 };
 
 using OttoEmitFn = void(*)(const OTEvent* ev); // emit from C++ -> Lua/UI
+
 ```
 
 **Punkty integracji:**
 
-* Rejestracja hooków (zdarzenia gry → Lua)
-* Export funkcji do Lua (np. `say`, `use_item`, …)
-* Konwencja ładowania modułów C++: `dll/so` w `modules/<name>/bin/`.
+- Rejestracja hooków (zdarzenia gry → Lua)
+- Export funkcji do Lua (np. `say`, `use_item`, …)
+- Konwencja ładowania modułów C++: `dll/so` w `modules/<name>/bin/`.
 
 > TODO: wstaw prawdziwe nagłówki i entrypointy.
 
 ---
 
-## 5. Błędy i kody
+## 5. Błędy i kod
+
+y
 
 | Kod        | Warstwa | Opis                           |
 | ---------- | ------- | ------------------------------ |
@@ -240,32 +283,47 @@ using OttoEmitFn = void(*)(const OTEvent* ev); // emit from C++ -> Lua/UI
 Format odpowiedzi błędu (WS):
 
 ```json
-{ "type":"cmd.result","ts":1712345678,"id":"abc","ok":false,"error":"E_SCHEMA","data":{"path":"/args/profile"} }
+{
+  "type": "cmd.result",
+  "ts": 1712345678,
+  "id": "abc",
+  "ok": false,
+  "error": "E_SCHEMA",
+  "data": { "path": "/args/profile" }
+}
 ```
 
 ---
 
-## 6. Bezpieczeństwo (skrót)
+## 6. Bezpieczeństwo (skrót
 
-* HTTPS/WSS, HSTS, twardy **CSP**.
-* Token JWT krótki + refresh, **RBAC**.
-* Check **Origin**, **rate-limit**, **message size**.
-* Sekrety poza repo (env/CI), brak kluczy w repo.
-* Logowanie dostępu i audyt komend WS.
+)
 
----
-
-## 7. Versioning
-
-* SemVer API: `major.minor.patch`.
-* Nagłówek `X-OTCv8-API: 1.x` (WS handshake).
-* Zmiany łamiące → podbij **major** i utrzymuj `deprecated` min. 1 wersję.
+- HTTPS/WSS, HSTS, twardy **CSP**.
+- Token JWT krótki + refresh, **RBAC**.
+- Check **Origin**, **rate-limit**, **message size**.
+- Sekrety poza repo (env/CI), brak kluczy w repo.
+- Logowanie dostępu i audyt komend WS.
 
 ---
 
-## 8. Przykłady end‑to‑end
+## 7. Versionin
 
-### 8.1. Status do UI
+g
+
+- SemVer API: `major.minor.patch`.
+- Nagłówek `X-OTCv8-API: 1.x` (WS handshake).
+- Zmiany łamiące → podbij **major** i utrzymuj `deprecated` min. 1 wersję.
+
+---
+
+## 8. Przykłady end‑to‑en
+
+d
+
+### 8.1. Status do U
+
+I
 
 ```lua
 -- modules/status/init.lua
@@ -274,9 +332,12 @@ function M.start(ctx)
   ctx.emit("status", { text = "Ready" })
 end
 return M
+
 ```
 
-### 8.2. Telemetria do dashboardu
+### 8.2. Telemetria do dashboard
+
+u
 
 ```lua
 local M = {}
@@ -284,27 +345,34 @@ function M.tick(ctx, dt)
   ctx.ws.send("metrics.update", { hp = getHp(), mp = getMp() })
 end
 return M
+
 ```
 
-### 8.3. Komenda z dashboardu
+### 8.3. Komenda z dashboard
+
+u
 
 **UI → WS**
 
 ```json
-{ "type":"cmd","id":"run1","name":"START","args":{"profile":"pvp"} }
+{ "type": "cmd", "id": "run1", "name": "START", "args": { "profile": "pvp" } }
 ```
 
 **WS → UI**
 
 ```json
-{ "type":"cmd.result","id":"run1","ok":true,"ts":1712345678 }
+{ "type": "cmd.result", "id": "run1", "ok": true, "ts": 1712345678 }
 ```
 
 ---
 
-## 9. Generowanie referencji z kodu (automaty)
+## 9. Generowanie referencji z kodu (automaty
 
-### 9.1. Lua – LDoc
+)
+
+### 9.1. Lua – LDo
+
+c
 
 Komentuj funkcje:
 
@@ -313,29 +381,38 @@ Komentuj funkcje:
 -- @tparam string msg
 -- @treturn boolean ok
 function say(msg) ... end
+
 ```
 
 **Workflow**: `ldoc -d docs/lua/ref/ .` → włącz w `mkdocs.yml` (`nav`).
 
-### 9.2. C++ – Doxygen
+### 9.2. C++ – Doxyge
+
+n
 
 `Doxyfile` → HTML do `docs/cpp/ref/` → dodaj do `nav`.
 
-### 9.3. WS – JSON Schema → markdown
+### 9.3. WS – JSON Schema → markdow
+
+n
 
 Trzymaj schematy w `schemas/ws/*.schema.json` i buduj referencję:
 
 ```bash
 # przykład narzędzia
+
 npx @apitable/json-schema-to-markdown schemas/ws -o docs/ws/ref.md
+
 ```
 
 ---
 
-## 10. Lista TODO do uzupełnienia
+## 10. Lista TODO do uzupełnieni
 
-* [ ] Pełna lista eventów Lua (nazwy + parametry)
-* [ ] Mapowania `ctx.emit(target)` → UI (id + pola)
-* [ ] Zamknięta lista `ClientEvent`/`ServerEvent` + schematy
-* [ ] Nagłówki/entrypointy C++ i rejestracja hooków
-* [ ] Wygeneruj LDoc/Doxygen i dodaj do `nav`
+a
+
+- [ ] Pełna lista eventów Lua (nazwy + parametry)
+- [ ] Mapowania `ctx.emit(target)` → UI (id + pola)
+- [ ] Zamknięta lista `ClientEvent`/`ServerEvent` + schematy
+- [ ] Nagłówki/entrypointy C++ i rejestracja hooków
+- [ ] Wygeneruj LDoc/Doxygen i dodaj do `nav`

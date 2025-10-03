@@ -1,4 +1,6 @@
-# OTCv8 Dev — Dokumentacja
+# OTCv8 Dev — Dokumentacj
+
+a
 
 > Cel: kompletna baza wiedzy (build, architektura, API Lua/C++), z diagramami i przykładami.
 
