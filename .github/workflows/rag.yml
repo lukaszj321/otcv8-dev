@@ -6,7 +6,7 @@ on:
       - 'docs/**'
       - 'scripts/build-embeddings.mjs'
 permissions:
-  contents: write   # <-- to jest kluczowe, inaczej nie zacommituje JSON-a
+  contents: write
 jobs:
   rag:
     runs-on: ubuntu-latest
@@ -16,10 +16,15 @@ jobs:
         with: { node-version: '20' }
       - run: npm i @xenova/transformers glob
       - run: node scripts/build-embeddings.mjs
+        env:
+          TRANSFORMERS_CACHE: .cache/transformers
+          HF_HUB_DISABLE_TELEMETRY: "1"
+          TRANSFORMERS_JS_BACKEND: "wasm"
       - name: Commit embeddings
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git add docs/_rag/embeddings.json
           git commit -m "Update embeddings (no-API)" || echo "No changes"
           git push
