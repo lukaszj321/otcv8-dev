@@ -1,0 +1,4 @@
+site_name: OTCv8 Dev Docs
+theme: { name: material }
+nav:
+  - Start: index.md
