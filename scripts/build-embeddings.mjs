@@ -21,7 +21,7 @@ const stripMdSyntax    = (t) => t
 
 function mdToCleanText(md) {
   let s = stripFrontMatter(md);
-  s = stripCodeBlocks(s);  // w tym mermaid
+  s = stripCodeBlocks(s);
   s = stripInlineCode(s);
   s = stripImages(s);
   s = stripLinks(s);
