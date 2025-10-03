@@ -1,11 +1,7 @@
-name: Fix Markdown
+name: Fix Markdown (manual)
 on:
-  push: { branches: [ master ] }
   workflow_dispatch: {}
 permissions: { contents: write }
-concurrency:
-  group: fix-md
-  cancel-in-progress: true
 
 jobs:
   fix:
@@ -13,22 +9,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
-
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
-
       - run: npm install prettier markdownlint-cli@0 glob@10 --no-save
-
       - run: node scripts/fix-md.mjs
       - run: npx prettier --write "docs/**/*.md"
       - run: npx markdownlint --fix "docs/**/*.md" || true
-
       - name: Commit fixes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add -A
-          # nic z buildów:
           git restore --staged docs/build || true
           git restore --staged site || true
           git commit -m "chore(md): auto-fix formatting" || echo "no changes"
