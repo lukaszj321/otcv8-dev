@@ -1,0 +1,5 @@
+on:
+  workflow_dispatch: {}   # usuń `push:` i `pull_request:`
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
