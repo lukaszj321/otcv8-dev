@@ -10,101 +10,93 @@
   button{padding:10px 14px;border:0;border-radius:8px;background:#222;color:#fff;cursor:pointer}
   li{margin:12px 0}
   .muted{opacity:.75}
-  #status{padding:8px 10px;border-radius:8px;background:#f3f3f3;margin:12px 0}
-  @media (prefers-color-scheme: dark){
-    #status{background:#2a2a2a}
-    input{border-color:#444}
-    button{background:#0f62fe}
-  }
+  #status{padding:8px 10px;border-radius:8px;background:color-mix(in oklab, Canvas 92%, CanvasText 8%);margin:12px 0}
+  mark{padding:0 2px;border-radius:3px}
 </style>
 
 <h2>RAG search (OTCv8 Docs)</h2>
 <div id="status">Ładuję model i indeks…</div>
 
 <div class="row">
-  <input id="q" placeholder="np. Lua events / OTUI / Android build" />
+  <input id="q" placeholder="np. OTUI / Lua events / Android build" />
   <button id="go">Szukaj</button>
 </div>
-<p class="muted">Uwaga: pierwszy start może zająć 20–60 s (pobranie modelu).</p>
+<p class="muted">Pierwsze uruchomienie pobierze model (WASM) — może potrwać kilkanaście sekund.</p>
 <ul id="out"></ul>
 
 <script type="module">
-  // ŚCIEŻKI (hardcoded, żeby nie było problemów z relatywnymi)
   const EMB_URL = 'https://lukaszj321.github.io/otcv8-dev/rag/embeddings.json';
-  const BASE_URL = 'https://lukaszj321.github.io/otcv8-dev/';
-
   const $ = (id) => document.getElementById(id);
   const setStatus = (t) => { $('status').textContent = t; };
 
-  // ===== UTIL =====
   const dot = (a,b)=>a.reduce((s,v,i)=>s+v*b[i],0);
   const norm = a => Math.sqrt(dot(a,a));
   const cos = (a,b)=> dot(a,b)/(norm(a)*norm(b));
-  const docUrl = (path) => BASE_URL + path.replace(/^docs\//,'').replace(/\.md$/,'/');
 
-  // ===== LOADERS =====
+  function hi(text, q){
+    if(!q) return text;
+    const esc = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    return text.replace(new RegExp(esc, 'ig'), m => `<mark>${m}</mark>`);
+  }
+
   let data = null;
   let extractor = null;
 
   async function loadAll() {
-    setStatus('Ładuję indeks embeddings…');
+    setStatus('Ładuję embeddings.json…');
     data = await fetch(EMB_URL).then(r => {
       if (!r.ok) throw new Error('Nie można pobrać embeddings.json');
       return r.json();
     });
 
-    setStatus('Ładuję model (pierwszy raz dłużej)…');
+    setStatus('Ładuję model (Xenova/all-MiniLM-L6-v2)…');
     const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers/dist/transformers.min.js');
     extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
     setStatus('Gotowe. Wpisz zapytanie i kliknij „Szukaj”.');
   }
 
-  // ===== SEARCH =====
   async function search(q, k = 5) {
     if (!q.trim()) return [];
     setStatus('Szukam…');
     const qv = await extractor(q, { pooling:'mean', normalize:true });
     const qarr = Array.from(qv.data);
-    const res = data
-      .map(d => ({ ...d, score: cos(qarr, d.embedding) }))
-      .sort((a,b)=> b.score - a.score)
-      .slice(0,k)
-      .map(d => ({
-        url: docUrl(d.path),
-        score: d.score,
-        preview: d.text.slice(0,220).replace(/\s+/g,' ') + '…'
-      }));
+
+    // lekkie „boostowanie” tytułu
+    const scored = data.map(d => {
+      const base = cos(qarr, d.embedding);
+      const titleBoost = d.title && d.title.toLowerCase().includes(q.toLowerCase()) ? 0.05 : 0;
+      return { ...d, score: base + titleBoost };
+    }).sort((a,b)=> b.score - a.score).slice(0,k);
+
     setStatus('Gotowe.');
-    return res;
+    return scored;
   }
 
-  function render(list) {
+  function render(list, q) {
     const out = $('out');
     out.innerHTML = '';
     if (!list.length) { out.innerHTML = '<li class="muted">Brak wyników</li>'; return; }
     for (const r of list) {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="${r.url}" target="_blank" rel="noreferrer">${r.url}</a> — score: ${r.score.toFixed(3)}
-        <div class="muted">${r.preview}</div>`;
+      const title = r.title || r.url;
+      const preview = (r.text || '').slice(0, 220).replace(/\s+/g,' ');
+      li.innerHTML = `
+        <div><strong>${hi(title, q)}</strong> — score: ${r.score.toFixed(3)}</div>
+        <div><a href="${r.url}" target="_blank" rel="noreferrer">${r.url}</a></div>
+        <div class="muted">${hi(preview, q)}…</div>`;
       out.appendChild(li);
     }
   }
 
-  // ===== UI HOOKS =====
   $('go').onclick = async () => {
     try {
-      const q = $('q').value;
+      const q = $('q').value.trim();
+      if (!q) return;
       const res = await search(q, 5);
-      render(res);
-    } catch (e) {
-      console.error(e);
-      setStatus('Błąd: ' + (e?.message || e));
-    }
+      render(res, q);
+    } catch (e) { console.error(e); setStatus('Błąd: ' + (e?.message || e)); }
   };
-  $('q').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') $('go').click();
-  });
+  $('q').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('go').click(); });
 
-  // start
   loadAll().catch(e => { console.error(e); setStatus('Błąd inicjalizacji: ' + (e?.message || e)); });
 </script>
