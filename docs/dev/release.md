@@ -1,4 +1,6 @@
-# Rel
+# Re
+
+l
 
 e
 
@@ -13,7 +15,9 @@ e
 3. Build artefaktów (CI).
 4. Publikacja + checksumy.
 
-## Wersjonowanie dokumenta
+## Wersjonowanie dokument
+
+a
 
 c
 

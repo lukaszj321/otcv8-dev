@@ -1,4 +1,6 @@
-# Contribu
+# Contrib
+
+u
 
 t
 
@@ -13,7 +15,9 @@ g
 3. PR z krótkim opisem i screenami.
 4. Review: 1 LGTM + zielone CI.
 
-## St
+## S
+
+t
 
 y
 
@@ -24,7 +28,9 @@ e
 - Lua: patrz _Lua → Style guide_.
 - C++: clang-format (domyślny styl projektu).
 
-## Commity dokumenta
+## Commity dokument
+
+a
 
 c
 
