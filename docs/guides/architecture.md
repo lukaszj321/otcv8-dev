@@ -1,4 +1,6 @@
-# Architektura (s
+# Architektura (
+
+s
 
 k
 

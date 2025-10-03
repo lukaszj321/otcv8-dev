@@ -1,4 +1,6 @@
-# Troublesho
+# Troublesh
+
+o
 
 o
 
@@ -10,7 +12,9 @@ n
 
 g
 
-## B
+##
+
+B
 
 u
 
@@ -22,7 +26,9 @@ d
 
 - Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
 
-## And
+## An
+
+d
 
 r
 
