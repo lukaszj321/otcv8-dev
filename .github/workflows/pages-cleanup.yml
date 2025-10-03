@@ -1,12 +1,16 @@
-name: Bulk cleanup (manual)
+name: Pages cleanup (manual)
 
 on:
   workflow_dispatch:
     inputs:
+      delete_completed_runs:
+        type: boolean
+        default: true
+        description: Delete completed runs of the Pages workflow
       delete_artifacts:
         type: boolean
         default: true
-        description: Delete all artifacts too
+        description: Delete Pages build artifacts (e.g. github-pages)
 
 permissions:
   actions: write
@@ -14,7 +18,7 @@ permissions:
   pages: write
 
 concurrency:
-  group: repo-cleanup
+  group: pages-cleanup
   cancel-in-progress: false
 
 jobs:
@@ -22,60 +26,95 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Cancel queued & in_progress runs
+      - name: Cancel GitHub Pages deployments (API, best-effort)
         uses: actions/github-script@v7
         with:
           script: |
             const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
-            async function cancelAll(status){
+            try {
               for await (const resp of github.paginate.iterator(
-                github.rest.actions.listWorkflowRunsForRepo,
-                { owner, repo, status, per_page: 100 }
+                github.request,
+                'GET /repos/{owner}/{repo}/pages/deployments',
+                { owner, repo, per_page: 100 }
               )) {
-                const runs = resp.data?.workflow_runs ?? [];
-                for (const run of runs) {
-                  try {
-                    core.info(`Cancel ${status} ${run.id} — ${run.name}`);
-                    await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
-                    await new Promise(r => setTimeout(r, 120));
-                  } catch (e) {
-                    core.warning(`Cancel failed ${run.id}: ${e.message}`);
+                const list = Array.isArray(resp.data) ? resp.data : (resp.data?.deployments || []);
+                for (const d of list) {
+                  const st = String(d.status || d.state || '').toLowerCase();
+                  if (['queued','in_progress','building','pending','deploying'].some(s => st.includes(s))) {
+                    try {
+                      core.info(`Cancel Pages deployment ${d.id} (${st})`);
+                      await github.request(
+                        'POST /repos/{owner}/{repo}/pages/deployments/{deployment_id}/cancel',
+                        { owner, repo, deployment_id: d.id }
+                      );
+                      await new Promise(r => setTimeout(r, 150));
+                    } catch (e) {
+                      core.warning(`Cancel Pages failed ${d?.id}: ${e.message}`);
+                    }
                   }
                 }
               }
+            } catch (e) {
+              core.warning(`Pages API not available: ${e.message}`);
             }
-            await cancelAll('queued');
-            await cancelAll('in_progress');
 
-      - name: Delete completed runs
+      - name: Cancel queued/in_progress runs of Pages workflow
         uses: actions/github-script@v7
+        env:
+          DELETE_COMPLETED: ${{ inputs.delete_completed_runs }}
         with:
           script: |
             const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
-            let n = 0;
+
+            // Find the Pages workflow (pages-build-deployment or similar)
+            const wfs = await github.paginate(
+              github.rest.actions.listRepoWorkflows,
+              { owner, repo, per_page: 100 }
+            );
+            const wf = wfs.find(w =>
+              w.name === 'pages-build-deployment' ||
+              /pages.*(build|deploy)/i.test(w.name) ||
+              /pages/i.test(w.path || '')
+            );
+
+            if (!wf) {
+              core.notice('No Pages workflow found.');
+              return;
+            }
+            core.info(`Using workflow: ${wf.name} (id=${wf.id}, path=${wf.path})`);
+
+            let deleted = 0, canceled = 0;
             for await (const resp of github.paginate.iterator(
-              github.rest.actions.listWorkflowRunsForRepo,
-              { owner, repo, status: 'completed', per_page: 100 }
+              github.rest.actions.listWorkflowRuns,
+              { owner, repo, workflow_id: wf.id, per_page: 100 }
             )) {
               const runs = resp.data?.workflow_runs ?? [];
               for (const run of runs) {
                 try {
-                  core.info(`Delete ${run.id} — ${run.name}`);
-                  await github.rest.actions.deleteWorkflowRun({ owner, repo, run_id: run.id });
-                  n++; await new Promise(r => setTimeout(r, 80));
+                  if (run.status === 'queued' || run.status === 'in_progress') {
+                    core.info(`Cancel run ${run.id} — ${run.name} [${run.status}]`);
+                    await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
+                    canceled++; await new Promise(r => setTimeout(r, 120));
+                  } else if (process.env.DELETE_COMPLETED === 'true' && run.status === 'completed') {
+                    core.info(`Delete run ${run.id} — ${run.name} [${run.conclusion}]`);
+                    await github.rest.actions.deleteWorkflowRun({ owner, repo, run_id: run.id });
+                    deleted++; await new Promise(r => setTimeout(r, 80));
+                  }
                 } catch (e) {
-                  core.warning(`Delete failed ${run.id}: ${e.message}`);
+                  core.warning(`Run action failed ${run.id}: ${e.message}`);
                 }
               }
             }
-            core.notice(`Deleted ${n} completed runs`);
+            core.notice(`Canceled: ${canceled}, Deleted completed: ${deleted}`);
 
-      - name: Delete artifacts (optional)
+      - name: Delete Pages artifacts (github-pages etc.)
         if: ${{ inputs.delete_artifacts }}
         uses: actions/github-script@v7
         with:
           script: |
             const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
+            const match = (name='') => /github-pages|pages|site/i.test(name);
+
             let n = 0;
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listArtifactsForRepo,
@@ -83,6 +122,7 @@ jobs:
             )) {
               const arts = resp.data?.artifacts ?? [];
               for (const a of arts) {
+                if (!match(a.name)) continue;
                 try {
                   core.info(`Delete artifact ${a.id} — ${a.name}`);
                   await github.rest.actions.deleteArtifact({ owner, repo, artifact_id: a.id });
@@ -92,32 +132,4 @@ jobs:
                 }
               }
             }
-            core.notice(`Deleted ${n} artifacts`);
-
-      - name: Cancel GitHub Pages deployments (best-effort)
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
-            try {
-              for await (const resp of github.paginate.iterator(
-                github.request, 'GET /repos/{owner}/{repo}/pages/deployments',
-                { owner, repo, per_page: 100 }
-              )) {
-                const list = Array.isArray(resp.data) ? resp.data : (resp.data?.deployments || []);
-                for (const d of list) {
-                  try {
-                    core.info(`Cancel Pages deployment ${d.id} (${d.status})`);
-                    await github.request(
-                      'POST /repos/{owner}/{repo}/pages/deployments/{deployment_id}/cancel',
-                      { owner, repo, deployment_id: d.id }
-                    );
-                    await new Promise(r => setTimeout(r, 150));
-                  } catch (e) {
-                    core.warning(`Cancel Pages failed ${d?.id}: ${e.message}`);
-                  }
-                }
-              }
-            } catch (e) {
-              core.warning(`Pages API not available: ${e.message}`);
-            }
+            core.notice(`Deleted ${n} Pages artifacts`);
