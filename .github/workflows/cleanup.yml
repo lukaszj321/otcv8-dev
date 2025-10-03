@@ -1,47 +1,44 @@
-name: Bulk cleanup runs (safe)
+name: Bulk cleanup (manual)
 
 on:
   workflow_dispatch:
     inputs:
       delete_artifacts:
-        description: 'Usuń też wszystkie artifacts'
         type: boolean
         default: true
+        description: Delete all artifacts too
 
 permissions:
   actions: write
   contents: read
+  pages: write
+
+concurrency:
+  group: repo-cleanup
+  cancel-in-progress: false
 
 env:
   OWNER: ${{ github.repository_owner }}
-  REPO:  ${{ github.event.repository.name || github.repository.split('/')[1] }}
+  REPO:  ${{ github.repository.split('/')[1] }}
 
 jobs:
   cancel_and_delete:
     runs-on: ubuntu-latest
     steps:
-      - name: Sanity
-        run: |
-          echo "OWNER=$OWNER"
-          echo "REPO=$REPO"
-          test -n "$OWNER" && test -n "$REPO"
-
-      - name: Cancel queued & in_progress (all workflows)
+      - name: Cancel queued & in_progress runs
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER;
-            const repo  = process.env.REPO;
-
-            async function cancelAll(status) {
+            const owner = process.env.OWNER, repo = process.env.REPO;
+            async function cancelAll(status){
               for await (const resp of github.paginate.iterator(
                 github.rest.actions.listWorkflowRunsForRepo,
                 { owner, repo, status, per_page: 100 }
               )) {
                 const runs = resp.data?.workflow_runs || [];
                 for (const run of runs) {
-                  core.info(`Cancel ${status} ${run.id} — ${run.name}`);
                   try {
+                    core.info(`Cancel ${status} ${run.id} — ${run.name}`);
                     await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
                     await new Promise(r => setTimeout(r, 120));
                   } catch (e) {
@@ -50,59 +47,80 @@ jobs:
                 }
               }
             }
-
             await cancelAll('queued');
             await cancelAll('in_progress');
 
-      - name: Delete completed runs (all workflows)
+      - name: Delete completed runs
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER;
-            const repo  = process.env.REPO;
-            let deleted = 0;
-
+            const owner = process.env.OWNER, repo = process.env.REPO;
+            let n = 0;
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listWorkflowRunsForRepo,
               { owner, repo, status: 'completed', per_page: 100 }
             )) {
               const runs = resp.data?.workflow_runs || [];
               for (const run of runs) {
-                core.info(`Delete ${run.id} — ${run.name}`);
                 try {
+                  core.info(`Delete ${run.id} — ${run.name}`);
                   await github.rest.actions.deleteWorkflowRun({ owner, repo, run_id: run.id });
-                  deleted++;
-                  await new Promise(r => setTimeout(r, 80));
+                  n++; await new Promise(r => setTimeout(r, 80));
                 } catch (e) {
                   core.warning(`Delete failed ${run.id}: ${e.message}`);
                 }
               }
             }
-            core.notice(`Deleted ${deleted} completed runs`);
+            core.notice(`Deleted ${n} completed runs`);
 
       - name: Delete artifacts (optional)
         if: ${{ inputs.delete_artifacts }}
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER;
-            const repo  = process.env.REPO;
-            let count = 0;
-
+            const owner = process.env.OWNER, repo = process.env.REPO;
+            let n = 0;
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listArtifactsForRepo,
               { owner, repo, per_page: 100 }
             )) {
               const arts = resp.data?.artifacts || [];
-              for (const art of arts) {
+              for (const a of arts) {
                 try {
-                  core.info(`Delete artifact ${art.id} — ${art.name}`);
-                  await github.rest.actions.deleteArtifact({ owner, repo, artifact_id: art.id });
-                  count++;
-                  await new Promise(r => setTimeout(r, 60));
+                  core.info(`Delete artifact ${a.id} — ${a.name}`);
+                  await github.rest.actions.deleteArtifact({ owner, repo, artifact_id: a.id });
+                  n++; await new Promise(r => setTimeout(r, 60));
                 } catch (e) {
-                  core.warning(`Artifact delete failed ${art.id}: ${e.message}`);
+                  core.warning(`Artifact delete failed ${a.id}: ${e.message}`);
                 }
               }
             }
-            core.notice(`Deleted ${count} artifacts`);
+            core.notice(`Deleted ${n} artifacts`);
+
+      - name: Cancel GitHub Pages deployments (best-effort)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = process.env.OWNER, repo = process.env.REPO;
+            try {
+              for await (const resp of github.paginate.iterator(
+                github.request, 'GET /repos/{owner}/{repo}/pages/deployments',
+                { owner, repo, per_page: 100 }
+              )) {
+                const list = Array.isArray(resp.data) ? resp.data : (resp.data?.deployments || []);
+                for (const d of list) {
+                  try {
+                    core.info(`Cancel Pages deployment ${d.id} (${d.status})`);
+                    await github.request(
+                      'POST /repos/{owner}/{repo}/pages/deployments/{deployment_id}/cancel',
+                      { owner, repo, deployment_id: d.id }
+                    );
+                    await new Promise(r => setTimeout(r, 150));
+                  } catch (e) {
+                    core.warning(`Cancel Pages failed ${d?.id}: ${e.message}`);
+                  }
+                }
+              }
+            } catch (e) {
+              core.warning(`Pages API not available: ${e.message}`);
+            }
