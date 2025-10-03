@@ -5,6 +5,8 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/build-embeddings.mjs'
+permissions:
+  contents: write   # <-- to jest kluczowe, inaczej nie zacommituje JSON-a
 jobs:
   rag:
     runs-on: ubuntu-latest
