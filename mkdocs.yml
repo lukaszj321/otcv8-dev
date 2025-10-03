@@ -3,6 +3,7 @@ site_description: Dokumentacja deweloperska OTCv8 (build, API, architektura)
 site_url: https://lukaszj321.github.io/otcv8-dev/
 repo_url: https://github.com/lukaszj321/otcv8-dev
 edit_uri: blob/master/docs/
+
 theme:
   name: material
   language: pl
@@ -16,12 +17,7 @@ theme:
     - content.code.copy
     - content.tabs.link
     - toc.integrate
-  icon:
-    repo: fontawesome/brands/github
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/lukaszj321
+
 plugins:
   - search
   - glightbox
@@ -29,6 +25,7 @@ plugins:
       fallback_to_build_date: true
   - tags
   - macros
+
 markdown_extensions:
   - admonition
   - attr_list
@@ -39,7 +36,6 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
-  - pymdownx.critic
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
@@ -50,10 +46,11 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji
+
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
-extra_css:
-  - https://unpkg.com/@picocss/pico@1/css/pico.min.css
+  - _assets/js/mermaid-init.js
+
 nav:
   - Start: index.md
   - Przewodniki:
