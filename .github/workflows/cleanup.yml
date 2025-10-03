@@ -6,7 +6,7 @@ on:
       delete_artifacts:
         type: boolean
         default: true
-        description: Delete all artifacts too
+        description: Delete all Actions artifacts
 
 permissions:
   actions: write
@@ -17,19 +17,15 @@ concurrency:
   group: repo-cleanup
   cancel-in-progress: false
 
-env:
-  OWNER: ${{ github.repository_owner }}
-  REPO:  ${{ github.repository.split('/')[1] }}
-
 jobs:
-  cancel_and_delete:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel queued & in_progress runs
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             async function cancelAll(status){
               for await (const resp of github.paginate.iterator(
                 github.rest.actions.listWorkflowRunsForRepo,
@@ -54,7 +50,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             let n = 0;
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listWorkflowRunsForRepo,
@@ -78,7 +74,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             let n = 0;
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listArtifactsForRepo,
@@ -101,10 +97,11 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             try {
               for await (const resp of github.paginate.iterator(
-                github.request, 'GET /repos/{owner}/{repo}/pages/deployments',
+                github.request,
+                'GET /repos/{owner}/{repo}/pages/deployments',
                 { owner, repo, per_page: 100 }
               )) {
                 const list = Array.isArray(resp.data) ? resp.data : (resp.data?.deployments || []);
