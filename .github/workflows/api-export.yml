@@ -1,11 +1,13 @@
 name: API + Exports
 on:
-  workflow_dispatch: {}        # ręcznie, bez 'push'
+  workflow_dispatch: {}        # tylko ręcznie
+
 permissions:
   contents: write
+
 concurrency:
   group: api-exports-manual
-  cancel-in-progress: false
+  cancel-in-progress: false    # nie zabijaj w trakcie
 
 jobs:
   build:
@@ -17,16 +19,11 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
 
-      # 1) Auto-ekstrakcja pełnego API z kodu do docs/api/otcv8-full-api.md
-      - run: npm i glob --no-save
+      - run: npm i glob js-yaml --no-save
       - run: node scripts/extract-api.mjs
-
-      # 2) Złożenie całej dokumentacji do jednego MD i normalizacja pod pandoc
-      - run: npm i js-yaml glob --no-save
       - run: node scripts/concat-md.mjs mkdocs.yml OTCv8-Docs.md
       - run: node scripts/normalize-md.mjs OTCv8-Docs.md
 
-      # 3) Build strony MkDocs
       - uses: actions/setup-python@v5
         with: { python-version: "3.x" }
       - run: |
@@ -34,7 +31,6 @@ jobs:
           pip install mkdocs mkdocs-material mkdocs-macros-plugin mkdocs-git-revision-date-localized-plugin
       - run: mkdocs build
 
-      # 4) Eksport DOCX/EPUB + ZIP
       - run: |
           sudo apt-get update && sudo apt-get install -y pandoc zip
           mkdir -p docs/downloads
@@ -43,8 +39,7 @@ jobs:
           zip -r docs/downloads/site.zip site
           ls -lh docs/downloads
 
-      # 5) Commit artefaktów (z [skip ci], żeby nie odpalać innych workflowów)
-      - name: Commit artefaktów
+      - name: Commit artefaktów (bez odpalania innych CI)
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
