@@ -1,9 +1,8 @@
 site_name: OTCv8 Dev Docs
-site_description: Dokumentacja deweloperska OTCv8 (build, architektura, API, OTUI)
+site_description: Dokumentacja deweloperska OTCv8 (build, architektura, Lua/OTUI, realtime)
 site_url: https://lukaszj321.github.io/otcv8-dev/
 repo_url: https://github.com/lukaszj321/otcv8-dev
 edit_uri: blob/master/docs/
-
 theme:
   name: material
   language: pl
@@ -11,46 +10,35 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.sections
-    - navigation.expand
+    - toc.integrate
+    - content.code.copy
     - search.suggest
     - search.highlight
-    - content.code.copy
-    - content.tabs.link
-    - toc.integrate
-
 plugins:
   - search
+  - with-pdf:
+      output_path: downloads/OTCv8-Docs.pdf
+      cover_title: "OTCv8 Dev — Dokumentacja"
+      cover_subtitle: "Build • Architektura • Lua/OTUI • Realtime"
+      toc_level: 3
   - glightbox
+  - macros
   - git-revision-date-localized:
       fallback_to_build_date: true
-  - tags
-  - macros
-
 markdown_extensions:
   - admonition
   - attr_list
   - def_list
-  - footnotes
   - md_in_html
   - tables
-  - toc:
-      permalink: true
+  - toc: { permalink: true }
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.emoji
-
+  - pymdownx.highlight: { anchor_linenums: true }
+  - pymdownx.tabbed: { alternate_style: true }
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
   - _assets/js/mermaid-init.js
-
 nav:
   - Start: index.md
   - Przewodniki:
