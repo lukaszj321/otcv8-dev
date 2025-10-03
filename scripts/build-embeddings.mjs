@@ -11,17 +11,17 @@ const stripFrontMatter = (t) => t.replace(/^---[\s\S]*?---\n/, '');
 const stripCodeBlocks = (t) => t.replace(/```[\s\S]*?```/g, ' ');
 const stripInlineCode  = (t) => t.replace(/`[^`]*`/g, ' ');
 const stripImages      = (t) => t.replace(/!\[[^\]]*\]\([^)]+\)/g, ' ');
-const stripLinks       = (t) => t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1'); // zostaw tekst linka
+const stripLinks       = (t) => t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
 const stripMdSyntax    = (t) => t
   .replace(/^>+\s?/gm, ' ')
-  .replace(/^#{1,6}\s*/gm, '') // nagłówki
+  .replace(/^#{1,6}\s*/gm, '')
   .replace(/[*_~>]/g, ' ')
   .replace(/\s+/g, ' ')
   .trim();
 
 function mdToCleanText(md) {
   let s = stripFrontMatter(md);
-  s = stripCodeBlocks(s);          // w tym mermaid
+  s = stripCodeBlocks(s);  // w tym mermaid
   s = stripInlineCode(s);
   s = stripImages(s);
   s = stripLinks(s);
@@ -35,17 +35,13 @@ function firstTitle(md, fallback) {
 }
 
 function pathToUrl(p) {
-  // docs/foo/bar.md -> https://.../foo/bar/
   const rel = p.replace(/^docs\//, '').replace(/\.md$/, '/');
   return SITE_BASE + rel;
 }
 
-// chunking z nadkładką (lepszy kontekst)
 function chunkWithOverlap(s, size = 1200, overlap = 200) {
   const out = [];
-  for (let i = 0; i < s.length; i += (size - overlap)) {
-    out.push(s.slice(i, i + size));
-  }
+  for (let i = 0; i < s.length; i += (size - overlap)) out.push(s.slice(i, i + size));
   return out;
 }
 
@@ -58,20 +54,12 @@ for (const path of files) {
   const raw = await fs.readFile(path, 'utf8');
   const clean = mdToCleanText(raw);
   const title = firstTitle(raw, path.split('/').pop().replace(/\.md$/, ''));
-
   const chunks = chunkWithOverlap(clean);
   for (let idx = 0; idx < chunks.length; idx++) {
     const text = chunks[idx];
     if (!text.trim()) continue;
     const emb = await extractor(text, { pooling: 'mean', normalize: true });
-    rows.push({
-      path,
-      url: pathToUrl(path),
-      title,
-      idx,
-      text,                               // już „clean”
-      embedding: Array.from(emb.data)     // Float32Array -> plain array
-    });
+    rows.push({ path, url: pathToUrl(path), title, idx, text, embedding: Array.from(emb.data) });
   }
 }
 
