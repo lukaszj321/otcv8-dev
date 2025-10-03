@@ -1,22 +1,30 @@
-# Troubleshooti
+# Troubleshoot
+
+i
 
 n
 
 g
 
-## Buil
+## Bui
+
+l
 
 d
 
 - Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
 
-## Androi
+## Andro
+
+i
 
 d
 
 - Błąd NDK: sprawdź wersję i ścieżki SDK/NDK.
 
-## W
+##
+
+W
 
 S
 

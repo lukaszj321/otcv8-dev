@@ -1,4 +1,6 @@
-# OTUI — podsta
+# OTUI — podst
+
+a
 
 w
 
@@ -8,7 +10,9 @@ y
 
     OTUI to deklaratywne layouty interfejsu użytkownika.
 
-## Przykład layout
+## Przykład layou
+
+t
 
 u
 
@@ -24,14 +28,18 @@ Label
 
 ```
 
-## Zdarzenia / wiązani
+## Zdarzenia / wiązan
+
+i
 
 a
 
 - Właściwości elementów można powiązać z danymi (np. przez Lua).
 - Aktualizacje push przez eventy modułów.
 
-## Wskazówk
+## Wskazów
+
+k
 
 i
 
