@@ -1,4 +1,6 @@
-# Te
+# T
+
+e
 
 s
 
@@ -10,7 +12,9 @@ y
 - C++: GoogleTest (jeśli dostępne).
 - E2E: scenariusze ręczne + checklisty w PR.
 
-## Raport błę
+## Raport bł
+
+ę
 
 d
 

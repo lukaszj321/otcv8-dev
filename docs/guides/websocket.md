@@ -1,4 +1,6 @@
-# Realtime (WebSock
+# Realtime (WebSoc
+
+k
 
 e
 
@@ -19,7 +21,9 @@ sequenceDiagram
 
 ```
 
-## Zasa
+## Zas
+
+a
 
 d
 
@@ -29,7 +33,9 @@ y
 - Autoryzacja w handshake (JWT / session).
 - Walidacja schematów wiadomości.
 
-## Przykład (Node + socket.i
+## Przykład (Node + socket
+
+i
 
 o
 

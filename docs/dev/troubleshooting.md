@@ -1,4 +1,6 @@
-# Troubleshoot
+# Troubleshoo
+
+t
 
 i
 
@@ -6,7 +8,9 @@ n
 
 g
 
-## Bui
+## Bu
+
+i
 
 l
 
@@ -14,7 +18,9 @@ d
 
 - Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
 
-## Andro
+## Andr
+
+o
 
 i
 

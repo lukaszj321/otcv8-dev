@@ -1,4 +1,6 @@
-# Narzęd
+# Narzę
+
+d
 
 z
 

@@ -1,4 +1,6 @@
-# Lua API (przykła
+# Lua API (przykł
+
+a
 
 d
 

@@ -1,4 +1,6 @@
-# Architektura (skr
+# Architektura (sk
+
+r
 
 ó
 
