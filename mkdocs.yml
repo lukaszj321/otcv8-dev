@@ -1,10 +1,9 @@
-﻿site_name: OTCv8 Dev Docs
+site_name: OTCv8 Dev Docs
 site_url: https://lukaszj321.github.io/otcv8-dev/
 repo_url: https://github.com/lukaszj321/otcv8-dev
-edit_uri: ""
-
-docs_dir: docs
-use_directory_urls: true
+repo_name: lukaszj321/otcv8-dev
+site_description: Dokumentacja deweloperska OTCv8
+copyright: © OTCv8
 
 theme:
   name: material
@@ -13,13 +12,30 @@ theme:
     - navigation.sections
     - navigation.tabs
     - navigation.top
+    - navigation.footer
+    - toc.integrate
     - content.code.copy
     - content.action.edit
-    - toc.follow
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: blue
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - def_list
+  - md_in_html
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji
 
 plugins:
   - search
@@ -27,64 +43,77 @@ plugins:
   - macros
   - git-revision-date-localized:
       enable_creation_date: true
-      type: timeago
+      type: datetime
       fallback_to_build_date: true
 
-extra_javascript:
-  - _assets/js/mermaid-init.js
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - toc:
-      permalink: true
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.critic
-  - pymdownx.keys
-  - pymdownx.tilde
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lukaszj321/otcv8-dev
 
 nav:
   - Start: index.md
 
-  - Architektura:
-      - PrzeglÄ…d klienta: architektura/client_overview.md
-      - PrzeglÄ…d frameworka: architektura/framework_overview.md
-      - ĹąrĂłdĹ‚a (framework): architektura/src_framework.md
-      - ĹąrĂłdĹ‚a (client): architektura/src_client.md
+  - Przewodniki:
+      - Architektura: guides/architecture.md
+      - Moduły (vBot): guides/modules.md
+      - Realtime (WebSocket): guides/websocket.md
 
-  - ModuĹ‚y:
-      - rdzeĹ„: modules/modules_core.md
-      - gameplay 1: modules/modules_game_1.md
-      - gameplay 2: modules/modules_game_2.md
-      - misc: modules/modules_misc.md
-      - dokumentacja moduĹ‚Ăłw: modules_Documentation.md
+  - Architektura:
+      - Przegląd klienta: architektura/client_overview.md
+      - Przegląd frameworka: architektura/framework_overview.md
+      - Źródła (client/): architektura/src_client.md
+      - Źródła (framework/): architektura/src_framework.md
+
+  - Build:
+      - Windows: build/windows.md
+      - Linux: build/linux.md
+      - Android: build/android.md
+
+  - Lua:
+      - API (ogólne): lua/api.md
+      - Style guide: lua/style-guide.md
+
+  - C++:
+      - Przegląd: cpp/overview.md
+
+  - OTUI:
+      - Specyfikacja UI: api/engine/otclient_v_8_specyfikacja_ui.md
+      - Presety kanoniczne (OTUI/TS): api/engine/presety_kanoniczne_otui_ts_otc_core.md
+      - Addendum: api/engine/otclient_v_8_addendum_import_z_lua_stringow_auto_strict_goldeny_expanded.md
+      - Walidator & round-trip: api/engine/otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna.md
+      - OTUI – Notatki: ui/otui.md
 
   - API:
-      - Lua:
-          - funkcje klienta: api/lua/luafunctions_client.md
-          - peĹ‚ne API (zbiorcze): api/otcv8-full-api.md
-      - Engine/UI:
-          - specyfikacja UI: api/engine/otclient_v_8_specyfikacja_ui.md
-          - presety OTUI/TS (core): api/engine/presety_kanoniczne_otui_ts_otc_core.md
-          - addendum (import z Lua, strict/golden): api/engine/otclient_v_8_addendum_import_z_lua_stringow_auto_strict_goldeny_expanded.md
-          - walidator AST / round-trip: api/engine/otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna.md
+      - Lua – funkcje klienta: api/lua/luafunctions_client.md
+
+  - Moduły:
+      - Core: modules/modules_core.md
+      - Game (1): modules/modules_game_1.md
+      - Game (2): modules/modules_game_2.md
+      - Misc: modules/modules_misc.md
+      - Dokumentacja modułów: modules/modules_Documentation.md
 
   - Dane:
-      - Data docs: data/Data_Documentation.md
+      - Przewodnik: data/Data_Documentation.md
 
-  - NarzÄ™dzia:
-      - Arrange-Docs.ps1: tools/Arrange-Docs.ps1
+  - Deweloperzy:
+      - FAQ: dev/faq.md
+      - Poradnik kontrybutora: dev/contributing.md
+      - Bezpieczeństwo: dev/security.md
+      - Testowanie: dev/testing.md
+      - Roadmap: dev/roadmap.md
+      - Release: dev/release.md
+      - Troubleshooting: dev/troubleshooting.md
 
-  - Pobieralnie:
-      - DOCX: downloads/OTCv8-Docs.docx
-      - EPUB: downloads/OTCv8-Docs.epub
-      - PDF: downloads/OTCv8-Docs.pdf
-      - ZIP strony: downloads/site.zip
+  - Wiedza:
+      - Hot-reload dev module: knowledge/dev_module_for_hot_reload_master_otclient_v_8.md
+      - IDE providers / hover / signatures: knowledge/ide_providers_spec_master_hover_completion_signature_help_symbols.md
+      - OTUI lint rules: knowledge/otui_lint_rules_master_spec_dla_otclient_studio.md
+      - Parser & schematy: knowledge/parser_schemas_ast_json_schema_otclient_studio.md
+      - QA bench suite: knowledge/qa_bench_suite_master_otclient_studio.md
+      - Spec aplikacji Studio (React/Electron): knowledge/specyfikacja_master_studio_react_electron_dla_otclient_v_8_v_bot_centralny_dokument.md
+      - vBot – playbook modułów: knowledge/v_bot_playbook_modules_game_bot_master.md
+
+  - Narzędzia:
+      - Przegląd: tools/index.md
