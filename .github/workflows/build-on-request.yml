@@ -1,10 +1,10 @@
-name: Build on request
+﻿name: Build on request
 on: [workflow_dispatch]
 
 jobs:
   Windows:
     name: Build windows version
-    runs-on: windows-2019
+    runs-on: windows-2025
     timeout-minutes: 120
 
     steps:
@@ -59,7 +59,7 @@ jobs:
 
   Android:
     name: Build android version
-    runs-on: windows-2019
+    runs-on: windows-2025
     timeout-minutes: 120
 
     steps:
@@ -198,3 +198,4 @@ jobs:
         path: |
           ${{ runner.workspace }}/build/otclient_linux
         if-no-files-found: error
+

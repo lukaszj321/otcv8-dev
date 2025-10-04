@@ -1,4 +1,4 @@
-name: Build & Deploy Docs (Pages)
+﻿name: Build & Deploy Docs (Pages)
 on:
   push: { branches: [ master ] }
   workflow_dispatch: {}
@@ -38,3 +38,4 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
