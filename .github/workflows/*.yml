@@ -1,5 +1,14 @@
+name: Concurrency placeholder
+
 on:
-  workflow_dispatch: {}   # usuń `push:` i `pull_request:`
+  workflow_dispatch: {}   # uruchamiany ręcznie
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+jobs:
+  ok:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "workflow OK"
