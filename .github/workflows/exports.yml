@@ -55,7 +55,7 @@ jobs:
           git reset --hard origin/master
           git clean -fd
 
-          # dodaj WYĹÄ„CZNIE pliki z downloads
+          # dodaj WYLACZNIE pliki z downloads
           git add -f docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/site.zip
 
           # sanity: upewnij siÄ™, ĹĽe nie ma zmian w .github/workflows
