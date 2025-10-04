@@ -17,10 +17,6 @@ concurrency:
   group: repo-cleanup
   cancel-in-progress: false
 
-env:
-  OWNER: ${{ github.repository_owner }}
-  REPO:  ${{ github.repository.split('/')[1] }}
-
 jobs:
   cleanup:
     runs-on: ubuntu-latest
@@ -29,13 +25,13 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             async function cancelAll(status){
               for await (const resp of github.paginate.iterator(
                 github.rest.actions.listWorkflowRunsForRepo,
                 { owner, repo, status, per_page: 100 }
               )) {
-                const runs = resp.data?.workflow_runs || [];
+                const runs = resp.data?.workflow_runs ?? [];
                 for (const run of runs) {
                   try {
                     core.info(`Cancel ${status} ${run.id} — ${run.name}`);
@@ -54,13 +50,13 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             let n = 0;
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listWorkflowRunsForRepo,
               { owner, repo, status: 'completed', per_page: 100 }
             )) {
-              const runs = resp.data?.workflow_runs || [];
+              const runs = resp.data?.workflow_runs ?? [];
               for (const run of runs) {
                 try {
                   core.info(`Delete ${run.id} — ${run.name}`);
@@ -78,13 +74,13 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             let n = 0;
             for await (const resp of github.paginate.iterator(
               github.rest.actions.listArtifactsForRepo,
               { owner, repo, per_page: 100 }
             )) {
-              const arts = resp.data?.artifacts || [];
+              const arts = resp.data?.artifacts ?? [];
               for (const a of arts) {
                 try {
                   core.info(`Delete artifact ${a.id} — ${a.name}`);
@@ -101,7 +97,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = process.env.OWNER, repo = process.env.REPO;
+            const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/');
             try {
               for await (const resp of github.paginate.iterator(
                 github.request, 'GET /repos/{owner}/{repo}/pages/deployments',
