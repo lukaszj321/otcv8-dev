@@ -103,4 +103,17 @@ jobs:
                 const list = Array.isArray(resp.data) ? resp.data : (resp.data?.deployments || []);
                 for (const d of list) {
                   try {
-::contentReference[oaicite:0]{index=0}
+                    core.info(`Cancel Pages deployment ${d.id} (${d.status})`);
+                    await github.request(
+                      'POST /repos/{owner}/{repo}/pages/deployments/{deployment_id}/cancel',
+                      { owner, repo, deployment_id: d.id }
+                    );
+                    await new Promise(r => setTimeout(r, 150));
+                  } catch (e) {
+                    core.warning(`Cancel Pages failed ${d?.id}: ${e.message}`);
+                  }
+                }
+              }
+            } catch (e) {
+              core.warning(`Pages API not available: ${e.message}`);
+            }
