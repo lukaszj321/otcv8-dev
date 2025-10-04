@@ -31,8 +31,7 @@ jobs:
                 github.rest.actions.listWorkflowRunsForRepo,
                 { owner, repo, status, per_page: 100 }
               )) {
-                const runs = resp.data?.workflow_runs ?? [];
-                for (const run of runs) {
+                for (const run of (resp.data?.workflow_runs ?? [])) {
                   try {
                     core.info(`Cancel ${status} ${run.id} — ${run.name}`);
                     await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id: run.id });
@@ -56,8 +55,7 @@ jobs:
               github.rest.actions.listWorkflowRunsForRepo,
               { owner, repo, status: 'completed', per_page: 100 }
             )) {
-              const runs = resp.data?.workflow_runs ?? [];
-              for (const run of runs) {
+              for (const run of (resp.data?.workflow_runs ?? [])) {
                 try {
                   core.info(`Delete ${run.id} — ${run.name}`);
                   await github.rest.actions.deleteWorkflowRun({ owner, repo, run_id: run.id });
@@ -80,8 +78,7 @@ jobs:
               github.rest.actions.listArtifactsForRepo,
               { owner, repo, per_page: 100 }
             )) {
-              const arts = resp.data?.artifacts ?? [];
-              for (const a of arts) {
+              for (const a of (resp.data?.artifacts ?? [])) {
                 try {
                   core.info(`Delete artifact ${a.id} — ${a.name}`);
                   await github.rest.actions.deleteArtifact({ owner, repo, artifact_id: a.id });
@@ -106,17 +103,4 @@ jobs:
                 const list = Array.isArray(resp.data) ? resp.data : (resp.data?.deployments || []);
                 for (const d of list) {
                   try {
-                    core.info(`Cancel Pages deployment ${d.id} (${d.status})`);
-                    await github.request(
-                      'POST /repos/{owner}/{repo}/pages/deployments/{deployment_id}/cancel',
-                      { owner, repo, deployment_id: d.id }
-                    );
-                    await new Promise(r => setTimeout(r, 150));
-                  } catch (e) {
-                    core.warning(`Cancel Pages failed ${d?.id}: ${e.message}`);
-                  }
-                }
-              }
-            } catch (e) {
-              core.warning(`Pages API not available: ${e.message}`);
-            }
+::contentReference[oaicite:0]{index=0}
