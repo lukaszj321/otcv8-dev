@@ -1,4 +1,4 @@
-name: Fix Markdown (manual)
+﻿name: Fix Markdown (manual)
 on:
   workflow_dispatch: {}
 permissions: { contents: write }
@@ -24,3 +24,4 @@ jobs:
           git restore --staged site || true
           git commit -m "chore(md): auto-fix formatting" || echo "no changes"
           git push
+

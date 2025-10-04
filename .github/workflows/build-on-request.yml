@@ -1,4 +1,4 @@
-name: Build on request
+﻿name: Build on request
 on: [workflow_dispatch]
 
 jobs:
@@ -198,3 +198,4 @@ jobs:
         path: |
           ${{ runner.workspace }}/build/otclient_linux
         if-no-files-found: error
+

@@ -1,4 +1,4 @@
-name: Build, Test, Release 3.2
+﻿name: Build, Test, Release 3.2
 on:
   push:
     branches:
@@ -362,3 +362,4 @@ jobs:
         author_name: OTCv8
         author_email: otclient@otclient.ovh
         message: "Updated to ${{ env.VERSION }}"
+

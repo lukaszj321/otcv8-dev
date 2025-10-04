@@ -1,4 +1,4 @@
-name: Build RAG (no-API)
+﻿name: Build RAG (no-API)
 on:
   push:
     branches: [ master ]
@@ -30,3 +30,4 @@ jobs:
           git add docs/rag/embeddings.json
           git commit -m "Update embeddings (no-API)" || echo "No changes"
           git push
+
