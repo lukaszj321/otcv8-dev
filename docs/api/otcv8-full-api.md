@@ -1,601 +1,1767 @@
-# OTCv8 – Pełn
+# OTCv8 – Pełne API (auto)
 
-e
+Wygenerowano: 2025-10-04T13:55:07.955Z
 
-A
-
-P
-
-I
-
-Wersja specyfikacji: 1.0 Status: **draft** (uzupełnij pola `TODO:` realnymi nazwami/argumentami z
-kodu).
+> Ten plik jest generowany automatycznie z kodu. Nie edytuj ręcznie.
 
 ---
 
-## 0. Konwe
+## 1. Lua
 
-n
+### 1.1. Zdarzenia (on*)
+- `onAddItem(...)`
+- `onAddThing(...)`
+- `onAddVip(...)`
+- `onAddonChange(...)`
+- `onAmountChange(...)`
+- `onAnimatedText(...)`
+- `onAppearanceChange(...)`
+- `onAttackingCreatureChange(...)`
+- `onAuraSelect(...)`
+- `onAutoWalkFail(...)`
+- `onBaseMagicLevelChange(...)`
+- `onBaseSkillChange(...)`
+- `onBaseSpeedChange(...)`
+- `onBattleButtonHoverChange(...)`
+- `onBattleButtonMouseRelease(...)`
+- `onBlessingsChange(...)`
+- `onBuyWithBackpackChange(...)`
+- `onCameraPositionChange(...)`
+- `onCancelWalk(...)`
+- `onChangeCategory(...)`
+- `onChangeOfferType(...)`
+- `onChangeSlotFilter(...)`
+- `onChangeSortOrder(...)`
+- `onChangeSortType(...)`
+- `onChangeSubCategory(...)`
+- `onChangeUseType(...)`
+- `onChannelEvent(...)`
+- `onChannelList(...)`
+- `onCharacterList(...)`
+- `onChildFocusChange(...)`
+- `onChooseItemMouseRelease(...)`
+- `onClick(...)`
+- `onClickIgnoreButton(...)`
+- `onClose(...)`
+- `onCloseChannel(...)`
+- `onCloseImbuementWindow(...)`
+- `onCloseNpcTrade(...)`
+- `onCoinBalance(...)`
+- `onColorCheckChange(...)`
+- `onColorModeChange(...)`
+- `onCommandChange(...)`
+- `onConfigChange(...)`
+- `onConnect(...)`
+- `onContainerChangeSize(...)`
+- `onContainerClose(...)`
+- `onContainerOpen(...)`
+- `onContainerUpdateItem(...)`
+- `onCreate(...)`
+- `onCreatureAppear(...)`
+- `onCreatureDisappear(...)`
+- `onCreatureHealthPercentChange(...)`
+- `onCreaturePositionChange(...)`
+- `onDecrement(...)`
+- `onDestroy(...)`
+- `onDoubleClick(...)`
+- `onDownload(...)`
+- `onDownloadProgress(...)`
+- `onDragEnter(...)`
+- `onDragLeave(...)`
+- `onDragMove(...)`
+- `onDrop(...)`
+- `onDropActionButton(...)`
+- `onEmblemChange(...)`
+- `onError(...)`
+- `onExperienceChange(...)`
+- `onExtendedJSONOpcode(...)`
+- `onExtendedOpcode(...)`
+- `onFilterSearch(...)`
+- `onFlagMouseRelease(...)`
+- `onFocusChange(...)`
+- `onFreeCapacityChange(...)`
+- `onGameCloseTrade(...)`
+- `onGameConnectionError(...)`
+- `onGameCounterTrade(...)`
+- `onGameEditList(...)`
+- `onGameEditText(...)`
+- `onGameEnd(...)`
+- `onGameLoginError(...)`
+- `onGameLoginToken(...)`
+- `onGameOwnTrade(...)`
+- `onGameQuestLine(...)`
+- `onGameQuestLog(...)`
+- `onGameStart(...)`
+- `onGameUpdateNeeded(...)`
+- `onGeometryChange(...)`
+- `onGet(...)`
+- `onGetProgress(...)`
+- `onGroupSpellCooldown(...)`
+- `onHTTPResult(...)`
+- `onHealthBarSelect(...)`
+- `onHealthChange(...)`
+- `onHeightChange(...)`
+- `onHotkeyTextChange(...)`
+- `onHover(...)`
+- `onHoverChange(...)`
+- `onIconChange(...)`
+- `onIgnoreCapacityChange(...)`
+- `onIgnoreEquippedChange(...)`
+- `onImbuementWindow(...)`
+- `onIncrement(...)`
+- `onInventoryChange(...)`
+- `onItemBoxChecked(...)`
+- `onItemChange(...)`
+- `onKeyDown(...)`
+- `onKeyPress(...)`
+- `onKeyUp(...)`
+- `onKeypadTouchMove(...)`
+- `onKeypadTouchPress(...)`
+- `onKeypadTouchRelease(...)`
+- `onLayoutUpdate(...)`
+- `onLevelChange(...)`
+- `onLoadCallback(...)`
+- `onLocaleChanged(...)`
+- `onLog(...)`
+- `onLoginAdvice(...)`
+- `onLoginError(...)`
+- `onLoginWait(...)`
+- `onLogout(...)`
+- `onMagicLevelChange(...)`
+- `onManaBarSelect(...)`
+- `onManaChange(...)`
+- `onMarketBrowse(...)`
+- `onMarketDetail(...)`
+- `onMarketEnter(...)`
+- `onMarketLeave(...)`
+- `onMarketMessage(...)`
+- `onMessage(...)`
+- `onMiniWindowClose(...)`
+- `onMissle(...)`
+- `onModalDialog(...)`
+- `onMountButtonClick(...)`
+- `onMountSelect(...)`
+- `onMouseGrabberRelease(...)`
+- `onMouseMove(...)`
+- `onMousePress(...)`
+- `onMouseRelease(...)`
+- `onMouseWheel(...)`
+- `onMovementChange(...)`
+- `onOfflineTrainingChange(...)`
+- `onOpcode(...)`
+- `onOpen(...)`
+- `onOpenChannel(...)`
+- `onOpenNpcTrade(...)`
+- `onOpenOwnPrivateChannel(...)`
+- `onOpenPrivateChannel(...)`
+- `onOpenPvpSituationsChange(...)`
+- `onOptionChange(...)`
+- `onOutfitChange(...)`
+- `onOutfitSelect(...)`
+- `onOverlayGeometryChange(...)`
+- `onPiecePriceChange(...)`
+- `onPlayerGoods(...)`
+- `onPlayerHealthChange(...)`
+- `onPlayerInventoryChange(...)`
+- `onPlayerPositionChange(...)`
+- `onPositionChange(...)`
+- `onPost(...)`
+- `onPostProgress(...)`
+- `onPresetSelect(...)`
+- `onPreyActive(...)`
+- `onPreyFreeRolls(...)`
+- `onPreyInactive(...)`
+- `onPreyLocked(...)`
+- `onPreyPrice(...)`
+- `onPreySelection(...)`
+- `onPreyTimeLeft(...)`
+- `onProfileChange(...)`
+- `onProtocolError(...)`
+- `onProxyList(...)`
+- `onQuantityValueChange(...)`
+- `onRecv(...)`
+- `onRegenerationChange(...)`
+- `onRemoveItem(...)`
+- `onRemoveThing(...)`
+- `onResourceBalance(...)`
+- `onRootGeometryUpdate(...)`
+- `onRuleViolationCancel(...)`
+- `onRuleViolationChannel(...)`
+- `onRuleViolationLock(...)`
+- `onRuleViolationRemove(...)`
+- `onSave(...)`
+- `onScrollHeightChange(...)`
+- `onScrollWidthChange(...)`
+- `onSearchTextChange(...)`
+- `onSelectBuyOffer(...)`
+- `onSelectHotkeyLabel(...)`
+- `onSelectMyBuyOffer(...)`
+- `onSelectMySellOffer(...)`
+- `onSelectReason(...)`
+- `onSelectSellOffer(...)`
+- `onSendAutomaticallyChange(...)`
+- `onServerChange(...)`
+- `onSessionKey(...)`
+- `onSetChaseMode(...)`
+- `onSetFightMode(...)`
+- `onSetPVPMode(...)`
+- `onSetSafeFight(...)`
+- `onSetSafeFight2(...)`
+- `onSetup(...)`
+- `onShaderSelect(...)`
+- `onShieldChange(...)`
+- `onShowAllItemsChange(...)`
+- `onShowAuraChange(...)`
+- `onShowBarsChange(...)`
+- `onShowFloorChange(...)`
+- `onShowMountChange(...)`
+- `onShowOutfitChange(...)`
+- `onShowShaderChange(...)`
+- `onShowWingsChange(...)`
+- `onSkillButtonClick(...)`
+- `onSkillChange(...)`
+- `onSkullChange(...)`
+- `onSoulChange(...)`
+- `onSpeedChange(...)`
+- `onSpellCooldown(...)`
+- `onSpellGroupCooldown(...)`
+- `onStaminaChange(...)`
+- `onStatesChange(...)`
+- `onStaticText(...)`
+- `onStoreCategories(...)`
+- `onStoreError(...)`
+- `onStoreInit(...)`
+- `onStoreOffers(...)`
+- `onStorePurchase(...)`
+- `onStoreTransactionHistory(...)`
+- `onStyleApply(...)`
+- `onTabChange(...)`
+- `onTabClick(...)`
+- `onTabDragEnter(...)`
+- `onTabDragLeave(...)`
+- `onTabDragMove(...)`
+- `onTabMousePress(...)`
+- `onTabMouseRelease(...)`
+- `onTalk(...)`
+- `onTeleport(...)`
+- `onTextAreaUpdate(...)`
+- `onTextChange(...)`
+- `onTextMessage(...)`
+- `onTibia12HTTPResult(...)`
+- `onTotalCapacityChange(...)`
+- `onTotalPriceChange(...)`
+- `onTouchRelease(...)`
+- `onTrackOptionChange(...)`
+- `onTradeClick(...)`
+- `onTradeTypeChange(...)`
+- `onTradeWith(...)`
+- `onTurn(...)`
+- `onTypeChange(...)`
+- `onUnjustifiedPointsChange(...)`
+- `onUpdateNeeded(...)`
+- `onUse(...)`
+- `onUseWith(...)`
+- `onValueChange(...)`
+- `onVipListLabelMousePress(...)`
+- `onVipListMousePress(...)`
+- `onVipStateChange(...)`
+- `onVisibilityChange(...)`
+- `onWalk(...)`
+- `onWalkFinish(...)`
+- `onWidgetHoverChange(...)`
+- `onWidgetKeyDown(...)`
+- `onWidgetKeyPress(...)`
+- `onWidgetKeyUp(...)`
+- `onWidgetStyleApply(...)`
+- `onWingsSelect(...)`
+- `onWsClose(...)`
+- `onWsError(...)`
+- `onWsMessage(...)`
+- `onWsOpen(...)`
+- `onZoomChange(...)`
 
-c
+### 1.2. Kontekst `ctx.*`
+_brak_
 
-j
+### 1.3. Moduły (eksporty `M.*`)
+_brak_
 
-e
-
-- **Typy**: `string`, `number`, `boolean`, `table`, `nil`.
-- **Czas**: UNIX ms (`number`).
-- **Błędy**: kody `E_*` + opis; w WS pole `error`.
-- **Nazewnictwo**:
-  - Lua: `snake_case`
-  - Eventy: `dot.case` (`metrics.update`, `cmd.result`)
-  - OTUI: `id` unikalne, `class` do stylów.
+### 1.4. Globalne funkcje (heur.)
+- `abort()`
+- `about_graphics()`
+- `about_modules()`
+- `about_version()`
+- `abs()`
+- `accept()`
+- `action()`
+- `add()`
+- `alarm()`
+- `api()`
+- `assert()`
+- `atan2()`
+- `attack()`
+- `back()`
+- `band()`
+- `bit()`
+- `bonus()`
+- `booleantonumber()`
+- `button()`
+- `buy()`
+- `bxor()`
+- `byte()`
+- `callback()`
+- `cancel()`
+- `cast()`
+- `cavebot()`
+- `ceil()`
+- `center()`
+- `challenge()`
+- `changed()`
+- `char()`
+- `check()`
+- `chodzenie()`
+- `clean()`
+- `clear()`
+- `clearbit()`
+- `client()`
+- `close()`
+- `codepoint_to_utf8()`
+- `collect()`
+- `colortostring()`
+- `comma_value()`
+- `compare()`
+- `concat()`
+- `condition()`
+- `config()`
+- `connect()`
+- `container()`
+- `contains()`
+- `copy()`
+- `cos()`
+- `countbrackets()`
+- `create()`
+- `create_set()`
+- `date()`
+- `debuff()`
+- `decode()`
+- `decode_error()`
+- `decrement()`
+- `decrypt()`
+- `delay()`
+- `destory()`
+- `destroy()`
+- `difftime()`
+- `direction()`
+- `directory()`
+- `dirtostring()`
+- `disable()`
+- `disconnect()`
+- `dismount()`
+- `display()`
+- `distance()`
+- `dofile()`
+- `dofiles()`
+- `down()`
+- `download()`
+- `draw_debug_boxes()`
+- `dump()`
+- `edit()`
+- `editor()`
+- `elseif()`
+- `empty()`
+- `enable()`
+- `encode()`
+- `encode_nil()`
+- `encode_number()`
+- `encode_string()`
+- `encode_table()`
+- `encrypt()`
+- `ends()`
+- `enqueue()`
+- `eof()`
+- `equal()`
+- `equals()`
+- `error()`
+- `escape_char()`
+- `exist()`
+- `exists()`
+- `exit()`
+- `exp()`
+- `explode()`
+- `export()`
+- `extends()`
+- `extension()`
+- `extract()`
+- `fail()`
+- `fatal()`
+- `file()`
+- `files()`
+- `fill()`
+- `find()`
+- `findbyfield()`
+- `findbykey()`
+- `findkey()`
+- `flash()`
+- `float()`
+- `floor()`
+- `fmod()`
+- `focus()`
+- `follow()`
+- `format()`
+- `format_thousand()`
+- `freecap()`
+- `frexp()`
+- `fromboolean()`
+- `func()`
+- `gcinfo()`
+- `get()`
+- `getfenv()`
+- `getfsrcpath()`
+- `getinfo()`
+- `getmetatable()`
+- `getn()`
+- `getname()`
+- `gmatch()`
+- `gsub()`
+- `haskey()`
+- `helper()`
+- `hide()`
+- `hide_map()`
+- `high()`
+- `hotkey()`
+- `hppercent()`
+- `import()`
+- `increment()`
+- `info()`
+- `information()`
+- `init()`
+- `insert()`
+- `invalid()`
+- `inventory()`
+- `ipairs()`
+- `iptostring()`
+- `isinteger()`
+- `issues()`
+- `isu16()`
+- `isu32()`
+- `isu64()`
+- `isu8()`
+- `ldexp()`
+- `left()`
+- `len()`
+- `level()`
+- `line()`
+- `lines()`
+- `list()`
+- `listen()`
+- `load()`
+- `loadasmodule()`
+- `loadfile()`
+- `loadstring()`
+- `lock()`
+- `log()`
+- `login()`
+- `logs()`
+- `look()`
+- `lose()`
+- `lower()`
+- `lvl()`
+- `macro()`
+- `macros()`
+- `make_indent()`
+- `makedecoder()`
+- `makeencoder()`
+- `makesingleton()`
+- `mana()`
+- `manapercent()`
+- `match()`
+- `matchcount()`
+- `max()`
+- `maximize()`
+- `menu()`
+- `merge()`
+- `message()`
+- `micros()`
+- `millis()`
+- `min()`
+- `minimize()`
+- `mod()`
+- `module_loader()`
+- `monitor()`
+- `mount()`
+- `move()`
+- `music()`
+- `name()`
+- `new()`
+- `newclass()`
+- `next()`
+- `next_char()`
+- `nfiles()`
+- `number()`
+- `numbertoboolean()`
+- `off()`
+- `offline()`
+- `opcode()`
+- `open()`
+- `order()`
+- `pack()`
+- `pairs()`
+- `params()`
+- `parse()`
+- `parse_array()`
+- `parse_literal()`
+- `parse_number()`
+- `parse_object()`
+- `parse_string()`
+- `parse_unicode_escape()`
+- `pathfinder()`
+- `pcall()`
+- `pcolored()`
+- `pdebug()`
+- `permute()`
+- `perror()`
+- `pinfo()`
+- `ping()`
+- `place()`
+- `play()`
+- `pointtostring()`
+- `popvalue()`
+- `pos()`
+- `position()`
+- `post()`
+- `postostring()`
+- `posx()`
+- `posy()`
+- `posz()`
+- `pow()`
+- `preload()`
+- `prev()`
+- `process()`
+- `proper()`
+- `properly()`
+- `protectedcall()`
+- `pwarning()`
+- `quit()`
+- `raise()`
+- `random()`
+- `randomness()`
+- `randomseed()`
+- `range()`
+- `rawget()`
+- `recttostring()`
+- `recursivecopy()`
+- `recv()`
+- `refresh()`
+- `reload()`
+- `remove()`
+- `removevalue()`
+- `rep()`
+- `report()`
+- `reset()`
+- `resize()`
+- `resolvepath()`
+- `restart()`
+- `retries()`
+- `reverse()`
+- `rotate()`
+- `round()`
+- `rpairs()`
+- `run()`
+- `runinsandbox()`
+- `sandboxed()`
+- `save()`
+- `say()`
+- `scale()`
+- `schedule()`
+- `script()`
+- `second()`
+- `seconds()`
+- `see()`
+- `select()`
+- `selectivecopy()`
+- `send()`
+- `separatly()`
+- `server()`
+- `servidor()`
+- `serwera()`
+- `set()`
+- `setbit()`
+- `setfenv()`
+- `setmetatable()`
+- `setter()`
+- `setup()`
+- `shl()`
+- `show()`
+- `show_map()`
+- `shr()`
+- `signalcall()`
+- `silent()`
+- `sin()`
+- `singlehotkey()`
+- `size()`
+- `sizetostring()`
+- `slow()`
+- `sort()`
+- `split()`
+- `splitlines()`
+- `sqrt()`
+- `stamina()`
+- `starts()`
+- `startup()`
+- `stop()`
+- `storage()`
+- `sub()`
+- `summons()`
+- `table()`
+- `talk()`
+- `target()`
+- `terminate()`
+- `test()`
+- `text()`
+- `the()`
+- `time()`
+- `toboolean()`
+- `tocolor()`
+- `toggle()`
+- `tonumber()`
+- `topoint()`
+- `torect()`
+- `tosize()`
+- `tostring()`
+- `traceback()`
+- `trim()`
+- `turn()`
+- `type()`
+- `types()`
+- `underscore()`
+- `unexport()`
+- `unload()`
+- `unlock()`
+- `unpack()`
+- `update()`
+- `upper()`
+- `use()`
+- `usewith()`
+- `validate()`
+- `value()`
+- `values()`
+- `voc()`
+- `void()`
+- `wait()`
+- `walk()`
+- `warn()`
+- `warning()`
+- `wrap()`
 
 ---
 
-## 1. Runtime Lua / Moduły
+## 2. OTUI (layouty)
+### layouts/mobile/styles/10-scrollbars.otui
+- `sliderButton` — **ScrollBarSlider**
+- `valueLabel` — **ScrollBarValueLabel**
+- `decrementButton` — **UIButton**
+- `incrementButton` — **UIButton**
+- `decrementButton` — **UIButton**
+- `incrementButton` — **UIButton**
 
-v
+### layouts/mobile/styles/20-smallscrollbar.otui
+- `decrementButton` — **UIButton**
+- `incrementButton` — **UIButton**
+- `sliderButton` — **UIButton**
+- `valueLabel` — **Label**
 
-B
+### layouts/mobile/styles/30-miniwindow.otui
+- `miniwindowTopBar` — **UIWidget**
+- `closeButton` — **UIButton**
+- `minimizeButton` — **UIButton**
+- `lockButton` — **UIButton**
+- `miniwindowScrollBar` — **VerticalScrollBar**
+- `bottomResizeBorder` — **ResizeBorder**
+- `contentsPanel` — **MiniWindowContents**
 
-o
+### layouts/mobile/styles/40-console.otui
+- `consoleTab` — **ConsoleTabBarPanel**
+- `consoleBuffer` — **ScrollablePanel**
+- `consoleScrollBar` — **VerticalScrollBar**
+- `toggleChat` — **CheckBox**
+- `prevChannelButton` — **TabButton**
+- `consoleTabBar` — **ConsoleTabBar**
+- `nextChannelButton` — **TabButton**
+- `closeChannelButton` — **TabButton**
+- `clearChannelButton` — **TabButton**
+- `channelsButton` — **TabButton**
+- `ignoreButton` — **TabButton**
+- `consoleContentPanel` — **Panel**
+- `sayModeButton` — **TabButton**
+- `consoleTextEdit` — **TextEdit**
 
-t
+### layouts/mobile/styles/40-inventory.otui
+- `slot1` — **HeadSlot**
+- `slot4` — **BodySlot**
+- `slot7` — **LegSlot**
+- `slot8` — **FeetSlot**
+- `slot2` — **NeckSlot**
+- `slot6` — **LeftSlot**
+- `slot9` — **FingerSlot**
+- `slot3` — **BackSlot**
+- `slot5` — **RightSlot**
+- `slot10` — **AmmoSlot**
+- `purseButton` — **PurseButton**
+- `inventoryWindow` — **InventoryWindow**
+- `inventoryPanel` — **Panel**
+- `soulLabel` — **SoulCapLabel**
+- `capLabel` — **SoulCapLabel**
+- `conditionPanel` — **Panel**
+- `fightOffensiveBox` — **FightOffensiveBox**
+- `chaseModeBox` — **ChaseModeBox**
+- `fightBalancedBox` — **FightBalancedBox**
+- `safeFightBox` — **SafeFightBox**
+- `fightDefensiveBox` — **FightDefensiveBox**
+- `mountButton` — **MountButton**
+- `buttonsPanel` — **Panel**
+- `buttonPvp` — **UIButton**
 
-### 1.1. Cykl życia mo
+### layouts/retro/styles/20-tabbars.otui
+- `buttonsPanel` — **TabBar**
+- `buttonsPanel` — **TabBarVertical**
+- `scrollBar` — **VerticalScrollBar**
 
-d
+### layouts/retro/styles/20-topmenu.otui
+- `topMenu` — **TopMenu**
+- `discord` — **UIWidget**
+- `discordLabel` — **Label**
+- `rightButtonsPanel` — **TopMenuButtonsPanel**
+- `rightGameButtonsPanel` — **TopMenuButtonsPanel**
+- `onlineLabel` — **Label**
+- `leftButtonsPanel` — **TopMenuButtonsPanel**
+- `leftGameButtonsPanel` — **TopMenuButtonsPanel**
 
-u
+### layouts/retro/styles/30-miniwindow.otui
+- `miniwindowTopBar` — **UIWidget**
+- `closeButton` — **UIButton**
+- `minimizeButton` — **UIButton**
+- `lockButton` — **UIButton**
+- `miniwindowScrollBar` — **VerticalScrollBar**
+- `bottomResizeBorder` — **ResizeBorder**
+- `contentsPanel` — **MiniWindowContents**
+- `minimizeButton` — **UIButton**
+- `miniwindowTopBar` — **UIWidget**
+- `closeButton` — **UIButton**
+- `miniwindowScrollBar` — **VerticalScrollBar**
+- `bottomResizeBorder` — **ResizeBorder**
 
-ł
+### layouts/retro/styles/40-console.otui
+- `consoleTab` — **ConsoleTabBarPanel**
+- `consoleBuffer` — **ScrollablePanel**
+- `consoleScrollBar` — **VerticalScrollBar**
+- `toggleChat` — **CheckBox**
+- `prevChannelButton` — **TabButton**
+- `consoleTabBar` — **ConsoleTabBar**
+- `nextChannelButton` — **TabButton**
+- `closeChannelButton` — **TabButton**
+- `clearChannelButton` — **TabButton**
+- `channelsButton` — **TabButton**
+- `ignoreButton` — **TabButton**
+- `consoleContentPanel` — **Panel**
+- `sayModeButton` — **TabButton**
+- `separator` — **HorizontalSeparator**
+- `consoleTextEdit` — **TextEdit**
 
-u
+### layouts/retro/styles/40-gamebuttons.otui
+- `buttons` — **Panel**
 
-```lua
--- modules/<name>/init.lua
-local M = {}
+### layouts/retro/styles/40-healthinfo.otui
+- `experienceBar` — **ExperienceBar**
+- `soulLabel` — **SoulLabel**
+- `capLabel` — **CapLabel**
+- `healthOverlay` — **HealthOverlay**
+- `topHealthBar` — **HealthBar**
+- `topManaBar` — **ManaBar**
+- `healthCircle` — **UIProgressBar**
+- `healthCircleFront` — **UIProgressBar**
+- `manaCircle` — **UIProgressBar**
+- `manaCircleFront` — **UIProgressBar**
+- `healthBar` — **HealthBar**
+- `manaBar` — **ManaBar**
+- `conditionPanel` — **ExperienceBar**
 
--- Wywoływane przy starcie modułu
-function M.start(ctx) end
+### layouts/retro/styles/40-inventory.otui
+- `slot1` — **HeadSlot**
+- `slot4` — **BodySlot**
+- `slot7` — **LegSlot**
+- `slot8` — **FeetSlot**
+- `slot2` — **NeckSlot**
+- `slot6` — **LeftSlot**
+- `slot9` — **FingerSlot**
+- `slot3` — **BackSlot**
+- `slot5` — **RightSlot**
+- `slot10` — **AmmoSlot**
+- `purseButton` — **PurseButton**
+- `inventoryWindow` — **InventoryWindow**
+- `minimizeButton` — **UIButton**
+- `inventoryPanel` — **Panel**
+- `soulLabel` — **SoulCapLabel**
+- `capLabel` — **SoulCapLabel**
+- `conditionPanel` — **Panel**
+- `fightOffensiveBox` — **FightOffensiveBox**
+- `chaseModeBox` — **ChaseModeBox**
+- `fightBalancedBox` — **FightBalancedBox**
+- `safeFightBox` — **SafeFightBox**
+- `fightDefensiveBox` — **FightDefensiveBox**
+- `mountButton` — **MountButton**
+- `buttonsPanel` — **Panel**
+- `buttonPvp` — **UIButton**
 
--- Wywoływane przy zatrzymaniu modułu
-function M.stop(ctx) end
+### layouts/retro/styles/40-minimap.otui
+- `floorUpWidget` — **MinimapFloorUpButton**
+- `floorDownWidget` — **MinimapFloorDownButton**
+- `zoomInWidget` — **MinimapZoomInButton**
+- `zoomOutWidget` — **MinimapZoomOutButton**
+- `resetWidget` — **MinimapResetButton**
+- `position` — **Label**
+- `description` — **TextEdit**
+- `flag0` — **MinimapFlagCheckBox**
+- `flag1` — **MinimapFlagCheckBox**
+- `flag2` — **MinimapFlagCheckBox**
+- `flag3` — **MinimapFlagCheckBox**
+- `flag4` — **MinimapFlagCheckBox**
+- `flag5` — **MinimapFlagCheckBox**
+- `flag6` — **MinimapFlagCheckBox**
+- `flag7` — **MinimapFlagCheckBox**
+- `flag8` — **MinimapFlagCheckBox**
+- `flag9` — **MinimapFlagCheckBox**
+- `flag10` — **MinimapFlagCheckBox**
+- `flag11` — **MinimapFlagCheckBox**
+- `flag12` — **MinimapFlagCheckBox**
+- `flag13` — **MinimapFlagCheckBox**
+- `flag14` — **MinimapFlagCheckBox**
+- `flag15` — **MinimapFlagCheckBox**
+- `flag16` — **MinimapFlagCheckBox**
+- `flag17` — **MinimapFlagCheckBox**
+- `flag18` — **MinimapFlagCheckBox**
+- `flag19` — **MinimapFlagCheckBox**
+- `okButton` — **Button**
+- `cancelButton` — **Button**
+- `minimap` — **Minimap**
 
--- (opcjonalnie) okresowe ticki
-function M.tick(ctx, dt_ms) end
+### layouts/retro/styles/40-outfitwindow.otui
+- `creature` — **UICreature**
+- `title` — **Label**
+- `rename` — **Panel**
+- `input` — **TextEdit**
+- `save` — **Button**
+- `outfit` — **UICreature**
+- `bar` — **Panel**
+- `name` — **Label**
+- `preview` — **MiniPanel**
+- `options` — **Panel**
+- `showFloor` — **FlatPanel**
+- `check` — **CheckBox**
+- `showOutfit` — **FlatPanel**
+- `check` — **CheckBox**
+- `showMount` — **FlatPanel**
+- `check` — **CheckBox**
+- `showWings` — **FlatPanel**
+- `check` — **CheckBox**
+- `showAura` — **FlatPanel**
+- `check` — **CheckBox**
+- `showShader` — **FlatPanel**
+- `check` — **CheckBox**
+- `showBars` — **FlatPanel**
+- `check` — **CheckBox**
+- `panel` — **FlatPanel**
+- `floor` — **Panel**
+- `creature` — **UICreature**
+- `bars` — **Panel**
+- `name` — **Label**
+- `healthBar` — **Panel**
+- `image` — **Panel**
+- `manaBar` — **Panel**
+- `image` — **Panel**
+- `movement` — **ChaseModeBox**
+- `configure` — **MiniPanel**
+- `addon1` — **FlatPanel**
+- `check` — **CheckBox**
+- `addon2` — **FlatPanel**
+- `check` — **CheckBox**
+- `mount` — **FlatPanel**
+- `check` — **CheckBox**
+- `appearance` — **MiniPanel**
+- `settings` — **ScrollablePanel**
+- `preset` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `outfit` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `mount` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `wings` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `aura` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `shader` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `healthBar` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `manaBar` — **Panel**
+- `check` — **CheckBox**
+- `name` — **FlatPanel**
+- `scrollbar` — **VerticalScrollBar**
+- `colorMode` — **Panel**
+- `head` — **ButtonBox**
+- `colorBoxPanel` — **Panel**
+- `presetButtons` — **MiniPanel**
+- `listSearch` — **MiniPanel**
+- `search` — **TextEdit**
+- `presetsList` — **ScrollablePanel**
+- `presetsScroll` — **VerticalScrollBar**
+- `selectionList` — **ScrollablePanel**
+- `selectionScroll` — **VerticalScrollBar**
+- `separator` — **HorizontalSeparator**
 
-return M
-
-```
-
-**`ctx` (context)** – most do UI/WS/IO:
-
-| Metoda                      | Opis                            | Przykład                                 |        |            |                           |
-| --------------------------- | ------------------------------- | ---------------------------------------- | ------ | ---------- | ------------------------- |
-| `ctx.emit(target, payload)` | Publikuj zdarzenie do UI/mostu. | `ctx.emit("status", {text="OK"})`        |        |            |                           |
-| `ctx.on(event, fn)`         | Subskrypcja lokalnego eventu.   | `ctx.on("config.changed", fn)`           |        |            |                           |
-| `ctx.log(msg, level?)`      | Log (`"debug"                   | "info"                                   | "warn" | "error"`). | `ctx.log("start","info")` |
-| `ctx.set_timeout(ms, fn)`   | Jednorazowy timer; zwraca `id`. |                                          |        |            |                           |
-| `ctx.clear_timeout(id)`     | Anuluj timer.                   |                                          |        |            |                           |
-| `ctx.storage.get(key)`      | Odczyt z pamięci modułu.        |                                          |        |            |                           |
-| `ctx.storage.set(key,val)`  | Zapis do pamięci modułu.        |                                          |        |            |                           |
-| `ctx.ws.send(type, data)`   | Wyślij wiadomość WS (patrz §3). | `ctx.ws.send("telemetry.push",{hp=100})` |        |            |                           |
-
-> TODO: dopisz rzeczywiste metody `ctx` z projektu (HTTP? FS? IPC?).
-
-### 1.2. Zdarzenia globalne Lua (emiter siln
-
-i
-
-k
-
-a
-
-)
-
-Rejestrujesz globalnie (przed startem lub w `M.start`). **Silnik emituje** m.in.:
-
-```lua
--- Chat/komunikacja
-onTalk(function(name, level, mode, text) end)  -- TODO: potwierdź argumenty
-
--- Obiekty
-onCreatureAppear(function(creature) end)
-onCreatureDisappear(function(creature) end)
-onCreatureHealthChange(function(creature, hp, hpmax) end)
-
--- Wejście/użytkownik
-onKeyDown(function(key) end)
-onKeyUp(function(key) end)
-onMouseEvent(function(x, y, btn, state) end)
-
--- Czas
-every(ms, function() end)        -- helper okresowy
-schedule(ms, function() end)     -- jednorazowy
-cancel(timer_id)
-
-```
-
-> TODO: uzupełnij pełną listę eventów i ich parametry.
-
-### 1.3. Błędy (
-
-L
-
-u
-
-a
-
-)
-
-- `E_ARG` – zły typ/zakres argumentu
-- `E_STATE` – nieprawidłowy stan (np. brak UI id)
-- `E_TIMEOUT` – operacja przekroczyła czas
-- `E_INTERNAL` – błąd wewnętrzny
 
 ---
 
-## 2. OTUI (UI Bri
+## 3. WebSocket
+### 3.1. Typy wiadomości (wykryte)
+- `MIT`
+- `OpenCollective`
+- `array`
+- `boolean`
+- `commonjs`
+- `git`
+- `github`
+- `integer`
+- `module`
+- `object`
+- `opencollective`
+- `string`
+- `time-permitting`
+- `value`
 
-d
-
-g
-
-e
-
-)
-
-### 2.1. Identyfikacja i wiąz
-
-a
-
-n
-
-i
-
-a
-
-- Każdy element ma `id` (unikalny w layoucie).
-- Zmiana właściwości przez emit:
-
-```lua
--- Tekst w Label#status
-ctx.emit("status", { text = "Running" })
-
-```
-
-**Mapowanie domyślne (bridge po id):**
-
-| Emisja `target` | Element OTUI (przykład) | Pola                         |
-| --------------- | ----------------------- | ---------------------------- |
-| `"status"`      | `Label#status`          | `text`, `color?`, `visible?` |
-| `"hp_bar"`      | `ProgressBar#hp_bar`    | `value`, `max?`, `color?`    |
-| `"list"`        | `ListView#list`         | `items: string[]`            |
-
-> TODO: dopisz Twoje id → obsługiwane pola.
-
-### 2.2. Layout – przy
-
-k
-
-ł
-
-a
-
-d
-
-```otui
-Panel
-  id: main
-  size: 400 240
-  anchor: top left
-
-Label
-  id: status
-  text: "init"
-  anchors.centerIn: parent
-
-```
-
-### 2.3. Zdarzenia z UI d
-
-o
-
-L
-
-u
-
-a
-
-UI może wywołać event do Lua:
-
-```lua
-ctx.on("ui.click.status", function(args) end)
-
-```
-
-> TODO: lista eventów z UI (klik, input, select) i payloady.
+### 3.2. Schematy JSON (\$id → plik)
+- `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json` → `node_modules/markdownlint/schema/markdownlint-config-schema-strict.json`
+- `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema.json` → `node_modules/markdownlint/schema/markdownlint-config-schema.json`
 
 ---
 
-## 3. WebSocket (proto
-
-k
-
-ó
-
-ł
-
-)
-
-### 3.1. Kanał i
-
-t
-
-r
-
-y
-
-b
-
-- Transport: `wss://<host>/ws` (JSON UTF-8).
-- Autoryzacja: JWT w `Authorization: Bearer <token>` lub cookie sesji.
-- `Origin` allowlist; `pingTimeout`; rate-limit i maks. payload (np. 32KB).
-
-### 3.2. Typy wiadom
-
-o
-
-ś
-
-c
-
-i
-
-#### Serwer → Klient (dashbo
-
-a
-
-r
-
-d
-
-)
-
-```ts
-type ServerEvent =
-  | { type: "metrics.update"; ts: number; payload: { hp: number; mp: number; [k: string]: number } }
-  | { type: "log.line"; ts: number; level: "debug" | "info" | "warn" | "error"; msg: string }
-  | { type: "char.info"; ts: number; payload: { name: string; level: number; voc: string } }
-  | { type: "cmd.result"; ts: number; id: string; ok: boolean; error?: string; data?: any };
-```
-
-#### Klient → Se
-
-r
-
-w
-
-e
-
-r
-
-```ts
-type ClientEvent =
-  | { type: "cmd"; id: string; name: "START" | "STOP" | "RELOAD"; args?: any }
-  | { type: "subscribe"; topics: string[] } // np. ["metrics.*","log.*"]
-  | { type: "settings.update"; patch: Record<string, any> };
-```
-
-**Przykład**:
-
-```json
-{ "type": "cmd", "id": "abc123", "name": "START", "args": { "profile": "pvp" } }
-```
-
-### 3.3. JSON Schema (walidacja na serwe
-
-r
-
-z
-
-e
-
-)
-
-`schemas/ws/cmd.schema.json`
-
-```json
-{
-  "$id": "ws/cmd.schema.json",
-  "type": "object",
-  "required": ["type", "id", "name"],
-  "properties": {
-    "type": { "const": "cmd" },
-    "id": { "type": "string", "minLength": 1 },
-    "name": { "type": "string", "enum": ["START", "STOP", "RELOAD"] },
-    "args": { "type": "object", "additionalProperties": true }
-  },
-  "additionalProperties": false
-}
-```
-
-> TODO: dodaj schematy `metrics.update`, `log.line`, `settings.update`, …
-
-### 3.4. Błę
-
-d
-
-y
-
-W
-
-S
-
-- `401` – brak/niepoprawny token
-- `403` – brak uprawnień (RBAC)
-- `429` – limit
-- `4401` (app) – walidacja payloadu (`error: "E_SCHEMA"`)
+## 4. C++ (nagłówki)
+- **src/framework/global.h**: `extern void fatalError(const char* error, const char* file, int line)`
+- **src/android/android_native_app_glue.h**: `int8_t android_app_read_cmd(struct android_app* android_app)` — Call when ALooper_pollAll() returns LOOPER_ID_MAIN, reading the next
+app command message.
+- **src/android/android_native_app_glue.h**: `void android_app_pre_exec_cmd(struct android_app* android_app, int8_t cmd)` — Call with the command returned by android_app_read_cmd() to do the
+initial pre-processing of the given command.  You can perform your own
+actions for the command after calling this function.
+- **src/android/android_native_app_glue.h**: `void android_app_post_exec_cmd(struct android_app* android_app, int8_t cmd)` — Call with the command returned by android_app_read_cmd() to do the
+final post-processing of the given command.  You must have done your own
+actions for the command before calling this function.
+- **src/android/android_native_app_glue.h**: `extern void android_main(struct android_app* app)` — This is the function that application code must implement, representing
+the main entry to the app.
+- **src/client/walkmatrix.h**: `return clear()`
+- **src/client/uisprite.h**: `void drawSelf(Fw::DrawPane drawPane)`
+- **src/client/uisprite.h**: `void setSpriteId(uint32 id)`
+- **src/client/uisprite.h**: `void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
+- **src/client/uiprogressrect.h**: `void drawSelf(Fw::DrawPane drawPane)`
+- **src/client/uiprogressrect.h**: `void setPercent(float percent)`
+- **src/client/uiprogressrect.h**: `void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
+- **src/client/uiminimap.h**: `void drawSelf(Fw::DrawPane drawPane)`
+- **src/client/uiminimap.h**: `bool setZoom(int zoom)`
+- **src/client/uiminimap.h**: `void setCameraPosition(const Position& pos)`
+- **src/client/uiminimap.h**: `bool floorUp()`
+- **src/client/uiminimap.h**: `bool floorDown()`
+- **src/client/uiminimap.h**: `Point getTilePoint(const Position& pos)`
+- **src/client/uiminimap.h**: `Rect getTileRect(const Position& pos)`
+- **src/client/uiminimap.h**: `Position getTilePosition(const Point& mousePos)`
+- **src/client/uiminimap.h**: `void anchorPosition(const UIWidgetPtr& anchoredWidget, Fw::AnchorEdge anchoredEdge, const Position& hookedPosition, Fw::AnchorEdge hookedEdge)`
+- **src/client/uiminimap.h**: `void fillPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition)`
+- **src/client/uiminimap.h**: `void centerInPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition)`
+- **src/client/uiminimap.h**: `virtual void onZoomChange(int zoom, int oldZoom)`
+- **src/client/uiminimap.h**: `virtual void onCameraPositionChange(const Position& position, const Position& oldPosition)`
+- **src/client/uiminimap.h**: `virtual void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
+- **src/client/uiminimap.h**: `void update()`
+- **src/client/uimapanchorlayout.h**: `int getHookedPoint(const UIWidgetPtr& hookedWidget, const UIWidgetPtr& parentWidget)`
+- **src/client/uimapanchorlayout.h**: `void centerInPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition)`
+- **src/client/uimapanchorlayout.h**: `void fillPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition)`
+- **src/client/uimap.h**: `bool onMouseMove(const Point& mousePos, const Point& mouseMoved)`
+- **src/client/uimap.h**: `void drawSelf(Fw::DrawPane drawPane)`
+- **src/client/uimap.h**: `void movePixels(int x, int y)`
+- **src/client/uimap.h**: `bool setZoom(int zoom)`
+- **src/client/uimap.h**: `bool zoomIn()`
+- **src/client/uimap.h**: `bool zoomOut()`
+- **src/client/uimap.h**: `void setVisibleDimension(const Size& visibleDimension)`
+- **src/client/uimap.h**: `void setKeepAspectRatio(bool enable)`
+- **src/client/uimap.h**: `Position getPosition(const Point& mousePos)`
+- **src/client/uimap.h**: `Point getPositionOffset(const Point& mousePos)`
+- **src/client/uimap.h**: `TilePtr getTile(const Point& mousePos)`
+- **src/client/uimap.h**: `virtual void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
+- **src/client/uimap.h**: `virtual void onGeometryChange(const Rect& oldRect, const Rect& newRect)`
+- **src/client/uimap.h**: `void updateVisibleDimension()`
+- **src/client/uimap.h**: `void updateMapSize()`
+- **src/client/uiitem.h**: `void drawSelf(Fw::DrawPane drawPane)`
+- **src/client/uiitem.h**: `void setItemId(int id)`
+- **src/client/uiitem.h**: `void setItemCount(int count)`
+- **src/client/uiitem.h**: `void setItemSubType(int subType)`
+- **src/client/uiitem.h**: `void setItem(const ItemPtr& item)`
+- **src/client/uiitem.h**: `void setItemShader(const std::string& str)`
+- **src/client/uiitem.h**: `void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
+- **src/client/uiitem.h**: `void cacheCountText()`
+- **src/client/uigraph.h**: `void drawSelf(Fw::DrawPane drawPane)`
+- **src/client/uigraph.h**: `void clear()`
+- **src/client/uigraph.h**: `void addValue(int value, bool ignoreSmallValues = false)`
+- **src/client/uigraph.h**: `void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
+- **src/client/uicreature.h**: `void drawSelf(Fw::DrawPane drawPane)`
+- **src/client/uicreature.h**: `void setOutfit(const Outfit& outfit)`
+- **src/client/uicreature.h**: `void setCenter(bool value)`
+- **src/client/uicreature.h**: `void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
+- **src/client/towns.h**: `void addTown(const TownPtr& town)`
+- **src/client/towns.h**: `void removeTown(uint32 townId)`
+- **src/client/towns.h**: `const TownPtr& getTown(uint32 townId)`
+- **src/client/towns.h**: `const TownPtr& getTownByName(std::string name)`
+- **src/client/towns.h**: `void sort()`
+- **src/client/towns.h**: `TownList::iterator findTown(uint32 townId)`
+- **src/client/tile.h**: `void calculateCorpseCorrection()`
+- **src/client/tile.h**: `void drawGround(const Point& dest, LightView* lightView = nullptr)`
+- **src/client/tile.h**: `void drawBottom(const Point& dest, LightView* lightView = nullptr)`
+- **src/client/tile.h**: `void drawCreatures(const Point& dest, LightView* lightView = nullptr)`
+- **src/client/tile.h**: `void drawTop(const Point& dest, LightView* lightView = nullptr)`
+- **src/client/tile.h**: `void drawTexts(Point dest)`
+- **src/client/tile.h**: `void drawWidget(Point dest)`
+- **src/client/tile.h**: `void clean()`
+- **src/client/tile.h**: `void addWalkingCreature(const CreaturePtr& creature)`
+- **src/client/tile.h**: `void removeWalkingCreature(const CreaturePtr& creature)`
+- **src/client/tile.h**: `void addThing(const ThingPtr& thing, int stackPos)`
+- **src/client/tile.h**: `bool removeThing(ThingPtr thing)`
+- **src/client/tile.h**: `ThingPtr getThing(int stackPos)`
+- **src/client/tile.h**: `EffectPtr getEffect(uint16 id)`
+- **src/client/tile.h**: `bool hasThing(const ThingPtr& thing)`
+- **src/client/tile.h**: `int getThingStackPos(const ThingPtr& thing)`
+- **src/client/tile.h**: `ThingPtr getTopThing()`
+- **src/client/tile.h**: `ThingPtr getTopLookThing()`
+- **src/client/tile.h**: `ThingPtr getTopLookThingEx(Point offset)`
+- **src/client/tile.h**: `ThingPtr getTopUseThing()`
+- **src/client/tile.h**: `CreaturePtr getTopCreature()`
+- **src/client/tile.h**: `CreaturePtr getTopCreatureEx(Point offset)`
+- **src/client/tile.h**: `ThingPtr getTopMoveThing()`
+- **src/client/tile.h**: `ThingPtr getTopMultiUseThing()`
+- **src/client/tile.h**: `ThingPtr getTopMultiUseThingEx(Point offset)`
+- **src/client/tile.h**: `std::vector<ItemPtr> getItems()`
+- **src/client/tile.h**: `std::vector<CreaturePtr> getCreatures()`
+- **src/client/tile.h**: `ItemPtr getGround()`
+- **src/client/tile.h**: `int getGroundSpeed()`
+- **src/client/tile.h**: `uint8 getMinimapColorByte()`
+- **src/client/tile.h**: `bool isPathable()`
+- **src/client/tile.h**: `bool isWalkable(bool ignoreCreatures = false)`
+- **src/client/tile.h**: `bool isFullGround()`
+- **src/client/tile.h**: `bool isFullyOpaque()`
+- **src/client/tile.h**: `bool isSingleDimension()`
+- **src/client/tile.h**: `bool isLookPossible()`
+- **src/client/tile.h**: `bool isBlockingProjectile()`
+- **src/client/tile.h**: `bool isClickable()`
+- **src/client/tile.h**: `bool isEmpty()`
+- **src/client/tile.h**: `bool isDrawable()`
+- **src/client/tile.h**: `bool mustHookSouth()`
+- **src/client/tile.h**: `bool mustHookEast()`
+- **src/client/tile.h**: `bool hasCreature()`
+- **src/client/tile.h**: `bool hasBlockingCreature()`
+- **src/client/tile.h**: `bool limitsFloorsView(bool isFreeView = false)`
+- **src/client/tile.h**: `bool canErase()`
+- **src/client/tile.h**: `int getElevation()`
+- **src/client/tile.h**: `bool hasElevation(int elevation = 1)`
+- **src/client/tile.h**: `void setText(const std::string& text, Color color)`
+- **src/client/tile.h**: `std::string getText()`
+- **src/client/tile.h**: `void setTimer(int time, Color color)`
+- **src/client/tile.h**: `int getTimer()`
+- **src/client/tile.h**: `void setFill(Color color)`
+- **src/client/tile.h**: `bool canShoot(int distance)`
+- **src/client/tile.h**: `void checkTranslucentLight()`
+- **src/client/thingtypemanager.h**: `void init()`
+- **src/client/thingtypemanager.h**: `void terminate()`
+- **src/client/thingtypemanager.h**: `void check()`
+- **src/client/thingtypemanager.h**: `bool loadDat(std::string file)`
+- **src/client/thingtypemanager.h**: `bool loadOtml(std::string file)`
+- **src/client/thingtypemanager.h**: `void loadOtb(const std::string& file)`
+- **src/client/thingtypemanager.h**: `void loadXml(const std::string& file)`
+- **src/client/thingtypemanager.h**: `void parseItemType(uint16 id, TiXmlElement *elem)`
+- **src/client/thingtypemanager.h**: `void saveDat(std::string fileName)`
+- **src/client/thingtypemanager.h**: `void dumpTextures(std::string dir)`
+- **src/client/thingtypemanager.h**: `void replaceTextures(std::string dir)`
+- **src/client/thingtypemanager.h**: `void addItemType(const ItemTypePtr& itemType)`
+- **src/client/thingtypemanager.h**: `const ItemTypePtr& findItemTypeByClientId(uint16 id)`
+- **src/client/thingtypemanager.h**: `const ItemTypePtr& findItemTypeByName(std::string name)`
+- **src/client/thingtypemanager.h**: `ItemTypeList findItemTypesByName(std::string name)`
+- **src/client/thingtypemanager.h**: `ItemTypeList findItemTypesByString(std::string str)`
+- **src/client/thingtypemanager.h**: `const ThingTypePtr& getThingType(uint16 id, ThingCategory category)`
+- **src/client/thingtypemanager.h**: `const ItemTypePtr& getItemType(uint16 id)`
+- **src/client/thingtypemanager.h**: `ThingTypeList findThingTypeByAttr(ThingAttr attr, ThingCategory category)`
+- **src/client/thingtypemanager.h**: `ItemTypeList findItemTypeByCategory(ItemCategory category)`
+- **src/client/thingtypemanager.h**: `const ThingTypeList& getThingTypes(ThingCategory category)`
+- **src/client/thingtype.h**: `void unserialize(uint16 clientId, ThingCategory category, const FileStreamPtr& fin)`
+- **src/client/thingtype.h**: `void unserializeOtml(const OTMLNodePtr& node)`
+- **src/client/thingtype.h**: `void unload()`
+- **src/client/thingtype.h**: `void serialize(const FileStreamPtr& fin)`
+- **src/client/thingtype.h**: `void exportImage(std::string fileName)`
+- **src/client/thingtype.h**: `void replaceSprites(std::map<uint32_t, ImagePtr>& replacements, std::string fileName)`
+- **src/client/thingtype.h**: `DrawQueueItem* draw(const Point& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase, Color color = Color::white, LightView* lightView = nullptr)`
+- **src/client/thingtype.h**: `DrawQueueItem* draw(const Rect& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase, Color color = Color::white)`
+- **src/client/thingtype.h**: `std::shared_ptr<DrawOutfitParams> drawOutfit(const Point& dest, int maskLayer, int xPattern, int yPattern, int zPattern, int animationPhase, Color color = Color::white, LightView* lightView = nullptr)`
+- **src/client/thingtype.h**: `Rect getDrawSize(const Point& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase)`
+- **src/client/thingtype.h**: `void drawWithShader(const Point& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase, const std::string& shader, Color color = Color::white, LightView* lightView = nullptr)`
+- **src/client/thingtype.h**: `void drawWithShader(const Rect& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase, const std::string& shader, Color color = Color::white)`
+- **src/client/thingtype.h**: `int getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern = 0, int animationPhase = 0)`
+- **src/client/thingtype.h**: `void setPathable(bool var)`
+- **src/client/thingtype.h**: `const TexturePtr& getTexture(int animationPhase)`
+- **src/client/thingtype.h**: `Size getBestTextureDimension(int w, int h, int count)`
+- **src/client/thingtype.h**: `uint getSpriteIndex(int w, int h, int l, int x, int y, int z, int a)`
+- **src/client/thingtype.h**: `uint getTextureIndex(int l, int x, int y, int z)`
+- **src/client/thingstype.h**: `bool load(const std::string& file)`
+- **src/client/thingstype.h**: `void unload()`
+- **src/client/thingstype.h**: `bool parseThingType(const FileStreamPtr& fin, ThingType& thingType)`
+- **src/client/thing.h**: `void setPosition(const Position& position)`
+- **src/client/thing.h**: `int getStackPriority()`
+- **src/client/thing.h**: `virtual const TilePtr& getTile()`
+- **src/client/thing.h**: `ContainerPtr getParentContainer()`
+- **src/client/thing.h**: `int getStackPos()`
+- **src/client/thing.h**: `Color updatedMarkedColor()`
+- **src/client/thing.h**: `virtual const ThingTypePtr& getThingType()`
+- **src/client/statictext.h**: `void drawText(const Point& dest, const Rect& parentRect)`
+- **src/client/statictext.h**: `void setText(const std::string& text)`
+- **src/client/statictext.h**: `void setFont(const std::string& fontName)`
+- **src/client/statictext.h**: `bool addMessage(const std::string& name, Otc::MessageMode mode, const std::string& text)`
+- **src/client/statictext.h**: `bool addColoredMessage(const std::string& name, Otc::MessageMode mode, const std::vector<std::string>& texts)`
+- **src/client/statictext.h**: `void update()`
+- **src/client/statictext.h**: `void scheduleUpdate()`
+- **src/client/statictext.h**: `void compose()`
+- **src/client/spritemanager.h**: `void terminate()`
+- **src/client/spritemanager.h**: `bool loadSpr(std::string file)`
+- **src/client/spritemanager.h**: `void unload()`
+- **src/client/spritemanager.h**: `void saveSpr(std::string fileName)`
+- **src/client/spritemanager.h**: `void saveSpr64(std::string fileName)`
+- **src/client/spritemanager.h**: `void encryptSprites(std::string fileName)`
+- **src/client/spritemanager.h**: `void dumpSprites(std::string dir)`
+- **src/client/spritemanager.h**: `ImagePtr getSpriteImage(int id)`
+- **src/client/spritemanager.h**: `bool loadCasualSpr(std::string file)`
+- **src/client/spritemanager.h**: `bool loadCwmSpr(std::string file)`
+- **src/client/spritemanager.h**: `ImagePtr getSpriteImageCasual(int id)`
+- **src/client/spritemanager.h**: `ImagePtr getSpriteImageHd(int id)`
+- **src/client/protocolgame.h**: `void login(const std::string& accountName, const std::string& accountPassword, const std::string& host, uint16 port, const std::string& characterName, const std::string& authenticatorToken, const std::string& sessionKey, const std::string& worldName)`
+- **src/client/protocolgame.h**: `void send(const OutputMessagePtr& outputMessage, bool rawPacket = false)`
+- **src/client/protocolgame.h**: `void sendExtendedOpcode(uint8 opcode, const std::string& buffer)`
+- **src/client/protocolgame.h**: `void sendLoginPacket(uint challengeTimestamp, uint8 challengeRandom)`
+- **src/client/protocolgame.h**: `void sendWorldName()`
+- **src/client/protocolgame.h**: `void sendEnterGame()`
+- **src/client/protocolgame.h**: `void sendLogout()`
+- **src/client/protocolgame.h**: `void sendPing()`
+- **src/client/protocolgame.h**: `void sendPingBack()`
+- **src/client/protocolgame.h**: `void sendNewPing(uint32_t pingId, uint16_t localPing, uint16_t fps)`
+- **src/client/protocolgame.h**: `void sendAutoWalk(const std::vector<Otc::Direction>& path)`
+- **src/client/protocolgame.h**: `void sendWalkNorth()`
+- **src/client/protocolgame.h**: `void sendWalkEast()`
+- **src/client/protocolgame.h**: `void sendWalkSouth()`
+- **src/client/protocolgame.h**: `void sendWalkWest()`
+- **src/client/protocolgame.h**: `void sendStop()`
+- **src/client/protocolgame.h**: `void sendWalkNorthEast()`
+- **src/client/protocolgame.h**: `void sendWalkSouthEast()`
+- **src/client/protocolgame.h**: `void sendWalkSouthWest()`
+- **src/client/protocolgame.h**: `void sendWalkNorthWest()`
+- **src/client/protocolgame.h**: `void sendTurnNorth()`
+- **src/client/protocolgame.h**: `void sendTurnEast()`
+- **src/client/protocolgame.h**: `void sendTurnSouth()`
+- **src/client/protocolgame.h**: `void sendTurnWest()`
+- **src/client/protocolgame.h**: `void sendEquipItem(int itemId, int countOrSubType)`
+- **src/client/protocolgame.h**: `void sendMove(const Position& fromPos, int itemId, int stackpos, const Position& toPos, int count)`
+- **src/client/protocolgame.h**: `void sendInspectNpcTrade(int itemId, int count)`
+- **src/client/protocolgame.h**: `void sendBuyItem(int itemId, int subType, int amount, bool ignoreCapacity, bool buyWithBackpack)`
+- **src/client/protocolgame.h**: `void sendSellItem(int itemId, int subType, int amount, bool ignoreEquipped)`
+- **src/client/protocolgame.h**: `void sendCloseNpcTrade()`
+- **src/client/protocolgame.h**: `void sendRequestTrade(const Position& pos, int thingId, int stackpos, uint playerId)`
+- **src/client/protocolgame.h**: `void sendInspectTrade(bool counterOffer, int index)`
+- **src/client/protocolgame.h**: `void sendAcceptTrade()`
+- **src/client/protocolgame.h**: `void sendRejectTrade()`
+- **src/client/protocolgame.h**: `void sendUseItem(const Position& position, int itemId, int stackpos, int index)`
+- **src/client/protocolgame.h**: `void sendUseItemWith(const Position& fromPos, int itemId, int fromStackPos, const Position& toPos, int toThingId, int toStackPos)`
+- **src/client/protocolgame.h**: `void sendUseOnCreature(const Position& pos, int thingId, int stackpos, uint creatureId)`
+- **src/client/protocolgame.h**: `void sendRotateItem(const Position& pos, int thingId, int stackpos)`
+- **src/client/protocolgame.h**: `void sendWrapableItem(const Position& pos, int thingId, int stackpos)`
+- **src/client/protocolgame.h**: `void sendCloseContainer(int containerId)`
+- **src/client/protocolgame.h**: `void sendUpContainer(int containerId)`
+- **src/client/protocolgame.h**: `void sendEditText(uint id, const std::string& text)`
+- **src/client/protocolgame.h**: `void sendEditList(uint id, int doorId, const std::string& text)`
+- **src/client/protocolgame.h**: `void sendLook(const Position& position, int thingId, int stackpos)`
+- **src/client/protocolgame.h**: `void sendLookCreature(uint creatureId)`
+- **src/client/protocolgame.h**: `void sendTalk(Otc::MessageMode mode, int channelId, const std::string& receiver, const std::string& message, const Position& pos, Otc::Direction dir)`
+- **src/client/protocolgame.h**: `void sendRequestChannels()`
+- **src/client/protocolgame.h**: `void sendJoinChannel(int channelId)`
+- **src/client/protocolgame.h**: `void sendLeaveChannel(int channelId)`
+- **src/client/protocolgame.h**: `void sendOpenPrivateChannel(const std::string& receiver)`
+- **src/client/protocolgame.h**: `void sendOpenRuleViolation(const std::string& reporter)`
+- **src/client/protocolgame.h**: `void sendCloseRuleViolation(const std::string& reporter)`
+- **src/client/protocolgame.h**: `void sendCancelRuleViolation()`
+- **src/client/protocolgame.h**: `void sendCloseNpcChannel()`
+- **src/client/protocolgame.h**: `void sendChangeFightModes(Otc::FightModes fightMode, Otc::ChaseModes chaseMode, bool safeFight, Otc::PVPModes pvpMode)`
+- **src/client/protocolgame.h**: `void sendAttack(uint creatureId, uint seq)`
+- **src/client/protocolgame.h**: `void sendFollow(uint creatureId, uint seq)`
+- **src/client/protocolgame.h**: `void sendInviteToParty(uint creatureId)`
+- **src/client/protocolgame.h**: `void sendJoinParty(uint creatureId)`
+- **src/client/protocolgame.h**: `void sendRevokeInvitation(uint creatureId)`
+- **src/client/protocolgame.h**: `void sendPassLeadership(uint creatureId)`
+- **src/client/protocolgame.h**: `void sendLeaveParty()`
+- **src/client/protocolgame.h**: `void sendShareExperience(bool active)`
+- **src/client/protocolgame.h**: `void sendOpenOwnChannel()`
+- **src/client/protocolgame.h**: `void sendInviteToOwnChannel(const std::string& name)`
+- **src/client/protocolgame.h**: `void sendExcludeFromOwnChannel(const std::string& name)`
+- **src/client/protocolgame.h**: `void sendCancelAttackAndFollow()`
+- **src/client/protocolgame.h**: `void sendRefreshContainer(int containerId)`
+- **src/client/protocolgame.h**: `void sendRequestOutfit()`
+- **src/client/protocolgame.h**: `void sendChangeOutfit(const Outfit& outfit)`
+- **src/client/protocolgame.h**: `void sendOutfitExtensionStatus(int mount = -1, int wings = -1, int aura = -1, int shader = -1, int healthBar = -1, int manaBar = -1)`
+- **src/client/protocolgame.h**: `void sendApplyImbuement(uint8_t slot, uint32_t imbuementId, bool protectionCharm)`
+- **src/client/protocolgame.h**: `void sendClearImbuement(uint8_t slot)`
+- **src/client/protocolgame.h**: `void sendCloseImbuingWindow()`
+- **src/client/protocolgame.h**: `void sendAddVip(const std::string& name)`
+- **src/client/protocolgame.h**: `void sendRemoveVip(uint playerId)`
+- **src/client/protocolgame.h**: `void sendEditVip(uint playerId, const std::string& description, int iconId, bool notifyLogin)`
+- **src/client/protocolgame.h**: `void sendBugReport(const std::string& comment)`
+- **src/client/protocolgame.h**: `void sendRuleViolation(const std::string& target, int reason, int action, const std::string& comment, const std::string& statement, int statementId, bool ipBanishment)`
+- **src/client/protocolgame.h**: `void sendDebugReport(const std::string& a, const std::string& b, const std::string& c, const std::string& d)`
+- **src/client/protocolgame.h**: `void sendRequestQuestLog()`
+- **src/client/protocolgame.h**: `void sendRequestQuestLine(int questId)`
+- **src/client/protocolgame.h**: `void sendNewNewRuleViolation(int reason, int action, const std::string& characterName, const std::string& comment, const std::string& translation)`
+- **src/client/protocolgame.h**: `void sendRequestItemInfo(int itemId, int subType, int index)`
+- **src/client/protocolgame.h**: `void sendAnswerModalDialog(uint32 dialog, int button, int choice)`
+- **src/client/protocolgame.h**: `void sendBrowseField(const Position& position)`
+- **src/client/protocolgame.h**: `void sendSeekInContainer(int cid, int index)`
+- **src/client/protocolgame.h**: `void sendBuyStoreOffer(int offerId, int productType, const std::string& name)`
+- **src/client/protocolgame.h**: `void sendRequestTransactionHistory(int page, int entriesPerPage)`
+- **src/client/protocolgame.h**: `void sendRequestStoreOffers(const std::string& categoryName, int serviceType)`
+- **src/client/protocolgame.h**: `void sendOpenStore(int serviceType)`
+- **src/client/protocolgame.h**: `void sendTransferCoins(const std::string& recipient, int amount)`
+- **src/client/protocolgame.h**: `void sendOpenTransactionHistory(int entiresPerPage)`
+- **src/client/protocolgame.h**: `void sendPreyAction(int slot, int actionType, int index)`
+- **src/client/protocolgame.h**: `void sendPreyRequest()`
+- **src/client/protocolgame.h**: `void sendProcesses()`
+- **src/client/protocolgame.h**: `void sendDlls()`
+- **src/client/protocolgame.h**: `void sendWindows()`
+- **src/client/protocolgame.h**: `void sendChangeMapAwareRange(int xrange, int yrange)`
+- **src/client/protocolgame.h**: `void sendNewWalk(int walkId, int predictionId, const Position& pos, uint8_t flags, const std::vector<Otc::Direction>& path)`
+- **src/client/protocolgame.h**: `void onConnect()`
+- **src/client/protocolgame.h**: `void onRecv(const InputMessagePtr& inputMessage)`
+- **src/client/protocolgame.h**: `void onError(const boost::system::error_code& error)`
+- **src/client/protocolgame.h**: `void addPosition(const OutputMessagePtr& msg, const Position& position)`
+- **src/client/protocolgame.h**: `void parseStoreButtonIndicators(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseSetStoreDeepLink(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseRestingAreaState(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseStore(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseStoreError(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseStoreTransactionHistory(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseStoreOffers(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCompleteStorePurchase(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseRequestPurchaseData(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCoinBalance(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCoinBalanceUpdate(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseBlessings(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseUnjustifiedStats(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePvpSituations(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePreset(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureType(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerHelpers(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMessage(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePendingGame(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseEnterGame(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseLogin(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseGMActions(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseUpdateNeeded(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseLoginError(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseLoginAdvice(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseLoginWait(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseLoginToken(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePing(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePingBack(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseNewPing(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseChallenge(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseDeath(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMapDescription(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseFloorDescription(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMapMoveNorth(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMapMoveEast(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMapMoveSouth(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMapMoveWest(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseUpdateTile(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseTileAddThing(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseTileTransformThing(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseTileRemoveThing(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureMove(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOpenContainer(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCloseContainer(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseContainerAddItem(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseContainerUpdateItem(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseContainerRemoveItem(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseAddInventoryItem(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseRemoveInventoryItem(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOpenNpcTrade(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerGoods(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCloseNpcTrade(const InputMessagePtr&)`
+- **src/client/protocolgame.h**: `void parseWorldLight(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMagicEffect(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseAnimatedText(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseDistanceMissile(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureMark(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseTrappers(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureHealth(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureLight(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureOutfit(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureSpeed(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureSkulls(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureShields(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreatureUnpass(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseEditText(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseEditList(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePremiumTrigger(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePreyFreeRolls(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePreyTimeLeft(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePreyData(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePreyPrices(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseStoreOfferDescription(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerInfo(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerStats(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerSkills(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerState(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerCancelAttack(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerModes(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseSpellCooldown(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseSpellGroupCooldown(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMultiUseCooldown(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseTalk(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseChannelList(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOpenChannel(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOpenPrivateChannel(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOpenOwnPrivateChannel(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCloseChannel(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseRuleViolationChannel(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseRuleViolationRemove(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseRuleViolationCancel(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseRuleViolationLock(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOwnTrade(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCounterTrade(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCloseTrade(const InputMessagePtr&)`
+- **src/client/protocolgame.h**: `void parseTextMessage(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCancelWalk(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseWalkWait(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseFloorChangeUp(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseFloorChangeDown(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOpenOutfitWindow(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseVipAdd(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseVipState(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseVipLogout(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseVipGroupData(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseTutorialHint(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCyclopediaMapData(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseQuestLog(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseQuestLine(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseChannelEvent(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseItemInfo(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePlayerInventory(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseModalDialog(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseClientCheck(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseGameNews(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseMessageDialog(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseBlessDialog(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseResourceBalance(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseServerTime(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseQuestTracker(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseImbuementWindow(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCloseImbuementWindow(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCyclopediaNewDetails(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCyclopedia(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseDailyRewardState(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseOpenRewardWall(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseDailyReward(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseDailyRewardHistory(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseKillTracker(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseLootContainers(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseSupplyStash(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseSpecialContainer(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseDepotState(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseSupplyTracker(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseTournamentLeaderboard(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseImpactTracker(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseItemsPrices(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseLootTracker(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseItemDetail(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseHunting(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseExtendedOpcode(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseChangeMapAwareRange(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseProgressBar(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseFeatures(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseCreaturesMark(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseNewCancelWalk(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parsePredictiveCancelWalk(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseWalkId(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseProcessesRequest(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseDllsRequest(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void parseWindowsRequest(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `void setMapDescription(const InputMessagePtr& msg, int x, int y, int z, int width, int height)`
+- **src/client/protocolgame.h**: `int setFloorDescription(const InputMessagePtr& msg, int x, int y, int z, int width, int height, int offset, int skip)`
+- **src/client/protocolgame.h**: `int setTileDescription(const InputMessagePtr& msg, Position position)`
+- **src/client/protocolgame.h**: `Outfit getOutfit(const InputMessagePtr& msg, bool ignoreMount = false)`
+- **src/client/protocolgame.h**: `ThingPtr getThing(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `ThingPtr getMappedThing(const InputMessagePtr & msg)`
+- **src/client/protocolgame.h**: `CreaturePtr getCreature(const InputMessagePtr& msg, int type = 0)`
+- **src/client/protocolgame.h**: `StaticTextPtr getStaticText(const InputMessagePtr& msg, int type = 0)`
+- **src/client/protocolgame.h**: `ItemPtr getItem(const InputMessagePtr& msg, int id = 0, bool hasDescription = true)`
+- **src/client/protocolgame.h**: `Position getPosition(const InputMessagePtr& msg)`
+- **src/client/protocolgame.h**: `Imbuement getImbuementInfo(const InputMessagePtr& msg)`
+- **src/client/protocolcodes.h**: `void buildMessageModesMap(int version)`
+- **src/client/protocolcodes.h**: `Otc::MessageMode translateMessageModeFromServer(uint8 mode)`
+- **src/client/protocolcodes.h**: `uint8 translateMessageModeToServer(Otc::MessageMode mode)`
+- **src/client/position.h**: `return getAngleFromPositions(*this, position)`
+- **src/client/position.h**: `return getDirectionFromPositions(*this, position)`
+- **src/client/outfit.h**: `return Color::getOutfitColor(color)`
+- **src/client/outfit.h**: `void draw(Point dest, Otc::Direction direction, uint walkAnimationPhase, bool animate = true, LightView* lightView = nullptr, bool ui = false)`
+- **src/client/outfit.h**: `void draw(const Rect& dest, Otc::Direction direction, uint animationPhase, bool animate = true, bool ui = false, bool oldScaling = false)`
+- **src/client/outfit.h**: `void resetClothes()`
+- **src/client/missile.h**: `void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr)`
+- **src/client/missile.h**: `void setId(uint32 id)`
+- **src/client/missile.h**: `void setPath(const Position& fromPosition, const Position& toPosition)`
+- **src/client/missile.h**: `const ThingTypePtr& getThingType()`
+- **src/client/minimap.h**: `void clean()`
+- **src/client/minimap.h**: `void update()`
+- **src/client/minimap.h**: `void updateTile(int x, int y, const MinimapTile& tile)`
+- **src/client/minimap.h**: `void init()`
+- **src/client/minimap.h**: `void terminate()`
+- **src/client/minimap.h**: `void clean()`
+- **src/client/minimap.h**: `void draw(const Rect& screenRect, const Position& mapCenter, float scale, const Color& color)`
+- **src/client/minimap.h**: `Point getTilePoint(const Position& pos, const Rect& screenRect, const Position& mapCenter, float scale)`
+- **src/client/minimap.h**: `Position getTilePosition(const Point& point, const Rect& screenRect, const Position& mapCenter, float scale)`
+- **src/client/minimap.h**: `Rect getTileRect(const Position& pos, const Rect& screenRect, const Position& mapCenter, float scale)`
+- **src/client/minimap.h**: `void updateTile(const Position& pos, const TilePtr& tile)`
+- **src/client/minimap.h**: `const MinimapTile& getTile(const Position& pos)`
+- **src/client/minimap.h**: `bool loadImage(const std::string& fileName, const Position& topLeft, float colorFactor)`
+- **src/client/minimap.h**: `void saveImage(const std::string& fileName, const Rect& mapRect)`
+- **src/client/minimap.h**: `bool loadOtmm(const std::string& fileName)`
+- **src/client/minimap.h**: `void saveOtmm(const std::string& fileName)`
+- **src/client/minimap.h**: `Rect calcMapRect(const Rect& screenRect, const Position& mapCenter, float scale)`
+- **src/client/minimap.h**: `std::lock_guard<std::mutex> lock(m_lock)`
+- **src/client/mapview.h**: `void drawMapBackground(const Rect& rect, const TilePtr& crosshairTile = nullptr)`
+- **src/client/mapview.h**: `void drawMapForeground(const Rect& rect)`
+- **src/client/mapview.h**: `void drawFloor(short floor, const Position& cameraPosition, const TilePtr& crosshairTile = nullptr)`
+- **src/client/mapview.h**: `void drawTileTexts(const Rect& rect, const Rect& srcRect)`
+- **src/client/mapview.h**: `void drawTileWidget(const Rect& rect, const Rect& srcRect)`
+- **src/client/mapview.h**: `void updateGeometry(const Size& visibleDimension, const Size& optimizedSize)`
+- **src/client/mapview.h**: `void updateVisibleTilesCache()`
+- **src/client/mapview.h**: `void onTileUpdate(const Position& pos)`
+- **src/client/mapview.h**: `void onMapCenterChange(const Position& pos)`
+- **src/client/mapview.h**: `void lockFirstVisibleFloor(int firstVisibleFloor)`
+- **src/client/mapview.h**: `void unlockFirstVisibleFloor()`
+- **src/client/mapview.h**: `void setVisibleDimension(const Size& visibleDimension)`
+- **src/client/mapview.h**: `void optimizeForSize(const Size & visibleSize)`
+- **src/client/mapview.h**: `void followCreature(const CreaturePtr& creature)`
+- **src/client/mapview.h**: `void setCameraPosition(const Position& pos)`
+- **src/client/mapview.h**: `Position getCameraPosition()`
+- **src/client/mapview.h**: `void setDrawLights(bool enable)`
+- **src/client/mapview.h**: `void move(int x, int y)`
+- **src/client/mapview.h**: `void setCrosshair(const std::string& file)`
+- **src/client/mapview.h**: `Position getPosition(const Point& point, const Size& mapSize)`
+- **src/client/mapview.h**: `Point getPositionOffset(const Point& point, const Size& mapSize)`
+- **src/client/mapview.h**: `Rect calcFramebufferSource(const Size& destSize, bool inNextFrame = false)`
+- **src/client/mapview.h**: `int calcFirstVisibleFloor(bool forFading = false)`
+- **src/client/mapview.h**: `int calcLastVisibleFloor()`
+- **src/client/mapview.h**: `Point transformPositionTo2D(const Position& position, const Position& relativePosition)`
+- **src/client/map.h**: `void init()`
+- **src/client/map.h**: `void terminate()`
+- **src/client/map.h**: `void addMapView(const MapViewPtr& mapView)`
+- **src/client/map.h**: `void removeMapView(const MapViewPtr& mapView)`
+- **src/client/map.h**: `void notificateTileUpdate(const Position& pos, bool updateMinimap = false)`
+- **src/client/map.h**: `void requestVisibleTilesCacheUpdate()`
+- **src/client/map.h**: `bool loadOtcm(const std::string& fileName)`
+- **src/client/map.h**: `void saveOtcm(const std::string& fileName)`
+- **src/client/map.h**: `void loadOtbm(const std::string& fileName)`
+- **src/client/map.h**: `void saveOtbm(const std::string& fileName)`
+- **src/client/map.h**: `void clean()`
+- **src/client/map.h**: `void cleanDynamicThings()`
+- **src/client/map.h**: `void cleanTexts()`
+- **src/client/map.h**: `void addThing(const ThingPtr& thing, const Position& pos, int stackPos = -1)`
+- **src/client/map.h**: `void setTileSpeed(const Position & pos, uint16_t speed, uint8_t blocking)`
+- **src/client/map.h**: `ThingPtr getThing(const Position& pos, int stackPos)`
+- **src/client/map.h**: `bool removeThing(const ThingPtr& thing)`
+- **src/client/map.h**: `bool removeThingByPos(const Position& pos, int stackPos)`
+- **src/client/map.h**: `void colorizeThing(const ThingPtr& thing, const Color& color)`
+- **src/client/map.h**: `void removeThingColor(const ThingPtr& thing)`
+- **src/client/map.h**: `StaticTextPtr getStaticText(const Position& pos)`
+- **src/client/map.h**: `const TilePtr& createTile(const Position& pos)`
+- **src/client/map.h**: `const TilePtr& createTileEx(const Position& pos, const Items&... items)`
+- **src/client/map.h**: `const TilePtr& getOrCreateTile(const Position& pos)`
+- **src/client/map.h**: `const TilePtr& getTile(const Position& pos)`
+- **src/client/map.h**: `const TileList getTiles(int floor = -1)`
+- **src/client/map.h**: `void cleanTile(const Position& pos)`
+- **src/client/map.h**: `void setShowZone(tileflags_t zone, bool show)`
+- **src/client/map.h**: `void setShowZones(bool show)`
+- **src/client/map.h**: `void setZoneColor(tileflags_t flag, const Color& color)`
+- **src/client/map.h**: `Color getZoneColor(tileflags_t flag)`
+- **src/client/map.h**: `void setForceShowAnimations(bool force)`
+- **src/client/map.h**: `bool isForcingAnimations()`
+- **src/client/map.h**: `bool isShowingAnimations()`
+- **src/client/map.h**: `void setShowAnimations(bool show)`
+- **src/client/map.h**: `void addCreature(const CreaturePtr& creature)`
+- **src/client/map.h**: `CreaturePtr getCreatureById(uint32 id)`
+- **src/client/map.h**: `void removeCreatureById(uint32 id)`
+- **src/client/map.h**: `std::vector<CreaturePtr> getSightSpectators(const Position& centerPos, bool multiFloor)`
+- **src/client/map.h**: `std::vector<CreaturePtr> getSpectators(const Position& centerPos, bool multiFloor)`
+- **src/client/map.h**: `std::vector<CreaturePtr> getSpectatorsInRange(const Position& centerPos, bool multiFloor, int xRange, int yRange)`
+- **src/client/map.h**: `std::vector<CreaturePtr> getSpectatorsInRangeEx(const Position& centerPos, bool multiFloor, int minXRange, int maxXRange, int minYRange, int maxYRange)`
+- **src/client/map.h**: `std::vector<CreaturePtr> getSpectatorsByPattern(const Position& centerPos, const std::string& pattern, Otc::Direction direction)`
+- **src/client/map.h**: `void setCentralPosition(const Position& centralPosition)`
+- **src/client/map.h**: `bool isLookPossible(const Position& pos)`
+- **src/client/map.h**: `bool isCovered(const Position& pos, int firstFloor = 0)`
+- **src/client/map.h**: `bool isCompletelyCovered(const Position& pos, int firstFloor = 0)`
+- **src/client/map.h**: `bool isAwareOfPosition(const Position& pos, bool extended = false)`
+- **src/client/map.h**: `bool isAwareOfPositionForClean(const Position& pos, bool extended = false)`
+- **src/client/map.h**: `void setAwareRange(const AwareRange& range)`
+- **src/client/map.h**: `void resetAwareRange()`
+- **src/client/map.h**: `int getFirstAwareFloor()`
+- **src/client/map.h**: `int getLastAwareFloor()`
+- **src/client/map.h**: `PathFindResult_ptr newFindPath(const Position& start, const Position& goal, std::shared_ptr<std::list<Node*>> visibleNodes)`
+- **src/client/map.h**: `int getMinimapColor(const Position& pos)`
+- **src/client/map.h**: `bool isPatchable(const Position& pos)`
+- **src/client/map.h**: `bool isWalkable(const Position& pos, bool ignoreCreatures)`
+- **src/client/map.h**: `bool isSightClear(const Position& fromPos, const Position& toPos)`
+- **src/client/map.h**: `bool checkSightLine(const Position& fromPos, const Position& toPos)`
+- **src/client/map.h**: `void removeUnawareThings()`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const Outfit& outfit)`
+- **src/client/luavaluecasts_client.h**: `bool luavalue_cast(int index, Outfit& outfit)`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const Position& pos)`
+- **src/client/luavaluecasts_client.h**: `bool luavalue_cast(int index, Position& pos)`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const MarketData& data)`
+- **src/client/luavaluecasts_client.h**: `bool luavalue_cast(int index, MarketData& data)`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const StoreCategory& category)`
+- **src/client/luavaluecasts_client.h**: `bool luavalue_cast(int index, StoreCategory& data)`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const StoreOffer& offer)`
+- **src/client/luavaluecasts_client.h**: `bool luavalue_cast(int index, StoreOffer& offer)`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const Imbuement& offer)`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const Light& light)`
+- **src/client/luavaluecasts_client.h**: `bool luavalue_cast(int index, Light& light)`
+- **src/client/luavaluecasts_client.h**: `int push_luavalue(const UnjustifiedPoints& unjustifiedPoints)`
+- **src/client/luavaluecasts_client.h**: `bool luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints)`
+- **src/client/localplayer.h**: `void lockWalk(int millis = 200)`
+- **src/client/localplayer.h**: `void stopAutoWalk()`
+- **src/client/localplayer.h**: `bool autoWalk(Position destination, bool retry = false)`
+- **src/client/localplayer.h**: `bool canWalk(Otc::Direction direction, bool ignoreLock = false)`
+- **src/client/localplayer.h**: `void setStates(int states)`
+- **src/client/localplayer.h**: `void setSkill(uint8_t skill, int level, int levelPercent)`
+- **src/client/localplayer.h**: `void setBaseSkill(uint8_t skill, int baseLevel)`
+- **src/client/localplayer.h**: `void setHealth(double health, double maxHealth)`
+- **src/client/localplayer.h**: `void setFreeCapacity(double freeCapacity)`
+- **src/client/localplayer.h**: `void setTotalCapacity(double totalCapacity)`
+- **src/client/localplayer.h**: `void setExperience(double experience)`
+- **src/client/localplayer.h**: `void setLevel(double level, double levelPercent)`
+- **src/client/localplayer.h**: `void setMana(double mana, double maxMana)`
+- **src/client/localplayer.h**: `void setMagicLevel(double magicLevel, double magicLevelPercent)`
+- **src/client/localplayer.h**: `void setBaseMagicLevel(double baseMagicLevel)`
+- **src/client/localplayer.h**: `void setSoul(double soul)`
+- **src/client/localplayer.h**: `void setStamina(double stamina)`
+- **src/client/localplayer.h**: `void setInventoryItem(Otc::InventorySlot inventory, const ItemPtr& item)`
+- **src/client/localplayer.h**: `void setVocation(int vocation)`
+- **src/client/localplayer.h**: `void setPremium(bool premium)`
+- **src/client/localplayer.h**: `void setRegenerationTime(double regenerationTime)`
+- **src/client/localplayer.h**: `void setOfflineTrainingTime(double offlineTrainingTime)`
+- **src/client/localplayer.h**: `void setSpells(const std::vector<int>& spells)`
+- **src/client/localplayer.h**: `void setBlessings(int blessings)`
+- **src/client/localplayer.h**: `bool hasSight(const Position& pos)`
+- **src/client/localplayer.h**: `void preWalk(Otc::Direction direction)`
+- **src/client/localplayer.h**: `void cancelWalk(Otc::Direction direction = Otc::InvalidDirection)`
+- **src/client/localplayer.h**: `void cancelNewWalk(Otc::Direction dir)`
+- **src/client/localplayer.h**: `bool predictiveCancelWalk(const Position& pos, uint32_t predictionId, Otc::Direction dir)`
+- **src/client/localplayer.h**: `bool retryAutoWalk()`
+- **src/client/lightview.h**: `return addLight(pos, light.color, light.intensity)`
+- **src/client/lightview.h**: `void addLight(const Point& pos, uint8_t color, uint8_t intensity)`
+- **src/client/lightview.h**: `void setFieldBrightness(const Point& pos, size_t start, uint8_t color)`
+- **src/client/itemtype.h**: `void unserialize(const BinaryTreePtr& node)`
+- **src/client/item.h**: `static ItemPtr create(int id, int countOrSubtype = 1)`
+- **src/client/item.h**: `static ItemPtr createFromOtb(int id)`
+- **src/client/item.h**: `void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr)`
+- **src/client/item.h**: `void draw(const Rect& dest, bool animate = true)`
+- **src/client/item.h**: `void setId(uint32 id)`
+- **src/client/item.h**: `void setOtbId(uint16 id)`
+- **src/client/item.h**: `int getSubType()`
+- **src/client/item.h**: `int getCount()`
+- **src/client/item.h**: `std::string getName()`
+- **src/client/item.h**: `bool isValid()`
+- **src/client/item.h**: `void unserializeItem(const BinaryTreePtr& in)`
+- **src/client/item.h**: `void serializeItem(const OutputBinaryTreePtr& out)`
+- **src/client/item.h**: `bool isMoveable()`
+- **src/client/item.h**: `bool isGround()`
+- **src/client/item.h**: `ItemPtr clone()`
+- **src/client/item.h**: `void calculatePatterns(int& xPattern, int& yPattern, int& zPattern)`
+- **src/client/item.h**: `int calculateAnimationPhase(bool animate)`
+- **src/client/item.h**: `int getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern = 0, int animationPhase = 0)`
+- **src/client/item.h**: `const ThingTypePtr& getThingType()`
+- **src/client/houses.h**: `void setTile(const TilePtr& tile)`
+- **src/client/houses.h**: `TilePtr getTile(const Position& pos)`
+- **src/client/houses.h**: `void addDoor(const ItemPtr& door)`
+- **src/client/houses.h**: `void removeDoorById(uint32 doorId)`
+- **src/client/houses.h**: `void load(const TiXmlElement* elem)`
+- **src/client/houses.h**: `void save(TiXmlElement* elem)`
+- **src/client/houses.h**: `void addHouse(const HousePtr& house)`
+- **src/client/houses.h**: `void removeHouse(uint32 houseId)`
+- **src/client/houses.h**: `HousePtr getHouse(uint32 houseId)`
+- **src/client/houses.h**: `HousePtr getHouseByName(std::string name)`
+- **src/client/houses.h**: `void load(const std::string& fileName)`
+- **src/client/houses.h**: `void save(const std::string& fileName)`
+- **src/client/houses.h**: `void sort()`
+- **src/client/houses.h**: `HouseList filterHouses(uint32 townId)`
+- **src/client/houses.h**: `HouseList::iterator findHouse(uint32 houseId)`
+- **src/client/healthbars.h**: `void setTexture(const std::string& path)`
+- **src/client/healthbars.h**: `void init()`
+- **src/client/healthbars.h**: `void terminate()`
+- **src/client/healthbars.h**: `void addHealthBackground(const std::string& path, int offsetX, int offsetY, int barOffsetX, int barOffsetY, int height)`
+- **src/client/healthbars.h**: `void addManaBackground(const std::string& path, int offsetX, int offsetY, int barOffsetX, int barOffsetY, int height)`
+- **src/client/healthbars.h**: `std::string getHealthBarPath(int id)`
+- **src/client/healthbars.h**: `std::string getManaBarPath(int id)`
+- **src/client/healthbars.h**: `Point getHealthBarOffset(int id)`
+- **src/client/healthbars.h**: `Point getManaBarOffset(int id)`
+- **src/client/healthbars.h**: `Point getHealthBarOffsetBar(int id)`
+- **src/client/healthbars.h**: `Point getManaBarOffsetBar(int id)`
+- **src/client/healthbars.h**: `int getHealthBarHeight(int id)`
+- **src/client/healthbars.h**: `int getManaBarHeight(int id)`
+- **src/client/game.h**: `void init()`
+- **src/client/game.h**: `void terminate()`
+- **src/client/game.h**: `void resetGameStates()`
+- **src/client/game.h**: `void processConnectionError(const boost::system::error_code& error)`
+- **src/client/game.h**: `void processDisconnect()`
+- **src/client/game.h**: `void processPing()`
+- **src/client/game.h**: `void processPingBack()`
+- **src/client/game.h**: `void processNewPing(uint32_t pingId)`
+- **src/client/game.h**: `void processUpdateNeeded(const std::string& signature)`
+- **src/client/game.h**: `void processLoginError(const std::string& error)`
+- **src/client/game.h**: `void processLoginAdvice(const std::string& message)`
+- **src/client/game.h**: `void processLoginWait(const std::string& message, int time)`
+- **src/client/game.h**: `void processLoginToken(bool unknown)`
+- **src/client/game.h**: `void processLogin()`
+- **src/client/game.h**: `void processPendingGame()`
+- **src/client/game.h**: `void processEnterGame()`
+- **src/client/game.h**: `void processGameStart()`
+- **src/client/game.h**: `void processGameEnd()`
+- **src/client/game.h**: `void processDeath(int deathType, int penality)`
+- **src/client/game.h**: `void processGMActions(const std::vector<uint8>& actions)`
+- **src/client/game.h**: `void processInventoryChange(int slot, const ItemPtr& item)`
+- **src/client/game.h**: `void processAttackCancel(uint seq)`
+- **src/client/game.h**: `void processWalkCancel(Otc::Direction direction)`
+- **src/client/game.h**: `void processNewWalkCancel(Otc::Direction dir)`
+- **src/client/game.h**: `void processPredictiveWalkCancel(const Position& pos, Otc::Direction dir)`
+- **src/client/game.h**: `void processWalkId(uint32_t walkId)`
+- **src/client/game.h**: `void processPlayerHelpers(int helpers)`
+- **src/client/game.h**: `void processPlayerModes(Otc::FightModes fightMode, Otc::ChaseModes chaseMode, bool safeMode, Otc::PVPModes pvpMode)`
+- **src/client/game.h**: `void processTextMessage(Otc::MessageMode mode, const std::string& text)`
+- **src/client/game.h**: `void processTalk(const std::string& name, int level, Otc::MessageMode mode, const std::string& text, int channelId, const Position& pos)`
+- **src/client/game.h**: `void processOpenContainer(int containerId, const ItemPtr& containerItem, const std::string& name, int capacity, bool hasParent, const std::vector<ItemPtr>& items, bool isUnlocked, bool hasPages, int containerSize, int firstIndex)`
+- **src/client/game.h**: `void processCloseContainer(int containerId)`
+- **src/client/game.h**: `void processContainerAddItem(int containerId, const ItemPtr& item, int slot)`
+- **src/client/game.h**: `void processContainerUpdateItem(int containerId, int slot, const ItemPtr& item)`
+- **src/client/game.h**: `void processContainerRemoveItem(int containerId, int slot, const ItemPtr& lastItem)`
+- **src/client/game.h**: `void processChannelList(const std::vector<std::tuple<int, std::string> >& channelList)`
+- **src/client/game.h**: `void processOpenChannel(int channelId, const std::string& name)`
+- **src/client/game.h**: `void processOpenPrivateChannel(const std::string& name)`
+- **src/client/game.h**: `void processOpenOwnPrivateChannel(int channelId, const std::string& name)`
+- **src/client/game.h**: `void processCloseChannel(int channelId)`
+- **src/client/game.h**: `void processRuleViolationChannel(int channelId)`
+- **src/client/game.h**: `void processRuleViolationRemove(const std::string& name)`
+- **src/client/game.h**: `void processRuleViolationCancel(const std::string& name)`
+- **src/client/game.h**: `void processRuleViolationLock()`
+- **src/client/game.h**: `void processVipAdd(uint id, const std::string& name, uint status, const std::string& description, int iconId, bool notifyLogin)`
+- **src/client/game.h**: `void processVipStateChange(uint id, uint status)`
+- **src/client/game.h**: `void processTutorialHint(int id)`
+- **src/client/game.h**: `void processAddAutomapFlag(const Position& pos, int icon, const std::string& message)`
+- **src/client/game.h**: `void processRemoveAutomapFlag(const Position& pos, int icon, const std::string& message)`
+- **src/client/game.h**: `void processOpenNpcTrade(const std::vector<std::tuple<ItemPtr, std::string, int, int64_t, int64_t> >& items)`
+- **src/client/game.h**: `void processPlayerGoods(uint64_t money, const std::vector<std::tuple<ItemPtr, int> >& goods)`
+- **src/client/game.h**: `void processCloseNpcTrade()`
+- **src/client/game.h**: `void processOwnTrade(const std::string& name, const std::vector<ItemPtr>& items)`
+- **src/client/game.h**: `void processCounterTrade(const std::string& name, const std::vector<ItemPtr>& items)`
+- **src/client/game.h**: `void processCloseTrade()`
+- **src/client/game.h**: `void processEditText(uint id, int itemId, int maxLength, const std::string& text, const std::string& writer, const std::string& date)`
+- **src/client/game.h**: `void processEditList(uint id, int doorId, const std::string& text)`
+- **src/client/game.h**: `void processQuestLog(const std::vector<std::tuple<int, std::string, bool> >& questList)`
+- **src/client/game.h**: `void processQuestLine(int questId, const std::vector<std::tuple<std::string, std::string, int> >& questMissions)`
+- **src/client/game.h**: `void processModalDialog(uint32 id, std::string title, std::string message, std::vector<std::tuple<int, std::string> > buttonList, int enterButton, int escapeButton, std::vector<std::tuple<int, std::string> > choiceList, bool priority)`
+- **src/client/game.h**: `void loginWorld(const std::string& account, const std::string& password, const std::string& worldName, const std::string& worldHost, int worldPort, const std::string& characterName, const std::string& authenticatorToken, const std::string& sessionKey, const std::string& recordTo = "")`
+- **src/client/game.h**: `void playRecord(const std::string& file)`
+- **src/client/game.h**: `void cancelLogin()`
+- **src/client/game.h**: `void forceLogout()`
+- **src/client/game.h**: `void safeLogout()`
+- **src/client/game.h**: `void walk(Otc::Direction direction, bool withPreWalk)`
+- **src/client/game.h**: `void autoWalk(const std::vector<Otc::Direction>& dirs, Position startPos)`
+- **src/client/game.h**: `void turn(Otc::Direction direction)`
+- **src/client/game.h**: `void stop()`
+- **src/client/game.h**: `void look(const ThingPtr& thing, bool isBattleList = false)`
+- **src/client/game.h**: `void move(const ThingPtr& thing, const Position& toPos, int count)`
+- **src/client/game.h**: `void moveRaw(const Position& pos, int id, int stackpos, const Position& toPos, int count)`
+- **src/client/game.h**: `void moveToParentContainer(const ThingPtr& thing, int count)`
+- **src/client/game.h**: `void rotate(const ThingPtr& thing)`
+- **src/client/game.h**: `void wrap(const ThingPtr& thing)`
+- **src/client/game.h**: `void use(const ThingPtr& thing)`
+- **src/client/game.h**: `void useWith(const ItemPtr& fromThing, const ThingPtr& toThing, int subType = 0)`
+- **src/client/game.h**: `void useInventoryItem(int itemId, int subType = 0)`
+- **src/client/game.h**: `void useInventoryItemWith(int itemId, const ThingPtr& toThing, int subType = 0)`
+- **src/client/game.h**: `ItemPtr findItemInContainers(uint itemId, int subType)`
+- **src/client/game.h**: `int open(const ItemPtr& item, const ContainerPtr& previousContainer)`
+- **src/client/game.h**: `void openParent(const ContainerPtr& container)`
+- **src/client/game.h**: `void close(const ContainerPtr& container)`
+- **src/client/game.h**: `void refreshContainer(const ContainerPtr& container)`
+- **src/client/game.h**: `void attack(CreaturePtr creature, bool cancel = false)`
+- **src/client/game.h**: `void follow(CreaturePtr creature)`
+- **src/client/game.h**: `void cancelAttackAndFollow()`
+- **src/client/game.h**: `void talk(const std::string& message)`
+- **src/client/game.h**: `void talkChannel(Otc::MessageMode mode, int channelId, const std::string& message)`
+- **src/client/game.h**: `void talkPrivate(Otc::MessageMode mode, const std::string& receiver, const std::string& message)`
+- **src/client/game.h**: `void openPrivateChannel(const std::string& receiver)`
+- **src/client/game.h**: `void requestChannels()`
+- **src/client/game.h**: `void joinChannel(int channelId)`
+- **src/client/game.h**: `void leaveChannel(int channelId)`
+- **src/client/game.h**: `void closeNpcChannel()`
+- **src/client/game.h**: `void openOwnChannel()`
+- **src/client/game.h**: `void inviteToOwnChannel(const std::string& name)`
+- **src/client/game.h**: `void excludeFromOwnChannel(const std::string& name)`
+- **src/client/game.h**: `void partyInvite(int creatureId)`
+- **src/client/game.h**: `void partyJoin(int creatureId)`
+- **src/client/game.h**: `void partyRevokeInvitation(int creatureId)`
+- **src/client/game.h**: `void partyPassLeadership(int creatureId)`
+- **src/client/game.h**: `void partyLeave()`
+- **src/client/game.h**: `void partyShareExperience(bool active)`
+- **src/client/game.h**: `void requestOutfit()`
+- **src/client/game.h**: `void changeOutfit(const Outfit& outfit)`
+- **src/client/game.h**: `void addVip(const std::string& name)`
+- **src/client/game.h**: `void removeVip(int playerId)`
+- **src/client/game.h**: `void editVip(int playerId, const std::string& description, int iconId, bool notifyLogin)`
+- **src/client/game.h**: `void setChaseMode(Otc::ChaseModes chaseMode)`
+- **src/client/game.h**: `void setFightMode(Otc::FightModes fightMode)`
+- **src/client/game.h**: `void setSafeFight(bool on)`
+- **src/client/game.h**: `void setPVPMode(Otc::PVPModes pvpMode)`
+- **src/client/game.h**: `void setUnjustifiedPoints(UnjustifiedPoints unjustifiedPoints)`
+- **src/client/game.h**: `void setOpenPvpSituations(int openPvpSitations)`
+- **src/client/game.h**: `void inspectNpcTrade(const ItemPtr& item)`
+- **src/client/game.h**: `void buyItem(const ItemPtr& item, int amount, bool ignoreCapacity, bool buyWithBackpack)`
+- **src/client/game.h**: `void sellItem(const ItemPtr& item, int amount, bool ignoreEquipped)`
+- **src/client/game.h**: `void closeNpcTrade()`
+- **src/client/game.h**: `void requestTrade(const ItemPtr& item, const CreaturePtr& creature)`
+- **src/client/game.h**: `void inspectTrade(bool counterOffer, int index)`
+- **src/client/game.h**: `void acceptTrade()`
+- **src/client/game.h**: `void rejectTrade()`
+- **src/client/game.h**: `void editText(uint id, const std::string& text)`
+- **src/client/game.h**: `void editList(uint id, int doorId, const std::string& text)`
+- **src/client/game.h**: `void openRuleViolation(const std::string& reporter)`
+- **src/client/game.h**: `void closeRuleViolation(const std::string& reporter)`
+- **src/client/game.h**: `void cancelRuleViolation()`
+- **src/client/game.h**: `void reportBug(const std::string& comment)`
+- **src/client/game.h**: `void reportRuleViolation(const std::string& target, int reason, int action, const std::string& comment, const std::string& statement, int statementId, bool ipBanishment)`
+_… 1520 dalszych_
 
 ---
 
-## 4. C++ / rozszerz
-
-e
-
-n
-
-i
-
-a
-
-**Szkic struktur (dopasuj do projektu):**
-
-```cpp
-// include/otcv8/api.h
-struct OTEvent {
-  const char* type;      // "metrics.update"
-  uint64_t    ts_ms;
-  const char* json;      // payload JSON
-};
-
-using OttoEmitFn = void(*)(const OTEvent* ev); // emit from C++ -> Lua/UI
-
-```
-
-**Punkty integracji:**
-
-- Rejestracja hooków (zdarzenia gry → Lua)
-- Export funkcji do Lua (np. `say`, `use_item`, …)
-- Konwencja ładowania modułów C++: `dll/so` w `modules/<name>/bin/`.
-
-> TODO: wstaw prawdziwe nagłówki i entrypointy.
-
----
-
-## 5. Błędy i
-
-k
-
-o
-
-d
-
-y
-
-| Kod        | Warstwa | Opis                           |
-| ---------- | ------- | ------------------------------ |
-| `E_ARG`    | Lua     | nieprawidłowy argument         |
-| `E_STATE`  | Lua     | zły stan (np. brak UI id)      |
-| `E_WS`     | WS      | połączenie zerwane             |
-| `E_SCHEMA` | WS      | payload niezgodny ze schematem |
-| `E_IO`     | C++/FS  | błąd I/O                       |
-| `E_INT`    | All     | błąd wewnętrzny                |
-
-Format odpowiedzi błędu (WS):
-
-```json
-{
-  "type": "cmd.result",
-  "ts": 1712345678,
-  "id": "abc",
-  "ok": false,
-  "error": "E_SCHEMA",
-  "data": { "path": "/args/profile" }
-}
-```
-
----
-
-## 6. Bezpieczeństwo (sk
-
-r
-
-ó
-
-t
-
-)
-
-- HTTPS/WSS, HSTS, twardy **CSP**.
-- Token JWT krótki + refresh, **RBAC**.
-- Check **Origin**, **rate-limit**, **message size**.
-- Sekrety poza repo (env/CI), brak kluczy w repo.
-- Logowanie dostępu i audyt komend WS.
-
----
-
-## 7. Versio
-
-n
-
-i
-
-n
-
-g
-
-- SemVer API: `major.minor.patch`.
-- Nagłówek `X-OTCv8-API: 1.x` (WS handshake).
-- Zmiany łamiące → podbij **major** i utrzymuj `deprecated` min. 1 wersję.
-
----
-
-## 8. Przykłady end‑to
-
-‑
-
-e
-
-n
-
-d
-
-### 8.1. Status
-
-d
-
-o
-
-U
-
-I
-
-```lua
--- modules/status/init.lua
-local M = {}
-function M.start(ctx)
-  ctx.emit("status", { text = "Ready" })
-end
-return M
-
-```
-
-### 8.2. Telemetria do dashbo
-
-a
-
-r
-
-d
-
-u
-
-```lua
-local M = {}
-function M.tick(ctx, dt)
-  ctx.ws.send("metrics.update", { hp = getHp(), mp = getMp() })
-end
-return M
-
-```
-
-### 8.3. Komenda z dashbo
-
-a
-
-r
-
-d
-
-u
-
-**UI → WS**
-
-```json
-{ "type": "cmd", "id": "run1", "name": "START", "args": { "profile": "pvp" } }
-```
-
-**WS → UI**
-
-```json
-{ "type": "cmd.result", "id": "run1", "ok": true, "ts": 1712345678 }
-```
-
----
-
-## 9. Generowanie referencji z kodu (autom
-
-a
-
-t
-
-y
-
-)
-
-### 9.1. Lua –
-
-L
-
-D
-
-o
-
-c
-
-Komentuj funkcje:
-
-```lua
---- Wysyła wiadomość do czatu.
--- @tparam string msg
--- @treturn boolean ok
-function say(msg) ... end
-
-```
-
-**Workflow**: `ldoc -d docs/lua/ref/ .` → włącz w `mkdocs.yml` (`nav`).
-
-### 9.2. C++ – Dox
-
-y
-
-g
-
-e
-
-n
-
-`Doxyfile` → HTML do `docs/cpp/ref/` → dodaj do `nav`.
-
-### 9.3. WS – JSON Schema → mark
-
-d
-
-o
-
-w
-
-n
-
-Trzymaj schematy w `schemas/ws/*.schema.json` i buduj referencję:
-
-```bash
-# przykład narzędz
-i
-
-a
-
-npx @apitable/json-schema-to-markdown schemas/ws -o docs/ws/ref.md
-
-```
-
----
-
-## 10. Lista TODO do uzupełni
-
-e
-
-n
-
-i
-
-a
-
-- [ ] Pełna lista eventów Lua (nazwy + parametry)
-- [ ] Mapowania `ctx.emit(target)` → UI (id + pola)
-- [ ] Zamknięta lista `ClientEvent`/`ServerEvent` + schematy
-- [ ] Nagłówki/entrypointy C++ i rejestracja hooków
-- [ ] Wygeneruj LDoc/Doxygen i dodaj do `nav`
+## 5. Uwaga
+- Jeśli czegoś brakuje: doprecyzuj wzorce w `scripts/extract-api.mjs`.
+- Dodaj JSON Schema do `schemas/ws/*.schema.json`, będą wykryte automatycznie.
