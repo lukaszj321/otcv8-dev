@@ -1,6 +1,6 @@
 # OTCv8 – Pełne API (auto)
 
-Wygenerowano: 2025-10-04T14:27:45.320Z
+Wygenerowano: 2025-10-04T13:44:01.553Z
 
 > Ten plik jest generowany automatycznie z kodu. Nie edytuj ręcznie.
 
@@ -953,16 +953,6 @@ _brak_
 
 ## 4. C++ (nagłówki)
 - **src/framework/global.h**: `extern void fatalError(const char* error, const char* file, int line)`
-- **src/android/android_native_app_glue.h**: `int8_t android_app_read_cmd(struct android_app* android_app)` — Call when ALooper_pollAll() returns LOOPER_ID_MAIN, reading the next
-app command message.
-- **src/android/android_native_app_glue.h**: `void android_app_pre_exec_cmd(struct android_app* android_app, int8_t cmd)` — Call with the command returned by android_app_read_cmd() to do the
-initial pre-processing of the given command.  You can perform your own
-actions for the command after calling this function.
-- **src/android/android_native_app_glue.h**: `void android_app_post_exec_cmd(struct android_app* android_app, int8_t cmd)` — Call with the command returned by android_app_read_cmd() to do the
-final post-processing of the given command.  You must have done your own
-actions for the command before calling this function.
-- **src/android/android_native_app_glue.h**: `extern void android_main(struct android_app* app)` — This is the function that application code must implement, representing
-the main entry to the app.
 - **src/client/walkmatrix.h**: `return clear()`
 - **src/client/uisprite.h**: `void drawSelf(Fw::DrawPane drawPane)`
 - **src/client/uisprite.h**: `void setSpriteId(uint32 id)`
@@ -1758,6 +1748,10 @@ the main entry to the app.
 - **src/client/game.h**: `void cancelRuleViolation()`
 - **src/client/game.h**: `void reportBug(const std::string& comment)`
 - **src/client/game.h**: `void reportRuleViolation(const std::string& target, int reason, int action, const std::string& comment, const std::string& statement, int statementId, bool ipBanishment)`
+- **src/client/game.h**: `void debugReport(const std::string& a, const std::string& b, const std::string& c, const std::string& d)`
+- **src/client/game.h**: `void requestQuestLog()`
+- **src/client/game.h**: `void requestQuestLine(int questId)`
+- **src/client/game.h**: `void equipItem(const ItemPtr& item)`
 _… 1520 dalszych_
 
 ---
