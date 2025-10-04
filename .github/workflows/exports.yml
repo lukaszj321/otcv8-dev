@@ -55,10 +55,8 @@ jobs:
           git reset --hard origin/master
           git clean -fd
 
-          # dodaj WYLACZNIE pliki z downloads
           git add -f docs/downloads/OTCv8-Docs.docx docs/downloads/OTCv8-Docs.epub docs/downloads/site.zip
 
-          # sanity: upewnij siÄ™, ĹĽe nie ma zmian w .github/workflows
           if ! git diff --cached --name-only | grep -v '^.github/workflows/' >/dev/null; then
             echo "OK: brak zmian w workflowach"
           fi
