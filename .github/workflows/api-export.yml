@@ -1,6 +1,6 @@
-name: API + Exports
+﻿name: API + Exports
 on:
-  workflow_dispatch: {}        # tylko ręcznie
+  workflow_dispatch: {}        # tylko rÄ™cznie
 
 permissions:
   contents: write
@@ -39,10 +39,11 @@ jobs:
           zip -r docs/downloads/site.zip site
           ls -lh docs/downloads
 
-      - name: Commit artefaktów (bez odpalania innych CI)
+      - name: Commit artefaktĂłw (bez odpalania innych CI)
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add -f docs/api/otcv8-full-api.md docs/downloads/*
           git commit -m "[skip ci] docs: auto API + exports" || echo "no changes"
           git push
+

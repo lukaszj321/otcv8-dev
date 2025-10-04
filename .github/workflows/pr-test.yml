@@ -1,4 +1,4 @@
-name: Build and test pull request
+﻿name: Build and test pull request
 on: [pull_request]
 
 jobs:
@@ -267,3 +267,4 @@ jobs:
           mods
           init.lua
         if-no-files-found: error
+
