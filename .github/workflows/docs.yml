@@ -25,7 +25,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # <-- TWORZYMY requirements.txt, żeby nie było błędu cache/setup-python
       - name: Create requirements.txt
         run: |
           cat > requirements.txt << 'REQ'
