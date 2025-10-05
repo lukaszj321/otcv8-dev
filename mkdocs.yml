@@ -2,6 +2,7 @@ site_name: OTCv8 Dev — Dokumentacja
 site_url: https://lukaszj321.github.io/otcv8-dev/
 repo_url: https://github.com/lukaszj321/otcv8-dev
 repo_name: lukaszj321/otcv8-dev
+edit_uri: edit/master/docs/
 
 use_directory_urls: true
 
@@ -87,6 +88,10 @@ nav:
       - Presety OTUI/TS (core): api/engine/presety_kanoniczne_otui_ts_otc_core.md
       - Addendum importów z Lua (strict/golden): api/engine/otclient_v_8_addendum_import_z_lua_stringow_auto_strict_goldeny_expanded.md
       - Walidator macierzy AST & round-trip: api/engine/otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna.md
+    - Pełne API OTCv8: api/otcv8-full-api.md
+
+  - C++:
+    - Przegląd: cpp/overview.md
 
   - Dane:
     - Przewodnik: data/Data_Documentation.md
