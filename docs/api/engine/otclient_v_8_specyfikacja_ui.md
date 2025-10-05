@@ -489,7 +489,7 @@ MainWindow
   @onEscape: MainController.onCancel()
   @onSetup: MainController.onSetup()
 
-  # HEADER (opcjonalny pasek tytułu/toolbar)
+# HEADER (opcjonalny pasek tytułu/toolbar)
   UIWidget
     id: header
     anchors.left: parent.left
@@ -508,7 +508,7 @@ MainWindow
       !text: tr('Main Window')
       font: verdana-11px-rounded
 
-  # CONTENT (lista + scroll jako sibling)
+# CONTENT (lista + scroll jako sibling)
   UIWidget
     id: content
     anchors.left: parent.left
@@ -530,7 +530,7 @@ MainWindow
     anchors.bottom: footer.top
     step: 16
 
-  # FOOTER (akcje)
+# FOOTER (akcje)
   UIWidget
     id: footer
     anchors.left: parent.left

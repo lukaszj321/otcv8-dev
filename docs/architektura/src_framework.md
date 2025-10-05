@@ -14,11 +14,11 @@ Plik `const.h` pełni rolę centralnego repozytorium dla stałych, makr i typów
 
 -   `DEG_TO_RAD`: Służy do konwersji stopni na radiany.
     ```cpp
-    #define DEG_TO_RAD (acos(-1)/180.0)
+# define DEG_TO_RAD (acos(-1)/180.0)
     ```
 -   `RAD_TO_DEC`: Służy do konwersji radianów na stopnie.
     ```cpp
-    #define RAD_TO_DEC (180.0/acos(-1))
+# define RAD_TO_DEC (180.0/acos(-1))
     ```
 
 ### Makra budowania (Build Macros)
@@ -27,33 +27,33 @@ Makra te są definiowane podczas kompilacji i dostarczają informacji o wersji i
 
 -   `BUILD_COMMIT`: Przechowuje hash commita Git. Domyślnie "dev".
     ```cpp
-    #ifndef BUILD_COMMIT
-    #define BUILD_COMMIT "dev"
-    #endif
+# ifndef BUILD_COMMIT
+# define BUILD_COMMIT "dev"
+# endif
     ```
 -   `BUILD_REVISION`: Przechowuje numer rewizji. Domyślnie 0.
     ```cpp
-    #ifndef BUILD_REVISION
-    #define BUILD_REVISION 0
-    #endif
+# ifndef BUILD_REVISION
+# define BUILD_REVISION 0
+# endif
     ```
 -   `BUILD_TYPE`: Określa typ budowania (np. "release", "debug"). Domyślnie "unknown".
     ```cpp
-    #ifndef BUILD_TYPE
-    #define BUILD_TYPE "unknown"
-    #endif
+# ifndef BUILD_TYPE
+# define BUILD_TYPE "unknown"
+# endif
     ```
 -   `BUILD_ARCH`: Określa architekturę procesora (x64, x86). Wykrywane automatycznie, jeśli nie jest zdefiniowane.
     ```cpp
-    #ifndef BUILD_ARCH
-    #if defined(__amd64) || defined(_M_X64)
-    #define BUILD_ARCH "x64"
-    #elif defined(__i386) || defined(_M_IX86) || defined(_X86_)
-    #define BUILD_ARCH "x86"
-    #else
-    #define BUILD_ARCH "unknown"
-    #endif
-    #endif
+# ifndef BUILD_ARCH
+# if defined(__amd64) || defined(_M_X64)
+# define BUILD_ARCH "x64"
+# elif defined(__i386) || defined(_M_IX86) || defined(_X86_)
+# define BUILD_ARCH "x86"
+# else
+# define BUILD_ARCH "unknown"
+# endif
+# endif
     ```
 
 ## Namespace `Fw`
@@ -309,12 +309,12 @@ Plik `global.h` jest jednym z kluczowych plików nagłówkowych w frameworku. Je
 Jest to makro asercji, które jest aktywne tylko w trybie debugowania (gdy `NDEBUG` nie jest zdefiniowane). Jeśli wyrażenie (expression) jest fałszywe, makro wywołuje funkcję `fatalError`, która przerywa działanie programu i wyświetla komunikat o błędzie zawierający nazwę pliku i numer linii. W trybie wydajnościowym (`NDEBUG` zdefiniowane) makro jest puste i nie generuje żadnego kodu.
 
 ```cpp
-#if defined(NDEBUG)
-#define VALIDATE(expression) ((void)0)
-#else
+# if defined(NDEBUG)
+# define VALIDATE(expression) ((void)0)
+# else
 extern void fatalError(const char* error, const char* file, int line);
-#define VALIDATE(expression) { if(!(expression)) fatalError(#expression, __FILE__, __LINE__); };
-#endif
+# define VALIDATE(expression) { if(!(expression)) fatalError(#expression, __FILE__, __LINE__); };
+# endif
 ```
 -   **Użycie**: Służy do sprawdzania warunków, które muszą być zawsze prawdziwe w trakcie działania programu, np. sprawdzania, czy wskaźnik nie jest `nullptr`.
 
@@ -347,11 +347,11 @@ Plik ten jest podzielony na kilka sekcji, grupujących nagłówki według ich po
 Zawiera podstawowe nagłówki z biblioteki standardowej C, takie jak `cstdio`, `cstdlib`, `cstring`, `cmath`.
 
 ```cpp
-#include <cstdio>
-#include <cstdlib>
-#include <cstddef>
-#include <cstring>
-#include <cmath>
+# include <cstdio>
+# include <cstdlib>
+# include <cstddef>
+# include <cstring>
+# include <cmath>
 ```
 
 ### Standardowe nagłówki STL (C++)
@@ -359,22 +359,22 @@ Zawiera podstawowe nagłówki z biblioteki standardowej C, takie jak `cstdio`, `
 Włącza najważniejsze i najczęściej używane kontenery, strumienie i algorytmy z biblioteki standardowej C++.
 
 ```cpp
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <set>
-#include <list>
-#include <deque>
-#include <map>
-#include <algorithm>
-#include <functional>
-#include <array>
-#include <unordered_map>
-#include <unordered_set>
-#include <tuple>
-#include <iomanip>
-#include <typeinfo>
+# include <iostream>
+# include <sstream>
+# include <string>
+# include <vector>
+# include <set>
+# include <list>
+# include <deque>
+# include <map>
+# include <algorithm>
+# include <functional>
+# include <array>
+# include <unordered_map>
+# include <unordered_set>
+# include <tuple>
+# include <iomanip>
+# include <typeinfo>
 ```
 
 ### Nowoczesne nagłówki C++ (C++11 i nowsze)
@@ -382,17 +382,17 @@ Włącza najważniejsze i najczęściej używane kontenery, strumienie i algoryt
 Włącza nagłówki związane z wielowątkowością, inteligentnymi wskaźnikami, czasem i losowością, wprowadzone w nowszych standardach C++. Plik `filesystem` jest dołączany warunkowo (poza Androidem).
 
 ```cpp
-#include <thread>
-#include <memory>
-#include <functional>
-#include <condition_variable>
-#include <mutex>
-#include <future>
-#include <chrono>
-#include <random>
-#ifndef ANDROID
-#include <filesystem>
-#endif
+# include <thread>
+# include <memory>
+# include <functional>
+# include <condition_variable>
+# include <mutex>
+# include <future>
+# include <chrono>
+# include <random>
+# ifndef ANDROID
+# include <filesystem>
+# endif
 ```
 
 ### Biblioteka Boost
@@ -405,10 +405,10 @@ Włącza nagłówki z biblioteki Boost, głównie z modułów **Asio** (do opera
 -   `boost/algorithm/hex.hpp`: Do operacji na systemie szesnastkowym.
 
 ```cpp
-#ifdef ANDROID
-#define BOOST_UUID_RANDOM_PROVIDER_FORCE_POSIX
-#endif
-#include <boost/system/config.hpp>
+# ifdef ANDROID
+# define BOOST_UUID_RANDOM_PROVIDER_FORCE_POSIX
+# endif
+# include <boost/system/config.hpp>
 // ... (inne nagłówki boost)
 ```
 
@@ -943,11 +943,11 @@ W zależności od flagi `FW_GRAPHICS`, dołączany jest jeden z dwóch plików:
 -   `consoleapplication.h`: W przeciwnym razie, będzie to aplikacja konsolowa.
 
 ```cpp
-#ifdef FW_GRAPHICS
-#include "graphicalapplication.h"
-#else
-#include "consoleapplication.h"
-#endif
+# ifdef FW_GRAPHICS
+# include "graphicalapplication.h"
+# else
+# include "consoleapplication.h"
+# endif
 ```
 
 ## Zależności i powiązania
@@ -7302,8 +7302,8 @@ Plik `otml.h` jest głównym plikiem nagłówkowym dla modułu OTML. Jego jedyny
 ## Zawartość
 
 ```cpp
-#include "otmldocument.h"
-#include "otmlnode.h"
+# include "otmldocument.h"
+# include "otmlnode.h"
 ```
 
 ## Zależności i powiązania
@@ -7848,11 +7848,11 @@ Plik `platformwindow.cpp` jest kluczowym plikiem, który zarządza implementacj�
 Globalna referencja do obiektu okna. Jest to centralny punkt dostępu do wszystkich operacji związanych z oknem w całym frameworku. W zależności od platformy, wskazuje na instancję `WIN32Window`, `X11Window`, `AndroidWindow` lub `SDLWindow`.
 
 ```cpp
-#ifdef ANDROID
+# ifdef ANDROID
 PlatformWindow& g_window = g_androidWindow;
-#else
+# else
 PlatformWindow& g_window = window; // gdzie 'window' to globalna instancja np. WIN32Window
-#endif
+# endif
 ```
 
 ## Klasa `PlatformWindow`
@@ -9935,9 +9935,9 @@ Plik `thread.h` jest prostym plikiem nagłówkowym, który dołącza standardowe
 ## Zawartość
 
 ```cpp
-#include <thread>
-#include <condition_variable>
-#include <mutex>
+# include <thread>
+# include <condition_variable>
+# include <mutex>
 ```
 
 ## Zależności i powiązania
