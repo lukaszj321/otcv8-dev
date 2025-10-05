@@ -25,7 +25,7 @@ g
 3. PR z krótkim opisem i screenami.
 4. Review: 1 LGTM + zielone CI.
 
-##
+## 
 
 S
 
