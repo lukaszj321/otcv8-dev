@@ -1,11 +1,18 @@
-# OTCv8 Dev — Dokumentacja
+# OTCv8 — Dokumentacja
 
-> Cel: kompletna baza wiedzy (build, architektura, API Lua/C++), z diagramami i przykładami.
+Witaj w dokumentacji **OTCv8**. Poniżej najważniejsze działy:
 
-- **Szybki start**: sekcja _Build_.
-- **Architektura**: diagramy Mermaid + graf modułów.
-- **API**: przykłady Lua/C++ (do rozszerzenia).
+- **Architektura** – przegląd klienta, frameworka i struktury źródeł.
+- **Moduły** – opis modułów gry (część 1 i 2), rdzeń i dodatki.
+- **API** – funkcje Lua klienta, specyfikacje silnika, presetów i walidatora.
+- **Dane** – przewodnik po strukturach danych.
+- **Przewodniki** – architektura (legacy), wprowadzenie do modułów, WebSocket.
+- **Budowanie** – instrukcje dla Windows, Linux, Android.
+- **Dev** – FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
+- **Wiedza** – materiały referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
+- **Lua** – API ogólne i styl pisania.
+- **UI** – przewodnik OTUI.
+- **Narzędzia** – przegląd narzędzi.
 
-!!! info "Baza wiedzy dla edytora"
-
-    Twój edytor może konsumować `search/search_index.json` z tej strony (GitHub Pages) jako indeks wiedzy...
+> Jeśli szukasz szybkiego startu, przejdź do:  
+> **Architektura → _Przegląd klienta_** lub **Budowanie → _Windows_**.
