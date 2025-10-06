@@ -22,19 +22,14 @@ jobs:
       PIP_DISABLE_PIP_VERSION_CHECK: "1"
       PIP_NO_PYTHON_VERSION_WARNING: "1"
       CI: "true"
+
     steps:
       - name: Checkout (full history for git-revision-date)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-          cache: "pip"
-          cache-dependency-path: docs/requirements.txt
-
+      # 1) Najpierw zapewnij wymagania dla cache pip
       - name: Write docs requirements
         run: |
           mkdir -p docs
@@ -45,6 +40,14 @@ jobs:
           mkdocs-macros-plugin==1.*
           mkdocs-git-revision-date-localized-plugin==1.*
           REQS
+
+      # 2) Dopiero teraz setup-python z cache'em wskazującym na docs/requirements.txt
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: "pip"
+          cache-dependency-path: docs/requirements.txt
 
       - name: Install MkDocs toolchain
         run: |
