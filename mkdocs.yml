@@ -22,7 +22,6 @@ theme:
     - search.suggest
     - search.highlight
     - header.autohide
-    # Uwaga: usunięto 'toc.integrate', żeby wrócił panel spisu treści
   palette:
     - scheme: default
       primary: blue
@@ -76,12 +75,18 @@ nav:
     - Struktura źródeł (framework/): architektura/src_framework.md
     - C++ overview: cpp/overview.md
 
+  # Stary zestaw (zostawiony dla kompatybilności)
   - Moduły:
     - Część 1: modules/modules_game_1.md
     - Część 2: modules/modules_game_2.md
     - Rdzeń modułów: modules/modules_core.md
     - Różne: modules/modules_misc.md
     - Dokumentacja modułów (zbiór): modules/modules_Documentation.md
+
+  # Nowy, automatycznie rozbity zestaw
+  - Moduły (nowy podział):
+    - Przegląd: modules/structured/README.md
+    - Indeks: modules/structured/INDEX.md
 
   - API:
     - Lua:
