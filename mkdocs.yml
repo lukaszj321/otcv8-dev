@@ -75,7 +75,7 @@ nav:
     - Struktura źródeł (framework/): architektura/src_framework.md
     - C++ overview: cpp/overview.md
 
-  # Stary zestaw (zostawiony dla kompatybilności)
+  # Stary zestaw (legacy)
   - Moduły:
     - Część 1: modules/modules_game_1.md
     - Część 2: modules/modules_game_2.md
@@ -83,10 +83,98 @@ nav:
     - Różne: modules/modules_misc.md
     - Dokumentacja modułów (zbiór): modules/modules_Documentation.md
 
-  # Nowy, automatycznie rozbity zestaw
+  # Nowy, automatycznie rozbity zestaw — pełne grupowanie
   - Moduły (nowy podział):
     - Przegląd: modules/structured/README.md
     - Indeks: modules/structured/INDEX.md
+    - Rdzeń (core):
+      - client: modules/structured/core/modul-client.md
+      - corelib: modules/structured/core/modul-corelib.md
+      - gamelib: modules/structured/core/modul-gamelib.md
+    - Gameplay:
+      - game_actionbar: modules/structured/gameplay/modul-game_actionbar.md
+      - game_battle: modules/structured/gameplay/modul-game_battle.md
+      - game_console: modules/structured/gameplay/modul-game_console.md
+      - game_containers: modules/structured/gameplay/modul-game_containers.md
+      - game_cooldown: modules/structured/gameplay/modul-game_cooldown.md
+      - game_healthinfo: modules/structured/gameplay/modul-game_healthinfo.md
+      - game_hotkeys: modules/structured/gameplay/modul-game_hotkeys.md
+      - game_imbuing: modules/structured/gameplay/modul-game_imbuing.md
+      - game_interface: modules/structured/gameplay/modul-game_interface.md
+      - game_interface/styles: modules/structured/gameplay/modul-game_interface-styles.md
+      - game_interface/widgets: modules/structured/gameplay/modul-game_interface-widgets.md
+      - game_inventory: modules/structured/gameplay/modul-game_inventory.md
+      - game_itemselector: modules/structured/gameplay/modul-game_itemselector.md
+      - game_market: modules/structured/gameplay/modul-game_market.md
+      - game_market/ui: modules/structured/gameplay/modul-game_market-ui.md
+      - game_market/ui/general: modules/structured/gameplay/modul-game_market-ui-general.md
+      - game_market/ui/marketoffers: modules/structured/gameplay/modul-game_market-ui-marketoffers.md
+      - game_market/ui/myoffers: modules/structured/gameplay/modul-game_market-ui-myoffers.md
+      - game_minimap: modules/structured/gameplay/modul-game_minimap.md
+      - game_modaldialog: modules/structured/gameplay/modul-game_modaldialog.md
+      - game_npctrade: modules/structured/gameplay/modul-game_npctrade.md
+      - game_outfit: modules/structured/gameplay/modul-game_outfit.md
+      - game_playerdeath: modules/structured/gameplay/modul-game_playerdeath.md
+      - game_playermount: modules/structured/gameplay/modul-game_playermount.md
+      - game_playertrade: modules/structured/gameplay/modul-game_playertrade.md
+      - game_prey: modules/structured/gameplay/modul-game_prey.md
+      - game_questlog: modules/structured/gameplay/modul-game_questlog.md
+      - game_ruleviolation: modules/structured/gameplay/modul-game_ruleviolation.md
+      - game_shop: modules/structured/gameplay/modul-game_shop.md
+      - game_skills: modules/structured/gameplay/modul-game_skills.md
+      - game_spelllist: modules/structured/gameplay/modul-game_spelllist.md
+      - game_stats: modules/structured/gameplay/modul-game_stats.md
+      - game_textmessage: modules/structured/gameplay/modul-game_textmessage.md
+      - game_textwindow: modules/structured/gameplay/modul-game_textwindow.md
+      - game_topbar: modules/structured/gameplay/modul-game_topbar.md
+      - game_unjustifiedpoints: modules/structured/gameplay/modul-game_unjustifiedpoints.md
+      - game_viplist: modules/structured/gameplay/modul-game_viplist.md
+      - game_walking: modules/structured/gameplay/modul-game_walking.md
+    - Bot tools:
+      - game_bot: modules/structured/bot_tools/modul-game_bot.md
+      - default_configs / cavebot_1.3:
+        - opis: modules/structured/bot_tools/modul-game_bot-default_configs-cavebot_1.3.md
+        - cavebot: modules/structured/bot_tools/modul-game_bot-default_configs-cavebot_1.3-cavebot.md
+        - cavebot_configs: modules/structured/bot_tools/modul-game_bot-default_configs-cavebot_1.3-cavebot_configs.md
+        - targetbot: modules/structured/bot_tools/modul-game_bot-default_configs-cavebot_1.3-targetbot.md
+        - targetbot_configs: modules/structured/bot_tools/modul-game_bot-default_configs-cavebot_1.3-targetbot_configs.md
+      - default_configs / vBot_4.7:
+        - opis: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.7.md
+        - cavebot: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.7-cavebot.md
+        - targetbot: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.7-targetbot.md
+        - vBot: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.7-vbot.md
+      - default_configs / vBot_4.8:
+        - opis: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.8.md
+        - cavebot: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.8-cavebot.md
+        - targetbot: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.8-targetbot.md
+        - vBot: modules/structured/bot_tools/modul-game_bot-default_configs-vbot_4.8-vbot.md
+      - functions: modules/structured/bot_tools/modul-game_bot-functions.md
+      - panels: modules/structured/bot_tools/modul-game_bot-panels.md
+      - ui: modules/structured/bot_tools/modul-game_bot-ui.md
+    - Narzędzia developerskie:
+      - client_background: modules/structured/dev_tools/modul-client_background.md
+      - client_entergame: modules/structured/dev_tools/modul-client_entergame.md
+      - client_feedback: modules/structured/dev_tools/modul-client_feedback.md
+      - client_locales: modules/structured/dev_tools/modul-client_locales.md
+      - client_mobile: modules/structured/dev_tools/modul-client_mobile.md
+      - client_options: modules/structured/dev_tools/modul-client_options.md
+      - client_profiles: modules/structured/dev_tools/modul-client_profiles.md
+      - client_stats: modules/structured/dev_tools/modul-client_stats.md
+      - client_styles: modules/structured/dev_tools/modul-client_styles.md
+      - client_terminal: modules/structured/dev_tools/modul-client_terminal.md
+      - client_textedit: modules/structured/dev_tools/modul-client_textedit.md
+      - client_topmenu: modules/structured/dev_tools/modul-client_topmenu.md
+      - corelib/ui: modules/structured/dev_tools/modul-corelib-ui.md
+      - crash_reporter: modules/structured/dev_tools/modul-crash_reporter.md
+      - gamelib/ui: modules/structured/dev_tools/modul-gamelib-ui.md
+      - game_bugreport: modules/structured/dev_tools/modul-game_bugreport.md
+      - game_buttons: modules/structured/dev_tools/modul-game_buttons.md
+      - game_features: modules/structured/dev_tools/modul-game_features.md
+      - game_protocol: modules/structured/dev_tools/modul-game_protocol.md
+      - game_shaders: modules/structured/dev_tools/modul-game_shaders.md
+      - game_things: modules/structured/dev_tools/modul-game_things.md
+      - updater: modules/structured/dev_tools/modul-updater.md
+    # (opcjonalnie) UI — folder istnieje, ale brak plików wg dry-run
 
   - API:
     - Lua:
