@@ -1,79 +1,67 @@
-name: Docs
+# .github/workflows/docs.yml
+name: Build docs
 
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'mkdocs.yml'
+      - 'docs/**'
+      - '.github/workflows/docs.yml'
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
+# NIE anuluje trwającego builda, gdy wpadnie kolejny commit
 concurrency:
   group: docs-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  build-deploy:
+  build:
+    name: mkdocs build
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    env:
-      PIP_DISABLE_PIP_VERSION_CHECK: "1"
-      PIP_NO_PYTHON_VERSION_WARNING: "1"
-      CI: "true"
+    timeout-minutes: 45
 
     steps:
-      - name: Checkout (full history for git-revision-date)
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # wymagane przez git-revision-date-localized
 
-      # 1) Najpierw zapewnij wymagania dla cache pip
-      - name: Write docs requirements
-        run: |
-          mkdir -p docs
-          cat > docs/requirements.txt << 'REQS'
-          mkdocs==1.*
-          mkdocs-material==9.*
-          mkdocs-glightbox==0.*
-          mkdocs-macros-plugin==1.*
-          mkdocs-git-revision-date-localized-plugin==1.*
-          REQS
-
-      # 2) Dopiero teraz setup-python z cache'em wskazującym na docs/requirements.txt
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
-          cache: "pip"
-          cache-dependency-path: docs/requirements.txt
+          python-version: '3.11'  # stabilna z mkdocs-material
 
-      - name: Install MkDocs toolchain
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-docs.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install -r docs/requirements.txt
+          # pełen zestaw wprost (możesz to przenieść do requirements-docs.txt)
+          pip install \
+            mkdocs==1.6.1 \
+            mkdocs-material==9.5.49 \
+            "mkdocs-material[imaging]" \
+            mkdocs-glightbox \
+            mkdocs-macros-plugin \
+            mkdocs-git-revision-date-localized-plugin \
+            pymdown-extensions
 
-      - name: Ensure docs/index.md exists (fallback)
+      - name: Show versions
         run: |
-          if [ ! -f docs/index.md ]; then
-            echo "# OTCv8 — Dokumentacja" > docs/index.md
-          fi
+          mkdocs --version
+          python -c "import pkgutil;print(sorted([m.name for m in pkgutil.iter_modules() if m.name.startswith('mkdocs')]))"
 
-      - name: Remove conflicting HTML index
+      - name: Build site
+        env:
+          PIP_DISABLE_PIP_VERSION_CHECK: 1
+          PIP_NO_PYTHON_VERSION_WARNING: 1
+          CI: true
         run: |
-          if [ -f docs/index.html ]; then rm -f docs/index.html; fi
-
-      - name: Build site (verbose)
-        run: mkdocs build -v
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+          mkdocs build -v --clean
