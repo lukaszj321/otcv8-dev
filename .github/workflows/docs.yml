@@ -10,22 +10,20 @@ permissions:
   pages: write
   id-token: write
 
-# Option A: keep only the latest run per branch (recommended)
 concurrency:
   group: docs-${{ github.ref }}
   cancel-in-progress: true
-
-# Option B (if you keep getting cancels): allow parallel runs (no auto-cancel)
-# concurrency:
-#   group: docs-${{ github.ref }}
-#   cancel-in-progress: false
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      PIP_DISABLE_PIP_VERSION_CHECK: "1"
+      PIP_NO_PYTHON_VERSION_WARNING: "1"
+      CI: "true"
     steps:
-      - name: Checkout full history (for git-revision-date)
+      - name: Checkout (full history for git-revision-date)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -34,23 +32,32 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-          cache: pip
+          cache: "pip"
+          cache-dependency-path: docs/requirements.txt
+
+      - name: Write docs requirements
+        run: |
+          mkdir -p docs
+          cat > docs/requirements.txt << 'REQS'
+          mkdocs==1.*
+          mkdocs-material==9.*
+          mkdocs-glightbox==0.*
+          mkdocs-macros-plugin==1.*
+          mkdocs-git-revision-date-localized-plugin==1.*
+          REQS
 
       - name: Install MkDocs toolchain
         run: |
           python -m pip install --upgrade pip
-          pip install \
-            mkdocs \
-            mkdocs-material \
-            mkdocs-glightbox \
-            mkdocs-macros-plugin \
-            mkdocs-git-revision-date-localized-plugin
+          pip install -r docs/requirements.txt
 
-      - name: Ensure docs/index.md exists
+      - name: Ensure docs/index.md exists (fallback)
         run: |
-          test -f docs/index.md || { echo '# OTCv8 — Dokumentacja' > docs/index.md; echo; }
+          if [ ! -f docs/index.md ]; then
+            echo "# OTCv8 — Dokumentacja" > docs/index.md
+          fi
 
-      - name: Remove conflicting HTML index (if any)
+      - name: Remove conflicting HTML index
         run: |
           if [ -f docs/index.html ]; then rm -f docs/index.html; fi
 
