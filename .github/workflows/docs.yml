@@ -3,59 +3,59 @@ name: Docs
 on:
   push:
     branches: [ master ]
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Option A: keep only the latest run per branch (recommended)
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+# Option B (if you keep getting cancels): allow parallel runs (no auto-cancel)
+# concurrency:
+#   group: docs-${{ github.ref }}
+#   cancel-in-progress: false
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    env:
-      CI: true
+    timeout-minutes: 15
     steps:
-      - name: Checkout (full history for git-revision-date)
+      - name: Checkout full history (for git-revision-date)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Create requirements.txt
-        run: |
-          cat > requirements.txt << 'REQ'
-          mkdocs
-          mkdocs-material
-          mkdocs-glightbox
-          mkdocs-macros-plugin
-          mkdocs-git-revision-date-localized-plugin
-          REQ
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
           cache: pip
-          cache-dependency-path: requirements.txt
 
       - name: Install MkDocs toolchain
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install \
+            mkdocs \
+            mkdocs-material \
+            mkdocs-glightbox \
+            mkdocs-macros-plugin \
+            mkdocs-git-revision-date-localized-plugin
 
-      - name: Remove conflicting HTML index if present
+      - name: Ensure docs/index.md exists
         run: |
-          if [ -f docs/index.html ]; then
-            echo "Removing docs/index.html to avoid conflict with index.md"
-            rm -f docs/index.html
-          fi
+          test -f docs/index.md || { echo '# OTCv8 — Dokumentacja' > docs/index.md; echo; }
 
-      - name: Build site
-        run: mkdocs build
+      - name: Remove conflicting HTML index (if any)
+        run: |
+          if [ -f docs/index.html ]; then rm -f docs/index.html; fi
+
+      - name: Build site (verbose)
+        run: mkdocs build -v
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
