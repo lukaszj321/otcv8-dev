@@ -240,6 +240,7 @@ Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/
 ### 0.1 Cel i zakres „1:1”
 Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/OTML + Lua) oraz wymagania dla Twojego **edytora TypeScript**: jak składać okna i komponenty, aby eksport/import był **deterministyczny i w 100% zgodny** z klientem. Zawiera: reguły formatowania (STRICT OTUI), taksonomię komponentów, macierze dozwolonych dzieci, blueprinty OTUI, glue Lua, walidację, parser/serializer OTUI→AST i round‑trip (edytor ↔ plik `.otui` ↔ Lua).<div id="ch-0-2"></div>
 ### 0.2 Terminologia
+>>>>>>> 01cd32774b2afd564ecc0837d2f67ba7177a288d
 - **Widget** — jednostka UI (np. Label, Button, TextList).
 - **Layout‑owner** — rodzic odpowiadający za obszary/sloty i dokowanie dzieci.
 - **Area/slot** — semantyczna przestrzeń dla dzieci (np. `titlebar`, `content`, `footer`).
