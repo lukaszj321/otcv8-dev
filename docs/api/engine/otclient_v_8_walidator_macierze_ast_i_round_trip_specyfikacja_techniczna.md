@@ -1,6 +1,4 @@
-﻿# {% raw %}
-
-**Pakiet:** `otc_core_v1/engine` Â· **Wersja:** 1.0  
+﻿# **Pakiet:** `otc_core_v1/engine` Â· **Wersja:** 1.0   
 **Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testĂłw roundâ€‘trip.
 
 ---
@@ -306,4 +304,5 @@ Splitter
 <div id="ch-11"></div>
 ## 11. Indeks haseĹ‚
 - STRICT â€˘ AST â€˘ Macierz â€˘ Walidator â€˘ Autoâ€‘naprawy â€˘ Roundâ€‘trip â€˘ Splitter â€˘ TabBar/TabWidget â€˘ StatusOverlay â€˘ Scroll pairing
+
 
