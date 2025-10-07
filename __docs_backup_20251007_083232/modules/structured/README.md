@@ -1,5 +1,0 @@
-# Structured modules
-
-> NOTE:
-
----
