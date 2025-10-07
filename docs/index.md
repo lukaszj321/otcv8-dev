@@ -1,18 +1,18 @@
-# OTCv8 â€” Dokumentacja
+# OTCv8 — Dokumentacja
 
-Witaj w dokumentacji **OTCv8**. PoniĂ„Ä…Ă„Ëťej najwaĂ„Ä…Ă„Ëťniejsze dziaĂ„Ä…Ă˘â‚¬Ĺˇy:
+Witaj w dokumentacji **OTCv8**. PoniA�ąA��tej najwaA�ąA��tniejsze dziaA�ąA?€L?y:
 
-- **Architektura** â€“ przeglÄ…d klienta, frameworka i struktury Ă„Ä…ÄąĹşrĂłdeĂ„Ä…Ă˘â‚¬Ĺˇ.
-- **ModuĂ„Ä…Ă˘â‚¬Ĺˇy** â€“ opis moduĂ„Ä…Ă˘â‚¬ĹˇĂłw gry (czÄ™Ă„Ä…Ă˘â‚¬ĹźÄ‡ 1 i 2), rdzeĂ„Ä…â€ž i dodatki.
-- **API** â€“ funkcje Lua klienta, specyfikacje silnika, presetĂłw i walidatora.
-- **Dane** â€“ przewodnik po strukturach danych.
-- **Przewodniki** â€“ architektura (legacy), wprowadzenie do moduĂ„Ä…Ă˘â‚¬ĹˇĂłw, WebSocket.
-- **Budowanie** â€“ instrukcje dla Windows, Linux, Android.
-- **Dev** â€“ FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
-- **Wiedza** â€“ materiaĂ„Ä…Ă˘â‚¬Ĺˇy referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
-- **Lua** â€“ API ogĂłlne i styl pisania.
-- **UI** â€“ przewodnik OTUI.
-- **NarzÄ™dzia** â€“ przeglÄ…d narzÄ™dzi.
+- **Architektura** – przegląd klienta, frameworka i struktury A�ą�aLsrAldeA�ąA?€L?.
+- **ModuA�ąA?€L?y** – opis moduA�ąA?€L?Alw gry (częA�ąA?€Lzć 1 i 2), rdzeA�ą„ i dodatki.
+- **API** – funkcje Lua klienta, specyfikacje silnika, presetAlw i walidatora.
+- **Dane** – przewodnik po strukturach danych.
+- **Przewodniki** – architektura (legacy), wprowadzenie do moduA�ąA?€L?Alw, WebSocket.
+- **Budowanie** – instrukcje dla Windows, Linux, Android.
+- **Dev** – FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
+- **Wiedza** – materiaA�ąA?€L?y referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
+- **Lua** – API ogAllne i styl pisania.
+- **UI** – przewodnik OTUI.
+- **Narzędzia** – przegląd narzędzi.
 
-> JeĂ„Ä…Ă˘â‚¬Ĺźli szukasz szybkiego startu, przejdĂ„Ä…ÄąĹş do:  
-> **Architektura Ä‚ËĂ˘â‚¬Â Ă˘â‚¬â„˘ _PrzeglÄ…d klienta_** lub **Budowanie Ä‚ËĂ˘â‚¬Â Ă˘â‚¬â„˘ _Windows_**.
+> JeA�ąA?€Lzli szukasz szybkiego startu, przejdA�ą�aLs do:  
+> **Architektura Ă�?A?€ A?€�? _Przegląd klienta_** lub **Budowanie Ă�?A?€ A?€�? _Windows_**.

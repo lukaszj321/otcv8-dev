@@ -1,11 +1,11 @@
-# Lua API (przykÄąâ€šady)
+# Lua API (przykĹ‚ady)
 
 `$fenceInfo
--- przykÄąâ€šad zdarzenia
+-- przykĹ‚ad zdarzenia
 onTalk(function(name, level, mode, text)
   -- ...
 end)
 
 ```
 
-> Docelowo: generowane referencje (LDoc/EmmyLua) + przykÄąâ€šady.
+> Docelowo: generowane referencje (LDoc/EmmyLua) + przykĹ‚ady.
