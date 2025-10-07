@@ -1,4 +1,4 @@
-﻿# OTUI Lint Rules (MASTER) – Specyfikacja dla **OTClient Studio**
+# OTUI Lint Rules (MASTER) – Specyfikacja dla **OTClient Studio**
 
 > Cel: kompletny katalog reguł lint/auto‑fix dla **OTUI/OTML** używany przez Studio. Dokument definiuje: zachowania reguł, algorytmy auto‑fix, format diagnostyk, konfigurację, test‑wektory, integrację z edytorem i wymagania jakościowe. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
 
