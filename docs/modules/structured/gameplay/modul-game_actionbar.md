@@ -1,5 +1,4 @@
-# | Modul: `game_actionbar`
-
+﻿# | Modul: `game_actionbar`
 ```lua
 
 local actionBars = {}
@@ -2044,7 +2043,6 @@ end
 
 ---
 # actionbar.otmod
-
 ```text
 
 Module
@@ -2065,7 +2063,6 @@ Module
 
 ---
 # actionbar.otui
-
 ```otui
 
 ActionButton < UIButton
@@ -2506,7 +2503,6 @@ Panel
 
 ---
 # hotkey.otui
-
 ```otui
 
 MainWindow
@@ -2613,7 +2609,6 @@ MainWindow
 
 ---
 # object.otui
-
 ```otui
 
 RoundCheckBox < CheckBox
@@ -2790,7 +2785,6 @@ MainWindow
 
 ---
 # sideactionbar.otui
-
 ```otui
 
 SideActionButton < UIButton
@@ -3229,7 +3223,6 @@ Panel
 
 ---
 # spell.otui
-
 ```otui
 
 SpellPreview < UICheckBox
@@ -3492,7 +3485,6 @@ MainWindow
 
 ---
 # text.otui
-
 ```otui
 
 MainWindow
@@ -3614,3 +3606,4 @@ MainWindow
 ```
 
 ---
+

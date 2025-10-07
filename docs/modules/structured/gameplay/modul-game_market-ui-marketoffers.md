@@ -1,5 +1,4 @@
-# | Modul: `game_market/ui/marketoffers`
-
+﻿# | Modul: `game_market/ui/marketoffers`
 ```otui
 
 MarketItemBox < UICheckBox
@@ -284,7 +283,6 @@ Panel
 
 ---
 # itemdetails.otui
-
 ```otui
 
 DetailsTableRow < TableRow
@@ -393,7 +391,6 @@ Panel
 
 ---
 # itemoffers.otui
-
 ```otui
 
 OfferTableRow < TableRow
@@ -716,7 +713,6 @@ Panel
 
 ---
 # itemstats.otui
-
 ```otui
 
 StatsTableRow < TableRow
@@ -909,7 +905,6 @@ Panel
 
 ---
 # overview.otui
-
 ```otui
 
 Panel
@@ -945,3 +940,4 @@ Panel
 ```
 
 ---
+

@@ -1,5 +1,4 @@
-# | Modul: `game_market/ui`
-
+﻿# | Modul: `game_market/ui`
 ```otui
 
 Panel
@@ -336,7 +335,6 @@ Panel
 
 ---
 # myoffers.otui
-
 ```otui
 
 Panel
@@ -370,3 +368,4 @@ Panel
 ```
 
 ---
+

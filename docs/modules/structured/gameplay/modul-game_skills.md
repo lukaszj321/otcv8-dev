@@ -1,5 +1,4 @@
-# | Modul: `game_skills`
-
+﻿# | Modul: `game_skills`
 ```lua
 
 skillsWindow = nil
@@ -756,7 +755,6 @@ end
 
 ---
 # skills.otmod
-
 ```text
 
 Module
@@ -785,7 +783,6 @@ Module
 
 ---
 # skills.otui
-
 ```otui
 
 SkillFirstWidget < UIWidget
@@ -1153,3 +1150,4 @@ MiniWindow
 ```
 
 ---
+

@@ -1,5 +1,4 @@
-# | Modul: `game_inventory`
-
+﻿# | Modul: `game_inventory`
 ```lua
 
 Icons = {}
@@ -842,7 +841,6 @@ end
 
 ---
 # inventory.otmod
-
 ```text
 
 Module
@@ -867,7 +865,6 @@ Module
 
 ---
 # inventory.otui
-
 ```otui
 
 InventoryWindow
@@ -885,3 +882,4 @@ InventoryWindow
 ```
 
 ---
+

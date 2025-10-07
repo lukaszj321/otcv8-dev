@@ -1,5 +1,4 @@
-# | Modul: `client_background`
-
+﻿# | Modul: `client_background`
 ```lua
 
 -- private variables
@@ -80,7 +79,6 @@ end
 
 ---
 # background.otmod
-
 ```text
 
 Module
@@ -105,7 +103,6 @@ Module
 
 ---
 # background.otui
-
 ```otui
 
 UIWidget
@@ -151,3 +148,4 @@ UIWidget
 ```
 
 ---
+

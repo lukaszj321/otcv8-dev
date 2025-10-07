@@ -1,5 +1,4 @@
-# | Modul: `game_protocol`
-
+﻿# | Modul: `game_protocol`
 ```lua
 
 local registredOpcodes = nil
@@ -1330,7 +1329,6 @@ end
 
 ---
 # protocol.otmod
-
 ```text
 
 Module
@@ -1358,3 +1356,4 @@ Module
 ```
 
 ---
+

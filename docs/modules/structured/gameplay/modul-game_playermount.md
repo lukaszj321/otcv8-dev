@@ -1,5 +1,4 @@
-# | Modul: `game_playermount`
-
+﻿# | Modul: `game_playermount`
 ```lua
 
 function init()
@@ -90,7 +89,6 @@ end
 
 ---
 # playermount.otmod
-
 ```text
 
 Module
@@ -114,3 +112,4 @@ Module
 ```
 
 ---
+

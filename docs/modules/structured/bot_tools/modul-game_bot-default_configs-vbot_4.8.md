@@ -1,5 +1,4 @@
-# | Modul: `game_bot/default_configs/vBot_4.8`
-
+﻿# | Modul: `game_bot/default_configs/vBot_4.8`
 ```lua
 
 -- load all otui files, order doesn't matter
@@ -123,3 +122,4 @@ UI.Separator()
 ```
 
 ---
+

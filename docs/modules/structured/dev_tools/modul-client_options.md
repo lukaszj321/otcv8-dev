@@ -1,5 +1,4 @@
-# | Modul: `client_options`
-
+﻿# | Modul: `client_options`
 ```otui
 
 OptionPanel
@@ -68,7 +67,6 @@ OptionPanel
 
 ---
 # console.otui
-
 ```otui
 
 OptionPanel
@@ -119,7 +117,6 @@ OptionPanel
 
 ---
 # custom.otui
-
 ```otui
 
 OptionPanel
@@ -326,7 +323,6 @@ OptionPanel
 
 ---
 # game.otui
-
 ```otui
 
 OptionPanel
@@ -579,7 +575,6 @@ OptionPanel
 
 ---
 # graphics.otui
-
 ```otui
 
 OptionPanel
@@ -756,7 +751,6 @@ OptionPanel
 
 ---
 # interface.otui
-
 ```otui
 
 OptionPanel
@@ -1069,7 +1063,6 @@ OptionPanel
 
 ---
 # options.lua
-
 ```lua
 
 local defaultOptions = {
@@ -1838,7 +1831,6 @@ end
 
 ---
 # options.otmod
-
 ```text
 
 Module
@@ -1863,7 +1855,6 @@ Module
 
 ---
 # options.otui
-
 ```otui
 
 OptionCheckBox < CheckBox
@@ -1949,3 +1940,4 @@ MainWindow
 ```
 
 ---
+

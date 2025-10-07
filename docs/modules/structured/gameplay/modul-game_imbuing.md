@@ -1,5 +1,4 @@
-# | Modul: `game_imbuing`
-
+﻿# | Modul: `game_imbuing`
 ```lua
 
 local imbuingWindow
@@ -578,7 +577,6 @@ end
 
 ---
 # imbuing.otmod
-
 ```text
 
 Module
@@ -603,7 +601,6 @@ Module
 
 ---
 # imbuing.otui
-
 ```otui
 
 Slot < Button
@@ -1205,3 +1202,4 @@ MainWindow
 ```
 
 ---
+

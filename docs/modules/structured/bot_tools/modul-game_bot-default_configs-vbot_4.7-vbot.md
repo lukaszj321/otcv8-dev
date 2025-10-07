@@ -1,5 +1,4 @@
-# | Modul: `game_bot/default_configs/vBot_4.7/vBot`
-
+﻿# | Modul: `game_bot/default_configs/vBot_4.7/vBot`
 ```lua
 
 setDefaultTab('main')
@@ -2348,7 +2347,6 @@ end)
 
 ---
 # AttackBot.otui
-
 ```otui
 
 AttackEntry < UIWidget
@@ -3451,7 +3449,6 @@ AttackBotWindow < MainWindow
 
 ---
 # BotServer.lua
-
 ```lua
 
 setDefaultTab("Main")
@@ -3818,7 +3815,6 @@ addSeparator()
 
 ---
 # BotServer.otui
-
 ```otui
 
 BotServerData < Panel
@@ -4153,7 +4149,6 @@ BotServerWindow < MainWindow
 
 ---
 # Conditions.lua
-
 ```lua
 
 setDefaultTab("HP")
@@ -4602,7 +4597,6 @@ Panel
 
 ---
 # Conditions.otui
-
 ```otui
 
 UturaComboBoxPopupMenu < ComboBoxPopupMenu
@@ -5417,7 +5411,6 @@ ConditionsWindow < MainWindow
 
 ---
 # Containers.lua
-
 ```lua
 
 setDefaultTab("Tools")
@@ -6632,7 +6625,6 @@ end)
 
 ---
 # Dropper.lua
-
 ```lua
 
 setDefaultTab("Tools")
@@ -6887,7 +6879,6 @@ end)
 
 ---
 # Equipper.lua
-
 ```lua
 
 local panelName = "EquipperPanel"
@@ -8254,7 +8245,6 @@ end)
 
 ---
 # HealBot.lua
-
 ```lua
 
 local standBySpells = false
@@ -9547,7 +9537,6 @@ end)
 
 ---
 # HealBot.otui
-
 ```otui
 
 SettingCheckBox < CheckBox
@@ -10402,7 +10391,6 @@ HealWindow < MainWindow
 
 ---
 # Sio.lua
-
 ```lua
 
 setDefaultTab("Main")
@@ -10859,7 +10847,6 @@ addSeparator()
 
 ---
 # alarms.lua
-
 ```lua
 
 local panelName = "alarms"
@@ -11336,7 +11323,6 @@ end
 
 ---
 # alarms.otui
-
 ```otui
 
 AlarmsWindow < MainWindow
@@ -11667,7 +11653,6 @@ AlarmsWindow < MainWindow
 
 ---
 # analyzer.lua
-
 ```lua
 
 --[[
@@ -14616,7 +14601,6 @@ end
 
 ---
 # analyzer.otui
-
 ```otui
 
 TrackerItem < Panel
@@ -15377,7 +15361,6 @@ FeaturesWindow < MainWindow
 
 ---
 # antiRs.lua
-
 ```lua
 
 setDefaultTab("Tools")
@@ -15442,7 +15425,6 @@ end)
 
 ---
 # cast_food.lua
-
 ```lua
 
 setDefaultTab("HP")
@@ -15493,7 +15475,6 @@ end
 
 ---
 # cavebot.lua
-
 ```lua
 
 -- Cavebot by otclient@otclient.ovh
@@ -15600,7 +15581,6 @@ dofile("/targetbot/target.lua")
 
 ---
 # cavebot_control_panel.lua
-
 ```lua
 
 setDefaultTab("Cave")
@@ -15707,7 +15687,6 @@ end, panel.buttons)
 
 ---
 # combo.lua
-
 ```lua
 
 setDefaultTab("Main")
@@ -16508,7 +16487,6 @@ end
 
 ---
 # combo.otui
-
 ```otui
 
 AttackComboBoxPopupMenu < ComboBoxPopupMenu
@@ -17203,7 +17181,6 @@ ComboWindow < MainWindow
 
 ---
 # configs.lua
-
 ```lua
 
 --[[ 
@@ -17380,7 +17357,6 @@ end
 
 ---
 # depositer_config.lua
-
 ```lua
 
 setDefaultTab("Cave")
@@ -17615,7 +17591,6 @@ end
 
 ---
 # depositer_config.otui
-
 ```otui
 
 StashItem < Panel
@@ -17800,7 +17775,6 @@ DepositerPanel < MainWindow
 
 ---
 # depot_withdraw.lua
-
 ```lua
 
 -- config
@@ -17935,7 +17909,6 @@ end)
 
 ---
 # eat_food.lua
-
 ```lua
 
 setDefaultTab("HP")
@@ -17990,7 +17963,6 @@ UI.Separator()
 
 ---
 # equip.lua
-
 ```lua
 
 -- config
@@ -18067,7 +18039,6 @@ end)
 
 ---
 # equipper.otui
-
 ```otui
 
 SlotBotItem < BotItem
@@ -19008,7 +18979,6 @@ EquipWindow < MainWindow
 
 ---
 # exeta.lua
-
 ```lua
 
 local voc = player:getVocation()
@@ -19067,7 +19037,6 @@ end
 
 ---
 # extras.lua
-
 ```lua
 
 setDefaultTab("Main")
@@ -20228,7 +20197,6 @@ end
 
 ---
 # extras.otui
-
 ```otui
 
 ExtrasScrollBar < Panel
@@ -20509,7 +20477,6 @@ ExtrasWindow < MainWindow
 
 ---
 # hold_target.lua
-
 ```lua
 
 setDefaultTab("Tools")
@@ -20566,7 +20533,6 @@ end)
 
 ---
 # ingame_editor.lua
-
 ```lua
 
 setDefaultTab("Tools")
@@ -20613,7 +20579,6 @@ UI.Button("Ingame script editor", function(newText)
 
 ---
 # items.lua
-
 ```lua
 
 LootItems = {
@@ -23420,7 +23385,6 @@ WasteItems = {
 
 ---
 # main.lua
-
 ```lua
 
 local version = "4.7"
@@ -23483,7 +23447,6 @@ end)
 
 ---
 # new_cavebot_lib.lua
-
 ```lua
 
 CaveBot = {} -- global namespace
@@ -24392,7 +24355,6 @@ end
 
 ---
 # new_healer.lua
-
 ```lua
 
 setDefaultTab("Main")
@@ -25193,7 +25155,6 @@ end)
 
 ---
 # new_healer.otui
-
 ```otui
 
 CategoryCheckBox < CheckBox
@@ -25898,7 +25859,6 @@ FriendHealer < MainWindow
 
 ---
 # npc_talk.lua
-
 ```lua
 
 onAttackingCreatureChange(function(creature, OldCreature)
@@ -25915,7 +25875,6 @@ end)
 
 ---
 # playerlist.lua
-
 ```lua
 
 --[[
@@ -26552,7 +26511,6 @@ end)
 
 ---
 # playerlist.otui
-
 ```otui
 
 PlayerLabel < UIWidget
@@ -26815,7 +26773,6 @@ PlayerListWindow < MainWindow
 
 ---
 # pushmax.lua
-
 ```lua
 
 ---@diagnostic disable: undefined-global
@@ -27328,7 +27285,6 @@ end)
 
 ---
 # pushmax.otui
-
 ```otui
 
 PushMaxWindow < MainWindow
@@ -27485,7 +27441,6 @@ PushMaxWindow < MainWindow
 
 ---
 # quiver_label.lua
-
 ```lua
 
 local quiverSlot = modules.game_inventory.inventoryWindow:recursiveGetChildById('slot5')
@@ -27584,7 +27539,6 @@ end)
 
 ---
 # quiver_manager.lua
-
 ```lua
 
 if voc() == 2 or voc() == 12 then
@@ -27743,7 +27697,6 @@ end
 
 ---
 # siolist.otui
-
 ```otui
 
 VocationPanel < Panel
@@ -28082,7 +28035,6 @@ SioListWindow < MainWindow
 
 ---
 # spy_level.lua
-
 ```lua
 
 -- config
@@ -28127,7 +28079,6 @@ end)
 
 ---
 # supplies.lua
-
 ```lua
 
 setDefaultTab("Cave")
@@ -28946,7 +28897,6 @@ end
 
 ---
 # supplies.otui
-
 ```otui
 
 ProfileLabel < UIWidget
@@ -29383,7 +29333,6 @@ SuppliesWindow < MainWindow
 
 ---
 # tools.lua
-
 ```lua
 
 -- tools tab
@@ -29472,7 +29421,6 @@ UI.Separator()
 
 ---
 # version.txt
-
 ```text
 
 4.7
@@ -29481,7 +29429,6 @@ UI.Separator()
 
 ---
 # vlib.lua
-
 ```lua
 
 -- Author: Vithrax
@@ -31596,7 +31543,6 @@ diamondArrowArea = [[
 
 ---
 # xeno_menu.lua
-
 ```lua
 
 modules.game_interface.gameRootPanel.onMouseRelease = function(widget, mousePos, mouseButton)
@@ -31662,3 +31608,4 @@ end
 ```
 
 ---
+

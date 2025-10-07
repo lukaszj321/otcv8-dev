@@ -1,5 +1,4 @@
-# | Modul: `game_textwindow`
-
+﻿# | Modul: `game_textwindow`
 ```lua
 
 windows = {}
@@ -232,7 +231,6 @@ end
 
 ---
 # textwindow.otmod
-
 ```text
 
 Module
@@ -259,7 +257,6 @@ Module
 
 ---
 # textwindow.otui
-
 ```otui
 
 TextWindow < MainWindow
@@ -359,3 +356,4 @@ TextWindow < MainWindow
 ```
 
 ---
+

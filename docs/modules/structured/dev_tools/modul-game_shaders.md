@@ -1,5 +1,4 @@
-# | Modul: `game_shaders`
-
+﻿# | Modul: `game_shaders`
 ```lua
 
 function init()
@@ -36,7 +35,6 @@ end
 
 ---
 # shaders.otmod
-
 ```text
 
 Module
@@ -60,3 +58,4 @@ Module
 ```
 
 ---
+

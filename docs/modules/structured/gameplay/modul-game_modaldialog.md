@@ -1,5 +1,4 @@
-# | Modul: `game_modaldialog`
-
+﻿# | Modul: `game_modaldialog`
 ```lua
 
 modalDialog = nil
@@ -232,7 +231,6 @@ end
 
 ---
 # modaldialog.otmod
-
 ```text
 
 Module
@@ -259,7 +257,6 @@ Module
 
 ---
 # modaldialog.otui
-
 ```otui
 
 ChoiceListLabel < Label
@@ -391,3 +388,4 @@ ModalDialog < MainWindow
 ```
 
 ---
+

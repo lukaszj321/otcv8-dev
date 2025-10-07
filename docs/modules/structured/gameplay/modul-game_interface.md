@@ -1,5 +1,4 @@
-# | Modul: `game_interface`
-
+﻿# | Modul: `game_interface`
 ```lua
 
 gameRootPanel = nil
@@ -2120,7 +2119,6 @@ end
 
 ---
 # gameinterface.otui
-
 ```otui
 
 GameSidePanel < UIMiniWindowContainer
@@ -2477,7 +2475,6 @@ UIWidget
 
 ---
 # interface.otmod
-
 ```text
 
 Module
@@ -2575,3 +2572,4 @@ Module
 ```
 
 ---
+

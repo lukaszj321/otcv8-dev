@@ -1,5 +1,4 @@
-# | Modul: `game_bot/default_configs/cavebot_1.3`
-
+﻿# | Modul: `game_bot/default_configs/cavebot_1.3`
 ```lua
 
 -- Cavebot by otclient@otclient.ovh
@@ -78,7 +77,6 @@ dofile("/targetbot/target.lua")
 
 ---
 # hp.lua
-
 ```lua
 
 setDefaultTab("HP")
@@ -421,7 +419,6 @@ end)
 
 ---
 # main.lua
-
 ```lua
 
 -- main tab
@@ -456,7 +453,6 @@ end)
 
 ---
 # mwall_timer.lua
-
 ```lua
 
 -- Magic wall & Wild growth timer
@@ -535,7 +531,6 @@ end)
 
 ---
 # storage.json
-
 ```text
 
 {
@@ -798,7 +793,6 @@ end)
 
 ---
 # tools.lua
-
 ```lua
 
 -- tools tab
@@ -1060,3 +1054,4 @@ UI.Separator()
 ```
 
 ---
+

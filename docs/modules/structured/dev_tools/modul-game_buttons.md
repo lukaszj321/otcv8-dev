@@ -1,5 +1,4 @@
-# | Modul: `game_buttons`
-
+﻿# | Modul: `game_buttons`
 ```lua
 
 buttonsWindow = nil
@@ -94,7 +93,6 @@ end
 
 ---
 # buttons.otmod
-
 ```text
 
 Module
@@ -117,7 +115,6 @@ Module
 
 ---
 # buttons.otui
-
 ```otui
 
 GameButtonsWindow
@@ -133,3 +130,4 @@ GameButtonsWindow
 ```
 
 ---
+

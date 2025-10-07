@@ -1,5 +1,4 @@
-# | Modul: `game_bot/panels`
-
+﻿# | Modul: `game_bot/panels`
 ```text
 
 DONT USE PANELS
@@ -12,7 +11,6 @@ MAY BE REMOVED IN THE FUTURE
 
 ---
 # attacking.lua
-
 ```lua
 
 local context = G.botContext
@@ -2119,7 +2117,6 @@ end
 
 ---
 # basic.lua
-
 ```lua
 
 local context = G.botContext
@@ -2222,7 +2219,6 @@ end
 
 ---
 # healing.lua
-
 ```lua
 
 local context = G.botContext
@@ -2817,7 +2813,6 @@ end
 
 ---
 # looting.lua
-
 ```lua
 
 local context = G.botContext
@@ -3606,7 +3601,6 @@ end
 
 ---
 # tools.lua
-
 ```lua
 
 local context = G.botContext
@@ -3681,7 +3675,6 @@ end
 
 ---
 # war.lua
-
 ```lua
 
 local context = G.botContext
@@ -3920,7 +3913,6 @@ end
 
 ---
 # waypoints.lua
-
 ```lua
 
 local context = G.botContext
@@ -5298,3 +5290,4 @@ end
 ```
 
 ---
+

@@ -1,5 +1,4 @@
-# | Modul: `game_stats`
-
+﻿# | Modul: `game_stats`
 ```lua
 
 ui = nil
@@ -102,7 +101,6 @@ end
 
 ---
 # stats.otmod
-
 ```text
 
 Module
@@ -127,7 +125,6 @@ Module
 
 ---
 # stats.otui
-
 ```otui
 
 UIWidget
@@ -163,3 +160,4 @@ UIWidget
 ```
 
 ---
+

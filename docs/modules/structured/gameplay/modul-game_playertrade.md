@@ -1,5 +1,4 @@
-# | Modul: `game_playertrade`
-
+﻿# | Modul: `game_playertrade`
 ```lua
 
 tradeWindow = nil
@@ -142,7 +141,6 @@ end
 
 ---
 # playertrade.otmod
-
 ```text
 
 Module
@@ -167,7 +165,6 @@ Module
 
 ---
 # tradewindow.otui
-
 ```otui
 
 TradeWindow < MiniWindow
@@ -373,3 +370,4 @@ TradeWindow < MiniWindow
 ```
 
 ---
+

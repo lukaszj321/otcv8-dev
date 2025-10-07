@@ -1,6 +1,5 @@
-{% raw %}
+﻿{% raw %}
 # | Modul: `client_textedit`
-
 ```lua
 
 local activeWindow
@@ -301,7 +300,6 @@ end
 
 ---
 # textedit.otmod
-
 ```text
 
 Module
@@ -326,7 +324,6 @@ Module
 
 ---
 # textedit.otui
-
 ```otui
 
 TextEditButtons < Panel
@@ -456,3 +453,4 @@ MultilineTextEditWindow < TextEditWindow
 ---
 
 {% endraw %}
+

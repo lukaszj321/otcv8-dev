@@ -1,5 +1,4 @@
-# | Modul: `game_topbar`
-
+﻿# | Modul: `game_topbar`
 ```lua
 
 Icons = {}
@@ -862,7 +861,6 @@ end
 
 ---
 # topbar.otmod
-
 ```text
 
 Module
@@ -889,7 +887,6 @@ Module
 
 ---
 # topbar.otui
-
 ```otui
 
 StatsPanel < Panel
@@ -1105,3 +1102,4 @@ Panel
 ```
 
 ---
+

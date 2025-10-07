@@ -1,5 +1,4 @@
-# Architektura (skrót)
-
+﻿# Architektura (skrót)
 ```mermaid
 graph TD
   Client[OTCv8 Client] -->|Lua| vBot[vBot Modules]
@@ -20,3 +19,4 @@ OTUI – deklaratywne layouty
 === "Kontrakty"
 
 Eventy Lua ⟷ UI, IPC/WS, zasoby
+

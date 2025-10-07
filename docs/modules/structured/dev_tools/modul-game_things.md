@@ -1,5 +1,4 @@
-# | Modul: `game_things`
-
+﻿# | Modul: `game_things`
 ```lua
 
 filename =  nil
@@ -98,7 +97,6 @@ end
 
 ---
 # things.otmod
-
 ```text
 
 Module
@@ -116,3 +114,4 @@ Module
 ```
 
 ---
+

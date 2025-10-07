@@ -1,5 +1,4 @@
-# | Modul: `crash_reporter`
-
+﻿# | Modul: `crash_reporter`
 ```lua
 
 local CRASH_FILE = "exception.dmp"
@@ -46,7 +45,6 @@ end
 
 ---
 # crash_reporter.otmod
-
 ```text
 
 Module
@@ -68,3 +66,4 @@ Module
 ```
 
 ---
+

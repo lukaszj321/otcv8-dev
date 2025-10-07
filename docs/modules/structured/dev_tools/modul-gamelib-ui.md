@@ -1,5 +1,4 @@
-# | Modul: `gamelib/ui`
-
+﻿# | Modul: `gamelib/ui`
 ```lua
 
 -- @docclass
@@ -278,7 +277,6 @@ end
 
 ---
 # uiitem.lua
-
 ```lua
 
 function UIItem:onDragEnter(mousePos)
@@ -509,7 +507,6 @@ end
 
 ---
 # uiminimap.lua
-
 ```lua
 
 function UIMinimap:onCreate()
@@ -1063,3 +1060,4 @@ end
 ```
 
 ---
+

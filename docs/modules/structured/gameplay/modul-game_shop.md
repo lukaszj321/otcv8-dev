@@ -1,5 +1,4 @@
-# | Modul: `game_shop`
-
+﻿# | Modul: `game_shop`
 ```lua
 
 -- private variables
@@ -1108,7 +1107,6 @@ end
 
 ---
 # shop.otmod
-
 ```text
 
 Module
@@ -1135,7 +1133,6 @@ Module
 
 ---
 # shop.otui
-
 ```otui
 
 ShopCategory < Panel
@@ -1576,7 +1573,6 @@ MainWindow
 
 ---
 # transfer.otui
-
 ```otui
 
 MainWindow
@@ -1724,3 +1720,4 @@ MainWindow
 ```
 
 ---
+

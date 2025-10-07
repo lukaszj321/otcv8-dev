@@ -1,5 +1,4 @@
-# | Modul: `game_spelllist`
-
+﻿# | Modul: `game_spelllist`
 ```lua
 
 local SpelllistProfile = 'Default'
@@ -656,7 +655,6 @@ end
 
 ---
 # spelllist.otmod
-
 ```text
 
 Module
@@ -681,7 +679,6 @@ Module
 
 ---
 # spelllist.otui
-
 ```otui
 
 SpellListLabel < Label
@@ -1245,3 +1242,4 @@ MainWindow
 ```
 
 ---
+

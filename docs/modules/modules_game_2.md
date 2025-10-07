@@ -1,23 +1,19 @@
-# Modules Game 2
-
+﻿# Modules Game 2
 ---
-## game_hotkeys
+# game_hotkeys
 # Game Hotkeys Module
-## `hotkeys_extra.lua`
-## # Funkcje
-
+# `hotkeys_extra.lua`
+# Funkcje
 - `addExtraHotkey(name, description, callback)`
 - `setupExtraHotkeys(combobox)`
 - `executeExtraHotkey(action, repeated)`
 - `translateActionToActionComboboxIndex(action)`
 - `translateActionComboboxIndexToAction(index)`
 - `getActionDescription(action)`
-## # Wywołania API
-
+# Wywołania API
 - `g_game`
-## `hotkeys_manager.lua`
-## # Funkcje
-
+# `hotkeys_manager.lua`
+# Funkcje
 - `init()`
 - `terminate()`
 - `online()`
@@ -52,8 +48,7 @@
 - `onSelectHotkeyLabel(hotkeyLabel)`
 - `hotkeyCapture(assignWindow, keyCode, keyboardModifiers)`
 - `hotkeyCaptureOk(assignWindow, keyCombo)`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onChangeUseType`
 - `onChildFocusChange`
@@ -69,8 +64,7 @@
 - `onSendAutomaticallyChange`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
-
+# Wywołania API
 - `g_clock`
 - `g_game`
 - `g_keyboard`
@@ -78,11 +72,10 @@
 - `g_ui`
 
 ---
-## game_minimap
+# game_minimap
 # Game Minimap Module
-## `minimap.lua`
-## # Funkcje
-
+# `minimap.lua`
+# Funkcje
 - `init()`
 - `terminate()`
 - `toggle()`
@@ -93,30 +86,27 @@
 - `saveMap()`
 - `updateCameraPosition()`
 - `toggleFullMap()`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onGameEnd`
 - `onGameStart`
 - `onMiniWindowClose`
 - `onPositionChange`
 - `online`
-## # Wywołania API
-
+# Wywołania API
 - `g_game`
 - `g_keyboard`
 - `g_ui`
 
 ---
-## game_actionbar
+# game_actionbar
 # Game Actionbar Module
-## `actionbar.lua`
-## # Opis
+# `actionbar.lua`
+# Opis
 -- servers may have different id's, change if not working properly (only for protocols 910+)
 
 -- ek
-## # Funkcje
-
+# Funkcje
 - `translateVocation(id)`
 - `isSpell(text)`
 - `init()`
@@ -149,8 +139,7 @@
 - `local translateVocation(id)`
 - `local isSpell(text)`
 - `local filterByVocation(a, filter)`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onCheckChange`
 - `onChildFocusChange`
@@ -173,8 +162,7 @@
 - `online`
 - `only`
 - `scheduleEvent`
-## # Wywołania API
-
+# Wywołania API
 - `g_clock`
 - `g_game`
 - `g_keyboard`
@@ -182,11 +170,10 @@
 - `g_ui`
 
 ---
-## game_skills
+# game_skills
 # Game Skills Module
-## `skills.lua`
-## # Funkcje
-
+# `skills.lua`
+# Funkcje
 - `init()`
 - `terminate()`
 - `expForLevel(level)`
@@ -222,8 +209,7 @@
 - `onBaseMagicLevelChange(localPlayer, baseMagicLevel)`
 - `onSkillChange(localPlayer, id, level, percent)`
 - `onBaseSkillChange(localPlayer, id, baseLevel)`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onBaseMagicLevelChange`
 - `onBaseSkillChange`
@@ -246,37 +232,32 @@
 - `onStaminaChange`
 - `onTotalCapacityChange`
 - `only`
-## # Wywołania API
-
+# Wywołania API
 - `g_clock`
 - `g_game`
 - `g_ui`
 
 ---
-## game_stats
+# game_stats
 # Game Stats Module
-## `stats.lua`
-## # Funkcje
-
+# `stats.lua`
+# Funkcje
 - `init()`
 - `terminate()`
 - `update()`
 - `show()`
 - `hide()`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `scheduleEvent`
-## # Wywołania API
-
+# Wywołania API
 - `g_game`
 - `g_ui`
 
 ---
-## game_viplist
+# game_viplist
 # Game Viplist Module
-## `viplist.lua`
-## # Funkcje
-
+# `viplist.lua`
+# Funkcje
 - `init()`
 - `terminate()`
 - `loadVipInfo()`
@@ -298,8 +279,7 @@
 - `onVipStateChange(id, state)`
 - `onVipListMousePress(widget, mousePos, mouseButton)`
 - `onVipListLabelMousePress(widget, mousePos, mouseButton)`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onAddVip`
 - `onClick`
@@ -313,19 +293,17 @@
 - `onVipListLabelMousePress`
 - `onVipListMousePress`
 - `onVipStateChange`
-## # Wywołania API
-
+# Wywołania API
 - `g_game`
 - `g_keyboard`
 - `g_ui`
 - `g_window`
 
 ---
-## game_spelllist
+# game_spelllist
 # Game Spelllist Module
-## `spelllist.lua`
-## # Funkcje
-
+# `spelllist.lua`
+# Funkcje
 - `getSpelllistProfile()`
 - `setSpelllistProfile(name)`
 - `online()`
@@ -340,8 +318,7 @@
 - `toggleFilter(widget, selectedWidget)`
 - `resizeWindow()`
 - `resetWindow()`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onChildFocusChange`
 - `onClick`
@@ -350,18 +327,16 @@
 - `onSelectionChange`
 - `online`
 - `only`
-## # Wywołania API
-
+# Wywołania API
 - `g_game`
 - `g_keyboard`
 - `g_ui`
 
 ---
-## game_outfit
+# game_outfit
 # Game Outfit Module
-## `outfit.lua`
-## # Funkcje
-
+# `outfit.lua`
+# Funkcje
 - `init()`
 - `terminate()`
 - `onMovementChange(checkBox, checked)`
@@ -410,8 +385,7 @@
 - `loadSettings()`
 - `loadDefaultSettings()`
 - `accept()`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `addEvent`
 - `connect`
 - `onAddonChange`
@@ -442,17 +416,16 @@
 - `onShowShaderChange`
 - `onShowWingsChange`
 - `onWingsSelect`
-## # Wywołania API
-
+# Wywołania API
 - `g_clock`
 - `g_game`
 - `g_ui`
 
 ---
-## game_shaders
+# game_shaders
 # Game Shaders Module
-## `shaders.lua`
-## # Opis
+# `shaders.lua`
+# Opis
 -- add manually your shaders from /data/shaders
 
 -- map shaders
@@ -460,20 +433,17 @@
 -- use modules.game_interface.gameMapPanel:setShader("map_rainbow") to set shader
 
 -- outfit shaders
-## # Funkcje
-
+# Funkcje
 - `init()`
 - `terminate()`
-## # Wywołania API
-
+# Wywołania API
 - `g_shaders`
 
 ---
-## game_cooldown
+# game_cooldown
 # Game Cooldown Module
-## `cooldown.lua`
-## # Funkcje
-
+# `cooldown.lua`
+# Funkcje
 - `init()`
 - `terminate()`
 - `loadIcon(iconId)`
@@ -489,8 +459,7 @@
 - `isCooldownIconActive(iconId)`
 - `onSpellCooldown(iconId, duration)`
 - `onSpellGroupCooldown(groupId, duration)`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onEffectEnd`
 - `onGameStart`
@@ -499,29 +468,26 @@
 - `onSpellGroupCooldown`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
-
+# Wywołania API
 - `g_game`
 - `g_ui`
 
 ---
-## game_features
+# game_features
 # Game Features Module
-## `features.lua`
-## # Opis
+# `features.lua`
+# Opis
 -- you can add custom features here, list of them is in the modules\gamelib\const.lua
 
 --g_game.enableFeature(GameExtendedOpcode)
-## # Funkcje
-
+# Funkcje
 - `init()`
 - `terminate()`
 - `updateFeatures(version)`
-## # Eventy / Hooki
-
+# Eventy / Hooki
 - `connect`
 - `onClientVersionChange`
 - `only`
-## # Wywołania API
-
+# Wywołania API
 - `g_game`
+

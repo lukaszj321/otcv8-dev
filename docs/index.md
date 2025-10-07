@@ -1,5 +1,4 @@
-# OTCv8 — Dokumentacja
-
+﻿# OTCv8 — Dokumentacja
 Witaj w dokumentacji **OTCv8**. Poniżej najważniejsze działy:
 
 - **Architektura** – przegląd klienta, frameworka i struktury źródeł.

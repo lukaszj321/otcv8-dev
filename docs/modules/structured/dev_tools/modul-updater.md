@@ -1,5 +1,4 @@
-# | Modul: `updater`
-
+﻿# | Modul: `updater`
 ```lua
 
 Updater = { }
@@ -504,7 +503,6 @@ end
 
 ---
 # updater.otmod
-
 ```text
 
 Module
@@ -533,7 +531,6 @@ Module
 
 ---
 # updater.otui
-
 ```otui
 
 StaticMainWindow
@@ -629,6 +626,7 @@ StaticMainWindow
 ```
 
 ---
+
 
 
 

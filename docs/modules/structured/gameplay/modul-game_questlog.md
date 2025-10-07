@@ -1,5 +1,4 @@
-# | Modul: `game_questlog`
-
+﻿# | Modul: `game_questlog`
 ```lua
 
 questLogButton = nil
@@ -504,7 +503,6 @@ end
 
 ---
 # questlog.otmod
-
 ```text
 
 Module
@@ -529,7 +527,6 @@ Module
 
 ---
 # questlogwindow.otui
-
 ```otui
 
 QuestTrackerLabel < Panel
@@ -863,3 +860,4 @@ QuestTracker < MiniWindow
 ```
 
 ---
+
