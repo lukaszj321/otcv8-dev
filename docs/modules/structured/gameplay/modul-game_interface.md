@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_interface`
+# Modul: `game_interface`
 
-`$fenceInfo
 
 gameRootPanel = nil
 
@@ -2121,7 +2120,6 @@ end
 ---
 # gameinterface.otui
 
-`$fenceInfo
 
 GameSidePanel < UIMiniWindowContainer
 
@@ -2478,7 +2476,6 @@ UIWidget
 ---
 # interface.otmod
 
-`$fenceInfo
 
 Module
 

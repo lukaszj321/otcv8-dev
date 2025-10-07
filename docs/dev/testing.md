@@ -1,9 +1,8 @@
 # Testy
 
-- Lua: testy jednostkowe (busted) â€” folder `spec/`.
-- C++: GoogleTest (jeÄąâ€şli dostÄ™pne).
-- E2E: scenariusze rÄ™czne + checklisty w PR.
-## Raport bÄąâ€šÄ™du
+- Lua: testy jednostkowe (busted) - folder `spec/`.
+- C++: GoogleTest (jeLli dostepne).
+- E2E: scenariusze reczne + checklisty w PR.
+## Raport bL'edu
 
 - Kroki odtworzenia, logi, wersja, OS.
-

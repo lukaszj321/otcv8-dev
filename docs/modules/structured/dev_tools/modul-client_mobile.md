@@ -1,6 +1,5 @@
-# Â¦ Modul: `client_mobile`
+# Modul: `client_mobile`
 
-`$fenceInfo
 
 local overlay
 
@@ -403,7 +402,6 @@ end
 ---
 # mobile.otmod
 
-`$fenceInfo
 
 Module
 
@@ -428,7 +426,6 @@ Module
 ---
 # mobile.otui
 
-`$fenceInfo
 
 UIWidget
 

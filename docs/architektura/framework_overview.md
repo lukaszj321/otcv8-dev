@@ -1,6 +1,6 @@
 # Framework Overview (UI, System, Input)
 
-PoniÄąÄ˝ej znajduje siÄ™ przeglÄ…d klas i metod z folderu `framework/`, odpowiedzialnych za interfejs graficzny, zarzÄ…dzanie UI, inputy, zdarzenia i inne aspekty systemowe klienta.
+PoniLLej znajduje sie przeglad klas i metod z folderu `framework/`, odpowiedzialnych za interfejs graficzny, zarzadzanie UI, inputy, zdarzenia i inne aspekty systemowe klienta.
 ## framework/global.h
 
 - `fatalError(const char* error, const char* file, int line)`
@@ -4205,4 +4205,3 @@ class TiXmlDocument
 - `endTag("</")`
 - `TiXmlAttribute()`
 - `TiXmlText( "" )`
-

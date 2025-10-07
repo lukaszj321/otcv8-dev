@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_bot`
+# Modul: `game_bot`
 
-`$fenceInfo
 
 botWindow = nil
 
@@ -1363,7 +1362,6 @@ end
 ---
 # bot.otmod
 
-`$fenceInfo
 
 Module
 
@@ -1386,7 +1384,6 @@ Module
 ---
 # bot.otui
 
-`$fenceInfo
 
 BotTabBar < TabBar
 
@@ -1619,16 +1616,14 @@ MiniWindow
 ---
 # configs.png
 
-`$fenceInfo
 
-> ERROR: Nie udalo siae odczytaaâ€ˇ pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
+> ERROR: Nie udalo siae odczytaaa pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
 
 ```
 
 ---
 # edit.otui
 
-`$fenceInfo
 
 MainWindow
 
@@ -2087,7 +2082,6 @@ MainWindow
 ---
 # executor.lua
 
-`$fenceInfo
 
 function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, reloadCallback, websockets)
 
@@ -2910,9 +2904,8 @@ end
 ---
 # scripts.png
 
-`$fenceInfo
 
-> ERROR: Nie udalo siae odczytaaâ€ˇ pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
+> ERROR: Nie udalo siae odczytaaa pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
 
 ```
 

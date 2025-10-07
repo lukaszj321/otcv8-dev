@@ -1,6 +1,5 @@
-# Â¦ Modul: `client_options`
+# Modul: `client_options`
 
-`$fenceInfo
 
 OptionPanel
 
@@ -69,7 +68,6 @@ OptionPanel
 ---
 # console.otui
 
-`$fenceInfo
 
 OptionPanel
 
@@ -120,7 +118,6 @@ OptionPanel
 ---
 # custom.otui
 
-`$fenceInfo
 
 OptionPanel
 
@@ -327,7 +324,6 @@ OptionPanel
 ---
 # game.otui
 
-`$fenceInfo
 
 OptionPanel
 
@@ -580,7 +576,6 @@ OptionPanel
 ---
 # graphics.otui
 
-`$fenceInfo
 
 OptionPanel
 
@@ -757,7 +752,6 @@ OptionPanel
 ---
 # interface.otui
 
-`$fenceInfo
 
 OptionPanel
 
@@ -1070,7 +1064,6 @@ OptionPanel
 ---
 # options.lua
 
-`$fenceInfo
 
 local defaultOptions = {
 
@@ -1839,7 +1832,6 @@ end
 ---
 # options.otmod
 
-`$fenceInfo
 
 Module
 
@@ -1864,7 +1856,6 @@ Module
 ---
 # options.otui
 
-`$fenceInfo
 
 OptionCheckBox < CheckBox
 

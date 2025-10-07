@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_skills`
+# Modul: `game_skills`
 
-`$fenceInfo
 
 skillsWindow = nil
 
@@ -757,7 +756,6 @@ end
 ---
 # skills.otmod
 
-`$fenceInfo
 
 Module
 
@@ -786,7 +784,6 @@ Module
 ---
 # skills.otui
 
-`$fenceInfo
 
 SkillFirstWidget < UIWidget
 

@@ -1,6 +1,5 @@
-# Architektura (skrĂłt)
+# Architektura (skrot)
 
-`$fenceInfo
 graph TD
   Client[OTCv8 Client] -->|Lua| vBot[vBot Modules]
   Client -->|OTUI| UI[UI System]
@@ -11,12 +10,12 @@ graph TD
 
 === "Warstwy"
 
-C++ Core â€“ silnik render/UI/IO
+C++ Core - silnik render/UI/IO
 
-Lua â€“ logika moduĂ„Ä…Ă˘â‚¬ĹˇĂłw (vBot)
+Lua - logika moduAaasow (vBot)
 
-OTUI â€“ deklaratywne layouty
+OTUI - deklaratywne layouty
 
 === "Kontrakty"
 
-Eventy Lua Ä‚ËÄąĹźÂ· UI, IPC/WS, zasoby
+Eventy Lua ALs UI, IPC/WS, zasoby

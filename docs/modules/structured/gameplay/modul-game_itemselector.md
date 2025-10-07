@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_itemselector`
+# Modul: `game_itemselector`
 
-`$fenceInfo
 
 local activeWindow
 
@@ -129,7 +128,6 @@ end
 ---
 # itemselector.otmod
 
-`$fenceInfo
 
 Module
 
@@ -156,7 +154,6 @@ Module
 ---
 # itemselector.otui
 
-`$fenceInfo
 
 ItemSelectorWindow < MainWindow
 

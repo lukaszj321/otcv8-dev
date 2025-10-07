@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_healthinfo`
+# Modul: `game_healthinfo`
 
-`$fenceInfo
 
 Icons = {}
 
@@ -535,7 +534,6 @@ end
 ---
 # healthinfo.otmod
 
-`$fenceInfo
 
 Module
 
@@ -560,7 +558,6 @@ Module
 ---
 # healthinfo.otui
 
-`$fenceInfo
 
 HealthInfoWindow
 

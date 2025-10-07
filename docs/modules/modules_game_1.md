@@ -82,7 +82,7 @@
 - `onVisibleDimensionChange`
 - `online`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -151,7 +151,7 @@
 - `onStatesChange`
 - `onWalk`
 - `online`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -272,7 +272,7 @@
 - `onTalk`
 - `online`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -292,7 +292,7 @@
 ## Eventy / Hooki
 
 - `addEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 
@@ -318,7 +318,7 @@
 - `onAutoWalkFail`
 - `onGameEnd`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_ui`
@@ -334,8 +334,6 @@
 - `takeButtons(buttons)`
 - `takeButton(button, dontUpdateOrder)`
 - `updateOrder()`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_ui`
-
-

@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_bot/default_configs/vBot_4.7/targetbot`
+# Modul: `game_bot/default_configs/vBot_4.7/targetbot`
 
-`$fenceInfo
 
 TargetBot.Creature = {}
 
@@ -183,9 +182,6 @@ end
 ---
 # creature_attack.lua
 
-{% raw %}
-{% raw %}
-`$fenceInfo
 
 local targetBotLure = false
 
@@ -632,13 +628,10 @@ onPlayerPositionChange(function(newPos, oldPos)
 end)
 
 ```
-{% endraw %}
-{% endraw %}
 
 ---
 # creature_editor.lua
 
-`$fenceInfo
 
 TargetBot.Creature.edit = function(config, callback) -- callback = function(newConfig)
 
@@ -833,7 +826,6 @@ end
 ---
 # creature_editor.otui
 
-`$fenceInfo
 
 TargetBotCreatureEditorScrollBar < Panel
 
@@ -1122,7 +1114,6 @@ TargetBotCreatureEditorWindow < MainWindow
 ---
 # creature_priority.lua
 
-`$fenceInfo
 
 TargetBot.Creature.calculatePriority = function(creature, config, path)
 
@@ -1235,7 +1226,6 @@ end
 ---
 # looting.lua
 
-`$fenceInfo
 
 TargetBot.Looting = {}
 
@@ -1830,7 +1820,6 @@ end)
 ---
 # looting.otui
 
-`$fenceInfo
 
 TargetBotLootingPanel < Panel
 
@@ -1951,7 +1940,6 @@ TargetBotLootingPanel < Panel
 ---
 # target.lua
 
-`$fenceInfo
 
 local targetbotMacro = nil
 
@@ -2532,7 +2520,6 @@ end
 ---
 # target.otui
 
-`$fenceInfo
 
 TargetBotEntry < Label
 
@@ -2731,7 +2718,6 @@ TargetBotPanel < Panel
 ---
 # walking.lua
 
-`$fenceInfo
 
 local dest
 

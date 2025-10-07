@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_bot/panels`
+# Modul: `game_bot/panels`
 
-`$fenceInfo
 
 DONT USE PANELS
 
@@ -13,7 +12,6 @@ MAY BE REMOVED IN THE FUTURE
 ---
 # attacking.lua
 
-`$fenceInfo
 
 local context = G.botContext
 
@@ -2120,7 +2118,6 @@ end
 ---
 # basic.lua
 
-`$fenceInfo
 
 local context = G.botContext
 
@@ -2223,7 +2220,6 @@ end
 ---
 # healing.lua
 
-`$fenceInfo
 
 local context = G.botContext
 
@@ -2818,7 +2814,6 @@ end
 ---
 # looting.lua
 
-`$fenceInfo
 
 local context = G.botContext
 
@@ -3607,7 +3602,6 @@ end
 ---
 # tools.lua
 
-`$fenceInfo
 
 local context = G.botContext
 
@@ -3682,7 +3676,6 @@ end
 ---
 # war.lua
 
-`$fenceInfo
 
 local context = G.botContext
 
@@ -3921,7 +3914,6 @@ end
 ---
 # waypoints.lua
 
-`$fenceInfo
 
 local context = G.botContext
 

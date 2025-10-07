@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_actionbar`
+# Modul: `game_actionbar`
 
-`$fenceInfo
 
 local actionBars = {}
 
@@ -2045,7 +2044,6 @@ end
 ---
 # actionbar.otmod
 
-`$fenceInfo
 
 Module
 
@@ -2066,7 +2064,6 @@ Module
 ---
 # actionbar.otui
 
-`$fenceInfo
 
 ActionButton < UIButton
 
@@ -2507,7 +2504,6 @@ Panel
 ---
 # hotkey.otui
 
-`$fenceInfo
 
 MainWindow
 
@@ -2614,7 +2610,6 @@ MainWindow
 ---
 # object.otui
 
-`$fenceInfo
 
 RoundCheckBox < CheckBox
 
@@ -2791,7 +2786,6 @@ MainWindow
 ---
 # sideactionbar.otui
 
-`$fenceInfo
 
 SideActionButton < UIButton
 
@@ -3230,7 +3224,6 @@ Panel
 ---
 # spell.otui
 
-`$fenceInfo
 
 SpellPreview < UICheckBox
 
@@ -3493,7 +3486,6 @@ MainWindow
 ---
 # text.otui
 
-`$fenceInfo
 
 MainWindow
 

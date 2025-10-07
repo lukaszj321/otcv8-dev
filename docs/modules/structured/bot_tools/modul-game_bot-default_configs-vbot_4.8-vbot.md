@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_bot/default_configs/vBot_4.8/vBot`
+# Modul: `game_bot/default_configs/vBot_4.8/vBot`
 
-`$fenceInfo
 
 setDefaultTab('main')
 
@@ -2361,7 +2360,6 @@ end)
 ---
 # AttackBot.otui
 
-`$fenceInfo
 
 AttackEntry < UIWidget
 
@@ -3464,7 +3462,6 @@ AttackBotWindow < MainWindow
 ---
 # BotServer.lua
 
-`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -3909,7 +3906,6 @@ addSeparator()
 ---
 # BotServer.otui
 
-`$fenceInfo
 
 BotServerData < Panel
 
@@ -4266,7 +4262,6 @@ BotServerWindow < MainWindow
 ---
 # Conditions.lua
 
-`$fenceInfo
 
 setDefaultTab("HP")
 
@@ -4715,7 +4710,6 @@ Panel
 ---
 # Conditions.otui
 
-`$fenceInfo
 
 UturaComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -5530,7 +5524,6 @@ ConditionsWindow < MainWindow
 ---
 # Containers.lua
 
-`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -6745,7 +6738,6 @@ end)
 ---
 # Dropper.lua
 
-`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -7000,7 +6992,6 @@ end)
 ---
 # Equipper.lua
 
-`$fenceInfo
 
 local panelName = "EquipperPanel"
 
@@ -8379,7 +8370,6 @@ end)
 ---
 # HealBot.lua
 
-`$fenceInfo
 
 local standBySpells = false
 
@@ -9672,7 +9662,6 @@ end)
 ---
 # HealBot.otui
 
-`$fenceInfo
 
 SettingCheckBox < CheckBox
 
@@ -10527,7 +10516,6 @@ HealWindow < MainWindow
 ---
 # Sio.lua
 
-`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -10984,7 +10972,6 @@ addSeparator()
 ---
 # alarms.lua
 
-`$fenceInfo
 
 local panelName = "alarms"
 
@@ -11351,7 +11338,6 @@ end)
 ---
 # alarms.otui
 
-`$fenceInfo
 
 AlarmCheckBox < Panel
 
@@ -11598,7 +11584,6 @@ AlarmsWindow < MainWindow
 ---
 # analyzer.lua
 
-`$fenceInfo
 
 --[[
 
@@ -14725,7 +14710,6 @@ end
 ---
 # analyzer.otui
 
-`$fenceInfo
 
 BossCreaturePanel < Panel
 
@@ -15606,7 +15590,6 @@ FeaturesWindow < MainWindow
 ---
 # antiRs.lua
 
-`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -15671,7 +15654,6 @@ end)
 ---
 # cast_food.lua
 
-`$fenceInfo
 
 setDefaultTab("HP")
 
@@ -15722,7 +15704,6 @@ end
 ---
 # cavebot.lua
 
-`$fenceInfo
 
 -- Cavebot by otclient@otclient.ovh
 
@@ -15829,7 +15810,6 @@ dofile("/targetbot/target.lua")
 ---
 # cavebot_control_panel.lua
 
-`$fenceInfo
 
 setDefaultTab("Cave")
 
@@ -15936,7 +15916,6 @@ end, panel.buttons)
 ---
 # combo.lua
 
-`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -16737,7 +16716,6 @@ end
 ---
 # combo.otui
 
-`$fenceInfo
 
 AttackComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -17432,7 +17410,6 @@ ComboWindow < MainWindow
 ---
 # configs.lua
 
-`$fenceInfo
 
 --[[ 
 
@@ -17609,7 +17586,6 @@ end
 ---
 # depositer_config.lua
 
-`$fenceInfo
 
 setDefaultTab("Cave")
 
@@ -17864,7 +17840,6 @@ sellContainer:setItems(storage.cavebotSell)
 ---
 # depositer_config.otui
 
-`$fenceInfo
 
 StashItem < Panel
 
@@ -18047,7 +18022,6 @@ DepositerPanel < MainWindow
 ---
 # depot_withdraw.lua
 
-`$fenceInfo
 
 -- config
 
@@ -18182,7 +18156,6 @@ end)
 ---
 # eat_food.lua
 
-`$fenceInfo
 
 setDefaultTab("HP")
 
@@ -18279,7 +18252,6 @@ UI.Separator()
 ---
 # equip.lua
 
-`$fenceInfo
 
 -- config
 
@@ -18356,7 +18328,6 @@ end)
 ---
 # equipper.otui
 
-`$fenceInfo
 
 SlotBotItem < BotItem
 
@@ -19297,7 +19268,6 @@ EquipWindow < MainWindow
 ---
 # exeta.lua
 
-`$fenceInfo
 
 local voc = player:getVocation()
 
@@ -19356,7 +19326,6 @@ end
 ---
 # extras.lua
 
-`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -20519,7 +20488,6 @@ end
 ---
 # extras.otui
 
-`$fenceInfo
 
 ExtrasScrollBar < Panel
 
@@ -20800,7 +20768,6 @@ ExtrasWindow < MainWindow
 ---
 # hold_target.lua
 
-`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -20857,7 +20824,6 @@ end)
 ---
 # ingame_editor.lua
 
-`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -20904,7 +20870,6 @@ UI.Button("Ingame script editor", function(newText)
 ---
 # items.lua
 
-`$fenceInfo
 
 LootItems = {
 
@@ -23711,7 +23676,6 @@ WasteItems = {
 ---
 # main.lua
 
-`$fenceInfo
 
 local version = "4.8"
 
@@ -23774,7 +23738,6 @@ end)
 ---
 # new_cavebot_lib.lua
 
-`$fenceInfo
 
 CaveBot = {} -- global namespace
 
@@ -24683,7 +24646,6 @@ end
 ---
 # new_healer.lua
 
-`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -25478,7 +25440,6 @@ end)
 ---
 # new_healer.otui
 
-`$fenceInfo
 
 CategoryCheckBox < CheckBox
 
@@ -26183,7 +26144,6 @@ FriendHealer < MainWindow
 ---
 # npc_talk.lua
 
-`$fenceInfo
 
 onAttackingCreatureChange(function(creature, OldCreature)
 
@@ -26200,7 +26160,6 @@ end)
 ---
 # playerlist.lua
 
-`$fenceInfo
 
 --[[
 
@@ -26837,7 +26796,6 @@ end)
 ---
 # playerlist.otui
 
-`$fenceInfo
 
 PlayerLabel < UIWidget
 
@@ -27100,7 +27058,6 @@ PlayerListWindow < MainWindow
 ---
 # pushmax.lua
 
-`$fenceInfo
 
 ---@diagnostic disable: undefined-global
 
@@ -27613,7 +27570,6 @@ end)
 ---
 # pushmax.otui
 
-`$fenceInfo
 
 PushMaxWindow < MainWindow
 
@@ -27770,7 +27726,6 @@ PushMaxWindow < MainWindow
 ---
 # quiver_label.lua
 
-`$fenceInfo
 
 local quiverSlot = modules.game_inventory.inventoryWindow:recursiveGetChildById('slot5')
 
@@ -27869,7 +27824,6 @@ end)
 ---
 # quiver_manager.lua
 
-`$fenceInfo
 
 if voc() == 2 or voc() == 12 then
 
@@ -28028,7 +27982,6 @@ end
 ---
 # siolist.otui
 
-`$fenceInfo
 
 VocationPanel < Panel
 
@@ -28367,7 +28320,6 @@ SioListWindow < MainWindow
 ---
 # spy_level.lua
 
-`$fenceInfo
 
 -- config
 
@@ -28412,7 +28364,6 @@ end)
 ---
 # supplies.lua
 
-`$fenceInfo
 
 setDefaultTab("Cave")
 
@@ -29231,7 +29182,6 @@ end
 ---
 # supplies.otui
 
-`$fenceInfo
 
 ProfileLabel < UIWidget
 
@@ -29668,7 +29618,6 @@ SuppliesWindow < MainWindow
 ---
 # tools.lua
 
-`$fenceInfo
 
 -- tools tab
 
@@ -29757,7 +29706,6 @@ UI.Separator()
 ---
 # version.txt
 
-`$fenceInfo
 
 4.8
 
@@ -29766,7 +29714,6 @@ UI.Separator()
 ---
 # vlib.lua
 
-`$fenceInfo
 
 -- Author: Vithrax
 
@@ -31885,7 +31832,6 @@ diamondArrowArea = [[
 ---
 # xeno_menu.lua
 
-`$fenceInfo
 
 modules.game_interface.gameRootPanel.onMouseRelease = function(widget, mousePos, mouseButton)
 

@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_npctrade`
+# Modul: `game_npctrade`
 
-`$fenceInfo
 
 BUY = 1
 
@@ -1003,7 +1002,6 @@ end
 ---
 # npctrade.otmod
 
-`$fenceInfo
 
 Module
 
@@ -1028,7 +1026,6 @@ Module
 ---
 # npctrade.otui
 
-`$fenceInfo
 
 NPCOfferLabel < Label
 

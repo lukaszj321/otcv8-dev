@@ -1,6 +1,5 @@
-# Â¦ Modul: `updater`
+# Modul: `updater`
 
-`$fenceInfo
 
 Updater = { }
 
@@ -505,7 +504,6 @@ end
 ---
 # updater.otmod
 
-`$fenceInfo
 
 Module
 
@@ -534,7 +532,6 @@ Module
 ---
 # updater.otui
 
-`$fenceInfo
 
 StaticMainWindow
 
@@ -629,6 +626,3 @@ StaticMainWindow
 ```
 
 ---
-
-
-

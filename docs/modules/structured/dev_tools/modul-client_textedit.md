@@ -1,8 +1,5 @@
-# Â¦ Modul: `client_textedit`
+# Modul: `client_textedit`
 
-{% raw %}
-{% raw %}
-`$fenceInfo
 
 local activeWindow
 
@@ -299,13 +296,10 @@ function multilineEditor(description, text, callback)
 end
 
 ```
-{% endraw %}
-{% endraw %}
 
 ---
 # textedit.otmod
 
-`$fenceInfo
 
 Module
 
@@ -330,7 +324,6 @@ Module
 ---
 # textedit.otui
 
-`$fenceInfo
 
 TextEditButtons < Panel
 

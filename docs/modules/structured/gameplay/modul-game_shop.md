@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_shop`
+# Modul: `game_shop`
 
-`$fenceInfo
 
 -- private variables
 
@@ -1109,7 +1108,6 @@ end
 ---
 # shop.otmod
 
-`$fenceInfo
 
 Module
 
@@ -1136,7 +1134,6 @@ Module
 ---
 # shop.otui
 
-`$fenceInfo
 
 ShopCategory < Panel
 
@@ -1577,7 +1574,6 @@ MainWindow
 ---
 # transfer.otui
 
-`$fenceInfo
 
 MainWindow
 

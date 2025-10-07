@@ -21,7 +21,7 @@
 - `onGameEnd`
 - `onGameStart`
 - `onRun`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -51,7 +51,7 @@
 - `connect`
 - `onGameEnd`
 - `onGameStart`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_effects`
 - `g_game`
@@ -116,7 +116,7 @@
 - `onOk`
 - `onUpdateNeeded`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -171,7 +171,7 @@
 - `onTibia12HTTPResult`
 - `onUpdateNeeded`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -194,7 +194,7 @@
 - `onClick`
 - `onEscape`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_ui`
@@ -226,7 +226,7 @@
 - `onClick`
 - `onLocaleChanged`
 - `onRun`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_ui`
 ## `neededtranslations.lua`
@@ -275,7 +275,7 @@
 - `onTouchRelease`
 - `online`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -313,7 +313,7 @@
 - `onGameStart`
 - `onProfileChange`
 - `online`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -352,7 +352,7 @@
 - `onProfileChange`
 - `online`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 
@@ -375,7 +375,7 @@
 
 - `onClose`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -391,7 +391,7 @@
 
 - `init()`
 - `terminate()`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_mouse`
 - `g_ui`
@@ -421,7 +421,7 @@
 - `onPingBack`
 - `online`
 - `only`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_ui`
@@ -468,7 +468,7 @@
 - `onTextChange`
 - `one`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -503,7 +503,7 @@
 - `onGameEnd`
 - `onOptionChange`
 - `onTextChange`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_ui`
 - `g_window`
@@ -557,7 +557,7 @@
 - `online`
 - `onlineLabel`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -614,7 +614,7 @@
 
 - `addEvent`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_ui`
 ## `http.lua`
@@ -762,7 +762,7 @@
 - `onWidgetKeyDown`
 - `onWidgetKeyPress`
 - `onWidgetKeyUp`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_keyboard`
 - `g_window`
@@ -790,7 +790,7 @@
 - `connect`
 - `onMouseMove`
 - `onMousePress`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_mouse`
@@ -861,7 +861,7 @@
 ## Eventy / Hooki
 
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 ## `util.lua`
@@ -913,7 +913,7 @@
 ## Funkcje
 
 - `init()`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_window`
 
@@ -953,7 +953,7 @@
 - `g_game.isOfficialTibia()`
 - `g_game.getSupportedClients()`
 - `g_game.getClientProtocolVersion(client)`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 ## `market.lua`
@@ -968,7 +968,7 @@
 ## `player.lua`
 ## Opis
 -- @docclass Player
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 ## `position.lua`
@@ -1014,7 +1014,7 @@
 - `onRecv`
 - `onSessionKey`
 - `onUpdateNeeded`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 ## `spells.lua`
@@ -1042,7 +1042,7 @@
 ## Eventy / Hooki
 
 - `onTextMessage`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 ## `thing.lua`
@@ -1051,5 +1051,3 @@
 
 - `postostring(pos)`
 - `dirtostring(dir)`
-
-

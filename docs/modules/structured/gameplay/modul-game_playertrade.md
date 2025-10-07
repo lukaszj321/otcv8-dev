@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_playertrade`
+# Modul: `game_playertrade`
 
-`$fenceInfo
 
 tradeWindow = nil
 
@@ -143,7 +142,6 @@ end
 ---
 # playertrade.otmod
 
-`$fenceInfo
 
 Module
 
@@ -168,7 +166,6 @@ Module
 ---
 # tradewindow.otui
 
-`$fenceInfo
 
 TradeWindow < MiniWindow
 

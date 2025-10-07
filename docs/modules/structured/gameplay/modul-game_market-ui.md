@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_market/ui`
+# Modul: `game_market/ui`
 
-`$fenceInfo
 
 Panel
 
@@ -337,7 +336,6 @@ Panel
 ---
 # myoffers.otui
 
-`$fenceInfo
 
 Panel
 

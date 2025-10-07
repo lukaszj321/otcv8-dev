@@ -1,6 +1,6 @@
 # Client Overview (Game Logic, Entities, Map)
 
-PoniÄąÄ˝ej znajduje siÄ™ przeglÄ…d klas i metod z folderu `client/`, odpowiedzialnych za logikÄ™ gry, gracza, mapÄ™, efekty, kreatury i inne systemy w grze.
+PoniLLej znajduje sie przeglad klas i metod z folderu `client/`, odpowiedzialnych za logike gry, gracza, mape, efekty, kreatury i inne systemy w grze.
 ## client/animatedtext.cpp
 
 - `rect(p, textSize)`
@@ -2474,4 +2474,3 @@ class WalkMatrix
 - `clear()`
 - `reset(uint32_t value = 0)`
 - `dump()`
-

@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_textwindow`
+# Modul: `game_textwindow`
 
-`$fenceInfo
 
 windows = {}
 
@@ -233,7 +232,6 @@ end
 ---
 # textwindow.otmod
 
-`$fenceInfo
 
 Module
 
@@ -260,7 +258,6 @@ Module
 ---
 # textwindow.otui
 
-`$fenceInfo
 
 TextWindow < MainWindow
 

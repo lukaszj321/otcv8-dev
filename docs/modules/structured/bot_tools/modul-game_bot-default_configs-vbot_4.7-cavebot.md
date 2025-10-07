@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_bot/default_configs/vBot_4.7/cavebot`
+# Modul: `game_bot/default_configs/vBot_4.7/cavebot`
 
-`$fenceInfo
 
 CaveBot.Actions = {}
 
@@ -891,7 +890,6 @@ end)
 ---
 # bank.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Bank = {}
 
@@ -1062,7 +1060,6 @@ end)
 ---
 # buy_supplies.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.BuySupplies = {}
 
@@ -1195,7 +1192,6 @@ end
 ---
 # cavebot.lua
 
-`$fenceInfo
 
 local cavebotMacro = nil
 
@@ -1978,7 +1974,6 @@ end
 ---
 # cavebot.otui
 
-`$fenceInfo
 
 CaveBotAction < Label
 
@@ -2075,7 +2070,6 @@ CaveBotPanel < Panel
 ---
 # clear_tile.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.ClearTile = {}
 
@@ -2300,7 +2294,6 @@ end
 ---
 # config.lua
 
-`$fenceInfo
 
 -- config for bot
 
@@ -2503,7 +2496,6 @@ end
 ---
 # config.otui
 
-`$fenceInfo
 
 CaveBotConfigPanel < Panel
 
@@ -2602,7 +2594,6 @@ CaveBotConfigBooleanValuePanel < Panel
 ---
 # d_withdraw.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.DWithdraw = {}
 
@@ -2791,7 +2782,6 @@ end
 ---
 # depositor.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Depositor = {}
 
@@ -3040,7 +3030,6 @@ end
 ---
 # doors.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.OpenDoors = {}
 
@@ -3149,7 +3138,6 @@ end
 ---
 # editor.lua
 
-`$fenceInfo
 
 CaveBot.Editor = {}
 
@@ -3502,7 +3490,6 @@ end
 ---
 # editor.otui
 
-`$fenceInfo
 
 CaveBotEditorButton < Button
 
@@ -3583,7 +3570,6 @@ CaveBotEditorPanel < Panel
 ---
 # example_functions.lua
 
-`$fenceInfo
 
 CaveBot.Editor.ExampleFunctions = {}
 
@@ -3790,7 +3776,6 @@ return true
 ---
 # extension_template.lua
 
-`$fenceInfo
 
 -- example cavebot extension (remember to add this file to ../cavebot.lua)
 
@@ -3899,7 +3884,6 @@ end
 ---
 # imbuing.lua
 
-`$fenceInfo
 
 -- imbuing window should be handled separatly
 
@@ -4110,7 +4094,6 @@ end
 ---
 # inbox_withdraw.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.InWithdraw = {}
 
@@ -4277,7 +4260,6 @@ end
 ---
 # lure.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Lure = {}
 
@@ -4338,7 +4320,6 @@ end
 ---
 # minimap.lua
 
-`$fenceInfo
 
 local minimap = modules.game_minimap.minimapWidget
 
@@ -4391,7 +4372,6 @@ end
 ---
 # pos_check.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.PosCheck = {}
 
@@ -4482,7 +4462,6 @@ end
 ---
 # recorder.lua
 
-`$fenceInfo
 
 -- auto recording for cavebot
 
@@ -4611,7 +4590,6 @@ end
 ---
 # sell_all.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.SellAll = {}
 
@@ -4728,7 +4706,6 @@ end
 ---
 # stand_lure.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.StandLure = {}
 
@@ -5061,7 +5038,6 @@ end)
 ---
 # supply_check.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.SupplyCheck = {}
 
@@ -5324,7 +5300,6 @@ end
 ---
 # tasker.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Tasker = {}
 
@@ -5641,7 +5616,6 @@ end)
 ---
 # travel.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Travel = {}
 
@@ -5714,9 +5688,6 @@ end
 ---
 # walking.lua
 
-{% raw %}
-{% raw %}
-`$fenceInfo
 
 -- walking
 
@@ -5885,13 +5856,10 @@ CaveBot.walkTo = function(dest, maxDist, params)
 end
 
 ```
-{% endraw %}
-{% endraw %}
 
 ---
 # withdraw.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Withdraw = {}
 

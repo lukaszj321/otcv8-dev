@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_console`
+# Modul: `game_console`
 
-`$fenceInfo
 
 ChannelListLabel < Label
 
@@ -121,7 +120,6 @@ MainWindow
 ---
 # communicationwindow.otui
 
-`$fenceInfo
 
 IgnoreListLabel < Label
 
@@ -484,7 +482,6 @@ MainWindow
 ---
 # console.lua
 
-`$fenceInfo
 
 SpeakTypesSettings = {
 
@@ -3113,7 +3110,6 @@ end
 ---
 # console.otmod
 
-`$fenceInfo
 
 Module
 
@@ -3138,7 +3134,6 @@ Module
 ---
 # console.otui
 
-`$fenceInfo
 
 ConsolePanel
 
@@ -3151,7 +3146,6 @@ ConsolePanel
 ---
 # violationwindow.otui
 
-`$fenceInfo
 
 MainWindow
 

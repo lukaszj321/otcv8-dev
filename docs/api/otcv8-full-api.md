@@ -1,8 +1,8 @@
-# OTCv8 â€“ PeÄąâ€šne API (auto)
+# OTCv8 - PeL'ne API (auto)
 
 Wygenerowano: 2025-10-04T13:44:01.553Z
 
-> Ten plik jest generowany automatycznie z kodu. Nie edytuj rÄ™cznie.
+> Ten plik jest generowany automatycznie z kodu. Nie edytuj recznie.
 
 ---
 ## 1. Lua
@@ -279,7 +279,7 @@ Wygenerowano: 2025-10-04T13:44:01.553Z
 - `onZoomChange(...)`
 ## 1.2. Kontekst `ctx.*`
 _brak_
-## 1.3. ModuÄąâ€šy (eksporty `M.*`)
+## 1.3. ModuL'y (eksporty `M.*`)
 _brak_
 ## 1.4. Globalne funkcje (heur.)
 - `abort()`
@@ -651,264 +651,264 @@ _brak_
 ---
 ## 2. OTUI (layouty)
 ## layouts/mobile/styles/10-scrollbars.otui
-- `sliderButton` â€” **ScrollBarSlider**
-- `valueLabel` â€” **ScrollBarValueLabel**
-- `decrementButton` â€” **UIButton**
-- `incrementButton` â€” **UIButton**
-- `decrementButton` â€” **UIButton**
-- `incrementButton` â€” **UIButton**
+- `sliderButton` - **ScrollBarSlider**
+- `valueLabel` - **ScrollBarValueLabel**
+- `decrementButton` - **UIButton**
+- `incrementButton` - **UIButton**
+- `decrementButton` - **UIButton**
+- `incrementButton` - **UIButton**
 ## layouts/mobile/styles/20-smallscrollbar.otui
-- `decrementButton` â€” **UIButton**
-- `incrementButton` â€” **UIButton**
-- `sliderButton` â€” **UIButton**
-- `valueLabel` â€” **Label**
+- `decrementButton` - **UIButton**
+- `incrementButton` - **UIButton**
+- `sliderButton` - **UIButton**
+- `valueLabel` - **Label**
 ## layouts/mobile/styles/30-miniwindow.otui
-- `miniwindowTopBar` â€” **UIWidget**
-- `closeButton` â€” **UIButton**
-- `minimizeButton` â€” **UIButton**
-- `lockButton` â€” **UIButton**
-- `miniwindowScrollBar` â€” **VerticalScrollBar**
-- `bottomResizeBorder` â€” **ResizeBorder**
-- `contentsPanel` â€” **MiniWindowContents**
+- `miniwindowTopBar` - **UIWidget**
+- `closeButton` - **UIButton**
+- `minimizeButton` - **UIButton**
+- `lockButton` - **UIButton**
+- `miniwindowScrollBar` - **VerticalScrollBar**
+- `bottomResizeBorder` - **ResizeBorder**
+- `contentsPanel` - **MiniWindowContents**
 ## layouts/mobile/styles/40-console.otui
-- `consoleTab` â€” **ConsoleTabBarPanel**
-- `consoleBuffer` â€” **ScrollablePanel**
-- `consoleScrollBar` â€” **VerticalScrollBar**
-- `toggleChat` â€” **CheckBox**
-- `prevChannelButton` â€” **TabButton**
-- `consoleTabBar` â€” **ConsoleTabBar**
-- `nextChannelButton` â€” **TabButton**
-- `closeChannelButton` â€” **TabButton**
-- `clearChannelButton` â€” **TabButton**
-- `channelsButton` â€” **TabButton**
-- `ignoreButton` â€” **TabButton**
-- `consoleContentPanel` â€” **Panel**
-- `sayModeButton` â€” **TabButton**
-- `consoleTextEdit` â€” **TextEdit**
+- `consoleTab` - **ConsoleTabBarPanel**
+- `consoleBuffer` - **ScrollablePanel**
+- `consoleScrollBar` - **VerticalScrollBar**
+- `toggleChat` - **CheckBox**
+- `prevChannelButton` - **TabButton**
+- `consoleTabBar` - **ConsoleTabBar**
+- `nextChannelButton` - **TabButton**
+- `closeChannelButton` - **TabButton**
+- `clearChannelButton` - **TabButton**
+- `channelsButton` - **TabButton**
+- `ignoreButton` - **TabButton**
+- `consoleContentPanel` - **Panel**
+- `sayModeButton` - **TabButton**
+- `consoleTextEdit` - **TextEdit**
 ## layouts/mobile/styles/40-inventory.otui
-- `slot1` â€” **HeadSlot**
-- `slot4` â€” **BodySlot**
-- `slot7` â€” **LegSlot**
-- `slot8` â€” **FeetSlot**
-- `slot2` â€” **NeckSlot**
-- `slot6` â€” **LeftSlot**
-- `slot9` â€” **FingerSlot**
-- `slot3` â€” **BackSlot**
-- `slot5` â€” **RightSlot**
-- `slot10` â€” **AmmoSlot**
-- `purseButton` â€” **PurseButton**
-- `inventoryWindow` â€” **InventoryWindow**
-- `inventoryPanel` â€” **Panel**
-- `soulLabel` â€” **SoulCapLabel**
-- `capLabel` â€” **SoulCapLabel**
-- `conditionPanel` â€” **Panel**
-- `fightOffensiveBox` â€” **FightOffensiveBox**
-- `chaseModeBox` â€” **ChaseModeBox**
-- `fightBalancedBox` â€” **FightBalancedBox**
-- `safeFightBox` â€” **SafeFightBox**
-- `fightDefensiveBox` â€” **FightDefensiveBox**
-- `mountButton` â€” **MountButton**
-- `buttonsPanel` â€” **Panel**
-- `buttonPvp` â€” **UIButton**
+- `slot1` - **HeadSlot**
+- `slot4` - **BodySlot**
+- `slot7` - **LegSlot**
+- `slot8` - **FeetSlot**
+- `slot2` - **NeckSlot**
+- `slot6` - **LeftSlot**
+- `slot9` - **FingerSlot**
+- `slot3` - **BackSlot**
+- `slot5` - **RightSlot**
+- `slot10` - **AmmoSlot**
+- `purseButton` - **PurseButton**
+- `inventoryWindow` - **InventoryWindow**
+- `inventoryPanel` - **Panel**
+- `soulLabel` - **SoulCapLabel**
+- `capLabel` - **SoulCapLabel**
+- `conditionPanel` - **Panel**
+- `fightOffensiveBox` - **FightOffensiveBox**
+- `chaseModeBox` - **ChaseModeBox**
+- `fightBalancedBox` - **FightBalancedBox**
+- `safeFightBox` - **SafeFightBox**
+- `fightDefensiveBox` - **FightDefensiveBox**
+- `mountButton` - **MountButton**
+- `buttonsPanel` - **Panel**
+- `buttonPvp` - **UIButton**
 ## layouts/retro/styles/20-tabbars.otui
-- `buttonsPanel` â€” **TabBar**
-- `buttonsPanel` â€” **TabBarVertical**
-- `scrollBar` â€” **VerticalScrollBar**
+- `buttonsPanel` - **TabBar**
+- `buttonsPanel` - **TabBarVertical**
+- `scrollBar` - **VerticalScrollBar**
 ## layouts/retro/styles/20-topmenu.otui
-- `topMenu` â€” **TopMenu**
-- `discord` â€” **UIWidget**
-- `discordLabel` â€” **Label**
-- `rightButtonsPanel` â€” **TopMenuButtonsPanel**
-- `rightGameButtonsPanel` â€” **TopMenuButtonsPanel**
-- `onlineLabel` â€” **Label**
-- `leftButtonsPanel` â€” **TopMenuButtonsPanel**
-- `leftGameButtonsPanel` â€” **TopMenuButtonsPanel**
+- `topMenu` - **TopMenu**
+- `discord` - **UIWidget**
+- `discordLabel` - **Label**
+- `rightButtonsPanel` - **TopMenuButtonsPanel**
+- `rightGameButtonsPanel` - **TopMenuButtonsPanel**
+- `onlineLabel` - **Label**
+- `leftButtonsPanel` - **TopMenuButtonsPanel**
+- `leftGameButtonsPanel` - **TopMenuButtonsPanel**
 ## layouts/retro/styles/30-miniwindow.otui
-- `miniwindowTopBar` â€” **UIWidget**
-- `closeButton` â€” **UIButton**
-- `minimizeButton` â€” **UIButton**
-- `lockButton` â€” **UIButton**
-- `miniwindowScrollBar` â€” **VerticalScrollBar**
-- `bottomResizeBorder` â€” **ResizeBorder**
-- `contentsPanel` â€” **MiniWindowContents**
-- `minimizeButton` â€” **UIButton**
-- `miniwindowTopBar` â€” **UIWidget**
-- `closeButton` â€” **UIButton**
-- `miniwindowScrollBar` â€” **VerticalScrollBar**
-- `bottomResizeBorder` â€” **ResizeBorder**
+- `miniwindowTopBar` - **UIWidget**
+- `closeButton` - **UIButton**
+- `minimizeButton` - **UIButton**
+- `lockButton` - **UIButton**
+- `miniwindowScrollBar` - **VerticalScrollBar**
+- `bottomResizeBorder` - **ResizeBorder**
+- `contentsPanel` - **MiniWindowContents**
+- `minimizeButton` - **UIButton**
+- `miniwindowTopBar` - **UIWidget**
+- `closeButton` - **UIButton**
+- `miniwindowScrollBar` - **VerticalScrollBar**
+- `bottomResizeBorder` - **ResizeBorder**
 ## layouts/retro/styles/40-console.otui
-- `consoleTab` â€” **ConsoleTabBarPanel**
-- `consoleBuffer` â€” **ScrollablePanel**
-- `consoleScrollBar` â€” **VerticalScrollBar**
-- `toggleChat` â€” **CheckBox**
-- `prevChannelButton` â€” **TabButton**
-- `consoleTabBar` â€” **ConsoleTabBar**
-- `nextChannelButton` â€” **TabButton**
-- `closeChannelButton` â€” **TabButton**
-- `clearChannelButton` â€” **TabButton**
-- `channelsButton` â€” **TabButton**
-- `ignoreButton` â€” **TabButton**
-- `consoleContentPanel` â€” **Panel**
-- `sayModeButton` â€” **TabButton**
-- `separator` â€” **HorizontalSeparator**
-- `consoleTextEdit` â€” **TextEdit**
+- `consoleTab` - **ConsoleTabBarPanel**
+- `consoleBuffer` - **ScrollablePanel**
+- `consoleScrollBar` - **VerticalScrollBar**
+- `toggleChat` - **CheckBox**
+- `prevChannelButton` - **TabButton**
+- `consoleTabBar` - **ConsoleTabBar**
+- `nextChannelButton` - **TabButton**
+- `closeChannelButton` - **TabButton**
+- `clearChannelButton` - **TabButton**
+- `channelsButton` - **TabButton**
+- `ignoreButton` - **TabButton**
+- `consoleContentPanel` - **Panel**
+- `sayModeButton` - **TabButton**
+- `separator` - **HorizontalSeparator**
+- `consoleTextEdit` - **TextEdit**
 ## layouts/retro/styles/40-gamebuttons.otui
-- `buttons` â€” **Panel**
+- `buttons` - **Panel**
 ## layouts/retro/styles/40-healthinfo.otui
-- `experienceBar` â€” **ExperienceBar**
-- `soulLabel` â€” **SoulLabel**
-- `capLabel` â€” **CapLabel**
-- `healthOverlay` â€” **HealthOverlay**
-- `topHealthBar` â€” **HealthBar**
-- `topManaBar` â€” **ManaBar**
-- `healthCircle` â€” **UIProgressBar**
-- `healthCircleFront` â€” **UIProgressBar**
-- `manaCircle` â€” **UIProgressBar**
-- `manaCircleFront` â€” **UIProgressBar**
-- `healthBar` â€” **HealthBar**
-- `manaBar` â€” **ManaBar**
-- `conditionPanel` â€” **ExperienceBar**
+- `experienceBar` - **ExperienceBar**
+- `soulLabel` - **SoulLabel**
+- `capLabel` - **CapLabel**
+- `healthOverlay` - **HealthOverlay**
+- `topHealthBar` - **HealthBar**
+- `topManaBar` - **ManaBar**
+- `healthCircle` - **UIProgressBar**
+- `healthCircleFront` - **UIProgressBar**
+- `manaCircle` - **UIProgressBar**
+- `manaCircleFront` - **UIProgressBar**
+- `healthBar` - **HealthBar**
+- `manaBar` - **ManaBar**
+- `conditionPanel` - **ExperienceBar**
 ## layouts/retro/styles/40-inventory.otui
-- `slot1` â€” **HeadSlot**
-- `slot4` â€” **BodySlot**
-- `slot7` â€” **LegSlot**
-- `slot8` â€” **FeetSlot**
-- `slot2` â€” **NeckSlot**
-- `slot6` â€” **LeftSlot**
-- `slot9` â€” **FingerSlot**
-- `slot3` â€” **BackSlot**
-- `slot5` â€” **RightSlot**
-- `slot10` â€” **AmmoSlot**
-- `purseButton` â€” **PurseButton**
-- `inventoryWindow` â€” **InventoryWindow**
-- `minimizeButton` â€” **UIButton**
-- `inventoryPanel` â€” **Panel**
-- `soulLabel` â€” **SoulCapLabel**
-- `capLabel` â€” **SoulCapLabel**
-- `conditionPanel` â€” **Panel**
-- `fightOffensiveBox` â€” **FightOffensiveBox**
-- `chaseModeBox` â€” **ChaseModeBox**
-- `fightBalancedBox` â€” **FightBalancedBox**
-- `safeFightBox` â€” **SafeFightBox**
-- `fightDefensiveBox` â€” **FightDefensiveBox**
-- `mountButton` â€” **MountButton**
-- `buttonsPanel` â€” **Panel**
-- `buttonPvp` â€” **UIButton**
+- `slot1` - **HeadSlot**
+- `slot4` - **BodySlot**
+- `slot7` - **LegSlot**
+- `slot8` - **FeetSlot**
+- `slot2` - **NeckSlot**
+- `slot6` - **LeftSlot**
+- `slot9` - **FingerSlot**
+- `slot3` - **BackSlot**
+- `slot5` - **RightSlot**
+- `slot10` - **AmmoSlot**
+- `purseButton` - **PurseButton**
+- `inventoryWindow` - **InventoryWindow**
+- `minimizeButton` - **UIButton**
+- `inventoryPanel` - **Panel**
+- `soulLabel` - **SoulCapLabel**
+- `capLabel` - **SoulCapLabel**
+- `conditionPanel` - **Panel**
+- `fightOffensiveBox` - **FightOffensiveBox**
+- `chaseModeBox` - **ChaseModeBox**
+- `fightBalancedBox` - **FightBalancedBox**
+- `safeFightBox` - **SafeFightBox**
+- `fightDefensiveBox` - **FightDefensiveBox**
+- `mountButton` - **MountButton**
+- `buttonsPanel` - **Panel**
+- `buttonPvp` - **UIButton**
 ## layouts/retro/styles/40-minimap.otui
-- `floorUpWidget` â€” **MinimapFloorUpButton**
-- `floorDownWidget` â€” **MinimapFloorDownButton**
-- `zoomInWidget` â€” **MinimapZoomInButton**
-- `zoomOutWidget` â€” **MinimapZoomOutButton**
-- `resetWidget` â€” **MinimapResetButton**
-- `position` â€” **Label**
-- `description` â€” **TextEdit**
-- `flag0` â€” **MinimapFlagCheckBox**
-- `flag1` â€” **MinimapFlagCheckBox**
-- `flag2` â€” **MinimapFlagCheckBox**
-- `flag3` â€” **MinimapFlagCheckBox**
-- `flag4` â€” **MinimapFlagCheckBox**
-- `flag5` â€” **MinimapFlagCheckBox**
-- `flag6` â€” **MinimapFlagCheckBox**
-- `flag7` â€” **MinimapFlagCheckBox**
-- `flag8` â€” **MinimapFlagCheckBox**
-- `flag9` â€” **MinimapFlagCheckBox**
-- `flag10` â€” **MinimapFlagCheckBox**
-- `flag11` â€” **MinimapFlagCheckBox**
-- `flag12` â€” **MinimapFlagCheckBox**
-- `flag13` â€” **MinimapFlagCheckBox**
-- `flag14` â€” **MinimapFlagCheckBox**
-- `flag15` â€” **MinimapFlagCheckBox**
-- `flag16` â€” **MinimapFlagCheckBox**
-- `flag17` â€” **MinimapFlagCheckBox**
-- `flag18` â€” **MinimapFlagCheckBox**
-- `flag19` â€” **MinimapFlagCheckBox**
-- `okButton` â€” **Button**
-- `cancelButton` â€” **Button**
-- `minimap` â€” **Minimap**
+- `floorUpWidget` - **MinimapFloorUpButton**
+- `floorDownWidget` - **MinimapFloorDownButton**
+- `zoomInWidget` - **MinimapZoomInButton**
+- `zoomOutWidget` - **MinimapZoomOutButton**
+- `resetWidget` - **MinimapResetButton**
+- `position` - **Label**
+- `description` - **TextEdit**
+- `flag0` - **MinimapFlagCheckBox**
+- `flag1` - **MinimapFlagCheckBox**
+- `flag2` - **MinimapFlagCheckBox**
+- `flag3` - **MinimapFlagCheckBox**
+- `flag4` - **MinimapFlagCheckBox**
+- `flag5` - **MinimapFlagCheckBox**
+- `flag6` - **MinimapFlagCheckBox**
+- `flag7` - **MinimapFlagCheckBox**
+- `flag8` - **MinimapFlagCheckBox**
+- `flag9` - **MinimapFlagCheckBox**
+- `flag10` - **MinimapFlagCheckBox**
+- `flag11` - **MinimapFlagCheckBox**
+- `flag12` - **MinimapFlagCheckBox**
+- `flag13` - **MinimapFlagCheckBox**
+- `flag14` - **MinimapFlagCheckBox**
+- `flag15` - **MinimapFlagCheckBox**
+- `flag16` - **MinimapFlagCheckBox**
+- `flag17` - **MinimapFlagCheckBox**
+- `flag18` - **MinimapFlagCheckBox**
+- `flag19` - **MinimapFlagCheckBox**
+- `okButton` - **Button**
+- `cancelButton` - **Button**
+- `minimap` - **Minimap**
 ## layouts/retro/styles/40-outfitwindow.otui
-- `creature` â€” **UICreature**
-- `title` â€” **Label**
-- `rename` â€” **Panel**
-- `input` â€” **TextEdit**
-- `save` â€” **Button**
-- `outfit` â€” **UICreature**
-- `bar` â€” **Panel**
-- `name` â€” **Label**
-- `preview` â€” **MiniPanel**
-- `options` â€” **Panel**
-- `showFloor` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `showOutfit` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `showMount` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `showWings` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `showAura` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `showShader` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `showBars` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `panel` â€” **FlatPanel**
-- `floor` â€” **Panel**
-- `creature` â€” **UICreature**
-- `bars` â€” **Panel**
-- `name` â€” **Label**
-- `healthBar` â€” **Panel**
-- `image` â€” **Panel**
-- `manaBar` â€” **Panel**
-- `image` â€” **Panel**
-- `movement` â€” **ChaseModeBox**
-- `configure` â€” **MiniPanel**
-- `addon1` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `addon2` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `mount` â€” **FlatPanel**
-- `check` â€” **CheckBox**
-- `appearance` â€” **MiniPanel**
-- `settings` â€” **ScrollablePanel**
-- `preset` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `outfit` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `mount` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `wings` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `aura` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `shader` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `healthBar` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `manaBar` â€” **Panel**
-- `check` â€” **CheckBox**
-- `name` â€” **FlatPanel**
-- `scrollbar` â€” **VerticalScrollBar**
-- `colorMode` â€” **Panel**
-- `head` â€” **ButtonBox**
-- `colorBoxPanel` â€” **Panel**
-- `presetButtons` â€” **MiniPanel**
-- `listSearch` â€” **MiniPanel**
-- `search` â€” **TextEdit**
-- `presetsList` â€” **ScrollablePanel**
-- `presetsScroll` â€” **VerticalScrollBar**
-- `selectionList` â€” **ScrollablePanel**
-- `selectionScroll` â€” **VerticalScrollBar**
-- `separator` â€” **HorizontalSeparator**
+- `creature` - **UICreature**
+- `title` - **Label**
+- `rename` - **Panel**
+- `input` - **TextEdit**
+- `save` - **Button**
+- `outfit` - **UICreature**
+- `bar` - **Panel**
+- `name` - **Label**
+- `preview` - **MiniPanel**
+- `options` - **Panel**
+- `showFloor` - **FlatPanel**
+- `check` - **CheckBox**
+- `showOutfit` - **FlatPanel**
+- `check` - **CheckBox**
+- `showMount` - **FlatPanel**
+- `check` - **CheckBox**
+- `showWings` - **FlatPanel**
+- `check` - **CheckBox**
+- `showAura` - **FlatPanel**
+- `check` - **CheckBox**
+- `showShader` - **FlatPanel**
+- `check` - **CheckBox**
+- `showBars` - **FlatPanel**
+- `check` - **CheckBox**
+- `panel` - **FlatPanel**
+- `floor` - **Panel**
+- `creature` - **UICreature**
+- `bars` - **Panel**
+- `name` - **Label**
+- `healthBar` - **Panel**
+- `image` - **Panel**
+- `manaBar` - **Panel**
+- `image` - **Panel**
+- `movement` - **ChaseModeBox**
+- `configure` - **MiniPanel**
+- `addon1` - **FlatPanel**
+- `check` - **CheckBox**
+- `addon2` - **FlatPanel**
+- `check` - **CheckBox**
+- `mount` - **FlatPanel**
+- `check` - **CheckBox**
+- `appearance` - **MiniPanel**
+- `settings` - **ScrollablePanel**
+- `preset` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `outfit` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `mount` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `wings` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `aura` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `shader` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `healthBar` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `manaBar` - **Panel**
+- `check` - **CheckBox**
+- `name` - **FlatPanel**
+- `scrollbar` - **VerticalScrollBar**
+- `colorMode` - **Panel**
+- `head` - **ButtonBox**
+- `colorBoxPanel` - **Panel**
+- `presetButtons` - **MiniPanel**
+- `listSearch` - **MiniPanel**
+- `search` - **TextEdit**
+- `presetsList` - **ScrollablePanel**
+- `presetsScroll` - **VerticalScrollBar**
+- `selectionList` - **ScrollablePanel**
+- `selectionScroll` - **VerticalScrollBar**
+- `separator` - **HorizontalSeparator**
 
 ---
 ## 3. WebSocket
-## 3.1. Typy wiadomoÄąâ€şci (wykryte)
+## 3.1. Typy wiadomoLci (wykryte)
 - `MIT`
 - `OpenCollective`
 - `array`
@@ -923,12 +923,12 @@ _brak_
 - `string`
 - `time-permitting`
 - `value`
-## 3.2. Schematy JSON (\$id Ă˘â€ â€™ plik)
-- `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json` Ă˘â€ â€™ `node_modules/markdownlint/schema/markdownlint-config-schema-strict.json`
-- `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema.json` Ă˘â€ â€™ `node_modules/markdownlint/schema/markdownlint-config-schema.json`
+## 3.2. Schematy JSON (\$id a' plik)
+- `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json` a' `node_modules/markdownlint/schema/markdownlint-config-schema-strict.json`
+- `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema.json` a' `node_modules/markdownlint/schema/markdownlint-config-schema.json`
 
 ---
-## 4. C++ (nagÄąâ€šĂłwki)
+## 4. C++ (nagL'owki)
 - **src/framework/global.h**: `extern void fatalError(const char* error, const char* file, int line)`
 - **src/client/walkmatrix.h**: `return clear()`
 - **src/client/uisprite.h**: `void drawSelf(Fw::DrawPane drawPane)`
@@ -1729,11 +1729,9 @@ _brak_
 - **src/client/game.h**: `void requestQuestLog()`
 - **src/client/game.h**: `void requestQuestLine(int questId)`
 - **src/client/game.h**: `void equipItem(const ItemPtr& item)`
-_Ă˘â‚¬Â¦ 1520 dalszych_
+_a| 1520 dalszych_
 
 ---
 ## 5. Uwaga
-- JeÄąâ€şli czegoÄąâ€ş brakuje: doprecyzuj wzorce w `scripts/extract-api.mjs`.
-- Dodaj JSON Schema do `schemas/ws/*.schema.json`, bÄ™dÄ… wykryte automatycznie.
-
-
+- JeLli czegoL brakuje: doprecyzuj wzorce w `scripts/extract-api.mjs`.
+- Dodaj JSON Schema do `schemas/ws/*.schema.json`, beda wykryte automatycznie.
