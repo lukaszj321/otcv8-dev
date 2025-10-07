@@ -1,4 +1,4 @@
-﻿# OTUI - podstawy
+# OTUI - podstawy
 
 !!! info
 
@@ -24,4 +24,3 @@ Label
 
 - Trzymaj layouty w `layouts/*`.
 - Styluj wspólnymi klasami, nie inline.
-

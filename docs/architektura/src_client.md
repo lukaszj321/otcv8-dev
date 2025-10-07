@@ -1,4 +1,4 @@
-﻿# otclientv8-dev/src/client
+# otclientv8-dev/src/client
 
 > NOTE: Wszystkie pliki w repozytorium są objęte licencją MIT (2010–2017 OTClient, autor Edubart).
 ## Ogólny opis
@@ -822,13 +822,13 @@ Implementacja klasy `LightView`, która zarządza i renderuje dynamiczne oświet
 | `setFieldBrightness(...)` | Ustawia jasność dla danego pola na mapie. Ta metoda nie jest w pełni zaimplementowana i jej rola wydaje się ograniczona. |
 | `draw()` | Główna funkcja renderująca. Przebiega przez wszystkie pola widoczne na ekranie i dla każdego piksela oblicza finalny kolor światła, sumując wpływ globalnego oświetlenia i wszystkich pobliskich źródeł światła. Wynik jest zapisywany do bufora, a następnie przesyłany do tekstury (`m_lightTexture`), która jest rysowana na ekranie z trybem mieszania `CompositionMode_Multiply`, aby przyciemnić scenę. |
 ## # Logika renderowania
-1.  Tworzony jest bufor pikseli o rozmiarze widocznego obszaru mapy.
-2.  Każdy piksel w buforze jest inicjalizowany globalnym światłem otoczenia.
-3.  Dla każdego piksela iteruje się przez wszystkie źródła światła.
-4.  Obliczana jest odległość piksela od źródła światła, a na jej podstawie intensywność światła w tym punkcie.
-5.  Kolor światła jest mieszany z kolorem piksela w buforze (wybierany jest najjaśniejszy kanał R, G, B).
-6.  Po przetworzeniu wszystkich pikseli, bufor jest ładowany do tekstury.
-7.  Tekstura światła jest rysowana na wierzchu sceny, przyciemniając ją.
+1. Tworzony jest bufor pikseli o rozmiarze widocznego obszaru mapy.
+2. Każdy piksel w buforze jest inicjalizowany globalnym światłem otoczenia.
+3. Dla każdego piksela iteruje się przez wszystkie źródła światła.
+4. Obliczana jest odległość piksela od źródła światła, a na jej podstawie intensywność światła w tym punkcie.
+5. Kolor światła jest mieszany z kolorem piksela w buforze (wybierany jest najjaśniejszy kanał R, G, B).
+6. Po przetworzeniu wszystkich pikseli, bufor jest ładowany do tekstury.
+7. Tekstura światła jest rysowana na wierzchu sceny, przyciemniając ją.
 ## # Zależności i powiązania
 - **`spritemanager.h`**: Używa `g_sprites.spriteSize()` do obliczeń związanych z rozmiarami pól.
 - **`framework/graphics/painter.h`**: Używa `g_painter` do rysowania finalnej tekstury światła.
@@ -960,12 +960,12 @@ Plik ten zawiera implementację metod klasy `Map` odpowiedzialnych za operacje w
 | `loadOtcm(const std::string& fileName)` | Wczytuje mapę z własnego, prostszego formatu klienta (`.otcm`). Format ten jest mniej rozbudowany niż OTBM i przechowuje głównie informacje o polach i przedmiotach. |
 | `saveOtcm(const std::string& fileName)` | Zapisuje mapę do formatu `.otcm`. |
 ## # Logika wczytywania OTBM
-1.  Otwiera plik i weryfikuje jego sygnaturę (`OTBM`).
-2.  Odczytuje nagłówek, zawierający wymiary mapy i wersje OTB.
-3.  Parsuje główny węzeł danych, odczytując atrybuty takie jak opis mapy oraz ścieżki do plików z danymi o spawnach i domach.
-4.  Iteruje przez węzły `OTBM_TILE_AREA`, które grupują pola w blokach.
-5.  Dla każdego pola (`OTBM_TILE`) odczytuje jego atrybuty (flagi, przedmioty). Przedmioty, które są kontenerami, są parsowane rekurencyjnie.
-6.  Wczytuje definicje miast (`OTBM_TOWNS`) i waypointów (`OTBM_WAYPOINTS`).
+1. Otwiera plik i weryfikuje jego sygnaturę (`OTBM`).
+2. Odczytuje nagłówek, zawierający wymiary mapy i wersje OTB.
+3. Parsuje główny węzeł danych, odczytując atrybuty takie jak opis mapy oraz ścieżki do plików z danymi o spawnach i domach.
+4. Iteruje przez węzły `OTBM_TILE_AREA`, które grupują pola w blokach.
+5. Dla każdego pola (`OTBM_TILE`) odczytuje jego atrybuty (flagi, przedmioty). Przedmioty, które są kontenerami, są parsowane rekurencyjnie.
+6. Wczytuje definicje miast (`OTBM_TOWNS`) i waypointów (`OTBM_WAYPOINTS`).
 ## # Zależności i powiązania
 - **`tile.h`**, **`item.h`**: Tworzy obiekty `Tile` i `Item` na podstawie wczytanych danych.
 - **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera, które mogą wpływać na sposób parsowania.
@@ -1388,10 +1388,10 @@ Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za *
 | `addPosition(const OutputMessagePtr& msg, ...)` | Pomocnicza metoda do dodawania współrzędnych `Position` do pakietu. |
 ## # Logika
 Większość funkcji w tym pliku ma prostą strukturę:
-1.  Stwórz nowy `OutputMessage`.
-2.  Dodaj kod operacyjny (opcode) za pomocą `msg->addU8(...)`.
-3.  Dodaj kolejne dane (ID, pozycje, stringi) zgodnie ze specyfikacją protokołu.
-4.  Wyślij pakiet za pomocą `send(msg)`.
+1. Stwórz nowy `OutputMessage`.
+2. Dodaj kod operacyjny (opcode) za pomocą `msg->addU8(...)`.
+3. Dodaj kolejne dane (ID, pozycje, stringi) zgodnie ze specyfikacją protokołu.
+4. Wyślij pakiet za pomocą `send(msg)`.
 ## # Zależności i powiązania
 - **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera (`GameFeature`), które determinują format wysyłanych pakietów.
 - **`localplayer.h`**: Używa pozycji lokalnego gracza w niektórych pakietach (np. `sendTalk`).
@@ -1405,9 +1405,9 @@ Plik nagłówkowy dla klasy `LocalPlayer`, która reprezentuje postać sterowan�
 ## Klasa `LocalPlayer`
 ## # Opis
 Dziedziczy po `Player`. Dodaje funkcjonalności specyficzne dla gracza, który jest kontrolowany przez klienta, takie jak:
--   **Pre-walking**: Przewidywanie ruchu przed otrzymaniem odpowiedzi z serwera.
--   **Auto-walking**: Automatyczne poruszanie się do celu.
--   **Zarządzanie stanem**: Przechowuje szczegółowe statystyki (życie, mana, umiejętności, etc.).
+- **Pre-walking**: Przewidywanie ruchu przed otrzymaniem odpowiedzi z serwera.
+- **Auto-walking**: Automatyczne poruszanie się do celu.
+- **Zarządzanie stanem**: Przechowuje szczegółowe statystyki (życie, mana, umiejętności, etc.).
 ## # Metody
 | Nazwa | Opis |
 | --- | --- |
@@ -1515,8 +1515,8 @@ Implementacja klasy `Tile`, która reprezentuje pojedyncze pole na mapie gry. Pl
 ## Ogólny opis
 Plik nagłówkowy dla klasy `StaticText`, która reprezentuje tekst pojawiający się nad głowami stworzeń lub na polach mapy.
 ## Struktura `StaticTextMessage`
--   **`texts`**: Wektor par `std::string`, gdzie pierwsza to treść, a druga to kolor w formacie hex.
--   **`time`**: Czas (w tickach), po którym wiadomość powinna zniknąć.
+- **`texts`**: Wektor par `std::string`, gdzie pierwsza to treść, a druga to kolor w formacie hex.
+- **`time`**: Czas (w tickach), po którym wiadomość powinna zniknąć.
 ## Klasa `StaticText`
 ## # Opis
 Dziedziczy po `Thing`. Zarządza kolejką wiadomości, które są wyświetlane jedna po drugiej. Jest używana do mowy postaci, potworów, a także do niestandardowych tekstów na mapie.
@@ -1979,15 +1979,15 @@ Plik nagłówkowy definiujący `UIPositionAnchor` i `UIMapAnchorLayout`. Rozszer
 ## Klasa `UIPositionAnchor`
 ## # Opis
 Dziedziczy po `UIAnchor`. Zamiast przypinać się do krawędzi innego widżetu, przypina się do pozycji (`Position`) na mapie.
--   `m_hookedPosition`: Pozycja na mapie, do której kotwica jest przypięta.
+- `m_hookedPosition`: Pozycja na mapie, do której kotwica jest przypięta.
 ## # Metody
--   **`getHookedPoint(...)`**: Nadpisana metoda, która oblicza pozycję na ekranie, pobierając z `UIMinimap` prostokąt odpowiadający `m_hookedPosition`.
+- **`getHookedPoint(...)`**: Nadpisana metoda, która oblicza pozycję na ekranie, pobierając z `UIMinimap` prostokąt odpowiadający `m_hookedPosition`.
 ## Klasa `UIMapAnchorLayout`
 ## # Opis
 Dziedziczy po `UIAnchorLayout`. Specjalizuje layout kotwic do pracy z `UIMinimap`.
 ## # Metody
--   **`addPositionAnchor(...)`**: Dodaje kotwicę typu `UIPositionAnchor`.
--   **`centerInPosition(...)`**, **`fillPosition(...)`**: Funkcje pomocnicze do łatwego centrowania lub wypełniania obszaru pola na mapie przez inny widżet.
+- **`addPositionAnchor(...)`**: Dodaje kotwicę typu `UIPositionAnchor`.
+- **`centerInPosition(...)`**, **`fillPosition(...)`**: Funkcje pomocnicze do łatwego centrowania lub wypełniania obszaru pola na mapie przez inny widżet.
 ## # Zależności i powiązania
 - **`framework/ui/uianchorlayout.h`**: Klasa bazowa.
 - **`uiminimap.h`**: Layout jest przeznaczony do użycia z `UIMinimap`.
@@ -2622,37 +2622,36 @@ graph TD
 ```
 
 **Opis zależności:**
--   **Client** jest punktem startowym, który inicjalizuje wszystkie główne moduły (`Game`, `Map`, `ThingTypeManager`).
--   **Game** jest centralnym "mózgiem" aplikacji, zarządzającym stanem gry, lokalnym graczem i komunikacją sieciową poprzez `ProtocolGame`.
--   **ProtocolGame** jest odpowiedzialny za serializację i deserializację danych przesyłanych do i z serwera. Aktualizuje stan `Game` na podstawie otrzymanych pakietów.
--   **Map** przechowuje wszystkie dane o świecie gry, w tym `Tile` (pola) i `Thing` (obiekty).
--   **MapView** jest odpowiedzialny za renderowanie danych z `Map` na ekranie. Jest to warstwa wizualizacyjna dla danych mapy.
--   **ThingTypeManager** i **SpriteManager** to menedżery zasobów, które wczytują dane z plików `.dat`, `.otb` i `.spr`, dostarczając definicje i grafiki dla wszystkich obiektów w grze.
--   Hierarchia dziedziczenia obiektów: `Thing` jest bazą dla `Item` i `Creature`. `Creature` jest bazą dla `Player`, a `Player` dla `LocalPlayer`.
--   Widżety UI (`UIMap`, `UICreature`, `UIItem`) są wyspecjalizowanymi komponentami do wyświetlania odpowiednich elementów logiki gry.
+- **Client** jest punktem startowym, który inicjalizuje wszystkie główne moduły (`Game`, `Map`, `ThingTypeManager`).
+- **Game** jest centralnym "mózgiem" aplikacji, zarządzającym stanem gry, lokalnym graczem i komunikacją sieciową poprzez `ProtocolGame`.
+- **ProtocolGame** jest odpowiedzialny za serializację i deserializację danych przesyłanych do i z serwera. Aktualizuje stan `Game` na podstawie otrzymanych pakietów.
+- **Map** przechowuje wszystkie dane o świecie gry, w tym `Tile` (pola) i `Thing` (obiekty).
+- **MapView** jest odpowiedzialny za renderowanie danych z `Map` na ekranie. Jest to warstwa wizualizacyjna dla danych mapy.
+- **ThingTypeManager** i **SpriteManager** to menedżery zasobów, które wczytują dane z plików `.dat`, `.otb` i `.spr`, dostarczając definicje i grafiki dla wszystkich obiektów w grze.
+- Hierarchia dziedziczenia obiektów: `Thing` jest bazą dla `Item` i `Creature`. `Creature` jest bazą dla `Player`, a `Player` dla `LocalPlayer`.
+- Widżety UI (`UIMap`, `UICreature`, `UIItem`) są wyspecjalizowanymi komponentami do wyświetlania odpowiednich elementów logiki gry.
 # 🧱 Architektura systemu
 System jest zbudowany w oparciu o architekturę warstwową, gdzie każda warstwa ma jasno zdefiniowane obowiązki. Można wyróżnić następujące główne komponenty:
 
-1.  **Framework (Warstwa podstawowa)**
-    -   **Core**: Zarządzanie aplikacją, pętlą główną, zdarzeniami (`EventDispatcher`), zasobami (`ResourceManager`), czasem (`Clock`).
-    -   **Graphics**: Nisko-poziomowe renderowanie, zarządzanie teksturami (`TextureManager`), shaderami (`ShaderManager`), czcionkami (`FontManager`) i kolejką rysowania (`DrawQueue`).
-    -   **UI**: System interfejsu użytkownika oparty na widżetach (`UIWidget`) i stylach OTML.
-    -   **LuaEngine**: Integracja z silnikiem skryptowym Lua, umożliwiająca rozszerzanie logiki gry.
-    -   **Net**: Nisko-poziomowa obsługa połączeń sieciowych (`Protocol`, `Connection`).
+1. **Framework (Warstwa podstawowa)**
+    - **Core**: Zarządzanie aplikacją, pętlą główną, zdarzeniami (`EventDispatcher`), zasobami (`ResourceManager`), czasem (`Clock`).
+    - **Graphics**: Nisko-poziomowe renderowanie, zarządzanie teksturami (`TextureManager`), shaderami (`ShaderManager`), czcionkami (`FontManager`) i kolejką rysowania (`DrawQueue`).
+    - **UI**: System interfejsu użytkownika oparty na widżetach (`UIWidget`) i stylach OTML.
+    - **LuaEngine**: Integracja z silnikiem skryptowym Lua, umożliwiająca rozszerzanie logiki gry.
+    - **Net**: Nisko-poziomowa obsługa połączeń sieciowych (`Protocol`, `Connection`).
 
-2.  **Client (Warstwa aplikacji)**
-    -   **Zarządzanie stanem gry (`Game`)**: Centralny singleton, który zarządza sesją gry, stanem lokalnego gracza, interakcjami i komunikacją z serwerem. Działa jak fasada dla reszty systemu.
-    -   **Obsługa protokołu (`ProtocolGame`)**: Implementacja protokołu sieciowego. Tłumaczy akcje gracza na pakiety i pakiety z serwera na zmiany w stanie gry.
-    -   **Reprezentacja świata gry (`Map`, `Tile`, `Thing`)**: Obiektowy model świata gry. `Map` przechowuje kolekcję `Tile`, a każdy `Tile` przechowuje stos `Thing` (przedmiotów, stworzeń, etc.).
-    -   **Zarządzanie zasobami gry (`ThingTypeManager`, `SpriteManager`)**: Singletony odpowiedzialne za wczytywanie i dostarczanie definicji i grafik dla wszystkich obiektów w grze z plików `.dat`, `.otb`, `.spr`.
-    -   **Renderowanie (`MapView`, `Minimap`)**: Klasy odpowiedzialne za wizualizację danych z `Map`. `MapView` renderuje główny widok gry, a `Minimap` - minimapę. Wykorzystują one `DrawQueue` z warstwy frameworka.
-    -   **UI klienta (`UIMap`, `UIItem`, `UICreature`)**: Wyspecjalizowane widżety, które łączą dane z logiki gry (np. `Item`, `Creature`) z systemem UI frameworka.
+2. **Client (Warstwa aplikacji)**
+    - **Zarządzanie stanem gry (`Game`)**: Centralny singleton, który zarządza sesją gry, stanem lokalnego gracza, interakcjami i komunikacją z serwerem. Działa jak fasada dla reszty systemu.
+    - **Obsługa protokołu (`ProtocolGame`)**: Implementacja protokołu sieciowego. Tłumaczy akcje gracza na pakiety i pakiety z serwera na zmiany w stanie gry.
+    - **Reprezentacja świata gry (`Map`, `Tile`, `Thing`)**: Obiektowy model świata gry. `Map` przechowuje kolekcję `Tile`, a każdy `Tile` przechowuje stos `Thing` (przedmiotów, stworzeń, etc.).
+    - **Zarządzanie zasobami gry (`ThingTypeManager`, `SpriteManager`)**: Singletony odpowiedzialne za wczytywanie i dostarczanie definicji i grafik dla wszystkich obiektów w grze z plików `.dat`, `.otb`, `.spr`.
+    - **Renderowanie (`MapView`, `Minimap`)**: Klasy odpowiedzialne za wizualizację danych z `Map`. `MapView` renderuje główny widok gry, a `Minimap` - minimapę. Wykorzystują one `DrawQueue` z warstwy frameworka.
+    - **UI klienta (`UIMap`, `UIItem`, `UICreature`)**: Wyspecjalizowane widżety, które łączą dane z logiki gry (np. `Item`, `Creature`) z systemem UI frameworka.
 ## # Przepływ danych i zdarzeń
--   **Wejście użytkownika**: Zdarzenia wejścia (mysz, klawiatura) są przechwytywane przez `UIWidget`. Jeśli akcja dotyczy gry (np. kliknięcie na mapie), wywoływana jest odpowiednia metoda w `Game` (np. `g_game.walk()`).
--   **Wysyłanie danych**: `Game` wywołuje metodę w `ProtocolGame` (np. `sendWalkNorth()`), która tworzy pakiet i wysyła go na serwer.
--   **Odbieranie danych**: `ProtocolGame` odbiera pakiet, `parseMessage` identyfikuje jego typ na podstawie opkodu i wywołuje odpowiednią metodę `parse...`.
--   **Aktualizacja stanu**: Metoda `parse...` (np. `parseCreatureMove`) odczytuje dane z pakietu i wywołuje metody w `Game` lub `Map` (np. `g_map.addThing(...)`), które modyfikują stan gry.
--   **Renderowanie**: W każdej klatce, `UIMap` wywołuje `MapView::drawMapBackground` i `drawMapForeground`. `MapView` pobiera aktualny stan z `g_map` (widoczne `Tile` i `Thing`), a następnie rysuje je na ekranie, używając `ThingTypeManager` i `SpriteManager` do uzyskania odpowiednich grafik.
+- **Wejście użytkownika**: Zdarzenia wejścia (mysz, klawiatura) są przechwytywane przez `UIWidget`. Jeśli akcja dotyczy gry (np. kliknięcie na mapie), wywoływana jest odpowiednia metoda w `Game` (np. `g_game.walk()`).
+- **Wysyłanie danych**: `Game` wywołuje metodę w `ProtocolGame` (np. `sendWalkNorth()`), która tworzy pakiet i wysyła go na serwer.
+- **Odbieranie danych**: `ProtocolGame` odbiera pakiet, `parseMessage` identyfikuje jego typ na podstawie opkodu i wywołuje odpowiednią metodę `parse...`.
+- **Aktualizacja stanu**: Metoda `parse...` (np. `parseCreatureMove`) odczytuje dane z pakietu i wywołuje metody w `Game` lub `Map` (np. `g_map.addThing(...)`), które modyfikują stan gry.
+- **Renderowanie**: W każdej klatce, `UIMap` wywołuje `MapView::drawMapBackground` i `drawMapForeground`. `MapView` pobiera aktualny stan z `g_map` (widoczne `Tile` i `Thing`), a następnie rysuje je na ekranie, używając `ThingTypeManager` i `SpriteManager` do uzyskania odpowiednich grafik.
 
 Ta architektura oddziela logikę gry od renderowania i obsługi sieci, co ułatwia zarządzanie kodem i jego rozbudowę. Użycie Lua pozwala na dynamiczne modyfikowanie zachowań interfejsu i logiki bez potrzeby rekompilacji całego klienta.
-

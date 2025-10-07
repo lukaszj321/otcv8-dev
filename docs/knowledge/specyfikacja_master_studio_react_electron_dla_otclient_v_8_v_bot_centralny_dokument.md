@@ -1,4 +1,4 @@
-﻿# Specyfikacja implementacji (MASTER v1.0): **Studio React/Electron** dla skryptów **OTClient v8** + **modules/game_bot (vBot)**
+# Specyfikacja implementacji (MASTER v1.0): **Studio React/Electron** dla skryptów **OTClient v8** + **modules/game_bot (vBot)**
 
 > Dokument centralny – pełna, profesjonalna specyfikacja do autonomicznej implementacji narzędzia. Zawiera architekturę, modele danych, protokoły, checklisty, reguły jakości, plan wdrożenia, testy, ryzyka i artefakty startowe. Wszystkie kroki są deterministyczne i możliwe do zautomatyzowania na podstawie danych zawartych w tym dokumencie.
 
@@ -359,4 +359,3 @@ Przykład:
 - Ten dokument jest **źródłem prawdy (SoT)**. Dodatkowe canvasy muszą odwoływać się do sekcji (§) i kontraktów tutaj zdefiniowanych.
 - Zmiany wymagają podniesienia `$schemaVersion` i przejścia testów kontraktowych.
 - Wszelkie dane są przygotowane z myślą o pracy **offline** w oparciu o lokalne pliki dokumentacji i kodu.
-

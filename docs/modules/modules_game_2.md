@@ -1,4 +1,4 @@
-﻿# Modules Game 2
+# Modules Game 2
 
 ---
 ## game_hotkeys
@@ -525,4 +525,3 @@
 ## # Wywołania API
 
 - `g_game`
-

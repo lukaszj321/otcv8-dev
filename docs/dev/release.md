@@ -1,4 +1,4 @@
-﻿# Release
+# Release
 
 1. Bump wersji (semver) / tag.
 2. Changelog z PR od ostatniego taga.
@@ -7,4 +7,3 @@
 ## Wersjonowanie dokumentacji
 
 - Docsy budują się z gałęzi `master`.
-

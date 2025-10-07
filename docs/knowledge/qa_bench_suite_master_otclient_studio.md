@@ -1,4 +1,4 @@
-﻿# QA & Bench Suite (MASTER) – **OTClient Studio**
+# QA & Bench Suite (MASTER) – **OTClient Studio**
 
 > Cel: kompletna, wykonywalna specyfikacja testów jakości i benchmarków dla **Studio React/Electron** tworzącego skrypty **OTClient v8 + vBot**. Dokument opisuje: matrycę testową, wektory testów, E2E (Playwright), benchmarki (perf/mem), stabilność/awarie, bezpieczeństwo, CI/CD, metryki oraz kryteria akceptacji. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
 
@@ -246,4 +246,3 @@ pnpm build:dry       # test buildów installerów bez publikacji
 - Benchmarki uruchamiaj na stabilnym środowisku (stały CPU/Gov, wyłączone inne obciążenia).
 - Wszystkie schematy i kontrakty muszą być wersjonowane (`$schemaVersion`) i walidowane przed zapisami.
 - Zmiany w budżetach wydajności wymagają przeglądu architektonicznego (ADR) i aktualizacji tego dokumentu.
-

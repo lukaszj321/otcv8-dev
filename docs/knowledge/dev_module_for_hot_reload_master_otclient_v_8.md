@@ -1,4 +1,4 @@
-﻿# Dev Module for Hot‑Reload (MASTER) – **OTClient v8**
+# Dev Module for Hot‑Reload (MASTER) – **OTClient v8**
 
 > Cel: dostarczyć **produkcyjny moduł Lua** wspierający hot‑reload skryptów OTClient oraz **NDJSON logowanie** do integracji ze Studio. Dokument zawiera: pełną strukturę plików, kompletny kod, konfigurację, protokoły, scenariusze testowe, checklisty i wskazówki operacyjne. **Transfer 1:1** – gotowe do wklejenia.
 
@@ -300,4 +300,3 @@ return M
 - [ ] Rotacja logu działa; plik nie rośnie nieograniczenie.
 - [ ] Studio wykrywa logi i poprawnie je filtruje.
 - [ ] Brak globali; `local` wszędzie; brak użycia `unpack` (tylko `table.unpack`).
-

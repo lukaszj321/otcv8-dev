@@ -1,4 +1,4 @@
-﻿# Modules Core
+# Modules Core
 
 ---
 ## client
@@ -1051,4 +1051,3 @@
 
 - `postostring(pos)`
 - `dirtostring(dir)`
-

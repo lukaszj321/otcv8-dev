@@ -1735,4 +1735,3 @@ _… 1520 dalszych_
 ## 5. Uwaga
 - Jeśli czegoś brakuje: doprecyzuj wzorce w `scripts/extract-api.mjs`.
 - Dodaj JSON Schema do `schemas/ws/*.schema.json`, będą wykryte automatycznie.
-

@@ -1,4 +1,4 @@
-﻿# IDE Providers Spec (MASTER) – **Hover**, **Completion**, **Signature Help**, **Symbols**
+# IDE Providers Spec (MASTER) – **Hover**, **Completion**, **Signature Help**, **Symbols**
 
 > Cel: pełna specyfikacja warstwy IDE dla **OTClient Studio** (Monaco + Electron). Dokument definiuje kontrakty, algorytmy, scoring, trigger‑y, schematy JSON, IPC, test‑wektory i wymagania wydajności. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
 
@@ -254,4 +254,3 @@ function signature(q: SignatureQuery): SignatureResult {
 ## 14) Noty końcowe
 - Wyniki providerów muszą być **stabilne** między uruchomieniami (deterministyczne sortowanie); różnice jedynie przy zmianie kontekstu lub danych.
 - Wszelkie rozszerzenia muszą zachować kontrakty IPC i schematy JSON (wersjonowanie `$schemaVersion`).
-
