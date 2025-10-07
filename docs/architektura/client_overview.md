@@ -79,7 +79,7 @@ class Game
 - `nextWalkUpdate()`
 - `terminateWalk()`
 - `getAnimationPhases()`
-- `getAnimator()->getAnimationPhases() + (g_game.getFeature(Otc::GameIdleAnimations) ? 1 : 0)`
+- `getAnimator()→getAnimationPhases() + (g_game.getFeature(Otc::GameIdleAnimations) ? 1 : 0)`
 - `virtualTileRect((xi + 1) * g_sprites.spriteSize(), (yi + 1) * g_sprites.spriteSize(), g_sprites.spriteSize(), g_sprites.spriteSize())`
 - `updateWalk()`
 - `updateWalkAnimation(totalPixelsWalked)`
@@ -638,10 +638,10 @@ class HouseManager
 - `item(new Item)`
 - `color(Color::white)`
 - `color(Color::white)`
-- `setCount(in->getU8())`
-- `setCount(in->getU16())`
-- `rawGetThingType()->isGround()`
-- `getAnimator()->getPhase()`
+- `setCount(in→getU8())`
+- `setCount(in→getU16())`
+- `rawGetThingType()→isGround()`
+- `getAnimator()→getPhase()`
 # client/item.h
 class Item
 - `Item()`
@@ -710,8 +710,8 @@ class Item
 # client/itemtype.cpp
 - `tmp(new ItemType)`
 - `tmp(new ItemType)`
-- `setClientId(node->getU16())`
-- `setName(node->getString(len))`
+- `setClientId(node→getU16())`
+- `setName(node→getString(len))`
 # client/itemtype.h
 class ItemType
 - `ItemType()`
@@ -877,7 +877,7 @@ class Game
 - `push_luavalue(const UnjustifiedPoints& unjustifiedPoints)`
 - `luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints)`
 # client/map.cpp
-- `removeThing(tile->getThing(stackPos))`
+- `removeThing(tile→getThing(stackPos))`
 - `getSpectatorsInRangeEx(centerPos, multiFloor, m_awareRange.left - 1, m_awareRange.right - 2, m_awareRange.top - 1, m_awareRange.bottom - 2)`
 - `getSpectatorsInRangeEx(centerPos, multiFloor, m_awareRange.left, m_awareRange.right, m_awareRange.top, m_awareRange.bottom)`
 - `getSpectatorsInRangeEx(centerPos, multiFloor, xRange, xRange, yRange, yRange)`
@@ -1126,9 +1126,9 @@ class Missile
 - `getSource()`
 - `getDestination()`
 # client/outfit.cpp
-- `DrawQueueItemOutfitWithShader(outfitParams->dest, outfitParams->texture, outfitParams->src, outfitParams->offset, center, 0, m_shader, m_center)`
-- `DrawQueueItemOutfit(outfitParams->dest, outfitParams->texture, outfitParams->src, outfitParams->offset, colors, outfitParams->color, m_center)`
-- `DrawQueueItemOutfitWithShader(outfitParams->dest, outfitParams->texture, outfitParams->src, outfitParams->offset, center, colors, m_shader, m_center)`
+- `DrawQueueItemOutfitWithShader(outfitParams→dest, outfitParams→texture, outfitParams→src, outfitParams→offset, center, 0, m_shader, m_center)`
+- `DrawQueueItemOutfit(outfitParams→dest, outfitParams→texture, outfitParams→src, outfitParams→offset, colors, outfitParams→color, m_center)`
+- `DrawQueueItemOutfitWithShader(outfitParams→dest, outfitParams→texture, outfitParams→src, outfitParams→offset, center, colors, m_shader, m_center)`
 # client/outfit.h
 class Outfit
 - `Outfit()`
@@ -1828,127 +1828,127 @@ class Thing
 - `isAnimatedText()`
 - `isStaticText()`
 - `getSize()`
-- `rawGetThingType()->getSize()`
+- `rawGetThingType()→getSize()`
 - `getWidth()`
-- `rawGetThingType()->getWidth()`
+- `rawGetThingType()→getWidth()`
 - `getHeight()`
-- `rawGetThingType()->getHeight()`
+- `rawGetThingType()→getHeight()`
 - `getDisplacement()`
-- `rawGetThingType()->getDisplacement()`
+- `rawGetThingType()→getDisplacement()`
 - `getDisplacementX()`
-- `rawGetThingType()->getDisplacementX()`
+- `rawGetThingType()→getDisplacementX()`
 - `getDisplacementY()`
-- `rawGetThingType()->getDisplacementY()`
+- `rawGetThingType()→getDisplacementY()`
 - `getExactSize(int layer, int xPattern, int yPattern, int zPattern, int animationPhase)`
-- `rawGetThingType()->getExactSize(layer, xPattern, yPattern, zPattern, animationPhase)`
+- `rawGetThingType()→getExactSize(layer, xPattern, yPattern, zPattern, animationPhase)`
 - `getLayers()`
-- `rawGetThingType()->getLayers()`
+- `rawGetThingType()→getLayers()`
 - `getNumPatternX()`
-- `rawGetThingType()->getNumPatternX()`
+- `rawGetThingType()→getNumPatternX()`
 - `getNumPatternY()`
-- `rawGetThingType()->getNumPatternY()`
+- `rawGetThingType()→getNumPatternY()`
 - `getNumPatternZ()`
-- `rawGetThingType()->getNumPatternZ()`
+- `rawGetThingType()→getNumPatternZ()`
 - `getAnimationPhases()`
-- `rawGetThingType()->getAnimationPhases()`
+- `rawGetThingType()→getAnimationPhases()`
 - `getAnimator()`
-- `rawGetThingType()->getAnimator()`
+- `rawGetThingType()→getAnimator()`
 - `getIdleAnimator()`
-- `rawGetThingType()->getIdleAnimator()`
+- `rawGetThingType()→getIdleAnimator()`
 - `getGroundSpeed()`
-- `rawGetThingType()->getGroundSpeed()`
+- `rawGetThingType()→getGroundSpeed()`
 - `getMaxTextLength()`
-- `rawGetThingType()->getMaxTextLength()`
+- `rawGetThingType()→getMaxTextLength()`
 - `getLight()`
-- `rawGetThingType()->getLight()`
+- `rawGetThingType()→getLight()`
 - `getMinimapColor()`
-- `rawGetThingType()->getMinimapColor()`
+- `rawGetThingType()→getMinimapColor()`
 - `getLensHelp()`
-- `rawGetThingType()->getLensHelp()`
+- `rawGetThingType()→getLensHelp()`
 - `getClothSlot()`
-- `rawGetThingType()->getClothSlot()`
+- `rawGetThingType()→getClothSlot()`
 - `getElevation()`
-- `rawGetThingType()->getElevation()`
+- `rawGetThingType()→getElevation()`
 - `isGround()`
-- `rawGetThingType()->isGround()`
+- `rawGetThingType()→isGround()`
 - `isGroundBorder()`
-- `rawGetThingType()->isGroundBorder()`
+- `rawGetThingType()→isGroundBorder()`
 - `isOnBottom()`
-- `rawGetThingType()->isOnBottom()`
+- `rawGetThingType()→isOnBottom()`
 - `isOnTop()`
-- `rawGetThingType()->isOnTop()`
+- `rawGetThingType()→isOnTop()`
 - `isContainer()`
-- `rawGetThingType()->isContainer()`
+- `rawGetThingType()→isContainer()`
 - `isStackable()`
-- `rawGetThingType()->isStackable()`
+- `rawGetThingType()→isStackable()`
 - `isForceUse()`
-- `rawGetThingType()->isForceUse()`
+- `rawGetThingType()→isForceUse()`
 - `isMultiUse()`
-- `rawGetThingType()->isMultiUse()`
+- `rawGetThingType()→isMultiUse()`
 - `isWritable()`
-- `rawGetThingType()->isWritable()`
+- `rawGetThingType()→isWritable()`
 - `isChargeable()`
-- `rawGetThingType()->isChargeable()`
+- `rawGetThingType()→isChargeable()`
 - `isWritableOnce()`
-- `rawGetThingType()->isWritableOnce()`
+- `rawGetThingType()→isWritableOnce()`
 - `isFluidContainer()`
-- `rawGetThingType()->isFluidContainer()`
+- `rawGetThingType()→isFluidContainer()`
 - `isSplash()`
-- `rawGetThingType()->isSplash()`
+- `rawGetThingType()→isSplash()`
 - `isNotWalkable()`
-- `rawGetThingType()->isNotWalkable()`
+- `rawGetThingType()→isNotWalkable()`
 - `isNotMoveable()`
-- `rawGetThingType()->isNotMoveable()`
+- `rawGetThingType()→isNotMoveable()`
 - `blockProjectile()`
-- `rawGetThingType()->blockProjectile()`
+- `rawGetThingType()→blockProjectile()`
 - `isNotPathable()`
-- `rawGetThingType()->isNotPathable()`
+- `rawGetThingType()→isNotPathable()`
 - `isPickupable()`
-- `rawGetThingType()->isPickupable()`
+- `rawGetThingType()→isPickupable()`
 - `isHangable()`
-- `rawGetThingType()->isHangable()`
+- `rawGetThingType()→isHangable()`
 - `isHookSouth()`
-- `rawGetThingType()->isHookSouth()`
+- `rawGetThingType()→isHookSouth()`
 - `isHookEast()`
-- `rawGetThingType()->isHookEast()`
+- `rawGetThingType()→isHookEast()`
 - `isRotateable()`
-- `rawGetThingType()->isRotateable()`
+- `rawGetThingType()→isRotateable()`
 - `hasLight()`
-- `rawGetThingType()->hasLight()`
+- `rawGetThingType()→hasLight()`
 - `isDontHide()`
-- `rawGetThingType()->isDontHide()`
+- `rawGetThingType()→isDontHide()`
 - `isTranslucent()`
-- `rawGetThingType()->isTranslucent()`
+- `rawGetThingType()→isTranslucent()`
 - `hasDisplacement()`
-- `rawGetThingType()->hasDisplacement()`
+- `rawGetThingType()→hasDisplacement()`
 - `hasElevation()`
-- `rawGetThingType()->hasElevation()`
+- `rawGetThingType()→hasElevation()`
 - `isLyingCorpse()`
-- `rawGetThingType()->isLyingCorpse()`
+- `rawGetThingType()→isLyingCorpse()`
 - `isAnimateAlways()`
-- `rawGetThingType()->isAnimateAlways()`
+- `rawGetThingType()→isAnimateAlways()`
 - `hasMiniMapColor()`
-- `rawGetThingType()->hasMiniMapColor()`
+- `rawGetThingType()→hasMiniMapColor()`
 - `hasLensHelp()`
-- `rawGetThingType()->hasLensHelp()`
+- `rawGetThingType()→hasLensHelp()`
 - `isFullGround()`
-- `rawGetThingType()->isFullGround()`
+- `rawGetThingType()→isFullGround()`
 - `isIgnoreLook()`
-- `rawGetThingType()->isIgnoreLook()`
+- `rawGetThingType()→isIgnoreLook()`
 - `isCloth()`
-- `rawGetThingType()->isCloth()`
+- `rawGetThingType()→isCloth()`
 - `isMarketable()`
-- `rawGetThingType()->isMarketable()`
+- `rawGetThingType()→isMarketable()`
 - `isUsable()`
-- `rawGetThingType()->isUsable()`
+- `rawGetThingType()→isUsable()`
 - `isWrapable()`
-- `rawGetThingType()->isWrapable()`
+- `rawGetThingType()→isWrapable()`
 - `isUnwrapable()`
-- `rawGetThingType()->isUnwrapable()`
+- `rawGetThingType()→isUnwrapable()`
 - `isTopEffect()`
-- `rawGetThingType()->isTopEffect()`
+- `rawGetThingType()→isTopEffect()`
 - `getMarketData()`
-- `rawGetThingType()->getMarketData()`
+- `rawGetThingType()→getMarketData()`
 - `hide()`
 - `show()`
 - `setHidden(bool value)`
@@ -1969,7 +1969,7 @@ class ThingsType
 # client/thingtype.cpp
 - `sprites(std::move(m_spritesIndex))`
 - `image(new Image(Size(spriteSize * m_size.width() * m_layers * m_numPatternX, spriteSize * m_size.height() * m_animationPhases * m_numPatternY * m_numPatternZ)))`
-- `newSprite(new Image(Size(orgSprite->getSize() * 2)))`
+- `newSprite(new Image(Size(orgSprite→getSize() * 2)))`
 - `screenRect(dest + (textureOffset - m_displacement * g_sprites.getOffsetFactor() - (m_size.toPoint() - Point(1, 1)) * g_sprites.spriteSize()), textureRect.size())`
 - `screenRect(dest + (textureOffset - m_displacement * g_sprites.getOffsetFactor() - (m_size.toPoint() - Point(1, 1)) * g_sprites.spriteSize()), textureRect.size())`
 - `Rect(0, 0, 1, 1)`

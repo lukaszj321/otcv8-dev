@@ -81,7 +81,7 @@ function setProfileOption(index)
 
   local currentProfile = g_settings.getNumber('profile')
 
-  currentProfile = tostring(currentProfile) 
+  currentProfile = tostring(currentProfile)
 
   index = tostring(index)
 

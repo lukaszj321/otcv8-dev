@@ -27,7 +27,7 @@ function init()
 
     }, function(data, err)
 
-      if err then 
+      if err then
 
         return g_logger.error("Error while reporting crash report: " .. err)
 
@@ -35,7 +35,7 @@ function init()
 
       g_resources.deleteFile(CRASH_FILE)
 
-    end)      
+    end)
 
   end
 

@@ -115,7 +115,7 @@ function init()
 
   capLabel = healthInfoWindow:recursiveGetChildById('capLabel')
 
-  overlay = g_ui.createWidget('HealthOverlay', modules.game_interface.getMapPanel())  
+  overlay = g_ui.createWidget('HealthOverlay', modules.game_interface.getMapPanel())
 
   healthCircleFront = overlay:getChildById('healthCircleFront')
 
@@ -167,7 +167,7 @@ function init()
 
     healthInfoWindow:close()
 
-    healthInfoButton:setOn(false)  
+    healthInfoButton:setOn(false)
 
   end
 
@@ -479,7 +479,7 @@ function setExperienceTooltip(tooltip)
 
 end
 
-function onOverlayGeometryChange() 
+function onOverlayGeometryChange()
 
   if g_app.isMobile() then
 
@@ -487,13 +487,13 @@ function onOverlayGeometryChange()
 
     topManaBar:setMarginTop(35)
 
-    local width = overlay:getWidth() 
+    local width = overlay:getWidth()
 
     local margin = width / 3 + 10
 
     topHealthBar:setMarginLeft(margin)
 
-    topManaBar:setMarginRight(margin)    
+    topManaBar:setMarginRight(margin)
 
     return
 
@@ -513,7 +513,7 @@ function onOverlayGeometryChange()
 
     topHealthBar:setMarginTop(45 - overlay:getParent():getMarginTop())
 
-    topManaBar:setMarginTop(45 - overlay:getParent():getMarginTop())  
+    topManaBar:setMarginTop(45 - overlay:getParent():getMarginTop())
 
     minMargin = 200
 

@@ -1333,7 +1333,7 @@ function HTTP.get(url, callback)
 
   local operation = g_http.get(url, HTTP.timeout)
 
-  HTTP.operations[operation] = {type="get", url=url, callback=callback}  
+  HTTP.operations[operation] = {type="get", url=url, callback=callback}
 
   return operation
 
@@ -1349,7 +1349,7 @@ function HTTP.getJSON(url, callback)
 
   local operation = g_http.get(url, HTTP.timeout)
 
-  HTTP.operations[operation] = {type="get", json=true, url=url, callback=callback}  
+  HTTP.operations[operation] = {type="get", json=true, url=url, callback=callback}
 
   return operation
 
@@ -1409,7 +1409,7 @@ function HTTP.download(url, file, callback, progressCallback)
 
   local operation = g_http.download(url, file, HTTP.timeout)
 
-  HTTP.operations[operation] = {type="download", url=url, file=file, callback=callback, progressCallback=progressCallback}  
+  HTTP.operations[operation] = {type="download", url=url, file=file, callback=callback, progressCallback=progressCallback}
 
   return operation
 
@@ -1441,7 +1441,7 @@ function HTTP.downloadImage(url, callback)
 
   local operation = g_http.download(url, file, HTTP.timeout)
 
-  HTTP.operations[operation] = {type="image", url=url, file=file, callback=callback}  
+  HTTP.operations[operation] = {type="image", url=url, file=file, callback=callback}
 
   return operation
 
@@ -1463,7 +1463,7 @@ function HTTP.webSocket(url, callbacks, timeout, jsonWebsocket)
 
   local operation = g_http.ws(url, timeout)
 
-  HTTP.operations[operation] = {type="ws", json=jsonWebsocket, url=url, callbacks=callbacks}  
+  HTTP.operations[operation] = {type="ws", json=jsonWebsocket, url=url, callbacks=callbacks}
 
   return {
 
@@ -1471,7 +1471,7 @@ function HTTP.webSocket(url, callbacks, timeout, jsonWebsocket)
 
     url = url,
 
-    close = function() 
+    close = function()
 
       g_http.wsClose(operation)
 
@@ -1553,7 +1553,7 @@ function HTTP.onGet(operationId, url, err, data)
 
       end
 
-    end  
+    end
 
     data = result
 
@@ -1615,7 +1615,7 @@ function HTTP.onPost(operationId, url, err, data)
 
       end
 
-    end  
+    end
 
     data = result
 
@@ -1667,7 +1667,7 @@ function HTTP.onDownload(operationId, url, err, path, checksum)
 
       end
 
-      operation.callback('/downloads/' .. path, err)    
+      operation.callback('/downloads/' .. path, err)
 
     else
 
@@ -1757,11 +1757,11 @@ function HTTP.onWsMessage(operationId, message)
 
           operation.callbacks.onError(err, operationId)
 
-        end        
+        end
 
       else
 
-        operation.callbacks.onMessage(result, operationId)    
+        operation.callbacks.onMessage(result, operationId)
 
       end
 
@@ -1811,7 +1811,7 @@ function HTTP.onWsError(operationId, message)
 
 end
 
-connect(g_http, 
+connect(g_http,
 
 {
 
@@ -3011,7 +3011,7 @@ function g_keyboard.areKeysPressed(keyComboDesc)
 
       if keyDesc:lower() == currentKeyDesc:trim():lower() then
 
-        if keyDesc:lower() == "ctrl" then 
+        if keyDesc:lower() == "ctrl" then
 
           if not g_keyboard.isCtrlPressed() then
 
@@ -3019,21 +3019,21 @@ function g_keyboard.areKeysPressed(keyComboDesc)
 
           end
 
-        elseif keyDesc:lower() == "shift" then 
+        elseif keyDesc:lower() == "shift" then
 
           if not g_keyboard.isShiftPressed() then
 
             return false
 
-          end              
+          end
 
-        elseif keyDesc:lower() == "alt" then 
+        elseif keyDesc:lower() == "alt" then
 
           if not g_keyboard.isAltPressed() then
 
             return false
 
-          end              
+          end
 
         elseif not g_window.isKeyPressed(keyCode) then
 
@@ -3683,9 +3683,9 @@ function Struct.pack(format, ...)
 
       if val < 0 then
 
-        sign = 1 
+        sign = 1
 
-        val = -val 
+        val = -val
 
       end
 
@@ -4391,11 +4391,11 @@ function table.decodeStringPairList(l)
 
         if endPos > 1 then
 
-          table.insert(ret, {multilineKey, multiline .. "\n" .. v[1]:sub(1, endPos - 1)})       
+          table.insert(ret, {multilineKey, multiline .. "\n" .. v[1]:sub(1, endPos - 1)})
 
         else
 
-          table.insert(ret, {multilineKey, multiline})       
+          table.insert(ret, {multilineKey, multiline})
 
         end
 
@@ -4413,7 +4413,7 @@ function table.decodeStringPairList(l)
 
         else
 
-          multiline = multiline .. "\n" .. v[1]        
+          multiline = multiline .. "\n" .. v[1]
 
         end
 
@@ -4437,7 +4437,7 @@ function table.decodeStringPairList(l)
 
       end
 
-    end    
+    end
 
   end
 
@@ -4457,7 +4457,7 @@ Test = {
 
     activeTest = 0,
 
-    screenShot = 1    
+    screenShot = 1
 
 }
 
@@ -4541,13 +4541,13 @@ Test.run = function()
 
     if action.type == "test" then
 
-        table.remove(test.actions, 1)        
+        table.remove(test.actions, 1)
 
         action.value()
 
     elseif action.type == "screenshot" then
 
-        table.remove(test.actions, 1)        
+        table.remove(test.actions, 1)
 
         g_app.doScreenshot(Test.screenShot .. ".png")
 
@@ -4557,7 +4557,7 @@ Test.run = function()
 
         if action.value + test.start < g_clock.millis() then
 
-            table.remove(test.actions, 1)        
+            table.remove(test.actions, 1)
 
         end
 
@@ -5227,7 +5227,7 @@ function comma_value(amount)
 
   local formatted = amount
 
-  while true do  
+  while true do
 
     formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
 

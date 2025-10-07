@@ -31,7 +31,7 @@ function init()
 
   cancelButton.onClick = hide
 
-  feedbackWindow.onEscape = hide    
+  feedbackWindow.onEscape = hide
 
 end
 
@@ -175,13 +175,13 @@ function send()
 
 })
 
-    postId = HTTP.post(Services.feedback, data, function(ret, err) 
+    postId = HTTP.post(Services.feedback, data, function(ret, err)
 
       if err then
 
         tries = tries + 1
 
-        if tries < 3 then 
+        if tries < 3 then
 
           replyEvent = scheduleEvent(send, 1000)
 
@@ -191,7 +191,7 @@ function send()
 
     end)
 
-  end 
+  end
 
   hide()
 

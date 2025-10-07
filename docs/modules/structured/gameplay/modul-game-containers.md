@@ -35,7 +35,7 @@ function terminate()
 
                           onUpdateItem = onContainerUpdateItem })
 
-  disconnect(g_game, { 
+  disconnect(g_game, {
 
     onGameStart = markStart,
 
@@ -119,9 +119,9 @@ function toggleContainerPages(containerWindow, hasPages)
 
     containerWindow.miniwindowScrollBar:setMarginTop(containerWindow.miniwindowScrollBar:getMarginTop() + containerWindow.pagePanel:getHeight())
 
-    containerWindow.contentsPanel:setMarginTop(containerWindow.contentsPanel:getMarginTop() + containerWindow.pagePanel:getHeight())  
+    containerWindow.contentsPanel:setMarginTop(containerWindow.contentsPanel:getMarginTop() + containerWindow.pagePanel:getHeight())
 
-  else  
+  else
 
     containerWindow.miniwindowScrollBar:setMarginTop(containerWindow.miniwindowScrollBar:getMarginTop() - containerWindow.pagePanel:getHeight())
 
@@ -213,7 +213,7 @@ function onContainerOpen(container, previousContainer)
 
     containerWindow:setBorderColor("#FFFFFF")
 
-    scheduleEvent(function() 
+    scheduleEvent(function()
 
       if containerWindow then
 
@@ -257,7 +257,7 @@ function onContainerOpen(container, previousContainer)
 
     if child then
 
-      child:onDrop(widget, mousePos, true)        
+      child:onDrop(widget, mousePos, true)
 
     end
 

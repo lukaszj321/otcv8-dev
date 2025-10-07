@@ -347,7 +347,7 @@ function update()
 
   elseif iter == 2 then
 
-    render:setText(g_stats.get(2, 10, true))  
+    render:setText(g_stats.get(2, 10, true))
 
     mainStats:setText(g_stats.get(1, 5, true))
 
@@ -361,7 +361,7 @@ function update()
 
   elseif iter == 4 then
 
-    slowMain:setText(g_stats.getSlow(3, 10, 10, true) .. "\n\n\n" .. g_stats.getSlow(1, 20, 20, true))    
+    slowMain:setText(g_stats.getSlow(3, 10, 10, true) .. "\n\n\n" .. g_stats.getSlow(1, 20, 20, true))
 
   elseif iter == 5 then
 
@@ -381,7 +381,7 @@ function update()
 
   elseif iter == 8 then
 
-    if g_proxy then  
+    if g_proxy then
 
       local text = ""
 
@@ -487,7 +487,7 @@ MainWindow
 
   @onEscape: modules.client_stats.toggle()
 
-  ScrollablePanel 
+  ScrollablePanel
 
     id: debugPanel
 
@@ -595,7 +595,7 @@ MainWindow
 
       id: widgetsInfo
 
-      text: Disabled, edit stats.lua to enable     
+      text: Disabled, edit stats.lua to enable
 
     DebugLabel
 
@@ -637,7 +637,7 @@ MainWindow
 
       text: -
 
-  VerticalScrollBar  
+  VerticalScrollBar
 
     id: debugScroll
 

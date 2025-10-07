@@ -159,7 +159,7 @@
 
 ---
 
-<!-- Puste kotwice (placeholdery), aby linki działały od razu -->
+<!-- Puste kotwice (placeholdery), aby linki działały od razu -→
 <div id="ch-0-1"></div>
 # 0.1 Cel i zakres „1:1”
 Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/OTML + Lua) oraz wymagania dla Twojego **edytora TypeScript**: jak składać okna i komponenty, aby eksport/import był **deterministyczny i w 100% zgodny** z klientem. Zawiera: reguły formatowania (STRICT OTUI), taksonomię komponentów, macierze dozwolonych dzieci, blueprinty OTUI, glue Lua, walidację, parser/serializer OTUI→AST i round‑trip (edytor ↔ plik `.otui` ↔ Lua).<div id="ch-0-2"></div>

@@ -173,7 +173,7 @@ function UIGameMap:blockNextMouseRelease(postAction)
 
   else
 
-    self.blockNextRelease = g_clock.millis() + 250  
+    self.blockNextRelease = g_clock.millis() + 250
 
   end
 
@@ -193,7 +193,7 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
   -- happens when clicking outside of map boundaries
 
-  if not autoWalkPos then 
+  if not autoWalkPos then
 
     if self.markingMouseRelease then
 
@@ -201,7 +201,7 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
     end
 
-    return false 
+    return false
 
   end
 

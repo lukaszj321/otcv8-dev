@@ -779,7 +779,7 @@ Plik `asyncdispatcher.h` deklaruje klasę `AsyncDispatcher`, która zarządza pu
 # Przykład użycia `schedule`
 ```cpp
 // Wątek główny
-auto future = g_asyncDispatcher.schedule([]() -> int {
+auto future = g_asyncDispatcher.schedule([]() → int {
     // Długotrwała operacja
     std::this_thread::sleep_for(std::chrono::seconds(2));
     return 42;
@@ -978,7 +978,7 @@ Konstruktor. Inicjalizuje pusty dokument OTML (`m_confsDoc`) i zeruje nazwę pli
 # `bool Config::unload()`
 Zwalnia wewnętrzny dokument OTML i resetuje nazwę pliku. Zwraca `true`, jeśli obiekt był załadowany.
 # `bool Config::save()`
-Zapisuje bieżącą zawartość dokumentu OTML do pliku, którego nazwa jest przechowywana w `m_fileName`. Używa do tego metody `m_confsDoc->save()`.
+Zapisuje bieżącą zawartość dokumentu OTML do pliku, którego nazwa jest przechowywana w `m_fileName`. Używa do tego metody `m_confsDoc→save()`.
 # `void Config::clear()`
 Czyści wszystkie węzły z wewnętrznego dokumentu OTML.
 # `void Config::setValue(const std::string& key, const std::string& value)`
@@ -1028,7 +1028,7 @@ Inicjalizuje menedżera. Tworzy główny obiekt konfiguracyjny, zwany "settings"
 # Opis semantyczny
 Zwalnia wszystkie zarządzane obiekty `Config`. Zapewnia, że główna konfiguracja (`m_settings`) jest zapisywana przed zamknięciem.
 # Działanie
-1. Zapisuje główny plik ustawień (`m_settings->save()`).
+1. Zapisuje główny plik ustawień (`m_settings→save()`).
 2. Odładowuje (`unload()`) główny obiekt ustawień.
 3. Iteruje po wszystkich pozostałych załadowanych konfiguracjach i je odładowuje.
 4. Czyści listę `m_configs`.
@@ -1947,7 +1947,7 @@ Funktor (obiekt funkcyjny) używany przez `std::priority_queue` w `EventDispatch
 ```cpp
 struct lessScheduledEvent {
     bool operator()(const ScheduledEventPtr& a, const ScheduledEventPtr& b) {
-        return  b->ticks() < a->ticks();
+        return  b→ticks() < a→ticks();
 }
 };
 ```
@@ -2415,15 +2415,15 @@ Główna metoda rysująca. Renderuje tekst w podanym prostokącie z danym kolore
 # Działanie
 1. Sprawdza, czy font jest ustawiony.
 2. Sprawdza, czy tekst musi zostać "przekeshowany" (`m_textMustRecache`) lub czy zmienił się prostokąt docelowy (`m_textCachedScreenCoords`). Jeśli tak, aktualizuje buforowane koordynaty.
-3. Wywołuje metodę `m_font->drawText()` lub `m_font->drawColoredText()` w celu dodania zadania rysowania do `DrawQueue`.
+3. Wywołuje metodę `m_font→drawText()` lub `m_font→drawColoredText()` w celu dodania zadania rysowania do `DrawQueue`.
 
 > NOTE: Nazwa "cached" może być nieco myląca. Klasa nie renderuje tekstu do tekstury. Zamiast tego, "keszuje" obliczenia związane z pozycjonowaniem glifów, ale samo rysowanie odbywa się dynamicznie w każdej klatce za pomocą `BitmapFont::drawText`.
 # `void CachedText::setColoredText(const std::vector<std::string>& texts)`
 Ustawia tekst składający się z fragmentów o różnych kolorach. Parsuje wektor, tworząc wewnętrzną reprezentację `m_text` i `m_textColors`, a następnie wywołuje `update()`.
 # `void CachedText::update()`
-Prywatna metoda pomocnicza. Oblicza rozmiar tekstu za pomocą `m_font->calculateTextRectSize()` i ustawia flagę `m_textMustRecache` na `true`, co wymusza przeliczenie geometrii przy następnym wywołaniu `draw()`.
+Prywatna metoda pomocnicza. Oblicza rozmiar tekstu za pomocą `m_font→calculateTextRectSize()` i ustawia flagę `m_textMustRecache` na `true`, co wymusza przeliczenie geometrii przy następnym wywołaniu `draw()`.
 # `void CachedText::wrapText(int maxWidth)`
-Zawija tekst, aby zmieścił się w podanej szerokości, używając metody `m_font->wrapText()`, a następnie wywołuje `update()`.
+Zawija tekst, aby zmieścił się w podanej szerokości, używając metody `m_font→wrapText()`, a następnie wywołuje `update()`.
 # Zależności i powiązania
 - `framework/graphics/cachedtext.h`: Plik nagłówkowy.
 - `framework/graphics/painter.h`: Pośrednio, poprzez `BitmapFont`.
@@ -2624,7 +2624,7 @@ DrawCache g_drawCache;
 Wykonuje zgrupowane operacje rysowania.
 # Działanie
 1. Upewnia się, że atlas tekstur jest odłączony (`release()`).
-2. Jeśli bufor nie jest pusty (`m_size > 0`), wywołuje `g_painter->drawCache()`, przekazując jej wszystkie zebrane dane wierzchołków, współrzędnych tekstur i kolorów.
+2. Jeśli bufor nie jest pusty (`m_size > 0`), wywołuje `g_painter→drawCache()`, przekazując jej wszystkie zebrane dane wierzchołków, współrzędnych tekstur i kolorów.
 3. Resetuje licznik `m_size` do zera.
 # `void DrawCache::bind()` i `void DrawCache::release()`
 Metody te zarządzają bindowaniem i zwalnianiem `FrameBuffer` atlasu. `bind()` jest wywoływane, gdy do atlasu musi zostać narysowana nowa tekstura. `release()` jest wywoływane przed wykonaniem `draw()`.
@@ -2638,7 +2638,7 @@ Prywatne metody `inline` do szybkiego zapisu danych do wewnętrznych wektorów (
 # Zależności i powiązania
 - `framework/graphics/drawcache.h`: Plik nagłówkowy.
 - `framework/graphics/atlas.h`: Ściśle współpracuje z `g_atlas` w celu bindowania i zwalniania bufora ramki atlasu.
-- `framework/graphics/painter.h`: Wywołuje `g_painter->drawCache()` do finalnego narysowania zgrupowanej geometrii.
+- `framework/graphics/painter.h`: Wywołuje `g_painter→drawCache()` do finalnego narysowania zgrupowanej geometrii.
 - Jest używana przez `DrawQueueItem`, aby spróbować zbuforować operację rysowania zamiast wykonywać ją natychmiast.
 
 ---
@@ -2647,7 +2647,7 @@ Prywatne metody `inline` do szybkiego zapisu danych do wewnętrznych wektorów (
 Plik `drawcache.h` deklaruje klasę `DrawCache`, która służy jako bufor dla operacji rysowania. Jest to mechanizm optymalizacyjny, który agreguje wiele małych operacji rysowania (np. prostokątów) w jedno duże wywołanie, co znacząco poprawia wydajność renderowania.
 # Klasa `DrawCache`
 # Opis semantyczny
-`DrawCache` przechowuje trzy duże, prealokowane wektory: na współrzędne wierzchołków (`m_destCoord`), współrzędne tekstur (`m_srcCoord`) i kolory (`m_color`). Metody `add...` dodają dane do tych buforów. Gdy bufor jest pełny lub gdy operacja rysowania nie może być zbuforowana, metoda `draw()` jest wywoływana, aby opróżnić bufor i narysować jego zawartość za pomocą jednego wywołania `g_painter->drawCache()`.
+`DrawCache` przechowuje trzy duże, prealokowane wektory: na współrzędne wierzchołków (`m_destCoord`), współrzędne tekstur (`m_srcCoord`) i kolory (`m_color`). Metody `add...` dodają dane do tych buforów. Gdy bufor jest pełny lub gdy operacja rysowania nie może być zbuforowana, metoda `draw()` jest wywoływana, aby opróżnić bufor i narysować jego zawartość za pomocą jednego wywołania `g_painter→drawCache()`.
 # Stałe
 - `MAX_SIZE`: Maksymalna liczba wierzchołków, jaką może przechować bufor (65536).
 - `HALF_MAX_SIZE`: Połowa maksymalnego rozmiaru, używana jako próg do opróżnienia bufora.
@@ -2719,9 +2719,9 @@ Główna metoda wykonująca wszystkie zebrane zadania rysowania.
 3. Jeśli ustawiono skalowanie, modyfikuje macierz projekcji `g_painter`.
 4. Iteruje po zadaniach w kolejce (`m_queue`):
     - Przed każdym zadaniem, aktywuje i dezaktywuje odpowiednie warunki (`start()`/`end()`).
-    - Próbuje skeszować zadanie za pomocą `item->cache()`.
+    - Próbuje skeszować zadanie za pomocą `item→cache()`.
     - Jeśli keszowanie się nie powiedzie, opróżnia `g_drawCache` i próbuje ponownie.
-    - Jeśli ponowne keszowanie się nie powiedzie, wykonuje `item->draw()`.
+    - Jeśli ponowne keszowanie się nie powiedzie, wykonuje `item→draw()`.
     - Regularnie opróżnia `g_drawCache`, gdy osiągnie połowę pojemności.
 5. Po zakończeniu pętli, opróżnia `g_drawCache` i deaktywuje wszystkie pozostałe warunki.
 6. Przywraca oryginalną macierz projekcji i stan `g_painter`.
@@ -2967,7 +2967,7 @@ Rysuje wykres w podanym prostokącie ekranu. Metoda musi być wywoływana z wąt
 4. Znajduje minimalną i maksymalną wartość w pobranym zakresie.
 5. Normalizuje wartości i tworzy geometrię linii wykresu.
 6. Rysuje etykiety z wartością minimalną, maksymalną i ostatnią.
-7. Rysuje linię wykresu za pomocą `g_painter->drawLine()`.
+7. Rysuje linię wykresu za pomocą `g_painter→drawLine()`.
 # `void Graph::clear()`
 Czyści wszystkie zebrane dane z wykresu.
 # `void Graph::addValue(int value, bool ignoreSmallValues)`
@@ -3582,11 +3582,11 @@ Wysokopoziomowa metoda do rysowania tekstu. Najpierw wywołuje `addText`, aby uz
 # `void TextRender::drawText(const Point& pos, uint64_t hash, ...)`
 Główna metoda rysująca.
 1. Znajduje wpis w cache na podstawie hasha.
-2. Jeśli wpis jest nowy (`it->font` nie jest `nullptr`), wywołuje `font->calculateDrawTextCoords`, aby wygenerować geometrię, keszuje ją w `CoordsBuffer` (`it->coords.cache()`) i zwalnia referencje do fontu i tekstu, aby oszczędzać pamięć.
-3. Wywołuje `g_painter->drawText`, przekazując mu gotowy `CoordsBuffer` z geometrią.
+2. Jeśli wpis jest nowy (`it→font` nie jest `nullptr`), wywołuje `font→calculateDrawTextCoords`, aby wygenerować geometrię, keszuje ją w `CoordsBuffer` (`it→coords.cache()`) i zwalnia referencje do fontu i tekstu, aby oszczędzać pamięć.
+3. Wywołuje `g_painter→drawText`, przekazując mu gotowy `CoordsBuffer` z geometrią.
 4. Obsługuje również rysowanie cienia.
 # `void TextRender::drawColoredText(...)`
-Działa analogicznie do `drawText`, ale wywołuje `g_painter->drawText` w wersji dla tekstu wielokolorowego.
+Działa analogicznie do `drawText`, ale wywołuje `g_painter→drawText` w wersji dla tekstu wielokolorowego.
 # Zależności i powiązania
 - `framework/graphics/textrender.h`: Plik nagłówkowy.
 - `framework/graphics/painter.h`: Używa `g_painter` do finalnego rysowania.
@@ -6131,13 +6131,13 @@ Każda z tych metod jest prostą pętlą, która iteruje po wektorze `m_sources`
 void CombinedSoundSource::play()
 {
     for(const SoundSourcePtr& source : m_sources)
-        source->play();
+        source→play();
 }
 
 void CombinedSoundSource::setGain(float gain)
 {
     for(const SoundSourcePtr& source : m_sources)
-        source->setGain(gain);
+        source→setGain(gain);
 }
 // ... i tak dalej
 ```
@@ -6148,7 +6148,7 @@ Zwracają `true`, jeśli **którekolwiek** z podrzędnych źródeł spełnia dan
 bool CombinedSoundSource::isPlaying()
 {
     for(const SoundSourcePtr& source : m_sources) {
-        if(source->isPlaying())
+        if(source→isPlaying())
             return true;
 }
     return false;
@@ -6207,10 +6207,10 @@ Odczytuje i dekoduje fragment pliku dźwiękowego do podanego bufora. Wywołuje 
 Przewija strumień dźwiękowy na początek za pomocą `ov_pcm_seek()`.
 # Statyczne metody `cb_...`
 Są to funkcje zwrotne (callbacks) C, które opakowują metody obiektu `FileStream`, tłumacząc interfejs wymagany przez `libvorbisfile` na interfejs `FileStream`.
-- `cb_read`: opakowuje `file->read()`
-- `cb_seek`: opakowuje `file->seek()`
-- `cb_close`: opakowuje `file->close()`
-- `cb_tell`: opakowuje `file->tell()`
+- `cb_read`: opakowuje `file→read()`
+- `cb_seek`: opakowuje `file→seek()`
+- `cb_close`: opakowuje `file→close()`
+- `cb_tell`: opakowuje `file→tell()`
 # Zależności i powiązania
 - `framework/sound/oggsoundfile.h`: Plik nagłówkowy.
 - **libvorbisfile**: Kluczowa zależność do dekodowania plików Ogg Vorbis.
@@ -6773,7 +6773,7 @@ dump << "Wartości:" << x << y;
 ```
 **Wyjście:**
 ```
-Wartości: 10 hello 
+Wartości: 10 hello
 ```
 # Implementacja
 - Tworzy globalny obiekt, którego `operator<<` zwraca tymczasowy obiekt `dumper_dummy`.
@@ -6922,7 +6922,7 @@ Jest to klasa bazowa, po której muszą dziedziczyć wszystkie klasy, które chc
 # Opis semantyczny
 Jest to szablonowa klasa inteligentnego wskaźnika, która naśladuje zachowanie `std::shared_ptr`, ale współpracuje z `shared_object`. Zarządza czasem życia obiektu, na który wskazuje, automatycznie wywołując `add_ref` i `dec_ref`.
 # Metody i operatory
-Implementuje wszystkie standardowe operacje dla inteligentnych wskaźników: konstruktory, destruktor, operatory przypisania, dereferencji (`*`, `->`), porównania, a także konwersję do `bool`.
+Implementuje wszystkie standardowe operacje dla inteligentnych wskaźników: konstruktory, destruktor, operatory przypisania, dereferencji (`*`, `→`), porównania, a także konwersję do `bool`.
 # Funkcje pomocnicze
 - `get_pointer`, `static_pointer_cast`, `const_pointer_cast`, `dynamic_pointer_cast`, `make_shared_object`: Funkcje globalne naśladujące te znane z `<memory>`.
 # Zależności i powiązania
@@ -7427,7 +7427,7 @@ Przesłonięta metoda rysująca.
 Kluczowa metoda, która przelicza całą geometrię tekstu.
 1. Pobiera tekst do wyświetlenia (zwykły lub ukryty `*`).
 2. Zawija tekst, jeśli `m_textWrap` jest włączone.
-3. Oblicza pozycje wszystkich glifów za pomocą `m_font->calculateGlyphsPositions`.
+3. Oblicza pozycje wszystkich glifów za pomocą `m_font→calculateGlyphsPositions`.
 4. Jeśli `m_autoScroll` i `focusCursor` są `true`, automatycznie przewija widok, tak aby kursor był zawsze widoczny.
 5. Przelicza, które glify są widoczne w obszarze widgetu, i generuje dla nich współrzędne w `m_glyphsCoords`.
 # Metody edycji tekstu
@@ -7745,7 +7745,7 @@ Plik `uiwidgettext.cpp` zawiera implementację części klasy `UIWidget` odpowie
 Inicjalizuje pola związane z tekstem do wartości domyślnych (np. domyślny font, wyrównanie do środka).
 # `void UIWidget::updateText()`
 Metoda wywoływana po każdej zmianie tekstu lub jego właściwości.
-1. Jeśli zawijanie jest włączone, wywołuje `m_font->wrapText()`, aby przygotować tekst do wyświetlenia (`m_drawText`).
+1. Jeśli zawijanie jest włączone, wywołuje `m_font→wrapText()`, aby przygotować tekst do wyświetlenia (`m_drawText`).
 2. Jeśli włączone jest `m_textAutoResize`, oblicza nowy, preferowany rozmiar widgetu na podstawie rozmiaru tekstu i go ustawia.
 3. Ustawia flagę `m_textMustRecache`, aby geometria została przeliczona przy następnym rysowaniu.
 # `void UIWidget::parseTextStyle(...)`
@@ -8102,67 +8102,67 @@ Główna metoda aktualizacji layoutu.
 ```mermaid
 graph TD
     subgraph Aplikacja
-        Application --dziedziczy--> GraphicalApplication
-        Application --dziedziczy--> ConsoleApplication
-        GraphicalApplication --> PlatformWindow
-        GraphicalApplication --> UIManager
-        GraphicalApplication --> Graphics
-        GraphicalApplication --> SoundManager
+        Application --dziedziczy-→ GraphicalApplication
+        Application --dziedziczy-→ ConsoleApplication
+        GraphicalApplication -→ PlatformWindow
+        GraphicalApplication -→ UIManager
+        GraphicalApplication -→ Graphics
+        GraphicalApplication -→ SoundManager
     end
 
     subgraph Framework_Core
-        Application --> EventDispatcher
-        Application --> ModuleManager
-        Application --> ResourceManager
-        Application --> ConfigManager
-        Application --> Logger
-        EventDispatcher --> Event
-        Event --dziedziczy--> ScheduledEvent
+        Application -→ EventDispatcher
+        Application -→ ModuleManager
+        Application -→ ResourceManager
+        Application -→ ConfigManager
+        Application -→ Logger
+        EventDispatcher -→ Event
+        Event --dziedziczy-→ ScheduledEvent
         Clock & Timer
     end
 
     subgraph Framework_UI
-        UIManager --> UIWidget
-        UIWidget --> UILayout
-        UILayout --dziedziczy--> UIAnchorLayout
-        UILayout --dziedziczy--> UIBoxLayout
-        UIBoxLayout --dziedziczy--> UIHorizontalLayout
-        UIBoxLayout --dziedziczy--> UIVerticalLayout
-        UIWidget --> BitmapFont
-        UIWidget --> Painter
+        UIManager -→ UIWidget
+        UIWidget -→ UILayout
+        UILayout --dziedziczy-→ UIAnchorLayout
+        UILayout --dziedziczy-→ UIBoxLayout
+        UIBoxLayout --dziedziczy-→ UIHorizontalLayout
+        UIBoxLayout --dziedziczy-→ UIVerticalLayout
+        UIWidget -→ BitmapFont
+        UIWidget -→ Painter
     end
 
     subgraph Framework_Graphics
-        Graphics --> Painter
-        Graphics --> TextureManager
-        Graphics --> FrameBufferManager
-        Graphics --> ShaderManager
-        Painter --> ShaderProgram
-        TextureManager --> Texture
-        Texture --dziedziczy--> AnimatedTexture
-        Texture --> Image
+        Graphics -→ Painter
+        Graphics -→ TextureManager
+        Graphics -→ FrameBufferManager
+        Graphics -→ ShaderManager
+        Painter -→ ShaderProgram
+        TextureManager -→ Texture
+        Texture --dziedziczy-→ AnimatedTexture
+        Texture -→ Image
     end
 
     subgraph Framework_Platform
-        PlatformWindow --implementuje--> WIN32Window
-        PlatformWindow --implementuje--> X11Window
-        PlatformWindow --implementuje--> AndroidWindow
-        PlatformWindow --implementuje--> SDLWindow
+        PlatformWindow --implementuje-→ WIN32Window
+        PlatformWindow --implementuje-→ X11Window
+        PlatformWindow --implementuje-→ AndroidWindow
+        PlatformWindow --implementuje-→ SDLWindow
         Platform
     end
 
     subgraph Framework_Lua
-        LuaInterface --> LuaObject
-        LuaInterface --> luabinder
-        UIWidget --dziedziczy--> LuaObject
-        Protocol --dziedziczy--> LuaObject
+        LuaInterface -→ LuaObject
+        LuaInterface -→ luabinder
+        UIWidget --dziedziczy-→ LuaObject
+        Protocol --dziedziczy-→ LuaObject
     end
 
     subgraph Framework_Net
-        Protocol --> Connection
-        Protocol --> InputMessage & OutputMessage
-        ProxyManager --> Proxy & Session
-        Connection & Proxy & Session --> Boost.Asio
+        Protocol -→ Connection
+        Protocol -→ InputMessage & OutputMessage
+        ProxyManager -→ Proxy & Session
+        Connection & Proxy & Session -→ Boost.Asio
     end
 
     subgraph Zależności_Zewnętrzne
@@ -8178,16 +8178,16 @@ graph TD
         TinyXML
     end
 
-    Application --> Framework_Core
-    GraphicalApplication --> Framework_Graphics
-    GraphicalApplication --> Framework_UI
-    GraphicalApplication --> Framework_Platform
-    Application --> Framework_Lua
-    Application --> Framework_Net
+    Application -→ Framework_Core
+    GraphicalApplication -→ Framework_Graphics
+    GraphicalApplication -→ Framework_UI
+    GraphicalApplication -→ Framework_Platform
+    Application -→ Framework_Lua
+    Application -→ Framework_Net
 
-    Framework_Graphics --> OpenGL/GLES/GLEW
-    Framework_Net --> Zależności_Zewnętrzne
-    ResourceManager --> PhysFS
+    Framework_Graphics -→ OpenGL/GLES/GLEW
+    Framework_Net -→ Zależności_Zewnętrzne
+    ResourceManager -→ PhysFS
 ```
 # 🧱 Architektura systemu
 System `otclient` jest zbudowany w oparciu o architekturę modułową i warstwową, która oddziela rdzeń frameworka od logiki specyficznej dla klienta gry.
@@ -8226,9 +8226,9 @@ System `otclient` jest zbudowany w oparciu o architekturę modułową i warstwow
     - **Komponenty**: Pliki `.lua` i `.otmod` w katalogach `modules/` i `mods/`.
     - **Cel**: Umożliwienie tworzenia wtyczek, modyfikacji interfejsu i dodawania nowej funkcjonalności.
 # Przepływ danych i interakcje
-- **Start aplikacji**: `main()` tworzy instancję `GraphicalApplication`, która inicjalizuje warstwy od dołu do góry (Platforma -> Rdzeń -> Silniki).
+- **Start aplikacji**: `main()` tworzy instancję `GraphicalApplication`, która inicjalizuje warstwy od dołu do góry (Platforma → Rdzeń → Silniki).
 - **Główna pętla**: `GraphicalApplication::run()` uruchamia wielowątkową pętlę. Wątek logiki (`worker`) aktualizuje stan gry i przygotowuje dane do rysowania. Wątek renderowania (główny) rysuje te dane na ekranie i odbiera zdarzenia od `PlatformWindow`.
-- **Zdarzenia wejściowe**: `PlatformWindow` -> `GraphicalApplication` -> `UIManager` -> `UIWidget` -> Skrypt Lua (callback `onClick` itp.).
-- **Komunikacja sieciowa**: Skrypt Lua (np. `g_game.login(...)`) -> `ProtocolGame` (Lua) -> `Protocol` (C++) -> `Connection` (C++) -> Sieć. Pakiety przychodzące idą w odwrotną stronę.
-- **Renderowanie**: Logika klienta (C++ lub Lua) tworzy widgety i ustawia ich właściwości -> `UIManager` i `UIWidget` przygotowują `DrawQueue` -> `GraphicalApplication` przekazuje `DrawQueue` do `Painter` -> `Painter` wykonuje wywołania OpenGL.
+- **Zdarzenia wejściowe**: `PlatformWindow` → `GraphicalApplication` → `UIManager` → `UIWidget` → Skrypt Lua (callback `onClick` itp.).
+- **Komunikacja sieciowa**: Skrypt Lua (np. `g_game.login(...)`) → `ProtocolGame` (Lua) → `Protocol` (C++) → `Connection` (C++) → Sieć. Pakiety przychodzące idą w odwrotną stronę.
+- **Renderowanie**: Logika klienta (C++ lub Lua) tworzy widgety i ustawia ich właściwości → `UIManager` i `UIWidget` przygotowują `DrawQueue` → `GraphicalApplication` przekazuje `DrawQueue` do `Painter` → `Painter` wykonuje wywołania OpenGL.
 

@@ -713,7 +713,7 @@ function executeCommand(command)
 
     addLine("Terminal is disabled on this server", "#ff8888")
 
-    return    
+    return
 
   end
 

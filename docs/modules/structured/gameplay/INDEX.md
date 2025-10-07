@@ -1,7 +1,7 @@
-# Moduł: Moduły â€“ indeks
-PoniĹĽej lista modułĂłw w tej kategorii (auto-generated). Edytuj swobodnie â€“ skrypt będzie dopisywał nowe pozycje.
+# Modu: Moduy  indeks
+Poniej lista moduw w tej kategorii (auto-generated). Edytuj swobodnie  skrypt bdzie dopisywa nowe pozycje.
 
-<!-- AUTO-LIST -->
+<!-- AUTO-LIST -→
 
 - [`actionbar.lua`](./modul-actionbar-lua.md)
 - [`cooldown.lua`](./modul-cooldown-lua.md)

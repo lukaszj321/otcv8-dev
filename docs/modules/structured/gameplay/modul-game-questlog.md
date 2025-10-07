@@ -137,7 +137,7 @@ function online()
 
   local missionDescription = window.missionlog.missionDescription
 
-  connect(missionList, { 
+  connect(missionList, {
 
     onChildFocusChange = function(self, focusedChild)
 
@@ -153,7 +153,7 @@ function online()
 
         track:setChecked(settings[focusedChild.trackData])
 
-      end 
+      end
 
 }
 
@@ -743,7 +743,7 @@ QuestLogWindow < MainWindow
 
     anchors.bottom: closeButton.top
 
-    margin-bottom: 8    
+    margin-bottom: 8
 
   Button
 
@@ -849,7 +849,7 @@ QuestTracker < MiniWindow
 
         margin-left: 30
 
-        margin-right: 30 
+        margin-right: 30
 
         font: cipsoftFont
 

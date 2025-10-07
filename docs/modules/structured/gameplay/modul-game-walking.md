@@ -177,13 +177,13 @@ function enableWSAD()
 
   end
 
-  wsadWalking = true  
+  wsadWalking = true
 
   local player = g_game.getLocalPlayer()
 
   if player then
 
-    player:lockWalk(100) -- 100 ms walk lock for all directions    
+    player:lockWalk(100) -- 100 ms walk lock for all directions
 
   end
 
@@ -369,7 +369,7 @@ end
 
 function smartWalk(dir, ticks)
 
-  walkEvent = scheduleEvent(function() 
+  walkEvent = scheduleEvent(function()
 
     if g_keyboard.getModifiers() == KeyboardNoModifier then
 
@@ -431,7 +431,7 @@ function onTeleport(player, newPos, oldPos)
 
   -- floor change is also teleport
 
-  if math.abs(newPos.x - oldPos.x) >= 3 or math.abs(newPos.y - oldPos.y) >= 3 or math.abs(newPos.z - oldPos.z) >= 2 then  
+  if math.abs(newPos.x - oldPos.x) >= 3 or math.abs(newPos.y - oldPos.y) >= 3 or math.abs(newPos.z - oldPos.z) >= 2 then
 
     -- far teleport, lock walk for 100ms
 
@@ -467,7 +467,7 @@ function onCancelWalk(player)
 
 end
 
-function walk(dir, ticks) 
+function walk(dir, ticks)
 
   lastManualWalk = g_clock.millis()
 
@@ -521,7 +521,7 @@ function walk(dir, ticks)
 
   if not player:canWalk(dir) then -- canWalk return false when previous walk is not finished or not confirmed by server
 
-    if dash then 
+    if dash then
 
       ignoredCanWalk = true
 
@@ -553,7 +553,7 @@ function walk(dir, ticks)
 
   --end
 
-  if nextWalkDir ~= nil and nextWalkDir ~= lastWalkDir then 
+  if nextWalkDir ~= nil and nextWalkDir ~= lastWalkDir then
 
     dir = nextWalkDir
 
@@ -627,7 +627,7 @@ function walk(dir, ticks)
 
     return
 
-  end  
+  end
 
   firstStep = (not player:isWalking() and lastFinishedStep + 100 < g_clock.millis() and walkLock + 100 < g_clock.millis())
 
@@ -675,7 +675,7 @@ function walk(dir, ticks)
 
     else
 
-      if g_app.isMobile() and dir <= Directions.West then 
+      if g_app.isMobile() and dir <= Directions.West then
 
         turn(dir, ticks > 0)
 
@@ -697,11 +697,11 @@ function walk(dir, ticks)
 
   end
 
-  g_game.walk(dir, preWalked)  
+  g_game.walk(dir, preWalked)
 
   if not firstStep and lastWalkDir ~= dir then
 
-    walkLock = g_clock.millis() + g_settings.getNumber('walkTurnDelay')    
+    walkLock = g_clock.millis() + g_settings.getNumber('walkTurnDelay')
 
   end
 

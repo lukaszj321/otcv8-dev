@@ -1,6 +1,6 @@
 ?# {% raw %}
 
-**Pakiet:** `otc_core_v1/engine` · **Wersja:** 1.0  
+**Pakiet:** `otc_core_v1/engine` · **Wersja:** 1.0
 **Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testów round‑trip.
 
 ---
@@ -29,14 +29,14 @@
 # 0. Zakres, definicje, założenia
 **Interaktywny spis:** [0.1 Zakres](#ch-0-1) · [0.2 Definicje](#ch-0-2) · [0.3 Założenia projektowe](#ch-0-3)
 # 0.1 Zakres {#ch-0-1}
-- Pokrycie: *cały pipeline* od tekstu OTUI (STRICT) ↔ AST (TS) ↔ walidacja ↔ auto‑naprawy ↔ eksport/import.  
+- Pokrycie: *cały pipeline* od tekstu OTUI (STRICT) ↔ AST (TS) ↔ walidacja ↔ auto‑naprawy ↔ eksport/import.
 - Zakres UI: komplet taksonomii z części „Specyfikacja UI” (rozdz. 4) + presety kanoniczne.
 # 0.2 Definicje {#ch-0-2}
 - **STRICT OTUI** — format bezkomentarzowy, LF, wcięcia 2 sp., kolejność GEOMETRIA→STYL→ZACHOWANIE.
 - **AST** — drzewo `WidgetNode`, deterministyczne klucze i kolejność dzieci.
 - **Macierz** — tablica dozwolonych dzieci dla par (parent, slot).
 # 0.3 Założenia projektowe {#ch-0-3}
-- **Deterministyczność**: ten sam AST → ten sam OTUI (bit‑identyczny, przy tej samej wersji serializera).  
+- **Deterministyczność**: ten sam AST → ten sam OTUI (bit‑identyczny, przy tej samej wersji serializera).
 - **Idempotencja**: `parse(serialize(ast))` ≡ `normalize(ast)`.
 - **Brak magii**: walidator zgłasza i *tylko* przewidywalnie naprawia.
 
@@ -46,9 +46,9 @@
 # 1. STRICT OTUI — gramatyka i tokenizacja
 **Interaktywny spis:** [1.1 Zasady formatowania](#ch-1-1) · [1.2 Tokeny](#ch-1-2) · [1.3 Szkic EBNF](#ch-1-3)
 # 1.1 Zasady formatowania {#ch-1-1}
-- **Wcięcia**: 2 spacje na poziom. **Zakaz tabów**.  
-- **Końce linii**: LF. **Bez BOM**.  
-- **Brak komentarzy** w blokach `.otui`.  
+- **Wcięcia**: 2 spacje na poziom. **Zakaz tabów**.
+- **Końce linii**: LF. **Bez BOM**.
+- **Brak komentarzy** w blokach `.otui`.
 - **Kolejność atrybutów** w każdym węźle: GEOMETRIA → STYL → ZACHOWANIE.
 # 1.2 Tokeny {#ch-1-2}
 - Słowa kluczowe typów: `MainWindow`, `StaticMainWindow`, `MiniWindow`, `ContainerWindow`, `DialogWindow`, `UIWidget`, `Panel`, `GroupBox`, `Titlebar`, `Toolbar`, `TabBar`, `TabWidget`, `Splitter`, `HorizontalSeparator`, `StatusOverlay`, `Label`, `Button`, `CheckBox`, `TextEdit`, `PasswordTextEdit`, `MultilineTextEdit`, `ComboBox`, `TextList`, `ProgressBar`, `VerticalScrollBar`, `HorizontalScrollBar`.
@@ -101,11 +101,11 @@ export interface WidgetNode {
 }
 ```
 # 2.2 Normalizacja {#ch-2-2}
-- Uzupełnij brakujące struktury: `children = []`, `style = {}` gdy potrzebne.  
-- Zamień `style.text` → w serializacji na `!text: tr('...')`.  
+- Uzupełnij brakujące struktury: `children = []`, `style = {}` gdy potrzebne.
+- Zamień `style.text` → w serializacji na `!text: tr('...')`.
 - Zastąp `size` parą `width/height` podczas walidacji kotwic (na potrzeby reguł), ale w serializacji zachowuj wejściową postać.
 # 2.3 Stabilizacja kolejności {#ch-2-3}
-- Atrybuty: najpierw **GEOMETRIA**, potem **STYL**, na końcu **ZACHOWANIE** (events/states).  
+- Atrybuty: najpierw **GEOMETRIA**, potem **STYL**, na końcu **ZACHOWANIE** (events/states).
 - Dzieci: sortuj stabilnie po `(slotPriority, y, x, id)` jeśli edytor posiada grid/snapping; inaczej po kolejności wczytania.
 
 ---
@@ -114,14 +114,14 @@ export interface WidgetNode {
 # 3. Serializer (AST → OTUI STRICT)
 **Interaktywny spis:** [3.1 Reguły wypisywania](#ch-3-1) · [3.2 Escaping i i18n](#ch-3-2) · [3.3 Sanityzacja końcowa](#ch-3-3)
 # 3.1 Reguły wypisywania {#ch-3-1}
-- Wcięcie: **2 spacje**.  
-- Puste wartości pomijaj.  
+- Wcięcie: **2 spacje**.
+- Puste wartości pomijaj.
 - Sekcja kolejności: GEOMETRIA (`id`, `size`/`width`/`height`, `anchors.*`, `margin-*`, `padding`) → STYL → ZACHOWANIE (`@on*`, `$state:` bloki).
 # 3.2 Escaping i i18n {#ch-3-2}
-- `style.text` → `!text: tr('...')`, `'` → `\'`.  
+- `style.text` → `!text: tr('...')`, `'` → `\'`.
 - Kolory tylko `#AARRGGBB` lub `alpha`.
 # 3.3 Sanityzacja końcowa {#ch-3-3}
-- Usuń taby, trailing spaces, wymuś LF.  
+- Usuń taby, trailing spaces, wymuś LF.
 - Brak komentarzy w wynikowym `.otui`.
 
 ---
@@ -145,8 +145,8 @@ export interface WidgetNode {
 | ScrollBar (samotny) | ✖ | Zawsze para z treścią.
 
 **MiniWindow / ContainerWindow / DialogWindow**
-- Slot `titlebar`: Label, Button, UIWidget(ikona) ✓; listy/edytory/scroll ✖.  
-- Slot `content`: elementy panelowe ✓; okna‑dzieci ✖.  
+- Slot `titlebar`: Label, Button, UIWidget(ikona) ✓; listy/edytory/scroll ✖.
+- Slot `content`: elementy panelowe ✓; okna‑dzieci ✖.
 - Slot `footer` (Mini/Dialog): Button/Label/ProgressBar ✓; listy/edytory/scroll ✖.
 # 4.2 Kontenery (Content‑class) {#ch-4-2}
 | Parent | Dozwolone dzieci | Niedozwolone/uwagi |
@@ -182,21 +182,21 @@ export interface WidgetNode {
 # 5. Walidator — reguły, kody błędów/ostrzeżeń
 **Interaktywny spis:** [5.1 Błędy (E)](#ch-5-1) · [5.2 Ostrzeżenia (W)](#ch-5-2) · [5.3 Raport](#ch-5-3)
 # 5.1 Błędy (E) {#ch-5-1}
-- **E001 STRICT/Format** — taby/BOM/komentarze/trailing spaces.  
-- **E010 Anchors/Conflict** — `anchors.fill` + inne kotwice.  
-- **E020 Window/Nesting** — okno (`*Window`) jako dziecko okna.  
-- **E030 Scroll/Orphan** — ScrollBar bez sparowanej treści.  
-- **E031 Scroll/Pairing** — brak kotwicy treści do ScrollBar (`right: scroll.left` lub `bottom: hscroll.top`).  
-- **E040 Text/i18n** — stały tekst bez `tr()` (w OTUI).  
-- **E050 Splitter/Arity** — != 2 dzieci.  
+- **E001 STRICT/Format** — taby/BOM/komentarze/trailing spaces.
+- **E010 Anchors/Conflict** — `anchors.fill` + inne kotwice.
+- **E020 Window/Nesting** — okno (`*Window`) jako dziecko okna.
+- **E030 Scroll/Orphan** — ScrollBar bez sparowanej treści.
+- **E031 Scroll/Pairing** — brak kotwicy treści do ScrollBar (`right: scroll.left` lub `bottom: hscroll.top`).
+- **E040 Text/i18n** — stały tekst bez `tr()` (w OTUI).
+- **E050 Splitter/Arity** — != 2 dzieci.
 - **E060 Titlebar/Children** — niedozwolone dziecko w `titlebar`.
 # 5.2 Ostrzeżenia (W) {#ch-5-2}
-- **W101 Width/AutoFit** — okno dokowane z `width` (sugeruj usunięcie).  
-- **W110 Margins/Odd** — nieparzyste marginesy (snapping 2 px).  
-- **W120 Scroll/StepMismatch** — `step` niezgodny z wielkością wiersza/slotu.  
+- **W101 Width/AutoFit** — okno dokowane z `width` (sugeruj usunięcie).
+- **W110 Margins/Odd** — nieparzyste marginesy (snapping 2 px).
+- **W120 Scroll/StepMismatch** — `step` niezgodny z wielkością wiersza/slotu.
 - **W130 Keyboard/Hints** — brak `@onEnter/@onEscape` w oknie dialogowym.
 # 5.3 Raport {#ch-5-3}
-- Struktura: `{code, severity, path, message, fix?}`.  
+- Struktura: `{code, severity, path, message, fix?}`.
 - `path` = ścieżka węzłów (`main/content/items`).
 
 ---
@@ -208,7 +208,7 @@ export interface WidgetNode {
 - Usuń taby/BOM/komentarze; przytnij trailing spaces; wymuś LF.
 - Uporządkuj kolejność atrybutów (GEOMETRIA→STYL→ZACHOWANIE).
 # 6.2 Anchors/Layout {#ch-6-2}
-- Jeśli są `anchors.left` + `anchors.right` **i** `width` → usuń `width` (Auto‑fit).  
+- Jeśli są `anchors.left` + `anchors.right` **i** `width` → usuń `width` (Auto‑fit).
 - Rozdziel `size` na `width/height` tylko na potrzeby walidacji, nie w serializacji (zachowaj wejściowy idiom).
 # 6.3 Scroll pairing {#ch-6-3}
 - Dla `TextList`/`MultilineTextEdit` dodaj brakujący `VerticalScrollBar` jako sibling (po prawej) i dodaj kotwicę treści `right: scroll.left`.
@@ -221,10 +221,10 @@ export interface WidgetNode {
 # 7.1 Import z plików `.otui` {#ch-7-1}
 - Wczytaj, znormalizuj (STRICT), sparsuj do AST. Zachowaj *oryginalny układ* do porównań.
 # 7.2 Import z Lua (blok string) {#ch-7-2}
-- Wykryj stałe `local <Name>_OTUI = [[...]]`; wytnij treść; sprawdź STRICT; sparsuj.  
+- Wykryj stałe `local <Name>_OTUI = [[...]]`; wytnij treść; sprawdź STRICT; sparsuj.
 - Ostrzeżenie, gdy blok zawiera komentarze — niedozwolone w OTUI (mimo bycia w Lua).
 # 7.3 Eksport {#ch-7-3}
-- Do pliku `.otui` (kanoniczny cel runtime).  
+- Do pliku `.otui` (kanoniczny cel runtime).
 - Opcjonalnie: *round‑trip do Lua* — odśwież istniejący blok `[[...]]` bit‑identycznie po `ensureStrictOtui()`.
 
 ---
@@ -242,7 +242,7 @@ export function validateAst(nodes: WidgetNode[]): ValidationIssue[];
 export function autofixAst(nodes: WidgetNode[]): { nodes: WidgetNode[]; changes: ValidationIssue[] };
 ```
 # 8.2 Przepływy {#ch-8-2}
-- **Projekt → Walidacja → Serializacja**.  
+- **Projekt → Walidacja → Serializacja**.
 - **Import (plik/Lua) → Parser → Normalizacja → Walidacja → Edycja → Serializacja → Eksport (plik/Lua)**.
 
 ---
@@ -251,7 +251,7 @@ export function autofixAst(nodes: WidgetNode[]): { nodes: WidgetNode[]; changes:
 # 9. Testy: goldeny i snapshoty
 **Interaktywny spis:** [9.1 Goldeny round‑trip](#ch-9-1) · [9.2 Snapshoty wizualne](#ch-9-2)
 # 9.1 Goldeny round‑trip {#ch-9-1}
-- Zestaw `X.otui` → `parse` → `serialize` → porównanie bit‑po‑bicie.  
+- Zestaw `X.otui` → `parse` → `serialize` → porównanie bit‑po‑bicie.
 - Dokładaj przypadki: okna, scroll pairing, Splitter, TabBar/TabWidget.
 # 9.2 Snapshoty wizualne {#ch-9-2}
 - Render testowy po stronie klienta (lub symulacja) i porównania pikselowe dla kluczowych presetów.

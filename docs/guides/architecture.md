@@ -1,10 +1,10 @@
 # Architektura (skrót)
 ```mermaid
 graph TD
-  Client[OTCv8 Client] -->|Lua| vBot[vBot Modules]
-  Client -->|OTUI| UI[UI System]
-  Client --> CppCore[C++ Core]
-  WS[WebSocket/IPC] --> Client
+  Client[OTCv8 Client] -→|Lua| vBot[vBot Modules]
+  Client -→|OTUI| UI[UI System]
+  Client -→ CppCore[C++ Core]
+  WS[WebSocket/IPC] -→ Client
 
 ```
 

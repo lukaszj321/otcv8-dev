@@ -5,10 +5,10 @@ sequenceDiagram
   participant WS as WebSocket (wss)
   participant S as Server (Node)
 
-  UI->>WS: handshake (JWT / token)
-  WS->>S: connect
-  S-->>UI: events: metrics, logs, char_info
-  UI->>S: cmd: START/STOP, settings
+  UI→>WS: handshake (JWT / token)
+  WS→>S: connect
+  S-→>UI: events: metrics, logs, char_info
+  UI→>S: cmd: START/STOP, settings
 
 ```
 # Zasady

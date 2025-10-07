@@ -245,7 +245,7 @@ function onGameUpdateNeeded(signature)
 
     CharacterList.showAgain()
 
-  end  
+  end
 
 end
 
@@ -273,7 +273,7 @@ function scheduleAutoReconnect()
 
   if autoReconnectEvent then
 
-    removeEvent(autoReconnectEvent)    
+    removeEvent(autoReconnectEvent)
 
   end
 
@@ -281,7 +281,7 @@ function scheduleAutoReconnect()
 
 end
 
-function executeAutoReconnect()  
+function executeAutoReconnect()
 
   if not autoReconnectButton or not autoReconnectButton:isOn() or g_game.isOnline() then
 
@@ -817,7 +817,7 @@ StaticMainWindow
 
     g_keyboard.bindKeyPress('Up', function() self:getChildById('characters'):focusPreviousChild(KeyboardFocusReason) end, self)
 
-    g_keyboard.bindKeyPress('Down', function() self:getChildById('characters'):focusNextChild(KeyboardFocusReason) end, self)  
+    g_keyboard.bindKeyPress('Down', function() self:getChildById('characters'):focusNextChild(KeyboardFocusReason) end, self)
 
   TextList
 
@@ -913,7 +913,7 @@ StaticMainWindow
 
     $!on:
 
-      image-color: red    
+      image-color: red
 
       !text: tr('Auto reconnect: Off')
 
@@ -1089,7 +1089,7 @@ local function parseFeatures(features)
 
       end
 
-  end  
+  end
 
 end
 
@@ -1145,7 +1145,7 @@ local function validateThings(things)
 
   if missingFiles then
 
-    incorrectThings = incorrectThings .. "\nYou should open data/things and create directory " .. versionForMissingFiles .. 
+    incorrectThings = incorrectThings .. "\nYou should open data/things and create directory " .. versionForMissingFiles ..
 
     ".\nIn this directory (data/things/" .. versionForMissingFiles .. ") you should put missing\nfiles (Tibia.dat and Tibia.spr/Tibia.cwm) " ..
 
@@ -1311,7 +1311,7 @@ local function onTibia12HTTPResult(session, playdata)
 
   end
 
-  onCharacterList(nil, characters, account, nil)  
+  onCharacterList(nil, characters, account, nil)
 
 end
 
@@ -1337,7 +1337,7 @@ local function onHTTPResult(data, err)
 
   end
 
-  waitingForHttpResults = 0 
+  waitingForHttpResults = 0
 
   if data['error'] and data['error']:len() > 0 then
 
@@ -1353,7 +1353,7 @@ local function onHTTPResult(data, err)
 
     return onTibia12HTTPResult(data["session"], data["playdata"])
 
-  end  
+  end
 
   local characters = data["characters"]
 
@@ -1419,7 +1419,7 @@ local function onHTTPResult(data, err)
 
   g_game.setClientVersion(version)
 
-  g_game.setProtocolVersion(g_game.getClientProtocolVersion(version))  
+  g_game.setProtocolVersion(g_game.getClientProtocolVersion(version))
 
   g_game.setCustomOs(-1) -- disable
 
@@ -1459,7 +1459,7 @@ local function onHTTPResult(data, err)
 
   end
 
-  onCharacterList(nil, characters, account, nil)  
+  onCharacterList(nil, characters, account, nil)
 
 end
 
@@ -1483,7 +1483,7 @@ function EnterGame.init()
 
   clientVersionSelector = customServerSelectorPanel:getChildById('clientVersionSelector')
 
-  if Servers ~= nil then 
+  if Servers ~= nil then
 
     for name,server in pairs(Servers) do
 
@@ -1495,9 +1495,9 @@ function EnterGame.init()
 
   if serverSelector:getOptionsCount() == 0 or ALLOW_CUSTOM_SERVERS then
 
-    serverSelector:addOption(tr("Another"))    
+    serverSelector:addOption(tr("Another"))
 
-  end  
+  end
 
   for i,proto in pairs(protos) do
 
@@ -1655,7 +1655,7 @@ function EnterGame.onServerChange()
 
       serverHostTextEdit:setText("")
 
-      customServerSelectorPanel:setOn(true)  
+      customServerSelectorPanel:setOn(true)
 
       enterGame:setHeight(enterGame:getHeight() + customServerSelectorPanel:getHeight())
 
@@ -1709,13 +1709,13 @@ function EnterGame.doLogin(account, password, token, host)
 
   G.host = host or serverHostTextEdit:getText()
 
-  G.clientVersion = tonumber(clientVersionSelector:getText())  
+  G.clientVersion = tonumber(clientVersionSelector:getText())
 
   if not rememberPasswordBox:isChecked() then
 
     g_settings.set('account', G.account)
 
-    g_settings.set('password', G.password)  
+    g_settings.set('password', G.password)
 
   end
 
@@ -1733,7 +1733,7 @@ function EnterGame.doLogin(account, password, token, host)
 
     if #server_params >= 4 then
 
-      G.host = server_params[1] .. ":" .. server_params[2] .. ":" .. server_params[3] 
+      G.host = server_params[1] .. ":" .. server_params[2] .. ":" .. server_params[3]
 
       G.clientVersion = tonumber(server_params[4])
 
@@ -1741,7 +1741,7 @@ function EnterGame.doLogin(account, password, token, host)
 
       if tostring(tonumber(server_params[3])) == server_params[3] then
 
-        G.host = server_params[1] .. ":" .. server_params[2] 
+        G.host = server_params[1] .. ":" .. server_params[2]
 
         G.clientVersion = tonumber(server_params[3])
 
@@ -1749,7 +1749,7 @@ function EnterGame.doLogin(account, password, token, host)
 
     end
 
-    return EnterGame.doLoginHttp()      
+    return EnterGame.doLoginHttp()
 
   end
 
@@ -1771,7 +1771,7 @@ function EnterGame.doLogin(account, password, token, host)
 
   if type(server_ip) ~= 'string' or server_ip:len() <= 3 or not server_port or not G.clientVersion then
 
-    return EnterGame.onError("Invalid server, it should be in format IP:PORT or it should be http url to login script")  
+    return EnterGame.onError("Invalid server, it should be in format IP:PORT or it should be http url to login script")
 
   end
 
@@ -1911,7 +1911,7 @@ function EnterGame.doLoginHttp()
 
   if G.host == nil or G.host:len() < 10 then
 
-    return EnterGame.onError("Invalid server url: " .. G.host)    
+    return EnterGame.onError("Invalid server url: " .. G.host)
 
   end
 
@@ -1923,7 +1923,7 @@ function EnterGame.doLoginHttp()
 
                                   EnterGame.show()
 
-                                end })                                
+                                end })
 
   local data = {
 
@@ -1955,7 +1955,7 @@ function EnterGame.doLoginHttp()
 
     if type(Servers[server]) == "table" then
 
-      local urls = Servers[server]      
+      local urls = Servers[server]
 
       waitingForHttpResults = #urls
 
@@ -1969,7 +1969,7 @@ function EnterGame.doLoginHttp()
 
       waitingForHttpResults = 1
 
-      HTTP.postJSON(G.host, data, onHTTPResult)    
+      HTTP.postJSON(G.host, data, onHTTPResult)
 
     end
 
@@ -2175,7 +2175,7 @@ EnterGameWindow
 
       anchors.top: prev.bottom
 
-      text-auto-resize: true    
+      text-auto-resize: true
 
       margin-top: 5
 

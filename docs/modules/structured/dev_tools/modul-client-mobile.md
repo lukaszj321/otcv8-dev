@@ -61,7 +61,7 @@ function init()
 
   end, 10)
 
-  connect(overlay, { 
+  connect(overlay, {
 
     onMousePress = onMousePress,
 
@@ -71,7 +71,7 @@ function init()
 
     onTouchRelease = onMouseRelease,
 
-    onMouseMove = onMouseMove 
+    onMouseMove = onMouseMove
 
 })
 
@@ -79,17 +79,17 @@ function init()
 
     onTouchPress = onKeypadTouchPress,
 
-    onTouchRelease = onKeypadTouchRelease,  
+    onTouchRelease = onKeypadTouchRelease,
 
     onMouseMove = onKeypadTouchMove
 
 })
 
-  connect(g_game, { 
+  connect(g_game, {
 
     onGameStart = online,
 
-    onGameEnd = offline 
+    onGameEnd = offline
 
 })
 
@@ -111,7 +111,7 @@ function terminate()
 
   keypadEvent = nil
 
-  disconnect(overlay, { 
+  disconnect(overlay, {
 
     onMousePress = onMousePress,
 
@@ -121,7 +121,7 @@ function terminate()
 
     onTouchRelease = onMouseRelease,
 
-    onMouseMove = onMouseMove 
+    onMouseMove = onMouseMove
 
 })
 
@@ -129,17 +129,17 @@ function terminate()
 
     onTouchPress = onKeypadTouchPress,
 
-    onTouchRelease = onKeypadTouchRelease,  
+    onTouchRelease = onKeypadTouchRelease,
 
     onMouseMove = onKeypadTouchMove
 
 })
 
-  disconnect(g_game, { 
+  disconnect(g_game, {
 
     onGameStart = online,
 
-    onGameEnd = offline 
+    onGameEnd = offline
 
 })
 
@@ -199,7 +199,7 @@ function onMousePress(widget, pos, button)
 
     overlay.cursor:show()
 
-    overlay.cursor:setPosition({x=pos.x - 32, y = pos.y - 32})  
+    overlay.cursor:setPosition({x=pos.x - 32, y = pos.y - 32})
 
     touchStart = g_clock.millis()
 
@@ -253,7 +253,7 @@ end
 
 function onKeypadTouchMove(widget, pos, offset)
 
-  keypadMousePos = {x=(pos.x - widget:getPosition().x) / widget:getWidth(), 
+  keypadMousePos = {x=(pos.x - widget:getPosition().x) / widget:getWidth(),
 
                     y=(pos.y - widget:getPosition().y) / widget:getHeight()}
 
@@ -267,7 +267,7 @@ function onKeypadTouchPress(widget, pos, button)
 
   keypadTicks = 0
 
-  keypadMousePos = {x=(pos.x - widget:getPosition().x) / widget:getWidth(), 
+  keypadMousePos = {x=(pos.x - widget:getPosition().x) / widget:getWidth(),
 
                     y=(pos.y - widget:getPosition().y) / widget:getHeight()}
 
@@ -281,7 +281,7 @@ function onKeypadTouchRelease(widget, pos, button)
 
   if button ~= MouseTouch then return false end
 
-  keypadMousePos = {x=(pos.x - widget:getPosition().x) / widget:getWidth(), 
+  keypadMousePos = {x=(pos.x - widget:getPosition().x) / widget:getWidth(),
 
                     y=(pos.y - widget:getPosition().y) / widget:getHeight()}
 
@@ -337,7 +337,7 @@ function executeWalk()
 
   if keypadMousePos.y < 0.3 and keypadMousePos.x < 0.3 then
 
-    dir = Directions.NorthWest     
+    dir = Directions.NorthWest
 
   elseif keypadMousePos.y < 0.3 and keypadMousePos.x > 0.7 then
 
@@ -377,9 +377,9 @@ function executeWalk()
 
         dir = Directions.East
 
-      end    
+      end
 
-    end  
+    end
 
   end
 

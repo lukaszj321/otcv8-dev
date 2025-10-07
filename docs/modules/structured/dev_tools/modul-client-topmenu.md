@@ -89,7 +89,7 @@ function init()
 
                     onPingBack = updatePing })
 
-  topMenu = g_ui.createWidget('TopMenu', g_ui.getRootWidget())  
+  topMenu = g_ui.createWidget('TopMenu', g_ui.getRootWidget())
 
   g_keyboard.bindKeyDown('Ctrl+Shift+T', toggle)
 
@@ -99,7 +99,7 @@ function init()
 
   end
 
-  updateFps()  
+  updateFps()
 
   updateStatus()
 
@@ -153,7 +153,7 @@ function online()
 
       else
 
-        topMenu.pingLabel:hide()      
+        topMenu.pingLabel:hide()
 
       end
 
@@ -449,7 +449,7 @@ function updateStatus()
 
     if err then
 
-      g_logger.warning("HTTP error for " .. Services.status .. ": " .. err) 
+      g_logger.warning("HTTP error for " .. Services.status .. ": " .. err)
 
       statusUpdateEvent = scheduleEvent(updateStatus, 5000)
 

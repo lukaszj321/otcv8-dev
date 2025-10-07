@@ -27,7 +27,7 @@ local ageNumber = 1
 
 local ages = {}
 
-function init()  
+function init()
 
   g_ui.importStyle('battlebutton')
 
@@ -127,11 +127,11 @@ function init()
 
 })
 
-  connect(g_game, { 
+  connect(g_game, {
 
     onAttackingCreatureChange = updateSquare,
 
-    onFollowingCreatureChange = updateSquare 
+    onFollowingCreatureChange = updateSquare
 
 })
 
@@ -169,11 +169,11 @@ function terminate()
 
 })
 
-  disconnect(g_game, { 
+  disconnect(g_game, {
 
     onAttackingCreatureChange = updateSquare,
 
-    onFollowingCreatureChange = updateSquare 
+    onFollowingCreatureChange = updateSquare
 
 })
 
@@ -361,7 +361,7 @@ end
 
 -- functions
 
-function updateBattleList() 
+function updateBattleList()
 
   removeEvent(updateEvent)
 
@@ -405,9 +405,9 @@ function checkCreatures()
 
       if not creature.lastSeen or creature.lastSeen < resetAgePoint then
 
-        creature.screenAge = now        
+        creature.screenAge = now
 
-      end      
+      end
 
       creature.lastSeen = now
 
@@ -427,7 +427,7 @@ function checkCreatures()
 
       end
 
-      table.insert(creatures, creature)	
+      table.insert(creatures, creature)
 
     end
 
@@ -443,7 +443,7 @@ function checkCreatures()
 
   local ascOrder = isSortAsc()
 
-  for i=1,#creatures do  
+  for i=1,#creatures do
 
 	  local creature = creatures[i]
 
@@ -453,7 +453,7 @@ function checkCreatures()
 
 	  end
 
-    local battleButton = battleButtons[i]      
+    local battleButton = battleButtons[i]
 
     battleButton:creatureSetup(creature)
 
@@ -557,7 +557,7 @@ function sortCreatures(creatures)
 
     local playerPos = player:getPosition()
 
-    table.sort(creatures, function(a, b) 
+    table.sort(creatures, function(a, b)
 
       if getDistanceBetween(playerPos, a:getPosition()) == getDistanceBetween(playerPos, b:getPosition()) then
 
@@ -565,13 +565,13 @@ function sortCreatures(creatures)
 
       end
 
-      return getDistanceBetween(playerPos, a:getPosition()) > getDistanceBetween(playerPos, b:getPosition()) 
+      return getDistanceBetween(playerPos, a:getPosition()) > getDistanceBetween(playerPos, b:getPosition())
 
     end)
 
   elseif getSortType() == 'health' then
 
-    table.sort(creatures, function(a, b) 
+    table.sort(creatures, function(a, b)
 
       if a:getHealthPercent() == b:getHealthPercent() then
 
@@ -579,7 +579,7 @@ function sortCreatures(creatures)
 
       end
 
-      return a:getHealthPercent() > b:getHealthPercent() 
+      return a:getHealthPercent() > b:getHealthPercent()
 
     end)
 
@@ -601,7 +601,7 @@ function sortCreatures(creatures)
 
       end
 
-      return a:getName():lower() > b:getName():lower() 
+      return a:getName():lower() > b:getName():lower()
 
     end)
 
@@ -673,7 +673,7 @@ function onBattleButtonHoverChange(battleButton, hovered)
 
   if not hovered then
 
-    newHoveredCreature = nil    
+    newHoveredCreature = nil
 
   else
 

@@ -316,7 +316,7 @@ CaveBot.editAction = function(widget, action, value)
 
   if not widget.action or not widget.value then
 
-    return warn("Invalid cavebot action widget, has missing action or value")  
+    return warn("Invalid cavebot action widget, has missing action or value")
 
   end
 
@@ -352,7 +352,7 @@ it can also return string "retry", then the function will be called again in 20 
 
 ]]--
 
-CaveBot.registerAction = function(action, color, callback) 
+CaveBot.registerAction = function(action, color, callback)
 
   action = action:lower()
 
@@ -382,7 +382,7 @@ end)
 
 CaveBot.registerAction("gotolabel", "#FFFF55", function(value, retries, prev)
 
-  return CaveBot.gotoLabel(value) 
+  return CaveBot.gotoLabel(value)
 
 end)
 
@@ -418,7 +418,7 @@ CaveBot.registerAction("delay", "#AAAAAA", function(value, retries, prev)
 
     final = final or val
 
-    CaveBot.delay(final) 
+    CaveBot.delay(final)
 
     return "retry"
 
@@ -474,7 +474,7 @@ CaveBot.registerAction("function", "red", function(value, retries, prev)
 
   end
 
-  local status, result = pcall(function() 
+  local status, result = pcall(function()
 
     return assert(load(prefix .. value, "cavebot_function"))()
 
@@ -486,7 +486,7 @@ CaveBot.registerAction("function", "red", function(value, retries, prev)
 
     return false
 
-  end  
+  end
 
   return result
 
@@ -532,17 +532,17 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
       return false -- tried 100 times, can't get there
 
-    end  
+    end
 
   end
 
   local precision = tonumber(pos[1][5])
 
-  pos = {x=tonumber(pos[1][2]), y=tonumber(pos[1][3]), z=tonumber(pos[1][4])}  
+  pos = {x=tonumber(pos[1][2]), y=tonumber(pos[1][3]), z=tonumber(pos[1][4])}
 
   local playerPos = player:getPosition()
 
-  if pos.z ~= playerPos.z then 
+  if pos.z ~= playerPos.z then
 
     noPath = noPath + 1
 
@@ -642,7 +642,7 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
                   -- real blocking creature can not meet those conditions - ie. it could be player, so just in case check if the next creature is reachable
 
-                  local path = findPath(playerPos, creature:getPosition(), 7, { ignoreNonPathable = true, precision = 1 }) 
+                  local path = findPath(playerPos, creature:getPosition(), 7, { ignoreNonPathable = true, precision = 1 })
 
                   if path then
 
@@ -714,7 +714,7 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
       return "retry"
 
-    end    
+    end
 
   end
 
@@ -768,11 +768,11 @@ CaveBot.registerAction("use", "#FFB272", function(value, retries, prev)
 
   end
 
-  pos = {x=tonumber(pos[1][2]), y=tonumber(pos[1][3]), z=tonumber(pos[1][4])}  
+  pos = {x=tonumber(pos[1][2]), y=tonumber(pos[1][3]), z=tonumber(pos[1][4])}
 
   local playerPos = player:getPosition()
 
-  if pos.z ~= playerPos.z then 
+  if pos.z ~= playerPos.z then
 
     return false -- different floor
 
@@ -830,11 +830,11 @@ CaveBot.registerAction("usewith", "#EEB292", function(value, retries, prev)
 
   local itemid = tonumber(pos[1][2])
 
-  pos = {x=tonumber(pos[1][3]), y=tonumber(pos[1][4]), z=tonumber(pos[1][5])}  
+  pos = {x=tonumber(pos[1][3]), y=tonumber(pos[1][4]), z=tonumber(pos[1][5])}
 
   local playerPos = player:getPosition()
 
-  if pos.z ~= playerPos.z then 
+  if pos.z ~= playerPos.z then
 
     return false -- different floor
 
@@ -972,11 +972,11 @@ CaveBot.Extensions.Bank.setup = function()
 
     local npc = getCreatureByName(npcName)
 
-    if not npc then 
+    if not npc then
 
       print("CaveBot[Bank]: NPC not found, skipping")
 
-     return false 
+     return false
 
     end
 
@@ -1074,11 +1074,11 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     local waitVal
 
-    if #val == 0 or #val > 2 then 
+    if #val == 0 or #val > 2 then
 
       warn("CaveBot[BuySupplies]: incorrect BuySupplies value")
 
-      return false 
+      return false
 
     elseif #val == 2 then
 
@@ -1090,15 +1090,15 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     local npc = getCreatureByName(npcName)
 
-    if not npc then 
+    if not npc then
 
       print("CaveBot[BuySupplies]: NPC not found")
 
-      return false 
+      return false
 
     end
 
-    if not waitVal and #val == 2 then 
+    if not waitVal and #val == 2 then
 
       warn("CaveBot[BuySupplies]: incorrect delay values!")
 
@@ -1264,7 +1264,7 @@ cavebotMacro = macro(20, function()
 
   end
 
-  local action = CaveBot.Actions[currentAction.action]  
+  local action = CaveBot.Actions[currentAction.action]
 
   local value = currentAction.value
 
@@ -1304,7 +1304,7 @@ cavebotMacro = macro(20, function()
 
       warn("warn while executing cavebot action (" .. currentAction.action .. "):\n" .. result)
 
-    end    
+    end
 
   else
 
@@ -1354,7 +1354,7 @@ config = Config.setup("cavebot_configs", configWidget, "cfg", function(name, ena
 
     CaveBot.setOff()
 
-    return    
+    return
 
   end
 
@@ -1436,7 +1436,7 @@ config = Config.setup("cavebot_configs", configWidget, "cfg", function(name, ena
 
   cavebotMacro.delay = nil
 
-  if lastConfig == name then 
+  if lastConfig == name then
 
     -- restore focused child on the action list
 
@@ -1444,7 +1444,7 @@ config = Config.setup("cavebot_configs", configWidget, "cfg", function(name, ena
 
   end
 
-  lastConfig = name  
+  lastConfig = name
 
 end)
 
@@ -1506,7 +1506,7 @@ end
 
 CaveBot.setOn = function(val)
 
-  if val == false then  
+  if val == false then
 
     return CaveBot.setOff(true)
 
@@ -1518,7 +1518,7 @@ end
 
 CaveBot.setOff = function(val)
 
-  if val == false then  
+  if val == false then
 
     return CaveBot.setOn(true)
 
@@ -1756,7 +1756,7 @@ CaveBot.getFirstWaypointBeforeLabel = function(label)
 
     if index - 1 < 1 then
 
-      -- did not found any waypoint in range before label 
+      -- did not found any waypoint in range before label
 
       return false
 
@@ -1816,7 +1816,7 @@ CaveBot.getPreviousLabel = function()
 
     if index - i < 1 then
 
-      -- did not found any waypoint in range before label 
+      -- did not found any waypoint in range before label
 
       return false
 
@@ -1858,7 +1858,7 @@ CaveBot.getNextLabel = function()
 
     if index + i > #actions then
 
-      -- did not found any waypoint in range before label 
+      -- did not found any waypoint in range before label
 
       return false
 
@@ -1910,7 +1910,7 @@ CaveBot.gotoLabel = function(label)
 
   for index, child in ipairs(ui.list:getChildren()) do
 
-    if child.action == "label" and child.value:lower() == label then    
+    if child.action == "label" and child.value:lower() == label then
 
       ui.list:focusChild(child)
 
@@ -2206,7 +2206,7 @@ CaveBot.Extensions.ClearTile.setup = function()
 
         return "retry"
 
-      end   
+      end
 
     end
 
@@ -2322,9 +2322,9 @@ CaveBot.Config.setup = function()
 
   add("mapClickDelay", "Map click delay", 100)
 
-  add("ignoreFields", "Ignore fields", false)  
+  add("ignoreFields", "Ignore fields", false)
 
-  add("skipBlocked", "Skip blocked path", false)  
+  add("skipBlocked", "Skip blocked path", false)
 
   add("useDelay", "Delay after use", 400)
 
@@ -2440,7 +2440,7 @@ CaveBot.Config.add = function(id, title, defaultValue)
 
   else
 
-    return warn("Invalid default value of config for key " .. id .. ", should be number or boolean")      
+    return warn("Invalid default value of config for key " .. id .. ", should be number or boolean")
 
   end
 
@@ -2608,7 +2608,7 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		if retries > 600 then
 
-			print("CaveBot[DepotWithdraw]: actions limit reached, proceeding") 
+			print("CaveBot[DepotWithdraw]: actions limit reached, proceeding")
 
 			return false
 
@@ -2656,9 +2656,9 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 			end
 
-			print("CaveBot[DepotWithdraw]: cap limit reached, proceeding") 
+			print("CaveBot[DepotWithdraw]: cap limit reached, proceeding")
 
-			return false 
+			return false
 
 		end
 
@@ -2680,7 +2680,7 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		end
 
-		if not destContainer then 
+		if not destContainer then
 
 			print("CaveBot[DepotWithdraw]: container not found!")
 
@@ -2948,17 +2948,17 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		-- next check retries
 
-		if retries > 400 then 
+		if retries > 400 then
 
 			print("CaveBot[Depositor]: Depositor actions limit reached, proceeding")
 
 			resetCache()
 
-			return true 
+			return true
 
 		end
 
-		-- reaching and opening depot 
+		-- reaching and opening depot
 
 		if not CaveBot.ReachAndOpenDepot() then
 
@@ -3064,7 +3064,7 @@ CaveBot.Extensions.OpenDoors.setup = function()
 
     end
 
-    pos = {x=tonumber(pos[1]), y=tonumber(pos[2]), z=tonumber(pos[3])}  
+    pos = {x=tonumber(pos[1]), y=tonumber(pos[2]), z=tonumber(pos[3])}
 
     local doorTile
 
@@ -3188,7 +3188,7 @@ CaveBot.Editor.registerAction = function(action, text, params)
 
   end
 
-  button.onClick = function()    
+  button.onClick = function()
 
     if type(params) == 'function' then
 
@@ -3300,7 +3300,7 @@ CaveBot.Editor.setup = function()
 
     description="Add label",
 
-    multiline=false   
+    multiline=false
 
 })
 
@@ -3326,7 +3326,7 @@ CaveBot.Editor.setup = function()
 
     description="Go to label",
 
-    multiline=false   
+    multiline=false
 
 })
 
@@ -3352,7 +3352,7 @@ CaveBot.Editor.setup = function()
 
     description="Use item from position (x,y,z) or from inventory (itemId)",
 
-    multiline=false   
+    multiline=false
 
 })
 
@@ -3378,7 +3378,7 @@ CaveBot.Editor.setup = function()
 
     description="Enter text to say",
 
-    multiline=false   
+    multiline=false
 
 })
 
@@ -3390,7 +3390,7 @@ CaveBot.Editor.setup = function()
 
     description="insert creature name to follow",
 
-    multiline=false   
+    multiline=false
 
 })
 
@@ -3402,7 +3402,7 @@ CaveBot.Editor.setup = function()
 
     description="Enter text to NPC say",
 
-    multiline=false   
+    multiline=false
 
 })
 
@@ -3438,11 +3438,11 @@ CaveBot.Editor.setup = function()
 
   onPlayerPositionChange(function(pos)
 
-    ui.pos:setText("Position: " .. pos.x .. ", " .. pos.y .. ", " .. pos.z) 
+    ui.pos:setText("Position: " .. pos.x .. ", " .. pos.y .. ", " .. pos.z)
 
   end)
 
-  ui.pos:setText("Position: " .. posx() .. ", " .. posy() .. ", " .. posz()) 
+  ui.pos:setText("Position: " .. posx() .. ", " .. posy() .. ", " .. posz())
 
 end
 
@@ -3482,7 +3482,7 @@ CaveBot.Editor.edit = function(action, value, callback) -- callback = function(a
 
     callback(action, newText)
 
-  end)   
+  end)
 
 end
 
@@ -3644,9 +3644,9 @@ addExampleFunction("buy 200 mana potion from npc Eryn", [[
 
 local npc = getCreatureByName("Eryn")
 
-if not npc then 
+if not npc then
 
-  return false 
+  return false
 
 end
 
@@ -3948,7 +3948,7 @@ CaveBot.Extensions.Imbuing.setup = function()
 
     if value == 'name' then
 
-      local imbuData = AutoImbueTable[player:getName()]      
+      local imbuData = AutoImbueTable[player:getName()]
 
       for id, imbues in pairs(imbuData) do
 
@@ -4192,7 +4192,7 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
 			if container:getCapacity() > #container:getItems() and not string.find(container:getName():lower(), "quiver") and not string.find(container:getName():lower(), "depot") and not string.find(container:getName():lower(), "loot") and not string.find(container:getName():lower(), "inbox") then
 
-				destination = container 
+				destination = container
 
 			end
 
@@ -4492,7 +4492,7 @@ local function setup()
 
   onPlayerPositionChange(function(newPos, oldPos)
 
-    if CaveBot.isOn() or not isEnabled then return end    
+    if CaveBot.isOn() or not isEnabled then return end
 
     if not lastPos then
 
@@ -4520,7 +4520,7 @@ local function setup()
 
     if CaveBot.isOn() or not isEnabled then return end
 
-    if pos.x ~= 0xFFFF then 
+    if pos.x ~= 0xFFFF then
 
       lastPos = pos
 
@@ -4626,11 +4626,11 @@ CaveBot.Extensions.SellAll.setup = function()
 
     local npc = getCreatureByName(npcName)
 
-    if not npc then 
+    if not npc then
 
       print("CaveBot[SellAll]: NPC not found! skipping")
 
-      return false 
+      return false
 
     end
 
@@ -4644,7 +4644,7 @@ CaveBot.Extensions.SellAll.setup = function()
 
     if freecap() == sellAllCap then
 
-      sellAllCap = 0 
+      sellAllCap = 0
 
       print("CaveBot[SellAll]: Sold everything, proceeding")
 
@@ -4870,7 +4870,7 @@ CaveBot.Extensions.StandLure.setup = function()
 
                 warn("[Rush Lure] No possible path to reach position, skipping.")
 
-                return false -- spot is unreachable 
+                return false -- spot is unreachable
 
             elseif pathWithoutMonsters and not pathWithMonsters then
 
@@ -4900,7 +4900,7 @@ CaveBot.Extensions.StandLure.setup = function()
 
                             -- real blocking creature can not meet those conditions - ie. it could be player, so just in case check if the next creature is reachable
 
-                            local path = findPath(playerPos, creature:getPosition(), 7, { ignoreNonPathable = true, precision = 1 }) 
+                            local path = findPath(playerPos, creature:getPosition(), 7, { ignoreNonPathable = true, precision = 1 })
 
                             if path then
 
@@ -5538,9 +5538,9 @@ CaveBot.Extensions.Tasker.setup = function()
 
       - monster name to track: medusa
 
-      - optional, monster name 2: 
+      - optional, monster name 2:
 
-  2. check status, 
+  2. check status,
 
       to be used on refill to decide whether to go back or spawn or go give task back
 
@@ -5550,7 +5550,7 @@ CaveBot.Extensions.Tasker.setup = function()
 
       - label if task in progress: skipTask
 
-      - label if task done: taskDone  
+      - label if task done: taskDone
 
   3. report task,
 
@@ -5648,11 +5648,11 @@ CaveBot.Extensions.Travel.setup = function()
 
     local npc = getCreatureByName(npcName)
 
-    if not npc then 
+    if not npc then
 
       print("CaveBot[Travel]: NPC not found, can't travel")
 
-     return false 
+     return false
 
     end
 
@@ -5746,7 +5746,7 @@ CaveBot.doWalking = function()
 
   end
 
-  return false  
+  return false
 
 end
 
@@ -5800,7 +5800,7 @@ onPlayerPositionChange(function(newPos, oldPos)
 
   end
 
-  table.remove(expectedDirs, 1)  
+  table.remove(expectedDirs, 1)
 
   if CaveBot.Config.get("mapClick") and #expectedDirs > 0 then
 
@@ -5842,7 +5842,7 @@ CaveBot.walkTo = function(dest, maxDist, params)
 
   g_game.walk(dir, false)
 
-  isWalking = true    
+  isWalking = true
 
   walkPath = path
 
@@ -5892,7 +5892,7 @@ CaveBot.Extensions.Withdraw.setup = function()
 
 		if not id or not amount then
 
-			print("CaveBot[Withdraw]: incorrect id or amount! skipping") 
+			print("CaveBot[Withdraw]: incorrect id or amount! skipping")
 
 			return false
 

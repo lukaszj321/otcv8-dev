@@ -1,33 +1,33 @@
-# Moduł: Moduł: Client Mobile Module
-**Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduł i gdzie jest uĹĽywany).*
+# Modu: Modu: Client Mobile Module
+**Rola:** *(krtko  13 zdania co robi modu i gdzie jest uywany).*
 
 ## Zakres
-- â€¦
+-
 
-## Punkty wejścia
-- **Lua:** â€¦
-- **C++/IPC:** â€¦
+## Punkty wejcia
+- **Lua:**
+- **C++/IPC:**
 
 ## UI / OTUI
-- Pliki OTUI: â€¦
-- Kluczowe widĹĽety: â€¦
+- Pliki OTUI:
+- Kluczowe widety:
 
-## Integracje i zaleĹĽności
-- WspĂłłpracuje z: â€¦
+## Integracje i zalenoci
+- Wsppracuje z:
 
 ## Scenariusze
-1. â€¦
-2. â€¦
+1.
+2.
 
 ## API (linki)
-- [API Lua â†’ klient](../../api/lua/luafunctions_client.md)
-- [Engine â†’ Spec UI](../../api/engine/otclient_v_8_specyfikacja_ui.md)
+- [API Lua  klient](../../api/lua/luafunctions_client.md)
+- [Engine  Spec UI](../../api/engine/otclient_v_8_specyfikacja_ui.md)
 
 ---
 
 > **Uwagi migracyjne**
 >
-> Ten moduł pochodzi z: modules/modules_core.md
+> Ten modu pochodzi z: modules/modules_core.md
 
-### Zaimportowana treść (legacy)
+### Zaimportowana tre (legacy)
 

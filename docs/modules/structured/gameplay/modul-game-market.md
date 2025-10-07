@@ -1480,13 +1480,13 @@ local function initInterface()
 
       if ctab == myCurrentOffersTab then
 
-        Market.refreshMyOffers()    
+        Market.refreshMyOffers()
 
       elseif ctab == myOfferHistoryTab then
 
         Market.refreshMyOffersHistory()
 
-      end      
+      end
 
     else
 
@@ -1500,7 +1500,7 @@ local function initInterface()
 
     if tab == myCurrentOffersTab then
 
-      Market.refreshMyOffers()    
+      Market.refreshMyOffers()
 
     elseif tab == myOfferHistoryTab then
 
@@ -1754,7 +1754,7 @@ function Market.updateCategories()
 
     if #items > 0 and not addedCategories[c] then
 
-      table.insert(categories, getMarketCategoryName(c) or "Unknown")      
+      table.insert(categories, getMarketCategoryName(c) or "Unknown")
 
       addedCategories[c] = true
 
@@ -1920,9 +1920,9 @@ end
 
 function Market.updateCurrentItems()
 
-  if not categoryList or not categoryList:getCurrentOption() then 
+  if not categoryList or not categoryList:getCurrentOption() then
 
-    return 
+    return
 
   end
 
@@ -2044,7 +2044,7 @@ function Market.refreshOffers()
 
     if ctab == myCurrentOffersTab then
 
-      Market.refreshMyOffers()    
+      Market.refreshMyOffers()
 
     elseif ctab == myOfferHistoryTab then
 
@@ -2378,7 +2378,7 @@ function Market.onMarketDetail(itemId, descriptions, purchaseStats, saleStats)
 
 end
 
-function Market.onMarketBrowse(offers, offersType)    
+function Market.onMarketBrowse(offers, offersType)
 
   if offersType == MarketRequest.MyHistory then
 
@@ -2386,7 +2386,7 @@ function Market.onMarketBrowse(offers, offersType)
 
   else
 
-    updateOffers(offers)  
+    updateOffers(offers)
 
   end
 
@@ -2404,7 +2404,7 @@ function Market.onCoinBalance(coins, transferableCoins)
 
     information.depotItems[item:getId()] = tibiaCoins
 
-  end  
+  end
 
 end
 
@@ -2908,7 +2908,7 @@ local function parseMarketEnter(protocol, msg)
 
 })
 
-    end    
+    end
 
   end
 
@@ -2996,7 +2996,7 @@ local function parseMarketDetail(protocol, msg)
 
       msg:getU16()
 
-    end  
+    end
 
   end
 

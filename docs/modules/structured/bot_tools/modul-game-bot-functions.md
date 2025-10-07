@@ -38,7 +38,7 @@ context.callback = function(callbackType, callback)
 
       local prevExecution = context._currentExecution
 
-      context._currentExecution = callbackData       
+      context._currentExecution = callbackData
 
       local start = g_clock.realMillis()
 
@@ -90,7 +90,7 @@ end
 
 -- onKeyDown(callback) -- callback = function(keys)
 
-context.onKeyDown = function(callback) 
+context.onKeyDown = function(callback)
 
   return context.callback("onKeyDown", callback)
 
@@ -98,7 +98,7 @@ end
 
 -- onKeyPress(callback) -- callback = function(keys)
 
-context.onKeyPress = function(callback) 
+context.onKeyPress = function(callback)
 
   return context.callback("onKeyPress", callback)
 
@@ -106,7 +106,7 @@ end
 
 -- onKeyUp(callback) -- callback = function(keys)
 
-context.onKeyUp = function(callback) 
+context.onKeyUp = function(callback)
 
   return context.callback("onKeyUp", callback)
 
@@ -114,7 +114,7 @@ end
 
 -- onTalk(callback) -- callback = function(name, level, mode, text, channelId, pos)
 
-context.onTalk = function(callback) 
+context.onTalk = function(callback)
 
   return context.callback("onTalk", callback)
 
@@ -122,7 +122,7 @@ end
 
 -- onTextMessage(callback) -- callback = function(mode, text)
 
-context.onTextMessage = function(callback) 
+context.onTextMessage = function(callback)
 
   return context.callback("onTextMessage", callback)
 
@@ -130,7 +130,7 @@ end
 
 -- onLoginAdvice(callback) -- callback = function(message)
 
-context.onLoginAdvice = function(callback) 
+context.onLoginAdvice = function(callback)
 
   return context.callback("onLoginAdvice", callback)
 
@@ -138,7 +138,7 @@ end
 
 -- onAddThing(callback) -- callback = function(tile, thing)
 
-context.onAddThing = function(callback) 
+context.onAddThing = function(callback)
 
   return context.callback("onAddThing", callback)
 
@@ -146,7 +146,7 @@ end
 
 -- onRemoveThing(callback) -- callback = function(tile, thing)
 
-context.onRemoveThing = function(callback) 
+context.onRemoveThing = function(callback)
 
   return context.callback("onRemoveThing", callback)
 
@@ -506,7 +506,7 @@ Config.list = function(dir)
 
   for k,v in ipairs(list) do -- filter files
 
-    local nv = v:gsub(".json", ""):gsub(".cfg", "") 
+    local nv = v:gsub(".json", ""):gsub(".cfg", "")
 
     if nv ~= v then
 
@@ -532,7 +532,7 @@ Config.parse = function(data)
 
   end)
 
-  if status and type(result) == 'table' then 
+  if status and type(result) == 'table' then
 
     return result
 
@@ -542,9 +542,9 @@ Config.parse = function(data)
 
     return table.decodeStringPairList(data)
 
-  end)  
+  end)
 
-  if status and type(result) == 'table' then 
+  if status and type(result) == 'table' then
 
     return result
 
@@ -556,7 +556,7 @@ end
 
 Config.load = function(dir, name)
 
-  local file = context.configDir .. "/" .. dir .. "/" .. name .. ".json"  
+  local file = context.configDir .. "/" .. dir .. "/" .. name .. ".json"
 
   if g_resources.fileExists(file) then -- load json
 
@@ -580,7 +580,7 @@ Config.load = function(dir, name)
 
       return result
 
-  end 
+  end
 
   file = context.configDir .. "/" .. dir .. "/" .. name .. ".cfg"
 
@@ -602,7 +602,7 @@ Config.load = function(dir, name)
 
     return result
 
-  end   
+  end
 
   return context.error("Config " .. file .. " doesn't exist")
 
@@ -616,7 +616,7 @@ Config.loadRaw = function(dir, name)
 
     return g_resources.readFileContents(file)
 
-  end 
+  end
 
   file = context.configDir .. "/" .. dir .. "/" .. name .. ".cfg"
 
@@ -624,7 +624,7 @@ Config.loadRaw = function(dir, name)
 
     return g_resources.readFileContents(file)
 
-  end   
+  end
 
   return context.error("Config " .. file .. " doesn't exist")
 
@@ -644,7 +644,7 @@ Config.save = function(dir, name, value, forcedExtension)
 
   if type(value) ~= 'table' then
 
-    return context.error("Invalid config value type: " .. type(value) .. ", should be table")  
+    return context.error("Invalid config value type: " .. type(value) .. ", should be table")
 
   end
 
@@ -656,7 +656,7 @@ Config.save = function(dir, name, value, forcedExtension)
 
   else
 
-    g_resources.writeFileContents(file .. ".json", json.encode(value, 2))    
+    g_resources.writeFileContents(file .. ".json", json.encode(value, 2))
 
   end
 
@@ -672,21 +672,21 @@ Config.remove = function(dir, name)
 
   if g_resources.fileExists(file) then
 
-    g_resources.deleteFile(file)    
+    g_resources.deleteFile(file)
 
     ret = true
 
-  end 
+  end
 
   file = context.configDir .. "/" .. dir .. "/" .. name .. ".cfg"
 
   if g_resources.fileExists(file) then
 
-    g_resources.deleteFile(file)    
+    g_resources.deleteFile(file)
 
     ret = true
 
-  end     
+  end
 
   return ret
 
@@ -696,7 +696,7 @@ end
 
 -- not done yet
 
-Config.setup = function(dir, widget, configExtension, callback)  
+Config.setup = function(dir, widget, configExtension, callback)
 
   if type(dir) ~= 'string' or dir:len() == 0 then
 
@@ -744,7 +744,7 @@ Config.setup = function(dir, widget, configExtension, callback)
 
     widget.list:clear()
 
-    for v,k in ipairs(configs) do 
+    for v,k in ipairs(configs) do
 
       widget.list:addOption(k)
 
@@ -774,7 +774,7 @@ Config.setup = function(dir, widget, configExtension, callback)
 
     context.storage._configs[dir].enabled = widget.switch:isOn()
 
-    isRefreshing = false    
+    isRefreshing = false
 
     callback(context.storage._configs[dir].selected, widget.switch:isOn(), data)
 
@@ -826,7 +826,7 @@ Config.setup = function(dir, widget, configExtension, callback)
 
       else
 
-        g_resources.writeFileContents(file, "")      
+        g_resources.writeFileContents(file, "")
 
       end
 
@@ -888,7 +888,7 @@ Config.setup = function(dir, widget, configExtension, callback)
 
     isOff = function()
 
-      return not widget.switch:isOn()    
+      return not widget.switch:isOn()
 
     end,
 
@@ -948,9 +948,9 @@ Config.setup = function(dir, widget, configExtension, callback)
 
     getActiveConfigName = function()
 
-      return context.storage._configs[dir].selected      
+      return context.storage._configs[dir].selected
 
-    end    
+    end
 
 }
 
@@ -1070,7 +1070,7 @@ context.addIcon = function(id, options, callback)
 
   end
 
-  local config = context.storage._icons[id]  
+  local config = context.storage._icons[id]
 
   local widget = g_ui.createWidget("BotIcon", panel)
 
@@ -1158,7 +1158,7 @@ context.addIcon = function(id, options, callback)
 
     end
 
-    widget.text:setText(options.text)    
+    widget.text:setText(options.text)
 
   end
 
@@ -1176,7 +1176,7 @@ context.addIcon = function(id, options, callback)
 
     end
 
-    config.enabled = widget.status:isOn()  
+    config.enabled = widget.status:isOn()
 
   end
 
@@ -1300,15 +1300,15 @@ context.addIcon = function(id, options, callback)
 
   if options.phantom ~= true then
 
-    widget.onMouseRelease = function() 
+    widget.onMouseRelease = function()
 
-      return true 
+      return true
 
     end
 
   end
 
-  if options.switchable ~= false then 
+  if options.switchable ~= false then
 
     if type(callback) == 'table' then
 
@@ -1318,7 +1318,7 @@ context.addIcon = function(id, options, callback)
 
     else
 
-      callback(widget, widget.status:isOn())    
+      callback(widget, widget.status:isOn())
 
     end
 
@@ -1370,7 +1370,7 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
     callback = hotkey
 
-    hotkey = ""    
+    hotkey = ""
 
   elseif type(callback) ~= 'function' then
 
@@ -1394,7 +1394,7 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
     parent = context.panel
 
-  end  
+  end
 
   if hotkey:len() > 0 then
 
@@ -1420,7 +1420,7 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
     lastExecution = context.now + math.random(0, 100),
 
-    hotkey = hotkey,    
+    hotkey = hotkey,
 
 })
 
@@ -1560,7 +1560,7 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
       end
 
-      context._currentExecution = nil    
+      context._currentExecution = nil
 
       return true
 
@@ -1644,7 +1644,7 @@ context.hotkey = function(keys, name, callback, parent, single)
 
     if not hotkeyData.delay or hotkeyData.delay < context.now then
 
-      context._currentExecution = hotkeyData       
+      context._currentExecution = hotkeyData
 
       local start = g_clock.realMillis()
 
@@ -1686,9 +1686,9 @@ context.singlehotkey = function(keys, name, callback, parent)
 
   end
 
-  return context.hotkey(keys, name, callback, parent, true) 
+  return context.hotkey(keys, name, callback, parent, true)
 
-end  
+end
 
 -- schedule(timeout, callback)
 
@@ -1778,7 +1778,7 @@ context.getSpectators = function(param1, param2)
 
   if type(param1) == 'string' then
 
-    return g_map.getSpectatorsByPattern(pos, param1, direction)  
+    return g_map.getSpectatorsByPattern(pos, param1, direction)
 
   end
 
@@ -1910,7 +1910,7 @@ context.findAllPaths = function(start, maxDist, params)
 
     elseif value == true then
 
-      params[key] = 1    
+      params[key] = 1
 
     end
 
@@ -2054,7 +2054,7 @@ context.findPath = function(startPos, destPos, maxDist, params)
 
     local bestCandidate = nil
 
-    local bestCandidatePos = nil    
+    local bestCandidatePos = nil
 
     for x = -marginMax, marginMax do
 
@@ -2072,7 +2072,7 @@ context.findPath = function(startPos, destPos, maxDist, params)
 
             bestCandidatePos = dest
 
-          end          
+          end
 
         end
 
@@ -2082,7 +2082,7 @@ context.findPath = function(startPos, destPos, maxDist, params)
 
     if bestCandidate then
 
-      return context.translateAllPathsToPath(paths, bestCandidatePos)      
+      return context.translateAllPathsToPath(paths, bestCandidatePos)
 
     end
 
@@ -2090,7 +2090,7 @@ context.findPath = function(startPos, destPos, maxDist, params)
 
   end
 
-  if not paths[destPosStr] then  
+  if not paths[destPosStr] then
 
     local precision = params.precision
 
@@ -2124,7 +2124,7 @@ context.findPath = function(startPos, destPos, maxDist, params)
 
         if bestCandidate then
 
-          return context.translateAllPathsToPath(paths, bestCandidatePos)      
+          return context.translateAllPathsToPath(paths, bestCandidatePos)
 
         end
 
@@ -2144,7 +2144,7 @@ context.getPath = context.findPath
 
 -- also works as autoWalk(dirs) where dirs is a list eg.: {1,2,3,0,1,1,2,}
 
-context.autoWalk = function(destination, maxDist, params) 
+context.autoWalk = function(destination, maxDist, params)
 
   if type(destination) == "table" and table.isList(destination) and not maxDist and not params then
 
@@ -2238,7 +2238,7 @@ context.NPC.talk = function(text)
 
   if g_game.getClientVersion() >= 810 then
 
-    g_game.talkChannel(11, 0, text) 
+    g_game.talkChannel(11, 0, text)
 
   else
 
@@ -2284,7 +2284,7 @@ context.NPC.getSellItems = function()
 
       weight = item.weight / 100,
 
-      price = item.price 
+      price = item.price
 
 })
 
@@ -2316,7 +2316,7 @@ context.NPC.getBuyItems = function()
 
       weight = item.weight / 100,
 
-      price = item.price 
+      price = item.price
 
 })
 
@@ -2546,7 +2546,7 @@ context.outfit = function() return context.player:getOutfit() end
 
 context.setOutfit = function(outfit)
 
-  modules.game_outfit.ignoreNextOutfitWindow = g_clock.millis() 
+  modules.game_outfit.ignoreNextOutfitWindow = g_clock.millis()
 
   g_game.requestOutfit()
 
@@ -2608,11 +2608,11 @@ context.talkPrivate = function(receiver, text) g_game.talkPrivate(5, receiver, t
 
 context.sayPrivate = context.talkPrivate
 
-context.talkNpc = function(text) 
+context.talkNpc = function(text)
 
   if g_game.getClientVersion() >= 810 then
 
-    g_game.talkChannel(11, 0, text) 
+    g_game.talkChannel(11, 0, text)
 
   else
 
@@ -2670,7 +2670,7 @@ end
 
 context.use = function(thing, subtype)
 
-  if type(thing) == 'number' then  
+  if type(thing) == 'number' then
 
     return g_game.useInventoryItem(thing, subtype)
 
@@ -2684,7 +2684,7 @@ end
 
 context.usewith = function(thing, target, subtype)
 
-  if type(thing) == 'number' then  
+  if type(thing) == 'number' then
 
     return g_game.useInventoryItemWith(thing, target, subtype)
 
@@ -2772,7 +2772,7 @@ for i, state in ipairs(PlayerStates) do
 
   context[state] = state
 
-end  
+end
 
 context.hasCondition = function(condition) return bit.band(context.player:getStates(), condition) > 0 end
 
@@ -3020,7 +3020,7 @@ context.loadRemoteScript = function(url, onLoadCallback)
 
     end
 
-  end)  
+  end)
 
 end
 
@@ -3150,7 +3150,7 @@ context.BotServer.init = function(name, channel)
 
       context.BotServer.init(name, channel)
 
-    end    
+    end
 
   }, context.BotServer.timeout)
 
@@ -3326,7 +3326,7 @@ local UI = context.UI
 
 UI.createWidget = function(name, parent)
 
-  if parent == nil then      
+  if parent == nil then
 
     parent = context.panel
 
@@ -3342,7 +3342,7 @@ end
 
 UI.createMiniWindow = function(name, parent)
 
-  if parent == nil then      
+  if parent == nil then
 
     parent = modules.game_interface.getRightPanel()
 
@@ -3362,7 +3362,7 @@ UI.createWindow = function(name)
 
   local widget = g_ui.createWidget(name, g_ui.getRootWidget())
 
-  widget.botWidget = true  
+  widget.botWidget = true
 
   widget:show()
 
@@ -3446,7 +3446,7 @@ UI.Container = function(callback, unique, parent, widget)
 
         somethingNew = true
 
-        break      
+        break
 
       end
 
@@ -3482,7 +3482,7 @@ UI.Container = function(callback, unique, parent, widget)
 
     widget.items:destroyChildren()
 
-    for i = 1, itemsToShow do 
+    for i = 1, itemsToShow do
 
       local widget = g_ui.createWidget("BotItem", widget.items)
 
@@ -3600,7 +3600,7 @@ UI.DualScrollPanel = function(params, callback, parent) -- callback = function(w
 
   local update  = function(dontSignal)
 
-    widget.title:setText("" .. params.min .. "% <= " .. params.title .. " <= " .. params.max .. "%")  
+    widget.title:setText("" .. params.min .. "% <= " .. params.title .. " <= " .. params.max .. "%")
 
     if callback and not dontSignal then
 
@@ -3698,7 +3698,7 @@ UI.DualScrollItemPanel = function(params, callback, parent) -- callback = functi
 
   local update  = function(dontSignal)
 
-    widget.title:setText("" .. params.min .. "% <= " .. params.title .. " <= " .. params.max .. "%")  
+    widget.title:setText("" .. params.min .. "% <= " .. params.title .. " <= " .. params.max .. "%")
 
     if callback and not dontSignal then
 
@@ -3738,7 +3738,7 @@ UI.Label = function(text, parent)
 
   label:setText(text)
 
-  return label    
+  return label
 
 end
 
@@ -3746,7 +3746,7 @@ UI.Separator = function(parent)
 
   local separator = UI.createWidget('BotSeparator', parent)
 
-  return separator    
+  return separator
 
 end
 
@@ -3758,7 +3758,7 @@ UI.TextEdit = function(text, callback, parent)
 
   widget:setText(text)
 
-  return widget    
+  return widget
 
 end
 
@@ -3846,7 +3846,7 @@ UI.TwoItemsAndSlotPanel = function(params, callback, parent)
 
     end
 
-  end 
+  end
 
   return widget
 
@@ -3952,7 +3952,7 @@ UI.LabelAndTextEdit = function(params, callback, parent)
 
       storage.testParams = storage.testParams or {left = "hotkey", right = "F5"}
 
-      UI.LabelAndTextEdit(storage.testParams, function(widget, newParams) 
+      UI.LabelAndTextEdit(storage.testParams, function(widget, newParams)
 
           storage.testParams = newParams
 
@@ -4056,7 +4056,7 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
 
     UI.SwitchAndButton(storage.test1, test, test, function(widget, newParams)
 
-        storage.test1 = newParams 
+        storage.test1 = newParams
 
     end)
 
@@ -4080,7 +4080,7 @@ local context = G.botContext
 
 context.createWidget = function(name, parent)
 
-  if parent == nil then      
+  if parent == nil then
 
     parent = context.panel
 
@@ -4092,7 +4092,7 @@ end
 
 context.setupUI = function(otml, parent)
 
-  if parent == nil then      
+  if parent == nil then
 
     parent = context.panel
 
@@ -4200,7 +4200,7 @@ context.addButton = function(id, text, onClickCallback, parent)
 
   button.onClick = onClickCallback
 
-  return button    
+  return button
 
 end
 
@@ -4218,7 +4218,7 @@ context.addLabel = function(id, text, parent)
 
   label:setText(text)
 
-  return label    
+  return label
 
 end
 
@@ -4238,7 +4238,7 @@ context.addTextEdit = function(id, text, onTextChangeCallback, parent)
 
   widget:setText(text)
 
-  return widget    
+  return widget
 
 end
 
@@ -4254,7 +4254,7 @@ context.addSeparator = function(id, parent)
 
   separator:setId(id)
 
-  return separator    
+  return separator
 
 end
 

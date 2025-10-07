@@ -13,5 +13,5 @@ Witaj w dokumentacji **OTCv8**. Poniżej najważniejsze działy:
 - **UI** – przewodnik OTUI.
 - **Narzędzia** – przegląd narzędzi.
 
-> Jeśli szukasz szybkiego startu, przejdź do:  
+> Jeśli szukasz szybkiego startu, przejdź do:
 > **Architektura → _Przegląd klienta_** lub **Budowanie → _Windows_**.
