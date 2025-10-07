@@ -23,7 +23,7 @@ k
 !!! info "Cel"
 
     Jak tworzyć i ładować moduły Lua dla klienta OTCv8.
-# # Strukt
+## Strukt
 
 u
 
@@ -51,7 +51,7 @@ config.lua
 README.md
 
 ```
-# # Minimalny m
+## Minimalny m
 
 o
 
@@ -86,7 +86,7 @@ end
 return M
 
 ```
-# # Rejestrowanie zdarzeń (
+## Rejestrowanie zdarzeń (
 
 p
 
@@ -112,7 +112,7 @@ onTalk(function(name, level, mode, text)
 end)
 
 ```
-# # Kon
+## Kon
 
 f
 
@@ -134,7 +134,7 @@ a
 
 - `config.lua` – wartości domyślne (np. hotkeye, progi).
 - Pliki konfiguracyjne użytkownika trzymaj oddzielnie.
-# # D
+## D
 
 e
 
@@ -156,7 +156,7 @@ i
 
 - Pisz do konsoli lub pliku `logs/my-module.log`.
 - Dodaj flagę `DEBUG=true` i warunkowe logowanie.
-# # Dobr
+## Dobr
 
 e
 
@@ -179,3 +179,4 @@ i
 - Nazwy przestrzeni modułu (`my_module.*`).
 - Brak efektów ubocznych przy `require`.
 - Komendy eksportuj jawnie (np. `M.start`, `M.stop`).
+

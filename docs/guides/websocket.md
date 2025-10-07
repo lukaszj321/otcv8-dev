@@ -32,7 +32,7 @@ sequenceDiagram
   UI->>S: cmd: START/STOP, settings
 
 ```
-# # Z
+## Z
 
 a
 
@@ -47,7 +47,7 @@ y
 - **WSS** + origin allowlist + rate-limit.
 - Autoryzacja w handshake (JWT / session).
 - Walidacja schematów wiadomości.
-# # Przykład (Node +
+## Przykład (Node +
 
 s
 
@@ -76,3 +76,4 @@ io.on("connection", (s) => {
   });
 });
 ```
+

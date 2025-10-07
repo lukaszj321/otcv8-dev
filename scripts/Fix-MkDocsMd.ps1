@@ -1,134 +1,191 @@
-<# 
-Fix-MkDocsMd.ps1 (v2.1 - safe, prosto)
-Użycie:
-  # podgląd
-  powershell -NoProfile -File ".\scripts\Fix-MkDocsMd.ps1" -Path ".\docs"
-
-  # zapis
-  powershell -NoProfile -File ".\scripts\Fix-MkDocsMd.ps1" -Path ".\docs" -Apply
+<#!
+Fix-MkDocsMd.ps1
+- Skupia się WYŁĄCZNIE na plikach .md w podanym katalogu.
+- Tryb podglądu (domyślny) pokazuje co byłoby zmienione.
+- Tryb zapisu (-Apply) tworzy obok oryginału kopię .bak i nadpisuje plik.
+- Naprawy:
+  1) Usuwa artefakty: BOM, ZERO-WIDTH, SOFT HYPHEN, "¶", dziwne CR/LF.
+  2) Normalizuje nagłówki: usuwa podwójne prefiksy "# # Tytuł" -> "## Tytuł",
+     scala wielokrotne #/spacje do formy "# Tytuł" / "## Tytuł" itd.
+  3) Ratuje bloki Jinja: paruje "{% raw %}" z "{% endraw %}".
+     Jeśli plik ZACZYNA SIĘ od "{% raw %}" a zaraz potem jest nagłówek,
+     usuwa to pierwsze "{% raw %}" (bo połykało H1).
+  4) Domyka nieparzystą liczbę potrójnych backticków ``` (dodaje zamknięcie na końcu).
+  5) Redukuje >2 pustych linii do maks 2 pod rząd.
 #>
 
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)]
     [string]$Path,
-    [switch]$Apply
+
+    [switch]$Apply,
+
+    # Katalogi do pominięcia
+    [string[]]$ExcludeDirs = @(
+        '.git', 'site', '_site', 'node_modules', 'venv', '.venv',
+        '.python', '__pycache__', '.cache', '.github'
+    )
 )
 
-# Katalogi, których NIE dotykamy
-$ExcludeRegex = '\\(downloads|_rag|rag|_assets)\\'
-
 function Get-MdFiles {
-    param([string]$Root)
-    if (-not (Test-Path -LiteralPath $Root)) { throw "Ścieżka nie istnieje: $Root" }
-
-    # tylko .md, bez .bak i bez katalogów wykluczonych
-    $md = Get-ChildItem -LiteralPath $Root -Recurse -File -Filter *.md |
+    param([string]$Root, [string[]]$Skip)
+    $rootFull = (Resolve-Path -Path $Root).Path
+    Get-ChildItem -Path $rootFull -Recurse -File -Filter '*.md' |
     Where-Object {
-        $_.FullName -notmatch '\.bak$' -and
-        $_.FullName -notmatch $ExcludeRegex
+        $rel = $_.FullName.Substring($rootFull.Length).TrimStart('\', '/')
+        # odfiltruj po pierwszym segmentu ścieżki
+        $firstSeg = ($rel -split '[\\/]')[0]
+        ($Skip -notcontains $firstSeg)
     }
-    return $md
 }
 
-function Read-TextUtf8 {
-    param([string]$File)
-    [System.IO.File]::ReadAllText($File, [System.Text.Encoding]::UTF8)
-}
-function Write-TextUtf8 {
-    param([string]$File, [string]$Text)
-    [System.IO.File]::WriteAllText($File, $Text, [System.Text.Encoding]::UTF8)
-}
-
-# --- Transformacje (bezpieczne) --------------------------------------------
-
-# 1) Usuń niewidzialne znaki (ZWSP/SHY/BOM)
-function Remove-InvisibleChars {
+function Fix-Content {
     param([string]$Text)
-    $zwsp = [char]0x200B; $shy = [char]0x00AD; $bom = [char]0xFEFF
-    $Text = $Text -replace [regex]::Escape("$bom"), ""
-    $Text = $Text -replace [regex]::Escape("$zwsp"), ""
-    $Text = $Text -replace [regex]::Escape("$shy"), ""
-    return $Text
-}
 
-# 2) Ujednolicenie nagłówków: "# Tytuł", "## Sekcja", itd.
-function Normalize-Headings {
-    param([string]$Text)
-    # Upewnij się, że po # jest spacja
-    $Text = $Text -replace '(?m)^\s*(\#{1,6})\s*', '$1 '
-    # Usuń nadmiarowe spacje po # i przed tekstem
-    $Text = $Text -replace '(?m)^(\#{1,6})\s+(.*)$', '$1 $2'
-    return $Text
-}
+    $orig = $Text
 
-# 3) Domknij bloki {% raw %} jeśli brakuje {% endraw %}
-function Fix-RawBlocks {
-    param([string]$Text)
-    $open = ([regex]'{%\s*raw\s*%}').Matches($Text).Count
-    $close = ([regex]'{%\s*endraw\s*%}').Matches($Text).Count
-    if ($open -gt $close) {
-        $diff = $open - $close
-        for ($i = 0; $i -lt $diff; $i++) {
-            $Text = $Text.TrimEnd() + "`r`n{% endraw %}"
+    # --- 1) Artefakty i whitespace ---
+    # usuń BOM z początku
+    $Text = $Text -replace '^\uFEFF', ''
+    # zamień CRLF na LF, a potem wróć do CRLF na samym końcu (Windows)
+    $Text = $Text -replace "`r`n", "`n"
+    # usuń zero-width / soft hyphen / nietypowe znaki łamiące layout
+    $zw = '[\u200B\u200C\u200D\u2060\uFEFF]'
+    $Text = $Text -replace $zw, ''
+    $Text = $Text -replace '\u00AD', ''  # soft hyphen
+    $Text = $Text -replace '¶', ''       # paragraf z exportów
+    # czasem markdown eksportuje spacje niełamliwe
+    $Text = $Text -replace '\u00A0', ' '
+
+    # --- 2) Normalizacja nagłówków ---
+    $lines = $Text -split "`n", -1
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        $ln = $lines[$i]
+
+        # Usuwanie "podwójnego" prefiksu np. "# # Tytuł" -> "## Tytuł"
+        if ($ln -match '^\s*#\s+#\s+(.+)$') {
+            $lines[$i] = '## ' + $Matches[1]
+            continue
         }
-        $Text += "`r`n"
+        if ($ln -match '^\s*#\s+##\s+(.+)$') {
+            $lines[$i] = '### ' + $Matches[1]
+            continue
+        }
+        if ($ln -match '^\s*#\s+###\s+(.+)$') {
+            $lines[$i] = '#### ' + $Matches[1]
+            continue
+        }
+
+        # Ściśnij nadmiar spacji między kratkami a tytułem: "##   T" -> "## T"
+        if ($ln -match '^\s*#{1,6}\s+.+$') {
+            $ln = $ln -replace '^(\s*#{1,6})\s+', '$1 '
+        }
+
+        # Ujednolicenie: jeśli ktoś zrobił "#    #    Tytuł" itp.
+        $ln = $ln -replace '^\s*(#{1,6})\s+(#+)\s+', '${1}${2} '
+        $lines[$i] = $ln
     }
-    return $Text
+    $Text = ($lines -join "`n")
+
+    # --- 3) Bloki {% raw %} / {% endraw %} ---
+    # a) jeśli plik zaczyna się od "{% raw %}" i następna niepusta linia to nagłówek,
+    #    usuń to pierwsze "{% raw %}" (częsty powód „pustych” H1).
+    $lines = $Text -split "`n", -1
+    if ($lines.Count -gt 0 -and $lines[0].Trim() -eq '{% raw %}') {
+        # znajdź pierwszą niepustą pozycję
+        $idx = ($lines | Select-String -Pattern '\S' -SimpleMatch | Select-Object -First 1).LineNumber
+        if ($idx -gt 1) {
+            $firstNonEmpty = $lines[$idx - 1].Trim()
+            if ($firstNonEmpty -match '^#{1,6}\s+.+') {
+                # usuń leading "{% raw %}"
+                $lines = $lines[1..($lines.Count - 1)]
+            }
+        }
+    }
+    $Text = ($lines -join "`n")
+
+    # b) zrównoważ liczbę raw/endraw
+    $rawCount = ([regex]::Matches($Text, '\{\%\s*raw\s*\%\}')).Count
+    $endrawCount = ([regex]::Matches($Text, '\{\%\s*endraw\s*\%\}')).Count
+    if ($rawCount -gt $endrawCount) {
+        $Text = $Text.TrimEnd() + [Environment]::NewLine + '{% endraw %}' + [Environment]::NewLine
+    }
+    elseif ($endrawCount -gt $rawCount) {
+        # zbyt dużo endraw – usuń nadmiarowy na końcu
+        $diff = $endrawCount - $rawCount
+        while ($diff -gt 0 -and $Text -match '(?s)(.*)\{\%\s*endraw\s*\%\}\s*$') {
+            $Text = $Matches[1]
+            $diff--
+        }
+        $Text += [Environment]::NewLine
+    }
+
+  # --- 4) Domykanie ``` fences ---
+    $fenceCount = ([regex]::Matches($Text, '(?m)^\s*```')).Count
+  if ($fenceCount % 2 -ne 0) {
+      $Text = $Text.TrimEnd() + [Environment]::NewLine + '```' + [Environment]::NewLine
+  }
+
+  # --- 5) Redukcja nadmiarowych pustych linii (>2) ---
+  # (zachowujemy max 2 puste linie pod rząd)
+  # Zamień wystąpienia 3 lub więcej kolejnych LF na dokładnie dwa LF
+  $Text = $Text -replace '(\n){3,}', "`n`n"
+
+  # przywróć CRLF
+  $Text = $Text -replace "`n","`r`n"
+
+  return @{ Changed = ($Text -ne $orig); NewText = $Text }
 }
 
-# 4) Normalizacja pustych linii i końcówki pliku
-function Normalize-BlankLines {
-    param([string]$Text)
-    # usuń linie z samymi białymi znakami
-    $Text = ($Text -replace '(?m)^\s+$', '').TrimEnd()
-    # unifikuj EOL na CRLF i zakończ jedną pustą linią
-    $Text = ($Text -split "`r?`n") -join "`r`n"
-    return $Text + "`r`n"
+# --- Wykonanie ---
+$files = Get-MdFiles -Root $Path -Skip $ExcludeDirs
+if (-not $files) {
+  Write-Host "Brak plików .md w '$Path' (po odfiltrowaniu katalogów)." -ForegroundColor Yellow
+  exit 0
 }
 
-# --- Główna pętla -----------------------------------------------------------
-$files = Get-MdFiles -Root $Path
-$checked = 0; $changed = 0; $unchanged = 0; $changedList = @()
+[int]$checked = 0
+[int]$changed = 0
+$changedList = New-Object System.Collections.Generic.List[string]
 
 foreach ($f in $files) {
-    $checked++
-    $orig = Read-TextUtf8 -File $f.FullName
-    $txt = $orig
+  $checked++
+  $raw = Get-Content -LiteralPath $f.FullName -Raw -Encoding Byte
+  # Wymuś odczyt jako UTF8 (bez BOM), bez ryzyka utraty bajtów
+  $text = [System.Text.Encoding]::UTF8.GetString($raw)
 
-    $txt = Remove-InvisibleChars  $txt
-    $txt = Normalize-Headings     $txt
-    $txt = Fix-RawBlocks          $txt
-    $txt = Normalize-BlankLines   $txt
-
-    if ($txt -ne $orig) {
-        $changed++; $changedList += $f.FullName
-        if ($Apply) {
-            $bak = "$($f.FullName).bak"
-            if (-not (Test-Path -LiteralPath $bak)) {
-                Copy-Item -LiteralPath $f.FullName -Destination $bak -Force
-            }
-            Write-TextUtf8 -File $f.FullName -Text $txt
-            Write-Host "Fix: $($f.FullName)" -ForegroundColor Cyan
-        }
+  $res = Fix-Content -Text $text
+  if ($res.Changed) {
+    $changed++
+    $changedList.Add($f.FullName)
+    if ($Apply) {
+      $bak = "$($f.FullName).bak"
+      if (-not (Test-Path -LiteralPath $bak)) {
+        [System.IO.File]::WriteAllBytes($bak, $raw)
+      }
+      Set-Content -LiteralPath $f.FullName -Value $res.NewText -Encoding UTF8
+      Write-Host "Fix: $($f.FullName)" -ForegroundColor Green
     }
-    else {
-        $unchanged++
-    }
+  }
 }
 
 Write-Host ""
-Write-Host "Checked: $checked files" -ForegroundColor Yellow
-Write-Host "Changed: $changed" -ForegroundColor Green
-Write-Host "Unchanged: $unchanged" -ForegroundColor Gray
+Write-Host ("Checked: {0}" -f $checked)
+Write-Host ("Changed: {0}" -f $changed)
+Write-Host ("Unchanged: {0}" -f ($checked - $changed))
 Write-Host ""
-if ($Apply) {
-    Write-Host "Apply mode. Changes written. Backups *.bak created next to .md files." -ForegroundColor Green
-}
-else {
-    Write-Host "Preview mode. Use -Apply to write changes (creates .bak for .md)." -ForegroundColor Yellow
-}
-if ($changedList.Count -gt 0) {
-    Write-Host "`nChanged files:" -ForegroundColor Yellow
-    $changedList | ForEach-Object { Write-Host " - $_" }
+
+if (-not $Apply) {
+  Write-Host "Preview mode. Use -Apply to write changes (creates .bak)." -ForegroundColor Yellow
+  if ($changed -gt 0) {
+    Write-Host "`nChanged files:" -ForegroundColor Cyan
+    $changedList | ForEach-Object { Write-Host " - $($_)" }
+  }
+} else {
+  Write-Host "Apply mode. Changes written. Backups *.bak created next to files." -ForegroundColor Cyan
+  if ($changed -gt 0) {
+    Write-Host "`nChanged files:" -ForegroundColor Cyan
+    $changedList | ForEach-Object { Write-Host " - $($_)" }
+  }
 }

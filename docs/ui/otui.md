@@ -23,7 +23,7 @@ y
 !!! info
 
     OTUI to deklaratywne layouty interfejsu użytkownika.
-# # Przykł
+## Przykł
 
 a
 
@@ -54,7 +54,7 @@ Label
   anchors.centerIn: parent
 
 ```
-# # Zdarzenia
+## Zdarzenia
 
 /
 
@@ -76,7 +76,7 @@ a
 
 - Właściwości elementów można powiązać z danymi (np. przez Lua).
 - Aktualizacje push przez eventy modułów.
-# # W
+## W
 
 s
 
@@ -96,3 +96,4 @@ i
 
 - Trzymaj layouty w `layouts/*`.
 - Styluj wspólnymi klasami, nie inline.
+

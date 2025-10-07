@@ -3,12 +3,12 @@
 > Cel: pełny, operacyjny przewodnik dla implementacji i utrzymania skryptów **vBot** (moduł `modules/game_bot`) w ramach **OTClient Studio**. Dokument zawiera: standardy kodowania, wzorce (makra/trigger’y), snippety, heurystyki skanera, wymagania jakościowe, checklisty, test‑wektory i integrację z narzędziem. **Transfer 1:1** – gotowe do wdrożenia.
 
 ---
-# # 0) Executive Summary
+## 0) Executive Summary
 - **Co obejmuje:** makra okresowe, trigger’y eventowe, interakcje z UI/światem gry, wzorce bezpieczeństwa, logowanie, diagnostykę i performance.
 - **Jak używać:** jako *źródło prawdy* dla generatorów w Studio (szablony vBot), lint vBot (reguły domenowe) oraz heurystyk skanera (detekcja symboli vBot w kodzie).
 
 ---
-# # 1) Słownik i konwencje
+## 1) Słownik i konwencje
 - **Makro** – blok wykonywany cyklicznie (interwał ms) lub sterowany warunkiem.
 - **Trigger** – blok reagujący na zdarzenie (np. wiadomość, zmiana HP, wejście na tile).
 - **Guard** – warunek bezpieczeństwa (np. `isConnected()`, `not isBusy()`), który musi być spełniony przed akcją.
@@ -22,7 +22,7 @@ Konwencje nazewnictwa (zalecane):
 - Logi: prefiks `"[vBot]"` i tagi (`[heal]`, `[loot]`).
 
 ---
-# # 2) Architektura vBot (w ujęciu skryptowym)
+## 2) Architektura vBot (w ujęciu skryptowym)
 - **Warstwa zdarzeń gry** → callbacki (np. text message, damage, map change).
 - **Warstwa makr** → pętle interwałowe i warunki.
 - **Warstwa akcji** → użycia czarów/przedmiotów, ruch, interakcja z UI.
@@ -31,9 +31,9 @@ Konwencje nazewnictwa (zalecane):
 Każdy komponent powinien być **izolowany** (funkcje `local`, brak globali), testowalny oraz posiadać jasne **guards**.
 
 ---
-# # 3) Wzorce (makra i trigger’y)
+## 3) Wzorce (makra i trigger’y)
 > Poniższe wzorce to gotowe schematy do generatora w Studio. Każdy zawiera: cel, pre‑warunki, interfejs konfiguracyjny, guards, cooldown, logowanie oraz sekcję bezpieczeństwa.
-# # # 3.1 Makro: Auto‑Heal na progu HP
+## # 3.1 Makro: Auto‑Heal na progu HP
 **Cel:** rzucenie czaru/ użycie pota, gdy HP < progu.
 
 **Konfiguracja (OTML/JSON dla Studio):**
@@ -71,7 +71,7 @@ end
 ```
 
 **Bezpieczeństwo:** sprawdź `g_game.isOnline()`, wstrzymaj w czasie `isWalking()`; cooldown ≥ GCD klienta, sprawdź manę przed `say()`.
-# # # 3.2 Trigger: Reakcja na wiadomość tekstową
+## # 3.2 Trigger: Reakcja na wiadomość tekstową
 **Cel:** wykrycie frazy i akcja (np. odpowiedź, log, zapis zdarzenia).
 
 **Konfiguracja:**
@@ -98,7 +98,7 @@ end
 ```
 
 **Bezpieczeństwo:** sanitacja regex (escape), limit odpowiedzi (cooldown per nadawca), nie odpowiadaj na własne linie.
-# # # 3.3 Makro: Auto‑Haste (buff w ruchu)
+## # 3.3 Makro: Auto‑Haste (buff w ruchu)
 **Cel:** utrzymywanie buffa szybkości przy poruszaniu się.
 
 **Konfiguracja:**
@@ -130,7 +130,7 @@ end
 ```
 
 **Bezpieczeństwo:** nie spamuj – sprawdź buff i cooldown; upewnij się, że gracz ma manę.
-# # # 3.4 Trigger: Loot po ubiciu potwora
+## # 3.4 Trigger: Loot po ubiciu potwora
 **Cel:** podniesienie łupu po wykryciu ciała.
 
 **Szkielet (zarys):**
@@ -146,7 +146,7 @@ end
 ```
 
 **Bezpieczeństwo:** limit równoległych otwarć; przerwij, gdy inventory pełne; nie blokuj głównej pętli.
-# # # 3.5 Makro: Anti‑Idle
+## # 3.5 Makro: Anti‑Idle
 **Cel:** zapobiec disconnectowi przez delikatną interakcję.
 
 **Szkielet:**
@@ -166,7 +166,7 @@ end
 **Bezpieczeństwo:** nie wykonuj w trakcie walki; nie przeszkadzaj w ręcznych akcjach.
 
 ---
-# # 4) Heurystyki skanera (detekcja vBot)
+## 4) Heurystyki skanera (detekcja vBot)
 > Celem jest wiarygodne wykrycie „kodu vBot” i jego relacji, bez uruchamiania Lua.
 
 - **Sygnały makr:** obecność wywołań `macro(`, wzorce „scheduler/macro loop” (identyfikatory `macro`, `scheduleEvent`, `addEvent` z typową semantyką okresową).
@@ -181,7 +181,7 @@ end
 ```
 
 ---
-# # 5) Reguły jakości (lint vBot)
+## 5) Reguły jakości (lint vBot)
 > Rozszerzenie lintu Lua/OTUI o reguły domenowe vBot (bez auto‑fixu, chyba że bezpieczny).
 
 - **VBOT‑001** – Brak `guard` przed akcją (wymagane `g_game.isOnline()` i brak kolizji z ruchem/walką, jeśli ma znaczenie).
@@ -199,7 +199,7 @@ end
 ```
 
 ---
-# # 6) Logowanie i telemetria (opcjonalnie NDJSON)
+## 6) Logowanie i telemetria (opcjonalnie NDJSON)
 - Format linii (zalecany): `{ts, level, tag, file, line, msg, meta}`.
 - Tagi: `[heal]`, `[msg]`, `[buff]`, `[loot]`, `[antiidle]`.
 - Logi krytyczne: akcje `say/use` z parametrami i wynikiem.
@@ -211,20 +211,20 @@ end
 ```
 
 ---
-# # 7) Bezpieczeństwo i zgodność
+## 7) Bezpieczeństwo i zgodność
 - **Idempotencja:** makra nie powinny powodować skutków ubocznych przy powtarzaniu (guard+cooldown).
 - **Ostrożność UI:** sprawdzaj istnienie widgetów przed modyfikacją (`if widget then ...`).
 - **Zasoby:** nie używaj nieistniejących ścieżek; weryfikuj z `assets-map.json`.
 - **Granice:** makra nie powinny ingerować w pliki poza katalogiem projektu.
 
 ---
-# # 8) Wydajność
+## 8) Wydajność
 - Interwały: nie schodź poniżej 150–250 ms dla ogólnych makr; kosztowne operacje (skany mapy/UI) ≥ 1000 ms.
 - Unikaj pełnych skanów co tick – cache wyników, porównuj zmiany.
 - Używaj `scheduleEvent` zamiast pętli blokujących; debounce wejścia.
 
 ---
-# # 9) Generator vBot (szablony do Studio)
+## 9) Generator vBot (szablony do Studio)
 **Wejście:** parametry (JSON/OTML) – np. `threshold`, `spell`, `cooldownMs`.
 **Wyjście:** plik `vb_<nazwa>.lua` + wpis w module (opcjonalny UI konfiguracyjny).
 **Checklista generacji:**
@@ -235,7 +235,7 @@ end
 - [ ] Komentarz nagłówkowy (opis, parametry, interwał).
 
 ---
-# # 10) Test‑wektory (QA vBot)
+## 10) Test‑wektory (QA vBot)
 - **HEAL‑01:** HP 55% → oczekiwany 1× `say('exura')`, brak spam w 1200 ms.
 - **MSG‑01:** Tekst `hi` → odpowiedź `hello` tylko 1× / 3 s na nadawcę.
 - **HASTE‑01:** Ruch z brakiem buffa → `say('utani hur')` nie częściej niż co 6 s.
@@ -243,14 +243,14 @@ end
 - **IDLE‑01:** Brak aktywności 60 s → `turn()`; brak gdy `isAttacking()`.
 
 ---
-# # 11) Integracja ze Studio
+## 11) Integracja ze Studio
 - **Skaner:** heurystyki z §4 zasilają `symbols.botSymbols`.
 - **Lint:** reguły z §5 uzupełniają lint Lua (domena vBot).
 - **Generator:** szablony z §9 dostępne w panelu „Nowy → vBot”.
 - **Dokumentacja:** panel „vBot Playbook” linkuje do wzorców i przykładów.
 
 ---
-# # 12) Checklisty wdrożeniowe
+## 12) Checklisty wdrożeniowe
 - [ ] Każde makro/trigger ma guards i cooldown.
 - [ ] Brak globali; `local` wszędzie.
 - [ ] Logi akcji krytycznych.
@@ -258,6 +258,7 @@ end
 - [ ] Test‑wektory przechodzą; brak regresji.
 
 ---
-# # 13) Noty końcowe
+## 13) Noty końcowe
 - Wzorce są rozszerzalne; dodając nowe, zachowaj nazewnictwo i sekcje: *cel → konfiguracja → guards → cooldown → logi → testy*.
 - Wszelkie modyfikacje wymagają aktualizacji generatora i reguł QA.
+
