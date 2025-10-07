@@ -1,4 +1,4 @@
-﻿# OTClient v8 — Specyfikacja UI
+# OTClient v8 — Specyfikacja UI
 
 ---
 # # 0. Wprowadzenie i zasady
