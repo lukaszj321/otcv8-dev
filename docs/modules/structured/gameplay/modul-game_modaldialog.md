@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_modaldialog`
+# Ĺ Modul: `game_modaldialog`
 
 ```lua
 

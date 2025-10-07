@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_bot/functions`
+# Ĺ Modul: `game_bot/functions`
 
 ```lua
 

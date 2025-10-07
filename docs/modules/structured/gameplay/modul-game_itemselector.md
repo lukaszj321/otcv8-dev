@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_itemselector`
+# Ĺ Modul: `game_itemselector`
 
 ```lua
 

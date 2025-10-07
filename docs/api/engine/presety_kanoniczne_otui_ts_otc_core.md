@@ -1,4 +1,4 @@
-﻿# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
+# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
 
 **Paleta:** `otc_core_v1` · **Wersja:** 1.0\
 **Cel:** Minimalne, **kanoniczne** presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4 specyfikacji) oraz zasadami **STRICT OTUI**.
@@ -1284,7 +1284,7 @@ UIWidget
 ```
 # # # G.5 Wzorzec integracyjny
 
-**Lua (zalecany runtime‑flow)**
+**Lua (zalecany runtime-flow)**
 
 ```lua
 -- 1) Eksportuj z edytora do pliku .otui w Twoim module (poza runtime).
@@ -1293,7 +1293,7 @@ local win = g_ui.displayUI('mini') -- np. modules/yourmod/mini.otui
 MiniWindowController._wire(win)
 ```
 
-**Edytor (round‑trip)**
+**Edytor (round-trip)**
 
 - Import: wykryj w Lua stałe w formie `local <Name>_OTUI = [[...]]` i wczytaj blok jako źródło UI.
 - Eksport: zapisz do `.otui` oraz opcjonalnie zaktualizuj powyższy blok (z zachowaniem STRICT).

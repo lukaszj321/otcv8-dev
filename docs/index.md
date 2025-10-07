@@ -15,4 +15,4 @@ Witaj w dokumentacji **OTCv8**. PoniA�ąA��tej najwaA�ąA��tniejsze 
 - **Narzędzia** – przegląd narzędzi.
 
 > JeA�ąA?€Lzli szukasz szybkiego startu, przejdA�ą�aLs do:  
-> **Architektura Ă�?A?€ A?€�? _Przegląd klienta_** lub **Budowanie Ă�?A?€ A?€�? _Windows_**.
+> **Architektura Ă�?A?€ A?€�? _Przegląd klienta_** lub **Budowanie Ă�?A?€ A?€�? _Windows_**.

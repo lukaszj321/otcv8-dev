@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_bot/default_configs/vBot_4.8`
+# Ĺ Modul: `game_bot/default_configs/vBot_4.8`
 
 ```lua
 

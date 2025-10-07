@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_playertrade`
+# Ĺ Modul: `game_playertrade`
 
 ```lua
 

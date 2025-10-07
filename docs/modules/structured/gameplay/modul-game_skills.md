@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_skills`
+# Ĺ Modul: `game_skills`
 
 ```lua
 

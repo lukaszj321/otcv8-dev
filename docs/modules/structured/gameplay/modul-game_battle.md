@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_battle`
+# Ĺ Modul: `game_battle`
 
 ```lua
 

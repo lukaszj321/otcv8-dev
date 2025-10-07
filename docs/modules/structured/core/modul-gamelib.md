@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `gamelib`
+# Ĺ Modul: `gamelib`
 
 ```lua
 

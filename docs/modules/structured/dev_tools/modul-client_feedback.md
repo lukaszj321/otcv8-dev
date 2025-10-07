@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_feedback`
+# Ĺ Modul: `client_feedback`
 
 ```lua
 

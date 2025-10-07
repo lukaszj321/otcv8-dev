@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_containers`
+# Ĺ Modul: `game_containers`
 
 ```lua
 

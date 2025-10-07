@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_buttons`
+# Ĺ Modul: `game_buttons`
 
 ```lua
 

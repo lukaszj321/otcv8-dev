@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_stats`
+# Ĺ Modul: `game_stats`
 
 ```lua
 

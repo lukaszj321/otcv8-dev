@@ -1,7 +1,7 @@
 # {% raw %}
 
 **Pakiet:** `otc_core_v1/engine` · **Wersja:** 1.0  
-**Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testów round‑trip.
+**Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testów round-trip.
 
 ---
 ## Spis treści
@@ -10,17 +10,17 @@
 - [2. Parser → AST (TypeScript)](#ch-2)
 - [3. Serializer (AST → OTUI STRICT)](#ch-3)
 - [4. Macierze dozwolonych dzieci (global)](#ch-4)
-  - [4.1 Okna (Window‑class)](#ch-4-1)
-  - [4.2 Kontenery (Content‑class)](#ch-4-2)
+  - [4.1 Okna (Window-class)](#ch-4-1)
+  - [4.2 Kontenery (Content-class)](#ch-4-2)
   - [4.3 Organizacja/Nawigacja](#ch-4-3)
   - [4.4 Dane/Edycja](#ch-4-4)
   - [4.5 Wskaźniki/Scroll](#ch-4-5)
 - [5. Walidator — reguły, kody błędów/ostrzeżeń](#ch-5)
-- [6. Auto‑naprawy deterministyczne](#ch-6)
-- [7. Import/Export i round‑trip (edytor ↔ plik ↔ Lua)](#ch-7)
+- [6. Auto-naprawy deterministyczne](#ch-6)
+- [7. Import/Export i round-trip (edytor ↔ plik ↔ Lua)](#ch-7)
 - [8. API edytora (TS): parse/serialize/validate/autofix](#ch-8)
 - [9. Testy: goldeny i snapshoty](#ch-9)
-- [10. Przykłady i edge‑cases](#ch-10)
+- [10. Przykłady i edge-cases](#ch-10)
 - [11. Indeks haseł](#ch-11)
 
 ---
@@ -29,14 +29,14 @@
 ## 0. Zakres, definicje, założenia
 **Interaktywny spis:** [0.1 Zakres](#ch-0-1) · [0.2 Definicje](#ch-0-2) · [0.3 Założenia projektowe](#ch-0-3)
 ## # 0.1 Zakres {: #ch-0-1 }
-- Pokrycie: *cały pipeline* od tekstu OTUI (STRICT) ↔ AST (TS) ↔ walidacja ↔ auto‑naprawy ↔ eksport/import.  
+- Pokrycie: *cały pipeline* od tekstu OTUI (STRICT) ↔ AST (TS) ↔ walidacja ↔ auto-naprawy ↔ eksport/import.  
 - Zakres UI: komplet taksonomii z części „Specyfikacja UI” (rozdz. 4) + presety kanoniczne.
 ## # 0.2 Definicje {: #ch-0-2 }
 - **STRICT OTUI** — format bezkomentarzowy, LF, wcięcia 2 sp., kolejność GEOMETRIA→STYL→ZACHOWANIE.
 - **AST** — drzewo `WidgetNode`, deterministyczne klucze i kolejność dzieci.
 - **Macierz** — tablica dozwolonych dzieci dla par (parent, slot).
 ## # 0.3 Założenia projektowe {: #ch-0-3 }
-- **Deterministyczność**: ten sam AST → ten sam OTUI (bit‑identyczny, przy tej samej wersji serializera).  
+- **Deterministyczność**: ten sam AST → ten sam OTUI (bit-identyczny, przy tej samej wersji serializera).  
 - **Idempotencja**: `parse(serialize(ast))` ≡ `normalize(ast)`.
 - **Brak magii**: walidator zgłasza i *tylko* przewidywalnie naprawia.
 
@@ -131,7 +131,7 @@ export interface WidgetNode {
 **Interaktywny spis:** [4.1 Okna](#ch-4-1) · [4.2 Kontenery](#ch-4-2) · [4.3 Organizacja](#ch-4-3) · [4.4 Dane/Edycja](#ch-4-4) · [4.5 Wskaźniki/Scroll](#ch-4-5)
 
 > **Legenda:** ✓ dozwolone · ✖ zabronione · �  warunkowe (patrz uwagi).
-## # 4.1 Okna (Window‑class) {: #ch-4-1 }
+## # 4.1 Okna (Window-class) {: #ch-4-1 }
 **MainWindow / StaticMainWindow (root)**
 | Dziecko | Status | Uwagi |
 |---|:---:|---|
@@ -141,14 +141,14 @@ export interface WidgetNode {
 | ProgressBar, HorizontalSeparator | ✓ | —
 | TabBar, TabWidget, Splitter | ✓ | Splitter: dokładnie 2 dzieci (� ).
 | StatusOverlay | ✓ | Warstwa wierzchnia, bez złożonych dzieci (� ).
-| *Window (Main/Static/Mini/Container/Dialog) | ✖ | Zakaz okien‑dzieci.
+| *Window (Main/Static/Mini/Container/Dialog) | ✖ | Zakaz okien-dzieci.
 | ScrollBar (samotny) | ✖ | Zawsze para z treścią.
 
 **MiniWindow / ContainerWindow / DialogWindow**
 - Slot `titlebar`: Label, Button, UIWidget(ikona) ✓; listy/edytory/scroll ✖.  
-- Slot `content`: elementy panelowe ✓; okna‑dzieci ✖.  
+- Slot `content`: elementy panelowe ✓; okna-dzieci ✖.  
 - Slot `footer` (Mini/Dialog): Button/Label/ProgressBar ✓; listy/edytory/scroll ✖.
-## # 4.2 Kontenery (Content‑class) {: #ch-4-2 }
+## # 4.2 Kontenery (Content-class) {: #ch-4-2 }
 | Parent | Dozwolone dzieci | Niedozwolone/uwagi |
 |---|---|---|
 | UIWidget | Wszystkie panelowe (Label/Button/Inputs/List/Progress/Scroll/Separator/StatusOverlay) | *Window ✖ |
@@ -202,13 +202,13 @@ export interface WidgetNode {
 ---
 
 <div id="ch-6"></div>
-## 6. Auto‑naprawy deterministyczne
+## 6. Auto-naprawy deterministyczne
 **Interaktywny spis:** [6.1 STRICT fixups](#ch-6-1) · [6.2 Anchors/Layout](#ch-6-2) · [6.3 Scroll pairing](#ch-6-3)
 ## # 6.1 STRICT fixups {: #ch-6-1 }
 - Usuń taby/BOM/komentarze; przytnij trailing spaces; wymuś LF.
 - Uporządkuj kolejność atrybutów (GEOMETRIA→STYL→ZACHOWANIE).
 ## # 6.2 Anchors/Layout {: #ch-6-2 }
-- Jeśli są `anchors.left` + `anchors.right` **i** `width` → usuń `width` (Auto‑fit).  
+- Jeśli są `anchors.left` + `anchors.right` **i** `width` → usuń `width` (Auto-fit).  
 - Rozdziel `size` na `width/height` tylko na potrzeby walidacji, nie w serializacji (zachowaj wejściowy idiom).
 ## # 6.3 Scroll pairing {: #ch-6-3 }
 - Dla `TextList`/`MultilineTextEdit` dodaj brakujący `VerticalScrollBar` jako sibling (po prawej) i dodaj kotwicę treści `right: scroll.left`.
@@ -216,7 +216,7 @@ export interface WidgetNode {
 ---
 
 <div id="ch-7"></div>
-## 7. Import/Export i round‑trip (edytor ↔ plik ↔ Lua)
+## 7. Import/Export i round-trip (edytor ↔ plik ↔ Lua)
 **Interaktywny spis:** [7.1 Import z plików `.otui`](#ch-7-1) · [7.2 Import z Lua (blok string)](#ch-7-2) · [7.3 Eksport](#ch-7-3)
 ## # 7.1 Import z plików `.otui` {: #ch-7-1 }
 - Wczytaj, znormalizuj (STRICT), sparsuj do AST. Zachowaj *oryginalny układ* do porównań.
@@ -225,7 +225,7 @@ export interface WidgetNode {
 - Ostrzeżenie, gdy blok zawiera komentarze — niedozwolone w OTUI (mimo bycia w Lua).
 ## # 7.3 Eksport {: #ch-7-3 }
 - Do pliku `.otui` (kanoniczny cel runtime).  
-- Opcjonalnie: *round‑trip do Lua* — odśwież istniejący blok `[[...]]` bit‑identycznie po `ensureStrictOtui()`.
+- Opcjonalnie: *round-trip do Lua* — odśwież istniejący blok `[[...]]` bit-identycznie po `ensureStrictOtui()`.
 
 ---
 
@@ -249,9 +249,9 @@ export function autofixAst(nodes: WidgetNode[]): { nodes: WidgetNode[]; changes:
 
 <div id="ch-9"></div>
 ## 9. Testy: goldeny i snapshoty
-**Interaktywny spis:** [9.1 Goldeny round‑trip](#ch-9-1) · [9.2 Snapshoty wizualne](#ch-9-2)
-## # 9.1 Goldeny round‑trip {: #ch-9-1 }
-- Zestaw `X.otui` → `parse` → `serialize` → porównanie bit‑po‑bicie.  
+**Interaktywny spis:** [9.1 Goldeny round-trip](#ch-9-1) · [9.2 Snapshoty wizualne](#ch-9-2)
+## # 9.1 Goldeny round-trip {: #ch-9-1 }
+- Zestaw `X.otui` → `parse` → `serialize` → porównanie bit-po-bicie.  
 - Dokładaj przypadki: okna, scroll pairing, Splitter, TabBar/TabWidget.
 ## # 9.2 Snapshoty wizualne {: #ch-9-2 }
 - Render testowy po stronie klienta (lub symulacja) i porównania pikselowe dla kluczowych presetów.
@@ -259,7 +259,7 @@ export function autofixAst(nodes: WidgetNode[]): { nodes: WidgetNode[]; changes:
 ---
 
 <div id="ch-10"></div>
-## 10. Przykłady i edge‑cases
+## 10. Przykłady i edge-cases
 **Interaktywny spis:** [10.1 Migracja do STRICT](#ch-10-1) · [10.2 Anchors/Fill vs krawędzie](#ch-10-2) · [10.3 Splitter/Arity](#ch-10-3)
 ## # 10.1 Migracja do STRICT {: #ch-10-1 }
 - Wejście dowolne → `ensureStrictOtui()` → `parse` → `autofixAst()` → `serializeAst()`.
@@ -305,5 +305,5 @@ Splitter
 
 <div id="ch-11"></div>
 ## 11. Indeks haseł
-- STRICT • AST • Macierz • Walidator • Auto‑naprawy • Round‑trip • Splitter • TabBar/TabWidget • StatusOverlay • Scroll pairing
+- STRICT • AST • Macierz • Walidator • Auto-naprawy • Round-trip • Splitter • TabBar/TabWidget • StatusOverlay • Scroll pairing
 

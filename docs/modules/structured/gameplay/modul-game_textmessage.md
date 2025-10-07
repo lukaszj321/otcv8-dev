@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_textmessage`
+# Ĺ Modul: `game_textmessage`
 
 ```lua
 

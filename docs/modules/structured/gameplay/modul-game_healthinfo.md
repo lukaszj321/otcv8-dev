@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_healthinfo`
+# Ĺ Modul: `game_healthinfo`
 
 ```lua
 

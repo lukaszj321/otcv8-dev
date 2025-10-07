@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_playermount`
+# Ĺ Modul: `game_playermount`
 
 ```lua
 

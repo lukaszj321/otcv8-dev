@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `crash_reporter`
+# Ĺ Modul: `crash_reporter`
 
 ```lua
 

@@ -1,26 +1,26 @@
-﻿# OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)
+# OTClient v8 — Addendum: Import z Lua-stringów (AUTO-STRICT) + Goldeny (Expanded)
 
 **Cel:** Dostarczyć kompletne, wdrażalne uzupełnienie do Part 4:  
-A) **Import z Lua‑stringów do AST** (AUTO‑STRICT, aktualizacja *in‑place*),  
-B) **Rozszerzona biblioteka goldenów** (round‑trip 1:1),  
+A) **Import z Lua-stringów do AST** (AUTO-STRICT, aktualizacja *in-place*),  
+B) **Rozszerzona biblioteka goldenów** (round-trip 1:1),  
 C) **Runner z obsługą profili** (`game_bot`, `client`, …).
 
 ---
 # # Spis treści
-- [A. Import z Lua‑stringów → AST (AUTO‑STRICT)](#a-import)
+- [A. Import z Lua-stringów → AST (AUTO-STRICT)](#a-import)
   - [A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe](#a-1)
   - [A.2 API ekstrakcji i podmiany (TypeScript)](#a-2)
-  - [A.3 Polityka AUTO‑STRICT i błędy importu](#a-3)
+  - [A.3 Polityka AUTO-STRICT i błędy importu](#a-3)
   - [A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)](#a-4)
 - [B. Goldeny (expanded)](#b-goldens)
   - [B.1 Indeks JSON (nazwy → opis)](#b-1)
   - [B.2 Wybrane goldeny (STRICT OTUI)](#b-2)
-- [C. Runner round‑trip + walidacja profili](#c-runner)
+- [C. Runner round-trip + walidacja profili](#c-runner)
 
 ---
 
 <div id="a-import"></div>
-# # A. Import z Lua‑stringów → AST (AUTO‑STRICT)
+# # A. Import z Lua-stringów → AST (AUTO-STRICT)
 
 <div id="a-1"></div>
 # # # A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe
@@ -62,11 +62,11 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ```
 
 <div id="a-3"></div>
-# # # A.3 Polityka AUTO‑STRICT i błędy importu
-- **AUTO‑STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeśli zmieni treść → `W:STRICT` (propozycja auto‑zapisania).  
+# # # A.3 Polityka AUTO-STRICT i błędy importu
+- **AUTO-STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeśli zmieni treść → `W:STRICT` (propozycja auto-zapisania).  
 - **Błędy importu:**
-  - `E:LUA‑DUP` — więcej niż jeden blok o tej samej nazwie w pliku.  
-  - `E:LUA‑NOUPD` — brak bloku do podmiany.  
+  - `E:LUA-DUP` — więcej niż jeden blok o tej samej nazwie w pliku.  
+  - `E:LUA-NOUPD` — brak bloku do podmiany.  
   - `E:STRICT` — komentarze/taby/BOM wewnątrz bloku OTUI.  
   - `E:PARSE` — niepoprawny OTUI po `ensureStrictOtui()`.
 
@@ -302,7 +302,7 @@ StaticMainWindow
 ---
 
 <div id="c-runner"></div>
-# # C. Runner round‑trip + walidacja profili
+# # C. Runner round-trip + walidacja profili
 ```ts
 export interface GoldenCase { name: string; otui?: string }
 export interface GoldenIO { read(path: string): string; write(path: string, data: string): void }

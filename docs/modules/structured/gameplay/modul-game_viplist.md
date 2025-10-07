@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_viplist`
+# Ĺ Modul: `game_viplist`
 
 ```otui
 

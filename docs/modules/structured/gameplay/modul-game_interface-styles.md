@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_interface/styles`
+# Ĺ Modul: `game_interface/styles`
 
 ```otui
 
