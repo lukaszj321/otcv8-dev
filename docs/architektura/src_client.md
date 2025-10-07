@@ -4,9 +4,9 @@
 ## Ogólny opis
 Implementacja klasy `AnimatedText`, która odpowiada za renderowanie animowanego tekstu na mapie, takiego jak komunikaty o zadanych obrażeniach, leczeniu czy zdobytych punktach doświadczenia. Plik zawiera logikę animacji, rysowania oraz łączenia podobnych tekstów w jeden.
 ## Klasa `AnimatedText`
-## # Opis
+## Opis
 Klasa `AnimatedText` dziedziczy po `Thing` i reprezentuje tekst, który pojawia się w określonym miejscu na mapie, a następnie animuje swoje położenie i przezroczystość, by ostatecznie zniknąć.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `AnimatedText()` | Konstruktor. Inicjalizuje domyślne właściwości tekstu, takie jak czcionka i wyrównanie. |
@@ -16,13 +16,13 @@ Klasa `AnimatedText` dziedziczy po `Thing` i reprezentuje tekst, który pojawia 
 | `setText(const std::string& text)` | Ustawia treść tekstu. |
 | `setFont(const std::string& fontName)` | Ustawia czcionkę tekstu na podstawie nazwy. |
 | `merge(const AnimatedTextPtr& other)` | Próbuje połączyć tekst z innym obiektem `AnimatedText`. Łączenie jest możliwe, jeśli oba teksty mają ten sam kolor, czcionkę, a animacja obecnego tekstu nie jest zbyt zaawansowana. Teksty liczbowe są sumowane. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**: Używa `g_map` do usuwania obiektu `AnimatedText` po zakończeniu animacji.
 - **`game.h`**: Używa `g_game` do sprawdzania, czy funkcja `GameDiagonalAnimatedText` jest włączona.
 - **`framework/core/clock.h`**: Używa `g_clock` do pomiaru czasu animacji.
 - **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania usunięcia obiektu.
 - **`framework/graphics/graphics.h`**: Używa `g_fonts` do zarządzania czcionkami.
-## # Przykład użycia
+## Przykład użycia
 Obiekty `AnimatedText` są tworzone przez `ProtocolGame` w odpowiedzi na komunikaty serwera (np. o obrażeniach) i dodawane do `g_map`, która zarządza ich cyklem życia i rysowaniem.
 
 ```cpp
@@ -37,9 +37,9 @@ g_map.addThing(animatedText, position);
 ## Ogólny opis
 Plik ten definiuje klasy `House` i `HouseManager`, które służą do zarządzania informacjami o domach w grze. Zawiera definicje struktur przechowujących atrybuty domów, takie jak nazwa, ID, wejście, oraz metody do zarządzania nimi.
 ## Klasa `House`
-## # Opis
+## Opis
 Reprezentuje pojedynczy dom w świecie gry. Przechowuje jego atrybuty, listę przynależnych do niego pól (tiles) oraz drzwi.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `House(uint32 hId, ...)` | Konstruktor tworzący dom o zadanym ID, nazwie i pozycji wejściowej. |
@@ -61,9 +61,9 @@ Reprezentuje pojedynczy dom w świecie gry. Przechowuje jego atrybuty, listę pr
 | `removeDoor(const ItemPtr& door)` | Usuwa drzwi z domu. |
 | `removeDoorById(uint32 doorId)` | Usuwa drzwi na podstawie ich ID. |
 ## Klasa `HouseManager`
-## # Opis
+## Opis
 Singleton (`g_houses`) zarządzający wszystkimi domami w grze. Odpowiada za ich dodawanie, usuwanie, wczytywanie i zapisywanie z plików XML.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `addHouse(const HousePtr& house)` | Dodaje nowy dom do listy. |
@@ -76,9 +76,9 @@ Singleton (`g_houses`) zarządzający wszystkimi domami w grze. Odpowiada za ich
 | `clear()` | Czyści listę domów. |
 | `getHouseList()` | Zwraca listę wszystkich domów. |
 | `filterHouses(uint32 townId)` | Zwraca listę domów należących do określonego miasta. |
-## # Zmienne globalne
+## Zmienne globalne
 - `HouseManager g_houses`: Globalna instancja managera domów.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów wskaźników, takich jak `HousePtr` i `TilePtr`.
 - **`tile.h`**: Używa obiektów `Tile` do określenia obszaru domu.
 - **`item.h`**: Zarządza drzwiami, które są obiektami typu `Item`.
@@ -89,9 +89,9 @@ Singleton (`g_houses`) zarządzający wszystkimi domami w grze. Odpowiada za ich
 ## Ogólny opis
 Plik nagłówkowy dla klasy `AnimatedText`. Definiuje interfejs klasy, która zarządza animowanym tekstem na mapie.
 ## Klasa `AnimatedText`
-## # Opis
+## Opis
 Dziedziczy po `Thing`. Służy do wyświetlania tekstu, który porusza się i zanika. Jest to obiekt "efemeryczny", który istnieje na mapie tylko przez czas trwania animacji.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `AnimatedText()` | Konstruktor. |
@@ -108,7 +108,7 @@ Dziedziczy po `Thing`. Służy do wyświetlania tekstu, który porusza się i za
 | `asAnimatedText()` | Rzutuje wskaźnik na `AnimatedTextPtr`. |
 | `isAnimatedText()` | Zwraca `true`. |
 | `getText()` | Zwraca treść tekstu. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thing.h`**: Klasa bazowa.
 - **`framework/graphics/fontmanager.h`**: Zarządzanie czcionkami.
 - **`framework/core/timer.h`**: Pomiar czasu animacji.
@@ -119,12 +119,12 @@ Dziedziczy po `Thing`. Służy do wyświetlania tekstu, który porusza się i za
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Animator`, która zarządza animacjami klatek dla obiektów w grze, takich jak przedmioty czy efekty.
 ## Klasa `Animator`
-## # Opis
+## Opis
 Klasa `Animator` kontroluje, która klatka animacji powinna być wyświetlona w danym momencie. Obsługuje różne tryby animacji, takie jak pętle, ping-pong, animacje asynchroniczne i losowe.
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`AnimationPhase`**: Określa fazę animacji (np. automatyczna, losowa, asynchroniczna).
 - **`AnimationDirection`**: Określa kierunek animacji (do przodu, do tyłu).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `Animator()` | Konstruktor. |
@@ -139,7 +139,7 @@ Klasa `Animator` kontroluje, która klatka animacji powinna być wyświetlona w 
 | `isComplete()` | Zwraca `true`, jeśli animacja została zakończona. |
 | `getTotalDuration()` | Zwraca całkowity czas trwania animacji. |
 | `resetAnimation()` | Resetuje stan animacji do początkowego. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`framework/core/timer.h`**: Używane do pomiaru czasu i synchronizacji animacji.
 
@@ -148,9 +148,9 @@ Klasa `Animator` kontroluje, która klatka animacji powinna być wyświetlona w 
 ## Ogólny opis
 Implementacja klasy `Animator`. Zawiera logikę obliczania faz animacji w zależności od czasu i trybu pracy.
 ## Klasa `Animator`
-## # Opis
+## Opis
 Plik implementuje logikę działania animatora. Obliczenia fazy zależą od tego, czy animacja jest synchroniczna (wszystkie obiekty tego samego typu animują się tak samo) czy asynchroniczna (każdy obiekt animuje się niezależnie).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `unserialize(...)` | Wczytuje z pliku binarnego liczbę faz, tryb `async`, liczbę pętli, fazę startową oraz czas trwania każdej klatki (min/max). |
@@ -165,7 +165,7 @@ Plik implementuje logikę działania animatora. Obliczenia fazy zależą od tego
 | `getPhaseDuration(int phase)` | Zwraca czas trwania danej klatki animacji (losowy w zakresie min-max). |
 | `calculateSynchronous()` | Oblicza bieżącą fazę dla animacji synchronicznej, bazując na globalnym czasie i sumarycznym czasie trwania wszystkich klatek. |
 | `getTotalDuration()` | Zwraca sumaryczny czas trwania wszystkich klatek animacji. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/core/clock.h`**: Używa `g_clock` do synchronizacji animacji.
 - **`framework/core/filestream.h`**: Do operacji serializacji/deserializacji.
 
@@ -174,14 +174,14 @@ Plik implementuje logikę działania animatora. Obliczenia fazy zależą od tego
 ## Ogólny opis
 Plik implementuje klasę `Client`, która jest głównym punktem wejścia i zarządzania dla aplikacji klienckiej. Odpowiada za inicjalizację i zamykanie kluczowych modułów gry.
 ## Klasa `Client`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init(std::vector<std::string>& args)` | Inicjalizuje wszystkie główne moduły klienta w odpowiedniej kolejności: rejestruje funkcje Lua, a następnie inicjalizuje `g_map`, `g_minimap`, `g_game`, `g_shaders`, `g_things`, `g_healthBars`. |
 | `terminate()` | Zamyka wszystkie moduły w odwrotnej kolejności do inicjalizacji, zwalniając zasoby. |
-## # Zmienne globalne
+## Zmienne globalne
 - `Client g_client`: Globalna instancja klasy `Client`.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**: Inicjalizuje i zamyka `g_game`.
 - **`map.h`**: Inicjalizuje i zamyka `g_map`.
 - **`minimap.h`**: Inicjalizuje i zamyka `g_minimap`.
@@ -195,17 +195,17 @@ Plik implementuje klasę `Client`, która jest głównym punktem wejścia i zarz
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Client`. Deklaruje interfejs głównej klasy aplikacji klienckiej.
 ## Klasa `Client`
-## # Opis
+## Opis
 Klasa `Client` jest odpowiedzialna za zarządzanie cyklem życia aplikacji klienckiej.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init(std::vector<std::string>& args)` | Inicjalizuje aplikację. |
 | `terminate()` | Kończy działanie aplikacji, zwalniając zasoby. |
 | `registerLuaFunctions()` | Rejestruje funkcje C++ dostępne w środowisku Lua. |
-## # Zmienne globalne
+## Zmienne globalne
 - `Client g_client`: Deklaracja zewnętrznej globalnej instancji klienta.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`global.h`**: Zawiera podstawowe definicje i stałe używane w kliencie.
 
 ---
@@ -213,9 +213,9 @@ Klasa `Client` jest odpowiedzialna za zarządzanie cyklem życia aplikacji klien
 ## Ogólny opis
 Plik konfiguracyjny systemu budowania CMake dla modułu klienta. Definiuje on, które pliki źródłowe (`.cpp`, `.h`) zostaną skompilowane i włączone do finalnej aplikacji klienckiej.
 ## Struktura pliku
-## # Definicje preprocesora
+## Definicje preprocesora
 - `add_definitions(-DCLIENT)`: Dodaje makro `CLIENT` do wszystkich kompilowanych plików, co pozwala na warunkową kompilację kodu specyficznego dla klienta.
-## # Lista plików źródłowych (`client_SOURCES`)
+## Lista plików źródłowych (`client_SOURCES`)
 Plik zawiera jedną długą listę wszystkich plików źródłowych i nagłówkowych, które składają się na moduł klienta. Pliki są pogrupowane w logiczne kategorie za pomocą komentarzy:
 - **`# client`**: Główne pliki klienta.
 - **`# core`**: Rdzeń logiki gry (mapa, przedmioty, postacie, etc.).
@@ -223,7 +223,7 @@ Plik zawiera jedną długą listę wszystkich plików źródłowych i nagłówko
 - **`# net`**: Logika sieciowa i protokoły.
 - **`# ui`**: Niestandardowe widżety interfejsu użytkownika.
 - **`# util`**: Pomocnicze klasy i struktury, jak `Position`.
-## # Zależności i powiązania
+## Zależności i powiązania
 Ten plik jest kluczowy dla procesu budowania i definiuje, które części kodu źródłowego są ze sobą powiązane i tworzą aplikację kliencką. Każdy plik dodany do tej listy staje się częścią projektu.
 
 ---
@@ -231,7 +231,7 @@ Ten plik jest kluczowy dla procesu budowania i definiuje, które części kodu �
 ## Ogólny opis
 Plik nagłówkowy zawierający globalne stałe i typy wyliczeniowe używane w całej aplikacji klienckiej. Definiuje kluczowe wartości, takie jak flagi rysowania, atrybuty przedmiotów, tryby gry, a także identyfikatory funkcji serwera (`GameFeature`).
 ## Namespace `Otc`
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`enum` (anonimowy)**: Zawiera ogólne stałe, takie jak `MAX_ELEVATION`, `SEA_FLOOR`, `MAX_Z`, czasy trwania animacji (`ANIMATED_TEXT_DURATION`) i inne.
 - **`DepthConst`**: Stałe związane z głębokością renderowania.
 - **`DrawFlags`**: Flagi określające, które elementy sceny mają być rysowane (np. podłoże, postacie, efekty).
@@ -259,7 +259,7 @@ Plik nagłówkowy zawierający globalne stałe i typy wyliczeniowe używane w ca
 - **`StoreProductTypes`**, **`StoreErrorTypes`**, **`StoreStates`**: Typy związane ze sklepem w grze (Store).
 - **`Prey...`**: Enumeracje związane z systemem Prey.
 - **`MagicEffectsType_t`**: Typy operacji w zaawansowanych efektach magicznych.
-## # Zależności i powiązania
+## Zależności i powiązania
 Ten plik jest fundamentalny i jest dołączany w większości plików projektu, ponieważ definiuje podstawowe "słownictwo" używane w logice gry.
 
 ---
@@ -267,7 +267,7 @@ Ten plik jest fundamentalny i jest dołączany w większości plików projektu, 
 ## Ogólny opis
 Implementacja klasy `Container`, która reprezentuje pojemniki w grze, takie jak plecaki. Plik zawiera logikę zarządzania przedmiotami wewnątrz kontenera oraz obsługę zdarzeń z nim związanych.
 ## Klasa `Container`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `Container(...)` | Konstruktor. Inicjalizuje kontener na podstawie danych otrzymanych z serwera. |
@@ -280,7 +280,7 @@ Implementacja klasy `Container`, która reprezentuje pojemniki w grze, takie jak
 | `onUpdateItem(int slot, const ItemPtr& item)` | Aktualizuje przedmiot w danym slocie, zastępując stary nowym. |
 | `onRemoveItem(int slot, const ItemPtr& lastItem)` | Usuwa przedmiot z danego slota. Jeśli `lastItem` jest podany (dla kontenerów ze stronami), jest on dodawany na końcu widocznej części kontenera. |
 | `updateItemsPositions()` | Aktualizuje pozycje wszystkich przedmiotów w kontenerze, aby odzwierciedlały ich sloty. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`item.h`**: Zarządza obiektami typu `Item`.
 - **`framework/luaengine/luaobject.h`**: Dziedziczy po `LuaObject`, aby umożliwić interakcję z Lua.
 
@@ -289,7 +289,7 @@ Implementacja klasy `Container`, która reprezentuje pojemniki w grze, takie jak
 ## Ogólny opis
 Implementacja klasy `Creature`, która jest podstawową klasą dla wszystkich żywych istot w grze (graczy, potworów, NPC). Plik ten zawiera złożoną logikę rysowania, animacji, poruszania się, skakania oraz wyświetlania informacji o postaci.
 ## Klasa `Creature`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Główna funkcja rysująca. Renderuje postać, jej ubiór, kwadraty oznaczające (np. cel ataku), a także dodaje światło do `LightView`. |
@@ -315,9 +315,9 @@ Implementacja klasy `Creature`, która jest podstawową klasą dla wszystkich ż
 | `getStepDuration(...)` | Oblicza czas trwania jednego kroku w milisekundach na podstawie prędkości postaci, prędkości podłoża i formuł prędkości serwera. |
 | `getDisplacement()` | Zwraca przesunięcie rysowania postaci, które centruje ją na polu. |
 | `addTopWidget(...)` / `addBottomWidget(...)` | Dodaje widżety, które będą rysowane nad lub pod postacią. |
-## # Zmienne statyczne
+## Zmienne statyczne
 - `m_speedFormula`: Tablica przechowująca współczynniki do zaawansowanego obliczania prędkości.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`localplayer.h`**: Logika rysowania informacji o pasku many jest specyficzna dla lokalnego gracza.
 - **`map.h`**, **`tile.h`**: Interakcje ze światem gry (pobieranie pól, prędkości podłoża).
 - **`game.h`**: Dostęp do globalnych ustawień gry i funkcji serwera.
@@ -330,9 +330,9 @@ Implementacja klasy `Creature`, która jest podstawową klasą dla wszystkich ż
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Container`. Definiuje interfejs do zarządzania pojemnikami w grze.
 ## Klasa `Container`
-## # Opis
+## Opis
 Klasa `Container` dziedziczy po `LuaObject`, co pozwala na jej użycie w skryptach Lua. Reprezentuje obiekt w grze, który może przechowywać inne przedmioty, jak plecak czy skrzynka.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `getItem(int slot)` | Zwraca wskaźnik do przedmiotu w danym slocie. |
@@ -350,7 +350,7 @@ Klasa `Container` dziedziczy po `LuaObject`, co pozwala na jej użycie w skrypta
 | `getSize()` | Zwraca całkowitą liczbę przedmiotów w kontenerze (może być większa niż pojemność, jeśli ma strony). |
 | `getFirstIndex()` | Zwraca indeks pierwszego przedmiotu na bieżącej stronie. |
 | `findItemById(uint itemId, int subType)` | Wyszukuje przedmiot po ID i opcjonalnym podtypie. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów, np. `ItemPtr`.
 - **`item.h`**: Przechowuje obiekty `Item`.
 - **`game.h`**: Klasa `Game` jest przyjacielem, co pozwala jej wywoływać chronione metody `onOpen`, `onClose`, etc.
@@ -360,11 +360,11 @@ Klasa `Container` dziedziczy po `LuaObject`, co pozwala na jej użycie w skrypta
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Creature` oraz jej specjalizacji: `Npc` i `Monster`. Definiuje interfejs dla wszystkich istot w grze.
 ## Klasa `Creature`
-## # Opis
+## Opis
 Klasa bazowa dla wszystkich postaci w grze. Dziedziczy po `Thing`. Zawiera logikę związaną z wyglądem, ruchem, stanami i interakcjami.
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`enum` (anonimowy)**: Definiuje stałe `SHIELD_BLINK_TICKS` i `VOLATILE_SQUARE_DURATION`.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Rysuje postać w danym miejscu na mapie. |
@@ -385,12 +385,12 @@ Klasa bazowa dla wszystkich postaci w grze. Dziedziczy po `Thing`. Zawiera logik
 | `getThingType()` | Zwraca `ThingType` dla aktualnego ubioru postaci. |
 | `addTopWidget(...)`, `addBottomWidget(...)` | Dodaje widżety do rysowania nad/pod postacią. |
 ## Klasa `Npc`
-## # Opis
+## Opis
 Specjalizacja `Creature` dla postaci niezależnych (NPC).
 ## Klasa `Monster`
-## # Opis
+## Opis
 Specjalizacja `Creature` dla potworów.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thing.h`**: Klasa bazowa.
 - **`outfit.h`**: Używa `Outfit` do zarządzania wyglądem.
 - **`tile.h`**: Interakcje z polami mapy.
@@ -406,9 +406,9 @@ Plik nagłówkowy definiujący klasy do zarządzania typami stworzeń (`Creature
 - **`CreatureRace`**: Rasa stworzenia (NPC, potwór).
 - **`SpawnAttr`**: Atrybuty spawnu (promień, środek).
 ## Klasa `Spawn`
-## # Opis
+## Opis
 Reprezentuje obszar odradzania się stworzeń (spawn). Przechowuje informacje o środku, promieniu oraz listę potworów/NPC, które się w nim pojawiają.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setRadius(int32 r)` | Ustawia promień spawnu. |
@@ -420,9 +420,9 @@ Reprezentuje obszar odradzania się stworzeń (spawn). Przechowuje informacje o 
 | `removeCreature(const Position& pos)` | Usuwa stworzenie z danej pozycji. |
 | `clear()` | Czyści listę stworzeń. |
 ## Klasa `CreatureType`
-## # Opis
+## Opis
 Reprezentuje szablon (typ) stworzenia. Przechowuje domyślne właściwości, takie jak nazwa, ubiór czy kierunek, które są używane do tworzenia instancji `Creature`.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setSpawnTime(int32 spawnTime)` | Ustawia czas odradzania. |
@@ -433,9 +433,9 @@ Reprezentuje szablon (typ) stworzenia. Przechowuje domyślne właściwości, tak
 | `getOutfit()` | Zwraca domyślny ubiór. |
 | `cast()` | Tworzy i zwraca instancję `Creature` na podstawie tego typu. |
 ## Klasa `CreatureManager`
-## # Opis
+## Opis
 Singleton (`g_creatures`) zarządzający wszystkimi typami stworzeń i spawnami. Wczytuje te dane z plików XML.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `loadMonsters(const std::string& file)` | Wczytuje dane o potworach z pliku. |
@@ -445,9 +445,9 @@ Singleton (`g_creatures`) zarządzający wszystkimi typami stworzeń i spawnami.
 | `getCreatureByName(std::string name)` | Zwraca typ stworzenia po nazwie. |
 | `getSpawn(const Position& centerPos)` | Zwraca spawn na podstawie jego centralnej pozycji. |
 | `addSpawn(...)` | Dodaje nowy spawn. |
-## # Zmienne globalne
+## Zmienne globalne
 - `CreatureManager g_creatures`: Globalna instancja managera stworzeń.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**, **`outfit.h`**: Definicje typów.
 - **`creature.h`**: `CreatureType::cast()` tworzy obiekty `Creature`.
 
@@ -456,13 +456,13 @@ Singleton (`g_creatures`) zarządzający wszystkimi typami stworzeń i spawnami.
 ## Ogólny opis
 Plik nagłówkowy zawierający deklaracje wyprzedzające (forward declarations) oraz definicje typów wskaźników i kolekcji używanych w całym module klienta. Jego głównym celem jest przełamanie cyklicznych zależności między plikami nagłówkowymi.
 ## Zawartość
-## # Deklaracje wyprzedzające
+## Deklaracje wyprzedzające
 Plik deklaruje istnienie klas bez konieczności dołączania ich pełnych definicji. Obejmuje to klasy z różnych modułów:
 - **Core**: `Map`, `Game`, `Tile`, `Thing`, `Item`, `Creature`, `LocalPlayer`, `Effect`, `House`, `Town` itp.
 - **Net**: `ProtocolLogin`, `ProtocolGame`.
 - **UI**: `UIItem`, `UICreature`, `UIMap`, `UIMinimap` itp.
 - **Custom**: `HealthBar`.
-## # Definicje typów (`typedef`)
+## Definicje typów (`typedef`)
 Definiuje inteligentne wskaźniki (`shared_object_ptr`) dla większości zadeklarowanych klas, np.:
 - `MapViewPtr`
 - `TilePtr`
@@ -470,12 +470,12 @@ Definiuje inteligentne wskaźniki (`shared_object_ptr`) dla większości zadekla
 - `ItemPtr`
 - `CreaturePtr`
 - `LocalPlayerPtr`
-## # Definicje kolekcji (`typedef`)
+## Definicje kolekcji (`typedef`)
 Definiuje standardowe typy kolekcji dla zadeklarowanych obiektów, ułatwiając ich użycie w kodzie:
 - `ThingList` (`std::vector<ThingPtr>`)
 - `HouseList` (`std::list<HousePtr>`)
 - `TileMap` (`std::unordered_map<Position, TilePtr, PositionHasher>`)
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`global.h`**: Dołącza podstawowe definicje.
 - Plik ten jest dołączany przez niemal wszystkie inne pliki nagłówkowe w module, aby zapewnić dostęp do definicji typów wskaźników i uniknąć problemów z zależnościami.
 
@@ -486,7 +486,7 @@ Implementacja `CreatureManager` i `Spawn`, odpowiedzialnych za zarządzanie typa
 ## Funkcje pomocnicze
 - **`isInZone(...)`**: Sprawdza, czy dana pozycja znajduje się w promieniu spawnu.
 ## Klasa `Spawn`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `load(TiXmlElement* node)` | Wczytuje dane spawnu z węzła XML, w tym pozycję centralną, promień oraz listę stworzeń z ich atrybutami. |
@@ -495,12 +495,12 @@ Implementacja `CreatureManager` i `Spawn`, odpowiedzialnych za zarządzanie typa
 | `removeCreature(...)` | Usuwa stworzenie ze spawnu i z mapy. |
 | `getCreatures()` | Zwraca listę wszystkich typów stworzeń w tym spawnie. |
 ## Klasa `CreatureType`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `cast()` | Tworzy nową instancję `Creature`, ustawia jej nazwę, kierunek i ubiór na podstawie danych z `CreatureType`, a następnie zwraca ją jako `CreaturePtr`. |
 ## Klasa `CreatureManager`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `terminate()` | Czyści wszystkie dane managera. |
@@ -515,7 +515,7 @@ Implementacja `CreatureManager` i `Spawn`, odpowiedzialnych za zarządzanie typa
 | `getSpawn(...)` / `getSpawnForPlacePos(...)` | Wyszukuje spawn na podstawie pozycji. |
 | `addSpawn(...)` | Dodaje nowy spawn lub aktualizuje istniejący. |
 | `deleteSpawn(...)` | Usuwa spawn z managera. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**: Dodaje i usuwa stworzenia z mapy (`g_map`).
 - **`creature.h`**: Tworzy instancje `Creature`.
 - **`framework/xml/tinyxml.h`**: Używane do parsowania plików XML.
@@ -526,14 +526,14 @@ Implementacja `CreatureManager` i `Spawn`, odpowiedzialnych za zarządzanie typa
 ## Ogólny opis
 Implementacja klasy `Effect`, która odpowiada za renderowanie efektów wizualnych na mapie, takich jak eksplozje, efekty magiczne itp.
 ## Klasa `Effect`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Rysuje efekt na ekranie. Oblicza aktualną fazę animacji na podstawie czasu, który upłynął od pojawienia się efektu. Jeśli włączona jest funkcja `GameEnhancedAnimations`, używa `Animator::getPhaseAt` dla płynniejszej, niezależnej animacji. |
 | `onAppear()` | Metoda wywoływana, gdy efekt pojawia się na mapie. Resetuje timer animacji i planuje automatyczne usunięcie efektu po zakończeniu jego całkowitego czasu trwania. |
 | `setId(uint32 id)` | Ustawia ID efektu, sprawdzając jego poprawność w `g_things`. |
 | `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla danego efektu. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**: Używa `g_map` do usunięcia efektu po zakończeniu animacji.
 - **`game.h`**: Sprawdza, czy włączona jest funkcja `GameEnhancedAnimations`.
 - **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania usunięcia.
@@ -546,7 +546,7 @@ Plik nagłówkowy, który pełni rolę centralnego punktu dołączania najważni
 - **`#include <framework/global.h>`**: Dołącza globalne definicje z warstwy frameworka.
 - **`#include "const.h"`**: Dołącza stałe i typy wyliczeniowe specyficzne dla klienta gry.
 - **`#include "position.h"`**: Dołącza definicję klasy `Position`.
-## # Cel
+## Cel
 Celem tego pliku jest uproszczenie dołączania nagłówków w innych plikach. Zamiast dołączać wiele podstawowych plików, wystarczy dołączyć `global.h`.
 
 ---
@@ -554,11 +554,11 @@ Celem tego pliku jest uproszczenie dołączania nagłówków w innych plikach. Z
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Effect`, definiujący jej interfejs.
 ## Klasa `Effect`
-## # Opis
+## Opis
 Klasa `Effect` dziedziczy po `Thing` i reprezentuje krótkotrwały efekt wizualny na mapie.
-## # Stałe
+## Stałe
 - **`EFFECT_TICKS_PER_FRAME`**: Domyślny czas trwania jednej klatki animacji efektu (75 ms).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Rysuje efekt w danym miejscu na mapie. |
@@ -567,7 +567,7 @@ Klasa `Effect` dziedziczy po `Thing` i reprezentuje krótkotrwały efekt wizualn
 | `asEffect()` | Rzutuje wskaźnik na `EffectPtr`. |
 | `isEffect()` | Zwraca `true`. |
 | `getThingType()` | Zwraca `ThingType` dla tego efektu. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thing.h`**: Klasa bazowa.
 - **`framework/core/timer.h`**: Używa `Timer` do śledzenia postępu animacji.
 
@@ -576,7 +576,7 @@ Klasa `Effect` dziedziczy po `Thing` i reprezentuje krótkotrwały efekt wizualn
 ## Ogólny opis
 Implementacja `HealthBars`, globalnego managera niestandardowych teł dla pasków życia i many. Umożliwia ładowanie i przypisywanie różnych grafik do pasków zdrowia w zależności od ID ubioru postaci.
 ## Klasa `HealthBars`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` | Inicjalizuje wektory na paski życia i many, rezerwując miejsce i dodając `nullptr` jako domyślny pasek (ID 0). |
@@ -592,13 +592,13 @@ Implementacja `HealthBars`, globalnego managera niestandardowych teł dla paskó
 | `getHealthBarHeight(int id)` | Zwraca wysokość paska życia. |
 | `getManaBarHeight(int id)` | Zwraca wysokość paska many. |
 ## Klasa `HealthBar`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setTexture(const std::string& path)` | Wczytuje teksturę tła paska z podanej ścieżki za pomocą `g_textures`. |
-## # Zmienne globalne
+## Zmienne globalne
 - `HealthBars g_healthBars`: Globalna instancja managera.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/graphics/texturemanager.h`**: Używa `g_textures` do ładowania grafik.
 - **`creature.cpp`**: Logika rysowania informacji o postaci (`drawInformation`) używa `g_healthBars` do pobierania niestandardowych teł pasków.
 
@@ -607,11 +607,11 @@ Implementacja `HealthBars`, globalnego managera niestandardowych teł dla paskó
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Game`, która jest centralnym punktem zarządzania stanem gry. Definiuje interfejs do obsługi logowania, akcji gracza, komunikacji z serwerem oraz przechowywania stanu gry.
 ## Klasa `Game`
-## # Opis
+## Opis
 Singleton (`g_game`) pełniący rolę fasady dla całej logiki gry. Zarządza sesją gracza, protokołem sieciowym, stanem lokalnego gracza i interakcjami ze światem gry.
-## # Struktury
+## Struktury
 - **`UnjustifiedPoints`**: Przechowuje informacje o punktach za nieuzasadnione zabójstwa w systemie PvP.
-## # Metody (Publiczne)
+## Metody (Publiczne)
 | Grupa | Metody | Opis |
 | --- | --- | --- |
 | **Zarządzanie sesją** | `loginWorld`, `playRecord`, `cancelLogin`, `forceLogout`, `safeLogout` | Logowanie do świata gry, odtwarzanie nagrań, wylogowywanie. |
@@ -621,14 +621,14 @@ Singleton (`g_game`) pełniący rolę fasady dla całej logiki gry. Zarządza se
 | **Komunikacja** | `talk`, `talkChannel`, `talkPrivate` | Wysyłanie wiadomości. |
 | **Zarządzanie stanem** | `setProtocolVersion`, `setClientVersion`, `enableFeature`, `getFeature` | Konfiguracja klienta i obsługa funkcji serwera. |
 | **Gettery** | `isOnline`, `isDead`, `getLocalPlayer`, `getProtocolGame`, `getPing` | Dostęp do aktualnego stanu gry. |
-## # Metody (Chronione - Handlery Protokołu)
+## Metody (Chronione - Handlery Protokołu)
 Plik definiuje również liczne metody `process...`, które są wywoływane przez `ProtocolGame` w odpowiedzi na otrzymane pakiety z serwera. Przykłady:
 - `processLoginError`, `processEnterGame`
 - `processTextMessage`, `processTalk`
 - `processOpenContainer`, `processContainerAddItem`
 - `processInventoryChange`
 - `processWalkCancel`
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Używa wielu zadeklarowanych typów (`ItemPtr`, `CreaturePtr`, etc.).
 - **`protocolgame.h`**: Ściśle powiązana z protokołem sieciowym.
 - **`localplayer.h`**: Zarządza instancją `LocalPlayer`.
@@ -639,9 +639,9 @@ Plik definiuje również liczne metody `process...`, które są wywoływane prze
 ## Ogólny opis
 Plik nagłówkowy definiujący klasy `HealthBar` i `HealthBars` do zarządzania niestandardowymi tłami pasków życia i many.
 ## Klasa `HealthBar`
-## # Opis
+## Opis
 Prosta klasa przechowująca informacje o pojedynczym niestandardowym tle paska zdrowia lub many.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setPath(const std::string& path)` | Ustawia ścieżkę do pliku graficznego. |
@@ -655,9 +655,9 @@ Prosta klasa przechowująca informacje o pojedynczym niestandardowym tle paska z
 | `setHeight(int height)` | Ustawia wysokość paska. |
 | `getHeight()` | Zwraca wysokość. |
 ## Klasa `HealthBars`
-## # Opis
+## Opis
 Singleton (`g_healthBars`) zarządzający kolekcją obiektów `HealthBar`. Działa jako repozytorium dla wszystkich niestandardowych teł pasków.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` | Inicjalizuje managera. |
@@ -669,9 +669,9 @@ Singleton (`g_healthBars`) zarządzający kolekcją obiektów `HealthBar`. Dzia�
 | `getHealthBarPath(int id)` | Zwraca ścieżkę do grafiki paska życia. |
 | `getManaBarPath(int id)` | Zwraca ścieżkę do grafiki paska many. |
 | `...` | Gettery dla pozostałych właściwości paska. |
-## # Zmienne globalne
+## Zmienne globalne
 - `HealthBars g_healthBars`: Deklaracja zewnętrznej instancji managera.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Podstawowe definicje.
 - **`framework/graphics/declarations.h`**: Deklaracje typów graficznych, np. `TexturePtr`.
 
@@ -680,7 +680,7 @@ Singleton (`g_healthBars`) zarządzający kolekcją obiektów `HealthBar`. Dzia�
 ## Ogólny opis
 Implementacja klas `House` i `HouseManager`, które zarządzają danymi o domach w grze. Plik zawiera logikę wczytywania i zapisywania danych o domach z/do plików XML oraz zarządzania ich stanem.
 ## Klasa `House`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setTile(const TilePtr& tile)` | Dodaje pole do domu, ustawiając na nim flagę `TILESTATE_HOUSE` i ID domu. |
@@ -690,7 +690,7 @@ Implementacja klas `House` i `HouseManager`, które zarządzają danymi o domach
 | `load(const TiXmlElement *elem)` | Wczytuje atrybuty domu (nazwa, czynsz, rozmiar, ID miasta, pozycja wejścia) z węzła XML. |
 | `save(TiXmlElement* elem)` | Zapisuje atrybuty domu do węzła XML. |
 ## Klasa `HouseManager`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `addHouse(const HousePtr& house)` | Dodaje dom do listy, jeśli jeszcze nie istnieje. |
@@ -702,9 +702,9 @@ Implementacja klas `House` i `HouseManager`, które zarządzają danymi o domach
 | `filterHouses(uint32 townId)` | Zwraca listę domów należących do miasta o podanym ID. |
 | `findHouse(uint32 houseId)` | Wewnętrzna metoda do wyszukiwania iteratora do domu na liście. |
 | `sort()` | Sortuje listę domów alfabetycznie według nazwy. |
-## # Zmienne globalne
+## Zmienne globalne
 - `HouseManager g_houses`: Globalna instancja managera domów.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**: Interakcje z obiektami `Tile` (`tile->setFlag(...)`).
 - **`framework/core/resourcemanager.h`**: Do odczytu plików XML z danymi domów.
 
@@ -713,7 +713,7 @@ Implementacja klas `House` i `HouseManager`, które zarządzają danymi o domach
 ## Ogólny opis
 Implementacja klasy `Item`, która reprezentuje przedmioty w grze. Plik zawiera logikę rysowania przedmiotów, obsługę ich atrybutów oraz serializację/deserializację do formatu binarnego (OTBM).
 ## Klasa `Item`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `create(int id, int countOrSubtype)` | Statyczna metoda fabryczna do tworzenia przedmiotu na podstawie jego ID klienta. |
@@ -729,7 +729,7 @@ Implementacja klasy `Item`, która reprezentuje przedmioty w grze. Plik zawiera 
 | `calculatePatterns(...)` | Oblicza, który wzór (pattern) sprite'a powinien być użyty, w zależności od typu przedmiotu (stackable, hangable, fluid container). |
 | `calculateAnimationPhase(bool animate)` | Oblicza bieżącą klatkę animacji. Obsługuje animacje synchroniczne i asynchroniczne. |
 | `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla tego przedmiotu. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thingtypemanager.h`**: Używa `g_things` do uzyskiwania informacji o typach przedmiotów.
 - **`spritemanager.h`**: Używa `g_sprites` do pobierania danych o sprite'ach.
 - **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera (np. `GameNewFluids`).
@@ -740,15 +740,15 @@ Implementacja klasy `Item`, która reprezentuje przedmioty w grze. Plik zawiera 
 ## Ogólny opis
 Implementacja klasy `ItemType`, która reprezentuje szablon (typ) przedmiotu. Plik zawiera logikę wczytywania definicji typów przedmiotów z binarnego formatu OTB.
 ## Klasa `ItemType`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `unserialize(const BinaryTreePtr& node)` | Deserializuje dane typu przedmiotu z węzła binarnego drzewa. Odczytuje kategorię przedmiotu oraz listę jego atrybutów, takich jak ID serwera, ID klienta, nazwa, czy jest zapisywalny itp. Obsługuje różnice w formacie w zależności od wersji klienta. |
-## # Logika serializacji
+## Logika serializacji
 Metoda `unserialize` zawiera logikę dostosowującą wczytywanie atrybutów do różnych wersji klienta Tibii. Na przykład, dla starszych wersji klienta, ID serwera musi być dostosowane, aby poprawnie mapować przedmioty.
 
 > NOTE: Statyczna zmienna `lastId` jest używana do tworzenia "pustych" typów przedmiotów, jeśli w pliku OTB występują luki w numeracji ID serwera. Jest to mechanizm zapewniający spójność indeksowania.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thingtypemanager.h`**: Jest ściśle powiązana z `ThingTypeManager`, który zarządza wszystkimi typami przedmiotów i wywołuje `unserialize`.
 - **`game.h`**: Używa `g_game` do sprawdzania wersji klienta, co wpływa na logikę parsowania.
 - **`framework/core/binarytree.h`**: Używa `BinaryTree` do odczytu danych z formatu OTB.
@@ -758,11 +758,11 @@ Metoda `unserialize` zawiera logikę dostosowującą wczytywanie atrybutów do r
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Item`, która reprezentuje konkretny przedmiot w grze.
 ## Klasa `Item`
-## # Opis
+## Opis
 Dziedziczy po `Thing`. Reprezentuje instancję przedmiotu, która może znajdować się na mapie, w kontenerze lub w ekwipunku gracza. Posiada właściwości takie jak ID, liczba/podtyp, kolor, a także może zawierać inne przedmioty, jeśli jest kontenerem.
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`ItemAttr`**: Definiuje klucze atrybutów, które mogą być przypisane do przedmiotu (np. `ATTR_COUNT`, `ATTR_ACTION_ID`, `ATTR_TEXT`).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `create(int id, ...)` | Statyczna metoda fabryczna do tworzenia przedmiotu po ID klienta. |
@@ -780,7 +780,7 @@ Dziedziczy po `Thing`. Reprezentuje instancję przedmiotu, która może znajdowa
 | `clone()` | Tworzy głęboką kopię przedmiotu. |
 | `getContainerItems()` | Zwraca listę przedmiotów wewnątrz, jeśli jest kontenerem. |
 | `setCustomAttribute(...)` | Ustawia niestandardowy atrybut przedmiotu (funkcja dla serwerów niestandardowych). |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thing.h`**: Klasa bazowa.
 - **`itemtype.h`**: Każdy `Item` jest instancją jakiegoś `ItemType`.
 
@@ -789,13 +789,13 @@ Dziedziczy po `Thing`. Reprezentuje instancję przedmiotu, która może znajdowa
 ## Ogólny opis
 Plik nagłówkowy dla klasy `ItemType`, która reprezentuje szablon (typ) przedmiotu.
 ## Klasa `ItemType`
-## # Opis
+## Opis
 Przechowuje niezmienne właściwości dla danego typu przedmiotu, wczytywane z plików OTB. Wszystkie instancje `Item` o tym samym ID dzielą jeden obiekt `ItemType`.
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`ItemCategory`**: Kategorie przedmiotów (broń, zbroja, pojemnik itp.).
 - **`ItemTypeAttr`**: Atrybuty typu przedmiotu wczytywane z OTB.
 - **`ClientVersion`**: Wersje klienta, używane do obsługi różnic w formatach plików.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `unserialize(const BinaryTreePtr& node)` | Wczytuje dane typu przedmiotu z binarnego formatu OTB. |
@@ -806,7 +806,7 @@ Przechowuje niezmienne właściwości dla danego typu przedmiotu, wczytywane z p
 | `getCategory()` | Zwraca kategorię przedmiotu. |
 | `getName()` | Zwraca nazwę przedmiotu. |
 | `isWritable()` | Zwraca `true`, jeśli na przedmiocie można pisać. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/luaengine/luaobject.h`**: Dziedziczy z `LuaObject`, aby być dostępnym z Lua.
 - **`framework/xml/tinyxml.h`**: Używane do parsowania dodatkowych danych z `items.xml`.
 
@@ -815,13 +815,13 @@ Przechowuje niezmienne właściwości dla danego typu przedmiotu, wczytywane z p
 ## Ogólny opis
 Implementacja klasy `LightView`, która zarządza i renderuje dynamiczne oświetlenie na mapie.
 ## Klasa `LightView`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `addLight(const Point& pos, uint8_t color, uint8_t intensity)` | Dodaje nowe źródło światła do sceny. Jeśli w tym samym miejscu istnieje już światło o tym samym kolorze, wybierana jest większa intensywność. |
 | `setFieldBrightness(...)` | Ustawia jasność dla danego pola na mapie. Ta metoda nie jest w pełni zaimplementowana i jej rola wydaje się ograniczona. |
 | `draw()` | Główna funkcja renderująca. Przebiega przez wszystkie pola widoczne na ekranie i dla każdego piksela oblicza finalny kolor światła, sumując wpływ globalnego oświetlenia i wszystkich pobliskich źródeł światła. Wynik jest zapisywany do bufora, a następnie przesyłany do tekstury (`m_lightTexture`), która jest rysowana na ekranie z trybem mieszania `CompositionMode_Multiply`, aby przyciemnić scenę. |
-## # Logika renderowania
+## Logika renderowania
 1.  Tworzony jest bufor pikseli o rozmiarze widocznego obszaru mapy.
 2.  Każdy piksel w buforze jest inicjalizowany globalnym światłem otoczenia.
 3.  Dla każdego piksela iteruje się przez wszystkie źródła światła.
@@ -829,7 +829,7 @@ Implementacja klasy `LightView`, która zarządza i renderuje dynamiczne oświet
 5.  Kolor światła jest mieszany z kolorem piksela w buforze (wybierany jest najjaśniejszy kanał R, G, B).
 6.  Po przetworzeniu wszystkich pikseli, bufor jest ładowany do tekstury.
 7.  Tekstura światła jest rysowana na wierzchu sceny, przyciemniając ją.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`spritemanager.h`**: Używa `g_sprites.spriteSize()` do obliczeń związanych z rozmiarami pól.
 - **`framework/graphics/painter.h`**: Używa `g_painter` do rysowania finalnej tekstury światła.
 
@@ -838,14 +838,14 @@ Implementacja klasy `LightView`, która zarządza i renderuje dynamiczne oświet
 ## Ogólny opis
 Plik nagłówkowy dla klasy `LightView`, która jest odpowiedzialna za system dynamicznego oświetlenia w grze.
 ## Struktura `TileLight`
-## # Opis
+## Opis
 Prosta struktura przechowująca informacje o świetle dla pojedynczego pola mapy.
 - `start`: Indeks początkowy w liście świateł, od którego należy zacząć obliczenia dla tego pola.
 - `color`: Kolor światła.
 ## Klasa `LightView`
-## # Opis
+## Opis
 Dziedziczy po `DrawQueueItem`, co oznacza, że obiekty tej klasy mogą być dodawane do kolejki rysowania. `LightView` agreguje wszystkie źródła światła w widocznym obszarze i renderuje je do jednej tekstury, która następnie jest nakładana na scenę.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `LightView(...)` | Konstruktor. Inicjalizuje widok światła z podanym rozmiarem, teksturą docelową, globalnym kolorem i intensywnością światła. |
@@ -853,7 +853,7 @@ Dziedziczy po `DrawQueueItem`, co oznacza, że obiekty tej klasy mogą być doda
 | `setFieldBrightness(...)` | Ustawia jasność dla danego pola (obecnie nie w pełni wykorzystywane). |
 | `size()` | Zwraca liczbę źródeł światła. |
 | `draw()` | Metoda renderująca, która wykonuje obliczenia oświetlenia i rysuje finalną teksturę. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`thingtype.h`**: Używa struktury `Light` zdefiniowanej w `thingtype.h`.
 - **`framework/graphics/drawqueue.h`**: Jest elementem kolejki rysowania.
@@ -863,7 +863,7 @@ Dziedziczy po `DrawQueueItem`, co oznacza, że obiekty tej klasy mogą być doda
 ## Ogólny opis
 Implementacja klasy `LocalPlayer`, która reprezentuje postać sterowaną przez gracza. Rozszerza klasę `Player` o logikę specyficzną dla lokalnego gracza, taką jak obsługa ruchu inicjowanego przez klienta (pre-walking), blokady chodzenia, auto-walking oraz zarządzanie statystykami.
 ## Klasa `LocalPlayer`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `lockWalk(int millis)` | Blokuje możliwość chodzenia na określony czas, np. po użyciu przedmiotu. |
@@ -881,7 +881,7 @@ Implementacja klasy `LocalPlayer`, która reprezentuje postać sterowaną przez 
 | `onPositionChange(...)` | Obsługuje zmianę pozycji; jeśli osiągnięto cel auto-walk, zatrzymuje go. |
 | `set...(...)` | Szereg metod `set` (np. `setHealth`, `setSkill`, `setExperience`), które aktualizują stan lokalnego gracza i wywołują odpowiednie callbacki Lua, informując o zmianach. |
 | `hasSight(const Position& pos)` | Sprawdza, czy dana pozycja jest w zasięgu wzroku gracza. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**, **`tile.h`**: Do sprawdzania, czy pola są możliwe do przejścia.
 - **`game.h`**: Do komunikacji z serwerem i zatrzymywania akcji gry.
 - **`framework/core/eventdispatcher.h`**: Do planowania ponownych prób auto-walkingu.
@@ -891,7 +891,7 @@ Implementacja klasy `LocalPlayer`, która reprezentuje postać sterowaną przez 
 ## Ogólny opis
 Implementacja klasy `Map`, która jest centralnym repozytorium dla wszystkich danych o świecie gry. Plik zawiera logikę zarządzania polami (`Tile`), umieszczania na nich obiektów (`Thing`), wyszukiwania ścieżek oraz zarządzania widocznym obszarem mapy.
 ## Klasa `Map`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` / `terminate()` | Inicjalizuje i zwalnia zasoby mapy. |
@@ -910,10 +910,10 @@ Implementacja klasy `Map`, która jest centralnym repozytorium dla wszystkich da
 | `newFindPath(...)` | Nowsza, asynchroniczna implementacja wyszukiwania ścieżki. |
 | `findPathAsync(...)` | Uruchamia `newFindPath` w osobnym wątku. |
 | `findEveryPath(...)` | Implementacja algorytmu Dijkstry do znalezienia wszystkich możliwych ścieżek w danym zasięgu. |
-## # Struktura danych
+## Struktura danych
 - **`m_tileBlocks`**: Pola mapy są przechowywane w blokach 32x32, co optymalizuje zużycie pamięci. `std::map<uint, TileBlock> m_tileBlocks[Otc::MAX_Z+1]` przechowuje te bloki dla każdego piętra.
 - **`m_knownCreatures`**: Mapa znanych stworzeń, indeksowana po ich ID.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**: Dostęp do stanu gry, np. funkcji serwera (`GameFeature`).
 - **`localplayer.h`**: Do centrowania kamery i aktualizacji pozycji gracza.
 - **`tile.h`**: Zarządza obiektami `Tile`.
@@ -942,7 +942,7 @@ Plik nagłówkowy definiujący funkcje do konwersji (rzutowania) niestandardowyc
 | `luavalue_cast(int index, Light& light)` | Konwertuje tabelę Lua na `Light`. |
 | `push_luavalue(const UnjustifiedPoints& unjustifiedPoints)` | Konwertuje `UnjustifiedPoints` na tabelę Lua. |
 | `luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints)` | Konwertuje tabelę Lua na `UnjustifiedPoints`. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`global.h`**, **`game.h`**, **`outfit.h`**: Zawierają definicje typów, które są konwertowane.
 - **`framework/luaengine/declarations.h`**: Deklaracje funkcji z silnika Lua.
 - **`luavaluecasts_client.cpp`**: Zawiera implementacje tych funkcji.
@@ -952,21 +952,21 @@ Plik nagłówkowy definiujący funkcje do konwersji (rzutowania) niestandardowyc
 ## Ogólny opis
 Plik ten zawiera implementację metod klasy `Map` odpowiedzialnych za operacje wejścia/wyjścia, czyli wczytywanie i zapisywanie danych mapy w formatach OTBM (OpenTibia Binary Map) i OTCM (OTClient Map).
 ## Klasa `Map`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `loadOtbm(const std::string& fileName)` | Wczytuje mapę z pliku binarnego `.otbm`. Parsuje nagłówek, sprawdza wersję i sygnaturę, a następnie iteruje przez węzły binarnego drzewa, tworząc pola (`Tile`), przedmioty (`Item`) oraz wczytując informacje o miastach, domach i punktach nawigacyjnych (waypoints). |
 | `saveOtbm(const std::string& fileName)` | Zapisuje aktualny stan mapy do pliku `.otbm`. Tworzy strukturę binarnego drzewa, zapisuje nagłówek, a następnie serializuje wszystkie pola, przedmioty na nich, a także informacje o miastach, domach i waypointach. |
 | `loadOtcm(const std::string& fileName)` | Wczytuje mapę z własnego, prostszego formatu klienta (`.otcm`). Format ten jest mniej rozbudowany niż OTBM i przechowuje głównie informacje o polach i przedmiotach. |
 | `saveOtcm(const std::string& fileName)` | Zapisuje mapę do formatu `.otcm`. |
-## # Logika wczytywania OTBM
+## Logika wczytywania OTBM
 1.  Otwiera plik i weryfikuje jego sygnaturę (`OTBM`).
 2.  Odczytuje nagłówek, zawierający wymiary mapy i wersje OTB.
 3.  Parsuje główny węzeł danych, odczytując atrybuty takie jak opis mapy oraz ścieżki do plików z danymi o spawnach i domach.
 4.  Iteruje przez węzły `OTBM_TILE_AREA`, które grupują pola w blokach.
 5.  Dla każdego pola (`OTBM_TILE`) odczytuje jego atrybuty (flagi, przedmioty). Przedmioty, które są kontenerami, są parsowane rekurencyjnie.
 6.  Wczytuje definicje miast (`OTBM_TOWNS`) i waypointów (`OTBM_WAYPOINTS`).
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`tile.h`**, **`item.h`**: Tworzy obiekty `Tile` i `Item` na podstawie wczytanych danych.
 - **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera, które mogą wpływać na sposób parsowania.
 - **`houses.h`**, **`towns.h`**: Wypełnia menedżery `g_houses` i `g_towns` danymi z mapy.
@@ -977,18 +977,18 @@ Plik ten zawiera implementację metod klasy `Map` odpowiedzialnych za operacje w
 ## Ogólny opis
 Implementacja funkcji do konwersji (rzutowania) niestandardowych typów danych C++ na wartości Lua i z powrotem. Ten plik zawiera logikę "tłumaczenia" złożonych obiektów C++ na tabele Lua i odwrotnie.
 ## Funkcje
-## # `push_luavalue`
+## `push_luavalue`
 Te funkcje przyjmują jako argument obiekt C++ i umieszczają jego reprezentację w Lua na stosie. Złożone obiekty są zazwyczaj konwertowane na tabele Lua.
 - **`push_luavalue(const Outfit& outfit)`**: Tworzy tabelę Lua z polami `type`, `auxType`, `head`, `body`, `legs`, `feet`, `addons`, `mount` etc. i wypełnia ją danymi z obiektu `Outfit`.
 - **`push_luavalue(const Position& pos)`**: Tworzy tabelę `{x, y, z}`.
 - **`push_luavalue(const MarketData& data)`**: Tworzy tabelę z danymi rynkowymi.
 - **`push_luavalue(const Imbuement& i)`**: Tworzy złożoną, zagnieżdżoną tabelę reprezentującą imbuement, włączając w to listę materiałów.
-## # `luavalue_cast`
+## `luavalue_cast`
 Te funkcje przyjmują jako argument indeks na stosie Lua i referencję do obiektu C++. Odczytują wartość ze stosu (zwykle tabelę) i wypełniają obiekt C++ odpowiednimi danymi.
 - **`luavalue_cast(int index, Outfit& outfit)`**: Odczytuje pola z tabeli Lua i ustawia odpowiednie właściwości w obiekcie `Outfit`.
 - **`luavalue_cast(int index, Position& pos)`**: Odczytuje pola `x`, `y`, `z` z tabeli.
 - **`luavalue_cast(int index, MarketData& data)`**: Wypełnia strukturę `MarketData`.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/luaengine/luainterface.h`**: Dostęp do funkcji `g_lua` do manipulacji stosem Lua.
 - **`game.h`**: Używa `g_game` do sprawdzania, które `GameFeature` są aktywne, co wpływa na to, które pola obiektu `Outfit` są serializowane/deserializowane (np. `GamePlayerMounts`).
 - **`luavaluecasts_client.h`**: Deklaracje tych funkcji.
@@ -998,7 +998,7 @@ Te funkcje przyjmują jako argument indeks na stosie Lua i referencję do obiekt
 ## Ogólny opis
 Implementacja klasy `MapView`, która jest odpowiedzialna za renderowanie widoku mapy. Plik zawiera skomplikowaną logikę określania, które pola są widoczne, jak je rysować w odpowiedniej kolejności (z uwzględnieniem pięter i efektu paralaksy) oraz jak zarządzać oświetleniem i tekstami na mapie.
 ## Klasa `MapView`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawMapBackground(...)` | Główna funkcja rysująca tło mapy. Przygotowuje bufor ramki (`FrameBuffer`), inicjalizuje `LightView` (jeśli oświetlenie jest włączone) i rysuje wszystkie widoczne piętra, zaczynając od najniższego. |
@@ -1010,7 +1010,7 @@ Implementacja klasy `MapView`, która jest odpowiedzialna za renderowanie widoku
 | `calcFirstVisibleFloor(...)` / `calcLastVisibleFloor(...)` | Oblicza, które piętra są widoczne dla gracza na podstawie jego pozycji i otoczenia (np. dziury w podłodze, okna). |
 | `transformPositionTo2D(...)` | Konwertuje pozycję 3D (x, y, z) na współrzędne 2D na ekranie, uwzględniając perspektywę izometryczną. |
 | `getCameraPosition()` | Zwraca aktualną pozycję kamery, która albo podąża za stworzeniem (`m_followingCreature`), albo jest ustawiona ręcznie. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**, **`tile.h`**: Intensywnie korzysta z `g_map` do pobierania danych o polach i obiektach.
 - **`game.h`**: Dostęp do `g_game` w celu pobrania lokalnego gracza i sprawdzenia funkcji serwera.
 - **`lightview.h`**: Tworzy i zarządza obiektem `LightView` do renderowania oświetlenia.
@@ -1021,9 +1021,9 @@ Implementacja klasy `MapView`, która jest odpowiedzialna za renderowanie widoku
 ## Ogólny opis
 Plik nagłówkowy dla klasy `MapView`. Definiuje interfejs widoku mapy, który jest głównym komponentem renderującym świat gry.
 ## Klasa `MapView`
-## # Opis
+## Opis
 Klasa `MapView` zarządza kamerą, widocznym obszarem mapy, a także koordynuje proces rysowania wszystkich elementów świata gry. Może istnieć wiele instancji `MapView`, co pozwala na renderowanie mapy w różnych miejscach interfejsu.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawMapBackground(...)` | Rysuje tło mapy (pola, obiekty na ziemi). |
@@ -1038,7 +1038,7 @@ Klasa `MapView` zarządza kamerą, widocznym obszarem mapy, a także koordynuje 
 | `setDrawFlags(Otc::DrawFlags flags)` | Ustawia flagi rysowania, określające, co ma być renderowane. |
 | `setAnimated(bool animated)` | Włącza/wyłącza animacje. |
 | `setFloorFading(int value)` | Ustawia czas zanikania/pojawiania się pięter. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów (`Position`, `CreaturePtr`).
 - **`lightview.h`**: Używa `LightView` do rysowania świateł.
 - **`framework/luaengine/luaobject.h`**: Dziedziczy z `LuaObject`.
@@ -1052,15 +1052,15 @@ Plik nagłówkowy dla `Minimap` i powiązanych struktur. Definiuje interfejs do 
 - **`MinimapTileFlags`**: Flagi dla kafelka minimapy (np. `MinimapTileWasSeen`, `MinimapTileNotPathable`).
 - **`MinimapTile`**: Struktura przechowująca dane pojedynczego piksela minimapy (kolor, flagi, prędkość).
 ## Klasa `MinimapBlock`
-## # Opis
+## Opis
 Reprezentuje pojedynczy blok (chunk) minimapy o rozmiarze `MMBLOCK_SIZE` x `MMBLOCK_SIZE`. Każdy blok ma własną teksturę, co optymalizuje renderowanie.
 - `m_texture`: Tekstura generowana na podstawie danych z `m_tiles`.
 - `m_tiles`: Tablica `MinimapTile` przechowująca dane dla każdego piksela w bloku.
 - `m_mustUpdate`: Flaga informująca, czy tekstura wymaga ponownego wygenerowania.
 ## Klasa `Minimap`
-## # Opis
+## Opis
 Singleton (`g_minimap`) zarządzający wszystkimi danymi minimapy. Przechowuje `MinimapBlock` dla każdego piętra i koordynuje ich rysowanie.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` / `terminate()` | Inicjalizacja i zamykanie managera. |
@@ -1073,7 +1073,7 @@ Singleton (`g_minimap`) zarządzający wszystkimi danymi minimapy. Przechowuje `
 | `loadImage(...)` | Wczytuje dane minimapy z pliku graficznego (np. PNG). |
 | `saveImage(...)` | Zapisuje widoczny obszar minimapy do pliku graficznego. |
 | `loadOtmm(...)` / `saveOtmm(...)` | Wczytuje/zapisuje dane minimapy w formacie `.otmm`. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`tile.h`**: `updateTile` pobiera dane z obiektu `Tile`.
 
@@ -1082,16 +1082,16 @@ Singleton (`g_minimap`) zarządzający wszystkimi danymi minimapy. Przechowuje `
 ## Ogólny opis
 Implementacja klasy `Missile`, która odpowiada za renderowanie pocisków w grze.
 ## Klasa `Missile`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Rysuje pocisk na ekranie. Oblicza jego pozycję na ścieżce lotu na podstawie czasu, który upłynął (`m_animationTimer.ticksElapsed() / m_duration`). Wybiera odpowiedni wzór (pattern) sprite'a na podstawie kierunku lotu. |
 | `setPath(const Position& fromPosition, const Position& toPosition)` | Ustawia ścieżkę lotu pocisku od pozycji początkowej do końcowej. Oblicza kierunek, czas trwania lotu i planuje automatyczne usunięcie pocisku po dotarciu do celu. |
 | `setId(uint32 id)` | Ustawia ID (typ) pocisku, weryfikując jego poprawność. |
 | `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla danego pocisku. |
-## # Logika animacji
+## Logika animacji
 Pozycja pocisku jest interpolowana liniowo między punktem startowym a końcowym. Frakcja postępu `fraction` jest obliczana jako stosunek czasu, który upłynął, do całkowitego czasu trwania lotu. Przesunięcie rysowania `m_delta * fraction` jest dodawane do pozycji początkowej.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**: Używa `g_map` do usunięcia pocisku po zakończeniu lotu.
 - **`spritemanager.h`**: Używa `g_sprites.spriteSize()` do skalowania przesunięcia.
 - **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania usunięcia.
@@ -1101,9 +1101,9 @@ Pozycja pocisku jest interpolowana liniowo między punktem startowym a końcowym
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Missile`, która reprezentuje pociski i inne efekty dystansowe.
 ## Klasa `Missile`
-## # Opis
+## Opis
 Dziedziczy po `Thing`. Reprezentuje obiekt, który przemieszcza się od jednej pozycji do drugiej w określonym czasie.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Rysuje pocisk w jego aktualnej pozycji na ścieżce. |
@@ -1115,7 +1115,7 @@ Dziedziczy po `Thing`. Reprezentuje obiekt, który przemieszcza się od jednej p
 | `getThingType()` | Zwraca `ThingType` dla pocisku. |
 | `getSource()` | Zwraca pozycję początkową. |
 | `getDestination()` | Zwraca pozycję końcową. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thing.h`**: Klasa bazowa.
 - **`framework/core/timer.h`**: Używa `Timer` do animacji ruchu.
 
@@ -1124,18 +1124,18 @@ Dziedziczy po `Thing`. Reprezentuje obiekt, który przemieszcza się od jednej p
 ## Ogólny opis
 Implementacja klasy `Outfit` oraz niestandardowych elementów kolejki rysowania `DrawQueueItemOutfit` i `DrawQueueItemOutfitWithShader`. Plik zawiera złożoną logikę rysowania ubioru postaci, w tym warstw, kolorów, dodatków, wierzchowców, skrzydeł, aury i shaderów.
 ## Klasa `Outfit`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(Point dest, ...)` | Główna funkcja rysująca ubiór. Wykonuje następujące kroki: <br> 1. Koryguje kierunek. <br> 2. Oblicza fazę animacji (chodzenia, bezczynności, UI). <br> 3. Rysuje aurę (tylną warstwę, jeśli dotyczy). <br> 4. Rysuje wierzchowca. <br> 5. Rysuje skrzydła (w zależności od kierunku, przed lub za postacią). <br> 6. Rysuje poszczególne warstwy ubioru (podstawę i dodatki), kolorując je za pomocą specjalnego shadera (`DrawQueueItemOutfit`). <br> 7. Rysuje aurę (przednią warstwę). |
 | `draw(const Rect& dest, ...)` | Wersja rysująca ubiór przeskalowany do danego prostokąta, używana w UI. |
 | `resetClothes()` | Resetuje wszystkie elementy ubioru (głowa, ciało, etc.) do wartości domyślnych (0). |
 ## Klasy `DrawQueueItem...`
-## # Opis
+## Opis
 Niestandardowe elementy kolejki rysowania, które pozwalają na zaawansowane renderowanie ubiorów.
 - **`DrawQueueItemOutfit`**: Używa specjalnego shadera (`outfit.frag`), który na podstawie 32-bitowej liczby `m_colors` i tekstury z warstwami, koloruje każdą z czterech części ubioru (głowa, ciało, nogi, stopy) na odpowiedni kolor.
 - **`DrawQueueItemOutfitWithShader`**: Rozszerza powyższą logikę o dodatkowy, niestandardowy shader (np. efekt "ghost"), który jest nakładany na finalny obraz ubioru.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**: Sprawdza, które `GameFeature` są aktywne, aby decydować, które elementy ubioru rysować (np. wierzchowce, skrzydła).
 - **`thingtypemanager.h`**: Używa `g_things` do pobierania `ThingType` dla ubioru, wierzchowca, skrzydeł, aury.
 - **`spritemanager.h`**: Używa `g_sprites` do skalowania i pozycjonowania.
@@ -1147,9 +1147,9 @@ Niestandardowe elementy kolejki rysowania, które pozwalają na zaawansowane ren
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Outfit` oraz powiązanych struktur do rysowania.
 ## Klasa `Outfit`
-## # Opis
+## Opis
 Reprezentuje wygląd (ubiór) postaci. Przechowuje informacje o ID wyglądu, kolorach poszczególnych części ciała, dodatkach, wierzchowcu, skrzydłach, aurze i niestandardowym shaderze.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Dwie przeciążone wersje funkcji rysującej ubiór: jedna w punkcie (na mapie), druga w prostokącie (w UI). |
@@ -1164,11 +1164,11 @@ Reprezentuje wygląd (ubiór) postaci. Przechowuje informacje o ID wyglądu, kol
 | `setAura(int aura)` | Ustawia ID aury. |
 | `setShader(const std::string& shader)` | Ustawia nazwę niestandardowego shadera. |
 ## Struktury `DrawQueueItem...`
-## # Opis
+## Opis
 Definicje niestandardowych elementów kolejki rysowania, które obsługują zaawansowane renderowanie ubiorów.
 - **`DrawQueueItemOutfit`**: Renderuje ubiór z dynamicznym kolorowaniem poszczególnych części.
 - **`DrawQueueItemOutfitWithShader`**: Dodaje obsługę niestandardowego shadera efektów specjalnych.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thingtypemanager.h`**: Używa `ThingCategory` i `ThingType`.
 - **`framework/graphics/drawqueue.h`**: Dziedziczą z `DrawQueueItemTexturedRect`.
 
@@ -1177,9 +1177,9 @@ Definicje niestandardowych elementów kolejki rysowania, które obsługują zaaw
 ## Ogólny opis
 Ten plik jest obecnie pusty, co oznacza, że klasa `Player` nie posiada żadnej dodatkowej implementacji poza tym, co dziedziczy z klasy `Creature`.
 ## Klasa `Player`
-## # Opis
+## Opis
 Klasa `Player` jest specjalizacją `Creature`. Służy do reprezentowania postaci graczy w grze. W przyszłości może zawierać logikę specyficzną tylko dla graczy, która nie dotyczy potworów czy NPC.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`player.h`**: Plik nagłówkowy dla tej implementacji.
 
 ---
@@ -1187,14 +1187,14 @@ Klasa `Player` jest specjalizacją `Creature`. Służy do reprezentowania postac
 ## Ogólny opis
 Plik nagłówkowy dla klasy `Player`, która jest specjalizacją klasy `Creature`.
 ## Klasa `Player`
-## # Opis
+## Opis
 Dziedziczy po `Creature`. Reprezentuje postać gracza (niekoniecznie lokalnego). Nie dodaje żadnych nowych pól ani metod, ale służy do rozróżnienia typów stworzeń w systemie typów C++.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `asPlayer()` | Rzutuje wskaźnik na `PlayerPtr`. |
 | `isPlayer()` | Zwraca `true`. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`creature.h`**: Klasa bazowa.
 
 ---
@@ -1202,15 +1202,15 @@ Dziedziczy po `Creature`. Reprezentuje postać gracza (niekoniecznie lokalnego).
 ## Ogólny opis
 Implementacja funkcji pomocniczych zadeklarowanych w `protocolcodes.h`. Głównym zadaniem tego pliku jest zarządzanie mapowaniem trybów wiadomości (`Otc::MessageMode`) na ich liczbowe odpowiedniki używane w protokole sieciowym, które mogą się różnić w zależności od wersji klienta.
 ## Namespace `Proto`
-## # Zmienne globalne
+## Zmienne globalne
 - **`std::map<uint8, uint8> messageModesMap`**: Mapa przechowująca powiązanie między wewnętrznym enumem `Otc::MessageMode` a wartością liczbową wysyłaną/odbieraną z serwera.
-## # Funkcje
+## Funkcje
 | Nazwa | Opis |
 | --- | --- |
 | `buildMessageModesMap(int version)` | Wypełnia `messageModesMap` na podstawie podanej wersji protokołu. Zawiera bloki `if/else if` dla różnych zakresów wersji, definiując odpowiednie mapowania. Jest to kluczowe dla zachowania kompatybilności wstecznej. |
 | `translateMessageModeFromServer(uint8 mode)` | Tłumaczy liczbowy tryb wiadomości otrzymany z serwera na wewnętrzny enum `Otc::MessageMode`. |
 | `translateMessageModeToServer(Otc::MessageMode mode)` | Tłumaczy wewnętrzny enum `Otc::MessageMode` na jego liczbowy odpowiednik, który zostanie wysłany do serwera. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`protocolcodes.h`**: Deklaracje funkcji i enumów.
 - **`game.cpp`**: `Game::setProtocolVersion` wywołuje `buildMessageModesMap`, aby zaktualizować mapowania po zmianie wersji protokołu.
 
@@ -1219,14 +1219,14 @@ Implementacja funkcji pomocniczych zadeklarowanych w `protocolcodes.h`. Główny
 ## Ogólny opis
 Implementacja `Minimap` i `MinimapBlock`, które razem tworzą system minimapy w grze. Plik zawiera logikę renderowania, aktualizacji danych, a także wczytywania i zapisywania minimapy w formatach `.otmm` i graficznych.
 ## Klasa `MinimapBlock`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `clean()` | Resetuje wszystkie dane w bloku do stanu początkowego. |
 | `update()` | Jeśli blok został zmodyfikowany (`m_mustUpdate`), generuje nową teksturę na podstawie danych z `m_tiles`. Tworzy obiekt `Image`, wypełnia go kolorami pikseli, a następnie tworzy z niego teksturę. |
 | `updateTile(...)` | Aktualizuje dane pojedynczego piksela w bloku i ustawia flagę `m_mustUpdate`. |
 ## Klasa `Minimap`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Rysuje minimapę na ekranie. Oblicza, które bloki (`MinimapBlock`) są widoczne, aktualizuje ich tekstury (jeśli to konieczne), a następnie rysuje je w odpowiednich pozycjach. |
@@ -1236,9 +1236,9 @@ Implementacja `Minimap` i `MinimapBlock`, które razem tworzą system minimapy w
 | `threadGetTile(...)` | Wersja `getTile` bezpieczna dla wątków, używana przez asynchroniczne wyszukiwanie ścieżki. |
 | `loadImage(...)` | Wczytuje dane minimapy z pliku graficznego, analizując kolory pikseli w celu określenia właściwości (np. czy pole jest możliwe do przejścia). |
 | `saveOtmm(...)` / `loadOtmm(...)` | Obsługuje serializację/deserializację danych minimapy do/z formatu `.otmm`, który używa kompresji zlib dla każdego bloku. |
-## # Struktura danych
+## Struktura danych
 - `m_tileBlocks`: Tablica map `std::unordered_map<uint, MinimapBlock_ptr>`, gdzie każdy element tablicy odpowiada jednemu piętru (`z`). Mapa przechowuje bloki minimapy, indeksowane przez skrót ich pozycji.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`tile.h`**: Pobiera dane do aktualizacji minimapy z obiektów `Tile`.
 - **`game.h`**: Używa `g_game` do sprawdzania funkcji, np. `GameDontCacheFiles`.
 - **`framework/graphics/...`**: Używa klas `Image`, `Texture`, `Painter` do operacji graficznych.
@@ -1250,10 +1250,10 @@ Implementacja `Minimap` i `MinimapBlock`, które razem tworzą system minimapy w
 ## Ogólny opis
 Plik nagłówkowy definiujący strukturę `Position` oraz powiązane z nią funkcje pomocnicze. Jest to fundamentalna struktura używana w całym projekcie do reprezentowania współrzędnych w trójwymiarowym świecie gry.
 ## Struktura `Position`
-## # Pola
+## Pola
 - `int x`, `int y`: Współrzędne na płaszczyźnie poziomej.
 - `short z`: Współrzędna piętra.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `Position(uint16 x, uint16 y, uint8 z)` | Konstruktor. |
@@ -1271,9 +1271,9 @@ Plik nagłówkowy definiujący strukturę `Position` oraz powiązane z nią funk
 | `operator==`, `operator!=`, `operator<` | Operatory porównania. |
 | `operator+`, `operator-` | Operatory arytmetyczne. |
 ## Struktura `PositionHasher`
-## # Opis
+## Opis
 Funktor używany do haszowania obiektów `Position`, co pozwala na używanie ich jako kluczy w kontenerach `std::unordered_map`.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`const.h`**: Definicje `Otc::Direction` i `Otc::MAX_Z`.
 - Plik ten jest dołączany w niemal każdym pliku, który operuje na logice świata gry.
 
@@ -1282,20 +1282,20 @@ Funktor używany do haszowania obiektów `Position`, co pozwala na używanie ich
 ## Ogólny opis
 Plik nagłówkowy definiujący kody operacyjne (opcodes) używane w protokole sieciowym między klientem a serwerem gry. Zawiera również definicje typów stworzeń i mapowanie trybów wiadomości.
 ## Namespace `Proto`
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`LoginServerOpts`**: Kody operacyjne używane podczas komunikacji z serwerem logowania.
 - **`ItemOpcode`**: Specjalne ID używane do identyfikacji stworzeń i tekstów w strumieniu danych o polach mapy.
 - **`GameServerOpcodes`**: Kody operacyjne dla pakietów wysyłanych z serwera do klienta. Lista jest długa i zawiera kody dla wszystkich akcji w grze, takich jak logowanie, ruch postaci, aktualizacje mapy, wiadomości, handel itp.
 - **`ClientOpcodes`**: Kody operacyjne dla pakietów wysyłanych z klienta do serwera.
 - **`CreatureType`**: Typy stworzeń (gracz, potwór, NPC).
 - **`CreaturesIdRange`**: Zakresy ID dla różnych typów stworzeń.
-## # Funkcje
+## Funkcje
 - **`buildMessageModesMap(int version)`**: Buduje mapę tłumaczącą wewnętrzne tryby wiadomości na kody protokołu dla danej wersji.
 - **`translateMessageModeFromServer(uint8 mode)`**: Konwertuje kod z serwera na `Otc::MessageMode`.
 - **`translateMessageModeToServer(Otc::MessageMode mode)`**: Konwertuje `Otc::MessageMode` na kod dla serwera.
 
 > NOTE: Lista opkodów zawiera zarówno standardowe kody z protokołu Tibii, jak i niestandardowe kody specyficzne dla OTClient (`OTClientV8 64-79`) i rozszerzone opkody (`GameServerExtendedOpcode`).
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`global.h`**: Podstawowe definicje.
 - Ten plik jest kluczowy dla `ProtocolGame`, który używa tych kodów do identyfikacji i parsowania pakietów sieciowych.
 
@@ -1304,14 +1304,14 @@ Plik nagłówkowy definiujący kody operacyjne (opcodes) używane w protokole si
 ## Ogólny opis
 Implementacja części klasy `ProtocolGame` odpowiedzialnej za zarządzanie połączeniem i podstawową obsługę zdarzeń sieciowych.
 ## Klasa `ProtocolGame`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `login(...)` | Inicjuje proces logowania, zapisując dane uwierzytelniające i dane świata, a następnie nawiązuje połączenie z serwerem. |
 | `onConnect()` | Metoda wywoływana po pomyślnym nawiązaniu połączenia. Włącza odpowiednie funkcje protokołu (np. sumy kontrolne, szyfrowanie, duże pakiety) w zależności od `GameFeature` i wysyła pierwszy pakiet logowania. |
 | `onRecv(const InputMessagePtr& inputMessage)` | Główna pętla odbioru danych. Wywoływana za każdym razem, gdy nadejdzie nowy pakiet. Weryfikuje rozmiar wiadomości (jeśli `GameMessageSizeCheck` jest aktywne), a następnie przekazuje pakiet do `parseMessage` w celu przetworzenia. Po przetworzeniu planuje odbiór kolejnego pakietu. |
 | `onError(const boost::system::error_code& error)` | Obsługuje błędy połączenia. Powiadamia `g_game` o błędzie i rozłącza klienta. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**: Ściśle współpracuje z `g_game`, informując go o stanie połączenia i przekazując przetworzone dane.
 - **`player.h`**, **`localplayer.h`**: Ustawia instancję `LocalPlayer` na początku połączenia.
 - **`framework/net/protocol.h`**: Dziedziczy z `Protocol` i wykorzystuje jego mechanizmy do obsługi połączenia TCP.
@@ -1321,23 +1321,23 @@ Implementacja części klasy `ProtocolGame` odpowiedzialnej za zarządzanie poł
 ## Ogólny opis
 Plik nagłówkowy dla klasy `ProtocolGame`. Definiuje interfejs protokołu sieciowego używanego do komunikacji z serwerem gry. Zawiera deklaracje funkcji do wysyłania pakietów oraz parsowania odpowiedzi z serwera.
 ## Klasa `ProtocolGame`
-## # Opis
+## Opis
 Dziedziczy po `Protocol`. Jest to centralny punkt obsługi komunikacji sieciowej w grze.
-## # Metody (Wysyłanie)
+## Metody (Wysyłanie)
 Plik deklaruje dużą liczbę metod `send...`, z których każda odpowiada za wysłanie konkretnego pakietu do serwera. Przykłady:
 - `sendLoginPacket(...)`: Wysyła pakiet logowania.
 - `sendWalkNorth()`: Wysyła żądanie ruchu na północ.
 - `sendMove(...)`: Wysyła żądanie przesunięcia przedmiotu.
 - `sendTalk(...)`: Wysyła wiadomość czatu.
 - `sendAttack(...)`: Wysyła żądanie ataku.
-## # Metody (Parsowanie)
+## Metody (Parsowanie)
 Deklaruje również metody `parse...`, które są wywoływane w `protocolgameparse.cpp` do przetwarzania pakietów przychodzących z serwera. Przykłady:
 - `parseMapDescription(...)`: Parsuje pełny opis mapy.
 - `parseCreatureHealth(...)`: Parsuje aktualizację życia stworzenia.
 - `parseTextMessage(...)`: Parsuje wiadomość tekstową.
-## # Metody (Pomocnicze)
+## Metody (Pomocnicze)
 - `getThing(...)`, `getItem(...)`, `getCreature(...)`, `getPosition(...)`: Funkcje pomocnicze do odczytywania złożonych typów danych ze strumienia `InputMessage`.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów (`Position`, `CreaturePtr`, etc.).
 - **`protocolcodes.h`**: Używa kodów operacyjnych zdefiniowanych w tym pliku.
 - **`framework/net/protocol.h`**: Klasa bazowa.
@@ -1347,7 +1347,7 @@ Deklaruje również metody `parse...`, które są wywoływane w `protocolgamepar
 ## Ogólny opis
 Implementacja `SpriteManager`, klasy odpowiedzialnej za zarządzanie plikami sprite'ów (`.spr`, `.cwm`). Plik zawiera logikę wczytywania, zapisywania, a także deszyfrowania i dekompresji danych sprite'ów.
 ## Klasa `SpriteManager`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `loadSpr(std::string file)` | Główna funkcja wczytująca. Sprawdza, czy istnieje plik `.cwm` (HD mod) lub `.spr` i wywołuje odpowiednią metodę wczytującą. |
@@ -1360,7 +1360,7 @@ Implementacja `SpriteManager`, klasy odpowiedzialnej za zarządzanie plikami spr
 | `loadCwmSpr(...)` | Wczytuje plik `.cwm`, który jest zbiorem skompresowanych danych PNG. Używa `PngUnpacker` do rozpakowania wszystkich sprite'ów do pamięci. |
 | `getSpriteImageCasual(int id)` | Pobiera obraz sprite'a z pliku `.spr`. Odczytuje adres sprite'a z tablicy offsetów, a następnie dekompresuje dane pikseli, które są zapisane w formacie RLE (run-length encoding) z przezroczystymi i kolorowymi pikselami. |
 | `getSpriteImageHd(int id)` | Pobiera obraz sprite'a z pamięci podręcznej wczytanej z pliku `.cwm`. Dekoduje dane PNG dla danego sprite'a. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**: Używa `g_game` do sprawdzania `GameFeature`, które wpływają na format pliku `.spr`.
 - **`framework/core/resourcemanager.h`**: Do operacji na plikach.
 - **`framework/graphics/image.h`**: Zwraca obiekty `ImagePtr`.
@@ -1372,7 +1372,7 @@ Implementacja `SpriteManager`, klasy odpowiedzialnej za zarządzanie plikami spr
 ## Ogólny opis
 Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za **wysyłanie** pakietów do serwera gry. Każda metoda odpowiada za stworzenie i wysłanie konkretnego komunikatu zgodnie z protokołem sieciowym.
 ## Klasa `ProtocolGame`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `send(const OutputMessagePtr& outputMessage, ...)` | Wysyła przygotowany pakiet, sprawdzając uprzednio zabezpieczenia anty-botowe (`g_game.checkBotProtection()`). |
@@ -1386,13 +1386,13 @@ Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za *
 | `sendAttack(...)`, `sendFollow(...)` | Wysyłają żądania ataku lub śledzenia stworzenia, zawierając sekwencyjny numer identyfikujący akcję. |
 | `sendChangeOutfit(...)` | Wysyła nowy ubiór gracza, uwzględniając wszystkie jego elementy (kolory, dodatki, wierzchowiec, etc.) w zależności od wspieranych przez serwer funkcji. |
 | `addPosition(const OutputMessagePtr& msg, ...)` | Pomocnicza metoda do dodawania współrzędnych `Position` do pakietu. |
-## # Logika
+## Logika
 Większość funkcji w tym pliku ma prostą strukturę:
 1.  Stwórz nowy `OutputMessage`.
 2.  Dodaj kod operacyjny (opcode) za pomocą `msg->addU8(...)`.
 3.  Dodaj kolejne dane (ID, pozycje, stringi) zgodnie ze specyfikacją protokołu.
 4.  Wyślij pakiet za pomocą `send(msg)`.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera (`GameFeature`), które determinują format wysyłanych pakietów.
 - **`localplayer.h`**: Używa pozycji lokalnego gracza w niektórych pakietach (np. `sendTalk`).
 - **`framework/util/crypt.h`**: Używa `g_crypt` do szyfrowania RSA.
@@ -1403,12 +1403,12 @@ Większość funkcji w tym pliku ma prostą strukturę:
 ## Ogólny opis
 Plik nagłówkowy dla klasy `LocalPlayer`, która reprezentuje postać sterowaną przez gracza. Jest to specjalizacja klasy `Player`.
 ## Klasa `LocalPlayer`
-## # Opis
+## Opis
 Dziedziczy po `Player`. Dodaje funkcjonalności specyficzne dla gracza, który jest kontrolowany przez klienta, takie jak:
 -   **Pre-walking**: Przewidywanie ruchu przed otrzymaniem odpowiedzi z serwera.
 -   **Auto-walking**: Automatyczne poruszanie się do celu.
 -   **Zarządzanie stanem**: Przechowuje szczegółowe statystyki (życie, mana, umiejętności, etc.).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `lockWalk(int millis)` | Blokuje możliwość chodzenia na określony czas. |
@@ -1420,7 +1420,7 @@ Dziedziczy po `Player`. Dodaje funkcjonalności specyficzne dla gracza, który j
 | `setHealth(...)`, `setMana(...)`, etc. | Metody do ustawiania statystyk gracza. |
 | `getHealth()`, `getMana()`, etc. | Metody do pobierania statystyk. |
 | `hasSight(const Position& pos)` | Sprawdza, czy pozycja jest w zasięgu wzroku. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`player.h`**: Klasa bazowa.
 - **`walkmatrix.h`**: Używa `WalkMatrix` do śledzenia predykcji ruchu.
 
@@ -1429,10 +1429,10 @@ Dziedziczy po `Player`. Dodaje funkcjonalności specyficzne dla gracza, który j
 ## Ogólny opis
 Implementacja `Town` i `TownManager`, które służą do zarządzania danymi o miastach w grze.
 ## Klasa `Town`
-## # Metody
+## Metody
 - **`Town(uint32 tid, ...)`**: Konstruktor, który inicjalizuje miasto z podanym ID, nazwą i pozycją (zwykle świątyni).
 ## Klasa `TownManager`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `addTown(const TownPtr &town)` | Dodaje nowe miasto do listy, jeśli jeszcze nie istnieje. |
@@ -1441,9 +1441,9 @@ Implementacja `Town` i `TownManager`, które służą do zarządzania danymi o m
 | `getTownByName(std::string name)` | Zwraca miasto po jego nazwie. |
 | `findTown(uint32 townId)` | Wewnętrzna metoda do wyszukiwania iteratora do miasta. |
 | `sort()` | Sortuje listę miast alfabetycznie według nazwy. |
-## # Zmienne globalne
+## Zmienne globalne
 - **`TownManager g_towns`**: Globalna instancja managera miast.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`mapio.cpp`**: Menedżer `g_towns` jest wypełniany danymi podczas wczytywania mapy w formacie OTBM.
 
 ---
@@ -1451,9 +1451,9 @@ Implementacja `Town` i `TownManager`, które służą do zarządzania danymi o m
 ## Ogólny opis
 Plik nagłówkowy dla `SpriteManager`, singletonu odpowiedzialnego za zarządzanie plikami sprite'ów (`.spr`).
 ## Klasa `SpriteManager`
-## # Opis
+## Opis
 Centralny punkt dostępu do danych graficznych sprite'ów. Odpowiada za wczytywanie, deszyfrowanie, dekompresję i dostarczanie obrazów poszczególnych sprite'ów.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `loadSpr(std::string file)` | Wczytuje plik sprite'ów (automatycznie wykrywa format: `.spr`, `.cwm`, OTV8). |
@@ -1466,9 +1466,9 @@ Centralny punkt dostępu do danych graficznych sprite'ów. Odpowiada za wczytywa
 | `spriteSize()` | Zwraca rozmiar boku pojedynczego sprite'a (np. 32 lub 64 piksele). |
 | `getOffsetFactor()` | Zwraca współczynnik skalowania dla przemieszczeń (displacement) w zależności od `spriteSize`. |
 | `isHdMod()` | Zwraca `true`, jeśli załadowano modyfikację HD (`.cwm`). |
-## # Zmienne globalne
+## Zmienne globalne
 - **`SpriteManager g_sprites`**: Globalna instancja managera sprite'ów.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/core/declarations.h`**: Podstawowe deklaracje.
 - **`framework/graphics/declarations.h`**: Deklaracje typów graficznych.
 - Niemal każda klasa renderująca obiekty w grze (np. `ThingType`, `Item`, `Creature`) zależy od `SpriteManager`.
@@ -1478,8 +1478,8 @@ Centralny punkt dostępu do danych graficznych sprite'ów. Odpowiada za wczytywa
 ## Ogólny opis
 Implementacja klasy `Tile`, która reprezentuje pojedyncze pole na mapie gry. Plik zawiera logikę rysowania pola i wszystkich znajdujących się na nim obiektów, zarządzania stosem obiektów oraz dostarczania informacji o właściwościach pola.
 ## Klasa `Tile`
-## # Metody
-## # # Rysowanie
+## Metody
+## Rysowanie
 | Nazwa | Opis |
 | --- | --- |
 | `drawGround(...)` | Rysuje podłoże i obiekty na najniższej warstwie. Oblicza `m_drawElevation` (przesunięcie w pionie dla obiektów o wysokości > 1). |
@@ -1488,7 +1488,7 @@ Implementacja klasy `Tile`, która reprezentuje pojedyncze pole na mapie gry. Pl
 | `drawTop(...)` | Rysuje przedmioty na wierzchu, efekty oraz ponownie stworzenia, aby obsłużyć przypadki nakładania się. |
 | `drawTexts(...)` | Rysuje tekst przypisany do pola (np. timer). |
 | `drawWidget(...)` | Rysuje przypisany do pola widżet. |
-## # # Zarządzanie obiektami
+## Zarządzanie obiektami
 | Nazwa | Opis |
 | --- | --- |
 | `addThing(...)` | Dodaje obiekt (`Thing`) na stos w odpowiedniej pozycji, uwzględniając jego priorytet (ziemia, przedmioty, stworzenia). |
@@ -1497,14 +1497,14 @@ Implementacja klasy `Tile`, która reprezentuje pojedyncze pole na mapie gry. Pl
 | `getThing(...)` | Zwraca obiekt z danej pozycji na stosie. |
 | `getTopThing()`, `getTopCreature()`, etc. | Zwracają "najważniejszy" obiekt danego typu na polu, uwzględniając logikę gry (np. na co patrzy gracz, czego używa). |
 | `getItems()`, `getCreatures()` | Zwracają listy wszystkich przedmiotów lub stworzeń na polu. |
-## # # Właściwości
+## Właściwości
 | Nazwa | Opis |
 | --- | --- |
 | `isWalkable(...)` | Sprawdza, czy po polu można chodzić (czy nie ma blokujących przedmiotów lub stworzeń). |
 | `isPathable()` | Sprawdza, czy algorytm wyszukiwania ścieżki może używać tego pola. |
 | `isFullGround()` | Sprawdza, czy podłoże całkowicie zakrywa pole pod nim. |
 | `getGroundSpeed()` | Zwraca prędkość poruszania się po tym polu. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**: Używa `g_map` do pobierania sąsiednich pól (np. przy korekcji zwłok).
 - **`game.h`**: Dostęp do `g_game` w celu sprawdzania `GameFeature`.
 - **`thing.h`**, **`item.h`**, **`creature.h`**: Zarządza tymi obiektami.
@@ -1518,9 +1518,9 @@ Plik nagłówkowy dla klasy `StaticText`, która reprezentuje tekst pojawiający
 -   **`texts`**: Wektor par `std::string`, gdzie pierwsza to treść, a druga to kolor w formacie hex.
 -   **`time`**: Czas (w tickach), po którym wiadomość powinna zniknąć.
 ## Klasa `StaticText`
-## # Opis
+## Opis
 Dziedziczy po `Thing`. Zarządza kolejką wiadomości, które są wyświetlane jedna po drugiej. Jest używana do mowy postaci, potworów, a także do niestandardowych tekstów na mapie.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawText(...)` | Rysuje aktualnie wyświetlaną wiadomość. |
@@ -1530,7 +1530,7 @@ Dziedziczy po `Thing`. Zarządza kolejką wiadomości, które są wyświetlane j
 | `addMessage(...)` / `addColoredMessage(...)` | Dodaje nową wiadomość do kolejki. Oblicza czas jej wyświetlania na podstawie długości. |
 | `setText(...)` / `setFont(...)` | Ustawia surowy tekst i czcionkę (głównie dla niestandardowych tekstów). |
 | `isYell()` | Zwraca `true`, jeśli tryb wiadomości to krzyk. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thing.h`**: Klasa bazowa.
 - **`framework/graphics/cachedtext.h`**: Używa `CachedText` do efektywnego renderowania tekstu.
 - **`framework/core/timer.h`**: Używane do zarządzania czasem życia wiadomości.
@@ -1540,18 +1540,18 @@ Dziedziczy po `Thing`. Zarządza kolejką wiadomości, które są wyświetlane j
 ## Ogólny opis
 Implementacja `UIPositionAnchor` i `UIMapAnchorLayout`, które rozszerzają standardowy system kotwic (`UIAnchorLayout`) o możliwość przypinania widżetów do konkretnych pozycji na minimapie.
 ## Klasa `UIPositionAnchor`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `getHookedPoint(...)` | Kluczowa metoda, która oblicza współrzędną (X lub Y) na ekranie na podstawie `m_hookedPosition`. Pobiera `UIMinimap`, prosi go o prostokąt (`Rect`) odpowiadający danemu polu na mapie (`getTileRect`), a następnie zwraca odpowiednią krawędź tego prostokąta (np. `left`, `top`, `horizontalCenter`). |
 ## Klasa `UIMapAnchorLayout`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `addPositionAnchor(...)` | Tworzy nowy obiekt `UIPositionAnchor` i dodaje go do grupy kotwic dla danego widżetu. |
 | `centerInPosition(...)` | Funkcja pomocnicza, która dodaje dwie kotwice (`HorizontalCenter` i `VerticalCenter`), aby wyśrodkować widżet na danym polu mapy. |
 | `fillPosition(...)` | Funkcja pomocnicza, która dodaje cztery kotwice (`Left`, `Right`, `Top`, `Bottom`), aby widżet wypełnił obszar danego pola na mapie. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`uiminimap.h`**: `UIPositionAnchor` rzutuje widżet-rodzica na `UIMinimap`, aby uzyskać dostęp do metody `getTileRect`.
 - **`framework/ui/uiwidget.h`**: Współpracuje z widżetami.
 - **`framework/ui/uianchorlayout.h`**: Rozszerza standardowy layout kotwic.
@@ -1561,9 +1561,9 @@ Implementacja `UIPositionAnchor` i `UIMapAnchorLayout`, które rozszerzają stan
 ## Ogólny opis
 Plik nagłówkowy dla `Thing`, abstrakcyjnej klasy bazowej dla wszystkich obiektów, które mogą pojawić się na mapie w grze.
 ## Klasa `Thing`
-## # Opis
+## Opis
 Dziedziczy po `LuaObject`. Definiuje wspólny interfejs dla przedmiotów, stworzeń, efektów, pocisków i tekstów. Każdy obiekt `Thing` ma pozycję i należy do określonego typu (`ThingType`).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Wirtualna metoda do rysowania obiektu. |
@@ -1576,7 +1576,7 @@ Dziedziczy po `LuaObject`. Definiuje wspólny interfejs dla przedmiotów, stworz
 | `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla tego obiektu. |
 | `getSize()`, `getWidth()`, `getHeight()`, etc. | Metody-skróty do właściwości z `ThingType`. |
 | `onPositionChange(...)`, `onAppear()`, `onDisappear()` | Wirtualne metody wywoływane w kluczowych momentach cyklu życia obiektu. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów, np. `TilePtr`.
 - **`thingtype.h`**: Każdy `Thing` ma swój `ThingType`.
 - **`framework/luaengine/luaobject.h`**: Klasa bazowa.
@@ -1586,9 +1586,9 @@ Dziedziczy po `LuaObject`. Definiuje wspólny interfejs dla przedmiotów, stworz
 ## Ogólny opis
 Plik nagłówkowy dla `UIItem`, widżetu interfejsu użytkownika przeznaczonego do wyświetlania przedmiotów (`Item`).
 ## Klasa `UIItem`
-## # Opis
+## Opis
 Dziedziczy po `UIWidget`. Służy do renderowania przedmiotów w UI, np. w ekwipunku, kontenerach, oknach handlu.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(...)` | Rysuje tło, obraz, a następnie sam przedmiot (`m_item->draw(...)`), liczbę sztuk (jeśli dotyczy) i ramkę. |
@@ -1599,7 +1599,7 @@ Dziedziczy po `UIWidget`. Służy do renderowania przedmiotów w UI, np. w ekwip
 | `setShowCount(bool value)` | Włącza/wyłącza wyświetlanie liczby sztuk. |
 | `setItemShader(const std::string& str)` | Ustawia niestandardowy shader dla przedmiotu. |
 | `getItem()` | Zwraca obiekt `Item` powiązany z widżetem. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 - **`item.h`**: Przechowuje i rysuje obiekt `Item`.
@@ -1609,7 +1609,7 @@ Dziedziczy po `UIWidget`. Służy do renderowania przedmiotów w UI, np. w ekwip
 ## Ogólny opis
 Implementacja klasy bazowej `Thing`. Zawiera podstawową logikę wspólną dla wszystkich obiektów na mapie.
 ## Klasa `Thing`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setPosition(const Position& position)` | Aktualizuje pozycję obiektu i wywołuje wirtualną metodę `onPositionChange`. |
@@ -1619,7 +1619,7 @@ Implementacja klasy bazowej `Thing`. Zawiera podstawową logikę wspólną dla w
 | `getStackPos()` | Zwraca pozycję na stosie: albo wewnątrz kontenera, albo na polu mapy. |
 | `getThingType()` / `rawGetThingType()` | Zwracają domyślny, "pusty" `ThingType`. Muszą być nadpisane przez klasy pochodne. |
 | `updatedMarkedColor()` | Aktualizuje kolor i przezroczystość znacznika (jeśli jest ustawiony), tworząc efekt pulsowania. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`spritemanager.h`**, **`thingtypemanager.h`**: Podstawowe zależności.
 - **`map.h`**: Do pobierania `Tile`.
 - **`game.h`**: Do pobierania kontenerów.
@@ -1629,7 +1629,7 @@ Implementacja klasy bazowej `Thing`. Zawiera podstawową logikę wspólną dla w
 ## Ogólny opis
 Implementacja `UIMap`, widżetu interfejsu użytkownika, który renderuje główny widok mapy gry.
 ## Klasa `UIMap`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(Fw::DrawPane drawPane)` | Główna funkcja rysująca. Jest wywoływana trzykrotnie dla różnych "warstw" (`DrawPane`): <br> 1. `MapBackgroundPane`: Rysuje tło mapy (`m_mapView->drawMapBackground`). <br> 2. `MapForegroundPane`: Rysuje pierwszy plan (`m_mapView->drawMapForeground`). <br> 3. `ForegroundPane`: Rysuje obramowanie wokół mapy. |
@@ -1641,7 +1641,7 @@ Implementacja `UIMap`, widżetu interfejsu użytkownika, który renderuje głów
 | `getTile(const Point& mousePos)` | Zwraca pole (`Tile`) pod kursorem, przeszukując widoczne piętra od góry do dołu w poszukiwaniu klikalnego obiektu. |
 | `updateVisibleDimension()` | Przelicza i ustawia widoczny wymiar w `m_mapView` na podstawie aktualnego zoomu i proporcji. |
 | `updateMapSize()` | Dopasowuje rozmiar i pozycję prostokąta rysowania mapy (`m_mapRect`) do rozmiaru widżetu, zachowując proporcje, jeśli to wymagane. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**, **`map.h`**: Dostęp do globalnych obiektów gry i mapy.
 - **`mapview.h`**: `UIMap` jest "opakowaniem" dla `MapView`, przekazując mu zadania renderowania.
 - **`framework/otml/otml.h`**: Parsuje właściwości z plików OTML, takie jak `multifloor` czy `animated`.
@@ -1651,7 +1651,7 @@ Implementacja `UIMap`, widżetu interfejsu użytkownika, który renderuje głów
 ## Ogólny opis
 Implementacja `StaticText`, klasy odpowiedzialnej za wyświetlanie mowy postaci i innych tekstów na mapie.
 ## Klasa `StaticText`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawText(...)` | Rysuje tekst na ekranie, centrując go i dopasowując do prostokąta nadrzędnego. |
@@ -1659,9 +1659,9 @@ Implementacja `StaticText`, klasy odpowiedzialnej za wyświetlanie mowy postaci 
 | `update()` | Metoda wywoływana po upłynięciu czasu wyświetlania wiadomości. Usuwa najstarszą wiadomość z kolejki. Jeśli kolejka jest pusta, planuje usunięcie całego obiektu `StaticText` z mapy. |
 | `scheduleUpdate()` | Planuje wywołanie `update()` po czasie równym czasowi życia najstarszej wiadomości w kolejce. |
 | `compose()` | Tworzy sformatowany tekst do wyświetlenia. Łączy wszystkie wiadomości z kolejki, dodaje nagłówki (np. "Player says:"), ustawia kolory i zawija tekst, jeśli jest zbyt długi. |
-## # Logika działania
+## Logika działania
 `StaticText` działa jak kolejka FIFO dla wiadomości. Każda nowa wiadomość jest dodawana na koniec. `compose` tworzy jeden ciągły, sformatowany tekst ze wszystkich wiadomości w kolejce, który jest następnie rysowany przez `drawText`. `scheduleUpdate` i `update` zapewniają, że wiadomości znikają po określonym czasie, a cały obiekt jest usuwany, gdy nie ma już nic do wyświetlenia.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`map.h`**: Używa `g_map` do usunięcia obiektu po zakończeniu.
 - **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania aktualizacji.
 - **`framework/graphics/fontmanager.h`**: Używa `g_fonts` do zarządzania czcionkami.
@@ -1671,7 +1671,7 @@ Implementacja `StaticText`, klasy odpowiedzialnej za wyświetlanie mowy postaci 
 ## Ogólny opis
 Implementacja `UIItem`, widżetu do wyświetlania przedmiotów w interfejsie użytkownika.
 ## Klasa `UIItem`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Renderuje tło, obraz, a następnie sam przedmiot (`m_item->draw(...)`), używając prostokąta `getPaddingRect()`. Jeśli `m_showCount` jest włączone, rysuje również liczbę przedmiotów w prawym dolnym rogu. |
@@ -1681,7 +1681,7 @@ Implementacja `UIItem`, widżetu do wyświetlania przedmiotów w interfejsie uż
 | `setItemShader(const std::string& str)` | Ustawia niestandardowy shader dla renderowanego przedmiotu. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `item-id`, `item-count`, `virtual`. |
 | `cacheCountText()` | Formatuje tekst licznika. Dla liczb >= 1000 używa skrótu "k" (np. "1.2k"), jeśli funkcja `GameCountU16` jest aktywna. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`spritemanager.h`**: Używany przez `Item` do pobierania sprite'ów.
 - **`game.h`**: Sprawdza `GameFeature`, np. `GameCountU16`.
 - **`framework/otml/otml.h`**: Do parsowania stylów.
@@ -1694,9 +1694,9 @@ Plik nagłówkowy dla klasy `ThingsType` (błąd w nazwie, prawdopodobnie powinn
 
 > NOTE: Nazwa klasy `ThingsType` jest myląca. W rzeczywistości jest to menedżer, który przechowuje i zarządza obiektami `ThingType`. W innych plikach jest on nazywany `ThingTypeManager`.
 ## Klasa `ThingsType`
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`Categories`**: Kategorie obiektów (Przedmiot, Stworzenie, Efekt, Pocisk).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `load(const std::string& file)` | Wczytuje i parsuje plik `.dat`. |
@@ -1707,9 +1707,9 @@ Plik nagłówkowy dla klasy `ThingsType` (błąd w nazwie, prawdopodobnie powinn
 | `getSignature()` | Zwraca sygnaturę wczytanego pliku `.dat`. |
 | `isLoaded()` | Zwraca `true`, jeśli plik `.dat` jest załadowany. |
 | `isValidItemId(int id)` | Sprawdza, czy ID przedmiotu jest w prawidłowym zakresie. |
-## # Zmienne globalne
+## Zmienne globalne
 - **`ThingsType g_thingsType`**: Globalna instancja managera (później w kodzie używane jest `g_things`).
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thingtype.h`**: Zarządza obiektami `ThingType`.
 - **`framework/core/declarations.h`**: Podstawowe deklaracje.
 
@@ -1718,9 +1718,9 @@ Plik nagłówkowy dla klasy `ThingsType` (błąd w nazwie, prawdopodobnie powinn
 ## Ogólny opis
 Plik nagłówkowy dla `UIGraph`, widżetu służącego do rysowania prostych wykresów liniowych.
 ## Klasa `UIGraph`
-## # Opis
+## Opis
 Dziedziczy po `UIWidget`. Przechowuje kolejkę wartości i renderuje je jako wykres liniowy.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(...)` | Rysuje wykres. Oblicza skalę, przygotowuje punkty i rysuje linię za pomocą `g_drawQueue->addLine`. |
@@ -1730,7 +1730,7 @@ Dziedziczy po `UIWidget`. Przechowuje kolejkę wartości i renderuje je jako wyk
 | `setCapacity(int capacity)` | Ustawia maksymalną liczbę wartości przechowywanych przez wykres. |
 | `setTitle(const std::string& title)` | Ustawia tytuł wyświetlany nad wykresem. |
 | `setShowLabels(bool value)` | Włącza/wyłącza wyświetlanie etykiet (wartość min, max, aktualna). |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
 ---
@@ -1738,9 +1738,9 @@ Dziedziczy po `UIWidget`. Przechowuje kolejkę wartości i renderuje je jako wyk
 ## Ogólny opis
 Plik nagłówkowy dla `UICreature`, widżetu interfejsu użytkownika do wyświetlania stworzeń.
 ## Klasa `UICreature`
-## # Opis
+## Opis
 Dziedziczy po `UIWidget`. Umożliwia renderowanie postaci (jej ubioru) w elementach UI, takich jak okno ekwipunku, battle list, czy okno wyboru stroju.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(...)` | Rysuje postać za pomocą `m_creature->drawOutfit(...)`. Obsługuje automatyczne obracanie postaci, jeśli jest włączone. |
@@ -1753,7 +1753,7 @@ Dziedziczy po `UIWidget`. Umożliwia renderowanie postaci (jej ubioru) w element
 | `setAnimate(bool value)` | Włącza/wyłącza animację postaci. |
 | `setCenter(bool value)` | Włącza/wyłącza centrowanie outfitu. |
 | `setOldScaling(bool value)` | Używa starego algorytmu skalowania. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 - **`creature.h`**: Przechowuje i rysuje obiekt `Creature`.
@@ -1763,26 +1763,26 @@ Dziedziczy po `UIWidget`. Umożliwia renderowanie postaci (jej ubioru) w element
 ## Ogólny opis
 Implementacja klasy `ThingType`, która reprezentuje szablon dla wszystkich obiektów w grze. Plik zawiera logikę serializacji, deserializacji, a przede wszystkim renderowania obiektów danego typu.
 ## Klasa `ThingType`
-## # Metody
-## # # Serializacja / Deserializacja
+## Metody
+## Serializacja / Deserializacja
 | Nazwa | Opis |
 | --- | --- |
 | `serialize(...)` | Zapisuje atrybuty `ThingType` do strumienia binarnego, zgodnie z formatem plików `.dat`. |
 | `unserialize(...)` | Wczytuje atrybuty `ThingType` ze strumienia. Zawiera złożoną logikę do obsługi różnic w formatach `.dat` między różnymi wersjami klienta Tibii, mapując stare atrybuty na nowe. |
 | `unserializeOtml(...)` | Wczytuje dodatkowe, niestandardowe atrybuty z plików OTML, takie jak przezroczystość czy niestandardowe obrazy. |
-## # # Rysowanie
+## Rysowanie
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Główna metoda rysująca. Pobiera teksturę dla danej fazy animacji, oblicza, który jej fragment (`Rect`) odpowiada danemu wzorowi (pattern) i warstwie, a następnie dodaje go do kolejki rysowania. |
 | `drawOutfit(...)` | Specjalna wersja do rysowania ubiorów, która zwraca parametry potrzebne do renderowania z dynamicznym kolorowaniem przez `DrawQueueItemOutfit`. |
 | `drawWithShader(...)` | Wersja rysująca z użyciem niestandardowego shadera. |
-## # # Zarządzanie teksturami
+## Zarządzanie teksturami
 | Nazwa | Opis |
 | --- | --- |
 | `getTexture(int animationPhase)` | Zwraca teksturę dla danej fazy animacji. Jeśli tekstura nie została jeszcze utworzona, generuje ją "w locie": <br> 1. Tworzy duży obraz (atlas). <br> 2. Składa go z pojedynczych sprite'ów pobranych z `g_sprites`. <br> 3. Tworzy z niego obiekt `Texture` i przechowuje go w pamięci podręcznej. <br> 4. Zapisuje również prostokąty (`Rect`) i przesunięcia dla każdej klatki na tej teksturze. |
 | `unload()` | Zwalnia wygenerowane tekstury z pamięci, aby oszczędzać zasoby. Są one ponownie generowane przy następnym użyciu. |
 | `getBestTextureDimension(...)` | Oblicza optymalny rozmiar tekstury-atlasu, aby pomieścić wszystkie klatki animacji. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`spritemanager.h`**: Używa `g_sprites` do pobierania obrazów pojedynczych sprite'ów.
 - **`game.h`**: Sprawdza `GameFeature`, co wpływa na logikę deserializacji i animacji.
 - **`lightview.h`**: Przekazuje `LightView` do dodawania światła, jeśli obiekt je emituje.
@@ -1793,9 +1793,9 @@ Implementacja klasy `ThingType`, która reprezentuje szablon dla wszystkich obie
 ## Ogólny opis
 Plik nagłówkowy definiujący klasy `Town` i `TownManager` do zarządzania miastami w grze.
 ## Klasa `Town`
-## # Opis
+## Opis
 Prosta klasa przechowująca dane o pojedynczym mieście: ID, nazwę i pozycję (zazwyczaj świątyni).
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setId(uint32 tid)` | Ustawia ID miasta. |
@@ -1803,9 +1803,9 @@ Prosta klasa przechowująca dane o pojedynczym mieście: ID, nazwę i pozycję (
 | `setPos(const Position& pos)` | Ustawia pozycję miasta. |
 | `getId()` / `getName()` / `getPos()` | Zwracają odpowiednie właściwości. |
 ## Klasa `TownManager`
-## # Opis
+## Opis
 Singleton (`g_towns`) zarządzający kolekcją wszystkich miast.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `addTown(const TownPtr& town)` | Dodaje miasto do listy. |
@@ -1815,9 +1815,9 @@ Singleton (`g_towns`) zarządzający kolekcją wszystkich miast.
 | `sort()` | Sortuje listę miast alfabetycznie. |
 | `getTowns()` | Zwraca listę wszystkich miast. |
 | `clear()` | Czyści listę miast. |
-## # Zmienne globalne
+## Zmienne globalne
 - **`TownManager g_towns`**: Globalna instancja managera miast.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów, np. `TownPtr`, `Position`.
 
 ---
@@ -1825,16 +1825,16 @@ Singleton (`g_towns`) zarządzający kolekcją wszystkich miast.
 ## Ogólny opis
 Plik nagłówkowy dla klasy `ThingType`, która jest szablonem dla wszystkich obiektów w grze. Definiuje ona ich wspólne, niezmienne właściwości.
 ## Klasa `ThingType`
-## # Opis
+## Opis
 Dziedziczy po `LuaObject`. Przechowuje dane wczytane z plików `.dat` i `.otml`, takie jak wymiary, wzory, animacje, atrybuty (np. czy jest blokujący, czy świeci). Wszystkie instancje `Thing` o tym samym ID współdzielą jeden obiekt `ThingType`.
-## # Typy wyliczeniowe
+## Typy wyliczeniowe
 - **`ThingCategory`**: Kategorie obiektów (przedmiot, stworzenie, etc.).
 - **`ThingAttr`**: Atrybuty obiektu (np. `ThingAttrGround`, `ThingAttrNotWalkable`).
-## # Struktury
+## Struktury
 - **`MarketData`**: Dane rynkowe przedmiotu.
 - **`Light`**: Parametry emitowanego światła.
 - **`DrawOutfitParams`**: Parametry potrzebne do narysowania ubioru.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `unserialize(...)` | Wczytuje dane z binarnego formatu `.dat`. |
@@ -1848,7 +1848,7 @@ Dziedziczy po `LuaObject`. Przechowuje dane wczytane z plików `.dat` i `.otml`,
 | `getAnimator()` | Zwraca animator, jeśli jest dostępny. |
 | `hasAttr(ThingAttr attr)` | Sprawdza, czy obiekt posiada dany atrybut. |
 | `isGround()`, `isNotWalkable()`, etc. | Funkcje pomocnicze sprawdzające konkretne atrybuty. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`animator.h`**: Może posiadać `Animator` do zarządzania animacjami.
 - **`framework/graphics/...`**: Używa `Texture`, `DrawQueue` do renderowania.
 - **`framework/luaengine/luaobject.h`**: Klasa bazowa.
@@ -1858,14 +1858,14 @@ Dziedziczy po `LuaObject`. Przechowuje dane wczytane z plików `.dat` i `.otml`,
 ## Ogólny opis
 Implementacja `UICreature`, widżetu do wyświetlania stworzeń w interfejsie użytkownika.
 ## Klasa `UICreature`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Jeśli przypisano stworzenie (`m_creature`), wywołuje jego metodę `drawOutfit`, aby narysować jego wygląd w prostokącie widżetu. Obsługuje automatyczne obracanie postaci, jeśli opcja `m_autoRotating` jest włączona. |
 | `setOutfit(const Outfit& outfit)` | Ustawia ubiór do wyświetlenia. Jeśli widżet nie ma jeszcze przypisanego obiektu `Creature`, tworzy nową, pustą instancję. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `outfit-id`, `outfit-head`, `outfit-body` itp., i na ich podstawie konfiguruje wyświetlany ubiór. |
 | `setCenter(bool value)` | Ustawia flagę centrowania w obiekcie `Outfit`, co wpływa na sposób jego rysowania. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`spritemanager.h`**: Używane przez `Creature::drawOutfit`.
 - **`framework/otml/otml.h`**: Do parsowania stylów.
 - **`framework/graphics/drawqueue.h`**: Do dodawania operacji rysowania.
@@ -1875,9 +1875,9 @@ Implementacja `UICreature`, widżetu do wyświetlania stworzeń w interfejsie u�
 ## Ogólny opis
 Plik nagłówkowy dla `ThingTypeManager`, singletonu zarządzającego wszystkimi typami obiektów (`ThingType`) i przedmiotów (`ItemType`).
 ## Klasa `ThingTypeManager`
-## # Opis
+## Opis
 Centralne repozytorium dla definicji wszystkich obiektów w grze. Odpowiada za wczytywanie plików `.dat`, `.otb` i `.xml`, które zawierają te definicje, oraz za dostarczanie ich na żądanie.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` / `terminate()` | Inicjalizacja i zamykanie managera. |
@@ -1889,9 +1889,9 @@ Centralne repozytorium dla definicji wszystkich obiektów w grze. Odpowiada za w
 | `findItemTypeByName(name)` | Wyszukuje `ItemType` po nazwie. |
 | `isDatLoaded()`, `isOtbLoaded()` | Sprawdzają, czy odpowiednie pliki zostały załadowane. |
 | `getDatSignature()` | Zwraca sygnaturę pliku `.dat`. |
-## # Zmienne globalne
+## Zmienne globalne
 - **`ThingTypeManager g_things`**: Globalna instancja managera.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`thingtype.h`**, **`itemtype.h`**: Zarządza obiektami tych klas.
 - Jest to jedna z najbardziej fundamentalnych klas w kliencie, używana przez niemal każdy moduł, który ma do czynienia z obiektami w grze.
 
@@ -1900,14 +1900,14 @@ Centralne repozytorium dla definicji wszystkich obiektów w grze. Odpowiada za w
 ## Ogólny opis
 Implementacja `UIGraph`, widżetu do rysowania wykresów liniowych.
 ## Klasa `UIGraph`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(Fw::DrawPane drawPane)` | Rysuje wykres. Oblicza minimalną i maksymalną wartość w widocznym zakresie, aby przeskalować wykres do wysokości widżetu. Następnie tworzy listę punktów i rysuje między nimi linie za pomocą `g_drawQueue->addLine`. Rysuje również tytuł i etykiety (min, max, aktualna wartość), jeśli są włączone. |
 | `clear()` | Czyści wszystkie dane z wykresu. |
 | `addValue(int value, ...)` | Dodaje nową wartość do kolejki `m_values`. Jeśli kolejka przekroczy pojemność (`m_capacity`), najstarsza wartość jest usuwana. Opcjonalnie ignoruje małe, powtarzające się wartości, aby uniknąć "szumu" na wykresie. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `line-width`, `capacity`, `title`. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/graphics/drawqueue.h`**: Do rysowania linii i tekstu.
 - **`framework/otml/otml.h`**: Do parsowania stylów.
 
@@ -1916,9 +1916,9 @@ Implementacja `UIGraph`, widżetu do rysowania wykresów liniowych.
 ## Ogólny opis
 Plik nagłówkowy dla `UIMap`, widżetu UI, który jest odpowiedzialny za wyświetlanie mapy gry.
 ## Klasa `UIMap`
-## # Opis
+## Opis
 Dziedziczy po `UIWidget`. Działa jako "okno" na świat gry, wykorzystując `MapView` do faktycznego renderowania. Umożliwia interakcję z mapą, taką jak przesuwanie, przybliżanie i pobieranie informacji o tym, co znajduje się pod kursorem.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(...)` | Rysuje mapę w trzech przejściach (tło, pierwszy plan, interfejs). |
@@ -1930,7 +1930,7 @@ Dziedziczy po `UIWidget`. Działa jako "okno" na świat gry, wykorzystując `Map
 | `getTile(const Point& mousePos)` | Zwraca `Tile` pod kursorem. |
 | `setKeepAspectRatio(bool enable)` | Włącza/wyłącza zachowanie stałych proporcji mapy. |
 | `setVisibleDimension(...)` | Ustawia rozmiar widocznego obszaru mapy w polach. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`mapview.h`**: Używa `MapView` do renderowania.
 - **`tile.h`**: Metoda `getTile` zwraca obiekt `Tile`.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
@@ -1940,7 +1940,7 @@ Dziedziczy po `UIWidget`. Działa jako "okno" na świat gry, wykorzystując `Map
 ## Ogólny opis
 Implementacja `UIMinimap`, widżetu interfejsu użytkownika do wyświetlania minimapy.
 ## Klasa `UIMinimap`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Wywołuje `g_minimap.draw`, przekazując prostokąt widżetu, pozycję kamery i skalę, aby narysować odpowiedni fragment minimapy. |
@@ -1950,7 +1950,7 @@ Implementacja `UIMinimap`, widżetu interfejsu użytkownika do wyświetlania min
 | `getTilePoint(...)` / `getTilePosition(...)` | Konwertują pozycję na mapie na współrzędne na widżecie i odwrotnie. |
 | `anchorPosition(...)` / `fillPosition(...)` / `centerInPosition(...)` | Metody do przypinania innych widżetów do konkretnych pozycji na minimapie za pomocą `UIMapAnchorLayout`. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `zoom`, `min-zoom`, `max-zoom`. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`minimap.h`**: Używa `g_minimap` do renderowania danych.
 - **`uimapanchorlayout.h`**: Posiada `UIMapAnchorLayout` do zarządzania przypiętymi widżetami.
 - **`game.h`**: Dostęp do globalnych obiektów.
@@ -1960,15 +1960,15 @@ Implementacja `UIMinimap`, widżetu interfejsu użytkownika do wyświetlania min
 ## Ogólny opis
 Implementacja `UIProgressRect`, niestandardowego widżetu, który wizualizuje postęp za pomocą wypełniającego się okręgu (lub kwadratu) w sposób radialny.
 ## Klasa `UIProgressRect`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Zamiast standardowego paska postępu, rysuje serię trójkątów, których wierzchołki rozchodzą się od środka prostokąta, tworząc efekt radialnego wypełnienia. Wypełnienie jest podzielone na 4 ćwiartki, a każda z nich na dwa segmenty, co daje 8 kroków animacji. |
 | `setPercent(float percent)` | Ustawia procent wypełnienia (od 0.0 do 100.0). |
 | `onStyleApply(...)` | Parsuje atrybut `percent` z OTML. |
-## # Logika rysowania
+## Logika rysowania
 Wypełnienie jest realizowane przez rysowanie trójkątów. Każdy trójkąt ma jeden wierzchołek w środku prostokąta, a dwa pozostałe na jego krawędziach. W miarę wzrostu `m_percent`, kolejne trójkąty są rysowane, tworząc iluzję płynnego, okrężnego wypełnienia.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/otml/otml.h`**: Do parsowania stylów.
 - **`framework/graphics/graphics.h`**: Do operacji rysowania.
 
@@ -1977,18 +1977,18 @@ Wypełnienie jest realizowane przez rysowanie trójkątów. Każdy trójkąt ma 
 ## Ogólny opis
 Plik nagłówkowy definiujący `UIPositionAnchor` i `UIMapAnchorLayout`. Rozszerzają one standardowy system kotwic o możliwość przypinania widżetów do dynamicznych pozycji na `UIMinimap`.
 ## Klasa `UIPositionAnchor`
-## # Opis
+## Opis
 Dziedziczy po `UIAnchor`. Zamiast przypinać się do krawędzi innego widżetu, przypina się do pozycji (`Position`) na mapie.
 -   `m_hookedPosition`: Pozycja na mapie, do której kotwica jest przypięta.
-## # Metody
+## Metody
 -   **`getHookedPoint(...)`**: Nadpisana metoda, która oblicza pozycję na ekranie, pobierając z `UIMinimap` prostokąt odpowiadający `m_hookedPosition`.
 ## Klasa `UIMapAnchorLayout`
-## # Opis
+## Opis
 Dziedziczy po `UIAnchorLayout`. Specjalizuje layout kotwic do pracy z `UIMinimap`.
-## # Metody
+## Metody
 -   **`addPositionAnchor(...)`**: Dodaje kotwicę typu `UIPositionAnchor`.
 -   **`centerInPosition(...)`**, **`fillPosition(...)`**: Funkcje pomocnicze do łatwego centrowania lub wypełniania obszaru pola na mapie przez inny widżet.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`framework/ui/uianchorlayout.h`**: Klasa bazowa.
 - **`uiminimap.h`**: Layout jest przeznaczony do użycia z `UIMinimap`.
 
@@ -1997,9 +1997,9 @@ Dziedziczy po `UIAnchorLayout`. Specjalizuje layout kotwic do pracy z `UIMinimap
 ## Ogólny opis
 Plik nagłówkowy dla `UIMinimap`, widżetu do wyświetlania minimapy.
 ## Klasa `UIMinimap`
-## # Opis
+## Opis
 Dziedziczy po `UIWidget`. Renderuje dane z `Minimap` i pozwala na interakcje, takie jak zmiana piętra czy przybliżenia. Posiada również `UIMapAnchorLayout` do pozycjonowania innych widżetów względem pozycji na minimapie.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `zoomIn()` / `zoomOut()` / `setZoom(int zoom)` | Zarządzają poziomem przybliżenia. |
@@ -2008,7 +2008,7 @@ Dziedziczy po `UIWidget`. Renderuje dane z `Minimap` i pozwala na interakcje, ta
 | `getTilePoint(...)` / `getTileRect(...)` | Zwracają współrzędne ekranowe dla danego pola na mapie. |
 | `getTilePosition(...)` | Konwertuje współrzędne ekranowe na pozycję na mapie. |
 | `anchorPosition(...)` | Przypina inny widżet do pozycji na minimapie. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
@@ -2017,15 +2017,15 @@ Dziedziczy po `UIWidget`. Renderuje dane z `Minimap` i pozwala na interakcje, ta
 ## Ogólny opis
 Plik nagłówkowy dla `UIProgressRect`, widżetu do wyświetlania paska postępu w formie radialnej.
 ## Klasa `UIProgressRect`
-## # Opis
+## Opis
 Dziedziczy po `UIWidget`. Zamiast typowego paska, rysuje wypełnienie w sposób okrężny.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(...)` | Rysuje widżet. |
 | `setPercent(float percent)` | Ustawia procent postępu (0-100). |
 | `getPercent()` | Zwraca aktualny procent. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
@@ -2034,13 +2034,13 @@ Dziedziczy po `UIWidget`. Zamiast typowego paska, rysuje wypełnienie w sposób 
 ## Ogólny opis
 Implementacja `UISprite`, widżetu do wyświetlania pojedynczego sprite'a z plików `.spr`.
 ## Klasa `UISprite`
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Jeśli `m_sprite` jest załadowany, rysuje go wewnątrz prostokąta widżetu z uwzględnieniem paddingu. |
 | `setSpriteId(uint32 id)` | Ustawia ID sprite'a do wyświetlenia. Pobiera obraz z `g_sprites`, a następnie tworzy z niego teksturę. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `sprite-id`, `sprite-color`. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`spritemanager.h`**: Używa `g_sprites` do pobierania obrazów sprite'ów.
 - **`framework/otml/otml.h`**: Do parsowania stylów.
 - **`framework/graphics/graphics.h`**: Do operacji rysowania i zarządzania teksturami.
@@ -2050,16 +2050,16 @@ Implementacja `UISprite`, widżetu do wyświetlania pojedynczego sprite'a z plik
 ## Ogólny opis
 Plik nagłówkowy dla `UISprite`, widżetu do wyświetlania pojedynczego sprite'a.
 ## Klasa `UISprite`
-## # Opis
+## Opis
 Dziedziczy po `UIWidget`. Prosty widżet, którego jedynym celem jest wyświetlenie obrazu sprite'a o danym ID.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setSpriteId(uint32 id)` | Ustawia ID sprite'a do wyświetlenia. |
 | `getSpriteId()` | Zwraca ID sprite'a. |
 | `setSpriteColor(Color color)` | Ustawia kolor, w jakim sprite ma być renderowany. |
 | `hasSprite()` | Zwraca `true`, jeśli sprite jest załadowany. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`declarations.h`**: Definicje typów.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
@@ -2068,9 +2068,9 @@ Dziedziczy po `UIWidget`. Prosty widżet, którego jedynym celem jest wyświetle
 ## Ogólny opis
 Plik nagłówkowy definiujący klasę `WalkMatrix`, która jest używana do śledzenia i zarządzania predykcjami kroków lokalnego gracza w nowym systemie chodzenia (`GameNewWalking`).
 ## Klasa `WalkMatrix`
-## # Opis
+## Opis
 Jest to macierz 7x7, która przechowuje wartości (liczniki lub ID predykcji) dla pól w zasięgu 3x3 wokół aktualnej pozycji gracza. Służy do synchronizacji kroków między klientem a serwerem.
-## # Metody
+## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `updatePosition(const Position& newPos)` | Aktualizuje wewnętrzną pozycję gracza i przesuwa zawartość macierzy, aby odzwierciedlić ruch. Stare, odległe wartości są zerowane. |
@@ -2080,7 +2080,7 @@ Jest to macierz 7x7, która przechowuje wartości (liczniki lub ID predykcji) dl
 | `clear()` | Zeruje całą macierz. |
 | `reset(uint32_t value)` | Wypełnia całą macierz daną wartością. |
 | `dump()` | Zwraca tekstową reprezentację macierzy do celów debugowania. |
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`position.h`**: Używa `Position` do operacji na współrzędnych.
 - **`localplayer.cpp`**: Obiekt `WalkMatrix` jest polem klasy `LocalPlayer` i jest używany w logice pre-walkingu.
 
@@ -2089,10 +2089,10 @@ Jest to macierz 7x7, która przechowuje wartości (liczniki lub ID predykcji) dl
 ## Ogólny opis
 Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za **parsowanie** pakietów przychodzących z serwera gry. Jest to serce logiki sieciowej po stronie klienta.
 ## Klasa `ProtocolGame`
-## # Metody
-## # # `parseMessage(const InputMessagePtr& msg)`
+## Metody
+## `parseMessage(const InputMessagePtr& msg)`
 Główna funkcja-dyspozytor. Odczytuje jednobajtowy kod operacyjny (opcode) z wiadomości, a następnie wywołuje odpowiednią metodę `parse...` do przetworzenia reszty pakietu. Obsługuje również niestandardowe opkody i przekazywanie ich do Lua.
-## # # Metody `parse...`
+## Metody `parse...`
 Każda metoda `parse...` jest odpowiedzialna za odczytanie danych z `InputMessage` dla konkretnego opkodu i zaktualizowanie stanu gry. Przykłady:
 - **`parseMapDescription(...)`**: Parsuje pełny opis widocznego obszaru mapy, tworząc pola i obiekty.
 - **`parseTileAddThing(...)`**: Dodaje nowy obiekt na mapę.
@@ -2102,9 +2102,9 @@ Każda metoda `parse...` jest odpowiedzialna za odczytanie danych z `InputMessag
 - **`parseOpenContainer(...)`**: Tworzy nowy kontener i wypełnia go przedmiotami.
 - **`parsePlayerStats(...)`**: Aktualizuje statystyki lokalnego gracza.
 - **`parseCancelWalk(...)`**: Informuje `g_game` o anulowaniu kroku.
-## # # Metody pomocnicze `get...`
+## Metody pomocnicze `get...`
 - **`getThing(...)`**, **`getItem(...)`**, **`getCreature(...)`**, **`getPosition(...)`**: Funkcje pomocnicze, które odczytują złożone typy danych (jak `Item` czy `Creature`) z `InputMessage`, uwzględniając różnice w formacie zależne od `GameFeature`. `getCreature`, na przykład, decyduje, czy stworzyć nowy obiekt `Creature`, czy zaktualizować istniejący.
-## # Zależności i powiązania
+## Zależności i powiązania
 - **`game.h`**, **`map.h`**, **`localplayer.h`**: Ściśle współpracuje z tymi klasami, wywołując ich metody w celu aktualizacji stanu gry.
 - **`thingtypemanager.h`**: Używa `g_things` do weryfikacji ID przedmiotów i efektów.
 - **`luavaluecasts_client.h`**: Używane do przekazywania złożonych obiektów do Lua.
@@ -2647,7 +2647,7 @@ System jest zbudowany w oparciu o architekturę warstwową, gdzie każda warstwa
     -   **Zarządzanie zasobami gry (`ThingTypeManager`, `SpriteManager`)**: Singletony odpowiedzialne za wczytywanie i dostarczanie definicji i grafik dla wszystkich obiektów w grze z plików `.dat`, `.otb`, `.spr`.
     -   **Renderowanie (`MapView`, `Minimap`)**: Klasy odpowiedzialne za wizualizację danych z `Map`. `MapView` renderuje główny widok gry, a `Minimap` - minimapę. Wykorzystują one `DrawQueue` z warstwy frameworka.
     -   **UI klienta (`UIMap`, `UIItem`, `UICreature`)**: Wyspecjalizowane widżety, które łączą dane z logiki gry (np. `Item`, `Creature`) z systemem UI frameworka.
-## # Przepływ danych i zdarzeń
+## Przepływ danych i zdarzeń
 -   **Wejście użytkownika**: Zdarzenia wejścia (mysz, klawiatura) są przechwytywane przez `UIWidget`. Jeśli akcja dotyczy gry (np. kliknięcie na mapie), wywoływana jest odpowiednia metoda w `Game` (np. `g_game.walk()`).
 -   **Wysyłanie danych**: `Game` wywołuje metodę w `ProtocolGame` (np. `sendWalkNorth()`), która tworzy pakiet i wysyła go na serwer.
 -   **Odbieranie danych**: `ProtocolGame` odbiera pakiet, `parseMessage` identyfikuje jego typ na podstawie opkodu i wywołuje odpowiednią metodę `parse...`.
@@ -2655,4 +2655,6 @@ System jest zbudowany w oparciu o architekturę warstwową, gdzie każda warstwa
 -   **Renderowanie**: W każdej klatce, `UIMap` wywołuje `MapView::drawMapBackground` i `drawMapForeground`. `MapView` pobiera aktualny stan z `g_map` (widoczne `Tile` i `Thing`), a następnie rysuje je na ekranie, używając `ThingTypeManager` i `SpriteManager` do uzyskania odpowiednich grafik.
 
 Ta architektura oddziela logikę gry od renderowania i obsługi sieci, co ułatwia zarządzanie kodem i jego rozbudowę. Użycie Lua pozwala na dynamiczne modyfikowanie zachowań interfejsu i logiki bez potrzeby rekompilacji całego klienta.
+
+
 

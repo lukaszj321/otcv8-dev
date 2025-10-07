@@ -33,7 +33,7 @@ Każdy komponent powinien być **izolowany** (funkcje `local`, brak globali), te
 ---
 ## 3) Wzorce (makra i trigger’y)
 > Poniższe wzorce to gotowe schematy do generatora w Studio. Każdy zawiera: cel, pre‑warunki, interfejs konfiguracyjny, guards, cooldown, logowanie oraz sekcję bezpieczeństwa.
-## # 3.1 Makro: Auto‑Heal na progu HP
+## 3.1 Makro: Auto‑Heal na progu HP
 **Cel:** rzucenie czaru/ użycie pota, gdy HP < progu.
 
 **Konfiguracja (OTML/JSON dla Studio):**
@@ -71,7 +71,7 @@ end
 ```
 
 **Bezpieczeństwo:** sprawdź `g_game.isOnline()`, wstrzymaj w czasie `isWalking()`; cooldown ≥ GCD klienta, sprawdź manę przed `say()`.
-## # 3.2 Trigger: Reakcja na wiadomość tekstową
+## 3.2 Trigger: Reakcja na wiadomość tekstową
 **Cel:** wykrycie frazy i akcja (np. odpowiedź, log, zapis zdarzenia).
 
 **Konfiguracja:**
@@ -98,7 +98,7 @@ end
 ```
 
 **Bezpieczeństwo:** sanitacja regex (escape), limit odpowiedzi (cooldown per nadawca), nie odpowiadaj na własne linie.
-## # 3.3 Makro: Auto‑Haste (buff w ruchu)
+## 3.3 Makro: Auto‑Haste (buff w ruchu)
 **Cel:** utrzymywanie buffa szybkości przy poruszaniu się.
 
 **Konfiguracja:**
@@ -130,7 +130,7 @@ end
 ```
 
 **Bezpieczeństwo:** nie spamuj – sprawdź buff i cooldown; upewnij się, że gracz ma manę.
-## # 3.4 Trigger: Loot po ubiciu potwora
+## 3.4 Trigger: Loot po ubiciu potwora
 **Cel:** podniesienie łupu po wykryciu ciała.
 
 **Szkielet (zarys):**
@@ -146,7 +146,7 @@ end
 ```
 
 **Bezpieczeństwo:** limit równoległych otwarć; przerwij, gdy inventory pełne; nie blokuj głównej pętli.
-## # 3.5 Makro: Anti‑Idle
+## 3.5 Makro: Anti‑Idle
 **Cel:** zapobiec disconnectowi przez delikatną interakcję.
 
 **Szkielet:**
@@ -261,4 +261,5 @@ end
 ## 13) Noty końcowe
 - Wzorce są rozszerzalne; dodając nowe, zachowaj nazewnictwo i sekcje: *cel → konfiguracja → guards → cooldown → logi → testy*.
 - Wszelkie modyfikacje wymagają aktualizacji generatora i reguł QA.
+
 

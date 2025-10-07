@@ -11,13 +11,13 @@
 
 ---
 ## 1) Rejestracja języków i providerów (Monaco)
-## # 1.1 Identyfikatory
+## 1.1 Identyfikatory
 - `languageId.luastudio = "lua"` (dialekt Lua‑Lite)
 - `languageId.otuistudio = "otui"`
-## # 1.2 Rejestracja
+## 1.2 Rejestracja
 - `monaco.languages.register({ id: languageId.luastudio })`
 - `monaco.languages.register({ id: languageId.otuistudio })`
-## # 1.3 Providerzy (interfejsy Monaco)
+## 1.3 Providerzy (interfejsy Monaco)
 - **Completion**: `registerCompletionItemProvider(id, provider)`
 - **Hover**: `registerHoverProvider(id, provider)`
 - **Signature Help**: `registerSignatureHelpProvider(id, provider)`
@@ -28,15 +28,15 @@
 
 ---
 ## 2) Completion (auto‑uzupełnianie)
-## # 2.1 Triggery
+## 2.1 Triggery
 - **Lua**: `.` `:` `(` `,` spacja po `function`/`local` oraz po `on` (eventy).
 - **OTUI**: początek linii/po `\n`, po `:` (wartość), w nagłówku deklaracji po `"<"` (typ bazowy), w kluczu (sugestie atrybutów wg kategorii), po `style:` (style zasobów).
-## # 2.2 Źródła sugestii
+## 2.2 Źródła sugestii
 1) **API globalne** (`api.json`): `g_*` managery, funkcje, eventy.
 2) **Symbole projektu** (`project-index.json`): funkcje zdefiniowane lokalnie, widżety OTUI, pliki/ścieżki.
 3) **Docstrings** (`docstrings.json`): parametry i typy – doprecyzowanie sygnatur.
 4) **Heurystyki vBot**: `macro(`, `onTextMessage`, `say(` itp. – boost rank.
-## # 2.3 Scoring i ranking
+## 2.3 Scoring i ranking
 Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `score`, tie‑break: długość nazwy ↑, alfabetycznie.
 
 **Składniki score:**
@@ -46,17 +46,17 @@ Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `sc
 - `s_recent` – pamięć ostatnio użytych: +0.05 (TTL)
 
 `score = 0.7*s_prefix + 0.2*s_source + 0.1*s_context + s_recent`
-## # 2.4 Typy pozycji (Monaco CompletionItemKind)
+## 2.4 Typy pozycji (Monaco CompletionItemKind)
 - `Function`, `Method`, `Property`, `Variable`, `Class` (OTUI typy), `Keyword`, `Snippet`, `File`, `Folder`.
-## # 2.5 Snippety i InsertText
+## 2.5 Snippety i InsertText
 - **Lua – funkcja lokalna:** `local ${1:name} = function(${2:args})\n  ${0}\nend`
 - **Lua – moduł skeleton:** `local M = {}\nfunction M.${1:fn}(${2})\n  ${0}\nend\nreturn M`
 - **OTUI – widżet:** `${1:Widget} < ${2:UIWidget} {\n  id: ${3:id}\n  width: ${4:100}\n  text: tr("${5:Text}")\n}`
-## # 2.6 Kontekstowe listy
+## 2.6 Kontekstowe listy
 - **Lua `.`/`:`** → członkowie obiektu (`api.json.objects[].members`) + symbole znalezione w projekcie.
 - **OTUI klucz** → lista atrybutów dozwolonych przez typ (kategoria + reguły `otui-rules.json`).
 - **OTUI wartość `style:`** → style z `assets-map.json.styles`.
-## # 2.7 Przykład odpowiedzi (IPC → FE)
+## 2.7 Przykład odpowiedzi (IPC → FE)
 ```json
 {
   "items": [
@@ -70,13 +70,13 @@ Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `sc
 
 ---
 ## 3) Hover (podgląd dokumentacji)
-## # 3.1 Zasady agregacji
+## 3.1 Zasady agregacji
 - Preferuj opis z **`api.json`**; jeżeli brak → **`docstrings.json`**; następnie heurystyki (np. typ identyfikatora z kontekstu).
 - Dodaj **sygnaturę**, **opis**, **odsyłacze** (plik:linia) i przykład.
-## # 3.2 Format treści (Markdown)
+## 3.2 Format treści (Markdown)
 - Nagłówek: **Nazwa** i sygnatura, typ zwracany.
 - Sekcje: `Opis`, `Parametry`, `Zwraca`, `Przykład`, `Źródło`.
-## # 3.3 Przykład odpowiedzi
+## 3.3 Przykład odpowiedzi
 ```json
 {
   "contents": [
@@ -89,12 +89,12 @@ Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `sc
 
 ---
 ## 4) Signature Help (podpowiedź parametrów)
-## # 4.1 Triggery
+## 4.1 Triggery
 - **Lua:** po wpisaniu `(` oraz po `,` w kontekście wywołania.
 - **OTUI:** (opcjonalnie) dla funkcji/event handlerów w wartościach `on...` (jeżeli projekt dopuszcza).
-## # 4.2 Agregacja sygnatur
+## 4.2 Agregacja sygnatur
 - **Priorytet:** `docstrings.json` (najbardziej szczegółowe typy) → `api.json` → heurystyka (typ `any`).
-## # 4.3 Model danych
+## 4.3 Model danych
 ```json
 {
   "signatures": [
@@ -113,7 +113,7 @@ Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `sc
 
 ---
 ## 5) Document Symbols / Definition / References (MVP+)
-## # 5.1 Document Symbols (w pliku)
+## 5.1 Document Symbols (w pliku)
 - **Lua:** `FunctionDecl`, `LocalStatement (function)`, `TableConstructor (klucze funkcji)`.
 - **OTUI:** `Decl` (nazwa widżetu + `id`), klucze `KV` jako *children*.
 
@@ -121,10 +121,10 @@ Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `sc
 ```json
 {"symbols":[{"name":"M.reload","kind":"Function","range":{...},"selectionRange":{...}}]}
 ```
-## # 5.2 Definition
+## 5.2 Definition
 - **Lua:** nazwa funkcji/identyfikatora → lokalizacja deklaracji w bieżącym pliku lub w `project-index.json.symbols`.
 - **OTUI:** `WidgetName`/`id` → definicja `Decl` w pliku.
-## # 5.3 References
+## 5.3 References
 - Przeszukanie `project-index.json` i lekkie skanowanie tokenów (prefiltrowanie po hashach plików).
 
 ---
@@ -137,13 +137,13 @@ Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `sc
 
 ---
 ## 7) IPC i kontrakty usług (backend parsers/service)
-## # 7.1 Kanały
+## 7.1 Kanały
 - `ide:completion` → req: `CompletionQuery` → res: `CompletionResult`
 - `ide:hover` → req: `HoverQuery` → res: `HoverResult`
 - `ide:signature` → req: `SignatureQuery` → res: `SignatureResult`
 - `ide:symbols` → req: `{uri}` → res: `DocumentSymbols`
 - (MVP+) `ide:definition`, `ide:references`
-## # 7.2 Modele zapytań/odpowiedzi
+## 7.2 Modele zapytań/odpowiedzi
 ```json
 {
   "$schemaVersion": 1,
@@ -159,12 +159,12 @@ Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `sc
   "DocumentSymbols": {"symbols":[{"name":"...","kind":"Function","range":{}}]}
 }
 ```
-## # 7.3 Błędy
+## 7.3 Błędy
 - Formaty: `{code,msg,details?}`; kody: `IDE_Q_BAD_REQ`, `IDE_S_TIMEOUT`, `IDE_D_SCHEMA`.
 
 ---
 ## 8) Algorytmy agregacji (pseudokod TS)
-## # 8.1 Completion (Lua)
+## 8.1 Completion (Lua)
 ```ts
 function completeLua(q: CompletionQuery): CompletionResult {
   const ctx = analyzeContextLua(q);
@@ -177,7 +177,7 @@ function completeLua(q: CompletionQuery): CompletionResult {
   return finalize(scored, q);
 }
 ```
-## # 8.2 Completion (OTUI)
+## 8.2 Completion (OTUI)
 ```ts
 function completeOTUI(q: CompletionQuery): CompletionResult {
   if (q.context.scope === 'key') return keysForWidget(q); // kategorie + rules
@@ -186,7 +186,7 @@ function completeOTUI(q: CompletionQuery): CompletionResult {
   return genericOtuiSnippets();
 }
 ```
-## # 8.3 Hover
+## 8.3 Hover
 ```ts
 function hover(q: HoverQuery): HoverResult {
   const sym = resolveSymbolAt(q.uri, q.range);
@@ -196,7 +196,7 @@ function hover(q: HoverQuery): HoverResult {
   return renderMarkdown(m);
 }
 ```
-## # 8.4 Signature Help
+## 8.4 Signature Help
 ```ts
 function signature(q: SignatureQuery): SignatureResult {
   const call = findCallAt(q.callPos);
@@ -254,4 +254,5 @@ function signature(q: SignatureQuery): SignatureResult {
 ## 14) Noty końcowe
 - Wyniki providerów muszą być **stabilne** między uruchomieniami (deterministyczne sortowanie); różnice jedynie przy zmianie kontekstu lub danych.
 - Wszelkie rozszerzenia muszą zachować kontrakty IPC i schematy JSON (wersjonowanie `$schemaVersion`).
+
 

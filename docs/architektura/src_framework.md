@@ -4,7 +4,7 @@
 
 Plik `const.h` pełni rolę centralnego repozytorium dla stałych, makr i typów wyliczeniowych (enum) używanych w całym frameworku. Definiuje on kluczowe wartości, takie jak kody klawiszy, poziomy logowania, flagi wyrównania, przyciski myszy, a także stałe matematyczne i makra kompilacji. Jest to fundamentalny plik nagłówkowy, który zapewnia spójność i czytelność kodu poprzez zdefiniowanie nazwanych stałych zamiast "magicznych liczb".
 ## Definicje i Makra
-## # Makra matematyczne
+## Makra matematyczne
 
 -   `DEG_TO_RAD`: Służy do konwersji stopni na radiany.
     ```cpp
@@ -14,7 +14,7 @@ Plik `const.h` pełni rolę centralnego repozytorium dla stałych, makr i typów
     ```cpp
 # define RAD_TO_DEC (180.0/acos(-1))
     ```
-## # Makra budowania (Build Macros)
+## Makra budowania (Build Macros)
 
 Makra te są definiowane podczas kompilacji i dostarczają informacji o wersji i środowisku budowania.
 
@@ -51,7 +51,7 @@ Makra te są definiowane podczas kompilacji i dostarczają informacji o wersji i
 ## Namespace `Fw`
 
 Przestrzeń nazw `Fw` (skrót od Framework) grupuje wszystkie stałe i typy wyliczeniowe, aby uniknąć konfliktów nazw w globalnej przestrzeni nazw.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `pi`: Stała matematyczna przechowująca przybliżoną wartość liczby Pi.
     ```cpp
@@ -61,8 +61,8 @@ Przestrzeń nazw `Fw` (skrót od Framework) grupuje wszystkie stałe i typy wyli
     ```cpp
     static const float MIN_ALPHA = 0.003f;
     ```
-## # Typy wyliczeniowe (Enums)
-## # # `enum Key`
+## Typy wyliczeniowe (Enums)
+## `enum Key`
 
 Definiuje kody klawiszy klawiatury. Wartości liczbowe dla klawiszy drukowalnych odpowiadają ich kodom ASCII.
 
@@ -75,7 +75,7 @@ Definiuje kody klawiszy klawiatury. Wartości liczbowe dla klawiszy drukowalnych
 | `KeyEnter` | 5 | Klawisz Enter/Return |
 | ... | ... | ... |
 | `KeyNumpad9` | 150 | Klawisz 9 na klawiaturze numerycznej |
-## # # `enum LogLevel`
+## `enum LogLevel`
 
 Definiuje poziomy ważności dla komunikatów w systemie logowania.
 
@@ -86,7 +86,7 @@ Definiuje poziomy ważności dla komunikatów w systemie logowania.
 | `LogWarning` | 2 | Ostrzeżenia |
 | `LogError` | 3 | Błędy |
 | `LogFatal` | 4 | Błędy krytyczne, powodujące zamknięcie aplikacji |
-## # # `enum AspectRatioMode`
+## `enum AspectRatioMode`
 
 Określa, w jaki sposób zachować proporcje obrazu podczas skalowania.
 
@@ -95,7 +95,7 @@ Określa, w jaki sposób zachować proporcje obrazu podczas skalowania.
 | `IgnoreAspectRatio` | Ignoruje proporcje, rozciągając obraz do pełnego rozmiaru. |
 | `KeepAspectRatio` | Zachowuje proporcje, dopasowując obraz do mniejszego wymiaru. |
 | `KeepAspectRatioByExpanding` | Zachowuje proporcje, wypełniając cały obszar (może przyciąć obraz). |
-## # # `enum AlignmentFlag`
+## `enum AlignmentFlag`
 
 Flagi bitowe używane do określania wyrównania tekstu lub widgetów w kontenerze. Można je łączyć za pomocą operatora `|`.
 
@@ -110,7 +110,7 @@ Flagi bitowe używane do określania wyrównania tekstu lub widgetów w kontener
 | `AlignVerticalCenter` | 32 | Wyśrodkowanie w pionie |
 | `AlignCenter` | 48 | Pełne wyśrodkowanie (kombinacja `HorizontalCenter` i `VerticalCenter`) |
 | ... | ... | Inne kombinacje |
-## # # `enum AnchorEdge`
+## `enum AnchorEdge`
 
 Definiuje krawędzie, do których można "zakotwiczyć" widget w layoucie typu `UIAnchorLayout`.
 
@@ -120,7 +120,7 @@ Definiuje krawędzie, do których można "zakotwiczyć" widget w layoucie typu `
 | `AnchorTop` | Górna krawędź |
 | `AnchorBottom` | Dolna krawędź |
 | ... | ... |
-## # # `enum FocusReason`
+## `enum FocusReason`
 
 Określa przyczynę, dla której widget otrzymał fokus.
 
@@ -130,7 +130,7 @@ Określa przyczynę, dla której widget otrzymał fokus.
 | `KeyboardFocusReason` | Fokus uzyskany przez nawigację klawiaturą (np. Tab). |
 | `ActiveFocusReason` | Fokus ustawiony programowo. |
 | `OtherFocusReason` | Inna przyczyna. |
-## # # `enum AutoFocusPolicy`
+## `enum AutoFocusPolicy`
 
 Definiuje, jak widget-rodzic powinien automatycznie ustawiać fokus na swoich dzieciach.
 
@@ -139,7 +139,7 @@ Definiuje, jak widget-rodzic powinien automatycznie ustawiać fokus na swoich dz
 | `AutoFocusNone` | Brak automatycznego fokusa. |
 | `AutoFocusFirst` | Ustawia fokus na pierwszym dziecku, które może go otrzymać. |
 | `AutoFocusLast` | Ustawia fokus na ostatnim dziecku, które może go otrzymać. |
-## # # `enum InputEventType`
+## `enum InputEventType`
 
 Definiuje typy zdarzeń wejściowych (klawiatura, mysz).
 
@@ -150,7 +150,7 @@ Definiuje typy zdarzeń wejściowych (klawiatura, mysz).
 | `KeyDownInputEvent` | Zdarzenie wciśnięcia klawisza. |
 | `KeyPressInputEvent` | Zdarzenie przytrzymania klawisza (auto-powtarzanie). |
 | ... | ... |
-## # # `enum MouseButton`
+## `enum MouseButton`
 
 Definiuje przyciski myszy oraz dotyk.
 
@@ -159,7 +159,7 @@ Definiuje przyciski myszy oraz dotyk.
 | `MouseNoButton` | Brak przycisku. |
 | `MouseLeftButton` | Lewy przycisk myszy. |
 | ... | ... |
-## # # `enum MouseWheelDirection`
+## `enum MouseWheelDirection`
 
 Definiuje kierunek przewijania kółkiem myszy.
 
@@ -168,7 +168,7 @@ Definiuje kierunek przewijania kółkiem myszy.
 | `MouseNoWheel` | Brak przewijania. |
 | `MouseWheelUp` | Przewijanie w górę. |
 | `MouseWheelDown` | Przewijanie w dół. |
-## # # `enum KeyboardModifier`
+## `enum KeyboardModifier`
 
 Flagi bitowe dla klawiszy modyfikujących (Ctrl, Alt, Shift).
 
@@ -178,7 +178,7 @@ Flagi bitowe dla klawiszy modyfikujących (Ctrl, Alt, Shift).
 | `KeyboardCtrlModifier` | 1 | Wciśnięty Ctrl. |
 | `KeyboardAltModifier` | 2 | Wciśnięty Alt. |
 | `KeyboardShiftModifier` | 4 | Wciśnięty Shift. |
-## # # `enum WidgetState`
+## `enum WidgetState`
 
 Flagi bitowe definiujące stan widgetu (np. aktywny, najechany, wciśnięty). Używane do dynamicznego stylowania widgetów.
 
@@ -190,7 +190,7 @@ Flagi bitowe definiujące stan widgetu (np. aktywny, najechany, wciśnięty). U�
 | `FocusState` | 2 | Widget ma fokus. |
 | `HoverState` | 4 | Kursor myszy jest nad widgetem. |
 | ... | ... | ... |
-## # # `enum DrawPane`
+## `enum DrawPane`
 
 Określa warstwę rysowania dla widgetów, co pozwala na kontrolowanie kolejności renderowania.
 
@@ -255,9 +255,9 @@ Skrypt wyszukuje i linkuje następujące biblioteki zewnętrzne:
 -   **OpenGL/OpenGLES, EGL**: Do renderowania grafiki.
 -   **GLEW**: Do zarządzania rozszerzeniami OpenGL.
 -   **OpenAL, Vorbis, Ogg**: Do obsługi dźwięku.
-## # Konfiguracja dla WebAssembly (WASM)
+## Konfiguracja dla WebAssembly (WASM)
 Specjalny blok `if(WASM)` dostosowuje kompilację dla platformy WebAssembly przy użyciu Emscripten. Ustawia specyficzne flagi (`-s USE_ZLIB=1`, etc.), linkuje prekompilowane biblioteki (`.a`) i dołącza źródła Lua bezpośrednio do projektu, zamiast linkować je jako zewnętrzną bibliotekę.
-## # Flagi kompilatora
+## Flagi kompilatora
 Skrypt ustawia różne flagi kompilatora w zależności od typu budowania (`CMAKE_BUILD_TYPE`):
 -   **Debug**: `-O0 -g` (niska optymalizacja, pełne informacje debugowania).
 -   **Release**: `-O2` (wysoka optymalizacja, brak informacji debugowania).
@@ -270,7 +270,7 @@ Skrypt ustawia różne flagi kompilatora w zależności od typu budowania (`CMAK
 
 Plik `global.h` jest jednym z kluczowych plików nagłówkowych w frameworku. Jego głównym zadaniem jest włączenie najważniejszych, globalnie używanych definicji i nagłówków w jednym miejscu. Dzięki temu inne pliki mogą dołączyć tylko ten jeden plik, aby uzyskać dostęp do podstawowych typów danych, stałych, makr i narzędzi.
 ## Definicje i Makra
-## # `VALIDATE(expression)`
+## `VALIDATE(expression)`
 
 Jest to makro asercji, które jest aktywne tylko w trybie debugowania (gdy `NDEBUG` nie jest zdefiniowane). Jeśli wyrażenie (expression) jest fałszywe, makro wywołuje funkcję `fatalError`, która przerywa działanie programu i wyświetla komunikat o błędzie zawierający nazwę pliku i numer linii. W trybie wydajnościowym (`NDEBUG` zdefiniowane) makro jest puste i nie generuje żadnego kodu.
 
@@ -304,7 +304,7 @@ Dzięki temu `global.h` działa jako centralny punkt dostępu do najczęściej u
 ## Zawartość pliku
 
 Plik ten jest podzielony na kilka sekcji, grupujących nagłówki według ich pochodzenia i przeznaczenia.
-## # Standardowe nagłówki C
+## Standardowe nagłówki C
 
 Zawiera podstawowe nagłówki z biblioteki standardowej C, takie jak `cstdio`, `cstdlib`, `cstring`, `cmath`.
 
@@ -315,7 +315,7 @@ Zawiera podstawowe nagłówki z biblioteki standardowej C, takie jak `cstdio`, `
 # include <cstring>
 # include <cmath>
 ```
-## # Standardowe nagłówki STL (C++)
+## Standardowe nagłówki STL (C++)
 
 Włącza najważniejsze i najczęściej używane kontenery, strumienie i algorytmy z biblioteki standardowej C++.
 
@@ -337,7 +337,7 @@ Włącza najważniejsze i najczęściej używane kontenery, strumienie i algoryt
 # include <iomanip>
 # include <typeinfo>
 ```
-## # Nowoczesne nagłówki C++ (C++11 i nowsze)
+## Nowoczesne nagłówki C++ (C++11 i nowsze)
 
 Włącza nagłówki związane z wielowątkowością, inteligentnymi wskaźnikami, czasem i losowością, wprowadzone w nowszych standardach C++. Plik `filesystem` jest dołączany warunkowo (poza Androidem).
 
@@ -354,7 +354,7 @@ Włącza nagłówki związane z wielowątkowością, inteligentnymi wskaźnikami
 # include <filesystem>
 # endif
 ```
-## # Biblioteka Boost
+## Biblioteka Boost
 
 Włącza nagłówki z biblioteki Boost, głównie z modułów **Asio** (do operacji sieciowych) i **Beast** (do obsługi protokołów HTTP i WebSocket).
 
@@ -380,13 +380,13 @@ Plik `pch.h` jest plikiem "liściem" w hierarchii zależności — sam nie zale�
 
 Plik `luafunctions.cpp` implementuje metodę `Application::registerLuaFunctions()`, która jest kluczowym elementem integracji silnika C++ z Lua. Funkcja ta jest odpowiedzialna za zarejestrowanie (zbindowanie) klas, funkcji i obiektów singletonowych z C++ w globalnym środowisku Lua. Dzięki temu skrypty Lua mogą wywoływać funkcje C++, tworzyć obiekty C++ (np. widgety UI) i manipulować nimi, co stanowi podstawę modularności i rozszerzalności klienta.
 ## `Application::registerLuaFunctions()`
-## # Opis semantyczny
+## Opis semantyczny
 
 Metoda ta jest wywoływana jednorazowo podczas inicjalizacji aplikacji (`Application::init`). Przechodzi przez wszystkie główne moduły frameworka (takie jak `Platform`, `Application`, `Crypt`, `ResourceManager`, `UIManager` itd.) i udostępnia ich publiczne API w środowisku Lua. Każdy zarejestrowany element staje się dostępny w Lua jako zmienna globalna (np. `g_app`, `g_crypt`) lub jako klasa (np. `UIWidget`).
-## # Zarejestrowane elementy
+## Zarejestrowane elementy
 
 Poniżej znajduje się lista zarejestrowanych elementów pogrupowanych według modułów.
-## # # Konwersje i narzędzia globalne
+## Konwersje i narzędzia globalne
 
 Rejestruje globalne funkcje pomocnicze w Lua do konwersji typów danych między stringami a obiektami C++ oraz inne narzędzia.
 
@@ -397,7 +397,7 @@ Rejestruje globalne funkcje pomocnicze w Lua do konwersji typów danych między 
 | `ucwords` | `stdext::ucwords` | Zamienia pierwszą literę każdego słowa na wielką. |
 | `regexMatch` | `lambda` | Wyszukuje dopasowania wyrażeń regularnych w stringu. |
 | ... | ... | ... |
-## # # Platform (`g_platform`)
+## Platform (`g_platform`)
 
 Udostępnia funkcje związane z systemem operacyjnym. Niektóre funkcje są dostępne tylko gdy zdefiniowano `UNSAFE_LUA_FUNCTIONS`.
 
@@ -408,7 +408,7 @@ Udostępnia funkcje związane z systemem operacyjnym. Niektóre funkcje są dost
 | `openUrl` | `Platform::openUrl` | Otwiera podany URL w domyślnej przeglądarce. |
 | `getOSName` | `Platform::getOSName` | Zwraca nazwę systemu operacyjnego. |
 | ... | ... | ... |
-## # # Application (`g_app`)
+## Application (`g_app`)
 
 Udostępnia API do zarządzania głównym obiektem aplikacji.
 
@@ -420,7 +420,7 @@ Udostępnia API do zarządzania głównym obiektem aplikacji.
 | `getBuildCompiler`| `Application::getBuildCompiler`| Zwraca nazwę kompilatora użytego do budowy. |
 | `isMobile` | `Application::isMobile` | Sprawdza, czy aplikacja działa w trybie mobilnym. |
 | ... | ... | ... |
-## # # Crypt (`g_crypt`)
+## Crypt (`g_crypt`)
 
 Udostępnia funkcje kryptograficzne.
 
@@ -430,7 +430,7 @@ Udostępnia funkcje kryptograficzne.
 | `sha1Encode` | `Crypt::sha1Encode` | Koduje string za pomocą SHA1. |
 | `rsaGenerateKey`| `Crypt::rsaGenerateKey` | Generuje klucze RSA. |
 | ... | ... | ... |
-## # # Clock (`g_clock`)
+## Clock (`g_clock`)
 
 Udostępnia funkcje związane z czasem i zegarem systemowym.
 
@@ -440,7 +440,7 @@ Udostępnia funkcje związane z czasem i zegarem systemowym.
 | `millis` | `Clock::millis` | Zwraca czas w milisekundach. |
 | `seconds` | `Clock::seconds` | Zwraca czas w sekundach. |
 | ... | ... | ... |
-## # # ConfigManager (`g_configs`)
+## ConfigManager (`g_configs`)
 
 API do zarządzania plikami konfiguracyjnymi.
 
@@ -449,7 +449,7 @@ API do zarządzania plikami konfiguracyjnymi.
 | `getSettings` | `ConfigManager::getSettings` | Zwraca główny obiekt konfiguracyjny. |
 | `load` | `ConfigManager::load` | Ładuje plik konfiguracyjny. |
 | ... | ... | ... |
-## # # Logger (`g_logger`)
+## Logger (`g_logger`)
 
 API do logowania wiadomości.
 
@@ -458,7 +458,7 @@ API do logowania wiadomości.
 | `log` | `Logger::log` | Loguje wiadomość z podanym poziomem. |
 | `debug` | `Logger::debug` | Loguje wiadomość na poziomie `LogDebug`. |
 | ... | ... | ... |
-## # # ResourceManager (`g_resources`)
+## ResourceManager (`g_resources`)
 
 Zarządzanie plikami i zasobami.
 
@@ -469,7 +469,7 @@ Zarządzanie plikami i zasobami.
 | `writeFileContents`|`ResourceManager::writeFileContents` | Zapisuje zawartość do pliku. |
 | `createArchive` | `ResourceManager::createArchive` | Tworzy archiwum ZIP z podanych plików. |
 | ... | ... | ... |
-## # # UI i Grafika (zależne od `FW_GRAPHICS`)
+## UI i Grafika (zależne od `FW_GRAPHICS`)
 
 Rejestruje klasy i funkcje związane z interfejsem użytkownika, oknem, grafiką i fontami. To najobszerniejsza sekcja.
 
@@ -484,7 +484,7 @@ Rejestruje klasy i funkcje związane z interfejsem użytkownika, oknem, grafiką
 -   **`UIWidget`**: Rejestracja klasy bazowej dla wszystkich widgetów z ogromną liczbą metod (np. `addChild`, `setRect`, `setText`, `setImageSource`).
 -   **`UILayout` i pochodne**: Rejestracja klas layoutów (`UIBoxLayout`, `UIVerticalLayout`, `UIGridLayout`, `UIAnchorLayout`).
 -   **`UITextEdit`**: Rejestracja widgetu do edycji tekstu.
-## # # Sieć (zależne od `FW_NET`)
+## Sieć (zależne od `FW_NET`)
 
 Rejestruje klasy do obsługi sieci.
 
@@ -494,7 +494,7 @@ Rejestruje klasy do obsługi sieci.
 -   **`InputMessage` / `OutputMessage`**: Do odczytu i zapisu pakietów.
 -   **`g_proxy`**: Menedżer proxy.
 -   **`g_http`**: Do zapytań HTTP/HTTPS i WebSocket.
-## # # Dźwięk (zależne od `FW_SOUND`)
+## Dźwięk (zależne od `FW_SOUND`)
 
 Rejestruje klasy i funkcje do obsługi dźwięku.
 
@@ -523,10 +523,10 @@ Jest to centralny punkt łączący warstwę C++ z warstwą skryptową Lua.
 
 Plik `resourcemanager.h` deklaruje klasę `ResourceManager`, która jest singletonem (`g_resources`) odpowiedzialnym za zarządzanie wszystkimi zasobami plików w aplikacji. Abstrakcjonuje dostęp do plików, umożliwiając ich odczyt zarówno z fizycznego systemu plików, jak i z wirtualnych archiwów (np. `data.zip`) lub nawet z pamięci (dane wbudowane w plik wykonywalny). Jest to kluczowy element, który umożliwia łatwe zarządzanie zasobami gry, takimi jak grafiki, dźwięki, skrypty i pliki konfiguracyjne.
 ## Klasa `ResourceManager`
-## # Opis semantyczny
+## Opis semantyczny
 
 `ResourceManager` inicjalizuje wirtualny system plików oparty na bibliotece **PhysFS**. Określa on katalogi robocze (`work dir`) i katalogi do zapisu (`write dir`), montuje archiwa z danymi i dostarcza ujednolicony interfejs do operacji na plikach. Klasa ta obsługuje również szyfrowanie i deszyfrowanie plików w locie oraz mechanizmy aktualizacji klienta.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -558,7 +558,7 @@ Plik `resourcemanager.h` deklaruje klasę `ResourceManager`, która jest singlet
 | `decompressArchive(...)` | Dekompresuje archiwum ZIP (z pliku lub danych w pamięci) i zwraca mapę plików. |
 | `encrypt(...)` | (Tylko z `WITH_ENCRYPTION`) Szyfruje pliki w katalogach `data`, `modules` itp. |
 | `setLayout(...)` | Ustawia aktywny layout UI, co wpływa na rozwiązywanie ścieżek do zasobów. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_binaryPath`: Ścieżka do pliku wykonywalnego.
 -   `m_writeDir`: Ścieżka do katalogu zapisu.
@@ -584,7 +584,7 @@ Plik `resourcemanager.h` deklaruje klasę `ResourceManager`, która jest singlet
 
 Plik `adaptiverenderer.cpp` zawiera implementację klasy `AdaptiveRenderer`, która jest odpowiedzialna za dynamiczne dostosowywanie jakości i wydajności renderowania grafiki w zależności od aktualnej liczby klatek na sekundę (FPS). Celem tego mechanizmu jest utrzymanie płynności działania aplikacji, zwłaszcza na słabszych komputerach, poprzez redukcję liczby renderowanych obiektów lub obniżenie częstotliwości aktualizacji, gdy FPS spada.
 ## Zmienne globalne
-## # `g_adaptiveRenderer`
+## `g_adaptiveRenderer`
 
 Globalna instancja klasy `AdaptiveRenderer`, dostępna w całym projekcie.
 
@@ -592,10 +592,10 @@ Globalna instancja klasy `AdaptiveRenderer`, dostępna w całym projekcie.
 AdaptiveRenderer g_adaptiveRenderer;
 ```
 ## Klasa `AdaptiveRenderer`
-## # `void newFrame()`
-## # # Opis semantyczny
+## `void newFrame()`
+## Opis semantyczny
 Metoda wywoływana na początku każdej klatki renderowania. Rejestruje czas bieżącej klatki i na podstawie liczby klatek z ostatnich 5 sekund decyduje, czy należy zmienić poziom wydajności (zwiększyć lub zmniejszyć).
-## # # Działanie
+## Działanie
 1.  Dodaje bieżący czas (w milisekundach) do kolejki `m_frames`.
 2.  Usuwa z kolejki klatki starsze niż 5 sekund.
 3.  Jeśli poziom wydajności jest narzucony (`m_forcedSpeed`), metoda kończy działanie.
@@ -604,8 +604,8 @@ Metoda wywoływana na początku każdej klatki renderowania. Rejestruje czas bie
     -   Jeśli aktualna liczba klatek jest niższa niż próg, zwiększa poziom `m_speed` (obniża jakość).
     -   Jeśli aktualna liczba klatek jest wyższa niż próg, zmniejsza poziom `m_speed` (zwiększa jakość).
     -   Poziom `m_speed` jest ograniczony do przedziału `[1, RenderSpeeds - 1]`.
-## # `void refresh()`
-## # # Opis semantyczny
+## `void refresh()`
+## Opis semantyczny
 Resetuje czas ostatniej aktualizacji poziomu wydajności, co powoduje, że kolejna ocena FPS nastąpi dopiero za 5 sekund.
 
 ```cpp
@@ -613,8 +613,8 @@ void AdaptiveRenderer::refresh() {
     m_update = stdext::millis();
 }
 ```
-## # Metody limitujące
-## # # Opis semantyczny
+## Metody limitujące
+## Opis semantyczny
 Grupa metod zwracających limity dla różnych aspektów renderowania w zależności od aktualnego poziomu `m_speed`. Im wyższy `m_speed`, tym niższe limity i większe interwały, co przekłada się na mniejsze obciążenie procesora i karty graficznej.
 
 -   **`effetsLimit()`**: Zwraca maksymalną liczbę efektów do renderowania.
@@ -625,8 +625,8 @@ Grupa metod zwracających limity dla różnych aspektów renderowania w zależno
 -   **`creaturesRenderInterval()`**: Zwraca interwał renderowania stworzeń (obecnie nieużywane).
 -   **`allowFading()`**: Zwraca `true`, jeśli dozwolone jest płynne zanikanie/pojawianie się obiektów (tylko na wyższych poziomach jakości).
 -   **`foregroundUpdateInterval()`**: Zwraca interwał aktualizacji pierwszego planu.
-## # `std::string getDebugInfo()`
-## # # Opis semantyczny
+## `std::string getDebugInfo()`
+## Opis semantyczny
 Zwraca sformatowany ciąg znaków z informacjami debugowania, takimi jak aktualna liczba klatek, bieżący poziom `m_speed` i narzucony poziom `m_forcedSpeed`.
 ## Zależności i powiązania
 
@@ -641,7 +641,7 @@ Zwraca sformatowany ciąg znaków z informacjami debugowania, takimi jak aktualn
 
 Plik `adaptiverenderer.h` jest plikiem nagłówkowym dla klasy `AdaptiveRenderer`. Deklaruje on interfejs tej klasy, stałe oraz globalną instancję `g_adaptiveRenderer`. Umożliwia to innym częściom systemu odpytywanie o aktualne limity i ustawienia wydajności renderowania.
 ## Definicje i Makra
-## # `constexpr int RenderSpeeds`
+## `constexpr int RenderSpeeds`
 
 Definiuje liczbę dostępnych poziomów wydajności renderowania.
 
@@ -649,9 +649,9 @@ Definiuje liczbę dostępnych poziomów wydajności renderowania.
 constexpr int RenderSpeeds = 5;
 ```
 ## Klasa `AdaptiveRenderer`
-## # Opis semantyczny
+## Opis semantyczny
 Klasa `AdaptiveRenderer` zarządza dynamicznym skalowaniem jakości grafiki w celu utrzymania płynności działania aplikacji. Implementuje mechanizm, który na podstawie bieżącej liczby klatek na sekundę (FPS) dostosowuje różne parametry renderowania, takie jak limity renderowanych obiektów czy częstotliwość odświeżania.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -668,13 +668,13 @@ Klasa `AdaptiveRenderer` zarządza dynamicznym skalowaniem jakości grafiki w ce
 | `int foregroundUpdateInterval()` | Zwraca interwał aktualizacji pierwszego planu. |
 | `std::string getDebugInfo()` | Zwraca informacje debugowania jako string. |
 | `void setForcedLevel(int value)` | Umożliwia ręczne ustawienie (narzucenie) poziomu wydajności. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_forcedSpeed`: Narzucony poziom wydajności (-1 oznacza automatyczny).
 -   `m_speed`: Aktualny, automatycznie wyliczony poziom wydajności (od 0 do `RenderSpeeds-1`).
 -   `m_update`: Czas ostatniej aktualizacji poziomu wydajności.
 -   `m_frames`: Lista czasów ostatnich klatek, używana do obliczania FPS.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_adaptiveRenderer`: Globalna instancja klasy `AdaptiveRenderer`.
 ## Zależności i powiązania
@@ -688,7 +688,7 @@ Klasa `AdaptiveRenderer` zarządza dynamicznym skalowaniem jakości grafiki w ce
 
 Plik `application.cpp` zawiera implementację klasy `Application`, która jest bazową klasą dla całej aplikacji. Odpowiada za podstawowy cykl życia programu, w tym inicjalizację, de-inicjalizację, obsługę sygnałów systemowych oraz zarządzanie głównymi komponentami frameworka, takimi jak menedżer zasobów, menedżer modułów, silnik Lua i połączenia sieciowe.
 ## Funkcje globalne
-## # `exitSignalHandler(int sig)`
+## `exitSignalHandler(int sig)`
 
 Funkcja obsługująca sygnały systemowe `SIGTERM` i `SIGINT` (np. zamknięcie terminala lub Ctrl+C). Po otrzymaniu sygnału, dodaje do kolejki zdarzeń wywołanie metody `Application::close()`, co pozwala na bezpieczne zamknięcie aplikacji.
 
@@ -708,13 +708,13 @@ void exitSignalHandler(int sig)
 }
 ```
 ## Klasa `Application`
-## # `Application::Application()`
+## `Application::Application()`
 
 Konstruktor, który ustawia domyślne wartości dla nazwy aplikacji, wersji, kodowania znaków oraz flag stanu. Wykrywa również, czy aplikacja działa na platformie mobilnej (Android).
-## # `void Application::init(std::vector<std::string>& args)`
-## # # Opis semantyczny
+## `void Application::init(std::vector<std::string>& args)`
+## Opis semantyczny
 Metoda inicjalizująca kluczowe komponenty aplikacji. Jest wywoływana na samym początku działania programu.
-## # # Działanie
+## Działanie
 1.  Rejestruje `exitSignalHandler` do obsługi sygnałów zamknięcia.
 2.  Ustawia globalne locale.
 3.  Przetwarza argumenty wiersza poleceń za pomocą `g_platform`.
@@ -723,41 +723,41 @@ Metoda inicjalizująca kluczowe komponenty aplikacji. Jest wywoływana na samym 
 6.  Inicjalizuje menedżera konfiguracji (`g_configs`).
 7.  Inicjalizuje silnik Lua (`g_lua`) i rejestruje funkcje C++ (`registerLuaFunctions`).
 8.  Inicjalizuje menedżera proxy (`g_proxy`).
-## # `void Application::deinit()`
-## # # Opis semantyczny
+## `void Application::deinit()`
+## Opis semantyczny
 Metoda de-inicjalizująca, wywoływana przed zamknięciem aplikacji. Dba o poprawne zwolnienie zasobów w odwrotnej kolejności do inicjalizacji.
-## # # Działanie
+## Działanie
 1.  Wywołuje lua `g_app.onTerminate`.
 2.  Odładowuje wszystkie moduły.
 3.  Uruchamia garbage collector Lua, aby zwolnić referencje do obiektów.
 4.  Przetwarza pozostałe zdarzenia z kolejki.
 5.  Wyłącza `g_dispatcher`.
-## # `void Application::terminate()`
-## # # Opis semantyczny
+## `void Application::terminate()`
+## Opis semantyczny
 Finalny etap zamykania aplikacji. Zwalnia zasoby, które muszą być zwolnione jako ostatnie.
-## # # Działanie
+## Działanie
 1.  Zamyka wszystkie połączenia sieciowe.
 2.  Terminuje menedżera konfiguracji.
 3.  Terminuje menedżera zasobów.
 4.  Terminuje silnik Lua.
 5.  Terminuje menedżera proxy.
 6.  Resetuje obsługę sygnałów systemowych do domyślnej.
-## # `void Application::poll()`
-## # # Opis semantyczny
+## `void Application::poll()`
+## Opis semantyczny
 Przetwarza zdarzenia sieciowe i zdarzenia z głównej kolejki (`g_dispatcher`). Jest to serce pętli zdarzeń aplikacji.
-## # `void Application::exit()`
+## `void Application::exit()`
 
 Inicjuje proces zamykania aplikacji poprzez ustawienie flagi `m_stopping` i wywołanie lua `g_app.onExit`.
-## # `void Application::quick_exit()`
+## `void Application::quick_exit()`
 
 Natychmiastowo zamyka aplikację z kodem 0, bez zwalniania zasobów.
-## # `void Application::close()`
+## `void Application::close()`
 
 Próbuje zamknąć aplikację, wywołując lua `g_app.onClose`. Jeśli skrypt zwróci `false` (lub nic), wywoływana jest metoda `exit()`.
-## # `void Application::restart()` i `void Application::restartArgs(const std::vector<std::string>& args)`
+## `void Application::restart()` i `void Application::restartArgs(const std::vector<std::string>& args)`
 
 Metody do restartowania aplikacji. Uruchamiają nową instancję procesu i natychmiast zamykają bieżącą. Używają `boost::process` do stworzenia nowego procesu. Niedostępne na Androidzie i w wersji `FREE_VERSION`.
-## # `std::string Application::getOs()`
+## `std::string Application::getOs()`
 
 Zwraca nazwę bieżącego systemu operacyjnego ("android", "windows", "mac", "linux").
 ## Zależności i powiązania
@@ -778,9 +778,9 @@ Zwraca nazwę bieżącego systemu operacyjnego ("android", "windows", "mac", "li
 
 Plik `application.h` jest plikiem nagłówkowym dla klasy `Application`. Deklaruje on interfejs tej klasy, jej składowe oraz zawiera dyrektywy dołączające jedną z dwóch możliwych implementacji aplikacji: `GraphicalApplication` lub `ConsoleApplication`, w zależności od tego, czy zdefiniowano flagę `FW_GRAPHICS`.
 ## Klasa `Application`
-## # Opis semantyczny
+## Opis semantyczny
 `Application` jest abstrakcyjną klasą bazową, która definiuje podstawowy interfejs i cykl życia aplikacji. Zawiera metody do inicjalizacji, de-inicjalizacji, zamykania, restartowania oraz dostarcza informacji o samej aplikacji, takich jak nazwa, wersja czy system operacyjny.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -811,16 +811,16 @@ Plik `application.h` jest plikiem nagłówkowym dla klasy `Application`. Deklaru
 | `std::string getOs()` | Zwraca nazwę systemu operacyjnego. |
 | `std::string getStartupOptions()` | Zwraca opcje startowe. |
 | `bool isMobile()` | Zwraca `true`, jeśli aplikacja działa w trybie mobilnym. |
-## # Metody chronione
+## Metody chronione
 
 -   `void registerLuaFunctions()`: Deklaracja metody odpowiedzialnej za bindowanie funkcji C++ do Lua.
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_charset`: Kodowanie znaków.
 -   `m_appName`, `m_appCompactName`, `m_appVersion`: Informacje o aplikacji.
 -   `m_startupOptions`: Opcje startowe.
 -   `m_running`, `m_stopping`, `m_terminated`, `m_mobile`: Flagi stanu aplikacji.
-## # Dołączanie implementacji
+## Dołączanie implementacji
 
 W zależności od flagi `FW_GRAPHICS`, dołączany jest jeden z dwóch plików:
 -   `graphicalapplication.h`: Jeśli `FW_GRAPHICS` jest zdefiniowane, aplikacja będzie miała interfejs graficzny.
@@ -844,9 +844,9 @@ W zależności od flagi `FW_GRAPHICS`, dołączany jest jeden z dwóch plików:
 
 Plik `asyncdispatcher.h` deklaruje klasę `AsyncDispatcher`, która zarządza pulą wątków roboczych do wykonywania zadań asynchronicznie. Jest to kluczowy komponent do odciążenia głównego wątku aplikacji (wątku zdarzeń) z operacji, które mogą zająć dużo czasu, takich jak operacje wejścia/wyjścia na plikach, zapytania sieciowe czy intensywne obliczenia.
 ## Klasa `AsyncDispatcher`
-## # Opis semantyczny
+## Opis semantyczny
 `AsyncDispatcher` implementuje prosty model producent-konsument. Zadania (funkcje do wykonania) są dodawane do kolejki, a wątki robocze pobierają je i wykonują. Klasa używa `std::thread`, `std::mutex` i `std::condition_variable` do synchronizacji.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -856,7 +856,7 @@ Plik `asyncdispatcher.h` deklaruje klasę `AsyncDispatcher`, która zarządza pu
 | `void stop()` | Zatrzymuje działanie wszystkich wątków roboczych. |
 | `template<class F> schedule(const F& task)` | Planuje wykonanie zadania i zwraca `std::shared_future`, które pozwoli uzyskać wynik zadania w przyszłości. Używa `std::promise` do przekazania wyniku. |
 | `void dispatch(std::function<void()> f)` | Dodaje zadanie do kolejki bez oczekiwania na wynik (fire-and-forget). |
-## # # Przykład użycia `schedule`
+## Przykład użycia `schedule`
 ```cpp
 // Wątek główny
 auto future = g_asyncDispatcher.schedule([]() -> int {
@@ -868,7 +868,7 @@ auto future = g_asyncDispatcher.schedule([]() -> int {
 // Później, w wątku głównym
 int result = future.get(); // Czeka na zakończenie zadania i pobiera wynik
 ```
-## # # Przykład użycia `dispatch`
+## Przykład użycia `dispatch`
 ```cpp
 // Wątek główny
 g_asyncDispatcher.dispatch([]() {
@@ -876,17 +876,17 @@ g_asyncDispatcher.dispatch([]() {
     save_game_state();
 });
 ```
-## # Metody chronione
+## Metody chronione
 
 -   `void exec_loop()`: Główna pętla wykonywana przez każdy wątek roboczy. Czeka na zadania w kolejce i wykonuje je.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_tasks`: Lista (kolejka) zadań do wykonania.
 -   `m_threads`: Lista wątków roboczych.
 -   `m_mutex`: Mutex do ochrony dostępu do `m_tasks`.
 -   `m_condition`: Zmienna warunkowa do powiadamiania wątków o nowych zadaniach.
 -   `m_running`: Flaga kontrolująca, czy wątki powinny kontynuować pracę.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_asyncDispatcher`: Globalna instancja klasy `AsyncDispatcher`.
 ## Zależności i powiązania
@@ -901,35 +901,35 @@ g_asyncDispatcher.dispatch([]() {
 
 Plik `binarytree.cpp` zawiera implementację klas `BinaryTree` i `OutputBinaryTree`. Te klasy służą do odczytu i zapisu danych w niestandardowym, hierarchicznym formacie binarnym, który przypomina drzewo. Format ten jest używany w kliencie Tibii do przechowywania danych, np. plików map (`.otbm`).
 ## Klasa `BinaryTree`
-## # `BinaryTree::BinaryTree(const FileStreamPtr& fin)`
+## `BinaryTree::BinaryTree(const FileStreamPtr& fin)`
 
 Konstruktor, który przyjmuje wskaźnik do strumienia pliku (`FileStream`) i zapamiętuje pozycję startową, od której zaczyna się węzeł drzewa.
-## # `void BinaryTree::skipNodes()`
+## `void BinaryTree::skipNodes()`
 
 Metoda pomocnicza, która przeskakuje przez zagnieżdżone węzły w strumieniu danych, aby szybko przejść do końca bieżącego węzła bez potrzeby jego pełnego parsowania.
-## # `void BinaryTree::unserialize()`
-## # # Opis semantyczny
+## `void BinaryTree::unserialize()`
+## Opis semantyczny
 To kluczowa metoda, która odczytuje "płaskie" dane (właściwości) bieżącego węzła ze strumienia pliku i zapisuje je do wewnętrznego bufora (`m_buffer`). Operacja ta jest wykonywana tylko raz (lazy loading), przy pierwszym dostępie do danych węzła. Deserializacja polega na odczytywaniu bajtów aż do napotkania znacznika końca węzła (`BINARYTREE_NODE_END`), z uwzględnieniem znaków specjalnych (`BINARYTREE_ESCAPE_CHAR`).
-## # `BinaryTreeVec BinaryTree::getChildren()`
+## `BinaryTreeVec BinaryTree::getChildren()`
 
 Zwraca wektor wskaźników do `BinaryTree`, reprezentujących wszystkie bezpośrednie dzieci bieżącego węzła. Przeszukuje strumień w poszukiwaniu znaczników początku węzła (`BINARYTREE_NODE_START`).
-## # Metody odczytu danych (`getU8`, `getU16`, `getString`, etc.)
+## Metody odczytu danych (`getU8`, `getU16`, `getString`, etc.)
 
 Są to metody do odczytywania konkretnych typów danych z wewnętrznego, zdeserializowanego bufora. Każde wywołanie przesuwa wskaźnik odczytu (`m_pos`). Jeśli bufor nie został jeszcze wypełniony, najpierw wywoływana jest metoda `unserialize()`.
 ## Klasa `OutputBinaryTree`
-## # `OutputBinaryTree::OutputBinaryTree(const FileStreamPtr& fin)`
+## `OutputBinaryTree::OutputBinaryTree(const FileStreamPtr& fin)`
 
 Konstruktor, który przyjmuje strumień pliku do zapisu i natychmiast rozpoczyna nowy węzeł, zapisując znacznik `BINARYTREE_NODE_START`.
-## # Metody zapisu danych (`addU8`, `addU16`, `addString`, etc.)
+## Metody zapisu danych (`addU8`, `addU16`, `addString`, etc.)
 
 Metody te służą do zapisywania danych do strumienia. Używają metody `write`, aby zapewnić poprawne "uciekanie" (escaping) znaków specjalnych (`0xFD`, `0xFE`, `0xFF`).
-## # `void OutputBinaryTree::startNode(uint8 node)`
+## `void OutputBinaryTree::startNode(uint8 node)`
 
 Rozpoczyna nowy, zagnieżdżony węzeł wewnątrz bieżącego węzła.
-## # `void OutputBinaryTree::endNode()`
+## `void OutputBinaryTree::endNode()`
 
 Kończy bieżący węzeł, zapisując znacznik `BINARYTREE_NODE_END`.
-## # `void OutputBinaryTree::write(const uint8* data, size_t size)`
+## `void OutputBinaryTree::write(const uint8* data, size_t size)`
 
 Prywatna metoda pomocnicza, która zapisuje surowe dane do strumienia, dodając znak `BINARYTREE_ESCAPE_CHAR` przed każdym bajtem, który jest znakiem specjalnym.
 ## Zależności i powiązania
@@ -944,7 +944,7 @@ Prywatna metoda pomocnicza, która zapisuje surowe dane do strumienia, dodając 
 
 Plik `asyncdispatcher.cpp` zawiera implementację klasy `AsyncDispatcher`, która zarządza asynchronicznym wykonywaniem zadań w tle. Jest to realizacja mechanizmu puli wątków, który pozwala na odciążenie głównego wątku aplikacji.
 ## Zmienne globalne
-## # `g_asyncDispatcher`
+## `g_asyncDispatcher`
 
 Globalna instancja klasy `AsyncDispatcher`, zapewniająca scentralizowany dostęp do puli wątków z dowolnego miejsca w aplikacji.
 
@@ -952,22 +952,22 @@ Globalna instancja klasy `AsyncDispatcher`, zapewniająca scentralizowany dostę
 AsyncDispatcher g_asyncDispatcher;
 ```
 ## Klasa `AsyncDispatcher`
-## # `void AsyncDispatcher::init()`
-## # # Opis semantyczny
+## `void AsyncDispatcher::init()`
+## Opis semantyczny
 Inicjalizuje dyspozytor, wywołując `spawn_thread()` w celu utworzenia i uruchomienia pierwszego wątku roboczego.
-## # `void AsyncDispatcher::terminate()`
-## # # Opis semantyczny
+## `void AsyncDispatcher::terminate()`
+## Opis semantyczny
 Zamyka dyspozytor. Zatrzymuje wszystkie wątki robocze i czyści kolejkę zadań.
-## # `void AsyncDispatcher::spawn_thread()`
-## # # Opis semantyczny
+## `void AsyncDispatcher::spawn_thread()`
+## Opis semantyczny
 Tworzy nowy `std::thread`, który rozpoczyna wykonywanie pętli `exec_loop()`. Wątek jest dodawany do listy `m_threads`. Ustawia flagę `m_running` na `true`.
-## # `void AsyncDispatcher::stop()`
-## # # Opis semantyczny
+## `void AsyncDispatcher::stop()`
+## Opis semantyczny
 Bezpiecznie zatrzymuje wszystkie wątki robocze. Ustawia flagę `m_running` na `false`, powiadamia wszystkie oczekujące wątki za pomocą `m_condition.notify_all()`, a następnie czeka na ich zakończenie za pomocą `thread.join()`.
-## # `void AsyncDispatcher::exec_loop()`
-## # # Opis semantyczny
+## `void AsyncDispatcher::exec_loop()`
+## Opis semantyczny
 Jest to główna funkcja pętli dla każdego wątku roboczego.
-## # # Działanie
+## Działanie
 1.  Wątek wchodzi w nieskończoną pętlę i blokuje mutex `m_mutex`.
 2.  Czeka na zmiennej warunkowej `m_condition`, aż w kolejce `m_tasks` pojawi się zadanie lub flaga `m_running` zostanie ustawiona na `false`.
 3.  Gdy zostanie obudzony i flaga `m_running` jest `true`, pobiera pierwsze zadanie z kolejki `m_tasks`.
@@ -987,13 +987,13 @@ Jest to główna funkcja pętli dla każdego wątku roboczego.
 
 Plik `clock.h` deklaruje klasę `Clock`, która jest singletonem (`g_clock`) odpowiedzialnym za zarządzanie czasem w aplikacji. Zapewnia buforowany, spójny czas dla jednej klatki oraz dostęp do "rzeczywistego" czasu systemowego.
 ## Klasa `Clock`
-## # Opis semantyczny
+## Opis semantyczny
 Klasa `Clock` ma dwa główne zadania:
 1.  Dostarczać "buforowany" czas, który jest stały w obrębie jednej iteracji głównej pętli. Metoda `update()` jest wywoływana raz na klatkę, a metody `micros()`, `millis()`, `seconds()` zwracają tę samą, zapisaną wartość czasu przez całą klatkę. Zapewnia to spójność obliczeń zależnych od czasu.
 2.  Dostarczać "rzeczywisty" czas systemowy za pomocą metod `realMicros()` i `realMillis()`, które zawsze odczytują aktualny czas systemowy.
 
 Wszystkie składowe przechowujące czas są typu `std::atomic`, co zapewnia bezpieczeństwo wątkowe przy odczycie.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1004,12 +1004,12 @@ Wszystkie składowe przechowujące czas są typu `std::atomic`, co zapewnia bezp
 | `float seconds()` | Zwraca buforowany czas w sekundach (jako `float`). |
 | `ticks_t realMicros()` | Zwraca aktualny, "rzeczywisty" czas systemowy w mikrosekundach. |
 | `ticks_t realMillis()` | Zwraca aktualny, "rzeczywisty" czas systemowy w milisekundach. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_currentMicros`: Atomowy licznik przechowujący buforowany czas w mikrosekundach.
 -   `m_currentMillis`: Atomowy licznik przechowujący buforowany czas w milisekundach.
 -   `m_currentSeconds`: Atomowa zmienna przechowująca buforowany czas w sekundach.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_clock`: Globalna instancja klasy `Clock`.
 ## Zależności i powiązania
@@ -1024,16 +1024,16 @@ Wszystkie składowe przechowujące czas są typu `std::atomic`, co zapewnia bezp
 
 Plik `binarytree.h` deklaruje interfejsy dla klas `BinaryTree` i `OutputBinaryTree`. Klasy te służą do obsługi niestandardowego, hierarchicznego formatu binarnego, używanego do serializacji danych w strukturze drzewa. Format ten jest charakterystyczny dla plików `.otbm` (OTClient Binary Map).
 ## Definicje i Makra
-## # Znaczniki binarne
+## Znaczniki binarne
 
 Zdefiniowano trzy specjalne bajty, które kontrolują strukturę drzewa w strumieniu binarnym:
 -   `BINARYTREE_ESCAPE_CHAR` (0xFD): Znak "ucieczki", używany do kodowania bajtów, które mają taką samą wartość jak inne znaki specjalne.
 -   `BINARYTREE_NODE_START` (0xFE): Znacznik początku nowego węzła (dziecka).
 -   `BINARYTREE_NODE_END` (0xFF): Znacznik końca bieżącego węzła.
 ## Klasa `BinaryTree`
-## # Opis semantyczny
+## Opis semantyczny
 Klasa `BinaryTree` reprezentuje pojedynczy węzeł w drzewie danych i służy do **odczytu** danych z tego węzła. Działa na strumieniu `FileStream` i implementuje mechanizm leniwego odczytu (lazy loading) – dane właściwości węzła są deserializowane do wewnętrznego bufora dopiero przy pierwszej próbie dostępu do nich.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1048,9 +1048,9 @@ Klasa `BinaryTree` reprezentuje pojedynczy węzeł w drzewie danych i służy do
 | `getChildren()` | Zwraca wektor `BinaryTreePtr` zawierający wszystkie dzieci bieżącego węzła. |
 | `canRead()` | Sprawdza, czy można jeszcze odczytywać dane z bufora. |
 ## Klasa `OutputBinaryTree`
-## # Opis semantyczny
+## Opis semantyczny
 Klasa `OutputBinaryTree` jest odpowiednikiem `BinaryTree` do **zapisu** danych w formacie drzewa binarnego. Umożliwia tworzenie węzłów i zapisywanie do nich właściwości, dbając o poprawne formatowanie i "uciekanie" (escaping) znaków specjalnych.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1073,58 +1073,58 @@ Klasa `OutputBinaryTree` jest odpowiednikiem `BinaryTree` do **zapisu** danych w
 
 Plik `config.cpp` zawiera implementację klasy `Config`, która jest opakowaniem na dokument OTML (`OTMLDocument`). Służy do zarządzania pojedynczym plikiem konfiguracyjnym, umożliwiając łatwy odczyt, zapis i modyfikację wartości w formacie `key-value` oraz bardziej złożonych struktur zagnieżdżonych.
 ## Klasa `Config`
-## # `Config::Config()`
+## `Config::Config()`
 
 Konstruktor. Inicjalizuje pusty dokument OTML (`m_confsDoc`) i zeruje nazwę pliku (`m_fileName`).
-## # `bool Config::load(const std::string& file)`
-## # # Opis semantyczny
+## `bool Config::load(const std::string& file)`
+## Opis semantyczny
 Ładuje i parsuje plik konfiguracyjny w formacie OTML.
-## # # Działanie
+## Działanie
 1.  Zapamiętuje nazwę pliku w `m_fileName`.
 2.  Sprawdza, czy plik istnieje za pomocą `g_resources.fileExists`.
 3.  Jeśli plik istnieje, parsuje go za pomocą `OTMLDocument::parse`.
 4.  W przypadku sukcesu, zastępuje wewnętrzny dokument (`m_confsDoc`) nowo sparsowanym.
 5.  W przypadku błędu parsowania, loguje błąd i zwraca `false`.
-## # `bool Config::unload()`
+## `bool Config::unload()`
 
 Zwalnia wewnętrzny dokument OTML i resetuje nazwę pliku. Zwraca `true`, jeśli obiekt był załadowany.
-## # `bool Config::save()`
+## `bool Config::save()`
 
 Zapisuje bieżącą zawartość dokumentu OTML do pliku, którego nazwa jest przechowywana w `m_fileName`. Używa do tego metody `m_confsDoc->save()`.
-## # `void Config::clear()`
+## `void Config::clear()`
 
 Czyści wszystkie węzły z wewnętrznego dokumentu OTML.
-## # `void Config::setValue(const std::string& key, const std::string& value)`
+## `void Config::setValue(const std::string& key, const std::string& value)`
 
 Ustawia wartość dla danego klucza. Jeśli wartość jest pusta, klucz jest usuwany. W przeciwnym razie tworzony jest nowy węzeł OTML (`OTMLNode`) i dodawany do dokumentu. Istniejące węzły o tym samym kluczu są nadpisywane.
-## # `void Config::setList(const std::string& key, const std::vector<std::string>& list)`
+## `void Config::setList(const std::string& key, const std::vector<std::string>& list)`
 
 Zapisuje wektor stringów jako listę w dokumencie OTML. Tworzy węzeł główny o nazwie `key`, a następnie dodaje każdy element wektora jako jego dziecko bez nazwy.
-## # `bool Config::exists(const std::string& key)`
+## `bool Config::exists(const std::string& key)`
 
 Sprawdza, czy w dokumencie istnieje węzeł o podanym kluczu.
-## # `std::string Config::getValue(const std::string& key)`
+## `std::string Config::getValue(const std::string& key)`
 
 Zwraca wartość stringową dla podanego klucza. Jeśli klucz nie istnieje, zwraca pusty string.
-## # `std::vector<std::string> Config::getList(const std::string& key)`
+## `std::vector<std::string> Config::getList(const std::string& key)`
 
 Odczytuje listę stringów z węzła o podanym kluczu. Zwraca pusty wektor, jeśli klucz nie istnieje.
-## # `void Config::remove(const std::string& key)`
+## `void Config::remove(const std::string& key)`
 
 Usuwa węzeł o podanym kluczu z dokumentu.
-## # `void Config::setNode(const std::string& key, const OTMLNodePtr& node)`
+## `void Config::setNode(const std::string& key, const OTMLNodePtr& node)`
 
 Zastępuje istniejący węzeł nowym węzłem OTML. Najpierw usuwa stary węzeł, a następnie dodaje sklonowaną wersję nowego.
-## # `void Config::mergeNode(const std::string& key, const OTMLNodePtr& node)`
+## `void Config::mergeNode(const std::string& key, const OTMLNodePtr& node)`
 
 Łączy podany węzeł z istniejącym (lub tworzy nowy). Działa podobnie do `setNode`, ale jest używane do dodawania/aktualizowania danych bez usuwania całego węzła.
-## # `OTMLNodePtr Config::getNode(const std::string& key)`
+## `OTMLNodePtr Config::getNode(const std::string& key)`
 
 Zwraca wskaźnik do węzła OTML o podanym kluczu.
-## # `int Config::getNodeSize(const std::string& key)`
+## `int Config::getNodeSize(const std::string& key)`
 
 Zwraca liczbę dzieci węzła o podanym kluczu. Zwraca 0, jeśli węzeł nie istnieje.
-## # `bool Config::isLoaded()`
+## `bool Config::isLoaded()`
 
 Zwraca `true`, jeśli obiekt `Config` jest powiązany z plikiem i ma załadowaną zawartość.
 ## Zależności i powiązania
@@ -1140,7 +1140,7 @@ Zwraca `true`, jeśli obiekt `Config` jest powiązany z plikiem i ma załadowan�
 
 Plik `configmanager.cpp` zawiera implementację klasy `ConfigManager`, która jest singletonem (`g_configs`) służącym do zarządzania wieloma plikami konfiguracyjnymi (`Config`) w aplikacji. Umożliwia ładowanie, tworzenie, pobieranie i zwalnianie konfiguracji na żądanie.
 ## Zmienne globalne
-## # `g_configs`
+## `g_configs`
 
 Globalna instancja `ConfigManager`, zapewniająca centralny punkt dostępu do wszystkich konfiguracji.
 
@@ -1148,39 +1148,39 @@ Globalna instancja `ConfigManager`, zapewniająca centralny punkt dostępu do ws
 ConfigManager g_configs;
 ```
 ## Klasa `ConfigManager`
-## # `void ConfigManager::init()`
-## # # Opis semantyczny
+## `void ConfigManager::init()`
+## Opis semantyczny
 Inicjalizuje menedżera. Tworzy główny obiekt konfiguracyjny, zwany "settings" (`m_settings`), który jest przeznaczony do przechowywania ustawień samej aplikacji.
-## # `void ConfigManager::terminate()`
-## # # Opis semantyczny
+## `void ConfigManager::terminate()`
+## Opis semantyczny
 Zwalnia wszystkie zarządzane obiekty `Config`. Zapewnia, że główna konfiguracja (`m_settings`) jest zapisywana przed zamknięciem.
-## # # Działanie
+## Działanie
 1.  Zapisuje główny plik ustawień (`m_settings->save()`).
 2.  Odładowuje (`unload()`) główny obiekt ustawień.
 3.  Iteruje po wszystkich pozostałych załadowanych konfiguracjach i je odładowuje.
 4.  Czyści listę `m_configs`.
-## # `ConfigPtr ConfigManager::getSettings()`
+## `ConfigPtr ConfigManager::getSettings()`
 
 Zwraca wskaźnik do głównego obiektu konfiguracyjnego `m_settings`.
-## # `ConfigPtr ConfigManager::get(const std::string& file)`
+## `ConfigPtr ConfigManager::get(const std::string& file)`
 
 Wyszukuje i zwraca wskaźnik do już załadowanego obiektu `Config` na podstawie nazwy pliku. Jeśli konfiguracja nie jest załadowana, zwraca `nullptr`.
-## # `ConfigPtr ConfigManager::loadSettings(const std::string file)`
+## `ConfigPtr ConfigManager::loadSettings(const std::string file)`
 
 Ładuje główny plik ustawień z podanej ścieżki. Zastępuje domyślny, pusty obiekt `m_settings`.
-## # `ConfigPtr ConfigManager::create(const std::string& file)`
+## `ConfigPtr ConfigManager::create(const std::string& file)`
 
 Ładuje plik konfiguracyjny, a jeśli on nie istnieje, tworzy go. Jest to przydatne do tworzenia domyślnych plików konfiguracyjnych przy pierwszym uruchomieniu.
-## # # Działanie
+## Działanie
 1.  Próbuje załadować plik za pomocą `load(file)`.
 2.  Jeśli ładowanie się nie powiedzie (plik nie istnieje), tworzy nowy obiekt `Config`, ładuje go (co tworzy pusty dokument), zapisuje go na dysku (tworząc plik) i dodaje do listy zarządzanych konfiguracji.
-## # `ConfigPtr ConfigManager::load(const std::string& file)`
+## `ConfigPtr ConfigManager::load(const std::string& file)`
 
 Ładuje plik konfiguracyjny. Jeśli plik był już załadowany, zwraca istniejącą instancję. W przeciwnym razie tworzy nowy obiekt `Config`, próbuje załadować plik z dysku i, jeśli się powiedzie, dodaje go do listy zarządzanych konfiguracji.
-## # `bool ConfigManager::unload(const std::string& file)`
+## `bool ConfigManager::unload(const std::string& file)`
 
 Znajduje obiekt `Config` po nazwie pliku, odładowuje go (zwalniając pamięć) i usuwa z listy zarządzanych konfiguracji.
-## # `void ConfigManager::remove(const ConfigPtr config)`
+## `void ConfigManager::remove(const ConfigPtr config)`
 
 Usuwa podany obiekt `Config` z listy `m_configs`.
 ## Zależności i powiązania
@@ -1196,9 +1196,9 @@ Usuwa podany obiekt `Config` z listy `m_configs`.
 
 Plik `configmanager.h` deklaruje interfejs klasy `ConfigManager`, która pełni rolę centralnego menedżera plików konfiguracyjnych w formacie OTML. Umożliwia zarządzanie cyklem życia wielu obiektów `Config`, w tym ich ładowanie, tworzenie i zwalnianie.
 ## Klasa `ConfigManager`
-## # Opis semantyczny
+## Opis semantyczny
 `ConfigManager` to klasa singletonowa (`g_configs`), która przechowuje listę wszystkich aktywnych obiektów `Config`. Wyróżnia jeden specjalny obiekt konfiguracyjny, `m_settings`, przeznaczony na główne ustawienia aplikacji. Pozostałe konfiguracje są zarządzane w liście `m_configs` i identyfikowane po nazwie pliku.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1211,13 +1211,13 @@ Plik `configmanager.h` deklaruje interfejs klasy `ConfigManager`, która pełni 
 | `ConfigPtr load(const std::string& file)` | Ładuje dodatkowy plik konfiguracyjny. |
 | `bool unload(const std::string& file)` | Zwalnia i usuwa z menedżera konfigurację o podanej nazwie pliku. |
 | `void remove(const ConfigPtr config)` | Usuwa podany obiekt `Config` z wewnętrznej listy. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_settings`: Wskaźnik na główny obiekt `Config` przechowujący ustawienia aplikacji.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_configs`: Lista wskaźników na wszystkie dodatkowe załadowane obiekty `Config`.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_configs`: Globalna instancja singletonu `ConfigManager`.
 ## Zależności i powiązania
@@ -1232,9 +1232,9 @@ Plik `configmanager.h` deklaruje interfejs klasy `ConfigManager`, która pełni 
 
 Plik `config.h` deklaruje klasę `Config`, która jest obiektowym interfejsem do odczytu, zapisu i manipulacji danymi w plikach konfiguracyjnych formatu OTML. Klasa ta dziedziczy po `LuaObject`, co oznacza, że jej instancje mogą być tworzone i używane w skryptach Lua.
 ## Klasa `Config`
-## # Opis semantyczny
+## Opis semantyczny
 `Config` działa jako opakowanie (wrapper) na `OTMLDocument`. Każda instancja tej klasy reprezentuje jeden plik konfiguracyjny. Umożliwia operacje takie jak ustawianie wartości (`setValue`), list (`setList`), a także bardziej złożonych struktur (`setNode`, `mergeNode`). Wszystkie dane są przechowywane wewnętrznie jako drzewo węzłów OTML.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1256,7 +1256,7 @@ Plik `config.h` deklaruje klasę `Config`, która jest obiektowym interfejsem do
 | `std::string getFileName()` | Zwraca nazwę pliku powiązanego z tą konfiguracją. |
 | `bool isLoaded()` | Zwraca `true`, jeśli konfiguracja została załadowana z pliku. |
 | `ConfigPtr asConfig()` | Zwraca `shared_ptr` do siebie (`static_self_cast`). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_fileName`: Nazwa pliku konfiguracyjnego.
 -   `m_confsDoc`: Wskaźnik na `OTMLDocument`, który przechowuje dane konfiguracyjne.
@@ -1274,7 +1274,7 @@ Plik `config.h` deklaruje klasę `Config`, która jest obiektowym interfejsem do
 
 Plik `clock.cpp` zawiera implementację metod klasy `Clock`. Odpowiada za dostarczanie mechanizmów pomiaru czasu, które są kluczowe dla pętli głównej aplikacji, planowania zdarzeń i animacji.
 ## Zmienne globalne
-## # `g_clock`
+## `g_clock`
 
 Globalna instancja klasy `Clock`, która jest używana w całym frameworku do uzyskiwania spójnych informacji o czasie.
 
@@ -1282,20 +1282,20 @@ Globalna instancja klasy `Clock`, która jest używana w całym frameworku do uz
 Clock g_clock;
 ```
 ## Klasa `Clock`
-## # `Clock::Clock()`
+## `Clock::Clock()`
 
 Konstruktor klasy. Inicjalizuje wszystkie liczniki czasu na 0.
-## # `void Clock::update()`
-## # # Opis semantyczny
+## `void Clock::update()`
+## Opis semantyczny
 Aktualizuje wewnętrzne, "buforowane" liczniki czasu. Ta metoda powinna być wywoływana raz na każdą iterację głównej pętli aplikacji. Dzięki temu wszystkie operacje wewnątrz jednej klatki (np. logika gry, animacje, fizyka) bazują na tej samej wartości czasu, co zapobiega niespójnościom.
-## # # Działanie
+## Działanie
 1.  Pobiera aktualny czas systemowy w mikrosekundach za pomocą `stdext::micros()`.
 2.  Zapisuje tę wartość do atomowej zmiennej `m_currentMicros`.
 3.  Oblicza i zapisuje czas w milisekundach (`m_currentMillis`) i sekundach (`m_currentSeconds`).
-## # `ticks_t Clock::realMicros()`
+## `ticks_t Clock::realMicros()`
 
 Zwraca "na żywo" aktualny czas systemowy w mikrosekundach. W przeciwieństwie do `micros()`, ta metoda nie korzysta z buforowanej wartości i przy każdym wywołaniu odpytuje system operacyjny.
-## # `ticks_t Clock::realMillis()`
+## `ticks_t Clock::realMillis()`
 
 Zwraca "na żywo" aktualny czas systemowy w milisekundach. Podobnie jak `realMicros()`, odczytuje aktualny czas.
 ## Zależności i powiązania
@@ -1310,14 +1310,14 @@ Zwraca "na żywo" aktualny czas systemowy w milisekundach. Podobnie jak `realMic
 
 Plik `consoleapplication.h` deklaruje klasę `ConsoleApplication`, która jest konkretną implementacją klasy `Application` dla aplikacji działającej w trybie konsolowym, bez interfejsu graficznego. Jest używana, gdy flaga `FW_GRAPHICS` nie jest zdefiniowana podczas kompilacji.
 ## Klasa `ConsoleApplication`
-## # Opis semantyczny
+## Opis semantyczny
 `ConsoleApplication` dziedziczy po `Application` i implementuje jej czysto wirtualną metodę `run()`. Ta implementacja zawiera prostą pętlę główną, która przetwarza zdarzenia i usypia wątek na krótki czas, aby uniknąć 100% użycia procesora.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
 | `void run()` | Implementuje główną pętlę aplikacji konsolowej. |
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_app`: Globalna instancja `ConsoleApplication`, która staje się głównym obiektem aplikacji, gdy kompilacja odbywa się bez wsparcia dla grafiki.
 ## Zależności i powiązania
@@ -1367,7 +1367,7 @@ Na podstawie wczesnych deklaracji, plik definiuje typy inteligentnych wskaźnik�
 
 Plik `event.cpp` zawiera implementację klasy `Event`, która jest podstawowym obiektem reprezentującym jednorazowe, opóźnione lub cykliczne zdarzenie w systemie.
 ## Klasa `Event`
-## # `Event::Event(const std::string& function, const std::function<void()>& callback, bool botSafe)`
+## `Event::Event(const std::string& function, const std::function<void()>& callback, bool botSafe)`
 
 Konstruktor, który inicjalizuje zdarzenie.
 
@@ -1376,21 +1376,21 @@ Konstruktor, który inicjalizuje zdarzenie.
     -   `callback`: Funkcja (lambda lub `std::function`), która zostanie wykonana.
     -   `botSafe`: Flaga określająca, czy zdarzenie może być wywołane przez bota (używane do filtrowania w niektórych kontekstach).
 -   **Działanie**: Inicjalizuje flagi `m_canceled` i `m_executed` na `false` oraz przechowuje podane parametry.
-## # `Event::~Event()`
+## `Event::~Event()`
 
 Destruktor. W trybie debugowania, `VALIDATE(m_callback == nullptr)` sprawdza, czy `callback` został poprawnie zwolniony, aby zapobiec wyciekom pamięci lub wiszącym referencjom.
-## # `void Event::execute()`
-## # # Opis semantyczny
+## `void Event::execute()`
+## Opis semantyczny
 Wykonuje `callback` powiązany ze zdarzeniem.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy zdarzenie nie zostało anulowane (`!m_canceled`) i czy nie zostało już wykonane (`!m_executed`).
 2.  Jeśli warunki są spełnione i `callback` istnieje, wywołuje go.
 3.  Ustawia flagę `m_executed` na `true`.
 4.  Resetuje `m_callback` do `nullptr`, aby zwolnić wszelkie zasoby (np. obiekty przechwycone przez lambdę).
-## # `void Event::cancel()`
-## # # Opis semantyczny
+## `void Event::cancel()`
+## Opis semantyczny
 Anuluje zdarzenie, zapobiegając jego przyszłemu wykonaniu.
-## # # Działanie
+## Działanie
 1.  Ustawia flagę `m_canceled` na `true`.
 2.  Resetuje `m_callback` do `nullptr`, aby natychmiast zwolnić zasoby.
 ## Zależności i powiązania
@@ -1405,9 +1405,9 @@ Anuluje zdarzenie, zapobiegając jego przyszłemu wykonaniu.
 
 Plik `event.h` deklaruje klasę `Event`, która jest podstawową klasą do obsługi zdarzeń w systemie opartym na kolejce zdarzeń. Reprezentuje pojedyncze zadanie, które ma zostać wykonane w przyszłości przez `EventDispatcher`.
 ## Klasa `Event`
-## # Opis semantyczny
+## Opis semantyczny
 `Event` to obiekt, który enkapsuluje funkcję zwrotną (`callback`) do wykonania. Dziedziczy po `LuaObject`, co pozwala na przekazywanie go do skryptów Lua. Posiada mechanizmy do wykonania, anulowania i sprawdzania jego stanu.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1419,7 +1419,7 @@ Plik `event.h` deklaruje klasę `Event`, która jest podstawową klasą do obsł
 | `bool isExecuted()` | Zwraca `true`, jeśli zdarzenie zostało już wykonane. |
 | `bool isBotSafe()` | Zwraca `true`, jeśli zdarzenie jest bezpieczne do wykonania w kontekście bota. |
 | `const std::string& getFunction()` | Zwraca nazwę/opis funkcji powiązanej ze zdarzeniem. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_function`: `std::string` przechowująca nazwę funkcji dla celów debugowania.
 -   `m_callback`: `std::function<void()>` zawierająca kod do wykonania.
@@ -1444,17 +1444,17 @@ Plik `eventdispatcher.cpp` zawiera implementację klasy `EventDispatcher`, któr
 -   `g_graphicsDispatcher`: Globalna instancja `EventDispatcher` dla wątku graficznego.
 -   `g_mainThreadId`, `g_graphicsThreadId`, `g_dispatcherThreadId`: Przechowują identyfikatory wątków w celu weryfikacji, czy dana operacja jest wykonywana w odpowiednim wątku.
 ## Klasa `EventDispatcher`
-## # `void EventDispatcher::shutdown()`
-## # # Opis semantyczny
+## `void EventDispatcher::shutdown()`
+## Opis semantyczny
 Zamyka dyspozytor, przetwarzając wszystkie pozostałe zdarzenia i anulując zaplanowane.
-## # # Działanie
+## Działanie
 1.  Przetwarza wszystkie zdarzenia z `m_eventList` za pomocą `poll()`.
 2.  Iteruje po wszystkich zdarzeniach w `m_scheduledEventList`, anuluje je i usuwa z kolejki.
 3.  Ustawia flagę `m_disabled` na `true`, aby zapobiec dodawaniu nowych zdarzeń.
-## # `void EventDispatcher::poll()`
-## # # Opis semantyczny
+## `void EventDispatcher::poll()`
+## Opis semantyczny
 Główna metoda przetwarzająca zdarzenia. Wywoływana regularnie w pętli aplikacji.
-## # # Działanie
+## Działanie
 1.  **Przetwarzanie zdarzeń zaplanowanych (`m_scheduledEventList`)**:
     -   Sprawdza kolejkę priorytetową i wykonuje wszystkie zdarzenia, dla których minął czas (`remainingTicks() <= 0`).
     -   Jeśli zdarzenie jest cykliczne (`nextCycle()` zwraca `true`), jest ponownie dodawane do kolejki z nowym czasem wykonania.
@@ -1463,13 +1463,13 @@ Główna metoda przetwarzająca zdarzenia. Wywoływana regularnie w pętli aplik
     -   Pętla jest powtarzana, jeśli w trakcie wykonywania zdarzeń zostały dodane nowe (np. zdarzenie A dodaje zdarzenie B), aby zapewnić, że wszystkie zdarzenia związane z bieżącą klatką zostaną wykonane przed jej zakończeniem.
     -   Posiada zabezpieczenie przed nieskończoną pętlą (jeśli zdarzenia ciągle dodają nowe zdarzenia).
 3.  Zapisuje statystyki dotyczące liczby przetworzonych zdarzeń.
-## # `ScheduledEventPtr EventDispatcher::scheduleEventEx(...)`
+## `ScheduledEventPtr EventDispatcher::scheduleEventEx(...)`
 
 Tworzy i dodaje do kolejki priorytetowej nowe jednorazowe zdarzenie zaplanowane, które zostanie wykonane po upływie `delay` milisekund.
-## # `ScheduledEventPtr EventDispatcher::cycleEventEx(...)`
+## `ScheduledEventPtr EventDispatcher::cycleEventEx(...)`
 
 Tworzy i dodaje do kolejki priorytetowej nowe cykliczne zdarzenie zaplanowane, które będzie wykonywane co `delay` milisekund.
-## # `EventPtr EventDispatcher::addEventEx(...)`
+## `EventPtr EventDispatcher::addEventEx(...)`
 
 Dodaje nowe zdarzenie do kolejki zdarzeń natychmiastowych. Jeśli `pushFront` jest `true`, zdarzenie jest dodawane na początek kolejki, co gwarantuje jego wykonanie w bieżącej iteracji pętli `poll()`.
 ## Zależności i powiązania
@@ -1488,23 +1488,23 @@ Dodaje nowe zdarzenie do kolejki zdarzeń natychmiastowych. Jeśli `pushFront` j
 
 Plik `eventdispatcher.h` deklaruje interfejs klasy `EventDispatcher` oraz powiązane z nią globalne instancje i makra. Definiuje on publiczne API do zarządzania kolejką zdarzeń w aplikacji.
 ## Definicje i Makra
-## # Makra pomocnicze do dodawania zdarzeń
+## Makra pomocnicze do dodawania zdarzeń
 
 Upraszczają one wywołania metod `...Ex`, automatycznie dodając nazwę bieżącej funkcji (`__FUNCTION__`) jako opis zdarzenia dla celów debugowania.
 
 -   `addEvent(...)`: Opakowanie na `addEventEx(__FUNCTION__, ...)`
 -   `scheduleEvent(...)`: Opakowanie na `scheduleEventEx(__FUNCTION__, ...)`
 -   `cycleEvent(...)`: Opakowanie na `cycleEventEx(__FUNCTION__, ...)`
-## # Makra do walidacji wątków
+## Makra do walidacji wątków
 
 Służą do sprawdzania, czy dana funkcja jest wywoływana w odpowiednim wątku, co jest kluczowe dla bezpieczeństwa w środowisku wielowątkowym.
 
 -   `VALIDATE_GRAPHICS_THREAD()`: Sprawdza, czy bieżący wątek to wątek graficzny.
 -   `VALIDATE_DISPATCHER_THREAD()`: Sprawdza, czy bieżący wątek to wątek dyspozytora (główny wątek logiki).
 ## Klasa `EventDispatcher`
-## # Opis semantyczny
+## Opis semantyczny
 `EventDispatcher` jest centralnym mechanizmem do zarządzania i wykonywania zadań w sposób asynchroniczny, ale w ramach jednego, określonego wątku. Posiada dwie kolejki: jedną dla zdarzeń natychmiastowych i drugą (priorytetową) dla zdarzeń zaplanowanych w czasie.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1514,7 +1514,7 @@ Służą do sprawdzania, czy dana funkcja jest wywoływana w odpowiednim wątku,
 | `ScheduledEventPtr scheduleEventEx(...)` | Planuje jednorazowe wykonanie zdarzenia po określonym czasie. |
 | `ScheduledEventPtr cycleEventEx(...)` | Planuje cykliczne wykonywanie zdarzenia co określony czas. |
 | `bool isBotSafe()` | Zwraca, czy aktualnie wykonywane zdarzenie jest oznaczone jako "bezpieczne dla bota". |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_eventList`: Lista (`std::list`) zdarzeń do natychmiastowego wykonania.
 -   `m_pollEventsSize`: Rozmiar `m_eventList` na początku pętli `poll()`, aby obsłużyć zdarzenia dodane w trakcie.
@@ -1522,7 +1522,7 @@ Służą do sprawdzania, czy dana funkcja jest wywoływana w odpowiednim wątku,
 -   `m_botSafe`: Flaga stanu dla aktualnie wykonywanego zdarzenia.
 -   `m_mutex`: Mutex rekurencyjny do ochrony kolejek.
 -   `m_scheduledEventList`: Kolejka priorytetowa (`std::priority_queue`) dla zdarzeń zaplanowanych w czasie.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_dispatcher`: Globalny dyspozytor dla głównego wątku.
 -   `g_graphicsDispatcher`: Globalny dyspozytor dla wątku graficznego.
@@ -1539,38 +1539,38 @@ Służą do sprawdzania, czy dana funkcja jest wywoływana w odpowiednim wątku,
 
 Plik `filestream.cpp` zawiera implementację klasy `FileStream`, która jest opakowaniem (wrapperem) na operacje plikowe, głównie z wykorzystaniem biblioteki **PhysFS**. Umożliwia zarówno odczyt z plików na dysku, jak i z danych w pamięci (np. z wbudowanego archiwum lub zdekompresowanych danych).
 ## Klasa `FileStream`
-## # Konstruktory
+## Konstruktory
 
 -   **`FileStream::FileStream(const std::string& name, PHYSFS_File *fileHandle, bool writeable)`**: Tworzy strumień na podstawie otwartego uchwytu pliku PhysFS.
 -   **`FileStream::FileStream(const std::string& name, std::string&& buffer)`**: Tworzy strumień na podstawie bufora danych w pamięci (`std::string`). Próbuje również zdekompresować bufor, jeśli jest on w formacie GZIP.
-## # `bool FileStream::initFromGzip(const std::string& buffer)`
+## `bool FileStream::initFromGzip(const std::string& buffer)`
 
 Prywatna metoda pomocnicza, która sprawdza, czy bufor danych jest skompresowany za pomocą GZIP (na podstawie "magicznych bajtów"). Jeśli tak, dekompresuje go za pomocą biblioteki ZLIB i zapisuje wynik do wewnętrznego bufora `m_data`.
-## # `FileStream::~FileStream()` i `void FileStream::close()`
+## `FileStream::~FileStream()` i `void FileStream::close()`
 
 Destruktor i metoda `close()` zwalniają zasoby. Jeśli strumień był otwarty z pliku PhysFS, zamyka uchwyt `m_fileHandle`. Czyści również wewnętrzne bufory danych (`m_data`, `m_strData`).
-## # `void FileStream::flush()`
+## `void FileStream::flush()`
 
 W przypadku strumienia do zapisu, zapisuje zawartość bufora `m_data` na dysk za pomocą `PHYSFS_writeBytes`.
-## # `int FileStream::read(void* buffer, uint32 size, uint32 nmemb)`
+## `int FileStream::read(void* buffer, uint32 size, uint32 nmemb)`
 
 Odczytuje dane ze strumienia. Jeśli strumień jest oparty na pliku, używa `PHYSFS_readBytes`. Jeśli na buforze w pamięci, kopiuje dane z `m_strData` lub `m_data` i przesuwa wskaźnik odczytu `m_pos`.
-## # `void FileStream::write(const void *buffer, uint32 count)`
+## `void FileStream::write(const void *buffer, uint32 count)`
 
 Zapisuje dane do strumienia. Dla plików używa `PHYSFS_writeBytes`, a dla buforów w pamięci dodaje dane do `m_data`.
-## # `seek`, `skip`, `size`, `tell`, `eof`
+## `seek`, `skip`, `size`, `tell`, `eof`
 
 Implementacje standardowych operacji na strumieniach, które delegują wywołania do odpowiednich funkcji PhysFS lub operują na wewnętrznym wskaźniku `m_pos` i rozmiarze bufora.
-## # Metody odczytu typów (`getU8`, `getU16`, `getString`, etc.)
+## Metody odczytu typów (`getU8`, `getU16`, `getString`, etc.)
 
 Metody te służą do odczytywania konkretnych typów danych ze strumienia. Działają zarówno na plikach PhysFS, jak i na buforach w pamięci. Wykonują konwersję z porządku bajtów Little Endian.
-## # `BinaryTreePtr FileStream::getBinaryTree()`
+## `BinaryTreePtr FileStream::getBinaryTree()`
 
 Rozpoczyna odczyt zagnieżdżonej struktury `BinaryTree` ze strumienia, sprawdzając najpierw znacznik początku węzła.
-## # Metody zapisu typów (`addU8`, `addU16`, `addString`, etc.)
+## Metody zapisu typów (`addU8`, `addU16`, `addString`, etc.)
 
 Służą do zapisywania danych do strumienia.
-## # `void FileStream::throwError(...)`
+## `void FileStream::throwError(...)`
 
 Metoda pomocnicza do generowania wyjątków z dodatkowymi informacjami o nazwie pliku i błędzie PhysFS.
 ## Zależności i powiązania
@@ -1588,9 +1588,9 @@ Metoda pomocnicza do generowania wyjątków z dodatkowymi informacjami o nazwie 
 
 Plik `filestream.h` deklaruje klasę `FileStream`, która jest kluczowym elementem systemu zarządzania zasobami. Stanowi ona abstrakcję nad strumieniem danych, który może pochodzić z pliku na dysku (obsługiwanego przez PhysFS) lub bezpośrednio z bufora w pamięci. Klasa dziedziczy po `LuaObject`, dzięki czemu może być używana w skryptach Lua.
 ## Klasa `FileStream`
-## # Opis semantyczny
+## Opis semantyczny
 `FileStream` dostarcza interfejs podobny do standardowych strumieni plików, umożliwiając sekwencyjny odczyt i zapis różnych typów danych (liczby całkowite, stringi, dane binarne). Jest to podstawowe narzędzie do parsowania plików binarnych i tekstowych w całym projekcie.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1614,7 +1614,7 @@ Plik `filestream.h` deklaruje klasę `FileStream`, która jest kluczowym element
 | `endNode()` | Kończy zapis węzła. |
 | `addU8()`, ..., `addString()` | Zapisują różne typy danych do strumienia. |
 | `asFileStream()` | Zwraca `shared_ptr` do siebie (`static_self_cast`). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_name`: Nazwa pliku lub źródła danych.
 -   `m_fileHandle`: Wskaźnik na uchwyt pliku PhysFS (jeśli dotyczy).
@@ -1638,7 +1638,7 @@ Plik `filestream.h` deklaruje klasę `FileStream`, która jest kluczowym element
 
 Plik `graphicalapplication.cpp` zawiera implementację klasy `GraphicalApplication`, która jest konkretną implementacją `Application` dla aplikacji z interfejsem graficznym. Odpowiada za inicjalizację, zarządzanie i zamykanie wszystkich podsystemów graficznych, a także za implementację głównej pętli renderowania i logiki.
 ## Zmienne globalne
-## # `g_app`
+## `g_app`
 
 Globalna instancja `GraphicalApplication`, która jest głównym obiektem aplikacji, gdy kompilacja odbywa się z flagą `FW_GRAPHICS`.
 
@@ -1646,10 +1646,10 @@ Globalna instancja `GraphicalApplication`, która jest głównym obiektem aplika
 GraphicalApplication g_app;
 ```
 ## Klasa `GraphicalApplication`
-## # `void GraphicalApplication::init(std::vector<std::string>& args)`
-## # # Opis semantyczny
+## `void GraphicalApplication::init(std::vector<std::string>& args)`
+## Opis semantyczny
 Inicjalizuje aplikację graficzną. Wywołuje najpierw `Application::init()`, a następnie inicjalizuje wszystkie komponenty związane z grafiką.
-## # # Działanie
+## Działanie
 1.  Wywołuje `Application::init(args)`.
 2.  Inicjalizuje okno platformy (`g_window.init()`).
 3.  Ustawia callbacki dla okna: `onResize`, `onInputEvent`, `onClose`.
@@ -1658,18 +1658,18 @@ Inicjalizuje aplikację graficzną. Wywołuje najpierw `Application::init()`, a 
 6.  Inicjalizuje silnik graficzny (`g_graphics.init()`).
 7.  Wywołuje pierwsze zdarzenie zmiany rozmiaru.
 8.  Inicjalizuje menedżera dźwięku (`g_sounds.init()`), jeśli `FW_SOUND` jest zdefiniowane.
-## # `void GraphicalApplication::deinit()`
+## `void GraphicalApplication::deinit()`
 
 Deinicjalizuje aplikację w odwrotnej kolejności, ukrywając okno i zwalniając zasoby.
-## # `void GraphicalApplication::terminate()`
+## `void GraphicalApplication::terminate()`
 
 Finalizuje zamykanie podsystemów graficznych, w tym `g_ui`, `g_sounds`, `g_mouse` i `g_graphics`.
-## # `void GraphicalApplication::run()`
-## # # Opis semantyczny
+## `void GraphicalApplication::run()`
+## Opis semantyczny
 Implementuje główną pętlę aplikacji, która jest podzielona na dwa równoległe wątki:
 1.  **Wątek logiki (`worker`)**: Odpowiada za aktualizację stanu gry, przetwarzanie zdarzeń i przygotowywanie kolejek rysowania (`DrawQueue`).
 2.  **Wątek renderowania (główny wątek)**: Odpowiada za przetwarzanie zdarzeń okna, renderowanie zawartości przygotowanych kolejek na ekranie i synchronizację klatek.
-## # # Działanie wątku logiki (`worker`)
+## Działanie wątku logiki (`worker`)
 -   W nieskończonej pętli:
     -   Aktualizuje zegar (`g_clock.update()`).
     -   Przetwarza zdarzenia (`poll()`).
@@ -1677,7 +1677,7 @@ Implementuje główną pętlę aplikacji, która jest podzielona na dwa równole
     -   Renderuje UI do trzech osobnych kolejek: `MapBackgroundPane`, `MapForegroundPane`, `ForegroundPane`.
     -   Przekazuje gotowe kolejki do wątku renderowania za pomocą mutexu.
     -   Usypia na 1ms, jeśli `m_maxFps > 0` lub włączona jest synchronizacja pionowa.
-## # # Działanie wątku renderowania (głównego)
+## Działanie wątku renderowania (głównego)
 -   W nieskończonej pętli:
     -   Aktualizuje zegar i przetwarza zdarzenia graficzne (`pollGraphics()`).
     -   Czeka na gotowe kolejki rysowania z wątku logiki.
@@ -1689,10 +1689,10 @@ Implementuje główną pętlę aplikacji, która jest podzielona na dwa równole
     -   Jeśli włączono skalowanie, rysuje zawartość `m_framebuffer` na ekranie.
     -   Rysuje grafy debugowania.
     -   Zamienia bufory (`g_window.swapBuffers()`).
-## # `void GraphicalApplication::poll()` i `void GraphicalApplication::pollGraphics()`
+## `void GraphicalApplication::poll()` i `void GraphicalApplication::pollGraphics()`
 
 Metody pomocnicze wywoływane w odpowiednich wątkach do przetwarzania zdarzeń. `poll()` obsługuje dźwięk i logikę, a `pollGraphics()` obsługuje zdarzenia okna i aktualizację tekstów.
-## # Inne metody
+## Inne metody
 
 -   `close()`: Wywoływana przy zamykaniu okna.
 -   `resize()`: Wywoływana przy zmianie rozmiaru okna.
@@ -1713,9 +1713,9 @@ Metody pomocnicze wywoływane w odpowiednich wątkach do przetwarzania zdarzeń.
 
 Plik `inputevent.h` deklaruje strukturę `InputEvent`, która jest używana do przekazywania informacji o zdarzeniach wejściowych (z klawiatury i myszy) w systemie. Jest to prosta struktura danych, która agreguje wszystkie możliwe parametry zdarzenia.
 ## Struktura `InputEvent`
-## # Opis semantyczny
+## Opis semantyczny
 Struktura `InputEvent` jest uniwersalnym kontenerem na dane o zdarzeniach. W zależności od pola `type`, inne pola przechowują odpowiednie informacje. Na przykład, dla zdarzenia klawiatury (`KeyDownInputEvent`), pole `keyCode` będzie miało znaczenie, a dla zdarzenia myszy (`MouseMoveInputEvent`) - `mousePos` i `mouseMoved`.
-## # Pola struktury
+## Pola struktury
 
 | Pole | Typ | Opis |
 | :--- | :--- | :--- |
@@ -1728,7 +1728,7 @@ Struktura `InputEvent` jest uniwersalnym kontenerem na dane o zdarzeniach. W zal
 | `mousePos` | `Point` | Aktualna pozycja kursora myszy. |
 | `mouseMoved` | `Point` | Wektor przesunięcia kursora myszy od ostatniego zdarzenia. |
 | `autoRepeatTicks`| `int` | Czas (w milisekundach), przez jaki klawisz jest przytrzymywany (dla `KeyPressInputEvent`). |
-## # Metody
+## Metody
 
 -   **`InputEvent()`**: Konstruktor, inicjalizuje strukturę.
 -   **`reset(Fw::InputEventType eventType = Fw::NoInputEvent)`**: Resetuje wszystkie pola do wartości domyślnych i ustawia nowy typ zdarzenia.
@@ -1743,9 +1743,9 @@ Struktura `InputEvent` jest uniwersalnym kontenerem na dane o zdarzeniach. W zal
 
 Plik `graphicalapplication.h` deklaruje klasę `GraphicalApplication`, która jest implementacją `Application` dla aplikacji z interfejsem graficznym. Jest to główna klasa zarządzająca pętlą renderowania, zdarzeniami wejściowymi i komponentami graficznymi.
 ## Klasa `GraphicalApplication`
-## # Opis semantyczny
+## Opis semantyczny
 Dziedziczy po `Application` i implementuje jej metody wirtualne, dodając funkcjonalność specyficzną dla aplikacji graficznej. Odpowiada za koordynację między oknem (`PlatformWindow`), menedżerem UI (`UIManager`), silnikiem renderującym (`Painter`) i innymi systemami. Implementuje wielowątkową pętlę główną, gdzie logika jest oddzielona od renderowania.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1769,11 +1769,11 @@ Dziedziczy po `Application` i implementuje jej metody wirtualne, dodając funkcj
 | `void scaleUp()` / `scaleDown()` / `scale()` | Zarządzają skalowaniem interfejsu. |
 | `void setSmooth(bool value)` | Włącza/wyłącza wygładzanie dla bufora ramki mapy. |
 | `void doMapScreenshot(...)` | Robi zrzut ekranu samej mapy gry. |
-## # Metody chronione
+## Metody chronione
 
 -   `void resize(const Size& size)`: Obsługuje zdarzenie zmiany rozmiaru okna.
 -   `void inputEvent(InputEvent event)`: Otrzymuje i przekazuje zdarzenia wejściowe.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_iteration`: Licznik klatek.
 -   `m_scaling`, `m_lastScaling`: Aktualne i poprzednie skalowanie UI.
@@ -1783,7 +1783,7 @@ Dziedziczy po `Application` i implementuje jej metody wirtualne, dodając funkcj
 -   `m_framebuffer`, `m_mapFramebuffer`: Bufory ramki do renderowania poza ekranem (off-screen rendering).
 -   `m_graphicsFrames`, `m_processingFrames`: Liczniki klatek dla wątku graficznego i logiki.
 -   `m_windowPollTimer`: Timer do ograniczania częstotliwości odpytywania okna.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_app`: Globalna instancja `GraphicalApplication`.
 ## Zależności i powiązania
@@ -1809,9 +1809,9 @@ Prosta struktura przechowująca pojedynczą wiadomość logu.
 | `message`| `std::string` | Treść wiadomości. |
 | `when` | `std::size_t` | Czas (timestamp) utworzenia wiadomości. |
 ## Klasa `Logger`
-## # Opis semantyczny
+## Opis semantyczny
 `Logger` umożliwia logowanie komunikatów do standardowego wyjścia (konsola), opcjonalnego pliku oraz przekazywanie ich do zarejestrowanego `callbacka` (np. w celu wyświetlenia w interfejsie użytkownika). Przechowuje również historię ostatnich `MAX_LOG_HISTORY` wiadomości.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -1827,7 +1827,7 @@ Prosta struktura przechowująca pojedynczą wiadomość logu.
 | `void setOnLog(...)` | Rejestruje funkcję zwrotną, która będzie wywoływana dla każdej nowej wiadomości. |
 | `std::string getLastLog()` | Zwraca ostatnio zalogowaną wiadomość. |
 | `void setTestingMode()` | Ustawia tryb testowy, w którym błędy (`LogError`) działają jak błędy krytyczne (`LogFatal`). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_logMessages`: Lista ostatnich wiadomości.
 -   `m_onLog`: Wskaźnik na funkcję zwrotną.
@@ -1835,7 +1835,7 @@ Prosta struktura przechowująca pojedynczą wiadomość logu.
 -   `m_mutex`: Mutex rekurencyjny zapewniający bezpieczeństwo wątkowe.
 -   `m_lastLog`: Przechowuje ostatnią wiadomość.
 -   `m_testingMode`: Flaga trybu testowego.
-## # Makra pomocnicze
+## Makra pomocnicze
 
 Plik definiuje makra ułatwiające logowanie z dodatkowymi informacjami o kontekście.
 
@@ -1843,7 +1843,7 @@ Plik definiuje makra ułatwiające logowanie z dodatkowymi informacjami o kontek
 -   `traceDebug(a)`, `traceInfo(a)`, ...: Logują wiadomość `a` wraz z nazwą funkcji i śladem stosu.
 -   `logTraceCounter()`: Loguje licznik wywołań co sekundę.
 -   `logTraceFrameCounter()`: Loguje licznik wywołań co klatkę.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_logger`: Globalna instancja `Logger`.
 ## Zależności i powiązania
@@ -1859,13 +1859,13 @@ Plik definiuje makra ułatwiające logowanie z dodatkowymi informacjami o kontek
 
 Plik `module.cpp` zawiera implementację klasy `Module`, która reprezentuje pojedynczy, ładowalny moduł funkcjonalności w aplikacji. Moduły są podstawą architektury wtyczek, pozwalając na dynamiczne ładowanie, odładowywanie i ponowne ładowanie kodu (głównie skryptów Lua) w trakcie działania programu.
 ## Klasa `Module`
-## # `Module::Module(const std::string& name)`
+## `Module::Module(const std::string& name)`
 
 Konstruktor. Ustawia nazwę modułu i tworzy dla niego nowe, odizolowane środowisko Lua (piaskownicę - sandbox) za pomocą `g_lua.newSandboxEnv()`.
-## # `bool Module::load()`
-## # # Opis semantyczny
+## `bool Module::load()`
+## Opis semantyczny
 Główna metoda ładująca moduł. Jest odpowiedzialna za sprawdzenie i załadowanie zależności, a następnie wykonanie skryptów modułu.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy moduł nie jest już załadowany.
 2.  Definiuje `errorHandler` do obsługi błędów ładowania.
 3.  Dodaje środowisko modułu do `package.loaded` w Lua, aby `require` działało poprawnie.
@@ -1881,28 +1881,28 @@ Główna metoda ładująca moduł. Jest odpowiedzialna za sprawdzenie i załadow
 9.  Przywraca globalne środowisko Lua, jeśli było zmienione.
 10. Ustawia flagę `m_loaded` na `true` i aktualizuje kolejność ładowania modułów.
 11. Ładuje moduły z listy `m_loadLaterModules`.
-## # `void Module::unload()`
-## # # Opis semantyczny
+## `void Module::unload()`
+## Opis semantyczny
 Odładowuje moduł, wykonując jego skrypt `onUnload` i czyszcząc jego środowisko Lua.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy moduł jest załadowany.
 2.  Jeśli tak, wykonuje skrypt `onUnload` (`m_onUnloadFunc`).
 3.  Czyści całą tabelę środowiska Lua modułu, aby zwolnić wszystkie referencje.
 4.  Usuwa moduł z `package.loaded` w Lua.
 5.  Ustawia flagę `m_loaded` na `false`.
-## # `bool Module::reload()`
+## `bool Module::reload()`
 
 Odładowuje i ponownie ładuje moduł.
-## # `bool Module::isDependent()`
+## `bool Module::isDependent()`
 
 Sprawdza, czy jakikolwiek inny załadowany moduł zależy od tego modułu. Jest to używane do określenia, czy moduł można bezpiecznie odładować.
-## # `bool Module::hasDependency(const std::string& name, bool recursive)`
+## `bool Module::hasDependency(const std::string& name, bool recursive)`
 
 Sprawdza, czy moduł ma zależność o podanej nazwie. Opcja `recursive` pozwala na sprawdzanie zależności pośrednich.
-## # `int Module::getSandbox(LuaInterface* lua)`
+## `int Module::getSandbox(LuaInterface* lua)`
 
 Zwraca na stos Lua tabelę środowiska (piaskownicę) tego modułu.
-## # `void Module::discover(const OTMLNodePtr& moduleNode)`
+## `void Module::discover(const OTMLNodePtr& moduleNode)`
 
 Parsuje węzeł OTML (z pliku `.otmod`) i inicjalizuje pola modułu, takie jak opis, autor, wersja, zależności, lista skryptów, oraz skrypty `onLoad` i `onUnload`.
 ## Zależności i powiązania
@@ -1919,7 +1919,7 @@ Parsuje węzeł OTML (z pliku `.otmod`) i inicjalizuje pola modułu, takie jak o
 
 Plik `modulemanager.cpp` zawiera implementację klasy `ModuleManager`, która jest singletonem (`g_modules`) odpowiedzialnym za zarządzanie wszystkimi modułami w aplikacji. Odpowiada za ich odkrywanie, ładowanie, odładowywanie i ponowne ładowanie, a także za zarządzanie zależnościami między nimi.
 ## Zmienne globalne
-## # `g_modules`
+## `g_modules`
 
 Globalna instancja `ModuleManager`.
 
@@ -1927,35 +1927,35 @@ Globalna instancja `ModuleManager`.
 ModuleManager g_modules;
 ```
 ## Klasa `ModuleManager`
-## # `void ModuleManager::clear()`
+## `void ModuleManager::clear()`
 
 Czyści wszystkie dane menedżera, usuwając listę modułów i modułów do automatycznego ładowania.
-## # `void ModuleManager::discoverModules()`
-## # # Opis semantyczny
+## `void ModuleManager::discoverModules()`
+## Opis semantyczny
 Przeszukuje wirtualny system plików (katalogi `/modules` i `/mods`) w poszukiwaniu plików `.otmod`, parsuje je i tworzy obiekty `Module` dla każdego znalezionego modułu. Moduły oznaczone jako `autoload` są dodawane do specjalnej listy.
-## # `void ModuleManager::autoLoadModules(int maxPriority)`
+## `void ModuleManager::autoLoadModules(int maxPriority)`
 
 Ładuje wszystkie moduły z listy `m_autoLoadModules`, których priorytet jest mniejszy lub równy `maxPriority`. Moduły są ładowane w kolejności rosnącego priorytetu.
-## # `ModulePtr ModuleManager::discoverModule(const std::string& moduleFile)`
+## `ModulePtr ModuleManager::discoverModule(const std::string& moduleFile)`
 
 Parsuje pojedynczy plik `.otmod`, tworzy lub aktualizuje obiekt `Module` i dodaje go do listy `m_modules`.
-## # `void ModuleManager::ensureModuleLoaded(const std::string& moduleName)`
+## `void ModuleManager::ensureModuleLoaded(const std::string& moduleName)`
 
 Sprawdza, czy moduł o podanej nazwie jest załadowany. Jeśli nie, próbuje go załadować. Jeśli ładowanie się nie powiedzie, aplikacja jest zamykana z błędem krytycznym.
-## # `void ModuleManager::unloadModules()`
+## `void ModuleManager::unloadModules()`
 
 Odładowuje wszystkie załadowane moduły. Używa kopii listy modułów, aby uniknąć problemów z iteratorami podczas usuwania.
-## # `void ModuleManager::reloadModules()`
-## # # Opis semantyczny
+## `void ModuleManager::reloadModules()`
+## Opis semantyczny
 Implementuje mechanizm "hot-reloading" modułów.
-## # # Działanie
+## Działanie
 1.  Tworzy listę modułów do ponownego załadowania (`toLoadList`).
 2.  W pętli (do 10 prób) próbuje odładować wszystkie moduły, które mogą być odładowane (`canUnload()`). Moduły są odładowywane w odwrotnej kolejności zależności.
 3.  Po odładowaniu, ładuje ponownie moduły z `toLoadList`.
-## # `ModulePtr ModuleManager::getModule(const std::string& moduleName)`
+## `ModulePtr ModuleManager::getModule(const std::string& moduleName)`
 
 Wyszukuje i zwraca wskaźnik do modułu o podanej nazwie.
-## # `void ModuleManager::updateModuleLoadOrder(ModulePtr module)`
+## `void ModuleManager::updateModuleLoadOrder(ModulePtr module)`
 
 Aktualizuje wewnętrzną listę modułów (`m_modules`), aby załadowane moduły znajdowały się na jej początku. Zapewnia to poprawną kolejność odładowywania (odwrotną do ładowania).
 ## Zależności i powiązania
@@ -1972,7 +1972,7 @@ Aktualizuje wewnętrzną listę modułów (`m_modules`), aby załadowane moduły
 
 Plik `logger.cpp` zawiera implementację klasy `Logger`, która jest odpowiedzialna za system logowania w aplikacji. Zapewnia mechanizmy do zapisywania komunikatów o różnym poziomie ważności do konsoli, pliku oraz przekazywania ich do zarejestrowanych funkcji zwrotnych (callbacków).
 ## Zmienne globalne
-## # `g_logger`
+## `g_logger`
 
 Globalna, jedyna instancja klasy `Logger`.
 
@@ -1980,14 +1980,14 @@ Globalna, jedyna instancja klasy `Logger`.
 Logger g_logger;
 ```
 ## Funkcje globalne
-## # `void fatalError(const char* error, const char* file, int line)`
+## `void fatalError(const char* error, const char* file, int line)`
 
 Funkcja wywoływana przez makro `VALIDATE`. Loguje błąd krytyczny za pomocą `g_logger.fatal`, zawierający komunikat, plik i numer linii, a następnie przerywa działanie aplikacji.
 ## Klasa `Logger`
-## # `void Logger::log(Fw::LogLevel level, const std::string& message)`
-## # # Opis semantyczny
+## `void Logger::log(Fw::LogLevel level, const std::string& message)`
+## Opis semantyczny
 Główna, prywatna metoda logująca. Jest bezpieczna wątkowo dzięki użyciu `std::recursive_mutex`.
-## # # Działanie
+## Działanie
 1.  Blokuje mutex, aby zapewnić wyłączny dostęp.
 2.  W trybie `NDEBUG` (wydajnościowym) ignoruje wiadomości o poziomie `LogDebug`.
 3.  Dodaje odpowiedni prefiks do wiadomości (np. "WARNING: ", "ERROR: ").
@@ -1996,13 +1996,13 @@ Główna, prywatna metoda logująca. Jest bezpieczna wątkowo dzięki użyciu `s
 6.  Dodaje wiadomość do wewnętrznej historii `m_logMessages`.
 7.  Jeśli zarejestrowano `callback` (`m_onLog`), dodaje zdarzenie do `g_dispatcher`, które wywoła ten `callback` w głównym wątku.
 8.  Jeśli poziom to `LogFatal` (lub `LogError` w trybie testowym), wyświetla okno błędu (w wersji graficznej) i natychmiast kończy aplikację.
-## # `void Logger::logFunc(Fw::LogLevel level, const std::string& message, std::string prettyFunction)`
+## `void Logger::logFunc(Fw::LogLevel level, const std::string& message, std::string prettyFunction)`
 
 Metoda pomocnicza, która wzbogaca wiadomość o informacje o funkcji, z której została wywołana, oraz o ślad stosu (traceback) z Lua i C++. Używana przez makra takie jak `traceError`.
-## # `void Logger::fireOldMessages()`
+## `void Logger::fireOldMessages()`
 
 Wywołuje `callback` `m_onLog` dla wszystkich wiadomości, które zostały zalogowane przed jego zarejestrowaniem. Przydatne do wyświetlania wczesnych logów w UI, gdy UI jest już gotowe.
-## # `void Logger::setLogFile(const std::string& file)`
+## `void Logger::setLogFile(const std::string& file)`
 
 Otwiera podany plik do zapisu logów. Przed otwarciem do dopisywania, odczytuje ostatnie 100 KB z istniejącego pliku do `m_lastLog`, aby można było przejrzeć logi z poprzedniej sesji.
 ## Zależności i powiązania
@@ -2020,9 +2020,9 @@ Otwiera podany plik do zapisu logów. Przed otwarciem do dopisywania, odczytuje 
 
 Plik `module.h` deklaruje klasę `Module`, która jest podstawowym elementem systemu modularności aplikacji. Każdy moduł reprezentuje logicznie oddzieloną część funkcjonalności (np. interfejs, mini-mapa, bot), która może być dynamicznie ładowana i odładowywana.
 ## Klasa `Module`
-## # Opis semantyczny
+## Opis semantyczny
 `Module` enkapsuluje zestaw skryptów Lua, metadane (nazwa, autor, wersja), zależności od innych modułów oraz własne, izolowane środowisko Lua (piaskownicę - sandbox). Dziedziczy po `LuaObject`, dzięki czemu może być zarządzany z poziomu skryptów Lua.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2041,10 +2041,10 @@ Plik `module.h` deklaruje klasę `Module`, która jest podstawowym elementem sys
 | `std::string getDescription()`, `getName()`, `getAuthor()`, `getWebsite()`, `getVersion()` | Zwracają metadane modułu. |
 | `bool isAutoLoad()` | Zwraca `true`, jeśli moduł powinien być ładowany automatycznie. |
 | `int getAutoLoadPriority()` | Zwraca priorytet automatycznego ładowania. |
-## # Metody chronione
+## Metody chronione
 
 -   `void discover(const OTMLNodePtr& moduleNode)`: Metoda wywoływana przez `ModuleManager` do wczytania metadanych modułu z pliku `.otmod`.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_loaded`, `m_autoLoad`, `m_reloadable`, `m_sandboxed`: Flagi stanu.
 -   `m_autoLoadPriority`: Priorytet ładowania.
@@ -2066,9 +2066,9 @@ Plik `module.h` deklaruje klasę `Module`, która jest podstawowym elementem sys
 
 Plik `modulemanager.h` deklaruje klasę `ModuleManager`, która jest singletonem (`g_modules`) odpowiedzialnym za zarządzanie cyklem życia wszystkich modułów w aplikacji.
 ## Klasa `ModuleManager`
-## # Opis semantyczny
+## Opis semantyczny
 `ModuleManager` pełni rolę centralnego rejestru modułów. Odpowiada za ich odkrywanie (przez skanowanie katalogów w poszukiwaniu plików `.otmod`), ładowanie w odpowiedniej kolejności (z uwzględnieniem zależności i priorytetów), a także za ich odładowywanie i ponowne ładowanie.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2081,14 +2081,14 @@ Plik `modulemanager.h` deklaruje klasę `ModuleManager`, która jest singletonem
 | `void reloadModules()` | Próbuje odładować i ponownie załadować wszystkie moduły, które na to pozwalają. |
 | `ModulePtr getModule(...)` | Zwraca wskaźnik do modułu o podanej nazwie. |
 | `std::deque<ModulePtr> getModules()` | Zwraca listę wszystkich odkrytych modułów. |
-## # Metody chronione
+## Metody chronione
 
 -   `void updateModuleLoadOrder(ModulePtr module)`: Aktualizuje wewnętrzną kolejkę modułów, aby zachować poprawną kolejność ładowania/odładowywania.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_modules`: Kolejka (`std::deque`) wszystkich odkrytych modułów. Załadowane moduły są na początku.
 -   `m_autoLoadModules`: Mapa (`std::multimap`) przechowująca moduły do automatycznego załadowania, posortowane według priorytetu.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_modules`: Globalna instancja `ModuleManager`.
 ## Zależności i powiązania
@@ -2103,7 +2103,7 @@ Plik `modulemanager.h` deklaruje klasę `ModuleManager`, która jest singletonem
 
 Plik `scheduledevent.cpp` zawiera implementację klasy `ScheduledEvent`, która reprezentuje zdarzenie zaplanowane do wykonania w przyszłości.
 ## Klasa `ScheduledEvent`
-## # `ScheduledEvent::ScheduledEvent(...)`
+## `ScheduledEvent::ScheduledEvent(...)`
 
 Konstruktor, który dziedziczy po `Event` i dodatkowo inicjalizuje parametry związane z czasem.
 
@@ -2114,18 +2114,18 @@ Konstruktor, który dziedziczy po `Event` i dodatkowo inicjalizuje parametry zwi
 -   **Działanie**:
     -   Oblicza czas pierwszego wykonania: `m_ticks = g_clock.millis() + delay`.
     -   Zapisuje opóźnienie, maksymalną liczbę cykli i zeruje licznik wykonanych cykli.
-## # `void ScheduledEvent::execute()`
-## # # Opis semantyczny
+## `void ScheduledEvent::execute()`
+## Opis semantyczny
 Wykonuje `callback` zdarzenia, jeśli warunki są spełnione.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy zdarzenie nie jest anulowane, czy `callback` istnieje i czy nie przekroczono `maxCycles`.
 2.  Jeśli warunki są spełnione, wykonuje `callback` i ustawia `m_executed` na `true`. W przeciwieństwie do `Event`, nie resetuje `callback`, ponieważ może być on potrzebny w następnym cyklu.
 3.  Jeśli warunki nie są spełnione (np. zdarzenie jednorazowe zostało wykonane), resetuje `callback` do `nullptr`.
 4.  Inkrementuje licznik `m_cyclesExecuted`.
-## # `bool ScheduledEvent::nextCycle()`
-## # # Opis semantyczny
+## `bool ScheduledEvent::nextCycle()`
+## Opis semantyczny
 Przygotowuje zdarzenie do następnego cyklu. Jest wywoływana przez `EventDispatcher` po wykonaniu zdarzenia.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy zdarzenie powinno być wykonane ponownie (nieanulowane, nie przekroczono `maxCycles`).
 2.  Jeśli tak, przesuwa czas następnego wykonania o `m_delay`: `m_ticks += m_delay` i zwraca `true`.
 3.  Jeśli nie, resetuje `callback` do `nullptr` i zwraca `false`, co powoduje usunięcie zdarzenia z kolejki dyspozytora.
@@ -2141,44 +2141,44 @@ Przygotowuje zdarzenie do następnego cyklu. Jest wywoływana przez `EventDispat
 
 Plik `resourcemanager.cpp` zawiera implementację klasy `ResourceManager`, która jest sercem systemu zarządzania zasobami aplikacji. Implementuje ona logikę wyszukiwania, ładowania, odczytu i zapisu plików, abstrakcjonując źródło danych (dysk, archiwum, pamięć).
 ## Klasa `ResourceManager`
-## # `void ResourceManager::init(const char *argv0)`
+## `void ResourceManager::init(const char *argv0)`
 
 Inicjalizuje bibliotekę PhysFS i ustala ścieżkę do pliku wykonywalnego aplikacji na podstawie argumentu `argv0`.
-## # `bool ResourceManager::setupWriteDir(...)`
+## `bool ResourceManager::setupWriteDir(...)`
 
 Konfiguruje katalog zapisu dla aplikacji, używając `PHYSFS_getPrefDir`. Ten katalog jest zazwyczaj zlokalizowany w folderze danych użytkownika (np. `%APPDATA%` na Windows, `~/.local/share` na Linux). Montuje ten katalog i ustawia go jako domyślny katalog do zapisu.
-## # `bool ResourceManager::setup()`
+## `bool ResourceManager::setup()`
 
 Kluczowa metoda, która próbuje zlokalizować i zamontować główny katalog roboczy aplikacji. Przeszukuje kilka potencjalnych lokalizacji w następującej kolejności:
 1.  Katalogi na dysku (katalog zapisu, bieżący katalog, katalog bazowy).
 2.  Archiwum `data.zip` w tych samych lokalizacjach.
 3.  Dane wbudowane w sam plik wykonywalny (`loadDataFromSelf`).
-## # `std::string ResourceManager::getCompactName()`
+## `std::string ResourceManager::getCompactName()`
 
 Metoda próbująca odgadnąć "skróconą nazwę" aplikacji na podstawie zawartości pliku `init.lua`, który powinien zawierać definicję `APP_NAME`. Jest to używane m.in. do tworzenia katalogu zapisu.
-## # `bool ResourceManager::loadDataFromSelf(...)`
+## `bool ResourceManager::loadDataFromSelf(...)`
 
 Przeszukuje plik binarny aplikacji w poszukiwaniu sygnatury archiwum ZIP (`PK..`). Jeśli znajdzie, traktuje resztę pliku jako archiwum i montuje je w pamięci za pomocą `PHYSFS_mountMemory`.
-## # `std::string ResourceManager::readFileContents(...)`
+## `std::string ResourceManager::readFileContents(...)`
 
 Odczytuje zawartość pliku. Po odczytaniu surowych bajtów, próbuje je zdeszyfrować za pomocą `decryptBuffer`. Obsługuje również specjalny wirtualny katalog `/downloads` do odczytu plików pobranych przez `Http`.
-## # `bool ResourceManager::decryptBuffer(std::string& buffer)`
+## `bool ResourceManager::decryptBuffer(std::string& buffer)`
 
 Deszyfruje bufor, jeśli jest on zaszyfrowany (rozpoznaje po nagłówku "ENC3"). Proces deszyfracji obejmuje:
 1.  Odczytanie metadanych (klucz, rozmiary, suma kontrolna).
 2.  Deszyfrację za pomocą algorytmu `bdecrypt` (odmiana TEA/XTEA).
 3.  Dekompresję za pomocą ZLIB.
 4.  Weryfikację sumy kontrolnej Adler-32.
-## # `bool ResourceManager::encryptBuffer(...)`
+## `bool ResourceManager::encryptBuffer(...)`
 
 Szyfruje bufor, wykonując operacje odwrotne do `decryptBuffer`: kompresja, szyfrowanie i dodanie nagłówka. Dostępne tylko z flagą `WITH_ENCRYPTION`.
-## # `std::string ResourceManager::resolvePath(std::string path)`
+## `std::string ResourceManager::resolvePath(std::string path)`
 
 Konwertuje ścieżkę względną na ścieżkę absolutną w wirtualnym systemie plików. Obsługuje ścieżki względne do bieżącego skryptu Lua oraz specjalne ścieżki dla layoutów UI (np. `/layouts/nazwa_layoutu/...`).
-## # `updateData(...)` i `updateExecutable(...)`
+## `updateData(...)` i `updateExecutable(...)`
 
 Metody służące do aktualizacji klienta. `updateData` przebudowuje archiwum `data.zip` na podstawie pobranych plików, a `updateExecutable` zastępuje plik binarny nową wersją.
-## # `createArchive(...)` i `decompressArchive(...)`
+## `createArchive(...)` i `decompressArchive(...)`
 
 Metody pomocnicze do tworzenia i rozpakowywania archiwów ZIP w pamięci przy użyciu biblioteki `libzip`.
 ## Zależności i powiązania
@@ -2197,9 +2197,9 @@ Metody pomocnicze do tworzenia i rozpakowywania archiwów ZIP w pamięci przy u�
 
 Plik `scheduledevent.h` deklaruje klasę `ScheduledEvent`, która rozszerza funkcjonalność `Event`, dodając możliwość planowania wykonania w czasie, cykliczności oraz obsługi opóźnień.
 ## Klasa `ScheduledEvent`
-## # Opis semantyczny
+## Opis semantyczny
 `ScheduledEvent` to zdarzenie, które nie jest wykonywane natychmiast, lecz po upływie określonego czasu (`delay`). Może być jednorazowe lub cykliczne (`maxCycles`). Jest zarządzane przez `EventDispatcher` w kolejce priorytetowej, gdzie priorytetem jest czas wykonania.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2211,7 +2211,7 @@ Plik `scheduledevent.h` deklaruje klasę `ScheduledEvent`, która rozszerza funk
 | `int delay()` | Zwraca opóźnienie między cyklami. |
 | `int cyclesExecuted()` | Zwraca liczbę dotychczasowych wykonań. |
 | `int maxCycles()` | Zwraca maksymalną liczbę wykonań (0 dla nieskończoności). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_ticks`: Czas (w tickach systemowych), w którym ma nastąpić następne wykonanie.
 -   `m_delay`: Opóźnienie między kolejnymi wykonaniami.
@@ -2242,17 +2242,17 @@ struct lessScheduledEvent {
 
 Plik `timer.cpp` zawiera implementację prostych metod klasy `Timer`, która służy do mierzenia upływu czasu.
 ## Klasa `Timer`
-## # `void Timer::restart()`
-## # # Opis semantyczny
+## `void Timer::restart()`
+## Opis semantyczny
 Resetuje timer, ustawiając jego punkt startowy na bieżący czas.
-## # # Działanie
+## Działanie
 1.  Pobiera aktualny czas w milisekundach za pomocą `g_clock.millis()`.
 2.  Zapisuje tę wartość do `m_startTicks`.
 3.  Ustawia flagę `m_stopped` na `false`.
-## # `ticks_t Timer::ticksElapsed()`
-## # # Opis semantyczny
+## `ticks_t Timer::ticksElapsed()`
+## Opis semantyczny
 Oblicza i zwraca czas, jaki upłynął od ostatniego zresetowania timera.
-## # # Działanie
+## Działanie
 -   Zwraca różnicę między aktualnym czasem (`g_clock.millis()`) a zapisanym czasem startowym (`m_startTicks`).
 ## Zależności i powiązania
 
@@ -2265,9 +2265,9 @@ Oblicza i zwraca czas, jaki upłynął od ostatniego zresetowania timera.
 
 Plik `timer.h` deklaruje klasę `Timer`, która jest prostym, ale użytecznym narzędziem do mierzenia upływającego czasu. Jest to klasa pomocnicza, szeroko stosowana w całym frameworku do obsługi opóźnień, animacji i synchronizacji.
 ## Klasa `Timer`
-## # Opis semantyczny
+## Opis semantyczny
 `Timer` działa jak stoper. Po utworzeniu lub zresetowaniu (`restart()`) zapamiętuje punkt w czasie. Następnie można w dowolnym momencie sprawdzić, ile czasu upłynęło od tego punktu za pomocą metod `ticksElapsed()` lub `timeElapsed()`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2279,7 +2279,7 @@ Plik `timer.h` deklaruje klasę `Timer`, która jest prostym, ale użytecznym na
 | `ticks_t ticksElapsed()` | Zwraca czas, jaki upłynął od startu, w milisekundach. |
 | `float timeElapsed()` | Zwraca czas, jaki upłynął od startu, w sekundach. |
 | `bool running()` | Zwraca `true`, jeśli timer nie został zatrzymany. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_startTicks`: Czas (w tickach/milisekundach), w którym timer został uruchomiony/zresetowany.
 -   `m_stopped`: Flaga wskazująca, czy timer jest zatrzymany.
@@ -2295,7 +2295,7 @@ Plik `timer.h` deklaruje klasę `Timer`, która jest prostym, ale użytecznym na
 
 Plik `consoleapplication.cpp` zawiera implementację klasy `ConsoleApplication`, która jest wersją aplikacji przeznaczoną do działania w trybie tekstowym, bez interfejsu graficznego. Jest ona używana, gdy projekt jest kompilowany bez flagi `FW_GRAPHICS`.
 ## Zmienne globalne
-## # `g_app`
+## `g_app`
 
 Globalna instancja `ConsoleApplication`. Gdy framework jest kompilowany w trybie konsolowym, ta instancja staje się głównym obiektem aplikacji.
 
@@ -2303,10 +2303,10 @@ Globalna instancja `ConsoleApplication`. Gdy framework jest kompilowany w trybie
 ConsoleApplication g_app;
 ```
 ## Klasa `ConsoleApplication`
-## # `void ConsoleApplication::run()`
-## # # Opis semantyczny
+## `void ConsoleApplication::run()`
+## Opis semantyczny
 Implementuje główną pętlę aplikacji konsolowej. W przeciwieństwie do `GraphicalApplication`, jest to prosta pętla, która regularnie przetwarza zdarzenia i usypia wątek, aby nie zużywać 100% zasobów procesora.
-## # # Działanie
+## Działanie
 1.  Ustawia flagę `m_running` na `true`.
 2.  Wykonuje pierwsze wywołanie `poll()`, aby przetworzyć ewentualne początkowe zdarzenia.
 3.  Aktualizuje zegar (`g_clock.update()`).
@@ -2333,9 +2333,9 @@ Implementuje główną pętlę aplikacji konsolowej. W przeciwieństwie do `Grap
 
 Plik `shaderprogram.h` deklaruje klasę `ShaderProgram`, która jest obiektowym opakowaniem na program shadera w OpenGL. Zarządza ona kompilacją, linkowaniem i aktywacją shaderów wierzchołków i fragmentów.
 ## Klasa `ShaderProgram`
-## # Opis semantyczny
+## Opis semantyczny
 `ShaderProgram` agreguje obiekty `Shader` (reprezentujące pojedyncze shadery, np. wierzchołków lub fragmentów), linkuje je w jeden wykonywalny program, który może być użyty w potoku renderowania OpenGL, i dostarcza interfejs do ustawiania uniformów i atrybutów. Dziedziczy po `LuaObject`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2361,7 +2361,7 @@ Plik `shaderprogram.h` deklaruje klasę `ShaderProgram`, która jest obiektowym 
 | `uint getProgramId()` | Zwraca ID programu OpenGL. |
 | `ShaderList getShaders()` | Zwraca listę powiązanych shaderów. |
 | `std::string getName()` | Zwraca nazwę programu. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_name`: Nazwa programu (dla celów identyfikacji).
 -   `m_linked`: Flaga wskazująca, czy program jest zlinkowany.
@@ -2383,7 +2383,7 @@ Plik `shaderprogram.h` deklaruje klasę `ShaderProgram`, która jest obiektowym 
 
 Plik `animatedtexture.cpp` zawiera implementację klasy `AnimatedTexture`, która reprezentuje teksturę składającą się z wielu klatek, odtwarzanych w pętli. Jest to podklasa `Texture`.
 ## Klasa `AnimatedTexture`
-## # `AnimatedTexture::AnimatedTexture(...)`
+## `AnimatedTexture::AnimatedTexture(...)`
 
 Konstruktor, który tworzy animowaną teksturę.
 
@@ -2395,16 +2395,16 @@ Konstruktor, który tworzy animowaną teksturę.
 -   **Działanie**:
     1.  Iteruje przez wektor `frames` i dla każdego `Image` tworzy nowy obiekt `Texture`, który jest przechowywany w `m_frames`.
     2.  Inicjalizuje timer `m_animTimer` i ustawia bieżącą klatkę na 0.
-## # `bool AnimatedTexture::buildHardwareMipmaps()`
+## `bool AnimatedTexture::buildHardwareMipmaps()`
 
 Włącza generowanie mipmap dla wszystkich klatek animacji.
-## # `void AnimatedTexture::setSmooth(bool smooth)` i `void AnimatedTexture::setRepeat(bool repeat)`
+## `void AnimatedTexture::setSmooth(bool smooth)` i `void AnimatedTexture::setRepeat(bool repeat)`
 
 Ustawiają odpowiednio flagi wygładzania i powtarzania dla wszystkich tekstur-klatek.
-## # `void AnimatedTexture::update()`
-## # # Opis semantyczny
+## `void AnimatedTexture::update()`
+## Opis semantyczny
 Aktualizuje stan animacji. Ta metoda jest kluczowa i musi być wywoływana przed każdym użyciem tekstury w pętli renderowania.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy czas, jaki upłynął od ostatniej zmiany klatki (`m_animTimer.ticksElapsed()`) jest większy lub równy czasowi opóźnienia dla bieżącej klatki (`m_framesDelay[m_currentFrame]`).
 2.  Jeśli tak, przechodzi do następnej klatki, zapętlając animację (`m_currentFrame = (m_currentFrame + 1) % m_frames.size()`), i resetuje timer.
 3.  Wywołuje `update()` na teksturze bieżącej klatki.
@@ -2422,9 +2422,9 @@ Aktualizuje stan animacji. Ta metoda jest kluczowa i musi być wywoływana przed
 
 Plik `animatedtexture.h` deklaruje klasę `AnimatedTexture`, która jest specjalizacją klasy `Texture`. Reprezentuje ona teksturę, która zmienia swój wygląd w czasie, odtwarzając sekwencję klatek.
 ## Klasa `AnimatedTexture`
-## # Opis semantyczny
+## Opis semantyczny
 `AnimatedTexture` dziedziczy po `Texture` i przechowuje kolekcję tekstur (`std::vector<TexturePtr>`), które reprezentują poszczególne klatki animacji. Wewnętrzny timer (`m_animTimer`) kontroluje, która klatka jest aktualnie aktywna. Metoda `update()` jest odpowiedzialna za przełączanie klatek i aktualizowanie ID tekstury w klasie bazowej, dzięki czemu dla systemu renderującego wygląda ona jak pojedyncza, dynamicznie zmieniająca się tekstura.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2433,12 +2433,12 @@ Plik `animatedtexture.h` deklaruje klasę `AnimatedTexture`, która jest specjal
 | `void replace(const ImagePtr& image)` | Pusta implementacja; zastępowanie animowanej tekstury pojedynczym obrazem nie jest obsługiwane w ten sposób. |
 | `void update()` | Aktualizuje bieżącą klatkę animacji. |
 | `virtual bool isAnimatedTexture()` | Zwraca `true`, odróżniając tę klasę od `Texture`. |
-## # Metody chronione
+## Metody chronione
 
 -   `virtual bool buildHardwareMipmaps()`: Włącza mipmapping dla wszystkich klatek.
 -   `virtual void setSmooth(bool smooth)`: Ustawia wygładzanie dla wszystkich klatek.
 -   `virtual void setRepeat(bool repeat)`: Ustawia powtarzanie dla wszystkich klatek.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_frames`: Wektor wskaźników na tekstury poszczególnych klatek.
 -   `m_framesDelay`: Wektor czasów opóźnień dla każdej klatki.
@@ -2456,10 +2456,10 @@ Plik `animatedtexture.h` deklaruje klasę `AnimatedTexture`, która jest specjal
 
 Plik `apngloader.cpp` zawiera implementację funkcji do ładowania animowanych plików PNG (APNG) oraz do zapisu standardowych plików PNG. Kod jest oparty na bibliotece APNG Disassembler 2.3 autorstwa Maxa Stepina i został dostosowany do potrzeb frameworka.
 ## Funkcje
-## # `load_apng(std::stringstream& file, struct apng_data *apng)`
-## # # Opis semantyczny
+## `load_apng(std::stringstream& file, struct apng_data *apng)`
+## Opis semantyczny
 Główna funkcja do parsowania pliku w formacie APNG. Odczytuje ona poszczególne "chunki" (fragmenty) pliku PNG, takie jak `IHDR` (nagłówek), `PLTE` (paleta), `tRNS` (przezroczystość), `acTL` (nagłówek animacji), `fcTL` (kontrola klatki) oraz `IDAT`/`fdAT` (dane obrazu).
-## # # Działanie
+## Działanie
 1.  Sprawdza sygnaturę pliku PNG.
 2.  Odczytuje nagłówek `IHDR` w celu uzyskania wymiarów, głębi kolorów i innych podstawowych informacji.
 3.  Alokuje bufory na zdekompresowane dane obrazu.
@@ -2472,10 +2472,10 @@ Główna funkcja do parsowania pliku w formacie APNG. Odczytuje ona poszczególn
 6.  Komponuje finalny obraz klatki na podstawie poprzedniej klatki, stosując operacje `dispose_op` (np. zostaw, wyczyść do tła) i `blend_op` (np. zastąp, nałóż).
 7.  Wynikowe dane klatki w formacie RGBA są zapisywane do bufora w strukturze `apng_data`.
 8.  Zwraca 0 w przypadku sukcesu, -1 w przypadku błędu.
-## # `save_png(std::stringstream& f, unsigned int width, unsigned int height, int channels, unsigned char *pixels)`
-## # # Opis semantyczny
+## `save_png(std::stringstream& f, unsigned int width, unsigned int height, int channels, unsigned char *pixels)`
+## Opis semantyczny
 Zapisuje dane obrazu do formatu PNG. Implementuje podstawową kompresję z filtrowaniem, dynamicznie wybierając najlepszy filtr dla każdej linii obrazu w celu uzyskania lepszej kompresji.
-## # # Działanie
+## Działanie
 1.  Zapisuje sygnaturę PNG i nagłówek `IHDR`.
 2.  Inicjalizuje strumienie kompresji ZLIB.
 3.  Dla każdej linii obrazu:
@@ -2484,7 +2484,7 @@ Zapisuje dane obrazu do formatu PNG. Implementuje podstawową kompresję z filtr
     -   Kompresuje przefiltrowaną linię za pomocą `deflate`.
 4.  Zapisuje skompresowane dane w chunkach `IDAT`.
 5.  Zapisuje chunk końcowy `IEND`.
-## # Funkcje pomocnicze
+## Funkcje pomocnicze
 
 Plik zawiera wiele funkcji pomocniczych, m.in.:
 -   `read32`, `read16`: Do odczytu liczb w porządku big-endian.
@@ -2505,9 +2505,9 @@ Plik zawiera wiele funkcji pomocniczych, m.in.:
 
 Plik `apngloader.h` jest plikiem nagłówkowym, który deklaruje struktury danych i funkcje do obsługi plików w formacie APNG (Animated PNG). Definiuje on publiczny interfejs do ładowania, zapisywania i zwalniania danych obrazu.
 ## Struktura `apng_data`
-## # Opis semantyczny
+## Opis semantyczny
 Struktura ta przechowuje wszystkie zdekompresowane i sparsowane dane z pliku APNG.
-## # Pola struktury
+## Pola struktury
 
 | Pole | Typ | Opis |
 | :--- | :--- | :--- |
@@ -2539,7 +2539,7 @@ Struktura ta przechowuje wszystkie zdekompresowane i sparsowane dane z pliku APN
 
 Plik `atlas.cpp` implementuje klasę `Atlas`, która zarządza tzw. "atlasem tekstur". Jest to technika optymalizacyjna, polegająca na łączeniu wielu małych tekstur w jedną dużą teksturę, aby zminimalizować liczbę zmian stanu w potoku renderowania grafiki (zmiana tekstury jest kosztowną operacją).
 ## Zmienne globalne
-## # `g_atlas`
+## `g_atlas`
 
 Globalna instancja klasy `Atlas`, zapewniająca scentralizowany dostęp do mechanizmu cachowania tekstur.
 
@@ -2547,26 +2547,26 @@ Globalna instancja klasy `Atlas`, zapewniająca scentralizowany dostęp do mecha
 Atlas g_atlas;
 ```
 ## Klasa `Atlas`
-## # `void Atlas::init()`
-## # # Opis semantyczny
+## `void Atlas::init()`
+## Opis semantyczny
 Inicjalizuje atlas.
-## # # Działanie
+## Działanie
 1.  Określa maksymalny rozmiar tekstury atlasu, biorąc pod uwagę ograniczenia karty graficznej (`g_graphics.getMaxTextureSize()`), ale nie przekraczając `4096x4096`.
 2.  Tworzy dwa obiekty `FrameBuffer`:
     -   `m_atlas[0]`: Główny atlas dla ogólnych tekstur.
     -   `m_atlas[1]`: Atlas dla tekstur fontów.
 3.  Wiąże tekstury atlasów do jednostek teksturujących `GL_TEXTURE6` i `GL_TEXTURE7`, aby były globalnie dostępne dla shaderów.
 4.  Resetuje oba atlasy, przygotowując je do użycia.
-## # `void Atlas::reset()` i `void Atlas::resetAtlas(int location)`
+## `void Atlas::reset()` i `void Atlas::resetAtlas(int location)`
 
 Metody do czyszczenia atlasu. `reset()` czyści główny atlas i bufor `m_cache`. `resetAtlas()` przygotowuje konkretny atlas do ponownego użycia, czyszcząc jego zawartość (wypełniając przezroczystością) i resetując informacje o wolnych przestrzeniach (`m_locations`).
-## # `void Atlas::terminate()`
+## `void Atlas::terminate()`
 
 Zwalnia obiekty `FrameBuffer` atlasów.
-## # `Point Atlas::cache(uint64_t hash, const Size& size, bool& draw)`
-## # # Opis semantyczny
+## `Point Atlas::cache(uint64_t hash, const Size& size, bool& draw)`
+## Opis semantyczny
 Główna metoda do cachowania tekstury. Sprawdza, czy tekstura o danym hashu jest już w atlasie. Jeśli nie, znajduje dla niej wolne miejsce.
-## # # Działanie
+## Działanie
 1.  Jeśli `m_doReset` jest `true`, najpierw resetuje atlas.
 2.  Sprawdza, czy hash istnieje w `m_cache`. Jeśli tak, zwraca zapisaną pozycję.
 3.  Jeśli nie, oblicza, jakiego rozmiaru bloku potrzebuje tekstura (`calculateIndex`).
@@ -2574,19 +2574,19 @@ Główna metoda do cachowania tekstury. Sprawdza, czy tekstura o danym hashu jes
 5.  Próbuje znaleźć wolne miejsce w `m_locations`. Jeśli go nie ma, wywołuje `findSpace` w celu podziału większego bloku.
 6.  Jeśli nie ma miejsca, ustawia `m_doReset = true` i zwraca `Point(-1, -1)`.
 7.  Jeśli miejsce się znajdzie, zapisuje pozycję w `m_cache`, ustawia `draw = true` (sygnalizując, że tekstura musi zostać narysowana w atlasie) i zwraca pozycję.
-## # `void Atlas::bind()` i `void Atlas::release()`
+## `void Atlas::bind()` i `void Atlas::release()`
 
 Metody do bindowania i zwalniania `FrameBuffer` głównego atlasu, aby umożliwić rysowanie w nim nowych tekstur.
-## # `Point Atlas::cacheFont(const TexturePtr& fontTexture)`
+## `Point Atlas::cacheFont(const TexturePtr& fontTexture)`
 
 Specjalna metoda do cachowania tekstur fontów w drugim atlasie (`m_atlas[1]`). Działa podobnie do `cache`, ale od razu rysuje teksturę fontu w znalezionym miejscu.
-## # `int Atlas::calculateIndex(const Size& size)`
+## `int Atlas::calculateIndex(const Size& size)`
 
 Oblicza indeks (od 0 do 6) odpowiadający rozmiarowi bloku potrzebnego do przechowania tekstury (np. 32x32, 64x64, ..., 2048x2048).
-## # `bool Atlas::findSpace(int location, int index)`
+## `bool Atlas::findSpace(int location, int index)`
 
 Rekurencyjna metoda, która próbuje znaleźć wolne miejsce dla bloku o danym `index`. Jeśli nie ma wolnych bloków tego rozmiaru, próbuje znaleźć i podzielić większy blok (o `index + 1`).
-## # `std::string Atlas::getStats()`
+## `std::string Atlas::getStats()`
 
 Zwraca informacje debugowania o liczbie wolnych miejsc w poszczególnych blokach atlasu.
 ## Zależności i powiązania
@@ -2603,10 +2603,10 @@ Zwraca informacje debugowania o liczbie wolnych miejsc w poszczególnych blokach
 
 Plik `bitmapfont.cpp` zawiera implementację klasy `BitmapFont`, która zarządza fontami opartymi na bitmapach (obrazach). Taki font składa się z pojedynczej tekstury zawierającej wszystkie glify (znaki) ułożone w siatce.
 ## Klasa `BitmapFont`
-## # `void BitmapFont::load(const OTMLNodePtr& fontNode)`
-## # # Opis semantyczny
+## `void BitmapFont::load(const OTMLNodePtr& fontNode)`
+## Opis semantyczny
 Ładuje definicję fontu z węzła OTML (zazwyczaj z pliku `.otfont`).
-## # # Działanie
+## Działanie
 1.  Odczytuje z węzła OTML podstawowe atrybuty fontu:
     -   `texture`: Ścieżka do pliku z obrazem fontu.
     -   `glyph-size`: Rozmiar pojedynczego glifu w siatce.
@@ -2621,25 +2621,25 @@ Plik `bitmapfont.cpp` zawiera implementację klasy `BitmapFont`, która zarządz
 4.  Ładuje teksturę fontu za pomocą `g_textures.getTexture()`.
 5.  Jeśli fonty są cachowane w atlasie (`!DONT_CACHE_FONTS`), wywołuje `g_atlas.cacheFont()` i ustawia teksturę atlasu jako źródłową.
 6.  Oblicza i zapisuje współrzędne tekstury dla każdego glifu w `m_glyphsTextureCoords`.
-## # `void BitmapFont::drawText(...)`
+## `void BitmapFont::drawText(...)`
 
 Metody te nie rysują tekstu bezpośrednio, lecz dodają zadanie rysowania do globalnej kolejki `g_drawQueue`.
 
 -   **`drawText(..., const Color& color, ...)`**: Dodaje zadanie rysowania tekstu jednokolorowego.
 -   **`drawColoredText(..., const std::vector<std::pair<int, Color>>& colors, ...)`**: Dodaje zadanie rysowania tekstu z wieloma kolorami.
-## # `void BitmapFont::calculateDrawTextCoords(...)`
+## `void BitmapFont::calculateDrawTextCoords(...)`
 
 Oblicza współrzędne ekranowe i tekstury dla każdego glifu w podanym tekście, uwzględniając wyrównanie i przycinanie do podanego prostokąta. Wyniki są zapisywane w `CoordsBuffer`.
-## # `const std::vector<Point>& BitmapFont::calculateGlyphsPositions(...)`
+## `const std::vector<Point>& BitmapFont::calculateGlyphsPositions(...)`
 
 Oblicza pozycje (lewy górny róg) każdego glifu w tekście, uwzględniająd wyrównanie. Używa statycznych, lokalnych dla wątku wektorów w celu optymalizacji. Zwraca również obliczony rozmiar całego bloku tekstu.
-## # `Size BitmapFont::calculateTextRectSize(const std::string& text)`
+## `Size BitmapFont::calculateTextRectSize(const std::string& text)`
 
 Zwraca rozmiar prostokąta, jaki zajmie podany tekst, używając `calculateGlyphsPositions`.
-## # `std::string BitmapFont::wrapText(...)`
+## `std::string BitmapFont::wrapText(...)`
 
 Implementuje zawijanie tekstu. Dzieli tekst na linie, tak aby żadna nie przekraczała `maxWidth`. Obsługuje również przenoszenie definicji kolorów (`m_textColors`) do nowych linii.
-## # `void BitmapFont::calculateGlyphsWidthsAutomatically(...)`
+## `void BitmapFont::calculateGlyphsWidthsAutomatically(...)`
 
 Prywatna metoda, która analizuje obraz tekstury fontu piksel po pikselu. Dla każdego glifu znajduje ostatnią nieprzezroczystą kolumnę pikseli, aby precyzyjnie określić jego szerokość.
 ## Zależności i powiązania
@@ -2657,9 +2657,9 @@ Prywatna metoda, która analizuje obraz tekstury fontu piksel po pikselu. Dla ka
 
 Plik `atlas.h` deklaruje interfejs klasy `Atlas`, która implementuje mechanizm atlasu tekstur. Celem atlasu jest optymalizacja renderowania poprzez grupowanie wielu małych tekstur w jedną dużą teksturę, co redukuje liczbę wywołań `glBindTexture` w OpenGL.
 ## Klasa `Atlas`
-## # Opis semantyczny
+## Opis semantyczny
 `Atlas` zarządza jednym lub kilkoma dużymi obiektami `FrameBuffer`, które działają jak "płótna". Kiedy system renderujący potrzebuje narysować małą teksturę, `Atlas` znajduje dla niej wolne miejsce w jednym z płócien, kopiuje tam jej zawartość (jeśli jeszcze jej tam nie ma) i zwraca współrzędne wewnątrz atlasu. Późniejsze odwołania do tej samej tekstury używają już skopiowanej wersji z atlasu.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2672,14 +2672,14 @@ Plik `atlas.h` deklaruje interfejs klasy `Atlas`, która implementuje mechanizm 
 | `void bind()` | Bindowanie `FrameBuffer` atlasu jako celu renderowania. |
 | `void release()` | Odpinanie `FrameBuffer` atlasu. |
 | `std::string getStats()` | Zwraca informacje diagnostyczne o stanie atlasu. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_atlas[2]`: Tablica wskaźników na `FrameBuffer` (dla ogólnych tekstur i fontów).
 -   `m_cache`: Mapa (`std::map`) przechowująca hashe skachowanych tekstur i ich pozycje w atlasie.
 -   `m_locations[2][7]`: Tablica list przechowująca pozycje wolnych bloków o różnych rozmiarach (od 32x32 do 2048x2048) dla obu atlasów.
 -   `m_size`: Rozmiar boku tekstury atlasu.
 -   `m_doReset`: Flaga sygnalizująca konieczność zresetowania atlasu (gdy zabraknie miejsca).
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_atlas`: Globalna instancja `Atlas`.
 ## Zależności i powiązania
@@ -2695,9 +2695,9 @@ Plik `atlas.h` deklaruje interfejs klasy `Atlas`, która implementuje mechanizm 
 
 Plik `bitmapfont.h` deklaruje klasę `BitmapFont`, która reprezentuje font oparty na bitmapie. Jest to kluczowy element systemu renderowania tekstu w aplikacji.
 ## Klasa `BitmapFont`
-## # Opis semantyczny
+## Opis semantyczny
 `BitmapFont` zarządza pojedynczym fontem, który jest zdefiniowany jako obraz (tekstura) zawierający siatkę znaków (glifów). Klasa przechowuje informacje o rozmiarze glifów, ich pozycjach na teksturze oraz szerokościach poszczególnych znaków. Dostarcza metody do rysowania tekstu (które w rzeczywistości delegują zadanie do `DrawQueue`) oraz do obliczania wymiarów i zawijania tekstu.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2717,7 +2717,7 @@ Plik `bitmapfont.h` deklaruje klasę `BitmapFont`, która reprezentuje font opar
 | `const TexturePtr& getTexture()` | Zwraca teksturę fontu (może to być tekstura atlasu). |
 | `int getYOffset()` | Zwraca przesunięcie Y. |
 | `Size getGlyphSpacing()` | Zwraca odstępy między glifami. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_name`: Nazwa fontu.
 -   `m_glyphHeight`: Wysokość glifu.
@@ -2743,25 +2743,25 @@ Plik `bitmapfont.h` deklaruje klasę `BitmapFont`, która reprezentuje font opar
 
 Plik `cachedtext.cpp` zawiera implementację klasy `CachedText`, która służy do optymalizacji renderowania tekstu, który nie zmienia się często.
 ## Klasa `CachedText`
-## # `CachedText::CachedText()`
+## `CachedText::CachedText()`
 
 Konstruktor. Inicjalizuje domyślny font, wyrównanie do środka (`Fw::AlignCenter`) i inne wartości domyślne.
-## # `void CachedText::draw(const Rect& rect, const Color& color)`
-## # # Opis semantyczny
+## `void CachedText::draw(const Rect& rect, const Color& color)`
+## Opis semantyczny
 Główna metoda rysująca. Renderuje tekst w podanym prostokącie z danym kolorem.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy font jest ustawiony.
 2.  Sprawdza, czy tekst musi zostać "przekeshowany" (`m_textMustRecache`) lub czy zmienił się prostokąt docelowy (`m_textCachedScreenCoords`). Jeśli tak, aktualizuje buforowane koordynaty.
 3.  Wywołuje metodę `m_font->drawText()` lub `m_font->drawColoredText()` w celu dodania zadania rysowania do `DrawQueue`.
 
 > NOTE: Nazwa "cached" może być nieco myląca. Klasa nie renderuje tekstu do tekstury. Zamiast tego, "keszuje" obliczenia związane z pozycjonowaniem glifów, ale samo rysowanie odbywa się dynamicznie w każdej klatce za pomocą `BitmapFont::drawText`.
-## # `void CachedText::setColoredText(const std::vector<std::string>& texts)`
+## `void CachedText::setColoredText(const std::vector<std::string>& texts)`
 
 Ustawia tekst składający się z fragmentów o różnych kolorach. Parsuje wektor, tworząc wewnętrzną reprezentację `m_text` i `m_textColors`, a następnie wywołuje `update()`.
-## # `void CachedText::update()`
+## `void CachedText::update()`
 
 Prywatna metoda pomocnicza. Oblicza rozmiar tekstu za pomocą `m_font->calculateTextRectSize()` i ustawia flagę `m_textMustRecache` na `true`, co wymusza przeliczenie geometrii przy następnym wywołaniu `draw()`.
-## # `void CachedText::wrapText(int maxWidth)`
+## `void CachedText::wrapText(int maxWidth)`
 
 Zawija tekst, aby zmieścił się w podanej szerokości, używając metody `m_font->wrapText()`, a następnie wywołuje `update()`.
 ## Zależności i powiązania
@@ -2777,9 +2777,9 @@ Zawija tekst, aby zmieścił się w podanej szerokości, używając metody `m_fo
 
 Plik `colorarray.h` deklaruje klasę `ColorArray`, która jest prostym kontenerem na tablicę kolorów w formacie `float`. Jest używana do przekazywania kolorów dla poszczególnych wierzchołków do systemu renderującego.
 ## Klasa `ColorArray`
-## # Opis semantyczny
+## Opis semantyczny
 `ColorArray` działa jako bufor dla kolorów. Każdy kolor jest reprezentowany przez cztery wartości `float` (R, G, B, A) w zakresie od 0.0 do 1.0. Klasa udostępnia metody do dodawania kolorów i dostępu do surowego wskaźnika na dane, co jest potrzebne do przekazania ich do OpenGL.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2791,7 +2791,7 @@ Plik `colorarray.h` deklaruje klasę `ColorArray`, która jest prostym kontenere
 | `int colorCount() const` | Zwraca liczbę pełnych kolorów w buforze (alias dla `count()`). |
 | `int count() const` | Zwraca liczbę kolorów. |
 | `int size() const` | Zwraca całkowitą liczbę wartości `float` w buforze (tj. `colorCount() * 4`). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_buffer`: Obiekt `DataBuffer<float>`, który przechowuje dane kolorów.
 ## Zależności i powiązania
@@ -2806,9 +2806,9 @@ Plik `colorarray.h` deklaruje klasę `ColorArray`, która jest prostym kontenere
 
 Plik `cachedtext.h` deklaruje klasę `CachedText`, która jest opakowaniem (wrapperem) ułatwiającym zarządzanie i renderowanie tekstu, który może być keszowany.
 ## Klasa `CachedText`
-## # Opis semantyczny
+## Opis semantyczny
 Klasa `CachedText` przechowuje tekst, font, wyrównanie i inne właściwości. Jej głównym celem jest optymalizacja renderowania poprzez unikanie ponownych obliczeń geometrii tekstu w każdej klatce. Kiedy tekst lub jego parametry się zmieniają, metoda `update()` jest wywoływana, aby przeliczyć rozmiar i ustawić flagę konieczności ponownego buforowania współrzędnych.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2824,7 +2824,7 @@ Klasa `CachedText` przechowuje tekst, font, wyrównanie i inne właściwości. J
 | `BitmapFontPtr getFont() const` | Zwraca używany font. |
 | `Fw::AlignmentFlag getAlign() const` | Zwraca wyrównanie. |
 | `bool hasText()` | Zwraca `true`, jeśli tekst nie jest pusty. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_text`: Główny, niezmieniony tekst.
 -   `m_textColors`: Wektor par przechowujący pozycje i kolory dla tekstu wielokolorowego.
@@ -2846,11 +2846,11 @@ Klasa `CachedText` przechowuje tekst, font, wyrównanie i inne właściwości. J
 
 Plik `coordsbuffer.h` deklaruje klasę `CoordsBuffer`, która jest specjalizowanym kontenerem do przechowywania współrzędnych wierzchołków (`vertex`) i tekstur (`texture coord`). Jest to kluczowy element optymalizacyjny, pozwalający na grupowanie geometrii wielu obiektów i rysowanie ich w jednym wywołaniu (batching).
 ## Klasa `CoordsBuffer`
-## # Opis semantyczny
+## Opis semantyczny
 `CoordsBuffer` przechowuje dwie tablice wierzchołków (`VertexArray`): jedną dla pozycji na ekranie i drugą dla pozycji na teksturze. Dostarcza metody do dodawania prostych prymitywów geometrycznych (trójkąty, prostokąty). Posiada mechanizm "keszowania" danych w sprzętowym buforze VBO (Vertex Buffer Object) w celu dalszej optymalizacji.
 
 > **NOTE**: Mimo nazwy, `CoordsBuffer` jest jednorazowego użytku dla `DrawQueue`. Po przekazaniu do kolejki, jego zawartość jest przenoszona (`std::move`), a oryginał staje się pusty. To zachowanie jest wymuszone przez usunięcie konstruktora kopiującego i operatora przypisania, a zdefiniowanie konstruktora przenoszącego.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2870,7 +2870,7 @@ Plik `coordsbuffer.h` deklaruje klasę `CoordsBuffer`, która jest specjalizowan
 | `HardwareBuffer* getVertexHardwareCache()` | Zwraca wskaźnik na sprzętowy bufor VBO dla wierzchołków (jeśli istnieje). |
 | `void cache()` | Tworzy i wypełnia sprzętowe bufory VBO na podstawie bieżących danych. |
 | `Rect getTextureRect()`| Oblicza i zwraca prostokąt ograniczający wszystkie współrzędne tekstury. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_locked`: Flaga używana do optymalizacji (zapobiega niepotrzebnemu kopiowaniu danych).
 -   `m_vertexArray`: Wskaźnik na `VertexArray` przechowujący pozycje.
@@ -2886,9 +2886,9 @@ Plik `coordsbuffer.h` deklaruje klasę `CoordsBuffer`, która jest specjalizowan
 
 Plik `deptharray.h` deklaruje klasę `DepthArray`, która jest prostym kontenerem na tablicę wartości głębokości (depth) w formacie `float`. Jest to prawdopodobnie część eksperymentalnego lub nie w pełni zaimplementowanego mechanizmu renderowania 3D lub sortowania głębokości.
 ## Klasa `DepthArray`
-## # Opis semantyczny
+## Opis semantyczny
 `DepthArray` działa jako bufor dla wartości głębokości (współrzędna Z). Każda wartość `float` w buforze odpowiada jednemu wierzchołkowi. Klasa udostępnia metody do dodawania wartości i dostępu do surowego wskaźnika na dane, co jest potrzebne do przekazania ich do OpenGL jako atrybut wierzchołka.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -2899,7 +2899,7 @@ Plik `deptharray.h` deklaruje klasę `DepthArray`, która jest prostym kontenere
 | `int depthCount() const` | Zwraca liczbę wartości w buforze (alias dla `count()`). |
 | `int count() const` | Zwraca liczbę wartości. |
 | `int size() const` | Zwraca liczbę wartości. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_buffer`: Obiekt `DataBuffer<float>`, który przechowuje dane głębokości.
 ## Zależności i powiązania
@@ -2954,19 +2954,19 @@ Plik definiuje aliasy dla inteligentnych wskaźników (`shared_object_ptr`) do k
 
 Plik `coordsbuffer.cpp` zawiera implementację metod klasy `CoordsBuffer`, która jest buforem na dane geometryczne do renderowania.
 ## Klasa `CoordsBuffer`
-## # `CoordsBuffer::CoordsBuffer()`
+## `CoordsBuffer::CoordsBuffer()`
 
 Konstruktor. Inicjalizuje dwa wewnętrzne bufory: `m_vertexArray` (dla współrzędnych pozycji) i `m_textureCoordArray` (dla współrzędnych tekstury).
-## # `void CoordsBuffer::addBoudingRect(const Rect& dest, int innerLineWidth)`
+## `void CoordsBuffer::addBoudingRect(const Rect& dest, int innerLineWidth)`
 
 Dodaje geometrię czterech prostokątów, które razem tworzą ramkę (border) wewnątrz podanego prostokąta `dest` o grubości `innerLineWidth`.
-## # `void CoordsBuffer::addRepeatedRects(const Rect& dest, const Rect& src)`
+## `void CoordsBuffer::addRepeatedRects(const Rect& dest, const Rect& src)`
 
 Wypełnia prostokąt docelowy (`dest`) powtarzającym się wzorem z tekstury (`src`). Dzieli obszar `dest` na mniejsze prostokąty o rozmiarze `src` i dodaje je do bufora, odpowiednio przycinając współrzędne tekstury na krawędziach.
-## # `void CoordsBuffer::unlock(bool clear)`
+## `void CoordsBuffer::unlock(bool clear)`
 
 Metoda związana z wewnętrznym mechanizmem "blokowania" bufora. Kiedy bufor jest zablokowany (`m_locked`), każda operacja dodawania geometrii powoduje jego odblokowanie. Odblokowanie tworzy kopię wewnętrznych `VertexArray`, aby zapobiec modyfikacji danych, które mogły już zostać przesłane do VBO. Jeśli `clear` jest `true`, zamiast kopiowania tworzone są nowe, puste `VertexArray`.
-## # `Rect CoordsBuffer::getTextureRect()`
+## `Rect CoordsBuffer::getTextureRect()`
 
 Przechodzi przez wszystkie współrzędne tekstury w buforze, aby znaleźć minimalny i maksymalny punkt, a następnie zwraca prostokąt ograniczający (bounding box) dla używanego fragmentu tekstury.
 ## Zależności i powiązania
@@ -2981,7 +2981,7 @@ Przechodzi przez wszystkie współrzędne tekstury w buforze, aby znaleźć mini
 
 Plik `drawcache.cpp` implementuje klasę `DrawCache`, która jest kluczowym elementem systemu optymalizacji renderowania. Jej zadaniem jest grupowanie (batching) operacji rysowania, które używają tej samej tekstury (atlasu), aby zminimalizować liczbę wywołań rysujących (draw calls) do OpenGL.
 ## Zmienne globalne
-## # `g_drawCache`
+## `g_drawCache`
 
 Globalna instancja `DrawCache`, używana przez `DrawQueue` do buforowania operacji.
 
@@ -2989,23 +2989,23 @@ Globalna instancja `DrawCache`, używana przez `DrawQueue` do buforowania operac
 DrawCache g_drawCache;
 ```
 ## Klasa `DrawCache`
-## # `void DrawCache::draw()`
-## # # Opis semantyczny
+## `void DrawCache::draw()`
+## Opis semantyczny
 Wykonuje zgrupowane operacje rysowania.
-## # # Działanie
+## Działanie
 1.  Upewnia się, że atlas tekstur jest odłączony (`release()`).
 2.  Jeśli bufor nie jest pusty (`m_size > 0`), wywołuje `g_painter->drawCache()`, przekazując jej wszystkie zebrane dane wierzchołków, współrzędnych tekstur i kolorów.
 3.  Resetuje licznik `m_size` do zera.
-## # `void DrawCache::bind()` i `void DrawCache::release()`
+## `void DrawCache::bind()` i `void DrawCache::release()`
 
 Metody te zarządzają bindowaniem i zwalnianiem `FrameBuffer` atlasu. `bind()` jest wywoływane, gdy do atlasu musi zostać narysowana nowa tekstura. `release()` jest wywoływane przed wykonaniem `draw()`.
-## # Metody dodawania do bufora
+## Metody dodawania do bufora
 
 -   **`addRect(const Rect& dest, const Color& color)`**: Dodaje prostokąt wypełniony jednolitym kolorem. Współrzędne tekstury są ustawiane na `(-10, -10)`, co jest sygnałem dla shadera, aby nie używał tekstury.
 -   **`addTexturedRect(const Rect& dest, const Rect& src, const Color& color)`**: Dodaje teksturowany prostokąt.
 -   **`addCoords(CoordsBuffer& coords, const Color& color)`**: Dodaje geometrię z `CoordsBuffer` (bez tekstury).
 -   **`addTexturedCoords(CoordsBuffer& coords, const Point& offset, const Color& color)`**: Dodaje geometrię z `CoordsBuffer` z teksturą. Przesuwa współrzędne tekstury o podany `offset`, który jest pozycją tekstury w atlasie.
-## # Metody pomocnicze (`addRectRaw`, `addColorRaw`)
+## Metody pomocnicze (`addRectRaw`, `addColorRaw`)
 
 Prywatne metody `inline` do szybkiego zapisu danych do wewnętrznych wektorów (`m_destCoord`, `m_srcCoord`, `m_color`).
 ## Zależności i powiązania
@@ -3021,13 +3021,13 @@ Prywatne metody `inline` do szybkiego zapisu danych do wewnętrznych wektorów (
 
 Plik `drawcache.h` deklaruje klasę `DrawCache`, która służy jako bufor dla operacji rysowania. Jest to mechanizm optymalizacyjny, który agreguje wiele małych operacji rysowania (np. prostokątów) w jedno duże wywołanie, co znacząco poprawia wydajność renderowania.
 ## Klasa `DrawCache`
-## # Opis semantyczny
+## Opis semantyczny
 `DrawCache` przechowuje trzy duże, prealokowane wektory: na współrzędne wierzchołków (`m_destCoord`), współrzędne tekstur (`m_srcCoord`) i kolory (`m_color`). Metody `add...` dodają dane do tych buforów. Gdy bufor jest pełny lub gdy operacja rysowania nie może być zbuforowana, metoda `draw()` jest wywoływana, aby opróżnić bufor i narysować jego zawartość za pomocą jednego wywołania `g_painter->drawCache()`.
-## # Stałe
+## Stałe
 
 -   `MAX_SIZE`: Maksymalna liczba wierzchołków, jaką może przechować bufor (65536).
 -   `HALF_MAX_SIZE`: Połowa maksymalnego rozmiaru, używana jako próg do opróżnienia bufora.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3040,14 +3040,14 @@ Plik `drawcache.h` deklaruje klasę `DrawCache`, która służy jako bufor dla o
 | `void addTexturedRect(...)` | Dodaje teksturowany prostokąt. |
 | `void addCoords(...)` | Dodaje geometrię z `CoordsBuffer` (bez tekstury). |
 | `void addTexturedCoords(...)` | Dodaje geometrię z `CoordsBuffer` (z teksturą). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_destCoord`: Wektor na współrzędne docelowe (pozycji).
 -   `m_srcCoord`: Wektor na współrzędne źródłowe (tekstury).
 -   `m_color`: Wektor na kolory wierzchołków.
 -   `m_bound`: Flaga wskazująca, czy atlas jest zbindowany.
 -   `m_size`: Aktualna liczba wierzchołków w buforze.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_drawCache`: Globalna instancja `DrawCache`.
 ## Zależności i powiązania
@@ -3063,7 +3063,7 @@ Plik `drawcache.h` deklaruje klasę `DrawCache`, która służy jako bufor dla o
 
 Plik `drawqueue.cpp` implementuje logikę dla `DrawQueue` oraz poszczególnych typów zadań rysowania (`DrawQueueItem`). Jest to centralny element systemu renderowania, który kolekcjonuje wszystkie operacje rysowania w jednej klatce, a następnie wykonuje je w odpowiedniej kolejności, z uwzględnieniem warunków takich jak przycinanie, przezroczystość czy rotacja.
 ## Zmienne globalne
-## # `g_drawQueue`
+## `g_drawQueue`
 
 Globalny wskaźnik na aktualnie aktywną kolejkę rysowania. Wątek logiki tworzy nowe instancje `DrawQueue`, wypełnia je i przypisuje do tego wskaźnika, a wątek renderowania je konsumuje.
 ## Klasy `DrawQueueItem` (implementacje)
@@ -3072,7 +3072,7 @@ Każda klasa dziedzicząca po `DrawQueueItem` implementuje dwie kluczowe metody:
 
 -   **`draw()`**: Wykonuje faktyczną operację rysowania za pomocą `g_painter`.
 -   **`cache()`**: Próbuje zoptymalizować operację, dodając ją do `g_drawCache` zamiast rysować natychmiast. Zwraca `true`, jeśli keszowanie się powiodło.
-## # Przykłady implementacji:
+## Przykłady implementacji:
 
 -   **`DrawQueueItemTextureCoords::cache()`**:
     1.  Sprawdza, czy tekstura może być skeszowana.
@@ -3088,19 +3088,19 @@ Każda klasa dziedzicząca po `DrawQueueItem` implementuje dwie kluczowe metody:
 
 -   **`DrawQueueCondition...::start()` i `end()`**: Implementują zmiany stanu `g_painter` na początku i na końcu bloku warunkowego. Na przykład `DrawQueueConditionClip` zmienia i przywraca prostokąt przycinania.
 ## Klasa `DrawQueue`
-## # `void DrawQueue::setFrameBuffer(...)`
+## `void DrawQueue::setFrameBuffer(...)`
 
 Konfiguruje `DrawQueue` do renderowania do bufora ramki (off-screen). Ustawia docelowy i źródłowy prostokąt oraz oblicza skalowanie, jeśli rozmiar bufora przekracza `2048x2048`.
-## # `void DrawQueue::addText(...)` i `void DrawQueue::addColoredText(...)`
+## `void DrawQueue::addText(...)` i `void DrawQueue::addColoredText(...)`
 
 Tworzą zadanie rysowania tekstu. Najpierw dodają tekst do `g_text` (systemu keszującego geometrię tekstu), uzyskując hash, a następnie tworzą odpowiedni `DrawQueueItemText`.
-## # `void DrawQueue::correctOutfit(...)`
+## `void DrawQueue::correctOutfit(...)`
 
 Specjalna metoda do skalowania i pozycjonowania wielu `DrawQueueItem` (części stroju postaci), tak aby całość zmieściła się w podanym prostokącie docelowym, zachowując proporcje.
-## # `void DrawQueue::draw(DrawType drawType)`
-## # # Opis semantyczny
+## `void DrawQueue::draw(DrawType drawType)`
+## Opis semantyczny
 Główna metoda wykonująca wszystkie zebrane zadania rysowania.
-## # # Działanie
+## Działanie
 1.  Określa zakres zadań do narysowania na podstawie `drawType` (wszystkie, przed mapą, po mapie).
 2.  Sortuje warunki (`m_conditions`) po ich pozycjach początkowych.
 3.  Jeśli ustawiono skalowanie, modyfikuje macierz projekcji `g_painter`.
@@ -3124,7 +3124,7 @@ Główna metoda wykonująca wszystkie zebrane zadania rysowania.
 
 Plik `fontmanager.cpp` zawiera implementację klasy `FontManager`, która jest singletonem (`g_fonts`) odpowiedzialnym za zarządzanie wszystkimi fontami bitmapowymi w aplikacji.
 ## Zmienne globalne
-## # `g_fonts`
+## `g_fonts`
 
 Globalna instancja `FontManager`.
 
@@ -3132,19 +3132,19 @@ Globalna instancja `FontManager`.
 FontManager g_fonts;
 ```
 ## Klasa `FontManager`
-## # `FontManager::FontManager()`
+## `FontManager::FontManager()`
 
 Konstruktor. Inicjalizuje domyślny font (`m_defaultFont`) jako pusty obiekt `BitmapFont`, aby uniknąć błędów, gdy żaden font nie został jeszcze załadowany.
-## # `void FontManager::terminate()`
+## `void FontManager::terminate()`
 
 Zwalnia wszystkie załadowane fonty, czyszcząc wektor `m_fonts` i resetując wskaźnik na domyślny font.
-## # `void FontManager::clearFonts()`
+## `void FontManager::clearFonts()`
 
 Czyści wszystkie załadowane fonty i przywraca pusty font domyślny. Używane np. przy przeładowywaniu zasobów.
-## # `void FontManager::importFont(std::string file)`
-## # # Opis semantyczny
+## `void FontManager::importFont(std::string file)`
+## Opis semantyczny
 Ładuje definicję fontu z pliku `.otfont`. Metoda jest bezpieczna wątkowo – jeśli jest wywołana z innego wątku niż graficzny, deleguje zadanie do `g_graphicsDispatcher`.
-## # # Działanie
+## Działanie
 1.  Rozwiązuje ścieżkę do pliku.
 2.  Parsuje plik OTML.
 3.  Odczytuje nazwę fontu z węzła `Font`.
@@ -3152,10 +3152,10 @@ Czyści wszystkie załadowane fonty i przywraca pusty font domyślny. Używane n
 5.  Tworzy nowy obiekt `BitmapFont` i wywołuje jego metodę `load()`.
 6.  Dodaje nowo załadowany font do wektora `m_fonts`.
 7.  Jeśli font jest oznaczony jako domyślny (`default="true"`), ustawia go jako `m_defaultFont`.
-## # `bool FontManager::fontExists(const std::string& fontName)`
+## `bool FontManager::fontExists(const std::string& fontName)`
 
 Sprawdza, czy font o podanej nazwie został już załadowany.
-## # `BitmapFontPtr FontManager::getFont(const std::string& fontName)`
+## `BitmapFontPtr FontManager::getFont(const std::string& fontName)`
 
 Wyszukuje i zwraca wskaźnik do fontu o podanej nazwie. Jeśli font nie zostanie znaleziony, loguje błąd i zwraca font domyślny, aby zapobiec awarii.
 ## Zależności i powiązania
@@ -3182,12 +3182,12 @@ Określa, która część kolejki ma zostać narysowana. Używane do renderowani
 | `DRAW_BEFORE_MAP` | Rysuje zadania dodane przed `markMapPosition()`. |
 | `DRAW_AFTER_MAP` | Rysuje zadania dodane po `markMapPosition()`. |
 ## Hierarchia klas `DrawQueueItem`
-## # `struct DrawQueueItem` (baza)
+## `struct DrawQueueItem` (baza)
 Abstrakcyjna klasa bazowa dla wszystkich zadań w kolejce.
 
 -   **`virtual void draw()`**: Metoda wirtualna do wykonania operacji rysowania.
 -   **`virtual bool cache()`**: Metoda wirtualna do próby zbuforowania operacji w `DrawCache`.
-## # Klasy pochodne
+## Klasy pochodne
 
 Każda klasa reprezentuje konkretną operację rysowania:
 -   `DrawQueueItemTexturedRect`: Rysowanie prostokąta z teksturą.
@@ -3200,21 +3200,21 @@ Każda klasa reprezentuje konkretną operację rysowania:
 -   `DrawQueueItemText`, `DrawQueueItemTextColored`: Rysowanie tekstu.
 -   `DrawQueueItemLine`: Rysowanie linii.
 ## Hierarchia klas `DrawQueueCondition`
-## # `struct DrawQueueCondition` (baza)
+## `struct DrawQueueCondition` (baza)
 Abstrakcyjna klasa bazowa dla warunków modyfikujących stan renderowania dla grupy zadań.
 
 -   **`m_start`, `m_end`**: Indeksy w `DrawQueue` określające zakres działania warunku.
 -   **`virtual void start(DrawQueue*)`**: Metoda wywoływana przed pierwszym zadaniem objętym warunkiem.
 -   **`virtual void end(DrawQueue*)`**: Metoda wywoływana po ostatnim zadaniu objętym warunkiem.
-## # Klasy pochodne
+## Klasy pochodne
 
 -   `DrawQueueConditionClip`: Ustawia prostokąt przycinania (clipping).
 -   `DrawQueueConditionRotation`: Stosuje transformację rotacji.
 -   `DrawQueueConditionMark`: Specjalny warunek do rysowania zaznaczenia (np. na przedmiotach).
 ## Klasa `DrawQueue`
-## # Opis semantyczny
+## Opis semantyczny
 Główna klasa zarządzająca kolejką. Przechowuje listę zadań (`m_queue`) i warunków (`m_conditions`). Dostarcza metody do dodawania różnych operacji rysowania i do finalnego wykonania całej kolejki.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3228,7 +3228,7 @@ Główna klasa zarządzająca kolejką. Przechowuje listę zadań (`m_queue`) i 
 
 Plik `framebuffer.cpp` zawiera implementację klasy `FrameBuffer`, która jest opakowaniem (wrapperem) na obiekt bufora ramki (FBO) w OpenGL. Umożliwia renderowanie sceny do tekstury zamiast bezpośrednio na ekran (tzw. off-screen rendering), co jest kluczowe dla efektów post-processingu, skalowania interfejsu i implementacji atlasu tekstur.
 ## Zmienne globalne
-## # `uint FrameBuffer::boundFbo`
+## `uint FrameBuffer::boundFbo`
 
 Statyczna zmienna członkowska, która śledzi ID aktualnie związanego (aktywnego) FBO. Służy do optymalizacji poprzez unikanie zbędnych wywołańsk `glBindFramebuffer`, jeśli ten sam FBO jest już aktywny.
 
@@ -3236,42 +3236,42 @@ Statyczna zmienna członkowska, która śledzi ID aktualnie związanego (aktywne
 uint FrameBuffer::boundFbo = 0;
 ```
 ## Klasa `FrameBuffer`
-## # `FrameBuffer::FrameBuffer(bool withDepth)`
+## `FrameBuffer::FrameBuffer(bool withDepth)`
 
 Konstruktor. Wywołuje `internalCreate()` w celu utworzenia zasobów OpenGL.
 -   **Parametr `withDepth`**: Jeśli `true` i zdefiniowano `WITH_DEPTH_BUFFER`, tworzony jest również bufor głębi, co pozwala na testowanie głębi podczas renderowania do tego bufora.
-## # `FrameBuffer::~FrameBuffer()`
+## `FrameBuffer::~FrameBuffer()`
 
 Destruktor. Zwalnia zasoby OpenGL (`glDeleteFramebuffers`, `glDeleteRenderbuffers`) w sposób bezpieczny wątkowo, dodając zadanie do kolejki dyspozytora graficznego (`g_graphicsDispatcher`).
-## # `void FrameBuffer::resize(const Size& size)`
-## # # Opis semantyczny
+## `void FrameBuffer::resize(const Size& size)`
+## Opis semantyczny
 Zmienia rozmiar bufora ramki. Tworzy nową teksturę o podanych wymiarach, która będzie służyć jako "płótno" do rysowania.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy zmiana rozmiaru jest konieczna.
 2.  Tworzy nowy obiekt `Texture` o podanym rozmiarze.
 3.  Jeśli bufor głębi jest włączony, alokuje dla niego pamięć (`glRenderbufferStorage`).
 4.  Wiąże FBO, a następnie dołącza do niego nową teksturę jako bufor koloru (`glFramebufferTexture2D`) oraz opcjonalnie bufor głębi (`glFramebufferRenderbuffer`).
 5.  Sprawdza status FBO (`glCheckFramebufferStatus`), aby upewnić się, że jest on kompletny i gotowy do użycia.
-## # `void FrameBuffer::bind(const FrameBufferPtr& depthFramebuffer)`
+## `void FrameBuffer::bind(const FrameBufferPtr& depthFramebuffer)`
 
 Aktywuje bufor ramki jako cel renderowania. Wszystkie kolejne operacje rysowania będą kierowane do tekstury tego bufora.
 -   Zapisuje i resetuje stan `Painter`.
 -   Wywołuje `internalBind()`.
 -   Ustawia rozdzielczość `Painter` na rozmiar bufora.
-## # `void FrameBuffer::release()`
+## `void FrameBuffer::release()`
 
 Deaktywuje bufor ramki i przywraca poprzedni cel renderowania (zazwyczaj bufor ekranu).
 -   Wywołuje `internalRelease()`.
 -   Przywraca poprzedni stan `Painter`.
-## # `void FrameBuffer::draw(...)`
+## `void FrameBuffer::draw(...)`
 
 Metody te służą do rysowania *zawartości* (tekstury) bufora ramki na aktualnie aktywnym celu renderowania.
 -   `draw()`: Rysuje całą teksturę.
 -   `draw(const Rect& dest, const Rect& src)`: Rysuje fragment (`src`) tekstury w docelowym prostokącie (`dest`).
-## # `void FrameBuffer::doScreenshot(std::string fileName)`
+## `void FrameBuffer::doScreenshot(std::string fileName)`
 
 Odczytuje zawartość pikseli z bufora ramki za pomocą `glReadPixels`, a następnie w osobnym wątku (`g_asyncDispatcher`) zapisuje je do pliku PNG, odwracając obraz w osi Y (konwersja z układu współrzędnych OpenGL).
-## # Metody `internal...`
+## Metody `internal...`
 
 -   `internalCreate()`: Generuje obiekty FBO i RBO.
 -   `internalBind()` / `internalRelease()`: Bezpośrednio wywołują `glBindFramebuffer` i zarządzają statyczną zmienną `boundFbo`.
@@ -3290,9 +3290,9 @@ Odczytuje zawartość pikseli z bufora ramki za pomocą `glReadPixels`, a nastę
 
 Plik `framebuffer.h` deklaruje klasę `FrameBuffer`, która jest obiektowym interfejsem do zarządzania buforami ramki (FBO) w OpenGL. Pozwala na renderowanie sceny do tekstury zamiast bezpośrednio na ekran.
 ## Klasa `FrameBuffer`
-## # Opis semantyczny
+## Opis semantyczny
 `FrameBuffer` enkapsuluje obiekt FBO z OpenGL oraz powiązaną z nim teksturę (jako bufor koloru) i opcjonalnie bufor głębi. Udostępnia metody do bindowania (aktywacji), zwalniania, zmiany rozmiaru i rysowania zawartości bufora.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3310,7 +3310,7 @@ Plik `framebuffer.h` deklaruje klasę `FrameBuffer`, która jest obiektowym inte
 | `bool hasDepth()` | (Tylko z `WITH_DEPTH_BUFFER`) Zwraca `true`, jeśli bufor posiada bufor głębi. |
 | `std::vector<uint32_t> readPixels()` | Odczytuje zawartość bufora do pamięci systemowej. |
 | `void doScreenshot(std::string fileName)` | Zapisuje zawartość bufora do pliku PNG. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_texture`: Wskaźnik na obiekt `Texture` używany jako bufor koloru.
 -   `m_fbo`: ID obiektu FBO w OpenGL.
@@ -3330,7 +3330,7 @@ Plik `framebuffer.h` deklaruje klasę `FrameBuffer`, która jest obiektowym inte
 
 Plik `framebuffermanager.cpp` zawiera implementację klasy `FrameBufferManager`, która jest singletonem (`g_framebuffers`) odpowiedzialnym za tworzenie i zarządzanie obiektami `FrameBuffer`.
 ## Zmienne globalne
-## # `g_framebuffers`
+## `g_framebuffers`
 
 Globalna instancja `FrameBufferManager`.
 
@@ -3338,19 +3338,19 @@ Globalna instancja `FrameBufferManager`.
 FrameBufferManager g_framebuffers;
 ```
 ## Klasa `FrameBufferManager`
-## # `void FrameBufferManager::init()`
-## # # Opis semantyczny
+## `void FrameBufferManager::init()`
+## Opis semantyczny
 Inicjalizuje menedżera. Tworzy dwa predefiniowane, "tymczasowe" bufory ramki, które mogą być używane przez różne części systemu do krótkotrwałych operacji renderowania poza ekranem, bez potrzeby tworzenia i niszczenia własnych buforów.
 
 -   `m_temporaryFramebuffer`: Ogólnego przeznaczenia.
 -   `m_drawQueueTemporaryFramebuffer`: Prawdopodobnie używany przez `DrawQueue` do specyficznych operacji.
-## # `void FrameBufferManager::terminate()`
+## `void FrameBufferManager::terminate()`
 
 Zwalnia wszystkie utworzone bufory ramki, w tym tymczasowe, czyszcząc listę `m_framebuffers`.
-## # `FrameBufferPtr FrameBufferManager::createFrameBuffer(bool withDepth)`
-## # # Opis semantyczny
+## `FrameBufferPtr FrameBufferManager::createFrameBuffer(bool withDepth)`
+## Opis semantyczny
 Metoda fabryczna do tworzenia nowych obiektów `FrameBuffer`.
-## # # Działanie
+## Działanie
 1.  Tworzy nową instancję `FrameBuffer`, przekazując flagę `withDepth`.
 2.  Dodaje nowo utworzony bufor do wewnętrznej listy `m_framebuffers` w celu śledzenia.
 3.  Zwraca wskaźnik na nowo utworzony obiekt.
@@ -3365,7 +3365,7 @@ Metoda fabryczna do tworzenia nowych obiektów `FrameBuffer`.
 
 Plik `graph.cpp` implementuje klasę `Graph`, która służy do wizualizacji danych w czasie rzeczywistym w formie prostego wykresu liniowego. Jest to narzędzie głównie do celów debugowania i profilowania wydajności.
 ## Zmienne globalne
-## # `g_graphs[GRAPH_LAST + 1]`
+## `g_graphs[GRAPH_LAST + 1]`
 
 Globalna tablica instancji `Graph`, gdzie każda instancja odpowiada za śledzenie i rysowanie innego parametru (np. czasu klatki, liczby wywołań rysujących, opóźnienia sieciowego).
 
@@ -3376,13 +3376,13 @@ Graph g_graphs[GRAPH_LAST + 1] = {
 };
 ```
 ## Klasa `Graph`
-## # `Graph::Graph(const std::string& name, size_t capacity)`
+## `Graph::Graph(const std::string& name, size_t capacity)`
 
 Konstruktor. Inicjalizuje wykres z podaną nazwą i maksymalną liczbą próbek do przechowywania.
-## # `void Graph::draw(const Rect& dest)`
-## # # Opis semantyczny
+## `void Graph::draw(const Rect& dest)`
+## Opis semantyczny
 Rysuje wykres w podanym prostokącie ekranu. Metoda musi być wywoływana z wątku graficznego.
-## # # Działanie
+## Działanie
 1.  Rysuje tło i ramkę wykresu.
 2.  Rysuje nazwę wykresu.
 3.  Pobiera `elements` ostatnich próbek z `m_values` (tyle, ile zmieści się w `dest`).
@@ -3390,13 +3390,13 @@ Rysuje wykres w podanym prostokącie ekranu. Metoda musi być wywoływana z wąt
 5.  Normalizuje wartości i tworzy geometrię linii wykresu.
 6.  Rysuje etykiety z wartością minimalną, maksymalną i ostatnią.
 7.  Rysuje linię wykresu za pomocą `g_painter->drawLine()`.
-## # `void Graph::clear()`
+## `void Graph::clear()`
 
 Czyści wszystkie zebrane dane z wykresu.
-## # `void Graph::addValue(int value, bool ignoreSmallValues)`
-## # # Opis semantyczny
+## `void Graph::addValue(int value, bool ignoreSmallValues)`
+## Opis semantyczny
 Dodaje nową próbkę danych do wykresu. Metoda jest bezpieczna wątkowo dzięki użyciu `std::mutex`.
-## # # Działanie
+## Działanie
 1.  Opcjonalnie ignoruje małe, powtarzające się wartości, aby wykres był bardziej czytelny.
 2.  Dodaje nową wartość na koniec kolejki `m_values`.
 3.  Jeśli kolejka przekracza pojemność, usuwa najstarszą wartość.
@@ -3429,12 +3429,12 @@ Definiuje stałe dla różnych typów wykresów, które mogą być śledzone w a
 | `GRAPH_GRAPHICS_EVENTS` | Liczba zdarzeń w dyspozytorze graficznym. |
 | `GRAPH_LATENCY` | Opóźnienie sieciowe (ping). |
 ## Klasa `Graph`
-## # Opis semantyczny
+## Opis semantyczny
 Klasa `Graph` przechowuje kolejkę (`std::deque`) ostatnich wartości liczbowych i udostępnia metodę do narysowania ich w postaci prostego wykresu liniowego. Jest bezpieczna wątkowo przy dodawaniu wartości.
-## # Stałe
+## Stałe
 
 -   `MAX_CAPACITY`: Maksymalna liczba próbek, jaką może przechować wykres.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3442,14 +3442,14 @@ Klasa `Graph` przechowuje kolejkę (`std::deque`) ostatnich wartości liczbowych
 | `void draw(const Rect& dest)` | Rysuje wykres w podanym prostokącie. |
 | `void clear()` | Czyści dane wykresu. |
 | `void addValue(int value, bool ignoreSmallValues = false)` | Dodaje nową wartość do wykresu. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_name`: Nazwa wykresu, wyświetlana jako tytuł.
 -   `m_capacity`: Maksymalna liczba przechowywanych próbek.
 -   `m_ignores`: Licznik ignorowanych małych wartości.
 -   `m_values`: Kolejka przechowująca dane.
 -   `m_mutex`: Mutex chroniący dostęp do `m_values`.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_graphs[GRAPH_LAST + 1]`: Globalna tablica, w której przechowywane są instancje `Graph` dla każdego typu z `GraphType`.
 ## Zależności i powiązania
@@ -3486,7 +3486,7 @@ Plik używa dyrektyw preprocesora do wyboru odpowiednich nagłówków:
 
 Plik `graphics.cpp` zawiera implementację klasy `Graphics`, która jest singletonem (`g_graphics`) odpowiedzialnym za inicjalizację i zarządzanie globalnym stanem silnika graficznego opartego na OpenGL.
 ## Zmienne globalne
-## # `g_graphics`
+## `g_graphics`
 
 Globalna instancja `Graphics`.
 
@@ -3494,13 +3494,13 @@ Globalna instancja `Graphics`.
 Graphics g_graphics;
 ```
 ## Klasa `Graphics`
-## # `Graphics::Graphics()`
+## `Graphics::Graphics()`
 
 Konstruktor. Inicjalizuje domyślną maksymalną wielkość tekstury na `2048`.
-## # `void Graphics::init()`
-## # # Opis semantyczny
+## `void Graphics::init()`
+## Opis semantyczny
 Główna metoda inicjalizująca. Uruchamia i konfiguruje kontekst OpenGL oraz inicjalizuje wszystkie pod-menedżery graficzne.
-## # # Działanie
+## Działanie
 1.  Odczytuje i zapisuje informacje o sterowniku graficznym (`GL_VENDOR`, `GL_RENDERER`, `GL_VERSION`, `GL_EXTENSIONS`) za pomocą `glGetString`.
 2.  Loguje te informacje.
 3.  **Na platformach desktopowych**:
@@ -3513,13 +3513,13 @@ Główna metoda inicjalizująca. Uruchamia i konfiguruje kontekst OpenGL oraz in
 7.  Ustawia flagę `m_ok` na `true`, sygnalizując pomyślną inicjalizację.
 8.  Tworzy i bindowanie globalny obiekt `Painter`.
 9.  Inicjalizuje menedżery: `g_textures`, `g_framebuffers`, `g_atlas`, `g_text`.
-## # `void Graphics::terminate()`
+## `void Graphics::terminate()`
 
 Zwalnia zasoby w odwrotnej kolejności do inicjalizacji, wywołując `terminate()` na wszystkich pod-menedżerach oraz niszcząc obiekt `Painter`.
-## # `void Graphics::resize(const Size& size)`
+## `void Graphics::resize(const Size& size)`
 
 Aktualizuje rozmiar viewportu. Ustawia `m_viewportSize` i przekazuje nowy rozmiar do `g_painter`, który z kolei aktualizuje macierz projekcji i `glViewport`.
-## # `void Graphics::checkForError(...)`
+## `void Graphics::checkForError(...)`
 
 Metoda pomocnicza, która sprawdza błędy OpenGL za pomocą `glGetError()`. Jeśli wystąpił błąd, loguje go wraz z informacją o funkcji, pliku i numerze linii, w której został wykryty. W trybie debugowania powoduje to błąd krytyczny.
 ## Zależności i powiązania
@@ -3535,9 +3535,9 @@ Metoda pomocnicza, która sprawdza błędy OpenGL za pomocą `glGetError()`. Je�
 
 Plik `graphics.h` deklaruje interfejs klasy `Graphics`, która jest singletonem (`g_graphics`) zarządzającym globalnym stanem i inicjalizacją silnika graficznego.
 ## Klasa `Graphics`
-## # Opis semantyczny
+## Opis semantyczny
 `Graphics` pełni rolę głównego menedżera podsystemu graficznego. Odpowiada za inicjalizację OpenGL/GLES, odpytywanie o możliwości sprzętowe (wersja, rozszerzenia, maksymalny rozmiar tekstury) oraz za zarządzanie cyklem życia innych menedżerów graficznych, takich jak `Painter`, `TextureManager` czy `FontManager`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3554,13 +3554,13 @@ Plik `graphics.h` deklaruje interfejs klasy `Graphics`, która jest singletonem 
 | `std::string getExtensions()` | Zwraca listę dostępnych rozszerzeń OpenGL. |
 | `bool ok()` | Zwraca `true`, jeśli inicjalizacja grafiki przebiegła pomyślnie. |
 | `void checkForError(...)` | Sprawdza i loguje błędy OpenGL. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_viewportSize`: Aktualny rozmiar obszaru renderowania.
 -   `m_vendor`, `m_renderer`, `m_version`, `m_extensions`: Informacje o sterowniku graficznym.
 -   `m_maxTextureSize`: Maksymalny rozmiar tekstury obsługiwany przez sprzęt.
 -   `m_ok`: Flaga pomyślnej inicjalizacji.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_graphics`: Globalna instancja `Graphics`.
 ## Zależności i powiązania
@@ -3575,31 +3575,31 @@ Plik `graphics.h` deklaruje interfejs klasy `Graphics`, która jest singletonem 
 
 Plik `image.cpp` zawiera implementację klasy `Image`, która reprezentuje obraz rastrowy w pamięci RAM. Jest to podstawowa klasa do ładowania, manipulowania i zapisywania danych obrazów, zanim zostaną one przesłane do pamięci karty graficznej jako tekstury.
 ## Klasa `Image`
-## # `Image::Image(const Size& size, int bpp, uint8 *pixels)`
+## `Image::Image(const Size& size, int bpp, uint8 *pixels)`
 
 Konstruktor. Tworzy obiekt `Image` o podanych wymiarach i głębi bitowej (bpp - bits per pixel). Opcjonalnie kopiuje dane pikseli z podanego bufora.
-## # `ImagePtr Image::load(std::string file)`
+## `ImagePtr Image::load(std::string file)`
 
 Statyczna metoda fabryczna do ładowania obrazu z pliku. Obecnie obsługuje tylko format PNG, wywołując `loadPNG`.
-## # `ImagePtr Image::loadPNG(...)`
+## `ImagePtr Image::loadPNG(...)`
 
 Statyczne metody do ładowania obrazu w formacie PNG z pliku lub z bufora w pamięci. Używają funkcji `load_apng` z `apngloader.cpp` do parsowania danych.
-## # `void Image::savePNG(const std::string& fileName)`
+## `void Image::savePNG(const std::string& fileName)`
 
 Zapisuje obraz do pliku w formacie PNG, używając funkcji `save_png` z `apngloader.cpp`.
-## # `void Image::blit(const Point& dest, const ImagePtr& other)`
+## `void Image::blit(const Point& dest, const ImagePtr& other)`
 
 Kopiuje piksele z innego obrazu (`other`) do tego obrazu w podane miejsce (`dest`). Kopiowanie odbywa się z uwzględnieniem przezroczystości – piksele w pełni przezroczyste w obrazie źródłowym nie są kopiowane.
-## # `void Image::paste(const ImagePtr& other)`
+## `void Image::paste(const ImagePtr& other)`
 
 Nakłada inny obraz (`other`) na ten obraz, zastępując istniejące piksele. Nie uwzględnia przezroczystości.
-## # `ImagePtr Image::upscale()`
+## `ImagePtr Image::upscale()`
 
 Tworzy i zwraca nowy obraz, który jest dwukrotnie większy od oryginalnego. Każdy piksel z obrazu źródłowego jest powielany do bloku 2x2 w obrazie docelowym (skalowanie metodą "najbliższego sąsiada").
-## # `bool Image::nextMipmap()`
+## `bool Image::nextMipmap()`
 
 Generuje następny, mniejszy poziom mipmapy na podstawie bieżących danych pikseli. Oblicza średnią z bloku 2x2 pikseli, aby stworzyć jeden piksel dla mniejszego obrazu. Jest to prosta implementacja filtrowania biliniowego. Zwraca `false`, gdy obraz osiągnie rozmiar 1x1.
-## # `ImagePtr Image::fromQRCode(const std::string& code, int border)`
+## `ImagePtr Image::fromQRCode(const std::string& code, int border)`
 
 Statyczna metoda fabryczna, która generuje obraz kodu QR na podstawie podanego tekstu, używając biblioteki `qrcodegen`.
 ## Zależności i powiązania
@@ -3616,9 +3616,9 @@ Statyczna metoda fabryczna, która generuje obraz kodu QR na podstawie podanego 
 
 Plik `hardwarebuffer.h` deklaruje klasę `HardwareBuffer`, która jest opakowaniem na sprzętowe bufory wierzchołków (Vertex Buffer Objects - VBO) w OpenGL. Umożliwia przechowywanie danych geometrycznych (np. współrzędnych wierzchołków) w pamięci karty graficznej w celu uzyskania wysokiej wydajności renderowania.
 ## Klasa `HardwareBuffer`
-## # Opis semantyczny
+## Opis semantyczny
 `HardwareBuffer` enkapsuluje ID bufora VBO w OpenGL i dostarcza podstawowe metody do jego obsługi: bindowania, odpinania i zapisu danych. Użycie VBO jest znacznie wydajniejsze niż przesyłanie danych wierzchołków z pamięci RAM do GPU w każdej klatce.
-## # Typy wyliczeniowe (Enums)
+## Typy wyliczeniowe (Enums)
 
 -   **`enum Type`**: Określa typ bufora.
     -   `VertexBuffer` (`GL_ARRAY_BUFFER`): Przechowuje atrybuty wierzchołków (np. pozycje, kolory, współrzędne tekstur).
@@ -3627,7 +3627,7 @@ Plik `hardwarebuffer.h` deklaruje klasę `HardwareBuffer`, która jest opakowani
     -   `StreamDraw` (`GL_STREAM_DRAW`): Dane zmieniane często, używane rzadko.
     -   `StaticDraw` (`GL_STATIC_DRAW`): Dane ustawiane raz, używane często.
     -   `DynamicDraw` (`GL_DYNAMIC_DRAW`): Dane zmieniane i używane często.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3636,7 +3636,7 @@ Plik `hardwarebuffer.h` deklaruje klasę `HardwareBuffer`, która jest opakowani
 | `void bind()` | Bindowanie (aktywuje) bufor w kontekście OpenGL (`glBindBuffer`). |
 | `static void unbind(Type type)` | Odpina jakikolwiek bufor danego typu. |
 | `void write(...)` | Kopiuje dane z pamięci RAM do bufora w pamięci GPU (`glBufferData`). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_type`: Typ bufora (`VertexBuffer` lub `IndexBuffer`).
 -   `m_id`: ID (uchwyt) bufora w OpenGL.
@@ -3652,9 +3652,9 @@ Plik `hardwarebuffer.h` deklaruje klasę `HardwareBuffer`, która jest opakowani
 
 Plik `image.h` deklaruje klasę `Image`, która reprezentuje obraz rastrowy przechowywany w pamięci systemowej (RAM). Jest to podstawowa struktura danych do manipulacji pikselami przed ich wysłaniem do karty graficznej jako tekstura.
 ## Klasa `Image`
-## # Opis semantyczny
+## Opis semantyczny
 `Image` to kontener na surowe dane pikseli. Przechowuje wymiary obrazu, liczbę bitów na piksel oraz sam bufor pikseli. Udostępnia metody do ładowania obrazów z plików, zapisywania ich, a także do podstawowych operacji graficznych, takich jak kopiowanie fragmentów (`blit`), generowanie mipmap czy skalowanie.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3674,7 +3674,7 @@ Plik `image.h` deklaruje klasę `Image`, która reprezentuje obraz rastrowy prze
 | `const Size& getSize()` | Zwraca wymiary obrazu. |
 | `int getBpp()` | Zwraca liczbę bajtów na piksel. |
 | `static ImagePtr fromQRCode(...)` | Tworzy obraz z kodu QR. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_pixels`: Wektor przechowujący dane pikseli.
 -   `m_size`: Wymiary obrazu.
@@ -3692,9 +3692,9 @@ Plik `image.h` deklaruje klasę `Image`, która reprezentuje obraz rastrowy prze
 
 Plik `framebuffermanager.h` deklaruje klasę `FrameBufferManager`, która jest singletonem (`g_framebuffers`) służącym do zarządzania i tworzenia obiektów `FrameBuffer`.
 ## Klasa `FrameBufferManager`
-## # Opis semantyczny
+## Opis semantyczny
 `FrameBufferManager` pełni rolę fabryki i menedżera dla obiektów `FrameBuffer`. Upraszcza ich tworzenie i zarządzanie cyklem życia. Udostępnia również dwa predefiniowane, "tymczasowe" bufory, które mogą być używane w całym systemie do krótkotrwałych operacji renderowania poza ekranem, co pozwala uniknąć kosztownego tworzenia i niszczenia FBO.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3704,12 +3704,12 @@ Plik `framebuffermanager.h` deklaruje klasę `FrameBufferManager`, która jest s
 | `FrameBufferPtr createFrameBuffer(bool withDepth = false)` | Metoda fabryczna tworząca i zwracająca nowy obiekt `FrameBuffer`. |
 | `const FrameBufferPtr& getTemporaryFrameBuffer()` | Zwraca wskaźnik do pierwszego tymczasowego bufora. |
 | `const FrameBufferPtr& getDrawQueueTemporaryFrameBuffer()` | Zwraca wskaźnik do drugiego tymczasowego bufora, prawdopodobnie używanego przez `DrawQueue`. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_temporaryFramebuffer`: Pierwszy tymczasowy `FrameBuffer`.
 -   `m_drawQueueTemporaryFramebuffer`: Drugi tymczasowy `FrameBuffer`.
 -   `m_framebuffers`: Wektor przechowujący wskaźniki do wszystkich utworzonych (i niezwolnionych) buforów ramki. |
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_framebuffers`: Globalna instancja `FrameBufferManager`.
 ## Zależności i powiązania
@@ -3723,18 +3723,18 @@ Plik `framebuffermanager.h` deklaruje klasę `FrameBufferManager`, która jest s
 
 Plik `painter.h` deklaruje klasę `Painter`, która jest centralnym interfejsem do wszystkich operacji rysowania w 2D. Abstrakcjonuje ona niskopoziomowe wywołania OpenGL, dostarczając prostsze API do rysowania prostokątów, tekstur, linii i zarządzania stanem renderowania.
 ## Klasa `Painter`
-## # Opis semantyczny
+## Opis semantyczny
 `Painter` działa jak maszyna stanów. Przechowuje aktualny stan renderowania, taki jak macierze transformacji, kolor, tryb mieszania, aktywny shader, tekstura, itp. Każda operacja rysowania jest wykonywana w kontekście tego stanu. `Painter` zarządza również własnymi, domyślnymi programami shaderów do podstawowych operacji.
-## # Typy wyliczeniowe (Enums)
+## Typy wyliczeniowe (Enums)
 
 -   `BlendEquation`: Określa, jak kolory są mieszane (np. dodawanie, odejmowanie).
 -   `CompositionMode`: Definiuje predefiniowane tryby mieszania (`glBlendFunc`), np. normalne (z przezroczystością), addytywne, mnożenie.
 -   `DepthFunc`: Określa funkcję testu głębi.
 -   `DrawMode`: Określa prymityw do rysowania (trójkąty, paski trójkątów).
-## # Struktura `PainterState`
+## Struktura `PainterState`
 
 Przechowuje pełny stan `Painter`, co pozwala na jego zapisywanie i przywracanie.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3754,13 +3754,13 @@ Przechowuje pełny stan `Painter`, co pozwala na jego zapisywanie i przywracanie
 | **Gettery** | |
 | `getTransformMatrix()`, `getColor()`, `getClipRect()`, ... | Zwracają aktualne wartości stanu. |
 | `draws()`, `calls()` | Zwracają statystyki renderowania dla bieżącej klatki. |
-## # Zmienne chronione/prywatne
+## Zmienne chronione/prywatne
 
 -   `m_transformMatrix`, `m_projectionMatrix`, ...: Zmienne przechowujące aktualny stan.
 -   `m_transformMatrixStack`: Stos do zapisywania macierzy transformacji.
 -   `m_olderStates`: Stos do zapisywania pełnego stanu `PainterState`.
 -   `m_draw...Program`: Wskaźniki na domyślne programy shaderów.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_painter`: Globalny wskaźnik na instancję `Painter`.
 ## Zależności i powiązania
@@ -3774,7 +3774,7 @@ Przechowuje pełny stan `Painter`, co pozwala na jego zapisywanie i przywracanie
 
 Plik `painter.cpp` zawiera implementację klasy `Painter`, która jest sercem silnika renderującego. Odpowiada za bezpośrednią komunikację z API graficznym (OpenGL) w celu rysowania prymitywów 2D.
 ## Zmienne globalne
-## # `g_painter`
+## `g_painter`
 
 Globalny wskaźnik na jedyną instancję `Painter`. Jest inicjalizowany w `Graphics::init()`.
 
@@ -3782,7 +3782,7 @@ Globalny wskaźnik na jedyną instancję `Painter`. Jest inicjalizowany w `Graph
 Painter* g_painter = nullptr;
 ```
 ## Klasa `Painter`
-## # `Painter::Painter()`
+## `Painter::Painter()`
 
 Konstruktor. Inicjalizuje domyślne wartości stanu, takie jak macierze, kolory i tryby mieszania. Co najważniejsze, tworzy i kompiluje zestaw domyślnych programów shaderów, które są używane do podstawowych operacji rysowania:
 -   `m_drawTexturedProgram`: Do rysowania tekstur.
@@ -3791,22 +3791,22 @@ Konstruktor. Inicjalizuje domyślne wartości stanu, takie jak macierze, kolory 
 -   `m_drawOutfitLayersProgram`: Specjalny shader do rysowania strojów postaci z kolorowaniem.
 -   `m_drawNewProgram`: Shader używany przez `DrawCache` do zoptymalizowanego rysowania wsadowego.
 -   `m_drawTextProgram`, `m_drawLineProgram`: Specjalne shadery do rysowania tekstu i linii.
-## # `void Painter::bind()` i `void Painter::unbind()`
+## `void Painter::bind()` i `void Painter::unbind()`
 
 Metody wywoływane na początku i na końcu cyklu życia `Painter`. `bind()` włącza podstawowe atrybuty wierzchołków, które są zawsze aktywne.
-## # `void Painter::resetState()`
+## `void Painter::resetState()`
 
 Przywraca wszystkie parametry `Painter` (kolor, macierze, tryby mieszania itp.) do ich wartości domyślnych.
-## # `void Painter::saveState()` i `void Painter::restoreSavedState()`
+## `void Painter::saveState()` i `void Painter::restoreSavedState()`
 
 Implementują mechanizm stosu do zapisywania i przywracania stanu renderowania. Pozwala to na tymczasową zmianę stanu (np. ustawienie przycinania) i łatwy powrót do poprzedniego stanu.
-## # Metody `updateGl...()`
+## Metody `updateGl...()`
 
 Prywatne metody pomocnicze (`updateGlTexture`, `updateGlCompositionMode`, `updateGlClipRect` itd.), które aplikują zmiany stanu `Painter` do rzeczywistego stanu OpenGL. Są wywoływane, gdy odpowiednia właściwość `Painter` (np. `m_compositionMode`) ulega zmianie.
-## # `void Painter::setResolution(const Size& resolution)`
+## `void Painter::setResolution(const Size& resolution)`
 
 Aktualizuje rozdzielczość renderowania. Najważniejszą częścią jest przeliczenie macierzy projekcji (`m_projectionMatrix`), która mapuje współrzędne w pikselach na znormalizowane współrzędne urządzenia OpenGL (-1 do 1).
-## # `void Painter::drawCoords(...)`
+## `void Painter::drawCoords(...)`
 
 Niskopoziomowa metoda, która jest podstawą większości operacji rysowania.
 1.  Bindowanie i konfiguruje odpowiedni program shadera.
@@ -3814,10 +3814,10 @@ Niskopoziomowa metoda, która jest podstawą większości operacji rysowania.
 3.  Ustawia wskaźniki na dane atrybutów wierzchołków (pozycja, współrzędne tekstury, kolor).
 4.  Wywołuje `glDrawArrays` w celu narysowania geometrii.
 5.  Zlicza statystyki (`m_draws`, `m_calls`).
-## # Metody `draw...Rect(...)` i `draw...Coords(...)`
+## Metody `draw...Rect(...)` i `draw...Coords(...)`
 
 Wysokopoziomowe metody rysujące, które przygotowują `CoordsBuffer` z odpowiednią geometrią, a następnie wywołują `drawCoords` do jej narysowania.
-## # `void Painter::drawCache(...)`
+## `void Painter::drawCache(...)`
 
 Specjalna, zoptymalizowana metoda do rysowania dużej liczby wierzchołków na raz. Używa dedykowanego shadera (`m_drawNewProgram`), który pobiera pozycję, współrzędne tekstury i kolor jako osobne atrybuty dla każdego wierzchołka.
 ## Zależności i powiązania
@@ -3833,7 +3833,7 @@ Specjalna, zoptymalizowana metoda do rysowania dużej liczby wierzchołków na r
 
 Plik `hardwarebuffer.cpp` zawiera implementację klasy `HardwareBuffer`, która jest opakowaniem na bufory VBO (Vertex Buffer Object) w OpenGL.
 ## Klasa `HardwareBuffer`
-## # `HardwareBuffer::HardwareBuffer(Type type)`
+## `HardwareBuffer::HardwareBuffer(Type type)`
 
 Konstruktor.
 -   **Parametr `type`**: Określa, czy ma to być bufor na wierzchołki (`VertexBuffer`) czy indeksy (`IndexBuffer`).
@@ -3841,7 +3841,7 @@ Konstruktor.
     1.  Zapamiętuje typ bufora.
     2.  Wywołuje `glGenBuffers(1, &m_id)` w celu wygenerowania nowego, unikalnego ID dla bufora w kontekście OpenGL.
     3.  Sprawdza, czy operacja się powiodła; w przeciwnym razie kończy aplikację błędem krytycznym.
-## # `HardwareBuffer::~HardwareBuffer()`
+## `HardwareBuffer::~HardwareBuffer()`
 
 Destruktor.
 -   **Działanie**:
@@ -3860,20 +3860,20 @@ Destruktor.
 
 Plik `paintershaderprogram.cpp` zawiera implementację klasy `PainterShaderProgram`, która jest specjalizacją `ShaderProgram`. Jest ona dostosowana do współpracy z klasą `Painter`, udostępniając standardowy zestaw uniformów i atrybutów używanych w procesie renderowania 2D.
 ## Klasa `PainterShaderProgram`
-## # `PainterShaderProgram::PainterShaderProgram(const std::string& name)`
+## `PainterShaderProgram::PainterShaderProgram(const std::string& name)`
 
 Konstruktor. Wywołuje konstruktor klasy bazowej i inicjalizuje dodatkowe zmienne, takie jak `m_startTime`, który jest używany do animacji opartych na czasie w shaderach.
-## # `void PainterShaderProgram::setupUniforms()`
-## # # Opis semantyczny
+## `void PainterShaderProgram::setupUniforms()`
+## Opis semantyczny
 Wirtualna metoda, która po zlinkowaniu programu shadera wyszukuje lokalizacje standardowych uniformów (`u_TransformMatrix`, `u_ProjectionMatrix`, `u_Color`, `u_Tex0` itd.) i przypisuje im domyślne wartości.
-## # `bool PainterShaderProgram::link()`
+## `bool PainterShaderProgram::link()`
 
 Przesłania metodę z `ShaderProgram`.
 1.  Ustawia `m_startTime`.
 2.  Wiąże standardowe lokalizacje atrybutów (`VERTEX_ATTR`, `TEXCOORD_ATTR`, etc.) z ich nazwami w shaderze.
 3.  Wywołuje `ShaderProgram::link()`.
 4.  Jeśli linkowanie się powiedzie, bindowanie program i wywołuje `setupUniforms()`.
-## # Metody `set...()`
+## Metody `set...()`
 
 Są to metody do ustawiania wartości uniformów. Każda z nich:
 1.  Sprawdza, czy nowa wartość różni się od aktualnie przechowywanej, aby uniknąć zbędnych wywołań `glUniform...`.
@@ -3886,10 +3886,10 @@ Są to metody do ustawiania wartości uniformów. Każda z nich:
 -   `setMatrixColor`: Ustawia macierz kolorów (dla shadera strojów).
 -   `setResolution`: Ustawia rozdzielczość (przydatne do efektów zależnych od pikseli).
 -   ... i inne.
-## # `void PainterShaderProgram::updateTime()`
+## `void PainterShaderProgram::updateTime()`
 
 Aktualizuje uniform `u_Time`, przekazując do shadera czas, jaki upłynął od jego utworzenia. Pozwala to na tworzenie animowanych efektów w shaderach.
-## # `void PainterShaderProgram::addMultiTexture(...)` i `void PainterShaderProgram::bindMultiTextures()`
+## `void PainterShaderProgram::addMultiTexture(...)` i `void PainterShaderProgram::bindMultiTextures()`
 
 Metody do obsługi dodatkowych tekstur (multi-texturing). `addMultiTexture` ładuje teksturę i dodaje ją do listy. `bindMultiTextures` aktywuje te tekstury na kolejnych jednostkach teksturujących (od `GL_TEXTURE1` wzwyż), aby mogły być używane w shaderze.
 ## Zależności i powiązania
@@ -3905,15 +3905,15 @@ Metody do obsługi dodatkowych tekstur (multi-texturing). `addMultiTexture` ład
 
 Plik `paintershaderprogram.h` deklaruje klasę `PainterShaderProgram`, która jest wyspecjalizowaną wersją `ShaderProgram`, dostosowaną do potrzeb `Painter`. Definiuje ona standardowy zestaw uniformów i atrybutów używanych w shaderach 2D.
 ## Klasa `PainterShaderProgram`
-## # Opis semantyczny
+## Opis semantyczny
 `PainterShaderProgram` dziedziczy po `ShaderProgram` i dodaje do niej warstwę abstrakcji specyficzną dla `Painter`. Zamiast odwoływać się do uniformów po nazwach (stringach), udostępnia dedykowane metody `set...()`, które operują na predefiniowanych, zbuforowanych lokalizacjach. Upraszcza to kod `Painter` i potencjalnie zwiększa wydajność.
-## # Typy wyliczeniowe (Enums)
+## Typy wyliczeniowe (Enums)
 
 Definiuje stałe dla lokalizacji standardowych atrybutów i uniformów, co pozwala na ich efektywne buforowanie.
 
 -   **Atrybuty**: `VERTEX_ATTR`, `TEXCOORD_ATTR`, ...
 -   **Uniformy**: `PROJECTION_MATRIX_UNIFORM`, `TEXTURE_MATRIX_UNIFORM`, `COLOR_UNIFORM`, `TEX0_UNIFORM`, ...
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3932,7 +3932,7 @@ Definiuje stałe dla lokalizacji standardowych atrybutów i uniformów, co pozwa
 | `bindMultiTextures()` | Bindowanie wszystkie dodatkowe tekstury. |
 | `clearMultiTextures()` | Czyści listę dodatkowych tekstur. |
 | `enableColorMatrix()` | Włącza tryb macierzy kolorów (dla shadera strojów). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_startTime`: Czas utworzenia shadera.
 -   `m_color`, `m_depth`, `m_transformMatrix`, ...: Przechowują aktualne wartości uniformów, aby uniknąć zbędnych wywołań `glUniform...`.
@@ -3950,27 +3950,27 @@ Definiuje stałe dla lokalizacji standardowych atrybutów i uniformów, co pozwa
 
 Plik `shader.cpp` zawiera implementację klasy `Shader`, która jest opakowaniem na pojedynczy obiekt shadera w OpenGL (np. shader wierzchołków lub shader fragmentów).
 ## Klasa `Shader`
-## # `Shader::Shader(Shader::ShaderType shaderType)`
+## `Shader::Shader(Shader::ShaderType shaderType)`
 
 Konstruktor.
 -   **Parametr `shaderType`**: Określa, czy tworzony jest shader wierzchołków (`Vertex`) czy fragmentów (`Fragment`).
 -   **Działanie**: Wywołuje `glCreateShader` z odpowiednim typem, aby utworzyć obiekt shadera w sterowniku graficznym. W przypadku błędu, kończy aplikację.
-## # `Shader::~Shader()`
+## `Shader::~Shader()`
 
 Destruktor. Zwalnia zasób shadera w OpenGL, wywołując `glDeleteShader`.
-## # `bool Shader::compileSourceCode(const std::string& sourceCode)`
-## # # Opis semantyczny
+## `bool Shader::compileSourceCode(const std::string& sourceCode)`
+## Opis semantyczny
 Kompiluje kod źródłowy shadera.
-## # # Działanie
+## Działanie
 1.  Dla OpenGL ES, dodaje na początku kodu dyrektywę `precision highp float;`.
 2.  Przekazuje kod źródłowy do sterownika za pomocą `glShaderSource`.
 3.  Kompiluje shader za pomocą `glCompileShader`.
 4.  Sprawdza status kompilacji za pomocą `glGetShaderiv`.
 5.  Zwraca `true` w przypadku sukcesu, `false` w przeciwnym razie.
-## # `bool Shader::compileSourceFile(const std::string& sourceFile)`
+## `bool Shader::compileSourceFile(const std::string& sourceFile)`
 
 Ładuje kod źródłowy z pliku za pomocą `g_resources`, a następnie wywołuje `compileSourceCode`.
-## # `std::string Shader::log()`
+## `std::string Shader::log()`
 
 Pobiera i zwraca logi kompilatora shadera (`glGetShaderInfoLog`), które zawierają informacje o błędach lub ostrzeżeniach.
 ## Zależności i powiązania
@@ -3987,9 +3987,9 @@ Pobiera i zwraca logi kompilatora shadera (`glGetShaderInfoLog`), które zawiera
 
 Plik `shadermanager.h` deklaruje klasę `ShaderManager`, która jest singletonem (`g_shaders`) odpowiedzialnym za zarządzanie niestandardowymi programami shaderów tworzonymi w skryptach Lua.
 ## Klasa `ShaderManager`
-## # Opis semantyczny
+## Opis semantyczny
 `ShaderManager` działa jako repozytorium dla `PainterShaderProgram` tworzonych dynamicznie. Przechowuje je w mapie pod unikalnymi nazwami, co pozwala na ich późniejsze pobieranie i używanie w trakcie renderowania.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -3999,10 +3999,10 @@ Plik `shadermanager.h` deklaruje klasę `ShaderManager`, która jest singletonem
 | `void createOutfitShader(...)` | Skrót do `createShader` z włączoną opcją macierzy kolorów, specjalnie dla shaderów strojów. |
 | `void addTexture(...)` | Dodaje dodatkową teksturę do istniejącego programu shadera. |
 | `PainterShaderProgramPtr getShader(...)` | Wyszukuje i zwraca wskaźnik do programu shadera o podanej nazwie. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_shaders`: Mapa (`std::unordered_map`) przechowująca wszystkie niestandardowe programy shaderów.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_shaders`: Globalna instancja `ShaderManager`.
 ## Zależności i powiązania
@@ -4018,7 +4018,7 @@ Plik `shadermanager.h` deklaruje klasę `ShaderManager`, która jest singletonem
 
 Plik `shadermanager.cpp` zawiera implementację klasy `ShaderManager`, która zarządza niestandardowymi programami shaderów.
 ## Zmienne globalne
-## # `g_shaders`
+## `g_shaders`
 
 Globalna instancja `ShaderManager`.
 
@@ -4026,25 +4026,25 @@ Globalna instancja `ShaderManager`.
 ShaderManager g_shaders;
 ```
 ## Klasa `ShaderManager`
-## # `void ShaderManager::init()`
+## `void ShaderManager::init()`
 
 Inicjalizuje menedżera. W obecnej implementacji wywołuje `PainterShaderProgram::release()`, aby upewnić się, że żaden shader nie jest aktywny.
-## # `void ShaderManager::terminate()`
+## `void ShaderManager::terminate()`
 
 Czyści mapę `m_shaders`, co powoduje zwolnienie wszystkich niestandardowych programów shaderów.
-## # `void ShaderManager::createShader(const std::string& name, std::string vertex, std::string fragment, bool colorMatrix)`
-## # # Opis semantyczny
+## `void ShaderManager::createShader(const std::string& name, std::string vertex, std::string fragment, bool colorMatrix)`
+## Opis semantyczny
 Tworzy nowy program shadera. Metoda jest asynchroniczna - dodaje zadanie do dyspozytora graficznego.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy podane stringi `vertex` i `fragment` są kodem źródłowym (zawierają znak nowej linii) czy ścieżkami do plików.
 2.  Jeśli są to ścieżki, odczytuje zawartość plików za pomocą `g_resources`.
 3.  Dodaje do `g_graphicsDispatcher` zadanie (lambda), które:
     -   Wywołuje `PainterShaderProgram::create` w celu skompilowania i zlinkowania shadera.
     -   Jeśli operacja się powiedzie, dodaje nowo utworzony program do mapy `m_shaders`.
-## # `void ShaderManager::addTexture(const std::string& name, const std::string& file)`
+## `void ShaderManager::addTexture(const std::string& name, const std::string& file)`
 
 Dodaje dodatkową teksturę do istniejącego shadera. Podobnie jak `createShader`, operacja jest wykonywana asynchronicznie w wątku graficznym.
-## # `PainterShaderProgramPtr ShaderManager::getShader(const std::string& name)`
+## `PainterShaderProgramPtr ShaderManager::getShader(const std::string& name)`
 
 Wyszukuje i zwraca program shadera o podanej nazwie. Ta metoda musi być wywoływana z wątku graficznego, co jest zapewnione przez `VALIDATE_GRAPHICS_THREAD()`.
 ## Zależności i powiązania
@@ -4060,13 +4060,13 @@ Wyszukuje i zwraca program shadera o podanej nazwie. Ta metoda musi być wywoły
 
 Plik `shader.h` deklaruje klasę `Shader`, która reprezentuje pojedynczy, skompilowany obiekt shadera w OpenGL (np. shader wierzchołków lub fragmentów), ale jeszcze nie zlinkowany w pełny program.
 ## Klasa `Shader`
-## # Opis semantyczny
+## Opis semantyczny
 `Shader` jest niskopoziomowym opakowaniem na ID obiektu shadera w OpenGL. Jego głównym zadaniem jest przyjęcie kodu źródłowego, skompilowanie go i przechowanie wyniku. Obiekty tej klasy są następnie łączone w `ShaderProgram`.
-## # Typ wyliczeniowy `ShaderType`
+## Typ wyliczeniowy `ShaderType`
 
 -   `Vertex`: Oznacza shader wierzchołków (`GL_VERTEX_SHADER`).
 -   `Fragment`: Oznacza shader fragmentów/pikseli (`GL_FRAGMENT_SHADER`).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4077,7 +4077,7 @@ Plik `shader.h` deklaruje klasę `Shader`, która reprezentuje pojedynczy, skomp
 | `std::string log()` | Zwraca logi kompilatora shadera. |
 | `uint getShaderId()` | Zwraca ID obiektu shadera w OpenGL. |
 | `ShaderType getShaderType()` | Zwraca typ shadera. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_shaderId`: ID obiektu shadera w OpenGL.
 -   `m_shaderType`: Typ shadera.
@@ -4092,7 +4092,7 @@ Plik `shader.h` deklaruje klasę `Shader`, która reprezentuje pojedynczy, skomp
 
 Plik `textrender.cpp` implementuje klasę `TextRender`, która jest systemem do optymalizacji renderowania tekstu. Działa jako globalny cache dla geometrii tekstu, aby uniknąć ponownego obliczania pozycji glifów w każdej klatce dla tekstów, które się nie zmieniają.
 ## Zmienne globalne
-## # `g_text`
+## `g_text`
 
 Globalna instancja `TextRender`.
 
@@ -4100,28 +4100,28 @@ Globalna instancja `TextRender`.
 TextRender g_text;
 ```
 ## Klasa `TextRender`
-## # Opis semantyczny
+## Opis semantyczny
 `TextRender` przechowuje mapę (`m_cache`), w której kluczem jest hash wygenerowany na podstawie treści tekstu, jego rozmiaru, wyrównania i fontu. Wartością jest obiekt `TextRenderCache`, który przechowuje `CoordsBuffer` z gotową geometrią tekstu. Przy pierwszym żądaniu narysowania danego tekstu, geometria jest obliczana i zapisywana w cache. Przy kolejnych żądaniach, używana jest już istniejąca geometria. System posiada również mechanizm czyszczenia nieużywanych wpisów z cache.
-## # `void TextRender::init()` i `void TextRender::terminate()`
+## `void TextRender::init()` i `void TextRender::terminate()`
 
 Metody inicjalizujące i zwalniające cache.
-## # `void TextRender::poll()`
+## `void TextRender::poll()`
 
 Metoda wywoływana okresowo. Jej zadaniem jest czyszczenie cache z wpisów, które nie były używane od pewnego czasu. Implementuje prosty mechanizm LRU (Least Recently Used) oparty na czasie ostatniego użycia (`lastUse`).
-## # `uint64_t TextRender::addText(...)`
+## `uint64_t TextRender::addText(...)`
 
 Generuje unikalny hash dla kombinacji (font, tekst, rozmiar, wyrównanie) i tworzy dla niego wpis w cache, jeśli jeszcze nie istnieje. Zwraca wygenerowany hash.
-## # `void TextRender::drawText(...)`
+## `void TextRender::drawText(...)`
 
 Wysokopoziomowa metoda do rysowania tekstu. Najpierw wywołuje `addText`, aby uzyskać/stworzyć wpis w cache, a następnie wywołuje drugą wersję `drawText` z hashem.
-## # `void TextRender::drawText(const Point& pos, uint64_t hash, ...)`
+## `void TextRender::drawText(const Point& pos, uint64_t hash, ...)`
 
 Główna metoda rysująca.
 1.  Znajduje wpis w cache na podstawie hasha.
 2.  Jeśli wpis jest nowy (`it->font` nie jest `nullptr`), wywołuje `font->calculateDrawTextCoords`, aby wygenerować geometrię, keszuje ją w `CoordsBuffer` (`it->coords.cache()`) i zwalnia referencje do fontu i tekstu, aby oszczędzać pamięć.
 3.  Wywołuje `g_painter->drawText`, przekazując mu gotowy `CoordsBuffer` z geometrią.
 4.  Obsługuje również rysowanie cienia.
-## # `void TextRender::drawColoredText(...)`
+## `void TextRender::drawColoredText(...)`
 
 Działa analogicznie do `drawText`, ale wywołuje `g_painter->drawText` w wersji dla tekstu wielokolorowego.
 ## Zależności i powiązania
@@ -4137,46 +4137,46 @@ Działa analogicznie do `drawText`, ale wywołuje `g_painter->drawText` w wersji
 
 Plik `shaderprogram.cpp` zawiera implementację klasy `ShaderProgram`, która jest podstawowym obiektem do zarządzania programami shaderów w OpenGL.
 ## Zmienne globalne
-## # `uint ShaderProgram::m_currentProgram`
+## `uint ShaderProgram::m_currentProgram`
 
 Statyczna zmienna członkowska, która przechowuje ID aktualnie aktywnego (zbindowanego) programu shadera. Służy do unikania zbędnych wywołań `glUseProgram`, jeśli ten sam program jest już aktywny.
 ## Klasa `ShaderProgram`
-## # `ShaderProgram::ShaderProgram(const std::string& name)`
+## `ShaderProgram::ShaderProgram(const std::string& name)`
 
 Konstruktor. Inicjalizuje nazwę, ustawia flagę `m_linked` na `false` i tworzy nowy, pusty obiekt programu shadera w OpenGL za pomocą `glCreateProgram()`.
-## # `ShaderProgram::~ShaderProgram()`
+## `ShaderProgram::~ShaderProgram()`
 
 Destruktor. Zwalnia zasób programu shadera, wywołując `glDeleteProgram()`.
-## # `PainterShaderProgramPtr ShaderProgram::create(...)`
+## `PainterShaderProgramPtr ShaderProgram::create(...)`
 
 Statyczna metoda fabryczna, która tworzy i konfiguruje `PainterShaderProgram`. Jest to główny sposób tworzenia shaderów w tym frameworku.
-## # # Działanie
+## Działanie
 1.  Tworzy nowy obiekt `PainterShaderProgram`.
 2.  Dodaje i kompiluje shadery wierzchołków i fragmentów.
 3.  Opcjonalnie włącza tryb macierzy kolorów.
 4.  Linkuje program.
 5.  W przypadku błędów kompilacji lub linkowania, loguje szczegółowe informacje i zwraca `nullptr`.
-## # `bool ShaderProgram::addShader(...)`
+## `bool ShaderProgram::addShader(...)`
 
 Dołącza wcześniej skompilowany obiekt `Shader` do programu za pomocą `glAttachShader`.
-## # `bool ShaderProgram::addShaderFromSourceCode(...)` i `addShaderFromSourceFile(...)`
+## `bool ShaderProgram::addShaderFromSourceCode(...)` i `addShaderFromSourceFile(...)`
 
 Metody pomocnicze, które tworzą obiekt `Shader`, kompilują go z kodu źródłowego lub pliku, a następnie dodają do programu.
-## # `bool ShaderProgram::link()`
-## # # Opis semantyczny
+## `bool ShaderProgram::link()`
+## Opis semantyczny
 Linkuje wszystkie dołączone shadery w jeden wykonywalny program.
-## # # Działanie
+## Działanie
 1.  Wywołuje `glLinkProgram()`.
 2.  Sprawdza status linkowania za pomocą `glGetProgramiv`.
 3.  Jeśli wystąpi błąd, pobiera i loguje szczegółowy komunikat błędu z `glGetProgramInfoLog`.
 4.  Zwraca `true` w przypadku sukcesu.
-## # `bool ShaderProgram::bind()`
+## `bool ShaderProgram::bind()`
 
 Aktywuje program shadera w potoku renderowania OpenGL za pomocą `glUseProgram`. Dzięki `m_currentProgram`, faktyczne wywołanie `glUseProgram` następuje tylko wtedy, gdy zmieniany jest program.
-## # `void ShaderProgram::release()`
+## `void ShaderProgram::release()`
 
 Deaktywuje jakikolwiek aktywny program shadera (`glUseProgram(0)`).
-## # Metody `...Location(...)` i `set...Value(...)`
+## Metody `...Location(...)` i `set...Value(...)`
 
 Implementują interfejs do pracy z atrybutami i uniformami w shaderze, opakowując odpowiednie funkcje OpenGL (`glGetAttribLocation`, `glBindAttribLocation`, `glGetUniformLocation`, `glUniform...`, `glVertexAttrib...`).
 ## Zależności i powiązania
@@ -4193,29 +4193,29 @@ Implementują interfejs do pracy z atrybutami i uniformami w shaderze, opakowuj�
 
 Plik `texture.cpp` zawiera implementację klasy `Texture`, która jest obiektowym opakowaniem na teksturę w OpenGL. Odpowiada za tworzenie, ładowanie danych, ustawianie parametrów i zwalnianie zasobów tekstury w pamięci karty graficznej.
 ## Zmienne globalne
-## # `uint Texture::uniqueId`
+## `uint Texture::uniqueId`
 
 Statyczny licznik używany do przypisywania unikalnego ID każdej nowo utworzonej teksturze. Jest to przydatne do szybkiego porównywania tekstur.
 ## Klasa `Texture`
-## # `Texture::Texture(...)`
+## `Texture::Texture(...)`
 
 Konstruktory.
 -   **`Texture(const Size& size, ...)`**: Tworzy pustą teksturę o podanych wymiarach.
 -   **`Texture(const ImagePtr& image, ...)`**: Tworzy teksturę na podstawie obiektu `Image`.
 -   **Działanie**: Inicjalizują pola, przypisują unikalne ID i zwiększają globalny licznik tekstur w `g_stats`.
-## # `Texture::~Texture()`
+## `Texture::~Texture()`
 
 Destruktor. Dodaje zadanie usunięcia tekstury z pamięci GPU do kolejki dyspozytora graficznego (`g_graphicsDispatcher`), co zapewnia bezpieczeństwo wątkowe. Zmniejsza globalny licznik tekstur.
-## # `void Texture::replace(const ImagePtr& image)`
+## `void Texture::replace(const ImagePtr& image)`
 
 Zastępuje zawartość tekstury nowym obrazem. Stara tekstura w OpenGL jest zwalniana, a nowa zostanie utworzona przy następnym wywołaniu `update()`.
-## # `void Texture::resize(const Size& size)`
+## `void Texture::resize(const Size& size)`
 
 Zmienia rozmiar istniejącej tekstury, ponownie alokując dla niej pamięć w GPU za pomocą `glTexImage2D` z `nullptr` jako danymi pikseli.
-## # `void Texture::update()`
-## # # Opis semantyczny
+## `void Texture::update()`
+## Opis semantyczny
 Kluczowa metoda, która dba o to, aby obiekt tekstury w OpenGL był poprawnie zainicjalizowany i skonfigurowany. Musi być wywoływana przed pierwszym użyciem tekstury.
-## # # Działanie
+## Działanie
 1.  **Jeśli tekstura nie istnieje (`m_id == 0`)**:
     -   Generuje nowe ID tekstury (`glGenTextures`).
     -   Bindowanie teksturę.
@@ -4227,10 +4227,10 @@ Kluczowa metoda, która dba o to, aby obiekt tekstury w OpenGL był poprawnie za
     -   Ustawia parametry filtrowania (`setupFilters`).
     -   Aktualizuje macierz transformacji (`setupTranformMatrix`).
     -   Resetuje flagę `m_needsUpdate`.
-## # `void Texture::setSmooth(bool smooth)` i `void Texture::setRepeat(bool repeat)`
+## `void Texture::setSmooth(bool smooth)` i `void Texture::setRepeat(bool repeat)`
 
 Ustawiają flagi, które zostaną zastosowane do parametrów tekstury (`GL_TEXTURE_MIN/MAG_FILTER`, `GL_TEXTURE_WRAP_S/T`) podczas następnego wywołania `update()`.
-## # Metody `setup...()`
+## Metody `setup...()`
 
 Prywatne metody pomocnicze, które wywołują odpowiednie funkcje OpenGL do konfiguracji tekstury:
 -   `setupSize()`: Sprawdza, czy rozmiar nie przekracza limitów GPU.
@@ -4252,9 +4252,9 @@ Prywatne metody pomocnicze, które wywołują odpowiednie funkcje OpenGL do konf
 
 Plik `texture.h` deklaruje klasę `Texture`, która jest obiektowym interfejsem do zarządzania teksturami w OpenGL.
 ## Klasa `Texture`
-## # Opis semantyczny
+## Opis semantyczny
 `Texture` enkapsuluje ID tekstury w OpenGL oraz jej właściwości, takie jak rozmiar, wygładzanie (filtrowanie), powtarzanie (wrapping) i mipmapy. Dostarcza metody do tworzenia tekstury z obiektu `Image` lub jako pustej tekstury (np. dla bufora ramki). Metoda `update()` jest kluczowa i synchronizuje stan obiektu C++ z rzeczywistym stanem tekstury w pamięci GPU.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4274,7 +4274,7 @@ Plik `texture.h` deklaruje klasę `Texture`, która jest obiektowym interfejsem 
 | `bool isEmpty()` | Sprawdza, czy tekstura jest pusta. |
 | `bool canCache()` | Zwraca `true`, jeśli teksturę można umieścić w atlasie. |
 | `virtual bool isAnimatedTexture()` | Zwraca `false` (przesłaniane przez `AnimatedTexture`). |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_id`: ID tekstury w OpenGL.
 -   `m_uniqueId`: Unikalne ID w aplikacji.
@@ -4295,7 +4295,7 @@ Plik `texture.h` deklaruje klasę `Texture`, która jest obiektowym interfejsem 
 
 Plik `texturemanager.cpp` zawiera implementację klasy `TextureManager`, która jest singletonem (`g_textures`) odpowiedzialnym za zarządzanie teksturami w aplikacji. Działa jako cache, aby zapobiec wielokrotnemu ładowaniu tych samych tekstur z dysku.
 ## Zmienne globalne
-## # `g_textures`
+## `g_textures`
 
 Globalna instancja `TextureManager`.
 
@@ -4303,19 +4303,19 @@ Globalna instancja `TextureManager`.
 TextureManager g_textures;
 ```
 ## Klasa `TextureManager`
-## # `void TextureManager::init()` i `void TextureManager::terminate()`
+## `void TextureManager::init()` i `void TextureManager::terminate()`
 
 Metody do inicjalizacji i zwalniania menedżera. `terminate()` czyści wszystkie zbuforowane tekstury.
-## # `void TextureManager::clearCache()`
+## `void TextureManager::clearCache()`
 
 Czyści wszystkie zbuforowane tekstury, w tym animowane.
-## # `void TextureManager::reload()`
+## `void TextureManager::reload()`
 
 Przeładowuje wszystkie załadowane tekstury z ich oryginalnych plików. Jest to przydatne do "hot-reloading" zasobów.
-## # `TexturePtr TextureManager::getTexture(const std::string& fileName)`
-## # # Opis semantyczny
+## `TexturePtr TextureManager::getTexture(const std::string& fileName)`
+## Opis semantyczny
 Główna metoda do pobierania tekstury. Działa jak "get-or-load".
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy tekstura o podanej nazwie (`fileName`) jest już w cache (`m_textures`). Jeśli tak, zwraca ją.
 2.  Jeśli nie, rozwiązuje pełną ścieżkę do pliku za pomocą `g_resources`.
 3.  Ponownie sprawdza cache, tym razem z pełną ścieżką.
@@ -4324,7 +4324,7 @@ Główna metoda do pobierania tekstury. Działa jak "get-or-load".
     -   Wywołuje `loadTexture()`, aby sparsować dane (APNG) i utworzyć obiekt `Texture` lub `AnimatedTexture`.
 5.  Jeśli ładowanie się powiedzie, dodaje nową teksturę do cache pod obiema nazwami (oryginalną i pełną ścieżką) i zwraca ją.
 6.  W przypadku błędu, loguje go i zwraca `nullptr`.
-## # `TexturePtr TextureManager::loadTexture(std::stringstream& file, const std::string& source)`
+## `TexturePtr TextureManager::loadTexture(std::stringstream& file, const std::string& source)`
 
 Metoda pomocnicza, która parsuje strumień danych APNG za pomocą `load_apng`.
 -   Jeśli plik zawiera jedną klatkę, tworzy `Texture`.
@@ -4343,9 +4343,9 @@ Metoda pomocnicza, która parsuje strumień danych APNG za pomocą `load_apng`.
 
 Plik `vertexarray.h` deklaruje klasę `VertexArray`, która jest prostym, dynamicznym buforem na współrzędne wierzchołków (`float`). Służy do gromadzenia geometrii przed wysłaniem jej do renderowania.
 ## Klasa `VertexArray`
-## # Opis semantyczny
+## Opis semantyczny
 `VertexArray` to opakowanie na `DataBuffer<float>`, zoptymalizowane do przechowywania par współrzędnych (X, Y). Udostępnia metody do dodawania popularnych prymitywów 2D (trójkąty, prostokąty) i może opcjonalnie przenieść swoje dane do sprzętowego bufora VBO (`HardwareBuffer`) w celu zwiększenia wydajności.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4362,7 +4362,7 @@ Plik `vertexarray.h` deklaruje klasę `VertexArray`, która jest prostym, dynami
 | `void cache()` | Kopiuje dane z bufora RAM do bufora VBO na karcie graficznej. |
 | `bool isCached()` | Zwraca `true`, jeśli dane zostały skopiowane do VBO. |
 | `HardwareBuffer* getHardwareCache()` | Zwraca wskaźnik na obiekt `HardwareBuffer`. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_buffer`: Bufor `DataBuffer<float>` przechowujący współrzędne.
 -   `m_hardwareBuffer`: Wskaźnik na opcjonalny bufor VBO.
@@ -4379,9 +4379,9 @@ Plik `vertexarray.h` deklaruje klasę `VertexArray`, która jest prostym, dynami
 
 Plik `texturemanager.h` deklaruje klasę `TextureManager`, która jest singletonem (`g_textures`) odpowiedzialnym za zarządzanie (ładowanie, cachowanie, zwalnianie) teksturami w aplikacji.
 ## Klasa `TextureManager`
-## # Opis semantyczny
+## Opis semantyczny
 `TextureManager` działa jako centralne repozytorium tekstur. Gdy jakaś część kodu prosi o teksturę z pliku, menedżer najpierw sprawdza, czy nie została ona już załadowana. Jeśli tak, zwraca istniejącą instancję. Jeśli nie, ładuje ją z dysku, zapisuje w swojej pamięci podręcznej (cache) i zwraca. Zapobiega to wielokrotnemu ładowaniu tych samych zasobów i marnowaniu pamięci.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4392,7 +4392,7 @@ Plik `texturemanager.h` deklaruje klasę `TextureManager`, która jest singleton
 | `void preload(const std::string& fileName)` | Skrót do `getTexture`, który ładuje teksturę do cache, ale nie zwraca jej. |
 | `TexturePtr getTexture(const std::string& fileName)` | Pobiera teksturę. Jeśli nie ma jej w cache, ładuje ją. |
 | `TexturePtr loadTexture(...)` | Niskopoziomowa metoda do tworzenia tekstury ze strumienia danych. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_textures`: Mapa (`std::unordered_map`) przechowująca załadowane tekstury, gdzie kluczem jest nazwa pliku.
 -   `m_animatedTextures`: Wektor przechowujący wskaźniki do animowanych tekstur, prawdopodobnie w celu ich aktualizacji.
@@ -4422,12 +4422,12 @@ Przechowuje wszystkie informacje potrzebne do narysowania tekstu, w tym gotowy `
 | `coords` | `CoordsBuffer` | Zbuforowana geometria tekstu. |
 | `lastUse` | `ticks_t` | Czas ostatniego użycia (do czyszczenia cache). |
 ## Klasa `TextRender`
-## # Opis semantyczny
+## Opis semantyczny
 `TextRender` minimalizuje narzut na CPU związany z obliczaniem pozycji poszczególnych glifów dla często wyświetlanych tekstów. Zamiast przeliczać geometrię w każdej klatce, robi to tylko raz, a następnie przechowuje wynik w cache.
-## # Stałe
+## Stałe
 
 -   `INDEXES`: Liczba "kubełków" w hash mapie. Użycie wielu map z osobnymi mutexami ma na celu zmniejszenie rywalizacji o zasoby w środowisku wielowątkowym.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4436,11 +4436,11 @@ Przechowuje wszystkie informacje potrzebne do narysowania tekstu, w tym gotowy `
 | `uint64_t addText(...)` | Generuje hash dla tekstu i tworzy dla niego wpis w cache. |
 | `void drawText(...)` | Rysuje tekst, używając skeszowanej geometrii. |
 | `void drawColoredText(...)` | Rysuje tekst wielokolorowy. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_cache[INDEXES]`: Tablica map, która przechowuje skeszowane dane.
 -   `m_mutex[INDEXES]`: Tablica mutexów, po jednym dla każdej mapy w `m_cache`.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_text`: Globalna instancja `TextRender`.
 ## Zależności i powiązania
@@ -4455,10 +4455,10 @@ Przechowuje wszystkie informacje potrzebne do narysowania tekstu, w tym gotowy `
 
 Plik `outfits.h` zawiera kod źródłowy shaderów w postaci stałych stringów, które są używane do renderowania strojów postaci z niestandardowymi kolorami.
 ## Shadery
-## # `glslAdvancedOutfitVertexShader`
-## # # Opis
+## `glslAdvancedOutfitVertexShader`
+## Opis
 Shader wierzchołków dla zaawansowanego renderowania strojów.
-## # # Działanie
+## Działanie
 1.  **Atrybuty**: Przyjmuje pozycję wierzchołka (`a_Vertex`) i jego współrzędne na teksturze (`a_TexCoord`).
 2.  **Uniformy**:
     -   `u_ProjectionMatrix`, `u_TransformMatrix`: Standardowe macierze do transformacji pozycji.
@@ -4470,10 +4470,10 @@ Shader wierzchołków dla zaawansowanego renderowania strojów.
         -   `v_TexCoord2`: Przesunięte o `u_Offset`.
         -   `v_TexCoord3`: Współrzędne oparte na rozdzielczości.
 4.  Oblicza finalną pozycję wierzchołka na ekranie (`gl_Position`).
-## # `glslAdvancedOutfitFragmentShader`
-## # # Opis
+## `glslAdvancedOutfitFragmentShader`
+## Opis
 Shader fragmentów (pikseli) dla zaawansowanego renderowania strojów.
-## # # Działanie
+## Działanie
 1.  Pobiera kolor piksela z głównej tekstury (`u_Tex0`) na podstawie `v_TexCoord`.
 2.  Sprawdza kolor piksela z tej samej tekstury, ale w przesuniętym miejscu (`v_TexCoord2`). Jeśli alfa tego piksela jest większa od progu, mnoży finalny kolor przez żółty (`vec4(1.0, 1.0, 0.0, 1.0)`), tworząc efekt podświetlenia lub konturu.
 3.  Odrzuca piksel (`discard`), jeśli jego alfa jest zbyt niska.
@@ -4490,23 +4490,23 @@ Shader fragmentów (pikseli) dla zaawansowanego renderowania strojów.
 
 Plik `newshader.h` zawiera kod źródłowy dla nowego, zoptymalizowanego systemu renderowania opartego na `DrawCache`. Definiuje shadery wierzchołków i fragmentów do rysowania geometrii wsadowej, tekstu i linii.
 ## Shadery
-## # `newVertexShader`
-## # # Opis
+## `newVertexShader`
+## Opis
 Shader wierzchołków dla `DrawCache`.
-## # # Działanie
+## Działanie
 1.  **Atrybuty**: Przyjmuje pozycję (`a_Vertex`), współrzędne tekstury (`a_TexCoord`) i **kolor (`a_Color`)** dla każdego wierzchołka.
 2.  **Varying**: Przekazuje współrzędne tekstury i kolor do shadera fragmentów.
 3.  Oblicza pozycję wierzchołka.
-## # `newFragmentShader`
-## # # Opis
+## `newFragmentShader`
+## Opis
 Shader fragmentów dla `DrawCache`.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy współrzędna X tekstury jest mniejsza od 0. Jeśli tak, oznacza to, że wierzchołek nie ma tekstury i jego kolorem jest po prostu `v_Color`.
 2.  W przeciwnym razie, pobiera kolor z tekstury atlasu (`u_Atlas`) i mnoży go przez kolor wierzchołka (`v_Color`).
-## # `textVertexShader` i `textFragmentShader`
+## `textVertexShader` i `textFragmentShader`
 
 Shadery zoptymalizowane do rysowania tekstu. Wierzchołki są przesuwane o `u_Offset` (pozycja tekstu na ekranie), a kolor jest jednolity dla całego tekstu (`u_Color`).
-## # `lineVertexShader` i `lineFragmentShader`
+## `lineVertexShader` i `lineFragmentShader`
 
 Proste shadery do rysowania linii. Shader fragmentów po prostu ustawia jednolity kolor `u_Color`.
 ## Zależności i powiązania
@@ -4535,25 +4535,25 @@ Dołącza następujące pliki:
 
 Plik `shadersources.h` zawiera kod źródłowy w GLSL dla standardowych shaderów używanych przez klasę `Painter`. Są one zdefiniowane jako stałe stringi i kompilowane w trakcie działania programu.
 ## Shadery
-## # `glslMainVertexShader` i `glslMainWithTexCoordsVertexShader`
+## `glslMainVertexShader` i `glslMainWithTexCoordsVertexShader`
 
 Są to "szablony" dla shaderów wierzchołków. Definiują one funkcję `main`, która wywołuje `calculatePosition()`. Wersja `WithTexCoords` dodatkowo przekazuje współrzędne tekstury do shadera fragmentów.
-## # `glslPositionOnlyVertexShader`
+## `glslPositionOnlyVertexShader`
 
 Jest to implementacja `calculatePosition()`. Oblicza ona finalną pozycję wierzchołka, mnożąc jego pozycję przez macierze transformacji i projekcji. Uwzględnia również głębię (`u_Depth`).
-## # `glslMainFragmentShader`
+## `glslMainFragmentShader`
 
 Szablon dla shaderów fragmentów. Wywołuje `calculatePixel()` i odrzuca piksele o niskiej wartości alfa, jeśli `u_Depth > 0`.
-## # `glslTextureSrcFragmentShader`
+## `glslTextureSrcFragmentShader`
 
 Implementacja `calculatePixel()`, która pobiera kolor z tekstury (`u_Tex0`) i mnoży go przez jednolity kolor (`u_Color`).
-## # `glslSolidColorFragmentShader`
+## `glslSolidColorFragmentShader`
 
 Implementacja `calculatePixel()`, która zwraca jednolity kolor (`u_Color`).
-## # `glslSolidColorOnTextureFragmentShader`
+## `glslSolidColorOnTextureFragmentShader`
 
 Implementacja `calculatePixel()`, która rysuje jednolity kolor (`u_Color`) tylko tam, gdzie tekstura (`u_Tex0`) nie jest w pełni przezroczysta.
-## # `glslOutfitVertexShader` i `glslOutfitFragmentShader`
+## `glslOutfitVertexShader` i `glslOutfitFragmentShader`
 
 Shadery do renderowania strojów.
 -   **Shader wierzchołków**: Przekazuje dwie pary współrzędnych tekstury – normalne (`v_TexCoord`) i przesunięte o `u_Offset` (`v_TexCoord2`).
@@ -4572,37 +4572,37 @@ Shadery do renderowania strojów.
 
 Plik `http.cpp` implementuje klasę `Http`, która jest singletonem (`g_http`) odpowiedzialnym za obsługę zapytań HTTP/HTTPS oraz połączeń WebSocket. Działa asynchronicznie, wykorzystując bibliotekę Boost.Asio do operacji sieciowych w osobnym wątku.
 ## Zmienne globalne
-## # `g_http`
+## `g_http`
 
 Globalna instancja `Http`.
 ## Klasa `Http`
-## # `void Http::init()`
+## `void Http::init()`
 
 Inicjalizuje menedżera. Tworzy i uruchamia osobny wątek, w którym będzie działać `boost::asio::io_service` (`m_ios`), obsługując wszystkie operacje sieciowe.
-## # `void Http::terminate()`
+## `void Http::terminate()`
 
 Zamyka menedżera. Zatrzymuje `io_service`, anuluje wszystkie bieżące operacje i czeka na zakończenie wątku sieciowego.
-## # `int Http::get(const std::string& url, int timeout)`
-## # # Opis semantyczny
+## `int Http::get(const std::string& url, int timeout)`
+## Opis semantyczny
 Wysyła asynchroniczne zapytanie HTTP GET.
-## # # Działanie
+## Działanie
 1.  Generuje unikalne ID operacji.
 2.  Dodaje zadanie do `m_ios`, które tworzy obiekt `HttpSession`.
 3.  `HttpSession` wykonuje zapytanie w wątku sieciowym.
 4.  Wyniki (postęp, błąd, odpowiedź) są przekazywane z powrotem do głównego wątku za pomocą `g_dispatcher` i wywoływane są odpowiednie callbacki w Lua (`g_http.onGetProgress`, `g_http.onGet`).
-## # `int Http::post(...)`
+## `int Http::post(...)`
 
 Działa analogicznie do `get`, ale wysyła zapytanie HTTP POST z podanymi danymi (`data`).
-## # `int Http::download(...)`
+## `int Http::download(...)`
 
 Specjalna wersja `get`, która dodatkowo zapisuje pobrane dane w wewnętrznej mapie `m_downloads`. Pozwala to na dostęp do pobranych plików przez `ResourceManager` za pomocą wirtualnej ścieżki `/downloads/...`.
-## # `int Http::ws(...)`
+## `int Http::ws(...)`
 
 Inicjuje asynchroniczne połączenie WebSocket. Tworzy obiekt `WebsocketSession`, który zarządza cyklem życia połączenia. Callbacki Lua (`onWsOpen`, `onWsMessage`, `onWsClose`, `onWsError`) są wywoływane w odpowiedzi na zdarzenia z gniazda.
-## # `bool Http::wsSend(int operationId, std::string message)`
+## `bool Http::wsSend(int operationId, std::string message)`
 
 Wysyła wiadomość przez istniejące połączenie WebSocket o danym `operationId`.
-## # `bool Http::cancel(int id)`
+## `bool Http::cancel(int id)`
 
 Anuluje operację (HTTP lub WebSocket) o podanym ID.
 ## Zależności i powiązania
@@ -4623,9 +4623,9 @@ Plik `websocket.h` deklaruje klasę `WebsocketSession`, która zarządza pojedyn
 -   `enum WebsocketCallbackType`: Definiuje typy zdarzeń dla callbacka (`WEBSOCKET_OPEN`, `WEBSOCKET_MESSAGE`, `WEBSOCKET_ERROR`, `WEBSOCKET_CLOSE`).
 -   `using WebsocketSession_cb`: Alias dla typu funkcji zwrotnej.
 ## Klasa `WebsocketSession`
-## # Opis semantyczny
+## Opis semantyczny
 `WebsocketSession` enkapsuluje całą logikę związaną z nawiązywaniem, utrzymywaniem i zamykaniem połączenia WebSocket, włączając w to obsługę protokołu (handshake) i szyfrowania (WSS). Działa w pełni asynchronicznie w oparciu o Boost.Asio.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4633,7 +4633,7 @@ Plik `websocket.h` deklaruje klasę `WebsocketSession`, która zarządza pojedyn
 | `void start()` | Rozpoczyna proces nawiązywania połączenia (rozwiązywanie nazwy DNS, łączenie, handshake). |
 | `void send(std::string data)` | Dodaje wiadomość do kolejki wysyłania. |
 | `void close()` | Zamyka połączenie. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_service`: Referencja do `io_service`.
 -   `m_url`, `m_agent`: URL i User-Agent.
@@ -4646,7 +4646,7 @@ Plik `websocket.h` deklaruje klasę `WebsocketSession`, która zarządza pojedyn
 -   `m_context`: Kontekst SSL.
 -   `m_streambuf`: Bufor na przychodzące dane.
 -   `m_sendQueue`: Kolejka wiadomości do wysłania.
-## # Metody prywatne (`on_...`)
+## Metody prywatne (`on_...`)
 
 -   Są to handlery wywoływane przez Boost.Asio po zakończeniu operacji asynchronicznych (np. `on_resolve`, `on_connect`, `on_handshake`, `on_read`, `on_send`). Implementują one logikę maszyny stanów połączenia.
 -   `onError`: Centralna funkcja do obsługi błędów.
@@ -4663,9 +4663,9 @@ Plik `websocket.h` deklaruje klasę `WebsocketSession`, która zarządza pojedyn
 
 Plik `http.h` deklaruje klasę `Http`, która jest singletonem (`g_http`) i stanowi główny interfejs do wykonywania operacji sieciowych opartych na protokołach HTTP/HTTPS i WebSocket.
 ## Klasa `Http`
-## # Opis semantyczny
+## Opis semantyczny
 `Http` zarządza pulą operacji sieciowych, które są wykonywane asynchronicznie w dedykowanym wątku. Udostępnia proste API do wysyłania zapytań GET, POST, pobierania plików oraz nawiązywania połączeń WebSocket. Interakcja z resztą aplikacji (głównie ze skryptami Lua) odbywa się poprzez system callbacków.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4683,7 +4683,7 @@ Plik `http.h` deklaruje klasę `Http`, która jest singletonem (`g_http`) i stan
 | `void clearDownloads()` | Czyści mapę pobranych plików. |
 | `HttpResult_ptr getFile(...)` | Pobiera dane pobranego pliku na podstawie jego ścieżki. |
 | `void setUserAgent(...)` | Ustawia nagłówek User-Agent dla wszystkich zapytań. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_working`: Flaga kontrolująca działanie wątku.
 -   `m_operationId`: Licznik do generowania unikalnych ID dla operacji.
@@ -4694,7 +4694,7 @@ Plik `http.h` deklaruje klasę `Http`, która jest singletonem (`g_http`) i stan
 -   `m_websockets`: Mapa przechowująca aktywne sesje WebSocket.
 -   `m_downloads`: Mapa przechowująca pobrane pliki.
 -   `m_userAgent`: String User-Agent.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_http`: Globalna instancja `Http`.
 ## Zależności i powiązania
@@ -4710,9 +4710,9 @@ Plik `http.h` deklaruje klasę `Http`, która jest singletonem (`g_http`) i stan
 
 Plik `result.h` deklaruje strukturę `HttpResult`, która służy do przechowywania stanu i wyniku pojedynczej operacji HTTP lub WebSocket. Definiuje również aliasy typów dla inteligentnych wskaźników i funkcji zwrotnych.
 ## Struktura `HttpResult`
-## # Opis semantyczny
+## Opis semantyczny
 `HttpResult` jest kontenerem danych przekazywanym między wątkiem sieciowym a wątkiem głównym. Agreguje wszystkie informacje związane z danym zapytaniem, takie jak URL, status, postęp, dane odpowiedzi i ewentualne błędy.
-## # Pola struktury
+## Pola struktury
 
 | Pole | Typ | Opis |
 | :--- | :--- | :--- |
@@ -4744,16 +4744,16 @@ Plik `result.h` deklaruje strukturę `HttpResult`, która służy do przechowywa
 
 Plik `session.cpp` zawiera implementację klasy `HttpSession`, która zarządza pojedynczą sesją HTTP/HTTPS. Jest on wyłączony z kompilacji dla platformy Emscripten.
 ## Klasa `HttpSession`
-## # `void HttpSession::start()`
-## # # Opis semantyczny
+## `void HttpSession::start()`
+## Opis semantyczny
 Rozpoczyna proces wysyłania zapytania HTTP.
-## # # Działanie
+## Działanie
 1.  Sprawdza limit przekierowań.
 2.  Parsuje URL, aby uzyskać protokół, domenę, port i ścieżkę.
 3.  Ustawia timer (`m_timer`) na obsługę timeoutu.
 4.  Konfiguruje obiekt żądania `boost::beast::http::request` (metoda, nagłówki, treść).
 5.  Uruchamia asynchroniczne rozwiązywanie nazwy DNS za pomocą `m_resolver.async_resolve`.
-## # Metody `on_...()`
+## Metody `on_...()`
 
 Są to handlery (funkcje zwrotne) dla operacji asynchronicznych Boost.Asio, które implementują maszynę stanów sesji HTTP:
 
@@ -4772,7 +4772,7 @@ Są to handlery (funkcje zwrotne) dla operacji asynchronicznych Boost.Asio, któ
     -   Gdy cała treść zostanie odczytana (`end_of_stream`), finalizuje operację, zapisuje odpowiedź w `m_result` i wywołuje `callback` końcowy.
 -   **`onTimeout`**: Handler dla timera, który zgłasza błąd timeoutu.
 -   **`onError`**: Centralna funkcja do obsługi błędów. Zamyka gniazdo, anuluje timer i wywołuje `callback` z informacją o błędzie.
-## # `void HttpSession::close()`
+## `void HttpSession::close()`
 
 Zamyka połączenie, anuluje timer i, w przypadku HTTPS, wykonuje `async_shutdown` dla strumienia SSL.
 ## Zależności i powiązania
@@ -4788,16 +4788,16 @@ Zamyka połączenie, anuluje timer i, w przypadku HTTPS, wykonuje `async_shutdow
 
 Plik `session.h` deklaruje klasę `HttpSession`, która enkapsuluje logikę pojedynczej sesji HTTP/HTTPS. Plik ten jest wyłączony z kompilacji dla Emscripten.
 ## Klasa `HttpSession`
-## # Opis semantyczny
+## Opis semantyczny
 `HttpSession` zarządza całym cyklem życia zapytania HTTP, od rozwiązania nazwy DNS, przez nawiązanie połączenia (w tym SSL/TLS handshake), wysłanie żądania, aż po odczytanie odpowiedzi. Jest zaprojektowana do działania asynchronicznego w ramach `boost::asio::io_service`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
 | `HttpSession(...)` | Konstruktor. |
 | `void start()` | Rozpoczyna sesję HTTP. |
 | `void cancel()` | Anuluje bieżącą operację. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_service`: Referencja do `io_service`.
 -   `m_url`, `m_agent`: URL i User-Agent.
@@ -4812,7 +4812,7 @@ Plik `session.h` deklaruje klasę `HttpSession`, która enkapsuluje logikę poje
 -   `m_streambuf`: Bufor na dane przychodzące.
 -   `m_request`: Obiekt żądania z Boost.Beast.
 -   `m_response`: Parser odpowiedzi z Boost.Beast.
-## # Metody prywatne (`on_...`, `close`, `onError`)
+## Metody prywatne (`on_...`, `close`, `onError`)
 
 Deklaracje handlerów dla operacji asynchronicznych i funkcji pomocniczych.
 ## Zależności i powiązania
@@ -4827,19 +4827,19 @@ Deklaracje handlerów dla operacji asynchronicznych i funkcji pomocniczych.
 
 Plik `websocket.cpp` zawiera implementację klasy `WebsocketSession`, która zarządza pojedynczym połączeniem WebSocket. Plik ten jest wyłączony z kompilacji dla Emscripten.
 ## Klasa `WebsocketSession`
-## # `void WebsocketSession::start()`
-## # # Opis semantyczny
+## `void WebsocketSession::start()`
+## Opis semantyczny
 Rozpoczyna proces nawiązywania połączenia WebSocket.
-## # # Działanie
+## Działanie
 1.  Sprawdza limit przekierowań.
 2.  Parsuje URL, aby uzyskać protokół, domenę, port i ścieżkę.
 3.  Ustawia timer na obsługę timeoutu.
 4.  Tworzy odpowiedni obiekt gniazda (`m_socket` dla WS lub `m_ssl` dla WSS).
 5.  Uruchamia asynchroniczne rozwiązywanie nazwy DNS.
-## # `void WebsocketSession::send(std::string data)`
+## `void WebsocketSession::send(std::string data)`
 
 Dodaje wiadomość do kolejki `m_sendQueue`. Jeśli kolejka była pusta i połączenie jest aktywne, natychmiast inicjuje operację wysyłania.
-## # Metody `on_...()`
+## Metody `on_...()`
 
 Są to handlery dla operacji asynchronicznych, które implementują maszynę stanów połączenia WebSocket:
 
@@ -4850,7 +4850,7 @@ Są to handlery dla operacji asynchronicznych, które implementują maszynę sta
 -   **`on_read`**: Wywoływana po otrzymaniu nowej wiadomości. Resetuje timer, wywołuje `callback` `WEBSOCKET_MESSAGE` i ponownie nasłuchuje.
 -   **`onTimeout`**: Zgłasza błąd timeoutu.
 -   **`onError`**: Obsługuje błędy i wywołuje `callback` `WEBSOCKET_ERROR`.
-## # `void WebsocketSession::close()`
+## `void WebsocketSession::close()`
 
 Zamyka połączenie, anuluje timer i wywołuje `callback` `WEBSOCKET_CLOSE`.
 ## Zależności i powiązania
@@ -4866,44 +4866,44 @@ Zamyka połączenie, anuluje timer i wywołuje `callback` `WEBSOCKET_CLOSE`.
 
 Plik `mouse.cpp` implementuje klasę `Mouse`, która jest singletonem (`g_mouse`) odpowiedzialnym za zarządzanie kursorami myszy.
 ## Zmienne globalne
-## # `g_mouse`
+## `g_mouse`
 
 Globalna instancja `Mouse`.
 ## Klasa `Mouse`
-## # `void Mouse::init()` i `void Mouse::terminate()`
+## `void Mouse::init()` i `void Mouse::terminate()`
 
 Metody do inicjalizacji i zwalniania zasobów. `terminate()` czyści listę załadowanych kursorów.
-## # `void Mouse::loadCursors(std::string filename)`
+## `void Mouse::loadCursors(std::string filename)`
 
 Ładuje definicje kursorów z pliku OTML. Parsuje plik i dla każdego wpisu w sekcji `Cursors` wywołuje `addCursor`.
-## # `void Mouse::addCursor(const std::string& name, const std::string& file, const Point& hotSpot)`
-## # # Opis semantyczny
+## `void Mouse::addCursor(const std::string& name, const std::string& file, const Point& hotSpot)`
+## Opis semantyczny
 Ładuje obraz kursora z pliku i tworzy z niego natywny kursor systemowy. Jest bezpieczna wątkowo.
-## # # Działanie
+## Działanie
 1.  Jeśli jest wywołana z wątku innego niż graficzny, deleguje zadanie do `g_graphicsDispatcher`.
 2.  Wywołuje `g_window.loadMouseCursor`, która wykonuje operacje specyficzne dla platformy.
 3.  Zapisuje zwrócone ID kursora w mapie `m_cursors` pod podaną nazwą.
-## # `void Mouse::pushCursor(const std::string& name)`
-## # # Opis semantyczny
+## `void Mouse::pushCursor(const std::string& name)`
+## Opis semantyczny
 Ustawia nowy kursor i dodaje go na stos aktywnych kursorów.
-## # # Działanie
+## Działanie
 1.  Deleguje do wątku graficznego, jeśli to konieczne.
 2.  Znajduje ID kursora w `m_cursors`.
 3.  Wywołuje `g_window.setMouseCursor` z znalezionym ID.
 4.  Dodaje ID na koniec stosu `m_cursorStack`.
-## # `void Mouse::popCursor(const std::string& name)`
-## # # Opis semantyczny
+## `void Mouse::popCursor(const std::string& name)`
+## Opis semantyczny
 Usuwa kursor ze stosu i przywraca poprzedni.
-## # # Działanie
+## Działanie
 1.  Deleguje do wątku graficznego.
 2.  Jeśli `name` jest puste, usuwa ostatni kursor ze stosu.
 3.  Jeśli `name` jest podane, wyszukuje i usuwa konkretny kursor ze stosu.
 4.  Jeśli stos nie jest pusty, ustawia kursor, który jest teraz na jego szczycie.
 5.  Jeśli stos jest pusty, przywraca domyślny kursor systemowy.
-## # `bool Mouse::isCursorChanged()`
+## `bool Mouse::isCursorChanged()`
 
 Zwraca `true`, jeśli stos kursorów nie jest pusty, co oznacza, że aktualny kursor jest niestandardowy.
-## # `bool Mouse::isPressed(Fw::MouseButton mouseButton)`
+## `bool Mouse::isPressed(Fw::MouseButton mouseButton)`
 
 Sprawdza i zwraca stan wciśnięcia danego przycisku myszy, delegując zapytanie do `g_window`.
 ## Zależności i powiązania
@@ -4920,9 +4920,9 @@ Sprawdza i zwraca stan wciśnięcia danego przycisku myszy, delegując zapytanie
 
 Plik `mouse.h` deklaruje klasę `Mouse`, która jest interfejsem wysokiego poziomu do zarządzania kursorami myszy w aplikacji.
 ## Klasa `Mouse`
-## # Opis semantyczny
+## Opis semantyczny
 `Mouse` zarządza kolekcją niestandardowych kursorów, które mogą być ładowane z plików. Implementuje mechanizm stosu (`m_cursorStack`), który pozwala na tymczasową zmianę kursora (np. gdy kursor znajduje się nad widgetem) i łatwy powrót do poprzedniego stanu.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -4934,12 +4934,12 @@ Plik `mouse.h` deklaruje klasę `Mouse`, która jest interfejsem wysokiego pozio
 | `void popCursor(...)` | Usuwa kursor ze stosu i przywraca poprzedni. |
 | `bool isCursorChanged()` | Sprawdza, czy aktualny kursor jest niestandardowy. |
 | `bool isPressed(...)` | Sprawdza stan wciśnięcia przycisku myszy. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_cursors`: Mapa przechowująca nazwy kursorów i ich ID specyficzne dla platformy.
 -   `m_cursorStack`: Stos (`std::deque`) przechowujący ID aktywnych kursorów.
 -   `m_mutex`: Mutex do ochrony dostępu do `m_cursorStack` z różnych wątków.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_mouse`: Globalna instancja `Mouse`.
 ## Zależności i powiązania
@@ -4984,7 +4984,7 @@ Plik składa się z kilku części:
 
 2.  **Oryginalny kod `lbitlib.c` z Lua 5.2.0**:
     -   Zawiera implementacje wszystkich funkcji z biblioteki `bit32`.
-## # Funkcje biblioteki `bit32`
+## Funkcje biblioteki `bit32`
 
 | Funkcja Lua | Opis |
 | :--- | :--- |
@@ -5000,7 +5000,7 @@ Plik składa się z kilku części:
 | `bit32.rrotate(x, n)`| Rotacja bitowa w prawo. |
 | `bit32.extract(n, field, width)`| Ekstrahuje `width` bitów z liczby `n`, zaczynając od bitu `field`. |
 | `bit32.replace(n, v, field, width)`| Zastępuje bity w liczbie `n` bitami z `v`. |
-## # `int luaopen_bit32 (lua_State *L)`
+## `int luaopen_bit32 (lua_State *L)`
 
 Główna funkcja, która rejestruje bibliotekę `bit32` w podanym stanie Lua.
 ## Zależności i powiązania
@@ -5015,7 +5015,7 @@ Główna funkcja, która rejestruje bibliotekę `bit32` w podanym stanie Lua.
 
 Plik `lbitlib.h` jest plikiem nagłówkowym dla biblioteki `bit32` z Lua 5.2, która została przeniesiona do użytku w tym projekcie.
 ## Deklaracje
-## # `int luaopen_bit32 (lua_State *L)`
+## `int luaopen_bit32 (lua_State *L)`
 
 Deklaruje funkcję, która jest punktem wejścia do załadowania biblioteki `bit32` w stanie Lua. Zgodnie z konwencją Lua, funkcje `luaopen_*` są używane do rejestrowania modułów.
 ## Zależności i powiązania
@@ -5029,14 +5029,14 @@ Deklaruje funkcję, która jest punktem wejścia do załadowania biblioteki `bit
 
 Plik `luabinder.h` jest sercem mechanizmu bindowania C++ do Lua. Zawiera on zestaw zaawansowanych szablonów metaprogramowania, które umożliwiają automatyczne generowanie funkcji-opakowań (wrapperów) dla niemal dowolnych funkcji C++, w tym funkcji globalnych, statycznych, metod klas, funkcji `std::function` i lambd.
 ## Namespace `luabinder`
-## # Opis semantyczny
+## Opis semantyczny
 Przestrzeń nazw `luabinder` zawiera szablony, które działają jak "fabryka" funkcji typu `LuaCppFunction`. Analizują one sygnaturę funkcji C++ (typ zwracany i typy argumentów), a następnie generują lambdę, która:
 1.  Pobiera argumenty z stosu Lua i konwertuje je na odpowiednie typy C++.
 2.  Wywołuje oryginalną funkcję C++ z tymi argumentami.
 3.  Pobiera wartość zwracaną przez funkcję C++.
 4.  Konwertuje tę wartość na typ zrozumiały dla Lua i umieszcza ją na stosie.
 5.  Zwraca liczbę wartości umieszczonych na stosie.
-## # Główne szablony
+## Główne szablony
 
 -   **`pack_values_into_tuple`**: Szablon rekurencyjny, który pobiera `N` wartości ze stosu Lua i umieszcza je w `std::tuple`.
 -   **`expand_fun_arguments`**: Szablon rekurencyjny, który rozpakowuje `std::tuple` z argumentami i wywołuje z nimi docelową funkcję C++.
@@ -5058,22 +5058,22 @@ Przestrzeń nazw `luabinder` zawiera szablony, które działają jak "fabryka" f
 
 Plik `luaexception.h` deklaruje hierarchię klas wyjątków specyficznych dla interakcji z silnikiem Lua. Te klasy wyjątków są używane do sygnalizowania błędów, które występują podczas operacji na stosie Lua, rzutowania typów lub wywoływania funkcji.
 ## Klasa `LuaException`
-## # Opis semantyczny
+## Opis semantyczny
 Jest to bazowa klasa dla wszystkich wyjątków związanych z Lua. Dziedziczy po `stdext::exception`. Jej głównym zadaniem jest sformatowanie komunikatu o błędzie, opcjonalnie dołączając do niego ślad stosu (traceback) z Lua.
-## # Metody
+## Metody
 
 -   `LuaException(const std::string& error, int traceLevel = -1)`: Konstruktor, który generuje komunikat błędu.
 -   `virtual const char* what() const throw()`: Zwraca sformatowany komunikat błędu.
 ## Klasa `LuaBadNumberOfArgumentsException`
-## # Opis semantyczny
+## Opis semantyczny
 Specjalistyczny wyjątek rzucany, gdy funkcja C++ bindowana do Lua zostanie wywołana z nieprawidłową liczbą argumentów.
-## # Metody
+## Metody
 
 -   `LuaBadNumberOfArgumentsException(int expected = -1, int got = -1)`: Konstruktor, który tworzy odpowiedni komunikat o błędzie.
 ## Klasa `LuaBadValueCastException`
-## # Opis semantyczny
+## Opis semantyczny
 Specjalistyczny wyjątek rzucany, gdy próba rzutowania wartości ze stosu Lua na określony typ C++ (`luavalue_cast`) nie powiedzie się.
-## # Metody
+## Metody
 
 -   `LuaBadValueCastException(const std::string& luaTypeName, const std::string& cppTypeName)`: Konstruktor, który tworzy komunikat błędu informujący o typach, między którymi rzutowanie zawiodło.
 ## Zależności i powiązania
@@ -5088,20 +5088,20 @@ Specjalistyczny wyjątek rzucany, gdy próba rzutowania wartości ze stosu Lua n
 
 Plik `luaexception.cpp` zawiera implementację klas wyjątków zdefiniowanych w `luaexception.h`.
 ## Klasa `LuaException`
-## # `LuaException::LuaException(const std::string& error, int traceLevel)`
+## `LuaException::LuaException(const std::string& error, int traceLevel)`
 
 Konstruktor. Jego głównym zadaniem jest wywołanie `generateLuaErrorMessage`, aby przygotować pełny komunikat błędu.
-## # `void LuaException::generateLuaErrorMessage(const std::string& error, int traceLevel)`
+## `void LuaException::generateLuaErrorMessage(const std::string& error, int traceLevel)`
 
 Metoda ta formatuje finalny komunikat błędu, który będzie dostępny przez `what()`.
 -   Jeśli `traceLevel` jest podany (większy lub równy 0), wywołuje `g_lua.traceback`, aby dołączyć do komunikatu ślad stosu wywołań Lua.
 -   W przeciwnym razie, po prostu prefiksuje błąd napisem "LUA ERROR:".
 ## Klasa `LuaBadNumberOfArgumentsException`
-## # `LuaBadNumberOfArgumentsException::LuaBadNumberOfArgumentsException(int expected, int got)`
+## `LuaBadNumberOfArgumentsException::LuaBadNumberOfArgumentsException(int expected, int got)`
 
 Konstruktor. Tworzy specyficzny komunikat błędu informujący o nieprawidłowej liczbie argumentów, a następnie wywołuje `generateLuaErrorMessage` z poziomem śledzenia `1`, aby pokazać, która funkcja w Lua została źle wywołana.
 ## Klasa `LuaBadValueCastException`
-## # `LuaBadValueCastException::LuaBadValueCastException(const std::string& luaTypeName, const std::string& cppTypeName)`
+## `LuaBadValueCastException::LuaBadValueCastException(const std::string& luaTypeName, const std::string& cppTypeName)`
 
 Konstruktor. Tworzy komunikat błędu informujący o niemożności rzutowania między danym typem Lua a typem C++, a następnie wywołuje `generateLuaErrorMessage`.
 ## Zależności i powiązania
@@ -5116,11 +5116,11 @@ Konstruktor. Tworzy komunikat błędu informujący o niemożności rzutowania mi
 
 Plik `luainterface.cpp` zawiera implementację klasy `LuaInterface`, która jest centralnym interfejsem do komunikacji z silnikiem Lua. Jest to jedna z najważniejszych klas w całym frameworku.
 ## Zmienne globalne
-## # `g_lua`
+## `g_lua`
 
 Globalna instancja `LuaInterface`.
 ## Klasa `LuaInterface`
-## # Inicjalizacja i zamykanie
+## Inicjalizacja i zamykanie
 
 -   **`init()`**: Inicjalizuje `LuaInterface`.
     1.  Tworzy nowy stan Lua (`createLuaState`).
@@ -5128,22 +5128,22 @@ Globalna instancja `LuaInterface`.
     3.  Rejestruje bazową klasę `LuaObject` i jej podstawowe metody.
 -   **`terminate()`**: Zamyka stan Lua, co powoduje zwolnienie wszystkich zasobów i wywołanie garbage collectora.
 -   **`createLuaState()`**: Tworzy stan Lua (`luaL_newstate`), ładuje standardowe biblioteki (`luaL_openlibs`), ładuje bibliotekę `bit32`, tworzy specjalną "słabą" tabelę do przechowywania referencji i instaluje niestandardowe loadery (`dofile`, `loadfile`).
-## # Rejestracja i bindowanie
+## Rejestracja i bindowanie
 
 -   **`registerSingletonClass(...)`**, **`registerClass(...)`**: Implementują logikę tworzenia tabel i metatabel w Lua, które reprezentują klasy C++. `registerClass` dodatkowo ustawia dziedziczenie, linkując metatabelę klasy pochodnej do metatabeli klasy bazowej za pomocą metametody `__index`.
 -   **`register...Function(...)`**, **`register...Field(...)`**: Metody te pobierają odpowiednie tabele (klasy, metody, fieldmethods) z globalnego środowiska Lua i umieszczają w nich funkcje C++ opakowane w `LuaCppFunction`.
-## # Metody obsługi metametod obiektów
+## Metody obsługi metametod obiektów
 
 -   **`luaObjectGetEvent(__index)`**: Handler wywoływany przy próbie odczytu pola z obiektu C++ w Lua. Wyszukuje on kolejno: metodę "get", pole w tabeli `fields` obiektu, metodę w tabeli metod klasy.
 -   **`luaObjectSetEvent(__newindex)`**: Handler wywoływany przy próbie zapisu pola. Wyszukuje i wywołuje metodę "set" lub zapisuje wartość w tabeli `fields`.
 -   **`luaObjectEqualEvent(__eq)`**: Porównuje dwa obiekty C++.
 -   **`luaObjectCollectEvent(__gc)`**: Handler wywoływany przez garbage collector Lua. Zwalnia `shared_ptr` do obiektu, dekrementując jego licznik referencji.
-## # Wykonywanie skryptów
+## Wykonywanie skryptów
 
 -   **`runScript(...)`**, **`loadScript(...)`**, **`runBuffer(...)`**: Metody do ładowania i wykonywania skryptów Lua z plików lub buforów w pamięci. `loadScript` używa `g_resources` do znalezienia i odczytania pliku.
 -   **`safeCall(...)`**: Kluczowa metoda do bezpiecznego wywoływania funkcji Lua. Ustawia `luaErrorHandler` jako funkcję obsługi błędów, a następnie wywołuje `lua_pcall`. W przypadku błędu, łapie go i zwraca jako string lub rzuca wyjątek `LuaException`.
 -   **`signalCall(...)`**: Wysokopoziomowa metoda, która opakowuje `safeCall` i dodatkowo obsługuje wywoływanie tabeli funkcji.
-## # Inne
+## Inne
 
 -   **`traceback(...)`**: Generuje ślad stosu wywołań Lua.
 -   **`getCurrentSourcePath(...)`**: Zwraca ścieżkę do pliku skryptu, w którym aktualnie wykonywany jest kod.
@@ -5164,30 +5164,30 @@ Globalna instancja `LuaInterface`.
 
 Plik `luainterface.h` deklaruje klasę `LuaInterface`, która jest głównym interfejsem do interakcji z silnikiem Lua. Jest to klasa singletonowa (`g_lua`), która enkapsuluje stan Lua (`lua_State*`) i dostarcza bogaty zestaw metod do manipulacji stosem, wywoływania funkcji, bindowania kodu C++ i zarządzania obiektami.
 ## Klasa `LuaInterface`
-## # Opis semantyczny
+## Opis semantyczny
 `LuaInterface` stanowi most między kodem C++ a skryptami Lua. Udostępnia wysokopoziomowe API, które ukrywa złożoność bezpośredniej pracy z Lua C API. Wszystkie operacje, takie jak umieszczanie wartości na stosie, odczytywanie ich, wywoływanie funkcji czy rejestrowanie klas, są opakowane w metody tej klasy.
-## # Metody publiczne (wybrane)
-## # # Inicjalizacja i zarządzanie
+## Metody publiczne (wybrane)
+## Inicjalizacja i zarządzanie
 -   `init()` / `terminate()`: Uruchamia i zamyka silnik Lua.
 -   `collectGarbage()`: Wymusza uruchomienie garbage collectora.
-## # # Rejestracja i bindowanie
+## Rejestracja i bindowanie
 -   `registerSingletonClass(...)`: Rejestruje globalny obiekt (singleton) w Lua.
 -   `registerClass(...)`: Rejestruje klasę C++ w Lua, umożliwiając tworzenie jej instancji.
 -   `bind...Function(...)`, `bind...Field(...)`: Szablonowe metody do bindowania funkcji i pól klas.
-## # # Wykonywanie skryptów
+## Wykonywanie skryptów
 -   `safeRunScript(...)`: Bezpiecznie wykonuje skrypt z pliku.
 -   `runScript(...)`, `runBuffer(...)`: Wykonują skrypt z pliku lub bufora.
 -   `loadScript(...)`, `loadFunction(...)`: Ładują skrypt/funkcję na stos bez jej wykonywania.
 -   `safeCall(...)`: Bezpiecznie wywołuje funkcję na stosie, z obsługą błędów.
 -   `signalCall(...)`: Wysokopoziomowa wersja `safeCall` z dodatkowymi funkcjami.
 -   `callGlobalField<R, ...T>(...)`: Wygodna metoda do wywoływania globalnej funkcji Lua z C++ i otrzymywania wyniku.
-## # # Manipulacja stosem i typami
+## Manipulacja stosem i typami
 -   `push...()` / `pop...()` / `to...()` / `is...()`: Zestaw metod do pracy ze stosem Lua dla różnych typów danych (np. `pushInteger`, `isString`, `toObject`).
 -   `getTop()`: Zwraca rozmiar stosu.
 -   `ref()` / `unref()`: Do tworzenia i zwalniania trwałych referencji do wartości Lua.
 -   `polymorphicPush<T>(...)`: Szablonowa metoda do umieszczania na stosie dowolnego typu, dla którego zdefiniowano `push_luavalue`.
 -   `castValue<T>(...)`: Szablonowa metoda do rzutowania wartości ze stosu na typ C++, używając `luavalue_cast`.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `L`: Wskaźnik na `lua_State`.
 -   `m_weakTableRef`: Referencja do tabeli ze słabymi referencjami.
@@ -5211,40 +5211,40 @@ Plik ten na końcu dołącza trzy kluczowe pliki, które są od niego zależne i
 
 Plik `luaobject.cpp` zawiera implementację klasy `LuaObject`, która jest klasą bazową dla wszystkich obiektów C++, które mają być dostępne w środowisku Lua.
 ## Klasa `LuaObject`
-## # `LuaObject::LuaObject()`
+## `LuaObject::LuaObject()`
 
 Konstruktor. Inicjalizuje `m_fieldsTableRef` na -1, co oznacza, że obiekt nie ma jeszcze przypisanej tabeli pól w Lua.
-## # `LuaObject::~LuaObject()`
+## `LuaObject::~LuaObject()`
 
 Destruktor. Wywołuje `releaseLuaFieldsTable()`, aby zwolnić referencję do tabeli pól w Lua, co pozwala garbage collectorowi na jej usunięcie. Sprawdza również, czy nie jest wywoływany podczas zamykania aplikacji.
-## # `bool LuaObject::hasLuaField(const std::string& field)`
+## `bool LuaObject::hasLuaField(const std::string& field)`
 
 Sprawdza, czy obiekt posiada pole o danej nazwie w swojej tabeli pól Lua.
-## # `void LuaObject::releaseLuaFieldsTable()`
+## `void LuaObject::releaseLuaFieldsTable()`
 
 Zwalnia referencję do tabeli pól (`m_fieldsTableRef`), jeśli istnieje.
-## # `void LuaObject::luaSetField(const std::string& key)`
-## # # Opis semantyczny
+## `void LuaObject::luaSetField(const std::string& key)`
+## Opis semantyczny
 Ustawia pole w tabeli Lua powiązanej z tym obiektem. Wartość do ustawienia musi znajdować się na szczycie stosu Lua.
-## # # Działanie
+## Działanie
 1.  Jeśli obiekt nie ma jeszcze tabeli pól (`m_fieldsTableRef == -1`), tworzy nową tabelę w Lua i zapisuje do niej referencję.
 2.  Pobiera tabelę pól na stos Lua.
 3.  Przenosi wartość ze szczytu stosu na odpowiednie miejsce.
 4.  Ustawia pole w tabeli za pomocą `g_lua.setField(key)`.
 5.  Zdejmuje tabelę pól ze stosu.
-## # `void LuaObject::luaGetField(const std::string& key)`
+## `void LuaObject::luaGetField(const std::string& key)`
 
 Pobiera wartość pola z tabeli Lua obiektu i umieszcza ją na szczycie stosu. Jeśli tabela pól nie istnieje, umieszcza `nil`.
-## # `void LuaObject::luaGetMetatable()`
+## `void LuaObject::luaGetMetatable()`
 
 Pobiera i umieszcza na stosie metatabelę dla klasy tego obiektu. Używa statycznej mapy (`metatableMap`) do cachowania referencji do metatabel dla każdego typu klasy, aby uniknąć wielokrotnego wyszukiwania ich w globalnym środowisku Lua.
-## # `void LuaObject::luaGetFieldsTable()`
+## `void LuaObject::luaGetFieldsTable()`
 
 Umieszcza na stosie tabelę pól tego obiektu, lub `nil`, jeśli ona nie istnieje.
-## # `int LuaObject::getUseCount()`
+## `int LuaObject::getUseCount()`
 
 Zwraca liczbę referencji do obiektu (`shared_object::ref_count()`).
-## # `std::string LuaObject::getClassName()`
+## `std::string LuaObject::getClassName()`
 
 Zwraca zdemanglowaną nazwę klasy obiektu, która jest używana do znalezienia odpowiedniej metatabeli w Lua.
 ## Zależności i powiązania
@@ -5260,9 +5260,9 @@ Zwraca zdemanglowaną nazwę klasy obiektu, która jest używana do znalezienia 
 
 Plik `luaobject.h` deklaruje klasę `LuaObject`, która jest fundamentalną klasą bazową dla wszystkich obiektów C++, które mają być widoczne i zarządzane przez silnik Lua.
 ## Klasa `LuaObject`
-## # Opis semantyczny
+## Opis semantyczny
 `LuaObject` dziedziczy po `stdext::shared_object`, co zapewnia zarządzanie czasem życia obiektu za pomocą licznika referencji. Dodaje funkcjonalność, która pozwala na dynamiczne dołączanie do obiektu C++ pól i metod z poziomu Lua. Każda instancja `LuaObject` może posiadać własną, unikalną tabelę w Lua (`m_fieldsTableRef`), w której przechowywane są te dynamiczne dane.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5282,10 +5282,10 @@ Plik `luaobject.h` deklaruje klasę `LuaObject`, która jest fundamentalną klas
 | **Metody pomocnicze** | |
 | `getUseCount()` | Zwraca liczbę referencji do obiektu. |
 | `getClassName()` | Zwraca nazwę klasy. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_fieldsTableRef`: Przechowuje referencję (indeks w rejestrze Lua) do tabeli pól tego obiektu.
-## # Funkcje globalne (`connect`)
+## Funkcje globalne (`connect`)
 
 Szablonowe funkcje globalne, które są wygodnym opakowaniem na `LuaObject::connectLuaField`, pozwalając na łatwe łączenie zarówno `std::function`, jak i lambd z polami obiektów.
 ## Zależności i powiązania
@@ -5301,9 +5301,9 @@ Szablonowe funkcje globalne, które są wygodnym opakowaniem na `LuaObject::conn
 
 Plik `luavaluecasts.cpp` zawiera implementacje specjalizacji szablonów `push_luavalue` i `luavalue_cast` dla podstawowych typów danych. Te funkcje są sercem systemu konwersji typów między C++ a Lua.
 ## Funkcje `push_luavalue`
-## # # Opis semantyczny
+## Opis semantyczny
 Każda funkcja `push_luavalue` przyjmuje wartość typu C++ i umieszcza jej odpowiednik na szczycie stosu Lua. Zwraca liczbę wartości umieszczonych na stosie (zwykle 1).
-## # Implementacje:
+## Implementacje:
 -   `bool`: `g_lua.pushBoolean(b)`
 -   `int`: `g_lua.pushInteger(i)`
 -   `double`: `g_lua.pushNumber(d)`
@@ -5312,9 +5312,9 @@ Każda funkcja `push_luavalue` przyjmuje wartość typu C++ i umieszcza jej odpo
 -   **Typy złożone (`Color`, `Rect`, `Point`, `Size`)**: Tworzą nową tabelę w Lua i wypełniają ją odpowiednimi polami (np. `r`, `g`, `b`, `a` dla `Color`).
 -   **`OTMLNodePtr`**: Konwertuje węzeł OTML na tabelę Lua, rekurencyjnie przetwarzając jego dzieci.
 ## Funkcje `luavalue_cast`
-## # # Opis semantyczny
+## Opis semantyczny
 Każda funkcja `luavalue_cast` próbuje odczytać wartość z podanego indeksu na stosie Lua i skonwertować ją na odpowiedni typ C++. Zwraca `true` w przypadku sukcesu.
-## # Implementacje:
+## Implementacje:
 -   `bool`: `g_lua.toBoolean(index)`
 -   `int`, `double`: `g_lua.toInteger(index)`, `g_lua.toNumber(index)`. Sprawdzają dodatkowo, czy wartość na stosie jest faktycznie liczbą.
 -   `std::string`: `g_lua.toString(index)`
@@ -5334,13 +5334,13 @@ Każda funkcja `luavalue_cast` próbuje odczytać wartość z podanego indeksu n
 
 Plik `luavaluecasts.h` deklaruje zestaw szablonowych funkcji `push_luavalue` i `luavalue_cast`, które definiują, w jaki sposób różne typy danych C++ są konwertowane do i z wartości Lua. Jest to kluczowy element systemu bindowania, który umożliwia automatyczną konwersję argumentów funkcji i wartości zwracanych.
 ## Szablony i funkcje
-## # `push_luavalue<T>(const T& v)`
-## # # Opis
+## `push_luavalue<T>(const T& v)`
+## Opis
 Szablon funkcji, który przyjmuje wartość typu `T` i umieszcza jej reprezentację na stosie Lua. Dla każdego typu, który ma być przekazywany między C++ a Lua, musi istnieć specjalizacja tej funkcji.
-## # `luavalue_cast<T>(int index, T& v)`
-## # # Opis
+## `luavalue_cast<T>(int index, T& v)`
+## Opis
 Szablon funkcji, który próbuje odczytać wartość z podanego indeksu `index` na stosie Lua i skonwertować ją do typu `T`. Zwraca `true`, jeśli konwersja się powiedzie.
-## # Zadeklarowane specjalizacje
+## Zadeklarowane specjalizacje
 
 Plik deklaruje (a w przypadku typów prostych, również definiuje `inline`) specjalizacje dla:
 -   **Typów prostych**: `bool`, `int`, `double`, `float`, liczby całkowite o stałym rozmiarze (`int8`, `uint16`, itp.).
@@ -5352,7 +5352,7 @@ Plik deklaruje (a w przypadku typów prostych, również definiuje `inline`) spe
 -   **Obiektów C++**: `LuaObjectPtr` i wskaźniki do klas pochodnych.
 -   **Kontenerów STL**: `std::list`, `std::vector`, `std::set`, `std::deque`, `std::map`.
 -   **Krotek**: `std::tuple`.
-## # Przykład działania
+## Przykład działania
 
 ```cpp
 // C++
@@ -5380,25 +5380,25 @@ Plik `connection.cpp` zawiera implementację klasy `Connection`, która jest nis
 -   `g_ioService`: Globalna instancja `boost::asio::io_service`, która jest sercem pętli zdarzeń dla wszystkich operacji sieciowych.
 -   `Connection::m_outputStreams`: Statyczna lista, która działa jak pula buforów wyjściowych. Zużyte bufory są do niej zwracane, co pozwala na ich ponowne wykorzystanie i redukuje alokację pamięci.
 ## Klasa `Connection`
-## # `Connection::Connection()`
+## `Connection::Connection()`
 
 Konstruktor. Inicjalizuje obiekty Boost.Asio (`timer`, `resolver`, `socket`) powiązane z `g_ioService`.
-## # `void Connection::poll()` i `void Connection::terminate()`
+## `void Connection::poll()` i `void Connection::terminate()`
 
 Statyczne metody, które zarządzają globalnym `g_ioService`. `poll()` przetwarza zdarzenia sieciowe, a `terminate()` zatrzymuje `io_service`.
-## # `void Connection::close()`
+## `void Connection::close()`
 
 Zamyka połączenie. Anuluje wszystkie aktywne operacje asynchroniczne, zamyka gniazdo i resetuje callbacki.
-## # `void Connection::connect(...)`
+## `void Connection::connect(...)`
 
 Rozpoczyna proces nawiązywania połączenia. Wywołuje `m_resolver.async_resolve` w celu przetłumaczenia nazwy hosta na adres IP.
-## # `void Connection::write(uint8* buffer, size_t size)`
+## `void Connection::write(uint8* buffer, size_t size)`
 
 Dodaje dane do bufora wyjściowego (`m_outputStream`). Aby uniknąć zatorów (congestion), faktyczne wysłanie danych jest opóźniane o 0 milisekund za pomocą `m_delayedWriteTimer`. Oznacza to, że wysłanie nastąpi w następnej iteracji pętli `io_service`, co pozwala na zgrupowanie wielu małych zapisów w jeden większy.
-## # Metody `read(...)`, `read_until(...)`, `read_some(...)`
+## Metody `read(...)`, `read_until(...)`, `read_some(...)`
 
 Inicjują asynchroniczne operacje odczytu danych z gniazda. Ustawiają `m_recvCallback`, który zostanie wywołany po otrzymaniu danych, oraz `m_readTimer` do obsługi timeoutu.
-## # Metody `on...()`
+## Metody `on...()`
 
 Są to handlery (funkcje zwrotne) dla operacji asynchronicznych Boost.Asio:
 -   `onResolve`: Wywoływana po rozwiązaniu nazwy DNS. Inicjuje połączenie.
@@ -5407,7 +5407,7 @@ Są to handlery (funkcje zwrotne) dla operacji asynchronicznych Boost.Asio:
 -   `onWrite`: Wywoływana po zakończeniu operacji zapisu. Zwraca bufor do puli.
 -   `onRecv`: Wywoływana po otrzymaniu danych. Przekazuje dane do `m_recvCallback`.
 -   `onTimeout`: Wywoływana, gdy upłynie czas oczekiwania na operację.
-## # `void Connection::handleError(...)`
+## `void Connection::handleError(...)`
 
 Centralna funkcja do obsługi błędów sieciowych. Zapisuje błąd, wywołuje `m_errorCallback` i zamyka połączenie.
 ## Zależności i powiązania
@@ -5423,9 +5423,9 @@ Centralna funkcja do obsługi błędów sieciowych. Zapisuje błąd, wywołuje `
 
 Plik `server.h` deklaruje klasę `Server`, która jest prostym opakowaniem na `boost::asio::ip::tcp::acceptor`. Umożliwia tworzenie serwera TCP, który nasłuchuje na przychodzące połączenia na określonym porcie.
 ## Klasa `Server`
-## # Opis semantyczny
+## Opis semantyczny
 `Server` dziedziczy po `LuaObject`, co pozwala na tworzenie i zarządzanie serwerami z poziomu skryptów Lua. Jego głównym zadaniem jest akceptowanie nowych połączeń i przekazywanie ich do obsługi (np. w formie obiektu `Connection`).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5434,7 +5434,7 @@ Plik `server.h` deklaruje klasę `Server`, która jest prostym opakowaniem na `b
 | `bool isOpen()` | Zwraca `true`, jeśli serwer nasłuchuje. |
 | `void close()` | Zamyka akceptor, przestając nasłuchiwać. |
 | `void acceptNext()` | Inicjuje asynchroniczną operację oczekiwania na następne połączenie. Po jego nadejściu, wywoływany jest `callback` `onAccept` w Lua. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_isOpen`: Flaga wskazująca, czy serwer jest aktywny.
 -   `m_acceptor`: Obiekt `tcp::acceptor` z Boost.Asio.
@@ -5451,13 +5451,13 @@ Plik `server.h` deklaruje klasę `Server`, która jest prostym opakowaniem na `b
 
 Plik `connection.h` deklaruje klasę `Connection`, która jest interfejsem do asynchronicznego połączenia TCP. Jest to kluczowy element podsystemu sieciowego.
 ## Klasa `Connection`
-## # Opis semantyczny
+## Opis semantyczny
 `Connection` enkapsuluje `boost::asio::ip::tcp::socket` i zarządza całym cyklem życia połączenia: od nawiązywania, przez wysyłanie i odbieranie danych, aż po zamykanie i obsługę błędów. Działa w pełni asynchronicznie, integrując się z globalną pętlą zdarzeń `g_ioService`. Dziedziczy po `LuaObject`, co umożliwia jej użycie w Lua.
-## # Stałe
+## Stałe
 
 -   `READ_TIMEOUT`, `WRITE_TIMEOUT`: Czas (w sekundach) na zakończenie operacji odczytu/zapisu.
 -   `SEND_BUFFER_SIZE`, `RECV_BUFFER_SIZE`: Rozmiary buforów.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5479,7 +5479,7 @@ Plik `connection.h` deklaruje klasę `Connection`, która jest interfejsem do as
 | `bool isConnecting()` | Zwraca `true`, jeśli trwa nawiązywanie połączenia. |
 | `bool isConnected()` | Zwraca `true`, jeśli połączenie jest aktywne. |
 | `ticks_t getElapsedTicksSinceLastRead()` | Zwraca czas od ostatniej operacji odczytu (do wykrywania timeoutów na wyższym poziomie). |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_connectCallback`, `m_errorCallback`, `m_recvCallback`: Funkcje zwrotne.
 -   `m_readTimer`, `m_writeTimer`, ...: Obiekty Boost.Asio (timery, resolver, socket).
@@ -5499,10 +5499,10 @@ Plik `connection.h` deklaruje klasę `Connection`, która jest interfejsem do as
 
 Plik `declarations.h` w module `net` służy do wczesnych deklaracji (forward declarations) i definicji typów wskaźników dla klas związanych z obsługą sieci. Pomaga to unikać zależności cyklicznych i skraca czas kompilacji.
 ## Deklaracje
-## # `namespace asio`
+## `namespace asio`
 
 Deklaruje, że `asio` jest aliasem dla `boost::asio`.
-## # Wczesne deklaracje klas
+## Wczesne deklaracje klas
 
 -   `InputMessage`
 -   `OutputMessage`
@@ -5511,7 +5511,7 @@ Deklaruje, że `asio` jest aliasem dla `boost::asio`.
 -   `Server`
 -   `PacketPlayer`
 -   `PacketRecorder`
-## # Definicje typów
+## Definicje typów
 
 Definiuje aliasy dla inteligentnych wskaźników (`shared_object_ptr`) do klas sieciowych.
 
@@ -5533,13 +5533,13 @@ Definiuje aliasy dla inteligentnych wskaźników (`shared_object_ptr`) do klas s
 
 Plik `inputmessage.h` deklaruje klasę `InputMessage`, która jest narzędziem do parsowania przychodzących pakietów sieciowych.
 ## Klasa `InputMessage`
-## # Opis semantyczny
+## Opis semantyczny
 `InputMessage` działa jak bufor z wskaźnikiem odczytu. Przechowuje surowe dane pakietu i udostępnia metody do sekwencyjnego odczytywania z niego różnych typów danych (np. `getU8`, `getU16`, `getString`). Zarządza również pozycją nagłówka, co pozwala na oddzielenie metadanych pakietu (rozmiar, suma kontrolna) od jego właściwej zawartości (ciała).
-## # Stałe
+## Stałe
 
 -   `BUFFER_MAXSIZE`: Maksymalny rozmiar bufora.
 -   `MAX_HEADER_SIZE`: Maksymalny rozmiar nagłówka (rezerwowane miejsce na początku bufora).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5554,13 +5554,13 @@ Plik `inputmessage.h` deklaruje klasę `InputMessage`, która jest narzędziem d
 | `decryptRsa(...)` | Deszyfruje fragment bufora za pomocą RSA. |
 | `getHeaderSize()`, `getMessageSize()`, `getUnreadSize()` | Zwracają informacje o rozmiarach. |
 | `eof()` | Zwraca `true`, jeśli wszystkie dane zostały odczytane. |
-## # Metody chronione (używane przez `Protocol`)
+## Metody chronione (używane przez `Protocol`)
 
 -   `reset()`: Resetuje stan wiadomości.
 -   `fillBuffer(...)`: Dopisuje dane do bufora.
 -   `setHeaderSize(...)`: Ustawia rozmiar nagłówka.
 -   `readChecksum()`: Odczytuje i weryfikuje sumę kontrolną.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_headerPos`: Pozycja startowa nagłówka.
 -   `m_readPos`: Aktualna pozycja odczytu.
@@ -5579,16 +5579,16 @@ Plik `inputmessage.h` deklaruje klasę `InputMessage`, która jest narzędziem d
 
 Plik `outputmessage.cpp` zawiera implementację klasy `OutputMessage`, która służy do budowania wychodzących pakietów sieciowych.
 ## Klasa `OutputMessage`
-## # `OutputMessage::OutputMessage()`
+## `OutputMessage::OutputMessage()`
 
 Konstruktor, wywołuje `reset()`.
-## # `void OutputMessage::reset()`
+## `void OutputMessage::reset()`
 
 Resetuje stan wiadomości, ustawiając wskaźnik zapisu (`m_writePos`) i pozycję nagłówka (`m_headerPos`) na początek obszaru na ciało wiadomości.
-## # `void OutputMessage::setBuffer(const std::string& buffer)`
+## `void OutputMessage::setBuffer(const std::string& buffer)`
 
 Kopiuje dane z `std::string` do bufora wiadomości.
-## # Metody `add...()`
+## Metody `add...()`
 
 Służą do dodawania różnych typów danych na koniec wiadomości.
 -   `addU8`, `addU16`, `addU32`, `addU64`: Dodają liczby całkowite, konwertując je do porządku Little Endian.
@@ -5596,16 +5596,16 @@ Służą do dodawania różnych typów danych na koniec wiadomości.
 -   `addRawString`: Dodaje `std::string` bez informacji o długości.
 -   `addPaddingBytes`: Dodaje określoną liczbę bajtów wypełniających.
 -   Każda z tych metod wywołuje `checkWrite` w celu sprawdzenia, czy jest wystarczająco miejsca w buforze.
-## # `void OutputMessage::encryptRsa()`
+## `void OutputMessage::encryptRsa()`
 
 Szyfruje ostatnie `N` bajtów bufora za pomocą klucza publicznego RSA, gdzie `N` to rozmiar klucza.
-## # Metody `write...()`
+## Metody `write...()`
 
 Metody te operują na zarezerwowanym miejscu na nagłówek (przed ciałem wiadomości):
 -   `writeChecksum()`: Oblicza sumę kontrolną Adler-32 dla ciała wiadomości i zapisuje ją w nagłówku.
 -   `writeSequence()`: Zapisuje numer sekwencyjny pakietu.
 -   `writeMessageSize()`: Zapisuje całkowity rozmiar ciała wiadomości w nagłówku.
-## # `void OutputMessage::checkWrite(int bytes)`
+## `void OutputMessage::checkWrite(int bytes)`
 
 Sprawdza, czy dodanie `bytes` bajtów nie przekroczy maksymalnego rozmiaru bufora. Jeśli tak, rzuca wyjątek.
 ## Zależności i powiązania
@@ -5620,14 +5620,14 @@ Sprawdza, czy dodanie `bytes` bajtów nie przekroczy maksymalnego rozmiaru bufor
 
 Plik `outputmessage.h` deklaruje klasę `OutputMessage`, która jest narzędziem do konstruowania wychodzących pakietów sieciowych.
 ## Klasa `OutputMessage`
-## # Opis semantyczny
+## Opis semantyczny
 `OutputMessage` działa jak bufor z wskaźnikiem zapisu. Udostępnia metody do dodawania różnych typów danych (`addU8`, `addString`, itp.), które są dołączane na końcu bufora. Posiada również zarezerwowane miejsce na początku bufora na nagłówek, który jest wypełniany tuż przed wysłaniem (np. rozmiarem wiadomości, sumą kontrolną).
-## # Stałe
+## Stałe
 
 -   `BUFFER_MAXSIZE`: Maksymalny rozmiar bufora.
 -   `MAX_STRING_LENGTH`: Maksymalna długość stringa.
 -   `MAX_HEADER_SIZE`: Rozmiar zarezerwowanego miejsca na nagłówek.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5639,11 +5639,11 @@ Plik `outputmessage.h` deklaruje klasę `OutputMessage`, która jest narzędziem
 | `getWritePos()` | Zwraca aktualną pozycję zapisu. |
 | `getMessageSize()` | Zwraca aktualny rozmiar ciała wiadomości. |
 | `setWritePos(...)`, `setMessageSize(...)` | Ustawiają pozycję zapisu i rozmiar. |
-## # Metody chronione (używane przez `Protocol`)
+## Metody chronione (używane przez `Protocol`)
 
 -   `getHeaderBuffer()`: Zwraca wskaźnik na początek gotowego pakietu (początek nagłówka).
 -   `writeChecksum()`, `writeSequence()`, `writeMessageSize()`: Wypełniają nagłórek odpowiednimi metadanymi.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_headerPos`: Aktualna pozycja początku nagłówka.
 -   `m_writePos`: Aktualna pozycja zapisu w ciele wiadomości.
@@ -5662,7 +5662,7 @@ Plik `outputmessage.h` deklaruje klasę `OutputMessage`, która jest narzędziem
 
 Plik `packet_player.cpp` zawiera implementację klasy `PacketPlayer`, która umożliwia odtwarzanie wcześniej nagranych sesji sieciowych. Jest to narzędzie do debugowania i testowania.
 ## Klasa `PacketPlayer`
-## # `PacketPlayer::PacketPlayer(const std::string& file)`
+## `PacketPlayer::PacketPlayer(const std::string& file)`
 
 Konstruktor.
 -   **Działanie**:
@@ -5670,26 +5670,26 @@ Konstruktor.
     2.  Czyta plik linia po linii.
     3.  Każda linia zawiera typ pakietu (`<` dla przychodzącego, `>` dla wychodzącego), sygnaturę czasową i dane pakietu w formacie heksadecymalnym.
     4.  Dekoduje dane heksadecymalne do postaci binarnej i zapisuje pakiety w odpowiednich kolejkach (`m_input` lub `m_output`).
-## # `PacketPlayer::~PacketPlayer()`
+## `PacketPlayer::~PacketPlayer()`
 
 Destruktor. Anuluje zaplanowane zdarzenie (`m_event`), jeśli istnieje.
-## # `void PacketPlayer::start(...)`
+## `void PacketPlayer::start(...)`
 
 Rozpoczyna odtwarzanie.
 -   **Działanie**:
     1.  Zapisuje czas startu (`m_start`).
     2.  Zapisuje callbacki do obsługi "otrzymanych" pakietów i zdarzenia rozłączenia.
     3.  Planuje pierwsze wywołanie metody `process()` za 50ms.
-## # `void PacketPlayer::stop()`
+## `void PacketPlayer::stop()`
 
 Zatrzymuje odtwarzanie, anulując zdarzenie.
-## # `void PacketPlayer::onOutputPacket(const OutputMessagePtr& packet)`
+## `void PacketPlayer::onOutputPacket(const OutputMessagePtr& packet)`
 
 Metoda wywoływana przez `Protocol`, gdy próbuje on wysłać pakiet. W trybie odtwarzania, pakiety wychodzące są analizowane (np. w celu wykrycia wylogowania), ale nie są nigdzie wysyłane.
-## # `void PacketPlayer::process()`
-## # # Opis semantyczny
+## `void PacketPlayer::process()`
+## Opis semantyczny
 Główna metoda pętli odtwarzacza.
-## # # Działanie
+## Działanie
 1.  Iteruje po kolejce pakietów przychodzących (`m_input`).
 2.  Sprawdza sygnaturę czasową każdego pakietu. Jeśli czas odtworzenia pakietu (`packet.first + m_start`) już minął, wywołuje `m_recvCallback` z danymi pakietu i usuwa go z kolejki.
 3.  Jeśli kolejka nie jest pusta, planuje swoje następne wywołanie z opóźnieniem równym różnicy czasu do następnego pakietu.
@@ -5707,9 +5707,9 @@ Główna metoda pętli odtwarzacza.
 
 Plik `packet_player.h` deklaruje klasę `PacketPlayer`, która służy do odtwarzania nagranych sesji sieciowych z plików.
 ## Klasa `PacketPlayer`
-## # Opis semantyczny
+## Opis semantyczny
 `PacketPlayer` odczytuje plik z zarejestrowanymi pakietami i ich sygnaturami czasowymi. Po uruchomieniu, symuluje przychodzące pakiety sieciowe, wywołując `callback` w odpowiednich odstępach czasu, zgodnie z nagraniem. Pozwala to na debugowanie i testowanie logiki klienta bez potrzeby łączenia się z serwerem. Dziedziczy po `LuaObject`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5718,7 +5718,7 @@ Plik `packet_player.h` deklaruje klasę `PacketPlayer`, która służy do odtwar
 | `void start(...)` | Rozpoczyna odtwarzanie sesji. Przyjmuje callbacki na otrzymanie pakietu i na rozłączenie. |
 | `void stop()` | Zatrzymuje odtwarzanie. |
 | `void onOutputPacket(...)` | Przechwytuje pakiety, które normalnie byłyby wysłane, w celu symulacji (np. wykrycia wylogowania). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_start`: Czas rozpoczęcia odtwarzania.
 -   `m_event`: Wskaźnik na zaplanowane zdarzenie do przetwarzania pakietów.
@@ -5737,9 +5737,9 @@ Plik `packet_player.h` deklaruje klasę `PacketPlayer`, która służy do odtwar
 
 Plik `protocol.h` deklaruje klasę `Protocol`, która jest klasą bazową do implementacji protokołów komunikacji sieciowej.
 ## Klasa `Protocol`
-## # Opis semantyczny
+## Opis semantyczny
 `Protocol` jest abstrakcją wysokiego poziomu, która zarządza połączeniem (`Connection`) i implementuje logikę specyficzną dla danego protokołu, taką jak szyfrowanie XTEA, obsługa sum kontrolnych, kompresja i sekwencjonowanie pakietów. Przetwarza surowe dane z `Connection` na obiekty `InputMessage` i przygotowuje `OutputMessage` do wysłania. Dziedziczy po `LuaObject`, co pozwala na tworzenie implementacji protokołów w Lua.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5754,12 +5754,12 @@ Plik `protocol.h` deklaruje klasę `Protocol`, która jest klasą bazową do imp
 | **Operacje I/O** | |
 | `virtual void send(...)` | Wysyła `OutputMessage`, opcjonalnie szyfrując i dodając nagłówki. |
 | `virtual void recv()` | Inicjuje proces odbierania następnego pakietu. |
-## # Metody chronione
+## Metody chronione
 
 -   `onConnect()`: Wirtualna metoda wywoływana po nawiązaniu połączenia. Domyślnie wywołuje `onConnect` w Lua.
 -   `onRecv(...)`: Wirtualna metoda wywoływana po otrzymaniu i zdeserializowaniu pełnego pakietu. Domyślnie wywołuje `onRecv` w Lua.
 -   `onError(...)`: Wirtualna metoda wywoływana w przypadku błędu sieciowego.
-## # Zmienne
+## Zmienne
 
 -   `m_xteaKey`: Klucz XTEA.
 -   `m_packetNumber`: Licznik dla pakietów sekwencyjnych.
@@ -5781,14 +5781,14 @@ Plik `protocol.h` deklaruje klasę `Protocol`, która jest klasą bazową do imp
 
 Plik `packet_recorder.cpp` zawiera implementację klasy `PacketRecorder`, która służy do nagrywania sesji sieciowej do pliku tekstowego.
 ## Klasa `PacketRecorder`
-## # `PacketRecorder::PacketRecorder(const std::string& file)`
+## `PacketRecorder::PacketRecorder(const std::string& file)`
 
 Konstruktor.
 -   **Działanie**:
     1.  Zapisuje czas startu nagrywania (`m_start`).
     2.  Tworzy katalog `records/`, jeśli nie istnieje.
     3.  Otwiera plik o podanej nazwie w tym katalogu do zapisu.
-## # `void PacketRecorder::addInputPacket(const InputMessagePtr& packet)`
+## `void PacketRecorder::addInputPacket(const InputMessagePtr& packet)`
 
 Nagrywa pakiet przychodzący.
 -   **Działanie**:
@@ -5796,7 +5796,7 @@ Nagrywa pakiet przychodzący.
     2.  Zapisuje różnicę czasu od startu nagrywania.
     3.  Zapisuje zawartość ciała pakietu w formacie heksadecymalnym.
     4.  Dodaje znak nowej linii.
-## # `void PacketRecorder::addOutputPacket(const OutputMessagePtr& packet)`
+## `void PacketRecorder::addOutputPacket(const OutputMessagePtr& packet)`
 
 Nagrywa pakiet wychodzący.
 -   **Działanie**:
@@ -5818,19 +5818,19 @@ Nagrywa pakiet wychodzący.
 
 Plik `protocol.cpp` zawiera implementację klasy `Protocol`, która stanowi bazę dla protokołów komunikacyjnych. Implementuje ona logikę niskiego poziomu, taką jak szyfrowanie, sumy kontrolne i kompresję, delegując obsługę samych pakietów do skryptów Lua.
 ## Klasa `Protocol`
-## # `Protocol::Protocol()`
+## `Protocol::Protocol()`
 
 Konstruktor. Inicjalizuje domyślne flagi protokołu na `false` i przygotowuje strumień ZLIB do dekompresji.
-## # `void Protocol::connect(const std::string& host, uint16 port)`
+## `void Protocol::connect(const std::string& host, uint16 port)`
 
 Rozpoczyna połączenie. Jeśli `host` to "proxy" lub inny specjalny adres, używa `g_proxy`. W przeciwnym razie tworzy nowy `Connection`.
-## # `void Protocol::disconnect()`
+## `void Protocol::disconnect()`
 
 Zamyka połączenie, zwalniając `Connection` lub sesję proxy.
-## # `void Protocol::send(const OutputMessagePtr& outputMessage, bool rawPacket)`
-## # # Opis semantyczny
+## `void Protocol::send(const OutputMessagePtr& outputMessage, bool rawPacket)`
+## Opis semantyczny
 Przygotowuje i wysyła pakiet.
-## # # Działanie
+## Działanie
 1.  Jeśli włączone jest nagrywanie, zapisuje pakiet.
 2.  Jeśli `rawPacket` jest `false`:
     -   Szyfruje pakiet za pomocą XTEA, jeśli włączone.
@@ -5838,19 +5838,19 @@ Przygotowuje i wysyła pakiet.
     -   Dodaje rozmiar pakietu na początku.
 3.  Wysyła gotowy pakiet przez `Connection` lub `Proxy`.
 4.  Resetuje `outputMessage`, aby mógł być ponownie użyty.
-## # `void Protocol::recv()`
+## `void Protocol::recv()`
 
 Rozpoczyna proces odbierania nowego pakietu, instruując `Connection`, aby najpierw odczytał nagłówek o odpowiedniej długości.
-## # `void Protocol::internalRecvHeader(...)` i `internalRecvData(...)`
+## `void Protocol::internalRecvHeader(...)` i `internalRecvData(...)`
 
 Handlery wywoływane przez `Connection`. `internalRecvHeader` odczytuje rozmiar ciała pakietu, a `internalRecvData` odczytuje resztę danych. `internalRecvData` następnie wykonuje deszyfrowanie, weryfikację sumy kontrolnej i dekompresję, a na końcu wywołuje `onRecv` z gotowym `InputMessage`.
-## # `void Protocol::generateXteaKey()` i `setXteaKey(...)`
+## `void Protocol::generateXteaKey()` i `setXteaKey(...)`
 
 Metody do zarządzania kluczem szyfrowania XTEA.
-## # `bool Protocol::xteaDecrypt(...)` i `void Protocol::xteaEncrypt(...)`
+## `bool Protocol::xteaDecrypt(...)` i `void Protocol::xteaEncrypt(...)`
 
 Implementacje algorytmu XTEA do szyfrowania i deszyfrowania buforów wiadomości.
-## # `void Protocol::onConnect()`, `onRecv(...)`, `onError(...)`
+## `void Protocol::onConnect()`, `onRecv(...)`, `onError(...)`
 
 Metody wirtualne, które domyślnie wywołują odpowiednie funkcje w Lua (`onConnect`, `onRecv`, `onError`), przekazując im kontrolę nad logiką protokołu.
 ## Zależności i powiązania
@@ -5867,23 +5867,23 @@ Metody wirtualne, które domyślnie wywołują odpowiednie funkcje w Lua (`onCon
 
 Plik `server.cpp` zawiera implementację klasy `Server`, która umożliwia tworzenie prostych serwerów TCP nasłuchujących na przychodzące połączenia.
 ## Zmienne globalne
-## # `g_ioService`
+## `g_ioService`
 
 Globalny `io_service` z Boost.Asio, używany również przez `Connection`, na którym działa akceptor serwera.
 ## Klasa `Server`
-## # `Server::Server(int port)`
+## `Server::Server(int port)`
 
 Konstruktor. Tworzy i otwiera obiekt `boost::asio::ip::tcp::acceptor`, bindowanie go do wszystkich interfejsów (`tcp::v4()`) na podanym porcie.
-## # `ServerPtr Server::create(int port)`
+## `ServerPtr Server::create(int port)`
 
 Statyczna metoda fabryczna. Tworzy obiekt `Server`, opakowując go w `shared_ptr`. Obsługuje wyjątki, które mogą wystąpić, jeśli port jest już zajęty.
-## # `void Server::close()`
+## `void Server::close()`
 
 Zamyka serwer. Anuluje wszystkie oczekujące operacje akceptowania i zamyka akceptor.
-## # `void Server::acceptNext()`
-## # # Opis semantyczny
+## `void Server::acceptNext()`
+## Opis semantyczny
 Rozpoczyna asynchroniczne oczekiwanie na nowe połączenie.
-## # # Działanie
+## Działanie
 1.  Tworzy nowy, pusty obiekt `Connection`.
 2.  Wywołuje `m_acceptor.async_accept`, przekazując jej gniazdo nowego `Connection` oraz `callback` (lambdę).
 3.  Gdy nowe połączenie zostanie nawiązane, `callback` jest wywoływany.
@@ -5901,16 +5901,16 @@ Rozpoczyna asynchroniczne oczekiwanie na nowe połączenie.
 
 Plik `inputmessage.cpp` zawiera implementację klasy `InputMessage`, która jest narzędziem do parsowania przychodzących pakietów sieciowych.
 ## Klasa `InputMessage`
-## # `InputMessage::InputMessage()`
+## `InputMessage::InputMessage()`
 
 Konstruktor, wywołuje `reset()`.
-## # `void InputMessage::reset()`
+## `void InputMessage::reset()`
 
 Resetuje stan wiadomości do wartości początkowych, ustawiając pozycję odczytu i nagłówka na `MAX_HEADER_SIZE`.
-## # `void InputMessage::setBuffer(const std::string& buffer)`
+## `void InputMessage::setBuffer(const std::string& buffer)`
 
 Ustawia zawartość ciała wiadomości, kopiując dane z `std::string` do wewnętrznego bufora.
-## # Metody `get...()`
+## Metody `get...()`
 
 Odczytują dane z bufora, zaczynając od bieżącej pozycji `m_readPos`.
 -   Każda metoda najpierw wywołuje `checkRead`, aby upewnić się, że jest wystarczająco dużo danych do odczytania.
@@ -5918,19 +5918,19 @@ Odczytują dane z bufora, zaczynając od bieżącej pozycji `m_readPos`.
 -   Na koniec przesuwa wskaźnik `m_readPos`.
 -   `getString` najpierw odczytuje 2-bajtową długość, a potem sam string.
 -   `getDouble` odczytuje niestandardowy format liczby zmiennoprzecinkowej.
-## # `bool InputMessage::decryptRsa(int size)`
+## `bool InputMessage::decryptRsa(int size)`
 
 Deszyfruje `size` bajtów z bieżącej pozycji za pomocą klucza prywatnego RSA. Zwraca `true`, jeśli pierwszy zdeszyfrowany bajt to 0.
-## # `void InputMessage::fillBuffer(...)`
+## `void InputMessage::fillBuffer(...)`
 
 Dopisuje surowe dane do bufora w bieżącej pozycji odczytu (używane przez `Protocol` podczas odbierania danych z gniazda).
-## # `void InputMessage::setHeaderSize(uint32 size)`
+## `void InputMessage::setHeaderSize(uint32 size)`
 
 Ustawia pozycję początku nagłówka (`m_headerPos`), co efektywnie określa jego rozmiar.
-## # `bool InputMessage::readChecksum()`
+## `bool InputMessage::readChecksum()`
 
 Odczytuje 4-bajtową sumę kontrolną z bufora, oblicza sumę kontrolną Adler-32 dla reszty danych i porównuje je.
-## # `void InputMessage::checkRead(int bytes)`
+## `void InputMessage::checkRead(int bytes)`
 
 Prywatna metoda, która rzuca wyjątek, jeśli próba odczytu `bytes` bajtów wykroczyłaby poza granice wiadomości.
 ## Zależności i powiązania
@@ -5946,9 +5946,9 @@ Prywatna metoda, która rzuca wyjątek, jeśli próba odczytu `bytes` bajtów wy
 
 Plik `packet_recorder.h` deklaruje klasę `PacketRecorder`, która służy do nagrywania sesji sieciowej do pliku tekstowego w celu późniejszej analizy lub odtworzenia.
 ## Klasa `PacketRecorder`
-## # Opis semantyczny
+## Opis semantyczny
 `PacketRecorder` przechwytuje pakiety przychodzące (`InputMessage`) i wychodzące (`OutputMessage`) i zapisuje je w czytelnym formacie do pliku. Każdy wpis zawiera znacznik kierunku (`<` lub `>`), sygnaturę czasową i zawartość pakietu w postaci heksadecymalnej. Dziedziczy po `LuaObject`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -5956,7 +5956,7 @@ Plik `packet_recorder.h` deklaruje klasę `PacketRecorder`, która służy do na
 | `virtual ~PacketRecorder()` | Destruktor. |
 | `void addInputPacket(...)` | Zapisuje pakiet przychodzący do pliku. |
 | `void addOutputPacket(...)` | Zapisuje pakiet wychodzący do pliku. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_start`: Czas rozpoczęcia nagrywania.
 -   `m_stream`: Strumień pliku do zapisu.
@@ -5993,19 +5993,19 @@ Plik `declarations.h` w module `otml` służy do wczesnych deklaracji (forward d
 
 Plik `otmlparser.h` deklaruje klasę `OTMLParser`, która jest odpowiedzialna za parsowanie dokumentów w formacie OTML (OTClient Markup Language).
 ## Klasa `OTMLParser`
-## # Opis semantyczny
+## Opis semantyczny
 `OTMLParser` odczytuje dane linia po linii ze strumienia wejściowego, analizuje wcięcia (które definiują hierarchię), a następnie parsuje tagi i wartości, budując drzewo obiektów `OTMLNode`.
-## # Metody publiczne
+## Metody publiczne
 
 -   `OTMLParser(OTMLDocumentPtr doc, std::istream& in)`: Konstruktor.
 -   `void parse()`: Główna metoda rozpoczynająca proces parsowania.
-## # Metody prywatne
+## Metody prywatne
 
 -   `std::string getNextLine()`: Odczytuje następną linię ze strumienia.
 -   `int getLineDepth(...)`: Oblicza poziom zagnieżdżenia na podstawie liczby spacji na początku linii.
 -   `void parseLine(...)`: Przetwarza pojedynczą linię (sprawdza wcięcia, komentarze, puste linie).
 -   `void parseNode(...)`: Parsuje tag i wartość z linii i tworzy nowy `OTMLNode`.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `currentDepth`, `currentLine`: Śledzą pozycję w pliku.
 -   `doc`: Wskaźnik na dokument, który jest budowany.
@@ -6039,26 +6039,26 @@ Plik `otml.h` jest głównym plikiem nagłówkowym dla modułu OTML. Jego jedyny
 
 Plik `otmldocument.cpp` zawiera implementację klasy `OTMLDocument`, która reprezentuje cały dokument OTML i jest korzeniem drzewa węzłów.
 ## Klasa `OTMLDocument`
-## # `OTMLDocumentPtr OTMLDocument::create()`
+## `OTMLDocumentPtr OTMLDocument::create()`
 
 Statyczna metoda fabryczna. Tworzy nowy, pusty dokument z domyślnym tagiem "doc".
-## # `OTMLDocumentPtr OTMLDocument::parse(const std::string& fileName)`
+## `OTMLDocumentPtr OTMLDocument::parse(const std::string& fileName)`
 
 Statyczna metoda, która ładuje i parsuje dokument OTML z pliku. Używa `g_resources` do odczytania pliku do strumienia, a następnie wywołuje `parse(std::istream&, ...)`.
-## # `OTMLDocumentPtr OTMLDocument::parseString(const std::string& data, const std::string& source)`
+## `OTMLDocumentPtr OTMLDocument::parseString(const std::string& data, const std::string& source)`
 
 Parsuje dokument z `std::string`.
-## # `OTMLDocumentPtr OTMLDocument::parse(std::istream& in, const std::::string& source)`
+## `OTMLDocumentPtr OTMLDocument::parse(std::istream& in, const std::::string& source)`
 
 Główna metoda parsująca.
 1.  Tworzy nowy `OTMLDocument`.
 2.  Tworzy `OTMLParser` dla tego dokumentu i strumienia.
 3.  Wywołuje `parser.parse()` w celu zbudowania drzewa węzłów.
 4.  Zwraca gotowy dokument.
-## # `std::string OTMLDocument::emit()`
+## `std::string OTMLDocument::emit()`
 
 Konwertuje całe drzewo węzłów OTML z powrotem na format tekstowy, używając `OTMLEmitter`.
-## # `bool OTMLDocument::save(const std::string& fileName)`
+## `bool OTMLDocument::save(const std::string& fileName)`
 
 Zapisuje wyemitowany dokument do pliku za pomocą `g_resources`.
 ## Zależności i powiązania
@@ -6073,15 +6073,15 @@ Zapisuje wyemitowany dokument do pliku za pomocą `g_resources`.
 
 Plik `otmldocument.h` deklaruje klasę `OTMLDocument`, która jest specjalizacją `OTMLNode` i reprezentuje korzeń dokumentu OTML.
 ## Klasa `OTMLDocument`
-## # Opis semantyczny
+## Opis semantyczny
 `OTMLDocument` dziedziczy po `OTMLNode`, więc jest jednocześnie węzłem (korzeniem) i całym dokumentem. Dodaje funkcjonalność związaną z plikami: parsowanie z pliku/stringu i zapisywanie do pliku. Przechowuje również informację o źródle (`source`), z którego został załadowany.
-## # Metody publiczne (statyczne)
+## Metody publiczne (statyczne)
 
 | Metoda | Opis |
 | :--- | :--- |
 | `static OTMLDocumentPtr create()` | Tworzy pusty dokument. |
 | `static OTMLDocumentPtr parse(...)` | Parsuje dokument z pliku, stringu lub strumienia. |
-## # Metody publiczne (instancji)
+## Metody publiczne (instancji)
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -6098,10 +6098,10 @@ Plik `otmldocument.h` deklaruje klasę `OTMLDocument`, która jest specjalizacj�
 
 Plik `otmlemitter.cpp` zawiera implementację klasy `OTMLEmitter`, która jest odpowiedzialna za konwersję drzewa `OTMLNode` z powrotem do formatu tekstowego OTML.
 ## Klasa `OTMLEmitter`
-## # `std::string OTMLEmitter::emitNode(const OTMLNodePtr& node, int currentDepth)`
-## # # Opis semantyczny
+## `std::string OTMLEmitter::emitNode(const OTMLNodePtr& node, int currentDepth)`
+## Opis semantyczny
 Rekurencyjna, statyczna metoda, która generuje tekstową reprezentację pojedynczego węzła i wszystkich jego dzieci.
-## # # Działanie
+## Działanie
 1.  Dodaje wcięcie (2 spacje na poziom) odpowiednie dla `currentDepth`.
 2.  Zapisuje tag węzła. Jeśli węzeł ma wartość lub jest unikalny, dodaje `:`. Jeśli nie ma tagu, zapisuje `-`.
 3.  Zapisuje wartość węzła:
@@ -6120,11 +6120,11 @@ Rekurencyjna, statyczna metoda, która generuje tekstową reprezentację pojedyn
 
 Plik `otmlexception.cpp` zawiera implementację klasy `OTMLException`, która jest używana do sygnalizowania błędów podczas parsowania lub przetwarzania dokumentów OTML.
 ## Klasa `OTMLException`
-## # Konstruktory
+## Konstruktory
 
 -   **`OTMLException(const OTMLNodePtr& node, const std::string& error)`**: Tworzy wyjątek związany z konkretnym węzłem. Komunikat błędu będzie zawierał informację o źródle (`source`) tego węzła.
 -   **`OTMLException(const OTMLDocumentPtr& doc, const std::string& error, int line)`**: Tworzy wyjątek związany z całym dokumentem, opcjonalnie podając numer linii, w której wystąpił błąd parsowania.
-## # Działanie
+## Działanie
 Oba konstruktory budują szczegółowy komunikat błędu w `std::stringstream`, który jest następnie zapisywany w `m_what` i dostępny przez metodę `what()`.
 ## Zależności i powiązania
 
@@ -6138,16 +6138,16 @@ Oba konstruktory budują szczegółowy komunikat błędu w `std::stringstream`, 
 
 Plik `otmlexception.h` deklaruje klasę `OTMLException`, która jest typem wyjątku używanym do sygnalizowania błędów związanych z OTML.
 ## Klasa `OTMLException`
-## # Opis semantyczny
+## Opis semantyczny
 Dziedziczy po `stdext::exception`. Jest tworzona z informacją o kontekście błędu (węzeł lub dokument oraz numer linii), co pozwala na generowanie precyzyjnych komunikatów o błędach, ułatwiających debugowanie plików OTML.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
 | `OTMLException(...)` | Konstruktory. |
 | `virtual ~OTMLException()` | Destruktor. |
 | `virtual const char* what() const throw()` | Zwraca sformatowany komunikat błędu. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_what`: `std::string` przechowująca komunikat błędu.
 ## Zależności i powiązania
@@ -6162,9 +6162,9 @@ Dziedziczy po `stdext::exception`. Jest tworzona z informacją o kontekście bł
 
 Plik `otmlemitter.h` deklaruje klasę `OTMLEmitter`, która jest odpowiedzialna za proces "emitowania", czyli konwersji drzewa węzłów OTML z powrotem do jego tekstowej reprezentacji.
 ## Klasa `OTMLEmitter`
-## # Opis semantyczny
+## Opis semantyczny
 `OTMLEmitter` zawiera jedną statyczną metodę, która rekurencyjnie przechodzi przez drzewo `OTMLNode` i buduje sformatowany `std::string` zgodny ze składnią OTML, uwzględniając wcięcia, tagi, wartości (w tym wieloliniowe) i hierarchię.
-## # Metody publiczne (statyczne)
+## Metody publiczne (statyczne)
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -6180,16 +6180,16 @@ Plik `otmlemitter.h` deklaruje klasę `OTMLEmitter`, która jest odpowiedzialna 
 
 Plik `otmlparser.cpp` zawiera implementację klasy `OTMLParser`, która jest sercem mechanizmu parsowania języka OTML.
 ## Klasa `OTMLParser`
-## # `OTMLParser::OTMLParser(...)`
+## `OTMLParser::OTMLParser(...)`
 
 Konstruktor. Inicjalizuje stan parsera, ustawiając bieżący węzeł-rodzica na korzeń dokumentu.
-## # `void OTMLParser::parse()`
+## `void OTMLParser::parse()`
 
 Główna metoda, która w pętli odczytuje kolejne linie ze strumienia (`getNextLine()`) i przekazuje je do `parseLine()`, aż do końca pliku.
-## # `int OTMLParser::getLineDepth(...)`
+## `int OTMLParser::getLineDepth(...)`
 
 Oblicza poziom wcięcia linii, licząc spacje na jej początku. Wymusza, aby wcięcie było wielokrotnością dwóch spacji i zabrania używania tabulatorów.
-## # `void OTMLParser::parseLine(std::string line)`
+## `void OTMLParser::parseLine(std::string line)`
 
 Przetwarza pojedynczą linię.
 1.  Oblicza jej głębokość.
@@ -6197,7 +6197,7 @@ Przetwarza pojedynczą linię.
 3.  Ignoruje puste linie i komentarze (`//`).
 4.  Na podstawie różnicy między bieżącą głębokością a głębokością linii, aktualizuje `currentParent`, wchodząc w głąb hierarchii lub wracając na wyższy poziom.
 5.  Wywołuje `parseNode` w celu sparsowania właściwej zawartości linii.
-## # `void OTMLParser::parseNode(const std::string& data)`
+## `void OTMLParser::parseNode(const std::string& data)`
 
 Parsuje tag i wartość z podanego ciągu znaków.
 1.  Dzieli ciąg na tag i wartość na podstawie separatora `:`.
@@ -6217,9 +6217,9 @@ Parsuje tag i wartość z podanego ciągu znaków.
 
 Plik `otmlnode.h` deklaruje klasę `OTMLNode`, która jest podstawowym budulcem drzewa dokumentu OTML. Reprezentuje pojedynczy węzeł, który może mieć tag, wartość i listę dzieci.
 ## Klasa `OTMLNode`
-## # Opis semantyczny
+## Opis semantyczny
 `OTMLNode` to uniwersalny kontener na dane w strukturze drzewiastej. Jest używany do reprezentowania zarówno stylów UI, jak i samych widgetów w plikach `.otui`, a także modułów w `.otmod` i konfiguracji w plikach `.otml`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -6241,7 +6241,7 @@ Plik `otmlnode.h` deklaruje klasę `OTMLNode`, która jest podstawowym budulcem 
 | `writeAt<T>(...)` | Tworzy i dodaje unikalne dziecko z daną wartością. |
 | `writeIn<T>(...)` | Tworzy i dodaje nie-unikalne dziecko z daną wartością. |
 | `emit()` | Konwertuje węzeł i jego dzieci na string. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_children`: Mapa przechowująca dzieci pogrupowane według tagów.
 -   `m_tag`, `m_value`, `m_source`: Podstawowe właściwości.
@@ -6258,34 +6258,34 @@ Plik `otmlnode.h` deklaruje klasę `OTMLNode`, która jest podstawowym budulcem 
 
 Plik `otmlnode.cpp` zawiera implementację metod klasy `OTMLNode`.
 ## Klasa `OTMLNode`
-## # `OTMLNodePtr OTMLNode::create(...)`
+## `OTMLNodePtr OTMLNode::create(...)`
 
 Metody fabryczne, które tworzą nowy `OTMLNode` i ustawiają jego początkowe właściwości.
-## # `bool OTMLNode::hasChildren()`
+## `bool OTMLNode::hasChildren()`
 
 Sprawdza, czy węzeł ma jakiekolwiek dzieci, które nie są `null`.
-## # `OTMLNodePtr OTMLNode::get(const std::string& childTag)`
+## `OTMLNodePtr OTMLNode::get(const std::string& childTag)`
 
 Wyszukuje w mapie `m_children` pierwsze dziecko o podanym tagu, które nie jest `null`, i je zwraca.
-## # `void OTMLNode::addChild(const OTMLNodePtr& newChild)`
+## `void OTMLNode::addChild(const OTMLNodePtr& newChild)`
 
 Dodaje nowe dziecko. Implementuje kluczową logikę:
 -   Jeśli nowe dziecko ma tag i jest unikalne (`isUnique()`), a dziecko o takim samym tagu już istnieje, to nowe dziecko jest łączone (`merge`) ze starym, effectively nadpisując/dodając właściwości.
 -   W przeciwnym razie, jest po prostu dodawane do listy dzieci o danym tagu.
 -   Każdemu dziecku nadawany jest unikalny, rosnący indeks, aby zachować kolejność wstawiania.
-## # `bool OTMLNode::removeChild(...)`
+## `bool OTMLNode::removeChild(...)`
 
 Usuwa podane dziecko z listy.
-## # `void OTMLNode::copy(const OTMLNodePtr& node)`
+## `void OTMLNode::copy(const OTMLNodePtr& node)`
 
 Głęboko kopiuje wszystkie właściwości i dzieci z innego węzła, zastępując własną zawartość.
-## # `void OTMLNode::merge(const OTMLNodePtr& node)`
+## `void OTMLNode::merge(const OTMLNodePtr& node)`
 
 Łączy zawartość innego węzła z bieżącym. W przeciwieństwie do `copy`, nie czyści istniejących dzieci, lecz dodaje nowe (lub łączy, jeśli są unikalne).
-## # `OTMLNodeList OTMLNode::children()`
+## `OTMLNodeList OTMLNode::children()`
 
 Zwraca listę wszystkich nie-nullowych dzieci, posortowaną według ich indeksu wstawienia.
-## # `OTMLNodePtr OTMLNode::clone()`
+## `OTMLNodePtr OTMLNode::clone()`
 
 Tworzy i zwraca głęboką kopię węzła i wszystkich jego dzieci.
 ## Zależności i powiązania
@@ -6336,31 +6336,31 @@ Wiele metod jest pustymi implementacjami lub zwraca domyślne wartości, poniewa
 
 Plik `androidwindow.cpp` zawiera implementację klasy `AndroidWindow`, która jest specyficzną dla platformy Android implementacją `PlatformWindow`. Zarządza ona cyklem życia okna, obsługą wejścia (dotyk, klawiatura) oraz kontekstem graficznym EGL/OpenGL ES.
 ## Zmienne globalne
-## # `g_androidWindow`
+## `g_androidWindow`
 
 Globalna instancja `AndroidWindow`.
 ## Klasa `AndroidWindow`
-## # `AndroidWindow::AndroidWindow()`
+## `AndroidWindow::AndroidWindow()`
 
 Konstruktor. Inicjalizuje mapę klawiszy (`m_keyMap`), tłumacząc kody klawiszy Android (`AKEYCODE_*`) na wewnętrzne kody `Fw::Key`.
-## # `void AndroidWindow::internalInitGL()` i `internalDestroyGL()`
+## `void AndroidWindow::internalInitGL()` i `internalDestroyGL()`
 
 Metody do zarządzania kontekstem graficznym EGL.
 -   `internalInitGL`: Pobiera domyślny wyświetlacz EGL, wybiera konfigurację, tworzy powierzchnię renderowania (`EGLSurface`) na podstawie natywnego okna Android i tworzy kontekst OpenGL ES 2.0.
 -   `internalDestroyGL`: Zwalnia powierzchnię i kontekst EGL.
-## # `void AndroidWindow::init(struct android_app* app)`
+## `void AndroidWindow::init(struct android_app* app)`
 
 Główna metoda inicjalizująca. Zapisuje wskaźnik na `android_app` i ustawia `callbacki` dla zdarzeń cyklu życia aplikacji i zdarzeń wejściowych.
-## # `void AndroidWindow::poll()`
+## `void AndroidWindow::poll()`
 
 Przetwarza zdarzenia systemowe z kolejki Androida za pomocą `ALooper_pollAll`.
-## # `void AndroidWindow::swapBuffers()`
+## `void AndroidWindow::swapBuffers()`
 
 Zamienia bufory ekranu za pomocą `eglSwapBuffers`.
-## # `void AndroidWindow::handleCmd(int32_t cmd)`
+## `void AndroidWindow::handleCmd(int32_t cmd)`
 
 Handler dla zdarzeń cyklu życia aplikacji Android (np. `APP_CMD_INIT_WINDOW`, `APP_CMD_GAINED_FOCUS`). W odpowiedzi na te zdarzenia, tworzy lub niszczy kontekst GL i aktualizuje stan widoczności.
-## # `int AndroidWindow::handleInput(AInputEvent* event)`
+## `int AndroidWindow::handleInput(AInputEvent* event)`
 
 Handler dla zdarzeń wejściowych.
 -   **`AINPUT_EVENT_TYPE_MOTION` (dotyk)**:
@@ -6370,13 +6370,13 @@ Handler dla zdarzeń wejściowych.
 -   **`AINPUT_EVENT_TYPE_KEY` (klawiatura)**:
     -   Tłumaczy kod klawisza Android na kod `Fw::Key`.
     -   Wywołuje `processKeyDown` lub `processKeyUp`.
-## # `void AndroidWindow::showTextEditor(...)`
+## `void AndroidWindow::showTextEditor(...)`
 
 Wywołuje metodę Javy (`showTextEdit`) za pomocą JNI, aby wyświetlić natywną klawiaturę i pole edycji tekstu Androida.
-## # `void AndroidWindow::openUrl(std::string url)`
+## `void AndroidWindow::openUrl(std::string url)`
 
 Otwiera URL za pomocą intencji Androida, wywołując metodę Javy przez JNI.
-## # Funkcja `JNIEXPORT ... commitText(...)`
+## Funkcja `JNIEXPORT ... commitText(...)`
 
 Funkcja C wywoływana z kodu Javy, która przekazuje tekst wpisany na klawiaturze Androida z powrotem do aplikacji.
 ## Zależności i powiązania
@@ -6391,9 +6391,9 @@ Funkcja C wywoływana z kodu Javy, która przekazuje tekst wpisany na klawiaturz
 
 Plik `androidwindow.h` deklaruje klasę `AndroidWindow`, która jest implementacją `PlatformWindow` dla systemu Android.
 ## Klasa `AndroidWindow`
-## # Opis semantyczny
+## Opis semantyczny
 `AndroidWindow` integruje aplikację z natywnym cyklem życia i systemem zdarzeń Androida za pomocą struktury `android_app` z NDK. Zarządza kontekstem graficznym EGL/GLES i tłumaczy natywne zdarzenia wejściowe (dotyk, klawisze sprzętowe) na wewnętrzny format `InputEvent`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -6408,11 +6408,11 @@ Plik `androidwindow.h` deklaruje klasę `AndroidWindow`, która jest implementac
 | `showTextEditor(...)` | Wyświetla natywną klawiaturę Androida. |
 | `openUrl(...)` | Otwiera URL. |
 | ... | Implementacje innych metod `PlatformWindow`, często puste, ponieważ pojęcia takie jak "minimalizacja" czy "zmiana tytułu okna" nie mają bezpośredniego odpowiednika na Androidzie. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_egl...`: Uchwyty do zasobów EGL (Display, Context, Surface, Config).
 -   `m_multiInputEvent[3]`: Bufory na zdarzenia wielodotykowe.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_androidWindow`: Globalna instancja `AndroidWindow`.
 ## Zależności i powiązania
@@ -6427,10 +6427,10 @@ Plik `androidwindow.h` deklaruje klasę `AndroidWindow`, która jest implementac
 
 Plik `crashhandler.h` deklaruje funkcje do instalacji i deinstalacji globalnego mechanizmu obsługi awarii (crash handler).
 ## Funkcje
-## # `void installCrashHandler()`
+## `void installCrashHandler()`
 
 Rejestruje handlery dla sygnałów lub wyjątków systemowych (w zależności od platformy), które są wywoływane w przypadku krytycznego błędu aplikacji (np. naruszenie ochrony pamięci).
-## # `void uninstallCrashHandler()`
+## `void uninstallCrashHandler()`
 
 Odinstalowuje wcześniej zarejestrowane handlery.
 ## Dyrektywa preprocesora
@@ -6447,7 +6447,7 @@ Cała zawartość pliku jest objęta dyrektywą `#ifdef CRASH_HANDLER`, co oznac
 
 Plik `platform.cpp` ma za zadanie jedynie zdefiniować globalną instancję klasy `Platform`.
 ## Zmienne globalne
-## # `g_platform`
+## `g_platform`
 
 Globalna, jedyna instancja klasy `Platform`, która dostarcza interfejs do funkcji specyficznych dla systemu operacyjnego.
 
@@ -6465,7 +6465,7 @@ Platform g_platform;
 
 Plik `platformwindow.cpp` jest kluczowym plikiem, który zarządza implementacją okna specyficzną dla danej platformy. Jego głównym zadaniem jest dołączenie odpowiedniego pliku nagłówkowego (np. `win32window.h` lub `x11window.h`) i zdefiniowanie globalnego wskaźnika `g_window`, który będzie wskazywał na właściwą, platformową instancję okna.
 ## Zmienne globalne
-## # `g_window`
+## `g_window`
 
 Globalna referencja do obiektu okna. Jest to centralny punkt dostępu do wszystkich operacji związanych z oknem w całym frameworku. W zależności od platformy, wskazuje na instancję `WIN32Window`, `X11Window`, `AndroidWindow` lub `SDLWindow`.
 
@@ -6477,29 +6477,29 @@ PlatformWindow& g_window = window; // gdzie 'window' to globalna instancja np. W
 # endif
 ```
 ## Klasa `PlatformWindow`
-## # `int PlatformWindow::loadMouseCursor(...)`
+## `int PlatformWindow::loadMouseCursor(...)`
 
 Ładuje obraz kursora, sprawdza jego poprawność (rozmiar 32x32, 4 kanały kolorów) i deleguje właściwe tworzenie kursora do metody wirtualnej `internalLoadMouseCursor`, która jest zaimplementowana w klasach pochodnych.
-## # `void PlatformWindow::updateUnmaximizedCoords()`
+## `void PlatformWindow::updateUnmaximizedCoords()`
 
 Zapisuje aktualną pozycję i rozmiar okna, ale tylko wtedy, gdy okno nie jest zmaksymalizowane ani w trybie pełnoekranowym. Służy do przywracania poprzedniego stanu okna.
-## # `void PlatformWindow::processKeyDown(Fw::Key keyCode)`
+## `void PlatformWindow::processKeyDown(Fw::Key keyCode)`
 
 Obsługuje zdarzenie wciśnięcia klawisza.
 -   Aktualizuje stan modyfikatorów (Ctrl, Alt, Shift).
 -   Sprawdza, czy klawisz nie jest już wciśnięty (obsługa auto-powtarzania).
 -   Ustawia stan klawisza na wciśnięty (`m_keysState`).
 -   Wysyła zdarzenia `KeyDownInputEvent` i `KeyPressInputEvent` do zarejestrowanego `callbacka`.
-## # `void PlatformWindow::processKeyUp(Fw::Key keyCode)`
+## `void PlatformWindow::processKeyUp(Fw::Key keyCode)`
 
 Obsługuje zdarzenie zwolnienia klawisza.
 -   Aktualizuje stan modyfikatorów.
 -   Ustawia stan klawisza na zwolniony.
 -   Wysyła zdarzenie `KeyUpInputEvent`.
-## # `void PlatformWindow::releaseAllKeys()`
+## `void PlatformWindow::releaseAllKeys()`
 
 Resetuje stan wszystkich wciśniętych klawiszy i przycisków myszy. Wywoływana np. gdy okno traci fokus.
-## # `void PlatformWindow::fireKeysPress()`
+## `void PlatformWindow::fireKeysPress()`
 
 Metoda wywoływana cyklicznie. Sprawdza, które klawisze są wciśnięte i od odpowiednio długiego czasu, a następnie generuje zdarzenia `KeyPressInputEvent` (auto-powtarzanie).
 ## Zależności i powiązania
@@ -6515,9 +6515,9 @@ Metoda wywoływana cyklicznie. Sprawdza, które klawisze są wciśnięte i od od
 
 Plik `platform.h` deklaruje klasę `Platform`, która jest interfejsem do funkcji specyficznych dla systemu operacyjnego. Zapewnia abstrakcję nad różnicami między platformami (Windows, Linux, macOS, Android).
 ## Klasa `Platform`
-## # Opis semantyczny
+## Opis semantyczny
 `Platform` dostarcza zestaw statycznych metod do interakcji z systemem operacyjnym. Implementacja tych metod znajduje się w plikach specyficznych dla platformy (np. `win32platform.cpp`, `unixplatform.cpp`).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -6542,7 +6542,7 @@ Plik `platform.h` deklaruje klasę `Platform`, która jest interfejsem do funkcj
 | `std::vector<std::string> getDlls()` | (Windows) Zwraca listę załadowanych bibliotek DLL. |
 | `std::vector<std::string> getProcesses()` | Zwraca listę uruchomionych procesów. |
 | `std::vector<std::string> getWindows()` | (Windows) Zwraca listę tytułów otwartych okien. |
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_platform`: Globalna instancja `Platform`.
 ## Zależności i powiązania
@@ -6556,9 +6556,9 @@ Plik `platform.h` deklaruje klasę `Platform`, która jest interfejsem do funkcj
 
 Plik `platformwindow.h` deklaruje abstrakcyjną klasę bazową `PlatformWindow`, która definiuje wspólny interfejs do zarządzania oknem aplikacji na różnych systemach operacyjnych.
 ## Klasa `PlatformWindow`
-## # Opis semantyczny
+## Opis semantyczny
 `PlatformWindow` jest klasą abstrakcyjną, która ukrywa szczegóły implementacyjne związane z tworzeniem okna, obsługą zdarzeń i zarządzaniem kontekstem graficznym. Każda platforma (Windows, Linux, Android) dostarcza własną, konkretną implementację tej klasy.
-## # Metody czysto wirtualne (do implementacji przez klasy pochodne)
+## Metody czysto wirtualne (do implementacji przez klasy pochodne)
 
 -   `init()`, `terminate()`: Cykl życia okna.
 -   `move()`, `resize()`, `show()`, `hide()`, `minimize()`, `maximize()`: Zarządzanie stanem okna.
@@ -6566,12 +6566,12 @@ Plik `platformwindow.h` deklaruje abstrakcyjną klasę bazową `PlatformWindow`,
 -   `swapBuffers()`: Zamiana buforów graficznych.
 -   `set...()`: Metody do ustawiania właściwości okna (tytuł, ikona, VSync, etc.).
 -   `get...()`: Metody do pobierania informacji (rozmiar ekranu, tekst ze schowka).
-## # Metody z implementacją
+## Metody z implementacją
 
 -   `loadMouseCursor(...)`: Ładuje kursor z pliku.
 -   `processKeyDown()`, `processKeyUp()`, `releaseAllKeys()`, `fireKeysPress()`: Implementują logikę obsługi stanu klawiatury, która jest wspólna dla wszystkich platform.
 -   Gettery dla stanu okna (`getSize`, `getPosition`, `isVisible`, `isKeyPressed`, etc.).
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_keyMap`: Mapa tłumacząca kody klawiszy specyficzne dla platformy na wewnętrzne kody `Fw::Key`.
 -   `m_keysState`, `m_lastKeysPress`: Mapy do śledzenia stanu klawiszy.
@@ -6579,7 +6579,7 @@ Plik `platformwindow.h` deklaruje abstrakcyjną klasę bazową `PlatformWindow`,
 -   `m_inputEvent`: Obiekt do przechowywania danych o bieżącym zdarzeniu wejściowym.
 -   `m_visible`, `m_focused`, `m_fullscreen`, `m_maximized`: Flagi stanu okna.
 -   `m_onClose`, `m_onResize`, `m_onInputEvent`: Callbacki do powiadamiania `GraphicalApplication` o zdarzeniach.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_window`: Globalna referencja do aktywnej instancji `PlatformWindow`.
 ## Zależności i powiązania
@@ -6600,10 +6600,10 @@ Plik `sdlwindow.cpp` zawiera implementację klasy `SDLWindow`, która jest wersj
 ## Klasa `SDLWindow`
 
 Wszystkie metody implementujące interfejs `PlatformWindow` są puste. Oznacza to, że operacje takie jak `resize`, `move`, `setTitle`, `poll` czy `swapBuffers` nie mają tutaj żadnego efektu i muszą być obsługiwane przez zewnętrzny kod (prawdopodobnie w głównej pętli `emscripten_set_main_loop`).
-## # `SDLWindow::SDLWindow()`
+## `SDLWindow::SDLWindow()`
 
 Konstruktor. Inicjalizuje domyślne rozmiary i stan.
-## # `std::string SDLWindow::getPlatformType()`
+## `std::string SDLWindow::getPlatformType()`
 
 Zwraca `"WASM"`.
 ## Zależności i powiązania
@@ -6617,11 +6617,11 @@ Zwraca `"WASM"`.
 
 Plik `sdlwindow.h` deklaruje klasę `SDLWindow`, która jest implementacją `PlatformWindow` dla platformy Emscripten (WebAssembly), opartą na bibliotece SDL.
 ## Klasa `SDLWindow`
-## # Opis semantyczny
+## Opis semantyczny
 `SDLWindow` jest klasą-zaślepką, która spełnia kontrakt interfejsu `PlatformWindow`, ale większość jej metod jest pusta. Logika okna dla Emscripten jest zazwyczaj obsługiwana przez główną pętlę zdefiniowaną w `emscripten.h` i interakcje z API przeglądarki, a nie przez tradycyjny model okienkowy.
-## # Metody publiczne
+## Metody publiczne
 Deklaruje wszystkie metody wirtualne z `PlatformWindow` z pustymi implementacjami.
-## # Zmienne prywatne
+## Zmienne prywatne
 -   `m_egl...`: Pola związane z EGL, odziedziczone po logice Androida, ale prawdopodobnie nieużywane w kontekście Emscripten/SDL.
 ## Zależności i powiązania
 
@@ -6634,10 +6634,10 @@ Deklaruje wszystkie metody wirtualne z `PlatformWindow` z pustymi implementacjam
 
 Plik `unixcrashhandler.cpp` zawiera implementację mechanizmu obsługi awarii (crash handler) dla systemów uniksowych (Linux, macOS). Jest kompilowany tylko wtedy, gdy zdefiniowano `CRASH_HANDLER` i platforma nie jest Windows ani Emscripten.
 ## Funkcje
-## # `void crashHandler(int signum, siginfo_t* info, void* secret)`
-## # # Opis semantyczny
+## `void crashHandler(int signum, siginfo_t* info, void* secret)`
+## Opis semantyczny
 Jest to funkcja obsługi sygnału, która jest wywoływana przez system operacyjny w momencie wystąpienia krytycznego błędu (np. błąd segmentacji). Jej zadaniem jest zebranie jak największej ilości informacji o stanie programu w momencie awarii i zapisanie ich do logu.
-## # # Działanie
+## Działanie
 1.  Loguje komunikat "Application crashed".
 2.  Tworzy strumień `stringstream` do budowy raportu.
 3.  Zapisuje podstawowe informacje o aplikacji (nazwa, wersja, data kompilacji itp.).
@@ -6646,14 +6646,14 @@ Jest to funkcja obsługi sygnału, która jest wywoływana przez system operacyj
 6.  Opcjonalnie (jeśli zdefiniowano `DEMANGLE_BACKTRACE_SYMBOLS`), próbuje zdemanglować nazwy funkcji C++ w śladzie stosu.
 7.  Zapisuje cały raport do pliku `crash_report.log` i do głównego logu aplikacji.
 8.  Przywraca domyślną obsługę sygnałów, aby umożliwić systemowi operacyjnemu dokończenie procesu zamykania aplikacji.
-## # `void installCrashHandler()`
+## `void installCrashHandler()`
 
 Rejestruje funkcję `crashHandler` jako handler dla sygnałów:
 -   `SIGILL`: Nielegalna instrukcja.
 -   `SIGSEGV`: Naruszenie ochrony pamięci.
 -   `SIGFPE`: Błąd operacji zmiennoprzecinkowej.
 -   `SIGABRT`: Sygnał przerwania (np. z `assert`).
-## # `void uninstallCrashHandler()`
+## `void uninstallCrashHandler()`
 
 Pusta funkcja, deinstalacja nie jest zaimplementowana.
 ## Zależności i powiązania
@@ -6701,26 +6701,26 @@ Plik `unixplatform.cpp` zawiera implementację metod klasy `Platform` specyficzn
 
 Plik `win32crashhandler.cpp` zawiera implementację mechanizmu obsługi awarii (crash handler) dla systemu Windows. Jest kompilowany, gdy zdefiniowano `WIN32` i `CRASH_HANDLER`.
 ## Funkcje
-## # `const char *getExceptionName(DWORD exceptionCode)`
+## `const char *getExceptionName(DWORD exceptionCode)`
 
 Funkcja pomocnicza, która tłumaczy kod wyjątku Windows (np. `EXCEPTION_ACCESS_VIOLATION`) на czytelną nazwę.
-## # `void Stacktrace(LPEXCEPTION_POINTERS e, std::stringstream& ss)`
+## `void Stacktrace(LPEXCEPTION_POINTERS e, std::stringstream& ss)`
 
 Generuje ślad stosu wywołań. Używa funkcji z biblioteki `DbgHelp.dll` (`StackWalk`, `SymGetModuleBase`, `SymGetSymFromAddr`), aby przejść przez stos i odczytać nazwy funkcji i modułów.
-## # `LONG CALLBACK ExceptionHandler(PEXCEPTION_POINTERS e)`
+## `LONG CALLBACK ExceptionHandler(PEXCEPTION_POINTERS e)`
 
 Starsza wersja handlera. Generuje raport tekstowy podobny do wersji uniksowej, zapisuje go do pliku i wyświetla `MessageBox` z informacją o awarii.
-## # `LONG WINAPI UnhandledExceptionFilter2(PEXCEPTION_POINTERS exception)`
+## `LONG WINAPI UnhandledExceptionFilter2(PEXCEPTION_POINTERS exception)`
 
 Nowsza, główna funkcja obsługi wyjątków.
 -   **Działanie**:
     1.  Tworzy i zapisuje **minidump** awarii do plików (`exception.dmp`, `exception_full.dmp`). Minidump to plik, który można otworzyć w debuggerze (np. Visual Studio, WinDbg) w celu pośmiertnej analizy stanu programu.
     2.  Jeśli `quiet_crash` jest `true` (ustawiane przez `uninstallCrashHandler`), cicho zamyka aplikację.
     3.  W przeciwnym razie, wywołuje `ExceptionHandler` w celu wygenerowania raportu tekstowego i wyświetlenia komunikatu.
-## # `void installCrashHandler()`
+## `void installCrashHandler()`
 
 Rejestruje `UnhandledExceptionFilter2` jako globalny handler nieobsłużonych wyjątków za pomocą `SetUnhandledExceptionFilter`.
-## # `void uninstallCrashHandler()`
+## `void uninstallCrashHandler()`
 
 Ustawia flagę `quiet_crash` na `true`. Jest to używane np. podczas aktualizacji, aby cicho zamknąć starą wersję klienta bez wyświetlania okna błędu.
 ## Zależności i powiązania
@@ -6770,39 +6770,39 @@ Plik `win32platform.cpp` zawiera implementację metod klasy `Platform` specyficz
 
 Plik `win32window.cpp` zawiera implementację klasy `WIN32Window`, która jest specyficzną dla Windows implementacją `PlatformWindow`. Zarządza ona natywnym oknem WinAPI, obsługą zdarzeń i kontekstem graficznym (WGL dla OpenGL lub EGL dla OpenGL ES/DirectX).
 ## Klasa `WIN32Window`
-## # `WIN32Window::WIN32Window()`
+## `WIN32Window::WIN32Window()`
 
 Konstruktor. Inicjalizuje mapę klawiszy (`m_keyMap`), tłumacząc wirtualne kody klawiszy Windows (`VK_*`) na wewnętrzne kody `Fw::Key`.
-## # `void WIN32Window::init()`
+## `void WIN32Window::init()`
 
 Inicjalizuje okno, wywołując kolejno:
 1.  `internalSetupTimerAccuracy()`: Zwiększa precyzję systemowego timera.
 2.  `internalCreateWindow()`: Rejestruje klasę okna i tworzy okno za pomocą `CreateWindowExA`.
 3.  `internalCreateGLContext()`: Tworzy kontekst graficzny (WGL lub EGL).
 4.  `internalRestoreGLContext()`: Aktywuje kontekst.
-## # `void WIN32Window::internalCreateGLContext()`
+## `void WIN32Window::internalCreateGLContext()`
 
 Implementacja tworzenia kontekstu graficznego:
 -   **Dla OpenGL ES (`OPENGL_ES`)**: Używa EGL (ANGLE), próbując kolejno backendów D3D11, D3D9 i WARP, aby zapewnić maksymalną kompatybilność.
 -   **Dla standardowego OpenGL**: Używa WGL. Tworzy `PIXELFORMATDESCRIPTOR`, wybiera format pikseli i tworzy kontekst za pomocą `wglCreateContext`.
-## # `LRESULT WIN32Window::windowProc(...)`
+## `LRESULT WIN32Window::windowProc(...)`
 
 Główna funkcja obsługi zdarzeń okna (Window Procedure). Odbiera komunikaty od systemu Windows.
 -   Przekazuje zdarzenia do `dispatcherWindowProc` w celu obsługi w głównym wątku aplikacji.
 -   Bezpośrednio obsługuje niektóre komunikaty, które muszą być przetworzone synchronicznie (np. `WM_SETCURSOR`, `WM_GETMINMAXINFO`).
-## # `LRESULT WIN32Window::dispatcherWindowProc(...)`
+## `LRESULT WIN32Window::dispatcherWindowProc(...)`
 
 Metoda wywoływana przez `g_dispatcher` w głównym wątku. Tłumaczy komunikaty Windows (`WM_KEYDOWN`, `WM_LBUTTONDOWN`, `WM_MOUSEMOVE` itp.) na wewnętrzne `InputEvent` i przekazuje je do `m_onInputEvent` (czyli do `GraphicalApplication`).
-## # `void WIN32Window::poll()`
+## `void WIN32Window::poll()`
 
 Przetwarza kolejkę komunikatów Windows za pomocą `PeekMessage`, `TranslateMessage` i `DispatchMessage`.
-## # `void WIN32Window::swapBuffers()`
+## `void WIN32Window::swapBuffers()`
 
 Zamienia bufory ekranu za pomocą `SwapBuffers` (dla WGL) lub `eglSwapBuffers` (dla EGL).
-## # `void WIN32Window::setVerticalSync(bool enable)`
+## `void WIN32Window::setVerticalSync(bool enable)`
 
 Włącza/wyłącza synchronizację pionową, używając rozszerzeń WGL (`WGL_EXT_swap_control`).
-## # Inne metody
+## Inne metody
 
 Implementują interfejs `PlatformWindow`, opakowując odpowiednie funkcje WinAPI (np. `SetWindowTextW` dla `setTitle`, `ShellExecuteW` dla `openUrl`).
 ## Zależności i powiązania
@@ -6817,16 +6817,16 @@ Implementują interfejs `PlatformWindow`, opakowując odpowiednie funkcje WinAPI
 
 Plik `win32window.h` deklaruje klasę `WIN32Window`, która jest implementacją `PlatformWindow` dla systemu Windows.
 ## Klasa `WIN32Window`
-## # Opis semantyczny
+## Opis semantyczny
 `WIN32Window` enkapsuluje uchwyty i logikę związaną z natywnym oknem WinAPI. Zarządza jego cyklem życia, obsługą komunikatów systemowych i tworzeniem kontekstu graficznego (WGL dla OpenGL lub EGL dla OpenGL ES przez ANGLE).
-## # Metody prywatne i chronione
+## Metody prywatne i chronione
 
 -   `internal...()`: Grupa metod do wewnętrznego zarządzania oknem i kontekstem GL.
 -   `windowProc(...)`: Główna funkcja obsługi komunikatów Windows.
 -   `dispatcherWindowProc(...)`: Handler komunikatów wykonywany w głównym wątku.
 -   `retranslateVirtualKey(...)`: Tłumaczy kody klawiszy WinAPI.
 -   `getClientRect()`, `getWindowRect()`, `adjustWindowRect()`: Metody pomocnicze do geometrii okna.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_window`: Uchwyt `HWND` do okna.
 -   `m_instance`: Uchwyt `HINSTANCE` do modułu aplikacji.
@@ -6846,13 +6846,13 @@ Plik `win32window.h` deklaruje klasę `WIN32Window`, która jest implementacją 
 
 Plik `x11window.h` deklaruje klasę `X11Window`, która jest implementacją `PlatformWindow` dla systemów uniksowych używających serwera X11 (głównie Linux).
 ## Klasa `X11Window`
-## # Opis semantyczny
+## Opis semantyczny
 `X11Window` zarządza natywnym oknem X11, obsługą jego zdarzeń oraz tworzeniem kontekstu graficznego (GLX dla OpenGL lub EGL dla OpenGL ES).
-## # Metody prywatne i chronione
+## Metody prywatne i chronione
 
 -   `internal...()`: Grupa metod do wewnętrznego zarządzania oknem i kontekstem GL.
 -   `getExtensionProcAddress(...)`, `isExtensionSupported(...)`: Do obsługi rozszerzeń GLX/EGL.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_display`: Wskaźnik na `Display` (połączenie z serwerem X11).
 -   `m_visual`: Informacje o wizualu (głębia kolorów itp.).
@@ -6875,10 +6875,10 @@ Plik `x11window.h` deklaruje klasę `X11Window`, która jest implementacją `Pla
 
 Plik `x11window.cpp` zawiera implementację klasy `X11Window` dla systemów uniksowych z X11.
 ## Klasa `X11Window`
-## # `X11Window::X11Window()`
+## `X11Window::X11Window()`
 
 Konstruktor. Inicjalizuje mapę klawiszy, tłumacząc `KeySym` z X11 na `Fw::Key`.
-## # `void X11Window::init()`
+## `void X11Window::init()`
 
 Inicjalizuje okno, wywołując kolejno:
 1.  `internalOpenDisplay()`: Otwiera połączenie z serwerem X11.
@@ -6886,22 +6886,22 @@ Inicjalizuje okno, wywołując kolejno:
 3.  `internalChooseGLVisual()`: Wybiera odpowiedni format wizualny.
 4.  `internalCreateGLContext()`: Tworzy kontekst graficzny.
 5.  `internalCreateWindow()`: Tworzy okno X11.
-## # `void X11Window::internalCreateWindow()`
+## `void X11Window::internalCreateWindow()`
 
 Tworzy okno za pomocą `XCreateWindow`, ustawia atrybuty, w tym maskę zdarzeń, i przygotowuje obsługę zamknięcia okna przez menedżera okien. Inicjalizuje również XIM/XIC do obsługi wprowadzania tekstu.
-## # `void X11Window::poll()`
+## `void X11Window::poll()`
 
 Przetwarza kolejkę zdarzeń X11 za pomocą `XPending` i `XNextEvent`. Tłumaczy zdarzenia X11 (`KeyPress`, `ButtonPress`, `MotionNotify`, `ConfigureNotify` itp.) na wewnętrzne `InputEvent` i wywołuje odpowiednie `callbacki` w `g_dispatcher`. Obsługuje również logikę auto-powtarzania klawiszy i wprowadzania tekstu.
-## # `void X11Window::swapBuffers()`
+## `void X11Window::swapBuffers()`
 
 Zamienia bufory ekranu za pomocą `glXSwapBuffers` (dla GLX) lub `eglSwapBuffers` (dla EGL).
-## # `void X11Window::setFullscreen(bool fullscreen)`
+## `void X11Window::setFullscreen(bool fullscreen)`
 
 Zmienia stan okna na pełnoekranowy, wysyłając odpowiedni komunikat `_NET_WM_STATE` do menedżera okien.
-## # `void X11Window::setClipboardText(...)` i `getClipboardText()`
+## `void X11Window::setClipboardText(...)` i `getClipboardText()`
 
 Implementują obsługę schowka za pomocą mechanizmu selekcji X11.
-## # Inne metody
+## Inne metody
 
 Implementują interfejs `PlatformWindow`, opakowując odpowiednie funkcje X11 (np. `XStoreName` dla `setTitle`, `XMoveWindow` dla `move`).
 ## Zależności i powiązania
@@ -6915,35 +6915,35 @@ Implementują interfejs `PlatformWindow`, opakowując odpowiednie funkcje X11 (n
 
 Plik `proxy.cpp` zawiera implementację klasy `ProxyManager`, która zarządza systemem proxy do komunikacji z serwerem gry.
 ## Zmienne globalne
-## # `g_proxy`
+## `g_proxy`
 
 Globalna instancja `ProxyManager`.
 ## Klasa `ProxyManager`
-## # `void ProxyManager::init()` i `terminate()`
+## `void ProxyManager::init()` i `terminate()`
 
 Uruchamiają i zatrzymują dedykowany wątek sieciowy, w którym działa `io_context` dla operacji proxy.
-## # `void ProxyManager::clear()`
+## `void ProxyManager::clear()`
 
 Zamyka wszystkie aktywne sesje i połączenia z serwerami proxy.
-## # `bool ProxyManager::isActive()`
+## `bool ProxyManager::isActive()`
 
 Zwraca `true`, jeśli skonfigurowano co najmniej jeden serwer proxy.
-## # `void ProxyManager::addProxy(...)`
+## `void ProxyManager::addProxy(...)`
 
 Dodaje nowy serwer proxy do puli. Tworzy obiekt `Proxy` i uruchamia go.
-## # `void ProxyManager::removeProxy(...)`
+## `void ProxyManager::removeProxy(...)`
 
 Usuwa serwer proxy z puli.
-## # `uint32_t ProxyManager::addSession(...)`
+## `uint32_t ProxyManager::addSession(...)`
 
 Tworzy nową sesję proxy dla połączenia z serwerem gry. Tworzy obiekt `Session` i zwraca jego unikalne ID.
-## # `void ProxyManager::removeSession(...)`
+## `void ProxyManager::removeSession(...)`
 
 Zamyka sesję o danym ID.
-## # `void ProxyManager::send(...)`
+## `void ProxyManager::send(...)`
 
 Wysyła pakiet w ramach danej sesji. Znajduje odpowiedni obiekt `Session` i przekazuje mu pakiet.
-## # `int ProxyManager::getPing()`
+## `int ProxyManager::getPing()`
 
 Zwraca najlepszy (najniższy) ping spośród wszystkich aktywnych i połączonych serwerów proxy.
 ## Zależności i powiązania
@@ -6958,9 +6958,9 @@ Zwraca najlepszy (najniższy) ping spośród wszystkich aktywnych i połączonyc
 
 Plik `proxy.h` deklaruje klasę `ProxyManager`, która jest singletonem (`g_proxy`) odpowiedzialnym za zarządzanie całym systemem połączeń proxy. Stanowi on główny punkt wejścia do konfiguracji i wykorzystania tunelowania ruchu sieciowego.
 ## Klasa `ProxyManager`
-## # Opis semantyczny
+## Opis semantyczny
 `ProxyManager` zarządza pulą dostępnych serwerów proxy (obiekty `Proxy`) oraz pulą aktywnych sesji klienta (obiekty `Session`). Jego zadaniem jest koordynacja między sesjami a serwerami proxy, dynamiczne wybieranie najlepszych serwerów do tunelowania ruchu oraz dostarczanie interfejsu do zarządzania tym procesem z poziomu aplikacji i skryptów Lua. Działa w dedykowanym wątku sieciowym, aby nie blokować głównego wątku aplikacji.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -6975,7 +6975,7 @@ Plik `proxy.h` deklaruje klasę `ProxyManager`, która jest singletonem (`g_prox
 | `std::map<...> getProxies()` | Zwraca mapę dostępnych serwerów proxy wraz z ich pingiem. |
 | `std::map<...> getProxiesDebugInfo()` | Zwraca szczegółowe informacje diagnostyczne o każdym proxy. |
 | `int getPing()` | Zwraca najniższy ping spośród wszystkich aktywnych serwerów proxy. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_io`: Kontekst `io_context` z Boost.Asio, na którym działają wszystkie operacje sieciowe proxy.
 -   `m_guard`: Obiekt `work_guard`, który zapobiega zakończeniu działania `m_io`, dopóki `ProxyManager` jest aktywny.
@@ -6984,7 +6984,7 @@ Plik `proxy.h` deklaruje klasę `ProxyManager`, która jest singletonem (`g_prox
 -   `m_maxActiveProxies`: Maksymalna liczba proxy używanych przez jedną sesję.
 -   `m_proxies`: Lista wskaźników na dostępne obiekty `Proxy`.
 -   `m_sessions`: Lista wskaźników na aktywne obiekty `Session`.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_proxy`: Globalna instancja `ProxyManager`.
 ## Zależności i powiązania
@@ -7004,14 +7004,14 @@ Plik `proxy_client.h` deklaruje dwie kluczowe klasy dla systemu proxy: `Proxy` i
 -   `ProxyPacketPtr`: Alias dla `std::shared_ptr<ProxyPacket>`.
 -   `Session`, `SessionPtr`: Wczesna deklaracja i alias dla wskaźnika na `Session`.
 ## Klasa `Proxy`
-## # Opis semantyczny
+## Opis semantyczny
 `Proxy` reprezentuje pojedyncze, trwałe połączenie z jednym serwerem proxy. Jego zadaniem jest utrzymanie połączenia, monitorowanie jego jakości (ping), przesyłanie pakietów dla wielu sesji oraz raportowanie swojego stanu do `ProxyManager`.
-## # Stałe i typy wyliczeniowe
+## Stałe i typy wyliczeniowe
 
 -   `CHECK_INTERVAL`: Interwał (w ms) sprawdzania stanu połączenia i wysyłania pingów.
 -   `BUFFER_SIZE`: Rozmiar bufora odczytu.
 -   `enum ProxyState`: Definiuje stany, w jakich może znajdować się połączenie z proxy (np. `STATE_NOT_CONNECTED`, `STATE_CONNECTING`, `STATE_CONNECTED`).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7027,14 +7027,14 @@ Plik `proxy_client.h` deklaruje dwie kluczowe klasy dla systemu proxy: `Proxy` i
 | `void removeSession(...)` | Wysyła polecenie zamknięcia sesji. |
 | `void send(...)` | Dodaje pakiet do kolejki wysyłania do serwera proxy. |
 ## Klasa `Session`
-## # Opis semantyczny
+## Opis semantyczny
 `Session` reprezentuje pojedynczą sesję klienta z serwerem gry, która jest tunelowana przez jeden lub więcej serwerów proxy. Może działać w dwóch trybach: jako serwer (akceptując lokalne połączenie od klienta gry) lub jako klient (gdy jest tworzona bezpośrednio przez `Protocol`). Odpowiada za dynamiczne wybieranie najlepszych `Proxy` do wysyłania pakietów oraz za re-asemblację pakietów przychodzących, które mogą docierać z różnych `Proxy` i w różnej kolejności.
-## # Stałe
+## Stałe
 
 -   `CHECK_INTERVAL`: Interwał (w ms) sprawdzania stanu sesji i wyboru proxy.
 -   `BUFFER_SIZE`: Rozmiar bufora.
 -   `TIMEOUT`: Czas (w ms) braku aktywności, po którym sesja jest zamykana.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7062,45 +7062,45 @@ Plik `proxy_client.cpp` zawiera implementację logiki dla klas `Proxy` i `Sessio
 -   `g_proxies`: Globalny zbiór (`std::set`) przechowujący wskaźniki do aktywnych obiektów `Proxy`.
 -   `UID`: Unikalny identyfikator tej instancji klienta, używany w pakietach ping.
 ## Klasa `Proxy` (implementacja)
-## # `void Proxy::check(...)`
+## `void Proxy::check(...)`
 
 Główna metoda cyklu życia `Proxy`. Działa jak maszyna stanów, wywoływana cyklicznie przez `m_timer`.
 -   W stanie `STATE_NOT_CONNECTED`, inicjuje `connect()`.
 -   W stanie `STATE_CONNECTING`, sprawdza timeout dla połączenia.
 -   W stanie `STATE_CONNECTED`, wysyła pakiety ping, jeśli nie oczekuje na odpowiedź.
 -   W stanie `STATE_CONNECTING_WAIT_FOR_PING`, czeka na pierwszą odpowiedź ping.
-## # `void Proxy::connect()`
+## `void Proxy::connect()`
 
 Asynchronicznie rozwiązuje nazwę hosta, a następnie łączy się z serwerem proxy. Po pomyślnym połączeniu, ustawia opcje gniazda (`no_delay`, rozmiary buforów), rozpoczyna odczyt nagłówków i wysyła pierwszy ping.
-## # `void Proxy::disconnect()`
+## `void Proxy::disconnect()`
 
 Zamyka gniazdo i resetuje stan do `STATE_NOT_CONNECTED`.
-## # `void Proxy::ping()`
+## `void Proxy::ping()`
 
 Wysyła pakiet kontrolny "ping" do serwera proxy. Pakiet zawiera unikalne ID klienta (`UID`) i ostatni zmierzony ping.
-## # `void Proxy::onPing(uint32_t packetId)`
+## `void Proxy::onPing(uint32_t packetId)`
 
 Handler odpowiedzi na ping. Oblicza nowy ping na podstawie czasu wysłania i odebrania pakietu. Jeśli to był pierwszy ping, zmienia stan na `STATE_CONNECTED`.
-## # `void Proxy::readHeader()` i `onHeader(...)`
+## `void Proxy::readHeader()` i `onHeader(...)`
 
 Implementują dwuetapowy odczyt pakietu: najpierw odczytywany jest 2-bajtowy nagłówek z rozmiarem, a następnie reszta pakietu.
-## # `void Proxy::onPacket(...)`
+## `void Proxy::onPacket(...)`
 
 Przetwarza przychodzący pakiet. Na podstawie `sessionId` decyduje, czy jest to pakiet danych dla sesji, czy pakiet kontrolny (ping, zamknięcie sesji). Znajduje odpowiednią sesję w `g_sessions` i przekazuje jej dane.
-## # `void Proxy::send(...)`
+## `void Proxy::send(...)`
 
 Implementuje kolejkę wysyłania. Dodaje pakiet do `m_sendQueue` i rozpoczyna operację `async_write`, jeśli kolejka była pusta.
 ## Klasa `Session` (implementacja)
-## # `void Session::start(int maxConnections)`
+## `void Session::start(int maxConnections)`
 
 Dodaje sesję do globalnej mapy `g_sessions`, uruchamia pętlę `check` i, w trybie serwera, rozpoczyna odczyt danych od klienta gry.
-## # `void Session::terminate(...)`
+## `void Session::terminate(...)`
 
 Zamyka sesję, informuje wszystkie powiązane `Proxy` o zamknięciu, zamyka gniazdo (jeśli jest) i wywołuje `callback` rozłączenia.
-## # `void Session::check(...)`
+## `void Session::check(...)`
 
 Metoda cykliczna. Sprawdza timeout braku aktywności i wywołuje `selectProxies` w celu optymalizacji routingu.
-## # `void Session::selectProxies()`
+## `void Session::selectProxies()`
 
 Inteligentny algorytm wyboru proxy.
 1.  Iteruje po wszystkich globalnie dostępnych, połączonych `Proxy`.
@@ -7108,14 +7108,14 @@ Inteligentny algorytm wyboru proxy.
 3.  Jeśli liczba aktywnych proxy dla tej sesji jest mniejsza niż `m_maxConnections`, dodaje najlepsze znalezione `Proxy`.
 4.  Jeśli liczba jest równa `m_maxConnections`, a znalezione `Proxy` jest znacznie lepsze niż najgorsze z aktualnie używanych, zastępuje najgorsze nowym.
 5.  Po dodaniu nowego `Proxy`, wysyła do niego wszystkie pakiety z kolejki `m_proxySendQueue` (pakiety, które mogły zostać utracone przez poprzednie `Proxy`).
-## # `void Session::onProxyPacket(...)`
+## `void Session::onProxyPacket(...)`
 
 Handler dla pakietów przychodzących od proxy.
 -   Sprawdza numer sekwencyjny (`packetId`). Odrzuca stare pakiety.
 -   Usuwa z `m_proxySendQueue` pakiety wychodzące, których otrzymanie potwierdził serwer proxy (`lastRecivedPacketId`).
 -   Dodaje przychodzący pakiet do kolejki `m_sendQueue` (która tutaj działa jako bufor odbiorczy do re-asemblacji).
 -   Jeśli pakiet jest tym, na który czeka (`packetId == m_inputPacketId`), przetwarza go (i wszystkie następne w kolejce), wywołując `m_recvCallback` lub wysyłając do klienta gry.
-## # `void Session::onPacket(...)`
+## `void Session::onPacket(...)`
 
 Handler dla pakietów przychodzących od klienta gry.
 1.  Generuje nowy numer sekwencyjny (`m_outputPacketId`).
@@ -7129,15 +7129,15 @@ Handler dla pakietów przychodzących od klienta gry.
 
 Plik `combinedsoundsource.cpp` zawiera implementację klasy `CombinedSoundSource`, która jest specjalnym rodzajem źródła dźwięku.
 ## Klasa `CombinedSoundSource`
-## # Opis semantyczny
+## Opis semantyczny
 `CombinedSoundSource` działa jak kontener na wiele innych obiektów `SoundSource`. Wszystkie operacje wykonane na `CombinedSoundSource` (np. `play()`, `stop()`, `setGain()`) są delegowane i wykonywane na każdym z podrzędnych źródeł dźwięku, które przechowuje. Jest to użyteczne do tworzenia złożonych efektów dźwiękowych lub do implementacji obejść (workarounds), jak w przypadku problemu z dźwiękiem stereo na Linuksie (gdzie dźwięk stereo jest symulowany przez dwa źródła mono).
-## # `CombinedSoundSource::CombinedSoundSource()`
+## `CombinedSoundSource::CombinedSoundSource()`
 
 Konstruktor. Wywołuje konstruktor klasy bazowej `SoundSource` z ID 0, ponieważ sam nie reprezentuje rzeczywistego źródła w OpenAL.
-## # `void CombinedSoundSource::addSource(const SoundSourcePtr& source)`
+## `void CombinedSoundSource::addSource(const SoundSourcePtr& source)`
 
 Dodaje nowe podrzędne źródło dźwięku do wewnętrznego wektora `m_sources`.
-## # Metody operacyjne (`play`, `stop`, `setLooping`, `setGain`, etc.)
+## Metody operacyjne (`play`, `stop`, `setLooping`, `setGain`, etc.)
 
 Każda z tych metod jest prostą pętlą, która iteruje po wektorze `m_sources` i wywołuje odpowiednią metodę na każdym z podrzędnych obiektów `SoundSource`.
 
@@ -7155,7 +7155,7 @@ void CombinedSoundSource::setGain(float gain)
 }
 // ... i tak dalej
 ```
-## # Metody sprawdzające stan (`isBuffering`, `isPlaying`)
+## Metody sprawdzające stan (`isBuffering`, `isPlaying`)
 
 Zwracają `true`, jeśli **którekolwiek** z podrzędnych źródeł spełnia dany warunek.
 
@@ -7169,7 +7169,7 @@ bool CombinedSoundSource::isPlaying()
     return false;
 }
 ```
-## # `void CombinedSoundSource::update()`
+## `void CombinedSoundSource::update()`
 
 Metoda wywoływana w pętli `SoundManager::poll()`. Wywołuje `update()` na wszystkich podrzędnych źródłach, co jest potrzebne np. do obsługi płynnego wyciszania/zgłaśniania (fading).
 ## Zależności i powiązania
@@ -7183,9 +7183,9 @@ Metoda wywoływana w pętli `SoundManager::poll()`. Wywołuje `update()` na wszy
 
 Plik `combinedsoundsource.h` deklaruje klasę `CombinedSoundSource`, która jest kompozytem wielu źródeł dźwięku, zachowującym się jak jedno.
 ## Klasa `CombinedSoundSource`
-## # Opis semantyczny
+## Opis semantyczny
 `CombinedSoundSource` implementuje wzorzec projektowy "Kompozyt". Pozwala traktować grupę obiektów `SoundSource` w ten sam sposób, co pojedynczy obiekt. Wszystkie operacje są delegowane do wewnętrznej kolekcji źródeł. Dziedziczy po `SoundSource`, aby zachować zgodność interfejsu.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7194,10 +7194,10 @@ Plik `combinedsoundsource.h` deklaruje klasę `CombinedSoundSource`, która jest
 | `std::vector<...> getSources()` | Zwraca listę podrzędnych źródeł. |
 | `play()`, `stop()`, `setLooping()`, `setGain()`, `setPosition()`, etc. | Metody delegujące operacje do wszystkich podrzędnych źródeł. |
 | `isBuffering()`, `isPlaying()` | Sprawdzają stan, zwracając `true`, jeśli co najmniej jedno podrzędne źródło jest w danym stanie. |
-## # Metody chronione
+## Metody chronione
 
 -   `virtual void update()`: Przesłania metodę z `SoundSource` i wywołuje `update()` na wszystkich dzieciach.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_sources`: Wektor (`std::vector`) przechowujący wskaźniki na podrzędne obiekty `SoundSource`.
 ## Zależności i powiązania
@@ -7211,28 +7211,28 @@ Plik `combinedsoundsource.h` deklaruje klasę `CombinedSoundSource`, która jest
 
 Plik `oggsoundfile.cpp` zawiera implementację klasy `OggSoundFile`, która jest odpowiedzialna za odczytywanie i dekodowanie plików dźwiękowych w formacie Ogg Vorbis.
 ## Klasa `OggSoundFile`
-## # `OggSoundFile::OggSoundFile(const FileStreamPtr& fileStream)`
+## `OggSoundFile::OggSoundFile(const FileStreamPtr& fileStream)`
 
 Konstruktor. Wywołuje konstruktor klasy bazowej `SoundFile`.
-## # `OggSoundFile::~OggSoundFile()`
+## `OggSoundFile::~OggSoundFile()`
 
 Destruktor. Zwalnia zasoby związane z biblioteką Vorbis, wywołując `ov_clear()`.
-## # `bool OggSoundFile::prepareOgg()`
-## # # Opis semantyczny
+## `bool OggSoundFile::prepareOgg()`
+## Opis semantyczny
 Inicjalizuje proces dekodowania pliku Ogg Vorbis.
-## # # Działanie
+## Działanie
 1.  Tworzy strukturę `ov_callbacks` z wskaźnikami na statyczne metody `cb_...`, które będą używane przez bibliotekę Vorbis do odczytu danych ze strumienia `FileStream`.
 2.  Wywołuje `ov_open_callbacks`, przekazując `FileStream` jako źródło danych.
 3.  Pobiera informacje o pliku (liczba kanałów, częstotliwość próbkowania) za pomocą `ov_info`.
 4.  Zapisuje te informacje w polach klasy bazowej (`m_channels`, `m_rate`).
 5.  Oblicza całkowity rozmiar zdekompresowanych danych za pomocą `ov_pcm_total`.
-## # `int OggSoundFile::read(void *buffer, int bufferSize)`
+## `int OggSoundFile::read(void *buffer, int bufferSize)`
 
 Odczytuje i dekoduje fragment pliku dźwiękowego do podanego bufora. Wywołuje `ov_read`, która wykonuje całą pracę związaną z dekodowaniem.
-## # `void OggSoundFile::reset()`
+## `void OggSoundFile::reset()`
 
 Przewija strumień dźwiękowy na początek za pomocą `ov_pcm_seek()`.
-## # Statyczne metody `cb_...`
+## Statyczne metody `cb_...`
 
 Są to funkcje zwrotne (callbacks) C, które opakowują metody obiektu `FileStream`, tłumacząc interfejs wymagany przez `libvorbisfile` na interfejs `FileStream`.
 -   `cb_read`: opakowuje `file->read()`
@@ -7283,9 +7283,9 @@ Plik dołącza nagłówki biblioteki OpenAL (`al.h`, `alc.h`), która jest podst
 
 Plik `oggsoundfile.h` deklaruje klasę `OggSoundFile`, która jest konkretną implementacją `SoundFile` do obsługi plików w formacie Ogg Vorbis.
 ## Klasa `OggSoundFile`
-## # Opis semantyczny
+## Opis semantyczny
 `OggSoundFile` dziedziczy po `SoundFile` i implementuje jej wirtualne metody, używając biblioteki `libvorbisfile` do dekodowania danych. Enkapsuluje ona strukturę `OggVorbis_File` i dostarcza `callbacki` C, które pozwalają bibliotece Vorbis na odczyt danych ze strumienia `FileStream`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7294,10 +7294,10 @@ Plik `oggsoundfile.h` deklaruje klasę `OggSoundFile`, która jest konkretną im
 | `bool prepareOgg()` | Inicjalizuje dekoder Vorbis i odczytuje metadane pliku. |
 | `int read(...)` | Odczytuje i dekoduje fragment danych. |
 | `void reset()` | Przewija strumień na początek. |
-## # Metody prywatne (statyczne)
+## Metody prywatne (statyczne)
 
 -   `cb_read`, `cb_seek`, `cb_close`, `cb_tell`: Statyczne funkcje zwrotne dla `libvorbisfile`.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_vorbisFile`: Uchwyt do struktur `libvorbisfile`.
 ## Zależności i powiązania
@@ -7312,21 +7312,21 @@ Plik `oggsoundfile.h` deklaruje klasę `OggSoundFile`, która jest konkretną im
 
 Plik `soundbuffer.cpp` zawiera implementację klasy `SoundBuffer`, która jest opakowaniem na bufor audio w OpenAL.
 ## Klasa `SoundBuffer`
-## # Opis semantyczny
+## Opis semantyczny
 `SoundBuffer` reprezentuje blok danych audio (próbek dźwiękowych) załadowany do pamięci, gotowy do odtworzenia przez OpenAL. Każdy `SoundBuffer` ma unikalne ID w OpenAL. Jest używany do przechowywania krótkich, często odtwarzanych dźwięków, które opłaca się trzymać w pamięci.
-## # `SoundBuffer::SoundBuffer()`
+## `SoundBuffer::SoundBuffer()`
 
 Konstruktor. Generuje nowy bufor OpenAL za pomocą `alGenBuffers()` i zapisuje jego ID.
-## # `SoundBuffer::~SoundBuffer()`
+## `SoundBuffer::~SoundBuffer()`
 
 Destruktor. Zwalnia bufor OpenAL za pomocą `alDeleteBuffers()`.
-## # `bool SoundBuffer::fillBuffer(const SoundFilePtr& soundFile)`
+## `bool SoundBuffer::fillBuffer(const SoundFilePtr& soundFile)`
 
 Wypełnia bufor danymi z obiektu `SoundFile`.
 1.  Pobiera format, rozmiar i częstotliwość próbkowania z `soundFile`.
 2.  Odczytuje całą zawartość pliku dźwiękowego do tymczasowego bufora w RAM.
 3.  Wywołuje drugą wersję `fillBuffer` w celu przesłania danych do OpenAL.
-## # `bool SoundBuffer::fillBuffer(ALenum sampleFormat, const DataBuffer<char>& data, int size, int rate)`
+## `bool SoundBuffer::fillBuffer(ALenum sampleFormat, const DataBuffer<char>& data, int size, int rate)`
 
 Przesyła surowe dane próbek dźwiękowych do bufora OpenAL za pomocą `alBufferData()`.
 ## Zależności i powiązania
@@ -7342,9 +7342,9 @@ Przesyła surowe dane próbek dźwiękowych do bufora OpenAL za pomocą `alBuffe
 
 Plik `soundbuffer.h` deklaruje klasę `SoundBuffer`, która jest opakowaniem na bufor audio OpenAL.
 ## Klasa `SoundBuffer`
-## # Opis semantyczny
+## Opis semantyczny
 `SoundBuffer` enkapsuluje ID bufora OpenAL i dostarcza metody do wypełniania go danymi dźwiękowymi. Jest to obiekt przechowujący dane audio, który może być następnie przypisany do jednego lub wielu `SoundSource` w celu odtwarzania.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7352,7 +7352,7 @@ Plik `soundbuffer.h` deklaruje klasę `SoundBuffer`, która jest opakowaniem na 
 | `bool fillBuffer(const SoundFilePtr& soundFile)` | Wypełnia bufor danymi z pliku dźwiękowego. |
 | `bool fillBuffer(...)` | Wypełnia bufor surowymi danymi z pamięci. |
 | `uint getBufferId()` | Zwraca ID bufora w OpenAL. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_bufferId`: ID (uchwyt) bufora w OpenAL.
 ## Zależności i powiązania
@@ -7367,18 +7367,18 @@ Plik `soundbuffer.h` deklaruje klasę `SoundBuffer`, która jest opakowaniem na 
 
 Plik `soundfile.cpp` zawiera implementację klasy `SoundFile`, która jest abstrakcyjną klasą bazową do odczytu różnych formatów plików dźwiękowych.
 ## Klasa `SoundFile`
-## # `SoundFile::SoundFile(const FileStreamPtr& fileStream)`
+## `SoundFile::SoundFile(const FileStreamPtr& fileStream)`
 
 Konstruktor. Zapisuje wskaźnik do strumienia pliku.
-## # `SoundFilePtr SoundFile::loadSoundFile(const std::string& filename)`
-## # # Opis semantyczny
+## `SoundFilePtr SoundFile::loadSoundFile(const std::string& filename)`
+## Opis semantyczny
 Statyczna metoda fabryczna, która próbuje załadować plik dźwiękowy. Automatycznie wykrywa format pliku i tworzy odpowiednią podklasę `SoundFile`.
-## # # Działanie
+## Działanie
 1.  Otwiera plik za pomocą `g_resources.openFile()`.
 2.  Odczytuje pierwsze 4 bajty ("magiczne bajty"), aby zidentyfikować format.
 3.  Jeśli plik to Ogg Vorbis (zaczyna się od "OggS"), tworzy instancję `OggSoundFile` i wywołuje jej metodę `prepareOgg()`.
 4.  W przypadku nieznanego formatu rzuca wyjątek.
-## # `ALenum SoundFile::getSampleFormat()`
+## `ALenum SoundFile::getSampleFormat()`
 
 Konwertuje wewnętrzne informacje o liczbie kanałów i bitach na sekundę na format zrozumiały dla OpenAL (np. `AL_FORMAT_STEREO16`).
 ## Zależności i powiązania
@@ -7394,24 +7394,24 @@ Konwertuje wewnętrzne informacje o liczbie kanałów i bitach na sekundę na fo
 
 Plik `soundchannel.cpp` zawiera implementację klasy `SoundChannel`, która reprezentuje kanał dźwiękowy, umożliwiający odtwarzanie dźwięków w sposób zorganizowany i kontrolowany.
 ## Klasa `SoundChannel`
-## # `SoundSourcePtr SoundChannel::play(...)`
+## `SoundSourcePtr SoundChannel::play(...)`
 
 Odtwarza nowy dźwięk na tym kanale. Jeśli inny dźwięk jest już odtwarzany, zostaje on zatrzymany. Wywołuje `g_sounds.play`, aby utworzyć i uruchomić nowe źródło dźwięku.
-## # `void SoundChannel::stop(float fadetime)`
+## `void SoundChannel::stop(float fadetime)`
 
 Zatrzymuje bieżący dźwięk i czyści kolejkę. Opcjonalnie może to zrobić z efektem wyciszania (`fadetime`).
-## # `void SoundChannel::enqueue(...)`
+## `void SoundChannel::enqueue(...)`
 
 Dodaje plik dźwiękowy do kolejki odtwarzania. Gdy bieżący dźwięk się skończy, `update()` automatycznie odtworzy następny z kolejki. Kolejka jest tasowana, aby zapewnić losową kolejność odtwarzania.
-## # `void SoundChannel::update()`
+## `void SoundChannel::update()`
 
 Metoda wywoływana cyklicznie przez `SoundManager`.
 -   Sprawdza, czy bieżące źródło dźwięku zakończyło odtwarzanie. Jeśli tak, zwalnia je.
 -   Jeśli nie ma bieżącego źródła, a kolejka nie jest pusta, pobiera następny utwór z kolejki i go odtwarza.
-## # `void SoundChannel::setEnabled(bool enable)`
+## `void SoundChannel::setEnabled(bool enable)`
 
 Włącza lub wyłącza kanał. Wyłączenie kanału natychmiast zatrzymuje odtwarzany dźwięk i zapobiega odtwarzaniu nowych.
-## # `void SoundChannel::setGain(float gain)`
+## `void SoundChannel::setGain(float gain)`
 
 Ustawia ogólną głośność dla kanału. Głośność ta jest mnożona przez głośność poszczególnych dźwięków odtwarzanych na tym kanale.
 ## Zależności i powiązania
@@ -7427,9 +7427,9 @@ Ustawia ogólną głośność dla kanału. Głośność ta jest mnożona przez g
 
 Plik `soundchannel.h` deklaruje klasę `SoundChannel`, która reprezentuje logiczny kanał audio.
 ## Klasa `SoundChannel`
-## # Opis semantyczny
+## Opis semantyczny
 `SoundChannel` pozwala na grupowanie i zarządzanie odtwarzaniem dźwięków. Każdy kanał może odtwarzać tylko jeden dźwięk naraz, ale posiada kolejkę, która pozwala na automatyczne odtwarzanie kolejnych utworów. Umożliwia globalną kontrolę nad grupą dźwięków, np. ustawienie głośności dla całej muzyki w grze.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7442,10 +7442,10 @@ Plik `soundchannel.h` deklaruje klasę `SoundChannel`, która reprezentuje logic
 | `float getGain()` | Zwraca głośność kanału. |
 | `bool isEnabled()` | Sprawdza, czy kanał jest włączony. |
 | `int getId()` | Zwraca ID kanału. |
-## # Metody chronione
+## Metody chronione
 
 -   `void update()`: Metoda cykliczna do zarządzania kolejką.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_queue`: Kolejka (`std::deque`) utworów do odtworzenia.
 -   `m_currentSource`: Wskaźnik na aktualnie odtwarzane źródło dźwięku.
@@ -7464,9 +7464,9 @@ Plik `soundchannel.h` deklaruje klasę `SoundChannel`, która reprezentuje logic
 
 Plik `soundfile.h` deklaruje abstrakcyjną klasę bazową `SoundFile`, która definiuje wspólny interfejs do odczytu danych z różnych formatów plików dźwiękowych.
 ## Klasa `SoundFile`
-## # Opis semantyczny
+## Opis semantyczny
 `SoundFile` jest abstrakcją nad plikiem dźwiękowym. Ukrywa szczegóły konkretnego formatu (np. Ogg, WAV), dostarczając ujednolicony sposób na odczytywanie zdekompresowanych próbek audio.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7477,7 +7477,7 @@ Plik `soundfile.h` deklaruje abstrakcyjną klasę bazową `SoundFile`, która de
 | `bool eof()` | Sprawdza, czy osiągnięto koniec pliku. |
 | `ALenum getSampleFormat()` | Konwertuje format (kanały, bity) na format OpenAL. |
 | `getChannels()`, `getRate()`, `getBpp()`, `getSize()`, `getName()`| Gettery dla metadanych pliku. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_file`: Wskaźnik na `FileStream`, z którego odczytywane są dane.
 -   `m_channels`, `m_rate`, `m_bps`, `m_size`: Metadane dźwięku.
@@ -7493,44 +7493,44 @@ Plik `soundfile.h` deklaruje abstrakcyjną klasę bazową `SoundFile`, która de
 
 Plik `soundmanager.cpp` zawiera implementację klasy `SoundManager`, która jest singletonem (`g_sounds`) i centralnym punktem zarządzania całym podsystemem dźwięku.
 ## Zmienne globalne
-## # `g_sounds`
+## `g_sounds`
 
 Globalna instancja `SoundManager`.
 ## Klasa `SoundManager`
-## # `void SoundManager::init()`
+## `void SoundManager::init()`
 
 Inicjalizuje system dźwięku.
 1.  Otwiera domyślne urządzenie audio za pomocą `alcOpenDevice`.
 2.  Tworzy kontekst OpenAL za pomocą `alcCreateContext`.
 3.  Ustawia ten kontekst jako aktywny za pomocą `alcMakeContextCurrent`.
-## # `void SoundManager::terminate()`
+## `void SoundManager::terminate()`
 
 Zamyka system dźwięku. Zwalnia wszystkie zasoby (źródła, bufory, kanały), niszczy kontekst i zamyka urządzenie audio.
-## # `void SoundManager::poll()`
+## `void SoundManager::poll()`
 
 Metoda wywoływana cyklicznie w głównej pętli aplikacji.
 -   Aktualizuje wszystkie aktywne źródła dźwięku (`m_sources`).
 -   Aktualizuje wszystkie kanały dźwiękowe (`m_channels`), co pozwala na zarządzanie kolejkami odtwarzania.
 -   Przetwarza asynchronicznie ładowane pliki dźwiękowe.
-## # `void SoundManager::setAudioEnabled(bool enable)`
+## `void SoundManager::setAudioEnabled(bool enable)`
 
 Globalnie włącza lub wyłącza dźwięk. Wyłączenie powoduje zatrzymanie wszystkich odtwarzanych dźwięków.
-## # `void SoundManager::preload(std::string filename)`
+## `void SoundManager::preload(std::string filename)`
 
 Ładuje plik dźwiękowy do pamięci i tworzy z niego `SoundBuffer`. Jest to optymalizacja dla krótkich, często używanych dźwięków. Bufor jest przechowywany w cache (`m_buffers`).
-## # `SoundSourcePtr SoundManager::play(...)`
+## `SoundSourcePtr SoundManager::play(...)`
 
 Główna metoda do odtwarzania dźwięku.
 1.  Tworzy odpowiednie źródło dźwięku (`SoundSource` dla skeszowanych plików lub `StreamSoundSource` dla strumieniowanych).
 2.  Ustawia jego parametry (głośność, fadetime).
 3.  Rozpoczyna odtwarzanie i dodaje źródło do listy aktywnych źródeł.
-## # `SoundChannelPtr SoundManager::getChannel(int channel)`
+## `SoundChannelPtr SoundManager::getChannel(int channel)`
 
 Zwraca obiekt kanału o danym ID. Jeśli kanał nie istnieje, jest tworzony.
-## # `SoundSourcePtr SoundManager::createSoundSource(...)`
+## `SoundSourcePtr SoundManager::createSoundSource(...)`
 
 Metoda pomocnicza, która decyduje, czy utworzyć `SoundSource` (z bufora) czy `StreamSoundSource` (strumieniowanie z pliku). Dla Linuksa implementuje obejście problemu z dźwiękiem stereo, tworząc `CombinedSoundSource` z dwoma źródłami mono.
-## # `void SoundManager::ensureContext()`
+## `void SoundManager::ensureContext()`
 
 Upewnia się, że kontekst OpenAL jest aktywny w bieżącym wątku.
 ## Zależności i powiązania
@@ -7545,13 +7545,13 @@ Upewnia się, że kontekst OpenAL jest aktywny w bieżącym wątku.
 
 Plik `soundmanager.h` deklaruje klasę `SoundManager`, która jest singletonem (`g_sounds`) zarządzającym całym systemem dźwięku w aplikacji.
 ## Klasa `SoundManager`
-## # Opis semantyczny
+## Opis semantyczny
 `SoundManager` jest centralnym interfejsem do odtwarzania dźwięków. Odpowiada za inicjalizację i zamykanie OpenAL, zarządzanie źródłami dźwięku (`SoundSource`), buforami (`SoundBuffer`) i kanałami (`SoundChannel`). Posiada mechanizm cachowania dla małych plików dźwiękowych i strumieniowania dla większych.
-## # Stałe
+## Stałe
 
 -   `MAX_CACHE_SIZE`: Maksymalny rozmiar pliku (w bajtach), który będzie cachowany w pamięci.
 -   `POLL_DELAY`: Minimalny interwał (w ms) między wywołaniami `poll()`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7564,7 +7564,7 @@ Plik `soundmanager.h` deklaruje klasę `SoundManager`, która jest singletonem (
 | `SoundChannelPtr getChannel(...)` | Pobiera lub tworzy kanał dźwiękowy. |
 | `std::string resolveSoundFile(...)` | Rozwiązuje ścieżkę do pliku dźwiękowego. |
 | `void ensureContext()` | Upewnia się, że kontekst OpenAL jest aktywny. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_device`, `m_context`: Uchwyty do urządzenia i kontekstu OpenAL.
 -   `m_streamFiles`: Mapa do zarządzania asynchronicznym ładowaniem plików strumieniowanych.
@@ -7572,7 +7572,7 @@ Plik `soundmanager.h` deklaruje klasę `SoundManager`, która jest singletonem (
 -   `m_sources`: Lista aktywnych źródeł dźwięku.
 -   `m_audioEnabled`: Globalna flaga włączenia dźwięku.
 -   `m_channels`: Mapa kanałów dźwiękowych.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_sounds`: Globalna instancja `SoundManager`.
 ## Zależności i powiązania
@@ -7586,22 +7586,22 @@ Plik `soundmanager.h` deklaruje klasę `SoundManager`, która jest singletonem (
 
 Plik `soundsource.cpp` zawiera implementację klasy `SoundSource`, która jest opakowaniem na źródło dźwięku w OpenAL.
 ## Klasa `SoundSource`
-## # `SoundSource::SoundSource()`
+## `SoundSource::SoundSource()`
 
 Konstruktor. Generuje nowe źródło w OpenAL za pomocą `alGenSources()` i ustawia domyślne parametry, takie jak dystans referencyjny.
-## # `SoundSource::~SoundSource()`
+## `SoundSource::~SoundSource()`
 
 Destruktor. Zatrzymuje odtwarzanie i zwalnia zasób źródła w OpenAL za pomocą `alDeleteSources()`.
-## # `void SoundSource::play()`
+## `void SoundSource::play()`
 
 Rozpoczyna odtwarzanie dźwięku za pomocą `alSourcePlay()`.
-## # `void SoundSource::stop()`
+## `void SoundSource::stop()`
 
 Zatrzymuje odtwarzanie (`alSourceStop()`) i odłącza bufor od źródła.
-## # `bool SoundSource::isBuffering()`
+## `bool SoundSource::isBuffering()`
 
 Sprawdza, czy źródło jest w stanie innym niż `AL_STOPPED` (czyli `AL_PLAYING` lub `AL_PAUSED`).
-## # Metody `set...()`
+## Metody `set...()`
 
 Są to opakowania na funkcje `alSource...()`, które ustawiają różne właściwości źródła dźwięku:
 -   `setBuffer`: Przypisuje `SoundBuffer` do źródła.
@@ -7610,10 +7610,10 @@ Są to opakowania na funkcje `alSource...()`, które ustawiają różne właści
 -   `setGain`: Ustawia głośność.
 -   `setPitch`: Ustawia wysokość dźwięku.
 -   `setPosition`, `setVelocity`: Ustawiają właściwości 3D dźwięku.
-## # `void SoundSource::setFading(...)`
+## `void SoundSource::setFading(...)`
 
 Inicjuje proces płynnego zgłaśniania (`FadingOn`) lub wyciszania (`FadingOff`) dźwięku w określonym czasie. Zapisuje stan i czas rozpoczęcia.
-## # `void SoundSource::update()`
+## `void SoundSource::update()`
 
 Metoda wywoływana cyklicznie przez `SoundManager`. Implementuje logikę "fadingu", aktualizując głośność źródła w każdej klatce na podstawie upływającego czasu.
 ## Zależności i powiązania
@@ -7628,28 +7628,28 @@ Metoda wywoływana cyklicznie przez `SoundManager`. Implementuje logikę "fading
 
 Plik `streamsoundsource.cpp` zawiera implementację klasy `StreamSoundSource`, która jest specjalizacją `SoundSource` do odtwarzania dźwięków strumieniowo z plików.
 ## Klasa `StreamSoundSource`
-## # Opis semantyczny
+## Opis semantyczny
 `StreamSoundSource` jest przeznaczona do odtwarzania długich plików dźwiękowych (np. muzyki), które nie są w całości ładowane do pamięci. Zamiast tego, używa mechanizmu kolejkowania małych buforów w OpenAL. Dane są odczytywane z pliku i dekodowane w locie, a następnie umieszczane w buforach, które są dodawane do kolejki odtwarzania źródła.
-## # `StreamSoundSource::StreamSoundSource()`
+## `StreamSoundSource::StreamSoundSource()`
 
 Konstruktor. Tworzy `STREAM_FRAGMENTS` (zwykle 4) małych obiektów `SoundBuffer`, które będą używane do kolejkowania.
-## # `void StreamSoundSource::setSoundFile(...)`
+## `void StreamSoundSource::setSoundFile(...)`
 
 Ustawia plik dźwiękowy, z którego będą strumieniowane dane. Jeśli źródło czekało na plik, rozpoczyna odtwarzanie.
-## # `void StreamSoundSource::play()`
+## `void StreamSoundSource::play()`
 
 Rozpoczyna odtwarzanie. Jeśli plik dźwiękowy nie został jeszcze załadowany (bo ładowanie odbywa się asynchronicznie), ustawia flagę `m_waitingFile`. W przeciwnym razie, wywołuje `queueBuffers()` i `SoundSource::play()`.
-## # `void StreamSoundSource::stop()`
+## `void StreamSoundSource::stop()`
 
 Zatrzymuje odtwarzanie i czyści kolejkę buforów za pomocą `unqueueBuffers()`.
-## # `void StreamSoundSource::update()`
+## `void StreamSoundSource::update()`
 
 Metoda wywoływana cyklicznie.
 1.  Sprawdza, ile buforów zostało już przetworzonych (odtworzonych) przez OpenAL.
 2.  Odkolejkowuje przetworzone bufory.
 3.  Wypełnia je nowymi danymi z pliku i ponownie dodaje do kolejki.
 4.  Obsługuje zapętlanie i sprawdza, czy odtwarzanie nie zostało przerwane przez "buffer underrun" (gdy OpenAL skończy odtwarzać, a nie ma nowych buforów w kolejce).
-## # `bool StreamSoundSource::fillBufferAndQueue(uint buffer)`
+## `bool StreamSoundSource::fillBufferAndQueue(uint buffer)`
 
 Kluczowa metoda.
 1.  Odczytuje fragment danych z `m_soundFile`.
@@ -7669,17 +7669,17 @@ Kluczowa metoda.
 
 Plik `streamsoundsource.h` deklaruje klasę `StreamSoundSource`, która jest implementacją `SoundSource` do strumieniowego odtwarzania dźwięku.
 ## Klasa `StreamSoundSource`
-## # Opis semantyczny
+## Opis semantyczny
 `StreamSoundSource` pozwala na odtwarzanie długich plików dźwiękowych bez potrzeby ładowania ich w całości do pamięci. Działa poprzez dzielenie dźwięku na małe fragmenty, które są dynamicznie ładowane do kolejki buforów OpenAL w trakcie odtwarzania.
-## # Stałe
+## Stałe
 
 -   `STREAM_BUFFER_SIZE`: Całkowity rozmiar bufora cyklicznego w pamięci.
 -   `STREAM_FRAGMENTS`: Liczba fragmentów (buforów OpenAL), na które jest podzielony bufor cykliczny.
 -   `STREAM_FRAGMENT_SIZE`: Rozmiar pojedynczego fragmentu.
-## # Typ wyliczeniowy `DownMix`
+## Typ wyliczeniowy `DownMix`
 
 Określa, czy i jak konwertować dźwięk stereo na mono (tylko lewy kanał, tylko prawy, lub brak konwersji).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7691,7 +7691,7 @@ Określa, czy i jak konwertować dźwięk stereo na mono (tylko lewy kanał, tyl
 | `void setSoundFile(...)` | Ustawia plik dźwiękowy do strumieniowania. |
 | `void downMix(...)` | Ustawia tryb konwersji na mono. |
 | `void update()` | Aktualizuje kolejkę buforów (metoda cykliczna). |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_soundFile`: Wskaźnik na plik dźwiękowy.
 -   `m_buffers`: Tablica buforów OpenAL używanych w kolejce.
@@ -7708,14 +7708,14 @@ Określa, czy i jak konwertować dźwięk stereo na mono (tylko lewy kanał, tyl
 
 Plik `soundsource.h` deklaruje klasę `SoundSource`, która jest abstrakcyjnym opakowaniem na źródło dźwięku w OpenAL.
 ## Klasa `SoundSource`
-## # Opis semantyczny
+## Opis semantyczny
 `SoundSource` reprezentuje punkt w przestrzeni, z którego wydobywa się dźwięk. Enkapsuluje ona ID źródła OpenAL i dostarcza interfejs do kontrolowania jego właściwości, takich jak głośność, wysokość dźwięku, pozycja, zapętlanie i stan odtwarzania. Dziedziczy po `LuaObject`.
-## # Typ wyliczeniowy `FadeState`
+## Typ wyliczeniowy `FadeState`
 
 -   `NoFading`: Brak efektu.
 -   `FadingOn`: Dźwięk jest w trakcie zgłaśniania.
 -   `FadingOff`: Dźwięk jest w trakcie wyciszania.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7733,11 +7733,11 @@ Plik `soundsource.h` deklaruje klasę `SoundSource`, która jest abstrakcyjnym o
 | `virtual void setPitch(...)` | Ustawia wysokość dźwięku. |
 | `virtual void setPosition(...)` / `setVelocity(...)` | Ustawiają właściwości 3D. |
 | `virtual void setFading(...)` | Inicjuje efekt płynnego zgłaśniania/wyciszania. |
-## # Metody chronione
+## Metody chronione
 
 -   `void setBuffer(...)`: Przypisuje `SoundBuffer` do źródła.
 -   `virtual void update()`: Metoda cykliczna do obsługi np. "fadingu".
-## # Zmienne
+## Zmienne
 
 -   `m_sourceId`: ID źródła w OpenAL.
 -   `m_name`: Nazwa.
@@ -7757,13 +7757,13 @@ Plik `soundsource.h` deklaruje klasę `SoundSource`, która jest abstrakcyjnym o
 
 Plik `any.h` zawiera implementację klasy `stdext::any`, która jest prostą, własną wersją `std::any` (dostępnego od C++17) lub `boost::any`. Pozwala na przechowywanie wartości dowolnego typu w sposób bezpieczny typowo.
 ## Klasa `any`
-## # Opis semantyczny
+## Opis semantyczny
 `any` działa jak polimorficzny kontener. Wewnątrz przechowuje wskaźnik na obiekt-opakowanie (`placeholder`), który jest tworzony na stercie. Obiekt-opakowanie jest szablonem (`holder<T>`), który przechowuje rzeczywistą wartość i informacje o jej typie (`type_info`).
-## # Struktury wewnętrzne
+## Struktury wewnętrzne
 
 -   **`placeholder`**: Abstrakcyjna klasa bazowa dla opakowań. Definiuje wirtualny interfejs do pobierania `type_info` i klonowania.
 -   **`holder<T>`**: Szablonowa klasa pochodna, która faktycznie przechowuje wartość typu `T`.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7776,7 +7776,7 @@ Plik `any.h` zawiera implementację klasy `stdext::any`, która jest prostą, w�
 | `bool empty()` | Zwraca `true`, jeśli `any` nie przechowuje wartości. |
 | `template<typename T> const T& cast() const` | Rzutuje i zwraca przechowywaną wartość. Rzuca `VALIDATE` error, jeśli typ jest nieprawidłowy. |
 | `const std::type_info & type() const` | Zwraca `type_info` przechowywanej wartości. |
-## # Funkcja `any_cast`
+## Funkcja `any_cast`
 
 Funkcja pomocnicza, która wykonuje bezpieczne rzutowanie. Sprawdza, czy typ przechowywany w `any` zgadza się z typem docelowym.
 ## Zależności i powiązania
@@ -7790,10 +7790,10 @@ Funkcja pomocnicza, która wykonuje bezpieczne rzutowanie. Sprawdza, czy typ prz
 
 Plik `cast.h` zawiera zestaw szablonowych funkcji i klas do konwersji (rzutowania) między różnymi typami danych, głównie z i do `std::string`.
 ## Funkcje `cast`
-## # `template<typename T, typename R> bool cast(const T& in, R& out)`
+## `template<typename T, typename R> bool cast(const T& in, R& out)`
 
 Główna, szablonowa funkcja. Używa `std::stringstream` do konwersji. Zwraca `true`, jeśli konwersja się powiodła.
-## # Specjalizacje
+## Specjalizacje
 
 Plik zawiera specjalizacje dla typowych i problematycznych konwersji, aby były one bardziej wydajne i niezawodne:
 -   `string` do `string`: Proste przypisanie.
@@ -7819,10 +7819,10 @@ Wyjątek rzucany przez `safe_cast`, gdy konwersja się nie powiedzie.
 
 Plik `demangle.cpp` zawiera implementację funkcji `demangle_name`, która konwertuje "zniekształcone" (mangled) nazwy typów C++ na ich czytelną formę.
 ## Funkcja `demangle_name`
-## # `const char* demangle_name(const char* name)`
-## # # Opis semantyczny
+## `const char* demangle_name(const char* name)`
+## Opis semantyczny
 Nazwy typów C++ (szczególnie w przypadku szablonów i przestrzeni nazw) są przez kompilator zamieniane na unikalne, ale nieczytelne identyfikatory (np. `N6stdext11cast_exceptionE`). Funkcja ta odwraca ten proces, używając narzędzi specyficznych dla danego kompilatora.
-## # # Implementacja
+## Implementacja
 -   **Dla MSVC (`_MSC_VER`)**: Używa funkcji `UnDecorateSymbolName` z biblioteki `DbgHelp.dll`.
 -   **Dla GCC/Clang**: Używa funkcji `abi::__cxa_demangle` z biblioteki `cxxabi`.
 ## Zależności i powiązania
@@ -7837,22 +7837,22 @@ Nazwy typów C++ (szczególnie w przypadku szablonów i przestrzeni nazw) są pr
 
 Plik `compiler.h` zawiera makra i dyrektywy preprocesora specyficzne dla kompilatora. Jego celem jest ujednolicenie obsługi różnych kompilatorów (GCC, Clang, MSVC) i zapewnienie kompatybilności.
 ## Zawartość
-## # `BUILD_COMPILER`
+## `BUILD_COMPILER`
 
 Makro, które jest definiowane jako string zawierający nazwę i wersję używanego kompilatora. Jest to ustalane na podstawie predefiniowanych makr kompilatora (`__clang__`, `__GNUC__`, `_MSC_VER`).
-## # Sprawdzanie wersji kompilatora
+## Sprawdzanie wersji kompilatora
 
 Plik zawiera dyrektywy `#error`, które zatrzymają kompilację, jeśli wersja kompilatora jest zbyt stara (wymagany GCC >= 4.6, MSVC >= 2013).
-## # Wyłączanie ostrzeżeń (MSVC)
+## Wyłączanie ostrzeżeń (MSVC)
 
 Dla kompilatora MSVC, wyłącza szereg często występujących, ale zazwyczaj nieszkodliwych ostrzeżeń (`#pragma warning(disable: ...)`), aby utrzymać czysty output kompilacji.
-## # `__PRETTY_FUNCTION__`
+## `__PRETTY_FUNCTION__`
 
 Dla MSVC, definiuje `__PRETTY_FUNCTION__` jako alias dla `__FUNCDNAME__`, aby ujednolicić sposób uzyskiwania "ozdobnej" nazwy funkcji.
-## # `likely(x)` i `unlikely(x)`
+## `likely(x)` i `unlikely(x)`
 
 Makra do optymalizacji podpowiedzi dla kompilatora (branch prediction). Dla GCC/Clang używają `__builtin_expect`. Dla innych kompilatorów są puste.
-## # Sprawdzanie wsparcia C++0x
+## Sprawdzanie wsparcia C++0x
 
 Sprawdza, czy kompilator wspiera wymagany standard C++ (C++11 lub nowszy).
 ## Zależności i powiązania
@@ -7865,7 +7865,7 @@ Sprawdza, czy kompilator wspiera wymagany standard C++ (C++11 lub nowszy).
 
 Plik `demangle.h` deklaruje funkcje pomocnicze do "demanglowania" (odkodowywania) nazw typów C++, które są zniekształcane przez kompilator w procesie kompilacji.
 ## Namespace `stdext`
-## # Funkcje
+## Funkcje
 
 | Funkcja | Opis |
 | :--- | :--- |
@@ -7883,12 +7883,12 @@ Plik `demangle.h` deklaruje funkcje pomocnicze do "demanglowania" (odkodowywania
 
 Plik `boolean.h` deklaruje prostą klasę szablonową `stdext::boolean`, która jest opakowaniem na typ `bool` z możliwością zdefiniowania wartości domyślnej.
 ## Klasa `boolean`
-## # `template<bool def>`
+## `template<bool def>`
 
 -   **Parametr szablonu `def`**: Określa domyślną wartość (`true` lub `false`).
-## # Opis semantyczny
+## Opis semantyczny
 `boolean` zachowuje się jak standardowy `bool`, ale jego konstruktor domyślny inicjalizuje go wartością `def`. Jest to przydatne do inicjalizacji pól w klasach, gdzie domyślna wartość `bool` (która jest nieokreślona) mogłaby prowadzić do błędów.
-## # Przykład użycia
+## Przykład użycia
 
 ```cpp
 class MyWidget {
@@ -7896,7 +7896,7 @@ class MyWidget {
     stdext::boolean<false> m_enabled; // Domyślnie false
 };
 ```
-## # Operatory
+## Operatory
 
 Klasa przeciąża operatory `operator bool&`, `operator bool const&` i `operator=`, co pozwala na używanie jej w taki sam sposób, jak standardowego `bool`.
 ## Zależności i powiązania
@@ -7909,12 +7909,12 @@ Klasa przeciąża operatory `operator bool&`, `operator bool const&` i `operator
 
 Plik `dumper.h` zawiera proste narzędzie do szybkiego debugowania, które pozwala na wypisywanie wartości wielu zmiennych na standardowe wyjście w jednej linii.
 ## Zmienne globalne
-## # `dump`
+## `dump`
 
 Globalny obiekt o specjalnej strukturze, który przeciąża operator `<<`.
-## # Opis semantyczny
+## Opis semantyczny
 Użycie `dump` pozwala na tworzenie łańcuchowych wywołań, które wypisują wartości oddzielone spacjami, a na końcu automatycznie dodają znak nowej linii.
-## # Przykład użycia
+## Przykład użycia
 ```cpp
 int x = 10;
 std::string y = "hello";
@@ -7924,7 +7924,7 @@ dump << "Wartości:" << x << y;
 ```
 Wartości: 10 hello 
 ```
-## # Implementacja
+## Implementacja
 -   Tworzy globalny obiekt, którego `operator<<` zwraca tymczasowy obiekt `dumper_dummy`.
 -   `dumper_dummy` ma przeciążony `operator<<` do wypisywania wartości i destruktor, który wypisuje znak nowej linii.
 ## Zależności i powiązania
@@ -7938,9 +7938,9 @@ Wartości: 10 hello
 
 Plik `dynamic_storage.h` deklaruje klasę szablonową `dynamic_storage`, która implementuje dynamiczny kontener asocjacyjny, gdzie kluczem jest typ całkowitoliczbowy, a wartością może być dowolny typ (przechowywany za pomocą `stdext::any`).
 ## Klasa `dynamic_storage`
-## # Opis semantyczny
+## Opis semantyczny
 `dynamic_storage` działa jak mapa, ale jest zaimplementowana w oparciu o `std::vector<stdext::any>`. Klucz (`Key`) jest używany jako indeks w wektorze. Jest to wydajne, jeśli klucze są małymi, kolejnymi liczbami całkowitymi. Pozwala na przechowywanie heterogenicznych danych w jednym kontenerze.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -7950,7 +7950,7 @@ Plik `dynamic_storage.h` deklaruje klasę szablonową `dynamic_storage`, która 
 | `bool has(...) const` | Sprawdza, czy klucz istnieje i ma przypisaną wartość. |
 | `std::size_t size() const` | Zwraca liczbę niepustych elementów. |
 | `void clear()` | Czyści kontener. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_data`: Wektor `stdext::any`, który przechowuje dane.
 ## Zależności i powiązania
@@ -7965,9 +7965,9 @@ Plik `dynamic_storage.h` deklaruje klasę szablonową `dynamic_storage`, która 
 
 Plik `exception.h` deklaruje klasę `stdext::exception`, która jest bazową klasą dla wszystkich niestandardowych wyjątków w projekcie.
 ## Klasa `exception`
-## # Opis semantyczny
+## Opis semantyczny
 Dziedziczy po `std::exception` i rozszerza ją o konstruktor przyjmujący `std::string` oraz o przechowywanie komunikatu błędu w `m_what`. Upraszcza to tworzenie i rzucanie wyjątków z niestandardowymi komunikatami.
-## # Metody
+## Metody
 
 -   `exception(const std::string& what)`: Konstruktor.
 -   `virtual const char* what() const throw()`: Zwraca komunikat błędu.
@@ -7989,10 +7989,10 @@ inline void throw_exception(const std::string& what) { throw exception(what); }
 
 Plik `fastrand.h` zawiera implementację prostej i szybkiej funkcji do generowania liczb pseudolosowych.
 ## Funkcja `fastrand`
-## # `static int fastrand()`
-## # # Opis semantyczny
+## `static int fastrand()`
+## Opis semantyczny
 Implementuje liniowy generator kongruentny (Linear Congruential Generator - LCG). Jest to bardzo prosty i szybki algorytm, ale o niskiej jakości losowości w porównaniu do nowocześniejszych generatorów (jak Mersenne Twister). Jest odpowiedni do zastosowań, gdzie wydajność jest ważniejsza niż jakość losowości (np. proste efekty wizualne).
-## # # Działanie
+## Działanie
 -   Używa statycznej zmiennej `g_seed` jako stanu.
 -   W każdym wywołaniu, aktualizuje `g_seed` według wzoru: `g_seed = (a * g_seed + c)`.
 -   Zwraca 15 najbardziej znaczących bitów z wyższych 16 bitów wyniku.
@@ -8006,16 +8006,16 @@ Implementuje liniowy generator kongruentny (Linear Congruential Generator - LCG)
 
 Plik `math.cpp` zawiera implementację funkcji matematycznych i losowych zadeklarowanych w `math.h`.
 ## Funkcje
-## # `uint32_t stdext::adler32(...)`
+## `uint32_t stdext::adler32(...)`
 
 Implementuje algorytm sumy kontrolnej Adler-32, który jest szybszy, ale mniej niezawodny niż CRC32.
-## # `long stdext::random_range(long min, long max)`
+## `long stdext::random_range(long min, long max)`
 
 Generuje losową liczbę całkowitą z podanego zakresu (włącznie). Używa generatora Mersenne Twister (`std::mt19937`) zasilanego przez `std::random_device`, co zapewnia wysoką jakość losowości.
-## # `float stdext::random_range(float min, float max)`
+## `float stdext::random_range(float min, float max)`
 
 Generuje losową liczbę zmiennoprzecinkową z podanego zakresu.
-## # `double stdext::round(double r)`
+## `double stdext::round(double r)`
 
 Implementuje zaokrąglanie matematyczne (od .5 w górę).
 ## Zależności i powiązania
@@ -8049,7 +8049,7 @@ Plik `math.h` deklaruje zestaw funkcji pomocniczych związanych z matematyką, o
 
 Plik `net.h` deklaruje funkcje pomocnicze związane z operacjami na adresach IP.
 ## Namespace `stdext`
-## # Funkcje
+## Funkcje
 
 | Funkcja | Opis |
 | :--- | :--- |
@@ -8068,15 +8068,15 @@ Plik `net.h` deklaruje funkcje pomocnicze związane z operacjami na adresach IP.
 
 Plik `packed_any.h` deklaruje klasę `stdext::packed_any`, która jest zoptymalizowaną pod kątem pamięci wersją `stdext::any`.
 ## Klasa `packed_any`
-## # Opis semantyczny
+## Opis semantyczny
 `packed_any` działa podobnie do `any`, ale wprowadza optymalizację dla małych, trywialnych typów (takich jak `int`, `bool`, `enum`, wskaźniki). Zamiast alokować pamięć na stercie dla `holdera`, wartości takich typów są przechowywane bezpośrednio w wskaźniku `content` poprzez rzutowanie. Flaga `scalar` odróżnia te dwa tryby przechowywania. Zmniejsza to fragmentację pamięci i narzut na alokację dla często używanych, małych typów.
-## # Szablon `can_pack_in_any`
+## Szablon `can_pack_in_any`
 
 Szablon pomocniczy, który w czasie kompilacji określa, czy dany typ `T` może być "spakowany" bezpośrednio we wskaźniku. Warunkiem jest, aby `sizeof(T)` był mniejszy lub równy `sizeof(void*)` i aby typ był trywialnie kopiowalny.
-## # Metody i pola
+## Metody i pola
 
 Są analogiczne do `stdext::any`, z dodatkowym polem `scalar` do rozróżniania trybu.
-## # Funkcja `packed_any_cast`
+## Funkcja `packed_any_cast`
 
 Posiada dwie specjalizacje: jedną dla typów "pakowalnych" (która rzutuje wskaźnik z powrotem na wartość) i drugą dla typów nie-pakowalnych (która działa jak `any_cast`).
 ## Zależności i powiązania
@@ -8089,21 +8089,21 @@ Posiada dwie specjalizacje: jedną dla typów "pakowalnych" (która rzutuje wska
 
 Plik `shared_object.h` zawiera implementację własnego, intruzywnego inteligentnego wskaźnika (`shared_object_ptr`) i powiązanej z nim klasy bazowej (`shared_object`).
 ## Klasa `shared_object`
-## # Opis semantyczny
+## Opis semantyczny
 Jest to klasa bazowa, po której muszą dziedziczyć wszystkie klasy, które chcą być zarządzane przez `shared_object_ptr`. Zawiera ona licznik referencji (`refs`) i metody do jego inkrementacji i dekrementacji. Jest to tzw. "intruzywny" wskaźnik, ponieważ sam obiekt przechowuje swój licznik referencji.
-## # Metody
+## Metody
 
 -   `add_ref()`: Inkrementuje licznik.
 -   `dec_ref()`: Dekrementuje licznik. Jeśli osiągnie 0, obiekt usuwa sam siebie (`delete this`).
 -   `ref_count()`: Zwraca liczbę referencji.
 -   `..._self_cast()`: Metody pomocnicze do bezpiecznego rzutowania `this` na `shared_object_ptr`.
 ## Klasa `shared_object_ptr`
-## # Opis semantyczny
+## Opis semantyczny
 Jest to szablonowa klasa inteligentnego wskaźnika, która naśladuje zachowanie `std::shared_ptr`, ale współpracuje z `shared_object`. Zarządza czasem życia obiektu, na który wskazuje, automatycznie wywołując `add_ref` i `dec_ref`.
-## # Metody i operatory
+## Metody i operatory
 
 Implementuje wszystkie standardowe operacje dla inteligentnych wskaźników: konstruktory, destruktor, operatory przypisania, dereferencji (`*`, `->`), porównania, a także konwersję do `bool`.
-## # Funkcje pomocnicze
+## Funkcje pomocnicze
 
 -   `get_pointer`, `static_pointer_cast`, `const_pointer_cast`, `dynamic_pointer_cast`, `make_shared_object`: Funkcje globalne naśladujące te znane z `<memory>`.
 ## Zależności i powiązania
@@ -8144,12 +8144,12 @@ Dołącza wszystkie pliki z `framework/stdext/`, w tym:
 
 Plik `packed_storage.h` deklaruje klasę szablonową `packed_storage`, która jest kontenerem asocjacyjnym zoptymalizowanym pod kątem minimalnego zużycia pamięci.
 ## Klasa `packed_storage`
-## # Opis semantyczny
+## Opis semantyczny
 `packed_storage` działa jak mapa, ale zamiast złożonych struktur drzewiastych lub tablic hashujących, przechowuje swoje elementy w prostej, dynamicznie alokowanej tablicy par `(klucz, wartość)`. Wartości są przechowywane w `packed_any`, co dodatkowo minimalizuje zużycie pamięci. Jest to rozwiązanie kompromisowe: zużywa bardzo mało pamięci, ale operacje wyszukiwania, dodawania i usuwania mają złożoność liniową O(n). Jest odpowiednia dla małej liczby elementów.
-## # Metody publiczne
+## Metody publiczne
 
 Są analogiczne do `dynamic_storage`: `set`, `remove`, `get`, `has`, `clear`, `size`.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_values`: Wskaźnik na tablicę `value_pair`.
 -   `m_size`: Aktualna liczba elementów.
@@ -8181,7 +8181,7 @@ Plik `thread.h` jest prostym plikiem nagłówkowym, który dołącza standardowe
 
 Plik `time.h` deklaruje zestaw funkcji i klas do obsługi czasu, stanowiąc opakowanie na `std::chrono`.
 ## Namespace `stdext`
-## # Funkcje
+## Funkcje
 
 | Funkcja | Opis |
 | :--- | :--- |
@@ -8190,7 +8190,7 @@ Plik `time.h` deklaruje zestaw funkcji i klas do obsługi czasu, stanowiąc opak
 | `ticks_t micros()` | Zwraca czas w mikrosekundach od uruchomienia aplikacji. |
 | `void millisleep(size_t ms)` | Usypia bieżący wątek na `ms` milisekund. |
 | `void microsleep(size_t us)` | Usypia bieżący wątek na `us` mikrosekund. |
-## # Struktura `timer`
+## Struktura `timer`
 
 Prosta klasa-stoper, podobna do `Timer` z modułu `core`, ale działająca na "rzeczywistym" czasie z `stdext::micros()`, a nie na buforowanym czasie z `g_clock`.
 ## Zależności i powiązania
@@ -8205,7 +8205,7 @@ Prosta klasa-stoper, podobna do `Timer` z modułu `core`, ale działająca na "r
 
 Plik `traits.h` zawiera szablony metaprogramowania (type traits), które są używane do manipulacji i analizy typów w czasie kompilacji.
 ## Namespace `stdext`
-## # Szablony
+## Szablony
 
 -   **`replace_extent`**: Usuwa wymiar tablicy z typu i zastępuje go wskaźnikiem. Np. `int[10]` staje się `const int*`.
 -   **`remove_const_ref`**: Metafunkcja, która z danego typu `T` usuwa kwalifikatory `const` oraz referencję, zwracając "czysty" typ. Np. `const std::string&` staje się `std::string`.
@@ -8220,7 +8220,7 @@ Plik `traits.h` zawiera szablony metaprogramowania (type traits), które są uż
 
 Plik `string.h` deklaruje zestaw funkcji pomocniczych do manipulacji i konwersji ciągów znaków (`std::string`).
 ## Namespace `stdext`
-## # Funkcje
+## Funkcje
 
 | Funkcja | Opis |
 | :--- | :--- |
@@ -8246,14 +8246,14 @@ Plik `string.h` deklaruje zestaw funkcji pomocniczych do manipulacji i konwersji
 
 Plik `time.cpp` zawiera implementację funkcji czasowych zadeklarowanych w `time.h`.
 ## Namespace `stdext`
-## # `startup_time`
+## `startup_time`
 
 Statyczna zmienna, która przechowuje czas uruchomienia aplikacji. Jest używana jako punkt odniesienia dla `millis()` i `micros()`.
 
 ```cpp
 const static auto startup_time = std::chrono::high_resolution_clock::now();
 ```
-## # Implementacje funkcji
+## Implementacje funkcji
 
 -   **`time()`**: Używa `std::time(NULL)`.
 -   **`millis()`**, **`micros()`**: Obliczają różnicę między bieżącym czasem a `startup_time` za pomocą `std::chrono` i konwertują wynik na odpowiednią jednostkę.
@@ -8279,7 +8279,7 @@ Przechowuje rozbity na części adres URL.
 | `port` | `std::string` | Port. |
 | `query` | `std::string` | Ścieżka i zapytanie (np. "/path?a=1"). |
 ## Funkcja `parseURI`
-## # `ParsedURI parseURI(const std::string& url)`
+## `ParsedURI parseURI(const std::string& url)`
 
 Parsuje podany URL i zwraca strukturę `ParsedURI` z jego komponentami.
 ## Zależności i powiązania
@@ -8292,13 +8292,13 @@ Parsuje podany URL i zwraca strukturę `ParsedURI` z jego komponentami.
 
 Plik `net.cpp` zawiera implementację funkcji pomocniczych do operacji na adresach IP, zadeklarowanych w `net.h`.
 ## Namespace `stdext`
-## # `std::string ip_to_string(uint32 ip)`
+## `std::string ip_to_string(uint32 ip)`
 
 Konwertuje 32-bitowy adres IP z porządku sieciowego na porządek hosta, a następnie na `std::string` za pomocą `boost::asio::ip::address_v4`.
-## # `uint32 string_to_ip(const std::string& string)`
+## `uint32 string_to_ip(const std::string& string)`
 
 Konwertuje `std::string` na obiekt `address_v4`, a następnie na 32-bitową liczbę w porządku sieciowym.
-## # `std::vector<uint32> listSubnetAddresses(uint32 address, uint8 mask)`
+## `std::vector<uint32> listSubnetAddresses(uint32 address, uint8 mask)`
 
 Generuje listę wszystkich adresów IP w podanej podsieci. Oblicza maskę bitową i iteruje po wszystkich możliwych adresach w zakresie, dodając je do listy.
 ## Zależności i powiązania
@@ -8313,7 +8313,7 @@ Generuje listę wszystkich adresów IP w podanej podsieci. Oblicza maskę bitow�
 
 Plik `uri.cpp` zawiera implementację funkcji `parseURI` do parsowania adresów URL.
 ## Funkcja `parseURI`
-## # `ParsedURI parseURI(const std::string& url)`
+## `ParsedURI parseURI(const std::string& url)`
 
 Używa wyrażenia regularnego (`std::regex`) do rozbicia adresu URL na jego komponenty: protokół, domenę, port i ścieżkę/zapytanie. Obsługuje protokoły "http", "https", "ws", "wss" i poprawnie ustawia domyślne porty (80 dla http/ws, 443 dla https/wss).
 ## Zależności i powiązania
@@ -8346,13 +8346,13 @@ Plik `types.h` definiuje zestaw aliasów dla typów całkowitoliczbowych o stał
 
 Plik `format.h` zawiera implementację funkcji `stdext::format`, która jest bezpieczną typowo alternatywą dla `sprintf`, podobną do `boost::format` lub `fmt::format`.
 ## Funkcje
-## # `stdext::print(...)`
+## `stdext::print(...)`
 
 Funkcja debugująca, która wypisuje na konsolę dowolną liczbę argumentów, oddzielając je tabulatorami, podobnie jak `print` w Lua.
-## # `stdext::snprintf(...)`
+## `stdext::snprintf(...)`
 
 Opakowanie na `snprintf` / `_snprintf`, które potrafi obsługiwać typy niestandardowe, takie jak `std::string`, poprzez `sprintf_cast`.
-## # `stdext::format(...)`
+## `stdext::format(...)`
 
 Główna funkcja.
 -   **Działanie**:
@@ -8429,15 +8429,15 @@ Dołącza wszystkie podstawowe komponenty UI:
 
 Plik `uiboxlayout.cpp` zawiera implementację klasy `UIBoxLayout`, która jest abstrakcyjną klasą bazową dla layoutów układających widgety w jednej linii (poziomo lub pionowo).
 ## Klasa `UIBoxLayout`
-## # `UIBoxLayout::UIBoxLayout(UIWidgetPtr parentWidget)`
+## `UIBoxLayout::UIBoxLayout(UIWidgetPtr parentWidget)`
 
 Konstruktor. Wywołuje konstruktor `UILayout` i inicjalizuje `m_spacing` na 0.
-## # `void UIBoxLayout::applyStyle(const OTMLNodePtr& styleNode)`
+## `void UIBoxLayout::applyStyle(const OTMLNodePtr& styleNode)`
 
 Parsuje atrybuty specyficzne dla `UIBoxLayout` z węzła OTML.
 -   `spacing`: Odstęp między widgetami.
 -   `fit-children`: Flaga określająca, czy layout powinien dostosować rozmiar rodzica do sumarycznego rozmiaru dzieci.
-## # `addWidget` i `removeWidget`
+## `addWidget` i `removeWidget`
 
 Te metody po prostu wywołują `update()`, ponieważ każda zmiana w liczbie dzieci wymaga ponownego przeliczenia layoutu.
 ## Zależności i powiązania
@@ -8452,17 +8452,17 @@ Te metody po prostu wywołują `update()`, ponieważ każda zmiana w liczbie dzi
 
 Plik `uiboxlayout.h` deklaruje klasę `UIBoxLayout`, która jest abstrakcyjną klasą bazową dla layoutów liniowych.
 ## Klasa `UIBoxLayout`
-## # Opis semantyczny
+## Opis semantyczny
 `UIBoxLayout` dziedziczy po `UILayout` i dodaje wspólną funkcjonalność dla layoutów horyzontalnych i wertykalnych, a mianowicie:
 -   `spacing`: Odstęp między kolejnymi elementami.
 -   `fit-children`: Możliwość automatycznego dostosowania rozmiaru widgetu-rodzica, aby zmieścił wszystkie swoje dzieci.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
 | `setSpacing(int spacing)` | Ustawia odstęp między widgetami. |
 | `setFitChildren(bool fitParent)` | Włącza/wyłącza dopasowywanie rozmiaru rodzica. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_fitChildren`: Flaga `fit-children`.
 -   `m_spacing`: Wartość odstępu.
@@ -8478,16 +8478,16 @@ Plik `uiboxlayout.h` deklaruje klasę `UIBoxLayout`, która jest abstrakcyjną k
 
 Plik `uigridlayout.cpp` zawiera implementację klasy `UIGridLayout`, która układa widgety w siatce o stałym rozmiarze komórek.
 ## Klasa `UIGridLayout`
-## # `UIGridLayout::UIGridLayout(...)`
+## `UIGridLayout::UIGridLayout(...)`
 
 Konstruktor, ustawia domyślne wartości (rozmiar komórki 16x16, 1 kolumna).
-## # `void UIGridLayout::applyStyle(...)`
+## `void UIGridLayout::applyStyle(...)`
 
 Parsuje atrybuty specyficzne dla siatki z węzła OTML, takie jak `cell-size`, `cell-spacing`, `num-columns`, `flow`.
-## # `bool UIGridLayout::internalUpdate()`
-## # # Opis semantyczny
+## `bool UIGridLayout::internalUpdate()`
+## Opis semantyczny
 Główna metoda przeliczająca pozycje widgetów w siatce.
-## # # Działanie
+## Działanie
 1.  Pobiera listę dzieci od rodzica.
 2.  **Tryb `flow`**: Jeśli włączony, dynamicznie oblicza liczbę kolumn (`numColumns`), tak aby zmieściły się w szerokości rodzica. Na podstawie tego oblicza liczbę wierszy.
 3.  **Tryb `auto-spacing`**: Jeśli włączony, dynamicznie oblicza odstęp między komórkami (`cellSpacing`), aby równomiernie rozłożyć je na całej szerokości rodzica.
@@ -8508,9 +8508,9 @@ Główna metoda przeliczająca pozycje widgetów w siatce.
 
 Plik `uigridlayout.h` deklaruje klasę `UIGridLayout`, która implementuje layout siatkowy.
 ## Klasa `UIGridLayout`
-## # Opis semantyczny
+## Opis semantyczny
 `UIGridLayout` układa swoje widgety w regularnej siatce. Może mieć stałą liczbę kolumn lub dynamicznie dostosowywać ją do dostępnej przestrzeni (`flow`). Posiada również opcje automatycznego dostosowywania odstępów i rozmiaru rodzica.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -8521,7 +8521,7 @@ Plik `uigridlayout.h` deklaruje klasę `UIGridLayout`, która implementuje layou
 | `setFlow(bool enable)` | Włącza/wyłącza tryb "płynny", w którym liczba kolumn jest dynamiczna. |
 | `setAutoSpacing(bool enable)`| Włącza/wyłącza automatyczne obliczanie odstępów. |
 | `setFitChildren(bool enable)`| Włącza/wyłącza dopasowywanie wysokości rodzica. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_cellSize`: Rozmiar komórki.
 -   `m_cellSpacing`: Odstęp między komórkami.
@@ -8538,13 +8538,13 @@ Plik `uigridlayout.h` deklaruje klasę `UIGridLayout`, która implementuje layou
 
 Plik `uihorizontallayout.cpp` zawiera implementację klasy `UIHorizontalLayout`, która układa widgety w jednym rzędzie, od lewej do prawej lub od prawej do lewej.
 ## Klasa `UIHorizontalLayout`
-## # `void UIHorizontalLayout::applyStyle(...)`
+## `void UIHorizontalLayout::applyStyle(...)`
 
 Parsuje atrybut `align-right` z węzła OTML.
-## # `bool UIHorizontalLayout::internalUpdate()`
-## # # Opis semantyczny
+## `bool UIHorizontalLayout::internalUpdate()`
+## Opis semantyczny
 Główna metoda przeliczająca pozycje widgetów.
-## # # Działanie
+## Działanie
 1.  Pobiera listę dzieci. Jeśli `m_alignRight` jest `true`, odwraca kolejność listy.
 2.  Iteruje po widgetach:
     -   Oblicza pozycję `x` na podstawie pozycji i szerokości poprzedniego widgetu oraz odstępów (`spacing`, `margin`).
@@ -8565,14 +8565,14 @@ Główna metoda przeliczająca pozycje widgetów.
 
 Plik `uihorizontallayout.h` deklaruje klasę `UIHorizontalLayout`, która implementuje layout horyzontalny.
 ## Klasa `UIHorizontalLayout`
-## # Opis semantyczny
+## Opis semantyczny
 `UIHorizontalLayout` dziedziczy po `UIBoxLayout` i specjalizuje go do układania widgetów w pojedynczym rzędzie. Może układać elementy od lewej do prawej (domyślnie) lub od prawej do lewej (`align-right`).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
 | `setAlignRight(bool alignRight)` | Włącza/wyłącza układanie od prawej do lewej. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_alignRight`: Flaga trybu wyrównania do prawej.
 ## Zależności i powiązania
@@ -8586,17 +8586,17 @@ Plik `uihorizontallayout.h` deklaruje klasę `UIHorizontalLayout`, która implem
 
 Plik `uilayout.cpp` zawiera implementację klasy `UILayout`, która jest abstrakcyjną klasą bazową dla wszystkich menedżerów layoutu.
 ## Klasa `UILayout`
-## # `void UILayout::update()`
-## # # Opis semantyczny
+## `void UILayout::update()`
+## Opis semantyczny
 Główna metoda publiczna inicjująca aktualizację layoutu.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy aktualizacje nie są wyłączone (`m_updateDisabled`).
 2.  Sprawdza, czy aktualizacja nie jest już w toku (`m_updating`), aby zapobiec rekurencji. Jeśli tak, planuje aktualizację na później (`updateLater()`).
 3.  Ustawia flagę `m_updating` na `true`.
 4.  Wywołuje wirtualną metodę `internalUpdate()`, gdzie klasy pochodne implementują swoją logikę.
 5.  Wywołuje `callback` `onLayoutUpdate` na widżecie-rodzicu.
 6.  Resetuje flagę `m_updating`.
-## # `void UILayout::updateLater()`
+## `void UILayout::updateLater()`
 
 Planuje wykonanie `update()` w następnej iteracji pętli `EventDispatcher`. Jest to mechanizm zapobiegający wielokrotnym, zbędnym przeliczeniom layoutu w tej samej klatce.
 ## Zależności i powiązania
@@ -8611,9 +8611,9 @@ Planuje wykonanie `update()` w następnej iteracji pętli `EventDispatcher`. Jes
 
 Plik `uilayout.h` deklaruje abstrakcyjną klasę bazową `UILayout`, która definiuje wspólny interfejs dla wszystkich klas zarządzających pozycją i rozmiarem widgetów-dzieci.
 ## Klasa `UILayout`
-## # Opis semantyczny
+## Opis semantyczny
 `UILayout` jest powiązany z jednym widgetem-rodzicem (`m_parentWidget`). Jego zadaniem jest automatyczne zarządzanie geometrią dzieci tego widgetu. Każda podklasa (`UIAnchorLayout`, `UIBoxLayout` itd.) implementuje inny algorytm układania elementów. Posiada mechanizmy do włączania/wyłączania aktualizacji oraz do unikania rekurencyjnych i zbędnych przeliczeń.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -8627,7 +8627,7 @@ Plik `uilayout.h` deklaruje abstrakcyjną klasę bazową `UILayout`, która defi
 | `void setParent(...)` / `getParentWidget()` | Zarządza powiązaniem z widgetem-rodzicem. |
 | `bool isUpdating()` | Zwraca `true`, jeśli layout jest w trakcie aktualizacji. |
 | `isUI...Layout()` | Metody RTTI (Run-Time Type Information) do identyfikacji typu layoutu. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_updateDisabled`: Licznik blokad aktualizacji.
 -   `m_updating`, `m_updateScheduled`: Flagi zapobiegające rekurencji i wielokrotnym aktualizacjom.
@@ -8645,9 +8645,9 @@ Plik `uilayout.h` deklaruje abstrakcyjną klasę bazową `UILayout`, która defi
 
 Plik `uimanager.h` deklaruje klasę `UIManager`, która jest singletonem (`g_ui`) i centralnym punktem zarządzania całym interfejsem użytkownika.
 ## Klasa `UIManager`
-## # Opis semantyczny
+## Opis semantyczny
 `UIManager` zarządza hierarchią widgetów, poczynając od korzenia (`m_rootWidget`). Odpowiada za propagację zdarzeń wejściowych (mysz, klawiatura), renderowanie, zarządzanie stylami OTML oraz śledzenie globalnych stanów UI, takich jak aktualnie wciśnięty, najechany czy przeciągany widget.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -8662,17 +8662,17 @@ Plik `uimanager.h` deklaruje klasę `UIManager`, która jest singletonem (`g_ui`
 | `UIWidgetPtr createWidget(...)` | Tworzy widget na podstawie nazwy stylu. |
 | `setMouseReceiver(...)` / `setKeyboardReceiver(...)` | Ustawia widget, który "przechwytuje" zdarzenia myszy/klawiatury. |
 | `get...Widget()` | Zwracają wskaźniki na widgety w określonych stanach (przeciągany, najechany, wciśnięty). |
-## # Metody chronione (wywoływane przez `UIWidget`)
+## Metody chronione (wywoływane przez `UIWidget`)
 
 -   `onWidgetAppear(...)`, `onWidgetDisappear(...)`, `onWidgetDestroy(...)`: Callbacki informujące menedżera o zmianach w drzewie widgetów, co pozwala na aktualizację globalnych stanów (np. `m_hoveredWidget`).
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_rootWidget`: Korzeń drzewa widgetów, wypełnia całe okno.
 -   `m_mouseReceiver`, `m_keyboardReceiver`: Widgety przechwytujące zdarzenia.
 -   `m_draggingWidget`, `m_hoveredWidget`, `m_pressedWidget`: Śledzą globalne stany myszy.
 -   `m_styles`: Mapa przechowująca wszystkie załadowane style.
 -   `m_destroyedWidgets`: Lista do śledzenia niszczonych widgetów w celach debugowania wycieków pamięci.
-## # Zmienne globalne
+## Zmienne globalne
 
 -   `g_ui`: Globalna instancja `UIManager`.
 ## Zależności i powiązania
@@ -8688,10 +8688,10 @@ Plik `uimanager.h` deklaruje klasę `UIManager`, która jest singletonem (`g_ui`
 
 Plik `uitextedit.cpp` zawiera implementację klasy `UITextEdit`, która jest specjalizowanym widgetem do wprowadzania i edycji tekstu.
 ## Klasa `UITextEdit`
-## # `UITextEdit::UITextEdit()`
+## `UITextEdit::UITextEdit()`
 
 Konstruktor. Inicjalizuje wszystkie pola związane z edycją tekstu do wartości domyślnych (np. kursor na pozycji 0, widoczny, tekst edytowalny).
-## # `void UITextEdit::drawSelf(...)`
+## `void UITextEdit::drawSelf(...)`
 
 Przesłonięta metoda rysująca.
 1.  Rysuje tło, ramkę, obraz i ikonę (dziedziczone z `UIWidget`).
@@ -8699,7 +8699,7 @@ Przesłonięta metoda rysująca.
 3.  Rysuje tekst, używając `CoordsBuffer` (`m_glyphsTextCoordsBuffer`) do zbuforowania geometrii.
 4.  Rysuje zaznaczenie, najpierw rysując tło zaznaczenia, a potem tekst w innym kolorze na wierzchu.
 5.  Rysuje migający kursor w odpowiedniej pozycji.
-## # `void UITextEdit::update(bool focusCursor)`
+## `void UITextEdit::update(bool focusCursor)`
 
 Kluczowa metoda, która przelicza całą geometrię tekstu.
 1.  Pobiera tekst do wyświetlenia (zwykły lub ukryty `*`).
@@ -8707,15 +8707,15 @@ Kluczowa metoda, która przelicza całą geometrię tekstu.
 3.  Oblicza pozycje wszystkich glifów za pomocą `m_font->calculateGlyphsPositions`.
 4.  Jeśli `m_autoScroll` i `focusCursor` są `true`, automatycznie przewija widok, tak aby kursor był zawsze widoczny.
 5.  Przelicza, które glify są widoczne w obszarze widgetu, i generuje dla nich współrzędne w `m_glyphsCoords`.
-## # Metody edycji tekstu
+## Metody edycji tekstu
 
 -   `setCursorPos`, `setSelection`, `clearSelection`, `selectAll`: Zarządzają pozycją kursora i zaznaczeniem.
 -   `appendText`, `appendCharacter`, `removeCharacter`: Modyfikują tekst.
 -   `del`, `paste`, `copy`, `cut`: Implementują standardowe operacje edycyjne.
-## # `int UITextEdit::getTextPos(Point pos)`
+## `int UITextEdit::getTextPos(Point pos)`
 
 Konwertuje pozycję myszy (w pikselach) na indeks znaku w tekście.
-## # Obsługa zdarzeń (`on...`)
+## Obsługa zdarzeń (`on...`)
 
 Przesłania metody obsługi zdarzeń z `UIWidget`, aby zaimplementować logikę edycji tekstu:
 -   `onKeyPress`: Obsługuje nawigację (strzałki, Home, End), usuwanie (Delete, Backspace), zaznaczanie (Shift + strzałki), kopiowanie/wklejanie (Ctrl+C/V).
@@ -8734,19 +8734,19 @@ Przesłania metody obsługi zdarzeń z `UIWidget`, aby zaimplementować logikę 
 
 Plik `uimanager.cpp` zawiera implementację klasy `UIManager`, która jest centralnym menedżerem interfejsu użytkownika.
 ## Klasa `UIManager`
-## # `void UIManager::init()`
+## `void UIManager::init()`
 
 Inicjalizuje menedżera, tworząc główny, niewidoczny widget (`m_rootWidget`), który jest korzeniem całego drzewa UI i zajmuje całą powierzchnię okna.
-## # `void UIManager::render(Fw::DrawPane drawPane)`
+## `void UIManager::render(Fw::DrawPane drawPane)`
 
 Rozpoczyna proces renderowania, wywołując metodę `draw()` na `m_rootWidget` dla określonej warstwy rysowania.
-## # `void UIManager::resize(const Size& size)`
+## `void UIManager::resize(const Size& size)`
 
 Aktualizuje rozmiar `m_rootWidget`, co powoduje rekurencyjne przeliczenie layoutu dla wszystkich widgetów potomnych.
-## # `void UIManager::inputEvent(const InputEvent& event)`
-## # # Opis semantyczny
+## `void UIManager::inputEvent(const InputEvent& event)`
+## Opis semantyczny
 Główny punkt wejścia dla wszystkich zdarzeń wejściowych. Tłumaczy surowe zdarzenia na akcje w UI.
-## # # Działanie
+## Działanie
 -   Dla zdarzeń klawiatury, przekazuje je do `m_keyboardReceiver`.
 -   Dla wciśnięcia przycisku myszy:
     1.  Identyfikuje widget pod kursorem.
@@ -8761,23 +8761,23 @@ Główny punkt wejścia dla wszystkich zdarzeń wejściowych. Tłumaczy surowe z
     2.  Jeśli jakiś widget jest wciśnięty i przeciągalny, rozpoczyna przeciąganie.
     3.  Propaguje zdarzenie `onMouseMove`.
 -   Dla kółka myszy, propaguje zdarzenie.
-## # `void UIManager::update...Widget(...)`
+## `void UIManager::update...Widget(...)`
 
 Metody te zarządzają globalnym stanem UI:
 -   `updatePressedWidget`: Zmienia, który widget jest aktualnie wciśnięty.
 -   `updateDraggingWidget`: Rozpoczyna lub kończy przeciąganie widgetu.
 -   `updateHoveredWidget`: Aktualizuje, nad którym widgetem znajduje się kursor.
-## # `bool UIManager::importStyle(...)`
+## `bool UIManager::importStyle(...)`
 
 Ładuje i parsuje plik `.otui` ze stylami, dodając je do `m_styles`.
-## # `UIWidgetPtr UIManager::loadUI(...)` i `createWidgetFromOTML(...)`
+## `UIWidgetPtr UIManager::loadUI(...)` i `createWidgetFromOTML(...)`
 
 Implementują logikę tworzenia widgetów na podstawie plików i węzłów OTML. `createWidgetFromOTML` jest kluczową metodą, która:
 1.  Znajduje styl bazowy.
 2.  Łączy (merge) go ze stylem zdefiniowanym w pliku UI.
 3.  Na podstawie atrybutu `__class`, wywołuje w Lua funkcję fabryczną (`create`) dla danego typu widgetu.
 4.  Stosuje styl i rekurencyjnie tworzy dzieci.
-## # `void UIManager::onWidgetDestroy(...)`
+## `void UIManager::onWidgetDestroy(...)`
 
 Callback wywoływany przez `UIWidget`. Czyści wszystkie globalne referencje do niszczonego widgetu (np. `m_hoveredWidget`, `m_pressedWidget`). W trybie debugowania, planuje sprawdzenie, czy nie pozostały żadne wiszące referencje do widgetu po jego zniszczeniu.
 ## Zależności i powiązania
@@ -8792,10 +8792,10 @@ Callback wywoływany przez `UIWidget`. Czyści wszystkie globalne referencje do 
 
 Plik `uitextedit.h` deklaruje klasę `UITextEdit`, która jest widgetem służącym do wprowadzania i edycji tekstu przez użytkownika.
 ## Klasa `UITextEdit`
-## # Opis semantyczny
+## Opis semantyczny
 `UITextEdit` dziedziczy po `UIWidget` i rozszerza jego funkcjonalność o logikę obsługi kursora, zaznaczania tekstu, wprowadzania z klawiatury, kopiowania/wklejania i zawijania wierszy. Jest to jeden z najbardziej złożonych widgetów w podstawowym zestawie.
-## # Metody publiczne
-## # # Zarządzanie tekstem i kursorem
+## Metody publiczne
+## Zarządzanie tekstem i kursorem
 -   `setCursorPos(...)`: Ustawia pozycję kursora.
 -   `setSelection(...)`: Ustawia zaznaczenie.
 -   `setTextHidden(...)`: Włącza tryb "hasła" (wyświetla `*`).
@@ -8803,14 +8803,14 @@ Plik `uitextedit.h` deklaruje klasę `UITextEdit`, która jest widgetem służą
 -   `appendText(...)`: Dodaje tekst w pozycji kursora.
 -   `del()`, `paste()`, `copy()`, `cut()`: Standardowe operacje edycyjne.
 -   `selectAll()`, `clearSelection()`: Zarządzanie zaznaczeniem.
-## # # Konfiguracja
+## Konfiguracja
 -   `setEditable(...)`: Włącza/wyłącza możliwość edycji.
 -   `setMultiline(...)`: Włącza/wyłącza tryb wieloliniowy.
 -   `setValidCharacters(...)`: Ogranicza dozwolone znaki.
 -   `setPlaceholder(...)`: Ustawia tekst wyświetlany, gdy pole jest puste.
-## # # Gettery
+## Gettery
 -   `getCursorPos()`, `getSelection()`, `getTextPos(...)`, ...: Zwracają informacje o stanie edytora.
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_cursorPos`: Pozycja kursora.
 -   `m_selectionStart`, `m_selectionEnd`: Granice zaznaczenia.
@@ -8830,16 +8830,16 @@ Plik `uitextedit.h` deklaruje klasę `UITextEdit`, która jest widgetem służą
 
 Plik `uitranslator.cpp` zawiera implementacje funkcji, które tłumaczą tekstowe reprezentacje różnych enumów używanych w UI na ich faktyczne wartości liczbowe.
 ## Namespace `Fw`
-## # `Fw::AlignmentFlag Fw::translateAlignment(std::string aligment)`
+## `Fw::AlignmentFlag Fw::translateAlignment(std::string aligment)`
 
 Konwertuje string (np. "top-left", "center") na odpowiednią flagę z `Fw::AlignmentFlag`. Używa `boost::to_lower` i `boost::erase_all` do normalizacji wejścia.
-## # `Fw::AnchorEdge Fw::translateAnchorEdge(std::string anchorEdge)`
+## `Fw::AnchorEdge Fw::translateAnchorEdge(std::string anchorEdge)`
 
 Konwertuje string (np. "left", "horizontal-center") na odpowiednią wartość z `Fw::AnchorEdge`.
-## # `Fw::WidgetState Fw::translateState(std::string state)`
+## `Fw::WidgetState Fw::translateState(std::string state)`
 
 Konwertuje string (np. "hover", "pressed") na odpowiednią flagę z `Fw::WidgetState`.
-## # `Fw::AutoFocusPolicy Fw::translateAutoFocusPolicy(std::string policy)`
+## `Fw::AutoFocusPolicy Fw::translateAutoFocusPolicy(std::string policy)`
 
 Konwertuje string (np. "first", "last") na odpowiednią wartość z `Fw::AutoFocusPolicy`.
 ## Zależności i powiązania
@@ -8854,7 +8854,7 @@ Konwertuje string (np. "first", "last") na odpowiednią wartość z `Fw::AutoFoc
 
 Plik `uitranslator.h` deklaruje zestaw funkcji pomocniczych do konwersji stringów na wartości wyliczeniowe (enum) używane w systemie UI.
 ## Namespace `Fw`
-## # Deklaracje funkcji
+## Deklaracje funkcji
 
 | Funkcja | Opis |
 | :--- | :--- |
@@ -8874,13 +8874,13 @@ Plik `uitranslator.h` deklaruje zestaw funkcji pomocniczych do konwersji string�
 
 Plik `uiverticallayout.cpp` zawiera implementację klasy `UIVerticalLayout`, która układa widgety w jednej kolumnie, od góry do dołu lub od dołu do góry.
 ## Klasa `UIVerticalLayout`
-## # `void UIVerticalLayout::applyStyle(...)`
+## `void UIVerticalLayout::applyStyle(...)`
 
 Parsuje atrybut `align-bottom` z węzła OTML.
-## # `bool UIVerticalLayout::internalUpdate()`
-## # # Opis semantyczny
+## `bool UIVerticalLayout::internalUpdate()`
+## Opis semantyczny
 Główna metoda przeliczająca pozycje widgetów. Działa analogicznie do `UIHorizontalLayout::internalUpdate`, ale operuje na osi Y.
-## # # Działanie
+## Działanie
 1.  Pobiera listę dzieci. Jeśli `m_alignBottom` jest `true`, odwraca kolejność listy.
 2.  Iteruje po widgetach:
     -   Oblicza pozycję `y` na podstawie pozycji i wysokości poprzedniego widgetu oraz odstępów.
@@ -8901,15 +8901,15 @@ Główna metoda przeliczająca pozycje widgetów. Działa analogicznie do `UIHor
 
 Plik `uiverticallayout.h` deklaruje klasę `UIVerticalLayout`, która implementuje layout wertykalny.
 ## Klasa `UIVerticalLayout`
-## # Opis semantyczny
+## Opis semantyczny
 `UIVerticalLayout` dziedziczy po `UIBoxLayout` i specjalizuje go do układania widgetów w pojedynczej kolumnie. Może układać elementy od góry do dołu (domyślnie) lub od dołu do góry (`align-bottom`).
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
 | `setAlignBottom(bool alignBottom)` | Włącza/wyłącza układanie od dołu do góry. |
 | `isAlignBottom()` | Zwraca stan flagi `align-bottom`. |
-## # Zmienne chronione
+## Zmienne chronione
 
 -   `m_alignBottom`: Flaga trybu wyrównania do dołu.
 ## Zależności i powiązania
@@ -8923,17 +8923,17 @@ Plik `uiverticallayout.h` deklaruje klasę `UIVerticalLayout`, która implementu
 
 Plik `uiwidget.cpp` jest głównym plikiem implementacyjnym dla klasy `UIWidget`. Zawiera on logikę dla podstawowych operacji na widgetach, takich jak zarządzanie dziećmi, obsługa layoutów, zdarzeń, stanów i stylów.
 ## Klasa `UIWidget`
-## # `UIWidget::UIWidget()`
+## `UIWidget::UIWidget()`
 
 Konstruktor. Inicjalizuje wszystkie pola do wartości domyślnych, w tym podstawowy styl, właściwości tekstu i obrazu. Co ważne, zapisuje ścieżkę do skryptu Lua, w którym widget został utworzony (`m_source`), co jest niezwykle przydatne do debugowania.
-## # `void UIWidget::draw(...)`
+## `void UIWidget::draw(...)`
 
 Główna metoda renderująca. Jest rekurencyjna.
 1.  Wywołuje `drawSelf()` do narysowania samego widgetu.
 2.  Jeśli włączone jest przycinanie (`m_clipping`), ustawia odpowiedni `DrawQueueConditionClip`.
 3.  Wywołuje `drawChildren()` do narysowania wszystkich widocznych dzieci.
 4.  Stosuje globalne efekty dla widgetu i jego dzieci, takie jak przezroczystość (`setOpacity`) i rotacja (`setRotation`), dodając odpowiednie warunki do `DrawQueue`.
-## # `void UIWidget::addChild(...)`, `insertChild(...)`, `removeChild(...)`
+## `void UIWidget::addChild(...)`, `insertChild(...)`, `removeChild(...)`
 
 Metody do zarządzania hierarchią widgetów. Poza modyfikacją `m_children`, dbają o:
 -   Ustawienie/zresetowanie wskaźnika `m_parent` w dziecku.
@@ -8941,22 +8941,22 @@ Metody do zarządzania hierarchią widgetów. Poza modyfikacją `m_children`, db
 -   Aktualizację stanu fokusu, jeśli usuwane jest dziecko z fokusem.
 -   Aktualizację stanów indeksowych (`FirstState`, `LastState`) u rodzeństwa.
 -   Powiadomienie `UIManager` o pojawieniu się/zniknięciu widgetu.
-## # `void UIWidget::focusChild(...)`, `focusNextChild(...)`, `focusPreviousChild(...)`
+## `void UIWidget::focusChild(...)`, `focusNextChild(...)`, `focusPreviousChild(...)`
 
 Implementują logikę zarządzania fokusem wewnątrz widgetu. `focusChild` zmienia `m_focusedChild` i wywołuje callbacki `onFocusChange`. `focusNext/PreviousChild` implementują nawigację (np. klawiszem Tab).
-## # `void UIWidget::applyStyle(const OTMLNodePtr& styleNode)`
+## `void UIWidget::applyStyle(const OTMLNodePtr& styleNode)`
 
 Aplikuje właściwości z węzła stylu do widgetu. Wywołuje `onStyleApply` oraz `onStyleApply` w Lua.
-## # `void UIWidget::updateState(Fw::WidgetState state)`
+## `void UIWidget::updateState(Fw::WidgetState state)`
 
 Kluczowa metoda, która aktualizuje pojedynczą flagę stanu (np. `HoverState`). Oblicza, czy widget powinien mieć dany stan (np. dla `HoverState` sprawdza, czy `g_ui.getHoveredWidget() == this`), a następnie wywołuje `setState`.
-## # `void UIWidget::updateStates()`
+## `void UIWidget::updateStates()`
 
 Wywołuje `updateState` dla wszystkich możliwych stanów, synchronizując pełny stan widgetu.
-## # `void UIWidget::updateStyle()`
+## `void UIWidget::updateStyle()`
 
 Gdy stan widgetu się zmienia, ta metoda jest wywoływana. Przebudowuje ona tymczasowy węzeł stylu (`m_stateStyle`), łącząc style z warunków (`$!hover`, `$checked`, itp.), a następnie wywołuje `applyStyle` z tym nowym, połączonym stylem.
-## # Metody `on...` i `propagateOn...`
+## Metody `on...` i `propagateOn...`
 
 Implementują domyślną obsługę i propagację zdarzeń w drzewie widgetów. Metody `propagate...` decydują, do których dzieci przekazać zdarzenie, a następnie wywołują metodę `on...` na samym widgecie.
 ## Zależności i powiązania
@@ -8972,9 +8972,9 @@ Plik `uiwidget.h` deklaruje klasę `UIWidget`, która jest fundamentalną klasą
 
 Szablonowa struktura pomocnicza do przechowywania wartości dla czterech krawędzi (góra, prawo, dół, lewo), używana dla `margin`, `padding`, `border-width` i `border-color`.
 ## Klasa `UIWidget`
-## # Opis semantyczny
+## Opis semantyczny
 `UIWidget` jest obiektowym odpowiednikiem elementu DOM. Reprezentuje prostokątny obszar na ekranie, który może być rysowany, reagować na zdarzenia i zawierać inne widgety. Implementuje model drzewa (rodzic-dzieci), system zdarzeń (propagacja i obsługa), system stanów (aktywny, najechany, etc.), zarządzanie layoutem oraz integrację z OTML i Lua.
-## # Podział interfejsu (w pliku `.h`)
+## Podział interfejsu (w pliku `.h`)
 
 Interfejs klasy jest podzielony na sekcje tematyczne:
 -   **Widget Core**: Podstawowe metody do zarządzania hierarchią, layoutem, stylami i stanami.
@@ -8984,7 +8984,7 @@ Interfejs klasy jest podzielony na sekcje tematyczne:
 -   **Base Style**: Pola i metody związane z podstawowymi właściwościami wizualnymi (tło, ramka, ikona, przezroczystość).
 -   **Image**: Pola i metody związane z wyświetlaniem obrazu (`m_imageTexture`, `setImageSource`).
 -   **Text**: Pola i metody związane z wyświetlaniem tekstu (`m_text`, `m_font`, `setText`).
-## # Kluczowe właściwości
+## Kluczowe właściwości
 
 -   **Hierarchia**: `m_parent`, `m_children`.
 -   **Geometria**: `m_rect`.
@@ -9007,27 +9007,27 @@ Plik `uiwidgetimage.cpp` zawiera implementację części klasy `UIWidget` odpowi
 
 > **NOTE:** To nie jest osobna klasa, lecz część implementacji `UIWidget`, wydzielona do osobnego pliku dla lepszej organizacji kodu.
 ## Klasa `UIWidget` (część implementacji)
-## # `void UIWidget::initImage()`
+## `void UIWidget::initImage()`
 
 Inicjalizuje pola związane z obrazem do wartości domyślnych.
-## # `void UIWidget::parseImageStyle(const OTMLNodePtr& styleNode)`
+## `void UIWidget::parseImageStyle(const OTMLNodePtr& styleNode)`
 
 Parsuje z węzła OTML wszystkie atrybuty związane z obrazem (`image-source`, `image-clip`, `image-color`, `image-border`, `image-shader` itp.) i wywołuje odpowiednie settery.
-## # `void UIWidget::drawImage(const Rect& screenCoords)`
-## # # Opis semantyczny
+## `void UIWidget::drawImage(const Rect& screenCoords)`
+## Opis semantyczny
 Główna metoda rysująca obraz.
-## # # Działanie
+## Działanie
 1.  Sprawdza, czy tekstura obrazu istnieje.
 2.  Jeśli geometria (`screenCoords`) lub właściwości obrazu uległy zmianie (`m_imageMustRecache`), przelicza i buforuje współrzędne wierzchołków i tekstur w `m_imageCoordsBuffer`.
     -   Obsługuje różne tryby: proste skalowanie, zachowanie proporcji (`m_imageFixedRatio`), powtarzanie (`m_imageRepeated`) oraz złożone rysowanie z ramką (`m_imageBordered`), które dzieli obraz na 9 części i odpowiednio je skaluje/powtarza.
 3.  Dodaje zadanie rysowania do `g_drawQueue`. Jeśli zdefiniowano `m_shader`, używa specjalnego `DrawQueueItemImageWithShader`.
-## # `void UIWidget::setQRCode(...)`
+## `void UIWidget::setQRCode(...)`
 
 Generuje obraz kodu QR, tworzy z niego teksturę i ustawia ją jako `m_imageTexture`.
-## # `void UIWidget::setImageSource(const std::string& source)`
+## `void UIWidget::setImageSource(const std::string& source)`
 
 Ładuje teksturę z pliku za pomocą `g_textures` i ustawia ją jako `m_imageTexture`. Jeśli włączone jest `m_imageAutoResize`, dostosowuje rozmiar widgetu do rozmiaru obrazu.
-## # `void UIWidget::setImageSourceBase64(...)`
+## `void UIWidget::setImageSourceBase64(...)`
 
 Dekoduje obraz zakodowany w Base64, tworzy z niego teksturę i ustawia ją.
 ## Zależności i powiązania
@@ -9042,17 +9042,17 @@ Dekoduje obraz zakodowany w Base64, tworzy z niego teksturę i ustawia ją.
 
 Plik `uianchorlayout.h` deklaruje klasy `UIAnchor`, `UIAnchorGroup` i `UIAnchorLayout`, które razem implementują system layoutu oparty na "kotwicach" (anchors).
 ## Klasa `UIAnchor`
-## # Opis semantyczny
+## Opis semantyczny
 Reprezentuje pojedynczą regułę "kotwiczenia", która wiąże jedną krawędź widgetu z krawędzią innego widgetu (lub rodzica).
 
 -   **Pola**: `m_anchoredEdge` (krawędź tego widgetu), `m_hookedWidgetId` (ID widgetu docelowego), `m_hookedEdge` (krawędź widgetu docelowego).
 ## Klasa `UIAnchorGroup`
-## # Opis semantyczny
+## Opis semantyczny
 Kontener na wszystkie kotwice (`UIAnchor`) przypisane do jednego widgetu. Posiada również flagę `m_updated` używaną przez algorytm layoutu.
 ## Klasa `UIAnchorLayout`
-## # Opis semantyczny
+## Opis semantyczny
 `UIAnchorLayout` to menedżer layoutu, który pozycjonuje i skaluje swoje widgety-dzieci na podstawie zdefiniowanych dla nich reguł kotwiczenia. Pozwala to na tworzenie elastycznych i responsywnych interfejsów, które dostosowują się do zmian rozmiaru okna.
-## # Metody publiczne
+## Metody publiczne
 
 | Metoda | Opis |
 | :--- | :--- |
@@ -9061,7 +9061,7 @@ Kontener na wszystkie kotwice (`UIAnchor`) przypisane do jednego widgetu. Posiad
 | `hasAnchors(...)` | Sprawdza, czy widget ma jakiekolwiek kotwice. |
 | `centerIn(...)` | Skrót do dodania kotwic centrujących widget. |
 | `fill(...)` | Skrót do dodania kotwic rozciągających widget na cały obszar innego widgetu. |
-## # Zmienne prywatne
+## Zmienne prywatne
 
 -   `m_anchorsGroups`: Mapa przechowująca `UIAnchorGroup` dla każdego zarządzanego widgetu.
 ## Zależności i powiązania
@@ -9078,31 +9078,31 @@ Plik `uiwidgettext.cpp` zawiera implementację części klasy `UIWidget` odpowie
 
 > **NOTE:** To nie jest osobna klasa, lecz część implementacji `UIWidget`, wydzielona do osobnego pliku.
 ## Klasa `UIWidget` (część implementacji)
-## # `void UIWidget::initText()`
+## `void UIWidget::initText()`
 
 Inicjalizuje pola związane z tekstem do wartości domyślnych (np. domyślny font, wyrównanie do środka).
-## # `void UIWidget::updateText()`
+## `void UIWidget::updateText()`
 
 Metoda wywoływana po każdej zmianie tekstu lub jego właściwości.
 1.  Jeśli zawijanie jest włączone, wywołuje `m_font->wrapText()`, aby przygotować tekst do wyświetlenia (`m_drawText`).
 2.  Jeśli włączone jest `m_textAutoResize`, oblicza nowy, preferowany rozmiar widgetu na podstawie rozmiaru tekstu i go ustawia.
 3.  Ustawia flagę `m_textMustRecache`, aby geometria została przeliczona przy następnym rysowaniu.
-## # `void UIWidget::parseTextStyle(...)`
+## `void UIWidget::parseTextStyle(...)`
 
 Parsuje z węzła OTML wszystkie atrybuty związane z tekstem (`text`, `font`, `text-align`, `text-wrap` itp.).
-## # `void UIWidget::drawText(const Rect& screenCoords)`
+## `void UIWidget::drawText(const Rect& screenCoords)`
 
 Dodaje zadanie rysowania tekstu do `g_drawQueue`. Używa `m_font` do wykonania właściwej operacji rysowania, przekazując mu tekst (`m_drawText`), obszar (`m_textCachedScreenCoords`), wyrównanie, kolor i ewentualne informacje o wielu kolorach.
-## # `void UIWidget::onTextChange(...)` i `onFontChange(...)`
+## `void UIWidget::onTextChange(...)` i `onFontChange(...)`
 
 Wirtualne metody, które domyślnie wywołują odpowiednie `callbacki` w Lua.
-## # `void UIWidget::setText(std::string text, ...)`
+## `void UIWidget::setText(std::string text, ...)`
 
 Główny setter dla tekstu. Jeśli `m_textOnlyUpperCase` jest `true`, konwertuje tekst na wielkie litery. Aktualizuje `m_text`, wywołuje `updateText()` i `onTextChange`.
-## # `void UIWidget::setColoredText(...)`
+## `void UIWidget::setColoredText(...)`
 
 Setter dla tekstu wielokolorowego. Parsuje wektor stringów, budując `m_text` i `m_textColors`.
-## # `void UIWidget::setFont(...)`
+## `void UIWidget::setFont(...)`
 
 Ustawia font, pobierając go z `g_fonts`.
 ## Zależności i powiązania
@@ -9117,25 +9117,25 @@ Ustawia font, pobierając go z `g_fonts`.
 
 Plik `uiwidgetbasestyle.cpp` zawiera implementację części klasy `UIWidget` odpowiedzialnej za podstawowy styl, czyli właściwości wspólne dla wszystkich widgetów, takie jak tło, ramka, ikona i ogólne atrybuty.
 ## Klasa `UIWidget` (część implementacji)
-## # `void UIWidget::initBaseStyle()`
+## `void UIWidget::initBaseStyle()`
 
 Inicjalizuje podstawowe właściwości stylu do wartości domyślnych (np. przezroczyste tło, biały kolor, brak ramki).
-## # `void UIWidget::parseBaseStyle(const OTMLNodePtr& styleNode)`
+## `void UIWidget::parseBaseStyle(const OTMLNodePtr& styleNode)`
 
 Główna metoda parsująca styl.
 1.  Najpierw parsuje pola i `callbacki` Lua (`@` i `&`), aby były dostępne podczas parsowania innych atrybutów.
 2.  Następnie parsuje wszystkie podstawowe atrybuty, takie jak `color`, `x`, `y`, `width`, `height`, `background-color`, `opacity`, `rotation`, `enabled`, `visible`, `margin`, `padding`, `border`, `icon`, etc.
 3.  Obsługuje również definicję layoutu (`layout: ...`) oraz deklaracje kotwic (`anchors.left: ...`).
-## # `void UIWidget::drawBackground(const Rect& screenCoords)`
+## `void UIWidget::drawBackground(const Rect& screenCoords)`
 
 Dodaje do `g_drawQueue` zadanie narysowania prostokąta wypełnionego kolorem `m_backgroundColor`.
-## # `void UIWidget::drawBorder(const Rect& screenCoords)`
+## `void UIWidget::drawBorder(const Rect& screenCoords)`
 
 Dodaje do `g_drawQueue` zadania narysowania czterech prostokątów tworzących ramkę, każdy z odpowiednim kolorem i grubością.
-## # `void UIWidget::drawIcon(const Rect& screenCoords)`
+## `void UIWidget::drawIcon(const Rect& screenCoords)`
 
 Jeśli `m_icon` jest ustawiony, dodaje do `g_drawQueue` zadanie narysowania tekstury ikony w odpowiednim miejscu, uwzględniając `m_iconAlign`, `m_iconOffset` i `m_iconColor`.
-## # `void UIWidget::setIcon(const std::string& iconFile)`
+## `void UIWidget::setIcon(const std::string& iconFile)`
 
 Ładuje teksturę ikony za pomocą `g_textures` i ustawia jej domyślny `clip-rect`.
 ## Zależności i powiązania
@@ -9151,34 +9151,34 @@ Jeśli `m_icon` jest ustawiony, dodaje do `g_drawQueue` zadanie narysowania teks
 
 Plik `uianchorlayout.cpp` zawiera implementację klas `UIAnchor`, `UIAnchorGroup` i `UIAnchorLayout`, które razem tworzą system layoutu opartego na kotwicach.
 ## Klasa `UIAnchor`
-## # `UIWidgetPtr UIAnchor::getHookedWidget(...)`
+## `UIWidgetPtr UIAnchor::getHookedWidget(...)`
 
 Znajduje widget, do którego dana kotwica jest "przyczepiona". Obsługuje specjalne identyfikatory:
 -   `parent`: widget-rodzic.
 -   `next`: następne rodzeństwo.
 -   `prev`: poprzednie rodzeństwo.
 -   Inne: szuka dziecka o danym ID w rodzicu.
-## # `int UIAnchor::getHookedPoint(...)`
+## `int UIAnchor::getHookedPoint(...)`
 
 Oblicza współrzędną (X lub Y) krawędzi widgetu, do którego kotwica jest przyczepiona.
 ## Klasa `UIAnchorGroup`
-## # `void UIAnchorGroup::addAnchor(...)`
+## `void UIAnchorGroup::addAnchor(...)`
 
 Dodaje nową kotwicę do grupy. Jeśli kotwica dla tej samej krawędzi już istnieje, jest ona zastępowana.
 ## Klasa `UIAnchorLayout`
-## # `void UIAnchorLayout::addAnchor(...)`
+## `void UIAnchorLayout::addAnchor(...)`
 
 Główna metoda do tworzenia i dodawania nowej reguły kotwiczenia. Tworzy obiekt `UIAnchor` i dodaje go do odpowiedniej `UIAnchorGroup`.
-## # `bool UIAnchorLayout::updateWidget(...)`
-## # # Opis semantyczny
+## `bool UIAnchorLayout::updateWidget(...)`
+## Opis semantyczny
 Rekurencyjna metoda, która oblicza nowy `Rect` dla pojedynczego widgetu na podstawie jego kotwic.
-## # # Działanie
+## Działanie
 1.  Jeśli widget, do którego się kotwiczymy, sam nie został jeszcze zaktualizowany, wywołuje `updateWidget` rekurencyjnie dla niego.
 2.  Iteruje po wszystkich kotwicach widgetu.
 3.  Dla każdej kotwicy, oblicza docelowy punkt (`point`) na podstawie `getHookedPoint`.
 4.  Modyfikuje `newRect` widgetu, ustawiając lub przesuwając odpowiednią krawędź (`moveLeft`, `setRight`, `moveVerticalCenter`, itp.).
 5.  Po przetworzeniu wszystkich kotwic, ustawia nowy `Rect` dla widgetu.
-## # `bool UIAnchorLayout::internalUpdate()`
+## `bool UIAnchorLayout::internalUpdate()`
 
 Główna metoda aktualizacji layoutu.
 1.  Resetuje flagi `m_updated` we wszystkich `UIAnchorGroup`.
@@ -9555,7 +9555,7 @@ graph TD
 ## 🧱 Architektura systemu
 
 System `otclient` jest zbudowany w oparciu o architekturę modułową i warstwową, która oddziela rdzeń frameworka od logiki specyficznej dla klienta gry.
-## # Warstwy
+## Warstwy
 
 1.  **Warstwa platformy (`framework/platform`)**
     -   **Opis**: Najniższa warstwa, która abstrakcjonuje interakcje z systemem operacyjnym. Zawiera implementacje dla Windows (WinAPI), Linux/macOS (X11) i Android (NDK/JNI).
@@ -9590,11 +9590,13 @@ System `otclient` jest zbudowany w oparciu o architekturę modułową i warstwow
     -   **Opis**: Zewnętrzna warstwa, która pozwala na rozszerzanie i modyfikowanie klienta bez potrzeby rekompilacji kodu C++. Skrypty Lua mają dostęp do API frameworka i logiki klienta za pośrednictwem bindowań.
     -   **Komponenty**: Pliki `.lua` i `.otmod` w katalogach `modules/` i `mods/`.
     -   **Cel**: Umożliwienie tworzenia wtyczek, modyfikacji interfejsu i dodawania nowej funkcjonalności.
-## # Przepływ danych i interakcje
+## Przepływ danych i interakcje
 
 -   **Start aplikacji**: `main()` tworzy instancję `GraphicalApplication`, która inicjalizuje warstwy od dołu do góry (Platforma -> Rdzeń -> Silniki).
 -   **Główna pętla**: `GraphicalApplication::run()` uruchamia wielowątkową pętlę. Wątek logiki (`worker`) aktualizuje stan gry i przygotowuje dane do rysowania. Wątek renderowania (główny) rysuje te dane na ekranie i odbiera zdarzenia od `PlatformWindow`.
 -   **Zdarzenia wejściowe**: `PlatformWindow` -> `GraphicalApplication` -> `UIManager` -> `UIWidget` -> Skrypt Lua (callback `onClick` itp.).
 -   **Komunikacja sieciowa**: Skrypt Lua (np. `g_game.login(...)`) -> `ProtocolGame` (Lua) -> `Protocol` (C++) -> `Connection` (C++) -> Sieć. Pakiety przychodzące idą w odwrotną stronę.
 -   **Renderowanie**: Logika klienta (C++ lub Lua) tworzy widgety i ustawia ich właściwości -> `UIManager` i `UIWidget` przygotowują `DrawQueue` -> `GraphicalApplication` przekazuje `DrawQueue` do `Painter` -> `Painter` wykonuje wywołania OpenGL.
+
+
 

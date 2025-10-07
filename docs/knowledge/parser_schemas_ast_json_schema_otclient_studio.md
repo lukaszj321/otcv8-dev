@@ -15,7 +15,7 @@
 
 ---
 ## 1) OTUI/OTML — Gramatyka i AST
-## # 1.1 Gramatyka (EBNF – praktyczna)
+## 1.1 Gramatyka (EBNF – praktyczna)
 ```
 File        := (Decl | Comment)*
 Decl        := Type ("<" Base ">")? Spacing? "{" Body "}"
@@ -33,7 +33,7 @@ String      := '"' (\\.|[^"\\])* '"' | '\'' (\\.|[^'\\])* '\''
 Number      := /[-+]?[0-9]+(\.[0-9]+)?/
 Bool        := "true" | "false"
 ```
-## # 1.2 AST OTUI — JSON Schema
+## 1.2 AST OTUI — JSON Schema
 ```json
 {
   "$id": "https://schemas.otc.studio/otui-ast.schema.json",
@@ -129,12 +129,12 @@ Bool        := "true" | "false"
 }
 }
 ```
-## # 1.3 Kategoryzacja atrybutów (lint)
+## 1.3 Kategoryzacja atrybutów (lint)
 - **GEOMETRY:** `x,y,width,height,anchors,margin,padding,min-width,max-width,min-height,max-height`
 - **STYLE:** `font,color,image,style,opacity,icon,background,spacing`
 - **BEHAVIOR:** `id,focusable,draggable,enabled,visible,onClick,onText,tooltip`
 > Lista jest rozszerzalna per projekt (`otui-rules.json`).
-## # 1.4 Przykład AST (OTUI)
+## 1.4 Przykład AST (OTUI)
 Wejście:
 ```otui
 MainWindow < UIWidget {
@@ -161,10 +161,10 @@ Szkic wyjścia (skrócony):
 ---
 ## 2) Lua‑Lite — AST i zakres parsera
 > Celem jest lekki AST do potrzeb IDE (symbole, funkcje, wywołania, literały, tabele). Nie jest to pełna interpretacja Lua.
-## # 2.1 Zakres tokenów/węzłów
+## 2.1 Zakres tokenów/węzłów
 - **Węzły:** `Chunk, LocalStatement, Assignment, FunctionDecl, CallStatement, CallExpr, Identifier, StringLiteral, NumberLiteral, BooleanLiteral, NilLiteral, TableConstructor, TableField, ReturnStatement, IfStatement (nagłówki), DoBlock (prosty)`.
 - **Pomijane:** złożone metatablice, goto/label (oznacz jako `UnknownNode`).
-## # 2.2 Lua‑Lite AST — JSON Schema
+## 2.2 Lua‑Lite AST — JSON Schema
 ```json
 {
   "$id": "https://schemas.otc.studio/lua-lite-ast.schema.json",
@@ -223,14 +223,14 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 2.3 Mapowanie zdarzeń/symboli istotnych dla OTClient/vBot
+## 2.3 Mapowanie zdarzeń/symboli istotnych dla OTClient/vBot
 - Wykrywanie `g_ui.loadUI("…")` → relacja `lua_to_otui`.
 - Wykrywanie `dofile("…")`/`require("…")` → relacja `includes`.
 - Heurystyki vBot: identyfikuj wywołania `macro(`, callbacki `onTextMessage`, `onCreatureHealth`, itp. → taguj w indeksie jako `botSymbols`.
 
 ---
 ## 3) Kontrakty walidacji artefaktów (JSON Schema)
-## # 3.1 `resources/api.json`
+## 3.1 `resources/api.json`
 ```json
 {
   "$id": "https://schemas.otc.studio/api.schema.json",
@@ -264,7 +264,7 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 3.2 `project-index.json`
+## 3.2 `project-index.json`
 ```json
 {
   "$id": "https://schemas.otc.studio/project-index.schema.json",
@@ -281,7 +281,7 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 3.3 `otui-rules.json`
+## 3.3 `otui-rules.json`
 ```json
 {
   "$id": "https://schemas.otc.studio/otui-rules.schema.json",
@@ -295,7 +295,7 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 3.4 `templates.json`
+## 3.4 `templates.json`
 ```json
 {
   "$id": "https://schemas.otc.studio/templates.schema.json",
@@ -317,7 +317,7 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 3.5 `docstrings.json`
+## 3.5 `docstrings.json`
 ```json
 {
   "$id": "https://schemas.otc.studio/docstrings.schema.json",
@@ -331,7 +331,7 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 3.6 `assets-map.json`
+## 3.6 `assets-map.json`
 ```json
 {
   "$id": "https://schemas.otc.studio/assets-map.schema.json",
@@ -345,7 +345,7 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 3.7 `.studio/config.json`
+## 3.7 `.studio/config.json`
 ```json
 {
   "$id": "https://schemas.otc.studio/studio-config.schema.json",
@@ -364,7 +364,7 @@ Szkic wyjścia (skrócony):
 }
 }
 ```
-## # 3.8 `ndjson` (schemat pojedynczej linii logu)
+## 3.8 `ndjson` (schemat pojedynczej linii logu)
 ```json
 {
   "$id": "https://schemas.otc.studio/log-line.schema.json",
@@ -403,7 +403,7 @@ Szkic wyjścia (skrócony):
 
 ---
 ## 6) Test vectors (próbki wejścia/wyjścia)
-## # 6.1 OTUI proste
+## 6.1 OTUI proste
 Wejście `main.otui`:
 ```otui
 Window < UIWidget {
@@ -413,7 +413,7 @@ Window < UIWidget {
 }
 ```
 Oczekiwany AST: zgodny ze schematem §1.2 (sprawdź kategorie: id→BEHAVIOR, width→GEOMETRY, text→STYLE).
-## # 6.2 Lua‑Lite — symbole
+## 6.2 Lua‑Lite — symbole
 Wejście `client.lua`:
 ```lua
 local M = {}
@@ -426,7 +426,7 @@ end
 return M
 ```
 Oczekiwane relacje: `lua_to_otui[0].otui == 'ui/main.otui'`; wykryta funkcja `M.reload` + wywołanie `g_modules.reloadModules`.
-## # 6.3 `api.json` – walidacja
+## 6.3 `api.json` – walidacja
 Ziarno z dokumentu MASTER musi przejść `api.schema.json`; nazwy funkcji zgodne z regex.
 
 ---
@@ -457,4 +457,5 @@ Ziarno z dokumentu MASTER musi przejść `api.schema.json`; nazwy funkcji zgodne
 ## 10) Noty
 - Reguła `tr()` dla statycznych tekstów w OTUI bywa zależna od bazy – przewidziana jako **opcja** w `otui-rules.json`.
 - Schematy wykorzystują Draft 2020‑12; możliwa migracja wstecz do Draft‑07 (wymaga drobnych zmian słowników).
+
 

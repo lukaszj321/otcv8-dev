@@ -4,11 +4,11 @@
 ## game_shop
 # Game Shop Module
 ## `shop.lua`
-## # Opis
+## Opis
 -- private variables
 
 -- for classic store
-## # Funkcje
+## Funkcje
 
 - `sendAction(action, data)`
 - `init()`
@@ -47,7 +47,7 @@
 - `buyConfirmed()`
 - `buyCanceled()`
 - `local sendAction(action, data)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onChildFocusChange`
@@ -66,7 +66,7 @@
 - `onStorePurchase`
 - `onStoreTransactionHistory`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -75,7 +75,7 @@
 ## game_market
 # Game Market Module
 ## `market.lua`
-## # Funkcje
+## Funkcje
 
 - `isItemValid(item, category, searchFilter)`
 - `clearItems()`
@@ -169,7 +169,7 @@
 - `local onMarketMessage(messageMode, message)`
 - `local initMarketItems(items)`
 - `local initInterface()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onAmountChange`
@@ -200,15 +200,15 @@
 - `onTabChange`
 - `onTotalPriceChange`
 - `onValueChange`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
 ## `marketoffer.lua`
 ## `marketprotocol.lua`
-## # Opis
+## Opis
 -- private functions
-## # Funkcje
+## Funkcje
 
 - `send(msg)`
 - `readMarketOffer(msg, action, var)`
@@ -235,7 +235,7 @@
 - `local parseMarketLeave(protocol, msg)`
 - `local parseMarketDetail(protocol, msg)`
 - `local parseMarketBrowse(protocol, msg)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onGameEnd`
@@ -244,7 +244,7 @@
 - `onMarketDetail`
 - `onMarketEnter`
 - `onMarketLeave`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 ## `offerstatistic.lua`
@@ -253,9 +253,9 @@
 ## game_questlog
 # Game Questlog Module
 ## `questlog.lua`
-## # Opis
+## Opis
 -- each call delay is also increased by random values (0-callDelay/2)
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -272,7 +272,7 @@
 - `refreshTrackerWidgets()`
 - `load()`
 - `save()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onChildFocusChange`
@@ -286,7 +286,7 @@
 - `onTrackOptionChange`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -296,7 +296,7 @@
 ## game_battle
 # Game Battle Module
 ## `battle.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -325,7 +325,7 @@
 - `onPlayerPositionChange(creature, newPos, oldPos)`
 - `updateSquare()`
 - `local getDistanceBetween(p1, p2)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `addEvent`
 - `connect`
@@ -349,7 +349,7 @@
 - `onPositionChange`
 - `onTargeted`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -362,7 +362,7 @@
 ## game_unjustifiedpoints
 # Game Unjustifiedpoints Module
 ## `unjustifiedpoints.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -375,7 +375,7 @@
 - `getColorByKills(kills)`
 - `onUnjustifiedPointsChange(unjustifiedPoints)`
 - `local getColorByKills(kills)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onGameStart`
@@ -384,7 +384,7 @@
 - `onSkullChange`
 - `onUnjustifiedPointsChange`
 - `online`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -393,7 +393,7 @@
 ## game_imbuing
 # Game Imbuing Module
 ## `imbuing.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `setProtection(value)`
@@ -406,7 +406,7 @@
 - `hide()`
 - `show()`
 - `toggle()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClick`
@@ -415,7 +415,7 @@
 - `onImbuementWindow`
 - `onOptionChange`
 - `onResourceBalance`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -424,7 +424,7 @@
 ## game_playertrade
 # Game Playertrade Module
 ## `playertrade.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -433,7 +433,7 @@
 - `onGameOwnTrade(name, items)`
 - `onGameCounterTrade(name, items)`
 - `onGameCloseTrade()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClick`
@@ -445,7 +445,7 @@
 - `onGameEnd`
 - `onGameOwnTrade`
 - `onOwnTrade`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -454,7 +454,7 @@
 ## game_playerdeath
 # Game Playerdeath Module
 ## `playerdeath.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -462,7 +462,7 @@
 - `display(deathType, penalty)`
 - `displayDeadMessage()`
 - `openWindow(deathType, penalty)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClick`
@@ -470,7 +470,7 @@
 - `onEnter`
 - `onEscape`
 - `onGameEnd`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -479,7 +479,7 @@
 ## game_playermount
 # Game Playermount Module
 ## `playermount.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -488,13 +488,13 @@
 - `toggleMount()`
 - `mount()`
 - `dismount()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onGameEnd`
 - `onGameStart`
 - `online`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -503,11 +503,11 @@
 ## game_prey
 # Game Prey Module
 ## `prey.lua`
-## # Opis
+## Opis
 -- sponsored by kivera-global.com
 
 -- remade by Vithrax#5814
-## # Funkcje
+## Funkcje
 
 - `bonusDescription(bonusType, bonusValue, bonusGrade)`
 - `timeleftTranslation(timeleft, forPreyTimeleft)`
@@ -537,7 +537,7 @@
 - `onPreySelection(slot, bonusType, bonusValue, bonusGrade, names, outfits, timeUntilFreeReroll)`
 - `onResourceBalance(type, balance)`
 - `showMessage(title, message)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClick`
@@ -556,7 +556,7 @@
 - `onResourceBalance`
 - `one`
 - `only`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -565,7 +565,7 @@
 ## game_protocol
 # Game Protocol Module
 ## `protocol.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -574,14 +574,14 @@
 - `unregisterProtocol()`
 - `registerOpcode(code, func)`
 - `readDailyReward(msg)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onEnterGame`
 - `onGameEnd`
 - `onPendingGame`
 - `online`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 
@@ -589,15 +589,15 @@
 ## game_bugreport
 # Game Bugreport Module
 ## `bugreport.lua`
-## # Opis
+## Opis
 -- TODO: find another hotkey for this. Ctrl+Z will be reserved to undo on textedits.
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
 - `doReport()`
 - `show()`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -607,13 +607,13 @@
 ## game_modaldialog
 # Game Modaldialog Module
 ## `modaldialog.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
 - `destroyDialog()`
 - `onModalDialog(id, title, message, buttons, enterButton, escapeButton, choices, priority)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClick`
@@ -622,7 +622,7 @@
 - `onEscape`
 - `onGameEnd`
 - `onModalDialog`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -632,14 +632,14 @@
 ## game_itemselector
 # Game Itemselector Module
 ## `itemselector.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
 - `destroyWindow()`
 - `show(itemWidget)`
 - `hide()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClick`
@@ -647,7 +647,7 @@
 - `onEscape`
 - `onGameEnd`
 - `onValueChange`
-## # Wywołania API
+## Wywołania API
 
 - `g_ui`
 
@@ -655,7 +655,7 @@
 ## game_npctrade
 # Game Npctrade Module
 ## `npctrade.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -693,7 +693,7 @@
 - `formatCurrency(amount)`
 - `getMaxAmount()`
 - `sellAll(delayed, exceptions)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `addEvent`
 - `connect`
@@ -715,7 +715,7 @@
 - `onTradeClick`
 - `onTradeTypeChange`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_mouse`
@@ -725,7 +725,7 @@
 ## game_ruleviolation
 # Game Ruleviolation Module
 ## `ruleviolation.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -736,13 +736,13 @@
 - `onSelectReason(reasonLabel, focused)`
 - `report()`
 - `clearForm()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onFocusChange`
 - `onGMActions`
 - `onSelectReason`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -752,7 +752,7 @@
 ## game_textwindow
 # Game Textwindow Module
 ## `textwindow.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -763,7 +763,7 @@
 - `destroy()`
 - `local destroy()`
 - `local destroy()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClick`
@@ -775,7 +775,7 @@
 - `onGameEditText`
 - `onGameEnd`
 - `one`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -784,7 +784,7 @@
 ## game_walking
 # Game Walking Module
 ## `walking.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -809,7 +809,7 @@
 - `walk(dir, ticks)`
 - `turn(dir, repeated)`
 - `checkTurn()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `addEvent`
 - `connect`
@@ -820,7 +820,7 @@
 - `onWalk`
 - `onWalkFinish`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -831,7 +831,7 @@
 ## game_topbar
 # Game Topbar Module
 ## `topbar.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -860,7 +860,7 @@
 - `onBaseSkillChange(localPlayer, id, baseLevel)`
 - `save()`
 - `load()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onBaseMagicLevelChange`
@@ -876,7 +876,7 @@
 - `onMouseRelease`
 - `onSkillChange`
 - `onStatesChange`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -885,7 +885,7 @@
 ## game_bot
 # Game Bot Module
 ## `bot.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -945,7 +945,7 @@
 - `botSpellCooldown(iconId, duration)`
 - `botGroupSpellCooldown(iconId, duration)`
 - `botInventoryChange(player, slot, item, oldItem)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onAddItem`
@@ -1001,19 +1001,19 @@
 - `onWalk`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
 - `g_sounds`
 - `g_ui`
 ## `executor.lua`
-## # Opis
+## Opis
 -- load lua and otui files
-## # Funkcje
+## Funkcje
 
 - `executeBot(config, storage, tabs, msgCallback, saveConfigCallback, reloadCallback, websockets)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `onAddItem`
 - `onAddThing`
@@ -1053,7 +1053,7 @@
 - `onUse`
 - `onUseWith`
 - `onWalk`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -1063,7 +1063,7 @@
 ## game_healthinfo
 # Game Healthinfo Module
 ## `healthinfo.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -1084,7 +1084,7 @@
 - `setManaTooltip(tooltip)`
 - `setExperienceTooltip(tooltip)`
 - `onOverlayGeometryChange()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onFreeCapacityChange`
@@ -1097,7 +1097,7 @@
 - `onOverlayGeometryChange`
 - `onSoulChange`
 - `onStatesChange`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -1106,9 +1106,9 @@
 ## updater
 # Updater Module
 ## `updater.lua`
-## # Opis
+## Opis
 --
-## # Funkcje
+## Funkcje
 
 - `onLog(level, message, time)`
 - `initAppWindow()`
@@ -1128,13 +1128,14 @@
 - `local downloadFiles(url, files, index, retries, doneCallback)`
 - `local updateFiles(data, keepCurrentFiles)`
 - `local progressUpdater(value)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `onLog`
 - `onOk`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_ui`
 - `g_window`
+
 
