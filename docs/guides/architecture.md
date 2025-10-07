@@ -1,24 +1,4 @@
-# Architekt
-
-u
-
-r
-
-a
-
-(
-
-s
-
-k
-
-r
-
-ó
-
-t
-
-)
+# Architektóra (skrót).
 
 ```mermaid
 graph TD
