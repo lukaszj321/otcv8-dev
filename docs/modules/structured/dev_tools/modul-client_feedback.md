@@ -1,5 +1,6 @@
-# Modul: `client_feedback`
+﻿# ¦ Modul: `client_feedback`
 
+```lua
 
 local feedbackWindow
 
@@ -202,6 +203,7 @@ end
 ---
 # feedback.otmod
 
+```text
 
 Module
 
@@ -228,6 +230,7 @@ Module
 ---
 # feedback.otui
 
+```otui
 
 MainWindow
 

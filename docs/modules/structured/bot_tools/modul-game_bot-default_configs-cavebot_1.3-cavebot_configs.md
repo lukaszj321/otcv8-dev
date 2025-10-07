@@ -1,5 +1,6 @@
-# Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
+﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
 
+```text
 
 goto:1033,1044,7
 
@@ -48,6 +49,7 @@ extensions:[[
 ---
 # fast_walking.cfg
 
+```text
 
 goto:84,112,6
 
@@ -76,6 +78,7 @@ extensions:[[
 ---
 # test_src.cfg
 
+```text
 
 goto:93,129,7
 

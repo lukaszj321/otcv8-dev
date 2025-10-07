@@ -1,5 +1,26 @@
-# Realtime (websocket)
+﻿# Realtime (
 
+W
+
+e
+
+b
+
+S
+
+o
+
+c
+
+k
+
+e
+
+t
+
+)
+
+```mermaid
 sequenceDiagram
   participant UI as Dashboard (SPA)
   participant WS as WebSocket (wss)
@@ -11,13 +32,42 @@ sequenceDiagram
   UI->>S: cmd: START/STOP, settings
 
 ```
-## Zasady
+# # Z
+
+a
+
+s
+
+a
+
+d
+
+y
 
 - **WSS** + origin allowlist + rate-limit.
 - Autoryzacja w handshake (JWT / session).
-- Walidacja schematow wiadomoLci.
-## PrzykL'ad (Node + socket io)
+- Walidacja schematów wiadomości.
+# # Przykład (Node +
 
+s
+
+o
+
+c
+
+k
+
+e
+
+t
+
+i
+
+o
+
+)
+
+```ts
 io.use(authMiddleware);
 io.on("connection", (s) => {
   s.join(`user:${s.user.id}`);

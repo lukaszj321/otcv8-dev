@@ -1,11 +1,52 @@
-# Troubleshoting
- 
-## Build
+﻿# Troub
 
-- Brak zaleLLnoLci vcpkg a' zainstaluj pakiety i przebuduj cache.
-## Android
+l
 
-- BL'ad NDK: sprawdLs wersje i LcieLLki SDK/NDK.
-## Ws
+e
 
-- RozL'aczenia: sprawdLs pingTimeout/pingInterval oraz proxy.
+s
+
+h
+
+o
+
+o
+
+t
+
+i
+
+n
+
+g
+# # B
+
+u
+
+i
+
+l
+
+d
+
+- Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
+# # A
+
+n
+
+d
+
+r
+
+o
+
+i
+
+d
+
+- Błąd NDK: sprawdź wersję i ścieżki SDK/NDK.
+# # W
+
+S
+
+- Rozłączenia: sprawdź pingTimeout/pingInterval oraz proxy.

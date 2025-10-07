@@ -1,5 +1,6 @@
-# Modul: `game_features`
+﻿# ¦ Modul: `game_features`
 
+```lua
 
 function init()
 
@@ -324,6 +325,7 @@ end
 ---
 # features.otmod
 
+```text
 
 Module
 

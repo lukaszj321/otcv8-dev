@@ -1,5 +1,6 @@
-# Modul: `game_bot/default_configs/vBot_4.8/cavebot`
+﻿# ¦ Modul: `game_bot/default_configs/vBot_4.8/cavebot`
 
+```lua
 
 CaveBot.Actions = {}
 
@@ -898,6 +899,7 @@ end)
 ---
 # bank.lua
 
+```lua
 
 CaveBot.Extensions.Bank = {}
 
@@ -1068,6 +1070,7 @@ end)
 ---
 # buy_supplies.lua
 
+```lua
 
 CaveBot.Extensions.BuySupplies = {}
 
@@ -1200,6 +1203,7 @@ end
 ---
 # cavebot.lua
 
+```lua
 
 local cavebotMacro = nil
 
@@ -1982,6 +1986,7 @@ end
 ---
 # cavebot.otui
 
+```otui
 
 CaveBotAction < Label
 
@@ -2078,6 +2083,7 @@ CaveBotPanel < Panel
 ---
 # clear_tile.lua
 
+```lua
 
 CaveBot.Extensions.ClearTile = {}
 
@@ -2302,6 +2308,7 @@ end
 ---
 # config.lua
 
+```lua
 
 -- config for bot
 
@@ -2504,6 +2511,7 @@ end
 ---
 # config.otui
 
+```otui
 
 CaveBotConfigPanel < Panel
 
@@ -2602,6 +2610,7 @@ CaveBotConfigBooleanValuePanel < Panel
 ---
 # d_withdraw.lua
 
+```lua
 
 CaveBot.Extensions.DWithdraw = {}
 
@@ -2790,6 +2799,7 @@ end
 ---
 # depositor.lua
 
+```lua
 
 CaveBot.Extensions.Depositor = {}
 
@@ -3038,6 +3048,7 @@ end
 ---
 # doors.lua
 
+```lua
 
 CaveBot.Extensions.OpenDoors = {}
 
@@ -3146,6 +3157,7 @@ end
 ---
 # editor.lua
 
+```lua
 
 CaveBot.Editor = {}
 
@@ -3498,6 +3510,7 @@ end
 ---
 # editor.otui
 
+```otui
 
 CaveBotEditorButton < Button
 
@@ -3578,6 +3591,7 @@ CaveBotEditorPanel < Panel
 ---
 # example_functions.lua
 
+```lua
 
 CaveBot.Editor.ExampleFunctions = {}
 
@@ -3784,6 +3798,7 @@ return true
 ---
 # extension_template.lua
 
+```lua
 
 -- example cavebot extension (remember to add this file to ../cavebot.lua)
 
@@ -3892,6 +3907,7 @@ end
 ---
 # imbuing.lua
 
+```lua
 
 -- imbuing window should be handled separatly
 
@@ -4102,6 +4118,7 @@ end
 ---
 # inbox_withdraw.lua
 
+```lua
 
 CaveBot.Extensions.InWithdraw = {}
 
@@ -4268,6 +4285,7 @@ end
 ---
 # lure.lua
 
+```lua
 
 CaveBot.Extensions.Lure = {}
 
@@ -4328,6 +4346,7 @@ end
 ---
 # minimap.lua
 
+```lua
 
 local minimap = modules.game_minimap.minimapWidget
 
@@ -4380,6 +4399,7 @@ end
 ---
 # pos_check.lua
 
+```lua
 
 CaveBot.Extensions.PosCheck = {}
 
@@ -4470,6 +4490,7 @@ end
 ---
 # recorder.lua
 
+```lua
 
 -- auto recording for cavebot
 
@@ -4598,6 +4619,7 @@ end
 ---
 # sell_all.lua
 
+```lua
 
 CaveBot.Extensions.SellAll = {}
 
@@ -4730,6 +4752,7 @@ end
 ---
 # stand_lure.lua
 
+```lua
 
 CaveBot.Extensions.StandLure = {}
 
@@ -5062,6 +5085,7 @@ end)
 ---
 # supply_check.lua
 
+```lua
 
 CaveBot.Extensions.SupplyCheck = {}
 
@@ -5324,6 +5348,7 @@ end
 ---
 # tasker.lua
 
+```lua
 
 CaveBot.Extensions.Tasker = {}
 
@@ -5640,6 +5665,7 @@ end)
 ---
 # travel.lua
 
+```lua
 
 CaveBot.Extensions.Travel = {}
 
@@ -5712,6 +5738,7 @@ end
 ---
 # walking.lua
 
+```lua
 
 -- walking
 
@@ -5884,6 +5911,7 @@ end
 ---
 # withdraw.lua
 
+```lua
 
 CaveBot.Extensions.Withdraw = {}
 

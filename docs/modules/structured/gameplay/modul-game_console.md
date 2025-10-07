@@ -1,5 +1,6 @@
-# Modul: `game_console`
+﻿# ¦ Modul: `game_console`
 
+```otui
 
 ChannelListLabel < Label
 
@@ -120,6 +121,7 @@ MainWindow
 ---
 # communicationwindow.otui
 
+```otui
 
 IgnoreListLabel < Label
 
@@ -482,6 +484,7 @@ MainWindow
 ---
 # console.lua
 
+```lua
 
 SpeakTypesSettings = {
 
@@ -3110,6 +3113,7 @@ end
 ---
 # console.otmod
 
+```text
 
 Module
 
@@ -3134,6 +3138,7 @@ Module
 ---
 # console.otui
 
+```otui
 
 ConsolePanel
 
@@ -3146,6 +3151,7 @@ ConsolePanel
 ---
 # violationwindow.otui
 
+```otui
 
 MainWindow
 

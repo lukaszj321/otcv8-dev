@@ -1,5 +1,6 @@
-# Modul: `client_stats`
+﻿# ¦ Modul: `client_stats`
 
+```lua
 
 local statsWindow = nil
 
@@ -406,6 +407,7 @@ end
 ---
 # stats.otmod
 
+```text
 
 Module
 
@@ -430,6 +432,7 @@ Module
 ---
 # stats.otui
 
+```otui
 
 DebugText < Label
 

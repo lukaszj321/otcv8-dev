@@ -1,5 +1,6 @@
-# Modul: `game_viplist`
+﻿# ¦ Modul: `game_viplist`
 
+```otui
 
 MainWindow
 
@@ -74,6 +75,7 @@ MainWindow
 ---
 # editvip.otui
 
+```otui
 
 IconButton < CheckBox
 
@@ -304,6 +306,7 @@ MainWindow
 ---
 # viplist.lua
 
+```lua
 
 vipWindow = nil
 
@@ -1000,6 +1003,7 @@ end
 ---
 # viplist.otmod
 
+```text
 
 Module
 
@@ -1024,6 +1028,7 @@ Module
 ---
 # viplist.otui
 
+```otui
 
 VipListLabel < GameLabel
 

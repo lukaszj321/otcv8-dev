@@ -1,5 +1,6 @@
-# Modul: `game_bot/functions`
+﻿# ¦ Modul: `game_bot/functions`
 
+```lua
 
 local context = G.botContext
 
@@ -458,6 +459,7 @@ end
 ---
 # config.lua
 
+```lua
 
 --[[
 
@@ -960,6 +962,7 @@ end
 ---
 # const.lua
 
+```lua
 
 local context = G.botContext
 
@@ -1012,6 +1015,7 @@ context.InventorySlotLast = 10
 ---
 # icon.lua
 
+```lua
 
 local context = G.botContext
 
@@ -1332,6 +1336,7 @@ end
 ---
 # main.lua
 
+```lua
 
 local context = G.botContext
 
@@ -1726,6 +1731,7 @@ end
 ---
 # map.lua
 
+```lua
 
 local context = G.botContext
 
@@ -2228,6 +2234,7 @@ end
 ---
 # npc.lua
 
+```lua
 
 local context = G.botContext
 
@@ -2472,6 +2479,7 @@ context.NPC.finishTrade = context.NPC.closeTrade
 ---
 # player.lua
 
+```lua
 
 local context = G.botContext
 
@@ -2764,6 +2772,7 @@ modules.game_cooldown.isCooldownIconActive(id)
 ---
 # player_conditions.lua
 
+```lua
 
 local context = G.botContext
 
@@ -2828,6 +2837,7 @@ context.isHungry = function() return context.hasCondition(PlayerStates.Hungry) e
 ---
 # player_inventory.lua
 
+```lua
 
 local context = G.botContext
 
@@ -2914,6 +2924,7 @@ end
 ---
 # script_loader.lua
 
+```lua
 
 local context = G.botContext
 
@@ -3028,6 +3039,7 @@ end
 ---
 # server.lua
 
+```lua
 
 local context = G.botContext
 
@@ -3206,6 +3218,7 @@ end
 ---
 # sound.lua
 
+```lua
 
 local context = G.botContext
 
@@ -3266,6 +3279,7 @@ end
 ---
 # test.lua
 
+```lua
 
 local context = G.botContext
 
@@ -3276,6 +3290,7 @@ context.test = function() return context.info("test") end
 ---
 # tools.lua
 
+```lua
 
 local context = G.botContext
 
@@ -3312,6 +3327,7 @@ end
 ---
 # ui.lua
 
+```lua
 
 local context = G.botContext
 
@@ -3378,6 +3394,7 @@ end
 ---
 # ui_elements.lua
 
+```lua
 
 local context = G.botContext
 
@@ -4070,6 +4087,7 @@ end
 ---
 # ui_legacy.lua
 
+```lua
 
 local context = G.botContext
 
@@ -4316,6 +4334,7 @@ end
 ---
 # ui_windows.lua
 
+```lua
 
 local context = G.botContext
 

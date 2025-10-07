@@ -1,5 +1,6 @@
-# Modul: `client_profiles`
+﻿# ¦ Modul: `client_profiles`
 
+```lua
 
 local settings = {}
 
@@ -268,6 +269,7 @@ end
 ---
 # profiles.otmod
 
+```text
 
 Module
 

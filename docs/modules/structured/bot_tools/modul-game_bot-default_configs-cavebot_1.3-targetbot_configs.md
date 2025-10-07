@@ -1,5 +1,6 @@
-# Modul: `game_bot/default_configs/cavebot_1.3/targetbot_configs`
+﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot_configs`
 
+```text
 
 {
 

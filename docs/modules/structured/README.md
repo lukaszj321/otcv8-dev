@@ -1,5 +1,7 @@
-# Structured modules
+﻿# {% raw %}
 
 > NOTE:
 
 ---
+
+{% endraw %}

@@ -1,5 +1,6 @@
-# Modul: `game_interface/styles`
+﻿# ¦ Modul: `game_interface/styles`
 
+```otui
 
 CountWindow < MainWindow
 

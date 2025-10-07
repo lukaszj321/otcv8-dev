@@ -1,24 +1,24 @@
-# Presety Kanoniczne - OTClient v8 Core (OTUI + TypeScript + Lua)
+﻿# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
 
-**Paleta:** `otc_core_v1`  **Wersja:** 1.0\
-**Cel:** Minimalne, **kanoniczne** presety dla kaLLdego komponentu z palety "OTClient v8 Core", w 100% zgodne z taksonomia (rozdz. 4 specyfikacji) oraz zasadami **STRICT OTUI**.
+**Paleta:** `otc_core_v1` · **Wersja:** 1.0\
+**Cel:** Minimalne, **kanoniczne** presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4 specyfikacji) oraz zasadami **STRICT OTUI**.
 
 > **Konwencje**
 >
-> - Wszystkie bloki **OTUI sa STRICT**: koL"ce linii LF, **wciecia = 2 spacje**, **brak komentarzy**.
-> - Serializator emituje atrybuty w kolejnoLci **GEOMETRIA a' STYL a' ZACHOWANIE** i mapuje `style.text` a' `!text: tr('...')`.
-> - Bloki **TypeScript (TS)** zakL'adaja AST w ksztaL'cie `WidgetNode` oraz serializer zgodny z powyLLszymi zasadami.
+> - Wszystkie bloki **OTUI są STRICT**: końce linii LF, **wcięcia = 2 spacje**, **brak komentarzy**.
+> - Serializator emituje atrybuty w kolejności **GEOMETRIA → STYL → ZACHOWANIE** i mapuje `style.text` → `!text: tr('...')`.
+> - Bloki **TypeScript (TS)** zakładają AST w kształcie `WidgetNode` oraz serializer zgodny z powyższymi zasadami.
 
 ---
-## Spis treLci
+# # Spis treści
 
-- [A. Windows (Okna GL'owne)](#a-windows-okna-gL'owne)
+- [A. Windows (Okna Główne)](#a-windows-okna-główne)
   - [A.1 MainWindow](#a1-mainwindow)
   - [A.2 StaticMainWindow](#a2-staticmainwindow)
   - [A.3 MiniWindow](#a3-miniwindow)
   - [A.4 ContainerWindow](#a4-containerwindow)
   - [A.5 DialogWindow](#a5-dialogwindow)
-- [B. Layout & Organization (UkL'ad i Organizacja)](#b-layout--organization-ukL'ad-i-organizacja)
+- [B. Layout & Organization (Układ i Organizacja)](#b-layout--organization-układ-i-organizacja)
   - [B.1 UIWidget (alias: Widget)](#b1-uiwidget-alias-widget)
   - [B.2 Panel](#b2-panel)
   - [B.3 GroupBox](#b3-groupbox)
@@ -29,7 +29,7 @@
   - [B.8 Splitter (2 dzieci)](#b8-splitter-2-dzieci)
   - [B.9 HorizontalSeparator](#b9-horizontalseparator)
   - [B.10 StatusOverlay](#b10-statusoverlay)
-- [C. Input Controls (Kontrolki WejLciowe)](#c-input-controls-kontrolki-wejLciowe)
+- [C. Input Controls (Kontrolki Wejściowe)](#c-input-controls-kontrolki-wejściowe)
   - [C.1 Button](#c1-button)
   - [C.2 CheckBox](#c2-checkbox)
   - [C.2a RoundCheckBox (wariant CheckBox)](#c2a-roundcheckbox-wariant-checkbox)
@@ -37,27 +37,28 @@
   - [C.4 PasswordTextEdit](#c4-passwordtextedit)
   - [C.5 MultilineTextEdit (+ Scroll)](#c5-multilinetextedit--scroll)
   - [C.6 ComboBox](#c6-combobox)
-- [D. Data Display (WyLwietlanie Danych)](#d-data-display-wyLwietlanie-danych)
+- [D. Data Display (Wyświetlanie Danych)](#d-data-display-wyświetlanie-danych)
   - [D.1 Label (alias: UILabel)](#d1-label-alias-uilabel)
   - [D.2 TextList (+ Scroll)](#d2-textlist--scroll)
   - [D.3 ProgressBar](#d3-progressbar)
-- [E. Indicators & Scrolling (WskaLsniki i Przewijanie)](#e-indicators--scrolling-wskaLsniki-i-przewijanie)
+- [E. Indicators & Scrolling (Wskaźniki i Przewijanie)](#e-indicators--scrolling-wskaźniki-i-przewijanie)
   - [E.1 VerticalScrollBar](#e1-verticalscrollbar)
   - [E.2 HorizontalScrollBar](#e2-horizontalscrollbar)
 - [F. Uwagi implementacyjne (Sparky)](#f-uwagi-implementacyjne-sparky)
-- [G. Lua - OTUI jako string + glue (kontrolery)](#g-lua--otui-jako-string--glue-kontrolery)
-  - [G.1 MiniWindow - Lua](#g1-miniwindow--lua)
-  - [G.2 ContainerWindow - Lua](#g2-containerwindow--lua)
-  - [G.3 DialogWindow - Lua](#g3-dialogwindow--lua)
+- [G. Lua — OTUI jako string + glue (kontrolery)](#g-lua--otui-jako-string--glue-kontrolery)
+  - [G.1 MiniWindow — Lua](#g1-miniwindow--lua)
+  - [G.2 ContainerWindow — Lua](#g2-containerwindow--lua)
+  - [G.3 DialogWindow — Lua](#g3-dialogwindow--lua)
   - [G.4 Wrappers: TextList / MultilineTextEdit](#g4-wrappers-textlist--multilinetextedit)
   - [G.5 Wzorzec integracyjny](#g5-wzorzec-integracyjny)
 
 ---
-## A. Windows (Okna GL'owne)
-## A.1 MainWindow
+# # A. Windows (Okna Główne)
+# # # A.1 MainWindow
 
 **OTUI**
 
+```otui
 MainWindow
   id: main
   size: 320 220
@@ -71,6 +72,7 @@ MainWindow
 
 **TypeScript (TS)**
 
+```ts
 export function presetMainWindow(): WidgetNode {
   return {
     base: 'MainWindow',
@@ -82,10 +84,11 @@ export function presetMainWindow(): WidgetNode {
 };
 }
 ```
-## A.2 StaticMainWindow
+# # # A.2 StaticMainWindow
 
 **OTUI**
 
+```otui
 StaticMainWindow
   id: staticMain
   size: 320 220
@@ -99,6 +102,7 @@ StaticMainWindow
 
 **TypeScript (TS)**
 
+```ts
 export function presetStaticMainWindow(): WidgetNode {
   return {
     base: 'StaticMainWindow',
@@ -110,10 +114,11 @@ export function presetStaticMainWindow(): WidgetNode {
 };
 }
 ```
-## A.3 MiniWindow
+# # # A.3 MiniWindow
 
 **OTUI**
 
+```otui
 MiniWindow < MainWindow
   id: mini
   size: 260 180
@@ -166,6 +171,7 @@ MiniWindow < MainWindow
 
 **TypeScript (TS)**
 
+```ts
 export function presetMiniWindow(): WidgetNode {
   return {
     base: 'MiniWindow',
@@ -184,10 +190,11 @@ export function presetMiniWindow(): WidgetNode {
 };
 }
 ```
-## A.4 ContainerWindow
+# # # A.4 ContainerWindow
 
 **OTUI**
 
+```otui
 ContainerWindow < MainWindow
   id: container
   size: 300 220
@@ -247,6 +254,7 @@ ContainerWindow < MainWindow
 
 **TypeScript (TS)**
 
+```ts
 export function presetContainerWindow(): WidgetNode {
   return {
     base: 'ContainerWindow',
@@ -266,10 +274,11 @@ export function presetContainerWindow(): WidgetNode {
 };
 }
 ```
-## A.5 DialogWindow
+# # # A.5 DialogWindow
 
 **OTUI**
 
+```otui
 DialogWindow < MainWindow
   id: dialog
   size: 260 160
@@ -324,6 +333,7 @@ DialogWindow < MainWindow
 
 **TypeScript (TS)**
 
+```ts
 export function presetDialogWindow(): WidgetNode {
   return {
     base: 'DialogWindow',
@@ -345,11 +355,12 @@ export function presetDialogWindow(): WidgetNode {
 ```
 
 ---
-## B. Layout & Organization (UkL'ad i Organizacja)
-## B.1 UIWidget (alias: Widget)
+# # B. Layout & Organization (Układ i Organizacja)
+# # # B.1 UIWidget (alias: Widget)
 
 **OTUI**
 
+```otui
 UIWidget
   id: w
   size: 100 60
@@ -358,14 +369,16 @@ UIWidget
 
 **TypeScript (TS)**
 
+```ts
 export function presetUIWidget(): WidgetNode {
   return { base: 'UIWidget', geometry: { id: 'w', size: [100, 60] }, style: { backgroundColor: 'alpha' } };
 }
 ```
-## B.2 Panel
+# # # B.2 Panel
 
 **OTUI**
 
+```otui
 Panel
   id: panel
   anchors.fill: parent
@@ -374,14 +387,16 @@ Panel
 
 **TypeScript (TS)**
 
+```ts
 export function presetPanel(): WidgetNode {
   return { base: 'Panel', geometry: { id: 'panel', anchors: { fill: 'parent' }, padding: 6 } };
 }
 ```
-## B.3 GroupBox
+# # # B.3 GroupBox
 
 **OTUI**
 
+```otui
 GroupBox
   id: group
   size: 220 120
@@ -412,6 +427,7 @@ GroupBox
 
 **TypeScript (TS)**
 
+```ts
 export function presetGroupBox(): WidgetNode {
   return {
     base: 'GroupBox',
@@ -425,10 +441,11 @@ export function presetGroupBox(): WidgetNode {
 };
 }
 ```
-## B.4 Titlebar
+# # # B.4 Titlebar
 
 **OTUI**
 
+```otui
 Titlebar
   id: tb
   size: 200 20
@@ -451,6 +468,7 @@ Titlebar
 
 **TypeScript (TS)**
 
+```ts
 export function presetTitlebar(): WidgetNode {
   return {
     base: 'Titlebar',
@@ -462,10 +480,11 @@ export function presetTitlebar(): WidgetNode {
 };
 }
 ```
-## B.5 Toolbar
+# # # B.5 Toolbar
 
 **OTUI**
 
+```otui
 Toolbar
   id: tools
   size: 200 22
@@ -487,6 +506,7 @@ Toolbar
 
 **TypeScript (TS)**
 
+```ts
 export function presetToolbar(): WidgetNode {
   return {
     base: 'Toolbar',
@@ -499,10 +519,11 @@ export function presetToolbar(): WidgetNode {
 };
 }
 ```
-## B.6 TabBar
+# # # B.6 TabBar
 
 **OTUI**
 
+```otui
 TabBar
   id: tabbar
   size: 220 22
@@ -521,6 +542,7 @@ TabBar
 
 **TypeScript (TS)**
 
+```ts
 export function presetTabBar(): WidgetNode {
   return {
     base: 'TabBar',
@@ -532,10 +554,11 @@ export function presetTabBar(): WidgetNode {
 };
 }
 ```
-## B.7 TabWidget
+# # # B.7 TabWidget
 
 **OTUI**
 
+```otui
 TabWidget
   id: tabcontent
   anchors.fill: parent
@@ -543,14 +566,16 @@ TabWidget
 
 **TypeScript (TS)**
 
+```ts
 export function presetTabWidget(): WidgetNode {
   return { base: 'TabWidget', geometry: { id: 'tabcontent', anchors: { fill: 'parent' } } };
 }
 ```
-## B.8 Splitter (2 dzieci)
+# # # B.8 Splitter (2 dzieci)
 
 **OTUI**
 
+```otui
 Splitter
   id: split
   size: 300 160
@@ -572,6 +597,7 @@ Splitter
 
 **TypeScript (TS)**
 
+```ts
 export function presetSplitter(): WidgetNode {
   return {
     base: 'Splitter',
@@ -583,10 +609,11 @@ export function presetSplitter(): WidgetNode {
 };
 }
 ```
-## B.9 HorizontalSeparator
+# # # B.9 HorizontalSeparator
 
 **OTUI**
 
+```otui
 HorizontalSeparator
   id: hsep
   size: 200 2
@@ -594,14 +621,16 @@ HorizontalSeparator
 
 **TypeScript (TS)**
 
+```ts
 export function presetHorizontalSeparator(): WidgetNode {
   return { base: 'HorizontalSeparator', geometry: { id: 'hsep', size: [200, 2] } };
 }
 ```
-## B.10 StatusOverlay
+# # # B.10 StatusOverlay
 
 **OTUI**
 
+```otui
 StatusOverlay
   id: overlay
   size: 240 80
@@ -630,6 +659,7 @@ StatusOverlay
 
 **TypeScript (TS)**
 
+```ts
 export function presetStatusOverlay(): WidgetNode {
   return {
     base: 'StatusOverlay',
@@ -644,11 +674,12 @@ export function presetStatusOverlay(): WidgetNode {
 ```
 
 ---
-## C. Input Controls (Kontrolki WejLciowe)
-## C.1 Button
+# # C. Input Controls (Kontrolki Wejściowe)
+# # # C.1 Button
 
 **OTUI**
 
+```otui
 Button
   id: btn
   width: 64
@@ -657,14 +688,16 @@ Button
 
 **TypeScript (TS)**
 
+```ts
 export function presetButton(): WidgetNode {
   return { base: 'Button', geometry: { id: 'btn', width: 64 }, style: { text: 'Ok' } };
 }
 ```
-## C.2 CheckBox
+# # # C.2 CheckBox
 
 **OTUI**
 
+```otui
 CheckBox
   id: check
   width: 16
@@ -672,14 +705,16 @@ CheckBox
 
 **TypeScript (TS)**
 
+```ts
 export function presetCheckBox(): WidgetNode {
   return { base: 'CheckBox', geometry: { id: 'check', width: 16 } };
 }
 ```
-## C.2a RoundCheckBox (wariant CheckBox)
+# # # C.2a RoundCheckBox (wariant CheckBox)
 
 **OTUI**
 
+```otui
 CheckBox
   id: roundCheck
   width: 16
@@ -687,14 +722,16 @@ CheckBox
 
 **TypeScript (TS)**
 
+```ts
 export function presetRoundCheckBox(): WidgetNode {
   return { base: 'CheckBox', geometry: { id: 'roundCheck', width: 16 }, variant: 'RoundCheckBox' } as any;
 }
 ```
-## C.3 TextEdit
+# # # C.3 TextEdit
 
 **OTUI**
 
+```otui
 TextEdit
   id: edit
   width: 120
@@ -702,14 +739,16 @@ TextEdit
 
 **TypeScript (TS)**
 
+```ts
 export function presetTextEdit(): WidgetNode {
   return { base: 'TextEdit', geometry: { id: 'edit', width: 120 } };
 }
 ```
-## C.4 PasswordTextEdit
+# # # C.4 PasswordTextEdit
 
 **OTUI**
 
+```otui
 PasswordTextEdit
   id: pass
   width: 120
@@ -717,14 +756,16 @@ PasswordTextEdit
 
 **TypeScript (TS)**
 
+```ts
 export function presetPasswordTextEdit(): WidgetNode {
   return { base: 'PasswordTextEdit', geometry: { id: 'pass', width: 120 } };
 }
 ```
-## C.5 MultilineTextEdit (+ Scroll)
+# # # C.5 MultilineTextEdit (+ Scroll)
 
 **OTUI**
 
+```otui
 UIWidget
   id: wrapMultiline
   size: 220 120
@@ -746,6 +787,7 @@ UIWidget
 
 **TypeScript (TS)**
 
+```ts
 export function presetMultilineTextEdit(): WidgetNode {
   return {
     base: 'UIWidget',
@@ -757,10 +799,11 @@ export function presetMultilineTextEdit(): WidgetNode {
 };
 }
 ```
-## C.6 ComboBox
+# # # C.6 ComboBox
 
 **OTUI**
 
+```otui
 ComboBox
   id: combo
   width: 120
@@ -768,17 +811,19 @@ ComboBox
 
 **TypeScript (TS)**
 
+```ts
 export function presetComboBox(): WidgetNode {
   return { base: 'ComboBox', geometry: { id: 'combo', width: 120 } };
 }
 ```
 
 ---
-## D. Data Display (WyLwietlanie Danych)
-## D.1 Label (alias: UILabel)
+# # D. Data Display (Wyświetlanie Danych)
+# # # D.1 Label (alias: UILabel)
 
 **OTUI**
 
+```otui
 Label
   id: label
   text-wrap: true
@@ -787,14 +832,16 @@ Label
 
 **TypeScript (TS)**
 
+```ts
 export function presetLabel(): WidgetNode {
   return { base: 'Label', geometry: { id: 'label' }, style: { text: 'Label', textWrap: true } };
 }
 ```
-## D.2 TextList (+ Scroll)
+# # # D.2 TextList (+ Scroll)
 
 **OTUI**
 
+```otui
 UIWidget
   id: wrapList
   size: 220 140
@@ -816,6 +863,7 @@ UIWidget
 
 **TypeScript (TS)**
 
+```ts
 export function presetTextList(): WidgetNode {
   return {
     base: 'UIWidget',
@@ -827,10 +875,11 @@ export function presetTextList(): WidgetNode {
 };
 }
 ```
-## D.3 ProgressBar
+# # # D.3 ProgressBar
 
 **OTUI**
 
+```otui
 ProgressBar
   id: progress
   size: 200 14
@@ -838,17 +887,19 @@ ProgressBar
 
 **TypeScript (TS)**
 
+```ts
 export function presetProgressBar(): WidgetNode {
   return { base: 'ProgressBar', geometry: { id: 'progress', size: [200, 14] } };
 }
 ```
 
 ---
-## E. Indicators & Scrolling (WskaLsniki i Przewijanie)
-## E.1 VerticalScrollBar
+# # E. Indicators & Scrolling (Wskaźniki i Przewijanie)
+# # # E.1 VerticalScrollBar
 
 **OTUI**
 
+```otui
 VerticalScrollBar
   id: vscroll
   height: 120
@@ -857,14 +908,16 @@ VerticalScrollBar
 
 **TypeScript (TS)**
 
+```ts
 export function presetVerticalScrollBar(): WidgetNode {
   return { base: 'VerticalScrollBar', geometry: { id: 'vscroll', height: 120 }, behavior: { step: 16 } as any };
 }
 ```
-## E.2 HorizontalScrollBar
+# # # E.2 HorizontalScrollBar
 
 **OTUI**
 
+```otui
 HorizontalScrollBar
   id: hscroll
   width: 200
@@ -873,30 +926,32 @@ HorizontalScrollBar
 
 **TypeScript (TS)**
 
+```ts
 export function presetHorizontalScrollBar(): WidgetNode {
   return { base: 'HorizontalScrollBar', geometry: { id: 'hscroll', width: 200 }, behavior: { step: 16 } as any };
 }
 ```
 
 ---
-## F. Uwagi implementacyjne (Sparky)
+# # F. Uwagi implementacyjne (Sparky)
 
-- Presety sa **minimalne**: zachowuja sloty, parowanie (TextList/Multiline a" ScrollBar) i deterministyczna strukture do serializacji.
-- Gdy wymagana jest para przewijania, uLLywaj **sasiadujacych** (sibling) `VerticalScrollBar`/`HorizontalScrollBar` oraz odpowiednich kotwic `right: scroll.left` / `bottom: hscroll.top`.
-- Presety okien zawieraja `titlebar` (Mini/Container/Dialog) oraz minimalne `content`/`footer`.
-- **TypeScript** moLLe wstrzykiwac zdarzenia (`@onEnter/@onEscape/@onClick`) w generatorach, lecz celowo ich tu nie dodano, aby presety pozostaL'y neutralne.
-- Serializer musi zapewnic **STRICT OTUI** oraz konwersje `style.text` a' `!text: tr('...')`.
+- Presety są **minimalne**: zachowują sloty, parowanie (TextList/Multiline ↔ ScrollBar) i deterministyczną strukturę do serializacji.
+- Gdy wymagana jest para przewijania, używaj **sąsiadujących** (sibling) `VerticalScrollBar`/`HorizontalScrollBar` oraz odpowiednich kotwic `right: scroll.left` / `bottom: hscroll.top`.
+- Presety okien zawierają `titlebar` (Mini/Container/Dialog) oraz minimalne `content`/`footer`.
+- **TypeScript** może wstrzykiwać zdarzenia (`@onEnter/@onEscape/@onClick`) w generatorach, lecz celowo ich tu nie dodano, aby presety pozostały neutralne.
+- Serializer musi zapewnić **STRICT OTUI** oraz konwersję `style.text` → `!text: tr('...')`.
 
 ---
-## G. Lua - OTUI jako string + glue (kontrolery)
+# # G. Lua — OTUI jako string + glue (kontrolery)
 
-> **Cel:** dodac do presetow trzeci filar - **Lua**, ktory zawiera: (1) kanoniczny blok **OTUI jako string** (STRICT, bez komentarzy w samym OTUI), (2) minimalistyczny **glue** (kontrolery/wywoL'ania) spojny z presetami.
+> **Cel:** dodać do presetów trzeci filar — **Lua**, który zawiera: (1) kanoniczny blok **OTUI jako string** (STRICT, bez komentarzy w samym OTUI), (2) minimalistyczny **glue** (kontrolery/wywołania) spójny z presetami.
 >
-> **WaLLne:** w runtime uLLywaj **plikow** i `g_ui.displayUI('...')`. Bloki OTUI w Lua poniLLej sL'uLLa gL'ownie do **importu/eksportu** w edytorze.
-## G.1 MiniWindow - Lua
+> **Ważne:** w runtime używaj **plików** i `g_ui.displayUI('...')`. Bloki OTUI w Lua poniżej służą głównie do **importu/eksportu** w edytorze.
+# # # G.1 MiniWindow — Lua
 
-**Lua (OTUI jako string - STRICT)**
+**Lua (OTUI jako string — STRICT)**
 
+```lua
 local MiniWindow_OTUI = [[
 MiniWindow < MainWindow
   id: mini
@@ -949,12 +1004,13 @@ MiniWindow < MainWindow
 ]]
 ```
 
-**Lua (glue - kontroler i standardowe operacje)**
+**Lua (glue — kontroler i standardowe operacje)**
 
+```lua
 MiniWindowController = MiniWindowController or {}
 
 function MiniWindowController.mountFromFile()
-  local win = g_ui.displayUI('mini') -- w runtime uLLywaj plikow .otui
+  local win = g_ui.displayUI('mini') -- w runtime używaj plików .otui
   MiniWindowController._wire(win)
   return win
 end
@@ -981,10 +1037,11 @@ function MiniWindowController.onClose(btn)
   if win then win:hide() end
 end
 ```
-## G.2 ContainerWindow - Lua
+# # # G.2 ContainerWindow — Lua
 
-**Lua (OTUI jako string - STRICT)**
+**Lua (OTUI jako string — STRICT)**
 
+```lua
 local ContainerWindow_OTUI = [[
 ContainerWindow < MainWindow
   id: container
@@ -1044,8 +1101,9 @@ ContainerWindow < MainWindow
 ]]
 ```
 
-**Lua (glue - kontroler i standardowe operacje)**
+**Lua (glue — kontroler i standardowe operacje)**
 
+```lua
 ContainerController = ContainerController or {}
 
 function ContainerController.mountFromFile()
@@ -1072,7 +1130,7 @@ function ContainerController.onBack(btn)
 end
 
 function ContainerController.onTogglePin(btn)
-  -- docelowo: zmiana stanu przypiecia
+  -- docelowo: zmiana stanu przypięcia
 end
 
 function ContainerController.onToggleMinimize(btn)
@@ -1087,10 +1145,11 @@ function ContainerController.onClose(btn)
   if win then win:hide() end
 end
 ```
-## G.3 DialogWindow - Lua
+# # # G.3 DialogWindow — Lua
 
-**Lua (OTUI jako string - STRICT)**
+**Lua (OTUI jako string — STRICT)**
 
+```lua
 local DialogWindow_OTUI = [[
 DialogWindow < MainWindow
   id: dialog
@@ -1145,8 +1204,9 @@ DialogWindow < MainWindow
 ]]
 ```
 
-**Lua (glue - kontroler i standardowe operacje)**
+**Lua (glue — kontroler i standardowe operacje)**
 
+```lua
 DialogController = DialogController or {}
 
 function DialogController.mountFromFile()
@@ -1173,10 +1233,11 @@ function DialogController.onCancel(widget)
   if win then win:hide() end
 end
 ```
-## G.4 Wrappers: TextList / MultilineTextEdit
+# # # G.4 Wrappers: TextList / MultilineTextEdit
 
 **Lua (OTUI dla MultilineTextEdit + VerticalScrollBar)**
 
+```lua
 local MultilineWrapper_OTUI = [[
 UIWidget
   id: wrapMultiline
@@ -1200,6 +1261,7 @@ UIWidget
 
 **Lua (OTUI dla TextList + VerticalScrollBar)**
 
+```lua
 local TextListWrapper_OTUI = [[
 UIWidget
   id: wrapList
@@ -1220,17 +1282,18 @@ UIWidget
     step: 16
 ]]
 ```
-## G.5 Wzorzec integracyjny
+# # # G.5 Wzorzec integracyjny
 
-**Lua (zalecany runtimea'flow)**
+**Lua (zalecany runtime‑flow)**
 
+```lua
 -- 1) Eksportuj z edytora do pliku .otui w Twoim module (poza runtime).
--- 2) W runtime L'aduj z pliku i przewiaLL kontroler.
+-- 2) W runtime ładuj z pliku i przewiąż kontroler.
 local win = g_ui.displayUI('mini') -- np. modules/yourmod/mini.otui
 MiniWindowController._wire(win)
 ```
 
-**Edytor (rounda'trip)**
+**Edytor (round‑trip)**
 
-- Import: wykryj w Lua staL'e w formie `local <Name>_OTUI = [[...]]` i wczytaj blok jako LsrodL'o UI.
-- Eksport: zapisz do `.otui` oraz opcjonalnie zaktualizuj powyLLszy blok (z zachowaniem STRICT).
+- Import: wykryj w Lua stałe w formie `local <Name>_OTUI = [[...]]` i wczytaj blok jako źródło UI.
+- Eksport: zapisz do `.otui` oraz opcjonalnie zaktualizuj powyższy blok (z zachowaniem STRICT).
