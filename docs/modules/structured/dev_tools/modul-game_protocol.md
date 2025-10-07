@@ -1,4 +1,4 @@
-﻿# | Modul: `game_protocol`
+# Moduł: | Moduł: `game_protocol`
 ```lua
 
 local registredOpcodes = nil

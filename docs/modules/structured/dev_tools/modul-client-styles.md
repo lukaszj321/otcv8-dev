@@ -1,4 +1,4 @@
-﻿# | Modul: `client_styles`
+# Moduł: | Moduł: `client_styles`
 ```lua
 
 function init()

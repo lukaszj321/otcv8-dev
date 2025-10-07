@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: Modules Core
-
+# Moduł: ModuĹ‚: Modules Core
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

@@ -1,4 +1,4 @@
-﻿# Parser & Schemas (MASTER): **AST + JSON Schema** dla **OTClient Studio**
+# Parser & Schemas (MASTER): **AST + JSON Schema** dla **OTClient Studio**
 > Cel dokumentu: dostarczyć **kompletne, operacyjne** specyfikacje parserów (Lua‑Lite, OTUI/OTML) oraz **kontrakty walidacyjne** (JSON Schema) dla artefaktów narzędzia: `api.json`, `project-index.json`, `otui-rules.json`, `templates.json`, `docstrings.json`, `assets-map.json`, `.studio/config.json`, a także **schemat linii logu NDJSON**. Wszystko w formie gotowej do bezpośredniej implementacji (TypeScript/Node) i automatycznej walidacji.
 
 ---

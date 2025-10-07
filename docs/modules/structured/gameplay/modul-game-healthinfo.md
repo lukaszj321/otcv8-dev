@@ -1,4 +1,4 @@
-﻿# | Modul: `game_healthinfo`
+# Moduł: | Moduł: `game_healthinfo`
 ```lua
 
 Icons = {}

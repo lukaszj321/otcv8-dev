@@ -1,4 +1,4 @@
-﻿# | Modul: `client_options`
+# Moduł: | Moduł: `client_options`
 ```otui
 
 OptionPanel

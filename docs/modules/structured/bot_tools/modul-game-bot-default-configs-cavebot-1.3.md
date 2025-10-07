@@ -1,4 +1,4 @@
-﻿# | Modul: `game_bot/default_configs/cavebot_1.3`
+# Moduł: | Moduł: `game_bot/default_configs/cavebot_1.3`
 ```lua
 
 -- Cavebot by otclient@otclient.ovh

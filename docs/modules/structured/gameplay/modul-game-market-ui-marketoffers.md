@@ -1,4 +1,4 @@
-﻿# | Modul: `game_market/ui/marketoffers`
+# Moduł: | Moduł: `game_market/ui/marketoffers`
 ```otui
 
 MarketItemBox < UICheckBox

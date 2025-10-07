@@ -1,4 +1,4 @@
-﻿# OTCv8 – Pełne API (auto)
+# OTCv8 – Pełne API (auto)
 
 Wygenerowano: 2025-10-04T13:44:01.553Z
 

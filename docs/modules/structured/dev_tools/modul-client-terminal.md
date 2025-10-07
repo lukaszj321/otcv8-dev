@@ -1,4 +1,4 @@
-﻿# | Modul: `client_terminal`
+# Moduł: | Moduł: `client_terminal`
 ```lua
 
 local function pcolored(text, color)

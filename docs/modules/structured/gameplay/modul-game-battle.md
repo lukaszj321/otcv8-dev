@@ -1,4 +1,4 @@
-﻿# | Modul: `game_battle`
+# Moduł: | Moduł: `game_battle`
 ```lua
 
 battleWindow = nil

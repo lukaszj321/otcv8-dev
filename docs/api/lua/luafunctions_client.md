@@ -1,4 +1,4 @@
-﻿# Source: luafunctions_client.cpp
+# Source: luafunctions_client.cpp
 This guide covers global objects and functions available in the OTClient Lua environment. It’s intended to help scripters understand and use the client-side Lua API effectively.
 
 ---

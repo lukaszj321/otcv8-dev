@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: game_imbuing
-
+# Moduł: ModuĹ‚: game_imbuing
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

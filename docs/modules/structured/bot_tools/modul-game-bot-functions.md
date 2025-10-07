@@ -1,5 +1,5 @@
-﻿{% raw %}
-# | Modul: `game_bot/functions`
+{% raw %}
+# Moduł: | Moduł: `game_bot/functions`
 ```lua
 
 local context = G.botContext

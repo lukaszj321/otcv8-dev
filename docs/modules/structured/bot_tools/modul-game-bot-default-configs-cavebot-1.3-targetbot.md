@@ -1,5 +1,5 @@
-﻿{% raw %}
-# | Modul: `game_bot/default_configs/cavebot_1.3/targetbot`
+{% raw %}
+# Moduł: | Moduł: `game_bot/default_configs/cavebot_1.3/targetbot`
 ```lua
 
 TargetBot.Creature = {}

@@ -1,4 +1,4 @@
-﻿# | Modul: `game_bot`
+# Moduł: | Moduł: `game_bot`
 ```lua
 
 botWindow = nil

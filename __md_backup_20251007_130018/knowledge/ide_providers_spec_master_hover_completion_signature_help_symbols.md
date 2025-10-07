@@ -1,4 +1,4 @@
-﻿# IDE Providers Spec (MASTER) – **Hover**, **Completion**, **Signature Help**, **Symbols**
+# IDE Providers Spec (MASTER) – **Hover**, **Completion**, **Signature Help**, **Symbols**
 
 > Cel: pełna specyfikacja warstwy IDE dla **OTClient Studio** (Monaco + Electron). Dokument definiuje kontrakty, algorytmy, scoring, trigger‑y, schematy JSON, IPC, test‑wektory i wymagania wydajności. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
 

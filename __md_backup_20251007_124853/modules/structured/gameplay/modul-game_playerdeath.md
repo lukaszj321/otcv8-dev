@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_playerdeath`
+# ¦ Modul: `game_playerdeath`
 
 ```otui
 

@@ -1,4 +1,4 @@
-﻿# 📘 Dokumentacja Zasobów: Katalog `data/`
+# 📘 Dokumentacja Zasobów: Katalog `data/`
 
 > NOTE: Wszystkie pliki w repozytorium są objęte licencją MIT (2010–2017 OTClient, autor Edubart).
 

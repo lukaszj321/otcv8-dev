@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: game_features
-
+# Moduł: ModuĹ‚: game_features
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

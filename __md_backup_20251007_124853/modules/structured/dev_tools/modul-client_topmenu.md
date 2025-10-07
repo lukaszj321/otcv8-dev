@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_topmenu`
+# ¦ Modul: `client_topmenu`
 
 ```lua
 

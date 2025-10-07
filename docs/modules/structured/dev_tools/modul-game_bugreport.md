@@ -1,4 +1,4 @@
-﻿# | Modul: `game_bugreport`
+# Moduł: | Moduł: `game_bugreport`
 ```lua
 
 -- TODO: find another hotkey for this. Ctrl+Z will be reserved to undo on textedits.

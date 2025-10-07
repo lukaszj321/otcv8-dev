@@ -1,4 +1,4 @@
-﻿# | Modul: `game_itemselector`
+# Moduł: | Moduł: `game_itemselector`
 ```lua
 
 local activeWindow

@@ -1,4 +1,4 @@
-﻿# | Modul: `game_bot/default_configs/vBot_4.7/vBot`
+# Moduł: | Moduł: `game_bot/default_configs/vBot_4.7/vBot`
 ```lua
 
 setDefaultTab('main')

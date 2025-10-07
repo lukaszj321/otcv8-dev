@@ -1,4 +1,4 @@
-﻿# | Modul: `client_mobile`
+# Moduł: | Moduł: `client_mobile`
 ```lua
 
 local overlay

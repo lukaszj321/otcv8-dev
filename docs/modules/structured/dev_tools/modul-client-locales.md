@@ -1,4 +1,4 @@
-﻿# | Modul: `client_locales`
+# Moduł: | Moduł: `client_locales`
 ```lua
 
 dofile 'neededtranslations'

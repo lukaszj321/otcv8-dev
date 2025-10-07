@@ -1,4 +1,4 @@
-﻿# | Modul: `game_containers`
+# Moduł: | Moduł: `game_containers`
 ```lua
 
 local gameStart = 0

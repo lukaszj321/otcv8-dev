@@ -1,4 +1,4 @@
-﻿# | Modul: `game_things`
+# Moduł: | Moduł: `game_things`
 ```lua
 
 filename =  nil

@@ -1,4 +1,4 @@
-﻿# | Modul: `client_entergame`
+# Moduł: | Moduł: `client_entergame`
 ```lua
 
 CharacterList = { }

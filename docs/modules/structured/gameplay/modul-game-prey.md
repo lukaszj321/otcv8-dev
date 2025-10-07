@@ -1,4 +1,4 @@
-﻿# | Modul: `game_prey`
+# Moduł: | Moduł: `game_prey`
 ```lua
 
 -- sponsored by kivera-global.com

@@ -1,4 +1,4 @@
-﻿# | Modul: `game_textwindow`
+# Moduł: | Moduł: `game_textwindow`
 ```lua
 
 windows = {}

@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: game_battle
-
+# Moduł: ModuĹ‚: game_battle
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

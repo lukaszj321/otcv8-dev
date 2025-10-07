@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: Game Actionbar Module
-
+# Moduł: ModuĹ‚: Game Actionbar Module
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

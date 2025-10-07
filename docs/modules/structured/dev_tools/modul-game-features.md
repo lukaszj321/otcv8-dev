@@ -1,4 +1,4 @@
-﻿# | Modul: `game_features`
+# Moduł: | Moduł: `game_features`
 ```lua
 
 function init()

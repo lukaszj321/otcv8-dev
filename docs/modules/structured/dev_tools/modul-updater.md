@@ -1,4 +1,4 @@
-﻿# | Modul: `updater`
+# Moduł: | Moduł: `updater`
 ```lua
 
 Updater = { }

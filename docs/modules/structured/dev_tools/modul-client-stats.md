@@ -1,4 +1,4 @@
-﻿# | Modul: `client_stats`
+# Moduł: | Moduł: `client_stats`
 ```lua
 
 local statsWindow = nil

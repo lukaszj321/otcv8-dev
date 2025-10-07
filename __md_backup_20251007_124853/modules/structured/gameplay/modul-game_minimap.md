@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_minimap`
+# ¦ Modul: `game_minimap`
 
 ```otui
 

@@ -1,4 +1,4 @@
-﻿# | Modul: `crash_reporter`
+# Moduł: | Moduł: `crash_reporter`
 ```lua
 
 local CRASH_FILE = "exception.dmp"

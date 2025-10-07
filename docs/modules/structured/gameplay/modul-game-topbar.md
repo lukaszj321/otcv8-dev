@@ -1,4 +1,4 @@
-﻿# | Modul: `game_topbar`
+# Moduł: | Moduł: `game_topbar`
 ```lua
 
 Icons = {}

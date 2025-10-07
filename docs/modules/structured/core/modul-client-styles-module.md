@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: Client Styles Module
-
+# Moduł: ModuĹ‚: Client Styles Module
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

@@ -1,4 +1,4 @@
-﻿# | Modul: `game_questlog`
+# Moduł: | Moduł: `game_questlog`
 ```lua
 
 questLogButton = nil

@@ -1,4 +1,4 @@
-﻿# Architektura (skrót)
+# Architektura (skrót)
 ```mermaid
 graph TD
   Client[OTCv8 Client] -->|Lua| vBot[vBot Modules]

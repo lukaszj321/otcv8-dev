@@ -1,5 +1,5 @@
-﻿{% raw %}
-# | Modul: `game_bot/default_configs/vBot_4.8/targetbot`
+{% raw %}
+# Moduł: | Moduł: `game_bot/default_configs/vBot_4.8/targetbot`
 ```lua
 
 TargetBot.Creature = {}

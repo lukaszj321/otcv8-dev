@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: client_background
-
+# Moduł: ModuĹ‚: client_background
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

@@ -1,4 +1,4 @@
-﻿# | Modul: `game_market/ui`
+# Moduł: | Moduł: `game_market/ui`
 ```otui
 
 Panel

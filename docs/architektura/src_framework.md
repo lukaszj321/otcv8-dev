@@ -1,4 +1,4 @@
-﻿# src framework
+# src framework
 # Poniżej znajduje się kompletna dokumentacja techniczna dla repozytorium, src/framework
 # Opis ogólny
 Plik `const.h` pełni rolę centralnego repozytorium dla stałych, makr i typów wyliczeniowych (enum) używanych w całym frameworku. Definiuje on kluczowe wartości, takie jak kody klawiszy, poziomy logowania, flagi wyrównania, przyciski myszy, a także stałe matematyczne i makra kompilacji. Jest to fundamentalny plik nagłówkowy, który zapewnia spójność i czytelność kodu poprzez zdefiniowanie nazwanych stałych zamiast "magicznych liczb".
