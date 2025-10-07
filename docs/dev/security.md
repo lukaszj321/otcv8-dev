@@ -1,18 +1,4 @@
-﻿# S
-
-e
-
-c
-
-u
-
-r
-
-i
-
-t
-
-y
+﻿# Security
 
 - HTTPS/WSS, HSTS, twardy CSP i CORS.
 - Auth: krótkie JWT + refresh, RBAC.
