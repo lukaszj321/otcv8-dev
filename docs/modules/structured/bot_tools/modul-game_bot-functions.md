@@ -1,5 +1,5 @@
 {% raw %}
-# ¦ Modul: `game_bot/functions`
+# | Modul: `game_bot/functions`
 
 ```lua
 

@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_bot/ui`
+# | Modul: `game_bot/ui`
 
 ```otui
 

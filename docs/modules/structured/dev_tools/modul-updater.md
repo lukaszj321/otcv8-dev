@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `updater`
+# | Modul: `updater`
 
 ```lua
 
@@ -630,5 +630,5 @@ StaticMainWindow
 
 ---
 
-
+
 
