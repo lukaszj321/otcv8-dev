@@ -121,21 +121,21 @@ function Fix-Content {
         $Text += [Environment]::NewLine
     }
 
-  # --- 4) Domykanie ``` fences ---
+    # --- 4) Domykanie ``` fences ---
     $fenceCount = ([regex]::Matches($Text, '(?m)^\s*```')).Count
-  if ($fenceCount % 2 -ne 0) {
-      $Text = $Text.TrimEnd() + [Environment]::NewLine + '```' + [Environment]::NewLine
-  }
+    if ($fenceCount % 2 -ne 0) {
+        $Text = $Text.TrimEnd() + [Environment]::NewLine + '```' + [Environment]::NewLine
+    }
 
-  # --- 5) Redukcja nadmiarowych pustych linii (>2) ---
-  # (zachowujemy max 2 puste linie pod rząd)
-  # Zamień wystąpienia 3 lub więcej kolejnych LF na dokładnie dwa LF
-  $Text = $Text -replace '(\n){3,}', "`n`n"
+    # --- 5) Redukcja nadmiarowych pustych linii (>2) ---
+    # (zachowujemy max 2 puste linie pod rząd)
+    # Zamień wystąpienia 3 lub więcej kolejnych LF na dokładnie dwa LF
+    $Text = $Text -replace '(\n){3,}', "`n`n"
 
-  # przywróć CRLF
-  $Text = $Text -replace "`n","`r`n"
+    # przywróć CRLF
+    $Text = $Text -replace "`n", "`r`n"
 
-  return @{ Changed = ($Text -ne $orig); NewText = $Text }
+    return @{ Changed = ($Text -ne $orig); NewText = $Text }
 }
 
 # --- Wykonanie ---
