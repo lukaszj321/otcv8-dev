@@ -1,91 +1,22 @@
 site_name: "OTCv8 Dev — Dokumentacja"
 site_url: "https://lukaszj321.github.io/otcv8-dev/"
-repo_url: "https://github.com/lukaszj321/otcv8-dev"
-repo_name: "lukaszj321/otcv8-dev"
-use_directory_urls: true
-
-theme:
-  name: material
-  language: pl
-  # UWAGA: wyłączone, żeby nie podawało z cache starych stron
-  features:
-    # - navigation.instant
-    # - navigation.tracking
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.indexes
-    - navigation.top
-    - content.code.copy
-    - content.action.edit
-    - content.action.view
-    - search.suggest
-    - search.highlight
-    - header.autohide
-  palette:
-    - scheme: default
-      primary: blue
-      accent: indigo
-  font:
-    text: Roboto
-    code: Fira Code
-  icon:
-    repo: fontawesome/brands/github
-  logo: _assets/img/logo.svg
-  favicon: _assets/img/favicon.png
-
-extra_css:
-  - _assets/css/title-fix.css
-
-plugins:
-  - search
-  - glightbox
-  - macros
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago
-      fallback_to_build_date: true
-  - redirects:
-      redirect_maps:
-        guides/architecture.md: architektura/client_overview.md
-        modules/modules_core.md: modules/structured/core/INDEX.md
-        modules/modules_game_1.md: modules/structured/gameplay/INDEX.md
-        modules/modules_game_2.md: modules/structured/gameplay/INDEX.md
-        modules/modules_misc.md: modules/structured/dev_tools/INDEX.md
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - md_in_html
-  - tables
-  - toc:
-      permalink: true
-      separator: "-"
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.critic
-  - pymdownx.tilde
-  - pymdownx.emoji
 
 nav:
   - Start: index.md
   - Architektura:
-      - Przegląd wysokopoziomowy: guides/architecture.md
-      - Przegląd klienta (C++): architektura/client_overview.md
-      - Framework (C++): architektura/framework_overview.md
-      - Struktura źródeł (client): architektura/src_client.md
-      - Struktura źródeł (framework): architektura/src_framework.md
+      - "Przegląd wysokopoziomowy": guides/architecture.md
+      - "Przegląd klienta (C++)": architektura/client_overview.md
+      - "Framework (C++)": architektura/framework_overview.md
+      - "Struktura źródeł (client)": architektura/src_client.md
+      - "Struktura źródeł (framework)": architektura/src_framework.md
   - API:
       - Engine:
-          - Specyfikacja UI: api/engine/otclient_v_8_specyfikacja_ui.md
-          - Walidator: api/engine/otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna.md
+          - "Specyfikacja UI": api/engine/otclient_v_8_specyfikacja_ui.md
+          - "Walidator": api/engine/otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna.md
       - Lua:
-          - Style guide: lua/style-guide.md
-          - Referencja klienta: api/lua/luafunctions_client.md
-          - Zbiorcze: api/otcv8-full-api.md
+          - "Style guide": lua/style-guide.md
+          - "Referencja klienta": api/lua/luafunctions_client.md
+          - "Zbiorcze": api/otcv8-full-api.md
   - Moduły:
       - Core:
           - INDEX: modules/structured/core/INDEX.md
@@ -255,20 +186,17 @@ nav:
           - "Moduł: `battle.lua`": modules/structured/dev_tools/modul-battle-lua.md
           - "Moduł: `bot.lua`": modules/structured/dev_tools/modul-bot-lua.md
           - "Moduł: `bugreport.lua`": modules/structured/dev_tools/modul-bugreport-lua.md
-          - "Moduł: | Moduł: `client_background`": modules/structured/dev_tools/modul-client-background.md
-          - "Moduł: | Moduł: `client_entergame`": modules/structured/dev_tools/modul-client-entergame.md
-          - "Moduł: | Moduł: `client_feedback`": modules/structured/dev_tools/modul-client-feedback.md
-          - "Moduł: | Moduł: `client_locales`": modules/structured/dev_tools/modul-client-locales.md
-          - "Moduł: | Moduł: `client_mobile`": modules/structured/dev_tools/modul-client-mobile.md
-          - "Moduł: | Moduł: `client_options`": modules/structured/dev_tools/modul-client-options.md
-          - "Moduł: | Moduł: `client_profiles`": modules/structured/dev_tools/modul-client-profiles.md
-          - "Moduł: | Moduł: `client_stats`": modules/structured/dev_tools/modul-client-stats.md
-          - "Moduł: | Moduł: `client_styles`": modules/structured/dev_tools/modul-client-styles.md
-          - "Moduł: | Moduł: `client_terminal`": modules/structured/dev_tools/modul-client-terminal.md
-          - "Moduł: | Moduł: `client_textedit`": modules/structured/dev_tools/modul-client-textedit.md
-          - "Moduł: | Moduł: `client_topmenu`": modules/structured/dev_tools/modul-client-topmenu.md
-          - "Moduł: | Moduł: `corelib/ui`": modules/structured/dev_tools/modul-corelib-ui.md
-          - "Moduł: | Moduł: `crash_reporter`": modules/structured/dev_tools/modul-crash-reporter.md
+          - "| Moduł: `client_background`": modules/structured/dev_tools/modul-client-background.md
+          - "| Moduł: `client_entergame`": modules/structured/dev_tools/modul-client-entergame.md
+          - "| Moduł: `client_feedback`": modules/structured/dev_tools/modul-client-feedback.md
+          - "| Moduł: `client_locales`": modules/structured/dev_tools/modul-client-locales.md
+          - "| Moduł: `client_mobile`": modules/structured/dev_tools/modul-client-mobile.md
+          - "| Moduł: `client_options`": modules/structured/dev_tools/modul-client-options.md
+          - "| Moduł: `client_profiles`": modules/structured/dev_tools/modul-client-profiles.md
+          - "| Moduł: `client_stats`": modules/structured/dev_tools/modul-client-stats.md
+          - "| Moduł: `client_styles`": modules/structured/dev_tools/modul-client-styles.md
+          - "| Moduł: `client_terminal`": modules/structured/dev_tools/modul-client-terminal.md
+          - "| Moduł: `corelib/ui`": modules/structured/dev_tools/modul-corelib-ui.md
           - "Moduł: `executor.lua`": modules/structured/dev_tools/modul-executor-lua.md
           - "Moduł: Game Battle Module": modules/structured/dev_tools/modul-game-battle-module.md
           - "Moduł: game_battle": modules/structured/dev_tools/modul-game-battle.md
@@ -276,8 +204,8 @@ nav:
           - "Moduł: game_bot": modules/structured/dev_tools/modul-game-bot.md
           - "Moduł: Game Bugreport Module": modules/structured/dev_tools/modul-game-bugreport-module.md
           - "Moduł: game_bugreport": modules/structured/dev_tools/modul-game-bugreport.md
-          - "Moduł: | Moduł: `game_buttons`": modules/structured/dev_tools/modul-game-buttons.md
-          - "Moduł: | Moduł: `game_features`": modules/structured/dev_tools/modul-game-features.md
+          - "| Moduł: `game_buttons`": modules/structured/dev_tools/modul-game-buttons.md
+          - "| Moduł: `game_features`": modules/structured/dev_tools/modul-game-features.md
           - "Moduł: Game Healthinfo Module": modules/structured/dev_tools/modul-game-healthinfo-module.md
           - "Moduł: game_healthinfo": modules/structured/dev_tools/modul-game-healthinfo.md
           - "Moduł: Game Imbuing Module": modules/structured/dev_tools/modul-game-imbuing-module.md
@@ -304,21 +232,21 @@ nav:
           - "Moduł: game_questlog": modules/structured/dev_tools/modul-game-questlog.md
           - "Moduł: Game Ruleviolation Module": modules/structured/dev_tools/modul-game-ruleviolation-module.md
           - "Moduł: game_ruleviolation": modules/structured/dev_tools/modul-game-ruleviolation.md
-          - "Moduł: | Moduł: `game_shaders`": modules/structured/dev_tools/modul-game-shaders.md
+          - "| Moduł: `game_shaders`": modules/structured/dev_tools/modul-game-shaders.md
           - "Moduł: Game Shop Module": modules/structured/dev_tools/modul-game-shop-module.md
           - "Moduł: game_shop": modules/structured/dev_tools/modul-game-shop.md
           - "Moduł: Game Textwindow Module": modules/structured/dev_tools/modul-game-textwindow-module.md
           - "Moduł: game_textwindow": modules/structured/dev_tools/modul-game-textwindow.md
-          - "Moduł: | Moduł: `game_things`": modules/structured/dev_tools/modul-game-things.md
+          - "| Moduł: `game_things`": modules/structured/dev_tools/modul-game-things.md
           - "Moduł: Game Topbar Module": modules/structured/dev_tools/modul-game-topbar-module.md
           - "Moduł: game_topbar": modules/structured/dev_tools/modul-game-topbar.md
           - "Moduł: Game Unjustifiedpoints Module": modules/structured/dev_tools/modul-game-unjustifiedpoints-module.md
           - "Moduł: game_unjustifiedpoints": modules/structured/dev_tools/modul-game-unjustifiedpoints.md
           - "Moduł: Game Walking Module": modules/structured/dev_tools/modul-game-walking-module.md
           - "Moduł: game_walking": modules/structured/dev_tools/modul-game-walking.md
-          - "Moduł: | Moduł: `game_bugreport`": modules/structured/dev_tools/modul-game-bugreport.md
-          - "Moduł: | Moduł: `game_protocol`": modules/structured/dev_tools/modul-game_protocol.md
-          - "Moduł: | Moduł: `gamelib/ui`": modules/structured/dev_tools/modul-gamelib-ui.md
+          - "| Moduł: `game_bugreport`": modules/structured/dev_tools/modul-game-bugreport.md
+          - "| Moduł: `game_protocol`": modules/structured/dev_tools/modul-game_protocol.md
+          - "| Moduł: `gamelib/ui`": modules/structured/dev_tools/modul-gamelib-ui.md
           - "Moduł: `healthinfo.lua`": modules/structured/dev_tools/modul-healthinfo-lua.md
           - "Moduł: `imbuing.lua`": modules/structured/dev_tools/modul-imbuing-lua.md
           - "Moduł: `itemselector.lua`": modules/structured/dev_tools/modul-itemselector-lua.md
@@ -342,5 +270,90 @@ nav:
           - "Moduł: `unjustifiedpoints.lua`": modules/structured/dev_tools/modul-unjustifiedpoints-lua.md
           - "Moduł: `updater.lua`": modules/structured/dev_tools/modul-updater-lua.md
           - "Moduł: Updater Module": modules/structured/dev_tools/modul-updater-module.md
-          - "Moduł: | Moduł: `updater`": modules/structured/dev_tools/modul-updater.md
+          - "| Moduł: `updater`": modules/structured/dev_tools/modul-updater.md
           - "Moduł: `walking.lua`": modules/structured/dev_tools/modul-walking-lua.md
+
+theme:
+  name: material
+  language: pl
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - search.suggest
+    - search.highlight
+    - header.autohide
+  font:
+    text: Roboto
+    code: Fira Code
+  icon:
+    repo: fontawesome/brands/github
+  favicon: _assets/img/favicon.png
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+  logo: _assets/img/logo.svg
+
+docs_dir: docs
+site_dir: site
+repo_url: "https://github.com/lukaszj321/otcv8-dev"
+repo_name: "lukaszj321/otcv8-dev"
+edit_uri: "edit/master/docs/"
+use_directory_urls: true
+
+extra_css:
+  - _assets/css/title-fix.css
+extra_javascript: []
+
+markdown_extensions:
+  - toc
+  - tables
+  - fenced_code
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.critic
+  - pymdownx.tilde
+  - pymdownx.emoji
+mdx_configs:
+  toc:
+    permalink: true
+    separator: "-"
+
+strict: false
+
+plugins:
+  - material/search
+  - glightbox
+  - macros
+  - git-revision-date-localized
+  - redirects
+
+# 🔧 Ważne: wykluczenia dla indeksu wyszukiwarki (odciąża build na CI)
+extra:
+  search:
+    exclude:
+      - api/otcv8-full-api.md
+      - modules/**/__md_backup_*.md
+
+validation:
+  nav:
+    omitted_files: 20
+    not_found: 30
+    absolute_links: 20
+  links:
+    not_found: 30
+    absolute_links: 20
+    unrecognized_links: 20
+    anchors: 20
