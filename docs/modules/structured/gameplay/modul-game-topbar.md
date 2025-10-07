@@ -553,9 +553,9 @@ function setupSkillPanel(id, parent, experience, defaultOff)
 
     widget.icon:setImageClip({x = iconsTable[id]*9, y = 0, width = 9,height = 9})
 
-    if not experience then 
+    if not experience then
 
-        widget.progress:setBackgroundColor('#00c000') 
+        widget.progress:setBackgroundColor('#00c000')
 
         widget.shop:setVisible(false)
 
@@ -903,7 +903,7 @@ StatsPanel < Panel
 
     anchors.top: states.top
 
-    anchors.bottom: states.bottom   
+    anchors.bottom: states.bottom
 
     margin-right: 7
 
@@ -1009,7 +1009,7 @@ SkillPanel < Panel
 
     anchors.right: parent.right
 
-    anchors.verticalCenter: parent.verticalCenter    
+    anchors.verticalCenter: parent.verticalCenter
 
     image-source: /images/game/topbar/boost
 
@@ -1049,7 +1049,7 @@ SkillPanel < Panel
 
     margin-bottom: -2
 
-    anchors.right: progress.horizontalCenter  
+    anchors.right: progress.horizontalCenter
 
   VerticalSeparator
 
@@ -1063,7 +1063,7 @@ SkillPanel < Panel
 
     margin-bottom: -2
 
-    anchors.right: progress.right  
+    anchors.right: progress.right
 
 Panel
 

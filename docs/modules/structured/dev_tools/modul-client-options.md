@@ -485,7 +485,7 @@ OptionPanel
 
     minimum: 0
 
-    maximum: 300    
+    maximum: 300
 
     $mobile:
 
@@ -585,7 +585,7 @@ OptionPanel
 
     @onSetup: |
 
-      self:setText(tr("GPU: ") .. g_graphics.getRenderer())      
+      self:setText(tr("GPU: ") .. g_graphics.getRenderer())
 
   Label
 
@@ -593,7 +593,7 @@ OptionPanel
 
     @onSetup: |
 
-      self:setText(tr("Version: ") .. g_graphics.getVersion())      
+      self:setText(tr("Version: ") .. g_graphics.getVersion())
 
   HorizontalSeparator
 
@@ -1255,7 +1255,7 @@ function init()
 
   interfacePanel = g_ui.loadUI('interface')
 
-  optionsTabBar:addTab(tr('Interface'), interfacePanel, '/images/optionstab/game')  
+  optionsTabBar:addTab(tr('Interface'), interfacePanel, '/images/optionstab/game')
 
   consolePanel = g_ui.loadUI('console')
 
@@ -1307,7 +1307,7 @@ function init()
 
   connect(g_game, { onGameStart = online,
 
-                     onGameEnd = offline })                    
+                     onGameEnd = offline })
 
 end
 
@@ -1315,7 +1315,7 @@ function terminate()
 
   disconnect(g_game, { onGameStart = online,
 
-                     onGameEnd = offline })  
+                     onGameEnd = offline })
 
   g_keyboard.unbindKeyDown('Ctrl+Shift+F')
 
@@ -1363,13 +1363,13 @@ function setup()
 
     end
 
-  end  
+  end
 
   if g_game.isOnline() then
 
     online()
 
-  end  
+  end
 
 end
 
@@ -1433,7 +1433,7 @@ function toggleDisplays()
 
 end
 
-function toggleOption(key) 
+function toggleOption(key)
 
   setOption(key, not getOption(key))
 
@@ -1455,7 +1455,7 @@ function setOption(key, value, force)
 
       else
 
-        modules.game_proxy.hide()      
+        modules.game_proxy.hide()
 
       end
 
@@ -1547,7 +1547,7 @@ function setOption(key, value, force)
 
     end
 
-    audioPanel:getChildById('botSoundVolumeLabel'):setText(tr('Bot sound volume: %d', value))    
+    audioPanel:getChildById('botSoundVolumeLabel'):setText(tr('Bot sound volume: %d', value))
 
   elseif key == 'showHealthManaCircle' then
 
@@ -1587,15 +1587,15 @@ function setOption(key, value, force)
 
     if value == 1 then
 
-      gameMapPanel:setCrosshair("")    
+      gameMapPanel:setCrosshair("")
 
     elseif value == 2 then
 
-      gameMapPanel:setCrosshair("/images/crosshair/default.png")        
+      gameMapPanel:setCrosshair("/images/crosshair/default.png")
 
     elseif value == 3 then
 
-      gameMapPanel:setCrosshair("/images/crosshair/full.png")    
+      gameMapPanel:setCrosshair("/images/crosshair/full.png")
 
     end
 
@@ -1655,9 +1655,9 @@ function setOption(key, value, force)
 
       g_game.setMaxPreWalkingSteps(2)
 
-    else 
+    else
 
-      g_game.setMaxPreWalkingSteps(1)    
+      g_game.setMaxPreWalkingSteps(1)
 
     end
 
@@ -1671,27 +1671,27 @@ function setOption(key, value, force)
 
   elseif key == 'hotkeyDelay' then
 
-    generalPanel:getChildById('hotkeyDelayLabel'):setText(tr('Hotkey delay: %s ms', value))  
+    generalPanel:getChildById('hotkeyDelayLabel'):setText(tr('Hotkey delay: %s ms', value))
 
   elseif key == 'walkFirstStepDelay' then
 
-    generalPanel:getChildById('walkFirstStepDelayLabel'):setText(tr('Walk delay after first step: %s ms', value))  
+    generalPanel:getChildById('walkFirstStepDelayLabel'):setText(tr('Walk delay after first step: %s ms', value))
 
   elseif key == 'walkTurnDelay' then
 
-    generalPanel:getChildById('walkTurnDelayLabel'):setText(tr('Walk delay after turn: %s ms', value))  
+    generalPanel:getChildById('walkTurnDelayLabel'):setText(tr('Walk delay after turn: %s ms', value))
 
   elseif key == 'walkStairsDelay' then
 
-    generalPanel:getChildById('walkStairsDelayLabel'):setText(tr('Walk delay after floor change: %s ms', value))  
+    generalPanel:getChildById('walkStairsDelayLabel'):setText(tr('Walk delay after floor change: %s ms', value))
 
   elseif key == 'walkTeleportDelay' then
 
-    generalPanel:getChildById('walkTeleportDelayLabel'):setText(tr('Walk delay after teleport: %s ms', value))  
+    generalPanel:getChildById('walkTeleportDelayLabel'):setText(tr('Walk delay after teleport: %s ms', value))
 
   elseif key == 'walkCtrlTurnDelay' then
 
-    generalPanel:getChildById('walkCtrlTurnDelayLabel'):setText(tr('Walk delay after ctrl turn: %s ms', value))  
+    generalPanel:getChildById('walkCtrlTurnDelayLabel'):setText(tr('Walk delay after ctrl turn: %s ms', value))
 
   elseif key == "antialiasing" then
 
@@ -1725,7 +1725,7 @@ function setOption(key, value, force)
 
         end
 
-        if value == nil or value < 1 then 
+        if value == nil or value < 1 then
 
           value = 1
 
@@ -1737,7 +1737,7 @@ function setOption(key, value, force)
 
         end
 
-      end      
+      end
 
       break
 
@@ -1757,7 +1757,7 @@ function setOption(key, value, force)
 
   if key == 'classicView' or key == 'rightPanels' or key == 'leftPanels' or key == 'cacheMap' then
 
-    modules.game_interface.refreshViewMode()    
+    modules.game_interface.refreshViewMode()
 
   elseif key:find("actionbar") then
 
@@ -1817,13 +1817,13 @@ function setLightOptionsVisibility(value)
 
   graphicsPanel:getChildById('ambientLightLabel'):setEnabled(value)
 
-  graphicsPanel:getChildById('ambientLight'):setEnabled(value)  
+  graphicsPanel:getChildById('ambientLight'):setEnabled(value)
 
   interfacePanel:getChildById('floorFading'):setEnabled(value)
 
   interfacePanel:getChildById('floorFadingLabel'):setEnabled(value)
 
-  interfacePanel:getChildById('floorFadingLabel2'):setEnabled(value)  
+  interfacePanel:getChildById('floorFadingLabel2'):setEnabled(value)
 
 end
 

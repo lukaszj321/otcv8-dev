@@ -1,7 +1,7 @@
-# Moduł: Moduły â€“ indeks
-PoniĹĽej lista modułĂłw w tej kategorii (auto-generated). Edytuj swobodnie â€“ skrypt będzie dopisywał nowe pozycje.
+# Modu: Moduy  indeks
+Poniej lista moduw w tej kategorii (auto-generated). Edytuj swobodnie  skrypt bdzie dopisywa nowe pozycje.
 
-<!-- AUTO-LIST -->
+<!-- AUTO-LIST -→
 
 - [`background.lua`](./modul-background-lua.md)
 - [`base64.lua`](./modul-base64-lua.md)

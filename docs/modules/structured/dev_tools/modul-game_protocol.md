@@ -1083,7 +1083,7 @@ function registerProtocol()
 
 		msg:getU8() -- Element
 
-		if type > 1 then -- 
+		if type > 1 then --
 
 			msg:getString() -- Target
 
@@ -1299,7 +1299,7 @@ function readDailyReward(msg)
 
       msg:getU16()
 
-      msg:getString()				
+      msg:getString()
 
       msg:getU32()
 

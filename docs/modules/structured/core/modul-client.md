@@ -109,7 +109,7 @@ function init()
 
     else
 
-      g_window.setMinimumSize({ width = 800, height = 640 })  
+      g_window.setMinimumSize({ width = 800, height = 640 })
 
     end
 
@@ -195,7 +195,7 @@ function onGameStart()
 
   if not player then return end
 
-  g_window.setTitle(g_app.getName() .. " - " .. player:getName())  
+  g_window.setTitle(g_app.getName() .. " - " .. player:getName())
 
 end
 

@@ -51,7 +51,7 @@ BotItem < Item
 
   &editable: true
 
-BotTextEdit < TextEdit  
+BotTextEdit < TextEdit
 
   @onClick: modules.client_textedit.show(self)
 
@@ -195,7 +195,7 @@ BotConfig < Panel
 
     anchors.right: parent.right
 
-    margin-left: 5      
+    margin-left: 5
 
     $on:
 
@@ -517,7 +517,7 @@ SingleScrollItemPanel < Panel
 
     anchors.right: parent.right
 
-    anchors.top: prev.top    
+    anchors.top: prev.top
 
     margin-left: 2
 
@@ -567,7 +567,7 @@ DualScrollItemPanel < Panel
 
     anchors.right: parent.right
 
-    anchors.top: prev.top    
+    anchors.top: prev.top
 
     margin-left: 2
 
@@ -721,7 +721,7 @@ ItemAndButtonPanel < Panel
 
     margin-left: 2
 
-    margin-top: 0   
+    margin-top: 0
 
 ItemAndSlotPanel < Panel
 

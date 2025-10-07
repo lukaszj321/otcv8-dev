@@ -27,7 +27,7 @@ function init()
 
       end
 
-    end  
+    end
 
   end
 
@@ -91,7 +91,7 @@ function init()
 
   if layout:len() > 0 and g_resources.directoryExists('/layouts/' .. layout .. '/cursors/cursors') then
 
-    g_mouse.loadCursors('/layouts/' .. layout .. '/cursors/cursors')    
+    g_mouse.loadCursors('/layouts/' .. layout .. '/cursors/cursors')
 
   end
 

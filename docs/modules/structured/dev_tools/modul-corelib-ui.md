@@ -1476,7 +1476,7 @@ function UIMiniWindow:setup()
 
   if lockButton then
 
-    lockButton.onClick = 
+    lockButton.onClick =
 
       function ()
 
@@ -1590,7 +1590,7 @@ function UIMiniWindow:setup()
 
       end
 
-    else 
+    else
 
       if not self.forceOpen and self.autoOpen ~= nil and (self.autoOpen == 0 or self.autoOpen == false) and not self.containerWindow then
 
@@ -2424,7 +2424,7 @@ function UIMiniWindowContainer:order()
 
       ignoreIndex = ignoreIndex + 1
 
-    end      
+    end
 
   end
 
@@ -4708,7 +4708,7 @@ local function calcValues(self)
 
   if g_app.isMobile() then
 
-    px = math.max(proportion * pxrange, 24)  
+    px = math.max(proportion * pxrange, 24)
 
   end
 
@@ -6890,7 +6890,7 @@ function UIWindow.create()
 
   window:setTextAlign(AlignTopCenter)
 
-  window:setDraggable(true)  
+  window:setDraggable(true)
 
   window:setAutoFocusPolicy(AutoFocusFirst)
 

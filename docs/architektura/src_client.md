@@ -27,8 +27,8 @@ Obiekty `AnimatedText` są tworzone przez `ProtocolGame` w odpowiedzi na komunik
 ```cpp
 // Przykład tworzenia (logika w ProtocolGame::parseAnimatedText)
 AnimatedTextPtr animatedText = AnimatedTextPtr(new AnimatedText);
-animatedText->setColor(color);
-animatedText->setText(text);
+animatedText→setColor(color);
+animatedText→setText(text);
 g_map.addThing(animatedText, position);
 ```
 ---
@@ -704,7 +704,7 @@ Implementacja klas `House` i `HouseManager`, które zarządzają danymi o domach
 # Zmienne globalne
 - `HouseManager g_houses`: Globalna instancja managera domów.
 # Zależności i powiązania
-- **`map.h`**: Interakcje z obiektami `Tile` (`tile->setFlag(...)`).
+- **`map.h`**: Interakcje z obiektami `Tile` (`tile→setFlag(...)`).
 - **`framework/core/resourcemanager.h`**: Do odczytu plików XML z danymi domów.
 
 ---
@@ -1388,7 +1388,7 @@ Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za *
 # Logika
 Większość funkcji w tym pliku ma prostą strukturę:
 1. Stwórz nowy `OutputMessage`.
-2. Dodaj kod operacyjny (opcode) za pomocą `msg->addU8(...)`.
+2. Dodaj kod operacyjny (opcode) za pomocą `msg→addU8(...)`.
 3. Dodaj kolejne dane (ID, pozycje, stringi) zgodnie ze specyfikacją protokołu.
 4. Wyślij pakiet za pomocą `send(msg)`.
 # Zależności i powiązania
@@ -1590,7 +1590,7 @@ Dziedziczy po `UIWidget`. Służy do renderowania przedmiotów w UI, np. w ekwip
 # Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje tło, obraz, a następnie sam przedmiot (`m_item->draw(...)`), liczbę sztuk (jeśli dotyczy) i ramkę. |
+| `drawSelf(...)` | Rysuje tło, obraz, a następnie sam przedmiot (`m_item→draw(...)`), liczbę sztuk (jeśli dotyczy) i ramkę. |
 | `setItemId(int id)` | Ustawia przedmiot do wyświetlenia na podstawie jego ID. |
 | `setItemCount(int count)` | Ustawia liczbę sztuk przedmiotu. |
 | `setItem(const ItemPtr& item)` | Ustawia przedmiot do wyświetlenia na podstawie istniejącego obiektu `Item`. |
@@ -1631,8 +1631,8 @@ Implementacja `UIMap`, widżetu interfejsu użytkownika, który renderuje głów
 # Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Główna funkcja rysująca. Jest wywoływana trzykrotnie dla różnych "warstw" (`DrawPane`): <br> 1. `MapBackgroundPane`: Rysuje tło mapy (`m_mapView->drawMapBackground`). <br> 2. `MapForegroundPane`: Rysuje pierwszy plan (`m_mapView->drawMapForeground`). <br> 3. `ForegroundPane`: Rysuje obramowanie wokół mapy. |
-| `setZoom(int zoom)` | Ustawia poziom przybliżenia, co wpływa na `m_mapView->setVisibleDimension`. |
+| `drawSelf(Fw::DrawPane drawPane)` | Główna funkcja rysująca. Jest wywoływana trzykrotnie dla różnych "warstw" (`DrawPane`): <br> 1. `MapBackgroundPane`: Rysuje tło mapy (`m_mapView→drawMapBackground`). <br> 2. `MapForegroundPane`: Rysuje pierwszy plan (`m_mapView→drawMapForeground`). <br> 3. `ForegroundPane`: Rysuje obramowanie wokół mapy. |
+| `setZoom(int zoom)` | Ustawia poziom przybliżenia, co wpływa na `m_mapView→setVisibleDimension`. |
 | `zoomIn()` / `zoomOut()` | Zmienia poziom przybliżenia o stałą wartość. |
 | `setVisibleDimension(...)` | Ustawia widoczny wymiar w `m_mapView` i aktualizuje proporcje. |
 | `setKeepAspectRatio(bool enable)` | Włącza/wyłącza zachowanie stałych proporcji widoku mapy. |
@@ -1673,7 +1673,7 @@ Implementacja `UIItem`, widżetu do wyświetlania przedmiotów w interfejsie uż
 # Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Renderuje tło, obraz, a następnie sam przedmiot (`m_item->draw(...)`), używając prostokąta `getPaddingRect()`. Jeśli `m_showCount` jest włączone, rysuje również liczbę przedmiotów w prawym dolnym rogu. |
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Renderuje tło, obraz, a następnie sam przedmiot (`m_item→draw(...)`), używając prostokąta `getPaddingRect()`. Jeśli `m_showCount` jest włączone, rysuje również liczbę przedmiotów w prawym dolnym rogu. |
 | `setItemId(int id)` | Tworzy nowy obiekt `Item` (jeśli go nie było) lub aktualizuje ID istniejącego. |
 | `setItemCount(int count)` | Ustawia liczbę przedmiotów i aktualizuje tekst licznika. |
 | `setItem(const ItemPtr& item)` | Ustawia przedmiot na podstawie gotowego obiektu `ItemPtr`. |
@@ -1722,7 +1722,7 @@ Dziedziczy po `UIWidget`. Przechowuje kolejkę wartości i renderuje je jako wyk
 # Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje wykres. Oblicza skalę, przygotowuje punkty i rysuje linię za pomocą `g_drawQueue->addLine`. |
+| `drawSelf(...)` | Rysuje wykres. Oblicza skalę, przygotowuje punkty i rysuje linię za pomocą `g_drawQueue→addLine`. |
 | `clear()` | Czyści wszystkie wartości z wykresu. |
 | `addValue(int value, ...)` | Dodaje nową wartość do wykresu. Jeśli liczba wartości przekroczy pojemność, najstarsza jest usuwana. |
 | `setLineWidth(int width)` | Ustawia grubość linii wykresu. |
@@ -1742,7 +1742,7 @@ Dziedziczy po `UIWidget`. Umożliwia renderowanie postaci (jej ubioru) w element
 # Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje postać za pomocą `m_creature->drawOutfit(...)`. Obsługuje automatyczne obracanie postaci, jeśli jest włączone. |
+| `drawSelf(...)` | Rysuje postać za pomocą `m_creature→drawOutfit(...)`. Obsługuje automatyczne obracanie postaci, jeśli jest włączone. |
 | `setCreature(const CreaturePtr& creature)` | Ustawia stworzenie do wyświetlenia. |
 | `setFixedCreatureSize(bool fixed)` | Ustawia, czy rozmiar renderowanej postaci ma być stały, czy skalowany do rozmiaru widżetu. |
 | `setOutfit(const Outfit& outfit)` | Ustawia ubiór do wyświetlenia. Jeśli nie ma przypisanego stworzenia, tworzy nowe. |
@@ -1902,7 +1902,7 @@ Implementacja `UIGraph`, widżetu do rysowania wykresów liniowych.
 # Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje wykres. Oblicza minimalną i maksymalną wartość w widocznym zakresie, aby przeskalować wykres do wysokości widżetu. Następnie tworzy listę punktów i rysuje między nimi linie za pomocą `g_drawQueue->addLine`. Rysuje również tytuł i etykiety (min, max, aktualna wartość), jeśli są włączone. |
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje wykres. Oblicza minimalną i maksymalną wartość w widocznym zakresie, aby przeskalować wykres do wysokości widżetu. Następnie tworzy listę punktów i rysuje między nimi linie za pomocą `g_drawQueue→addLine`. Rysuje również tytuł i etykiety (min, max, aktualna wartość), jeśli są włączone. |
 | `clear()` | Czyści wszystkie dane z wykresu. |
 | `addValue(int value, ...)` | Dodaje nową wartość do kolejki `m_values`. Jeśli kolejka przekroczy pojemność (`m_capacity`), najstarsza wartość jest usuwana. Opcjonalnie ignoruje małe, powtarzające się wartości, aby uniknąć "szumu" na wykresie. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `line-width`, `capacity`, `title`. |
@@ -2579,44 +2579,44 @@ Poniższy diagram przedstawia główne zależności i przepływ informacji międ
 ```mermaid
 graph TD
     subgraph "Aplikacja i UI"
-        Client[Client] -->|inicjalizuje| Game
-        Client -->|inicjalizuje| Map
-        Client -->|inicjalizuje| ThingTypeManager
-        UIMap[UIMap] -->|renderuje| MapView
-        MapView -->|odczytuje dane| Map
-        UICreature[UICreature] -->|wyświetla| Creature
-        UIItem[UIItem] -->|wyświetla| Item
+        Client[Client] -→|inicjalizuje| Game
+        Client -→|inicjalizuje| Map
+        Client -→|inicjalizuje| ThingTypeManager
+        UIMap[UIMap] -→|renderuje| MapView
+        MapView -→|odczytuje dane| Map
+        UICreature[UICreature] -→|wyświetla| Creature
+        UIItem[UIItem] -→|wyświetla| Item
     end
 
     subgraph "Logika Gry"
-        Game[Game] -->|wysyła akcje| ProtocolGame
-        Game -->|zarządza| LocalPlayer
-        Game -->|zarządza| Map
-        LocalPlayer[LocalPlayer] -->|dziedziczy| Player
-        Player -->|dziedziczy| Creature
-        Creature -->|dziedziczy| Thing
-        Item -->|dziedziczy| Thing
-        Thing -->|ma| ThingType
+        Game[Game] -→|wysyła akcje| ProtocolGame
+        Game -→|zarządza| LocalPlayer
+        Game -→|zarządza| Map
+        LocalPlayer[LocalPlayer] -→|dziedziczy| Player
+        Player -→|dziedziczy| Creature
+        Creature -→|dziedziczy| Thing
+        Item -→|dziedziczy| Thing
+        Thing -→|ma| ThingType
     end
 
     subgraph "Sieć"
-        ProtocolGame[ProtocolGame] -->|parsuje pakiety| Game
-        ProtocolGame -->|wysyła pakiety| TCPSocket
+        ProtocolGame[ProtocolGame] -→|parsuje pakiety| Game
+        ProtocolGame -→|wysyła pakiety| TCPSocket
     end
 
     subgraph "Dane i Zasoby"
-        ThingTypeManager[ThingTypeManager] -->|wczytuje| DAT["things.dat"]
-        ThingTypeManager -->|wczytuje| OTB["items.otb"]
-        SpriteManager[SpriteManager] -->|wczytuje| SPR["sprites.spr"]
-        Map -->|wczytuje| OTBM["map.otbm"]
-        Minimap -->|wczytuje| OTMM["minimap.otmm"]
-        ThingType -->|używa| SpriteManager
+        ThingTypeManager[ThingTypeManager] -→|wczytuje| DAT["things.dat"]
+        ThingTypeManager -→|wczytuje| OTB["items.otb"]
+        SpriteManager[SpriteManager] -→|wczytuje| SPR["sprites.spr"]
+        Map -→|wczytuje| OTBM["map.otbm"]
+        Minimap -→|wczytuje| OTMM["minimap.otmm"]
+        ThingType -→|używa| SpriteManager
     end
 
-    MapView --> Creature
-    MapView --> Item
-    Map --> Tile
-    Tile --> Thing
+    MapView -→ Creature
+    MapView -→ Item
+    Map -→ Tile
+    Tile -→ Thing
 ```
 
 **Opis zależności:**

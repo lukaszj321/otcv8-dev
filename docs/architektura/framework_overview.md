@@ -184,8 +184,8 @@ class Event
 # framework/core/eventdispatcher.cpp
 - `s(this == &g_dispatcher ? STATS_MAIN : STATS_RENDER, "PollDispatcher")`
 - `lock(m_mutex)`
-- `s2(STATS_DISPATCHER, scheduledEvent->getFunction())`
-- `s2(STATS_DISPATCHER, event->getFunction())`
+- `s2(STATS_DISPATCHER, scheduledEvent→getFunction())`
+- `s2(STATS_DISPATCHER, event→getFunction())`
 - `ScheduledEventPtr(new ScheduledEvent("", nullptr, delay, 1))`
 - `lock(m_mutex)`
 - `scheduledEvent(new ScheduledEvent(function, callback, delay, 1, g_app.isOnInputEvent()))`
@@ -273,7 +273,7 @@ class FileStream
 - `s(STATS_RENDER, "DrawScaled")`
 - `s(STATS_RENDER, "SwapBuffers")`
 - `scale(m_scaling)`
-- `image(resolution, 4, pixels->data())`
+- `image(resolution, 4, pixels→data())`
 # framework/core/graphicalapplication.h
 class GraphicalApplication
 - `init(std::vector<std::string>& args)`
@@ -655,8 +655,8 @@ class DrawCache
 - `addColorRaw(const Color& color, int count)`
 # framework/graphics/drawqueue.cpp
 - `vertices(1024, 0)`
-- `DrawQueueItemText(screenCoords.topLeft(), font->getTexture(), hash, color, shadow))`
-- `DrawQueueItemTextColored(screenCoords.topLeft(), font->getTexture(), hash, colors, shadow))`
+- `DrawQueueItemText(screenCoords.topLeft(), font→getTexture(), hash, color, shadow))`
+- `DrawQueueItemTextColored(screenCoords.topLeft(), font→getTexture(), hash, colors, shadow))`
 # framework/graphics/drawqueue.h
 class DrawQueue
 class DrawQueue
@@ -743,7 +743,7 @@ class FontManager
 - `internalRelease()`
 - `rect(0, 0, getSize())`
 - `ret(width * height * sizeof(GLubyte), 0)`
-- `image(size, 4, pixels->data())`
+- `image(size, 4, pixels→data())`
 # framework/graphics/framebuffer.h
 class FrameBuffer
 class FrameBufferManager
@@ -2413,8 +2413,8 @@ class OggSoundFile
 - `cb_close(void* source)`
 - `cb_tell(void* source)`
 # framework/sound/soundbuffer.cpp
-- `samples(soundFile->getSize())`
-- `fillBuffer(format, samples, samples.size(), soundFile->getRate())`
+- `samples(soundFile→getSize())`
+- `fillBuffer(format, samples, samples.size(), soundFile→getRate())`
 # framework/sound/soundbuffer.h
 class SoundBuffer
 - `SoundBuffer()`
@@ -2865,7 +2865,7 @@ class UILayout
 - `internalUpdate()`
 # framework/ui/uimanager.cpp
 - `updateHoveredWidget(true)`
-- `s(STATS_MAIN, "UIManager::onWidgetDestroy", stdext::format("%s (%s)", widget->getId(), widget->getParent() ? widget->getParent()->getId() : ""))`
+- `s(STATS_MAIN, "UIManager::onWidgetDestroy", stdext::format("%s (%s)", widget→getId(), widget→getParent() ? widget→getParent()→getId() : ""))`
 - `backupList(std::move(m_destroyedWidgets))`
 - `OTMLException(styleNode, "not a valid style declaration")`
 - `createWidgetFromOTML(node, parent)`
@@ -3011,7 +3011,7 @@ class UIVerticalLayout
 # framework/ui/uiwidget.cpp
 - `UIAnchorLayout(static_self_cast<UIWidget>()))`
 - `UIAnchorLayout(static_self_cast<UIWidget>()))`
-- `VALIDATE(child->getParent() == static_self_cast<UIWidget>())`
+- `VALIDATE(child→getParent() == static_self_cast<UIWidget>())`
 - `rotatedChildren(m_children)`
 - `rotatedChildren(m_children)`
 - `updateLayout()`
@@ -3464,9 +3464,9 @@ class Color
 - `RSA_free(m_rsa)`
 - `_encrypt(std::string(m_machineUUID.begin(), m_machineUUID.end()), false)`
 - `namegen(uuid)`
-- `BN_dec2bn(&m_rsa->n, n.c_str())`
-- `BN_dec2bn(&m_rsa->p, p.c_str())`
-- `BN_mod(m_rsa->dmp1, m_rsa->d, r1, ctx)`
+- `BN_dec2bn(&m_rsa→n, n.c_str())`
+- `BN_dec2bn(&m_rsa→p, p.c_str())`
+- `BN_mod(m_rsa→dmp1, m_rsa→d, r1, ctx)`
 - `RSA_size(m_rsa)`
 # framework/util/crypt.h
 class Crypt
@@ -3743,8 +3743,8 @@ class TiXmlOutStream
 - `TiXmlText( "" )`
 - `TiXmlDeclaration()`
 - `TiXmlUnknown()`
-- `VALIDATE( !Find( TIXML_STRING( addMe->Name() ) ) )`
-- `VALIDATE( !Find( addMe->Name() ) )`
+- `VALIDATE( !Find( TIXML_STRING( addMe→Name() ) ) )`
+- `VALIDATE( !Find( addMe→Name() ) )`
 - `TiXmlAttribute()`
 - `TiXmlAttribute()`
 - `TiXmlHandle( child )`
@@ -3868,7 +3868,7 @@ class TiXmlPrinter
 - `TiXmlElement( const std::string& _value )`
 - `T()`
 - `QueryValueAttribute( const std::string& name, T* outValue )`
-- `sstream( node->ValueStr() )`
+- `sstream( node→ValueStr() )`
 - `QueryValueAttribute( const std::string& name, std::string* outValue )`
 - `Attribute( const std::string& name )`
 - `Attribute( const std::string& name, int* i )`

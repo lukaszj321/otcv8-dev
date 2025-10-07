@@ -116,7 +116,7 @@ TargetBot.Creature.getConfigs = function(creature)
 
   end
 
-  if TargetBot.Creature.cached > 1000 then 
+  if TargetBot.Creature.cached > 1000 then
 
     TargetBot.Creature.resetConfigsCache() -- too big cache size, reset
 
@@ -186,7 +186,7 @@ end
 
 local targetBotLure = false
 
-local targetCount = 0 
+local targetCount = 0
 
 local delayValue = 0
 
@@ -572,11 +572,11 @@ TargetBot.Creature.walk = function(creature, config, targets)
 
     elseif diffx == -1 and diffy == -1 then
 
-      candidates = {{x=pos.x, y=pos.y-1, z=pos.z}, {x=pos.x-1, y=pos.y, z=pos.z}} 
+      candidates = {{x=pos.x, y=pos.y-1, z=pos.z}, {x=pos.x-1, y=pos.y, z=pos.z}}
 
     elseif diffx == 1 and diffy == -1 then
 
-      candidates = {{x=pos.x, y=pos.y-1, z=pos.z}, {x=pos.x+1, y=pos.y, z=pos.z}}       
+      candidates = {{x=pos.x, y=pos.y-1, z=pos.z}, {x=pos.x+1, y=pos.y, z=pos.z}}
 
     else
 
@@ -756,7 +756,7 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
 
       end
 
-      newConfig.regex = newConfig.regex .. "^" .. part:trim():lower():gsub("%*", ".*"):gsub("%?", ".?") .. "$"    
+      newConfig.regex = newConfig.regex .. "^" .. part:trim():lower():gsub("%*", ".*"):gsub("%?", ".?") .. "$"
 
     end
 
@@ -1250,7 +1250,7 @@ TargetBot.Looting.setup = function()
 
   UI.Container(TargetBot.Looting.onItemsUpdate, true, nil, ui.items)
 
-  UI.Container(TargetBot.Looting.onContainersUpdate, true, nil, ui.containers) 
+  UI.Container(TargetBot.Looting.onContainersUpdate, true, nil, ui.containers)
 
   ui.everyItem.onClick = function()
 
@@ -1694,7 +1694,7 @@ TargetBot.Looting.lootContainer = function(lootContainers, container)
 
   g_game.close(container)
 
-  table.remove(TargetBot.Looting.list, storage.extras.lootLast and #TargetBot.Looting.list or 1) 
+  table.remove(TargetBot.Looting.list, storage.extras.lootLast and #TargetBot.Looting.list or 1)
 
 end
 
@@ -1800,7 +1800,7 @@ onCreatureDisappear(function(creature)
 
     table.insert(TargetBot.Looting.list, {pos=mpos, creature=name, container=container:getId(), added=now, tries=0})
 
-    table.sort(TargetBot.Looting.list, function(a,b) 
+    table.sort(TargetBot.Looting.list, function(a,b)
 
       a.dist = distanceFromPlayer(a.pos)
 
@@ -1840,7 +1840,7 @@ TargetBotLootingPanel < Panel
 
     text: Items to loot
 
-    text-align: center    
+    text-align: center
 
   BotContainer
 
@@ -2104,7 +2104,7 @@ targetbotMacro = macro(100, function()
 
     ui.config.right:setText(highestPriorityParams.config.name)
 
-    TargetBot.Creature.attack(highestPriorityParams, targets, looting)    
+    TargetBot.Creature.attack(highestPriorityParams, targets, looting)
 
     if lootingStatus:len() > 0 then
 
@@ -2120,7 +2120,7 @@ targetbotMacro = macro(100, function()
 
       if not lureEnabled then
 
-        TargetBot.setStatus("Attacking (luring off)")      
+        TargetBot.setStatus("Attacking (luring off)")
 
       end
 
@@ -2166,7 +2166,7 @@ config = Config.setup("targetbot_configs", configWidget, "json", function(name, 
 
     ui.status.right:setText("Off")
 
-    return targetbotMacro.setOff() 
+    return targetbotMacro.setOff()
 
   end
 
@@ -2288,7 +2288,7 @@ end
 
 TargetBot.setOn = function(val)
 
-  if val == false then  
+  if val == false then
 
     return TargetBot.setOff(true)
 
@@ -2300,7 +2300,7 @@ end
 
 TargetBot.setOff = function(val)
 
-  if val == false then  
+  if val == false then
 
     return TargetBot.setOn(true)
 
@@ -2496,7 +2496,7 @@ TargetBot.useAttackItem = function(item, subType, target, delay)
 
       if not tmpItem then return end
 
-      g_game.useWith(tmpItem, target, subType) -- using item from bp  
+      g_game.useWith(tmpItem, target, subType) -- using item from bp
 
     else
 
@@ -2754,7 +2754,7 @@ TargetBot.walk = function()
 
   if params.marginMin and params.marginMax then
 
-    if dist >= params.marginMin and dist <= params.marginMax then 
+    if dist >= params.marginMin and dist <= params.marginMax then
 
       return
 

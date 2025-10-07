@@ -1,7 +1,7 @@
 # OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)
-**Cel:** Dostarczyć kompletne, wdrażalne uzupełnienie do Part 4:  
-A) **Import z Lua‑stringów do AST** (AUTO‑STRICT, aktualizacja *in‑place*),  
-B) **Rozszerzona biblioteka goldenów** (round‑trip 1:1),  
+**Cel:** Dostarczyć kompletne, wdrażalne uzupełnienie do Part 4:
+A) **Import z Lua‑stringów do AST** (AUTO‑STRICT, aktualizacja *in‑place*),
+B) **Rozszerzona biblioteka goldenów** (round‑trip 1:1),
 C) **Runner z obsługą profili** (`game_bot`, `client`, …).
 
 ---
@@ -23,7 +23,7 @@ C) **Runner z obsługą profili** (`game_bot`, `client`, …).
 <div id="a-1"></div>
 # A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe
 **Obsługiwane formy:**
-1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` — preferowana w kodzie źródłowym.  
+1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` — preferowana w kodzie źródłowym.
 2) **Kotwice**: `-- @OTUI_BEGIN name=<name>` … `-- @OTUI_END name=<name>` — czytelny marker w Lua.
 
 **Regexy (TS, `gms`):**
@@ -61,17 +61,17 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 
 <div id="a-3"></div>
 # A.3 Polityka AUTO‑STRICT i błędy importu
-- **AUTO‑STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeśli zmieni treść → `W:STRICT` (propozycja auto‑zapisania).  
+- **AUTO‑STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeśli zmieni treść → `W:STRICT` (propozycja auto‑zapisania).
 - **Błędy importu:**
-  - `E:LUA‑DUP` — więcej niż jeden blok o tej samej nazwie w pliku.  
-  - `E:LUA‑NOUPD` — brak bloku do podmiany.  
-  - `E:STRICT` — komentarze/taby/BOM wewnątrz bloku OTUI.  
+  - `E:LUA‑DUP` — więcej niż jeden blok o tej samej nazwie w pliku.
+  - `E:LUA‑NOUPD` — brak bloku do podmiany.
+  - `E:STRICT` — komentarze/taby/BOM wewnątrz bloku OTUI.
   - `E:PARSE` — niepoprawny OTUI po `ensureStrictOtui()`.
 
 <div id="a-4"></div>
 # A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)
-1. **Import**: odczytaj plik Lua → `extractLuaOtuiBlocks()` → wybór bloku → `ensureStrictOtui()` → `parseOtui()` → edycja w IDE.  
-2. **Eksport**: `serializeAst()` → `ensureStrictOtui()` → `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).  
+1. **Import**: odczytaj plik Lua → `extractLuaOtuiBlocks()` → wybór bloku → `ensureStrictOtui()` → `parseOtui()` → edycja w IDE.
+2. **Eksport**: `serializeAst()` → `ensureStrictOtui()` → `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).
 3. **Walidacja profilu**: `validateAst(ast, { profile: 'game_bot' })` przed zapisem; blokujące `E:BLK` przerywają zapis.
 
 ---

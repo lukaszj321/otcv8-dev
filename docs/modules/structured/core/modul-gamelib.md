@@ -311,7 +311,7 @@ GameDoubleSoul = 84
 
 GameDoublePlayerGoodsMoney = 85
 
-GameCreatureWalkthrough = 86 -- add Walkthrough for versions less than 854, unpass = msg->getU8(); in protocolgameparse.cpp
+GameCreatureWalkthrough = 86 -- add Walkthrough for versions less than 854, unpass = msg→getU8(); in protocolgameparse.cpp
 
 GameDoubleTradeMoney = 87
 
@@ -1499,7 +1499,7 @@ MarketCategoryStrings = {
 
   [30] = 'Gold',
 
-  [31] = 'Unassigned',  
+  [31] = 'Unassigned',
 
   [255] = 'Weapons'
 
@@ -2611,7 +2611,7 @@ function ProtocolGame:sendExtendedJSONOpcode(opcode, data)
 
   end
 
-  local buffer = json.encode(data)  
+  local buffer = json.encode(data)
 
   local s = {}
 
@@ -2717,7 +2717,7 @@ function ProtocolLogin:sendLoginPacket()
 
   if g_game.getCustomProtocolVersion() > 0 then
 
-    msg:addU16(g_game.getCustomProtocolVersion())  
+    msg:addU16(g_game.getCustomProtocolVersion())
 
   else
 
@@ -2803,7 +2803,7 @@ function ProtocolLogin:sendLoginPacket()
 
     if version:len() == 2 then
 
-      version = version .. "0" 
+      version = version .. "0"
 
     end
 
@@ -2959,7 +2959,7 @@ function ProtocolLogin:onRecv(msg)
 
       local signature = msg:getString()
 
-      signalcall(self.onUpdateNeeded, self, signature)      
+      signalcall(self.onUpdateNeeded, self, signature)
 
     elseif opcode == LoginServerSessionKey then
 
@@ -2977,11 +2977,11 @@ function ProtocolLogin:onRecv(msg)
 
         local port = msg:getU16()
 
-        local priority = msg:getU16()        
+        local priority = msg:getU16()
 
         table.insert(proxies, {host=host, port=port, priority=priority})
 
-      end      
+      end
 
       signalcall(self.onProxyList, self, proxies)
 
@@ -3491,7 +3491,7 @@ SpellInfo = {
 
 -- ['const_name'] =       {client_id, TFS_id}
 
--- Conversion from TFS icon id to the id used by client (icons.png order)  
+-- Conversion from TFS icon id to the id used by client (icons.png order)
 
 SpellIcons = {
 
@@ -4049,11 +4049,11 @@ end
 
 function Spells.getImageClip(id, profile)
 
-  return (((id-1)%12)*SpelllistSettings[profile].iconSize.width) .. ' ' 
+  return (((id-1)%12)*SpelllistSettings[profile].iconSize.width) .. ' '
 
-    .. ((math.ceil(id/12)-1)*SpelllistSettings[profile].iconSize.height) .. ' ' 
+    .. ((math.ceil(id/12)-1)*SpelllistSettings[profile].iconSize.height) .. ' '
 
-    .. SpelllistSettings[profile].iconSize.width .. ' ' 
+    .. SpelllistSettings[profile].iconSize.width .. ' '
 
     .. SpelllistSettings[profile].iconSize.height
 

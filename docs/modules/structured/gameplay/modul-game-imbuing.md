@@ -69,7 +69,7 @@ function init()
 
         if imbuement["group"] == selectedGroup then
 
-          emptyImbue.imbuement:addOption(imbuement["name"])          
+          emptyImbue.imbuement:addOption(imbuement["name"])
 
         end
 
@@ -663,7 +663,7 @@ ItemInformation < Panel
 
     anchors.top: parent.top
 
-    anchors.left: parent.left 
+    anchors.left: parent.left
 
     anchors.right: parent.right
 
@@ -765,7 +765,7 @@ EmptyImbue < Panel
 
     anchors.top: parent.top
 
-    anchors.left: parent.left 
+    anchors.left: parent.left
 
     anchors.right: parent.right
 
@@ -991,7 +991,7 @@ ClearImbue < Panel
 
     anchors.top: parent.top
 
-    anchors.left: parent.left 
+    anchors.left: parent.left
 
     anchors.right: parent.right
 

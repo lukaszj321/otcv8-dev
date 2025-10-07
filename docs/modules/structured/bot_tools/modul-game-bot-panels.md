@@ -123,7 +123,7 @@ MainWindow
 
     maximum: 10
 
-    step: 1      
+    step: 1
 
   Label
 
@@ -159,7 +159,7 @@ MainWindow
 
     maximum: 10
 
-    step: 1     
+    step: 1
 
   Label
 
@@ -395,7 +395,7 @@ MainWindow
 
     width: 55
 
-    text: Avoid    
+    text: Avoid
 
   BotSwitch
 
@@ -583,7 +583,7 @@ MainWindow
 
   end
 
-  local doneFunc = function()    
+  local doneFunc = function()
 
     local monster = window.name:getText()
 
@@ -677,7 +677,7 @@ MainWindow
 
   window.priority:setValue(config.priority or 1)
 
-  window.danger:setValue(config.danger or 1)  
+  window.danger:setValue(config.danger or 1)
 
   window.maxDistance:setValue(config.maxDistance or 6)
 
@@ -741,7 +741,7 @@ MainWindow
 
     window.ignore:setOn(false)
 
-  end 
+  end
 
   window.attack:setOn(config.attack)
 
@@ -801,7 +801,7 @@ MainWindow
 
   if config.loot == nil then
 
-    window.loot:setOn(true)  
+    window.loot:setOn(true)
 
   end
 
@@ -809,7 +809,7 @@ MainWindow
 
   if config.monstersOnly == nil then
 
-    window.monstersOnly:setOn(true)  
+    window.monstersOnly:setOn(true)
 
   end
 
@@ -1005,7 +1005,7 @@ Panel
 
   if type(context.storage.attacking.configs) ~= "table" then
 
-    context.storage.attacking.configs = {}  
+    context.storage.attacking.configs = {}
 
   end
 
@@ -1051,7 +1051,7 @@ Panel
 
       newConfig = newConfig .. "\n" .. monster .. ":" .. json.encode(config, 2) .. "\n"
 
-    end    
+    end
 
     context.storage.attacking.configs[context.storage.attacking.activeConfig] = newConfig
 
@@ -1113,7 +1113,7 @@ Panel
 
         end
 
-      end 
+      end
 
     end
 
@@ -1123,7 +1123,7 @@ Panel
 
       local label = g_ui.createWidget("CaveBotLabel", ui.list)
 
-      label:setText(text)    
+      label:setText(text)
 
     end
 
@@ -1335,7 +1335,7 @@ Panel
 
     end
 
-    Panels.MonsterEditor(monsterWidget:getText(), monsters[monsterWidget:getText()], function(name, config)      
+    Panels.MonsterEditor(monsterWidget:getText(), monsters[monsterWidget:getText()], function(name, config)
 
       monsters[monsterWidget:getText()] = nil
 
@@ -1407,7 +1407,7 @@ Panel
 
       return false
 
-    end  
+    end
 
     local maxDistance = 5
 
@@ -1429,7 +1429,7 @@ Panel
 
       return false
 
-    end 
+    end
 
     local pathTo = context.findPath(context.player:getPosition(), {x=mpos.x, y=mpos.y, z=mpos.z}, maxDistance + 2, { ignoreNonPathable = true, precision=1, allowOnlyVisibleTiles = true, ignoreCost = true })
 
@@ -1439,7 +1439,7 @@ Panel
 
     end
 
-    return true    
+    return true
 
   end
 
@@ -1457,7 +1457,7 @@ Panel
 
     end
 
-    for i=1, 5 do 
+    for i=1, 5 do
 
       hasConfig = hasConfig or (monsters[name .. i] ~= nil)
 
@@ -1567,7 +1567,7 @@ Panel
 
     end
 
-    priority = priority + config.priority * 10      
+    priority = priority + config.priority * 10
 
     return priority
 
@@ -1651,7 +1651,7 @@ Panel
 
     end
 
-    local dist = math.max(math.abs(pos.x-cpos.x), math.abs(pos.y-cpos.y))     
+    local dist = math.max(math.abs(pos.x-cpos.x), math.abs(pos.y-cpos.y))
 
     if dist <= 5 then
 
@@ -1823,7 +1823,7 @@ Panel
 
     end
 
-  end)  
+  end)
 
   context.macro(200, function()
 
@@ -1871,7 +1871,7 @@ Panel
 
       end
 
-    end    
+    end
 
     if following then
 
@@ -1939,7 +1939,7 @@ Panel
 
       g_game.cancelAttack()
 
-      g_game.attack(target)          
+      g_game.attack(target)
 
       lastAttack = context.now
 
@@ -2153,7 +2153,7 @@ Panels.AttackSpell = function(parent)
 
   end, parent)
 
-  context.addTextEdit("autoAttackText", context.storage.autoAttackText or "exori vis", function(widget, text)    
+  context.addTextEdit("autoAttackText", context.storage.autoAttackText or "exori vis", function(widget, text)
 
     context.storage.autoAttackText = text
 
@@ -2241,7 +2241,7 @@ Panels.Haste = function(parent)
 
   end, parent)
 
-  context.addTextEdit("autoHasteText", context.storage.autoHasteText or "utani hur", function(widget, text)    
+  context.addTextEdit("autoHasteText", context.storage.autoHasteText or "utani hur", function(widget, text)
 
     context.storage.autoHasteText = text
 
@@ -2281,7 +2281,7 @@ Panels.AntiParalyze = function(parent)
 
   end, parent)
 
-  context.addTextEdit("autoAntiParalyzeText", context.storage.autoAntiParalyzeText or "utani hur", function(widget, text)    
+  context.addTextEdit("autoAntiParalyzeText", context.storage.autoAntiParalyzeText or "utani hur", function(widget, text)
 
     context.storage.autoAntiParalyzeText = text
 
@@ -2341,7 +2341,7 @@ Panels.Health = function(parent)
 
   ui.text.onTextChange = function(widget, text)
 
-    context.storage[panelName].text = text    
+    context.storage[panelName].text = text
 
   end
 
@@ -2349,7 +2349,7 @@ Panels.Health = function(parent)
 
   local updateText = function()
 
-    ui.title:setText("" .. context.storage[panelName].min .. "% <= hp <= " .. context.storage[panelName].max .. "%")  
+    ui.title:setText("" .. context.storage[panelName].min .. "% <= hp <= " .. context.storage[panelName].max .. "%")
 
   end
 
@@ -2447,7 +2447,7 @@ Panels.HealthItem = function(parent)
 
   local updateText = function()
 
-    ui.title:setText("" .. (context.storage[panelName].min or "") .. "% <= hp <= " .. (context.storage[panelName].max or "") .. "%")  
+    ui.title:setText("" .. (context.storage[panelName].min or "") .. "% <= hp <= " .. (context.storage[panelName].max or "") .. "%")
 
   end
 
@@ -2545,7 +2545,7 @@ Panels.Mana = function(parent)
 
   local updateText = function()
 
-    ui.title:setText("" .. (context.storage[panelName].min or "") .. "% <= mana <= " .. (context.storage[panelName].max or "") .. "%")  
+    ui.title:setText("" .. (context.storage[panelName].min or "") .. "% <= mana <= " .. (context.storage[panelName].max or "") .. "%")
 
   end
 
@@ -2773,11 +2773,11 @@ Panels.Eating = function(parent)
 
     end
 
-    ui.items:getChildByIndex(i):setItemId(context.storage[panelName].items[i])    
+    ui.items:getChildByIndex(i):setItemId(context.storage[panelName].items[i])
 
   end
 
-  context.macro(15000, function()    
+  context.macro(15000, function()
 
     if not context.storage[panelName].enabled then
 
@@ -2801,7 +2801,7 @@ Panels.Eating = function(parent)
 
       return
 
-    end    
+    end
 
     context.use(candidates[math.random(1, #candidates)])
 
@@ -2987,7 +2987,7 @@ Panel
 
   if type(context.storage.looting.configs) ~= "table" then
 
-    context.storage.looting.configs = {}  
+    context.storage.looting.configs = {}
 
   end
 
@@ -3069,7 +3069,7 @@ Panel
 
           tmpContainers[widget:getItemId()] = 1 -- remove duplicates
 
-          newConfig = newConfig .. "\ncontainer:" .. widget:getItemId()    
+          newConfig = newConfig .. "\ncontainer:" .. widget:getItemId()
 
         end
 
@@ -3571,7 +3571,7 @@ Panel
 
     local delay = 1
 
-    for i=2,#nextContainers do 
+    for i=2,#nextContainers do
 
       -- if more than 1 container, open them in new window
 
@@ -3619,7 +3619,7 @@ Panels.TradeMessage = function(parent)
 
     end
 
-    if context.storage.autoTradeMessage:len() > 0 and trade then    
+    if context.storage.autoTradeMessage:len() > 0 and trade then
 
       context.sayChannel(trade, context.storage.autoTradeMessage)
 
@@ -3627,7 +3627,7 @@ Panels.TradeMessage = function(parent)
 
   end, parent)
 
-  context.addTextEdit("autoTradeMessage", context.storage.autoTradeMessage or "I'm using OTClientV8 - https://github.com/OTCv8/otclientv8", function(widget, text)    
+  context.addTextEdit("autoTradeMessage", context.storage.autoTradeMessage or "I'm using OTClientV8 - https://github.com/OTCv8/otclientv8", function(widget, text)
 
     context.storage.autoTradeMessage = text
 
@@ -3733,7 +3733,7 @@ Panels.AttackLeaderTarget = function(parent)
 
   context.macro(50, "Attack leader's target", nil, function()
 
-    if toAttack and context.storage.attackLeader:len() > 0 and toAttack ~= g_game.getAttackingCreature() then    
+    if toAttack and context.storage.attackLeader:len() > 0 and toAttack ~= g_game.getAttackingCreature() then
 
       g_game.attack(toAttack)
 
@@ -3743,15 +3743,15 @@ Panels.AttackLeaderTarget = function(parent)
 
   end, parent)
 
-  context.addTextEdit("attackLeader", context.storage.attackLeader or "player name", function(widget, text)    
+  context.addTextEdit("attackLeader", context.storage.attackLeader or "player name", function(widget, text)
 
     context.storage.attackLeader = text
 
-  end, parent)  
+  end, parent)
 
 end
 
-Panels.LimitFloor = function(parent)  
+Panels.LimitFloor = function(parent)
 
   context.onPlayerPositionChange(function(pos)
 
@@ -3785,7 +3785,7 @@ Panels.LimitFloor = function(parent)
 
       else
 
-        gameMapPanel:unlockVisibleFloor()      
+        gameMapPanel:unlockVisibleFloor()
 
       end
 
@@ -3805,7 +3805,7 @@ Panels.AntiPush = function(parent)
 
   end
 
-  local panelName = "antiPushPanel"  
+  local panelName = "antiPushPanel"
 
   local ui = g_ui.createWidget("ItemsPanel", parent)
 
@@ -3843,11 +3843,11 @@ Panels.AntiPush = function(parent)
 
     end
 
-    ui.items:getChildByIndex(i):setItemId(context.storage[panelName].items[i])    
+    ui.items:getChildByIndex(i):setItemId(context.storage[panelName].items[i])
 
   end
 
-  context.macro(100, function()    
+  context.macro(100, function()
 
     if not context.storage[panelName].enabled then
 
@@ -3871,7 +3871,7 @@ Panels.AntiPush = function(parent)
 
     else
 
-      topItem = 0    
+      topItem = 0
 
     end
 
@@ -4051,7 +4051,7 @@ Panel
 
     anchors.top: prev.bottom
 
-    anchors.left: parent.left    
+    anchors.left: parent.left
 
     anchors.right: parent.right
 
@@ -4215,7 +4215,7 @@ Panel
 
   if type(context.storage.cavebot.configs) ~= "table" then
 
-    context.storage.cavebot.configs = {}  
+    context.storage.cavebot.configs = {}
 
   end
 
@@ -4303,7 +4303,7 @@ Panel
 
       local validation = (matches[i][3] == ":")
 
-      if not validation or isValidCommand(command) then      
+      if not validation or isValidCommand(command) then
 
         local text = matches[i][4]
 
@@ -4351,7 +4351,7 @@ Panel
 
       end
 
-    end        
+    end
 
   end
 
@@ -4829,7 +4829,7 @@ Panel
 
     end)
 
-  end  
+  end
 
   ui.wFunction.onClick = function()
 
@@ -4889,7 +4889,7 @@ Panel
 
       context.storage.cavebot.enabled = true
 
-      refreshConfig()    
+      refreshConfig()
 
     end,
 
@@ -4897,7 +4897,7 @@ Panel
 
       context.storage.cavebot.enabled = false
 
-      refreshConfig()        
+      refreshConfig()
 
     end,
 
@@ -4939,7 +4939,7 @@ Panel
 
       end
 
-    end   
+    end
 
 }
 
@@ -4987,7 +4987,7 @@ Panel
 
       executeNextMacroCall = false
 
-      return 
+      return
 
     end
 
@@ -5057,7 +5057,7 @@ Panel
 
         else
 
-          position = {x=tonumber(matches[1][2]), y=tonumber(matches[1][3]), z=tonumber(matches[1][4])}        
+          position = {x=tonumber(matches[1][2]), y=tonumber(matches[1][3]), z=tonumber(matches[1][4])}
 
         end
 
@@ -5077,7 +5077,7 @@ Panel
 
           if not context.findPath(context.player:getPosition(), position, 100, { ignoreNonPathable = true, precision = 1, ignoreCreatures = true }) then
 
-            lastGotoSuccesful = false          
+            lastGotoSuccesful = false
 
             executeNextMacroCall = true
 
@@ -5147,7 +5147,7 @@ Panel
 
       if #matches == 1 and #matches[1] == 4 then
 
-        local position = {x=tonumber(matches[1][2]), y=tonumber(matches[1][3]), z=tonumber(matches[1][4])} 
+        local position = {x=tonumber(matches[1][2]), y=tonumber(matches[1][3]), z=tonumber(matches[1][4])}
 
         if context.player:getPosition().z == position.z then
 
@@ -5183,7 +5183,7 @@ Panel
 
         local itemId = tonumber(matches[1][2])
 
-        local position = {x=tonumber(matches[1][3]), y=tonumber(matches[1][4]), z=tonumber(matches[1][5])}        
+        local position = {x=tonumber(matches[1][3]), y=tonumber(matches[1][4]), z=tonumber(matches[1][5])}
 
         if context.player:getPosition().z == position.z then
 
@@ -5239,7 +5239,7 @@ Panel
 
       usedGotoLabel = false
 
-      local status, result = pcall(function() 
+      local status, result = pcall(function()
 
         return assert(load("return " .. command.text, nil, nil, context))()(functions)
 
@@ -5269,7 +5269,7 @@ Panel
 
     end
 
-    local nextIndex = 1 + commandIndex % #commands    
+    local nextIndex = 1 + commandIndex % #commands
 
     local nextChild = ui.list:getChildByIndex(nextIndex)
 

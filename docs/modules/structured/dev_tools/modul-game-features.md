@@ -299,7 +299,7 @@ function updateFeatures(version)
 
     if(version >= 1100) then
 
-        g_game.enableFeature(GamePrey)    
+        g_game.enableFeature(GamePrey)
 
     end
 

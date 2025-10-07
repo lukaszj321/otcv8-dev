@@ -99,7 +99,7 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
     if g_clock.millis() < lastDialogAnswer + 1000 and lastDialogChoices == #choices then
 
-      choiceList:focusChild(choiceList:getChildByIndex(lastDialogChoice))    
+      choiceList:focusChild(choiceList:getChildByIndex(lastDialogChoice))
 
     else
 

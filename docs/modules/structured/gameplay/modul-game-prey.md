@@ -29,7 +29,7 @@ local PREY_BONUS_XP_BONUS = 2
 
 local PREY_BONUS_IMPROVED_LOOT = 3
 
-local PREY_BONUS_NONE = 4 
+local PREY_BONUS_NONE = 4
 
 local PREY_ACTION_LISTREROLL = 0
 
@@ -819,7 +819,7 @@ function onPreyActive(slot, currentHolderName, currentHolderOutfit, bonusType, b
 
   end
 
-  local prey = preyWindow["slot" .. (slot + 1)]  
+  local prey = preyWindow["slot" .. (slot + 1)]
 
   if not prey then return end
 
@@ -1153,7 +1153,7 @@ NoCreaturePanel < Panel
 
     image-source: /images/ui/panel_flat
 
-    image-border: 1  
+    image-border: 1
 
     UIWidget
 
@@ -1249,7 +1249,7 @@ NoCreaturePanel < Panel
 
         id: noBonusIcon
 
-        @onHoverChange: modules.game_prey.onHover(self)      
+        @onHoverChange: modules.game_prey.onHover(self)
 
       NoStar
 
@@ -1307,7 +1307,7 @@ NoCreaturePanel < Panel
 
     background-color: #262626
 
-    border: 1 black 
+    border: 1 black
 
     id: noBonusIcon
 
@@ -1325,7 +1325,7 @@ ActivePreyPanel < Panel
 
     anchors.top: parent.top
 
-    margin-top: 20 
+    margin-top: 20
 
   BonusReroll
 
@@ -1365,7 +1365,7 @@ ActivePreyPanel < Panel
 
     margin-top: 5
 
-    anchors.left: parent.left 
+    anchors.left: parent.left
 
     CheckBox
 
@@ -1413,7 +1413,7 @@ ActivePreyPanel < Panel
 
     margin-top: 5
 
-    anchors.left: parent.left 
+    anchors.left: parent.left
 
     CheckBox
 
@@ -1553,7 +1553,7 @@ CreatureAndBonus < Panel
 
     height: 20
 
-    background-color: #C28400   
+    background-color: #C28400
 
 BonusReroll < FlatPanel
 
@@ -1677,7 +1677,7 @@ ChoosePrey < FlatPanel
 
     image-clip: 1 0 44 35
 
-    @onHoverChange: modules.game_prey.onHover(self)    
+    @onHoverChange: modules.game_prey.onHover(self)
 
     $pressed:
 
@@ -1913,7 +1913,7 @@ SlotPanel < Panel
 
   InactivePreyPanel
 
-    id: inactive  
+    id: inactive
 
     anchors.top: parent.top
 
@@ -2009,7 +2009,7 @@ MainWindow
 
     anchors.left: parent.left
 
-    anchors.right: parent.right 
+    anchors.right: parent.right
 
     anchors.bottom: closeButton.top
 
@@ -2143,7 +2143,7 @@ PreyCreature < Panel
 
     font: verdana-11px-rounded
 
-    text-align: left     
+    text-align: left
 
   ProgressBar
 
@@ -2161,7 +2161,7 @@ PreyCreature < Panel
 
     background-color: #C28400
 
-    phantom: false    
+    phantom: false
 
 PreyTracker < MiniWindow
 
@@ -2187,7 +2187,7 @@ PreyTracker < MiniWindow
 
       !text: tr('Prey Creatures')
 
-      font: verdana-11px-rounded   
+      font: verdana-11px-rounded
 
     HorizontalSeparator
 

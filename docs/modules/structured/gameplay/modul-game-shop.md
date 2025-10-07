@@ -55,7 +55,7 @@ local function sendAction(action, data)
 
     protocolGame:sendExtendedJSONOpcode(SHOP_EXTENTED_OPCODE, {action = action, data = data})
 
-  end  
+  end
 
 end
 
@@ -65,7 +65,7 @@ function init()
 
   connect(g_game, {
 
-    onGameStart = check, 
+    onGameStart = check,
 
     onGameEnd = hide,
 
@@ -75,13 +75,13 @@ function init()
 
     onStoreOffers = onStoreOffers,
 
-    onStoreTransactionHistory = onStoreTransactionHistory,    
+    onStoreTransactionHistory = onStoreTransactionHistory,
 
     onStorePurchase = onStorePurchase,
 
     onStoreError = onStoreError,
 
-    onCoinBalance = onCoinBalance    
+    onCoinBalance = onCoinBalance
 
 })
 
@@ -103,7 +103,7 @@ function terminate()
 
   disconnect(g_game, {
 
-    onGameStart = check, 
+    onGameStart = check,
 
     onGameEnd = hide,
 
@@ -113,13 +113,13 @@ function terminate()
 
     onStoreOffers = onStoreOffers,
 
-    onStoreTransactionHistory = onStoreTransactionHistory,    
+    onStoreTransactionHistory = onStoreTransactionHistory,
 
     onStorePurchase = onStorePurchase,
 
     onStoreError = onStoreError,
 
-    onCoinBalance = onCoinBalance    
+    onCoinBalance = onCoinBalance
 
 })
 
@@ -363,7 +363,7 @@ function onStoreOffers(categoryName, offers)
 
       end
 
-      if updated then    
+      if updated then
 
         for offer in pairs(category.offers) do
 
@@ -393,7 +393,7 @@ function onStoreOffers(categoryName, offers)
 
             title=offer.name,
 
-            description=offer.description        
+            description=offer.description
 
 })
 
@@ -437,13 +437,13 @@ function onStoreTransactionHistory(currentPage, hasNextPage, offers)
 
       title=offer.name,
 
-      description=offer.description        
+      description=offer.description
 
 })
 
   end
 
-  if not browsingHistory then return end  
+  if not browsingHistory then return end
 
   clearOffers()
 
@@ -699,7 +699,7 @@ function processStatus(data)
 
   STATUS = data
 
-  if data['ad'] then 
+  if data['ad'] then
 
     processAd(data['ad'])
 
@@ -715,7 +715,7 @@ function processStatus(data)
 
     shop.infoPanel.buy:show()
 
-    shop.infoPanel.buy.onMouseRelease = function() 
+    shop.infoPanel.buy.onMouseRelease = function()
 
       scheduleEvent(function() g_platform.openUrl(data['buyUrl']) end, 50)
 
@@ -743,7 +743,7 @@ function processAd(data)
 
   if data['image'] and data['image']:sub(1, 4):lower() == "http" then
 
-    HTTP.downloadImage(data['image'], function(path, err) 
+    HTTP.downloadImage(data['image'], function(path, err)
 
       if err then g_logger.warning("HTTP error: " .. err .. " - " .. data['image']) return end
 
@@ -777,7 +777,7 @@ function processAd(data)
 
   if data['url'] and data['url']:sub(1, 4):lower() == "http" then
 
-    shop.adPanel.ad.onMouseRelease = function() 
+    shop.adPanel.ad.onMouseRelease = function()
 
       scheduleEvent(function() g_platform.openUrl(data['url']) end, 50)
 
@@ -797,7 +797,7 @@ function addCategory(data)
 
   if data["type"] == "item" then
 
-    category = g_ui.createWidget('ShopCategoryItem', shop.categories)  
+    category = g_ui.createWidget('ShopCategoryItem', shop.categories)
 
     category.item:setItemId(data["item"])
 
@@ -823,7 +823,7 @@ function addCategory(data)
 
     if data["image"] and data["image"]:sub(1, 4):lower() == "http" then
 
-       HTTP.downloadImage(data['image'], function(path, err) 
+       HTTP.downloadImage(data['image'], function(path, err)
 
         if err then g_logger.warning("HTTP error: " .. err .. " - " .. data["image"]) return end
 
@@ -887,7 +887,7 @@ function addOffer(category, data)
 
   if data["type"] == "item" then
 
-    offer = g_ui.createWidget('ShopOfferItem', shop.offers)  
+    offer = g_ui.createWidget('ShopOfferItem', shop.offers)
 
     offer.item:setItemId(data["item"])
 
@@ -913,7 +913,7 @@ function addOffer(category, data)
 
     if data["image"] and data["image"]:sub(1, 4):lower() == "http" then
 
-      HTTP.downloadImage(data['image'], function(path, err) 
+      HTTP.downloadImage(data['image'], function(path, err)
 
         if err then g_logger.warning("HTTP error: " .. err .. " - " .. data['image']) return end
 
@@ -941,7 +941,7 @@ function addOffer(category, data)
 
   offer.title:setText(data["title"] .. " (" .. data["cost"] .. " points)")
 
-  offer.description:setText(data["description"])  
+  offer.description:setText(data["description"])
 
   offer.offerId = data["id"]
 
@@ -1011,9 +1011,9 @@ function buyOffer(widget)
 
   end
 
-  local category = tonumber(split[2])  
+  local category = tonumber(split[2])
 
-  local offer = tonumber(split[3])  
+  local offer = tonumber(split[3])
 
   local item = CATEGORIES[category]["offers"][offer]
 
@@ -1079,7 +1079,7 @@ function buyConfirmed()
 
         end
 
-        g_game.buyStoreOffer(selectedOffer.id, 1, newName)        
+        g_game.buyStoreOffer(selectedOffer.id, 1, newName)
 
       end)
 
@@ -1165,7 +1165,7 @@ ShopCategory < Panel
 
     color: white
 
-    font: verdana-11px-rounded    
+    font: verdana-11px-rounded
 
 ShopCategoryItem < ShopCategory
 
@@ -1227,7 +1227,7 @@ ShopCategoryImage < ShopCategory
 
     margin-left: 2
 
-    size: 32 32    
+    size: 32 32
 
 ShopOffer < Panel
 
@@ -1297,7 +1297,7 @@ ShopOffer < Panel
 
     anchors.left: prev.right
 
-    anchors.right: parent.right    
+    anchors.right: parent.right
 
     margin-right: 15
 
@@ -1363,7 +1363,7 @@ ShopOfferImage < ShopOffer
 
     margin-left: 2
 
-    size: 48 48    
+    size: 48 48
 
 MainWindow
 
@@ -1453,7 +1453,7 @@ MainWindow
 
       font: sans-bold-16px
 
-  TextList    
+  TextList
 
     id: categories
 
@@ -1677,7 +1677,7 @@ MainWindow
 
     anchors.bottom: cancelButton.top
 
-    margin-bottom: 8    
+    margin-bottom: 8
 
   Button
 

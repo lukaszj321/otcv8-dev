@@ -3261,7 +3261,7 @@ HealthOverlay < UIWidget
     id: manaCircle
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.verticalCenter: parent.verticalCenter
-    image-source: /images/game/circle/right_empty    
+    image-source: /images/game/circle/right_empty
     image-auto-resize: true
     margin-left: 130
     margin-bottom: 16
@@ -3274,7 +3274,7 @@ HealthOverlay < UIWidget
     anchors.verticalCenter: parent.verticalCenter
     image-source: /images/game/circle/right_full
     margin-left: 130
-    margin-bottom: 16    
+    margin-bottom: 16
     opacity: 0.4
     image-color: #0000FFFF
     phantom: true
@@ -3442,7 +3442,7 @@ SafeFightBox < CombatBox
   image-source: /images/game/combatmodes/safefight
 
 MountButton < CombatBox
-  image-source: /images/game/combatmodes/mount    
+  image-source: /images/game/combatmodes/mount
 
 InventoryWindow < MiniWindow
   icon: /images/topbuttons/inventory
@@ -3525,7 +3525,7 @@ InventoryWindow < MiniWindow
 
       PurseButton
         anchors.left: slot3.left
-        anchors.bottom: slot3.top        
+        anchors.bottom: slot3.top
         margin-bottom: 3
 
       Panel
@@ -3550,7 +3550,7 @@ InventoryWindow < MiniWindow
       FightOffensiveBox
         id: fightOffensiveBox
         anchors.left: parent.left
-        anchors.top: parent.top        
+        anchors.top: parent.top
         margin-left: 8
 
       ChaseModeBox
@@ -3766,7 +3766,7 @@ MinimapFlagWindow < MainWindow
     anchors.left: parent.left
     anchors.top: prev.bottom
     margin-top: 6
-    margin-left: 0  
+    margin-left: 0
 
   MinimapFlagCheckBox
     id: flag1
@@ -3810,7 +3810,7 @@ MinimapFlagWindow < MainWindow
     anchors.left: parent.left
     anchors.top: prev.bottom
     margin-top: 6
-    margin-left: 0  
+    margin-left: 0
 
   MinimapFlagCheckBox
     id: flag11

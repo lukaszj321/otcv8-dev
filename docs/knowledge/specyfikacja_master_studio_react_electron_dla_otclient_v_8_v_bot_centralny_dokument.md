@@ -32,13 +32,13 @@
 
 ```
 +--------------------+       IPC        +-------------------+
-| React/TS Frontend  | <--------------> | Electron Main/Pre |
+| React/TS Frontend  | ←------------→ | Electron Main/Pre |
 | (Vite + Monaco)    |                  |   + Node/FS       |
 +--------------------+                  +-------------------+
-          |   FS (read/write JSON, pliki projektu)             
+          |   FS (read/write JSON, pliki projektu)
 v
 +--------------------+         plik/flag/log         +----------------+
-|  Projekt lokalny   | <----------------------------> |  OTClient v8  |
+|  Projekt lokalny   | ←--------------------------→ |  OTClient v8  |
 | (lua/otui/otmod/…) |                               | (hot‑reload)  |
 +--------------------+                                +----------------+
 ```
@@ -128,14 +128,14 @@ v
 
 **Kroki:**
 1) Segmentacja MD (H1–H3) i klasyfikacja sekcji: API/Events/Hooks/Globals/Managers.
-2) Ekstrakcja sygnatur: `name(params) -> returns`, opisów, przykładów, statusu (`since/deprecated`).
+2) Ekstrakcja sygnatur: `name(params) → returns`, opisów, przykładów, statusu (`since/deprecated`).
 3) Normalizacja nazewnictwa (`module`: `g_resources`, `g_modules`, itp.).
 4) Walidacja: unikalne `name`, kompletne `params/returns`.
 5) Scalanie z `docstrings.json` (uzupełnienia typów/przykładów).
 6) Eksport `resources/api.json` (dodaj `generatedAt`, `$schemaVersion`).
 
 **Wzorce (regex – przykładowe):**
-- Funkcja: `^\s*([A-Za-z0-9_\.\:]+)\s*\(([^)]*)\)\s*(?:->\s*([^\n{]+))?`
+- Funkcja: `^\s*([A-Za-z0-9_\.\:]+)\s*\(([^)]*)\)\s*(?:→\s*([^\n{]+))?`
 - Param: `---@param\s+(\w+)\s+([\w<>\|]+)`
 - Return: `---@return\s+([\w<>\|]+)`
 - Event: `\bon[A-Z][A-Za-z0-9]+\b` (lub sekcje „Events”).
@@ -177,7 +177,7 @@ Value:= String | Number | Bool | Ident | Array | Object
 - **OTUI‑003 (anchors):** wykryj sprzeczności anchors/margins (sugestie, bez auto‑fix).
 - **OTUI‑004 (assets):** zgłoś brakujące zasoby (fuzzy podpowiedzi).
 - **LUA‑001 (locals):** ostrzegaj globali; auto‑fix: `local` jeśli bez kolizji.
-- **LUA‑002 (unpack):** zamieniaj `unpack` -> `table.unpack` (auto‑fix bezpieczny).
+- **LUA‑002 (unpack):** zamieniaj `unpack` → `table.unpack` (auto‑fix bezpieczny).
 
 ---
 # 10. Integracja z OTClient (hot‑reload, logi)
@@ -254,7 +254,7 @@ Przykład:
 # 13. Warstwa stanu FE
 - **Zustand:** `projectStore`, `editorStore`, `diagnosticsStore`, `apiStore`, `logStore`.
 - **Persist:** `.studio/config.json` przez backend FS.
-- **Normalizacja:** mapy symboli `name -> {files[]}`.
+- **Normalizacja:** mapy symboli `name → {files[]}`.
 
 ---
 # 14. Bezpieczeństwo i prywatność
@@ -294,7 +294,7 @@ Przykład:
 
 ---
 # 20. Migracje i zgodność
-- `$schemaVersion` w artefaktach; migracje `vN -> vN+1` dla config/cache.
+- `$schemaVersion` w artefaktach; migracje `vN → vN+1` dla config/cache.
 
 ---
 # 21. Plan wdrożenia i checklisty

@@ -237,7 +237,7 @@ function hide()
 
   layout:enableUpdates()
 
-  layout:update()  
+  layout:update()
 
 end
 

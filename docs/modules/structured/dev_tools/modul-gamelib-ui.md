@@ -125,7 +125,7 @@ function UICreatureButton:creatureSetup(creature)
 
 		self.creature = creature
 
-		self.creatureWidget:setCreature(creature)	
+		self.creatureWidget:setCreature(creature)
 
     if self.creatureName ~= creature:getName() then
 
