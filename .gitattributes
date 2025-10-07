@@ -1,6 +1,31 @@
-# Normalize source code before commits
-*.lua eol=lf 
-*.txt eol=lf 
-*.ot* eol=lf 
-*.cpp eol=lf 
-*.h   eol=lf 
+# --- Global defaults ---
+* text=auto eol=lf
+
+# --- Dokumentacja: zawsze UTF-8 (bez BOM) ---
+*.md text working-tree-encoding=UTF-8
+
+# --- YAML / konfiguracje ---
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# --- Źródła (Twoje dotychczasowe reguły EOL) ---
+*.lua text eol=lf 
+*.txt text eol=lf 
+*.ot* text eol=lf 
+*.cpp text eol=lf 
+*.h   text eol=lf 
+
+# --- Binarne (bez dotykania EOL/kodowania) ---
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg -text
+*.ico binary
+*.pdf binary
+*.zip binary
+*.7z  binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
