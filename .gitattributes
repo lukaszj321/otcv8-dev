@@ -4,18 +4,21 @@
 # --- Dokumentacja: zawsze UTF-8 (bez BOM) ---
 *.md text working-tree-encoding=UTF-8
 
+# --- Specjalnie: autogen pełnego API (pewny UTF-8 + LF) ---
+docs/api/otcv8-full-api.md text working-tree-encoding=UTF-8 eol=lf
+
 # --- YAML / konfiguracje ---
 *.yml text eol=lf
 *.yaml text eol=lf
 
-# --- Źródła (Twoje dotychczasowe reguły EOL) ---
+# --- Źródła (Twoje reguły EOL) ---
 *.lua text eol=lf 
 *.txt text eol=lf 
 *.ot* text eol=lf 
 *.cpp text eol=lf 
 *.h   text eol=lf 
 
-# --- Binarne (bez dotykania EOL/kodowania) ---
+# --- Binarne ---
 *.png binary
 *.jpg binary
 *.jpeg binary
