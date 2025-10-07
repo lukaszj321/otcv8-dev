@@ -1,9 +1,4 @@
-# ¦ Modul: `game_inventory`
-
-
-
-
-
+﻿# ¦ Modul: `game_inventory`
 
 ```lua
 
@@ -43,8 +38,6 @@ Icons[PlayerStates.Bleeding] = { tooltip = tr('You are bleeding'), path = '/imag
 
 Icons[PlayerStates.Hungry] = { tooltip = tr('You are hungry'), path = '/images/game/states/hungry', id = 'condition_hungry' }
 
-
-
 InventorySlotStyles = {
 
   [InventorySlotHead] = "HeadSlot",
@@ -69,8 +62,6 @@ InventorySlotStyles = {
 
 }
 
-
-
 inventoryWindow = nil
 
 inventoryPanel = nil
@@ -78,8 +69,6 @@ inventoryPanel = nil
 inventoryButton = nil
 
 purseButton = nil
-
-
 
 combatControlsWindow = nil
 
@@ -99,15 +88,11 @@ fightModeRadioGroup = nil
 
 buttonPvp = nil
 
-
-
 soulLabel = nil
 
 capLabel = nil
 
 conditionPanel = nil
-
-
 
 function init()
 
@@ -117,17 +102,11 @@ function init()
 
     onBlessingsChange = onBlessingsChange
 
-  })
+})
 
   connect(g_game, { onGameStart = refresh })
 
-
-
   g_keyboard.bindKeyDown('Ctrl+I', toggle)
-
-
-
-
 
   inventoryWindow = g_ui.loadUI('inventory', modules.game_interface.getRightPanel())
 
@@ -143,8 +122,6 @@ function init()
 
   end
 
-  
-
   purseButton = inventoryWindow:recursiveGetChildById('purseButton')
 
   purseButton.onClick = function()
@@ -159,8 +136,6 @@ function init()
 
   end
 
-  
-
   -- controls
 
   fightOffensiveBox = inventoryWindow:recursiveGetChildById('fightOffensiveBox')
@@ -169,21 +144,15 @@ function init()
 
   fightDefensiveBox = inventoryWindow:recursiveGetChildById('fightDefensiveBox')
 
-
-
   chaseModeButton = inventoryWindow:recursiveGetChildById('chaseModeBox')
 
   safeFightButton = inventoryWindow:recursiveGetChildById('safeFightBox')
 
   buttonPvp = inventoryWindow:recursiveGetChildById('buttonPvp')
 
-
-
   mountButton = inventoryWindow:recursiveGetChildById('mountButton')
 
   mountButton.onClick = onMountButtonClick
-
-
 
   whiteDoveBox = inventoryWindow:recursiveGetChildById('whiteDoveBox')
 
@@ -193,8 +162,6 @@ function init()
 
   redFistBox = inventoryWindow:recursiveGetChildById('redFistBox')
 
-
-
   fightModeRadioGroup = UIRadioGroup.create()
 
   fightModeRadioGroup:addWidget(fightOffensiveBox)
@@ -202,8 +169,6 @@ function init()
   fightModeRadioGroup:addWidget(fightBalancedBox)
 
   fightModeRadioGroup:addWidget(fightDefensiveBox)
-
-
 
   connect(fightModeRadioGroup, { onSelectionChange = onSetFightMode })
 
@@ -235,13 +200,9 @@ function init()
 
     onAutoWalk = check
 
-  })
-
-
+})
 
   connect(LocalPlayer, { onOutfitChange = onOutfitChange })
-
-
 
   if g_game.isOnline() then
 
@@ -251,8 +212,6 @@ function init()
 
 -- controls end
 
-
-
 -- status
 
   soulLabel = inventoryWindow:recursiveGetChildById('soulLabel')
@@ -260,10 +219,6 @@ function init()
   capLabel = inventoryWindow:recursiveGetChildById('capLabel')
 
   conditionPanel = inventoryWindow:recursiveGetChildById('conditionPanel')
-
-
-
-
 
   connect(LocalPlayer, { onStatesChange = onStatesChange,
 
@@ -273,15 +228,11 @@ function init()
 
 -- status end
 
-  
-
   refresh()
 
   inventoryWindow:setup()
 
 end
-
-
 
 function terminate()
 
@@ -291,15 +242,11 @@ function terminate()
 
     onBlessingsChange = onBlessingsChange
 
-  })
+})
 
   disconnect(g_game, { onGameStart = refresh })
 
-
-
   g_keyboard.unbindKeyDown('Ctrl+I')
-
-
 
   -- controls
 
@@ -309,11 +256,7 @@ function terminate()
 
   end
 
-
-
   fightModeRadioGroup:destroy()
-
-  
 
   disconnect(g_game, {
 
@@ -333,9 +276,7 @@ function terminate()
 
     onAutoWalk = check
 
-  })
-
-
+})
 
   disconnect(LocalPlayer, { onOutfitChange = onOutfitChange })
 
@@ -351,8 +292,6 @@ function terminate()
 
   -- status end
 
-
-
   inventoryWindow:destroy()
 
   if inventoryButton then
@@ -362,8 +301,6 @@ function terminate()
   end
 
 end
-
-
 
 function toggleAdventurerStyle(hasBlessing)
 
@@ -380,8 +317,6 @@ function toggleAdventurerStyle(hasBlessing)
   end
 
 end
-
-
 
 function refresh()
 
@@ -413,13 +348,9 @@ function refresh()
 
   end
 
-
-
   purseButton:setVisible(g_game.getFeature(GamePurseSlot))
 
 end
-
-
 
 function toggle()
 
@@ -445,8 +376,6 @@ function toggle()
 
 end
 
-
-
 function onMiniWindowClose()
 
   if not inventoryButton then
@@ -459,15 +388,11 @@ function onMiniWindowClose()
 
 end
 
-
-
 -- hooked events
 
 function onInventoryChange(player, slot, item, oldItem)
 
   if slot > InventorySlotPurse then return end
-
-
 
   if slot == InventorySlotPurse then
 
@@ -480,8 +405,6 @@ function onInventoryChange(player, slot, item, oldItem)
     return
 
   end
-
-
 
   local itemWidget = inventoryPanel:getChildById('slot' .. slot)
 
@@ -501,8 +424,6 @@ function onInventoryChange(player, slot, item, oldItem)
 
 end
 
-
-
 function onBlessingsChange(player, blessings, oldBlessings)
 
   local hasAdventurerBlessing = Bit.hasBit(blessings, Blessings.Adventurer)
@@ -514,10 +435,6 @@ function onBlessingsChange(player, blessings, oldBlessings)
   end
 
 end
-
-
-
-
 
 -- controls
 
@@ -539,13 +456,9 @@ function update()
 
   end
 
-
-
   local chaseMode = g_game.getChaseMode()
 
   chaseModeButton:setChecked(chaseMode == ChaseOpponent)
-
-
 
   local safeFight = g_game.isSafeFight()
 
@@ -565,8 +478,6 @@ function update()
 
   end
 
-  
-
   if g_game.getFeature(GamePVPMode) then
 
     local pvpMode = g_game.getPVPMode()
@@ -576,8 +487,6 @@ function update()
   end
 
 end
-
-
 
 function check()
 
@@ -593,8 +502,6 @@ function check()
 
 end
 
-
-
 function online()
 
   local player = g_game.getLocalPlayer()
@@ -603,11 +510,7 @@ function online()
 
     local char = g_game.getCharacterName()
 
-
-
     local lastCombatControls = g_settings.getNode('LastCombatControls')
-
-
 
     if not table.empty(lastCombatControls) then
 
@@ -629,8 +532,6 @@ function online()
 
     end
 
-
-
     if g_game.getFeature(GamePlayerMounts) then
 
       mountButton:setVisible(true)
@@ -645,13 +546,9 @@ function online()
 
   end
 
-
-
   update()
 
 end
-
-
 
 function offline()
 
@@ -663,11 +560,7 @@ function offline()
 
   end
 
-
-
   conditionPanel:destroyChildren()
-
-
 
   local player = g_game.getLocalPlayer()
 
@@ -683,17 +576,13 @@ function offline()
 
       safeFight = g_game.isSafeFight()
 
-    }
-
-
+}
 
     if g_game.getFeature(GamePVPMode) then
 
       lastCombatControls[char].pvpMode = g_game.getPVPMode()
 
     end
-
-
 
     -- save last combat control settings
 
@@ -702,8 +591,6 @@ function offline()
   end
 
 end
-
-
 
 function onSetFightMode(self, selectedFightButton)
 
@@ -731,8 +618,6 @@ function onSetFightMode(self, selectedFightButton)
 
 end
 
-
-
 function onSetChaseMode(self, checked)
 
   local chaseMode
@@ -750,8 +635,6 @@ function onSetChaseMode(self, checked)
   g_game.setChaseMode(chaseMode)
 
 end
-
-
 
 function onSetSafeFight(self, checked)
 
@@ -773,15 +656,11 @@ function onSetSafeFight(self, checked)
 
 end
 
-
-
 function onSetSafeFight2(self)
 
   onSetSafeFight(self, not safeFightButton:isChecked())
 
 end
-
-
 
 function onSetPVPMode(self, selectedPVPButton)
 
@@ -790,8 +669,6 @@ function onSetPVPMode(self, selectedPVPButton)
     return
 
   end
-
-
 
   local buttonId = selectedPVPButton:getId()
 
@@ -815,13 +692,9 @@ function onSetPVPMode(self, selectedPVPButton)
 
   end
 
-
-
   g_game.setPVPMode(pvpMode)
 
 end
-
-
 
 function onMountButtonClick(self, mousePos)
 
@@ -835,8 +708,6 @@ function onMountButtonClick(self, mousePos)
 
 end
 
-
-
 function onOutfitChange(localPlayer, outfit, oldOutfit)
 
   if outfit.mount == oldOutfit.mount then
@@ -845,13 +716,9 @@ function onOutfitChange(localPlayer, outfit, oldOutfit)
 
   end
 
-
-
   mountButton:setChecked(outfit.mount ~= nil and outfit.mount > 0)
 
 end
-
-
 
 function getPVPBoxByMode(mode)
 
@@ -879,8 +746,6 @@ function getPVPBoxByMode(mode)
 
 end
 
-
-
 -- status
 
 function toggleIcon(bitChanged)
@@ -901,8 +766,6 @@ function toggleIcon(bitChanged)
 
 end
 
-
-
 function loadIcon(bitChanged)
 
   local icon = g_ui.createWidget('ConditionWidget', conditionPanel)
@@ -917,8 +780,6 @@ function loadIcon(bitChanged)
 
 end
 
-
-
 function onSoulChange(localPlayer, soul)
 
   if not soul then return end
@@ -926,8 +787,6 @@ function onSoulChange(localPlayer, soul)
   soulLabel:setText(tr('Soul') .. ':\n' .. soul)
 
 end
-
-
 
 function onFreeCapacityChange(player, freeCapacity)
 
@@ -954,8 +813,6 @@ function onFreeCapacityChange(player, freeCapacity)
   capLabel:setText(tr('Cap') .. ':\n' .. freeCapacity)
 
 end
-
-
 
 function onStatesChange(localPlayer, now, old)
 
@@ -984,12 +841,7 @@ end
 ```
 
 ---
-
-
-
 # inventory.otmod
-
-
 
 ```text
 
@@ -1014,12 +866,7 @@ Module
 ```
 
 ---
-
-
-
 # inventory.otui
-
-
 
 ```otui
 
@@ -1038,6 +885,3 @@ InventoryWindow
 ```
 
 ---
-
-
-

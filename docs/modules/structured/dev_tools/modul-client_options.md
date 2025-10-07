@@ -1,9 +1,4 @@
-# ¦ Modul: `client_options`
-
-
-
-
-
+﻿# ¦ Modul: `client_options`
 
 ```otui
 
@@ -15,15 +10,11 @@ OptionPanel
 
     !text: tr('Enable audio')
 
-
-
   OptionCheckBox
 
     id: enableMusicSound
 
     !text: tr('Enable music sound')
-
-
 
   Label
 
@@ -39,8 +30,6 @@ OptionPanel
 
       self:setText(tr('Music volume: %d', value))
 
-
-
   OptionScrollbar
 
     id: musicSoundVolume
@@ -50,8 +39,6 @@ OptionPanel
     minimum: 0
 
     maximum: 100
-
-
 
   Label
 
@@ -67,8 +54,6 @@ OptionPanel
 
       self:setText(tr('Bot sound volume: %d', value))
 
-
-
   OptionScrollbar
 
     id: botSoundVolume
@@ -82,12 +67,7 @@ OptionPanel
 ```
 
 ---
-
-
-
 # console.otui
-
-
 
 ```otui
 
@@ -99,15 +79,11 @@ OptionPanel
 
     !text: tr('Show info messages in console')
 
-
-
   OptionCheckBox
 
     id: showEventMessagesInConsole
 
     !text: tr('Show event messages in console')
-
-
 
   OptionCheckBox
 
@@ -115,15 +91,11 @@ OptionPanel
 
     !text: tr('Show status messages in console')
 
-
-
   OptionCheckBox
 
     id: showTimestampsInConsole
 
     !text: tr('Show timestamps in console')
-
-
 
   OptionCheckBox
 
@@ -131,15 +103,11 @@ OptionPanel
 
     !text: tr('Show levels in console')
 
-
-
   OptionCheckBox
 
     id: showPrivateMessagesInConsole
 
     !text: tr('Show private messages in console')
-
-
 
   OptionCheckBox
 
@@ -150,12 +118,7 @@ OptionPanel
 ```
 
 ---
-
-
-
 # custom.otui
-
-
 
 ```otui
 
@@ -164,8 +127,6 @@ OptionPanel
   Label
 
     text: Client user features profile
-
-
 
   ComboBox
 
@@ -197,11 +158,7 @@ OptionPanel
 
       self:addOption("10")
 
-
-
   Label
-
-
 
   OptionCheckBox
 
@@ -209,15 +166,11 @@ OptionPanel
 
     !text: tr('Show customizable top status bar')
 
-
-
   OptionCheckBox
 
     id: topHealtManaBar
 
     !text: tr('Show player top health and mana bar')
-
-
 
   OptionCheckBox
 
@@ -229,15 +182,11 @@ OptionPanel
 
       visible: false
 
-
-
   Label
 
     margin-top: 5
 
     text: Show Bottom Action Bars:
-
-
 
   Panel
 
@@ -248,8 +197,6 @@ OptionPanel
     layout:
 
       type: horizontalBox
-
-
 
     OptionCheckBox
 
@@ -259,8 +206,6 @@ OptionPanel
 
       width: 60
 
-
-
     OptionCheckBox
 
       id: actionbar2
@@ -268,8 +213,6 @@ OptionPanel
       !text: tr('Bar 2')
 
       width: 60
-
-
 
     OptionCheckBox
 
@@ -279,8 +222,6 @@ OptionPanel
 
       width: 60
 
-
-
   Label
 
     text: Show Left Action Bars:
@@ -289,27 +230,19 @@ OptionPanel
 
       visible: false
 
-
-
   Panel
 
     margin-top: 2
 
     height: 16
 
-
-
     $mobile:
 
       visible: false
 
-
-
     layout:
 
       type: horizontalBox
-
-
 
     OptionCheckBox
 
@@ -319,8 +252,6 @@ OptionPanel
 
       width: 60
 
-
-
     OptionCheckBox
 
       id: actionbar5
@@ -328,8 +259,6 @@ OptionPanel
       !text: tr('Bar 2')
 
       width: 60
-
-
 
     OptionCheckBox
 
@@ -339,8 +268,6 @@ OptionPanel
 
       width: 60
 
-
-
   Label
 
     text: Show Right Action Bars:
@@ -348,8 +275,6 @@ OptionPanel
     $mobile:
 
       visible: false
-
-
 
   Panel
 
@@ -361,13 +286,9 @@ OptionPanel
 
       type: horizontalBox
 
-
-
     $mobile:
 
       visible: false
-
-
 
     OptionCheckBox
 
@@ -377,8 +298,6 @@ OptionPanel
 
       width: 60
 
-
-
     OptionCheckBox
 
       id: actionbar8
@@ -386,8 +305,6 @@ OptionPanel
       !text: tr('Bar 2')
 
       width: 60
-
-
 
     OptionCheckBox
 
@@ -397,11 +314,7 @@ OptionPanel
 
       width: 60
 
-
-
   Label
-
-
 
   OptionCheckBox
 
@@ -412,12 +325,7 @@ OptionPanel
 ```
 
 ---
-
-
-
 # game.otui
-
-
 
 ```otui
 
@@ -429,13 +337,9 @@ OptionPanel
 
     !text: tr('Classic control')
 
-
-
     $mobile:
 
       visible: false
-
-
 
   OptionCheckBox
 
@@ -443,15 +347,11 @@ OptionPanel
 
     !text: tr('Allow auto chase override')
 
-
-
   OptionCheckBox
 
     id: displayText
 
     !text: tr('Display text messages')
-
-
 
   OptionCheckBox
 
@@ -465,8 +365,6 @@ OptionPanel
 
       visible: false
 
-
-
   OptionCheckBox
 
     id: dash
@@ -475,8 +373,6 @@ OptionPanel
 
     !tooltip: tr('Allows to execute next move without server confirmation of previous one')
 
-
-
   OptionCheckBox
 
     id: smartWalk
@@ -484,8 +380,6 @@ OptionPanel
     !text: tr('Enable smart walking')
 
     !tooltip: tr('Will detect when to use diagonal step based on the\nkeys you are pressing')
-
-
 
   Label
 
@@ -501,8 +395,6 @@ OptionPanel
 
       self:setText(tr('Hotkey delay: %s ms', value))
 
-
-
   OptionScrollbar
 
     id: hotkeyDelay
@@ -512,8 +404,6 @@ OptionPanel
     minimum: 5
 
     maximum: 50
-
-
 
   Label
 
@@ -527,13 +417,9 @@ OptionPanel
 
       self:setText(tr('Walk delay after first step: %s ms', value))
 
-
-
     $mobile:
 
       visible: false
-
-
 
   OptionScrollbar
 
@@ -545,13 +431,9 @@ OptionPanel
 
     maximum: 300
 
-
-
     $mobile:
 
       visible: false
-
-
 
   Label
 
@@ -565,13 +447,9 @@ OptionPanel
 
       self:setText(tr('Walk delay after turn: %s ms', value))
 
-
-
     $mobile:
 
       visible: false
-
-
 
   OptionScrollbar
 
@@ -583,13 +461,9 @@ OptionPanel
 
     maximum: 300
 
-
-
     $mobile:
 
       visible: false
-
-
 
   Label
 
@@ -607,8 +481,6 @@ OptionPanel
 
       self:setText(tr('Walk delay after ctrl turn: %s ms', value))
 
-
-
   OptionScrollbar
 
     id: walkCtrlTurnDelay
@@ -622,8 +494,6 @@ OptionPanel
     $mobile:
 
       visible: false
-
-
 
   Label
 
@@ -641,8 +511,6 @@ OptionPanel
 
       visible: false
 
-
-
   OptionScrollbar
 
     id: walkStairsDelay
@@ -656,8 +524,6 @@ OptionPanel
     $mobile:
 
       visible: false
-
-
 
   Label
 
@@ -675,8 +541,6 @@ OptionPanel
 
       visible: false
 
-
-
   OptionScrollbar
 
     id: walkTeleportDelay
@@ -691,15 +555,11 @@ OptionPanel
 
       visible: false
 
-      
-
   Panel
 
     height: 30
 
     margin-top: 10
-
-
 
     Button
 
@@ -718,12 +578,7 @@ OptionPanel
 ```
 
 ---
-
-
-
 # graphics.otui
-
-
 
 ```otui
 
@@ -737,8 +592,6 @@ OptionPanel
 
       self:setText(tr("GPU: ") .. g_graphics.getRenderer())      
 
-
-
   Label
 
     text-wrap: false
@@ -747,15 +600,11 @@ OptionPanel
 
       self:setText(tr("Version: ") .. g_graphics.getVersion())      
 
-
-
   HorizontalSeparator
 
     id: separator
 
     margin: 5 5 5 5
-
-
 
   OptionCheckBox
 
@@ -765,23 +614,17 @@ OptionPanel
 
     !tooltip: tr('Limits FPS (usually to 60)')
 
-
-
   OptionCheckBox
 
     id: showFps
 
     !text: tr('Show frame rate')
 
-
-
   OptionCheckBox
 
     id: enableLights
 
     !text: tr('Enable lights')
-
-
 
   OptionCheckBox
 
@@ -791,15 +634,11 @@ OptionPanel
 
     tooltip: Ctrl+Shift+F
 
-
-
   OptionCheckBox
 
     id: antialiasing
 
     !text: tr('Antialiasing')
-
-
 
   Label
 
@@ -808,8 +647,6 @@ OptionPanel
     id: optimizationLevelLabel
 
     !text: tr("Optimization level")
-
-    
 
   ComboBox
 
@@ -837,15 +674,11 @@ OptionPanel
 
       self:addOption("Maximum")
 
-      
-
   Label
 
     !text: tr('High/Maximum optimization level may cause visual defects.')
 
     margin-top: 5
-
-
 
   Label
 
@@ -869,8 +702,6 @@ OptionPanel
 
       self:setText(tr('Game framerate limit: %s', text))
 
-
-
   OptionScrollbar
 
     id: backgroundFrameRate
@@ -880,8 +711,6 @@ OptionPanel
     minimum: 10
 
     maximum: 201
-
-
 
   Label
 
@@ -895,8 +724,6 @@ OptionPanel
 
       self:setText(tr('Ambient light: %s%%', value))
 
-
-
   OptionScrollbar
 
     id: ambientLight
@@ -906,8 +733,6 @@ OptionPanel
     minimum: 0
 
     maximum: 100
-
-  
 
   Label
 
@@ -930,12 +755,7 @@ OptionPanel
 ```
 
 ---
-
-
-
 # interface.otui
-
-
 
 ```otui
 
@@ -952,8 +772,6 @@ OptionPanel
     $mobile:
 
       visible: false
-
-  
 
   ComboBox
 
@@ -985,8 +803,6 @@ OptionPanel
 
       end
 
-
-
   OptionCheckBox
 
     id: classicView
@@ -995,13 +811,9 @@ OptionPanel
 
     margin-top: 5
 
-    
-
     $mobile:
 
       visible: false
-
-
 
   OptionCheckBox
 
@@ -1009,13 +821,9 @@ OptionPanel
 
     !text: tr('Cache map (for non-classic view)')
 
-
-
     $mobile:
 
       visible: false
-
-    
 
   OptionCheckBox
 
@@ -1025,23 +833,17 @@ OptionPanel
 
     !tooltip: tr('Display connection speed to the server (milliseconds)')
 
-
-
   OptionCheckBox
 
     id: displayNames
 
     !text: tr('Display creature names')
 
-
-
   OptionCheckBox
 
     id: displayHealth
 
     !text: tr('Display creature health bars')
-
-
 
   OptionCheckBox
 
@@ -1053,15 +855,11 @@ OptionPanel
 
       visible: false
 
-
-
   OptionCheckBox
 
     id: hidePlayerBars
 
     !text: tr('Show player health bar')
-
-
 
   OptionCheckBox
 
@@ -1073,23 +871,17 @@ OptionPanel
 
       visible: false
 
-
-
   OptionCheckBox
 
     id: highlightThingsUnderCursor
 
     !text: tr('Highlight things under cursor')
 
-
-
   Panel
 
     height: 40
 
     margin-top: 3
-
-    
 
     Label
 
@@ -1103,8 +895,6 @@ OptionPanel
 
       !text: tr("Left panels")
 
-
-
     Label
 
       width: 90
@@ -1116,8 +906,6 @@ OptionPanel
       id: rightPanelsLabel
 
       !text: tr("Right panels")
-
-
 
     Label
 
@@ -1132,8 +920,6 @@ OptionPanel
       !text: tr("Container's panel")
 
       !tooltip: tr("Open new containers in selected panel")
-
-
 
     ComboBox
 
@@ -1163,8 +949,6 @@ OptionPanel
 
         self:addOption("4")
 
-
-
     ComboBox
 
       id: rightPanels
@@ -1190,8 +974,6 @@ OptionPanel
         self:addOption("3")
 
         self:addOption("4")
-
-
 
     ComboBox
 
@@ -1225,8 +1007,6 @@ OptionPanel
 
         self:addOption("4th right panel")
 
-
-
   Label
 
     margin-top: 3
@@ -1234,8 +1014,6 @@ OptionPanel
     id: crosshairLabel
 
     !text: tr("Crosshair")
-
-    
 
   ComboBox
 
@@ -1257,8 +1035,6 @@ OptionPanel
 
       self:addOption("Full")
 
-
-
   Label
 
     id: floorFadingLabel
@@ -1271,8 +1047,6 @@ OptionPanel
 
       self:setText(tr('Floor fading: %s ms', value))
 
-
-
   OptionScrollbar
 
     id: floorFading
@@ -1282,8 +1056,6 @@ OptionPanel
     minimum: 0
 
     maximum: 2000
-
-
 
   Label
 
@@ -1296,12 +1068,7 @@ OptionPanel
 ```
 
 ---
-
-
-
 # options.lua
-
-
 
 ```lua
 
@@ -1393,8 +1160,6 @@ local defaultOptions = {
 
   hotkeyDelay = 30,
 
-    
-
   wsadWalking = false,
 
   walkFirstStepDelay = 200,
@@ -1407,11 +1172,7 @@ local defaultOptions = {
 
   walkCtrlTurnDelay = 150,
 
-
-
   topBar = true,
-
-
 
   actionbar1 = true,
 
@@ -1431,21 +1192,13 @@ local defaultOptions = {
 
   actionbar9 = false,
 
-
-
   actionbarLock = false,
 
-
-
   profile = 1,
-
-  
 
   antialiasing = true
 
 }
-
-
 
 local optionsWindow
 
@@ -1473,8 +1226,6 @@ local extrasPanel
 
 local audioButton
 
-
-
 function init()
 
   for k,v in pairs(defaultOptions) do
@@ -1493,57 +1244,37 @@ function init()
 
   end
 
-
-
   optionsWindow = g_ui.displayUI('options')
 
   optionsWindow:hide()
-
-
 
   optionsTabBar = optionsWindow:getChildById('optionsTabBar')
 
   optionsTabBar:setContentWidget(optionsWindow:getChildById('optionsTabContent'))
 
-
-
   g_keyboard.bindKeyDown('Ctrl+Shift+F', function() toggleOption('fullscreen') end)
 
   g_keyboard.bindKeyDown('Ctrl+N', toggleDisplays)
-
-
 
   generalPanel = g_ui.loadUI('game')
 
   optionsTabBar:addTab(tr('Game'), generalPanel, '/images/optionstab/game')
 
-  
-
   interfacePanel = g_ui.loadUI('interface')
 
   optionsTabBar:addTab(tr('Interface'), interfacePanel, '/images/optionstab/game')  
-
-
 
   consolePanel = g_ui.loadUI('console')
 
   optionsTabBar:addTab(tr('Console'), consolePanel, '/images/optionstab/console')
 
-
-
   graphicsPanel = g_ui.loadUI('graphics')
 
   optionsTabBar:addTab(tr('Graphics'), graphicsPanel, '/images/optionstab/graphics')
 
-
-
   audioPanel = g_ui.loadUI('audio')
 
   optionsTabBar:addTab(tr('Audio'), audioPanel, '/images/optionstab/audio')
-
-
-
-
 
   extrasPanel = g_ui.createWidget('OptionPanel')
 
@@ -1565,13 +1296,9 @@ function init()
 
   end
 
-
-
   customPanel = g_ui.loadUI('custom')
 
   optionsTabBar:addTab(tr('Custom'), customPanel, '/images/optionstab/features')
-
-
 
   optionsButton = modules.client_topmenu.addLeftButton('optionsButton', tr('Options'), '/images/topbuttons/options', toggle)
 
@@ -1583,11 +1310,7 @@ function init()
 
   end
 
-  
-
   addEvent(function() setup() end)
-
-  
 
   connect(g_game, { onGameStart = online,
 
@@ -1595,15 +1318,11 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onGameStart = online,
 
                      onGameEnd = offline })  
-
-
 
   g_keyboard.unbindKeyDown('Ctrl+Shift+F')
 
@@ -1616,8 +1335,6 @@ function terminate()
   audioButton:destroy()
 
 end
-
-
 
 function setup()
 
@@ -1641,8 +1358,6 @@ function setup()
 
   end
 
-  
-
   for _, v in ipairs(g_extras.getAll()) do
 
     g_extras.set(v, g_settings.getBoolean("extras_" .. v))
@@ -1657,8 +1372,6 @@ function setup()
 
   end  
 
-  
-
   if g_game.isOnline() then
 
     online()
@@ -1666,8 +1379,6 @@ function setup()
   end  
 
 end
-
-
 
 function toggle()
 
@@ -1683,8 +1394,6 @@ function toggle()
 
 end
 
-
-
 function show()
 
   optionsWindow:show()
@@ -1695,15 +1404,11 @@ function show()
 
 end
 
-
-
 function hide()
 
   optionsWindow:hide()
 
 end
-
-
 
 function toggleDisplays()
 
@@ -1735,15 +1440,11 @@ function toggleDisplays()
 
 end
 
-
-
 function toggleOption(key) 
 
   setOption(key, not getOption(key))
 
 end
-
-
 
 function setOption(key, value, force)
 
@@ -1771,21 +1472,15 @@ function setOption(key, value, force)
 
   end
 
-  
-
   if modules.game_interface == nil then
 
     return
 
   end
 
-   
-
   if not force and options[key] == value then return end
 
   local gameMapPanel = modules.game_interface.getMapPanel()
-
-
 
   if key == 'vsync' then
 
@@ -2011,8 +1706,6 @@ function setOption(key, value, force)
 
   end
 
-
-
   -- change value for keybind updates
 
   for _,panel in pairs(optionsTabBar:getTabsPanel()) do
@@ -2059,21 +1752,15 @@ function setOption(key, value, force)
 
   end
 
-  
-
   g_settings.set(key, value)
 
   options[key] = value
-
-
 
   if key == "profile" then
 
     modules.client_profiles.onProfileChange()
 
   end
-
-  
 
   if key == 'classicView' or key == 'rightPanels' or key == 'leftPanels' or key == 'cacheMap' then
 
@@ -2085,8 +1772,6 @@ function setOption(key, value, force)
 
   end
 
-
-
   if key == 'topBar' then
 
     modules.game_topbar.show()
@@ -2095,15 +1780,11 @@ function setOption(key, value, force)
 
 end
 
-
-
 function getOption(key)
 
   return options[key]
 
 end
-
-
 
 function addTab(name, panel, icon)
 
@@ -2111,19 +1792,13 @@ function addTab(name, panel, icon)
 
 end
 
-
-
 function addButton(name, func, icon)
 
   optionsTabBar:addButton(name, func, icon)
 
 end
 
-
-
 -- hide/show
-
-
 
 function online()
 
@@ -2133,19 +1808,13 @@ function online()
 
 end
 
-
-
 function offline()
 
   setLightOptionsVisibility(true)
 
 end
 
-
-
 -- classic view
-
-
 
 -- graphics
 
@@ -2168,12 +1837,7 @@ end
 ```
 
 ---
-
-
-
 # options.otmod
-
-
 
 ```text
 
@@ -2198,12 +1862,7 @@ Module
 ```
 
 ---
-
-
-
 # options.otui
-
-
 
 ```otui
 
@@ -2213,13 +1872,9 @@ OptionCheckBox < CheckBox
 
   height: 16
 
-
-
   $!first:
 
     margin-top: 2
-
-
 
 OptionScrollbar < HorizontalScrollBar
 
@@ -2227,15 +1882,11 @@ OptionScrollbar < HorizontalScrollBar
 
   @onValueChange: modules.client_options.setOption(self:getId(), self:getValue())
 
-  
-
 OptionPanel < Panel
 
   layout:
 
     type: verticalBox
-
-    
 
 MainWindow
 
@@ -2249,13 +1900,9 @@ MainWindow
 
     size: 490 360
 
-
-
   @onEnter: modules.client_options.hide()
 
   @onEscape: modules.client_options.hide()
-
-
 
   TabBarVertical
 
@@ -2266,8 +1913,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.bottom: parent.bottom
-
-
 
   Panel
 
@@ -2284,8 +1929,6 @@ MainWindow
     margin-left: 10
 
     margin-top: 3
-
-
 
   Button
 
@@ -2306,6 +1949,3 @@ MainWindow
 ```
 
 ---
-
-
-

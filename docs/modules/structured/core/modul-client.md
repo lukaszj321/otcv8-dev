@@ -1,9 +1,4 @@
-# ¦ Modul: `client`
-
-
-
-
-
+﻿# ¦ Modul: `client`
 
 ```lua
 
@@ -11,13 +6,9 @@ local musicFilename = "/sounds/startup"
 
 local musicChannel = nil
 
-
-
 function setMusic(filename)
 
   musicFilename = filename
-
-
 
   if not g_game.isOnline() and musicChannel ~= nil then
 
@@ -29,8 +20,6 @@ function setMusic(filename)
 
 end
 
-
-
 function reloadScripts()
 
   if g_game.getFeature(GameNoDebug) then
@@ -39,13 +28,9 @@ function reloadScripts()
 
   end
 
-  
-
   g_textures.clearCache()
 
   g_modules.reloadModules()
-
-
 
   local script = '/' .. g_app.getCompactName() .. 'rc.lua'
 
@@ -55,19 +40,13 @@ function reloadScripts()
 
   end
 
-
-
   local message = tr('All modules and scripts were reloaded.')
-
-
 
   modules.game_textmessage.displayGameMessage(message)
 
   print(message)
 
 end
-
-
 
 function startup()
 
@@ -76,8 +55,6 @@ function startup()
     musicChannel = g_sounds.getChannel(1)
 
   end
-
-  
 
   G.UUID = g_settings.getString('report-uuid')
 
@@ -88,8 +65,6 @@ function startup()
     g_settings.set('report-uuid', G.UUID)
 
   end
-
-  
 
   -- Play startup music (The Silver Tree, by Mattias Westlund)
 
@@ -111,8 +86,6 @@ function startup()
 
 end
 
-
-
 function init()
 
   connect(g_app, { onRun = startup,
@@ -123,15 +96,11 @@ function init()
 
                     onGameEnd = onGameEnd })
 
-
-
   if g_sounds ~= nil then
 
     --g_sounds.preload(musicFilename)
 
   end
-
-
 
   if not Updater then
 
@@ -145,8 +114,6 @@ function init()
 
     end
 
-
-
     -- window size
 
     local size = { width = 1024, height = 600 }
@@ -154,8 +121,6 @@ function init()
     size = g_settings.getSize('window-size', size)
 
     g_window.resize(size)
-
-
 
     -- window position, default is the screen center
 
@@ -173,8 +138,6 @@ function init()
 
     g_window.move(pos)
 
-
-
     -- window maximized?
 
     local maximized = g_settings.getBoolean('window-maximized', false)
@@ -183,17 +146,11 @@ function init()
 
   end
 
-
-
   g_window.setTitle(g_app.getName())
 
   g_window.setIcon('/images/clienticon')
 
-
-
   g_keyboard.bindKeyDown('Ctrl+Shift+R', reloadScripts)
-
-
 
   -- generate machine uuid, this is a security measure for storing passwords
 
@@ -206,8 +163,6 @@ function init()
   end
 
 end
-
-
 
 function terminate()
 
@@ -229,15 +184,11 @@ function terminate()
 
 end
 
-
-
 function exit()
 
   g_logger.info("Exiting application..")
 
 end
-
-
 
 function onGameStart()
 
@@ -249,8 +200,6 @@ function onGameStart()
 
 end
 
-
-
 function onGameEnd()
 
   g_window.setTitle(g_app.getName())
@@ -260,12 +209,7 @@ end
 ```
 
 ---
-
-
-
 # client.otmod
-
-
 
 ```text
 
@@ -288,8 +232,6 @@ Module
   @onLoad: init()
 
   @onUnload: terminate()
-
-
 
   load-later:
 
@@ -318,6 +260,3 @@ Module
 ```
 
 ---
-
-
-

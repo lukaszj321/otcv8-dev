@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot`
 
 ```lua
 
@@ -13,8 +8,6 @@ TargetBot.Creature.configsCache = {}
 
 TargetBot.Creature.cached = 0
 
-
-
 TargetBot.Creature.resetConfigs = function()
 
   TargetBot.targetList:destroyChildren()
@@ -23,8 +16,6 @@ TargetBot.Creature.resetConfigs = function()
 
 end
 
-
-
 TargetBot.Creature.resetConfigsCache = function()
 
   TargetBot.Creature.configsCache = {}
@@ -32,8 +23,6 @@ TargetBot.Creature.resetConfigsCache = function()
   TargetBot.Creature.cached = 0
 
 end
-
-
 
 TargetBot.Creature.addConfig = function(config, focus)
 
@@ -44,8 +33,6 @@ TargetBot.Creature.addConfig = function(config, focus)
   end
 
   TargetBot.Creature.resetConfigsCache()
-
-
 
   if not config.regex then
 
@@ -65,15 +52,11 @@ TargetBot.Creature.addConfig = function(config, focus)
 
   end
 
-
-
   local widget = UI.createWidget("TargetBotEntry", TargetBot.targetList)
 
   widget:setText(config.name)
 
   widget.value = config
-
-
 
   widget.onDoubleClick = function(entry) -- edit on double click
 
@@ -95,8 +78,6 @@ TargetBot.Creature.addConfig = function(config, focus)
 
   end
 
-
-
   if focus then
 
     widget:focus()
@@ -108,8 +89,6 @@ TargetBot.Creature.addConfig = function(config, focus)
   return widget
 
 end
-
-
 
 TargetBot.Creature.getConfigs = function(creature)
 
@@ -151,8 +130,6 @@ TargetBot.Creature.getConfigs = function(creature)
 
 end
 
-
-
 TargetBot.Creature.calculateParams = function(creature, path)
 
   local configs = TargetBot.Creature.getConfigs(creature)
@@ -189,11 +166,9 @@ TargetBot.Creature.calculateParams = function(creature, path)
 
     priority = priority
 
-  }
+}
 
 end
-
-
 
 TargetBot.Creature.calculateDanger = function(creature, config, path)
 
@@ -206,12 +181,7 @@ end
 ```
 
 ---
-
-
-
 # creature_attack.lua
-
-
 
 ```lua
 
@@ -223,13 +193,9 @@ TargetBot.Creature.attack = function(params, targets, isLooting) -- params {conf
 
   end
 
-
-
   local config = params.config
 
   local creature = params.creature
-
-  
 
   if g_game.getAttackingCreature() ~= creature then
 
@@ -237,15 +203,11 @@ TargetBot.Creature.attack = function(params, targets, isLooting) -- params {conf
 
   end
 
-
-
   if not isLooting then -- walk only when not looting
 
     TargetBot.Creature.walk(creature, config, targets)
 
   end
-
-
 
   -- attacks
 
@@ -284,8 +246,6 @@ TargetBot.Creature.attack = function(params, targets, isLooting) -- params {conf
     end
 
   end
-
-
 
   if config.useGroupAttackRune and config.groupAttackRune > 100 then
 
@@ -343,15 +303,11 @@ TargetBot.Creature.attack = function(params, targets, isLooting) -- params {conf
 
 end
 
-
-
 TargetBot.Creature.walk = function(creature, config, targets)
 
   local cpos = creature:getPosition()
 
   local pos = player:getPosition()
-
-  
 
   local isTrapped = true
 
@@ -370,8 +326,6 @@ TargetBot.Creature.walk = function(creature, config, targets)
     end
 
   end
-
-  
 
   -- luring
 
@@ -401,8 +355,6 @@ TargetBot.Creature.walk = function(creature, config, targets)
 
   end
 
-
-
   local currentDistance = findPath(pos, cpos, 10, {ignoreCreatures=true, ignoreNonPathable=true, ignoreCost=true})
 
   if config.chase and (creature:getHealthPercent() < 30 or not config.keepDistance) then
@@ -422,8 +374,6 @@ TargetBot.Creature.walk = function(creature, config, targets)
     end
 
   end
-
-
 
   if config.avoidAttacks then
 
@@ -462,12 +412,7 @@ end
 ```
 
 ---
-
-
-
 # creature_editor.lua
-
-
 
 ```lua
 
@@ -475,19 +420,13 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
 
   config = config or {}
 
-
-
   local editor = UI.createWindow('TargetBotCreatureEditorWindow')
 
   local values = {} -- (key, function returning value of key)
 
-
-
   editor.name:setText(config.name or "")
 
   table.insert(values, {"name", function() return editor.name:getText() end})
-
-
 
   local addScrollBar = function(id, title, min, max, defaultValue)
 
@@ -519,8 +458,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
 
   end
 
-
-
   local addTextEdit = function(id, title, defaultValue)
 
     local widget = UI.createWidget('TargetBotCreatureEditorTextEdit', editor.content.right)
@@ -532,8 +469,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
     table.insert(values, {id, function() return widget.textEdit:getText() end})
 
   end
-
-
 
   local addCheckBox = function(id, title, defaultValue)
 
@@ -561,8 +496,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
 
   end
 
-
-
   local addItem = function(id, title, defaultItem)
 
     local widget = UI.createWidget('TargetBotCreatureEditorItem', editor.content.right)
@@ -575,8 +508,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
 
   end
 
-
-
   editor.cancel.onClick = function()
 
     editor:destroy()
@@ -584,8 +515,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
   end
 
   editor.onEscape = editor.cancel.onClick
-
-
 
   editor.ok.onClick = function()
 
@@ -598,8 +527,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
     end
 
     if newConfig.name:len() < 1 then return end
-
-
 
     newConfig.regex = ""
 
@@ -615,15 +542,11 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
 
     end
 
-
-
     editor:destroy()
 
     callback(newConfig)
 
   end
-
-
 
   -- values
 
@@ -636,8 +559,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
   addScrollBar("keepDistanceRange", "Keep distance", 1, 5, 1)
 
   addScrollBar("lureCount", "Lure", 0, 5, 1)
-
-
 
   addScrollBar("minMana", "Min. mana for attack spell", 0, 3000, 200)
 
@@ -659,8 +580,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
 
   addScrollBar("groupRuneAttackDelay", "Group rune attack delay", 200, 60000, 5000)
 
-
-
   addCheckBox("chase", "Chase", true)
 
   addCheckBox("keepDistance", "Keep Distance", false)
@@ -672,8 +591,6 @@ TargetBot.Creature.edit = function(config, callback) -- callback = function(newC
   addCheckBox("lureCavebot", "Lure using cavebot", false)
 
   addCheckBox("avoidAttacks", "Avoid wave attacks", false)
-
-
 
   addCheckBox("useSpellAttack", "Use attack spell", false)
 
@@ -700,12 +617,7 @@ end
 ```
 
 ---
-
-
-
 # creature_editor.otui
-
-
 
 ```otui
 
@@ -714,8 +626,6 @@ TargetBotCreatureEditorScrollBar < Panel
   height: 28
 
   margin-top: 3
-
-
 
   Label
 
@@ -728,8 +638,6 @@ TargetBotCreatureEditorScrollBar < Panel
     anchors.top: parent.top
 
     text-align: center
-
-    
 
   HorizontalScrollBar
 
@@ -749,15 +657,11 @@ TargetBotCreatureEditorScrollBar < Panel
 
     step: 1
 
-
-
 TargetBotCreatureEditorTextEdit < Panel
 
   height: 40
 
   margin-top: 7
-
-
 
   Label
 
@@ -770,8 +674,6 @@ TargetBotCreatureEditorTextEdit < Panel
     anchors.top: parent.top
 
     text-align: center
-
-    
 
   TextEdit
 
@@ -791,8 +693,6 @@ TargetBotCreatureEditorTextEdit < Panel
 
     step: 1
 
-
-
 TargetBotCreatureEditorItem < Panel
 
   height: 34
@@ -803,8 +703,6 @@ TargetBotCreatureEditorItem < Panel
 
   margin-right: 25
 
-
-
   Label
 
     id: text
@@ -812,8 +710,6 @@ TargetBotCreatureEditorItem < Panel
     anchors.left: parent.left
 
     anchors.verticalCenter: next.verticalCenter
-
-
 
   BotItem
 
@@ -823,17 +719,11 @@ TargetBotCreatureEditorItem < Panel
 
     anchors.right: parent.right
 
-
-
-
-
 TargetBotCreatureEditorCheckBox < BotSwitch
 
   height: 20
 
   margin-top: 7
-
-
 
 TargetBotCreatureEditorWindow < MainWindow
 
@@ -843,13 +733,9 @@ TargetBotCreatureEditorWindow < MainWindow
 
   height: 630
 
-  
-
   $mobile:
 
     height: 300
-
-
 
   Label
 
@@ -863,8 +749,6 @@ TargetBotCreatureEditorWindow < MainWindow
 
     !text: tr('You can use * (any characters) and ? (any character) in target name')
 
-
-
   Label
 
     anchors.left: parent.left
@@ -876,8 +760,6 @@ TargetBotCreatureEditorWindow < MainWindow
     text-align: center
 
     !text: tr('You can also enter multiple targets, separate them by ,')
-
-  
 
   TextEdit
 
@@ -893,8 +775,6 @@ TargetBotCreatureEditorWindow < MainWindow
 
     margin-top: 5
 
-
-
   Label
 
     anchors.verticalCenter: prev.verticalCenter
@@ -902,8 +782,6 @@ TargetBotCreatureEditorWindow < MainWindow
     anchors.left: parent.left
 
     text: Target name:
-
-
 
   VerticalScrollBar
 
@@ -925,8 +803,6 @@ TargetBotCreatureEditorWindow < MainWindow
 
     margin-bottom: 5
 
-
-
   ScrollablePanel
 
     id: content
@@ -942,8 +818,6 @@ TargetBotCreatureEditorWindow < MainWindow
     vertical-scrollbar: contentScroll
 
     margin-bottom: 10
-
-      
 
     Panel
 
@@ -967,8 +841,6 @@ TargetBotCreatureEditorWindow < MainWindow
 
         fit-children: true
 
-
-
     Panel
 
       id: right
@@ -991,8 +863,6 @@ TargetBotCreatureEditorWindow < MainWindow
 
         fit-children: true
 
-  
-
   Button
 
     id: help
@@ -1007,8 +877,6 @@ TargetBotCreatureEditorWindow < MainWindow
 
     @onClick: g_platform.openUrl("http://bot.otclient.ovh/")
 
-
-
   Button
 
     id: ok
@@ -1022,8 +890,6 @@ TargetBotCreatureEditorWindow < MainWindow
     margin-right: 10
 
     width: 60
-
-
 
   Button
 
@@ -1040,12 +906,7 @@ TargetBotCreatureEditorWindow < MainWindow
 ```
 
 ---
-
-
-
 # creature_priority.lua
-
-
 
 ```lua
 
@@ -1055,8 +916,6 @@ TargetBot.Creature.calculatePriority = function(creature, config, path)
 
   local priority = 0
 
-
-
   -- extra priority if it's current target
 
   if g_game.getAttackingCreature() == creature then
@@ -1064,8 +923,6 @@ TargetBot.Creature.calculatePriority = function(creature, config, path)
     priority = priority + 1
 
   end
-
-
 
   -- check if distance is fine, if not then attack only if already attacked
 
@@ -1075,13 +932,9 @@ TargetBot.Creature.calculatePriority = function(creature, config, path)
 
   end
 
-
-
   -- add config priority
 
   priority = priority + config.priority
-
-  
 
   -- extra priority for close distance
 
@@ -1096,8 +949,6 @@ TargetBot.Creature.calculatePriority = function(creature, config, path)
     priority = priority + 1
 
   end
-
-
 
   -- extra priority for low health
 
@@ -1123,8 +974,6 @@ TargetBot.Creature.calculatePriority = function(creature, config, path)
 
   end
 
-
-
   return priority
 
 end
@@ -1132,20 +981,13 @@ end
 ```
 
 ---
-
-
-
 # looting.lua
-
-
 
 ```lua
 
 TargetBot.Looting = {}
 
 TargetBot.Looting.list = {} -- list of containers to loot
-
-
 
 local ui
 
@@ -1158,8 +1000,6 @@ local itemsById = {}
 local containersById = {}
 
 local dontSave = false
-
-
 
 TargetBot.Looting.setup = function()
 
@@ -1211,8 +1051,6 @@ TargetBot.Looting.setup = function()
 
 end
 
-
-
 TargetBot.Looting.onItemsUpdate = function()
 
   if dontSave then return end
@@ -1223,8 +1061,6 @@ TargetBot.Looting.onItemsUpdate = function()
 
 end
 
-
-
 TargetBot.Looting.onContainersUpdate = function()
 
   if dontSave then return end
@@ -1234,8 +1070,6 @@ TargetBot.Looting.onContainersUpdate = function()
   TargetBot.Looting.updateItemsAndContainers()
 
 end
-
-
 
 TargetBot.Looting.update = function(data)
 
@@ -1259,8 +1093,6 @@ TargetBot.Looting.update = function(data)
 
 end
 
-
-
 TargetBot.Looting.save = function(data)
 
   data['items'] = ui.items:getItems()
@@ -1274,8 +1106,6 @@ TargetBot.Looting.save = function(data)
   data['everyItem'] = ui.everyItem:isOn()
 
 end
-
-
 
 TargetBot.Looting.updateItemsAndContainers = function()
 
@@ -1301,8 +1131,6 @@ TargetBot.Looting.updateItemsAndContainers = function()
 
 end
 
-
-
 local waitTill = 0
 
 local waitingForContainer = nil
@@ -1311,15 +1139,11 @@ local status = ""
 
 local lastFoodConsumption = 0
 
-
-
 TargetBot.Looting.getStatus = function()
 
   return status
 
 end
-
-
 
 TargetBot.Looting.process = function(targets, dangerLevel)
 
@@ -1359,8 +1183,6 @@ TargetBot.Looting.process = function(targets, dangerLevel)
 
   end
 
-
-
   if waitTill > now then
 
     return true
@@ -1370,8 +1192,6 @@ TargetBot.Looting.process = function(targets, dangerLevel)
   local containers = g_game.getContainers()
 
   local lootContainers = TargetBot.Looting.getLootContainers(containers)
-
-
 
   -- check if there's container for loot and has empty space for it
 
@@ -1385,11 +1205,7 @@ TargetBot.Looting.process = function(targets, dangerLevel)
 
   end
 
-
-
   status = "Looting"
-
-
 
   for index, container in pairs(containers) do
 
@@ -1403,8 +1219,6 @@ TargetBot.Looting.process = function(targets, dangerLevel)
 
   end
 
-
-
   local pos = player:getPosition()
 
   local dist = math.max(math.abs(pos.x-loot.pos.x), math.abs(pos.y-loot.pos.y))
@@ -1416,8 +1230,6 @@ TargetBot.Looting.process = function(targets, dangerLevel)
     return true
 
   end
-
-
 
   local tile = g_map.getTile(loot.pos)
 
@@ -1431,8 +1243,6 @@ TargetBot.Looting.process = function(targets, dangerLevel)
 
   end
 
-
-
   local container = tile:getTopUseThing()
 
   if not container or not container:isContainer() then
@@ -1443,8 +1253,6 @@ TargetBot.Looting.process = function(targets, dangerLevel)
 
   end
 
-
-
   g_game.open(container)
 
   waitTill = now + 1000 -- give it 1s to open
@@ -1453,13 +1261,9 @@ TargetBot.Looting.process = function(targets, dangerLevel)
 
   loot.tries = loot.tries + 10
 
-
-
   return true
 
 end
-
-
 
 TargetBot.Looting.getLootContainers = function(containers)
 
@@ -1561,8 +1365,6 @@ TargetBot.Looting.getLootContainers = function(containers)
 
 end
 
-
-
 TargetBot.Looting.lootContainer = function(lootContainers, container)
 
   -- loot items
@@ -1605,8 +1407,6 @@ TargetBot.Looting.lootContainer = function(lootContainers, container)
 
   end
 
-
-
   -- no more items to loot, open next container
 
   if nextContainer then
@@ -1627,8 +1427,6 @@ TargetBot.Looting.lootContainer = function(lootContainers, container)
 
   end
 
-  
-
   -- looting finished, remove container from list
 
   container.lootContainer = false
@@ -1638,8 +1436,6 @@ TargetBot.Looting.lootContainer = function(lootContainers, container)
   table.remove(TargetBot.Looting.list, 1) 
 
 end
-
-
 
 TargetBot.Looting.lootItem = function(lootContainers, item)
 
@@ -1667,8 +1463,6 @@ TargetBot.Looting.lootItem = function(lootContainers, item)
 
   end
 
-
-
   local container = lootContainers[1]
 
   g_game.move(item, container:getSlotPosition(container:getItemsCount()), 1)
@@ -1676,8 +1470,6 @@ TargetBot.Looting.lootItem = function(lootContainers, item)
   waitTill = now + 300 -- give it 0.3s to move item
 
 end
-
-
 
 onContainerOpen(function(container, previousContainer)
 
@@ -1690,8 +1482,6 @@ onContainerOpen(function(container, previousContainer)
   end
 
 end)
-
-
 
 onCreatureDisappear(function(creature)
 
@@ -1742,12 +1532,7 @@ end)
 ```
 
 ---
-
-
-
 # looting.otui
-
-
 
 ```otui
 
@@ -1759,13 +1544,9 @@ TargetBotLootingPanel < Panel
 
     fit-children: true
 
-
-
   HorizontalSeparator
 
     margin-top: 5
-
-
 
   Label
 
@@ -1775,15 +1556,11 @@ TargetBotLootingPanel < Panel
 
     text-align: center    
 
-
-
   BotContainer
 
     id: items
 
     margin-top: 3
-
-  
 
   BotSwitch
 
@@ -1793,8 +1570,6 @@ TargetBotLootingPanel < Panel
 
     margin-top: 2
 
-
-
   Label
 
     margin-top: 5
@@ -1802,8 +1577,6 @@ TargetBotLootingPanel < Panel
     text: Containers for loot
 
     text-align: center
-
-
 
   BotContainer
 
@@ -1813,8 +1586,6 @@ TargetBotLootingPanel < Panel
 
     height: 45
 
-  
-
   Panel
 
     id: maxDangerPanel
@@ -1822,8 +1593,6 @@ TargetBotLootingPanel < Panel
     height: 20
 
     margin-top: 5
-
-    
 
     BotTextEdit
 
@@ -1838,8 +1607,6 @@ TargetBotLootingPanel < Panel
       margin-right: 6
 
       width: 80
-
-
 
     Label
 
@@ -1851,8 +1618,6 @@ TargetBotLootingPanel < Panel
 
       margin-left: 5
 
-
-
   Panel
 
     id: minCapacityPanel
@@ -1860,8 +1625,6 @@ TargetBotLootingPanel < Panel
     height: 20
 
     margin-top: 3
-
-    
 
     BotTextEdit
 
@@ -1877,8 +1640,6 @@ TargetBotLootingPanel < Panel
 
       width: 80
 
-
-
     Label
 
       anchors.left: parent.left
@@ -1888,8 +1649,6 @@ TargetBotLootingPanel < Panel
       text: Min. capacity:
 
       margin-left: 5
-
-
 
   Label
 
@@ -1907,8 +1666,6 @@ TargetBotLootingPanel < Panel
 
     text-auto-resize: true
 
-
-
   BotButton
 
     margin-top: 3
@@ -1920,12 +1677,7 @@ TargetBotLootingPanel < Panel
 ```
 
 ---
-
-
-
 # target.lua
-
-
 
 ```lua
 
@@ -1939,23 +1691,17 @@ local cavebotAllowance = 0
 
 local lureEnabled = true
 
-
-
 -- ui
 
 local configWidget = UI.Config()
 
 local ui = UI.createWidget("TargetBotPanel")
 
-
-
 ui.list = ui.listPanel.list -- shortcut
 
 TargetBot.targetList = ui.list
 
 TargetBot.Looting.setup()
-
-
 
 ui.status.left:setText("Status:")
 
@@ -1972,8 +1718,6 @@ ui.config.right:setText("-")
 ui.danger.left:setText("Danger:")
 
 ui.danger.right:setText("0")
-
-
 
 ui.editor.debug.onClick = function()
 
@@ -1992,8 +1736,6 @@ ui.editor.debug.onClick = function()
   end
 
 end
-
-
 
 -- main loop, controlled by config
 
@@ -2051,21 +1793,15 @@ targetbotMacro = macro(100, function()
 
   end
 
-
-
   -- reset walking
 
   TargetBot.walkTo(nil)
-
-
 
   -- looting
 
   local looting = TargetBot.Looting.process(targets, dangerLevel)
 
   local lootingStatus = TargetBot.Looting.getStatus()
-
-
 
   ui.danger.right:setText(dangerLevel)
 
@@ -2105,8 +1841,6 @@ targetbotMacro = macro(100, function()
 
   end
 
-
-
   ui.target.right:setText("-")
 
   ui.config.right:setText("-")
@@ -2131,8 +1865,6 @@ targetbotMacro = macro(100, function()
 
 end)
 
-
-
 -- config, its callback is called immediately, data can be nil
 
 config = Config.setup("targetbot_configs", configWidget, "json", function(name, enabled, data)
@@ -2155,8 +1887,6 @@ config = Config.setup("targetbot_configs", configWidget, "json", function(name, 
 
   TargetBot.Looting.update(data["looting"] or {})
 
-
-
   -- add configs
 
   if enabled then
@@ -2169,8 +1899,6 @@ config = Config.setup("targetbot_configs", configWidget, "json", function(name, 
 
   end
 
-
-
   targetbotMacro.setOn(enabled)
 
   targetbotMacro.delay = nil
@@ -2178,8 +1906,6 @@ config = Config.setup("targetbot_configs", configWidget, "json", function(name, 
   lureEnabled = true
 
 end)
-
-
 
 -- setup ui
 
@@ -2194,8 +1920,6 @@ ui.editor.buttons.add.onClick = function()
   end)
 
 end
-
-
 
 ui.editor.buttons.edit.onClick = function()
 
@@ -2217,8 +1941,6 @@ ui.editor.buttons.edit.onClick = function()
 
 end
 
-
-
 ui.editor.buttons.remove.onClick = function()
 
   local entry = ui.list:getFocusedChild()
@@ -2233,8 +1955,6 @@ ui.editor.buttons.remove.onClick = function()
 
 end
 
-
-
 -- public function, you can use them in your scripts
 
 TargetBot.isActive = function() -- return true if attacking or looting takes place
@@ -2243,15 +1963,11 @@ TargetBot.isActive = function() -- return true if attacking or looting takes pla
 
 end
 
-
-
 TargetBot.isCaveBotActionAllowed = function()
 
   return cavebotAllowance > now
 
 end
-
-
 
 TargetBot.setStatus = function(text)
 
@@ -2259,23 +1975,17 @@ TargetBot.setStatus = function(text)
 
 end
 
-
-
 TargetBot.isOn = function()
 
   return config.isOn()
 
 end
 
-
-
 TargetBot.isOff = function()
 
   return config.isOff()
 
 end
-
-
 
 TargetBot.setOn = function(val)
 
@@ -2289,8 +1999,6 @@ TargetBot.setOn = function(val)
 
 end
 
-
-
 TargetBot.setOff = function(val)
 
   if val == false then  
@@ -2303,15 +2011,11 @@ TargetBot.setOff = function(val)
 
 end
 
-
-
 TargetBot.delay = function(value)
 
   targetbotMacro.delay = now + value
 
 end
-
-
 
 TargetBot.save = function()
 
@@ -2329,15 +2033,11 @@ TargetBot.save = function()
 
 end
 
-
-
 TargetBot.allowCaveBot = function(time)
 
   cavebotAllowance = now + time
 
 end
-
-
 
 TargetBot.disableLuring = function()
 
@@ -2345,25 +2045,17 @@ TargetBot.disableLuring = function()
 
 end
 
-
-
 TargetBot.enableLuring = function()
 
   lureEnabled = true
 
 end
 
-
-
-
-
 -- attacks
 
 local lastSpell = 0
 
 local lastAttackSpell = 0
-
-
 
 TargetBot.saySpell = function(text, delay)
 
@@ -2391,8 +2083,6 @@ TargetBot.saySpell = function(text, delay)
 
 end
 
-
-
 TargetBot.sayAttackSpell = function(text, delay)
 
   if type(text) ~= 'string' or text:len() < 1 then return end
@@ -2413,13 +2103,9 @@ TargetBot.sayAttackSpell = function(text, delay)
 
 end
 
-
-
 local lastItemUse = 0
 
 local lastRuneAttack = 0
-
-
 
 TargetBot.useItem = function(item, subType, target, delay)
 
@@ -2455,8 +2141,6 @@ TargetBot.useItem = function(item, subType, target, delay)
 
 end
 
-
-
 TargetBot.useAttackItem = function(item, subType, target, delay)
 
   if not delay then delay = 2000 end
@@ -2491,8 +2175,6 @@ TargetBot.useAttackItem = function(item, subType, target, delay)
 
 end
 
-
-
 TargetBot.canLure = function()
 
   return lureEnabled
@@ -2502,12 +2184,7 @@ end
 ```
 
 ---
-
-
-
 # target.otui
-
-
 
 ```otui
 
@@ -2519,13 +2196,9 @@ TargetBotEntry < Label
 
   focusable: true
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
 TargetBotDualLabel < Panel
 
@@ -2534,8 +2207,6 @@ TargetBotDualLabel < Panel
   margin-left: 3
 
   margin-right: 4
-
-
 
   Label
 
@@ -2547,8 +2218,6 @@ TargetBotDualLabel < Panel
 
     text-auto-resize: true
 
-
-
   Label
 
     id: right
@@ -2559,8 +2228,6 @@ TargetBotDualLabel < Panel
 
     text-auto-resize: true
 
-
-
 TargetBotPanel < Panel
 
   layout:
@@ -2569,15 +2236,11 @@ TargetBotPanel < Panel
 
     fit-children: true
 
-
-
   HorizontalSeparator
 
     margin-top: 2
 
     margin-bottom: 5
-
-
 
   TargetBotDualLabel
 
@@ -2595,15 +2258,11 @@ TargetBotPanel < Panel
 
     id: danger
 
-
-
   Panel
 
     id: listPanel
 
     height: 40
-
-
 
     TextList
 
@@ -2619,8 +2278,6 @@ TargetBotPanel < Panel
 
       auto-focus: first
 
-      
-
     VerticalScrollBar
 
       id: listScrollbar
@@ -2635,8 +2292,6 @@ TargetBotPanel < Panel
 
       step: 10
 
-      
-
   BotSwitch
 
     id: configButton
@@ -2649,19 +2304,13 @@ TargetBotPanel < Panel
 
       self:getParent().editor:setVisible(self:isOn())
 
-
-
     $on:
 
       text: Hide target editor
 
-
-
     $!on:
 
       text: Show target editor
-
-  
 
   Panel
 
@@ -2675,8 +2324,6 @@ TargetBotPanel < Panel
 
       fit-children: true
 
-
-
     Panel
 
       id: buttons
@@ -2684,8 +2331,6 @@ TargetBotPanel < Panel
       height: 20
 
       margin-top: 2
-
-
 
       Button
 
@@ -2701,8 +2346,6 @@ TargetBotPanel < Panel
 
         width: 56
 
-
-
       Button
 
         id: edit
@@ -2716,8 +2359,6 @@ TargetBotPanel < Panel
         text: Edit
 
         width: 56
-
-
 
       Button
 
@@ -2733,8 +2374,6 @@ TargetBotPanel < Panel
 
         width: 56
 
-    
-
     BotSwitch
 
       id: debug
@@ -2744,12 +2383,7 @@ TargetBotPanel < Panel
 ```
 
 ---
-
-
-
 # walking.lua
-
-
 
 ```lua
 
@@ -2758,8 +2392,6 @@ local dest
 local maxDist
 
 local params
-
-
 
 TargetBot.walkTo = function(_dest, _maxDist, _params)
 
@@ -2770,8 +2402,6 @@ TargetBot.walkTo = function(_dest, _maxDist, _params)
   params = _params
 
 end
-
-
 
 -- called every 100ms if targeting or looting is active
 
@@ -2812,6 +2442,3 @@ end
 ```
 
 ---
-
-
-

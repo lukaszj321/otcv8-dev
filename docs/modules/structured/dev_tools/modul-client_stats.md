@@ -1,9 +1,4 @@
-# ¦ Modul: `client_stats`
-
-
-
-
-
+﻿# ¦ Modul: `client_stats`
 
 ```lua
 
@@ -35,8 +30,6 @@ local packets
 
 local slowPackets
 
-
-
 local updateEvent = nil
 
 local monitorEvent = nil
@@ -53,25 +46,17 @@ local ping = {}
 
 local lastSleepTimeReset = 0
 
-
-
 function init()
 
   statsButton = modules.client_topmenu.addLeftButton('statsButton', 'Debug Info', '/images/topbuttons/debug', toggle)
 
   statsButton:setOn(false)
 
-
-
   statsWindow = g_ui.displayUI('stats')
 
   statsWindow:hide()
 
-
-
   g_keyboard.bindKeyDown('Ctrl+Alt+D', toggle)
-
-    
 
   luaStats = statsWindow:recursiveGetChildById('luaStats')
 
@@ -97,15 +82,11 @@ function init()
 
   widgetsInfo = statsWindow:recursiveGetChildById('widgetsInfo')
 
-  
-
   lastSend = os.time()
 
   g_stats.resetSleepTime()
 
   lastSleepTimeReset = g_clock.micros()
-
-
 
   updateEvent = scheduleEvent(update, 2000)
 
@@ -113,19 +94,13 @@ function init()
 
 end
 
-
-
 function terminate()
 
   statsWindow:destroy()
 
   statsButton:destroy()
 
-
-
   g_keyboard.unbindKeyDown('Ctrl+Alt+D')
-
-  
 
   removeEvent(updateEvent)
 
@@ -133,15 +108,11 @@ function terminate()
 
 end
 
-
-
 function onClose()
 
   statsButton:setOn(false)
 
 end
-
-
 
 function toggle()
 
@@ -165,8 +136,6 @@ function toggle()
 
 end
 
-
-
 function monitor()
 
   if #fps > 1000 then
@@ -189,8 +158,6 @@ function monitor()
 
 end
 
-
-
 function sendStats()
 
   lastSend = os.time()
@@ -207,7 +174,7 @@ function sendStats()
 
       position = localPlayer:getPosition()
 
-    }
+}
 
   end
 
@@ -230,8 +197,6 @@ function sendStats()
     sleepTime = math.round(g_stats.getSleepTime() / math.max(1, g_clock.micros() - lastSleepTimeReset), 2),
 
     proxy = {},
-
-
 
     details = {
 
@@ -305,9 +270,9 @@ function sendStats()
 
       packets_size = g_game.getRecivedPacketsSize()
 
-    }
+}
 
-  } 
+}
 
   if g_proxy then
 
@@ -349,8 +314,6 @@ function sendStats()
 
 end
 
-
-
 function update()
 
   updateEvent = scheduleEvent(update, 20)
@@ -361,15 +324,11 @@ function update()
 
   end
 
-  
-
   if not statsWindow:isVisible() then
 
     return
 
   end
-
-  
 
   iter = (iter + 1) % 9 -- some functions are slow (~5ms), it will avoid lags
 
@@ -446,12 +405,7 @@ end
 ```
 
 ---
-
-
-
 # stats.otmod
-
-
 
 ```text
 
@@ -476,12 +430,7 @@ Module
 ```
 
 ---
-
-
-
 # stats.otui
-
-
 
 ```otui
 
@@ -501,8 +450,6 @@ DebugText < Label
 
   anchors.top: prev.bottom
 
-  
-
 DebugLabel < Label
 
   text-wrap: false
@@ -516,8 +463,6 @@ DebugLabel < Label
   anchors.left: parent.left
 
   anchors.top: prev.bottom
-
-  
 
 MainWindow
 
@@ -545,10 +490,6 @@ MainWindow
 
   @onEscape: modules.client_stats.toggle()
 
-  
-
-  
-
   ScrollablePanel 
 
     id: debugPanel
@@ -563,8 +504,6 @@ MainWindow
 
     vertical-scrollbar: debugScroll
 
-            
-
     DebugText
 
       id: sleepTime
@@ -573,15 +512,11 @@ MainWindow
 
       anchors.top: parent.top
 
-
-
     DebugText
 
       id: luaRamUsage
 
       text: -
-
-
 
     DebugText
 
@@ -589,13 +524,9 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Proxies')
-
-
 
     DebugText
 
@@ -603,13 +534,9 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Main')
-
-
 
     DebugText
 
@@ -617,13 +544,9 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Render')
-
-
 
     DebugText
 
@@ -631,21 +554,15 @@ MainWindow
 
       text: -
 
-
-
     DebugText
 
       id: render
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Dispatcher')
-
-
 
     DebugText
 
@@ -653,13 +570,9 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Lua')
-
-
 
     DebugText
 
@@ -667,13 +580,9 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Lua by callback')
-
-
 
     DebugText
 
@@ -681,13 +590,9 @@ MainWindow
 
       text: -
 
-      
-
     DebugLabel
 
       !text: tr('Widgets & Objects')
-
-
 
     DebugText
 
@@ -695,13 +600,9 @@ MainWindow
 
       text: Disabled, edit stats.lua to enable     
 
-
-
     DebugLabel
 
       !text: tr('Packets')
-
-
 
     DebugText
 
@@ -709,13 +610,9 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Slow main functions')
-
-
 
     DebugText
 
@@ -723,13 +620,9 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Slow render functions')
-
-
 
     DebugText
 
@@ -737,21 +630,15 @@ MainWindow
 
       text: -
 
-
-
     DebugLabel
 
       !text: tr('Slow packets')
-
-
 
     DebugText
 
       id: slowPackets
 
       text: -
-
-      
 
   VerticalScrollBar  
 
@@ -767,8 +654,6 @@ MainWindow
 
     pixels-scroll: true
 
-    
-
   ResizeBorder
 
     anchors.bottom: parent.bottom
@@ -776,8 +661,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-  
 
   ResizeBorder
 
@@ -790,6 +673,3 @@ MainWindow
 ```
 
 ---
-
-
-

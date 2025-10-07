@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/default_configs/vBot_4.8/vBot`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/default_configs/vBot_4.8/vBot`
 
 ```lua
 
@@ -27,11 +22,7 @@ local pattern = 1
 
 local mainWindow
 
-
-
 -- label library
-
-
 
 local categories = {
 
@@ -47,13 +38,11 @@ local categories = {
 
 }
 
-
-
 local patterns = {
 
   -- targeted spells
 
-  {
+{
 
     "1 Sqm Range (exori ico)",
 
@@ -75,11 +64,11 @@ local patterns = {
 
     "10 Sqm Range"
 
-  },
+},
 
   -- area runes
 
-  {
+{
 
     "Cross (explosion)",
 
@@ -87,11 +76,11 @@ local patterns = {
 
     "Ball (gfb, avalanche)"
 
-  },
+},
 
   -- empowerment/targeted rune
 
-  {
+{
 
     "1 Sqm Range",
 
@@ -113,11 +102,11 @@ local patterns = {
 
     "10 Sqm Range",
 
-  },
+},
 
   -- absolute
 
-  {
+{
 
     "Adjacent (exori, exori gran)",
 
@@ -141,11 +130,9 @@ local patterns = {
 
     "Huge Wave (gran flam hur)",
 
-  }
-
 }
 
-
+}
 
   -- spellPatterns[category][pattern][1 - normal, 2 - safe]
 
@@ -155,11 +142,11 @@ local spellPatterns = {
 
   -- Area Runes,
 
-  { 
+{
 
     {     -- cross
 
-     [[ 
+[[
 
       010
 
@@ -171,7 +158,7 @@ local spellPatterns = {
 
      -- cross SAFE
 
-     [[
+[[
 
        01110
 
@@ -187,13 +174,13 @@ local spellPatterns = {
 
        01110
 
-     ]]
+]]
 
-    },
+},
 
     { -- bomb
 
-      [[
+[[
 
         111
 
@@ -205,7 +192,7 @@ local spellPatterns = {
 
       -- bomb SAFE
 
-      [[
+[[
 
         11111
 
@@ -217,13 +204,13 @@ local spellPatterns = {
 
         11111
 
-      ]]
+]]
 
-    },
+},
 
     { -- ball
 
-      [[
+[[
 
         0011100
 
@@ -243,7 +230,7 @@ local spellPatterns = {
 
       -- ball SAFE
 
-      [[
+[[
 
         000111000
 
@@ -263,21 +250,21 @@ local spellPatterns = {
 
         000111000
 
-      ]]
+]]
 
-    },
+},
 
-  },
+},
 
   {}, -- blank, wont be used
 
   -- Absolute
 
-  {
+{
 
     {-- adjacent
 
-      [[
+[[
 
         111
 
@@ -289,7 +276,7 @@ local spellPatterns = {
 
       -- adjacent SAFE
 
-      [[
+[[
 
         11111
 
@@ -301,13 +288,13 @@ local spellPatterns = {
 
         11111
 
-      ]]
+]]
 
-    },
+},
 
     { -- 3x3 Wave
 
-      [[
+[[
 
         0000NNN0000
 
@@ -335,7 +322,7 @@ local spellPatterns = {
 
       -- 3x3 Wave SAFE
 
-      [[
+[[
 
         0000NNNNN0000
 
@@ -363,13 +350,13 @@ local spellPatterns = {
 
         0000SSSSS0000
 
-      ]]
+]]
 
-    },
+},
 
     { -- small area
 
-      [[
+[[
 
         0011100
 
@@ -389,7 +376,7 @@ local spellPatterns = {
 
       -- small area SAFE
 
-      [[
+[[
 
         000111000
 
@@ -409,13 +396,13 @@ local spellPatterns = {
 
         000111000
 
-      ]]
+]]
 
-    },
+},
 
     { -- medium area
 
-      [[
+[[
 
         00000100000
 
@@ -443,7 +430,7 @@ local spellPatterns = {
 
       -- medium area SAFE
 
-      [[
+[[
 
         0000011100000
 
@@ -471,13 +458,13 @@ local spellPatterns = {
 
         0000011100000
 
-      ]]
+]]
 
-    },
+},
 
     { -- large area
 
-      [[
+[[
 
         0000001000000
 
@@ -509,7 +496,7 @@ local spellPatterns = {
 
       -- large area SAFE
 
-      [[
+[[
 
         000000010000000
 
@@ -541,13 +528,13 @@ local spellPatterns = {
 
         000000010000000
 
-      ]]
+]]
 
-    },
+},
 
     { -- short beam
 
-      [[
+[[
 
         00000N00000
 
@@ -575,7 +562,7 @@ local spellPatterns = {
 
       -- short beam SAFE
 
-      [[
+[[
 
         00000NNN00000
 
@@ -603,13 +590,13 @@ local spellPatterns = {
 
         00000SSS00000
 
-      ]]
+]]
 
-    },
+},
 
     { -- large beam
 
-      [[
+[[
 
         0000000N0000000
 
@@ -645,7 +632,7 @@ local spellPatterns = {
 
       -- large beam SAFE
 
-      [[
+[[
 
         0000000NNN0000000
 
@@ -683,13 +670,13 @@ local spellPatterns = {
 
       ]],
 
-    },
+},
 
     {}, -- sweep, wont be used
 
     { -- small wave
 
-      [[
+[[
 
         00NNN00
 
@@ -709,7 +696,7 @@ local spellPatterns = {
 
       -- small wave SAFE
 
-      [[
+[[
 
         00NNNNN00
 
@@ -729,13 +716,13 @@ local spellPatterns = {
 
         00SSSSS00
 
-      ]]
+]]
 
-    },
+},
 
     { -- large wave
 
-      [[
+[[
 
         000NNNNN000
 
@@ -761,7 +748,7 @@ local spellPatterns = {
 
       ]],
 
-      [[
+[[
 
         000NNNNNNN000
 
@@ -789,13 +776,13 @@ local spellPatterns = {
 
         000SSSSSSS000
 
-      ]]
+]]
 
-    },
+},
 
     { -- huge wave
 
-      [[
+[[
 
         0000NNNNN0000
 
@@ -825,7 +812,7 @@ local spellPatterns = {
 
       ]],
 
-      [[
+[[
 
         0000000NNN0000000
 
@@ -861,21 +848,17 @@ local spellPatterns = {
 
         0000000SSS0000000
 
-      ]]
-
-    }
-
-  }
+]]
 
 }
 
+}
 
+}
 
 -- direction patterns
 
 local ek = (voc() == 1 or voc() == 11) and true
-
-
 
 local posN = ek and [[
 
@@ -910,8 +893,6 @@ local posN = ek and [[
   00000000000
 
 ]]
-
-
 
 local posE = ek and [[
 
@@ -1015,8 +996,6 @@ local posW = ek and [[
 
 ]]
 
-
-
 -- AttackBotConfig
 
 -- create blank profiles 
@@ -1053,7 +1032,7 @@ if not AttackBotConfig[panelName] or not AttackBotConfig[panelName][1] or #Attac
 
       AntiRsRange = 5
 
-    },
+},
 
     [2] = {
 
@@ -1083,7 +1062,7 @@ if not AttackBotConfig[panelName] or not AttackBotConfig[panelName][1] or #Attac
 
       AntiRsRange = 5
 
-    },
+},
 
     [3] = {
 
@@ -1113,7 +1092,7 @@ if not AttackBotConfig[panelName] or not AttackBotConfig[panelName][1] or #Attac
 
       AntiRsRange = 5
 
-    },
+},
 
     [4] = {
 
@@ -1143,7 +1122,7 @@ if not AttackBotConfig[panelName] or not AttackBotConfig[panelName][1] or #Attac
 
       AntiRsRange = 5
 
-    },
+},
 
     [5] = {
 
@@ -1173,13 +1152,11 @@ if not AttackBotConfig[panelName] or not AttackBotConfig[panelName][1] or #Attac
 
       AntiRsRange = 5
 
-    },
+},
 
-  }
+}
 
 end
-
-  
 
 if not AttackBotConfig.currentBotProfile or AttackBotConfig.currentBotProfile == 0 or AttackBotConfig.currentBotProfile > 5 then 
 
@@ -1187,13 +1164,9 @@ if not AttackBotConfig.currentBotProfile or AttackBotConfig.currentBotProfile ==
 
 end
 
-
-
 -- create panel UI
 
 ui = UI.createWidget("AttackBotBotPanel")
-
-
 
 -- finding correct table, manual unfortunately
 
@@ -1207,23 +1180,17 @@ end
 
 setActiveProfile()
 
-
-
 if not currentSettings.AntiRsRange then
 
   currentSettings.AntiRsRange = 5 
 
 end
 
-
-
 local setProfileName = function()
 
   ui.name:setText(currentSettings.name)
 
 end
-
-
 
 -- small UI elements
 
@@ -1237,8 +1204,6 @@ ui.title.onClick = function(widget)
 
 end
 
-  
-
 ui.settings.onClick = function(widget)
 
   mainWindow:show()
@@ -1249,19 +1214,13 @@ ui.settings.onClick = function(widget)
 
 end
 
-
-
   mainWindow = UI.createWindow("AttackBotWindow")
 
   mainWindow:hide()
 
-
-
   local panel = mainWindow.mainPanel
 
   local settingsUI = mainWindow.settingsPanel
-
-
 
   mainWindow.onVisibilityChange = function(widget, visible)
 
@@ -1281,11 +1240,7 @@ end
 
   end
 
-
-
   -- main panel
-
-
 
     -- functions
 
@@ -1305,8 +1260,6 @@ end
 
     toggleSettings()
 
-
-
     mainWindow.settings.onClick = function()
 
       showSettings = not showSettings
@@ -1314,8 +1267,6 @@ end
       toggleSettings()
 
     end
-
-
 
     function toggleItem()
 
@@ -1329,8 +1280,6 @@ end
 
     toggleItem()
 
-
-
     function setCategoryText()
 
       panel.category.description:setText(categories[category])
@@ -1339,8 +1288,6 @@ end
 
     setCategoryText()
 
-
-
     function setPatternText()
 
       panel.range.description:setText(patterns[patternCategory][pattern])
@@ -1348,8 +1295,6 @@ end
     end
 
     setPatternText()
-
-
 
     -- in/de/crementation buttons
 
@@ -1364,8 +1309,6 @@ end
         category = category - 1
 
       end
-
-
 
       showItem = (category == 2 or category == 3) and true or false
 
@@ -1392,8 +1335,6 @@ end
         category = category + 1
 
       end
-
-
 
       showItem = (category == 2 or category == 3) and true or false
 
@@ -1459,15 +1400,11 @@ end
 
     -- eo in/de/crementation
 
-
-
   ------- [[core table function]] -------
 
     function setupWidget(widget)
 
       local params = widget.params
-
-
 
       widget:setText(params.description)
 
@@ -1573,17 +1510,11 @@ end
 
     end
 
-
-
-
-
     -- refreshing values
 
     function refreshAttacks()
 
       if not currentSettings.attackTable then return end
-
-
 
       panel.entryList:destroyChildren()
 
@@ -1604,8 +1535,6 @@ end
     panel.up:setEnabled(false)
 
     panel.down:setEnabled(false)
-
-
 
     -- adding values
 
@@ -1635,8 +1564,6 @@ end
 
       local orMore = panel.orMore:isChecked()
 
-
-
       -- validation
 
       if showItem and itemId < 100 then
@@ -1648,8 +1575,6 @@ end
         return warn("[AttackBot]: please fill spell name!")
 
       end
-
-
 
       local regex = patternCategory ~= 1 and [[^[^\(]+]] or [[^[^R]+]]
 
@@ -1663,11 +1588,7 @@ end
 
       local attackType = showItem and "rune "..itemId or spell
 
-
-
       local countDescription = orMore and count.."+" or count
-
-
 
       local params = {
 
@@ -1703,9 +1624,7 @@ end
 
         description = '['..type..'] '..countDescription.. ' '..specificMonsters..': '..attackType..', '..categoryName..' ('..minHp..'%-'..maxHp..'%)'
 
-      }
-
-
+}
 
       local label = UI.createWidget("AttackEntry", panel.entryList)
 
@@ -1717,8 +1636,6 @@ end
 
     end
 
-
-
     -- moving values
 
     -- up
@@ -1728,8 +1645,6 @@ end
       local focused = panel.entryList:getFocusedChild()
 
       local n = panel.entryList:getChildIndex(focused)
-
-
 
       if n-1 == 1 then
 
@@ -1753,8 +1668,6 @@ end
 
       local n = panel.entryList:getChildIndex(focused)
 
-
-
       if n + 1 == panel.entryList:getChildCount() then
 
         widget:setEnabled(false)
@@ -1768,8 +1681,6 @@ end
       panel.entryList:ensureChildVisible(focused)
 
     end
-
-
 
   -- [[settings panel]] --
 
@@ -1865,10 +1776,6 @@ end
 
   end
 
-
-
-
-
    -- window elements
 
   mainWindow.closeButton.onClick = function()
@@ -1882,8 +1789,6 @@ end
     mainWindow:hide()
 
   end
-
-
 
   -- core functions
 
@@ -1924,8 +1829,6 @@ end
   end
 
   resetFields()
-
-
 
   function loadSettings()
 
@@ -1969,8 +1872,6 @@ end
 
   loadSettings()
 
-
-
   local activeProfileColor = function()
 
     for i=1,5 do
@@ -1991,8 +1892,6 @@ end
 
   activeProfileColor()
 
-
-
   local profileChange = function()
 
     setActiveProfile()
@@ -2006,8 +1905,6 @@ end
     vBotConfigSave("atk")
 
   end
-
-
 
   for i=1,5 do
 
@@ -2023,13 +1920,9 @@ end
 
   end
 
-
-
     -- public functions
 
     AttackBot = {} -- global table
-
-  
 
     AttackBot.isOn = function()
 
@@ -2037,15 +1930,11 @@ end
 
     end
 
-    
-
     AttackBot.isOff = function()
 
       return not currentSettings.enabled
 
     end
-
-    
 
     AttackBot.setOff = function()
 
@@ -2057,8 +1946,6 @@ end
 
     end
 
-    
-
     AttackBot.setOn = function()
 
       currentSettings.enabled = true
@@ -2069,15 +1956,11 @@ end
 
     end
 
-    
-
     AttackBot.getActiveProfile = function()
 
       return AttackBotConfig.currentBotProfile -- returns number 1-5
 
     end
-
-  
 
     AttackBot.setActiveProfile = function(n)
 
@@ -2095,8 +1978,6 @@ end
 
     end
 
-
-
     AttackBot.show = function()
 
       mainWindow:show()
@@ -2107,25 +1988,15 @@ end
 
     end
 
-
-
-
-
 -- otui covered, now support functions
 
 function getPattern(category, pattern, safe)
 
   safe = safe and 2 or 1
 
-
-
   return spellPatterns[category][pattern][safe]
 
 end
-
-
-
-
 
 function getMonstersInArea(category, posOrCreature, pattern, minHp, maxHp, safePattern, monsterNamesTable)
 
@@ -2145,8 +2016,6 @@ function getMonstersInArea(category, posOrCreature, pattern, minHp, maxHp, safeP
 
   end
 
-
-
   if safePattern then
 
     for i, spec in pairs(getSpectators(posOrCreature, safePattern)) do
@@ -2160,8 +2029,6 @@ function getMonstersInArea(category, posOrCreature, pattern, minHp, maxHp, safeP
     end
 
   end 
-
-
 
   if category == 1 or category == 3 or category == 4 then
 
@@ -2193,8 +2060,6 @@ function getMonstersInArea(category, posOrCreature, pattern, minHp, maxHp, safeP
 
   end
 
-
-
   for i, spec in pairs(getSpectators(posOrCreature, pattern)) do
 
       if spec ~= player then
@@ -2211,13 +2076,9 @@ function getMonstersInArea(category, posOrCreature, pattern, minHp, maxHp, safeP
 
   end
 
-
-
   return monsters
 
 end
-
-
 
 -- for area runes only
 
@@ -2228,8 +2089,6 @@ function getBestTileByPattern(pattern, minHp, maxHp, safePattern, monsterNamesTa
   local tiles = g_map.getTiles(posz())
 
   local targetTile = {amount=0,pos=false}
-
-
 
   for i, tile in pairs(tiles) do
 
@@ -2251,13 +2110,9 @@ function getBestTileByPattern(pattern, minHp, maxHp, safePattern, monsterNamesTa
 
   end
 
-
-
   return targetTile.amount > 0 and targetTile or false
 
 end
-
-
 
 function executeAttackBotAction(categoryOrPos, idOrFormula, cooldown)
 
@@ -2275,8 +2130,6 @@ function executeAttackBotAction(categoryOrPos, idOrFormula, cooldown)
 
 end
 
-
-
 -- support function covered, now the main loop
 
 macro(100, function()
@@ -2285,19 +2138,13 @@ macro(100, function()
 
   if #currentSettings.attackTable == 0 or isInPz() or not target() or modules.game_cooldown.isGroupCooldownIconActive(1) then return end
 
-
-
   if currentSettings.Training and target() and target():getName():lower():find("training") then return end
-
-
 
   if g_game.getClientVersion() < 960 or not currentSettings.Cooldown then
 
     delay(400)
 
   end
-
-
 
   local monstersN = 0
 
@@ -2345,8 +2192,6 @@ macro(100, function()
 
   end
 
-
-
   if currentSettings.Rotate then
 
     if player:getDirection() ~= bestDir and bestSide > 0 then
@@ -2358,8 +2203,6 @@ macro(100, function()
     end
 
   end
-
-
 
   -- support functions done, main spells now
 
@@ -2397,11 +2240,9 @@ macro(100, function()
 
               description = '['..type..'] '..count.. 'x '..specificMonsters..': '..attackType..', '..categoryName..' ('..minHp..'%-'..maxHp..'%)'
 
-          }
+}
 
-          ]]
-
-
+]]
 
   for i, child in ipairs(panel.entryList:getChildren()) do
 
@@ -2441,7 +2282,7 @@ macro(100, function()
 
           end
 
-        --
+--
 
         elseif entry.category == 1 or entry.category == 3 then
 
@@ -2518,12 +2359,7 @@ end)
 ```
 
 ---
-
-
-
 # AttackBot.otui
-
-
 
 ```otui
 
@@ -2541,8 +2377,6 @@ AttackEntry < UIWidget
 
   text-align: left
 
-
-
   CheckBox
 
     id: enabled
@@ -2559,8 +2393,6 @@ AttackEntry < UIWidget
 
     margin-left: 3
 
-
-
   UIItem
 
     id: id
@@ -2574,8 +2406,6 @@ AttackEntry < UIWidget
     focusable: false
 
     visible: false
-
-
 
   UIWidget
 
@@ -2591,13 +2421,9 @@ AttackEntry < UIWidget
 
     image-source: /images/game/dangerous
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -2613,13 +2439,9 @@ AttackEntry < UIWidget
 
     height: 15
 
-
-
 AttackBotBotPanel < Panel
 
   height: 38
-
-
 
   BotSwitch
 
@@ -2634,8 +2456,6 @@ AttackBotBotPanel < Panel
     width: 130
 
     !text: tr('AttackBot')
-
-
 
   Button
 
@@ -2653,8 +2473,6 @@ AttackBotBotPanel < Panel
 
     text: Setup
 
-
-
   Button
 
     id: 1
@@ -2671,8 +2489,6 @@ AttackBotBotPanel < Panel
 
     size: 17 17
 
-
-
   Button
 
     id: 2
@@ -2686,8 +2502,6 @@ AttackBotBotPanel < Panel
     margin-left: 4
 
     size: 17 17
-
-    
 
   Button
 
@@ -2703,8 +2517,6 @@ AttackBotBotPanel < Panel
 
     size: 17 17
 
-
-
   Button
 
     id: 4
@@ -2719,8 +2531,6 @@ AttackBotBotPanel < Panel
 
     size: 17 17 
 
-    
-
   Button
 
     id: 5
@@ -2734,8 +2544,6 @@ AttackBotBotPanel < Panel
     margin-left: 4
 
     size: 17 17
-
-    
 
   Label
 
@@ -2757,8 +2565,6 @@ AttackBotBotPanel < Panel
 
     background: #292A2A
 
-
-
 CategoryLabel < Panel
 
   size: 315 15
@@ -2768,8 +2574,6 @@ CategoryLabel < Panel
   image-border: 5
 
   padding: 1
-
-
 
   Label
 
@@ -2785,8 +2589,6 @@ CategoryLabel < Panel
 
     background: #363636
 
-
-
 SourceLabel < Panel
 
   size: 105 15
@@ -2796,8 +2598,6 @@ SourceLabel < Panel
   image-border: 5
 
   padding: 1
-
-
 
   Label
 
@@ -2813,8 +2613,6 @@ SourceLabel < Panel
 
     background: #363636
 
-
-
 RangeLabel < Panel
 
   size: 323 15
@@ -2824,8 +2622,6 @@ RangeLabel < Panel
   image-border: 5
 
   padding: 1
-
-
 
   Label
 
@@ -2841,23 +2637,17 @@ RangeLabel < Panel
 
     background: #363636
 
-
-
 PreButton < PreviousButton
 
   background: #363636
 
   height: 15
 
-
-
 NexButton < NextButton
 
   background: #363636
 
   height: 15
-
-
 
 AttackBotPanel < Panel
 
@@ -2868,8 +2658,6 @@ AttackBotPanel < Panel
   image-border: 5
 
   padding: 5
-
-
 
   TextList
 
@@ -2887,8 +2675,6 @@ AttackBotPanel < Panel
 
     vertical-scrollbar: entryListScrollBar
 
-
-
   VerticalScrollBar
 
     id: entryListScrollBar
@@ -2903,8 +2689,6 @@ AttackBotPanel < Panel
 
     pixels-scroll: true
 
-
-
   PreButton
 
     id: previousCategory
@@ -2914,8 +2698,6 @@ AttackBotPanel < Panel
     anchors.top: entryList.bottom
 
     margin-top: 8
-
-
 
   NexButton
 
@@ -2929,8 +2711,6 @@ AttackBotPanel < Panel
 
     margin-left: 2
 
-
-
   CategoryLabel
 
     id: category
@@ -2943,8 +2723,6 @@ AttackBotPanel < Panel
 
     margin-left: 3
 
-
-
   PreButton
 
     id: previousSource
@@ -2954,8 +2732,6 @@ AttackBotPanel < Panel
     anchors.top: category.bottom
 
     margin-top: 8
-
-
 
   NexButton
 
@@ -2969,8 +2745,6 @@ AttackBotPanel < Panel
 
     margin-left: 2
 
-
-
   SourceLabel
 
     id: source
@@ -2983,8 +2757,6 @@ AttackBotPanel < Panel
 
     margin-left: 3
 
-
-
   PreButton
 
     id: previousRange
@@ -2994,8 +2766,6 @@ AttackBotPanel < Panel
     anchors.verticalCenter: nextSource.verticalCenter
 
     margin-left: 8
-
-
 
   NexButton
 
@@ -3007,8 +2777,6 @@ AttackBotPanel < Panel
 
     margin-left: 2
 
-
-
   RangeLabel
 
     id: range
@@ -3018,8 +2786,6 @@ AttackBotPanel < Panel
     anchors.verticalCenter: previousRange.verticalCenter
 
     margin-left: 3
-
-
 
   TextEdit
 
@@ -3039,8 +2805,6 @@ AttackBotPanel < Panel
 
     background: #363636
 
-
-
   Label
 
     anchors.left: prev.left
@@ -3056,8 +2820,6 @@ AttackBotPanel < Panel
     text: Mana%:
 
     font: verdana-11px-rounded
-
-  
 
   SpinBox
 
@@ -3081,8 +2843,6 @@ AttackBotPanel < Panel
 
     focusable: true
 
-
-
   Label
 
     anchors.left: prev.right
@@ -3094,8 +2854,6 @@ AttackBotPanel < Panel
     text: Creatures: 
 
     font: verdana-11px-rounded
-
-
 
   SpinBox
 
@@ -3119,8 +2877,6 @@ AttackBotPanel < Panel
 
     focusable: true
 
-
-
   CheckBox
 
     id: orMore
@@ -3133,8 +2889,6 @@ AttackBotPanel < Panel
 
     tooltip: or more creatures
 
-
-
   Label
 
     anchors.left: prev.right
@@ -3146,8 +2900,6 @@ AttackBotPanel < Panel
     text: HP: 
 
     font: verdana-11px-rounded
-
-
 
   SpinBox
 
@@ -3171,8 +2923,6 @@ AttackBotPanel < Panel
 
     focusable: true
 
-
-
   Label
 
     anchors.left: prev.right
@@ -3184,8 +2934,6 @@ AttackBotPanel < Panel
     text: - 
 
     font: verdana-11px-rounded
-
-
 
   SpinBox
 
@@ -3209,8 +2957,6 @@ AttackBotPanel < Panel
 
     focusable: true
 
-
-
   Label
 
     anchors.left: prev.right
@@ -3222,8 +2968,6 @@ AttackBotPanel < Panel
     text: CD: 
 
     font: verdana-11px-rounded
-
-
 
   SpinBox
 
@@ -3249,8 +2993,6 @@ AttackBotPanel < Panel
 
     focusable: true
 
-
-
   Button
 
     id: up
@@ -3271,8 +3013,6 @@ AttackBotPanel < Panel
 
     margin-right: 8
 
-
-
   Button
 
     id: down
@@ -3291,8 +3031,6 @@ AttackBotPanel < Panel
 
     font: cipsoftFont
 
-  
-
   Button
 
     id: addEntry
@@ -3309,8 +3047,6 @@ AttackBotPanel < Panel
 
     font: cipsoftFont
 
-
-
   BotItem
 
     id: itemId
@@ -3324,8 +3060,6 @@ AttackBotPanel < Panel
     margin-bottom: 2
 
     tooltip: drag item here on press to open window
-
-
 
   TextEdit
 
@@ -3349,8 +3083,6 @@ AttackBotPanel < Panel
 
     visible: false
 
-
-
 SettingsPanel < Panel
 
   size: 500 200
@@ -3360,8 +3092,6 @@ SettingsPanel < Panel
   image-border: 5
 
   padding: 10
-
-
 
   VerticalSeparator
 
@@ -3376,8 +3106,6 @@ SettingsPanel < Panel
     margin-top: 5
 
     margin-bottom: 5
-
-
 
   Label
 
@@ -3395,8 +3123,6 @@ SettingsPanel < Panel
 
     text: Profile:
 
-
-
   TextEdit
 
     id: profileName
@@ -3413,8 +3139,6 @@ SettingsPanel < Panel
 
     margin-right: 20
 
-
-
   Button
 
     id: resetSettings
@@ -3426,8 +3150,6 @@ SettingsPanel < Panel
     text-align: center
 
     text: Reset Settings
-
-
 
   CheckBox 
 
@@ -3442,8 +3164,6 @@ SettingsPanel < Panel
     width: 200
 
     text: Check RL Tibia conditions
-
-
 
   CheckBox
 
@@ -3464,8 +3184,6 @@ SettingsPanel < Panel
     text-wrap: true
 
     text-align: left
-
-
 
   SpinBox
 
@@ -3489,8 +3207,6 @@ SettingsPanel < Panel
 
     margin-left: 5
 
-
-
   CheckBox
 
     id: Rotate
@@ -3504,8 +3220,6 @@ SettingsPanel < Panel
     width: 220
 
     text: Turn to side with most monsters
-
-
 
   CheckBox
 
@@ -3521,8 +3235,6 @@ SettingsPanel < Panel
 
     text: Check spell cooldowns
 
-
-
   CheckBox
 
     id: Visible
@@ -3536,8 +3248,6 @@ SettingsPanel < Panel
     width: 245
 
     text: Items must be visible (recommended)
-
-
 
   CheckBox
 
@@ -3553,8 +3263,6 @@ SettingsPanel < Panel
 
     text: PVP mode
 
-
-
   CheckBox
 
     id: PvpSafe
@@ -3569,8 +3277,6 @@ SettingsPanel < Panel
 
     text: PVP safe
 
-
-
   CheckBox
 
     id: Training
@@ -3584,8 +3290,6 @@ SettingsPanel < Panel
     width: 245
 
     text: Stop when attacking trainers
-
-
 
   CheckBox
 
@@ -3602,8 +3306,6 @@ SettingsPanel < Panel
     height: 18
 
     text: Stop if Anti-RS player in range
-
-
 
   SpinBox
 
@@ -3627,8 +3329,6 @@ SettingsPanel < Panel
 
     margin-left: 5
 
-
-
 AttackBotWindow < MainWindow
 
   size: 535 300
@@ -3638,8 +3338,6 @@ AttackBotWindow < MainWindow
   text: AttackBot v2
 
   @onEscape: self:hide()
-
-
 
   Label
 
@@ -3663,8 +3361,6 @@ AttackBotWindow < MainWindow
 
     color: #aeaeae  
 
-
-
   SettingsPanel
 
     id: settingsPanel
@@ -3676,8 +3372,6 @@ AttackBotWindow < MainWindow
     anchors.left: parent.left
 
     margin-left: 2
-
-
 
   Label
 
@@ -3695,8 +3389,6 @@ AttackBotWindow < MainWindow
 
     font: verdana-11px-rounded
 
-
-
   AttackBotPanel
 
     id: mainPanel
@@ -3710,8 +3402,6 @@ AttackBotWindow < MainWindow
     margin-left: 2
 
     visible: false    
-
-
 
   Label
 
@@ -3731,8 +3421,6 @@ AttackBotWindow < MainWindow
 
     visible: false    
 
-
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -3742,8 +3430,6 @@ AttackBotWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 10
-
-
 
   Button
 
@@ -3758,8 +3444,6 @@ AttackBotWindow < MainWindow
     text: Close
 
     font: cipsoftFont
-
-
 
   Button
 
@@ -3778,12 +3462,7 @@ AttackBotWindow < MainWindow
 ```
 
 ---
-
-
-
 # BotServer.lua
-
-
 
 ```lua
 
@@ -3798,8 +3477,6 @@ local ui = setupUI([[
 Panel
 
   height: 18
-
-
 
   Button
 
@@ -3819,8 +3496,6 @@ Panel
 
 ui:setId(panelName)
 
-
-
 if not storage[panelName] then
 
   storage[panelName] = {
@@ -3839,13 +3514,9 @@ if not storage[panelName] then
 
 end
 
-
-
 local config = storage[panelName]
 
 config.mwalls = {}
-
-
 
 if not storage.BotServerChannel then
 
@@ -3855,8 +3526,6 @@ if not storage.BotServerChannel then
 
 end
 
-
-
 local channel = tostring(storage.BotServerChannel)
 
 if config.enabled then
@@ -3865,11 +3534,7 @@ if config.enabled then
 
 end
 
-
-
 vBot.BotServerMembers = {}
-
-
 
 rootWidget = g_ui.getRootWidget()
 
@@ -3878,10 +3543,6 @@ if rootWidget then
   botServerWindow = UI.createWindow('BotServerWindow')
 
   botServerWindow:hide()
-
-
-
-
 
   botServerWindow.enabled:setOn(config.enabled)
 
@@ -3932,8 +3593,6 @@ if rootWidget then
     schedule(2000, updateStatusText)
 
   end
-
-
 
   botServerWindow.Data.Channel:setText(storage.BotServerChannel)
 
@@ -4021,15 +3680,11 @@ if rootWidget then
 
 end
 
-
-
 function initBotServerListenFunctions()
 
   if not BotServer._websocket then return end
 
   if not config.enabled then return end
-
-
 
   -- list
 
@@ -4040,8 +3695,6 @@ function initBotServerListenFunctions()
     ServerMembers = json.encode(data)
 
   end)
-
-
 
   -- mwalls
 
@@ -4058,8 +3711,6 @@ function initBotServerListenFunctions()
     end
 
   end)
-
-
 
   -- mana
 
@@ -4079,8 +3730,6 @@ function initBotServerListenFunctions()
 
   end)
 
-
-
   -- vocation
 
   BotServer.listen("voc", function(name, message)
@@ -4097,8 +3746,6 @@ function initBotServerListenFunctions()
 
   end)
 
-
-
   -- broadcast
 
   BotServer.listen("broadcast", function(name, message)
@@ -4114,8 +3761,6 @@ function initBotServerListenFunctions()
 end
 
 initBotServerListenFunctions()
-
-
 
 function updateStatusText()
 
@@ -4175,8 +3820,6 @@ function updateStatusText()
 
 end
 
-
-
 macro(1000, function()
 
   if BotServer._websocket then
@@ -4191,8 +3834,6 @@ macro(1000, function()
 
 end)
 
-
-
 ui.botServer.onClick = function(widget)
 
     botServerWindow:show()
@@ -4203,17 +3844,11 @@ ui.botServer.onClick = function(widget)
 
 end
 
-
-
 botServerWindow.closeButton.onClick = function(widget)
 
     botServerWindow:hide()
 
 end
-
-
-
-
 
 onAddThing(function(tile, thing)
 
@@ -4237,8 +3872,6 @@ onAddThing(function(tile, thing)
 
 end)
 
-
-
 -- mana
 
 local lastMana = 0
@@ -4259,8 +3892,6 @@ macro(500, function()
 
 end)
 
-
-
 -- vocation
 
 if config.vocation and BotServer._websocket then
@@ -4271,19 +3902,12 @@ if config.vocation and BotServer._websocket then
 
 end
 
-
-
 addSeparator()
 
 ```
 
 ---
-
-
-
 # BotServer.otui
-
-
 
 ```otui
 
@@ -4296,8 +3920,6 @@ BotServerData < Panel
   image-border: 6
 
   padding: 3
-
-
 
   Label
 
@@ -4312,8 +3934,6 @@ BotServerData < Panel
     text-align: center
 
     !text: tr("BotServer Data")
-
-
 
   Label
 
@@ -4331,8 +3951,6 @@ BotServerData < Panel
 
     margin-left: 6
 
-
-
   TextEdit
 
     id: Channel
@@ -4348,8 +3966,6 @@ BotServerData < Panel
     margin-left: 5
 
     text-align: center
-
-
 
   Button
 
@@ -4369,8 +3985,6 @@ BotServerData < Panel
 
     margin-right: 6
 
-
-
   Label
 
     id: label
@@ -4386,8 +4000,6 @@ BotServerData < Panel
     text-align: center
 
     text: Status: 
-
-
 
   Label
 
@@ -4405,8 +4017,6 @@ BotServerData < Panel
 
     text-align: left  
 
-
-
   Label
 
     id: Participants
@@ -4423,8 +4033,6 @@ BotServerData < Panel
 
     text-align: center
 
-
-
   UIWidget
 
     id: Members
@@ -4439,8 +4047,6 @@ BotServerData < Panel
 
     text: Members:   
 
-
-
 FeaturePanel < Panel
 
   size: 340 150
@@ -4450,8 +4056,6 @@ FeaturePanel < Panel
   image-border: 5
 
   padding: 3
-
-
 
   Label
 
@@ -4465,8 +4069,6 @@ FeaturePanel < Panel
 
     text: Features
 
-  
-
   HorizontalSeparator
 
     id: sep
@@ -4478,8 +4080,6 @@ FeaturePanel < Panel
     anchors.right: parent.right
 
     margin-top: 2
-
-
 
   BotSwitch
 
@@ -4495,8 +4095,6 @@ FeaturePanel < Panel
 
     text: Mana info
 
-
-
   BotSwitch
 
     id: Feature2
@@ -4510,8 +4108,6 @@ FeaturePanel < Panel
     margin-left: 5
 
     text: MWall info
-
-
 
   BotSwitch
 
@@ -4527,8 +4123,6 @@ FeaturePanel < Panel
 
     text: Send Vocation
 
-
-
   BotSwitch
 
     id: Feature4
@@ -4543,8 +4137,6 @@ FeaturePanel < Panel
 
     text: Outfit Vocation
 
-
-
   BotSwitch
 
     id: Feature5
@@ -4558,10 +4150,6 @@ FeaturePanel < Panel
     margin-left: 5
 
     text: Broadcasts
-
-
-
-
 
   TextEdit
 
@@ -4578,8 +4166,6 @@ FeaturePanel < Panel
     margin-bottom: 3
 
     margin-right: 80
-
-
 
   Button
 
@@ -4599,8 +4185,6 @@ FeaturePanel < Panel
 
     text: Broadcast
 
-
-
 BotServerWindow < MainWindow
 
   !text: tr('BotServer')
@@ -4609,8 +4193,6 @@ BotServerWindow < MainWindow
 
   @onEscape: self:hide()
 
-
-
   BotServerData
 
     id: Data
@@ -4618,8 +4200,6 @@ BotServerWindow < MainWindow
     anchors.top: parent.top
 
     anchors.horizontalCenter: parent.horizontalCenter
-
-
 
   FeaturePanel
 
@@ -4630,8 +4210,6 @@ BotServerWindow < MainWindow
     anchors.horizontalCenter: parent.horizontalCenter
 
     margin-top: 10
-
-
 
   HorizontalSeparator
 
@@ -4644,8 +4222,6 @@ BotServerWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -4665,8 +4241,6 @@ BotServerWindow < MainWindow
 
     margin-right: 5
 
-
-
   BotSwitch
 
     id: enabled
@@ -4679,13 +4253,9 @@ BotServerWindow < MainWindow
 
     height: 21
 
-    
-
     $!on:
 
       text: BotServer: OFF
-
-
 
     $on:
 
@@ -4694,12 +4264,7 @@ BotServerWindow < MainWindow
 ```
 
 ---
-
-
-
 # Conditions.lua
-
-
 
 ```lua
 
@@ -4712,8 +4277,6 @@ local ui = setupUI([[
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -4728,8 +4291,6 @@ Panel
     width: 130
 
     !text: tr('Conditions')
-
-
 
   Button
 
@@ -4747,13 +4308,9 @@ Panel
 
     text: Setup
 
-      
-
   ]])
 
   ui:setId(panelName)
-
-
 
   if not HealBotConfig[panelName] then
 
@@ -4811,15 +4368,11 @@ Panel
 
       stopHaste = false
 
-    }
+}
 
   end
 
-
-
   local config = HealBotConfig[panelName]
-
-
 
   ui.title:setOn(config.enabled)
 
@@ -4833,8 +4386,6 @@ Panel
 
   end
 
-  
-
   ui.conditionList.onClick = function(widget)
 
     conditionsWindow:show()
@@ -4845,12 +4396,6 @@ Panel
 
   end
 
-
-
-
-
-
-
   local rootWidget = g_ui.getRootWidget()
 
   if rootWidget then
@@ -4858,10 +4403,6 @@ Panel
     conditionsWindow = UI.createWindow('ConditionsWindow', rootWidget)
 
     conditionsWindow:hide()
-
-    
-
-
 
     conditionsWindow.onVisibilityChange = function(widget, visible)
 
@@ -4873,8 +4414,6 @@ Panel
 
     end
 
-
-
     -- text edits
 
     conditionsWindow.Cure.PoisonCost:setText(config.poisonCost)
@@ -4885,8 +4424,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Cure.CurseCost:setText(config.curseCost)
 
     conditionsWindow.Cure.CurseCost.onTextChange = function(widget, text)
@@ -4894,8 +4431,6 @@ Panel
       config.curseCost = tonumber(text)
 
     end
-
-
 
     conditionsWindow.Cure.BleedCost:setText(config.bleedCost)
 
@@ -4905,8 +4440,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Cure.BurnCost:setText(config.burnCost)
 
     conditionsWindow.Cure.BurnCost.onTextChange = function(widget, text)
@@ -4914,8 +4447,6 @@ Panel
       config.burnCost = tonumber(text)
 
     end
-
-
 
     conditionsWindow.Cure.ElectrifyCost:setText(config.electrifyCost)
 
@@ -4925,8 +4456,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Cure.ParalyseCost:setText(config.paralyseCost)
 
     conditionsWindow.Cure.ParalyseCost.onTextChange = function(widget, text)
@@ -4934,8 +4463,6 @@ Panel
       config.paralyseCost = tonumber(text)
 
     end
-
-
 
     conditionsWindow.Cure.ParalyseSpell:setText(config.paralyseSpell)
 
@@ -4945,8 +4472,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Hold.HasteSpell:setText(config.hasteSpell)
 
     conditionsWindow.Hold.HasteSpell.onTextChange = function(widget, text)
@@ -4954,8 +4479,6 @@ Panel
       config.hasteSpell = text
 
     end 
-
-    
 
     conditionsWindow.Hold.HasteCost:setText(config.hasteCost)
 
@@ -4965,8 +4488,6 @@ Panel
 
     end
 
-    
-
     conditionsWindow.Hold.UtamoCost:setText(config.utamoCost)
 
     conditionsWindow.Hold.UtamoCost.onTextChange = function(widget, text)
@@ -4974,8 +4495,6 @@ Panel
       config.utamoCost = tonumber(text)
 
     end   
-
-    
 
     conditionsWindow.Hold.UtanaCost:setText(config.utanaCost)
 
@@ -4985,8 +4504,6 @@ Panel
 
     end 
 
-
-
     conditionsWindow.Hold.UturaCost:setText(config.uturaCost)
 
     conditionsWindow.Hold.UturaCost.onTextChange = function(widget, text)
@@ -4994,8 +4511,6 @@ Panel
       config.uturaCost = tonumber(text)
 
     end
-
-
 
     -- combo box
 
@@ -5006,8 +4521,6 @@ Panel
       config.uturaType = widget:getCurrentOption().text
 
     end
-
-
 
     -- checkboxes
 
@@ -5021,8 +4534,6 @@ Panel
 
     end
 
-    
-
     conditionsWindow.Cure.CureCurse:setChecked(config.cureCurse)
 
     conditionsWindow.Cure.CureCurse.onClick = function(widget)
@@ -5032,8 +4543,6 @@ Panel
       widget:setChecked(config.cureCurse)
 
     end
-
-
 
     conditionsWindow.Cure.CureBleed:setChecked(config.cureBleed)
 
@@ -5045,8 +4554,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Cure.CureBurn:setChecked(config.cureBurn)
 
     conditionsWindow.Cure.CureBurn.onClick = function(widget)
@@ -5056,8 +4563,6 @@ Panel
       widget:setChecked(config.cureBurn)
 
     end
-
-
 
     conditionsWindow.Cure.CureElectrify:setChecked(config.cureElectrify)
 
@@ -5069,8 +4574,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Cure.CureParalyse:setChecked(config.cureParalyse)
 
     conditionsWindow.Cure.CureParalyse.onClick = function(widget)
@@ -5080,8 +4583,6 @@ Panel
       widget:setChecked(config.cureParalyse)
 
     end
-
-
 
     conditionsWindow.Hold.HoldHaste:setChecked(config.holdHaste)
 
@@ -5093,8 +4594,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Hold.HoldUtamo:setChecked(config.holdUtamo)
 
     conditionsWindow.Hold.HoldUtamo.onClick = function(widget)
@@ -5104,8 +4603,6 @@ Panel
       widget:setChecked(config.holdUtamo)
 
     end
-
-
 
     conditionsWindow.Hold.HoldUtana:setChecked(config.holdUtana)
 
@@ -5117,8 +4614,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Hold.HoldUtura:setChecked(config.holdUtura)
 
     conditionsWindow.Hold.HoldUtura.onClick = function(widget)
@@ -5128,8 +4623,6 @@ Panel
       widget:setChecked(config.holdUtura)
 
     end
-
-
 
     conditionsWindow.Hold.IgnoreInPz:setChecked(config.ignoreInPz)
 
@@ -5141,8 +4634,6 @@ Panel
 
     end
 
-
-
     conditionsWindow.Hold.StopHaste:setChecked(config.stopHaste)
 
     conditionsWindow.Hold.StopHaste.onClick = function(widget)
@@ -5153,8 +4644,6 @@ Panel
 
     end
 
-
-
     -- buttons
 
     conditionsWindow.closeButton.onClick = function(widget)
@@ -5162,8 +4651,6 @@ Panel
       conditionsWindow:hide()
 
     end
-
-
 
     Conditions = {}
 
@@ -5178,8 +4665,6 @@ Panel
     end
 
   end
-
-
 
   local utanaCast = nil
 
@@ -5211,8 +4696,6 @@ Panel
 
   end)
 
-
-
   macro(50, function()
 
     if not config.enabled then return end
@@ -5230,12 +4713,7 @@ Panel
 ```
 
 ---
-
-
-
 # Conditions.otui
-
-
 
 ```otui
 
@@ -5251,8 +4729,6 @@ UturaComboBox < ComboBox
 
     self:addOption("Utura Gran")    
 
-
-
 CureConditions < Panel
 
   id: Cure
@@ -5264,8 +4740,6 @@ CureConditions < Panel
   padding: 3
 
   size: 200 190
-
-
 
   Label
 
@@ -5285,8 +4759,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: label11
@@ -5300,8 +4772,6 @@ CureConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5317,8 +4787,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: CurePoison
@@ -5328,8 +4796,6 @@ CureConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5347,8 +4813,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: label22
@@ -5362,8 +4826,6 @@ CureConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5379,8 +4841,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: CureCurse
@@ -5390,8 +4850,6 @@ CureConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5409,8 +4867,6 @@ CureConditions < Panel
 
   font: verdana-11px-rounded
 
-
-
   Label
 
     id: label33
@@ -5424,8 +4880,6 @@ CureConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5441,8 +4895,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: CureBleed
@@ -5452,8 +4904,6 @@ CureConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10  
-
-
 
   Label
 
@@ -5471,8 +4921,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: label44
@@ -5486,8 +4934,6 @@ CureConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5503,8 +4949,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: CureBurn
@@ -5514,8 +4958,6 @@ CureConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5533,8 +4975,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: label55
@@ -5548,8 +4988,6 @@ CureConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5565,8 +5003,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: CureElectrify
@@ -5576,8 +5012,6 @@ CureConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5595,8 +5029,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded  
 
-
-
   Label
 
     id: label66
@@ -5610,8 +5042,6 @@ CureConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5627,8 +5057,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: CureParalyse
@@ -5638,8 +5066,6 @@ CureConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5657,8 +5083,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   TextEdit
 
     id: ParalyseSpell
@@ -5673,8 +5097,6 @@ CureConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
 HoldConditions < Panel
 
   id: Hold
@@ -5686,8 +5108,6 @@ HoldConditions < Panel
   padding: 3
 
   size: 200 190
-
-
 
   Label
 
@@ -5707,8 +5127,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded  
 
-
-
   Label
 
     id: label11
@@ -5722,8 +5140,6 @@ HoldConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5739,8 +5155,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: HoldHaste
@@ -5750,8 +5164,6 @@ HoldConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5769,8 +5181,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   TextEdit
 
     id: HasteSpell
@@ -5784,8 +5194,6 @@ HoldConditions < Panel
     width: 100
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -5803,8 +5211,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: label33
@@ -5818,8 +5224,6 @@ HoldConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5835,8 +5239,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: HoldUtana
@@ -5846,8 +5248,6 @@ HoldConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5865,8 +5265,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: label44
@@ -5880,8 +5278,6 @@ HoldConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5897,8 +5293,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: HoldUtamo
@@ -5908,8 +5302,6 @@ HoldConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10  
-
-
 
   Label
 
@@ -5927,8 +5319,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded 
 
-
-
   Label
 
     id: label55
@@ -5942,8 +5332,6 @@ HoldConditions < Panel
     text: Mana:
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -5959,8 +5347,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: HoldUtura
@@ -5970,8 +5356,6 @@ HoldConditions < Panel
     anchors.right: parent.right
 
     margin-right: 10
-
-
 
   Label
 
@@ -5989,8 +5373,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   UturaComboBox
 
     id: UturaType
@@ -6005,8 +5387,6 @@ HoldConditions < Panel
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: IgnoreInPz
@@ -6016,8 +5396,6 @@ HoldConditions < Panel
     anchors.top: label6.bottom
 
     margin-top: 12
-
-
 
   Label
 
@@ -6033,8 +5411,6 @@ HoldConditions < Panel
 
     font: cipsoftFont
 
-
-
   CheckBox
 
     id: StopHaste
@@ -6044,8 +5420,6 @@ HoldConditions < Panel
     anchors.top: IgnoreInPz.bottom
 
     margin-top: 8
-
-  
 
   Label
 
@@ -6061,8 +5435,6 @@ HoldConditions < Panel
 
     font: cipsoftFont
 
-
-
 ConditionsWindow < MainWindow
 
   !text: tr('Condition Manager')
@@ -6070,8 +5442,6 @@ ConditionsWindow < MainWindow
   size: 445 280
 
   @onEscape: self:hide()
-
-
 
   CureConditions
 
@@ -6082,8 +5452,6 @@ ConditionsWindow < MainWindow
     anchors.left: parent.left
 
     margin-top: 7
-
-
 
   Label
 
@@ -6101,8 +5469,6 @@ ConditionsWindow < MainWindow
 
     font: verdana-11px-rounded
 
-
-
   HoldConditions
 
     id: Hold
@@ -6112,8 +5478,6 @@ ConditionsWindow < MainWindow
     anchors.right: parent.right
 
     margin-top: 7
-
-
 
   Label
 
@@ -6131,8 +5495,6 @@ ConditionsWindow < MainWindow
 
     font: verdana-11px-rounded    
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -6144,8 +5506,6 @@ ConditionsWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -6168,12 +5528,7 @@ ConditionsWindow < MainWindow
 ```
 
 ---
-
-
-
 # Containers.lua
-
-
 
 ```lua
 
@@ -6193,7 +5548,7 @@ if type(storage[panelName]) ~= "table" then
 
         list = {
 
-            {
+{
 
                 value = "Main Backpack",
 
@@ -6205,9 +5560,9 @@ if type(storage[panelName]) ~= "table" then
 
                 items = { 3081, 3048 }
 
-            },
+},
 
-            {
+{
 
                 value = "Runes",
 
@@ -6219,9 +5574,9 @@ if type(storage[panelName]) ~= "table" then
 
                 items = { 3161, 3180 }
 
-            },
+},
 
-            {
+{
 
                 value = "Money",
 
@@ -6233,9 +5588,9 @@ if type(storage[panelName]) ~= "table" then
 
                 items = { 3031, 3035, 3043 }
 
-            },
+},
 
-            {
+{
 
                 value = "Purse",
 
@@ -6247,19 +5602,15 @@ if type(storage[panelName]) ~= "table" then
 
                 items = {}
 
-            },
+},
 
-        }
+}
 
-    }
+}
 
 end
 
-
-
 local config = storage[panelName]
-
-
 
 UI.Separator()
 
@@ -6268,8 +5619,6 @@ local renameContui = setupUI([[
 Panel
 
   height: 50
-
-
 
   Label
 
@@ -6284,8 +5633,6 @@ Panel
     anchors.top: parent.top
 
     font: verdana-11px-rounded
-
-
 
   BotSwitch
 
@@ -6302,8 +5649,6 @@ Panel
     !text: tr('Open Minimised')
 
     font: verdana-11px-rounded
-
-
 
   Button
 
@@ -6322,8 +5667,6 @@ Panel
     text: Setup
 
     font: verdana-11px-rounded
-
-
 
   Button
 
@@ -6344,8 +5687,6 @@ Panel
     margin-top: 3
 
     font: verdana-11px-rounded
-
-
 
   Button
 
@@ -6369,8 +5710,6 @@ Panel
 
 renameContui:setId(panelName)
 
-
-
 g_ui.loadUIFromString([[
 
 BackpackName < Label
@@ -6384,8 +5723,6 @@ BackpackName < Label
   height: 17
 
   font: verdana-11px-rounded
-
-
 
   CheckBox
 
@@ -6403,13 +5740,9 @@ BackpackName < Label
 
     margin-left: 3
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -6426,8 +5759,6 @@ BackpackName < Label
     width: 15
 
     height: 15
-
-
 
   Button
 
@@ -6447,8 +5778,6 @@ BackpackName < Label
 
     height: 15
 
-
-
   Button
 
     id: openNext
@@ -6467,8 +5796,6 @@ BackpackName < Label
 
     tooltip: Open container inside with the same ID.
 
-
-
 ContListsWindow < MainWindow
 
   !text: tr('Container Names')
@@ -6476,8 +5803,6 @@ ContListsWindow < MainWindow
   size: 465 170
 
   @onEscape: self:hide()
-
-
 
   TextList
 
@@ -6499,8 +5824,6 @@ ContListsWindow < MainWindow
 
     vertical-scrollbar: itemListScrollBar
 
-
-
   VerticalScrollBar
 
     id: itemListScrollBar
@@ -6514,8 +5837,6 @@ ContListsWindow < MainWindow
     step: 14
 
     pixels-scroll: true
-
-
 
   VerticalSeparator
 
@@ -6532,8 +5853,6 @@ ContListsWindow < MainWindow
     margin-bottom: 6
 
     margin-left: 10
-
-
 
   Label
 
@@ -6553,8 +5872,6 @@ ContListsWindow < MainWindow
 
     font: verdana-11px-rounded
 
-
-
   TextEdit
 
     id: contName
@@ -6566,8 +5883,6 @@ ContListsWindow < MainWindow
     anchors.right: parent.right
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -6583,8 +5898,6 @@ ContListsWindow < MainWindow
 
     font: verdana-11px-rounded
 
-
-
   BotItem
 
     id: contId
@@ -6594,8 +5907,6 @@ ContListsWindow < MainWindow
     anchors.top: contName.bottom
 
     margin-top: 3
-
-
 
   BotContainer
 
@@ -6613,8 +5924,6 @@ ContListsWindow < MainWindow
 
     margin-top: 3
 
-
-
   Label
 
     anchors.left: lblCont.left
@@ -6626,8 +5935,6 @@ ContListsWindow < MainWindow
     text: Items: 
 
     font: verdana-11px-rounded
-
-
 
   Button
 
@@ -6645,8 +5952,6 @@ ContListsWindow < MainWindow
 
     font: cipsoftFont
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -6658,8 +5963,6 @@ ContListsWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8
-
-
 
   CheckBox
 
@@ -6683,8 +5986,6 @@ ContListsWindow < MainWindow
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: sort
@@ -6706,8 +6007,6 @@ ContListsWindow < MainWindow
     margin-left: 15
 
     font: verdana-11px-rounded
-
-
 
   CheckBox
 
@@ -6731,8 +6030,6 @@ ContListsWindow < MainWindow
 
     font: verdana-11px-rounded
 
-
-
   CheckBox
 
     id: lootBag
@@ -6755,8 +6052,6 @@ ContListsWindow < MainWindow
 
     font: verdana-11px-rounded
 
-
-
   Button
 
     id: closeButton
@@ -6772,8 +6067,6 @@ ContListsWindow < MainWindow
     size: 45 21
 
     margin-top: 15
-
-
 
   ResizeBorder
 
@@ -6794,8 +6087,6 @@ ContListsWindow < MainWindow
     background: #ffffff88
 
 ]])
-
-
 
 function findItemsInArray(t, tfind)
 
@@ -6835,13 +6126,7 @@ function findItemsInArray(t, tfind)
 
 end
 
-
-
 local lstBPs
-
-
-
-
 
 local openContainer = function(id)
 
@@ -6859,8 +6144,6 @@ local openContainer = function(id)
 
     end
 
-
-
     for i, container in pairs(g_game.getContainers()) do
 
         for i, item in ipairs(container:getItems()) do
@@ -6877,13 +6160,9 @@ local openContainer = function(id)
 
 end
 
-
-
 function reopenBackpacks()
 
     lstBPs = findItemsInArray(config.list)
-
-
 
     for _, container in pairs(g_game.getContainers()) do g_game.close(container) end
 
@@ -6895,13 +6174,9 @@ function reopenBackpacks()
 
     end
 
-
-
     schedule(500, function()
 
         local delay = 200
-
-
 
         if config.purse then
 
@@ -6929,11 +6204,7 @@ function reopenBackpacks()
 
     end)
 
-    
-
 end
-
-
 
 rootWidget = g_ui.getRootWidget()
 
@@ -6943,23 +6214,15 @@ if rootWidget then
 
     contListWindow:hide()
 
-
-
     contListWindow.onGeometryChange = function(widget, old, new)
 
         if old.height == 0 then return end
-
-        
 
         config.height = new.height
 
     end
 
-
-
     contListWindow:setHeight(config.height or 170)
-
-
 
     renameContui.editContList.onClick = function(widget)
 
@@ -6971,15 +6234,11 @@ if rootWidget then
 
     end
 
-
-
     renameContui.reopenCont.onClick = function(widget)
 
         reopenBackpacks()
 
     end
-
-
 
     renameContui.minimiseCont.onClick = function(widget)
 
@@ -6993,8 +6252,6 @@ if rootWidget then
 
     end
 
-
-
     renameContui.title:setOn(config.enabled)
 
     renameContui.title.onClick = function(widget)
@@ -7005,15 +6262,11 @@ if rootWidget then
 
     end
 
-
-
     contListWindow.closeButton.onClick = function(widget)
 
         contListWindow:hide()
 
     end
-
-
 
     contListWindow.purse.onClick = function(widget)
 
@@ -7025,8 +6278,6 @@ if rootWidget then
 
     contListWindow.purse:setChecked(config.purse)
 
-
-
     contListWindow.sort.onClick = function(widget)
 
         config.sort = not config.sort
@@ -7036,8 +6287,6 @@ if rootWidget then
     end
 
     contListWindow.sort:setChecked(config.sort)
-
-
 
     contListWindow.forceOpen.onClick = function(widget)
 
@@ -7049,8 +6298,6 @@ if rootWidget then
 
     contListWindow.forceOpen:setChecked(config.forceOpen)
 
-    
-
     contListWindow.lootBag.onClick = function(widget)
 
         config.lootBag = not config.lootBag
@@ -7060,8 +6307,6 @@ if rootWidget then
     end
 
     contListWindow.lootBag:setChecked(config.lootBag)
-
-
 
     local function refreshSortList(k, t)
 
@@ -7080,8 +6325,6 @@ if rootWidget then
     end
 
     refreshSortList(t)
-
-
 
     local refreshContNames = function(tFocus)
 
@@ -7175,8 +6418,6 @@ if rootWidget then
 
                 label.openNext:setColor(entry.openNext and '#00FF00' or '#FF0000')
 
-
-
                 if tFocus and entry.item == tFocus then
 
                     tFocus = label
@@ -7196,8 +6437,6 @@ if rootWidget then
         local id = contListWindow.contId:getItemId()
 
         local trigger = contListWindow.contName:getText()
-
-
 
         if id > 100 and trigger:len() > 0 then
 
@@ -7241,8 +6480,6 @@ if rootWidget then
 
 end
 
-
-
 onContainerOpen(function(container, previousContainer)
 
     if not container.window then return end
@@ -7254,8 +6491,6 @@ onContainerOpen(function(container, previousContainer)
         containerWindow:setContentHeight(34)
 
     end
-
-
 
     local storageVal = config.list
 
@@ -7307,8 +6542,6 @@ onContainerOpen(function(container, previousContainer)
 
 end)
 
-
-
 local function nameContainersOnLogin()
 
     for i, container in ipairs(getContainers()) do
@@ -7343,15 +6576,11 @@ end
 
 nameContainersOnLogin()
 
-
-
 local function moveItem(item, destination)
 
     return g_game.move(item, destination:getSlotPosition(destination:getItemsCount()), item:getCount())
 
 end
-
-
 
 local function properTable(t)
 
@@ -7375,13 +6604,9 @@ local function properTable(t)
 
 end
 
-
-
 local mainLoop = macro(150, function(macro)
 
     if not config.sort and not config.purse then return end
-
-
 
     local storageVal = config.list
 
@@ -7487,17 +6712,11 @@ local mainLoop = macro(150, function(macro)
 
 end)
 
-
-
-
-
 onContainerOpen(function(container, previousContainer)
 
     mainLoop:setOn()
 
 end)
-
-  
 
 onAddItem(function(container, slot, item, oldItem)
 
@@ -7505,15 +6724,11 @@ onAddItem(function(container, slot, item, oldItem)
 
 end)
 
-
-
 onPlayerInventoryChange(function(slot, item, oldItem)
 
     mainLoop:setOn()
 
 end)
-
-
 
 onContainerClose(function(container)
 
@@ -7528,26 +6743,17 @@ end)
 ```
 
 ---
-
-
-
 # Dropper.lua
-
-
 
 ```lua
 
 setDefaultTab("Tools")
-
-
 
 local ui = setupUI([[
 
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -7562,8 +6768,6 @@ Panel
     width: 130
 
     !text: tr('Dropper')
-
-
 
   Button
 
@@ -7583,15 +6787,11 @@ Panel
 
 ]])
 
-
-
 local edit = setupUI([[
 
 Panel
 
   height: 150
-
-    
 
   Label
 
@@ -7607,8 +6807,6 @@ Panel
 
     text: Trash:
 
-
-
   BotContainer
 
     id: TrashItems
@@ -7620,8 +6818,6 @@ Panel
     anchors.right: parent.right
 
     height: 32
-
-
 
   Label
 
@@ -7637,8 +6833,6 @@ Panel
 
     text: Use:
 
-
-
   BotContainer
 
     id: UseItems
@@ -7650,8 +6844,6 @@ Panel
     anchors.right: parent.right
 
     height: 32
-
-
 
   Label
 
@@ -7666,8 +6858,6 @@ Panel
     text-align: center
 
     text: Drop if below 150 cap:
-
-
 
   BotContainer
 
@@ -7685,8 +6875,6 @@ Panel
 
 edit:hide()
 
-
-
 if not storage.dropper then
 
     storage.dropper = {
@@ -7699,15 +6887,11 @@ if not storage.dropper then
 
       capItems = { 21175 }
 
-    }
+}
 
 end
 
-
-
 local config = storage.dropper
-
-
 
 local showEdit = false
 
@@ -7727,8 +6911,6 @@ ui.edit.onClick = function(widget)
 
 end
 
-
-
 ui.title:setOn(config.enabled)
 
 ui.title.onClick = function(widget)
@@ -7739,8 +6921,6 @@ ui.title.onClick = function(widget)
 
 end
 
-
-
 UI.Container(function()
 
     config.trashItems = edit.TrashItems:getItems()
@@ -7748,8 +6928,6 @@ UI.Container(function()
     end, true, nil, edit.TrashItems) 
 
 edit.TrashItems:setItems(config.trashItems)
-
-
 
 UI.Container(function()
 
@@ -7759,8 +6937,6 @@ UI.Container(function()
 
 edit.UseItems:setItems(config.useItems)
 
-
-
 UI.Container(function()
 
     config.capItems = edit.CapItems:getItems()
@@ -7769,13 +6945,9 @@ UI.Container(function()
 
 edit.CapItems:setItems(config.capItems)
 
-
-
 local function properTable(t)
 
     local r = {}
-
-  
 
     for _, entry in pairs(t) do
 
@@ -7787,15 +6959,11 @@ local function properTable(t)
 
 end
 
-
-
 macro(200, function()
 
     if not config.enabled then return end
 
     local tables = {properTable(config.capItems), properTable(config.useItems), properTable(config.trashItems)}
-
-
 
     local containers = getContainers()
 
@@ -7825,19 +6993,12 @@ macro(200, function()
 
     end
 
-
-
 end)
 
 ```
 
 ---
-
-
-
 # Equipper.lua
-
-
 
 ```lua
 
@@ -7848,8 +7009,6 @@ local ui = setupUI([[
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -7864,8 +7023,6 @@ Panel
     width: 130
 
     !text: tr('EQ Manager')
-
-
 
   Button
 
@@ -7887,8 +7044,6 @@ Panel
 
 ui:setId(panelName)
 
-
-
 if not storage[panelName] or not storage[panelName].bosses then -- no bosses - old ver
 
     storage[panelName] = {
@@ -7899,15 +7054,11 @@ if not storage[panelName] or not storage[panelName].bosses then -- no bosses - o
 
         bosses = {}
 
-    }
+}
 
 end
 
-
-
 local config = storage[panelName]
-
-
 
 ui.switch:setOn(config.enabled)
 
@@ -7918,8 +7069,6 @@ ui.switch.onClick = function(widget)
   widget:setOn(config.enabled)
 
 end
-
-
 
 local conditions = { -- always add new conditions at the bottom
 
@@ -7961,19 +7110,13 @@ local conditions = { -- always add new conditions at the bottom
 
 }
 
-
-
 local conditionNumber = 1
 
 local optionalConditionNumber = 2
 
-
-
 local mainWindow = UI.createWindow("EquipWindow")
 
 mainWindow:hide()
-
-
 
 ui.setup.onClick = function()
 
@@ -7985,8 +7128,6 @@ ui.setup.onClick = function()
 
 end
 
-
-
 local inputPanel = mainWindow.inputPanel
 
 local listPanel = mainWindow.listPanel
@@ -7997,11 +7138,7 @@ local eqPanel = mainWindow.setup
 
 local bossPanel = mainWindow.bossPanel
 
-
-
 local slotWidgets = {eqPanel.head, eqPanel.body, eqPanel.legs, eqPanel.feet, eqPanel.neck, eqPanel["left-hand"], eqPanel["right-hand"], eqPanel.finger, eqPanel.ammo} -- back is disabled
-
-
 
 local function setCondition(first, n)
 
@@ -8010,8 +7147,6 @@ local function setCondition(first, n)
     local spinBox 
 
     local textEdit
-
-
 
     if first then
 
@@ -8031,15 +7166,11 @@ local function setCondition(first, n)
 
     end
 
-
-
     -- reset values after change
 
     spinBox:setValue(0)
 
     textEdit:setText('')
-
-
 
     if n == 1 or n == 10 or n == 11 or n == 16 or n == 17 or n == 18 then
 
@@ -8074,8 +7205,6 @@ local function setCondition(first, n)
     widget:setText(conditions[n])
 
 end
-
-
 
 local function resetFields()
 
@@ -8127,8 +7256,6 @@ end
 
 resetFields()
 
-
-
 mainWindow.closeButton.onClick = function()
 
     resetFields()
@@ -8136,8 +7263,6 @@ mainWindow.closeButton.onClick = function()
     mainWindow:hide()
 
 end
-
-
 
 inputPanel.optionalCondition:hide()
 
@@ -8155,23 +7280,17 @@ inputPanel.useSecondCondition.onOptionChange = function(widget, option, data)
 
 end
 
-
-
 -- add default text & windows
 
 setCondition(true, 1)
 
 setCondition(false, 2)
 
-
-
 -- in/de/crementation buttons
 
 inputPanel.condition.nex.onClick = function()
 
     local max = #conditions
-
-
 
     if inputPanel.optionalCondition:isVisible() then
 
@@ -8215,13 +7334,9 @@ inputPanel.condition.nex.onClick = function()
 
 end
 
-
-
 inputPanel.condition.pre.onClick = function()
 
     local max = #conditions
-
-
 
     if inputPanel.optionalCondition:isVisible() then
 
@@ -8265,13 +7380,9 @@ inputPanel.condition.pre.onClick = function()
 
 end
 
-
-
 inputPanel.optionalCondition.nex.onClick = function()
 
     local max = #conditions
-
-
 
     if optionalConditionNumber == max then
 
@@ -8299,13 +7410,9 @@ inputPanel.optionalCondition.nex.onClick = function()
 
 end
 
-
-
 inputPanel.optionalCondition.pre.onClick = function()
 
     local max = #conditions
-
-
 
     if optionalConditionNumber == 1 then
 
@@ -8333,8 +7440,6 @@ inputPanel.optionalCondition.pre.onClick = function()
 
 end
 
-
-
 listPanel.up.onClick = function(widget)
 
     local focused = listPanel.list:getFocusedChild()
@@ -8342,8 +7447,6 @@ listPanel.up.onClick = function(widget)
     local n = listPanel.list:getChildIndex(focused)
 
     local t = config.rules
-
-
 
     t[n], t[n-1] = t[n-1], t[n]
 
@@ -8361,8 +7464,6 @@ listPanel.up.onClick = function(widget)
 
 end
 
-
-
 listPanel.down.onClick = function(widget)
 
     local focused = listPanel.list:getFocusedChild()    
@@ -8370,8 +7471,6 @@ listPanel.down.onClick = function(widget)
     local n = listPanel.list:getChildIndex(focused)
 
     local t = config.rules
-
-
 
     t[n], t[n+1] = t[n+1], t[n]
 
@@ -8388,8 +7487,6 @@ listPanel.down.onClick = function(widget)
     listPanel.list:ensureChildVisible(focused)
 
 end
-
-
 
 eqPanel.cloneEq.onClick = function(widget)
 
@@ -8413,19 +7510,13 @@ eqPanel.cloneEq.onClick = function(widget)
 
 end
 
-
-
 eqPanel.default.onClick = resetFields
-
-
 
 -- buttons disabled by default
 
 listPanel.up:setEnabled(false)
 
 listPanel.down:setEnabled(false)
-
-
 
 -- correct background image
 
@@ -8467,8 +7558,6 @@ for i, widget in ipairs(slotWidgets) do
 
 end
 
-
-
 inputPanel.condition.description.onMouseWheel = function(widget, mousePos, scroll)
 
     if scroll == 1 then
@@ -8482,8 +7571,6 @@ inputPanel.condition.description.onMouseWheel = function(widget, mousePos, scrol
     end
 
 end
-
-
 
 inputPanel.optionalCondition.description.onMouseWheel = function(widget, mousePos, scroll)
 
@@ -8499,21 +7586,15 @@ inputPanel.optionalCondition.description.onMouseWheel = function(widget, mousePo
 
 end
 
-
-
 namePanel.profileName.onTextChange = function(widget, text)
 
     local button = inputPanel.add
 
     text = text:lower()
 
-
-
     for i, child in ipairs(listPanel.list:getChildren()) do
 
         local name = child:getText():lower()
-
-
 
         button:setText(name == text and "Overwrite" or "Add Rule")
 
@@ -8522,8 +7603,6 @@ namePanel.profileName.onTextChange = function(widget, text)
     end
 
 end
-
-
 
 local function setupPreview(display, data)
 
@@ -8565,13 +7644,9 @@ local function setupPreview(display, data)
 
 end
 
-
-
 local function refreshRules()
 
     local list = listPanel.list
-
-
 
     list:destroyChildren()
 
@@ -8651,8 +7726,6 @@ local function refreshRules()
 
             namePanel.profileName:setText(v.name)
 
-
-
             if type(ruleData.mainValue) == "string" then
 
                 inputPanel.condition.text:setText(ruleData.mainValue)
@@ -8662,8 +7735,6 @@ local function refreshRules()
                 inputPanel.condition.spinbox:setValue(ruleData.mainValue)
 
             end
-
-
 
             if type(ruleData.optValue) == "string" then
 
@@ -8715,8 +7786,6 @@ end
 
 refreshRules()
 
-
-
 inputPanel.add.onClick = function(widget)
 
     local mainVal
@@ -8735,15 +7804,11 @@ inputPanel.add.onClick = function(widget)
 
     end
 
-
-
     for i, widget in ipairs(slotWidgets) do
 
         local checked = widget:isChecked()
 
         local id = widget:getItemId()
-
-
 
         if checked then
 
@@ -8760,8 +7825,6 @@ inputPanel.add.onClick = function(widget)
         end
 
     end
-
-
 
     if conditionNumber == 1 then
 
@@ -8792,8 +7855,6 @@ inputPanel.add.onClick = function(widget)
         mainVal = inputPanel.condition.spinbox:getValue()
 
     end
-
-
 
     if relation ~= "-" then
 
@@ -8829,8 +7890,6 @@ inputPanel.add.onClick = function(widget)
 
     end
 
-
-
     local index
 
     for i, v in ipairs(config.rules) do
@@ -8842,8 +7901,6 @@ inputPanel.add.onClick = function(widget)
         end
 
     end
-
-
 
     local ruleData = {
 
@@ -8865,9 +7922,7 @@ inputPanel.add.onClick = function(widget)
 
         relation = relation,
 
-    }
-
-
+}
 
     if index then
 
@@ -8878,8 +7933,6 @@ inputPanel.add.onClick = function(widget)
         table.insert(config.rules, ruleData) -- create new one
 
     end
-
-
 
     for i, child in ipairs(listPanel.list:getChildren()) do
 
@@ -8892,8 +7945,6 @@ inputPanel.add.onClick = function(widget)
     refreshRules()
 
 end
-
-
 
 mainWindow.bossList.onClick = function(widget)
 
@@ -8913,13 +7964,9 @@ mainWindow.bossList.onClick = function(widget)
 
         widget:setText('Rule List')
 
-
-
     end
 
 end
-
-
 
 -- create boss labels
 
@@ -8939,13 +7986,9 @@ for i, v in ipairs(config.bosses) do
 
 end
 
-
-
 bossPanel.add.onClick = function()
 
     local name = bossPanel.name:getText()
-
-
 
     if name:len() == 0 then
 
@@ -8956,8 +7999,6 @@ bossPanel.add.onClick = function()
         return warn("[Equipper] Boss already added!")
 
     end
-
-
 
     local widget = UI.createWidget("BossLabel", bossPanel.list)
 
@@ -8971,19 +8012,13 @@ bossPanel.add.onClick = function()
 
     end    
 
-
-
     table.insert(config.bosses, name)
 
     bossPanel.name:setText('')
 
 end
 
-
-
 local function interpreteCondition(n, v)
-
-
 
     if n == 1 then
 
@@ -9061,8 +8096,6 @@ local function interpreteCondition(n, v)
 
 end
 
-
-
 local function finalCheck(first,relation,second)
 
     if relation == "-" then
@@ -9081,15 +8114,11 @@ local function finalCheck(first,relation,second)
 
 end
 
-
-
 local function isEquipped(id)
 
     local t = {getNeck(), getHead(), getBody(), getRight(), getLeft(), getLeg(), getFeet(), getFinger(), getAmmo()}
 
     local ids = {id, getInactiveItemId(id), getActiveItemId(id)}
-
-
 
     for i, slot in pairs(t) do
 
@@ -9105,13 +8134,9 @@ local function isEquipped(id)
 
 end
 
-
-
 local function unequipItem(table)
 
     local slots = {getHead(), getBody(), getLeg(), getFeet(), getNeck(), getLeft(), getRight(), getFinger(), getAmmo()}
-
-
 
     if type(table) ~= "table" then return end
 
@@ -9119,13 +8144,9 @@ local function unequipItem(table)
 
         local physicalSlot = slots[i]
 
-
-
         if slot == true and physicalSlot then
 
             local id = physicalSlot:getId()
-
-
 
             if g_game.getClientVersion() >= 910 then
 
@@ -9157,8 +8178,6 @@ local function unequipItem(table)
 
                 end
 
-
-
                 if not dest then return true end
 
                 local pos = dest:getSlotPosition(dest:getItemsCount())
@@ -9176,8 +8195,6 @@ local function unequipItem(table)
     return false
 
 end
-
-
 
 local function equipItem(id, slot)
 
@@ -9213,10 +8230,6 @@ local function equipItem(id, slot)
 
     end
 
-
-
-
-
     if g_game.getClientVersion() >= 910 then
 
         -- new tibia
@@ -9234,10 +8247,6 @@ local function equipItem(id, slot)
     end
 
 end
-
-
-
-
 
 local function markChild(child)
 
@@ -9259,10 +8268,6 @@ local function markChild(child)
 
 end
 
-
-
-
-
 local missingItem = false
 
 local lastRule = false
@@ -9275,15 +8280,11 @@ EquipManager = macro(50, function()
 
     if #config.rules == 0 then return end
 
-
-
     for i, widget in ipairs(listPanel.list:getChildren()) do
 
         local rule = widget.ruleData
 
         if rule.enabled then
-
-
 
             -- conditions
 
@@ -9297,13 +8298,9 @@ EquipManager = macro(50, function()
 
             end
 
-
-
             -- checks
 
             if finalCheck(firstCondition, rule.relation, optionalCondition) then
-
-
 
                 -- performance edits, loop reset
 
@@ -9311,13 +8308,7 @@ EquipManager = macro(50, function()
 
                 if resetLoop then return end
 
-
-
                 -- reset executed rule
-
-
-
-
 
                 -- first check unequip
 
@@ -9328,8 +8319,6 @@ EquipManager = macro(50, function()
                     return
 
                 end
-
-
 
                 -- equiploop 
 
@@ -9371,8 +8360,6 @@ EquipManager = macro(50, function()
 
                 end
 
-
-
                 correctEq = not missingItem and true or false
 
                 -- even if nothing was done, exit function to hold rule
@@ -9380,10 +8367,6 @@ EquipManager = macro(50, function()
                 return
 
             end
-
-
-
-
 
         end
 
@@ -9394,12 +8377,7 @@ end)
 ```
 
 ---
-
-
-
 # HealBot.lua
-
-
 
 ```lua
 
@@ -9407,13 +8385,9 @@ local standBySpells = false
 
 local standByItems = false
 
-
-
 local red = "#ff0800" -- "#ff0800" / #ea3c53 best
 
 local blue = "#7ef9ff"
-
-
 
 setDefaultTab("HP")
 
@@ -9424,8 +8398,6 @@ local ui = setupUI([[
 Panel
 
   height: 38
-
-
 
   BotSwitch
 
@@ -9440,8 +8412,6 @@ Panel
     width: 130
 
     !text: tr('HealBot')
-
-
 
   Button
 
@@ -9459,8 +8429,6 @@ Panel
 
     text: Setup
 
-
-
   Button
 
     id: 1
@@ -9477,8 +8445,6 @@ Panel
 
     size: 17 17
 
-
-
   Button
 
     id: 2
@@ -9492,8 +8458,6 @@ Panel
     margin-left: 4
 
     size: 17 17
-
-    
 
   Button
 
@@ -9509,8 +8473,6 @@ Panel
 
     size: 17 17
 
-
-
   Button
 
     id: 4
@@ -9525,8 +8487,6 @@ Panel
 
     size: 17 17 
 
-    
-
   Button
 
     id: 5
@@ -9540,8 +8500,6 @@ Panel
     margin-left: 4
 
     size: 17 17
-
-    
 
   Label
 
@@ -9566,8 +8524,6 @@ Panel
 ]])
 
 ui:setId(healPanelName)
-
-
 
 if not HealBotConfig[healPanelName] or not HealBotConfig[healPanelName][1] or #HealBotConfig[healPanelName] ~= 5 then
 
@@ -9595,7 +8551,7 @@ if not HealBotConfig[healPanelName] or not HealBotConfig[healPanelName][1] or #H
 
       MessageDelay = false
 
-    },
+},
 
     [2] = {
 
@@ -9619,7 +8575,7 @@ if not HealBotConfig[healPanelName] or not HealBotConfig[healPanelName][1] or #H
 
       MessageDelay = false
 
-    },
+},
 
     [3] = {
 
@@ -9643,7 +8599,7 @@ if not HealBotConfig[healPanelName] or not HealBotConfig[healPanelName][1] or #H
 
       MessageDelay = false
 
-    },
+},
 
     [4] = {
 
@@ -9667,7 +8623,7 @@ if not HealBotConfig[healPanelName] or not HealBotConfig[healPanelName][1] or #H
 
       MessageDelay = false
 
-    },
+},
 
     [5] = {
 
@@ -9691,21 +8647,17 @@ if not HealBotConfig[healPanelName] or not HealBotConfig[healPanelName][1] or #H
 
       MessageDelay = false
 
-    },
+},
 
-  }
+}
 
 end
-
-
 
 if not HealBotConfig.currentHealBotProfile or HealBotConfig.currentHealBotProfile == 0 or HealBotConfig.currentHealBotProfile > 5 then 
 
   HealBotConfig.currentHealBotProfile = 1
 
 end
-
-
 
 -- finding correct table, manual unfortunately
 
@@ -9720,8 +8672,6 @@ local setActiveProfile = function()
 end
 
 setActiveProfile()
-
-
 
 local activeProfileColor = function()
 
@@ -9743,8 +8693,6 @@ end
 
 activeProfileColor()
 
-
-
 ui.title:setOn(currentSettings.enabled)
 
 ui.title.onClick = function(widget)
@@ -9757,8 +8705,6 @@ ui.title.onClick = function(widget)
 
 end
 
-
-
 ui.settings.onClick = function(widget)
 
   healWindow:show()
@@ -9769,8 +8715,6 @@ ui.settings.onClick = function(widget)
 
 end
 
-
-
 rootWidget = g_ui.getRootWidget()
 
 if rootWidget then
@@ -9778,8 +8722,6 @@ if rootWidget then
   healWindow = UI.createWindow('HealWindow', rootWidget)
 
   healWindow:hide()
-
-
 
   healWindow.onVisibilityChange = function(widget, visible)
 
@@ -9796,8 +8738,6 @@ if rootWidget then
     end
 
   end
-
-
 
   healWindow.settingsButton.onClick = function(widget)
 
@@ -9820,8 +8760,6 @@ if rootWidget then
     end
 
   end
-
-
 
   local setProfileName = function()
 
@@ -9885,8 +8823,6 @@ if rootWidget then
 
   end
 
-
-
   local refreshSpells = function()
 
     if currentSettings.spellTable then
@@ -9934,8 +8870,6 @@ if rootWidget then
   end
 
   refreshSpells()
-
-
 
   local refreshItems = function()
 
@@ -9987,8 +8921,6 @@ if rootWidget then
 
   refreshItems()
 
-
-
   healWindow.healer.spells.MoveUp.onClick = function(widget)
 
     local input = healWindow.healer.spells.spellList:getFocusedChild()
@@ -9999,11 +8931,7 @@ if rootWidget then
 
     if index < 2 then return end
 
-
-
     local t = currentSettings.spellTable
-
-
 
     t[index],t[index-1] = t[index-1], t[index]
 
@@ -10012,8 +8940,6 @@ if rootWidget then
     healWindow.healer.spells.spellList:ensureChildVisible(input)
 
   end
-
-
 
   healWindow.healer.spells.MoveDown.onClick = function(widget)
 
@@ -10025,11 +8951,7 @@ if rootWidget then
 
     if index >= healWindow.healer.spells.spellList:getChildCount() then return end
 
-
-
     local t = currentSettings.spellTable
-
-
 
     t[index],t[index+1] = t[index+1],t[index]
 
@@ -10038,8 +8960,6 @@ if rootWidget then
     healWindow.healer.spells.spellList:ensureChildVisible(input)
 
   end
-
-
 
   healWindow.healer.items.MoveUp.onClick = function(widget)
 
@@ -10051,11 +8971,7 @@ if rootWidget then
 
     if index < 2 then return end
 
-
-
     local t = currentSettings.itemTable
-
-
 
     t[index],t[index-1] = t[index-1], t[index]
 
@@ -10064,8 +8980,6 @@ if rootWidget then
     healWindow.healer.items.itemList:ensureChildVisible(input)
 
   end
-
-
 
   healWindow.healer.items.MoveDown.onClick = function(widget)
 
@@ -10077,11 +8991,7 @@ if rootWidget then
 
     if index >= healWindow.healer.items.itemList:getChildCount() then return end
 
-
-
     local t = currentSettings.itemTable
-
-
 
     t[index],t[index+1] = t[index+1],t[index]
 
@@ -10091,11 +9001,7 @@ if rootWidget then
 
   end
 
-
-
   healWindow.healer.spells.addSpell.onClick = function(widget)
-
- 
 
     local spellFormula = healWindow.healer.spells.spellFormula:getText():trim()
 
@@ -10110,8 +9016,6 @@ if rootWidget then
     local source
 
     local equasion
-
-
 
     if not manaCost then  
 
@@ -10141,8 +9045,6 @@ if rootWidget then
 
     end
 
-
-
     if spellSource == "Current Mana" then
 
       source = "MP"
@@ -10165,8 +9067,6 @@ if rootWidget then
 
     end
 
-    
-
     if spellEquasion == "Above" then
 
       equasion = ">"
@@ -10180,8 +9080,6 @@ if rootWidget then
       equasion = "="
 
     end
-
-
 
     if spellFormula:len() > 0 then
 
@@ -10203,11 +9101,7 @@ if rootWidget then
 
   end
 
-
-
   healWindow.healer.items.addItem.onClick = function(widget)
-
- 
 
     local id = healWindow.healer.items.itemId:getItemId()
 
@@ -10221,8 +9115,6 @@ if rootWidget then
 
     local equasion
 
-
-
     if not trigger then
 
       warn("HealBot: incorrect trigger value!")
@@ -10234,8 +9126,6 @@ if rootWidget then
       return
 
     end
-
-
 
     if src == "Current Mana" then
 
@@ -10259,8 +9149,6 @@ if rootWidget then
 
     end
 
-    
-
     if eq == "Above" then
 
       equasion = ">"
@@ -10274,8 +9162,6 @@ if rootWidget then
       equasion = "="
 
     end
-
-
 
     if id > 100 then
 
@@ -10295,15 +9181,11 @@ if rootWidget then
 
   end
 
-
-
   healWindow.closeButton.onClick = function(widget)
 
     healWindow:hide()
 
   end
-
-
 
   local loadSettings = function()
 
@@ -10333,8 +9215,6 @@ if rootWidget then
 
   loadSettings()
 
-
-
   local profileChange = function()
 
     setActiveProfile()
@@ -10346,8 +9226,6 @@ if rootWidget then
     vBotConfigSave("heal")
 
   end
-
-
 
   local resetSettings = function()
 
@@ -10373,8 +9251,6 @@ if rootWidget then
 
   end
 
-
-
   -- profile buttons
 
   for i=1,5 do
@@ -10391,8 +9267,6 @@ if rootWidget then
 
   end
 
-
-
   healWindow.settings.profiles.ResetSettings.onClick = function()
 
     resetSettings()
@@ -10401,15 +9275,9 @@ if rootWidget then
 
   end
 
-
-
-
-
   -- public functions
 
   HealBot = {} -- global table
-
-
 
   HealBot.isOn = function()
 
@@ -10417,15 +9285,11 @@ if rootWidget then
 
   end
 
-
-
   HealBot.isOff = function()
 
     return not currentSettings.enabled
 
   end
-
-
 
   HealBot.setOff = function()
 
@@ -10437,8 +9301,6 @@ if rootWidget then
 
   end
 
-
-
   HealBot.setOn = function()
 
     currentSettings.enabled = true
@@ -10449,15 +9311,11 @@ if rootWidget then
 
   end
 
-
-
   HealBot.getActiveProfile = function()
 
     return HealBotConfig.currentHealBotProfile -- returns number 1-5
 
   end
-
-
 
   HealBot.setActiveProfile = function(n)
 
@@ -10475,8 +9333,6 @@ if rootWidget then
 
   end
 
-
-
   HealBot.show = function()
 
     healWindow:show()
@@ -10489,8 +9345,6 @@ if rootWidget then
 
 end
 
-
-
 -- spells
 
 macro(100, function()
@@ -10500,8 +9354,6 @@ macro(100, function()
   if not currentSettings.enabled then return end
 
   local somethingIsOnCooldown = false
-
-
 
   for _, entry in pairs(currentSettings.spellTable) do
 
@@ -10639,8 +9491,6 @@ macro(100, function()
 
 end)
 
-
-
 -- items
 
 macro(100, function()
@@ -10653,15 +9503,11 @@ macro(100, function()
 
   if currentSettings.MessageDelay and vBot.isUsingPotion then return end
 
-
-
   if not currentSettings.MessageDelay then
 
     delay(400)
 
   end
-
-
 
   if TargetBot.isOn() and TargetBot.Looting.getStatus():len() > 0 and currentSettings.Interval then
 
@@ -10676,8 +9522,6 @@ macro(100, function()
     end
 
   end
-
-
 
   for _, entry in pairs(currentSettings.itemTable) do
 
@@ -10807,8 +9651,6 @@ end)
 
 UI.Separator()
 
-
-
 onPlayerHealthChange(function(healthPercent)
 
   standByItems = false
@@ -10816,8 +9658,6 @@ onPlayerHealthChange(function(healthPercent)
   standBySpells = false
 
 end)
-
-
 
 onManaChange(function(player, mana, maxMana, oldMana, oldMaxMana)
 
@@ -10830,12 +9670,7 @@ end)
 ```
 
 ---
-
-
-
 # HealBot.otui
-
-
 
 ```otui
 
@@ -10848,8 +9683,6 @@ SettingCheckBox < CheckBox
   margin-top: 3
 
   font: verdana-11px-rounded
-
-
 
 SpellSourceBoxPopupMenu < ComboBoxPopupMenu
 
@@ -10869,8 +9702,6 @@ SpellSourceBox < ComboBox
 
     self:addOption("Burst Damage")
 
-
-
 SpellConditionBoxPopupMenu < ComboBoxPopupMenu
 
 SpellConditionBoxPopupMenuButton < ComboBoxPopupMenuButton
@@ -10885,8 +9716,6 @@ SpellConditionBox < ComboBox
 
     self:addOption("Equal To")
 
-
-
 SpellEntry < Label
 
   background-color: alpha
@@ -10898,8 +9727,6 @@ SpellEntry < Label
   height: 16
 
   font: verdana-11px-rounded
-
-
 
   CheckBox
 
@@ -10917,13 +9744,9 @@ SpellEntry < Label
 
     margin-left: 3
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -10941,8 +9764,6 @@ SpellEntry < Label
 
     height: 15   
 
-
-
 ItemEntry < Label
 
   background-color: alpha
@@ -10954,8 +9775,6 @@ ItemEntry < Label
   height: 16
 
   font: verdana-11px-rounded
-
-
 
   CheckBox
 
@@ -10973,8 +9792,6 @@ ItemEntry < Label
 
     margin-left: 3
 
-
-
   UIItem
 
     id: id
@@ -10989,13 +9806,9 @@ ItemEntry < Label
 
     focusable: false
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -11013,13 +9826,9 @@ ItemEntry < Label
 
     height: 15               
 
-
-
 SpellHealing < FlatPanel
 
   size: 490 130
-
-
 
   Label
 
@@ -11037,8 +9846,6 @@ SpellHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   SpellSourceBox
 
     id: spellSource
@@ -11053,8 +9860,6 @@ SpellHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: whenSpell
@@ -11068,8 +9873,6 @@ SpellHealing < FlatPanel
     margin-left: 7
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -11087,8 +9890,6 @@ SpellHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   SpellConditionBox
 
     id: spellCondition
@@ -11102,8 +9903,6 @@ SpellHealing < FlatPanel
     width: 80
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -11119,8 +9918,6 @@ SpellHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: castSpell
@@ -11135,8 +9932,6 @@ SpellHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   TextEdit
 
     id: spellFormula
@@ -11148,8 +9943,6 @@ SpellHealing < FlatPanel
     anchors.right: spellValue.right
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -11165,8 +9958,6 @@ SpellHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   TextEdit
 
     id: manaCost
@@ -11178,8 +9969,6 @@ SpellHealing < FlatPanel
     width: 40 
 
     font: verdana-11px-rounded
-
-
 
   TextList
 
@@ -11205,8 +9994,6 @@ SpellHealing < FlatPanel
 
     vertical-scrollbar: spellListScrollBar
 
-
-
   VerticalScrollBar
 
     id: spellListScrollBar
@@ -11221,8 +10008,6 @@ SpellHealing < FlatPanel
 
     pixels-scroll: true
 
-
-
   Button
 
     id: addSpell
@@ -11236,8 +10021,6 @@ SpellHealing < FlatPanel
     size: 40 17
 
     font: cipsoftFont
-
-
 
   Button
 
@@ -11255,8 +10038,6 @@ SpellHealing < FlatPanel
 
     font: cipsoftFont
 
-
-
   Button
 
     id: MoveDown
@@ -11273,13 +10054,9 @@ SpellHealing < FlatPanel
 
     font: cipsoftFont  
 
-
-
 ItemHealing < FlatPanel
 
   size: 490 120
-
-
 
   Label
 
@@ -11297,8 +10074,6 @@ ItemHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   SpellSourceBox
 
     id: itemSource
@@ -11313,8 +10088,6 @@ ItemHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: whenItem
@@ -11328,8 +10101,6 @@ ItemHealing < FlatPanel
     margin-left: 7
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -11347,8 +10118,6 @@ ItemHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   SpellConditionBox
 
     id: itemCondition
@@ -11362,8 +10131,6 @@ ItemHealing < FlatPanel
     width: 80
 
     font: verdana-11px-rounded
-
-
 
   TextEdit
 
@@ -11379,8 +10146,6 @@ ItemHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: useItem
@@ -11395,8 +10160,6 @@ ItemHealing < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   BotItem
 
     id: itemId
@@ -11404,8 +10167,6 @@ ItemHealing < FlatPanel
     anchors.left: itemCondition.left
 
     anchors.top: itemCondition.bottom
-
-
 
   TextList
 
@@ -11431,8 +10192,6 @@ ItemHealing < FlatPanel
 
     vertical-scrollbar: itemListScrollBar
 
-
-
   VerticalScrollBar
 
     id: itemListScrollBar
@@ -11447,8 +10206,6 @@ ItemHealing < FlatPanel
 
     pixels-scroll: true
 
-
-
   Button
 
     id: addItem
@@ -11462,8 +10219,6 @@ ItemHealing < FlatPanel
     size: 40 17
 
     font: cipsoftFont
-
-
 
   Button
 
@@ -11481,8 +10236,6 @@ ItemHealing < FlatPanel
 
     font: cipsoftFont
 
-
-
   Button
 
     id: MoveDown
@@ -11499,13 +10252,9 @@ ItemHealing < FlatPanel
 
     font: cipsoftFont
 
-
-
 HealerPanel < Panel
 
   size: 510 275
-
-
 
   SpellHealing
 
@@ -11517,8 +10266,6 @@ HealerPanel < Panel
 
     anchors.left: parent.left
 
-
-
   ItemHealing
 
     id: items
@@ -11529,15 +10276,11 @@ HealerPanel < Panel
 
     margin-top: 10
 
-
-
 HealBotSettingsPanel < Panel
 
   size: 500 267
 
   padding-top: 8
-
-
 
   FlatPanel
 
@@ -11557,8 +10300,6 @@ HealBotSettingsPanel < Panel
 
       type: verticalBox
 
-
-
     Label
 
       text: Additional Settings
@@ -11567,11 +10308,7 @@ HealBotSettingsPanel < Panel
 
       font: verdana-11px-rounded
 
-      
-
     HorizontalSeparator
-
-
 
     SettingCheckBox
 
@@ -11581,15 +10318,11 @@ HealBotSettingsPanel < Panel
 
       margin-top: 10
 
-
-
     SettingCheckBox
 
       id: Visible
 
       text: Items must be visible (recommended)
-
-
 
     SettingCheckBox
 
@@ -11597,15 +10330,11 @@ HealBotSettingsPanel < Panel
 
       text: Don't use items when interacting
 
-
-
     SettingCheckBox
 
       id: Interval
 
       text: Additional delay when looting corpses
-
-
 
     SettingCheckBox
 
@@ -11613,15 +10342,11 @@ HealBotSettingsPanel < Panel
 
       text: Also check conditions from RL Tibia
 
-
-
     SettingCheckBox
 
       id: MessageDelay
 
       text: Cooldown based on "Aaaah..." message
-
-
 
   VerticalSeparator
 
@@ -11632,8 +10357,6 @@ HealBotSettingsPanel < Panel
     anchors.left: prev.right
 
     margin-left: 8
-
-
 
   FlatPanel
 
@@ -11649,8 +10372,6 @@ HealBotSettingsPanel < Panel
 
     padding: 8
 
-
-
     Label
 
       text: Profile Settings
@@ -11665,8 +10386,6 @@ HealBotSettingsPanel < Panel
 
       font: verdana-11px-rounded
 
-
-
     HorizontalSeparator
 
       anchors.top: prev.bottom
@@ -11674,8 +10393,6 @@ HealBotSettingsPanel < Panel
       anchors.left: parent.left
 
       anchors.right: parent.right
-
-
 
     Label
 
@@ -11693,8 +10410,6 @@ HealBotSettingsPanel < Panel
 
       text: Profile Name:
 
-
-
     TextEdit
 
       id: Name
@@ -11706,8 +10421,6 @@ HealBotSettingsPanel < Panel
       anchors.left: parent.left
 
       anchors.right: parent.right     
-
-
 
     Button
 
@@ -11723,8 +10436,6 @@ HealBotSettingsPanel < Panel
 
       color: #ff4513
 
-
-
 HealWindow < MainWindow
 
   !text: tr('Self Healer')
@@ -11732,8 +10443,6 @@ HealWindow < MainWindow
   size: 520 360
 
   @onEscape: self:hide()
-
-
 
   Label
 
@@ -11753,8 +10462,6 @@ HealWindow < MainWindow
 
     color: #aeaeae  
 
-
-
   HealerPanel
 
     id: healer
@@ -11762,8 +10469,6 @@ HealWindow < MainWindow
     anchors.top: prev.bottom
 
     anchors.left: parent.left
-
-
 
   HealBotSettingsPanel
 
@@ -11774,8 +10479,6 @@ HealWindow < MainWindow
     anchors.left: parent.left
 
     visible: false
-
-
 
   HorizontalSeparator
 
@@ -11788,8 +10491,6 @@ HealWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -11806,8 +10507,6 @@ HealWindow < MainWindow
     size: 45 21
 
     margin-right: 5
-
-
 
   Button
 
@@ -11826,12 +10525,7 @@ HealWindow < MainWindow
 ```
 
 ---
-
-
-
 # Sio.lua
-
-
 
 ```lua
 
@@ -11844,8 +10538,6 @@ setDefaultTab("Main")
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -11860,8 +10552,6 @@ Panel
     width: 130
 
     !text: tr('Friend Healer')
-
-
 
   Button
 
@@ -11879,13 +10569,9 @@ Panel
 
     text: Setup
 
-      
-
   ]], parent)
 
   ui:setId(panelName)
-
-
 
   if not storage[panelName] then
 
@@ -11919,15 +10605,11 @@ Panel
 
       healMs = false
 
-    }
+}
 
   end
 
-
-
   local config = storage[panelName]
-
-
 
   -- basic elements
 
@@ -11951,8 +10633,6 @@ Panel
 
   end
 
-
-
   rootWidget = g_ui.getRootWidget()
 
   if rootWidget then
@@ -11960,8 +10640,6 @@ Panel
     sioListWindow = UI.createWindow('SioListWindow', rootWidget)
 
     sioListWindow:hide()
-
-
 
     -- TextWindow
 
@@ -11972,8 +10650,6 @@ Panel
       config.customSpellName = text
 
     end
-
-
 
     -- botswitches
 
@@ -12067,8 +10743,6 @@ Panel
 
     end
 
-
-
     -- functions
 
     local updateMinManaText = function()
@@ -12089,8 +10763,6 @@ Panel
 
     end
 
-
-
     -- scrollbars and text updates
 
     sioListWindow.Distance:setValue(config.distance)
@@ -12105,8 +10777,6 @@ Panel
 
     updateDistanceText()
 
-
-
     sioListWindow.minMana:setValue(config.minMana)
 
     sioListWindow.minMana.onValueChange = function(scroll, value)
@@ -12118,8 +10788,6 @@ Panel
     end
 
     updateMinManaText()
-
-
 
     sioListWindow.minFriendHp:setValue(config.minFriendHp)
 
@@ -12133,8 +10801,6 @@ Panel
 
     updateFriendHpText()
 
-
-
     sioListWindow.itemId:setItemId(config.id)
 
     sioListWindow.itemId.onItemChange = function(widget)
@@ -12143,37 +10809,25 @@ Panel
 
     end
 
-
-
     sioListWindow.closeButton.onClick = function(widget)
 
       sioListWindow:hide()
 
     end
 
-
-
   end
-
-
 
   -- local variables
 
   local newTibia = g_game.getClientVersion() >= 960
 
-
-
   local function isValid(name)
 
     if not newTibia then return true end
 
-
-
     local voc = vBot.BotServerMembers[name]
 
     if not voc then return true end
-
-    
 
     if voc == 11 then voc = 1
 
@@ -12184,8 +10838,6 @@ Panel
     elseif voc == 14 then voc = 4
 
     end
-
-
 
     local isOk = false
 
@@ -12207,21 +10859,15 @@ Panel
 
     end
 
-
-
     return isOk
 
   end
-
-
 
   macro(200, function()
 
     if not config.enabled then return end
 
     if modules.game_cooldown.isGroupCooldownIconActive(2) then return end
-
-
 
     --[[
 
@@ -12236,8 +10882,6 @@ Panel
       5. item healing
 
     --]]
-
-
 
     -- exura gran sio & custom spell
 
@@ -12272,8 +10916,6 @@ Panel
       end
 
     end
-
-
 
     -- exura gran mas res and standard sio
 
@@ -12333,8 +10975,6 @@ Panel
 
     end 
 
-
-
   end)
 
 addSeparator()
@@ -12342,12 +10982,7 @@ addSeparator()
 ```
 
 ---
-
-
-
 # alarms.lua
-
-
 
 ```lua
 
@@ -12358,8 +10993,6 @@ local ui = setupUI([[
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -12374,8 +11007,6 @@ Panel
     width: 130
 
     !text: tr('Alarms')
-
-
 
   Button
 
@@ -12393,13 +11024,9 @@ Panel
 
     text: Edit
 
-
-
 ]])
 
 ui:setId(panelName)
-
-
 
 if not storage[panelName] then
 
@@ -12407,11 +11034,7 @@ if not storage[panelName] then
 
 end
 
-
-
 local config = storage[panelName]
-
-
 
 ui.title:setOn(config.enabled)
 
@@ -12423,13 +11046,9 @@ ui.title.onClick = function(widget)
 
 end
 
-
-
 local window = UI.createWindow("AlarmsWindow")
 
 window:hide()
-
-
 
 ui.alerts.onClick = function()
 
@@ -12440,8 +11059,6 @@ ui.alerts.onClick = function()
   window:focus()
 
 end
-
-
 
 local widgets = 
 
@@ -12455,8 +11072,6 @@ local widgets =
 
 }
 
-
-
 local parents = 
 
 {
@@ -12467,10 +11082,6 @@ local parents =
 
 }
 
-
-
-
-
 -- type
 
 addAlarm = function(id, title, defaultValue, alarmType, parent, tooltip)
@@ -12479,15 +11090,11 @@ addAlarm = function(id, title, defaultValue, alarmType, parent, tooltip)
 
   widget:setId(id)
 
-
-
   if type(config[id]) ~= 'table' then
 
     config[id] = {}
 
   end
-
-
 
   widget.tick:setText(title)
 
@@ -12503,15 +11110,11 @@ addAlarm = function(id, title, defaultValue, alarmType, parent, tooltip)
 
   end
 
-
-
   if alarmType > 1 and type(config[id].value) == 'nil' then
 
     config[id].value = defaultValue
 
   end
-
-
 
   if alarmType == 2 then
 
@@ -12535,19 +11138,13 @@ addAlarm = function(id, title, defaultValue, alarmType, parent, tooltip)
 
   end
 
-
-
 end
-
-
 
 -- settings
 
 addAlarm("ignoreFriends", "Ignore Friends", true, 1, 2)
 
 addAlarm("flashClient", "Flash Client", true, 1, 2)
-
-
 
 -- alarm list
 
@@ -12559,11 +11156,7 @@ addAlarm("lowMana", "Low Mana", 20, 2, 1)
 
 addAlarm("playerAttack", "Player Attack", false, 1, 1)
 
-
-
 UI.Separator(window.list)
-
-
 
 addAlarm("privateMsg", "Private Message", false, 1, 1)
 
@@ -12571,21 +11164,13 @@ addAlarm("defaultMsg", "Default Message", false, 1, 1)
 
 addAlarm("customMessage", "Custom Message:", "", 3, 1, "You can add text, that if found in any incoming message will trigger alert.\n You can add many, just separate them by comma.")
 
-
-
 UI.Separator(window.list)
-
-
 
 addAlarm("creatureDetected", "Creature Detected", false, 1, 1)
 
 addAlarm("playerDetected", "Player Detected", false, 1, 1)
 
 addAlarm("creatureName", "Creature Name:", "", 3, 1, "You can add a name or part of it, that if found in any visible creature name will trigger alert.\nYou can add many, just separate them by comma.")
-
-
-
-
 
 local lastCall = now
 
@@ -12595,8 +11180,6 @@ local function alarm(file, windowText)
 
   lastCall = now
 
-
-
   if not g_resources.fileExists(file) then
 
     file = "/sounds/alarm.ogg"
@@ -12604,10 +11187,6 @@ local function alarm(file, windowText)
     lastCall = now + 4000 -- alarm.ogg length is 6s
 
   end
-
-
-
-  
 
   if modules.game_bot.g_app.getOs() == "windows" and config.flashClient.enabled then
 
@@ -12621,8 +11200,6 @@ local function alarm(file, windowText)
 
 end
 
-
-
 -- damage taken & custom message
 
 onTextMessage(function(mode, text)
@@ -12635,8 +11212,6 @@ onTextMessage(function(mode, text)
 
   end
 
-
-
   if config.customMessage.enabled then
 
     local alertText = config.customMessage.value
@@ -12647,8 +11222,6 @@ onTextMessage(function(mode, text)
 
       local parts = string.split(alertText, ",")
 
-
-
       for i=1,#parts do
 
         local part = parts[i]
@@ -12656,8 +11229,6 @@ onTextMessage(function(mode, text)
         part = part:trim()
 
         part = part:lower()
-
-
 
         if text:find(part) then
 
@@ -12673,8 +11244,6 @@ onTextMessage(function(mode, text)
 
 end)
 
-
-
 -- default & private message
 
 onTalk(function(name, level, mode, text, channelId, pos)
@@ -12685,15 +11254,11 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
   if config.ignoreFriends.enabled and isFriend(name) then return end -- ignore friends if enabled
 
-
-
   if mode == 1 and config.defaultMsg.enabled then
 
     return alarm("/sounds/magnum.ogg", "Default Message!")
 
   end
-
-
 
   if mode == 4 and config.privateMsg.enabled then
 
@@ -12702,8 +11267,6 @@ onTalk(function(name, level, mode, text, channelId, pos)
   end
 
 end)
-
-
 
 -- health & mana
 
@@ -12721,8 +11284,6 @@ macro(100, function()
 
   end
 
-
-
   if config.lowMana.enabled then
 
     if hppercent() < config.lowMana.value then
@@ -12733,21 +11294,15 @@ macro(100, function()
 
   end
 
-
-
   for i, spec in ipairs(getSpectators()) do
 
     if not spec:isLocalPlayer() and not (config.ignoreFriends.enabled and isFriend(spec)) then
-
-
 
       if config.creatureDetected.enabled then
 
         return alarm("/sounds/magnum.ogg", "Creature Detected!")
 
       end
-
-
 
       if spec:isPlayer() then 
 
@@ -12765,21 +11320,15 @@ macro(100, function()
 
       end
 
-
-
       if config.creatureName.enabled then
 
         local name = spec:getName():lower()
 
         local fragments = string.split(config.creatureName.value, ",")
 
-        
-
         for i=1,#fragments do
 
           local frag = fragments[i]:trim():lower()
-
-
 
           if name:lower():find(frag) then
 
@@ -12800,12 +11349,7 @@ end)
 ```
 
 ---
-
-
-
 # alarms.otui
-
-
 
 ```otui
 
@@ -12814,8 +11358,6 @@ AlarmCheckBox < Panel
   height: 20
 
   margin-top: 2
-
-
 
   CheckBox
 
@@ -12831,15 +11373,11 @@ AlarmCheckBox < Panel
 
     text-offset: 17 -3
 
-
-
 AlarmCheckBoxAndSpinBox < Panel
 
   height: 20
 
   margin-top: 2
-
-
 
   CheckBox
 
@@ -12856,8 +11394,6 @@ AlarmCheckBoxAndSpinBox < Panel
     text: Player Attack
 
     text-offset: 17 -3
-
-
 
   SpinBox
 
@@ -12885,15 +11421,11 @@ AlarmCheckBoxAndSpinBox < Panel
 
     focusable: true
 
-
-
 AlarmCheckBoxAndTextEdit < Panel
 
   height: 20
 
   margin-top: 2
-
-
 
   CheckBox
 
@@ -12910,8 +11442,6 @@ AlarmCheckBoxAndTextEdit < Panel
     text: Creature Name
 
     text-offset: 17 -3
-
-
 
   BotTextEdit
 
@@ -12931,8 +11461,6 @@ AlarmCheckBoxAndTextEdit < Panel
 
     margin-bottom: 1
 
-
-
 AlarmsWindow < MainWindow
 
   !text: tr('Alarms')
@@ -12942,8 +11470,6 @@ AlarmsWindow < MainWindow
   padding: 15
 
   @onEscape: self:hide()
-
-
 
   FlatPanel
 
@@ -12962,8 +11488,6 @@ AlarmsWindow < MainWindow
     padding: 10
 
     padding-top: 5
-
-
 
   FlatPanel
 
@@ -12989,8 +11513,6 @@ AlarmsWindow < MainWindow
 
       fit-children: true
 
-
-
   Label
 
     anchors.verticalCenter: settingsList.top
@@ -13006,8 +11528,6 @@ AlarmsWindow < MainWindow
     font: verdana-11px-rounded
 
     color: #9f5031
-
-
 
   Label
 
@@ -13025,8 +11545,6 @@ AlarmsWindow < MainWindow
 
     color: #9f5031
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -13038,8 +11556,6 @@ AlarmsWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8
-
-
 
   ResizeBorder
 
@@ -13058,8 +11574,6 @@ AlarmsWindow < MainWindow
     margin-right: 3
 
     background: #ffffff88  
-
-
 
   Button
 
@@ -13082,12 +11596,7 @@ AlarmsWindow < MainWindow
 ```
 
 ---
-
-
-
 # analyzer.lua
-
-
 
 ```lua
 
@@ -13097,25 +11606,15 @@ AlarmsWindow < MainWindow
 
   made by Vithrax
 
-
-
   Credits also to:
-
-  
 
   - Lee#7725
 
-
-
   Thanks for ideas, graphics, functions, design tips!
-
-  
 
   br, Vithrax
 
 ]]
-
-
 
 -- here you can fix incorrect bosses names in cooldown messages
 
@@ -13130,8 +11629,6 @@ local BOSSES = {
   {"Urmahlulu", "Urmahlullu"}
 
 }
-
-
 
 vBot.CaveBotData = vBot.CaveBotData or {
 
@@ -13207,8 +11704,6 @@ local membersData = {}
 
 HuntingSessionStart = os.date('%Y-%m-%d, %H:%M:%S')
 
-
-
 if not storage.analyzers then
 
   storage.analyzers = {
@@ -13225,11 +11720,9 @@ if not storage.analyzers then
 
     rarityFrames = true,
 
-  }
+}
 
 end
-
-
 
 storage.analyzers = storage.analyzers or {}
 
@@ -13240,8 +11733,6 @@ storage.analyzers.trackedBoss = storage.analyzers.trackedBoss or {}
 storage.analyzers.outfits = storage.analyzers.outfits or {}
 
 local trackedLoot = storage.analyzers.trackedLoot
-
-
 
 --destroy old windows
 
@@ -13265,15 +11756,11 @@ local windowsTable = {"MainAnalyzerWindow",
 
                       "BossTracker"
 
-                     }
-
-
+}
 
                       for i, window in ipairs(windowsTable) do
 
   local element = g_ui.getRootWidget():recursiveGetChildById(window)
-
-
 
   if element then
 
@@ -13282,8 +11769,6 @@ local windowsTable = {"MainAnalyzerWindow",
   end
 
 end
-
-
 
 local mainWindow = UI.createMiniWindow("MainAnalyzerWindow")
 
@@ -13335,8 +11820,6 @@ local bossWindow = UI.createMiniWindow("BossTracker")
 
 bossWindow:hide()
 
-
-
 --f
 
 local toggle = function()
@@ -13357,15 +11840,11 @@ local toggle = function()
 
 end
 
-
-
 local drawGraph = function(graph, value)
 
     graph:addValue(value)
 
 end
-
-
 
 local toggleAnalyzer = function(window)
 
@@ -13381,15 +11860,11 @@ local toggleAnalyzer = function(window)
 
 end
 
-
-
 local function getSumStats()
 
   local totalWaste = 0
 
   local totalLoot = 0
-
-
 
   for k,v in pairs(membersData) do
 
@@ -13399,27 +11874,17 @@ local function getSumStats()
 
   end
 
-
-
   local totalBalance = totalLoot - totalWaste
-
-
 
   return totalWaste, totalLoot, totalBalance
 
 end
-
-
 
 local function clipboardData()
 
   local totalWaste, totalLoot, totalBalance = getSumStats()
 
   local final = ""
-
-
-
-
 
   local first = "Session data: From " .. HuntingSessionStart .." to ".. os.date('%Y-%m-%d, %H:%M:%S')
 
@@ -13433,8 +11898,6 @@ local function clipboardData()
 
   local six = "Balance " .. format_thousand(totalBalance, true)
 
-
-
   local t = {first, second, third, fourth, fifth, six}
 
   for i, string in ipairs(t) do
@@ -13443,15 +11906,11 @@ local function clipboardData()
 
   end
 
-
-
   --user data now
 
   for k,v in pairs(membersData) do
 
     final = final.. "\n".. k
-
-
 
     final = final.. "\n\tLoot "..v.loot
 
@@ -13465,13 +11924,9 @@ local function clipboardData()
 
   end
 
-
-
   g_window.setClipboardText(final)
 
 end
-
-
 
 -- create analyzers button
 
@@ -13485,15 +11940,11 @@ if analyzerButton then
 
 end
 
-
-
 --button
 
 analyzerButton = modules.client_topmenu.addRightGameToggleButton('botAnalyzersButton', 'vBot Analyzers', '/images/topbuttons/analyzers', toggle, false, 999999)
 
 analyzerButton:setOn(false)
-
-
 
 --toggles window
 
@@ -13557,8 +12008,6 @@ mainWindow.contentsPanel.BossTracker.onClick = function()
 
 end
 
-
-
 -- boss tracker
 
 bossWindow.contentsPanel.search.onTextChange = function(widget, newText)
@@ -13579,8 +12028,6 @@ bossWindow.contentsPanel.search.onTextChange = function(widget, newText)
 
 end
 
-
-
 -- on login
 
 newTimeFormat = function(v) -- v in seconds
@@ -13589,23 +12036,17 @@ newTimeFormat = function(v) -- v in seconds
 
   local mins = string.format("%02.f", math.floor(v/60 - (hours*60)))
 
-
-
   local final = hours.. "h "..mins.."min"
 
   return final
 
 end
 
-
-
 function createBossPanel(bossName, dueTime)
 
   local widget = bossWindow.contentsPanel[bossName] or UI.createWidget("BossCreaturePanel", bossWindow.contentsPanel)
 
   local outfit = storage.analyzers.outfits[bossName]
-
-
 
   widget.time = dueTime
 
@@ -13622,8 +12063,6 @@ function createBossPanel(bossName, dueTime)
   end
 
   widget.name:setText(bossName)
-
-
 
   local timeLeft = os.difftime(dueTime, os.time())
 
@@ -13643,15 +12082,11 @@ function createBossPanel(bossName, dueTime)
 
 end
 
-
-
 for bossName, dueTime in pairs(storage.analyzers.trackedBoss) do
 
   createBossPanel(bossName, dueTime)
 
 end
-
-
 
 local bossRegex = [[You (?:can|may) challenge ([\w\W]*) again in ([\d]*)]]
 
@@ -13665,15 +12100,11 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
     local cd = re and re[1] and re[1][3]
 
-
-
     for i=1,#BOSSES do
 
       local bad = BOSSES[i][1]
 
       local good = BOSSES[i][2]
-
-
 
       if name == bad then
 
@@ -13683,15 +12114,9 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
     end
 
-
-
     if not cd then return end
 
-
-
     cd = tonumber(cd) * 60 * 60 -- cd in seconds
-
-
 
     storage.analyzers.trackedBoss[name] = os.time() + cd
 
@@ -13701,8 +12126,6 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
 end)
 
-
-
 -- save outfits
 
 onAttackingCreatureChange(function(newCreature, oldCreature)
@@ -13711,8 +12134,6 @@ onAttackingCreatureChange(function(newCreature, oldCreature)
 
   local outfit = newCreature and newCreature:getOutfit()
 
-
-
   if name then
 
     storage.analyzers.outfits[name] = storage.analyzers.outfits[name] or outfit
@@ -13720,8 +12141,6 @@ onAttackingCreatureChange(function(newCreature, oldCreature)
   end
 
 end)
-
-
 
 --stats window
 
@@ -13755,10 +12174,6 @@ local suppliesByRefill = UI.createWidget("AnalyzerItemsPanel", statsWindow.conte
 
 UI.Separator(statsWindow.contentsPanel)
 
-
-
-
-
 --huntig
 
 local sessionTimeLabel = UI.DualLabel("Session:", "00:00h", {}, huntingWindow.contentsPanel).right
@@ -13789,10 +12204,6 @@ UI.DualLabel("Looted items:", "", {maxWidth = 200}, huntingWindow.contentsPanel)
 
 local lootList = UI.createWidget("AnalyzerListPanel", huntingWindow.contentsPanel)
 
-
-
-
-
 --party
 
 UI.Button("Copy to Clipboard", function() clipboardData() end, partyHuntWindow.contentsPanel)
@@ -13806,8 +12217,6 @@ UI.Button("Reset Sessions", function()
   end
 
 end, partyHuntWindow.contentsPanel)
-
-
 
 local switch = addSwitch("sendData", "Send Analyzer Data", function(widget)
 
@@ -13831,13 +12240,9 @@ local partyBalanceLabel = UI.DualLabel("Balance:", "0", {}, partyHuntWindow.cont
 
 UI.Separator(partyHuntWindow.contentsPanel)
 
-
-
 local function maintainDropTable()
 
   local panel = dropTrackerWindow.contentsPanel
-
-
 
   for k,v in pairs(trackedLoot) do
 
@@ -13853,13 +12258,9 @@ local function maintainDropTable()
 
 end
 
-
-
 local function createTrackedItems()
 
   local panel = dropTrackerWindow.contentsPanel
-
-
 
   for i, child in ipairs(panel:getChildren()) do
 
@@ -13870,8 +12271,6 @@ local function createTrackedItems()
     end
 
   end
-
-
 
   for k,v in pairs(trackedLoot) do
 
@@ -13887,8 +12286,6 @@ local function createTrackedItems()
 
     local itemName = id == 3031 and "gold coin" or id == 3035 and "platinum coin" or id == 3043 and "crystal coin" or Item.create(id):getMarketData().name
 
-
-
     dropLoot:setId(id)
 
     item:setItemId(id)
@@ -13903,8 +12300,6 @@ local function createTrackedItems()
 
     drops:setText("Loot Drops: "..v)
 
-
-
     dropLoot.onDoubleClick = function()
 
       local id = dropLoot.item:getItemId()
@@ -13915,15 +12310,11 @@ local function createTrackedItems()
 
     end
 
-  
-
     for i, child in pairs(dropLoot:getChildren()) do
 
       child:setTooltip("Double click to reset or clear item to remove.")
 
     end
-
-
 
     item.onItemChange = function(widget)
 
@@ -13953,15 +12344,11 @@ local function createTrackedItems()
 
       end
 
-
-
     -- only amount have changed, ignore
 
       if tonumber(widget:getParent():getId()) == id then return end
 
       local itemName = id == 3031 and "gold coin" or id == 3035 and "platinum coin" or id == 3043 and "crystal coin" or Item.create(id):getMarketData().name
-
-
 
       if trackedLoot[tostring(id)] then
 
@@ -13974,8 +12361,6 @@ local function createTrackedItems()
         return 
 
       end
-
-  
 
       widget:setImageSource('')
 
@@ -13995,8 +12380,6 @@ local function createTrackedItems()
 
 end
 
-
-
 --drop tracker
 
 UI.Button("Add item to track drops", function()
@@ -14009,11 +12392,7 @@ UI.Button("Add item to track drops", function()
 
   local drops = dropLoot.drops
 
-
-
   item:setImageSource('/images/ui/item')
-
-
 
   dropLoot.onDoubleClick = function()
 
@@ -14025,21 +12404,15 @@ UI.Button("Add item to track drops", function()
 
   end
 
-
-
   for i, child in pairs(dropLoot:getChildren()) do
 
     child:setTooltip("Double click to reset or clear item to remove.")
 
   end
 
-
-
   item.onItemChange = function(widget)
 
     local id = widget:getItemId()
-
-
 
     if id == 0 then 
 
@@ -14065,15 +12438,11 @@ UI.Button("Add item to track drops", function()
 
     end
 
-
-
     -- only amount have changed, ignore
 
     if tonumber(widget:getParent():getId()) == id then return end
 
     local itemName = id == 3031 and "gold coin" or id == 3035 and "platinum coin" or id == 3043 and "crystal coin" or Item.create(id):getMarketData().name
-
-
 
     if trackedLoot[tostring(id)] then
 
@@ -14086,8 +12455,6 @@ UI.Button("Add item to track drops", function()
       return 
 
     end
-
-
 
     widget:setImageSource('')
 
@@ -14105,15 +12472,9 @@ UI.Button("Add item to track drops", function()
 
 end, dropTrackerWindow.contentsPanel)
 
-
-
 UI.Separator(dropTrackerWindow.contentsPanel)
 
 createTrackedItems()
-
-
-
-
 
 --loot
 
@@ -14137,14 +12498,6 @@ local lootGraph = UI.createWidget("AnalyzerGraph", lootWindow.contentsPanel)
 
       drawGraph(lootGraph, 0)
 
-
-
-
-
-
-
-
-
 --supplies
 
 local suppliesInSuppliesAnalyzerLabel = UI.DualLabel("Gold Value:", "0", {}, supplyWindow.contentsPanel).right
@@ -14167,17 +12520,7 @@ local supplyGraph = UI.createWidget("AnalyzerGraph", supplyWindow.contentsPanel)
 
       drawGraph(supplyGraph, 0)      
 
-
-
-
-
-
-
-
-
 -- impact
-
-
 
 --- damage
 
@@ -14199,10 +12542,6 @@ local dmgGraph = UI.createWidget("AnalyzerGraph", impactWindow.contentsPanel)
 
       drawGraph(dmgGraph, 0)
 
-      
-
-      
-
 --- distribution 
 
 UI.Separator(impactWindow.contentsPanel)
@@ -14221,8 +12560,6 @@ local top4 = UI.DualLabel("-", "0", {maxWidth = 200}, impactWindow.contentsPanel
 
 local top5 = UI.DualLabel("-", "0", {maxWidth = 200}, impactWindow.contentsPanel)
 
-
-
 top1.left:setWidth(135)
 
 top2.left:setWidth(135)
@@ -14232,10 +12569,6 @@ top3.left:setWidth(135)
 top4.left:setWidth(135)
 
 top5.left:setWidth(135)
-
-
-
-
 
 --- healing
 
@@ -14261,20 +12594,6 @@ local healGraph = UI.createWidget("AnalyzerGraph", impactWindow.contentsPanel)
 
       drawGraph(healGraph, 0)  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 --xp
 
 local xpGrainInXpLabel = UI.DualLabel("XP Gain:", "0", {}, xpWindow.contentsPanel).right
@@ -14297,16 +12616,6 @@ local xpGraph = UI.createWidget("AnalyzerGraph", xpWindow.contentsPanel)
 
       drawGraph(xpGraph, 0)
 
-      
-
-
-
-
-
-
-
-
-
 --#############################################
 
 --#############################################   UI DONE
@@ -14319,13 +12628,9 @@ local xpGraph = UI.createWidget("AnalyzerGraph", xpWindow.contentsPanel)
 
 --#############################################
 
-
-
 setDefaultTab("Main")
 
 -- first, the variables
-
-
 
 local console = modules.game_console
 
@@ -14334,8 +12639,6 @@ local regex = [[ ([^,|^.]+)]]
 local noData = {}
 
 local data = {}
-
-
 
 local function getColor(v)
 
@@ -14375,8 +12678,6 @@ local function getColor(v)
 
 end
 
-
-
 local function formatStr(str)
 
     if string.starts(str, "a ") then
@@ -14389,8 +12690,6 @@ local function formatStr(str)
 
     end
 
-
-
     local n = getFirstNumberInText(str)
 
     if n then
@@ -14401,13 +12700,9 @@ local function formatStr(str)
 
     end
 
-
-
     return str:trim()
 
 end
-
-
 
 local function getPrice(name)
 
@@ -14423,8 +12718,6 @@ local function getPrice(name)
 
     end
 
-
-
     -- if already checked and no data skip looping items.lua
 
     if noData[name] then
@@ -14433,8 +12726,6 @@ local function getPrice(name)
 
     end
 
-
-
     -- maybe was already checked, if so, skip looping items.lua
 
     if data[name] then
@@ -14442,8 +12733,6 @@ local function getPrice(name)
         return data[name]
 
     end
-
-
 
     -- searching in items.lua - big table, if possible skip
 
@@ -14459,8 +12748,6 @@ local function getPrice(name)
 
     end
 
-
-
     -- if no data, save it and return 0
 
     noData[name] = true
@@ -14469,15 +12756,11 @@ local function getPrice(name)
 
 end
 
-
-
 local expGained = function()
 
   return exp() - startExp
 
 end
-
-
 
 function format_thousand(v, comma)
 
@@ -14497,8 +12780,6 @@ function format_thousand(v, comma)
 
 end
 
-
-
 local expLeft = function()
 
   local level = lvl()+1
@@ -14507,8 +12788,6 @@ local expLeft = function()
 
 end
 
-
-
 niceTimeFormat = function(v, seconds) -- v in seconds
 
   local hours = string.format("%02.f", math.floor(v/3600))
@@ -14516,8 +12795,6 @@ niceTimeFormat = function(v, seconds) -- v in seconds
   local mins = string.format("%02.f", math.floor(v/60 - (hours*60)))
 
   local secs = string.format("%02.f", math.floor(math.fmod(v, 60)))
-
-
 
   local final = string.format('%s:%s%s',hours,mins,seconds and ":"..secs or "")
 
@@ -14537,8 +12814,6 @@ end
 
 sessionTime()
 
-
-
 local expPerHour = function(calculation)
 
   local r = 0
@@ -14552,8 +12827,6 @@ local expPerHour = function(calculation)
       return "-"
 
   end
-
-
 
   if uptime < 15*60 then
 
@@ -14577,8 +12850,6 @@ local expPerHour = function(calculation)
 
 end
 
-
-
 local function add(t, text, color, last)
 
     table.insert(t, text)
@@ -14594,8 +12865,6 @@ local function add(t, text, color, last)
     end
 
 end
-
-
 
 -- Bot Server
 
@@ -14639,9 +12908,7 @@ local function sendData()
 
       sessionTime()
 
-    }
-
-
+}
 
     -- validation
 
@@ -14658,8 +12925,6 @@ local function sendData()
   end
 
 end
-
-
 
 -- process data
 
@@ -14707,9 +12972,7 @@ if BotServer._websocket then
 
         session = message[14]
 
-      }
-
-
+}
 
       local widgetName = "Widget"..name
 
@@ -14718,10 +12981,6 @@ if BotServer._websocket then
       widget:setId(widgetName)
 
       widget.lastUpdate = now
-
-
-
-
 
       local t = membersData[name]
 
@@ -14789,8 +13048,6 @@ if BotServer._websocket then
 
       widget.healing.value:setText(format_thousand(t.heal))
 
-
-
       widget.onDoubleClick = function()
 
         membersData[name] = nil
@@ -14798,8 +13055,6 @@ if BotServer._websocket then
         widget:destroy()
 
       end
-
-
 
       --tooltip
 
@@ -14813,8 +13068,6 @@ if BotServer._websocket then
 
                       "Balance: "..t.balanceH
 
-
-
       widget.creature:setTooltip(tooltip)
 
     end
@@ -14822,10 +13075,6 @@ if BotServer._websocket then
   end)
 
 end
-
-
-
-
 
 function hightlightText(widget, color, duration)
 
@@ -14849,8 +13098,6 @@ function hightlightText(widget, color, duration)
 
 end
 
-
-
 local nameRegex = [[Loot of (?:an |a |the |)([^:]+)]]
 
 onTextMessage(function(mode, text)
@@ -14860,8 +13107,6 @@ onTextMessage(function(mode, text)
     if not text:find("Loot of") and not text:find("The following items are available in your reward chest") then return end
 
     local name
-
-
 
     -- adding monster to killed list
 
@@ -14899,15 +13144,11 @@ onTextMessage(function(mode, text)
 
     local messageT = {}
 
-
-
     -- add timestamp, creature part and color it as white
 
     add(t, os.date('%H:%M') .. ' ' .. split[1]..": ", "#FFFFFF", true)
 
     add(messageT, split[1]..": ", "#FFFFFF", true)    
-
-
 
     -- main part
 
@@ -14929,17 +13170,11 @@ onTextMessage(function(mode, text)
 
             local messageColor = getColor(getPrice(formattedLoot))
 
-
-
             combinedWorth = combinedWorth + price -- add all prices to calculate total worth
-
-
 
             add(t, data, color, i==#re)
 
             add(messageT, data, color, i==#re)
-
-
 
             --drop tracker
 
@@ -14949,17 +13184,11 @@ onTextMessage(function(mode, text)
 
               childName = childName and childName:getText()
 
-
-
-
-
               if childName and formattedLoot:find(childName) then
 
                 trackedLoot[tostring(child.item:getItemId())] = trackedLoot[tostring(child.item:getItemId())] + (amount or 1)
 
                 child.drops:setText("Loot Drops: "..trackedLoot[tostring(child.item:getItemId())])
-
-
 
                 hightlightText(child.name,"#f0b400", 8)
 
@@ -14973,7 +13202,7 @@ onTextMessage(function(mode, text)
 
                   " dropped by "..name.."!", "#f0b400"
 
-                })
+})
 
                 schedule(3000, function()
 
@@ -14988,8 +13217,6 @@ onTextMessage(function(mode, text)
         end
 
     end
-
-
 
     -- format total worth so it wont look obnoxious
 
@@ -15011,8 +13238,6 @@ onTextMessage(function(mode, text)
 
     end
 
-
-
     if modules.game_textmessage.messagesPanel.centerTextMessagePanel.highCenterLabel:getText() == text then
 
       modules.game_textmessage.messagesPanel.centerTextMessagePanel.highCenterLabel:setColoredText(messageT)
@@ -15025,8 +13250,6 @@ onTextMessage(function(mode, text)
 
     end
 
-
-
     -- add total worth to string
 
     add(t, " - (", "#FFFFFF", true)
@@ -15035,8 +13258,6 @@ onTextMessage(function(mode, text)
 
     add(t, ")", "#FFFFFF", true)
 
-
-
     -- get/create tab and write raw message
 
     local tabName = "vBot Loot"
@@ -15044,8 +13265,6 @@ onTextMessage(function(mode, text)
     local tab = console.getTab(tabName) or console.addTab(tabName, true)
 
     console.addText(text, console.SpeakTypesSettings, tabName, "")
-
-
 
     -- find last message in given tab and rewrite it with formatted string
 
@@ -15058,8 +13277,6 @@ onTextMessage(function(mode, text)
     message:setColoredText(t)
 
 end)
-
-
 
 local function niceFormat(v)
 
@@ -15101,8 +13318,6 @@ local function niceFormat(v)
 
 end
 
-
-
 resetAnalyzerSessionData = function()
 
     vBot.CaveBotData = vBot.CaveBotData or {
@@ -15117,7 +13332,7 @@ resetAnalyzerSessionData = function()
 
       refillTime = {}
 
-    }
+}
 
     launchTime = now
 
@@ -15183,15 +13398,11 @@ resetAnalyzerSessionData = function()
 
 end
 
-
-
 mainWindow.contentsPanel.ResetSession.onClick = function()
 
   resetAnalyzerSessionData()
 
 end
-
-
 
 mainWindow.contentsPanel.Settings.onClick = function()
 
@@ -15203,10 +13414,6 @@ mainWindow.contentsPanel.Settings.onClick = function()
 
 end
 
-  
-
-
-
 -- extras window
 
 settingsWindow.closeButton.onClick = function()
@@ -15214,8 +13421,6 @@ settingsWindow.closeButton.onClick = function()
   settingsWindow:hide()
 
 end
-
-
 
 local function getFrame(v)
 
@@ -15243,10 +13448,6 @@ local function getFrame(v)
 
 end
 
-
-
-
-
 displayCondition = function(menuPosition, lookThing, useThing, creatureThing)
 
   if lookThing and not lookThing:isCreature() and not lookThing:isNotMoveable() and lookThing:isPickupable() then
@@ -15258,8 +13459,6 @@ displayCondition = function(menuPosition, lookThing, useThing, creatureThing)
 end
 
 local interface = modules.game_interface
-
-
 
 local function setFrames()
 
@@ -15275,8 +13474,6 @@ local function setFrames()
 
           local price = 0
 
-
-
           if id ~= 0 then -- there's item
 
               local item = Item.create(id)
@@ -15284,8 +13481,6 @@ local function setFrames()
               local name = item:getMarketData().name:lower()
 
               price = getPrice(name)
-
-
 
               -- set rarity frame
 
@@ -15319,15 +13514,11 @@ end
 
 setFrames()
 
-
-
 onContainerOpen(function(container, previousContainer)
 
   setFrames()
 
 end)
-
-
 
 onAddItem(function(container, slot, item, oldItem)
 
@@ -15335,23 +13526,17 @@ onAddItem(function(container, slot, item, oldItem)
 
 end)
 
-
-
 onRemoveItem(function(container, slot, item)
 
   setFrames()
 
 end)
 
-
-
 onContainerUpdateItem(function(container, slot, item, oldItem)
 
   setFrames()
 
 end)
-
-
 
 function smallNumbers(n)
 
@@ -15371,15 +13556,11 @@ function smallNumbers(n)
 
 end
 
-
-
 function refreshList()
 
   local list = settingsWindow.CustomPrices
 
   list:destroyChildren()
-
-
 
   for name, price in pairs(storage.analyzers.customPrices) do
 
@@ -15407,8 +13588,6 @@ end
 
 refreshList()
 
-
-
 settingsWindow.addItem.onClick = function()
 
   local newPrices = storage.analyzers.customPrices
@@ -15417,27 +13596,19 @@ settingsWindow.addItem.onClick = function()
 
   local newPrice = tonumber(settingsWindow.NewPrice:getText())
 
-
-
   if id < 100 then
 
     return warn("No item added!")
 
   end
 
-
-
   local name = Item.create(id):getMarketData().name
-
-
 
   if newPrices[name] then
 
     return warn("Item already added! Remove it from the list to set a new price!")
 
   end
-
-
 
   newPrices[name] = newPrice
 
@@ -15455,8 +13626,6 @@ settingsWindow.addItem.onClick = function()
 
 end
 
-
-
 settingsWindow.LootChannel:setOn(storage.analyzers.lootChannel)
 
 settingsWindow.LootChannel.onClick = function(widget)
@@ -15466,8 +13635,6 @@ settingsWindow.LootChannel.onClick = function(widget)
   widget:setOn(storage.analyzers.lootChannel)
 
 end
-
-
 
 settingsWindow.RarityFrames:setOn(storage.analyzers.rarityFrames)
 
@@ -15480,8 +13647,6 @@ settingsWindow.RarityFrames.onClick = function(widget)
   setFrames()
 
 end
-
-
 
 local timeToLevel = function()
 
@@ -15501,8 +13666,6 @@ local timeToLevel = function()
 
 end
 
-
-
 local sumT = function(t)
 
     local s = 0
@@ -15516,8 +13679,6 @@ local sumT = function(t)
     return s
 
 end
-
-
 
 local valueInSeconds = function(t)
 
@@ -15553,8 +13714,6 @@ local valueInSeconds = function(t)
 
 end
 
-
-
 local regex = "You lose ([0-9]*) hitpoints due to an attack by ([a-z]*) ([a-z A-z-]*)" 
 
 onTextMessage(function(mode, text)
@@ -15589,8 +13748,6 @@ onTextMessage(function(mode, text)
 
     end
 
-
-
     -- damage distribution part
 
     if text:find("You lose") then
@@ -15611,15 +13768,11 @@ onTextMessage(function(mode, text)
 
 end)
 
-
-
 function capitalFistLetter(str)
 
   return (string.gsub(str, "^%l", string.upper))
 
 end
-
-
 
 -- tables maintance
 
@@ -15647,8 +13800,6 @@ macro(500, function()
 
     end
 
-
-
     for i,v in pairs(dmgDistribution) do
 
       if now - v.t > 60*1000*10 then
@@ -15673,8 +13824,6 @@ macro(500, function()
 
     end
 
-
-
     first = dmgFinal[1] or {l="-", r="0"}
 
     second = dmgFinal[2] or {l="-", r="0"}
@@ -15685,19 +13834,13 @@ macro(500, function()
 
     five = dmgFinal[5] or {l="-", r="0"}
 
-
-
     for k,v in pairs(dmgFinal) do
 
       table.insert(labelTable, {m=k, d=tonumber(v)})
 
     end
 
-
-
     table.sort(labelTable, function(a,b) return a.d > b.d end)
-
-
 
     for i,v in pairs(labelTable) do
 
@@ -15747,11 +13890,7 @@ macro(500, function()
 
 end)
 
-
-
 function getPanelHeight(panel)
-
-
 
   local elements = panel.List:getChildCount()
 
@@ -15771,25 +13910,17 @@ function getPanelHeight(panel)
 
 end
 
-
-
 function refreshLoot()
-
-
 
     lootItems:destroyChildren()
 
     lootList:destroyChildren()
-
-
 
     for k,v in pairs(lootedItems) do
 
       local label1 = UI.createWidget("AnalyzerLootItem", lootItems)
 
       local price = v.count and getPrice(v.name) * v.count or getPrice(v.name)
-
-
 
       label1:setItemId(k)
 
@@ -15813,8 +13944,6 @@ function refreshLoot()
 
     end
 
-
-
     if lootItems:getChildCount() == 0 then
 
       local label = UI.createWidget("ListLabel", lootList)
@@ -15826,8 +13955,6 @@ function refreshLoot()
 end
 
 refreshLoot()
-
-
 
 function refreshKills()
 
@@ -15845,8 +13972,6 @@ function refreshKills()
 
     end
 
-
-
     if kills == 0 then
 
       local label = UI.createWidget("ListLabel", killedList)
@@ -15859,11 +13984,7 @@ end
 
 refreshKills()
 
-
-
 function refreshWaste()
-
-
 
     supplyItems:destroyChildren()
 
@@ -15871,11 +13992,7 @@ function refreshWaste()
 
     suppliesByRound:destroyChildren()
 
-
-
     local parents = {supplyItems, suppliesByRound, suppliesByRefill}    
-
-
 
     for k,v in pairs(usedItems) do
 
@@ -15892,8 +14009,6 @@ function refreshWaste()
         local label1 = UI.createWidget("AnalyzerLootItem", parents[i])
 
         local price = amount and getPrice(v.name) * amount or getPrice(v.name)
-
-
 
         label1:setItemId(k)
 
@@ -15914,8 +14029,6 @@ function refreshWaste()
     end
 
 end
-
-
 
 -- loot analyzer
 
@@ -15953,13 +14066,9 @@ onAddItem(function(container, slot, item, oldItem)
 
   refreshLoot()
 
-
-
   -- drop tracker
 
 end)
-
-
 
 onContainerUpdateItem(function(container, slot, item, oldItem)
 
@@ -15970,8 +14079,6 @@ onContainerUpdateItem(function(container, slot, item, oldItem)
   if isInPz() then return end 
 
   if freecap() == lastCap then return end
-
-  
 
   local tmpname = item:getId() == 3031 and "gold coin" or item:getId() == 3035 and "platinum coin" or item:getId() == 3043 and "crystal coin" or item:getMarketData().name
 
@@ -16001,8 +14108,6 @@ onContainerUpdateItem(function(container, slot, item, oldItem)
 
 end)
 
-
-
 -- ammo
 
 local ammo = {16143, 763, 761, 7365, 3448, 762, 21470, 7364, 14251, 3447, 3449, 15793, 25757, 774, 35901, 6528, 7363, 3450, 16141, 25758, 14252, 3446, 16142, 35902}
@@ -16018,8 +14123,6 @@ onContainerUpdateItem(function(container, slot, item, oldItem)
   local oldCount = oldItem:getCount()
 
   local name = item:getMarketData().name
-
-
 
   if oldCount - newCount == 1 then
 
@@ -16039,8 +14142,6 @@ onContainerUpdateItem(function(container, slot, item, oldItem)
 
 end)
 
-
-
 -- waste
 
 local regex3 = [[\d ([a-z A-Z]*)s...]]
@@ -16053,8 +14154,6 @@ onTextMessage(function(mode, text)
 
   if not text:find("using one of") then return end
 
-
-
   local amount = getFirstNumberInText(text)
 
   local re = regexMatch(text, regex3)
@@ -16063,11 +14162,7 @@ onTextMessage(function(mode, text)
 
   local id = WasteItems[name]
 
-
-
   if not id then
-
-
 
     if not lackOfData[name] then
 
@@ -16077,13 +14172,9 @@ onTextMessage(function(mode, text)
 
     end
 
-
-
     return
 
   end
-
-
 
   if not useData[name] then
 
@@ -16117,8 +14208,6 @@ onTextMessage(function(mode, text)
 
 end)
 
-
-
 function hourVal(v)
 
   v = v or 0
@@ -16126,8 +14215,6 @@ function hourVal(v)
   return (v/uptime)*3600
 
 end
-
-
 
 function bottingStats()
 
@@ -16157,13 +14244,9 @@ function bottingStats()
 
   balance = lootWorth - wasteWorth
 
-
-
   return lootWorth, wasteWorth, balance
 
 end
-
-
 
 function bottingLabels(lootWorth, wasteWorth, balance)
 
@@ -16172,8 +14255,6 @@ function bottingLabels(lootWorth, wasteWorth, balance)
   hourDesc = nil
 
   desc = nil
-
-
 
   if balance >= 1000000 or balance <= -1000000 then
 
@@ -16192,8 +14273,6 @@ function bottingLabels(lootWorth, wasteWorth, balance)
     balanceDesc = balance .. "gp"
 
   end
-
-
 
   hour = hourVal(balance)
 
@@ -16215,13 +14294,9 @@ function bottingLabels(lootWorth, wasteWorth, balance)
 
   end
 
-
-
   return balanceDesc, hourDesc
 
 end
-
-
 
 function reportStats()
 
@@ -16229,11 +14304,7 @@ function reportStats()
 
   local balanceDesc, hourDesc = bottingLabels(lootWorth, wasteWorth, balance)
 
-
-
   local a, b, c
-
-
 
   a = "Session Time: " .. sessionTime() .. ", Exp Gained: " .. format_thousand(expGained()) .. ", Exp/h: " .. expPerHour()
 
@@ -16241,13 +14312,9 @@ function reportStats()
 
   c = a..b
 
-
-
   return c
 
 end
-
-
 
 function damageHour()
 
@@ -16263,8 +14330,6 @@ function damageHour()
 
 end
 
-
-
 function healHour()
 
   if uptime < 5*60 then
@@ -16278,8 +14343,6 @@ function healHour()
   end
 
 end
-
-
 
 function wasteHour()
 
@@ -16297,10 +14360,6 @@ function wasteHour()
 
 end
 
-
-
-
-
 function lootHour()
 
   local lootWorth, wasteWorth, balance = bottingStats()
@@ -16317,8 +14376,6 @@ function lootHour()
 
 end
 
-
-
 function getHuntingData()
 
   local lootWorth, wasteWorth, balance = bottingStats()
@@ -16327,23 +14384,17 @@ function getHuntingData()
 
 end
 
-
-
 function avgTable(t)
 
   if type(t) ~= 'table' then return 0 end
 
   local val = 0
 
-
-
   for i,v in pairs(t) do
 
     val = val + v
 
   end
-
-
 
   if #t == 0 then
 
@@ -16356,8 +14407,6 @@ function avgTable(t)
   end
 
 end
-
-
 
 --bestdps/hps
 
@@ -16373,21 +14422,15 @@ macro(500, function()
 
     local balanceDesc, hourDesc = bottingLabels(lootWorth, wasteWorth, balance)
 
-
-
     -- hps and dps
 
     local curHPS = valueInSeconds(healTable)
 
     local curDPS = valueInSeconds(dmgTable)
 
-
-
     bestHPS = bestHPS > curHPS and bestHPS or curHPS
 
     bestDPS = bestDPS > curDPS and bestDPS or curDPS
-
-
 
     --hunt window
 
@@ -16413,25 +14456,17 @@ macro(500, function()
 
     healingHourLabel:setText(format_thousand(healHour()))
 
-
-
     --loot window
 
     lootInLootAnalyzerLabel:setText(format_thousand(lootWorth))
 
     lootHourInLootAnalyzerLabel:setText(format_thousand(lootHour()))
 
-
-
-
-
     --supply window
 
     suppliesInSuppliesAnalyzerLabel:setText(format_thousand(wasteWorth))
 
     suppliesHourInSuppliesAnalyzerLabel:setText(format_thousand(wasteHour()))
-
-
 
     --impact window
 
@@ -16440,8 +14475,6 @@ macro(500, function()
     maxDpsLabel:setText(format_thousand(bestDPS))
 
     bestHitLabel:setText(storage.bestHit)
-
-
 
     top1.left:setText(first.l)
 
@@ -16463,15 +14496,11 @@ macro(500, function()
 
     top5.right:setText(five.r)
 
-
-
     totalHealingLabel:setText(format_thousand(totalHeal))
 
     maxHpsLabel:setText(format_thousand(bestHPS))
 
     bestHealLabel:setText(storage.bestHeal)
-
-
 
     --xp window
 
@@ -16482,10 +14511,6 @@ macro(500, function()
     nextLevelLabel:setText(timeToLevel())
 
     progressBar:setPercent(modules.game_skills.skillsWindow.contentsPanel.level.percent:getPercent())
-
-
-
-
 
     --stats
 
@@ -16499,17 +14524,11 @@ macro(500, function()
 
     lastRefill:setText(niceTimeFormat(os.difftime(os.time()-vBot.CaveBotData.lastRefill),true))
 
-
-
 end)
-
-
 
 --graphs, draw each minute
 
 macro(60*1000, function()
-
-
 
   drawGraph(xpGraph, expPerHour(true) or 0)
 
@@ -16523,15 +14542,11 @@ macro(60*1000, function()
 
 end)
 
-
-
 --party hunt analyzer
 
 macro(2000, function()
 
   if not BotServer._websocket then return end
-
-
 
   -- send data
 
@@ -16541,11 +14556,7 @@ macro(2000, function()
 
   end
 
-
-
   local totalWaste, totalLoot, totalBalance = getSumStats()
-
-
 
   partySessionTimeLabel:setText(sessionTime())
 
@@ -16554,8 +14565,6 @@ macro(2000, function()
   partySuppliesLabel:setText(format_thousand(totalWaste))
 
   partyBalanceLabel:setText(format_thousand(totalBalance))
-
-
 
   if totalBalance < 0 then
 
@@ -16571,8 +14580,6 @@ macro(2000, function()
 
   end
 
-
-
   for bossName, dueTime in pairs(storage.analyzers.trackedBoss) do
 
     createBossPanel(bossName, dueTime)
@@ -16581,23 +14588,17 @@ macro(2000, function()
 
 end)
 
-
-
 -- public functions
 
 -- global namespace
 
 Analyzer = {}
 
-
-
 Analyzer.getKillsAmount = function(name)
 
   return killList[name] or 0
 
 end
-
-
 
 Analyzer.getLootedAmount = function(nameOrId)
 
@@ -16625,43 +14626,29 @@ Analyzer.getLootedAmount = function(nameOrId)
 
 end
 
-
-
 Analyzer.getTotalProfit = function()
 
   local lootWorth, wasteWorth, balance = bottingStats()
-
-
 
   return lootWorth
 
 end
 
-
-
 Analyzer.getTotalWaste = function()
 
   local lootWorth, wasteWorth, balance = bottingStats()
-
-
 
   return wasteWorth
 
 end
 
-
-
 Analyzer.getBalance = function()
 
   local lootWorth, wasteWorth, balance = bottingStats()
 
-
-
   return balance
 
 end
-
-
 
 Analyzer.getXpGained = function()
 
@@ -16669,23 +14656,17 @@ Analyzer.getXpGained = function()
 
 end
 
-
-
 Analyzer.getXpHour = function()
 
   return expPerHour()
 
 end
 
-
-
 Analyzer.getTimeToNextLevel = function()
 
   return timeToLevel()
 
 end
-
-
 
 Analyzer.getCaveBotStats = function()
 
@@ -16705,8 +14686,6 @@ Analyzer.getCaveBotStats = function()
 
       local count = child.count
 
-
-
       if i == 1 then
 
         round[id] = count
@@ -16720,8 +14699,6 @@ Analyzer.getCaveBotStats = function()
     end
 
   end
-
-
 
   return {
 
@@ -16739,27 +14716,20 @@ Analyzer.getCaveBotStats = function()
 
     refillSupplies = refill -- { [id] = amount, [id2] = amount ...}
 
-  }
+}
 
 end
 
 ```
 
 ---
-
-
-
 # analyzer.otui
-
-
 
 ```otui
 
 BossCreaturePanel < Panel
 
   height: 38
-
-
 
   UICreature
 
@@ -16774,8 +14744,6 @@ BossCreaturePanel < Panel
     old-scaling: true
 
     margin-left: 3
-
-
 
   Label
 
@@ -16801,8 +14769,6 @@ BossCreaturePanel < Panel
 
     text: Duke Krule
 
-
-
   Label
 
     id: cooldown
@@ -16823,10 +14789,6 @@ BossCreaturePanel < Panel
 
     text: 19h 20min
 
-
-
-
-
 SearchPanel < TextEdit
 
   placeholder: Type to search
@@ -16834,8 +14796,6 @@ SearchPanel < TextEdit
   margin-top: 1
 
   @onClick: modules.client_textedit.show(self)
-
-
 
   Button
 
@@ -16855,13 +14815,9 @@ SearchPanel < TextEdit
 
       self:getParent():setText("")
 
-
-
 TrackerItem < Panel
 
   height: 40
-
-
 
   BotItem
 
@@ -16874,8 +14830,6 @@ TrackerItem < Panel
     anchors.left: parent.left
 
     image-source:
-
-
 
   UIWidget
 
@@ -16901,8 +14855,6 @@ TrackerItem < Panel
 
     color: #FFFFFF
 
-
-
   UIWidget
 
     id: drops
@@ -16925,10 +14877,6 @@ TrackerItem < Panel
 
     color: #CCCCCC
 
-
-
-
-
 DualLabel < Label
 
   height: 15
@@ -16940,8 +14888,6 @@ DualLabel < Label
   text-align: left
 
   width: 50
-
-
 
   Label
 
@@ -16961,15 +14907,11 @@ DualLabel < Label
 
     text: 0
 
-
-
 MemberWidget < Panel
 
   height: 85
 
   margin-top: 3
-
-
 
   UICreature
 
@@ -16982,8 +14924,6 @@ MemberWidget < Panel
     anchors.bottom: parent.bottom
 
     size: 28 28
-
-
 
   UIWidget
 
@@ -17005,8 +14945,6 @@ MemberWidget < Panel
 
     text-align: left     
 
-
-
   ProgressBar
 
     id: health
@@ -17025,8 +14963,6 @@ MemberWidget < Panel
 
     phantom: false 
 
-
-
   ProgressBar
 
     id: mana
@@ -17043,8 +14979,6 @@ MemberWidget < Panel
 
     phantom: false
 
-
-
   DualLabel
 
     id: balance
@@ -17058,8 +14992,6 @@ MemberWidget < Panel
     margin-top: 5
 
     text: Balance:
-
-
 
   DualLabel
 
@@ -17075,8 +15007,6 @@ MemberWidget < Panel
 
     text: Damage:    
 
-
-
   DualLabel
 
     id: healing
@@ -17091,8 +15021,6 @@ MemberWidget < Panel
 
     text: Healing:    
 
-
-
 AnalyzerPriceLabel < Label
 
   background-color: alpha
@@ -17103,13 +15031,9 @@ AnalyzerPriceLabel < Label
 
   height: 16
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -17125,8 +15049,6 @@ AnalyzerPriceLabel < Label
 
     height: 15
 
-
-
 AnalyzerListPanel < Panel
 
   padding-left: 4
@@ -17139,10 +15061,6 @@ AnalyzerListPanel < Panel
 
     fit-children: true
 
-
-
-
-
 ListLabel < Label
 
   height: 15
@@ -17150,8 +15068,6 @@ ListLabel < Label
   font: verdana-11px-rounded
 
   text-offset: 15 0
-
-
 
 AnalyzerItemsPanel < Panel
 
@@ -17171,8 +15087,6 @@ AnalyzerItemsPanel < Panel
 
     fit-children: true
 
-
-
 AnalyzerLootItem < UIItem
 
   opacity: 0.87
@@ -17184,8 +15098,6 @@ AnalyzerLootItem < UIItem
   virtual: true
 
   background-color: alpha 
-
-
 
   Label
 
@@ -17208,8 +15120,6 @@ AnalyzerLootItem < UIItem
     text-align: right
 
     text: 0
-
-
 
 AnalyzerGraph < UIGraph
 
@@ -17235,8 +15145,6 @@ AnalyzerGraph < UIGraph
 
   image-source: /images/ui/graph_background
 
-
-
 AnalyzerProgressBar < ProgressBar
 
   background-color: green
@@ -17253,8 +15161,6 @@ AnalyzerProgressBar < ProgressBar
 
   border: 1 black
 
-
-
 AnalyzerButton < Button
 
   height: 22
@@ -17264,8 +15170,6 @@ AnalyzerButton < Button
   font: verdana-11px-rounded
 
   text-offset: 0 4
-
-
 
 MainAnalyzerWindow < MiniWindow
 
@@ -17277,8 +15181,6 @@ MainAnalyzerWindow < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-left: 5
@@ -17289,15 +15191,11 @@ MainAnalyzerWindow < MiniWindow
 
     layout: verticalBox
 
-
-
     AnalyzerButton
 
       id: HuntingAnalyzer
 
       text: Hunting Analyzer
-
-
 
     AnalyzerButton
 
@@ -17305,15 +15203,11 @@ MainAnalyzerWindow < MiniWindow
 
       text: Loot Analyzer
 
-
-
     AnalyzerButton
 
       id: SupplyAnalyzer
 
       text: Supply Analyzer    
-
-  
 
     AnalyzerButton
 
@@ -17321,23 +15215,17 @@ MainAnalyzerWindow < MiniWindow
 
       text: Impact Analyzer
 
-
-
     AnalyzerButton
 
       id: XPAnalyzer
 
       text: XP Analyzer
 
-
-
     AnalyzerButton
 
       id: DropTracker
 
       text: Drop Tracker
-
-
 
     AnalyzerButton
 
@@ -17347,8 +15235,6 @@ MainAnalyzerWindow < MiniWindow
 
       color: #74B73E
 
-
-
     AnalyzerButton
 
       id: PartyHunt
@@ -17356,8 +15242,6 @@ MainAnalyzerWindow < MiniWindow
       text: Party Hunt
 
       color: #3895D3
-
-
 
     AnalyzerButton
 
@@ -17367,8 +15251,6 @@ MainAnalyzerWindow < MiniWindow
 
       color: #df3afb
 
-
-
     AnalyzerButton
 
       id: Settings
@@ -17376,8 +15258,6 @@ MainAnalyzerWindow < MiniWindow
       text: Features & Settings
 
       color: #FABD02
-
-
 
     AnalyzerButton
 
@@ -17387,8 +15267,6 @@ MainAnalyzerWindow < MiniWindow
 
       color: #FF0000
 
-
-
 HuntingAnalyzer < MiniWindow  
 
   id: HuntingAnalyzerWindow
@@ -17397,15 +15275,11 @@ HuntingAnalyzer < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-top: 3
 
     layout: verticalBox
-
-
 
 LootAnalyzer < MiniWindow
 
@@ -17415,15 +15289,11 @@ LootAnalyzer < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-top: 3
 
     layout: verticalBox
-
-
 
 SupplyAnalyzer < MiniWindow
 
@@ -17433,15 +15303,11 @@ SupplyAnalyzer < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-top: 3
 
     layout: verticalBox
-
-
 
 ImpactAnalyzer < MiniWindow
 
@@ -17451,15 +15317,11 @@ ImpactAnalyzer < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-top: 3
 
     layout: verticalBox
-
-
 
 XPAnalyzer < MiniWindow
 
@@ -17471,15 +15333,11 @@ XPAnalyzer < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-top: 3
 
     layout: verticalBox
-
-
 
 PartyAnalyzerWindow < MiniWindow
 
@@ -17491,8 +15349,6 @@ PartyAnalyzerWindow < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-left: 3
@@ -17502,8 +15358,6 @@ PartyAnalyzerWindow < MiniWindow
     padding-top: 1
 
     layout: verticalBox
-
-
 
 DropTracker < MiniWindow
 
@@ -17515,8 +15369,6 @@ DropTracker < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-left: 3
@@ -17526,8 +15378,6 @@ DropTracker < MiniWindow
     padding-top: 1
 
     layout: verticalBox
-
-
 
 CaveBotStats < MiniWindow
 
@@ -17539,8 +15389,6 @@ CaveBotStats < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-left: 3
@@ -17550,8 +15398,6 @@ CaveBotStats < MiniWindow
     padding-top: 1
 
     layout: verticalBox
-
-
 
 BossTracker < MiniWindow
 
@@ -17563,8 +15409,6 @@ BossTracker < MiniWindow
 
   icon: /images/topbuttons/analyzers
 
-
-
   MiniWindowContents
 
     padding-left: 3
@@ -17575,13 +15419,9 @@ BossTracker < MiniWindow
 
     layout: verticalBox
 
-
-
     SearchPanel
 
       id: search
-
-
 
 FeaturesWindow < MainWindow
 
@@ -17594,8 +15434,6 @@ FeaturesWindow < MainWindow
   text: Analyzers Features
 
   @onEscape: self:hide()
-
-
 
   TextList
 
@@ -17615,8 +15453,6 @@ FeaturesWindow < MainWindow
 
     vertical-scrollbar: CustomPricesScrollBar
 
-
-
   VerticalScrollBar
 
     id: CustomPricesScrollBar
@@ -17631,8 +15467,6 @@ FeaturesWindow < MainWindow
 
     pixels-scroll: true
 
-
-
   BotItem
 
     id: ID
@@ -17642,8 +15476,6 @@ FeaturesWindow < MainWindow
     anchors.top: CustomPrices.bottom
 
     margin-top: 5
-
-
 
   SpinBox
 
@@ -17667,8 +15499,6 @@ FeaturesWindow < MainWindow
 
     focusable: true
 
-
-
   Button
 
     id: addItem
@@ -17685,8 +15515,6 @@ FeaturesWindow < MainWindow
 
     font: verdana-11px-rounded    
 
-
-
   HorizontalSeparator
 
     anchors.left: ID.right
@@ -17696,8 +15524,6 @@ FeaturesWindow < MainWindow
     anchors.right: CustomPrices.right
 
     anchors.verticalCenter: ID.top
-
-
 
   HorizontalSeparator
 
@@ -17710,8 +15536,6 @@ FeaturesWindow < MainWindow
     anchors.right: CustomPrices.right
 
     anchors.bottom: ID.bottom
-
-
 
   BotSwitch
 
@@ -17731,8 +15555,6 @@ FeaturesWindow < MainWindow
 
     font: verdana-11px-rounded   
 
-
-
   BotSwitch
 
     id: RarityFrames
@@ -17751,8 +15573,6 @@ FeaturesWindow < MainWindow
 
     font: verdana-11px-rounded   
 
-
-
   HorizontalSeparator
 
     anchors.right: parent.right
@@ -17762,8 +15582,6 @@ FeaturesWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -17786,12 +15604,7 @@ FeaturesWindow < MainWindow
 ```
 
 ---
-
-
-
 # antiRs.lua
-
-
 
 ```lua
 
@@ -17799,15 +15612,11 @@ setDefaultTab("Tools")
 
 g_game.cancelAttackAndFollow()
 
-
-
 local frags = 0
 
 local unequip = false
 
 local m = macro(50, "AntiRS & Msg", function() end)
-
-
 
 function safeExit()
 
@@ -17825,8 +15634,6 @@ function safeExit()
 
 end
 
-
-
 onTextMessage(function(mode, text)
 
     if not m.isOn() then return end
@@ -17842,8 +15649,6 @@ onTextMessage(function(mode, text)
         schedule(100, function()
 
             local id = getLeft() and getLeft():getId()
-
-
 
             if id and not unequip then
 
@@ -17864,12 +15669,7 @@ end)
 ```
 
 ---
-
-
-
 # cast_food.lua
-
-
 
 ```lua
 
@@ -17920,12 +15720,7 @@ end
 ```
 
 ---
-
-
-
 # cavebot.lua
-
-
 
 ```lua
 
@@ -17933,13 +15728,9 @@ end
 
 -- visit http://bot.otclient.ovh/
 
-
-
 local cavebotTab = "Cave"
 
 local targetingTab = storage.extras.joinBot and "Cave" or "Target"
-
-
 
 setDefaultTab(cavebotTab)
 
@@ -18005,8 +15796,6 @@ dofile("/cavebot/stand_lure.lua")
 
 dofile("/cavebot/cavebot.lua")
 
-
-
 setDefaultTab(targetingTab)
 
 if storage.extras.joinBot then UI.Label("-- [[ TargetBot ]] --") end
@@ -18038,18 +15827,11 @@ dofile("/targetbot/target.lua")
 ```
 
 ---
-
-
-
 # cavebot_control_panel.lua
-
-
 
 ```lua
 
 setDefaultTab("Cave")
-
-
 
 g_ui.loadUIFromString([[
 
@@ -18063,11 +15845,7 @@ CaveBotControlPanel < Panel
 
     fit-children: true
 
-
-
   HorizontalSeparator
-
-  
 
   Label
 
@@ -18079,11 +15857,7 @@ CaveBotControlPanel < Panel
 
     margin-top: 3
 
-
-
   HorizontalSeparator
-
-    
 
   Panel
 
@@ -18103,19 +15877,13 @@ CaveBotControlPanel < Panel
 
       fit-children: true
 
-
-
   HorizontalSeparator
 
     margin-top: 3
 
 ]])
 
-
-
 local panel = UI.createWidget("CaveBotControlPanel")
-
-
 
 storage.caveBot = {
 
@@ -18129,11 +15897,7 @@ storage.caveBot = {
 
 }
 
-
-
 -- [[ B U T T O N S ]] --
-
-
 
 local forceRefill = UI.Button("Force Refill", function(widget)
 
@@ -18143,8 +15907,6 @@ local forceRefill = UI.Button("Force Refill", function(widget)
 
 end, panel.buttons)
 
-
-
 local backStop = UI.Button("Back & Stop", function(widget)
 
     storage.caveBot.backStop = true
@@ -18153,8 +15915,6 @@ local backStop = UI.Button("Back & Stop", function(widget)
 
 end, panel.buttons)
 
-
-
 local backTrainers = UI.Button("To Trainers", function(widget)
 
     storage.caveBot.backTrainers = true
@@ -18162,8 +15922,6 @@ local backTrainers = UI.Button("To Trainers", function(widget)
     print("[CaveBot] Going back to city on next supply check and going to label 'toTrainers' on depositer action.")
 
 end, panel.buttons)
-
-
 
 local backOffline = UI.Button("Offline", function(widget)
 
@@ -18176,12 +15934,7 @@ end, panel.buttons)
 ```
 
 ---
-
-
-
 # combo.lua
-
-
 
 ```lua
 
@@ -18194,8 +15947,6 @@ local ui = setupUI([[
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -18210,8 +15961,6 @@ Panel
     width: 130
 
     !text: tr('ComboBot')
-
-
 
   Button
 
@@ -18229,13 +15978,9 @@ Panel
 
     text: Setup
 
-
-
 ]])
 
 ui:setId(panelName)
-
-
 
 if not storage[panelName] then
 
@@ -18283,15 +16028,11 @@ if not storage[panelName] then
 
     serverTriggers = true
 
-  }
+}
 
 end
 
-
-
 local config = storage[panelName]
-
-
 
 ui.title:setOn(config.enabled)
 
@@ -18303,8 +16044,6 @@ widget:setOn(config.enabled)
 
 end
 
-
-
 ui.combos.onClick = function(widget)
 
   comboWindow:show()
@@ -18315,8 +16054,6 @@ ui.combos.onClick = function(widget)
 
 end
 
-
-
 rootWidget = g_ui.getRootWidget()
 
 if rootWidget then
@@ -18325,11 +16062,7 @@ if rootWidget then
 
   comboWindow:hide()
 
-
-
   -- bot item
-
-
 
   comboWindow.actions.attackItem:setItemId(config.item)
 
@@ -18339,11 +16072,7 @@ if rootWidget then
 
   end
 
-
-
   -- switches
-
-
 
   comboWindow.actions.commandsToggle:setOn(config.commandsEnabled)
 
@@ -18355,8 +16084,6 @@ if rootWidget then
 
   end
 
-
-
   comboWindow.server.botServerToggle:setOn(config.serverEnabled)
 
   comboWindow.server.botServerToggle.onClick = function(widget)
@@ -18366,8 +16093,6 @@ if rootWidget then
     widget:setOn(config.serverEnabled)
 
   end
-
-
 
   comboWindow.server.Triggers:setOn(config.serverTriggers)
 
@@ -18379,8 +16104,6 @@ if rootWidget then
 
   end
 
-
-
   comboWindow.server.targetServerLeaderToggle:setOn(config.serverLeaderTarget)
 
   comboWindow.server.targetServerLeaderToggle.onClick = function(widget)
@@ -18391,8 +16114,6 @@ if rootWidget then
 
   end  
 
-
-
   -- buttons
 
   comboWindow.closeButton.onClick = function(widget)
@@ -18401,11 +16122,7 @@ if rootWidget then
 
   end
 
-
-
   -- combo boxes
-
-
 
   comboWindow.actions.followLeader:setOption(config.follow)
 
@@ -18415,8 +16132,6 @@ if rootWidget then
 
   end
 
-
-
   comboWindow.actions.attackLeaderTarget:setOption(config.attack)
 
   comboWindow.actions.attackLeaderTarget.onOptionChange = function(widget)
@@ -18424,8 +16139,6 @@ if rootWidget then
     config.attack = widget:getCurrentOption().text
 
   end
-
-
 
   -- checkboxes
 
@@ -18439,8 +16152,6 @@ if rootWidget then
 
   end
 
-
-
   comboWindow.trigger.onShootToggle:setChecked(config.onShootEnabled)
 
   comboWindow.trigger.onShootToggle.onClick = function(widget)
@@ -18450,8 +16161,6 @@ if rootWidget then
     widget:setChecked(config.onShootEnabled)
 
   end
-
-
 
   comboWindow.trigger.onCastToggle:setChecked(config.onCastEnabled)
 
@@ -18463,8 +16172,6 @@ if rootWidget then
 
   end  
 
-
-
   comboWindow.actions.followLeaderToggle:setChecked(config.followLeaderEnabled)
 
   comboWindow.actions.followLeaderToggle.onClick = function(widget)
@@ -18474,8 +16181,6 @@ if rootWidget then
     widget:setChecked(config.followLeaderEnabled)
 
   end
-
-  
 
   comboWindow.actions.attackLeaderTargetToggle:setChecked(config.attackLeaderTargetEnabled)
 
@@ -18487,8 +16192,6 @@ if rootWidget then
 
   end 
 
-  
-
   comboWindow.actions.attackSpellToggle:setChecked(config.attackSpellEnabled)
 
   comboWindow.actions.attackSpellToggle.onClick = function(widget)
@@ -18498,8 +16201,6 @@ if rootWidget then
     widget:setChecked(config.attackSpellEnabled)
 
   end
-
-  
 
   comboWindow.actions.attackItemToggle:setChecked(config.attackItemEnabled)
 
@@ -18511,8 +16212,6 @@ if rootWidget then
 
   end
 
-  
-
   -- text edits
 
   comboWindow.trigger.onSayLeader:setText(config.sayLeader)
@@ -18523,8 +16222,6 @@ if rootWidget then
 
   end
 
-  
-
   comboWindow.trigger.onShootLeader:setText(config.shootLeader)
 
   comboWindow.trigger.onShootLeader.onTextChange = function(widget, text)
@@ -18532,8 +16229,6 @@ if rootWidget then
     config.shootLeader = text
 
   end
-
-
 
   comboWindow.trigger.onCastLeader:setText(config.castLeader)
 
@@ -18543,8 +16238,6 @@ if rootWidget then
 
   end
 
-
-
   comboWindow.trigger.onSayPhrase:setText(config.sayPhrase)
 
   comboWindow.trigger.onSayPhrase.onTextChange = function(widget, text)
@@ -18553,8 +16246,6 @@ if rootWidget then
 
   end
 
-  
-
   comboWindow.actions.attackSpell:setText(config.spell)
 
   comboWindow.actions.attackSpell.onTextChange = function(widget, text)
@@ -18562,8 +16253,6 @@ if rootWidget then
     config.spell = text
 
   end
-
-
 
   comboWindow.server.botServerLeader:setText(config.serverLeader)
 
@@ -18575,13 +16264,9 @@ if rootWidget then
 
 end
 
-
-
 -- bot server
 
 -- [[ join party made by Frosty ]] --
-
-
 
 local shouldCloseWindow = false
 
@@ -18615,8 +16300,6 @@ macro(10, function()
 
 end)
 
-
-
 comboWindow.server.partyButton.onClick = function(widget)
 
   if config.serverEnabled and config.enabled then 
@@ -18634,8 +16317,6 @@ comboWindow.server.partyButton.onClick = function(widget)
   end
 
 end
-
-
 
 onTextMessage(function(mode, text)
 
@@ -18674,8 +16355,6 @@ onTextMessage(function(mode, text)
   end
 
 end)
-
-
 
 onTalk(function(name, level, mode, text, channelId, pos)
 
@@ -18789,8 +16468,6 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
 end)
 
-
-
 onMissle(function(missle)
 
   if config.enabled and config.onShootEnabled then 
@@ -18855,8 +16532,6 @@ onMissle(function(missle)
 
 end)
 
-
-
 macro(10, function()
 
   if not config.enabled or not config.attackLeaderTargetEnabled then return end
@@ -18885,15 +16560,9 @@ macro(10, function()
 
 end)
 
-
-
-
-
 local toFollow
 
 local toFollowPos = {}
-
-
 
 macro(100, function()
 
@@ -18957,8 +16626,6 @@ macro(100, function()
 
 end)
 
-
-
 onCreaturePositionChange(function(creature, oldPos, newPos)
 
   if creature:getName() == toFollow and newPos then
@@ -18968,8 +16635,6 @@ onCreaturePositionChange(function(creature, oldPos, newPos)
   end
 
 end)
-
-
 
 local timeout = now
 
@@ -19011,8 +16676,6 @@ macro(10, function()
 
 end)
 
-
-
 onUseWith(function(pos, itemId, target, subType)
 
   if BotServer._websocket and itemId == 3155 then
@@ -19022,8 +16685,6 @@ onUseWith(function(pos, itemId, target, subType)
   end
 
 end)
-
-
 
 if BotServer._websocket and config.enabled and config.serverEnabled then
 
@@ -19074,12 +16735,7 @@ end
 ```
 
 ---
-
-
-
 # combo.otui
-
-
 
 ```otui
 
@@ -19094,8 +16750,6 @@ AttackComboBox < ComboBox
     self:addOption("LEADER TARGET")
 
     self:addOption("COMMAND TARGET")    
-
-
 
 FollowComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -19113,8 +16767,6 @@ FollowComboBox < ComboBox
 
     self:addOption("SERVER LEADER")
 
-
-
 ComboTrigger < Panel
 
   id: trigger
@@ -19126,8 +16778,6 @@ ComboTrigger < Panel
   padding: 3
 
   size: 450 72
-
-
 
   Label
 
@@ -19145,8 +16795,6 @@ ComboTrigger < Panel
 
     color: #ffaa00
 
-
-
   Label
 
     id: leaderLabel
@@ -19158,8 +16806,6 @@ ComboTrigger < Panel
     text: Leader:
 
     margin-left: 35  
-
-
 
   TextEdit
 
@@ -19177,8 +16823,6 @@ ComboTrigger < Panel
 
     font: cipsoftFont
 
-
-
   Label
 
     id: phrase
@@ -19190,8 +16834,6 @@ ComboTrigger < Panel
     text: Phrase:
 
     margin-left: 5
-
-
 
   TextEdit
 
@@ -19209,8 +16851,6 @@ ComboTrigger < Panel
 
     font: cipsoftFont
 
-
-
   CheckBox
 
     id: onSayToggle
@@ -19222,8 +16862,6 @@ ComboTrigger < Panel
     margin-top: 1
 
     margin-left: 5
-
-
 
   Label
 
@@ -19239,8 +16877,6 @@ ComboTrigger < Panel
 
     color: #ffaa00  
 
-
-
   Label
 
     id: leaderLabel1
@@ -19252,8 +16888,6 @@ ComboTrigger < Panel
     text: Leader:
 
     margin-left: 24  
-
-
 
   TextEdit
 
@@ -19273,8 +16907,6 @@ ComboTrigger < Panel
 
     font: cipsoftFont  
 
-
-
   CheckBox
 
     id: onShootToggle
@@ -19286,8 +16918,6 @@ ComboTrigger < Panel
     margin-top: 1
 
     margin-left: 5
-
-
 
   Label
 
@@ -19303,8 +16933,6 @@ ComboTrigger < Panel
 
     color: #ffaa00  
 
-
-
   Label
 
     id: leaderLabel2
@@ -19316,8 +16944,6 @@ ComboTrigger < Panel
     text: Leader:
 
     margin-left: 32  
-
-
 
   TextEdit
 
@@ -19337,8 +16963,6 @@ ComboTrigger < Panel
 
     font: cipsoftFont  
 
-
-
   CheckBox
 
     id: onCastToggle
@@ -19351,8 +16975,6 @@ ComboTrigger < Panel
 
     margin-left: 5    
 
-
-
 ComboActions < Panel
 
   id: actions
@@ -19364,8 +16986,6 @@ ComboActions < Panel
   padding: 3
 
   size: 220 100
-
-
 
   Label
 
@@ -19385,8 +17005,6 @@ ComboActions < Panel
 
     color: #ffaa00    
 
-
-
   FollowComboBox
 
     id: followLeader
@@ -19403,8 +17021,6 @@ ComboActions < Panel
 
     font: cipsoftFont    
 
-
-
   CheckBox
 
     id: followLeaderToggle
@@ -19416,8 +17032,6 @@ ComboActions < Panel
     margin-top: 2
 
     margin-left: 5    
-
-
 
   Label
 
@@ -19432,8 +17046,6 @@ ComboActions < Panel
     text: Attack:
 
     color: #ffaa00
-
-
 
   AttackComboBox
 
@@ -19451,8 +17063,6 @@ ComboActions < Panel
 
     font: cipsoftFont
 
-
-
   CheckBox
 
     id: attackLeaderTargetToggle
@@ -19464,8 +17074,6 @@ ComboActions < Panel
     margin-top: 2
 
     margin-left: 5
-
-
 
   Label
 
@@ -19480,8 +17088,6 @@ ComboActions < Panel
     text: Spell:
 
     color: #ffaa00
-
-
 
   TextEdit
 
@@ -19501,8 +17107,6 @@ ComboActions < Panel
 
     font: cipsoftFont
 
-
-
   CheckBox
 
     id: attackSpellToggle
@@ -19514,8 +17118,6 @@ ComboActions < Panel
     margin-top: 2
 
     margin-left: 5  
-
-
 
   Label
 
@@ -19531,8 +17133,6 @@ ComboActions < Panel
 
     color: #ffaa00
 
-
-
   BotItem
 
     id: attackItem
@@ -19543,8 +17143,6 @@ ComboActions < Panel
 
     margin-left: 10
 
-
-
   CheckBox
 
     id: attackItemToggle
@@ -19554,8 +17152,6 @@ ComboActions < Panel
     anchors.verticalCenter: prev.verticalCenter
 
     margin-left: 5
-
-
 
   BotSwitch
 
@@ -19577,8 +17173,6 @@ ComboActions < Panel
 
     multiline: true
 
-
-
 BotServer < Panel 
 
   id: server
@@ -19590,8 +17184,6 @@ BotServer < Panel
   padding: 3
 
   size: 220 100 
-
-
 
   Label
 
@@ -19611,8 +17203,6 @@ BotServer < Panel
 
     margin-top: 5 
 
-
-
   TextEdit
 
     id: botServerLeader
@@ -19631,8 +17221,6 @@ BotServer < Panel
 
     font: cipsoftFont
 
-
-
   Button
 
     id: partyButton
@@ -19650,8 +17238,6 @@ BotServer < Panel
     text-wrap: true
 
     multiline: true
-
-
 
   BotSwitch
 
@@ -19673,8 +17259,6 @@ BotServer < Panel
 
     text: Server Enabled
 
-
-
   BotSwitch
 
     id: targetServerLeaderToggle
@@ -19690,8 +17274,6 @@ BotServer < Panel
     height: 30
 
     text: Leader Targets
-
-
 
   BotSwitch
 
@@ -19713,8 +17295,6 @@ BotServer < Panel
 
     text: Triggers  
 
-
-
 ComboWindow < MainWindow
 
   !text: tr('Combo Options')
@@ -19722,8 +17302,6 @@ ComboWindow < MainWindow
   size: 500 280
 
   @onEscape: self:hide()
-
-
 
   ComboTrigger
 
@@ -19734,8 +17312,6 @@ ComboWindow < MainWindow
     anchors.horizontalCenter: parent.horizontalCenter
 
     margin-top: 7
-
-
 
   Label
 
@@ -19751,8 +17327,6 @@ ComboWindow < MainWindow
 
     color: #ff7700
 
-
-
   ComboActions    
 
     id: actions
@@ -19762,8 +17336,6 @@ ComboWindow < MainWindow
     anchors.left: trigger.left
 
     margin-top: 15
-
-
 
   Label
 
@@ -19781,8 +17353,6 @@ ComboWindow < MainWindow
 
     color: #ff7700   
 
-
-
   BotServer    
 
     id: server
@@ -19792,8 +17362,6 @@ ComboWindow < MainWindow
     anchors.left: actions.right
 
     margin-left: 10 
-
-
 
   Label
 
@@ -19811,8 +17379,6 @@ ComboWindow < MainWindow
 
     color: #ff7700
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -19824,8 +17390,6 @@ ComboWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -19844,8 +17408,6 @@ ComboWindow < MainWindow
     margin-top: 15
 
     margin-right: 5
-
-
 
   Button
 
@@ -19868,12 +17430,7 @@ ComboWindow < MainWindow
 ```
 
 ---
-
-
-
 # configs.lua
-
-
 
 ```lua
 
@@ -19887,8 +17444,6 @@ ComboWindow < MainWindow
 
 local configName = modules.game_bot.contentsPanel.config:getCurrentOption().text
 
-
-
 -- make vBot config dir
 
 if not g_resources.directoryExists("/bot/".. configName .."/vBot_configs/") then
@@ -19896,8 +17451,6 @@ if not g_resources.directoryExists("/bot/".. configName .."/vBot_configs/") then
   g_resources.makeDir("/bot/".. configName .."/vBot_configs/")
 
 end
-
-
 
 -- make profile dirs
 
@@ -19913,11 +17466,7 @@ for i=1,10 do
 
 end
 
-
-
 local profile = g_settings.getNumber('profile')
-
-
 
 HealBotConfig = {}
 
@@ -19930,10 +17479,6 @@ local attackBotFile = "/bot/" .. configName .. "/vBot_configs/profile_".. profil
 SuppliesConfig = {}
 
 local suppliesFile = "/bot/" .. configName .. "/vBot_configs/profile_".. profile .. "/Supplies.json"
-
-
-
-
 
 --healbot
 
@@ -19955,8 +17500,6 @@ if g_resources.fileExists(healBotFile) then
 
 end
 
-
-
 --attackbot
 
 if g_resources.fileExists(attackBotFile) then
@@ -19977,8 +17520,6 @@ if g_resources.fileExists(attackBotFile) then
 
 end
 
-
-
 --supplies
 
 if g_resources.fileExists(suppliesFile) then
@@ -19998,8 +17539,6 @@ if g_resources.fileExists(suppliesFile) then
     SuppliesConfig = result
 
 end
-
-
 
 function vBotConfigSave(file)
 
@@ -20043,8 +17582,6 @@ function vBotConfigSave(file)
 
   end
 
-
-
   local status, result = pcall(function() 
 
     return json.encode(configTable, 2) 
@@ -20057,15 +17594,11 @@ function vBotConfigSave(file)
 
   end
 
-  
-
   if result:len() > 100 * 1024 * 1024 then
 
     return onError("config file is too big, above 100MB, it won't be saved")
 
   end
-
-
 
   g_resources.writeFileContents(configFile, result)
 
@@ -20074,12 +17607,7 @@ end
 ```
 
 ---
-
-
-
 # depositer_config.lua
-
-
 
 ```lua
 
@@ -20088,8 +17616,6 @@ setDefaultTab("Cave")
 local panelName = "specialDeposit"
 
 local depositerPanel
-
-
 
 UI.Button("Stashing Settings", function()  
 
@@ -20101,8 +17627,6 @@ UI.Button("Stashing Settings", function()
 
 end)
 
-
-
 if not storage[panelName] then
 
     storage[panelName] = {
@@ -20111,15 +17635,11 @@ if not storage[panelName] then
 
         height = 380
 
-    }
+}
 
 end
 
-
-
 local config = storage[panelName]
-
-
 
 depositerPanel = UI.createWindow('DepositerPanel', rootWidget)
 
@@ -20133,8 +17653,6 @@ depositerPanel.CloseButton.onClick = function()
 
 end
 
-
-
 depositerPanel:setHeight(config.height or 380)
 
 depositerPanel.onGeometryChange = function(widget, old, new)
@@ -20145,8 +17663,6 @@ depositerPanel.onGeometryChange = function(widget, old, new)
 
 end
 
-
-
 function arabicToRoman(n)
 
     local t = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XI", "XII", "XIV", "XV", "XVI", "XVII"}
@@ -20154,8 +17670,6 @@ function arabicToRoman(n)
     return t[n]
 
 end
-
-
 
 local function refreshEntries()
 
@@ -20233,7 +17747,7 @@ local function refreshEntries()
 
                     validation = [[^([3-9]|1[0-7])$]]
 
-                })
+})
 
                 window.text:setText(entry.index)
 
@@ -20269,7 +17783,7 @@ local function refreshEntries()
 
             validation = [[^([3-9]|1[0-7])$]]
 
-        })
+})
 
         window.text:setText(entry.index)
 
@@ -20303,8 +17817,6 @@ end
 
 refreshEntries()
 
-
-
 depositerPanel.title.onDoubleClick = function(widget)
 
     table.insert(config.items, {id=0, index=0})
@@ -20312,8 +17824,6 @@ depositerPanel.title.onDoubleClick = function(widget)
     refreshEntries()
 
 end
-
-
 
 function getStashingIndex(id)
 
@@ -20329,21 +17839,15 @@ function getStashingIndex(id)
 
 end
 
-
-
 UI.Separator()
 
 UI.Label("Sell Exeptions")
-
-
 
 if type(storage.cavebotSell) ~= "table" then
 
   storage.cavebotSell = {23544, 3081}
 
 end
-
-
 
 local sellContainer = UI.Container(function(widget, items)
 
@@ -20358,20 +17862,13 @@ sellContainer:setItems(storage.cavebotSell)
 ```
 
 ---
-
-
-
 # depositer_config.otui
-
-
 
 ```otui
 
 StashItem < Panel
 
   height: 40
-
-
 
   BotItem
 
@@ -20382,8 +17879,6 @@ StashItem < Panel
     margin-top: 2
 
     anchors.left: parent.left
-
-
 
   UIWidget
 
@@ -20409,8 +17904,6 @@ StashItem < Panel
 
     color: #FFFFFF
 
-
-
   UIWidget
 
     id: slot
@@ -20433,8 +17926,6 @@ StashItem < Panel
 
     color: #CCCCCC
 
-
-
 DepositerPanel < MainWindow
 
   size: 230 380
@@ -20442,8 +17933,6 @@ DepositerPanel < MainWindow
   !text: tr('Depositer Panel')
 
   @onEscape: self:hide()
-
-
 
   UIWidget
 
@@ -20462,8 +17951,6 @@ DepositerPanel < MainWindow
     font: verdana-11px-rounded
 
     color: #aeaeae           
-
-
 
   ScrollablePanel
 
@@ -20495,8 +17982,6 @@ DepositerPanel < MainWindow
 
       type: verticalBox
 
-
-
   VerticalScrollBar
 
     id: DepositerScrollBar
@@ -20510,8 +17995,6 @@ DepositerPanel < MainWindow
     step: 14
 
     pixels-scroll: true
-
-
 
   ResizeBorder
 
@@ -20531,8 +18014,6 @@ DepositerPanel < MainWindow
 
     background: #ffffff88
 
-
-
   HorizontalSeparator
 
     id: sep
@@ -20544,8 +18025,6 @@ DepositerPanel < MainWindow
     anchors.bottom: CloseButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -20566,12 +18045,7 @@ DepositerPanel < MainWindow
 ```
 
 ---
-
-
-
 # depot_withdraw.lua
-
-
 
 ```lua
 
@@ -20583,19 +18057,13 @@ local defaultBp = "shopping bag"
 
 local id = 21411
 
-
-
 -- script
-
-
 
 local playerContainer = nil
 
 local depotContainer = nil
 
 local mailContainer = nil
-
-
 
 function reopenLootContainer()
 
@@ -20609,8 +18077,6 @@ function reopenLootContainer()
 
   end
 
-
-
   local lootItem = findItem(id)
 
   if lootItem then
@@ -20619,15 +18085,9 @@ function reopenLootContainer()
 
   end
 
-
-
 end
 
-
-
 macro(50, "Depot Withdraw", function()
-
-  
 
   -- set the containers
 
@@ -20653,8 +18113,6 @@ macro(50, "Depot Withdraw", function()
 
   end
 
-
-
   if playerContainer and #playerContainer:getItems() == 20 then
 
     for j, item in pairs(playerContainer:getItems()) do
@@ -20670,10 +18128,6 @@ macro(50, "Depot Withdraw", function()
     end
 
   end
-
-
-
-
 
 if playerContainer and freecap() >= 200 then
 
@@ -20699,8 +18153,6 @@ if playerContainer and freecap() >= 200 then
 
     end
 
-
-
     if mailContainer then 
 
       for i, container in pairs(getContainers()) do
@@ -20723,19 +18175,12 @@ if playerContainer and freecap() >= 200 then
 
 end
 
-
-
 end)
 
 ```
 
 ---
-
-
-
 # eat_food.lua
-
-
 
 ```lua
 
@@ -20783,8 +18228,6 @@ if voc() ~= 1 and voc() ~= 11 then
 
 end
 
-
-
 UI.Label("Eatable items:")
 
 if type(storage.foodItems) ~= "table" then
@@ -20792,8 +18235,6 @@ if type(storage.foodItems) ~= "table" then
   storage.foodItems = {3582, 3577}
 
 end
-
-
 
 local foodContainer = UI.Container(function(widget, items)
 
@@ -20804,8 +18245,6 @@ end, true)
 foodContainer:setHeight(35)
 
 foodContainer:setItems(storage.foodItems)
-
-
 
 macro(500, "Eat Food", function()
 
@@ -20838,12 +18277,7 @@ UI.Separator()
 ```
 
 ---
-
-
-
 # equip.lua
-
-
 
 ```lua
 
@@ -20852,8 +18286,6 @@ UI.Separator()
 setDefaultTab("HP")
 
 local scripts = 2 -- if you want more auto equip panels you can change 2 to higher value
-
-
 
 -- script by kondrah, don't edit below unless you know what you are doing
 
@@ -20922,12 +18354,7 @@ end)
 ```
 
 ---
-
-
-
 # equipper.otui
-
-
 
 ```otui
 
@@ -20945,8 +18372,6 @@ SlotBotItem < BotItem
 
     border-color: #FF0000
 
-
-
 BossLabel < UIWidget
 
   background-color: alpha
@@ -20961,13 +18386,9 @@ BossLabel < UIWidget
 
   text-align: left
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -20991,8 +18412,6 @@ BossLabel < UIWidget
 
     tooltip: Remove profile from the list.
 
-
-
 ConditionBoxPopupMenu < ComboBoxPopupMenu
 
 ConditionBoxPopupMenuButton < ComboBoxPopupMenuButton
@@ -21007,15 +18426,11 @@ ConditionBox < ComboBox
 
     self:addOption("or")
 
-
-
 PreButton < PreviousButton
 
   background: #363636
 
   height: 15
-
-
 
 NexButton < NextButton
 
@@ -21023,15 +18438,11 @@ NexButton < NextButton
 
   height: 15
 
-
-
 CondidionLabel < FlatPanel
 
   padding: 1
 
   height: 15
-
-
 
   Label
 
@@ -21044,8 +18455,6 @@ CondidionLabel < FlatPanel
     font: verdana-11px-rounded
 
     background: #363636
-
-
 
 Rule < UIWidget
 
@@ -21060,8 +18469,6 @@ Rule < UIWidget
   text-align: left
 
   font: verdana-11px-rounded  
-
-
 
   CheckBox
 
@@ -21081,13 +18488,9 @@ Rule < UIWidget
 
     tooltip: Entry enabled/disabled
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -21109,8 +18512,6 @@ Rule < UIWidget
 
     anchors.verticalCenter: parent.verticalCenter
 
-
-
   Button
 
     id: visible
@@ -21131,15 +18532,9 @@ Rule < UIWidget
 
     anchors.verticalCenter: parent.verticalCenter
 
-
-
-
-
 ConditionPanel < Panel
 
   height: 58
-
-
 
   NexButton
 
@@ -21151,8 +18546,6 @@ ConditionPanel < Panel
 
     anchors.right: parent.right
 
-
-
   PreButton
 
     id: pre
@@ -21162,8 +18555,6 @@ ConditionPanel < Panel
     margin-top: 5
 
     anchors.left: parent.left
-
-
 
   CondidionLabel
 
@@ -21180,8 +18571,6 @@ ConditionPanel < Panel
     margin-left: 3
 
     margin-right: 3
-
-
 
   SpinBox
 
@@ -21205,8 +18594,6 @@ ConditionPanel < Panel
 
     focusable: true
 
-
-
   BotTextEdit
 
     id: text
@@ -21221,12 +18608,6 @@ ConditionPanel < Panel
 
     text-align: center
 
-
-
-
-
-
-
 ListPanel < FlatPanel
 
   size: 270 300
@@ -21236,8 +18617,6 @@ ListPanel < FlatPanel
   padding-right: 10
 
   padding-bottom: 10
-
-
 
   Label
 
@@ -21252,8 +18631,6 @@ ListPanel < FlatPanel
     font: verdana-11px-rounded
 
     color: #FABD02
-
-
 
   Label
 
@@ -21277,8 +18654,6 @@ ListPanel < FlatPanel
 
     color: #aeaeae  
 
-
-
   TextList
 
     id: list
@@ -21293,8 +18668,6 @@ ListPanel < FlatPanel
 
     padding: 2
 
-
-
   VerticalScrollBar
 
     id: listScrollBar
@@ -21308,8 +18681,6 @@ ListPanel < FlatPanel
     step: 14
 
     pixels-scroll: true
-
-
 
   Button
 
@@ -21331,8 +18702,6 @@ ListPanel < FlatPanel
 
     tooltip: Increase priority of selected rule.
 
-
-
   Button
 
     id: down
@@ -21353,8 +18722,6 @@ ListPanel < FlatPanel
 
     tooltip: Decrease priority of selected rule.
 
-
-
 InputPanel < FlatPanel
 
   size: 270 300
@@ -21364,8 +18731,6 @@ InputPanel < FlatPanel
   padding-right: 10
 
   padding-bottom: 10
-
-
 
   Label
 
@@ -21380,8 +18745,6 @@ InputPanel < FlatPanel
     font: verdana-11px-rounded
 
     color: #FF0000
-
-
 
   Label
 
@@ -21403,8 +18766,6 @@ InputPanel < FlatPanel
 
     color: #aeaeae
 
-
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -21414,8 +18775,6 @@ InputPanel < FlatPanel
     anchors.top: prev.bottom
 
     margin-top: 4
-
-    
 
   ConditionPanel
 
@@ -21429,8 +18788,6 @@ InputPanel < FlatPanel
 
     margin-top: 15
 
-
-
   HorizontalSeparator
 
     anchors.verticalCenter: next.verticalCenter
@@ -21438,8 +18795,6 @@ InputPanel < FlatPanel
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   ConditionBox
 
@@ -21453,8 +18808,6 @@ InputPanel < FlatPanel
 
     width: 50
 
-
-
   ConditionPanel
 
     id: optionalCondition
@@ -21467,8 +18820,6 @@ InputPanel < FlatPanel
 
     margin-top: 10
 
-
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -21476,8 +18827,6 @@ InputPanel < FlatPanel
     anchors.right: parent.right
 
     anchors.top: prev.bottom
-
-
 
   BotButton
 
@@ -21491,8 +18840,6 @@ InputPanel < FlatPanel
 
     text: Add Rule
 
-
-
 EQPanel < FlatPanel
 
   size: 160 230
@@ -21502,8 +18849,6 @@ EQPanel < FlatPanel
   padding-right: 10
 
   padding-bottom: 10
-
-
 
   Label
 
@@ -21518,8 +18863,6 @@ EQPanel < FlatPanel
     font: verdana-11px-rounded
 
     color: #03C04A
-
-
 
   SlotBotItem
 
@@ -21537,8 +18880,6 @@ EQPanel < FlatPanel
 
       image-source: /images/ui/item
 
-
-
   SlotBotItem
 
     id: body
@@ -21554,8 +18895,6 @@ EQPanel < FlatPanel
     $on:
 
       image-source: /images/ui/item
-
-
 
   SlotBotItem
 
@@ -21573,8 +18912,6 @@ EQPanel < FlatPanel
 
       image-source: /images/ui/item
 
-
-
   SlotBotItem
 
     id: feet
@@ -21590,8 +18927,6 @@ EQPanel < FlatPanel
     $on:
 
       image-source: /images/ui/item
-
-
 
   SlotBotItem
 
@@ -21611,8 +18946,6 @@ EQPanel < FlatPanel
 
       image-source: /images/ui/item
 
-
-
   SlotBotItem
 
     id: left-hand
@@ -21628,8 +18961,6 @@ EQPanel < FlatPanel
     $on:
 
       image-source: /images/ui/item
-
-
 
   SlotBotItem
 
@@ -21647,8 +18978,6 @@ EQPanel < FlatPanel
 
       image-source: /images/ui/item
 
-
-
   Item
 
     id: back
@@ -21664,8 +18993,6 @@ EQPanel < FlatPanel
     margin-left: 5
 
     tooltip: Main back container modifications are unavailable.
-
-
 
   SlotBotItem
 
@@ -21683,8 +19010,6 @@ EQPanel < FlatPanel
 
       image-source: /images/ui/item
 
-
-
   SlotBotItem
 
     id: ammo
@@ -21696,8 +19021,6 @@ EQPanel < FlatPanel
     anchors.top: prev.bottom
 
     margin-top: 5
-
-
 
   BotButton
 
@@ -21717,8 +19040,6 @@ EQPanel < FlatPanel
 
     tooltip: Copy currently equipped and non-equipped items.
 
-
-
   BotButton
 
     id: default
@@ -21737,13 +19058,9 @@ EQPanel < FlatPanel
 
     tooltip: Reset all fields to the blank state
 
-
-
 Profile < FlatPanel
 
   size: 160 35
-
-
 
   Label
 
@@ -21759,8 +19076,6 @@ Profile < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   BotTextEdit
 
     id: profileName
@@ -21773,8 +19088,6 @@ Profile < FlatPanel
 
     margin: 5
 
-
-
 BossList < FlatPanel
 
   padding-left: 10
@@ -21782,8 +19095,6 @@ BossList < FlatPanel
   padding-right: 10
 
   padding-bottom: 10
-
-
 
   Label
 
@@ -21799,8 +19110,6 @@ BossList < FlatPanel
 
     color: #FABD02
 
-
-
   TextList
 
     id: list
@@ -21814,8 +19123,6 @@ BossList < FlatPanel
     vertical-scrollbar: listScrollBar
 
     padding: 2
-
-
 
   VerticalScrollBar
 
@@ -21831,8 +19138,6 @@ BossList < FlatPanel
 
     pixels-scroll: true
 
-
-
   BotTextEdit
 
     id: name
@@ -21844,8 +19149,6 @@ BossList < FlatPanel
     margin-top: 4
 
     anchors.right: next.left
-
-
 
   Button
 
@@ -21867,8 +19170,6 @@ BossList < FlatPanel
 
     tooltip: Creature with given name will be considered as boss.
 
-
-
 EquipWindow < MainWindow
 
   size: 750 350
@@ -21876,8 +19177,6 @@ EquipWindow < MainWindow
   text: Equipment Manager
 
   @onEscape: self:hide()
-
-
 
   ListPanel
 
@@ -21895,8 +19194,6 @@ EquipWindow < MainWindow
 
     visible: false
 
-
-
   BossList
 
     id: bossPanel
@@ -21904,8 +19201,6 @@ EquipWindow < MainWindow
     anchors.fill: prev
 
     visible: true
-
-
 
   VerticalSeparator
 
@@ -21919,8 +19214,6 @@ EquipWindow < MainWindow
 
     margin-left: 10
 
-  
-
   Profile
 
     id: profileName
@@ -21930,8 +19223,6 @@ EquipWindow < MainWindow
     anchors.left: prev.right
 
     margin-left: 10
-
-
 
   EQPanel
 
@@ -21947,8 +19238,6 @@ EquipWindow < MainWindow
 
     margin-top: 10
 
-
-
   InputPanel
 
     id: inputPanel
@@ -21963,8 +19252,6 @@ EquipWindow < MainWindow
 
     margin-left: 5
 
-
-
   HorizontalSeparator
 
     id: bottomSep
@@ -21976,8 +19263,6 @@ EquipWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -21992,8 +19277,6 @@ EquipWindow < MainWindow
     anchors.bottom: parent.bottom
 
     size: 45 21  
-
-
 
   Button
 
@@ -22012,12 +19295,7 @@ EquipWindow < MainWindow
 ```
 
 ---
-
-
-
 # exeta.lua
-
-
 
 ```lua
 
@@ -22055,8 +19333,6 @@ if voc == 1 or voc == 11 then
 
     end)
 
-
-
     macro(500, "ExetaIfPlayer", function()
 
         if CaveBot.isOff() then return end
@@ -22078,18 +19354,11 @@ end
 ```
 
 ---
-
-
-
 # extras.lua
-
-
 
 ```lua
 
 setDefaultTab("Main")
-
-
 
 -- securing storage namespace
 
@@ -22103,8 +19372,6 @@ end
 
 local settings = storage[panelName]
 
-
-
 -- basic elements
 
 extrasWindow = UI.createWindow('ExtrasWindow', rootWidget)
@@ -22117,31 +19384,21 @@ extrasWindow.closeButton.onClick = function(widget)
 
 end
 
-
-
 extrasWindow.onGeometryChange = function(widget, old, new)
 
   if old.height == 0 then return end
-
-  
 
   settings.height = new.height
 
 end
 
-
-
 extrasWindow:setHeight(settings.height or 360)
-
-
 
 -- available options for dest param
 
 local rightPanel = extrasWindow.content.right
 
 local leftPanel = extrasWindow.content.left
-
-
 
 -- objects made by Kondrah - taken from creature editor, minor changes to adapt
 
@@ -22195,8 +19452,6 @@ local addCheckBox = function(id, title, defaultValue, dest, tooltip)
 
 end
 
-
-
 local addItem = function(id, title, defaultItem, dest, tooltip)
 
   local widget = UI.createWidget('ExtrasItem', dest)
@@ -22219,8 +19474,6 @@ local addItem = function(id, title, defaultItem, dest, tooltip)
 
 end
 
-
-
 local addTextEdit = function(id, title, defaultValue, dest, tooltip)
 
   local widget = UI.createWidget('ExtrasTextEdit', dest)
@@ -22240,8 +19493,6 @@ local addTextEdit = function(id, title, defaultValue, dest, tooltip)
   settings[id] = settings[id] or defaultValue or ""
 
 end
-
-
 
 local addScrollBar = function(id, title, min, max, defaultValue, dest, tooltip)
 
@@ -22283,8 +19534,6 @@ local addScrollBar = function(id, title, min, max, defaultValue, dest, tooltip)
 
 end
 
-
-
 UI.Button("vBot Settings and Scripts", function()
 
   extrasWindow:show()
@@ -22297,8 +19546,6 @@ end)
 
 UI.Separator()
 
-
-
 ---- to maintain order, add options right after another:
 
 --- add object
@@ -22308,8 +19555,6 @@ UI.Separator()
 --- add callback (optional)
 
 --- optionals should be addionaly sandboxed (if true then end)
-
-
 
 addItem("rope", "Rope Item", 9596, leftPanel, "This item will be used in various bot related scripts as default rope item.")
 
@@ -22339,15 +19584,11 @@ addCheckBox("joinBot", "Join TargetBot and CaveBot", false, leftPanel, "Cave and
 
 addCheckBox("reachable", "Target only pathable mobs", false, leftPanel, "Ignore monsters that can't be reached.")
 
-
-
 addCheckBox("title", "Custom Window Title", true, rightPanel, "Personalize OTCv8 window name according to character specific.")
 
 if true then
 
   local vocText = ""
-
-
 
   if voc() == 1 or voc() == 11 then
 
@@ -22366,8 +19607,6 @@ if true then
       vocText = "- ED"
 
   end
-
-
 
   macro(5000, function()
 
@@ -22392,8 +19631,6 @@ if true then
   end)
 
 end
-
-
 
 addCheckBox("separatePm", "Open PM's in new Window", false, rightPanel, "PM's will be automatically opened in new tab after receiving one.")
 
@@ -22423,8 +19660,6 @@ if true then
 
 end
 
-
-
 addTextEdit("useAll", "Use All Hotkey", "space", rightPanel, "Set hotkey for universal actions - rope, shovel, scythe, use, open doors")
 
 if true then
@@ -22448,8 +19683,6 @@ if true then
   local macheteId = { 2130, 3696 }
 
   local scytheId = { 3653 }
-
-
 
   setDefaultTab("Tools")
 
@@ -22513,17 +19746,11 @@ if true then
 
 end
 
-
-
-
-
 addCheckBox("timers", "MW & WG Timers", true, rightPanel, "Show times for Magic Walls and Wild Growths.")
 
 if true then
 
   local activeTimers = {}
-
-
 
   onAddThing(function(tile, thing)
 
@@ -22551,8 +19778,6 @@ if true then
 
     end
 
-
-
     local pos = tile:getPosition().x .. "," .. tile:getPosition().y .. "," .. tile:getPosition().z
 
     if not activeTimers[pos] or activeTimers[pos] < now then    
@@ -22564,8 +19789,6 @@ if true then
     tile:setTimer(activeTimers[pos] - now)
 
   end)
-
-
 
   onRemoveThing(function(tile, thing)
 
@@ -22591,10 +19814,6 @@ if true then
 
 end
 
-
-
-
-
 addCheckBox("antiKick", "Anti - Kick", true, rightPanel, "Turn every 10 minutes to prevent kick.")
 
 if true then
@@ -22612,10 +19831,6 @@ if true then
   end)
 
 end
-
-
-
-
 
 addCheckBox("stake", "Skin Monsters", false, leftPanel, "Automatically skin & stake corpses when cavebot is enabled")
 
@@ -22675,10 +19890,6 @@ if true then
 
 end
 
-
-
-
-
 addCheckBox("oberon", "Auto Reply Oberon", true, rightPanel, "Auto reply to Grand Master Oberon talk minigame.")
 
 if true then
@@ -22733,10 +19944,6 @@ if true then
 
 end
 
-
-
-
-
 addCheckBox("autoOpenDoors", "Auto Open Doors", true, rightPanel, "Open doors when trying to step on them.")
 
 if true then
@@ -22750,8 +19957,6 @@ if true then
                      1632, 11705, 30772, 30774, 6248, 5735, 5732, 5120, 23873, 5736,
 
                      6264, 5122, 30049, 30042, 7727 }
-
-
 
   function checkForDoors(pos)
 
@@ -22770,8 +19975,6 @@ if true then
     end
 
   end
-
-
 
   onKeyPress(function(keys)
 
@@ -22829,10 +20032,6 @@ if true then
 
 end
 
-
-
-
-
 addCheckBox("bless", "Buy bless at login", true, rightPanel, "Say !bless at login.")
 
 if true then
@@ -22843,11 +20042,7 @@ if true then
 
     if not settings.bless then return end
 
-    
-
     text = text:lower()
-
-
 
     if text == "you already have all blessings." then
 
@@ -22883,17 +20078,11 @@ if true then
 
 end
 
-
-
-
-
 addCheckBox("reUse", "Keep Crosshair", false, rightPanel, "Keep crosshair after using with item")
 
 if true then
 
   local excluded = {268, 237, 238, 23373, 266, 236, 239, 7643, 23375, 7642, 23374, 5908, 5942} 
-
-
 
   onUseWith(function(pos, itemId, target, subType)
 
@@ -22917,10 +20106,6 @@ if true then
 
 end
 
-
-
-
-
 addCheckBox("suppliesControl", "TargetBot off if low supply", false, leftPanel, "Turn off TargetBot if either one of supply amount is below 50% of minimum.")
 
 if true then
@@ -22943,8 +20128,6 @@ if true then
 
 end
 
-
-
 addCheckBox("holdMwall", "Hold MW/WG", true, rightPanel, "Mark tiles with below hotkeys to automatically use Magic Wall or Wild Growth")
 
 addTextEdit("holdMwHot", "Magic Wall Hotkey: ", "F5", rightPanel)
@@ -22953,15 +20136,11 @@ addTextEdit("holdWgHot", "Wild Growth Hotkey: ", "F6", rightPanel)
 
 if true then
 
-
-
   local hold = 0
 
   local mwHot
 
   local wgHot
-
-
 
   local candidates = {}
 
@@ -22971,13 +20150,9 @@ if true then
 
     wgHot = settings.holdWgHot
 
-    
-
     if not settings.holdMwall then return end
 
       if #candidates == 0 then return end
-
-
 
       for i, pos in pairs(candidates) do
 
@@ -23009,8 +20184,6 @@ if true then
 
   end)
 
-
-
   onRemoveThing(function(tile, thing)
 
     if not settings.holdMwall then return end
@@ -23033,8 +20206,6 @@ if true then
 
   end)
 
-
-
   onAddThing(function(tile, thing)
 
     if not settings.holdMwall then return end
@@ -23051,8 +20222,6 @@ if true then
 
   end)
 
-
-
   onKeyDown(function(keys)
 
     local wsadWalking = modules.game_walking.wsadWalking
@@ -23067,13 +20236,9 @@ if true then
 
     hold = now
 
-
-
     local tile = getTileUnderCursor()
 
     if not tile then return end
-
-
 
     if tile:getText():len() > 0 then
 
@@ -23097,8 +20262,6 @@ if true then
 
   end)
 
-
-
   onKeyPress(function(keys)
 
     local wsadWalking = modules.game_walking.wsadWalking
@@ -23110,8 +20273,6 @@ if true then
     if m.isOff() then return end
 
     if keys ~= mwHot and keys ~= wgHot then return end
-
-
 
     if (hold - now) < -1000 then
 
@@ -23134,8 +20295,6 @@ if true then
   end)
 
 end
-
-
 
 addCheckBox("checkPlayer", "Check Players", true, rightPanel, "Auto look on players and mark level and vocation on character model")
 
@@ -23169,8 +20328,6 @@ if true then
 
   end
 
-
-
   onPlayerPositionChange(function(x,y)
 
     if not settings.checkPlayer then return end
@@ -23182,8 +20339,6 @@ if true then
     end
 
   end)
-
-
 
   onCreatureAppear(function(creature)
 
@@ -23199,15 +20354,11 @@ if true then
 
   end)
 
-
-
   local regex = [[You see ([^\(]*) \(Level ([0-9]*)\)((?:.)* of the ([\w ]*),|)]]
 
   onTextMessage(function(mode, text)
 
     if not settings.checkPlayer then return end
-
-
 
     local re = regexMatch(text, regex)
 
@@ -23218,8 +20369,6 @@ if true then
         local level = re[1][3]
 
         local guild = re[1][5] or ""
-
-
 
         if guild:len() > 10 then
 
@@ -23269,8 +20418,6 @@ if true then
 
 end
 
-
-
 addCheckBox("nextBackpack", "Open Next Loot Container", true, leftPanel, "Auto open next loot container if full - has to have the same ID.")
 
   local function openNextLootContainer()
@@ -23280,8 +20427,6 @@ addCheckBox("nextBackpack", "Open Next Loot Container", true, leftPanel, "Auto o
     local containers = getContainers()
 
     local lootCotaniersIds = CaveBot.GetLootContainers()
-
-
 
     for i, container in ipairs(containers) do
 
@@ -23321,8 +20466,6 @@ if true then
 
   end)
 
-
-
   onAddItem(function(container, slot, item, oldItem)
 
     schedule(100, function()
@@ -23334,8 +20477,6 @@ if true then
   end)
 
 end
-
-
 
 addCheckBox("highlightTarget", "Highlight Current Target", true, rightPanel, "Additionaly hightlight current target with red glow")
 
@@ -23352,8 +20493,6 @@ if true then
     end
 
   end
-
-
 
   onAttackingCreatureChange(function(newCreature, oldCreature)
 
@@ -23378,12 +20517,7 @@ end
 ```
 
 ---
-
-
-
 # extras.otui
-
-
 
 ```otui
 
@@ -23392,8 +20526,6 @@ ExtrasScrollBar < Panel
   height: 28
 
   margin-top: 3
-
-
 
   UIWidget
 
@@ -23406,8 +20538,6 @@ ExtrasScrollBar < Panel
     anchors.top: parent.top
 
     text-align: center
-
-    
 
   HorizontalScrollBar
 
@@ -23427,15 +20557,11 @@ ExtrasScrollBar < Panel
 
     step: 1
 
-
-
 ExtrasTextEdit < Panel
 
   height: 40
 
   margin-top: 7
-
-
 
   UIWidget
 
@@ -23448,8 +20574,6 @@ ExtrasTextEdit < Panel
     anchors.top: parent.top
 
     text-align: center
-
-    
 
   TextEdit
 
@@ -23471,8 +20595,6 @@ ExtrasTextEdit < Panel
 
     text-align: center
 
-
-
 ExtrasItem < Panel
 
   height: 34
@@ -23483,8 +20605,6 @@ ExtrasItem < Panel
 
   margin-right: 25
 
-
-
   UIWidget
 
     id: text
@@ -23492,8 +20612,6 @@ ExtrasItem < Panel
     anchors.left: parent.left
 
     anchors.verticalCenter: next.verticalCenter
-
-
 
   BotItem
 
@@ -23503,17 +20621,11 @@ ExtrasItem < Panel
 
     anchors.right: parent.right
 
-
-
-
-
 ExtrasCheckBox < BotSwitch
 
   height: 20
 
   margin-top: 7
-
-
 
 ExtrasWindow < MainWindow
 
@@ -23522,8 +20634,6 @@ ExtrasWindow < MainWindow
   size: 440 360
 
   padding: 25
-
-
 
   Label
 
@@ -23537,8 +20647,6 @@ ExtrasWindow < MainWindow
 
     text: < CaveBot >
 
-
-
   Label
 
     anchors.left: parent.horizontalCenter
@@ -23550,8 +20658,6 @@ ExtrasWindow < MainWindow
     text-align: center
 
     text: < Miscellaneous >
-
-
 
   VerticalScrollBar
 
@@ -23575,8 +20681,6 @@ ExtrasWindow < MainWindow
 
     margin-bottom: 5
 
-
-
   ScrollablePanel
 
     id: content
@@ -23592,8 +20696,6 @@ ExtrasWindow < MainWindow
     vertical-scrollbar: contentScroll
 
     margin-bottom: 10
-
-      
 
     Panel
 
@@ -23617,8 +20719,6 @@ ExtrasWindow < MainWindow
 
         fit-children: true
 
-
-
     Panel
 
       id: right
@@ -23641,8 +20741,6 @@ ExtrasWindow < MainWindow
 
         fit-children: true
 
-
-
     VerticalSeparator
 
       anchors.top: parent.top
@@ -23650,8 +20748,6 @@ ExtrasWindow < MainWindow
       anchors.bottom: parent.bottom
 
       anchors.left: parent.horizontalCenter
-
-
 
   HorizontalSeparator
 
@@ -23664,8 +20760,6 @@ ExtrasWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8
-
-
 
   ResizeBorder
 
@@ -23684,8 +20778,6 @@ ExtrasWindow < MainWindow
     margin-right: 3
 
     background: #ffffff88    
-
-
 
   Button
 
@@ -23706,22 +20798,13 @@ ExtrasWindow < MainWindow
 ```
 
 ---
-
-
-
 # hold_target.lua
-
-
 
 ```lua
 
 setDefaultTab("Tools")
 
-
-
 local targetID = nil
-
-
 
 -- escape when attacking will reset hold target
 
@@ -23734,8 +20817,6 @@ onKeyPress(function(keys)
     end
 
 end)
-
-
 
 macro(100, "Hold Target", function()
 
@@ -23751,8 +20832,6 @@ macro(100, "Hold Target", function()
 
         if not targetID then return end
 
-
-
         -- look for target
 
         for i, spec in ipairs(getSpectators()) do
@@ -23760,8 +20839,6 @@ macro(100, "Hold Target", function()
             local sameFloor = spec:getPosition().z == posz()
 
             local oldTarget = spec:getId() == targetID
-
-            
 
             if sameFloor and oldTarget then
 
@@ -23778,12 +20855,7 @@ end)
 ```
 
 ---
-
-
-
 # ingame_editor.lua
-
-
 
 ```lua
 
@@ -23803,11 +20875,7 @@ UI.Button("Ingame script editor", function(newText)
 
   end)
 
-  
-
   UI.Separator()
-
-  
 
   for _, scripts in pairs({storage.ingame_hotkeys}) do
 
@@ -23829,19 +20897,12 @@ UI.Button("Ingame script editor", function(newText)
 
   end
 
-  
-
   UI.Separator()
 
 ```
 
 ---
-
-
-
 # items.lua
-
-
 
 ```lua
 
@@ -26287,8 +23348,6 @@ LootItems = {
 
     ["zaogun shoulderplates"] = 150,
 
-
-
     -- 12.70
 
     ["carnisylvan bark"] = 230,
@@ -26370,8 +23429,6 @@ LootItems = {
     ["streaked devourer maw"] = 400,
 
     ["eldritch crystal"] = 48000,
-
-
 
     -- supplies
 
@@ -26463,8 +23520,6 @@ LootItems = {
 
     ["paralyse rune"] = 700,
 
-
-
     ["envenomed arrow"] = 12,
 
     ["flaming arrow"] = 5,
@@ -26510,8 +23565,6 @@ LootItems = {
     ["drill bolt"] = 12,
 
 }
-
-
 
 WasteItems = {
 
@@ -26656,12 +23709,7 @@ WasteItems = {
 ```
 
 ---
-
-
-
 # main.lua
-
-
 
 ```lua
 
@@ -26671,21 +23719,13 @@ local currentVersion
 
 local available = false
 
-
-
 storage.checkVersion = storage.checkVersion or 0
-
-
 
 -- check max once per 12hours
 
 if os.time() > storage.checkVersion + (12 * 60 * 60) then
 
-
-
     storage.checkVersion = os.time()
-
-    
 
     HTTP.get("https://raw.githubusercontent.com/Vithrax/vBot/main/vBot/version.txt", function(data, err)
 
@@ -26697,19 +23737,13 @@ if os.time() > storage.checkVersion + (12 * 60 * 60) then
 
         end
 
-
-
         currentVersion = data
 
         available = true
 
     end)
 
-
-
 end
-
-
 
 UI.Label("vBot v".. version .." \n Vithrax#5814")
 
@@ -26717,17 +23751,11 @@ UI.Button("Official OTCv8 Discord!", function() g_platform.openUrl("https://disc
 
 UI.Separator()
 
-
-
 schedule(5000, function()
-
-
 
     if not available then return end
 
     if currentVersion ~= version then
-
-        
 
         UI.Separator()
 
@@ -26737,37 +23765,24 @@ schedule(5000, function()
 
         UI.Separator()
 
-        
-
     end
-
-
 
 end)
 
 ```
 
 ---
-
-
-
 # new_cavebot_lib.lua
-
-
 
 ```lua
 
 CaveBot = {} -- global namespace
-
-
 
 -------------------------------------------------------------------
 
 -- CaveBot lib 1.0
 
 -- Contains a universal set of functions to be used in CaveBot
-
-
 
 ----------------------[[ basic assumption ]]-----------------------
 
@@ -26785,8 +23800,6 @@ CaveBot = {} -- global namespace
 
 -------------------------------------------------------------------
 
-
-
 -- local variables, constants and functions, used by global functions
 
 local LOCKERS_LIST = {3497, 3498, 3499, 3500}
@@ -26802,8 +23815,6 @@ local LOCKER_ACCESSTILE_MODIFIERS = {
     [3500] = {-1,0}
 
 }
-
-
 
 local function CaveBotConfigParse()
 
@@ -26823,8 +23834,6 @@ local function CaveBotConfigParse()
 
 end
 
-
-
 local function getNearTiles(pos)
 
     if type(pos) ~= "table" then
@@ -26832,8 +23841,6 @@ local function getNearTiles(pos)
         pos = pos:getPosition()
 
     end
-
-
 
     local tiles = {}
 
@@ -26855,7 +23862,7 @@ local function getNearTiles(pos)
 
         {1, -1}
 
-    }
+}
 
     for i = 1, #dirs do
 
@@ -26863,7 +23870,7 @@ local function getNearTiles(pos)
 
             g_map.getTile(
 
-            {
+{
 
                 x = pos.x - dirs[i][1],
 
@@ -26871,9 +23878,9 @@ local function getNearTiles(pos)
 
                 z = pos.z
 
-            }
+}
 
-        )
+)
 
         if tile then
 
@@ -26883,13 +23890,9 @@ local function getNearTiles(pos)
 
     end
 
-
-
     return tiles
 
 end
-
-
 
 -- ##################### --
 
@@ -26897,13 +23900,9 @@ end
 
 -- ##################### --
 
-
-
 --- global variable to reflect current CaveBot status
 
 CaveBot.Status = "waiting"
-
-
 
 --- Parses config and extracts loot list.
 
@@ -26912,8 +23911,6 @@ CaveBot.Status = "waiting"
 function CaveBot.GetLootItems()
 
     local t = CaveBotConfigParse() and CaveBotConfigParse()["items"] or nil
-
-
 
     local returnTable = {}
 
@@ -26927,15 +23924,9 @@ function CaveBot.GetLootItems()
 
     end
 
-
-
     return returnTable
 
 end
-
-
-
-
 
 --- Checks whether player has any visible items to be stashed
 
@@ -26967,8 +23958,6 @@ function CaveBot.HasLootItems()
 
 end
 
-
-
 --- Parses config and extracts loot containers.
 
 -- @return table
@@ -26976,8 +23965,6 @@ end
 function CaveBot.GetLootContainers()
 
     local t = CaveBotConfigParse() and CaveBotConfigParse()["containers"] or nil
-
-
 
     local returnTable = {}
 
@@ -26991,13 +23978,9 @@ function CaveBot.GetLootContainers()
 
     end
 
-
-
     return returnTable
 
 end
-
-
 
 --- Information about open containers.
 
@@ -27008,8 +23991,6 @@ end
 function CaveBot.GetOpenedLootContainers(containerTable)
 
     local containers = CaveBot.GetLootContainers()
-
-
 
     local t = {}
 
@@ -27025,13 +24006,9 @@ function CaveBot.GetOpenedLootContainers(containerTable)
 
     end
 
-
-
     return containerTable and t or #t
 
 end
-
-
 
 --- Some actions needs to be additionally slowed down in case of high ping.
 
@@ -27055,15 +24032,11 @@ function CaveBot.PingDelay(multiplayer)
 
 end
 
-
-
 -- ##################### --
 
 -- [[ Container class ]] --
 
 -- ##################### --
-
-
 
 --- Closes any loot container that is open.
 
@@ -27072,8 +24045,6 @@ end
 function CaveBot.CloseLootContainer()
 
     local containers = CaveBot.GetLootContainers()
-
-
 
     for i, container in pairs(getContainers()) do
 
@@ -27087,19 +24058,13 @@ function CaveBot.CloseLootContainer()
 
     end
 
-
-
     return true
 
 end
 
-
-
 function CaveBot.CloseAllLootContainers()
 
     local containers = CaveBot.GetLootContainers()
-
-
 
     for i, container in pairs(getContainers()) do
 
@@ -27113,13 +24078,9 @@ function CaveBot.CloseAllLootContainers()
 
     end
 
-
-
     return true
 
 end
-
-
 
 --- Opens any loot container that isn't already opened.
 
@@ -27128,8 +24089,6 @@ end
 function CaveBot.OpenLootContainer()
 
     local containers = CaveBot.GetLootContainers()
-
-
 
     local t = {}
 
@@ -27140,8 +24099,6 @@ function CaveBot.OpenLootContainer()
         table.insert(t, containerId)
 
     end
-
-
 
     for _, container in pairs(getContainers()) do
 
@@ -27159,21 +24116,15 @@ function CaveBot.OpenLootContainer()
 
     end
 
-
-
     return true
 
 end
-
-
 
 -- ##################### --
 
 -- [[[ Position class ]] --
 
 -- ##################### --
-
-
 
 --- Compares distance between player position and given pos.
 
@@ -27192,8 +24143,6 @@ function CaveBot.MatchPosition(position, distance)
     return getDistanceBetween(pPos, position) <= distance
 
 end
-
-
 
 --- Stripped down to take less space.
 
@@ -27219,8 +24168,6 @@ function CaveBot.GoTo(position, precision)
 
 end
 
-
-
 --- Finds position of npc by name and reaches its position.
 
 -- @return void(acion) or boolean
@@ -27228,8 +24175,6 @@ end
 function CaveBot.ReachNPC(name)
 
     name = name:lower()
-
-    
 
     local npc = nil
 
@@ -27243,8 +24188,6 @@ function CaveBot.ReachNPC(name)
 
     end
 
-
-
     if not CaveBot.MatchPosition(npc:getPosition(), 3) then
 
         CaveBot.GoTo(npc:getPosition())
@@ -27257,21 +24200,15 @@ function CaveBot.ReachNPC(name)
 
 end
 
-
-
 -- ##################### --
 
 -- [[[[ Depot class ]]]] --
 
 -- ##################### --
 
-
-
 --- Reaches closest locker.
 
 -- @return void(acion) or boolean
-
-
 
 local depositerLockerTarget = nil
 
@@ -27282,8 +24219,6 @@ function CaveBot.ReachDepot()
     local pPos = player:getPosition()
 
     local tiles = getNearTiles(player:getPosition())
-
-
 
     for i, tile in pairs(tiles) do
 
@@ -27303,8 +24238,6 @@ function CaveBot.ReachDepot()
 
     end
 
-
-
     if depositerLockerReachRetries > 20 then
 
         depositerLockerTarget = nil
@@ -27313,11 +24246,7 @@ function CaveBot.ReachDepot()
 
     end
 
-
-
     local candidates = {}
-
-
 
     if not depositerLockerTarget or distanceFromPlayer(depositerLockerTarget, pPos) > 12 then
 
@@ -27355,8 +24284,6 @@ function CaveBot.ReachDepot()
 
         end
 
-
-
         if #candidates > 1 then
 
             table.sort(candidates, function(a,b) return a.dist < b.dist end)
@@ -27365,11 +24292,7 @@ function CaveBot.ReachDepot()
 
     end
 
-
-
     depositerLockerTarget = depositerLockerTarget or candidates[1].pos
-
-
 
     if depositerLockerTarget then
 
@@ -27393,8 +24316,6 @@ function CaveBot.ReachDepot()
 
 end
 
-
-
 --- Opens locker item.
 
 -- @return void(acion) or boolean
@@ -27404,8 +24325,6 @@ function CaveBot.OpenLocker()
     local pPos = player:getPosition()
 
     local tiles = getNearTiles(player:getPosition())
-
-
 
     local locker = getContainerByName("Locker")
 
@@ -27443,8 +24362,6 @@ function CaveBot.OpenLocker()
 
 end
 
-
-
 --- Opens depot chest.
 
 -- @return void(acion) or boolean
@@ -27480,8 +24397,6 @@ function CaveBot.OpenDepotChest()
     end
 
 end
-
-
 
 --- Opens inbox inside locker.
 
@@ -27519,8 +24434,6 @@ function CaveBot.OpenInbox()
 
 end
 
-
-
 --- Opens depot box of given number.
 
 -- @param index is integer
@@ -27536,8 +24449,6 @@ function CaveBot.OpenDepotBox(index)
         return CaveBot.ReachAndOpenDepot()
 
     end
-
-
 
     local foundParent = false
 
@@ -27555,8 +24466,6 @@ function CaveBot.OpenDepotBox(index)
 
     if foundParent then return true end
 
-
-
     for i, container in pairs(depot:getItems()) do
 
         if i == index then
@@ -27568,8 +24477,6 @@ function CaveBot.OpenDepotBox(index)
     end
 
 end
-
-
 
 --- Reaches and opens depot.
 
@@ -27589,8 +24496,6 @@ function CaveBot.ReachAndOpenDepot()
 
 end
 
-
-
 --- Reaches and opens imbox.
 
 -- Combined for shorthand usage.
@@ -27609,8 +24514,6 @@ function CaveBot.ReachAndOpenInbox()
 
 end
 
-
-
 --- Stripped down function to stash item.
 
 -- @param item is object
@@ -27627,13 +24530,9 @@ function CaveBot.StashItem(item, index, destination)
 
     if not destination then return false end
 
-
-
     return g_game.move(item, destination:getSlotPosition(index), item:getCount())
 
 end
-
-
 
 --- Withdraws item from depot chest or mail inbox.
 
@@ -27703,15 +24602,11 @@ function CaveBot.WithdrawItem(id, amount, fromDepot, destination)
 
     end
 
-
-
     if itemCount >= amount then 
 
         return true 
 
     end
-
-
 
     local toMove = amount - itemCount
 
@@ -27727,15 +24622,11 @@ function CaveBot.WithdrawItem(id, amount, fromDepot, destination)
 
 end
 
-
-
 -- ##################### --
 
 -- [[[[[ Talk class ]]]] --
 
 -- ##################### --
-
-
 
 --- Controlled by event caller.
 
@@ -27749,8 +24640,6 @@ function CaveBot.Conversation(...)
 
     local delay = storage.extras.talkDelay or 1000
 
-
-
     local talkDelay = 0
 
     for i, expr in ipairs(expressions) do
@@ -27763,8 +24652,6 @@ function CaveBot.Conversation(...)
 
 end
 
-
-
 --- Says hi trade to NPC.
 
 -- Used as shorthand to open NPC trade window.
@@ -27776,8 +24663,6 @@ function CaveBot.OpenNpcTrade()
     return CaveBot.Conversation("hi", "trade")
 
 end
-
-
 
 --- Says hi destination yes to NPC.
 
@@ -27796,12 +24681,7 @@ end
 ```
 
 ---
-
-
-
 # new_healer.lua
-
-
 
 ```lua
 
@@ -27814,8 +24694,6 @@ local ui = setupUI([[
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -27830,8 +24708,6 @@ Panel
     width: 130
 
     !text: tr('Friend Healer')
-
-
 
   Button
 
@@ -27849,13 +24725,9 @@ Panel
 
     text: Setup
 
-      
-
 ]])
 
 ui:setId(panelName)
-
-
 
 -- validate current settings
 
@@ -27864,8 +24736,6 @@ if not storage[panelName] or not storage[panelName].priorities then
     storage[panelName] = nil
 
 end
-
-
 
 if not storage[panelName] then
 
@@ -27881,8 +24751,6 @@ if not storage[panelName] then
 
         priorities = {
 
-
-
             {name="Custom Spell",           enabled=false, custom=true},
 
             {name="Exura Gran Sio",         enabled=true,              strong = true},
@@ -27895,13 +24763,9 @@ if not storage[panelName] then
 
             {name="Mana Item",              enabled=true,                                                                  mana=true}
 
-
-
-        },
+},
 
         settings = {
-
-
 
             {type="HealItem",       text="Mana Item ",                   value=268},
 
@@ -27919,9 +24783,7 @@ if not storage[panelName] then
 
             {type="HealScroll",     text="Min Player MP%: ",             value=50},
 
-
-
-        },
+},
 
         conditions = {
 
@@ -27941,13 +24803,11 @@ if not storage[panelName] then
 
             friends = false
 
-        }
+}
 
-    }
+}
 
 end
-
-
 
 local config = storage[panelName]
 
@@ -27956,8 +24816,6 @@ local healerWindow = UI.createWindow('FriendHealer')
 healerWindow:hide()
 
 healerWindow:setId(panelName)
-
-
 
 ui.title:setOn(config.enabled)
 
@@ -27969,8 +24827,6 @@ ui.title.onClick = function(widget)
 
 end
 
-
-
 ui.edit.onClick = function()
 
     healerWindow:show()
@@ -27981,8 +24837,6 @@ ui.edit.onClick = function()
 
 end
 
-
-
 local conditions = healerWindow.conditions
 
 local targetSettings = healerWindow.targetSettings
@@ -27990,8 +24844,6 @@ local targetSettings = healerWindow.targetSettings
 local customList = healerWindow.customList
 
 local priority = healerWindow.priority
-
-
 
 -- customList
 
@@ -28013,15 +24865,11 @@ for name, health in pairs(config.customPlayers) do
 
 end
 
-
-
 customList.playerList.onDoubleClick = function()
 
     customList.playerList:hide()
 
 end
-
-
 
 local function clearFields()
 
@@ -28033,15 +24881,11 @@ local function clearFields()
 
 end
 
-
-
 local function capitalFistLetter(str)
 
     return (string.gsub(str, "^%l", string.upper))
 
   end
-
-
 
 customList.addPanel.add.onClick = function()
 
@@ -28057,8 +24901,6 @@ customList.addPanel.add.onClick = function()
 
     end
 
-
-
     if not health then    
 
         clearFields()
@@ -28067,8 +24909,6 @@ customList.addPanel.add.onClick = function()
 
     end
 
-
-
     if name:len() == 0 or name:lower() == "friend name" then   
 
         clearFields()
@@ -28076,8 +24916,6 @@ customList.addPanel.add.onClick = function()
         return warn("[Friend Healer] Please enter friend name to be added!")
 
     end
-
-
 
     if config.customPlayers[name] or config.customPlayers[name:lower()] then 
 
@@ -28103,13 +24941,9 @@ customList.addPanel.add.onClick = function()
 
     end
 
-
-
     clearFields()
 
 end
-
-
 
 local function validate(widget, category)
 
@@ -28120,8 +24954,6 @@ local function validate(widget, category)
     -- 1 - priorities | 2 - vocation
 
     category = category or 0
-
-
 
     if category == 2 and not storage.extras.checkPlayer then
 
@@ -28139,8 +24971,6 @@ local function validate(widget, category)
 
     end
 
-
-
     local checked = false
 
     for i, child in ipairs(list:getChildren()) do
@@ -28152,8 +24982,6 @@ local function validate(widget, category)
         end
 
     end
-
-
 
     if not checked then
 
@@ -28185,8 +25013,6 @@ targetSettings.vocations.box.knights.onClick = function(widget)
 
 end
 
-
-
 targetSettings.vocations.box.paladins:setChecked(config.conditions.paladins)
 
 targetSettings.vocations.box.paladins.onClick = function(widget)
@@ -28198,8 +25024,6 @@ targetSettings.vocations.box.paladins.onClick = function(widget)
     validate(widget, 2)
 
 end
-
-
 
 targetSettings.vocations.box.druids:setChecked(config.conditions.druids)
 
@@ -28213,8 +25037,6 @@ targetSettings.vocations.box.druids.onClick = function(widget)
 
 end
 
-
-
 targetSettings.vocations.box.sorcerers:setChecked(config.conditions.sorcerers)
 
 targetSettings.vocations.box.sorcerers.onClick = function(widget)
@@ -28226,8 +25048,6 @@ targetSettings.vocations.box.sorcerers.onClick = function(widget)
     validate(widget, 2)
 
 end
-
-
 
 targetSettings.groups.box.friends:setChecked(config.conditions.friends)
 
@@ -28241,8 +25061,6 @@ targetSettings.groups.box.friends.onClick = function(widget)
 
 end
 
-
-
 targetSettings.groups.box.party:setChecked(config.conditions.party)
 
 targetSettings.groups.box.party.onClick = function(widget)
@@ -28254,8 +25072,6 @@ targetSettings.groups.box.party.onClick = function(widget)
     validate(widget)
 
 end
-
-
 
 targetSettings.groups.box.guild:setChecked(config.conditions.guild)
 
@@ -28269,8 +25085,6 @@ targetSettings.groups.box.guild.onClick = function(widget)
 
 end
 
-
-
 targetSettings.groups.box.botserver:setChecked(config.conditions.botserver)
 
 targetSettings.groups.box.botserver.onClick = function(widget)
@@ -28283,15 +25097,11 @@ targetSettings.groups.box.botserver.onClick = function(widget)
 
 end
 
-
-
 validate(targetSettings.vocations.box.knights)
 
 validate(targetSettings.groups.box.friends)
 
 validate(targetSettings.vocations.box.sorcerers, 2)
-
-
 
 -- conditions
 
@@ -28304,8 +25114,6 @@ for i, setting in ipairs(config.settings) do
     local val = setting.value
 
     widget.text:setText(text)
-
-
 
     if setting.type == "HealScroll" then
 
@@ -28355,12 +25163,6 @@ for i, setting in ipairs(config.settings) do
 
 end
 
-
-
-
-
-
-
 -- priority and toggles
 
 local function setCrementalButtons()
@@ -28387,13 +25189,9 @@ local function setCrementalButtons()
 
 end
 
-
-
 for i, action in ipairs(config.priorities) do
 
     local widget = UI.createWidget("PriorityEntry", priority.list)
-
-
 
     widget:setText(action.name)
 
@@ -28402,8 +25200,6 @@ for i, action in ipairs(config.priorities) do
         local index = priority.list:getChildIndex(widget)
 
         local table = config.priorities
-
-
 
         priority.list:moveChildToIndex(widget, index-1)
 
@@ -28418,8 +25214,6 @@ for i, action in ipairs(config.priorities) do
         local index = priority.list:getChildIndex(widget)
 
         local table = config.priorities
-
-
 
         priority.list:moveChildToIndex(widget, index+1)
 
@@ -28471,8 +25265,6 @@ for i, action in ipairs(config.priorities) do
 
     end
 
-
-
     if i == #config.priorities then
 
         validate(widget, 1)
@@ -28482,8 +25274,6 @@ for i, action in ipairs(config.priorities) do
     end
 
 end
-
-
 
 local lastItemUse = now
 
@@ -28499,8 +25289,6 @@ local function friendHealerAction(spec, targetsInRange)
 
     targetsInRange = targetsInRange or 0
 
-
-
     local masResAmount = config.settings[4].value
 
     local itemRange = config.settings[2].value
@@ -28512,8 +25300,6 @@ local function friendHealerAction(spec, targetsInRange)
     local normalHeal = config.customPlayers[name] or config.settings[5].value
 
     local strongHeal = config.customPlayers[name] and normalHeal/2 or config.settings[6].value
-
-
 
     for i, action in ipairs(config.priorities) do
 
@@ -28559,8 +25345,6 @@ local function friendHealerAction(spec, targetsInRange)
 
 end
 
-
-
 local function isCandidate(spec)
 
     if spec:isLocalPlayer() or not spec:isPlayer() then 
@@ -28575,8 +25359,6 @@ local function isCandidate(spec)
 
     end
 
-    
-
     local curHp = spec:getHealthPercent()
 
     if curHp == 100 or (config.customPlayers[name] and curHp > config.customPlayers[name]) then
@@ -28584,8 +25366,6 @@ local function isCandidate(spec)
         return false
 
     end
-
-
 
     local specText = spec:getText()
 
@@ -28613,8 +25393,6 @@ local function isCandidate(spec)
 
     end
 
-
-
     local okParty = config.conditions.party and spec:isPartyMember()
 
     local okFriend = config.conditions.friends and isFriend(spec)
@@ -28623,27 +25401,19 @@ local function isCandidate(spec)
 
     local okBotServer = config.conditions.botserver and vBot.BotServerMembers[spec:getName()]
 
-
-
     if not (okParty or okFriend or okGuild or okBotServer) then
 
         return nil
 
     end
 
-
-
     local health = config.customPlayers[name] and curHp/2 or curHp
 
     local dist = distanceFromPlayer(spec:getPosition())
 
-
-
     return health, dist
 
 end
-
-
 
 macro(100, function()
 
@@ -28651,31 +25421,21 @@ macro(100, function()
 
     if modules.game_cooldown.isGroupCooldownIconActive(2) then return end
 
-
-
     local minHp = config.settings[7].value
 
     local minMp = config.settings[8].value
-
-
 
     local healTarget = {creature=nil, hp=100}
 
     local inMasResRange = 0
 
-
-
     -- check basic 
 
     if hppercent() <= minHp or manapercent() <= minMp then return end
 
-
-
     -- get all spectators
 
     local spectators = getSpectators()
-
-
 
     -- main check
 
@@ -28691,8 +25451,6 @@ macro(100, function()
 
             inMasResRange = dist <= 3 and inMasResRange+1 or inMasResRange
 
-
-
             -- best target
 
             if health < healTarget.hp then
@@ -28704,8 +25462,6 @@ macro(100, function()
         end
 
     end
-
-
 
     -- action
 
@@ -28720,12 +25476,7 @@ end)
 ```
 
 ---
-
-
-
 # new_healer.otui
-
-
 
 ```otui
 
@@ -28735,17 +25486,11 @@ CategoryCheckBox < CheckBox
 
   margin-top: 3
 
-
-
   $checked:
 
     color: #98BF64
 
-
-
 HealScroll < Panel
-
-
 
   ToolTipLabel
 
@@ -28760,8 +25505,6 @@ HealScroll < Panel
     text-align: center
 
     text: test
-
-    
 
   HorizontalScrollBar
 
@@ -28781,11 +25524,7 @@ HealScroll < Panel
 
     step: 1
 
-
-
 HealItem < Panel
-
-
 
   BotItem
 
@@ -28796,8 +25535,6 @@ HealItem < Panel
     anchors.verticalCenter: parent.verticalCenter
 
     size: 34 34
-
-
 
   ToolTipLabel
 
@@ -28813,8 +25550,6 @@ HealItem < Panel
 
     text-align: left
 
-
-
 ToolTipLabel < UIWidget
 
   font: verdana-11px-rounded
@@ -28824,8 +25559,6 @@ ToolTipLabel < UIWidget
   height: 14
 
   text-align: center 
-
-
 
 HealerPlayerEntry < Label
 
@@ -28841,13 +25574,9 @@ HealerPlayerEntry < Label
 
   text-align: left
 
-
-
   $focus:
 
     background-color: #00000055
-
-  
 
   Button
 
@@ -28867,8 +25596,6 @@ HealerPlayerEntry < Label
 
     tooltip: Remove player from the list
 
-
-
 PriorityEntry < ToolTipLabel
 
   background-color: alpha
@@ -28883,13 +25610,9 @@ PriorityEntry < ToolTipLabel
 
   text-align: left
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   CheckBox
 
@@ -28904,8 +25627,6 @@ PriorityEntry < ToolTipLabel
     margin-top: 2
 
     margin-left: 3 
-
-  
 
   Button
 
@@ -28923,8 +25644,6 @@ PriorityEntry < ToolTipLabel
 
     tooltip: Increase Priority
 
-
-
   Button
 
     id: decrement
@@ -28941,8 +25660,6 @@ PriorityEntry < ToolTipLabel
 
     tooltip: Decrease Priority
 
-
-
 TargetSettings < Panel
 
   size: 280 125
@@ -28953,8 +25670,6 @@ TargetSettings < Panel
 
   image-border: 6
 
-
-
   Label
 
     anchors.horizontalCenter: parent.horizontalCenter
@@ -28964,8 +25679,6 @@ TargetSettings < Panel
     font: verdana-11px-rounded 
 
     text: Heal Target Settings
-
-
 
   Groups
 
@@ -28979,8 +25692,6 @@ TargetSettings < Panel
 
     margin-left: 9
 
-
-
   Vocations
 
     id: vocations
@@ -28991,8 +25702,6 @@ TargetSettings < Panel
 
     anchors.verticalCenter: prev.verticalCenter
 
-
-
 Groups < FlatPanel
 
   size: 150 90
@@ -29000,8 +25709,6 @@ Groups < FlatPanel
   padding: 3
 
   padding-top: 5
-
-
 
   ToolTipLabel
 
@@ -29015,8 +25722,6 @@ Groups < FlatPanel
 
     tooltip: Players added in custom list will always be in scope
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -29026,8 +25731,6 @@ Groups < FlatPanel
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Panel
 
@@ -29049,15 +25752,11 @@ Groups < FlatPanel
 
       type: verticalBox
 
-
-
     CategoryCheckBox
 
       id: friends
 
       text: Friends
-
-
 
     CategoryCheckBox
 
@@ -29065,23 +25764,17 @@ Groups < FlatPanel
 
       text: Party Members
 
-
-
     CategoryCheckBox
 
       id: guild
 
       text: Guild Members
 
-
-
     CategoryCheckBox
 
       id: botserver
 
       text: BotServer Members
-
-  
 
 Vocations < FlatPanel
 
@@ -29090,8 +25783,6 @@ Vocations < FlatPanel
   padding: 3
 
   padding-top: 5
-
-
 
   ToolTipLabel
 
@@ -29105,8 +25796,6 @@ Vocations < FlatPanel
 
     text: Vocations
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -29116,8 +25805,6 @@ Vocations < FlatPanel
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Panel
 
@@ -29135,13 +25822,9 @@ Vocations < FlatPanel
 
     padding: 2
 
-
-
     layout: 
 
       type: verticalBox
-
-
 
     CategoryCheckBox
 
@@ -29149,15 +25832,11 @@ Vocations < FlatPanel
 
       text: Knights
 
-
-
     CategoryCheckBox
 
       id: paladins
 
       text: Paladins
-
-
 
     CategoryCheckBox
 
@@ -29165,15 +25844,11 @@ Vocations < FlatPanel
 
       text: Druids
 
-
-
     CategoryCheckBox
 
       id: sorcerers
 
       text: Sorcerers
-
-
 
 Priority < Panel
 
@@ -29187,8 +25862,6 @@ Priority < Panel
 
   image-border: 6
 
-
-
   ToolTipLabel
 
     id: title
@@ -29200,8 +25873,6 @@ Priority < Panel
     font: verdana-11px-rounded 
 
     text: Priority & Toggles
-
-
 
   TextList
 
@@ -29221,13 +25892,9 @@ Priority < Panel
 
     padding-top: 1
 
-
-
 AddPlayer < FlatPanel
 
   padding: 5
-
-
 
   Label
 
@@ -29245,8 +25912,6 @@ AddPlayer < FlatPanel
 
     text-wrap: true
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -29256,8 +25921,6 @@ AddPlayer < FlatPanel
     anchors.right: parent.right
 
     margin-top: 2
-
-
 
   SpinBox
 
@@ -29281,8 +25944,6 @@ AddPlayer < FlatPanel
 
     text-align: center
 
-
-
   Label
 
     anchors.verticalCenter: prev.verticalCenter
@@ -29294,8 +25955,6 @@ AddPlayer < FlatPanel
     font: verdana-11px-rounded 
 
     text: %HP - heal if below
-
-
 
   TextEdit
 
@@ -29315,8 +25974,6 @@ AddPlayer < FlatPanel
 
     text: friend name
 
-
-
   Button
 
     id: add
@@ -29333,11 +25990,7 @@ AddPlayer < FlatPanel
 
     text: Add Player
 
-
-
 PlayerList < Panel
-
-
 
   TextList
 
@@ -29350,8 +26003,6 @@ PlayerList < Panel
     padding-top: 2
 
     vertical-scrollbar: listScrollBar
-
-
 
   VerticalScrollBar
 
@@ -29367,8 +26018,6 @@ PlayerList < Panel
 
     pixels-scroll: true
 
-
-
 CustomList < Panel
 
   size: 190 172
@@ -29381,8 +26030,6 @@ CustomList < Panel
 
   image-border: 6
 
-
-
   ToolTipLabel
 
     anchors.horizontalCenter: parent.horizontalCenter
@@ -29394,8 +26041,6 @@ CustomList < Panel
     text: Custom Player List
 
     tooltip: Double click on the list below to add new player.
-
-
 
   AddPlayer
 
@@ -29411,15 +26056,11 @@ CustomList < Panel
 
     anchors.bottom: parent.bottom
 
-
-
   PlayerList
 
     id: playerList
 
     anchors.fill: prev
-
-
 
 Conditions < Panel
 
@@ -29431,8 +26072,6 @@ Conditions < Panel
 
   image-border: 6
 
-
-
   Label
 
     anchors.horizontalCenter: parent.horizontalCenter
@@ -29442,8 +26081,6 @@ Conditions < Panel
     font: verdana-11px-rounded 
 
     text: Player Conditions
-
-
 
   Panel
 
@@ -29467,8 +26104,6 @@ Conditions < Panel
 
       num-columns: 2
 
-
-
 FriendHealer < MainWindow
 
   !text: tr('Friend Healer')
@@ -29479,8 +26114,6 @@ FriendHealer < MainWindow
 
   @onEscape: self:hide()
 
-
-
   Conditions
 
     id: conditions
@@ -29488,8 +26121,6 @@ FriendHealer < MainWindow
     anchors.top: parent.top
 
     anchors.right: parent.right
-
-
 
   TargetSettings
 
@@ -29501,8 +26132,6 @@ FriendHealer < MainWindow
 
     anchors.left: prev.left
 
-
-
   Priority
 
     id: priority
@@ -29510,8 +26139,6 @@ FriendHealer < MainWindow
     anchors.top: parent.top
 
     anchors.left: parent.left
-
-
 
   CustomList
 
@@ -29522,8 +26149,6 @@ FriendHealer < MainWindow
     margin-top: 10
 
     anchors.left: priority.left
-
-
 
   HorizontalSeparator
 
@@ -29536,8 +26161,6 @@ FriendHealer < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -29558,12 +26181,7 @@ FriendHealer < MainWindow
 ```
 
 ---
-
-
-
 # npc_talk.lua
-
-
 
 ```lua
 
@@ -29580,12 +26198,7 @@ end)
 ```
 
 ---
-
-
-
 # playerlist.lua
-
-
 
 ```lua
 
@@ -29595,17 +26208,11 @@ end)
 
   example made on server Gunzodus
 
-
-
   example link for player overview:
 
   https://www.gunzodus.net/character/show/Sir_Vithrax
 
-
-
   *note that space in character name was replaced with underscore (_) - this character will be important
-
-
 
   in this case:
 
@@ -29615,17 +26222,9 @@ end)
 
 ]]
 
-
-
 local link = "https://www.gunzodus.net/character/show/"
 
 local spacing = "_"
-
-
-
-
-
-
 
 -- do not edit below
 
@@ -29636,8 +26235,6 @@ local tabs = {"Friends", "Enemies", "BlackList"}
 local panelName = "playerList"
 
 local colors = {"#03C04A", "#fc4c4e", "orange"}
-
-
 
 if not storage[panelName] then
 
@@ -29657,17 +26254,13 @@ if not storage[panelName] then
 
       highlight = false
 
-    }
+}
 
 end
-
-
 
 local config = storage[panelName]
 
 local playerTables = {config.friendList, config.enemyList, config.blackList}
-
-
 
 -- functions
 
@@ -29678,8 +26271,6 @@ local function clearCachedPlayers()
   CachedEnemies = {}
 
 end
-
-
 
 local refreshStatus = function()
 
@@ -29765,19 +26356,13 @@ end
 
 refreshStatus()
 
-
-
 local checkStatus = function(creature)
 
     if not creature:isPlayer() or creature:isLocalPlayer() then return end
 
-  
-
     local specName = creature:getName()
 
     local specOutfit = creature:getOutfit()
-
-  
 
     if isFriend(specName) then
 
@@ -29853,10 +26438,6 @@ local checkStatus = function(creature)
 
 end
 
-
-
-
-
 rootWidget = g_ui.getRootWidget()
 
 if rootWidget then
@@ -29864,8 +26445,6 @@ if rootWidget then
     local ListWindow = UI.createWindow('PlayerListWindow', rootWidget)
 
     ListWindow:hide()
-
-
 
     UI.Button("Player Lists", function() 
 
@@ -29876,8 +26455,6 @@ if rootWidget then
         ListWindow:focus()
 
     end)
-
-
 
     -- settings
 
@@ -29931,8 +26508,6 @@ if rootWidget then
 
     end
 
-
-
     ListWindow.settings.AutoAdd:setChecked(config.autoAdd)
 
     ListWindow.settings.AutoAdd.onClick = function(widget)
@@ -29943,15 +26518,11 @@ if rootWidget then
 
     end
 
-
-
     local TabBar = ListWindow.tmpTabBar
 
     TabBar:setContentWidget(ListWindow.tmpTabContent)
 
     local blacklistList
-
-
 
     for v = 1, 3 do
 
@@ -29962,8 +26533,6 @@ if rootWidget then
         listPanel:setId(tabs[v].."Tab")
 
         TabBar:addTab(tabs[v], listPanel)
-
-
 
         -- elements
 
@@ -29978,8 +26547,6 @@ if rootWidget then
           blacklistList = list
 
         end
-
-
 
         for i, name in ipairs(playerList) do
 
@@ -30039,11 +26606,7 @@ if rootWidget then
 
         end
 
-
-
         local tabButton = TabBar.buttonsPanel:getChildren()[v]
-
-
 
         tabButton.onStyleApply = function(widget)
 
@@ -30055,15 +26618,11 @@ if rootWidget then
 
         end
 
-
-
         -- callbacks
 
         addButton.onClick = function()
 
             local names = string.split(nameTab:getText(), ",")
-
-
 
             if #names == 0 then
 
@@ -30072,8 +26631,6 @@ if rootWidget then
               return
 
             end
-
-
 
             for i=1,#names do
 
@@ -30161,8 +26718,6 @@ if rootWidget then
 
         end
 
-
-
         nameTab.onKeyPress = function(widget, keyCode, keyboardModifiers)
 
           if keyCode ~= 5 then
@@ -30179,13 +26734,9 @@ if rootWidget then
 
     end
 
-
-
     function addBlackListPlayer(name)
 
       if table.find(config.blackList, name) then return end
-
-
 
       table.insert(config.blackList, name)
 
@@ -30245,8 +26796,6 @@ if rootWidget then
 
 end
 
-
-
 onTextMessage(function(mode,text)
 
   if not config.autoAdd then return end
@@ -30255,27 +26804,19 @@ onTextMessage(function(mode,text)
 
   if not text:find("Warning! The murder of") then return end
 
-
-
     text = string.split(text, "Warning! The murder of ")[1]
 
     text = string.split(text, " was not justified.")[1]
 
-
-
     addBlackListPlayer(text)
 
 end)
-
-
 
 onCreatureAppear(function(creature)
 
     checkStatus(creature)
 
   end)
-
-  
 
 onPlayerPositionChange(function(x,y)
 
@@ -30294,12 +26835,7 @@ end)
 ```
 
 ---
-
-
-
 # playerlist.otui
-
-
 
 ```otui
 
@@ -30317,13 +26853,9 @@ PlayerLabel < UIWidget
 
   text-align: left
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -30347,8 +26879,6 @@ PlayerLabel < UIWidget
 
     tooltip: Remove profile from the list.
 
-
-
 SettingCheckBox < CheckBox
 
   text-wrap: true
@@ -30359,8 +26889,6 @@ SettingCheckBox < CheckBox
 
   font: verdana-11px-rounded
 
-
-
 Settings < FlatPanel
 
   padding: 6
@@ -30368,8 +26896,6 @@ Settings < FlatPanel
   layout:
 
     type: verticalBox
-
-
 
   Label
 
@@ -30379,11 +26905,7 @@ Settings < FlatPanel
 
     font: verdana-11px-rounded
 
-
-
   HorizontalSeparator
-
-
 
   SettingCheckBox
 
@@ -30393,15 +26915,11 @@ Settings < FlatPanel
 
     text: Consider group members as friends.
 
-
-
   SettingCheckBox
 
     id: Outfit
 
     text: Color listed player outfits to red or blue.
-
-
 
   SettingCheckBox
 
@@ -30409,15 +26927,11 @@ Settings < FlatPanel
 
     text: Consider every non friend player as enemy.
 
-
-
   SettingCheckBox
 
     id: Highlight
 
     text: Hightlight listed players in red or blue color.
-
-
 
   SettingCheckBox
 
@@ -30425,15 +26939,11 @@ Settings < FlatPanel
 
     text: Automatically add killed players while cave botting to blacklist.
 
-
-
 tPanel < Panel
 
   margin: 3
 
   padding: 3
-
-
 
   TextList
 
@@ -30449,8 +26959,6 @@ tPanel < Panel
 
     vertical-scrollbar: listScrollBar
 
-
-
   VerticalScrollBar
 
     id: listScrollBar
@@ -30465,8 +26973,6 @@ tPanel < Panel
 
     pixels-scroll: true
 
-
-
   TextEdit
 
     id: name
@@ -30478,8 +26984,6 @@ tPanel < Panel
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Button
 
@@ -30497,8 +27001,6 @@ tPanel < Panel
 
     font: verdana-11px-rounded
 
-
-
 PlayerListWindow < MainWindow
 
   !text: tr('Player List')
@@ -30506,8 +27008,6 @@ PlayerListWindow < MainWindow
   size: 405 356
 
   @onEscape: self:hide()
-
-
 
   TabBar
 
@@ -30518,8 +27018,6 @@ PlayerListWindow < MainWindow
     anchors.left: parent.left
 
     width: 180
-
-
 
   FlatPanel
 
@@ -30535,8 +27033,6 @@ PlayerListWindow < MainWindow
 
     margin-bottom: 5
 
-
-
   VerticalSeparator
 
     id: verticalSep
@@ -30548,8 +27044,6 @@ PlayerListWindow < MainWindow
     margin-bottom: 5
 
     anchors.horizontalCenter: parent.horizontalCenter
-
-
 
   Settings
 
@@ -30569,8 +27063,6 @@ PlayerListWindow < MainWindow
 
     margin-bottom: 4
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -30582,8 +27074,6 @@ PlayerListWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8
-
-
 
   Button
 
@@ -30608,20 +27098,13 @@ PlayerListWindow < MainWindow
 ```
 
 ---
-
-
-
 # pushmax.lua
-
-
 
 ```lua
 
 ---@diagnostic disable: undefined-global
 
 setDefaultTab("Main")
-
-
 
 local panelName = "pushmax"
 
@@ -30630,8 +27113,6 @@ local ui = setupUI([[
 Panel
 
   height: 19
-
-
 
   BotSwitch
 
@@ -30646,8 +27127,6 @@ Panel
     width: 130
 
     !text: tr('PUSHMAX')
-
-
 
   Button
 
@@ -30665,13 +27144,9 @@ Panel
 
     text: Setup
 
-
-
 ]])
 
 ui:setId(panelName)
-
-
 
 if not storage[panelName] then
 
@@ -30687,15 +27162,11 @@ if not storage[panelName] then
 
     pushMaxKey = "PageUp"
 
-  }
+}
 
 end
 
-
-
 local config = storage[panelName]
-
-
 
 ui.title:setOn(config.enabled)
 
@@ -30707,8 +27178,6 @@ widget:setOn(config.enabled)
 
 end
 
-
-
 ui.push.onClick = function(widget)
 
   pushWindow:show()
@@ -30719,8 +27188,6 @@ ui.push.onClick = function(widget)
 
 end
 
-
-
 rootWidget = g_ui.getRootWidget()
 
 if rootWidget then
@@ -30729,15 +27196,11 @@ if rootWidget then
 
   pushWindow:hide()
 
-
-
   pushWindow.closeButton.onClick = function(widget)
 
     pushWindow:hide()
 
   end
-
-
 
   local updateDelayText = function()
 
@@ -30757,8 +27220,6 @@ if rootWidget then
 
   pushWindow.delay:setValue(config.pushDelay)
 
-
-
   pushWindow.runeId.onItemChange = function(widget)
 
     config.pushMaxRuneId = widget:getItemId()
@@ -30775,8 +27236,6 @@ if rootWidget then
 
   pushWindow.mwallId:setItemId(config.mwallBlockId)
 
-
-
   pushWindow.hotkey.onTextChange = function(widget, text)
 
     config.pushMaxKey = text
@@ -30787,27 +27246,17 @@ if rootWidget then
 
 end
 
-
-
-
-
 -- variables for config
 
 local fieldTable = {2118, 105, 2122}
 
 local cleanTile = nil
 
-
-
 -- scripts 
-
-
 
 local targetTile
 
 local pushTarget
-
-
 
 local resetData = function()
 
@@ -30829,8 +27278,6 @@ local resetData = function()
 
 end
 
-
-
 local getCreatureById = function(id)
 
   for i, spec in ipairs(getSpectators()) do
@@ -30847,13 +27294,9 @@ local getCreatureById = function(id)
 
 end
 
-
-
 local isNotOk = function(t,tile)
 
   local tileItems = {}
-
-
 
   for i, item in pairs(tile:getItems()) do
 
@@ -30875,15 +27318,11 @@ local isNotOk = function(t,tile)
 
 end
 
-
-
 local isOk = function(a,b)
 
   return getDistanceBetween(a,b) == 1
 
 end
-
-
 
 -- to mark
 
@@ -30943,8 +27382,6 @@ onKeyDown(function(keys)
 
 end)
 
-
-
 -- mark tile to throw anything from it
 
 onKeyPress(function(keys)
@@ -30956,8 +27393,6 @@ onKeyPress(function(keys)
   local tile = getTileUnderCursor()
 
   if not tile then return end
-
-
 
   if (hold - now) < -2500 then
 
@@ -30979,8 +27414,6 @@ onKeyPress(function(keys)
 
 end)
 
-
-
 onCreaturePositionChange(function(creature, newPos, oldPos)
 
   if not config.enabled then return end
@@ -31001,21 +27434,15 @@ onCreaturePositionChange(function(creature, newPos, oldPos)
 
 end)
 
-
-
 macro(50, function()
 
   if not config.enabled then return end
-
-
 
   local pushDelay = tonumber(config.pushDelay)
 
   local rune = tonumber(config.pushMaxRuneId)
 
   local customMwall = config.mwallBlockId
-
-
 
   if cleanTile then
 
@@ -31030,8 +27457,6 @@ macro(50, function()
       return
 
     end
-
-
 
     if not cleanTile:hasCreature() then return end
 
@@ -31097,8 +27522,6 @@ macro(50, function()
 
     end
 
-
-
     if not destTile then return end
 
     local parcel = cleanTile:getCreatures()[1]
@@ -31123,11 +27546,7 @@ macro(50, function()
 
     if not isOk(tilePos,targetPos) then return end
 
-    
-
     local tileOfTarget = g_map.getTile(targetPos)
-
-    
 
     if not targetTile:isWalkable() then
 
@@ -31161,8 +27580,6 @@ macro(50, function()
 
     end
 
-
-
     if not tileOfTarget:getTopUseThing():isNotMoveable() and targetTile:getTimer() < pushDelay+500 then
 
       return useWith(rune, pushTarget)
@@ -31194,12 +27611,7 @@ end)
 ```
 
 ---
-
-
-
 # pushmax.otui
-
-
 
 ```otui
 
@@ -31210,8 +27622,6 @@ PushMaxWindow < MainWindow
   size: 200 240
 
   @onEscape: self:hide()
-
-
 
   BotLabel
 
@@ -31224,8 +27634,6 @@ PushMaxWindow < MainWindow
     anchors.right: parent.right
 
     text-align: center
-
-
 
   HorizontalScrollBar
 
@@ -31245,8 +27653,6 @@ PushMaxWindow < MainWindow
 
     step: 10
 
-
-
   Label
 
     id: label2
@@ -31262,8 +27668,6 @@ PushMaxWindow < MainWindow
     text: Custom WallID
 
     margin-top: 5
-
-
 
   Label
 
@@ -31281,8 +27685,6 @@ PushMaxWindow < MainWindow
 
     margin-top: 5        
 
-
-
   BotItem
 
     id: runeId
@@ -31293,8 +27695,6 @@ PushMaxWindow < MainWindow
 
     margin-top: 5
 
-
-
   BotItem
 
     id: mwallId
@@ -31304,8 +27704,6 @@ PushMaxWindow < MainWindow
     anchors.top: label2.bottom
 
     margin-top: 5
-
-
 
   Label
 
@@ -31323,8 +27721,6 @@ PushMaxWindow < MainWindow
 
     text: Hotkey for PUSHMAX
 
-
-
   TextEdit
 
     id: hotkey
@@ -31339,8 +27735,6 @@ PushMaxWindow < MainWindow
 
     text-align: center
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -31352,8 +27746,6 @@ PushMaxWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -31376,20 +27768,13 @@ PushMaxWindow < MainWindow
 ```
 
 ---
-
-
-
 # quiver_label.lua
-
-
 
 ```lua
 
 local quiverSlot = modules.game_inventory.inventoryWindow:recursiveGetChildById('slot5')
 
 local label = quiverSlot.count
-
-
 
 label = label or g_ui.loadUIFromString([[
 
@@ -31417,27 +27802,17 @@ Label
 
 ]], quiverSlot)
 
-
-
-
-
 function getQuiverAmount()
 
     -- old tibia
 
     if g_game.getClientVersion() < 1000 then return end
 
-
-
-
-
     local isQuiverEquipped = getRight() and getRight():isContainer() or false
 
     local quiver = isQuiverEquipped and getContainerByItem(getRight():getId())
 
     local count = 0
-
-
 
     if quiver then
 
@@ -31453,15 +27828,11 @@ function getQuiverAmount()
 
     end
 
-
-
     return label:setText(count)
 
 end
 
 getQuiverAmount()
-
-
 
 onContainerOpen(function(container, previousContainer)
 
@@ -31469,15 +27840,11 @@ onContainerOpen(function(container, previousContainer)
 
 end)
 
-
-
 onContainerClose(function(container)
 
     getQuiverAmount()
 
 end)
-
-  
 
 onAddItem(function(container, slot, item, oldItem)
 
@@ -31485,15 +27852,11 @@ onAddItem(function(container, slot, item, oldItem)
 
 end)
 
-
-
 onRemoveItem(function(container, slot, item)
 
     getQuiverAmount()
 
 end)
-
-
 
 onContainerUpdateItem(function(container, slot, item, oldItem)
 
@@ -31504,12 +27867,7 @@ end)
 ```
 
 ---
-
-
-
 # quiver_manager.lua
-
-
 
 ```lua
 
@@ -31525,15 +27883,11 @@ if voc() == 2 or voc() == 12 then
 
     local hold = false
 
-
-
     onContainerOpen(function(container, previousContainer)
 
         hold = false
 
     end)
-
-
 
     onContainerClose(function(container)
 
@@ -31541,15 +27895,11 @@ if voc() == 2 or voc() == 12 then
 
     end)
 
-    
-
     onAddItem(function(container, slot, item, oldItem)
 
         hold = false
 
     end)
-
-
 
     onRemoveItem(function(container, slot, item)
 
@@ -31557,19 +27907,11 @@ if voc() == 2 or voc() == 12 then
 
     end)
 
-
-
     onContainerUpdateItem(function(container, slot, item, oldItem)
 
         hold = false
 
     end)
-
-
-
-
-
-
 
     local function manageQuiver(isBowEquipped, quiverContainer)
 
@@ -31595,8 +27937,6 @@ if voc() == 2 or voc() == 12 then
 
         end
 
-
-
         -- clearing
 
         if dest then
@@ -31614,8 +27954,6 @@ if voc() == 2 or voc() == 12 then
             end
 
         end
-
-
 
         if not containerIsFull(quiverContainer) then
 
@@ -31645,8 +27983,6 @@ if voc() == 2 or voc() == 12 then
 
     end
 
-
-
     UI.Separator()
 
     macro(100, "Quiver Manager", function()
@@ -31657,19 +27993,13 @@ if voc() == 2 or voc() == 12 then
 
         local quiverEquipped = getRight() and getRight():isContainer()
 
-
-
         if not hand then return end
 
         if not quiverEquipped then return end
 
-
-
         local quiverContainer = getContainerByItem(getRight():getId())
 
         if not quiverContainer then return end
-
-
 
         local isBowEquipped = getLeft() and table.find(bows, hand) and true or false
 
@@ -31682,8 +28012,6 @@ if voc() == 2 or voc() == 12 then
             end
 
         end
-
-
 
         if manageQuiver(isBowEquipped, quiverContainer) then -- if true then it didn't do anything
 
@@ -31698,12 +28026,7 @@ end
 ```
 
 ---
-
-
-
 # siolist.otui
-
-
 
 ```otui
 
@@ -31717,8 +28040,6 @@ VocationPanel < Panel
 
   size: 190 55
 
-
-
   Label
 
     anchors.top: parent.top
@@ -31730,8 +28051,6 @@ VocationPanel < Panel
     text-align: center
 
     text: for BotServer, Heal only:
-
-
 
   BotSwitch
 
@@ -31745,8 +28064,6 @@ VocationPanel < Panel
 
     text: Druids
 
-
-
   BotSwitch
 
     id: MS
@@ -31758,8 +28075,6 @@ VocationPanel < Panel
     anchors.right: parent.right
 
     text: Sorcerers
-
-
 
   BotSwitch
 
@@ -31773,8 +28088,6 @@ VocationPanel < Panel
 
     text: Knights
 
-
-
   BotSwitch
 
     id: RP
@@ -31787,12 +28100,6 @@ VocationPanel < Panel
 
     text: Paladins
 
-
-
-
-
-
-
 SioListWindow < MainWindow
 
   !text: tr('Healer Options')
@@ -31800,8 +28107,6 @@ SioListWindow < MainWindow
   size: 220 360
 
   @onEscape: self:hide()
-
-
 
   BotSwitch
 
@@ -31817,8 +28122,6 @@ SioListWindow < MainWindow
 
     margin-right: 2
 
-
-
   BotSwitch
 
     id: exuraGranSio
@@ -31833,8 +28136,6 @@ SioListWindow < MainWindow
 
     margin-left: 2
 
-
-
   BotSwitch
 
     id: exuraMasRes
@@ -31848,8 +28149,6 @@ SioListWindow < MainWindow
     text: Exura Gran Mas Res
 
     margin-top: 3
-
-
 
   BotSwitch
 
@@ -31867,8 +28166,6 @@ SioListWindow < MainWindow
 
     text-align: center
 
-
-
   BotTextEdit
 
     id: spellName
@@ -31881,8 +28178,6 @@ SioListWindow < MainWindow
 
     margin-top: 3
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -31893,8 +28188,6 @@ SioListWindow < MainWindow
 
     margin-top: 10
 
-
-
   BotItem
 
     id: itemId
@@ -31904,8 +28197,6 @@ SioListWindow < MainWindow
     anchors.left: parent.left
 
     margin-top: 10
-
-
 
   BotSwitch
 
@@ -31925,8 +28216,6 @@ SioListWindow < MainWindow
 
     margin-left: 2
 
-
-
   BotLabel
 
     id: distText
@@ -31942,8 +28231,6 @@ SioListWindow < MainWindow
     text-align: center
 
     text: Max Distance
-
-
 
   HorizontalScrollBar
 
@@ -31963,8 +28250,6 @@ SioListWindow < MainWindow
 
     step: 1  
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -31974,8 +28259,6 @@ SioListWindow < MainWindow
     anchors.right: parent.right
 
     margin-top: 8
-
-
 
   BotLabel
 
@@ -31990,8 +28273,6 @@ SioListWindow < MainWindow
     text-align: center
 
     margin-top: 5
-
-
 
   HorizontalScrollBar
 
@@ -32011,8 +28292,6 @@ SioListWindow < MainWindow
 
     step: 1
 
-
-
   BotLabel
 
     id: friendHp
@@ -32026,8 +28305,6 @@ SioListWindow < MainWindow
     text-align: center
 
     margin-top: 5
-
-
 
   HorizontalScrollBar
 
@@ -32047,8 +28324,6 @@ SioListWindow < MainWindow
 
     step: 1  
 
-
-
   VocationPanel
 
     id: vocation
@@ -32056,8 +28331,6 @@ SioListWindow < MainWindow
     anchors.top: prev.bottom 
 
     margin-top: 6
-
-
 
   HorizontalSeparator
 
@@ -32070,8 +28343,6 @@ SioListWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -32094,18 +28365,11 @@ SioListWindow < MainWindow
 ```
 
 ---
-
-
-
 # spy_level.lua
-
-
 
 ```lua
 
 -- config
-
-
 
 local keyUp = "="
 
@@ -32113,15 +28377,9 @@ local keyDown = "-"
 
 setDefaultTab("Tools")
 
-
-
 -- script
 
-
-
 local lockedLevel = pos().z
-
-
 
 onPlayerPositionChange(function(newPos, oldPos)
 
@@ -32130,8 +28388,6 @@ onPlayerPositionChange(function(newPos, oldPos)
     modules.game_interface.getMapPanel():unlockVisibleFloor()
 
 end)
-
-
 
 onKeyPress(function(keys)
 
@@ -32154,12 +28410,7 @@ end)
 ```
 
 ---
-
-
-
 # supplies.lua
-
-
 
 ```lua
 
@@ -32175,11 +28426,9 @@ if not SuppliesConfig[panelName] or SuppliesConfig[panelName].item1 then
 
     ["Default"] = {}
 
-  }
+}
 
 end
-
-
 
 local function convertOldConfig(config)
 
@@ -32188,8 +28437,6 @@ local function convertOldConfig(config)
     return config
 
   end -- config is new
-
-
 
   local newConfig = {
 
@@ -32207,9 +28454,7 @@ local function convertOldConfig(config)
 
     staminaValue = config.staminaValue
 
-  }
-
-
+}
 
   local items = {
 
@@ -32225,7 +28470,7 @@ local function convertOldConfig(config)
 
     config.item6
 
-  }
+}
 
   local mins = {
 
@@ -32241,7 +28486,7 @@ local function convertOldConfig(config)
 
     config.item6Min
 
-  }
+}
 
   local maxes = {
 
@@ -32257,9 +28502,7 @@ local function convertOldConfig(config)
 
     config.item6Max
 
-  }
-
-
+}
 
   for i, item in ipairs(items) do
 
@@ -32277,19 +28520,15 @@ local function convertOldConfig(config)
 
         avg = 0
 
-      }
+}
 
     end
 
   end
 
-
-
   return newConfig
 
 end
-
-
 
 -- convert old configs
 
@@ -32303,17 +28542,11 @@ for k, profile in pairs(SuppliesConfig[panelName]) do
 
 end
 
-
-
 local currentProfile = SuppliesConfig[panelName].currentProfile
 
 local config = SuppliesConfig[panelName][currentProfile]
 
-
-
 vBotConfigSave("supply")
-
-
 
 if not config then
 
@@ -32333,15 +28566,11 @@ if not config then
 
 end
 
-
-
 function getEmptyItemPanels()
 
   local panel = SuppliesWindow.items
 
   local count = 0
-
-
 
   for i, child in ipairs(panel:getChildren()) do
 
@@ -32349,19 +28578,13 @@ function getEmptyItemPanels()
 
   end
 
-
-
   return count
 
 end
 
-
-
 function deleteFirstEmptyPanel()
 
   local panel = SuppliesWindow.items
-
-
 
   for i, child in ipairs(panel:getChildren()) do
 
@@ -32377,13 +28600,9 @@ function deleteFirstEmptyPanel()
 
 end
 
-
-
 function clearEmptyPanels()
 
   local panel = SuppliesWindow.items
-
-
 
   if panel:getChildCount() > 1 then
 
@@ -32396,8 +28615,6 @@ function clearEmptyPanels()
   end
 
 end
-
-
 
 function addItemPanel()
 
@@ -32415,21 +28632,15 @@ function addItemPanel()
 
   local avg = panel.avg
 
-
-
   panel:setId("blank")
 
   item:setShowCount(false)
-
-
 
   item.onItemChange = function(widget)
 
     local id = widget:getItemId()
 
     local panelId = panel:getId()
-
-
 
     -- empty, verify
 
@@ -32445,8 +28656,6 @@ function addItemPanel()
 
     end
 
-
-
     -- itemId was not changed, ignore
 
     if tonumber(panelId) == id then
@@ -32454,8 +28663,6 @@ function addItemPanel()
       return
 
     end
-
-
 
     -- check if isnt already added
 
@@ -32469,8 +28676,6 @@ function addItemPanel()
 
     end
 
-
-
     -- new item id
 
     config.items[tostring(id)] = config.items[tostring(id)] or {} -- min, max, avg
@@ -32481,19 +28686,13 @@ function addItemPanel()
 
   end
 
-
-
   return panel
 
 end
 
-
-
 SuppliesWindow = UI.createWindow("SuppliesWindow")
 
 SuppliesWindow:hide()
-
-
 
 UI.Button(
 
@@ -32507,8 +28706,6 @@ UI.Button(
 
 )
 
-
-
 -- load settings
 
 local function loadSettings()
@@ -32516,8 +28713,6 @@ local function loadSettings()
   -- panels
 
   SuppliesWindow.items:destroyChildren()
-
-
 
   for id, data in pairs(config.items) do
 
@@ -32537,8 +28732,6 @@ local function loadSettings()
 
   addItemPanel() -- add empty panel
 
-
-
   -- switches and values
 
   SuppliesWindow.capSwitch:setOn(config.capSwitch)
@@ -32557,8 +28750,6 @@ end
 
 loadSettings()
 
-
-
 -- save settings
 
 SuppliesWindow.onVisibilityChange = function(widget, visible)
@@ -32570,8 +28761,6 @@ SuppliesWindow.onVisibilityChange = function(widget, visible)
     SuppliesConfig[panelName][currentProfile].items = {}
 
     local parent = SuppliesWindow.items
-
-
 
     -- items
 
@@ -32587,8 +28776,6 @@ SuppliesWindow.onVisibilityChange = function(widget, visible)
 
         local avg = panel.avg:getValue()
 
-
-
         SuppliesConfig[panelName][currentProfile].items[id] = {
 
           min = min,
@@ -32597,13 +28784,11 @@ SuppliesWindow.onVisibilityChange = function(widget, visible)
 
           avg = avg
 
-        }
+}
 
       end
 
     end
-
-
 
     vBotConfigSave("supply")
 
@@ -32611,13 +28796,9 @@ SuppliesWindow.onVisibilityChange = function(widget, visible)
 
 end
 
-
-
 local function refreshProfileList()
 
   local profiles = SuppliesConfig[panelName]
-
-
 
   SuppliesWindow.profiles:destroyChildren()
 
@@ -32659,7 +28840,7 @@ local function refreshProfileList()
 
           {title = "Set Profile Name", description = "Enter a new name for selected profile"}
 
-        )
+)
 
         schedule(
 
@@ -32673,7 +28854,7 @@ local function refreshProfileList()
 
           end
 
-        )
+)
 
       end
 
@@ -32711,8 +28892,6 @@ end
 
 refreshProfileList()
 
-
-
 local function setProfileFocus()
 
   for i, v in ipairs(SuppliesWindow.profiles:getChildren()) do
@@ -32730,8 +28909,6 @@ local function setProfileFocus()
 end
 
 setProfileFocus()
-
-
 
 SuppliesWindow.newProfile.onClick = function()
 
@@ -32755,8 +28932,6 @@ SuppliesWindow.newProfile.onClick = function()
 
 end
 
-
-
 SuppliesWindow.capSwitch.onClick = function(widget)
 
   config.capSwitch = not config.capSwitch
@@ -32764,8 +28939,6 @@ SuppliesWindow.capSwitch.onClick = function(widget)
   widget:setOn(config.capSwitch)
 
 end
-
-
 
 SuppliesWindow.SoftBoots.onClick = function(widget)
 
@@ -32775,8 +28948,6 @@ SuppliesWindow.SoftBoots.onClick = function(widget)
 
 end
 
-
-
 SuppliesWindow.imbues.onClick = function(widget)
 
   config.imbues = not config.imbues
@@ -32785,8 +28956,6 @@ SuppliesWindow.imbues.onClick = function(widget)
 
 end
 
-
-
 SuppliesWindow.staminaSwitch.onClick = function(widget)
 
   config.staminaSwitch = not config.staminaSwitch
@@ -32794,8 +28963,6 @@ SuppliesWindow.staminaSwitch.onClick = function(widget)
   widget:setOn(config.staminaSwitch)
 
 end
-
-
 
 SuppliesWindow.capValue.onTextChange = function(widget, text)
 
@@ -32817,8 +28984,6 @@ SuppliesWindow.capValue.onTextChange = function(widget, text)
 
 end
 
-
-
 SuppliesWindow.staminaValue.onTextChange = function(widget, text)
 
   local value = tonumber(SuppliesWindow.staminaValue:getText())
@@ -32839,8 +29004,6 @@ SuppliesWindow.staminaValue.onTextChange = function(widget, text)
 
 end
 
-
-
 SuppliesWindow.increment.onClick = function(widget)
 
   for i, panel in ipairs(SuppliesWindow.items:getChildren()) do
@@ -32850,8 +29013,6 @@ SuppliesWindow.increment.onClick = function(widget)
       local max = panel.max:getValue()
 
       local avg = panel.avg:getValue()
-
-
 
       if avg > 0 then
 
@@ -32865,8 +29026,6 @@ SuppliesWindow.increment.onClick = function(widget)
 
 end
 
-
-
 SuppliesWindow.decrement.onClick = function(widget)
 
   for i, panel in ipairs(SuppliesWindow.items:getChildren()) do
@@ -32876,8 +29035,6 @@ SuppliesWindow.decrement.onClick = function(widget)
       local max = panel.max:getValue()
 
       local avg = panel.avg:getValue()
-
-
 
       if avg > 0 then
 
@@ -32890,8 +29047,6 @@ SuppliesWindow.decrement.onClick = function(widget)
   end
 
 end
-
-
 
 SuppliesWindow.increment.onMouseWheel = function(widget, mousePos, dir)
 
@@ -32907,11 +29062,7 @@ SuppliesWindow.increment.onMouseWheel = function(widget, mousePos, dir)
 
 end
 
-
-
 SuppliesWindow.decrement.onMouseWheel = SuppliesWindow.increment.onMouseWheel
-
-
 
 Supplies = {} -- public functions
 
@@ -32924,8 +29075,6 @@ Supplies.show = function()
   SuppliesWindow:focus()
 
 end
-
-
 
 Supplies.getItemsData = function()
 
@@ -32945,8 +29094,6 @@ Supplies.getItemsData = function()
 
       local avg = panel.avg:getValue()
 
-
-
       t[id] = {
 
         min = min,
@@ -32955,27 +29102,21 @@ Supplies.getItemsData = function()
 
         avg = avg
 
-      }
+}
 
     end
 
   end
 
-
-
   return t
 
 end
-
-
 
 Supplies.isSupplyItem = function(id)
 
   local data = Supplies.getItemsData()
 
   id = tostring(id)
-
-
 
   if data[id] then
 
@@ -32989,13 +29130,9 @@ Supplies.isSupplyItem = function(id)
 
 end
 
-
-
 Supplies.hasEnough = function()
 
   local data = Supplies.getItemsData()
-
-
 
   for id, values in pairs(data) do
 
@@ -33005,8 +29142,6 @@ Supplies.hasEnough = function()
 
     local current = player:getItemsCount(id) or 0
 
-
-
     if current < minimum then
 
       return {id=id, amount=current}
@@ -33015,25 +29150,17 @@ Supplies.hasEnough = function()
 
   end
 
-
-
   return true
 
 end
 
-
-
 hasSupplies = Supplies.hasEnough
-
-
 
 Supplies.setAverageValues = function(data)
 
   for id, amount in pairs(data) do
 
     local widget = SuppliesWindow.items[id]
-
-
 
     if widget then
 
@@ -33045,8 +29172,6 @@ Supplies.setAverageValues = function(data)
 
 end
 
-
-
 Supplies.addSupplyItem = function(id, min, max, avg)
 
   if not id then
@@ -33054,8 +29179,6 @@ Supplies.addSupplyItem = function(id, min, max, avg)
     return
 
   end
-
-
 
   local widget = addItemPanel()
 
@@ -33071,8 +29194,6 @@ Supplies.addSupplyItem = function(id, min, max, avg)
 
 end
 
-
-
 Supplies.getAdditionalData = function()
 
   local data = {
@@ -33085,13 +29206,11 @@ Supplies.getAdditionalData = function()
 
     imbues = {enabled = config.imbues}
 
-  }
+}
 
   return data
 
 end
-
-
 
 Supplies.getFullData = function()
 
@@ -33101,9 +29220,7 @@ Supplies.getFullData = function()
 
     additional = Supplies.getAdditionalData()
 
-  }
-
-
+}
 
   return data
 
@@ -33112,12 +29229,7 @@ end
 ```
 
 ---
-
-
-
 # supplies.otui
-
-
 
 ```otui
 
@@ -33135,13 +29247,9 @@ ProfileLabel < UIWidget
 
   text-align: left
 
-
-
   $focus:
 
     background-color: #00000055
-
-
 
   Button
 
@@ -33165,8 +29273,6 @@ ProfileLabel < UIWidget
 
     tooltip: Remove profile from the list.
 
-
-
 SupplySpinBox < SpinBox
 
   height: 20
@@ -33185,13 +29291,9 @@ SupplySpinBox < SpinBox
 
   text: 0
 
-
-
 ItemPanel < Panel
 
   height: 38
-
-
 
   BotItem
 
@@ -33201,8 +29303,6 @@ ItemPanel < Panel
 
     anchors.bottom: parent.bottom
 
-
-
   SupplySpinBox
 
     id: min
@@ -33211,8 +29311,6 @@ ItemPanel < Panel
 
     anchors.bottom: parent.bottom
 
-  
-
   SupplySpinBox
 
     id: max
@@ -33220,8 +29318,6 @@ ItemPanel < Panel
     anchors.left: prev.right
 
     anchors.bottom: parent.bottom
-
-
 
   SupplySpinBox
 
@@ -33232,8 +29328,6 @@ ItemPanel < Panel
     anchors.bottom: parent.bottom
 
     width: 50    
-
-
 
   UIWidget
 
@@ -33251,8 +29345,6 @@ ItemPanel < Panel
 
     tooltip: Amount of given supplies for bot to leave the spawn.
 
-
-
   UIWidget
 
     anchors.left: max.left
@@ -33268,8 +29360,6 @@ ItemPanel < Panel
     text: Max
 
     tooltip: Amount of given supplies to purchase
-
-
 
   UIWidget
 
@@ -33287,8 +29377,6 @@ ItemPanel < Panel
 
     !tooltip: ("This is average consumption of supplies by round to help calculate the amount to purchase\n (info provided by CaveBot Stats)")
 
-
-
 SuppliesWindow < MainWindow
 
   !text: tr('Supplies')
@@ -33296,8 +29384,6 @@ SuppliesWindow < MainWindow
   size: 430 330
 
   @onEscape: self:hide()
-
-
 
   VerticalSeparator
 
@@ -33317,8 +29403,6 @@ SuppliesWindow < MainWindow
 
     visible: false
 
-
-
   Label
 
     anchors.left: sep.right
@@ -33335,8 +29419,6 @@ SuppliesWindow < MainWindow
 
     text: Additional Conditions:
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -33346,8 +29428,6 @@ SuppliesWindow < MainWindow
     anchors.right: prev.right
 
     margin-top: 3
-
-
 
   BotSwitch
 
@@ -33366,8 +29446,6 @@ SuppliesWindow < MainWindow
     text: No Soft
 
     tooltip: Go refill if there's no more active soft boots.     
-
-
 
   BotSwitch
 
@@ -33391,8 +29469,6 @@ SuppliesWindow < MainWindow
 
     tooltip: Go refill if capacity is below set value.
 
-
-
   BotTextEdit
 
     id: capValue
@@ -33406,8 +29482,6 @@ SuppliesWindow < MainWindow
     anchors.top: prev.top
 
     margin-left: 5
-
-
 
   BotSwitch
 
@@ -33431,8 +29505,6 @@ SuppliesWindow < MainWindow
 
     tooltip: Go refill if stamina is below set value. (in minutes)
 
-
-
   BotTextEdit
 
     id: staminaValue
@@ -33446,8 +29518,6 @@ SuppliesWindow < MainWindow
     anchors.top: prev.top
 
     margin-left: 5
-
-
 
   BotSwitch
 
@@ -33467,8 +29537,6 @@ SuppliesWindow < MainWindow
 
     tooltip: Go refill when mana leech imbue has worn off.
 
-
-
   TextList
 
     id: profiles
@@ -33484,8 +29552,6 @@ SuppliesWindow < MainWindow
     anchors.bottom: bottomSep.top
 
     margin-bottom: 25
-
-  
 
   BotButton
 
@@ -33503,8 +29569,6 @@ SuppliesWindow < MainWindow
 
     tooltip: Create new supplies profile.
 
-
-
   VerticalScrollBar
 
     id: itemsScrollBar
@@ -33518,8 +29582,6 @@ SuppliesWindow < MainWindow
     step: 14
 
     pixels-scroll: true
-
-
 
   ScrollablePanel
 
@@ -33539,8 +29601,6 @@ SuppliesWindow < MainWindow
 
     layout: verticalBox
 
-
-
   HorizontalSeparator
 
     id: bottomSep
@@ -33552,8 +29612,6 @@ SuppliesWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8
-
-
 
   Button
 
@@ -33575,8 +29633,6 @@ SuppliesWindow < MainWindow
 
     @onClick: self:getParent():hide()
 
-
-
   Button
 
     id: increment
@@ -33590,8 +29646,6 @@ SuppliesWindow < MainWindow
     width: 50
 
     tooltip: increase all max supplies amount by average
-
-
 
   Button
 
@@ -33612,20 +29666,13 @@ SuppliesWindow < MainWindow
 ```
 
 ---
-
-
-
 # tools.lua
-
-
 
 ```lua
 
 -- tools tab
 
 setDefaultTab("Tools")
-
-
 
 if type(storage.moneyItems) ~= "table" then
 
@@ -33667,8 +29714,6 @@ macro(1000, "Exchange money", function()
 
 end)
 
-
-
 local moneyContainer = UI.Container(function(widget, items)
 
   storage.moneyItems = items
@@ -33679,11 +29724,7 @@ moneyContainer:setHeight(35)
 
 moneyContainer:setItems(storage.moneyItems)
 
-
-
 UI.Separator()
-
-
 
 macro(60000, "Send message on trade", function()
 
@@ -33709,19 +29750,12 @@ UI.TextEdit(storage.autoTradeMessage or "I'm using OTClientV8!", function(widget
 
 end)
 
-
-
 UI.Separator()
 
 ```
 
 ---
-
-
-
 # version.txt
-
-
 
 ```text
 
@@ -33730,20 +29764,13 @@ UI.Separator()
 ```
 
 ---
-
-
-
 # vlib.lua
-
-
 
 ```lua
 
 -- Author: Vithrax
 
 -- contains mostly basic function shortcuts and code shorteners
-
-
 
 -- initial global variables declaration
 
@@ -33759,8 +29786,6 @@ vBot.isUsing = false
 
 vBot.customCooldowns = {}
 
-
-
 function logInfo(text)
 
     local timestamp = os.date("%H:%M:%S")
@@ -33769,13 +29794,9 @@ function logInfo(text)
 
     local start = timestamp.." [vBot]: "
 
-
-
     return modules.client_terminal.addLine(start..text, "orange") 
 
 end
-
-
 
 -- scripts / functions
 
@@ -33785,15 +29806,11 @@ onPlayerPositionChange(function(x,y)
 
 end)
 
-
-
 function standTime()
 
     return now - vBot.standTime
 
 end
-
-
 
 function relogOnCharacter(charName)
 
@@ -33802,8 +29819,6 @@ function relogOnCharacter(charName)
     for index, child in ipairs(characters:getChildren()) do
 
         local name = child:getChildren()[1]:getText()
-
-    
 
         if name:lower():find(charName:lower()) then
 
@@ -33817,8 +29832,6 @@ function relogOnCharacter(charName)
 
 end
 
-
-
 function castSpell(text)
 
     if canCast(text) then
@@ -33828,8 +29841,6 @@ function castSpell(text)
     end
 
 end
-
-
 
 local dmgTable = {}
 
@@ -33867,8 +29878,6 @@ onTextMessage(function(mode, text)
 
 end)
 
-
-
 -- based on data collected by callback calculates per second damage
 
 -- returns number
@@ -33895,8 +29904,6 @@ function burstDamageValue()
 
 end
 
-
-
 -- simplified function from modules
 
 -- displays string as white colour message
@@ -33907,15 +29914,11 @@ function whiteInfoMessage(text)
 
 end
 
-
-
 function statusMessage(text, logInConsole)
 
     return not logInConsole and modules.game_textmessage.displayFailureMessage(text) or modules.game_textmessage.displayStatusMessage(text)
 
 end
-
-
 
 -- same as above but red message
 
@@ -33925,8 +29928,6 @@ function broadcastMessage(text)
 
 end
 
-
-
 -- almost every talk action inside cavebot has to be done by using schedule
 
 -- therefore this is simplified function that doesn't require to build a body for schedule function
@@ -33935,13 +29936,9 @@ function scheduleNpcSay(text, delay)
 
     if not text or not delay then return false end
 
-
-
     return schedule(delay, function() NPC.say(text) end)
 
 end
-
-
 
 -- returns first number in string, already formatted as number
 
@@ -33956,8 +29953,6 @@ function getFirstNumberInText(text)
     return n
 
 end
-
-
 
 -- function to search if item of given ID can be found on certain tile
 
@@ -33997,8 +29992,6 @@ function isOnTile(id, p1, p2, p3)
 
     if not tile then return end
 
-
-
     local item = false
 
     if #tile:getItems() ~= 0 then
@@ -34015,13 +30008,9 @@ function isOnTile(id, p1, p2, p3)
 
     end
 
-
-
     return item
 
 end
-
-
 
 -- position is a special table, impossible to compare with normal one
 
@@ -34041,13 +30030,9 @@ function getPos(x, y, z)
 
     pos.z = z
 
-
-
     return pos
 
 end
-
-
 
 -- opens purse... that's it
 
@@ -34059,8 +30044,6 @@ function openPurse()
 
 end
 
-
-
 -- check's whether container is full
 
 -- c has to be container object
@@ -34070,8 +30053,6 @@ end
 function containerIsFull(c)
 
     if not c then return false end
-
-
 
     if c:getCapacity() > #c:getItems() then
 
@@ -34083,11 +30064,7 @@ function containerIsFull(c)
 
     end
 
-
-
 end
-
-
 
 function dropItem(idOrObject)
 
@@ -34097,13 +30074,9 @@ function dropItem(idOrObject)
 
     end
 
-
-
     g_game.move(idOrObject, pos(), idOrObject:getCount())
 
 end
-
-
 
 -- not perfect function to return whether character has utito tempo buff
 
@@ -34119,8 +30092,6 @@ function isBuffed()
 
     if not hasPartyBuff() then return var end
 
-
-
     local skillId = 0
 
     for i = 1, 4 do
@@ -34132,8 +30103,6 @@ function isBuffed()
         end
 
     end
-
-
 
     local premium = (player:getSkillLevel(skillId) - player:getSkillBaseLevel(skillId))
 
@@ -34149,8 +30118,6 @@ function isBuffed()
 
 end
 
-
-
 -- if using index as table element, this can be used to properly assign new idex to all values
 
 -- table needs to contain "index" as value
@@ -34160,8 +30127,6 @@ end
 function reindexTable(t)
 
     if not t or type(t) ~= "table" then return end
-
-
 
     local i = 0
 
@@ -34174,8 +30139,6 @@ function reindexTable(t)
     end
 
 end
-
-
 
 -- supports only new tibia, ver 10+
 
@@ -34193,23 +30156,17 @@ function killsToRs()
 
 end
 
-
-
 -- calculates exhaust for potions based on "Aaaah..." message
 
 -- changes state of vBot variable, can be used in other scripts
 
 -- already used in pushmax, healbot, etc
 
-
-
 onTalk(function(name, level, mode, text, channelId, pos)
 
     if name ~= player:getName() then return end
 
     if mode ~= 34 then return end
-
-
 
     if text == "Aaaah..." then
 
@@ -34220,8 +30177,6 @@ onTalk(function(name, level, mode, text, channelId, pos)
     end
 
 end)
-
-
 
 -- [[ canCast and cast functions ]] --
 
@@ -34241,13 +30196,9 @@ onTalk(function(name, level, mode, text, channelId, pos)
 
     text = text:lower()
 
-
-
     if SpellCastTable[text] then SpellCastTable[text].t = now end
 
 end)
-
-
 
 -- if delay is nil or delay is lower than 100 then this function will act as a normal say function
 
@@ -34280,8 +30231,6 @@ function cast(text, delay)
     if now - lastCast > spellDelay then return say(text) end
 
 end
-
-
 
 -- canCast is a base for AttackBot and HealBot
 
@@ -34339,8 +30288,6 @@ function canCast(spell, ignoreRL, ignoreCd)
 
 end
 
-
-
 local lastPhrase = ""
 
 onTalk(function(name, level, mode, text, channelId, pos)
@@ -34352,8 +30299,6 @@ onTalk(function(name, level, mode, text, channelId, pos)
     end
 
 end)
-
-
 
 if onSpellCooldown and onGroupSpellCooldown then
 
@@ -34370,8 +30315,6 @@ if onSpellCooldown and onGroupSpellCooldown then
         end)
 
     end)
-
-
 
     onGroupSpellCooldown(function(iconId, duration)
 
@@ -34392,8 +30335,6 @@ else
     warn("Outdated OTClient! update to newest version to take benefits from all scripts!")
 
 end
-
-
 
 -- exctracts data about spell from gamelib SpellInfo table
 
@@ -34457,8 +30398,6 @@ function getSpellData(spell)
 
 end
 
-
-
 -- based on info extracted by getSpellData checks if spell is on cooldown
 
 -- returns boolean
@@ -34501,8 +30440,6 @@ function getSpellCoolDown(text)
 
 end
 
-
-
 -- global var to indicate that player is trying to do something
 
 -- prevents action blocking by scripts
@@ -34527,13 +30464,9 @@ onUse(function(pos, itemId, stackPos, subType)
 
     if not tile then return end
 
-
-
     local topThing = tile:getTopUseThing()
 
     if topThing:isContainer() then return end
-
-
 
     isUsingTime = now + 1000
 
@@ -34545,8 +30478,6 @@ onUseWith(function(pos, itemId, target, subType)
 
 end)
 
-
-
 -- returns first word in string 
 
 function string.starts(String, Start)
@@ -34554,8 +30485,6 @@ function string.starts(String, Start)
     return string.sub(String, 1, string.len(Start)) == Start
 
 end
-
-
 
 -- global tables for cached players to prevent unnecesary resource consumption
 
@@ -34583,13 +30512,9 @@ function isFriend(c)
 
     end
 
-
-
     if CachedFriends[c] then return true end
 
     if CachedEnemies[c] then return false end
-
-
 
     if table.find(storage.playerList.friendList, name) then
 
@@ -34635,8 +30560,6 @@ function isFriend(c)
 
 end
 
-
-
 -- similar to isFriend but lighter version
 
 -- accepts only name string
@@ -34671,8 +30594,6 @@ function isEnemy(c)
 
     if p:isLocalPlayer() then return end
 
-
-
     if p:isPlayer() and table.find(storage.playerList.enemyList, name) or
 
         (storage.playerList.marks and not isFriend(name)) or p:getEmblem() == 2 then
@@ -34686,8 +30607,6 @@ function isEnemy(c)
     end
 
 end
-
-
 
 function getPlayerDistribution()
 
@@ -34719,49 +30638,33 @@ function getPlayerDistribution()
 
     end
 
-
-
     return friends, neutrals, enemies
 
 end
-
-
 
 function getFriends()
 
     local friends, neutrals, enemies = getPlayerDistribution()
 
-
-
     return friends
 
 end
-
-
 
 function getNeutrals()
 
     local friends, neutrals, enemies = getPlayerDistribution()
 
-
-
     return neutrals
 
 end
-
-
 
 function getEnemies()
 
     local friends, neutrals, enemies = getPlayerDistribution()
 
-
-
     return enemies
 
 end
-
-
 
 -- based on first word in string detects if text is a offensive spell
 
@@ -34781,8 +30684,6 @@ function isAttSpell(expr)
 
 end
 
-
-
 -- returns dressed-up item id based on not dressed id
 
 -- returns number
@@ -34790,8 +30691,6 @@ end
 function getActiveItemId(id)
 
     if not id then return false end
-
-
 
     if id == 3049 then
 
@@ -34881,8 +30780,6 @@ function getActiveItemId(id)
 
 end
 
-
-
 -- returns not dressed item id based on dressed-up id
 
 -- returns number
@@ -34890,8 +30787,6 @@ end
 function getInactiveItemId(id)
 
     if not id then return false end
-
-
 
     if id == 3086 then
 
@@ -34977,8 +30872,6 @@ function getInactiveItemId(id)
 
 end
 
-
-
 -- returns amount of monsters within the range of position
 
 -- does not include summons (new tibia)
@@ -35009,8 +30902,6 @@ function getMonstersInRange(pos, range)
 
 end
 
-
-
 -- shortcut in calculating distance from local player position
 
 -- needs only one argument
@@ -35024,8 +30915,6 @@ function distanceFromPlayer(coords)
     return getDistanceBetween(pos(), coords)
 
 end
-
-
 
 -- returns amount of monsters within the range of local player position
 
@@ -35055,8 +30944,6 @@ function getMonsters(range, multifloor)
 
 end
 
-
-
 -- returns amount of players within the range of local player position
 
 -- does not include party members
@@ -35084,8 +30971,6 @@ function getPlayers(range, multifloor)
     return specs;
 
 end
-
-
 
 -- this is multifloor function
 
@@ -35133,8 +31018,6 @@ function isBlackListedPlayerInRange(range)
 
 end
 
-
-
 -- checks if there is non-friend player withing the range
 
 -- padding is only for multifloor
@@ -35154,8 +31037,6 @@ function isSafe(range, multifloor, padding)
         padding = false
 
     end
-
-
 
     for _, spec in pairs(getSpectators(multifloor)) do
 
@@ -35183,8 +31064,6 @@ function isSafe(range, multifloor, padding)
 
     end
 
-
-
     if onSame + onAnother > 0 then
 
         return false
@@ -35196,8 +31075,6 @@ function isSafe(range, multifloor, padding)
     end
 
 end
-
-
 
 -- returns amount of players within the range of local player position
 
@@ -35225,8 +31102,6 @@ function getAllPlayers(range, multifloor)
 
 end
 
-
-
 -- returns amount of NPC's within the range of local player position
 
 -- can also check multiple floors
@@ -35253,8 +31128,6 @@ function getNpcs(range, multifloor)
 
 end
 
-
-
 -- main function for calculatin item amount in all visible containers
 
 -- also considers equipped items
@@ -35266,8 +31139,6 @@ function itemAmount(id)
     return player:getItemsCount(id)
 
 end
-
-
 
 -- self explanatory
 
@@ -35281,13 +31152,9 @@ function useOnInvertoryItem(a, b)
 
     if not item then return end
 
-
-
     return useWith(a, item)
 
 end
-
-
 
 -- pos can be tile or position
 
@@ -35297,15 +31164,13 @@ function getNearTiles(pos)
 
     if type(pos) ~= "table" then pos = pos:getPosition() end
 
-
-
     local tiles = {}
 
     local dirs = {
 
         {-1, 1}, {0, 1}, {1, 1}, {-1, 0}, {1, 0}, {-1, -1}, {0, -1}, {1, -1}
 
-    }
+}
 
     for i = 1, #dirs do
 
@@ -35317,19 +31182,15 @@ function getNearTiles(pos)
 
             z = pos.z
 
-        })
+})
 
         if tile then table.insert(tiles, tile) end
 
     end
 
-
-
     return tiles
 
 end
-
-
 
 -- self explanatory
 
@@ -35338,8 +31199,6 @@ end
 function useGroundItem(id)
 
     if not id then return false end
-
-
 
     local dest = nil
 
@@ -35359,8 +31218,6 @@ function useGroundItem(id)
 
     end
 
-
-
     if dest then
 
         return use(dest)
@@ -35373,8 +31230,6 @@ function useGroundItem(id)
 
 end
 
-
-
 -- self explanatory
 
 -- use along with delay, it will only call action
@@ -35382,8 +31237,6 @@ end
 function reachGroundItem(id)
 
     if not id then return false end
-
-
 
     local dest = nil
 
@@ -35413,8 +31266,6 @@ function reachGroundItem(id)
 
     end
 
-
-
     if dest then
 
         return autoWalk(iPos, 20, {ignoreNonPathable = true, precision = 1})
@@ -35426,8 +31277,6 @@ function reachGroundItem(id)
     end
 
 end
-
-
 
 -- self explanatory
 
@@ -35447,8 +31296,6 @@ function findItemOnGround(id)
 
 end
 
-
-
 -- self explanatory
 
 -- use along with delay, it will only call action
@@ -35460,8 +31307,6 @@ function useOnGroundItem(a, b)
     local item = findItem(a)
 
     if not item then return false end
-
-
 
     local dest = nil
 
@@ -35481,8 +31326,6 @@ function useOnGroundItem(a, b)
 
     end
 
-
-
     if dest then
 
         return useWith(item, dest)
@@ -35494,8 +31337,6 @@ function useOnGroundItem(a, b)
     end
 
 end
-
-
 
 -- returns target creature
 
@@ -35513,13 +31354,9 @@ function target()
 
 end
 
-
-
 -- returns target creature
 
 function getTarget() return target() end
-
-
 
 -- dist is boolean
 
@@ -35540,8 +31377,6 @@ function targetPos(dist)
     end
 
 end
-
-
 
 -- for gunzodus/ezodus only
 
@@ -35589,8 +31424,6 @@ function reopenPurse()
 
 end
 
-
-
 -- getSpectator patterns
 
 -- param1 - pos/creature
@@ -35633,8 +31466,6 @@ function getCreaturesInArea(param1, param2, param3)
 
     end
 
-
-
     if param3 == 1 then
 
         return specs
@@ -35651,8 +31482,6 @@ function getCreaturesInArea(param1, param2, param3)
 
 end
 
-
-
 -- can be improved
 
 -- TODO in future
@@ -35666,8 +31495,6 @@ function getBestTileByPatern(pattern, specType, maxDist, safe)
     if not pattern or not specType then return end
 
     if not maxDist then maxDist = 4 end
-
-
 
     local bestTile = nil
 
@@ -35691,7 +31518,7 @@ function getBestTileByPatern(pattern, specType, maxDist, safe)
 
                         local candidate =
 
-                            {
+{
 
                                 pos = tile,
 
@@ -35699,7 +31526,7 @@ function getBestTileByPatern(pattern, specType, maxDist, safe)
 
                                                            pattern, specType)
 
-                            }
+}
 
                         if not best or best.count <= candidate.count then
 
@@ -35717,11 +31544,7 @@ function getBestTileByPatern(pattern, specType, maxDist, safe)
 
     end
 
-
-
     bestTile = best
-
-
 
     if bestTile then
 
@@ -35735,15 +31558,11 @@ function getBestTileByPatern(pattern, specType, maxDist, safe)
 
 end
 
-
-
 -- returns container object based on name
 
 function getContainerByName(name, notFull)
 
     if type(name) ~= "string" then return nil end
-
-
 
     local d = nil
 
@@ -35763,15 +31582,11 @@ function getContainerByName(name, notFull)
 
 end
 
-
-
 -- returns container object based on container ID
 
 function getContainerByItem(id, notFull)
 
     if type(id) ~= "number" then return nil end
-
-
 
     local d = nil
 
@@ -35790,8 +31605,6 @@ function getContainerByItem(id, notFull)
     return d
 
 end
-
-
 
 -- [[ ready to use getSpectators patterns ]] --
 
@@ -35825,8 +31638,6 @@ LargeUeArea = [[
 
 ]]
 
-
-
 NormalUeAreaMs = [[
 
     00000100000
@@ -35852,8 +31663,6 @@ NormalUeAreaMs = [[
     00000100000
 
 ]]
-
-
 
 NormalUeAreaEd = [[
 
@@ -35881,8 +31690,6 @@ NormalUeAreaEd = [[
 
 ]]
 
-
-
 smallUeArea = [[
 
     0011100
@@ -35900,8 +31707,6 @@ smallUeArea = [[
     0011100
 
 ]]
-
-
 
 largeRuneArea = [[
 
@@ -35921,8 +31726,6 @@ largeRuneArea = [[
 
 ]]
 
-
-
 adjacentArea = [[
 
     111
@@ -35932,8 +31735,6 @@ adjacentArea = [[
     111
 
 ]]
-
-
 
 longBeamArea = [[
 
@@ -35969,8 +31770,6 @@ longBeamArea = [[
 
 ]]
 
-
-
 shortBeamArea = [[
 
     00000100000
@@ -35996,8 +31795,6 @@ shortBeamArea = [[
     00000S00000
 
 ]]
-
-
 
 newWaveArea = [[
 
@@ -36025,8 +31822,6 @@ newWaveArea = [[
 
 ]]
 
-
-
 bigWaveArea = [[
 
     0000NNN0000
@@ -36053,8 +31848,6 @@ bigWaveArea = [[
 
 ]]
 
-
-
 smallWaveArea = [[
 
     00NNN00
@@ -36073,8 +31866,6 @@ smallWaveArea = [[
 
 ]]
 
-
-
 diamondArrowArea = [[
 
     01110
@@ -36092,12 +31883,7 @@ diamondArrowArea = [[
 ```
 
 ---
-
-
-
 # xeno_menu.lua
-
-
 
 ```lua
 
@@ -36164,6 +31950,3 @@ end
 ```
 
 ---
-
-
-

@@ -1,15 +1,8 @@
-# ¦ Modul: `game_bot/functions`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/functions`
 
 ```lua
 
 local context = G.botContext
-
-
 
 -- callback(callbackType, callback)
 
@@ -27,8 +20,6 @@ context.callback = function(callbackType, callback)
 
   end
 
-
-
   local desc = "lua"
 
   local info = debug.getinfo(2, "Sl")
@@ -38,8 +29,6 @@ context.callback = function(callbackType, callback)
     desc = info.short_src .. ":" .. info.currentline
 
   end
-
-  
 
   local callbackData = {}
 
@@ -95,11 +84,9 @@ context.callback = function(callbackType, callback)
 
     end
 
-  }
+}
 
 end
-
-
 
 -- onKeyDown(callback) -- callback = function(keys)
 
@@ -109,8 +96,6 @@ context.onKeyDown = function(callback)
 
 end
 
-
-
 -- onKeyPress(callback) -- callback = function(keys)
 
 context.onKeyPress = function(callback) 
@@ -118,8 +103,6 @@ context.onKeyPress = function(callback)
   return context.callback("onKeyPress", callback)
 
 end
-
-
 
 -- onKeyUp(callback) -- callback = function(keys)
 
@@ -129,8 +112,6 @@ context.onKeyUp = function(callback)
 
 end
 
-
-
 -- onTalk(callback) -- callback = function(name, level, mode, text, channelId, pos)
 
 context.onTalk = function(callback) 
@@ -138,8 +119,6 @@ context.onTalk = function(callback)
   return context.callback("onTalk", callback)
 
 end
-
-
 
 -- onTextMessage(callback) -- callback = function(mode, text)
 
@@ -149,8 +128,6 @@ context.onTextMessage = function(callback)
 
 end
 
-
-
 -- onLoginAdvice(callback) -- callback = function(message)
 
 context.onLoginAdvice = function(callback) 
@@ -158,8 +135,6 @@ context.onLoginAdvice = function(callback)
   return context.callback("onLoginAdvice", callback)
 
 end
-
-
 
 -- onAddThing(callback) -- callback = function(tile, thing)
 
@@ -169,8 +144,6 @@ context.onAddThing = function(callback)
 
 end
 
-
-
 -- onRemoveThing(callback) -- callback = function(tile, thing)
 
 context.onRemoveThing = function(callback) 
@@ -178,8 +151,6 @@ context.onRemoveThing = function(callback)
   return context.callback("onRemoveThing", callback)
 
 end
-
-
 
 -- onCreatureAppear(callback) -- callback = function(creature)
 
@@ -189,8 +160,6 @@ context.onCreatureAppear = function(callback)
 
 end
 
-
-
 -- onCreatureDisappear(callback) -- callback = function(creature)
 
 context.onCreatureDisappear = function(callback)
@@ -198,8 +167,6 @@ context.onCreatureDisappear = function(callback)
   return context.callback("onCreatureDisappear", callback)
 
 end
-
-
 
 -- onCreaturePositionChange(callback) -- callback = function(creature, newPos, oldPos)
 
@@ -209,8 +176,6 @@ context.onCreaturePositionChange = function(callback)
 
 end
 
-
-
 -- onCreatureHealthPercentChange(callback) -- callback = function(creature, healthPercent)
 
 context.onCreatureHealthPercentChange = function(callback)
@@ -218,8 +183,6 @@ context.onCreatureHealthPercentChange = function(callback)
   return context.callback("onCreatureHealthPercentChange", callback)
 
 end
-
-
 
 -- onUse(callback) -- callback = function(pos, itemId, stackPos, subType)
 
@@ -229,8 +192,6 @@ context.onUse = function(callback)
 
 end
 
-
-
 -- onUseWith(callback) -- callback = function(pos, itemId, target, subType)
 
 context.onUseWith = function(callback)
@@ -238,8 +199,6 @@ context.onUseWith = function(callback)
   return context.callback("onUseWith", callback)
 
 end
-
-
 
 -- onContainerOpen -- callback = function(container, previousContainer)
 
@@ -249,8 +208,6 @@ context.onContainerOpen = function(callback)
 
 end
 
-
-
 -- onContainerClose -- callback = function(container)
 
 context.onContainerClose = function(callback)
@@ -258,8 +215,6 @@ context.onContainerClose = function(callback)
   return context.callback("onContainerClose", callback)
 
 end
-
-
 
 -- onContainerUpdateItem -- callback = function(container, slot, item, oldItem)
 
@@ -269,8 +224,6 @@ context.onContainerUpdateItem = function(callback)
 
 end
 
-
-
 -- onMissle -- callback = function(missle)
 
 context.onMissle = function(callback)
@@ -278,8 +231,6 @@ context.onMissle = function(callback)
   return context.callback("onMissle", callback)
 
 end
-
-
 
 -- onAnimatedText -- callback = function(thing, text)
 
@@ -289,8 +240,6 @@ context.onAnimatedText = function(callback)
 
 end
 
-
-
 -- onStaticText -- callback = function(thing, text)
 
 context.onStaticText = function(callback)
@@ -298,8 +247,6 @@ context.onStaticText = function(callback)
   return context.callback("onStaticText", callback)
 
 end
-
-
 
 -- onChannelList -- callback = function(channels)
 
@@ -309,8 +256,6 @@ context.onChannelList = function(callback)
 
 end
 
-
-
 -- onOpenChannel -- callback = function(channelId, name)
 
 context.onOpenChannel = function(callback)
@@ -318,8 +263,6 @@ context.onOpenChannel = function(callback)
   return context.callback("onOpenChannel", callback)
 
 end
-
-
 
 -- onCloseChannel -- callback = function(channelId)
 
@@ -329,8 +272,6 @@ context.onCloseChannel = function(callback)
 
 end
 
-
-
 -- onChannelEvent -- callback = function(channelId, name, event)
 
 context.onChannelEvent = function(callback)
@@ -338,8 +279,6 @@ context.onChannelEvent = function(callback)
   return context.callback("onChannelEvent", callback)
 
 end
-
-
 
 -- onTurn -- callback = function(creature, direction)
 
@@ -349,8 +288,6 @@ context.onTurn = function(callback)
 
 end
 
-
-
 -- onWalk -- callback = function(creature, oldPos, newPos)
 
 context.onWalk = function(callback)
@@ -358,8 +295,6 @@ context.onWalk = function(callback)
   return context.callback("onWalk", callback)
 
 end
-
-
 
 -- onImbuementWindow -- callback = function(itemId, slots, activeSlots, imbuements, needItems)
 
@@ -369,8 +304,6 @@ context.onImbuementWindow = function(callback)
 
 end
 
-
-
 -- onModalDialog -- callback = function(id, title, message, buttons, enterButton, escapeButton, choices, priority) -- priority is unused, ignore it
 
 context.onModalDialog = function(callback)
@@ -378,8 +311,6 @@ context.onModalDialog = function(callback)
   return context.callback("onModalDialog", callback)
 
 end
-
-
 
 -- onAttackingCreatureChange -- callback = function(creature, oldCreature)
 
@@ -389,8 +320,6 @@ context.onAttackingCreatureChange = function(callback)
 
 end
 
-
-
 -- onManaChange -- callback = function(player, mana, maxMana, oldMana, oldMaxMana)
 
 context.onManaChange = function(callback)
@@ -398,8 +327,6 @@ context.onManaChange = function(callback)
   return context.callback("onManaChange", callback)
 
 end
-
-
 
 -- onAddItem - callback = function(container, slot, item, oldItem)
 
@@ -409,8 +336,6 @@ context.onAddItem = function(callback)
 
 end
 
-
-
 -- onRemoveItem - callback = function(container, slot, item)
 
 context.onRemoveItem = function(callback)
@@ -418,8 +343,6 @@ context.onRemoveItem = function(callback)
   return context.callback("onRemoveItem", callback)
 
 end
-
-
 
 -- onStatesChange - callback = function(player, states, oldStates)
 
@@ -429,8 +352,6 @@ context.onStatesChange = function(callback)
 
 end
 
-
-
 -- onGameEditText - callback = function(id, itemId, maxLength, text, writer, time)
 
 context.onGameEditText = function(callback)
@@ -438,8 +359,6 @@ context.onGameEditText = function(callback)
   return context.callback("onGameEditText", callback)
 
 end
-
-
 
 -- onSpellCooldown - callback = function(iconId, duration)
 
@@ -449,8 +368,6 @@ context.onSpellCooldown = function(callback)
 
 end
 
-
-
 -- onGroupSpellCooldown - callback = function(iconId, duration)
 
 context.onGroupSpellCooldown = function(callback)
@@ -458,8 +375,6 @@ context.onGroupSpellCooldown = function(callback)
   return context.callback("onGroupSpellCooldown", callback)
 
 end
-
-
 
 -- onInventoryChange - callback = function(player, slot, item, oldItem)
 
@@ -469,11 +384,7 @@ context.onInventoryChange = function(callback)
 
 end
 
-
-
 -- CUSTOM CALLBACKS
-
-
 
 -- listen(name, callback) -- callback = function(text, channelId, pos)
 
@@ -495,8 +406,6 @@ context.listen = function(name, callback)
 
 end
 
-
-
 -- onPlayerPositionChange(callback) -- callback = function(newPos, oldPos)
 
 context.onPlayerPositionChange = function(callback)
@@ -513,8 +422,6 @@ context.onPlayerPositionChange = function(callback)
 
 end
 
-
-
 -- onPlayerHealthChange(callback) -- callback = function(healthPercent)
 
 context.onPlayerHealthChange = function(callback)
@@ -530,8 +437,6 @@ context.onPlayerHealthChange = function(callback)
   end)
 
 end
-
-
 
 -- onPlayerInventoryChange -- callback = function(slot, item, oldItem)
 
@@ -552,12 +457,7 @@ end
 ```
 
 ---
-
-
-
 # config.lua
-
-
 
 ```lua
 
@@ -569,23 +469,17 @@ Used by cavebot and other things
 
 ]]--
 
-
-
 local context = G.botContext
 
 context.Config = {}
 
 local Config = context.Config
 
-
-
 Config.exist = function(dir)
 
   return g_resources.directoryExists(context.configDir .. "/" .. dir)
 
 end
-
-
 
 Config.create = function(dir)
 
@@ -594,8 +488,6 @@ Config.create = function(dir)
   return Config.exist(dir)
 
 end
-
-
 
 Config.list = function(dir)
 
@@ -628,8 +520,6 @@ Config.list = function(dir)
   return correctList
 
 end
-
-
 
 -- load config from string insteaf of file
 
@@ -664,8 +554,6 @@ Config.parse = function(data)
   return context.error("Invalid config format")
 
 end
-
-
 
 Config.load = function(dir, name)
 
@@ -721,8 +609,6 @@ Config.load = function(dir, name)
 
 end
 
-
-
 Config.loadRaw = function(dir, name)
 
   local file = context.configDir .. "/" .. dir .. "/" .. name .. ".json"
@@ -744,8 +630,6 @@ Config.loadRaw = function(dir, name)
   return context.error("Config " .. file .. " doesn't exist")
 
 end
-
-
 
 Config.save = function(dir, name, value, forcedExtension)
 
@@ -781,8 +665,6 @@ Config.save = function(dir, name, value, forcedExtension)
 
 end
 
-
-
 Config.remove = function(dir, name)
 
   local file = context.configDir .. "/" .. dir .. "/" .. name .. ".json"
@@ -810,8 +692,6 @@ Config.remove = function(dir, name)
   return ret
 
 end
-
-
 
 -- setup is used for BotConfig widget
 
@@ -845,15 +725,13 @@ Config.setup = function(dir, widget, configExtension, callback)
 
       selected = ""
 
-    }
+}
 
   else
 
     widget.switch:setOn(context.storage._configs[dir].enabled)
 
   end
-
-  
 
   local isRefreshing = false
 
@@ -903,8 +781,6 @@ Config.setup = function(dir, widget, configExtension, callback)
 
   end
 
-  
-
   widget.list.onOptionChange = function(widget)
 
     if not isRefreshing then
@@ -917,8 +793,6 @@ Config.setup = function(dir, widget, configExtension, callback)
 
   end
 
-  
-
   widget.switch.onClick = function()
 
     widget.switch:setOn(not widget.switch:isOn())
@@ -926,8 +800,6 @@ Config.setup = function(dir, widget, configExtension, callback)
     refresh()
 
   end
-
-  
 
   widget.add.onClick = function()
 
@@ -969,8 +841,6 @@ Config.setup = function(dir, widget, configExtension, callback)
 
   end
 
-  
-
   widget.edit.onClick = function()
 
     local name = context.storage._configs[dir].selected
@@ -988,8 +858,6 @@ Config.setup = function(dir, widget, configExtension, callback)
       end)
 
   end
-
-  
 
   widget.remove.onClick = function()
 
@@ -1009,11 +877,7 @@ Config.setup = function(dir, widget, configExtension, callback)
 
   end
 
-  
-
   refresh()
-
-
 
   return {
 
@@ -1089,25 +953,18 @@ Config.setup = function(dir, widget, configExtension, callback)
 
     end    
 
-  }
+}
 
 end
 
 ```
 
 ---
-
-
-
 # const.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 context.North = 0
 
@@ -1124,8 +981,6 @@ context.SouthEast = 5
 context.SouthWest = 6
 
 context.NorthWest = 7
-
-
 
 context.InventorySlotOther = 0
 
@@ -1158,22 +1013,13 @@ context.InventorySlotLast = 10
 ```
 
 ---
-
-
-
 # icon.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
-
-
 local iconsWithoutPosition = 0
-
-
 
 context.addIcon = function(id, options, callback)
 
@@ -1235,8 +1081,6 @@ context.addIcon = function(id, options, callback)
 
   widget.botIcon = true
 
-
-
   if type(config.x) ~= 'number' and type(config.y) ~= 'number' then
 
     if type(options.x) == 'number' and type(options.y) == 'number' then
@@ -1257,8 +1101,6 @@ context.addIcon = function(id, options, callback)
 
   end
 
-
-
   if options.item then
 
     if type(options.item) == 'number' then
@@ -1277,15 +1119,11 @@ context.addIcon = function(id, options, callback)
 
   end
 
-  
-
   if options.outfit then
 
     widget.creature:setOutfit(options.outfit)
 
   end
-
-
 
   if options.switchable == false then
 
@@ -1304,8 +1142,6 @@ context.addIcon = function(id, options, callback)
     widget.status:setOn(config.enabled)
 
   end
-
-  
 
   if options.text then
 
@@ -1329,8 +1165,6 @@ context.addIcon = function(id, options, callback)
 
   end
 
-  
-
   widget.setOn = function(val)
 
     widget.status:setOn(val)
@@ -1349,8 +1183,6 @@ context.addIcon = function(id, options, callback)
 
   end
 
-  
-
   widget.onClick = function(widget)
 
     if options.switchable ~= false then
@@ -1367,13 +1199,9 @@ context.addIcon = function(id, options, callback)
 
     end
 
-      
-
     callback(widget, widget.status:isOn())
 
   end
-
-  
 
   if options.hotkey then
 
@@ -1390,8 +1218,6 @@ context.addIcon = function(id, options, callback)
     widget.hotkey:hide()
 
   end
-
-
 
   if options.movable ~= false then
 
@@ -1411,8 +1237,6 @@ context.addIcon = function(id, options, callback)
 
     end
 
-
-
     widget.onDragMove = function(widget, mousePos, moved)
 
       local parentRect = widget:getParent():getRect()
@@ -1426,8 +1250,6 @@ context.addIcon = function(id, options, callback)
       return true
 
     end
-
-
 
     widget.onDragLeave = function(widget, pos)
 
@@ -1443,13 +1265,9 @@ context.addIcon = function(id, options, callback)
 
       local height = parentRect.height - widget:getHeight()
 
-      
-
       config.x = math.min(1, math.max(0, x / width))
 
       config.y = math.min(1, math.max(0, y / height))
-
-
 
       widget:addAnchor(AnchorHorizontalCenter, 'parent', AnchorHorizontalCenter)
 
@@ -1464,8 +1282,6 @@ context.addIcon = function(id, options, callback)
     end
 
   end
-
-
 
   widget.onGeometryChange = function(widget)
 
@@ -1485,8 +1301,6 @@ context.addIcon = function(id, options, callback)
 
   end
 
-
-
   if options.phantom ~= true then
 
     widget.onMouseRelease = function() 
@@ -1496,8 +1310,6 @@ context.addIcon = function(id, options, callback)
     end
 
   end
-
-  
 
   if options.switchable ~= false then 
 
@@ -1522,18 +1334,11 @@ end
 ```
 
 ---
-
-
-
 # main.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 -- MAIN BOT FUNCTION
 
@@ -1601,8 +1406,6 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
   end
 
-  
-
   -- min timeout is 50, to avoid lags
 
   if timeout < 50 then
@@ -1610,8 +1413,6 @@ context.macro = function(timeout, name, hotkey, callback, parent)
     timeout = 50
 
   end
-
-  
 
   table.insert(context._macros, {
 
@@ -1625,11 +1426,9 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
     hotkey = hotkey,    
 
-  })
+})
 
   local macro = context._macros[#context._macros]
-
-
 
   macro.isOn = function()
 
@@ -1709,8 +1508,6 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
   end
 
-    
-
   if name:len() > 0 then
 
     -- creature switch
@@ -1724,8 +1521,6 @@ context.macro = function(timeout, name, hotkey, callback, parent)
     end
 
     macro.switch = context.addSwitch("macro_" .. (#context._macros + 1), text, macro.toggle, parent)
-
-
 
     -- load state
 
@@ -1741,8 +1536,6 @@ context.macro = function(timeout, name, hotkey, callback, parent)
 
   end
 
-      
-
   local desc = "lua"
 
   local info = debug.getinfo(2, "Sl")
@@ -1752,8 +1545,6 @@ context.macro = function(timeout, name, hotkey, callback, parent)
     desc = info.short_src .. ":" .. info.currentline
 
   end
-
-  
 
   macro.callback = function(macro)
 
@@ -1784,8 +1575,6 @@ context.macro = function(timeout, name, hotkey, callback, parent)
   return macro
 
 end
-
-
 
 -- hotkey(keys, callback)
 
@@ -1823,8 +1612,6 @@ context.hotkey = function(keys, name, callback, parent, single)
 
   end
 
-
-
   local switch = nil
 
   if name:len() > 0 then
@@ -1832,8 +1619,6 @@ context.hotkey = function(keys, name, callback, parent, single)
     switch = context._addHotkeySwitch(name, keys, parent)
 
   end
-
-
 
   context._hotkeys[keys] = {
 
@@ -1845,9 +1630,7 @@ context.hotkey = function(keys, name, callback, parent, single)
 
     single = single
 
-  }
-
-  
+}
 
   local desc = "lua"
 
@@ -1858,8 +1641,6 @@ context.hotkey = function(keys, name, callback, parent, single)
     desc = info.short_src .. ":" .. info.currentline
 
   end
-
-
 
   local hotkeyData = context._hotkeys[keys]
 
@@ -1889,13 +1670,9 @@ context.hotkey = function(keys, name, callback, parent, single)
 
   end
 
-
-
   return hotkeyData
 
 end
-
-
 
 -- singlehotkey(keys, callback)
 
@@ -1917,8 +1694,6 @@ context.singlehotkey = function(keys, name, callback, parent)
 
 end  
 
-
-
 -- schedule(timeout, callback)
 
 context.schedule = function(timeout, callback)
@@ -1931,13 +1706,11 @@ context.schedule = function(timeout, callback)
 
     callback = callback
 
-  })
+})
 
   table.sort(context._scheduler, function(a, b) return a.execution < b.execution end)
 
 end
-
-
 
 -- delay(duration) -- block execution of current macro/hotkey/callback for x milliseconds
 
@@ -1956,18 +1729,11 @@ end
 ```
 
 ---
-
-
-
 # map.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 context.getMapView = function() return modules.game_interface.getMapPanel() end
 
@@ -1976,8 +1742,6 @@ context.getMapPanel = context.getMapView
 context.zoomIn = function() modules.game_interface.getMapPanel():zoomIn() end
 
 context.zoomOut = function() modules.game_interface.getMapPanel():zoomOut() end
-
-
 
 context.getSpectators = function(param1, param2)
 
@@ -2017,15 +1781,11 @@ context.getSpectators = function(param1, param2)
 
   end
 
-  
-
   if type(param1) == 'string' then
 
     return g_map.getSpectatorsByPattern(pos, param1, direction)  
 
   end
-
-  
 
   local multifloor = false
 
@@ -2038,8 +1798,6 @@ context.getSpectators = function(param1, param2)
   return g_map.getSpectators(pos, multifloor)
 
 end
-
-
 
 context.getCreatureById = function(id, multifloor)
 
@@ -2064,8 +1822,6 @@ context.getCreatureById = function(id, multifloor)
   return nil
 
 end
-
-
 
 context.getCreatureByName = function(name, multifloor)
 
@@ -2093,8 +1849,6 @@ context.getCreatureByName = function(name, multifloor)
 
 end
 
-
-
 context.getPlayerByName = function(name, multifloor)
 
   if not name then return nil end
@@ -2120,8 +1874,6 @@ context.getPlayerByName = function(name, multifloor)
   return nil
 
 end
-
-
 
 context.findAllPaths = function(start, maxDist, params)
 
@@ -2193,8 +1945,6 @@ end
 
 context.findEveryPath = context.findAllPaths
 
-
-
 context.translateAllPathsToPath = function(paths, destPos)
 
   local predirections = {}
@@ -2208,8 +1958,6 @@ context.translateAllPathsToPath = function(paths, destPos)
     destPosStr = destPos.x .. "," .. destPos.y .. "," .. destPos.z
 
   end
-
-  
 
   while destPosStr:len() > 0 do
 
@@ -2246,10 +1994,6 @@ context.translateAllPathsToPath = function(paths, destPos)
 end
 
 context.translateEveryPathToPath = context.translateAllPathsToPath
-
-
-
-
 
 context.findPath = function(startPos, destPos, maxDist, params)
 
@@ -2351,8 +2095,6 @@ context.findPath = function(startPos, destPos, maxDist, params)
 
   end
 
-
-
   if not paths[destPosStr] then  
 
     local precision = params.precision
@@ -2399,15 +2141,11 @@ context.findPath = function(startPos, destPos, maxDist, params)
 
   end
 
-  
-
   return context.translateAllPathsToPath(paths, destPos)
 
 end
 
 context.getPath = context.findPath
-
-
 
 -- also works as autoWalk(dirs) where dirs is a list eg.: {1,2,3,0,1,1,2,}
 
@@ -2420,8 +2158,6 @@ context.autoWalk = function(destination, maxDist, params)
     return true
 
   end
-
-
 
   -- Available params same as for findPath
 
@@ -2441,8 +2177,6 @@ context.autoWalk = function(destination, maxDist, params)
 
 end
 
-
-
 context.getTileUnderCursor = function()
 
   if not modules.game_interface.gameMapPanel.mousePos then return end
@@ -2450,8 +2184,6 @@ context.getTileUnderCursor = function()
   return modules.game_interface.gameMapPanel:getTile(modules.game_interface.gameMapPanel.mousePos)
 
 end
-
-
 
 context.canShoot = function(pos, distance)
 
@@ -2468,8 +2200,6 @@ context.canShoot = function(pos, distance)
   return false
 
 end
-
-
 
 context.isTrapped = function(creature)
 
@@ -2502,22 +2232,13 @@ end
 ```
 
 ---
-
-
-
 # npc.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
-
-
 context.NPC = {}
-
-
 
 context.NPC.talk = function(text)
 
@@ -2535,8 +2256,6 @@ end
 
 context.NPC.say = context.NPC.talk
 
-
-
 context.NPC.isTrading = function()
 
   return modules.game_npctrade.npcWindow and modules.game_npctrade.npcWindow:isVisible()
@@ -2548,8 +2267,6 @@ context.NPC.hasTrade = context.NPC.isTrading
 context.NPC.hasTradeWindow = context.NPC.isTrading
 
 context.NPC.isTradeOpen = context.NPC.isTrading
-
-
 
 context.NPC.getSellItems = function()
 
@@ -2575,15 +2292,13 @@ context.NPC.getSellItems = function()
 
       price = item.price 
 
-    })
+})
 
   end
 
   return items
 
 end
-
-
 
 context.NPC.getBuyItems = function()
 
@@ -2609,15 +2324,13 @@ context.NPC.getBuyItems = function()
 
       price = item.price 
 
-    })
+})
 
   end
 
   return items
 
 end
-
-
 
 context.NPC.getSellQuantity = function(item)
 
@@ -2633,8 +2346,6 @@ context.NPC.getSellQuantity = function(item)
 
 end
 
-
-
 context.NPC.canTradeItem = function(item)
 
   if not context.NPC.isTrading() then return false end
@@ -2648,8 +2359,6 @@ context.NPC.canTradeItem = function(item)
   return modules.game_npctrade.canTradeItem(item)
 
 end
-
-
 
 context.NPC.sell = function(item, count, ignoreEquipped)
 
@@ -2697,8 +2406,6 @@ context.NPC.sell = function(item, count, ignoreEquipped)
 
 end
 
-
-
 context.NPC.buy = function(item, count, ignoreCapacity, withBackpack)
 
   if type(item) == 'number' then
@@ -2745,8 +2452,6 @@ context.NPC.buy = function(item, count, ignoreCapacity, withBackpack)
 
 end
 
-
-
 context.NPC.sellAll = function()
 
   if not context.NPC.isTrading() then return false end
@@ -2754,8 +2459,6 @@ context.NPC.sellAll = function()
   modules.game_npctrade.sellAll()
 
 end
-
-
 
 context.NPC.closeTrade = function()
 
@@ -2774,22 +2477,13 @@ context.NPC.finishTrade = context.NPC.closeTrade
 ```
 
 ---
-
-
-
 # player.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
-
-
 context.name = function() return context.player:getName() end
-
-
 
 context.hp = function() return context.player:getHealth() end
 
@@ -2807,8 +2501,6 @@ context.hpmax = function() return context.player:getMaxHealth() end
 
 context.manamax = function() return context.player:getMaxMana() end
 
-
-
 context.cap = function() return context.player:getCapacity() end
 
 context.freecap = function() return context.player:getFreeCapacity() end
@@ -2817,23 +2509,17 @@ context.maxcap = function() return context.player:getTotalCapacity() end
 
 context.capmax = function() return context.player:getTotalCapacity() end
 
-  
-
 context.exp = function() return context.player:getExperience() end
 
 context.lvl = function() return context.player:getLevel() end
 
 context.level = function() return context.player:getLevel() end
 
-
-
 context.mlev = function() return context.player:getMagicLevel() end
 
 context.magic = function() return context.player:getMagicLevel() end
 
 context.mlevel = function() return context.player:getMagicLevel() end
-
-
 
 context.soul = function() return context.player:getSoul() end
 
@@ -2843,17 +2529,11 @@ context.voc = function() return context.player:getVocation() end
 
 context.vocation = function() return context.player:getVocation() end
 
-
-
 context.bless = function() return context.player:getBlessings() end
 
 context.blesses = function() return context.player:getBlessings() end
 
 context.blessings = function() return context.player:getBlessings() end
-
-
-
-
 
 context.pos = function() return context.player:getPosition() end
 
@@ -2863,8 +2543,6 @@ context.posy = function() return context.player:getPosition().y end
 
 context.posz = function() return context.player:getPosition().z end
 
-
-
 context.direction = function() return context.player:getDirection() end
 
 context.speed = function() return context.player:getSpeed() end
@@ -2872,8 +2550,6 @@ context.speed = function() return context.player:getSpeed() end
 context.skull = function() return context.player:getSkull() end
 
 context.outfit = function() return context.player:getOutfit() end
-
-
 
 context.setOutfit = function(outfit)
 
@@ -2893,13 +2569,9 @@ context.changeOutfit = context.setOutfit
 
 context.setSpeed = function(value) context.player:setSpeed(value) end
 
-
-
 context.walk = function(dir) return modules.game_walking.walk(dir) end
 
 context.turn = function(dir) return g_game.turn(dir) end
-
-
 
 -- game releated
 
@@ -2929,8 +2601,6 @@ end
 
 context.getChannel = context.getChannelId
 
-
-
 context.say = g_game.talk
 
 context.talk = g_game.talk
@@ -2944,8 +2614,6 @@ context.sayChannel = context.talkChannel
 context.talkPrivate = function(receiver, text) g_game.talkPrivate(5, receiver, text) end
 
 context.sayPrivate = context.talkPrivate
-
-
 
 context.talkNpc = function(text) 
 
@@ -2966,8 +2634,6 @@ context.sayNpc = context.talkNpc
 context.sayNPC = context.talkNpc
 
 context.talkNPC = context.talkNpc
-
-
 
 context.saySpell = function(text, lastSpellTimeout)
 
@@ -3003,15 +2669,11 @@ context.saySpell = function(text, lastSpellTimeout)
 
 end
 
-
-
 context.setSpellTimeout = function()
 
   context.lastSpell = context.now
 
 end
-
-
 
 context.use = function(thing, subtype)
 
@@ -3043,8 +2705,6 @@ end
 
 context.useWith = context.usewith
 
-
-
 context.useRune = function(itemid, target, lastSpellTimeout)
 
   if context.lastRuneUse == nil then
@@ -3075,8 +2735,6 @@ end
 
 context.userune = context.useRune
 
-
-
 context.findItem = function(itemId, subType)
 
   if subType == nil then
@@ -3089,8 +2747,6 @@ context.findItem = function(itemId, subType)
 
 end
 
-
-
 context.attack = g_game.attack
 
 context.cancelAttack = g_game.cancelAttack
@@ -3101,15 +2757,11 @@ context.cancelFollow = g_game.cancelFollow
 
 context.cancelAttackAndFollow = g_game.cancelAttackAndFollow
 
-
-
 context.logout = g_game.forceLogout
 
 context.safeLogout = g_game.safeLogout
 
 context.ping = g_game.getPing
-
-
 
 modules.game_cooldown.isGroupCooldownIconActive(id)
 
@@ -3118,18 +2770,11 @@ modules.game_cooldown.isCooldownIconActive(id)
 ```
 
 ---
-
-
-
 # player_conditions.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 for i, state in ipairs(PlayerStates) do
 
@@ -3137,11 +2782,7 @@ for i, state in ipairs(PlayerStates) do
 
 end  
 
-
-
 context.hasCondition = function(condition) return bit.band(context.player:getStates(), condition) > 0 end
-
-
 
 context.isPoisioned = function() return context.hasCondition(PlayerStates.Poison) end
 
@@ -3194,18 +2835,11 @@ context.isHungry = function() return context.hasCondition(PlayerStates.Hungry) e
 ```
 
 ---
-
-
-
 # player_inventory.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 context.SlotOther = InventorySlotOther
 
@@ -3231,13 +2865,9 @@ context.SlotAmmo = InventorySlotAmmo
 
 context.SlotPurse = InventorySlotPurse
 
-
-
 context.getInventoryItem = function(slot) return context.player:getInventoryItem(slot) end
 
 context.getSlot = context.getInventoryItem
-
-
 
 context.getHead = function() return context.getInventoryItem(context.SlotHead) end
 
@@ -3261,13 +2891,9 @@ context.getAmmo = function() return context.getInventoryItem(context.SlotAmmo) e
 
 context.getPurse = function() return context.getInventoryItem(context.SlotPurse) end
 
-
-
 context.getContainers = function() return g_game.getContainers() end
 
 context.getContainer = function(index) return g_game.getContainer(index) end
-
-
 
 context.moveToSlot = function(item, slot, count)
 
@@ -3296,18 +2922,11 @@ end
 ```
 
 ---
-
-
-
 # script_loader.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 context.loadScript = function(path, onLoadCallback)
 
@@ -3329,8 +2948,6 @@ context.loadScript = function(path, onLoadCallback)
 
   end
 
-  
-
   local status, result = pcall(function()
 
     assert(load(g_resources.readFileContents(path), path, nil, context))()
@@ -3351,8 +2968,6 @@ context.loadScript = function(path, onLoadCallback)
 
 end
 
-
-
 context.loadRemoteScript = function(url, onLoadCallback)
 
   if type(url) ~= 'string' or url:lower():find("http") ~= 1 then
@@ -3360,8 +2975,6 @@ context.loadRemoteScript = function(url, onLoadCallback)
     return context.error("Invalid url for loadRemoteScript: " .. tostring(url))
 
   end
-
-  
 
   HTTP.get(url, function(data, err)
 
@@ -3388,8 +3001,6 @@ context.loadRemoteScript = function(url, onLoadCallback)
       end
 
     end
-
-    
 
     local status, result = pcall(function()
 
@@ -3426,18 +3037,11 @@ end
 ```
 
 ---
-
-
-
 # server.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 context.BotServer = {}
 
@@ -3452,8 +3056,6 @@ context.BotServer._callbacks = {}
 context.BotServer._lastMessageId = 0
 
 context.BotServer._wasConnected = true -- show first warning
-
-
 
 context.BotServer.init = function(name, channel)
 
@@ -3569,8 +3171,6 @@ context.BotServer.init = function(name, channel)
 
 end
 
-
-
 context.BotServer.terminate = function()
 
   if context.BotServer._websocket then
@@ -3582,8 +3182,6 @@ context.BotServer.terminate = function()
   end
 
 end
-
-
 
 context.BotServer.listen = function(topic, callback) -- callback = function(name, message, topic) -- message is parsed json = table
 
@@ -3603,8 +3201,6 @@ context.BotServer.listen = function(topic, callback) -- callback = function(name
 
 end
 
-
-
 context.BotServer.send = function(topic, message)
 
   if not context.BotServer._websocket then
@@ -3620,18 +3216,11 @@ end
 ```
 
 ---
-
-
-
 # sound.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 context.getSoundChannel = function()
 
@@ -3644,8 +3233,6 @@ context.getSoundChannel = function()
   return g_sounds.getChannel(SoundChannels.Bot)
 
 end
-
-
 
 context.playSound = function(file)
 
@@ -3667,8 +3254,6 @@ context.playSound = function(file)
 
 end
 
-
-
 context.stopSound = function()
 
   local botSoundChannel = context.getSoundChannel()
@@ -3683,8 +3268,6 @@ context.stopSound = function()
 
 end
 
-
-
 context.playAlarm = function()
 
   return context.playSound("/sounds/alarm.ogg")
@@ -3694,42 +3277,26 @@ end
 ```
 
 ---
-
-
-
 # test.lua
-
-
 
 ```lua
 
 local context = G.botContext
-
-
 
 context.test = function() return context.info("test") end
 
 ```
 
 ---
-
-
-
 # tools.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
-
-
 context.encode = function(data, indent) return json.encode(data, indent or 2) end
 
 context.decode = function(text) local status, result = pcall(function() return json.decode(text) end) if status then return result end return {} end
-
-
 
 context.displayGeneralBox = function(title, message, buttons, onEnterCallback, onEscapeCallback)
 
@@ -3741,8 +3308,6 @@ context.displayGeneralBox = function(title, message, buttons, onEnterCallback, o
 
 end
 
-
-
 context.doScreenshot = function(filename)
 
   g_app.doScreenshot(filename)
@@ -3750,8 +3315,6 @@ context.doScreenshot = function(filename)
 end
 
 context.screenshot = context.doScreenshot
-
-
 
 context.getVersion = function()
 
@@ -3762,12 +3325,7 @@ end
 ```
 
 ---
-
-
-
 # ui.lua
-
-
 
 ```lua
 
@@ -3780,8 +3338,6 @@ if type(context.UI) ~= "table" then
 end
 
 local UI = context.UI
-
-
 
 UI.createWidget = function(name, parent)
 
@@ -3798,8 +3354,6 @@ UI.createWidget = function(name, parent)
   return widget
 
 end
-
-
 
 UI.createMiniWindow = function(name, parent)
 
@@ -3818,8 +3372,6 @@ UI.createMiniWindow = function(name, parent)
   return widget
 
 end
-
-
 
 UI.createWindow = function(name)
 
@@ -3840,12 +3392,7 @@ end
 ```
 
 ---
-
-
-
 # ui_elements.lua
-
-
 
 ```lua
 
@@ -3859,8 +3406,6 @@ end
 
 local UI = context.UI
 
-
-
 UI.Button = function(text, callback, parent)
 
   local widget = UI.createWidget("BotButton", parent)
@@ -3873,17 +3418,11 @@ UI.Button = function(text, callback, parent)
 
 end
 
-
-
-
-
 UI.Config = function(parent)
 
   return UI.createWidget("BotConfig", parent)
 
 end
-
-
 
 -- call :setItems(table) to set items, call :getItems() to get them
 
@@ -3899,17 +3438,11 @@ UI.Container = function(callback, unique, parent, widget)
 
   end
 
-  
-
   local oldItems = {}
-
-  
 
   local updateItems = function()
 
     local items = widget:getItems()
-
-
 
     -- callback part
 
@@ -3935,8 +3468,6 @@ UI.Container = function(callback, unique, parent, widget)
 
     end
 
-    
-
     if somethingNew then
 
       oldItems = items
@@ -3945,13 +3476,9 @@ UI.Container = function(callback, unique, parent, widget)
 
     end
 
-
-
     widget:setItems(items)
 
   end
-
-  
 
   widget.setItems = function(self, items)
 
@@ -3999,8 +3526,6 @@ UI.Container = function(callback, unique, parent, widget)
 
   end
 
-  
-
   widget.getItems = function()
 
     local items = {}
@@ -4027,17 +3552,11 @@ UI.Container = function(callback, unique, parent, widget)
 
   end
 
-  
-
   widget:setItems({})
-
-  
 
   return widget
 
 end
-
-
 
 UI.DualScrollPanel = function(params, callback, parent) -- callback = function(widget, newParams)
 
@@ -4053,7 +3572,7 @@ UI.DualScrollPanel = function(params, callback, parent) -- callback = function(w
 
     max - number,
 
-  ]]
+]]
 
   params.title = params.title or "title"
 
@@ -4063,11 +3582,7 @@ UI.DualScrollPanel = function(params, callback, parent) -- callback = function(w
 
   params.max = params.max or 80
 
-  
-
   local widget = UI.createWidget('DualScrollPanel', parent)
-
-
 
   widget.title:setOn(params.on)
 
@@ -4085,8 +3600,6 @@ UI.DualScrollPanel = function(params, callback, parent) -- callback = function(w
 
   end
 
-
-
   widget.text:setText(params.text or "")
 
   widget.text.onTextChange = function(widget, text)
@@ -4101,8 +3614,6 @@ UI.DualScrollPanel = function(params, callback, parent) -- callback = function(w
 
   end
 
-  
-
   local update  = function(dontSignal)
 
     widget.title:setText("" .. params.min .. "% <= " .. params.title .. " <= " .. params.max .. "%")  
@@ -4115,13 +3626,9 @@ UI.DualScrollPanel = function(params, callback, parent) -- callback = function(w
 
   end
 
-  
-
   widget.scroll1:setValue(params.min)
 
   widget.scroll2:setValue(params.max)
-
-
 
   widget.scroll1.onValueChange = function(scroll, value)
 
@@ -4142,8 +3649,6 @@ UI.DualScrollPanel = function(params, callback, parent) -- callback = function(w
   update(true)
 
 end
-
-
 
 UI.DualScrollItemPanel = function(params, callback, parent) -- callback = function(widget, newParams)
 
@@ -4161,7 +3666,7 @@ UI.DualScrollItemPanel = function(params, callback, parent) -- callback = functi
 
     max - number,
 
-  ]]
+]]
 
   params.title = params.title or "title"
 
@@ -4173,11 +3678,7 @@ UI.DualScrollItemPanel = function(params, callback, parent) -- callback = functi
 
   params.max = params.max or 80
 
-  
-
   local widget = UI.createWidget('DualScrollItemPanel', parent)
-
-
 
   widget.title:setOn(params.on)
 
@@ -4195,8 +3696,6 @@ UI.DualScrollItemPanel = function(params, callback, parent) -- callback = functi
 
   end
 
-
-
   widget.item:setItem(Item.create(params.item, params.subType))
 
   widget.item.onItemChange = function()
@@ -4213,8 +3712,6 @@ UI.DualScrollItemPanel = function(params, callback, parent) -- callback = functi
 
   end
 
-  
-
   local update  = function(dontSignal)
 
     widget.title:setText("" .. params.min .. "% <= " .. params.title .. " <= " .. params.max .. "%")  
@@ -4227,13 +3724,9 @@ UI.DualScrollItemPanel = function(params, callback, parent) -- callback = functi
 
   end
 
-  
-
   widget.scroll1:setValue(params.min)
 
   widget.scroll2:setValue(params.max)
-
-
 
   widget.scroll1.onValueChange = function(scroll, value)
 
@@ -4255,8 +3748,6 @@ UI.DualScrollItemPanel = function(params, callback, parent) -- callback = functi
 
 end
 
-
-
 UI.Label = function(text, parent)
 
   local label = UI.createWidget('BotLabel', parent)
@@ -4267,8 +3758,6 @@ UI.Label = function(text, parent)
 
 end
 
-
-
 UI.Separator = function(parent)
 
   local separator = UI.createWidget('BotSeparator', parent)
@@ -4276,8 +3765,6 @@ UI.Separator = function(parent)
   return separator    
 
 end
-
-
 
 UI.TextEdit = function(text, callback, parent)
 
@@ -4290,8 +3777,6 @@ UI.TextEdit = function(text, callback, parent)
   return widget    
 
 end
-
-
 
 UI.TwoItemsAndSlotPanel = function(params, callback, parent)
 
@@ -4307,7 +3792,7 @@ UI.TwoItemsAndSlotPanel = function(params, callback, parent)
 
     slot - number,
 
-  ]]
+]]
 
   params.title = params.title or "title"
 
@@ -4317,11 +3802,7 @@ UI.TwoItemsAndSlotPanel = function(params, callback, parent)
 
   params.slot = params.slot or 1
 
-  
-
   local widget = UI.createWidget("TwoItemsAndSlotPanel", parent)
-
-    
 
   widget.title:setText(params.title)
 
@@ -4341,8 +3822,6 @@ UI.TwoItemsAndSlotPanel = function(params, callback, parent)
 
   end
 
-  
-
   widget.slot:setCurrentIndex(params.slot)
 
   widget.slot.onOptionChange = function()
@@ -4356,8 +3835,6 @@ UI.TwoItemsAndSlotPanel = function(params, callback, parent)
     end
 
   end
-
-  
 
   widget.item1:setItemId(params.item1)
 
@@ -4373,8 +3850,6 @@ UI.TwoItemsAndSlotPanel = function(params, callback, parent)
 
   end
 
- 
-
   widget.item2:setItemId(params.item2)
 
   widget.item2.onItemChange = function()
@@ -4389,13 +3864,9 @@ UI.TwoItemsAndSlotPanel = function(params, callback, parent)
 
   end 
 
-  
-
   return widget
 
 end
-
-
 
 UI.DualLabel = function(left, right, params, parent)
 
@@ -4405,9 +3876,7 @@ UI.DualLabel = function(left, right, params, parent)
 
     maxWidth - number
 
-  ]]
-
-
+]]
 
   left = left or ""
 
@@ -4427,11 +3896,7 @@ UI.DualLabel = function(left, right, params, parent)
 
   params.maxWidth = params.maxWidth or 88
 
-
-
   local widget = UI.createWidget('DualLabelPanel', parent)
-
-
 
   widget.left:setText(left)
 
@@ -4449,8 +3914,6 @@ UI.DualLabel = function(left, right, params, parent)
 
 end
 
-
-
 UI.LabelAndTextEdit = function(params, callback, parent)
 
   --[[ params:
@@ -4463,9 +3926,7 @@ UI.LabelAndTextEdit = function(params, callback, parent)
 
     maxWidth - int,
 
-  ]]
-
-
+]]
 
   params = params or {}
 
@@ -4477,11 +3938,7 @@ UI.LabelAndTextEdit = function(params, callback, parent)
 
   params.maxWidth = params.maxWidth or 88
 
-
-
   local widget = UI.createWidget('LabelAndTextEditPanel', parent)
-
-
 
   widget.left:setText(params.left)
 
@@ -4495,8 +3952,6 @@ UI.LabelAndTextEdit = function(params, callback, parent)
 
   end
 
-
-
   widget.right.onTextChange = function(widget, text)
 
     params.right = text
@@ -4509,11 +3964,7 @@ UI.LabelAndTextEdit = function(params, callback, parent)
 
   end
 
-
-
   --[[example:
-
-
 
       storage.testParams = storage.testParams or {left = "hotkey", right = "F5"}
 
@@ -4523,17 +3974,11 @@ UI.LabelAndTextEdit = function(params, callback, parent)
 
       end)
 
-
-
-  ]]
+]]
 
   return widget
 
 end
-
-
-
-
 
 UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, parent)
 
@@ -4549,9 +3994,7 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
 
     maxWidth - int,
 
-  ]]
-
-
+]]
 
   params = params or {}
 
@@ -4565,11 +4008,7 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
 
   params.maxWidth = params.maxWidth or 88
 
-
-
   local widget = UI.createWidget('SwitchAndButtonPanel', parent)
-
-
 
   widget.left:setOn(params.on)
 
@@ -4584,8 +4023,6 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
     widget.right:setWidth(params.maxWidth)
 
   end
-
-
 
   widget.left.onClick = function()
 
@@ -4611,8 +4048,6 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
 
   end
 
-
-
   widget.right.onClick = function()
 
     if callbackButton then
@@ -4627,8 +4062,6 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
 
   end
 
-
-
   --[[ params:
 
     if type(storage.test1) ~= "table" then
@@ -4637,15 +4070,13 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
 
     end
 
-    
-
     UI.SwitchAndButton(storage.test1, test, test, function(widget, newParams)
 
         storage.test1 = newParams 
 
     end)
 
-  ]]
+]]
 
   return widget
 
@@ -4654,24 +4085,15 @@ end
 ```
 
 ---
-
-
-
 # ui_legacy.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
-
-
 -- DO NOT USE THIS CODE.
 
 -- IT'S ONLY HERE FOR BACKWARD COMPATIBILITY, MAY BE REMOVED IN THE FUTURE
-
-
 
 context.createWidget = function(name, parent)
 
@@ -4684,8 +4106,6 @@ context.createWidget = function(name, parent)
   g_ui.createWidget(name, parent)
 
 end
-
-
 
 context.setupUI = function(otml, parent)
 
@@ -4702,8 +4122,6 @@ context.setupUI = function(otml, parent)
   return widget
 
 end
-
-
 
 context.importStyle = function(otml)
 
@@ -4723,8 +4141,6 @@ context.importStyle = function(otml)
 
 end
 
-
-
 context.addTab = function(name)
 
   local tab = context.tabs:getTab(name)
@@ -4734,8 +4150,6 @@ context.addTab = function(name)
     return tab.tabPanel.content
 
   end
-
-  
 
   local smallTabs = #(context.tabs.tabs) >= 5
 
@@ -4753,15 +4167,11 @@ context.addTab = function(name)
 
   end
 
-  
-
   return newTab
 
 end
 
 context.getTab = context.addTab
-
-
 
 context.setDefaultTab = function(name)
 
@@ -4770,8 +4180,6 @@ context.setDefaultTab = function(name)
   context.panel = tab
 
 end
-
-
 
 context.addSwitch = function(id, text, onClickCallback, parent)
 
@@ -4793,8 +4201,6 @@ context.addSwitch = function(id, text, onClickCallback, parent)
 
 end
 
-
-
 context.addButton = function(id, text, onClickCallback, parent)
 
   if not parent then
@@ -4815,8 +4221,6 @@ context.addButton = function(id, text, onClickCallback, parent)
 
 end
 
-
-
 context.addLabel = function(id, text, parent)
 
   if not parent then
@@ -4834,8 +4238,6 @@ context.addLabel = function(id, text, parent)
   return label    
 
 end
-
-
 
 context.addTextEdit = function(id, text, onTextChangeCallback, parent)
 
@@ -4857,8 +4259,6 @@ context.addTextEdit = function(id, text, onTextChangeCallback, parent)
 
 end
 
-
-
 context.addSeparator = function(id, parent)
 
   if not parent then
@@ -4874,8 +4274,6 @@ context.addSeparator = function(id, parent)
   return separator    
 
 end
-
-
 
 context._addMacroSwitch = function(name, keys, parent)
 
@@ -4907,8 +4305,6 @@ context._addMacroSwitch = function(name, keys, parent)
 
 end
 
-
-
 context._addHotkeySwitch = function(name, keys, parent)
 
   if not parent then
@@ -4936,12 +4332,7 @@ end
 ```
 
 ---
-
-
-
 # ui_windows.lua
-
-
 
 ```lua
 
@@ -4954,8 +4345,6 @@ if type(context.UI) ~= "table" then
 end
 
 local UI = context.UI
-
-
 
 UI.EditorWindow = function(text, options, callback)
 
@@ -4985,8 +4374,6 @@ UI.EditorWindow = function(text, options, callback)
 
 end
 
-
-
 UI.SinglelineEditorWindow = function(text, options, callback)
 
   options = options or {}
@@ -4997,8 +4384,6 @@ UI.SinglelineEditorWindow = function(text, options, callback)
 
 end
 
-
-
 UI.MultilineEditorWindow = function(text, options, callback)
 
   options = options or {}
@@ -5008,8 +4393,6 @@ UI.MultilineEditorWindow = function(text, options, callback)
   return UI.EditorWindow(text, options, callback)
 
 end
-
-
 
 UI.ConfirmationWindow = function(title, question, callback)
 
@@ -5046,6 +4429,3 @@ end
 ```
 
 ---
-
-
-

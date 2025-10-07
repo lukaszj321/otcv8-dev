@@ -1,39 +1,24 @@
-# ¦ Modul: `client_textedit`
-
-
-
-
-
+﻿# ¦ Modul: `client_textedit`
 
 ```lua
 
 local activeWindow
 
-
-
 function init()
 
   g_ui.importStyle('textedit')
-
-
 
   connect(g_game, { onGameEnd = destroyWindow })
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onGameEnd = destroyWindow })
 
-
-
   destroyWindow()
 
 end
-
-
 
 function destroyWindow()
 
@@ -46,8 +31,6 @@ function destroyWindow()
   end
 
 end
-
-
 
 -- also works as show(text, callback)
 
@@ -111,15 +94,11 @@ function show(text, options, callback) -- callback = function(newText)
 
   options = options or {}
 
-
-
   if activeWindow then
 
     destroyWindow()
 
   end
-
-
 
   local window
 
@@ -177,8 +156,6 @@ function show(text, options, callback) -- callback = function(newText)
 
   end
 
-  
-
   window.buttons.ok.onClick = doneFunc
 
   window.buttons.cancel.onClick = destroy
@@ -200,8 +177,6 @@ function show(text, options, callback) -- callback = function(newText)
     end
 
   end
-
-  
 
   if options.title then
 
@@ -237,13 +212,9 @@ function show(text, options, callback) -- callback = function(newText)
 
   end
 
-
-
   window.text:setText(text)
 
   window.text:setCursorPos(-1)
-
-
 
   window.text.onTextChange = function(widget, text)
 
@@ -265,15 +236,11 @@ function show(text, options, callback) -- callback = function(newText)
 
   end
 
-
-
   if type(options.width) == 'number' then
 
     window:setWidth(options.width)
 
   end
-
-
 
   activeWindow = window
 
@@ -301,23 +268,17 @@ function show(text, options, callback) -- callback = function(newText)
 
 end
 
-
-
 function hide()
 
   destroyWindow()
 
 end
 
-
-
 function edit(...)
 
   return show(...)
 
 end
-
-
 
 -- legacy
 
@@ -326,8 +287,6 @@ function singlelineEditor(text, callback)
   return show(text, {}, callback)
 
 end
-
-
 
 -- legacy
 
@@ -340,12 +299,7 @@ end
 ```
 
 ---
-
-
-
 # textedit.otmod
-
-
 
 ```text
 
@@ -370,12 +324,7 @@ Module
 ```
 
 ---
-
-
-
 # textedit.otui
-
-
 
 ```otui
 
@@ -384,8 +333,6 @@ TextEditButtons < Panel
   id: buttons
 
   height: 30
-
-
 
   Button
 
@@ -401,8 +348,6 @@ TextEditButtons < Panel
 
     width: 60
 
-
-
   Button
 
     id: cancel
@@ -415,8 +360,6 @@ TextEditButtons < Panel
 
     width: 60
 
-
-
 TextEditWindow < MainWindow
 
   id: textedit
@@ -428,8 +371,6 @@ TextEditWindow < MainWindow
     type: verticalBox
 
     fit-children: true
-
-    
 
   Label
 
@@ -445,8 +386,6 @@ TextEditWindow < MainWindow
 
     text-auto-resize: true
 
-  
-
   ComboBox
 
     id: examples
@@ -455,23 +394,15 @@ TextEditWindow < MainWindow
 
     visible: false
 
-
-
 SinglelineTextEditWindow < TextEditWindow
 
   width: 250
-
-
 
   TextEdit
 
     id: text
 
-    
-
   TextEditButtons
-
-
 
 MultilineTextEditWindow < TextEditWindow
 
@@ -480,8 +411,6 @@ MultilineTextEditWindow < TextEditWindow
   $mobile:
 
     width: 500
-
-
 
   Panel
 
@@ -492,8 +421,6 @@ MultilineTextEditWindow < TextEditWindow
     $mobile:
 
       height: 300
-
-
 
     MultilineTextEdit
 
@@ -506,8 +433,6 @@ MultilineTextEditWindow < TextEditWindow
       text-wrap: true
 
       vertical-scrollbar: textScroll
-
-
 
     VerticalScrollBar
 
@@ -523,13 +448,8 @@ MultilineTextEditWindow < TextEditWindow
 
       step: 10
 
-    
-
   TextEditButtons
 
 ```
 
 ---
-
-
-

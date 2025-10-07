@@ -1,9 +1,4 @@
-# ¦ Modul: `game_textmessage`
-
-
-
-
-
+﻿# ¦ Modul: `game_textmessage`
 
 ```lua
 
@@ -32,8 +27,6 @@ MessageSettings = {
   private         = { color = TextColors.lightblue,                       screenTarget='privateLabel' }
 
 }
-
-
 
 MessageTypes = {
 
@@ -65,11 +58,7 @@ MessageTypes = {
 
   [MessageModes.PrivateFrom] = MessageSettings.consoleBlue,
 
-
-
   [MessageModes.GamemasterBroadcast] = MessageSettings.consoleRed,
-
-
 
   [MessageModes.DamageDealed] = MessageSettings.status,
 
@@ -79,15 +68,11 @@ MessageTypes = {
 
   [MessageModes.Exp] = MessageSettings.status,
 
-
-
   [MessageModes.DamageOthers] = MessageSettings.none,
 
   [MessageModes.HealOthers] = MessageSettings.none,
 
   [MessageModes.ExpOthers] = MessageSettings.none,
-
-
 
   [MessageModes.TradeNpc] = MessageSettings.centerWhite,
 
@@ -105,17 +90,11 @@ MessageTypes = {
 
   [MessageModes.HotkeyUse] = MessageSettings.centerGreen,
 
-
-
   [254] = MessageSettings.private
 
 }
 
-
-
 messagesPanel = nil
-
-
 
 function init()
 
@@ -125,15 +104,11 @@ function init()
 
   end
 
-
-
   connect(g_game, 'onGameEnd', clearMessages)
 
   messagesPanel = g_ui.loadUI('textmessage', modules.game_interface.getRootPanel())
 
 end
-
-
 
 function terminate()
 
@@ -143,8 +118,6 @@ function terminate()
 
   end
 
-
-
   disconnect(g_game, 'onGameEnd', clearMessages)
 
   clearMessages()
@@ -153,21 +126,15 @@ function terminate()
 
 end
 
-
-
 function calculateVisibleTime(text)
 
   return math.max(#text * 50, 3000)
 
 end
 
-
-
 function displayMessage(mode, text)
 
   if not g_game.isOnline() then return end
-
-
 
   local msgtype = MessageTypes[mode]
 
@@ -177,11 +144,7 @@ function displayMessage(mode, text)
 
   end
 
-
-
   if msgtype == MessageSettings.none then return end
-
-
 
   if msgtype.consoleTab ~= nil and (msgtype.consoleOption == nil or modules.client_options.getOption(msgtype.consoleOption)) then
 
@@ -190,8 +153,6 @@ function displayMessage(mode, text)
     --TODO move to game_console
 
   end
-
-
 
   if msgtype.screenTarget then
 
@@ -211,15 +172,11 @@ function displayMessage(mode, text)
 
 end
 
-
-
 function displayPrivateMessage(text)
 
   displayMessage(254, text)
 
 end
-
-
 
 function displayStatusMessage(text)
 
@@ -227,15 +184,11 @@ function displayStatusMessage(text)
 
 end
 
-
-
 function displayFailureMessage(text)
 
   displayMessage(MessageModes.Failure, text)
 
 end
-
-
 
 function displayGameMessage(text)
 
@@ -243,15 +196,11 @@ function displayGameMessage(text)
 
 end
 
-
-
 function displayBroadcastMessage(text)
 
   displayMessage(MessageModes.Warning, text)
 
 end
-
-
 
 function clearMessages()
 
@@ -269,8 +218,6 @@ function clearMessages()
 
 end
 
-
-
 function LocalPlayer:onAutoWalkFail(player)
 
   modules.game_textmessage.displayFailureMessage(tr('There is no way.'))
@@ -280,12 +227,7 @@ end
 ```
 
 ---
-
-
-
 # textmessage.otmod
-
-
 
 ```text
 
@@ -310,12 +252,7 @@ Module
 ```
 
 ---
-
-
-
 # textmessage.otui
-
-
 
 ```otui
 
@@ -333,15 +270,11 @@ TextMessageLabel < UILabel
 
   visible: false
 
-
-
 Panel
 
   anchors.fill: gameMapPanel
 
   focusable: false
-
-
 
   Panel
 
@@ -357,8 +290,6 @@ Panel
 
     anchors.centerIn: parent
 
-
-
     TextMessageLabel
 
       id: highCenterLabel
@@ -370,8 +301,6 @@ Panel
     TextMessageLabel
 
       id: lowCenterLabel
-
-
 
   TextMessageLabel
 
@@ -387,8 +316,6 @@ Panel
 
     width: 275
 
-
-
   TextMessageLabel
 
     id: statusLabel
@@ -402,6 +329,3 @@ Panel
 ```
 
 ---
-
-
-

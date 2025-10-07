@@ -1,39 +1,24 @@
-# ¦ Modul: `game_itemselector`
-
-
-
-
-
+﻿# ¦ Modul: `game_itemselector`
 
 ```lua
 
 local activeWindow
 
-
-
 function init()
 
   g_ui.importStyle('itemselector')
-
-
 
   connect(g_game, { onGameEnd = destroyWindow })
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onGameEnd = destroyWindow })
 
-
-
   destroyWindow()
 
 end
-
-
 
 function destroyWindow()
 
@@ -46,8 +31,6 @@ function destroyWindow()
   end
 
 end
-
-
 
 function show(itemWidget)
 
@@ -64,8 +47,6 @@ function show(itemWidget)
   end
 
   local window = g_ui.createWidget('ItemSelectorWindow', rootWidget)
-
-  
 
   local destroy = function()
 
@@ -97,8 +78,6 @@ function show(itemWidget)
 
   end
 
-  
-
   window.clearButton.onClick = clearFunc
 
   window.okButton.onClick = doneFunc
@@ -109,11 +88,7 @@ function show(itemWidget)
 
   window.onEscape = destroy
 
-  
-
   window.item:setItem(Item.create(itemWidget:getItemId(), itemWidget:getItemCount()))
-
-  
 
   window.itemId:setValue(itemWidget:getItemId())
 
@@ -122,8 +97,6 @@ function show(itemWidget)
     window.itemCount:setValue(itemWidget:getItemCount())
 
   end
-
-  
 
   window.itemId.onValueChange = function(widget, value)
 
@@ -137,8 +110,6 @@ function show(itemWidget)
 
   end
 
-  
-
   activeWindow = window
 
   activeWindow:raise()
@@ -146,8 +117,6 @@ function show(itemWidget)
   activeWindow:focus()
 
 end
-
-
 
 function hide()
 
@@ -158,12 +127,7 @@ end
 ```
 
 ---
-
-
-
 # itemselector.otmod
-
-
 
 ```text
 
@@ -190,12 +154,7 @@ Module
 ```
 
 ---
-
-
-
 # itemselector.otui
-
-
 
 ```otui
 
@@ -206,8 +165,6 @@ ItemSelectorWindow < MainWindow
   size: 260 120
 
   !text: tr("Select item")
-
-    
 
   Item
 
@@ -222,8 +179,6 @@ ItemSelectorWindow < MainWindow
     anchors.top: parent.top
 
     anchors.left: parent.left
-
-
 
   SpinBox
 
@@ -247,8 +202,6 @@ ItemSelectorWindow < MainWindow
 
     focusable: true
 
-
-
   Label
 
     anchors.top: parent.top
@@ -260,8 +213,6 @@ ItemSelectorWindow < MainWindow
     text-align: center
 
     !text: tr("Item ID")
-
-
 
   SpinBox
 
@@ -285,8 +236,6 @@ ItemSelectorWindow < MainWindow
 
     focusable: true
 
-
-
   Label
 
     anchors.top: parent.top
@@ -299,8 +248,6 @@ ItemSelectorWindow < MainWindow
 
     !text: tr("Count / SubType")
 
-
-
   Button
 
     id: clearButton
@@ -312,8 +259,6 @@ ItemSelectorWindow < MainWindow
     anchors.left: parent.left
 
     width: 60
-
-  
 
   Button
 
@@ -328,8 +273,6 @@ ItemSelectorWindow < MainWindow
     margin-right: 10
 
     width: 60
-
-
 
   Button
 
@@ -346,6 +289,3 @@ ItemSelectorWindow < MainWindow
 ```
 
 ---
-
-
-

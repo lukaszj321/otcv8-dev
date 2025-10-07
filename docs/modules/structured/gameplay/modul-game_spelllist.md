@@ -1,15 +1,8 @@
-# ¦ Modul: `game_spelllist`
-
-
-
-
-
+﻿# ¦ Modul: `game_spelllist`
 
 ```lua
 
 local SpelllistProfile = 'Default'
-
-
 
 spelllistWindow       = nil
 
@@ -37,8 +30,6 @@ premiumValueLabel     = nil
 
 descriptionValueLabel = nil
 
-
-
 vocationBoxAny        = nil
 
 vocationBoxSorcerer   = nil
@@ -49,8 +40,6 @@ vocationBoxPaladin    = nil
 
 vocationBoxKnight     = nil
 
-
-
 groupBoxAny           = nil
 
 groupBoxAttack        = nil
@@ -59,23 +48,17 @@ groupBoxHealing       = nil
 
 groupBoxSupport       = nil
 
-
-
 premiumBoxAny         = nil
 
 premiumBoxNo          = nil
 
 premiumBoxYes         = nil
 
-
-
 vocationRadioGroup    = nil
 
 groupRadioGroup       = nil
 
 premiumRadioGroup     = nil
-
-
 
 -- consts
 
@@ -84,8 +67,6 @@ FILTER_PREMIUM_ANY        = 0
 FILTER_PREMIUM_NO         = 1
 
 FILTER_PREMIUM_YES        = 2
-
-
 
 FILTER_VOCATION_ANY       = 0
 
@@ -97,8 +78,6 @@ FILTER_VOCATION_PALADIN   = 3
 
 FILTER_VOCATION_KNIGHT    = 4
 
-
-
 FILTER_GROUP_ANY          = 0
 
 FILTER_GROUP_ATTACK       = 1
@@ -106,8 +85,6 @@ FILTER_GROUP_ATTACK       = 1
 FILTER_GROUP_HEALING      = 2
 
 FILTER_GROUP_SUPPORT      = 3
-
-
 
 -- Filter Settings
 
@@ -117,8 +94,6 @@ local filters = {
 
   vocation     = false,
 
-
-
   vocationId   = FILTER_VOCATION_ANY,
 
   premium      = FILTER_PREMIUM_ANY,
@@ -127,21 +102,15 @@ local filters = {
 
 }
 
-
-
 function getSpelllistProfile()
 
   return SpelllistProfile
 
 end
 
-
-
 function setSpelllistProfile(name)
 
   if SpelllistProfile == name then return end
-
-
 
   if SpelllistSettings[name] and SpellInfo[name] then
 
@@ -159,8 +128,6 @@ function setSpelllistProfile(name)
 
 end
 
-
-
 function online()
 
   if g_game.getFeature(GameSpellList) then
@@ -172,8 +139,6 @@ function online()
     spelllistButton:hide()
 
   end
-
-
 
   -- Vocation is only send in newer clients
 
@@ -189,15 +154,11 @@ function online()
 
 end
 
-
-
 function offline()
 
   resetWindow()
 
 end
-
-
 
 function init()
 
@@ -205,19 +166,13 @@ function init()
 
                     onGameEnd   = offline })
 
-
-
   spelllistWindow = g_ui.displayUI('spelllist', modules.game_interface.getRightPanel())
 
   spelllistWindow:hide()
 
-
-
   spelllistButton = modules.client_topmenu.addRightGameToggleButton('spelllistButton', tr('Spell List'), '/images/topbuttons/spelllist', toggle, false, 4)
 
   spelllistButton:setOn(false)
-
-
 
   nameValueLabel        = spelllistWindow:getChildById('labelNameValue')
 
@@ -239,8 +194,6 @@ function init()
 
   descriptionValueLabel = spelllistWindow:getChildById('labelDescriptionValue')
 
-
-
   vocationBoxAny        = spelllistWindow:getChildById('vocationBoxAny')
 
   vocationBoxSorcerer   = spelllistWindow:getChildById('vocationBoxSorcerer')
@@ -251,8 +204,6 @@ function init()
 
   vocationBoxKnight     = spelllistWindow:getChildById('vocationBoxKnight')
 
-
-
   groupBoxAny           = spelllistWindow:getChildById('groupBoxAny')
 
   groupBoxAttack        = spelllistWindow:getChildById('groupBoxAttack')
@@ -261,15 +212,11 @@ function init()
 
   groupBoxSupport       = spelllistWindow:getChildById('groupBoxSupport')
 
-
-
   premiumBoxAny         = spelllistWindow:getChildById('premiumBoxAny')
 
   premiumBoxYes         = spelllistWindow:getChildById('premiumBoxYes')
 
   premiumBoxNo          = spelllistWindow:getChildById('premiumBoxNo')
-
-
 
   vocationRadioGroup = UIRadioGroup.create()
 
@@ -283,8 +230,6 @@ function init()
 
   vocationRadioGroup:addWidget(vocationBoxKnight)
 
-
-
   groupRadioGroup = UIRadioGroup.create()
 
   groupRadioGroup:addWidget(groupBoxAny)
@@ -295,8 +240,6 @@ function init()
 
   groupRadioGroup:addWidget(groupBoxSupport)
 
-
-
   premiumRadioGroup = UIRadioGroup.create()
 
   premiumRadioGroup:addWidget(premiumBoxAny)
@@ -305,15 +248,11 @@ function init()
 
   premiumRadioGroup:addWidget(premiumBoxNo)
 
-
-
   premiumRadioGroup:selectWidget(premiumBoxAny)
 
   vocationRadioGroup:selectWidget(vocationBoxAny)
 
   groupRadioGroup:selectWidget(groupBoxAny)
-
-
 
   vocationRadioGroup.onSelectionChange  = toggleFilter
 
@@ -321,23 +260,15 @@ function init()
 
   premiumRadioGroup.onSelectionChange   = toggleFilter
 
-
-
   spellList = spelllistWindow:getChildById('spellList')
-
-
 
   g_keyboard.bindKeyPress('Down', function() spellList:focusNextChild(KeyboardFocusReason) end, spelllistWindow)
 
   g_keyboard.bindKeyPress('Up', function() spellList:focusPreviousChild(KeyboardFocusReason) end, spelllistWindow)
 
-
-
   initializeSpelllist()
 
   resizeWindow()
-
-
 
   if g_game.isOnline() then
 
@@ -347,15 +278,11 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onGameStart = online,
 
                        onGameEnd   = offline })
-
-
 
   disconnect(spellList, { onChildFocusChange = function(self, focusedChild)
 
@@ -365,13 +292,9 @@ function terminate()
 
                         end })
 
-
-
   spelllistWindow:destroy()
 
   spelllistButton:destroy()
-
-
 
   vocationRadioGroup:destroy()
 
@@ -381,8 +304,6 @@ function terminate()
 
 end
 
-
-
 function initializeSpelllist()
 
   for i = 1, #SpelllistSettings[SpelllistProfile].spellOrder do
@@ -390,8 +311,6 @@ function initializeSpelllist()
     local spell = SpelllistSettings[SpelllistProfile].spellOrder[i]
 
     local info = SpellInfo[SpelllistProfile][spell]
-
-
 
     local tmpLabel = g_ui.createWidget('SpellListLabel', spellList)
 
@@ -401,8 +320,6 @@ function initializeSpelllist()
 
     tmpLabel:setPhantom(false)
 
-
-
     local iconId = tonumber(info.icon)
 
     if not iconId and SpellIcons[info.icon] then
@@ -411,15 +328,11 @@ function initializeSpelllist()
 
     end
 
-
-
     if not(iconId) then
 
       perror('Spell icon \'' .. info.icon .. '\' not found.')
 
     end
-
-
 
     tmpLabel:setHeight(SpelllistSettings[SpelllistProfile].iconSize.height + 4)
 
@@ -435,8 +348,6 @@ function initializeSpelllist()
 
   end
 
-
-
   connect(spellList, { onChildFocusChange = function(self, focusedChild)
 
                           if focusedChild == nil then return end
@@ -446,8 +357,6 @@ function initializeSpelllist()
                         end })
 
 end
-
-
 
 function changeSpelllistProfile(oldProfile)
 
@@ -459,13 +368,9 @@ function changeSpelllistProfile(oldProfile)
 
     local tmpLabel = spellList:getChildById(spell)
 
-
-
     tmpLabel:destroy()
 
   end
-
-
 
   -- Create new spelllist and ajust window
 
@@ -477,8 +382,6 @@ function changeSpelllistProfile(oldProfile)
 
 end
 
-
-
 function updateSpelllist()
 
   for i = 1, #SpelllistSettings[SpelllistProfile].spellOrder do
@@ -488,8 +391,6 @@ function updateSpelllist()
     local info = SpellInfo[SpelllistProfile][spell]
 
     local tmpLabel = spellList:getChildById(spell)
-
-
 
     local localPlayer = g_game.getLocalPlayer()
 
@@ -507,13 +408,9 @@ function updateSpelllist()
 
 end
 
-
-
 function updateSpellInformation(widget)
 
   local spell = widget:getId()
-
-
 
   local name        = ''
 
@@ -535,19 +432,13 @@ function updateSpellInformation(widget)
 
   local description = ''
 
-
-
   if SpellInfo[SpelllistProfile][spell] then
 
     local info = SpellInfo[SpelllistProfile][spell]
 
-
-
     name    = spell
 
     formula = info.words
-
-
 
     for i = 1, #info.vocations do
 
@@ -560,8 +451,6 @@ function updateSpellInformation(widget)
       end
 
     end
-
-
 
     cooldown = (info.exhaustion / 1000) .. 's'
 
@@ -577,8 +466,6 @@ function updateSpellInformation(widget)
 
     end
 
-
-
     type    = info.type
 
     level   = info.level
@@ -590,8 +477,6 @@ function updateSpellInformation(widget)
     description = info.description or '-'
 
   end
-
-
 
   nameValueLabel:setText(name)
 
@@ -615,8 +500,6 @@ function updateSpellInformation(widget)
 
 end
 
-
-
 function toggle()
 
   if spelllistButton:isOn() then
@@ -638,8 +521,6 @@ function toggle()
   end
 
 end
-
-
 
 function toggleFilter(widget, selectedWidget)
 
@@ -729,13 +610,9 @@ function toggleFilter(widget, selectedWidget)
 
   end
 
-
-
   updateSpelllist()
 
 end
-
-
 
 function resizeWindow()
 
@@ -745,15 +622,11 @@ function resizeWindow()
 
 end
 
-
-
 function resetWindow()
 
   spelllistWindow:hide()
 
   spelllistButton:setOn(false)
-
-
 
   -- Resetting filters
 
@@ -761,27 +634,19 @@ function resetWindow()
 
   filters.vocation = false
 
-
-
   local buttonFilterLevel = spelllistWindow:getChildById('buttonFilterLevel')
 
   buttonFilterLevel:setOn(filters.level)
 
-
-
   local buttonFilterVocation = spelllistWindow:getChildById('buttonFilterVocation')
 
   buttonFilterVocation:setOn(filters.vocation)
-
-
 
   vocationRadioGroup:selectWidget(vocationBoxAny)
 
   groupRadioGroup:selectWidget(groupBoxAny)
 
   premiumRadioGroup:selectWidget(premiumBoxAny)
-
-
 
   updateSpelllist()
 
@@ -790,12 +655,7 @@ end
 ```
 
 ---
-
-
-
 # spelllist.otmod
-
-
 
 ```text
 
@@ -820,12 +680,7 @@ Module
 ```
 
 ---
-
-
-
 # spelllist.otui
-
-
 
 ```otui
 
@@ -849,15 +704,11 @@ SpellListLabel < Label
 
   image-source: /images/game/spells/defaultspells
 
-
-
   $focus:
 
     background-color: #ffffff22
 
     color: #ffffff
-
-
 
 SpellInfoLabel < Label
 
@@ -871,8 +722,6 @@ SpellInfoLabel < Label
 
   margin-top: 5
 
-
-
 SpellInfoValueLabel < Label
 
   text-align: left
@@ -882,8 +731,6 @@ SpellInfoValueLabel < Label
   margin-left: 10
 
   margin-top: 5
-
-
 
 FilterButton < Button
 
@@ -903,8 +750,6 @@ FilterButton < Button
 
     color: green
 
-
-
 MainWindow
 
   id: spelllistWindow
@@ -914,8 +759,6 @@ MainWindow
   size: 550 400
 
   @onEscape: toggle()
-
-
 
   TextList
 
@@ -937,8 +780,6 @@ MainWindow
 
     focusable: false
 
-
-
   Button
 
     id: buttonCancel
@@ -952,8 +793,6 @@ MainWindow
     anchors.bottom: parent.bottom
 
     @onClick: toggle()
-
-
 
   VerticalScrollBar
 
@@ -969,8 +808,6 @@ MainWindow
 
     pixels-scroll: true
 
-
-
   SpellInfoLabel
 
     id: labelName
@@ -980,8 +817,6 @@ MainWindow
     anchors.top: spellList.top
 
     !text: tr('Name') .. ':'
-
-
 
   Label
 
@@ -993,8 +828,6 @@ MainWindow
 
     margin-top: 8
 
-
-
   FilterButton
 
     id: buttonFilterLevel
@@ -1003,8 +836,6 @@ MainWindow
 
     !tooltip: tr('Hide spells for higher exp. levels')
 
-
-
   FilterButton
 
     id: buttonFilterVocation
@@ -1012,8 +843,6 @@ MainWindow
     !text: tr('Vocation')
 
     !tooltip: tr('Hide spells for other vocations')
-
-
 
   SpellInfoLabel
 
@@ -1025,10 +854,6 @@ MainWindow
 
     !text: tr('Formula') .. ':'
 
-
-
-
-
   SpellInfoLabel
 
     id: labelVocation
@@ -1038,8 +863,6 @@ MainWindow
     anchors.top: labelFormula.bottom
 
     !text: tr('Vocation') .. ':'
-
-
 
   SpellInfoLabel
 
@@ -1051,8 +874,6 @@ MainWindow
 
     !text: tr('Group') .. ':'
 
-
-
   SpellInfoLabel
 
     id: labelType
@@ -1062,8 +883,6 @@ MainWindow
     anchors.top: labelGroup.bottom
 
     !text: tr('Type') .. ':'
-
-
 
   SpellInfoLabel
 
@@ -1075,8 +894,6 @@ MainWindow
 
     !text: tr('Cooldown') .. ':'
 
-
-
   SpellInfoLabel
 
     id: labelLevel
@@ -1086,8 +903,6 @@ MainWindow
     anchors.top: labelCooldown.bottom
 
     !text: tr('Level') .. ':'
-
-
 
   SpellInfoLabel
 
@@ -1099,8 +914,6 @@ MainWindow
 
     !text: tr('Mana') .. ' / ' .. tr('Soul') .. ':'
 
-
-
   SpellInfoLabel
 
     id: labelPremium
@@ -1110,8 +923,6 @@ MainWindow
     anchors.top: labelMana.bottom
 
     !text: tr('Premium') .. ':'
-
-
 
   SpellInfoLabel
 
@@ -1123,8 +934,6 @@ MainWindow
 
     !text: tr('Description') .. ':'
 
-
-
   SpellInfoValueLabel
 
     id: labelNameValue
@@ -1132,8 +941,6 @@ MainWindow
     anchors.left: labelName.right
 
     anchors.top: spellList.top
-
-
 
   SpellInfoValueLabel
 
@@ -1143,8 +950,6 @@ MainWindow
 
     anchors.top: labelNameValue.bottom
 
-
-
   SpellInfoValueLabel
 
     id: labelVocationValue
@@ -1152,8 +957,6 @@ MainWindow
     anchors.left: labelVocation.right
 
     anchors.top: labelFormulaValue.bottom
-
-
 
   SpellInfoValueLabel
 
@@ -1163,8 +966,6 @@ MainWindow
 
     anchors.top: labelVocationValue.bottom
 
-
-
   SpellInfoValueLabel
 
     id: labelTypeValue
@@ -1172,8 +973,6 @@ MainWindow
     anchors.left: labelType.right
 
     anchors.top: labelGroupValue.bottom
-
-
 
   SpellInfoValueLabel
 
@@ -1183,8 +982,6 @@ MainWindow
 
     anchors.top: labelTypeValue.bottom
 
-
-
   SpellInfoValueLabel
 
     id: labelLevelValue
@@ -1192,8 +989,6 @@ MainWindow
     anchors.left: labelLevel.right
 
     anchors.top: labelCooldownValue.bottom
-
-
 
   SpellInfoValueLabel
 
@@ -1203,8 +998,6 @@ MainWindow
 
     anchors.top: labelLevelValue.bottom
 
-
-
   SpellInfoValueLabel
 
     id: labelPremiumValue
@@ -1213,8 +1006,6 @@ MainWindow
 
     anchors.top: labelManaValue.bottom
 
-
-
   SpellInfoValueLabel
 
     id: labelDescriptionValue
@@ -1222,8 +1013,6 @@ MainWindow
     anchors.left: labelDescription.right
 
     anchors.top: labelPremiumValue.bottom
-
-
 
   Label
 
@@ -1243,8 +1032,6 @@ MainWindow
 
     margin-left: 20
 
-
-
   CheckBox
 
     id: vocationBoxAny
@@ -1261,8 +1048,6 @@ MainWindow
 
     width: 75
 
-
-
   CheckBox
 
     id: vocationBoxSorcerer
@@ -1276,8 +1061,6 @@ MainWindow
     !text: tr('Sorcerer')
 
     width: 75
-
-
 
   CheckBox
 
@@ -1293,8 +1076,6 @@ MainWindow
 
     width: 75
 
-
-
   CheckBox
 
     id: vocationBoxPaladin
@@ -1309,8 +1090,6 @@ MainWindow
 
     width: 75
 
-
-
   CheckBox
 
     id: vocationBoxKnight
@@ -1324,8 +1103,6 @@ MainWindow
     !text: tr('Knight')
 
     width: 75
-
-
 
   Label
 
@@ -1345,8 +1122,6 @@ MainWindow
 
     margin-left: 20
 
-
-
   CheckBox
 
     id: groupBoxAny
@@ -1363,8 +1138,6 @@ MainWindow
 
     width: 75
 
-
-
   CheckBox
 
     id: groupBoxAttack
@@ -1378,8 +1151,6 @@ MainWindow
     !text: tr('Attack')
 
     width: 75
-
-
 
   CheckBox
 
@@ -1395,8 +1166,6 @@ MainWindow
 
     width: 75
 
-
-
   CheckBox
 
     id: groupBoxSupport
@@ -1410,8 +1179,6 @@ MainWindow
     !text: tr('Support')
 
     width: 75
-
-
 
   Label
 
@@ -1431,8 +1198,6 @@ MainWindow
 
     margin-left: 20
 
-
-
   CheckBox
 
     id: premiumBoxAny
@@ -1449,8 +1214,6 @@ MainWindow
 
     width: 75
 
-
-
   CheckBox
 
     id: premiumBoxNo
@@ -1464,8 +1227,6 @@ MainWindow
     !text: tr('No')
 
     width: 75
-
-
 
   CheckBox
 
@@ -1484,6 +1245,3 @@ MainWindow
 ```
 
 ---
-
-
-

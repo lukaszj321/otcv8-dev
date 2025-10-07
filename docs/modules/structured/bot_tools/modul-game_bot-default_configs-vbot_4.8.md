@@ -1,17 +1,10 @@
-# ¦ Modul: `game_bot/default_configs/vBot_4.8`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/default_configs/vBot_4.8`
 
 ```lua
 
 -- load all otui files, order doesn't matter
 
 local configName = modules.game_bot.contentsPanel.config:getCurrentOption().text
-
-
 
 local configFiles = g_resources.listDirectoryFiles("/bot/" .. configName .. "/vBot", true, false)
 
@@ -27,15 +20,11 @@ for i, file in ipairs(configFiles) do
 
 end
 
-
-
 local function loadScript(name)
 
   return dofile("/vBot/" .. name .. ".lua")
 
 end
-
-
 
 -- here you can set manually order of scripts
 
@@ -117,15 +106,11 @@ local luaFiles = {
 
 }
 
-
-
 for i, file in ipairs(luaFiles) do
 
   loadScript(file)
 
 end
-
-
 
 setDefaultTab("Main")
 
@@ -138,6 +123,3 @@ UI.Separator()
 ```
 
 ---
-
-
-

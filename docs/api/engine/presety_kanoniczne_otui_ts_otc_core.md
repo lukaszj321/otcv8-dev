@@ -1,4 +1,4 @@
-# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
+﻿# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
 
 **Paleta:** `otc_core_v1` · **Wersja:** 1.0\
 **Cel:** Minimalne, **kanoniczne** presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4 specyfikacji) oraz zasadami **STRICT OTUI**.
@@ -10,8 +10,7 @@
 > - Bloki **TypeScript (TS)** zakładają AST w kształcie `WidgetNode` oraz serializer zgodny z powyższymi zasadami.
 
 ---
-
-## Spis treści
+# # Spis treści
 
 - [A. Windows (Okna Główne)](#a-windows-okna-główne)
   - [A.1 MainWindow](#a1-mainwindow)
@@ -54,10 +53,8 @@
   - [G.5 Wzorzec integracyjny](#g5-wzorzec-integracyjny)
 
 ---
-
-## A. Windows (Okna Główne)
-
-### A.1 MainWindow
+# # A. Windows (Okna Główne)
+# # # A.1 MainWindow
 
 **OTUI**
 
@@ -83,12 +80,11 @@ export function presetMainWindow(): WidgetNode {
     style: { backgroundColor: 'alpha' },
     children: [
       { base: 'UIWidget', geometry: { id: 'content', anchors: { fill: 'parent' }, padding: 6 } }
-    ]
-  };
+]
+};
 }
 ```
-
-### A.2 StaticMainWindow
+# # # A.2 StaticMainWindow
 
 **OTUI**
 
@@ -114,12 +110,11 @@ export function presetStaticMainWindow(): WidgetNode {
     style: { backgroundColor: 'alpha' },
     children: [
       { base: 'UIWidget', geometry: { id: 'content', anchors: { fill: 'parent' }, padding: 6 } }
-    ]
-  };
+]
+};
 }
 ```
-
-### A.3 MiniWindow
+# # # A.3 MiniWindow
 
 **OTUI**
 
@@ -191,12 +186,11 @@ export function presetMiniWindow(): WidgetNode {
       ] },
       { base: 'UIWidget', geometry: { id: 'content', anchors: { left: 'parent.left', right: 'parent.right', top: 'titlebar.bottom', bottom: 'footer.top' }, padding: 6 } },
       { base: 'UIWidget', geometry: { id: 'footer', anchors: { left: 'parent.left', right: 'parent.right', bottom: 'parent.bottom' }, height: 28 } }
-    ]
-  };
+]
+};
 }
 ```
-
-### A.4 ContainerWindow
+# # # A.4 ContainerWindow
 
 **OTUI**
 
@@ -276,12 +270,11 @@ export function presetContainerWindow(): WidgetNode {
         { base: 'Button', geometry: { id: 'closeBtn', anchors: { right: 'parent.right', verticalCenter: 'parent.verticalCenter' }, width: 16 }, style: { text: 'x' } }
       ] },
       { base: 'UIWidget', geometry: { id: 'content', anchors: { left: 'parent.left', right: 'parent.right', top: 'titlebar.bottom', bottom: 'parent.bottom' }, padding: 6 } }
-    ]
-  };
+]
+};
 }
 ```
-
-### A.5 DialogWindow
+# # # A.5 DialogWindow
 
 **OTUI**
 
@@ -356,16 +349,14 @@ export function presetDialogWindow(): WidgetNode {
         { base: 'Button', geometry: { id: 'okButton', anchors: { right: 'cancelButton.left', bottom: 'parent.bottom' }, width: 64, marginRight: 8 }, style: { text: 'Ok' } },
         { base: 'Button', geometry: { id: 'cancelButton', anchors: { right: 'parent.right', bottom: 'parent.bottom' }, width: 64, marginRight: 8 }, style: { text: 'Cancel' } }
       ] }
-    ]
-  };
+]
+};
 }
 ```
 
 ---
-
-## B. Layout & Organization (Układ i Organizacja)
-
-### B.1 UIWidget (alias: Widget)
+# # B. Layout & Organization (Układ i Organizacja)
+# # # B.1 UIWidget (alias: Widget)
 
 **OTUI**
 
@@ -383,8 +374,7 @@ export function presetUIWidget(): WidgetNode {
   return { base: 'UIWidget', geometry: { id: 'w', size: [100, 60] }, style: { backgroundColor: 'alpha' } };
 }
 ```
-
-### B.2 Panel
+# # # B.2 Panel
 
 **OTUI**
 
@@ -402,8 +392,7 @@ export function presetPanel(): WidgetNode {
   return { base: 'Panel', geometry: { id: 'panel', anchors: { fill: 'parent' }, padding: 6 } };
 }
 ```
-
-### B.3 GroupBox
+# # # B.3 GroupBox
 
 **OTUI**
 
@@ -448,12 +437,11 @@ export function presetGroupBox(): WidgetNode {
         { base: 'Label', geometry: { id: 'caption', anchors: { left: 'parent.left', verticalCenter: 'parent.verticalCenter' }, marginLeft: 6 }, style: { textAutoResize: true, text: 'Group' } }
       ] },
       { base: 'UIWidget', geometry: { id: 'content', anchors: { left: 'parent.left', right: 'parent.right', top: 'header.bottom', bottom: 'parent.bottom' }, padding: 6 } }
-    ]
-  };
+]
+};
 }
 ```
-
-### B.4 Titlebar
+# # # B.4 Titlebar
 
 **OTUI**
 
@@ -488,12 +476,11 @@ export function presetTitlebar(): WidgetNode {
     children: [
       { base: 'Label', geometry: { id: 'title', anchors: { left: 'parent.left', verticalCenter: 'parent.verticalCenter' }, marginLeft: 6 }, style: { text: 'Title', textAutoResize: true } },
       { base: 'Button', geometry: { id: 'closeBtn', anchors: { right: 'parent.right', verticalCenter: 'parent.verticalCenter' }, width: 16 }, style: { text: 'x' } }
-    ]
-  };
+]
+};
 }
 ```
-
-### B.5 Toolbar
+# # # B.5 Toolbar
 
 **OTUI**
 
@@ -528,12 +515,11 @@ export function presetToolbar(): WidgetNode {
       { base: 'Button', geometry: { id: 'action1', width: 20 }, style: { text: 'A' } },
       { base: 'HorizontalSeparator', geometry: { id: 'sep', size: [2, 20] } },
       { base: 'Button', geometry: { id: 'action2', width: 20 }, style: { text: 'B' } }
-    ]
-  };
+]
+};
 }
 ```
-
-### B.6 TabBar
+# # # B.6 TabBar
 
 **OTUI**
 
@@ -564,12 +550,11 @@ export function presetTabBar(): WidgetNode {
     children: [
       { base: 'Button', geometry: { id: 'tab1', width: 60 }, style: { text: 'Tab 1' } },
       { base: 'Button', geometry: { id: 'tab2', anchors: { left: 'tab1.right' }, width: 60 }, style: { text: 'Tab 2' } }
-    ]
-  };
+]
+};
 }
 ```
-
-### B.7 TabWidget
+# # # B.7 TabWidget
 
 **OTUI**
 
@@ -586,8 +571,7 @@ export function presetTabWidget(): WidgetNode {
   return { base: 'TabWidget', geometry: { id: 'tabcontent', anchors: { fill: 'parent' } } };
 }
 ```
-
-### B.8 Splitter (2 dzieci)
+# # # B.8 Splitter (2 dzieci)
 
 **OTUI**
 
@@ -621,12 +605,11 @@ export function presetSplitter(): WidgetNode {
     children: [
       { base: 'Panel', geometry: { id: 'left', anchors: { left: 'parent.left', top: 'parent.top', bottom: 'parent.bottom' }, width: 140 } },
       { base: 'Panel', geometry: { id: 'right', anchors: { right: 'parent.right', top: 'parent.top', bottom: 'parent.bottom' }, width: 140 } }
-    ]
-  };
+]
+};
 }
 ```
-
-### B.9 HorizontalSeparator
+# # # B.9 HorizontalSeparator
 
 **OTUI**
 
@@ -643,8 +626,7 @@ export function presetHorizontalSeparator(): WidgetNode {
   return { base: 'HorizontalSeparator', geometry: { id: 'hsep', size: [200, 2] } };
 }
 ```
-
-### B.10 StatusOverlay
+# # # B.10 StatusOverlay
 
 **OTUI**
 
@@ -686,16 +668,14 @@ export function presetStatusOverlay(): WidgetNode {
       { base: 'Label', geometry: { id: 'message', anchors: { left: 'parent.left', right: 'parent.right' } }, style: { text: 'Working...' } },
       { base: 'ProgressBar', geometry: { id: 'progress', anchors: { left: 'parent.left', right: 'cancel.left', top: 'message.bottom' }, marginTop: 6 } },
       { base: 'Button', geometry: { id: 'cancel', anchors: { right: 'parent.right', top: 'message.bottom' }, width: 64, marginTop: 6 }, style: { text: 'Cancel' } }
-    ]
-  };
+]
+};
 }
 ```
 
 ---
-
-## C. Input Controls (Kontrolki Wejściowe)
-
-### C.1 Button
+# # C. Input Controls (Kontrolki Wejściowe)
+# # # C.1 Button
 
 **OTUI**
 
@@ -713,8 +693,7 @@ export function presetButton(): WidgetNode {
   return { base: 'Button', geometry: { id: 'btn', width: 64 }, style: { text: 'Ok' } };
 }
 ```
-
-### C.2 CheckBox
+# # # C.2 CheckBox
 
 **OTUI**
 
@@ -731,8 +710,7 @@ export function presetCheckBox(): WidgetNode {
   return { base: 'CheckBox', geometry: { id: 'check', width: 16 } };
 }
 ```
-
-### C.2a RoundCheckBox (wariant CheckBox)
+# # # C.2a RoundCheckBox (wariant CheckBox)
 
 **OTUI**
 
@@ -749,8 +727,7 @@ export function presetRoundCheckBox(): WidgetNode {
   return { base: 'CheckBox', geometry: { id: 'roundCheck', width: 16 }, variant: 'RoundCheckBox' } as any;
 }
 ```
-
-### C.3 TextEdit
+# # # C.3 TextEdit
 
 **OTUI**
 
@@ -767,8 +744,7 @@ export function presetTextEdit(): WidgetNode {
   return { base: 'TextEdit', geometry: { id: 'edit', width: 120 } };
 }
 ```
-
-### C.4 PasswordTextEdit
+# # # C.4 PasswordTextEdit
 
 **OTUI**
 
@@ -785,8 +761,7 @@ export function presetPasswordTextEdit(): WidgetNode {
   return { base: 'PasswordTextEdit', geometry: { id: 'pass', width: 120 } };
 }
 ```
-
-### C.5 MultilineTextEdit (+ Scroll)
+# # # C.5 MultilineTextEdit (+ Scroll)
 
 **OTUI**
 
@@ -820,12 +795,11 @@ export function presetMultilineTextEdit(): WidgetNode {
     children: [
       { base: 'MultilineTextEdit', geometry: { id: 'multi', anchors: { left: 'parent.left', right: 'scroll.left', top: 'parent.top', bottom: 'parent.bottom' } } },
       { base: 'VerticalScrollBar', geometry: { id: 'scroll', anchors: { right: 'parent.right', top: 'parent.top', bottom: 'parent.bottom' } }, behavior: { step: 16 } as any }
-    ]
-  };
+]
+};
 }
 ```
-
-### C.6 ComboBox
+# # # C.6 ComboBox
 
 **OTUI**
 
@@ -844,10 +818,8 @@ export function presetComboBox(): WidgetNode {
 ```
 
 ---
-
-## D. Data Display (Wyświetlanie Danych)
-
-### D.1 Label (alias: UILabel)
+# # D. Data Display (Wyświetlanie Danych)
+# # # D.1 Label (alias: UILabel)
 
 **OTUI**
 
@@ -865,8 +837,7 @@ export function presetLabel(): WidgetNode {
   return { base: 'Label', geometry: { id: 'label' }, style: { text: 'Label', textWrap: true } };
 }
 ```
-
-### D.2 TextList (+ Scroll)
+# # # D.2 TextList (+ Scroll)
 
 **OTUI**
 
@@ -900,12 +871,11 @@ export function presetTextList(): WidgetNode {
     children: [
       { base: 'TextList', geometry: { id: 'list', anchors: { left: 'parent.left', right: 'scroll.left', top: 'parent.top', bottom: 'parent.bottom' } } },
       { base: 'VerticalScrollBar', geometry: { id: 'scroll', anchors: { right: 'parent.right', top: 'parent.top', bottom: 'parent.bottom' } }, behavior: { step: 16 } as any }
-    ]
-  };
+]
+};
 }
 ```
-
-### D.3 ProgressBar
+# # # D.3 ProgressBar
 
 **OTUI**
 
@@ -924,10 +894,8 @@ export function presetProgressBar(): WidgetNode {
 ```
 
 ---
-
-## E. Indicators & Scrolling (Wskaźniki i Przewijanie)
-
-### E.1 VerticalScrollBar
+# # E. Indicators & Scrolling (Wskaźniki i Przewijanie)
+# # # E.1 VerticalScrollBar
 
 **OTUI**
 
@@ -945,8 +913,7 @@ export function presetVerticalScrollBar(): WidgetNode {
   return { base: 'VerticalScrollBar', geometry: { id: 'vscroll', height: 120 }, behavior: { step: 16 } as any };
 }
 ```
-
-### E.2 HorizontalScrollBar
+# # # E.2 HorizontalScrollBar
 
 **OTUI**
 
@@ -966,8 +933,7 @@ export function presetHorizontalScrollBar(): WidgetNode {
 ```
 
 ---
-
-## F. Uwagi implementacyjne (Sparky)
+# # F. Uwagi implementacyjne (Sparky)
 
 - Presety są **minimalne**: zachowują sloty, parowanie (TextList/Multiline ↔ ScrollBar) i deterministyczną strukturę do serializacji.
 - Gdy wymagana jest para przewijania, używaj **sąsiadujących** (sibling) `VerticalScrollBar`/`HorizontalScrollBar` oraz odpowiednich kotwic `right: scroll.left` / `bottom: hscroll.top`.
@@ -976,14 +942,12 @@ export function presetHorizontalScrollBar(): WidgetNode {
 - Serializer musi zapewnić **STRICT OTUI** oraz konwersję `style.text` → `!text: tr('...')`.
 
 ---
-
-## G. Lua — OTUI jako string + glue (kontrolery)
+# # G. Lua — OTUI jako string + glue (kontrolery)
 
 > **Cel:** dodać do presetów trzeci filar — **Lua**, który zawiera: (1) kanoniczny blok **OTUI jako string** (STRICT, bez komentarzy w samym OTUI), (2) minimalistyczny **glue** (kontrolery/wywołania) spójny z presetami.
 >
 > **Ważne:** w runtime używaj **plików** i `g_ui.displayUI('...')`. Bloki OTUI w Lua poniżej służą głównie do **importu/eksportu** w edytorze.
-
-### G.1 MiniWindow — Lua
+# # # G.1 MiniWindow — Lua
 
 **Lua (OTUI jako string — STRICT)**
 
@@ -1073,8 +1037,7 @@ function MiniWindowController.onClose(btn)
   if win then win:hide() end
 end
 ```
-
-### G.2 ContainerWindow — Lua
+# # # G.2 ContainerWindow — Lua
 
 **Lua (OTUI jako string — STRICT)**
 
@@ -1182,8 +1145,7 @@ function ContainerController.onClose(btn)
   if win then win:hide() end
 end
 ```
-
-### G.3 DialogWindow — Lua
+# # # G.3 DialogWindow — Lua
 
 **Lua (OTUI jako string — STRICT)**
 
@@ -1271,8 +1233,7 @@ function DialogController.onCancel(widget)
   if win then win:hide() end
 end
 ```
-
-### G.4 Wrappers: TextList / MultilineTextEdit
+# # # G.4 Wrappers: TextList / MultilineTextEdit
 
 **Lua (OTUI dla MultilineTextEdit + VerticalScrollBar)**
 
@@ -1321,8 +1282,7 @@ UIWidget
     step: 16
 ]]
 ```
-
-### G.5 Wzorzec integracyjny
+# # # G.5 Wzorzec integracyjny
 
 **Lua (zalecany runtime‑flow)**
 
@@ -1337,4 +1297,3 @@ MiniWindowController._wire(win)
 
 - Import: wykryj w Lua stałe w formie `local <Name>_OTUI = [[...]]` i wczytaj blok jako źródło UI.
 - Eksport: zapisz do `.otui` oraz opcjonalnie zaktualizuj powyższy blok (z zachowaniem STRICT).
-

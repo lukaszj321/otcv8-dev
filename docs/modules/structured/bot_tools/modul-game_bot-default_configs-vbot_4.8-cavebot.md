@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/default_configs/vBot_4.8/cavebot`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/default_configs/vBot_4.8/cavebot`
 
 ```lua
 
@@ -15,11 +10,7 @@ local oldTibia = g_game.getClientVersion() < 960
 
 local nextTile = nil
 
-
-
 local noPath = 0
-
-
 
 -- antistuck f()
 
@@ -32,8 +23,6 @@ local function modPos(dir)
     local y = 0
 
     local x = 0
-
-
 
     if dir == 0 then
 
@@ -77,13 +66,9 @@ local function modPos(dir)
 
     end
 
-
-
     return {x, y}
 
 end
-
-
 
 -- stack-covered antystuck, in & out pz
 
@@ -95,11 +80,7 @@ onTextMessage(function(mode, text)
 
   if CaveBot.isOff() then return end
 
-
-
   local tiles = getNearTiles(pos())
-
-
 
   for i, tile in ipairs(tiles) do
 
@@ -143,8 +124,6 @@ onTextMessage(function(mode, text)
 
 end)
 
-
-
 local furnitureIgnore = { 2986 }
 
 local function breakFurniture(destPos)
@@ -169,15 +148,11 @@ local function breakFurniture(destPos)
 
       local path = findPath(player:getPosition(), tpos, 7, { ignoreNonPathable = true, precision = 1 })
 
-
-
       if path then
 
         if isWg or (not walkable and moveable) then
 
           local distance = getDistanceBetween(destPos, tpos)
-
-
 
           if distance < candidate.dist then
 
@@ -193,8 +168,6 @@ local function breakFurniture(destPos)
 
   end
 
-
-
   local thing = candidate.thing
 
   if thing then
@@ -205,21 +178,15 @@ local function breakFurniture(destPos)
 
   end
 
-  
-
   return false
 
 end
-
-
 
 local function pushPlayer(creature)
 
   local cpos = creature:getPosition()
 
   local tiles = getNearTiles(cpos)
-
-
 
   for i, tile in ipairs(tiles) do
 
@@ -229,8 +196,6 @@ local function pushPlayer(creature)
 
     local stairs = (minimapColor >= 210 and minimapColor <= 213)
 
-
-
     if not stairs and tile:isWalkable() then
 
       g_game.move(creature, pos)
@@ -239,19 +204,13 @@ local function pushPlayer(creature)
 
   end
 
-
-
 end
-
-
 
 local function pathfinder()
 
   if not storage.extras.pathfinding then return end
 
   if noPath < 10 then return end
-
-
 
   if not CaveBot.gotoNextWaypointInRange() then
 
@@ -262,8 +221,6 @@ local function pathfinder()
       local config = getConfigFromName()
 
       local newProfile = profile == '#Unibase' and config or '#Unibase'
-
-      
 
       CaveBot.setCurrentProfile(newProfile)
 
@@ -276,8 +233,6 @@ local function pathfinder()
   return true
 
 end
-
-
 
 -- it adds an action widget to list
 
@@ -345,8 +300,6 @@ CaveBot.addAction = function(action, value, focus)
 
 end
 
-
-
 -- it updates existing widget, you should call CaveBot.save() later
 
 CaveBot.editAction = function(widget, action, value)
@@ -361,15 +314,11 @@ CaveBot.editAction = function(widget, action, value)
 
   end
 
-  
-
   if not widget.action or not widget.value then
 
     return warn("Invalid cavebot action widget, has missing action or value")  
 
   end
-
-  
 
   widget:setText(action .. ":" .. value:split("\n")[1])
 
@@ -386,8 +335,6 @@ CaveBot.editAction = function(widget, action, value)
   return widget
 
 end
-
-
 
 --[[
 
@@ -421,11 +368,9 @@ CaveBot.registerAction = function(action, color, callback)
 
     callback=callback
 
-  }
+}
 
 end
-
-
 
 CaveBot.registerAction("label", "yellow", function(value, retries, prev)
 
@@ -435,15 +380,11 @@ CaveBot.registerAction("label", "yellow", function(value, retries, prev)
 
 end)
 
-
-
 CaveBot.registerAction("gotolabel", "#FFFF55", function(value, retries, prev)
 
   return CaveBot.gotoLabel(value) 
 
 end)
-
-
 
 CaveBot.registerAction("delay", "#AAAAAA", function(value, retries, prev)
 
@@ -457,17 +398,11 @@ CaveBot.registerAction("delay", "#AAAAAA", function(value, retries, prev)
 
     local final
 
-
-
-
-
     if #data == 2 then
 
       random = tonumber(data[2]:trim())
 
     end
-
-
 
     if random then
 
@@ -483,8 +418,6 @@ CaveBot.registerAction("delay", "#AAAAAA", function(value, retries, prev)
 
     final = final or val
 
-
-
     CaveBot.delay(final) 
 
     return "retry"
@@ -494,8 +427,6 @@ CaveBot.registerAction("delay", "#AAAAAA", function(value, retries, prev)
   return true
 
 end)
-
-
 
 CaveBot.registerAction("follow", "#FF8400", function(value, retries, prev)
 
@@ -531,8 +462,6 @@ CaveBot.registerAction("follow", "#FF8400", function(value, retries, prev)
 
 end)
 
-
-
 CaveBot.registerAction("function", "red", function(value, retries, prev)
 
   local prefix = "local retries = " .. retries .. "\nlocal prev = " .. tostring(prev) .. "\nlocal delay = CaveBot.delay\nlocal gotoLabel = CaveBot.gotoLabel\n"
@@ -563,8 +492,6 @@ CaveBot.registerAction("function", "red", function(value, retries, prev)
 
 end)
 
-
-
 CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   local pos = regexMatch(value, "\\s*([0-9]+)\\s*,\\s*([0-9]+)\\s*,\\s*([0-9]+),?\\s*([0-9]?)")
@@ -577,15 +504,11 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-
-
   -- reset pathfinder
 
   nextPosF = nil
 
   nextPos = nil
-
-  
 
   if CaveBot.Config.get("mapClick") then
 
@@ -613,8 +536,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-
-
   local precision = tonumber(pos[1][5])
 
   pos = {x=tonumber(pos[1][2]), y=tonumber(pos[1][3]), z=tonumber(pos[1][4])}  
@@ -631,11 +552,7 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-
-
   local maxDist = storage.extras.gotoMaxDistance or 40
-
-  
 
   if math.abs(pos.x-playerPos.x) + math.abs(pos.y-playerPos.y) > maxDist then
 
@@ -647,13 +564,9 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-
-
   local minimapColor = g_map.getMinimapColor(pos)
 
   local stairs = (minimapColor >= 210 and minimapColor <= 213)
-
-  
 
   if stairs then
 
@@ -697,8 +610,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-
-
   -- check if there's a path to destination but consider Creatures (attack only if trapped)
 
   local path2 = findPath(playerPos, pos, maxDist, { ignoreNonPathable = true, precision = 1 })
@@ -716,8 +627,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
       nextPos.x = nextPos.x + dirs[1]
 
       nextPos.y = nextPos.y + dirs[2]
-
-  
 
       local tile = g_map.getTile(nextPos)
 
@@ -771,8 +680,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
     end
 
-
-
     if not foundMonster then
 
       foundMonster = false
@@ -783,8 +690,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-  
-
   -- try to find path, don't ignore creatures, don't ignore fields
 
   if not CaveBot.Config.get("ignoreFields") and CaveBot.walkTo(pos, 40) then
@@ -793,8 +698,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-  
-
   -- try to find path, don't ignore creatures, ignore fields
 
   if CaveBot.walkTo(pos, maxDist, { ignoreNonPathable = true, allowUnseen = true, allowOnlyVisibleTiles = false }) then
@@ -802,8 +705,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
     return "retry"
 
   end
-
-  
 
   if retries >= 3 then
 
@@ -825,8 +726,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-  
-
   if not CaveBot.Config.get("mapClick") and retries >= 5 then
 
     noPath = noPath + 1
@@ -836,8 +735,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
     return false
 
   end
-
-  
 
   if CaveBot.Config.get("skipBlocked") then
 
@@ -849,8 +746,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
 
   end
 
-
-
   -- everything else failed, try to walk ignoring creatures, maybe will work
 
   CaveBot.walkTo(pos, maxDist, { ignoreNonPathable = true, precision = 1, ignoreCreatures = true, allowUnseen = true, allowOnlyVisibleTiles = false })
@@ -858,8 +753,6 @@ CaveBot.registerAction("goto", "green", function(value, retries, prev)
   return "retry"
 
 end)
-
-
 
 CaveBot.registerAction("use", "#FFB272", function(value, retries, prev)
 
@@ -883,8 +776,6 @@ CaveBot.registerAction("use", "#FFB272", function(value, retries, prev)
 
   end
 
-
-
   pos = {x=tonumber(pos[1][2]), y=tonumber(pos[1][3]), z=tonumber(pos[1][4])}  
 
   local playerPos = player:getPosition()
@@ -895,15 +786,11 @@ CaveBot.registerAction("use", "#FFB272", function(value, retries, prev)
 
   end
 
-
-
   if math.max(math.abs(pos.x-playerPos.x), math.abs(pos.y-playerPos.y)) > 7 then
 
     return false -- too far way
 
   end
-
-
 
   local tile = g_map.getTile(pos)
 
@@ -913,8 +800,6 @@ CaveBot.registerAction("use", "#FFB272", function(value, retries, prev)
 
   end
 
-
-
   local topThing = tile:getTopUseThing()
 
   if not topThing then
@@ -923,8 +808,6 @@ CaveBot.registerAction("use", "#FFB272", function(value, retries, prev)
 
   end
 
-
-
   use(topThing)
 
   CaveBot.delay(CaveBot.Config.get("useDelay") + CaveBot.Config.get("ping"))
@@ -932,8 +815,6 @@ CaveBot.registerAction("use", "#FFB272", function(value, retries, prev)
   return true
 
 end)
-
-
 
 CaveBot.registerAction("usewith", "#EEB292", function(value, retries, prev)
 
@@ -955,8 +836,6 @@ CaveBot.registerAction("usewith", "#EEB292", function(value, retries, prev)
 
   end
 
-
-
   local itemid = tonumber(pos[1][2])
 
   pos = {x=tonumber(pos[1][3]), y=tonumber(pos[1][4]), z=tonumber(pos[1][5])}  
@@ -969,15 +848,11 @@ CaveBot.registerAction("usewith", "#EEB292", function(value, retries, prev)
 
   end
 
-
-
   if math.max(math.abs(pos.x-playerPos.x), math.abs(pos.y-playerPos.y)) > 7 then
 
     return false -- too far way
 
   end
-
-
 
   local tile = g_map.getTile(pos)
 
@@ -987,8 +862,6 @@ CaveBot.registerAction("usewith", "#EEB292", function(value, retries, prev)
 
   end
 
-
-
   local topThing = tile:getTopUseThing()
 
   if not topThing then
@@ -997,8 +870,6 @@ CaveBot.registerAction("usewith", "#EEB292", function(value, retries, prev)
 
   end
 
-
-
   usewith(itemid, topThing)
 
   CaveBot.delay(CaveBot.Config.get("useDelay") + CaveBot.Config.get("ping"))
@@ -1006,8 +877,6 @@ CaveBot.registerAction("usewith", "#EEB292", function(value, retries, prev)
   return true
 
 end)
-
-
 
 CaveBot.registerAction("say", "#FF55FF", function(value, retries, prev)
 
@@ -1028,22 +897,13 @@ end)
 ```
 
 ---
-
-
-
 # bank.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.Bank = {}
 
-
-
 local balance = 0
-
-
 
 CaveBot.Extensions.Bank.setup = function()
 
@@ -1091,8 +951,6 @@ CaveBot.Extensions.Bank.setup = function()
 
     end
 
-
-
     if actionType ~= "withdraw" and actionType ~= "deposit" and actionType ~= "transfer" then
 
       warn("CaveBot[Bank]: incorrect action type! should be withdraw/deposit/transfer, is: " .. actionType)
@@ -1113,8 +971,6 @@ CaveBot.Extensions.Bank.setup = function()
 
     end
 
-
-
     if retries > 5 then
 
       print("CaveBot[Bank]: too many tries, skipping")
@@ -1122,8 +978,6 @@ CaveBot.Extensions.Bank.setup = function()
      return false
 
     end
-
-
 
     local npc = getCreatureByName(npcName)
 
@@ -1135,15 +989,11 @@ CaveBot.Extensions.Bank.setup = function()
 
     end
 
-
-
     if not CaveBot.ReachNPC(npcName) then
 
       return "retry"
 
     end
-
-
 
     if actionType == "deposit" then
 
@@ -1193,8 +1043,6 @@ CaveBot.Extensions.Bank.setup = function()
 
   end)
 
-
-
  CaveBot.Editor.registerAction("bank", "bank", {
 
   value="action, NPC name",
@@ -1203,13 +1051,9 @@ CaveBot.Extensions.Bank.setup = function()
 
   description="action type(withdraw/deposit/transfer), NPC name, (if withdraw: amount|if transfer: name, balance left)",
 
- })
+})
 
 end
-
-
-
-
 
 onTalk(function(name, level, mode, text, channelId, pos)
 
@@ -1224,26 +1068,17 @@ end)
 ```
 
 ---
-
-
-
 # buy_supplies.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.BuySupplies = {}
-
-
 
 CaveBot.Extensions.BuySupplies.setup = function()
 
   CaveBot.registerAction("BuySupplies", "#C300FF", function(value, retries)
 
     local possibleItems = {}
-
-
 
     local val = string.split(value, ",")
 
@@ -1261,8 +1096,6 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     end
 
-
-
     local npcName = val[1]:trim()
 
     local npc = getCreatureByName(npcName)
@@ -1275,8 +1108,6 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     end
 
-    
-
     if not waitVal and #val == 2 then 
 
       warn("CaveBot[BuySupplies]: incorrect delay values!")
@@ -1287,8 +1118,6 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     end
 
-
-
     if retries > 50 then
 
       print("CaveBot[BuySupplies]: Too many tries, can't buy")
@@ -1297,15 +1126,11 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     end
 
-
-
     if not CaveBot.ReachNPC(npcName) then
 
       return "retry"
 
     end
-
-
 
     if not NPC.isTrading() then
 
@@ -1317,8 +1142,6 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     end
 
-
-
     -- get items from npc
 
     local npcItems = NPC.getBuyItems()
@@ -1328,8 +1151,6 @@ CaveBot.Extensions.BuySupplies.setup = function()
       table.insert(possibleItems, v.id)
 
     end
-
-
 
     for id, values in pairs(Supplies.getItemsData()) do
 
@@ -1343,13 +1164,9 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
         local toBuy = max - current
 
-
-
         if toBuy > 0 then
 
           toBuy = math.min(100, toBuy)
-
-
 
           NPC.buy(id, math.min(100, toBuy))
 
@@ -1363,15 +1180,11 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
     end
 
-
-
     print("CaveBot[BuySupplies]: bought everything, proceeding")
 
     return true
 
  end)
-
-
 
  CaveBot.Editor.registerAction("buysupplies", "buy supplies", {
 
@@ -1381,19 +1194,14 @@ CaveBot.Extensions.BuySupplies.setup = function()
 
   description="NPC Name, delay(in ms, optional)",
 
- })
+})
 
 end
 
 ```
 
 ---
-
-
-
 # cavebot.lua
-
-
 
 ```lua
 
@@ -1401,21 +1209,15 @@ local cavebotMacro = nil
 
 local config = nil
 
-
-
 -- ui
 
 local configWidget = UI.Config()
 
 local ui = UI.createWidget("CaveBotPanel")
 
-
-
 ui.list = ui.listPanel.list -- shortcut
 
 CaveBot.actionList = ui.list
-
-
 
 if CaveBot.Editor then
 
@@ -1439,8 +1241,6 @@ for extension, callbacks in pairs(CaveBot.Extensions) do
 
 end
 
-
-
 -- main loop, controlled by config
 
 local actionRetries = 0
@@ -1457,15 +1257,11 @@ cavebotMacro = macro(20, function()
 
   end
 
-  
-
   if CaveBot.doWalking() then
 
     return -- executing walking3
 
   end
-
-  
 
   local actions = ui.list:getChildCount()
 
@@ -1527,15 +1323,11 @@ cavebotMacro = macro(20, function()
 
   end
 
-  
-
   if retry then
 
     return
 
   end
-
-  
 
   if currentAction ~= ui.list:getFocusedChild() then
 
@@ -1561,8 +1353,6 @@ cavebotMacro = macro(20, function()
 
 end)
 
-
-
 -- config, its callback is called immediately, data can be nil
 
 local lastConfig = ""
@@ -1579,15 +1369,11 @@ config = Config.setup("cavebot_configs", configWidget, "cfg", function(name, ena
 
   end
 
-
-
   local currentActionIndex = ui.list:getChildIndex(ui.list:getFocusedChild())
 
   ui.list:destroyChildren()
 
   if not data then return cavebotMacro.setOff() end
-
-  
 
   local cavebotConfig = nil
 
@@ -1649,11 +1435,7 @@ config = Config.setup("cavebot_configs", configWidget, "cfg", function(name, ena
 
   end
 
-
-
   CaveBot.Config.onConfigChange(name, enabled, cavebotConfig)
-
-  
 
   actionRetries = 0
 
@@ -1677,8 +1459,6 @@ config = Config.setup("cavebot_configs", configWidget, "cfg", function(name, ena
 
 end)
 
-
-
 -- ui callbacks
 
 ui.showEditor.onClick = function()
@@ -1701,8 +1481,6 @@ ui.showEditor.onClick = function()
 
 end
 
-
-
 ui.showConfig.onClick = function()
 
   if not CaveBot.Config then return end
@@ -1723,8 +1501,6 @@ ui.showConfig.onClick = function()
 
 end
 
-
-
 -- public function, you can use them in your scripts
 
 CaveBot.isOn = function()
@@ -1733,15 +1509,11 @@ CaveBot.isOn = function()
 
 end
 
-
-
 CaveBot.isOff = function()
 
   return config.isOff()
 
 end
-
-
 
 CaveBot.setOn = function(val)
 
@@ -1755,8 +1527,6 @@ CaveBot.setOn = function(val)
 
 end
 
-
-
 CaveBot.setOff = function(val)
 
   if val == false then  
@@ -1769,23 +1539,17 @@ CaveBot.setOff = function(val)
 
 end
 
-
-
 CaveBot.getCurrentProfile = function()
 
   return storage._configs.cavebot_configs.selected
 
 end
 
-
-
 CaveBot.lastReachedLabel = function()
 
   return vBot.lastLabel
 
 end
-
-
 
 CaveBot.gotoNextWaypointInRange = function()
 
@@ -1794,8 +1558,6 @@ CaveBot.gotoNextWaypointInRange = function()
   local index = ui.list:getChildIndex(currentAction)
 
   local actions = ui.list:getChildren()
-
-
 
   -- start searching from current index
 
@@ -1811,8 +1573,6 @@ CaveBot.gotoNextWaypointInRange = function()
 
         local pos = {x = tonumber(re[1][2]), y = tonumber(re[1][3]), z = tonumber(re[1][4])}
 
-        
-
         if posz() == pos.z then
 
           local maxDist = storage.extras.gotoMaxDistance
@@ -1836,8 +1596,6 @@ CaveBot.gotoNextWaypointInRange = function()
     end
 
   end
-
-
 
   -- if not found then damn go from start
 
@@ -1853,8 +1611,6 @@ CaveBot.gotoNextWaypointInRange = function()
 
         local pos = {x = tonumber(re[1][2]), y = tonumber(re[1][3]), z = tonumber(re[1][4])}
 
-
-
         if posz() == pos.z then
 
           local maxDist = storage.extras.gotoMaxDistance
@@ -1879,15 +1635,11 @@ CaveBot.gotoNextWaypointInRange = function()
 
   end
 
-
-
   -- not found
 
   return false
 
 end
-
-
 
 local function reverseTable(t, max)
 
@@ -1904,8 +1656,6 @@ local function reverseTable(t, max)
   return reversedTable
 
 end
-
-
 
 function rpairs(t)
 
@@ -1925,8 +1675,6 @@ function rpairs(t)
 
 end
 
-
-
 CaveBot.gotoFirstPreviousReachableWaypoint = function()
 
   local currentAction = ui.list:getFocusedChild()
@@ -1934,8 +1682,6 @@ CaveBot.gotoFirstPreviousReachableWaypoint = function()
   local currentIndex = ui.list:getChildIndex(currentAction)
 
   local index = ui.list:getChildIndex(currentAction)
-
-
 
   -- check up to 100 childs
 
@@ -1949,11 +1695,7 @@ CaveBot.gotoFirstPreviousReachableWaypoint = function()
 
     end
 
-
-
     local child = ui.list:getChildByIndex(index)
-
-
 
     if child then
 
@@ -1964,8 +1706,6 @@ CaveBot.gotoFirstPreviousReachableWaypoint = function()
         local re = regexMatch(text, [[(?:goto:)([^,]+),([^,]+),([^,]+)]])
 
         local pos = {x = tonumber(re[1][2]), y = tonumber(re[1][3]), z = tonumber(re[1][4])}
-
-
 
         if posz() == pos.z then
 
@@ -1985,8 +1725,6 @@ CaveBot.gotoFirstPreviousReachableWaypoint = function()
 
   end
 
-
-
   -- not found
 
   print("previous pos not found, proceeding")
@@ -1994,8 +1732,6 @@ CaveBot.gotoFirstPreviousReachableWaypoint = function()
   return false
 
 end
-
-
 
 CaveBot.getFirstWaypointBeforeLabel = function(label)
 
@@ -2006,8 +1742,6 @@ CaveBot.getFirstWaypointBeforeLabel = function(label)
   local actions = ui.list:getChildren()
 
   local index
-
-
 
   -- find index of label
 
@@ -2025,13 +1759,9 @@ CaveBot.getFirstWaypointBeforeLabel = function(label)
 
   end
 
-
-
   -- if there's no index then label was not found
 
   if not index then return false end
-
-
 
   for i=1,#actions do
 
@@ -2042,8 +1772,6 @@ CaveBot.getFirstWaypointBeforeLabel = function(label)
       return false
 
     end
-
-
 
     local child = ui.list:getChildByIndex(index-i)
 
@@ -2056,8 +1784,6 @@ CaveBot.getFirstWaypointBeforeLabel = function(label)
         local re = regexMatch(text, [[(?:goto:)([^,]+),([^,]+),([^,]+)]])
 
         local pos = {x = tonumber(re[1][2]), y = tonumber(re[1][3]), z = tonumber(re[1][4])}
-
-
 
         if posz() == pos.z then
 
@@ -2077,8 +1803,6 @@ CaveBot.getFirstWaypointBeforeLabel = function(label)
 
 end
 
-
-
 CaveBot.getPreviousLabel = function()
 
   local actions = ui.list:getChildren()
@@ -2087,25 +1811,17 @@ CaveBot.getPreviousLabel = function()
 
   if #actions == 0 then return false end
 
-
-
   local currentAction = ui.list:getFocusedChild()
 
   --check we made any progress in waypoints, if no focused or first then no point checking
 
   if not currentAction or currentAction == ui.list:getFirstChild() then return false end
 
-
-
   local index = ui.list:getChildIndex(currentAction)
-
-
 
   -- if not index then something went wrong and there's no selected child
 
   if not index then return false end
-
-
 
   for i=1,#actions do
 
@@ -2116,8 +1832,6 @@ CaveBot.getPreviousLabel = function()
       return false
 
     end
-
-
 
     local child = ui.list:getChildByIndex(index-i)
 
@@ -2135,8 +1849,6 @@ CaveBot.getPreviousLabel = function()
 
 end
 
-
-
 CaveBot.getNextLabel = function()
 
   local actions = ui.list:getChildren()
@@ -2145,19 +1857,13 @@ CaveBot.getNextLabel = function()
 
   if #actions == 0 then return false end
 
-
-
   local currentAction = ui.list:getFocusedChild() or ui.list:getFirstChild()
 
   local index = ui.list:getChildIndex(currentAction)
 
-
-
   -- if not index then something went wrong
 
   if not index then return false end
-
-
 
   for i=1,#actions do
 
@@ -2168,8 +1874,6 @@ CaveBot.getNextLabel = function()
       return false
 
     end
-
-
 
     local child = ui.list:getChildByIndex(index+i)
 
@@ -2186,8 +1890,6 @@ CaveBot.getNextLabel = function()
   end
 
 end
-
-
 
 local botConfigName = modules.game_bot.contentsPanel.config:getCurrentOption().text
 
@@ -2207,15 +1909,11 @@ CaveBot.setCurrentProfile = function(name)
 
 end
 
-
-
 CaveBot.delay = function(value)
 
   cavebotMacro.delay = math.max(cavebotMacro.delay or 0, now + value)
 
 end
-
-
 
 CaveBot.gotoLabel = function(label)
 
@@ -2237,8 +1935,6 @@ CaveBot.gotoLabel = function(label)
 
 end
 
-
-
 CaveBot.save = function()
 
   local data = {}
@@ -2249,15 +1945,11 @@ CaveBot.save = function()
 
   end
 
-  
-
   if CaveBot.Config then
 
     table.insert(data, {"config", json.encode(CaveBot.Config.save())})
 
   end
-
-  
 
   local extension_data = {}
 
@@ -2283,8 +1975,6 @@ CaveBot.save = function()
 
 end
 
-
-
 CaveBotList = function()
 
   return ui.list
@@ -2294,12 +1984,7 @@ end
 ```
 
 ---
-
-
-
 # cavebot.otui
-
-
 
 ```otui
 
@@ -2311,15 +1996,9 @@ CaveBotAction < Label
 
   focusable: true
 
-
-
   $focus:
 
     background-color: #00000055
-
-
-
-
 
 CaveBotPanel < Panel
 
@@ -2329,15 +2008,11 @@ CaveBotPanel < Panel
 
     fit-children: true
 
-
-
   HorizontalSeparator
 
     margin-top: 2
 
     margin-bottom: 5
-
-    
 
   Panel
 
@@ -2346,8 +2021,6 @@ CaveBotPanel < Panel
     height: 100
 
     margin-top: 2
-
-
 
     TextList
 
@@ -2363,8 +2036,6 @@ CaveBotPanel < Panel
 
       auto-focus: first
 
-      
-
     VerticalScrollBar
 
       id: listScrollbar
@@ -2379,27 +2050,19 @@ CaveBotPanel < Panel
 
       step: 10
 
-    
-
   BotSwitch
 
     id: showEditor
 
     margin-top: 2
 
-    
-
     $on:
 
       text: Hide waypoints editor
 
-      
-
     $!on:
 
       text: Show waypoints editor
-
-
 
   BotSwitch
 
@@ -2407,13 +2070,9 @@ CaveBotPanel < Panel
 
     margin-top: 2
 
-    
-
     $on:
 
       text: Hide config
-
-      
 
     $!on:
 
@@ -2422,18 +2081,11 @@ CaveBotPanel < Panel
 ```
 
 ---
-
-
-
 # clear_tile.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.ClearTile = {}
-
-
 
 CaveBot.Extensions.ClearTile.setup = function()
 
@@ -2448,10 +2100,6 @@ CaveBot.Extensions.ClearTile.setup = function()
     local stand = false
 
     local pPos = player:getPosition()
-
-
-
-
 
     for i, value in ipairs(data) do
 
@@ -2469,10 +2117,6 @@ CaveBot.Extensions.ClearTile.setup = function()
 
     end
 
-
-
-
-
     if not #pos == 3 then
 
       warn("CaveBot[ClearTile]: invalid value. It should be position (x,y,z), is: " .. value)
@@ -2481,8 +2125,6 @@ CaveBot.Extensions.ClearTile.setup = function()
 
     end
 
-
-
     if retries >= 20 then
 
       print("CaveBot[ClearTile]: too many tries, can't clear it")
@@ -2490,8 +2132,6 @@ CaveBot.Extensions.ClearTile.setup = function()
       return false -- tried 20 times, can't clear it
 
     end
-
-
 
     if getDistanceBetween(player:getPosition(), pos) == 0 then
 
@@ -2512,8 +2152,6 @@ CaveBot.Extensions.ClearTile.setup = function()
     end
 
     local tPos = tile:getPosition()
-
-
 
     -- no items on tile and walkability means we are done
 
@@ -2537,8 +2175,6 @@ CaveBot.Extensions.ClearTile.setup = function()
 
     end
 
-
-
     if not CaveBot.MatchPosition(tPos, 3) then
 
       CaveBot.GoTo(tPos, 3)
@@ -2547,15 +2183,11 @@ CaveBot.Extensions.ClearTile.setup = function()
 
     end
 
-
-
     if retries > 0 then
 
       delay(1100)
 
     end
-
-
 
     -- monster
 
@@ -2572,8 +2204,6 @@ CaveBot.Extensions.ClearTile.setup = function()
       end
 
     end
-
-
 
     -- moveable item
 
@@ -2593,11 +2223,7 @@ CaveBot.Extensions.ClearTile.setup = function()
 
     end
 
-
-
     -- player
-
-
 
       -- push creature
 
@@ -2606,8 +2232,6 @@ CaveBot.Extensions.ClearTile.setup = function()
         local c = tile:getCreatures()[1]
 
         if c and c:isPlayer() then
-
-
 
           local candidates = {}
 
@@ -2622,8 +2246,6 @@ CaveBot.Extensions.ClearTile.setup = function()
             end
 
           end
-
-
 
           if #candidates == 0 then
 
@@ -2653,8 +2275,6 @@ CaveBot.Extensions.ClearTile.setup = function()
 
       end
 
-
-
     -- doors
 
     if doors then
@@ -2665,13 +2285,9 @@ CaveBot.Extensions.ClearTile.setup = function()
 
     end
 
-
-
     return "retry"
 
   end)
-
-
 
   CaveBot.Editor.registerAction("cleartile", "clear tile", {
 
@@ -2690,12 +2306,7 @@ end
 ```
 
 ---
-
-
-
 # config.lua
-
-
 
 ```lua
 
@@ -2709,8 +2320,6 @@ CaveBot.Config.default_values = {}
 
 CaveBot.Config.value_setters = {}
 
-
-
 CaveBot.Config.setup = function()
 
   CaveBot.Config.ui = UI.createWidget("CaveBotConfigPanel")
@@ -2718,8 +2327,6 @@ CaveBot.Config.setup = function()
   local ui = CaveBot.Config.ui
 
   local add = CaveBot.Config.add
-
-  
 
   add("ping", "Server ping", 100)
 
@@ -2737,23 +2344,17 @@ CaveBot.Config.setup = function()
 
 end
 
-
-
 CaveBot.Config.show = function()
 
   CaveBot.Config.ui:show()
 
 end
 
-
-
 CaveBot.Config.hide = function()
 
   CaveBot.Config.ui:hide()
 
 end
-
-
 
 CaveBot.Config.onConfigChange = function(configName, isEnabled, configData)
 
@@ -2777,15 +2378,11 @@ CaveBot.Config.onConfigChange = function(configName, isEnabled, configData)
 
 end
 
-
-
 CaveBot.Config.save = function()
 
   return CaveBot.Config.values
 
 end
-
-
 
 CaveBot.Config.add = function(id, title, defaultValue)
 
@@ -2794,8 +2391,6 @@ CaveBot.Config.add = function(id, title, defaultValue)
     return warn("Duplicated config key: " .. id)
 
   end
-
-    
 
   local panel
 
@@ -2863,11 +2458,7 @@ CaveBot.Config.add = function(id, title, defaultValue)
 
   end
 
-  
-
   panel.title:setText(tr(title) .. ":")
-
-  
 
   CaveBot.Config.value_setters[id] = setter
 
@@ -2876,8 +2467,6 @@ CaveBot.Config.add = function(id, title, defaultValue)
   CaveBot.Config.default_values[id] = defaultValue
 
 end
-
-
 
 CaveBot.Config.get = function(id)
 
@@ -2891,15 +2480,11 @@ CaveBot.Config.get = function(id)
 
 end
 
-
-
 CaveBot.Config.set = function(id, value)
 
   local valueType = CaveBot.Config.get(id)
 
   local panel = CaveBot.Config.ui[id]
-
-
 
   if valueType == 'boolean' then
 
@@ -2924,12 +2509,7 @@ end
 ```
 
 ---
-
-
-
 # config.otui
-
-
 
 ```otui
 
@@ -2939,21 +2519,15 @@ CaveBotConfigPanel < Panel
 
   visible: false
 
-  
-
   layout:
 
     type: verticalBox
 
     fit-children: true
 
-  
-
   HorizontalSeparator
 
     margin-top: 5
-
-
 
   Label
 
@@ -2963,15 +2537,11 @@ CaveBotConfigPanel < Panel
 
     margin-top: 5
 
-
-
 CaveBotConfigNumberValuePanel < Panel
 
   height: 20
 
   margin-top: 5
-
-  
 
   BotTextEdit
 
@@ -2987,8 +2557,6 @@ CaveBotConfigNumberValuePanel < Panel
 
     width: 50
 
-
-
   Label
 
     id: title
@@ -2999,15 +2567,11 @@ CaveBotConfigNumberValuePanel < Panel
 
     margin-left: 5
 
-
-
 CaveBotConfigBooleanValuePanel < Panel
 
   height: 20
 
   margin-top: 5
-
-  
 
   BotSwitch
 
@@ -3023,19 +2587,13 @@ CaveBotConfigBooleanValuePanel < Panel
 
     width: 50
 
-    
-
     $on:
 
       text: On
 
-      
-
     $!on:
 
       text: Off
-
-
 
   Label
 
@@ -3050,18 +2608,11 @@ CaveBotConfigBooleanValuePanel < Panel
 ```
 
 ---
-
-
-
 # d_withdraw.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.DWithdraw = {}
-
-
 
 CaveBot.Extensions.DWithdraw.setup = function()
 
@@ -3085,8 +2636,6 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		delay(70)
 
-
-
 		-- input validation
 
 		if not value or #data ~= 3 and #data ~= 4 then
@@ -3109,10 +2658,6 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		end
 
-
-
-
-
 		-- cap check
 
 		if freecap() < (capLimit or 200) then
@@ -3133,8 +2678,6 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		end
 
-
-
 		-- containers
 
 		for i, container in ipairs(getContainers()) do
@@ -3153,8 +2696,6 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		end
 
-
-
 		if not destContainer then 
 
 			print("CaveBot[DepotWithdraw]: container not found!")
@@ -3162,8 +2703,6 @@ CaveBot.Extensions.DWithdraw.setup = function()
 			return false
 
 		end
-
-
 
 		if containerIsFull(destContainer) then
 
@@ -3181,8 +2720,6 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		end
 
-
-
 		-- stash validation
 
 		if depotContainer and #depotContainer:getItems() == 0 then
@@ -3194,8 +2731,6 @@ CaveBot.Extensions.DWithdraw.setup = function()
 			return true
 
 		end
-
-
 
 		if containerIsFull(destContainer) then
 
@@ -3217,19 +2752,13 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		end
 
-
-
 		if not CaveBot.OpenDepotBox(indexDp) then
 
 			return "retry"
 
 		end
 
-
-
 		CaveBot.PingDelay(2)
-
-
 
 		for i, container in pairs(g_game.getContainers()) do
 
@@ -3249,13 +2778,9 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
 		end
 
-
-
 		return "retry"
 
   	end)
-
-
 
  	CaveBot.Editor.registerAction("dpwithdraw", "dpwithdraw", {
 
@@ -3265,25 +2790,18 @@ CaveBot.Extensions.DWithdraw.setup = function()
 
  	 description="insert index, destination container name and it's ID",
 
- 	})
+})
 
 end
 
 ```
 
 ---
-
-
-
 # depositor.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.Depositor = {}
-
-
 
 --local variables
 
@@ -3293,8 +2811,6 @@ local lootTable = nil
 
 local reopenedContainers = false
 
-
-
 local function resetCache()
 
 	reopenedContainers = false
@@ -3302,8 +2818,6 @@ local function resetCache()
 	destination = nil
 
 	lootTable = nil
-
-
 
 	for i, container in ipairs(getContainers()) do
 
@@ -3314,8 +2828,6 @@ local function resetCache()
 		end
 
 	end
-
-
 
 	if storage.caveBot.backStop then
 
@@ -3339,11 +2851,7 @@ local function resetCache()
 
 end
 
-
-
 local description = g_game.getClientVersion() > 960 and "No - just deposit \n Yes - also reopen loot containers" or "currently not supported, will be added in near future"
-
-
 
 CaveBot.Extensions.Depositor.setup = function()
 
@@ -3361,8 +2869,6 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		end
 
-
-
 		-- loot list check
 
 		lootTable = lootTable or CaveBot.GetLootItems()
@@ -3377,11 +2883,7 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		end
 
-
-
 		delay(70)
-
-
 
 		-- backpacks etc
 
@@ -3445,8 +2947,6 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		end
 
-
-
 		-- first check items
 
 		if retries == 0 then
@@ -3463,8 +2963,6 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		end
 
-
-
 		-- next check retries
 
 		if retries > 400 then 
@@ -3477,8 +2975,6 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		end
 
-
-
 		-- reaching and opening depot 
 
 		if not CaveBot.ReachAndOpenDepot() then
@@ -3487,21 +2983,15 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		end
 
-
-
 		-- add delay to prevent bugging
 
 		CaveBot.PingDelay(2)
-
-
 
 		-- prep time and stashing
 
 		destination = destination or getContainerByName("Depot chest")
 
 		if not destination then return "retry" end
-
-
 
 		for _, container in pairs(getContainers()) do
 
@@ -3531,8 +3021,6 @@ CaveBot.Extensions.Depositor.setup = function()
 
 		end
 
-
-
 		-- we gucci
 
 		resetCache()
@@ -3540,8 +3028,6 @@ CaveBot.Extensions.Depositor.setup = function()
 		return true
 
 	end)
-
-
 
 	CaveBot.Editor.registerAction("depositor", "depositor", {
 
@@ -3553,25 +3039,18 @@ CaveBot.Extensions.Depositor.setup = function()
 
 	 validation="(yes|Yes|YES|no|No|NO)"
 
-	})
+})
 
 end
 
 ```
 
 ---
-
-
-
 # doors.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.OpenDoors = {}
-
-
 
 CaveBot.Extensions.OpenDoors.setup = function()
 
@@ -3595,8 +3074,6 @@ CaveBot.Extensions.OpenDoors.setup = function()
 
     end
 
-
-
     if retries >= 5 then
 
       print("CaveBot[OpenDoors]: too many tries, can't open doors")
@@ -3605,11 +3082,7 @@ CaveBot.Extensions.OpenDoors.setup = function()
 
     end
 
-
-
     pos = {x=tonumber(pos[1]), y=tonumber(pos[2]), z=tonumber(pos[3])}  
-
-
 
     local doorTile
 
@@ -3627,15 +3100,11 @@ CaveBot.Extensions.OpenDoors.setup = function()
 
     end
 
-
-
     if not doorTile then
 
       return false
 
     end
-
-  
 
     if not doorTile:isWalkable() then
 
@@ -3667,8 +3136,6 @@ CaveBot.Extensions.OpenDoors.setup = function()
 
   end)
 
-
-
   CaveBot.Editor.registerAction("opendoors", "open doors", {
 
     value=function() return posx() .. "," .. posy() .. "," .. posz() end,
@@ -3688,20 +3155,13 @@ end
 ```
 
 ---
-
-
-
 # editor.lua
-
-
 
 ```lua
 
 CaveBot.Editor = {}
 
 CaveBot.Editor.Actions = {}
-
-
 
 -- also works as registerAction(action, params), then text == action
 
@@ -3718,8 +3178,6 @@ CaveBot.Editor.registerAction = function(action, text, params)
     text = action
 
   end
-
-
 
   local color = nil
 
@@ -3738,8 +3196,6 @@ CaveBot.Editor.registerAction = function(action, text, params)
     color = raction.color
 
   end
-
-  
 
   local button = UI.createWidget('CaveBotEditorButton', CaveBot.Editor.ui.buttons)
 
@@ -3789,8 +3245,6 @@ CaveBot.Editor.registerAction = function(action, text, params)
 
 end
 
-
-
 CaveBot.Editor.setup = function()
 
   CaveBot.Editor.ui = UI.createWidget("CaveBotEditorPanel")
@@ -3798,8 +3252,6 @@ CaveBot.Editor.setup = function()
   local ui = CaveBot.Editor.ui
 
   local registerAction = CaveBot.Editor.registerAction
-
-
 
   registerAction("move up", function()
 
@@ -3859,8 +3311,6 @@ CaveBot.Editor.setup = function()
 
   end)
 
-    
-
   registerAction("label", {
 
     value="labelName",
@@ -3871,7 +3321,7 @@ CaveBot.Editor.setup = function()
 
     multiline=false   
 
-  })
+})
 
   registerAction("delay", {
 
@@ -3885,7 +3335,7 @@ CaveBot.Editor.setup = function()
 
     validation="^[0-9]{1,10}$|^[0-9]{1,10},[0-9]{1,4}$"
 
-  })
+})
 
   registerAction("gotolabel", "go to label", {
 
@@ -3897,7 +3347,7 @@ CaveBot.Editor.setup = function()
 
     multiline=false   
 
-  })
+})
 
   registerAction("goto", "go to", {
 
@@ -3911,7 +3361,7 @@ CaveBot.Editor.setup = function()
 
     validation="^\\s*([0-9]+)\\s*,\\s*([0-9]+)\\s*,\\s*([0-9]+),?\\s*([0-9]?)$"
 
-  })
+})
 
   registerAction("use", {
 
@@ -3923,7 +3373,7 @@ CaveBot.Editor.setup = function()
 
     multiline=false   
 
-  }) 
+})
 
   registerAction("usewith", "use with", {
 
@@ -3937,7 +3387,7 @@ CaveBot.Editor.setup = function()
 
     validation="^\\s*([0-9]+)\\s*,\\s*([0-9]+)\\s*,\\s*([0-9]+)\\s*,\\s*([0-9]+)$"
 
-  })
+})
 
   registerAction("say", {
 
@@ -3949,7 +3399,7 @@ CaveBot.Editor.setup = function()
 
     multiline=false   
 
-  }) 
+})
 
   registerAction("follow", {
 
@@ -3961,7 +3411,7 @@ CaveBot.Editor.setup = function()
 
     multiline=false   
 
-  })
+})
 
   registerAction("npcsay", {
 
@@ -3973,7 +3423,7 @@ CaveBot.Editor.setup = function()
 
     multiline=false   
 
-  }) 
+})
 
   registerAction("function", {
 
@@ -3987,9 +3437,7 @@ CaveBot.Editor.setup = function()
 
     width=650
 
-  })
-
-  
+})
 
   ui.autoRecording.onClick = function()
 
@@ -4005,8 +3453,6 @@ CaveBot.Editor.setup = function()
 
   end
 
-  
-
   -- callbacks
 
   onPlayerPositionChange(function(pos)
@@ -4019,25 +3465,17 @@ CaveBot.Editor.setup = function()
 
 end
 
-
-
 CaveBot.Editor.show = function()
 
   CaveBot.Editor.ui:show()
 
 end
 
-
-
-
-
 CaveBot.Editor.hide = function()
 
   CaveBot.Editor.ui:hide()
 
 end
-
-
 
 CaveBot.Editor.edit = function(action, value, callback) -- callback = function(action, value)
 
@@ -4059,8 +3497,6 @@ CaveBot.Editor.edit = function(action, value, callback) -- callback = function(a
 
   end
 
-
-
   UI.EditorWindow(value, params, function(newText)
 
     callback(action, newText)
@@ -4072,20 +3508,11 @@ end
 ```
 
 ---
-
-
-
 # editor.otui
-
-
 
 ```otui
 
 CaveBotEditorButton < Button
-
-
-
-
 
 CaveBotEditorPanel < Panel
 
@@ -4099,8 +3526,6 @@ CaveBotEditorPanel < Panel
 
     fit-children: true
 
-  
-
   Label
 
     id: pos
@@ -4108,8 +3533,6 @@ CaveBotEditorPanel < Panel
     text-align: center
 
     text: -
-
-    
 
   Panel
 
@@ -4129,8 +3552,6 @@ CaveBotEditorPanel < Panel
 
       fit-children: true
 
-
-
   Label
 
     text: Double click on action from action list to edit it
@@ -4147,8 +3568,6 @@ CaveBotEditorPanel < Panel
 
     margin-right: 2
 
-
-
   BotSwitch
 
     id: autoRecording
@@ -4156,8 +3575,6 @@ CaveBotEditorPanel < Panel
     text: Auto Recording
 
     margin-top: 3
-
-
 
   BotButton
 
@@ -4172,26 +3589,17 @@ CaveBotEditorPanel < Panel
 ```
 
 ---
-
-
-
 # example_functions.lua
-
-
 
 ```lua
 
 CaveBot.Editor.ExampleFunctions = {}
-
-
 
 local function addExampleFunction(title, text)
 
   return table.insert(CaveBot.Editor.ExampleFunctions, {title, text:trim()})
 
 end
-
-
 
 addExampleFunction("Click to browse example functions", [[
 
@@ -4211,19 +3619,13 @@ addExampleFunction("Click to browse example functions", [[
 
 -- use storage variable to store date between calls
 
-
-
 -- function should return false, true or "retry"
 
 -- if "retry" is returned, function will be executed again in 20 ms (so better call delay before)
 
-
-
 return true
 
 ]])
-
-
 
 addExampleFunction("Check for PZ and wait until dropped", [[
 
@@ -4251,15 +3653,11 @@ end
 
 ]])
 
-
-
 addExampleFunction("Check for stamina and imbues", [[
 
   if stamina() < 900 or player:getSkillLevel(11) == 0 then CaveBot.setOff() return false else return true end
 
 ]])
-
-
 
 addExampleFunction("buy 200 mana potion from npc Eryn", [[
 
@@ -4325,8 +3723,6 @@ return true
 
 ]])
 
-
-
 addExampleFunction("Say hello 5 times with some delay", [[
 
 --say hello
@@ -4345,8 +3741,6 @@ return "retry"
 
 ]])
 
-
-
 addExampleFunction("Disable TargetBot", [[
 
 TargetBot.setOff()
@@ -4354,8 +3748,6 @@ TargetBot.setOff()
 return true
 
 ]])
-
-
 
 addExampleFunction("Enable TargetBot", [[
 
@@ -4365,8 +3757,6 @@ return true
 
 ]])
 
-
-
 addExampleFunction("Enable TargetBot luring", [[
 
 TargetBot.enableLuring()
@@ -4375,8 +3765,6 @@ return true
 
 ]])
 
-
-
 addExampleFunction("Disable TargetBot luring", [[
 
 TargetBot.disableLuring()
@@ -4384,8 +3772,6 @@ TargetBot.disableLuring()
 return true
 
 ]])
-
-
 
 addExampleFunction("Logout", [[
 
@@ -4396,8 +3782,6 @@ delay(1000)
 return "retry"
 
 ]])
-
-
 
 addExampleFunction("Close Loot Containers", [[
 
@@ -4412,12 +3796,7 @@ return true
 ```
 
 ---
-
-
-
 # extension_template.lua
-
-
 
 ```lua
 
@@ -4425,11 +3804,7 @@ return true
 
 CaveBot.Extensions.Example = {}
 
-
-
 local ui
-
-
 
 -- setup is called automaticly when cavebot is ready
 
@@ -4444,8 +3819,6 @@ CaveBot.Extensions.Example.setup = function()
     CaveBot.save() -- save new config when you change something
 
   end
-
-
 
   -- add custom cavebot action (check out actions.lua)
 
@@ -4467,8 +3840,6 @@ CaveBot.Extensions.Example.setup = function()
 
   end)
 
-
-
   -- add this custom action to editor (check out editor.lua)
 
   CaveBot.Editor.registerAction("sayhello", "say hello", {
@@ -4481,11 +3852,9 @@ CaveBot.Extensions.Example.setup = function()
 
     validation="[0-9]{1,5}" -- regex, optional
 
-  })  
+})
 
 end
-
-
 
 -- called when cavebot config changes, configData is a table but it can also be nil
 
@@ -4501,8 +3870,6 @@ CaveBot.Extensions.Example.onConfigChange = function(configName, isEnabled, conf
 
 end
 
-
-
 -- called when cavebot is saving config (so when CaveBot.save() is called), should return table or nil
 
 CaveBot.Extensions.Example.onSave = function()
@@ -4510,8 +3877,6 @@ CaveBot.Extensions.Example.onSave = function()
   return {text=ui:getText()}
 
 end
-
-
 
 -- bellow add you custom functions to be used in cavebot function action
 
@@ -4540,12 +3905,7 @@ end
 ```
 
 ---
-
-
-
 # imbuing.lua
-
-
 
 ```lua
 
@@ -4553,11 +3913,7 @@ end
 
 -- reequiping should be handled separatly (ie. equipment manager)
 
-
-
 CaveBot.Extensions.Imbuing = {}
-
-
 
 local SHRINES = {25060, 25061, 25182, 25183}
 
@@ -4572,8 +3928,6 @@ local currentId = 0
 local triedToTakeOff = false
 
 local destination = nil
-
-
 
 local function reset()
 
@@ -4593,8 +3947,6 @@ local function reset()
 
 end
 
-
-
 CaveBot.Extensions.Imbuing.setup = function()
 
   CaveBot.registerAction("imbuing", "red", function(value, retries)
@@ -4602,8 +3954,6 @@ CaveBot.Extensions.Imbuing.setup = function()
     local data = string.split(value, ",")
 
     local ids = {}
-
-
 
     if #data == 0 and value ~= 'name' then
 
@@ -4615,13 +3965,9 @@ CaveBot.Extensions.Imbuing.setup = function()
 
     end
 
-
-
     -- setting of equipment manager so it wont disturb imbuing process
 
     EquipManager.setOff()
-
-
 
     if value == 'name' then
 
@@ -4651,8 +3997,6 @@ CaveBot.Extensions.Imbuing.setup = function()
 
     end
 
- 
-
     -- all items imbued, can proceed
 
     if currentIndex > #ids then
@@ -4664,8 +4008,6 @@ CaveBot.Extensions.Imbuing.setup = function()
       return true
 
     end
-
-
 
     for _, tile in ipairs(g_map.getTiles(posz())) do
 
@@ -4685,8 +4027,6 @@ CaveBot.Extensions.Imbuing.setup = function()
 
     end
 
-
-
     -- if not shrine
 
     if not shrine then
@@ -4699,17 +4039,11 @@ CaveBot.Extensions.Imbuing.setup = function()
 
     end
 
-
-
     destination = shrine:getPosition()
-
-
 
     currentId = ids[currentIndex]
 
     item = findItem(currentId)
-
-    
 
     -- maybe equipped? try to take off
 
@@ -4739,13 +4073,9 @@ CaveBot.Extensions.Imbuing.setup = function()
 
     end
 
-
-
     -- we are past unequiping so just in case we were forced before, reset var
 
     triedToTakeOff = false
-
-
 
     -- reaching shrine
 
@@ -4759,8 +4089,6 @@ CaveBot.Extensions.Imbuing.setup = function()
 
     end
 
-
-
     useWith(shrine, item)
 
     currentIndex = currentIndex + 1
@@ -4773,8 +4101,6 @@ CaveBot.Extensions.Imbuing.setup = function()
 
   end)
 
-
-
  CaveBot.Editor.registerAction("imbuing", "imbuing", {
 
   value="name",
@@ -4783,25 +4109,18 @@ CaveBot.Extensions.Imbuing.setup = function()
 
   description="insert below item ids to be imbued, separated by comma\nor 'name' to load from file",
 
- })
+})
 
 end
 
 ```
 
 ---
-
-
-
 # inbox_withdraw.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.InWithdraw = {}
-
-
 
 CaveBot.Extensions.InWithdraw.setup = function()
 
@@ -4812,8 +4131,6 @@ CaveBot.Extensions.InWithdraw.setup = function()
 		local withdrawId
 
 		local amount
-
-
 
 		-- validation
 
@@ -4831,11 +4148,7 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
 		end
 
-
-
 		local currentAmount = itemAmount(withdrawId)
-
-
 
 		if currentAmount >= amount then
 
@@ -4845,8 +4158,6 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
 		end
 
-
-
 		if retries > 400 then
 
 			print("CaveBot[InboxWithdraw]: actions limit reached, proceeding")
@@ -4854,8 +4165,6 @@ CaveBot.Extensions.InWithdraw.setup = function()
 			return true
 
 		end
-
-
 
 		-- actions
 
@@ -4901,8 +4210,6 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
 		end
 
-
-
 		local destination
 
 		for i, container in pairs(getContainers()) do
@@ -4915,8 +4222,6 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
 		end
 
-
-
 		if not destination then
 
 			print("CaveBot[InboxWithdraw]: couldn't find proper destination container, skipping")
@@ -4927,11 +4232,7 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
 		end
 
-
-
 		CaveBot.PingDelay(2)
-
-
 
 		for i, container in pairs(getContainers()) do
 
@@ -4967,8 +4268,6 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
   	end)
 
-
-
  	CaveBot.Editor.registerAction("inwithdraw", "in withdraw", {
 
  	 value="id,amount",
@@ -4977,25 +4276,18 @@ CaveBot.Extensions.InWithdraw.setup = function()
 
  	 description="insert item id and amount",
 
- 	})
+})
 
 end
 
 ```
 
 ---
-
-
-
 # lure.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.Lure = {}
-
-
 
 CaveBot.Extensions.Lure.setup = function()
 
@@ -5033,8 +4325,6 @@ CaveBot.Extensions.Lure.setup = function()
 
   end)
 
-
-
   CaveBot.Editor.registerAction("lure", "lure", {
 
     value="toggle",
@@ -5054,18 +4344,11 @@ end
 ```
 
 ---
-
-
-
 # minimap.lua
-
-
 
 ```lua
 
 local minimap = modules.game_minimap.minimapWidget
-
-
 
 minimap.onMouseRelease = function(widget,pos,button)
 
@@ -5073,13 +4356,9 @@ minimap.onMouseRelease = function(widget,pos,button)
 
   minimap.allowNextRelease = false
 
-
-
   local mapPos = minimap:getTilePosition(pos)
 
   if not mapPos then return end
-
-
 
   if button == 1 then
 
@@ -5118,18 +4397,11 @@ end
 ```
 
 ---
-
-
-
 # pos_check.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.PosCheck = {}
-
-
 
 local posCheckRetries = 0
 
@@ -5149,19 +4421,13 @@ CaveBot.Extensions.PosCheck.setup = function()
 
     end
 
-
-
     local tilePos = player:getPosition()
-
-
 
     tilePos.x = tonumber(data[3])
 
     tilePos.y = tonumber(data[4])
 
     tilePos.z = tonumber(data[5])
-
-
 
     if posCheckRetries > 10 then
 
@@ -5205,8 +4471,6 @@ CaveBot.Extensions.PosCheck.setup = function()
 
   end)
 
-
-
   CaveBot.Editor.registerAction("poscheck", "pos check", {
 
     value=function() return "last" .. "," .. "10" .. "," .. posx() .. "," .. posy() .. "," .. posz() end,
@@ -5224,12 +4488,7 @@ end
 ```
 
 ---
-
-
-
 # recorder.lua
-
-
 
 ```lua
 
@@ -5237,13 +4496,9 @@ end
 
 CaveBot.Recorder = {}
 
-
-
 local isEnabled = nil
 
 local lastPos = nil
-
-
 
 local function setup()
 
@@ -5262,8 +4517,6 @@ local function setup()
     lastPos = pos
 
   end
-
-
 
   onPlayerPositionChange(function(newPos, oldPos)
 
@@ -5291,8 +4544,6 @@ local function setup()
 
   end)
 
-  
-
   onUse(function(pos, itemId, stackPos, subType)
 
     if CaveBot.isOn() or not isEnabled then return end
@@ -5306,8 +4557,6 @@ local function setup()
     end
 
   end)
-
-  
 
   onUseWith(function(pos, itemId, target, subType)
 
@@ -5327,15 +4576,11 @@ local function setup()
 
 end
 
-
-
 CaveBot.Recorder.isOn = function()
 
   return isEnabled
 
 end
-
-
 
 CaveBot.Recorder.enable = function()
 
@@ -5355,8 +4600,6 @@ CaveBot.Recorder.enable = function()
 
 end
 
-
-
 CaveBot.Recorder.disable = function()
 
   if isEnabled == true then
@@ -5374,18 +4617,11 @@ end
 ```
 
 ---
-
-
-
 # sell_all.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.SellAll = {}
-
-
 
 local sellAllCap = 0
 
@@ -5396,8 +4632,6 @@ CaveBot.Extensions.SellAll.setup = function()
     local val = string.split(value, ",")
 
     local wait
-
-
 
     -- table formatting
 
@@ -5411,15 +4645,11 @@ CaveBot.Extensions.SellAll.setup = function()
 
     end
 
-
-
     if table.find(val, "yes", true) then
 
       wait = true
 
     end
-
-
 
     local npcName = val[1]
 
@@ -5433,8 +4663,6 @@ CaveBot.Extensions.SellAll.setup = function()
 
     end
 
-
-
     if retries > 10 then
 
       print("CaveBot[SellAll]: can't sell, skipping")
@@ -5442,8 +4670,6 @@ CaveBot.Extensions.SellAll.setup = function()
       return false
 
     end
-
-
 
     if freecap() == sellAllCap then
 
@@ -5455,8 +4681,6 @@ CaveBot.Extensions.SellAll.setup = function()
 
     end
 
-
-
     delay(800)
 
     if not CaveBot.ReachNPC(npcName) then
@@ -5464,8 +4688,6 @@ CaveBot.Extensions.SellAll.setup = function()
       return "retry"
 
     end
-
-
 
     if not NPC.isTrading() then
 
@@ -5481,8 +4703,6 @@ CaveBot.Extensions.SellAll.setup = function()
 
     end
 
-
-
     storage.cavebotSell = storage.cavebotSell or {}
 
     for i, item in ipairs(storage.cavebotSell) do
@@ -5497,11 +4717,7 @@ CaveBot.Extensions.SellAll.setup = function()
 
     end
 
-
-
     table.dump(val)
-
-    
 
     modules.game_npctrade.sellAll(wait, val)
 
@@ -5515,13 +4731,9 @@ CaveBot.Extensions.SellAll.setup = function()
 
     end
 
-
-
     return "retry"
 
   end)
-
-
 
  CaveBot.Editor.registerAction("sellall", "sell all", {
 
@@ -5531,19 +4743,14 @@ CaveBot.Extensions.SellAll.setup = function()
 
   description="NPC Name, 'yes' if sell with delay, exceptions: id separated by comma",
 
- })
+})
 
 end
 
 ```
 
 ---
-
-
-
 # stand_lure.lua
-
-
 
 ```lua
 
@@ -5551,15 +4758,11 @@ CaveBot.Extensions.StandLure = {}
 
 local enable = nil
 
-
-
 local function modPos(dir)
 
     local y = 0
 
     local x = 0
-
-
 
     if dir == 0 then
 
@@ -5603,8 +4806,6 @@ local function modPos(dir)
 
     end
 
-
-
     return {x, y}
 
 end
@@ -5628,8 +4829,6 @@ local function reset(delay)
     end
 
 end
-
-
 
 local resetRetries = false
 
@@ -5655,19 +4854,13 @@ CaveBot.Extensions.StandLure.setup = function()
 
             end
 
-
-
             if type(Supplies.hasEnough()) == 'table' then -- do not execute if no supplies
 
                 return false
 
             end
 
-
-
             local pos = {x = tonumber(data[1]), y = tonumber(data[2]), z = tonumber(data[3])}
-
-
 
             local delayTime = data[4] and tonumber(data[4]) or 1000
 
@@ -5685,11 +4878,7 @@ CaveBot.Extensions.StandLure.setup = function()
 
             end
 
-
-
             delay(100)
-
-
 
             if retries > 50 and not resetRetries then
 
@@ -5701,15 +4890,11 @@ CaveBot.Extensions.StandLure.setup = function()
 
             end
 
-
-
             if resetRetries then
 
                 resetRetries = false
 
             end
-
-
 
             if distanceFromPlayer(pos) > 30 then
 
@@ -5719,15 +4904,11 @@ CaveBot.Extensions.StandLure.setup = function()
 
             end
 
-
-
             local playerPos = player:getPosition()
 
             local pathWithoutMonsters = findPath(playerPos, pos, 30, { ignoreFields = true, ignoreNonPathable = true, ignoreCreatures = true, precision = 0})
 
             local pathWithMonsters = findPath(playerPos, pos, maxDist, { ignoreFields = true, ignoreNonPathable = true, ignoreCreatures = false, precision = 0 })
-
-
 
             if not pathWithoutMonsters then
 
@@ -5750,10 +4931,6 @@ CaveBot.Extensions.StandLure.setup = function()
                 nextPos.x = nextPos.x + dirs[1]
 
                 nextPos.y = nextPos.y + dirs[2]
-
-
-
-            
 
                 local tile = g_map.getTile(nextPos)
 
@@ -5799,8 +4976,6 @@ CaveBot.Extensions.StandLure.setup = function()
 
               end
 
-          
-
               if not g_game.getAttackingCreature() then
 
                 reset()
@@ -5812,8 +4987,6 @@ CaveBot.Extensions.StandLure.setup = function()
               end
 
             end
-
-
 
             -- reaching position, delay targetbot in process
 
@@ -5831,8 +5004,6 @@ CaveBot.Extensions.StandLure.setup = function()
 
             end
 
-
-
             TargetBot.setOn()
 
             reset(delayTime)
@@ -5841,9 +5012,7 @@ CaveBot.Extensions.StandLure.setup = function()
 
         end
 
-    )
-
-
+)
 
     CaveBot.Editor.registerAction(
 
@@ -5851,7 +5020,7 @@ CaveBot.Extensions.StandLure.setup = function()
 
         "rush lure",
 
-        {
+{
 
             value = function()
 
@@ -5867,13 +5036,11 @@ CaveBot.Extensions.StandLure.setup = function()
 
             validation = [[\d{1,5},\d{1,5},\d{1,2},\d{1,5}(?:,(yes|no)$|$)]]
 
-        }
+}
 
-    )
+)
 
 end
-
-
 
 local next = false
 
@@ -5883,8 +5050,6 @@ schedule(5, function() -- delay because cavebot.lua is loaded after this file
 
         onChildFocusChange = function(widget, newChild, oldChild)
 
-
-
         if oldChild and oldChild.action == "rushlure" then
 
             next = true
@@ -5892,8 +5057,6 @@ schedule(5, function() -- delay because cavebot.lua is loaded after this file
             return
 
         end
-
-
 
         if next then
 
@@ -5906,8 +5069,6 @@ schedule(5, function() -- delay because cavebot.lua is loaded after this file
                 TargetBot.setOff()
 
             end
-
-            
 
             enable = nil -- reset
 
@@ -5922,18 +5083,11 @@ end)
 ```
 
 ---
-
-
-
 # supply_check.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.SupplyCheck = {}
-
-
 
 local supplyRetries = 0
 
@@ -5947,7 +5101,7 @@ vBot.CaveBotData =
 
   vBot.CaveBotData or
 
-  {
+{
 
     refills = 0,
 
@@ -5959,9 +5113,7 @@ vBot.CaveBotData =
 
     refillTime = {}
 
-  }
-
-
+}
 
 local function setCaveBotData(hunting)
 
@@ -5981,8 +5133,6 @@ local function setCaveBotData(hunting)
 
   end
 
-
-
   table.insert(vBot.CaveBotData.time, rawRound)
 
   vBot.CaveBotData.rounds = vBot.CaveBotData.rounds + 1
@@ -5990,8 +5140,6 @@ local function setCaveBotData(hunting)
   missedChecks = 0
 
 end
-
-
 
 CaveBot.Extensions.SupplyCheck.setup = function()
 
@@ -6019,8 +5167,6 @@ CaveBot.Extensions.SupplyCheck.setup = function()
 
       end
 
-
-
       if pos then
 
         if missedChecks >= 4 then
@@ -6047,8 +5193,6 @@ CaveBot.Extensions.SupplyCheck.setup = function()
 
       end
 
-
-
       if time then
 
         rawRound = math.ceil((now - time) / 1000)
@@ -6063,15 +5207,11 @@ CaveBot.Extensions.SupplyCheck.setup = function()
 
       time = now
 
-
-
       local softCount = itemAmount(6529) + itemAmount(3549)
 
       local supplyData = Supplies.hasEnough()
 
       local supplyInfo = Supplies.getAdditionalData()
-
-
 
       if storage.caveBot.forceRefill then
 
@@ -6175,9 +5315,7 @@ CaveBot.Extensions.SupplyCheck.setup = function()
 
     end
 
-  )
-
-
+)
 
   CaveBot.Editor.registerAction(
 
@@ -6185,7 +5323,7 @@ CaveBot.Extensions.SupplyCheck.setup = function()
 
     "supply check",
 
-    {
+{
 
       value = function()
 
@@ -6199,27 +5337,20 @@ CaveBot.Extensions.SupplyCheck.setup = function()
 
       validation = [[[^,]+,\d{1,5},\d{1,5},\d{1,2}$]]
 
-    }
+}
 
-  )
+)
 
 end
 
 ```
 
 ---
-
-
-
 # tasker.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.Tasker = {}
-
-
 
 local dataValidationFailed = function()
 
@@ -6228,8 +5359,6 @@ local dataValidationFailed = function()
     return false
 
 end
-
-
 
 -- miniconfig
 
@@ -6249,11 +5378,9 @@ if not storage.caveBotTasker then
 
         max = 0
 
-    }
+}
 
 end
-
-
 
 local resetTaskData = function()
 
@@ -6270,8 +5397,6 @@ local resetTaskData = function()
     storage.caveBotTasker.max = 0
 
 end
-
-
 
 CaveBot.Extensions.Tasker.setup = function()
 
@@ -6291,8 +5416,6 @@ CaveBot.Extensions.Tasker.setup = function()
 
     local task
 
-
-
     local data = string.split(value, ",")
 
     if not data or #data < 1 then
@@ -6302,8 +5425,6 @@ CaveBot.Extensions.Tasker.setup = function()
     end
 
     local marker = tonumber(data[1])
-
-
 
     if not marker then
 
@@ -6375,8 +5496,6 @@ CaveBot.Extensions.Tasker.setup = function()
 
     end
 
-    
-
     -- let's cover markers now
 
     if marker == 1 then -- starting task
@@ -6384,8 +5503,6 @@ CaveBot.Extensions.Tasker.setup = function()
         CaveBot.Conversation("hi", "task", taskName, "yes")
 
         delay(talkDelay*4)
-
-
 
         storage.caveBotTasker.monster = monster
 
@@ -6398,8 +5515,6 @@ CaveBot.Extensions.Tasker.setup = function()
         storage.caveBotTasker.max = count
 
         storage.caveBotTasker.count = 0
-
-
 
         print("CaveBot[Tasker]: taken task for: " .. monster .. " x" .. count)
 
@@ -6417,13 +5532,9 @@ CaveBot.Extensions.Tasker.setup = function()
 
         end
 
-
-
         local max = storage.caveBotTasker.max
 
         local count = storage.caveBotTasker.count
-
-
 
         if count >= max then
 
@@ -6443,17 +5554,11 @@ CaveBot.Extensions.Tasker.setup = function()
 
         end
 
-
-
-
-
     elseif marker == 3 then -- reporting task
 
         CaveBot.Conversation("hi", "report", "task")
 
         delay(talkDelay*3)
-
-
 
         resetTaskData()
 
@@ -6463,17 +5568,11 @@ CaveBot.Extensions.Tasker.setup = function()
 
     end
 
-
-
   end)
-
-
 
  CaveBot.Editor.registerAction("tasker", "tasker", {
 
   value=[[     There is 3 scenarios for this extension, as example we will use medusa:
-
-
 
   1. start task,
 
@@ -6507,21 +5606,15 @@ CaveBot.Extensions.Tasker.setup = function()
 
       - scenario for extension: 3
 
-  
-
   Strong suggestion, almost mandatory - USE POS CHECK to verify position! this module will only check if there is ANY npc in range!
-
-
 
   when begin remove all the text and leave just a single string of parameters
 
   some examples:
 
-
-
   2, skipReport, goReport
 
-  3
+3
 
   1, drakens, 500, draken warmaster, draken spellweaver
 
@@ -6531,11 +5624,9 @@ CaveBot.Extensions.Tasker.setup = function()
 
   multiline = true
 
- })
+})
 
 end
-
-
 
 local regex = "Loot of ([a-z])* ([a-z A-Z]*):"
 
@@ -6557,13 +5648,9 @@ onTextMessage(function(mode, text)
 
     end
 
-
-
     local m1 = storage.caveBotTasker.monster
 
     local m2 = storage.caveBotTasker.monster2
-
-
 
     if monster == m1 or monster == m2 and storage.caveBotTasker.count then
 
@@ -6576,18 +5663,11 @@ end)
 ```
 
 ---
-
-
-
 # travel.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.Travel = {}
-
-
 
 CaveBot.Extensions.Travel.setup = function()
 
@@ -6603,13 +5683,9 @@ CaveBot.Extensions.Travel.setup = function()
 
     end
 
-
-
     local npcName = data[1]:trim()
 
     local dest = data[2]:trim()
-
-
 
     if retries > 5 then
 
@@ -6618,8 +5694,6 @@ CaveBot.Extensions.Travel.setup = function()
      return false
 
     end
-
-
 
     local npc = getCreatureByName(npcName)
 
@@ -6631,15 +5705,11 @@ CaveBot.Extensions.Travel.setup = function()
 
     end
 
-
-
     if not CaveBot.ReachNPC(npcName) then
 
       return "retry"
 
     end
-
-
 
     CaveBot.Travel(dest)
 
@@ -6651,8 +5721,6 @@ CaveBot.Extensions.Travel.setup = function()
 
   end)
 
-
-
  CaveBot.Editor.registerAction("travel", "travel", {
 
   value="NPC name, city",
@@ -6661,19 +5729,14 @@ CaveBot.Extensions.Travel.setup = function()
 
   description="NPC name, City name, delay in ms(default is 200ms)",
 
- })
+})
 
 end
 
 ```
 
 ---
-
-
-
 # walking.lua
-
-
 
 ```lua
 
@@ -6687,8 +5750,6 @@ local walkPath = {}
 
 local walkPathIter = 0
 
-
-
 CaveBot.resetWalking = function()
 
   expectedDirs = {}
@@ -6698,8 +5759,6 @@ CaveBot.resetWalking = function()
   isWalking = false
 
 end
-
-
 
 CaveBot.doWalking = function()
 
@@ -6741,15 +5800,11 @@ CaveBot.doWalking = function()
 
 end
 
-
-
 -- called when player position has been changed (step has been confirmed by server)
 
 onPlayerPositionChange(function(newPos, oldPos)
 
   if not oldPos or not newPos then return end
-
-  
 
   local dirs = {{NorthWest, North, NorthEast}, {West, 8, East}, {SouthWest, South, SouthEast}}
 
@@ -6767,8 +5822,6 @@ onPlayerPositionChange(function(newPos, oldPos)
 
   end
 
-
-
   if not isWalking or not expectedDirs[1] then
 
     -- some other walk action is taking place (for example use on ladder), wait
@@ -6780,8 +5833,6 @@ onPlayerPositionChange(function(newPos, oldPos)
     return
 
   end
-
-  
 
   if expectedDirs[1] ~= dir then
 
@@ -6799,8 +5850,6 @@ onPlayerPositionChange(function(newPos, oldPos)
 
   end
 
-  
-
   table.remove(expectedDirs, 1)  
 
   if CaveBot.Config.get("mapClick") and #expectedDirs > 0 then
@@ -6810,8 +5859,6 @@ onPlayerPositionChange(function(newPos, oldPos)
   end
 
 end)
-
-
 
 CaveBot.walkTo = function(dest, maxDist, params)
 
@@ -6824,8 +5871,6 @@ CaveBot.walkTo = function(dest, maxDist, params)
   end
 
   local dir = path[1]
-
-  
 
   if CaveBot.Config.get("mapClick") then
 
@@ -6844,8 +5889,6 @@ CaveBot.walkTo = function(dest, maxDist, params)
     return ret
 
   end
-
-  
 
   g_game.walk(dir, false)
 
@@ -6866,18 +5909,11 @@ end
 ```
 
 ---
-
-
-
 # withdraw.lua
-
-
 
 ```lua
 
 CaveBot.Extensions.Withdraw = {}
-
-
 
 CaveBot.Extensions.Withdraw.setup = function()
 
@@ -6895,8 +5931,6 @@ CaveBot.Extensions.Withdraw.setup = function()
 
 		end
 
-
-
 		-- variables declaration
 
 		local source = tonumber(data[1])
@@ -6904,8 +5938,6 @@ CaveBot.Extensions.Withdraw.setup = function()
 		local id = tonumber(data[2])
 
 		local amount = tonumber(data[3])
-
-
 
 		-- validation for correct values
 
@@ -6916,8 +5948,6 @@ CaveBot.Extensions.Withdraw.setup = function()
 			return false
 
 		end
-
-
 
 		-- check for retries
 
@@ -6939,8 +5969,6 @@ CaveBot.Extensions.Withdraw.setup = function()
 
 		end
 
-
-
 		-- check for items
 
 		if itemAmount(id) >= amount then
@@ -6961,8 +5989,6 @@ CaveBot.Extensions.Withdraw.setup = function()
 
 		end
 
-
-
 		statusMessage("[Withdraw] withdrawing item: " ..id.. " x"..amount)
 
 		CaveBot.WithdrawItem(id, amount, source)
@@ -6973,8 +5999,6 @@ CaveBot.Extensions.Withdraw.setup = function()
 
   	end)
 
-
-
  CaveBot.Editor.registerAction("withdraw", "withdraw", {
 
   value="source,id,amount",
@@ -6983,13 +6007,10 @@ CaveBot.Extensions.Withdraw.setup = function()
 
   description="index/inbox, item id and amount",
 
- })
+})
 
 end
 
 ```
 
 ---
-
-
-

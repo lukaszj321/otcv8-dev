@@ -1,17 +1,10 @@
-# ¦ Modul: `game_buttons`
-
-
-
-
-
+﻿# ¦ Modul: `game_buttons`
 
 ```lua
 
 buttonsWindow = nil
 
 contentsPanel = nil
-
-
 
 function init()
 
@@ -31,15 +24,11 @@ function init()
 
 end
 
-
-
 function terminate()
 
   buttonsWindow:destroy()
 
 end
-
-
 
 function takeButtons(buttons)
 
@@ -55,8 +44,6 @@ function takeButtons(buttons)
 
 end
 
-
-
 function takeButton(button, dontUpdateOrder)
 
   if not buttonsWindow.forceOpen or not contentsPanel.buttons then return end
@@ -70,8 +57,6 @@ function takeButton(button, dontUpdateOrder)
   end
 
 end
-
-
 
 function updateOrder()
 
@@ -108,12 +93,7 @@ end
 ```
 
 ---
-
-
-
 # buttons.otmod
-
-
 
 ```text
 
@@ -136,12 +116,7 @@ Module
 ```
 
 ---
-
-
-
 # buttons.otui
-
-
 
 ```otui
 
@@ -158,6 +133,3 @@ GameButtonsWindow
 ```
 
 ---
-
-
-

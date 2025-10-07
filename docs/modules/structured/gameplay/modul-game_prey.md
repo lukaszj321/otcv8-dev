@@ -1,17 +1,10 @@
-# ¦ Modul: `game_prey`
-
-
-
-
-
+﻿# ¦ Modul: `game_prey`
 
 ```lua
 
 -- sponsored by kivera-global.com
 
 -- remade by Vithrax#5814
-
-
 
 preyWindow = nil
 
@@ -29,8 +22,6 @@ local rerollPrice = 0
 
 local bonusRerolls = 0
 
-
-
 local PREY_BONUS_DAMAGE_BOOST = 0
 
 local PREY_BONUS_DAMAGE_REDUCTION = 1
@@ -40,8 +31,6 @@ local PREY_BONUS_XP_BONUS = 2
 local PREY_BONUS_IMPROVED_LOOT = 3
 
 local PREY_BONUS_NONE = 4 
-
-
 
 local PREY_ACTION_LISTREROLL = 0
 
@@ -55,13 +44,7 @@ local PREY_ACTION_CHANGE_FROM_ALL = 4
 
 local PREY_ACTION_LOCK_PREY = 5
 
-
-
 local preyDescription = {}
-
-
-
-
 
 function bonusDescription(bonusType, bonusValue, bonusGrade)
 
@@ -91,8 +74,6 @@ function bonusDescription(bonusType, bonusValue, bonusGrade)
 
 end
 
-
-
 function timeleftTranslation(timeleft, forPreyTimeleft) -- in seconds
 
   if timeleft == 0 then
@@ -114,8 +95,6 @@ function timeleftTranslation(timeleft, forPreyTimeleft) -- in seconds
   return hours .. ":" .. mins
 
 end
-
-  
 
 function init()
 
@@ -141,9 +120,7 @@ function init()
 
     onPreySelection = onPreySelection
 
-  })
-
-
+})
 
   preyWindow = g_ui.displayUI('prey')
 
@@ -169,8 +146,6 @@ function init()
 
 end
 
-
-
 local descriptionTable = {
 
   ["shopPermButton"] = "Go to the Store to purchase the Permanent Prey Slot. Once you have completed the purchase, you can activate a prey here, no matter if your character is on a free or a Premium account.",
@@ -192,8 +167,6 @@ local descriptionTable = {
   ["choosePreyButton"] = "Click on this button to confirm selected monsters as your prey creature for the next 2 hours hunting time."
 
 }
-
-
 
 function onHover(widget)
 
@@ -231,8 +204,6 @@ function onHover(widget)
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, {
@@ -257,9 +228,7 @@ function terminate()
 
     onPreySelection = onPreySelection
 
-  })
-
-  
+})
 
   if preyButton then
 
@@ -286,8 +255,6 @@ function terminate()
   end
 
 end
-
-
 
 local n = 0
 
@@ -319,8 +286,6 @@ function setUnsupportedSettings()
 
 end
 
-
-
 function check()
 
   if g_game.getFeature(GamePrey) then
@@ -347,8 +312,6 @@ function check()
 
 end
 
-
-
 function toggleTracker()
 
   if preyTracker:isVisible() then
@@ -363,8 +326,6 @@ function toggleTracker()
 
 end
 
-
-
 function hide()
 
   preyWindow:hide()
@@ -378,8 +339,6 @@ function hide()
   end
 
 end
-
-
 
 function show()
 
@@ -399,8 +358,6 @@ function show()
 
 end
 
-
-
 function toggle()
 
   if preyWindow:isVisible() then
@@ -412,8 +369,6 @@ function toggle()
   show()
 
 end
-
-
 
 function onPreyFreeRolls(slot, timeleft)
 
@@ -444,8 +399,6 @@ function onPreyFreeRolls(slot, timeleft)
   end
 
 end
-
-
 
 function onPreyTimeLeft(slot, timeLeft)
 
@@ -495,8 +448,6 @@ function onPreyTimeLeft(slot, timeLeft)
 
 end
 
-
-
 function onPreyPrice(price)
 
   rerollPrice = price
@@ -530,8 +481,6 @@ function onPreyPrice(price)
   end
 
 end
-
-
 
 function setTimeUntilFreeReroll(slot, timeUntilFreeReroll) -- minutes
 
@@ -567,8 +516,6 @@ function setTimeUntilFreeReroll(slot, timeUntilFreeReroll) -- minutes
 
 end
 
-
-
 function onPreyLocked(slot, unlockState, timeUntilFreeReroll)
 
   -- tracker
@@ -600,8 +547,6 @@ function onPreyLocked(slot, unlockState, timeUntilFreeReroll)
   prey.locked:show()
 
 end
-
-
 
 function onPreyInactive(slot, timeUntilFreeReroll)
 
@@ -663,15 +608,11 @@ function onPreyInactive(slot, timeUntilFreeReroll)
 
 end
 
-
-
 function setBonusGradeStars(slot, grade)
 
   local prey = preyWindow["slot"..(slot + 1)]
 
   local gradePanel = prey.active.creatureAndBonus.bonus.grade
-
-
 
   gradePanel:destroyChildren()
 
@@ -703,8 +644,6 @@ function setBonusGradeStars(slot, grade)
 
 end
 
-
-
 function getBigIconPath(bonusType)
 
   local path = "/images/game/prey/"
@@ -728,8 +667,6 @@ function getBigIconPath(bonusType)
   end
 
 end
-
-
 
 function getSmallIconPath(bonusType)
 
@@ -755,8 +692,6 @@ function getSmallIconPath(bonusType)
 
 end
 
-
-
 function getBonusDescription(bonusType)
 
   if bonusType == PREY_BONUS_DAMAGE_BOOST then
@@ -778,8 +713,6 @@ function getBonusDescription(bonusType)
   end
 
 end
-
-
 
 function getTooltipBonusDescription(bonusType, bonusValue)
 
@@ -803,8 +736,6 @@ function getTooltipBonusDescription(bonusType, bonusValue)
 
 end
 
-
-
 function capitalFormatStr(str)
 
   local formatted = ""
@@ -821,11 +752,7 @@ function capitalFormatStr(str)
 
 end
 
-
-
 function onItemBoxChecked(widget)
-
-
 
   for i, slot in pairs({"slot1", "slot2", "slot3"}) do
 
@@ -850,8 +777,6 @@ function onItemBoxChecked(widget)
   widget:setChecked(true)
 
 end
-
-
 
 function onPreyActive(slot, currentHolderName, currentHolderOutfit, bonusType, bonusValue, bonusGrade, timeLeft, timeUntilFreeReroll, lockType) -- locktype always 0 for protocols <12
 
@@ -945,8 +870,6 @@ function onPreyActive(slot, currentHolderName, currentHolderOutfit, bonusType, b
 
 end
 
-
-
 function onPreySelection(slot, bonusType, bonusValue, bonusGrade, names, outfits, timeUntilFreeReroll)
 
   -- tracker
@@ -1037,8 +960,6 @@ function onPreySelection(slot, bonusType, bonusValue, bonusGrade, names, outfits
 
 end
 
-
-
 function onResourceBalance(type, balance)
 
   if type == 0 then -- bank gold
@@ -1057,8 +978,6 @@ function onResourceBalance(type, balance)
 
   end
 
-  
-
   if type == 0 or type == 1 then
 
     preyWindow.gold:setText(comma_value(bankGold + inventoryGold))
@@ -1067,8 +986,6 @@ function onResourceBalance(type, balance)
 
 end
 
-
-
 function showMessage(title, message)
 
   if msgWindow then
@@ -1076,8 +993,6 @@ function showMessage(title, message)
     msgWindow:destroy()
 
   end
-
-    
 
   msgWindow = displayInfoBox(title, message)
 
@@ -1092,12 +1007,7 @@ end
 ```
 
 ---
-
-
-
 # prey.otmod
-
-
 
 ```text
 
@@ -1124,20 +1034,13 @@ Module
 ```
 
 ---
-
-
-
 # prey.otui
-
-
 
 ```otui
 
 LockedPreyPanel < Panel
 
   size: 195 312
-
-
 
   NoCreaturePanel
 
@@ -1146,8 +1049,6 @@ LockedPreyPanel < Panel
     anchors.top: parent.top
 
     anchors.left: parent.left
-
-
 
   UIButton
 
@@ -1167,8 +1068,6 @@ LockedPreyPanel < Panel
 
     @onClick: modules.game_shop.show()
 
-
-
     UIWidget
 
       id: shopPermButton
@@ -1187,15 +1086,9 @@ LockedPreyPanel < Panel
 
       @onHoverChange: modules.game_prey.onHover(self)
 
-
-
       $pressed:
 
         image-clip: 0 67 204 67
-
-        
-
-
 
   UIButton
 
@@ -1215,8 +1108,6 @@ LockedPreyPanel < Panel
 
     @onClick: modules.game_shop.show()
 
-
-
     UIWidget
 
       id: shopTempButton
@@ -1235,13 +1126,9 @@ LockedPreyPanel < Panel
 
       @onHoverChange: modules.game_prey.onHover(self)
 
-
-
       $pressed:
 
         image-clip: 0 67 204 67
-
-
 
 Star < UIWidget
 
@@ -1249,21 +1136,15 @@ Star < UIWidget
 
   image-source: /images/game/prey/prey_star
 
-
-
 NoStar < UIWidget
 
   size: 9 10
 
   image-source: /images/game/prey/prey_nostar
 
-
-
 NoCreaturePanel < Panel
 
   size: 195 152
-
-
 
   FlatPanel
 
@@ -1277,8 +1158,6 @@ NoCreaturePanel < Panel
 
     image-border: 1  
 
-
-
     UIWidget
 
       phantom: true
@@ -1288,8 +1167,6 @@ NoCreaturePanel < Panel
       anchors.horizontalCenter: parent.horizontalCenter
 
       image-source: /images/game/prey/prey_biginactive
-
-
 
   FlatPanel
 
@@ -1305,8 +1182,6 @@ NoCreaturePanel < Panel
 
     anchors.right: parent.right
 
-
-
     UIWidget
 
       id: noBonusIcon
@@ -1321,8 +1196,6 @@ NoCreaturePanel < Panel
 
       @onHoverChange: modules.game_prey.onHover(self)
 
-
-
     HorizontalSeparator
 
       anchors.top: prev.bottom
@@ -1336,8 +1209,6 @@ NoCreaturePanel < Panel
       margin-left: 10
 
       margin-right: 10
-
-
 
     Panel
 
@@ -1365,23 +1236,17 @@ NoCreaturePanel < Panel
 
         num-columns: 5
 
-
-
       NoStar
 
         id: noBonusIcon
 
         @onHoverChange: modules.game_prey.onHover(self)
 
-
-
       NoStar
 
         id: noBonusIcon
 
         @onHoverChange: modules.game_prey.onHover(self)
-
-
 
       NoStar
 
@@ -1389,7 +1254,11 @@ NoCreaturePanel < Panel
 
         @onHoverChange: modules.game_prey.onHover(self)      
 
+      NoStar
 
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
 
       NoStar
 
@@ -1397,7 +1266,11 @@ NoCreaturePanel < Panel
 
         @onHoverChange: modules.game_prey.onHover(self)
 
+      NoStar
 
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
 
       NoStar
 
@@ -1405,7 +1278,11 @@ NoCreaturePanel < Panel
 
         @onHoverChange: modules.game_prey.onHover(self)
 
+      NoStar
 
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
 
       NoStar
 
@@ -1413,39 +1290,11 @@ NoCreaturePanel < Panel
 
         @onHoverChange: modules.game_prey.onHover(self)
 
-
-
       NoStar
 
         id: noBonusIcon
 
         @onHoverChange: modules.game_prey.onHover(self)
-
-
-
-      NoStar
-
-        id: noBonusIcon
-
-        @onHoverChange: modules.game_prey.onHover(self)
-
-
-
-      NoStar
-
-        id: noBonusIcon
-
-        @onHoverChange: modules.game_prey.onHover(self)
-
-
-
-      NoStar
-
-        id: noBonusIcon
-
-        @onHoverChange: modules.game_prey.onHover(self)
-
-
 
   UIWidget
 
@@ -1467,13 +1316,9 @@ NoCreaturePanel < Panel
 
     @onHoverChange: modules.game_prey.onHover(self)
 
-
-
 ActivePreyPanel < Panel
 
   size: 195 312
-
-
 
   CreatureAndBonus
 
@@ -1485,8 +1330,6 @@ ActivePreyPanel < Panel
 
     margin-top: 20 
 
-
-
   BonusReroll
 
     id: choose
@@ -1494,8 +1337,6 @@ ActivePreyPanel < Panel
     anchors.right: parent.right
 
     anchors.top: prev.bottom
-
-  
 
   SelectPreyCreature
 
@@ -1507,8 +1348,6 @@ ActivePreyPanel < Panel
 
     margin-right: 2
 
-
-
   RerollButton
 
     id: reroll
@@ -1518,8 +1357,6 @@ ActivePreyPanel < Panel
     anchors.right: prev.left
 
     margin-right: 2
-
-
 
   FlatPanel
 
@@ -1532,8 +1369,6 @@ ActivePreyPanel < Panel
     margin-top: 5
 
     anchors.left: parent.left 
-
-
 
     CheckBox
 
@@ -1557,8 +1392,6 @@ ActivePreyPanel < Panel
 
       margin-left: 5
 
-
-
   CardLabel
 
     id: autoRerollPrice
@@ -1573,8 +1406,6 @@ ActivePreyPanel < Panel
 
     anchors.right: parent.right
 
-
-
   FlatPanel
 
     id: lockPrey
@@ -1586,8 +1417,6 @@ ActivePreyPanel < Panel
     margin-top: 5
 
     anchors.left: parent.left 
-
-
 
     CheckBox
 
@@ -1611,8 +1440,6 @@ ActivePreyPanel < Panel
 
       margin-left: 5
 
-
-
   CardLabel
 
     id: lockPreyPrice
@@ -1627,13 +1454,9 @@ ActivePreyPanel < Panel
 
     anchors.right: parent.right
 
-
-
 CreatureAndBonus < Panel
 
   size: 195 152
-
-
 
   UICreature
 
@@ -1653,8 +1476,6 @@ CreatureAndBonus < Panel
 
     padding: 5
 
-
-
   FlatPanel
 
     id: bonus
@@ -1669,8 +1490,6 @@ CreatureAndBonus < Panel
 
     anchors.right: parent.right
 
-
-
     UIWidget
 
       id: icon
@@ -1682,8 +1501,6 @@ CreatureAndBonus < Panel
       image-source: /images/game/prey/prey_bignobonus
 
       margin-top: 3
-
-
 
     HorizontalSeparator
 
@@ -1698,8 +1515,6 @@ CreatureAndBonus < Panel
       margin-left: 10
 
       margin-right: 10
-
-
 
     Panel
 
@@ -1727,8 +1542,6 @@ CreatureAndBonus < Panel
 
         num-columns: 5
 
-
-
   ProgressBar
 
     id: timeLeft
@@ -1745,15 +1558,11 @@ CreatureAndBonus < Panel
 
     background-color: #C28400   
 
-
-
 BonusReroll < FlatPanel
 
   padding: 2
 
   size: 55 92
-
-
 
   UIButton
 
@@ -1773,13 +1582,9 @@ BonusReroll < FlatPanel
 
     @onHoverChange: modules.game_prey.onHover(self)
 
-
-
     $pressed:
 
       image-clip: 0 52 37 54
-
-
 
   CardLabel
 
@@ -1795,13 +1600,9 @@ BonusReroll < FlatPanel
 
     margin-top: 2
 
-
-
 InactivePreyPanel < Panel
 
   size: 195 312
-
-
 
   ChoosePrey
 
@@ -1810,8 +1611,6 @@ InactivePreyPanel < Panel
     anchors.right: parent.right
 
     anchors.bottom: parent.bottom
-
-  
 
   SelectPreyCreature
 
@@ -1823,8 +1622,6 @@ InactivePreyPanel < Panel
 
     margin-right: 2
 
-
-
   RerollButton
 
     id: reroll
@@ -1834,10 +1631,6 @@ InactivePreyPanel < Panel
     anchors.right: prev.left
 
     margin-right: 2
-
-
-
-
 
   FlatPanel
 
@@ -1865,15 +1658,11 @@ InactivePreyPanel < Panel
 
       num-columns: 3
 
-
-
 ChoosePrey < FlatPanel
 
   size: 55 92
 
   padding: 10
-
-
 
   UIButton
 
@@ -1893,21 +1682,15 @@ ChoosePrey < FlatPanel
 
     @onHoverChange: modules.game_prey.onHover(self)    
 
-
-
     $pressed:
 
       image-clip: 0 35 45 37
-
-
 
 SelectPreyCreature < FlatPanel
 
   padding: 2
 
   size: 70 92
-
-
 
   UIButton
 
@@ -1923,8 +1706,6 @@ SelectPreyCreature < FlatPanel
 
     @onHoverChange: modules.game_prey.onHover(self)
 
-
-
   CardLabel
 
     id: price
@@ -1939,15 +1720,11 @@ SelectPreyCreature < FlatPanel
 
     margin-top: 2
 
-
-
 RerollButton < FlatPanel
 
   padding: 2
 
   size: 70 92
-
-  
 
   FlatPanel
 
@@ -1960,8 +1737,6 @@ RerollButton < FlatPanel
     anchors.top: parent.top
 
     anchors.horizontalCenter: parent.horizontalCenter
-
-
 
     ProgressBar
 
@@ -1978,8 +1753,6 @@ RerollButton < FlatPanel
       text-align: center
 
       background-color: #C28400
-
-
 
     UIButton
 
@@ -1999,13 +1772,9 @@ RerollButton < FlatPanel
 
       @onHoverChange: modules.game_prey.onHover(self)
 
-
-
       $pressed:
 
         image-clip: 0 46 60 47
-
-
 
   GoldLabel
 
@@ -2021,13 +1790,9 @@ RerollButton < FlatPanel
 
     anchors.bottom: parent.bottom
 
-  
-
 CardLabel < FlatPanel
 
   padding: 5
-
-
 
   UIWidget
 
@@ -2041,8 +1806,6 @@ CardLabel < FlatPanel
 
     tooltip: Prey Wildcards
 
-
-
   UIWidget
 
     id: text
@@ -2057,13 +1820,9 @@ CardLabel < FlatPanel
 
     text-align: right
 
-
-
 GoldLabel < FlatPanel
 
   padding: 5
-
-  
 
   UIWidget
 
@@ -2077,8 +1836,6 @@ GoldLabel < FlatPanel
 
     tooltip: Gold Coins
 
-
-
   UIWidget
 
     id: text
@@ -2093,8 +1850,6 @@ GoldLabel < FlatPanel
 
     text-align: right
 
-
-
 PreyCreatureBox < UICheckBox
 
   border-width: 1
@@ -2104,8 +1859,6 @@ PreyCreatureBox < UICheckBox
   padding: 3
 
   @onClick: modules.game_prey.onItemBoxChecked(self)
-
-
 
   UICreature
 
@@ -2119,27 +1872,19 @@ PreyCreatureBox < UICheckBox
 
     margin-top: 3
 
-
-
   $checked on:
 
     border-color: #ffffff
 
-
-
   $!checked:
 
     border-color: alpha
-
-
 
   $!on:
 
     image-color: #ffffff88
 
     color: #aaaaaa88
-
-
 
 SlotPanel < Panel
 
@@ -2157,8 +1902,6 @@ SlotPanel < Panel
 
   padding-right: 8
 
-
-
   Label
 
     id: title
@@ -2171,8 +1914,6 @@ SlotPanel < Panel
 
     text-align: center
 
-
-
   InactivePreyPanel
 
     id: inactive  
@@ -2180,8 +1921,6 @@ SlotPanel < Panel
     anchors.top: parent.top
 
     anchors.horizontalCenter: parent.horizontalCenter
-
-
 
   ActivePreyPanel
 
@@ -2192,8 +1931,6 @@ SlotPanel < Panel
     anchors.horizontalCenter: parent.horizontalCenter
 
     visible: false
-
-
 
   LockedPreyPanel
 
@@ -2206,8 +1943,6 @@ SlotPanel < Panel
     anchors.horizontalCenter: parent.horizontalCenter
 
     visible: false
-
-
 
 MainWindow
 
@@ -2223,8 +1958,6 @@ MainWindow
 
   @onHoverChange: modules.game_prey.onHover(self)
 
-
-
   SlotPanel
 
     id: slot1
@@ -2234,8 +1967,6 @@ MainWindow
     anchors.top: parent.top
 
     margin-top: 10
-
-
 
   SlotPanel
 
@@ -2247,8 +1978,6 @@ MainWindow
 
     margin-left: 10
 
-
-
   SlotPanel
 
     id: slot3
@@ -2258,8 +1987,6 @@ MainWindow
     anchors.left: prev.right
 
     margin-left: 10
-
-
 
   FlatLabel
 
@@ -2279,8 +2006,6 @@ MainWindow
 
     text-wrap: true
 
-
-
   HorizontalSeparator
 
     id: bottomSep
@@ -2292,8 +2017,6 @@ MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 10
-
-
 
   Button
 
@@ -2311,8 +2034,6 @@ MainWindow
 
     @onClick: modules.game_prey.hide()
 
-
-
   GoldLabel
 
     id: gold
@@ -2322,8 +2043,6 @@ MainWindow
     anchors.verticalCenter: closeButton.verticalCenter
 
     size: 105 20
-
-
 
   CardLabel
 
@@ -2336,8 +2055,6 @@ MainWindow
     anchors.verticalCenter: closeButton.verticalCenter
 
     size: 55 20
-
-
 
   UIButton
 
@@ -2361,21 +2078,15 @@ MainWindow
 
     @onClick: modules.game_shop.show()
 
-
-
     $pressed:
 
       image-clip: 0 20 20 20
-
-
 
 PreyCreature < Panel
 
   height: 22
 
   margin-top: 3
-
-
 
   UICreature
 
@@ -2388,8 +2099,6 @@ PreyCreature < Panel
     anchors.bottom: parent.bottom
 
     size: 20 20
-
-
 
   UIWidget
 
@@ -2405,8 +2114,6 @@ PreyCreature < Panel
 
     image-source: /images/game/prey/prey_inactive
 
-
-
   UIWidget
 
     id: preyType
@@ -2418,8 +2125,6 @@ PreyCreature < Panel
     anchors.verticalCenter: prev.verticalCenter
 
     size: 15 15
-
-
 
   UIWidget
 
@@ -2443,8 +2148,6 @@ PreyCreature < Panel
 
     text-align: left     
 
-
-
   ProgressBar
 
     id: time
@@ -2463,8 +2166,6 @@ PreyCreature < Panel
 
     phantom: false    
 
-
-
 PreyTracker < MiniWindow
 
   id: preyTracker
@@ -2474,8 +2175,6 @@ PreyTracker < MiniWindow
   height: 95
 
   icon: /images/topbuttons/prey
-
-
 
   MiniWindowContents
 
@@ -2487,21 +2186,15 @@ PreyTracker < MiniWindow
 
     layout: verticalBox
 
-
-
     Label
 
       !text: tr('Prey Creatures')
 
       font: verdana-11px-rounded   
 
-
-
     HorizontalSeparator
 
       margin-top: 1
-
-
 
     PreyCreature
 
@@ -2509,13 +2202,9 @@ PreyTracker < MiniWindow
 
       margin-top: 5
 
-
-
     PreyCreature
 
       id: slot2
-
-
 
     PreyCreature
 
@@ -2524,6 +2213,3 @@ PreyTracker < MiniWindow
 ```
 
 ---
-
-
-

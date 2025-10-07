@@ -1,9 +1,4 @@
-# ¦ Modul: `game_modaldialog`
-
-
-
-
-
+﻿# ¦ Modul: `game_modaldialog`
 
 ```lua
 
@@ -15,19 +10,13 @@ lastDialogChoice = 0
 
 lastDialogAnswer = 0
 
-
-
 function init()
 
   g_ui.importStyle('modaldialog')
 
-
-
   connect(g_game, { onModalDialog = onModalDialog,
 
                     onGameEnd = destroyDialog })
-
-
 
   local dialog = rootWidget:recursiveGetChildById('modalDialog')
 
@@ -39,8 +28,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onModalDialog = onModalDialog,
@@ -48,8 +35,6 @@ function terminate()
                        onGameEnd = destroyDialog })
 
 end
-
-
 
 function destroyDialog()
 
@@ -63,8 +48,6 @@ function destroyDialog()
 
 end
 
-
-
 function onModalDialog(id, title, message, buttons, enterButton, escapeButton, choices, priority)
 
   -- priority parameter is unused, not sure what its use is.
@@ -75,11 +58,7 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
   end
 
-
-
   modalDialog = g_ui.createWidget('ModalDialog', rootWidget)
-
-
 
   local messageLabel = modalDialog:getChildById('messageLabel')
 
@@ -89,13 +68,9 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
   local buttonsPanel = modalDialog:getChildById('buttonsPanel')
 
-
-
   modalDialog:setText(title)
 
   messageLabel:setText(message)
-
-
 
   local labelHeight
 
@@ -104,8 +79,6 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
     local choiceId = choices[i][1]
 
     local choiceName = choices[i][2]
-
-
 
     local label = g_ui.createWidget('ChoiceListLabel', choiceList)
 
@@ -137,8 +110,6 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
   end
 
-
-
   local buttonsWidth = 0
 
   for i = 1, #buttons do
@@ -146,8 +117,6 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
     local buttonId = buttons[i][1]
 
     local buttonText = buttons[i][2]
-
-
 
     local button = g_ui.createWidget('ModalButton', buttonsPanel)
 
@@ -179,8 +148,6 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
   end
 
-
-
   local additionalHeight = 0
 
   if #choices > 0 then
@@ -189,21 +156,15 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
     choiceScrollbar:setVisible(true)
 
-
-
     additionalHeight = math.min(modalDialog.maximumChoices, math.max(modalDialog.minimumChoices, #choices)) * labelHeight
 
     additionalHeight = additionalHeight + choiceList:getPaddingTop() + choiceList:getPaddingBottom()
 
   end
 
-
-
   local horizontalPadding = modalDialog:getPaddingLeft() + modalDialog:getPaddingRight()
 
   buttonsWidth = buttonsWidth + horizontalPadding
-
-  
 
   local labelWidth = math.min(600, math.floor(message:len() * 1.5))
 
@@ -211,11 +172,7 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
   messageLabel:setTextWrap(true)
 
-  
-
   modalDialog:setHeight(90 + additionalHeight + messageLabel:getHeight())
-
-
 
   local enterFunc = function()
 
@@ -239,8 +196,6 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
   end
 
-
-
   local escapeFunc = function()
 
     local focusedChoice = choiceList:getFocusedChild()
@@ -263,17 +218,11 @@ function onModalDialog(id, title, message, buttons, enterButton, escapeButton, c
 
   end
 
-
-
   choiceList.onDoubleClick = enterFunc
-
-
 
   modalDialog.onEnter = enterFunc
 
   modalDialog.onEscape = escapeFunc
-
-  
 
   lastDialogChoices = #choices
 
@@ -282,12 +231,7 @@ end
 ```
 
 ---
-
-
-
 # modaldialog.otmod
-
-
 
 ```text
 
@@ -314,12 +258,7 @@ Module
 ```
 
 ---
-
-
-
 # modaldialog.otui
-
-
 
 ```otui
 
@@ -333,15 +272,11 @@ ChoiceListLabel < Label
 
   focusable: true
 
-
-
   $focus:
 
     background-color: #00000055
 
     color: #ffffff
-
-
 
 ChoiceList < TextList
 
@@ -363,8 +298,6 @@ ChoiceList < TextList
 
   visible: false
 
-
-
 ChoiceScrollBar < VerticalScrollBar
 
   id: choiceScrollBar
@@ -381,8 +314,6 @@ ChoiceScrollBar < VerticalScrollBar
 
   visible: false
 
-
-
 ModalButton < Button
 
   text-auto-resize: true
@@ -393,13 +324,9 @@ ModalButton < Button
 
   margin-left: 2
 
-
-
   $pressed:
 
     text-offset: 0 0
-
-
 
 ModalDialog < MainWindow
 
@@ -414,8 +341,6 @@ ModalDialog < MainWindow
   &minimumChoices: 4
 
   &maximumChoices: 10
-
-
 
   Label
 
@@ -433,11 +358,7 @@ ModalDialog < MainWindow
 
     text-wrap: true
 
-
-
   ChoiceList
-
-
 
   HorizontalSeparator
 
@@ -448,8 +369,6 @@ ModalDialog < MainWindow
     anchors.bottom: next.top
 
     margin-bottom: 5
-
-
 
   Panel
 
@@ -467,13 +386,8 @@ ModalDialog < MainWindow
 
       align-right: true
 
-
-
   ChoiceScrollBar
 
 ```
 
 ---
-
-
-

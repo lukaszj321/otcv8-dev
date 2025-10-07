@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/ui`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/ui`
 
 ```otui
 
@@ -12,8 +7,6 @@ BotButton < Button
   height: 17
 
   margin-top: 2
-
-
 
 BotSwitch < Button
 
@@ -27,8 +20,6 @@ BotSwitch < Button
 
     image-color: red
 
-
-
 SmallBotSwitch < Button
 
   margin-top: 2
@@ -40,8 +31,6 @@ SmallBotSwitch < Button
   $!on:
 
     image-color: red
-
-    
 
 BotLabel < Label
 
@@ -55,8 +44,6 @@ BotLabel < Label
 
   text-wrap: true
 
-    
-
 BotItem < Item
 
   virtual: true
@@ -64,8 +51,6 @@ BotItem < Item
   &selectable: true
 
   &editable: true
-
-
 
 BotTextEdit < TextEdit  
 
@@ -79,19 +64,13 @@ BotTextEdit < TextEdit
 
   height: 20
 
-  
-
 BotSeparator < HorizontalSeparator
 
   margin-top: 5
 
   margin-bottom: 3
 
-
-
 BotSmallScrollBar < SmallScrollBar
-
-
 
 BotPanel < Panel
 
@@ -119,8 +98,6 @@ BotPanel < Panel
 
       margin-right: 16
 
-
-
   BotSmallScrollBar
 
     id: botPanelScroll
@@ -131,8 +108,6 @@ BotPanel < Panel
 
     anchors.right: parent.right
 
-    
-
 CaveBotLabel < Label
 
   background-color: alpha
@@ -141,13 +116,9 @@ CaveBotLabel < Label
 
   focusable: true
 
-
-
   $focus:
 
     background-color: #00000055
-
-    
 
 SlotComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -182,12 +153,7 @@ SlotComboBox < ComboBox
 ```
 
 ---
-
-
-
 # config.otui
-
-
 
 ```otui
 
@@ -200,8 +166,6 @@ BotConfig < Panel
   margin-left: 2
 
   margin-right: 2
-
-
 
   ComboBox
 
@@ -223,8 +187,6 @@ BotConfig < Panel
 
     width: 130
 
-
-
   Button
 
     id: switch
@@ -243,15 +205,11 @@ BotConfig < Panel
 
       color: #00AA00
 
-      
-
     $!on:
 
       text: Off
 
       color: #FF0000
-
-
 
   Button
 
@@ -271,8 +229,6 @@ BotConfig < Panel
 
     text-offet: 0 2
 
-    
-
   Button
 
     id: edit
@@ -288,8 +244,6 @@ BotConfig < Panel
     height: 18
 
     text-offet: 0 2
-
-    
 
   Button
 
@@ -310,20 +264,13 @@ BotConfig < Panel
 ```
 
 ---
-
-
-
 # container.otui
-
-
 
 ```otui
 
 BotContainer < Panel
 
   height: 68
-
-  
 
   ScrollablePanel
 
@@ -340,8 +287,6 @@ BotContainer < Panel
       cell-size: 34 34
 
       flow: true
-
-
 
   BotSmallScrollBar
 
@@ -360,12 +305,7 @@ BotContainer < Panel
 ```
 
 ---
-
-
-
 # icons.otui
-
-
 
 ```otui
 
@@ -383,8 +323,6 @@ BotIcon < UIWidget
 
   draggable: true
 
-
-
   UIItem
 
     id: item
@@ -401,8 +339,6 @@ BotIcon < UIWidget
 
     size: 32 32
 
-
-
   UICreature
 
     id: creature
@@ -416,8 +352,6 @@ BotIcon < UIWidget
     size: 48 48
 
     phantom: true
-
-  
 
   UIWidget
 
@@ -435,23 +369,17 @@ BotIcon < UIWidget
 
     phantom: true
 
-
-
     $on:
 
       text: ON
 
       background: green
 
-
-
     $!on:
 
       text: OFF
 
       background: red
-
-      
 
   UIWidget
 
@@ -470,8 +398,6 @@ BotIcon < UIWidget
     phantom: true
 
     text-align: right
-
-      
 
   UIWidget
 
@@ -492,12 +418,7 @@ BotIcon < UIWidget
 ```
 
 ---
-
-
-
 # panels.otui
-
-
 
 ```otui
 
@@ -506,8 +427,6 @@ DualScrollPanel < Panel
   height: 51
 
   margin-top: 3
-
-      
 
   SmallBotSwitch
 
@@ -520,8 +439,6 @@ DualScrollPanel < Panel
     anchors.top: parent.top
 
     text-align: center
-
-    
 
   HorizontalScrollBar
 
@@ -545,8 +462,6 @@ DualScrollPanel < Panel
 
     &disableScroll: true
 
-    
-
   HorizontalScrollBar
 
     id: scroll2
@@ -567,8 +482,6 @@ DualScrollPanel < Panel
 
     &disableScroll: true
 
-    
-
   BotTextEdit
 
     id: text
@@ -585,15 +498,11 @@ DualScrollPanel < Panel
 
     margin-right: 1
 
-
-
 SingleScrollItemPanel < Panel
 
   height: 45
 
   margin-top: 2
-
-    
 
   BotItem
 
@@ -604,8 +513,6 @@ SingleScrollItemPanel < Panel
     anchors.top: prev.bottom
 
     margin-top: 3
-
-
 
   SmallBotSwitch
 
@@ -620,8 +527,6 @@ SingleScrollItemPanel < Panel
     margin-left: 2
 
     text-align: center
-
-    
 
   HorizontalScrollBar
 
@@ -643,15 +548,11 @@ SingleScrollItemPanel < Panel
 
     &disableScroll: true
 
-
-
 DualScrollItemPanel < Panel
 
   height: 33
 
   margin-top: 3
-
-    
 
   BotItem
 
@@ -662,8 +563,6 @@ DualScrollItemPanel < Panel
     anchors.top: prev.bottom
 
     margin-top: 3
-
-
 
   SmallBotSwitch
 
@@ -678,8 +577,6 @@ DualScrollItemPanel < Panel
     margin-left: 2
 
     text-align: center
-
-    
 
   HorizontalScrollBar
 
@@ -703,8 +600,6 @@ DualScrollItemPanel < Panel
 
     &disableScroll: true
 
-    
-
   HorizontalScrollBar
 
     id: scroll2
@@ -725,15 +620,11 @@ DualScrollItemPanel < Panel
 
     &disableScroll: true
 
-    
-
 ItemsRow < Panel
 
   height: 33
 
   margin-top: 2
-
-  
 
   BotItem
 
@@ -742,8 +633,6 @@ ItemsRow < Panel
     anchors.top: parent.top
 
     anchors.left: parent.left
-
-
 
   BotItem
 
@@ -755,8 +644,6 @@ ItemsRow < Panel
 
     margin-left: 2
 
-
-
   BotItem
 
     id: item3
@@ -766,8 +653,6 @@ ItemsRow < Panel
     anchors.left: prev.right
 
     margin-left: 2
-
-
 
   BotItem
 
@@ -779,8 +664,6 @@ ItemsRow < Panel
 
     margin-left: 2
 
-
-
   BotItem
 
     id: item5
@@ -791,13 +674,9 @@ ItemsRow < Panel
 
     margin-left: 2
 
-    
-
 ItemsPanel < Panel
 
   height: 55
-
-
 
   SmallBotSwitch
 
@@ -811,8 +690,6 @@ ItemsPanel < Panel
 
     text-align: center
 
-  
-
   ItemsRow
 
     id: items
@@ -823,15 +700,9 @@ ItemsPanel < Panel
 
     anchors.top: prev.bottom
 
-    
-
-    
-
 ItemAndButtonPanel < Panel
 
   height: 40
-
-      
 
   BotItem
 
@@ -840,8 +711,6 @@ ItemAndButtonPanel < Panel
     anchors.left: parent.left
 
     anchors.top: parent.top
-
-    
 
   BotSwitch
 
@@ -859,13 +728,9 @@ ItemAndButtonPanel < Panel
 
     margin-top: 0   
 
-    
-
 ItemAndSlotPanel < Panel
 
   height: 40
-
-      
 
   BotItem
 
@@ -874,8 +739,6 @@ ItemAndSlotPanel < Panel
     anchors.left: parent.left
 
     anchors.top: parent.top
-
-    
 
   SmallBotSwitch
 
@@ -893,8 +756,6 @@ ItemAndSlotPanel < Panel
 
     margin-top: 0
 
-
-
   SlotComboBox
 
     id: slot
@@ -911,15 +772,11 @@ ItemAndSlotPanel < Panel
 
     &disableScroll: true
 
-
-
 TwoItemsAndSlotPanel < Panel
 
   height: 35
 
   margin-top: 4
-
-      
 
   BotItem
 
@@ -931,8 +788,6 @@ TwoItemsAndSlotPanel < Panel
 
     margin-top: 1
 
-
-
   BotItem
 
     id: item2
@@ -942,8 +797,6 @@ TwoItemsAndSlotPanel < Panel
     anchors.top: prev.top
 
     margin-left: 1
-
-    
 
   SmallBotSwitch
 
@@ -961,8 +814,6 @@ TwoItemsAndSlotPanel < Panel
 
     margin-top: 0
 
-
-
   SlotComboBox
 
     id: slot
@@ -979,15 +830,11 @@ TwoItemsAndSlotPanel < Panel
 
     &disableScroll: true
 
-
-
 DualLabelPanel < Panel
 
   height: 20
 
   padding: 1
-
-
 
   Label
 
@@ -1009,8 +856,6 @@ DualLabelPanel < Panel
 
     font: verdana-11px-rounded
 
-
-
   Label
 
     id: right
@@ -1033,15 +878,11 @@ DualLabelPanel < Panel
 
     font: verdana-11px-rounded
 
-
-
 LabelAndTextEditPanel < Panel
 
   height: 20
 
   padding: 1
-
-
 
   Label
 
@@ -1061,8 +902,6 @@ LabelAndTextEditPanel < Panel
 
     margin-right: 2
 
-
-
   BotTextEdit
 
     id: right
@@ -1077,15 +916,11 @@ LabelAndTextEditPanel < Panel
 
     anchors.right: parent.right
 
-
-
 SwitchAndButtonPanel < Panel
 
   height: 20
 
   padding: 1
-
-
 
   Button
 
@@ -1102,8 +937,6 @@ SwitchAndButtonPanel < Panel
     text-auto-resize: true
 
     text-align: center
-
-
 
   BotSwitch
 
@@ -1124,6 +957,3 @@ SwitchAndButtonPanel < Panel
 ```
 
 ---
-
-
-

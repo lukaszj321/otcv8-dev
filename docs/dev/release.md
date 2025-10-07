@@ -1,6 +1,4 @@
-#
-
-R
+﻿# R
 
 e
 
@@ -18,8 +16,7 @@ e
 2. Changelog z PR od ostatniego taga.
 3. Build artefaktów (CI).
 4. Publikacja + checksumy.
-
-## Wersjonowanie dok
+# # Wersjonowanie dok
 
 u
 

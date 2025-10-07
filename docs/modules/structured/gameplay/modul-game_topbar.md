@@ -1,9 +1,4 @@
-# ¦ Modul: `game_topbar`
-
-
-
-
-
+﻿# ¦ Modul: `game_topbar`
 
 ```lua
 
@@ -179,8 +174,6 @@ Icons[PlayerStates.Hungry] = {
 
 }
 
-
-
 local iconsTable = {
 
     ["Experience"] = 8,
@@ -203,8 +196,6 @@ local iconsTable = {
 
 }
 
-
-
 local healthBar = nil
 
 local manaBar = nil
@@ -217,11 +208,7 @@ local experienceTooltip = 'You have %d%% to advance to level %d.'
 
 local settings = {}
 
-
-
 function init()
-
-    
 
     connect(LocalPlayer, {
 
@@ -241,27 +228,19 @@ function init()
 
         onBaseSkillChange = onBaseSkillChange
 
-    })
+})
 
     connect(g_game, {onGameStart = refresh, onGameEnd = offline})
-
-
 
     -- load condition icons
 
     for k, v in pairs(Icons) do g_textures.preload(v.path) end
 
-
-
     if g_game.isOnline() then refresh() end
 
 end
 
-
-
 function terminate()
-
-
 
     disconnect(LocalPlayer, {
 
@@ -281,13 +260,11 @@ function terminate()
 
         onBaseSkillChange = onBaseSkillChange
 
-    })
+})
 
     disconnect(g_game, {onGameStart = refresh, onGameEnd = offline})
 
 end
-
-
 
 function setupTopBar()
 
@@ -295,15 +272,11 @@ function setupTopBar()
 
     topBar = topBar or g_ui.loadUI('topbar', topPanel)
 
-
-
     manaBar = topBar.stats.mana
 
     healthBar = topBar.stats.health
 
     states = topBar.stats.states.box
-
-
 
     topBar.onMouseRelease = function(widget, mousePos, mouseButton)
 
@@ -313,15 +286,11 @@ function setupTopBar()
 
 end
 
-
-
 function refresh(profileChange)
 
     local player = g_game.getLocalPlayer()
 
     if not player then return end
-
-
 
     setupTopBar()
 
@@ -332,8 +301,6 @@ function refresh(profileChange)
     show()
 
     refreshVisibleBars()
-
-
 
     onLevelChange(player, player:getLevel(), player:getLevelPercent())
 
@@ -355,8 +322,6 @@ function refresh(profileChange)
 
     onLevelChange(player, player:getLevel(), player:getLevelPercent())
 
-
-
     for i = Skill.Fist, Skill.ManaLeechAmount do
 
         onSkillChange(player, i, player:getSkillLevel(i), player:getSkillLevelPercent(i))
@@ -365,13 +330,9 @@ function refresh(profileChange)
 
     end
 
-
-
     topBar.skills.onGeometryChange = setSkillsLayout
 
 end
-
-
 
 function refreshVisibleBars()
 
@@ -379,13 +340,9 @@ function refreshVisibleBars()
 
     "Sword", "Fishing"}
 
-
-
     for i, id in ipairs(ids) do
 
         local panel = topBar[id] or topBar.skills[id]
-
-
 
         if panel then
 
@@ -411,8 +368,6 @@ function refreshVisibleBars()
 
 end
 
-
-
 function setSkillsLayout()
 
     local visible = 0
@@ -421,33 +376,23 @@ function setSkillsLayout()
 
     local width = skills:getWidth()
 
-
-
     for i, child in ipairs(skills:getChildren()) do
 
         visible = child:isVisible() and visible + 1 or visible
 
     end
 
-
-
     local many = visible > 1
 
     width = many and (width / 2) or width
-
-
 
     skills:getLayout():setCellSize({width = width, height = 19})
 
 end
 
-
-
 function offline()
 
     local player = g_game.getLocalPlayer()
-
-
 
     if player then onStatesChange(player, 0, player:getStates()) end
 
@@ -455,15 +400,11 @@ function offline()
 
 end
 
-
-
 function toggleIcon(bitChanged)
 
     local content = states
 
     if not content then return end
-
-
 
     local icon = content:getChildById(Icons[bitChanged].id)
 
@@ -481,8 +422,6 @@ function toggleIcon(bitChanged)
 
 end
 
-
-
 function loadIcon(bitChanged)
 
     local icon = g_ui.createWidget('ConditionWidget', content)
@@ -497,15 +436,11 @@ function loadIcon(bitChanged)
 
 end
 
-
-
 function onHealthChange(localPlayer, health, maxHealth)
 
     if not healthBar then return end
 
     if health > maxHealth then maxHealth = health end
-
-
 
     local healthPercent = (health / maxHealth) * 100
 
@@ -514,8 +449,6 @@ function onHealthChange(localPlayer, health, maxHealth)
     healthBar:setValue(health, 0, maxHealth)
 
     healthBar:setPercent(healthPercent)
-
-
 
     if healthPercent > 92 then
 
@@ -545,15 +478,11 @@ function onHealthChange(localPlayer, health, maxHealth)
 
 end
 
-
-
 function onManaChange(localPlayer, mana, maxMana)
 
     if not manaBar then return end
 
     if mana > maxMana then maxMana = mana end
-
-
 
     local manaPercent = (mana / maxMana) * 100
 
@@ -566,8 +495,6 @@ function onManaChange(localPlayer, mana, maxMana)
     manaBar:setPercent(manaPercent)
 
 end
-
-
 
 function onLevelChange(localPlayer, value, percent)
 
@@ -587,13 +514,9 @@ function onLevelChange(localPlayer, value, percent)
 
 end
 
-
-
 function onStatesChange(localPlayer, now, old)
 
     if now == old then return end
-
-
 
     local bitsChanged = bit32.bxor(now, old)
 
@@ -611,8 +534,6 @@ function onStatesChange(localPlayer, now, old)
 
 end
 
-
-
 function show()
 
     if not g_game.isOnline() then return end
@@ -620,8 +541,6 @@ function show()
     topBar:setVisible(g_settings.getBoolean("topBar", false))
 
 end
-
-
 
 function setupSkillPanel(id, parent, experience, defaultOff)
 
@@ -634,8 +553,6 @@ function setupSkillPanel(id, parent, experience, defaultOff)
     widget.icon:setTooltip(id)
 
     widget.icon:setImageClip({x = iconsTable[id]*9, y = 0, width = 9,height = 9})
-
-
 
     if not experience then 
 
@@ -651,13 +568,9 @@ function setupSkillPanel(id, parent, experience, defaultOff)
 
     end
 
-
-
     settings[id] = settings[id] ~= nil and settings[id] or defaultOff
 
     if settings[id] == false then widget:setVisible(false) end
-
-
 
     -- breakers
 
@@ -669,33 +582,23 @@ function setupSkillPanel(id, parent, experience, defaultOff)
 
         local right = widget.right
 
-
-
         left:setMarginRight(margin)
 
         right:setMarginRight(margin)
 
     end
 
-
-
 end
-
-
 
 function menu(mouseButton)
 
     if mouseButton ~= 2 then return end
-
-
 
     local menu = g_ui.createWidget('PopupMenu')
 
     menu:setId("topBarMenu")
 
     menu:setGameMenu(true)
-
-
 
     local expPanel = topBar.Experience
 
@@ -721,15 +624,11 @@ function menu(mouseButton)
 
     end
 
-
-
     menu:display(mousePos)
 
     return true
 
 end
-
-
 
 function setupSkills()
 
@@ -739,9 +638,7 @@ function setupSkills()
 
         "Sword", "Fishing"
 
-    }
-
-
+}
 
     for i, id in ipairs(t) do
 
@@ -755,15 +652,11 @@ function setupSkills()
 
     end
 
-
-
     local child = topBar.Experience
 
     topBar:moveChildToIndex(child, 2)
 
 end
-
-
 
 function toggleSkillPanel(id)
 
@@ -775,8 +668,6 @@ function toggleSkillPanel(id)
 
     if not panel then return end
 
-
-
     panel:setVisible(not panel:isVisible())
 
     settings[id] = panel:isVisible()
@@ -784,8 +675,6 @@ function toggleSkillPanel(id)
     setSkillsLayout()
 
 end
-
-
 
 function setSkillValue(id, value)
 
@@ -795,15 +684,11 @@ function setSkillValue(id, value)
 
     if not panel then return end
 
-
-
     panel.level:setText(value)
 
     panel.level:setTextAutoResize(true)
 
 end
-
-
 
 function setSkillPercent(id, percent, tooltip)
 
@@ -813,13 +698,9 @@ function setSkillPercent(id, percent, tooltip)
 
     if not panel then return end
 
-
-
     panel.progress:setPercent(math.floor(percent))
 
 end
-
-
 
 function setSkillBase(id, value, baseValue)
 
@@ -829,19 +710,13 @@ function setSkillBase(id, value, baseValue)
 
     if not panel then return end
 
-
-
     local progress = topBar.skills[id].progress
 
     local progressDesc = "You have " .. 100 - math.floor(progress:getPercent()) .. " percent to go"
 
     local level = topBar.skills[id].level
 
-
-
     if baseValue <= 0 or value < 0 then return end
-
-
 
     if value > baseValue then
 
@@ -865,11 +740,7 @@ function setSkillBase(id, value, baseValue)
 
     end
 
-
-
 end
-
-
 
 function onMagicLevelChange(localPlayer, magiclevel, percent)
 
@@ -877,21 +748,15 @@ function onMagicLevelChange(localPlayer, magiclevel, percent)
 
     setSkillPercent('Magic', percent)
 
-
-
     onBaseMagicLevelChange(localPlayer, localPlayer:getBaseMagicLevel())
 
 end
-
-
 
 function onBaseMagicLevelChange(localPlayer, baseMagicLevel)
 
     setSkillBase('Magic', localPlayer:getMagicLevel(), baseMagicLevel)
 
 end
-
-
 
 function onSkillChange(localPlayer, id, level, percent)
 
@@ -901,27 +766,19 @@ function onSkillChange(localPlayer, id, level, percent)
 
         "Fist", "Club", "Sword", "Axe", "Distance", "Shielding", "Fishing"
 
-    }
-
-
+}
 
     -- imbues, ignore
 
     if id > #t then return end
 
-
-
     setSkillValue(t[id], level)
 
     setSkillPercent(t[id], percent)
 
-
-
     setSkillBase(t[id], level, localPlayer:getSkillBaseLevel(id - 1))
 
 end
-
-
 
 function onBaseSkillChange(localPlayer, id, baseLevel)
 
@@ -931,27 +788,19 @@ function onBaseSkillChange(localPlayer, id, baseLevel)
 
         "Fist", "Club", "Sword", "Axe", "Distance", "Shielding", "Fishing"
 
-    }
-
-
+}
 
     -- imbues, ignore
 
     if id > #t then return end
 
-
-
     setSkillBase(id, localPlayer:getSkillLevel(id), baseLevel)
 
 end
 
-
-
 function save()
 
     local settingsFile = modules.client_profiles.getSettingsFilePath("topbar.json")
-
-
 
     local status, result = pcall(function() return json.encode(settings, 2) end)
 
@@ -965,8 +814,6 @@ function save()
 
     end
 
-
-
     if result:len() > 100 * 1024 * 1024 then
 
         return onError(
@@ -975,19 +822,13 @@ function save()
 
     end
 
-
-
     g_resources.writeFileContents(settingsFile, result)
 
 end
 
-
-
 function load()
 
     local settingsFile = modules.client_profiles.getSettingsFilePath("topbar.json")
-
-
 
     if g_resources.fileExists(settingsFile) then
 
@@ -1020,12 +861,7 @@ end
 ```
 
 ---
-
-
-
 # topbar.otmod
-
-
 
 ```text
 
@@ -1052,20 +888,13 @@ Module
 ```
 
 ---
-
-
-
 # topbar.otui
-
-
 
 ```otui
 
 StatsPanel < Panel
 
   height: 19
-
-
 
   ProgressBar
 
@@ -1080,8 +909,6 @@ StatsPanel < Panel
     anchors.bottom: states.bottom   
 
     margin-right: 7
-
-
 
   ProgressBar
 
@@ -1099,8 +926,6 @@ StatsPanel < Panel
 
     background-color: #0060d5
 
-
-
   FlatPanel
 
     id: states
@@ -1112,8 +937,6 @@ StatsPanel < Panel
     anchors.horizontalCenter: parent.horizontalCenter
 
     anchors.top: parent.top
-
-
 
     Panel
 
@@ -1127,13 +950,9 @@ StatsPanel < Panel
 
         type: horizontalBox
 
-
-
 SkillPanel < Panel
 
   height: 19
-
-
 
   UIWidget
 
@@ -1151,8 +970,6 @@ SkillPanel < Panel
 
     margin-left: 7
 
-
-
   UIWidget
 
     id: icon
@@ -1168,8 +985,6 @@ SkillPanel < Panel
     image-clip: 0 0 9 9
 
     margin-left: 7
-
-
 
   ProgressBar
 
@@ -1191,8 +1006,6 @@ SkillPanel < Panel
 
     border: 1 black
 
-
-
   UIWidget
 
     id: shop
@@ -1209,13 +1022,9 @@ SkillPanel < Panel
 
     image-clip: 0 0 76 14
 
-
-
     $pressed:
 
       image-clip: 0 14 76 14
-
-  
 
   VerticalSeparator
 
@@ -1231,8 +1040,6 @@ SkillPanel < Panel
 
     anchors.right: progress.horizontalCenter
 
-
-
   VerticalSeparator
 
     id: middle
@@ -1247,8 +1054,6 @@ SkillPanel < Panel
 
     anchors.right: progress.horizontalCenter  
 
-
-
   VerticalSeparator
 
     id: right
@@ -1262,8 +1067,6 @@ SkillPanel < Panel
     margin-bottom: -2
 
     anchors.right: progress.right  
-
-
 
 Panel
 
@@ -1283,13 +1086,9 @@ Panel
 
     fit-children: true
 
-
-
   StatsPanel
 
     id: stats
-
-
 
   Panel
 
@@ -1306,6 +1105,3 @@ Panel
 ```
 
 ---
-
-
-

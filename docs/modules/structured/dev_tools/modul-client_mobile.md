@@ -1,9 +1,4 @@
-# ¦ Modul: `client_mobile`
-
-
-
-
-
+﻿# ¦ Modul: `client_mobile`
 
 ```lua
 
@@ -27,8 +22,6 @@ local keypadMousePos = {x=0.5, y=0.5}
 
 local keypadTicks = 0
 
-
-
 -- public functions
 
 function init()
@@ -40,8 +33,6 @@ function init()
   keypad = overlay.keypad
 
   overlay:raise()
-
-  
 
   zoomInButton = modules.client_topmenu.addLeftButton('zoomInButton', 'Zoom In', '/images/topbuttons/zoomin', function() g_app.scaleUp() end)
 
@@ -65,15 +56,11 @@ function init()
 
   keypadButton:setChecked(true)
 
-  
-
   scheduleEvent(function()
 
     g_app.scale(5.0)
 
   end, 10)
-
-  
 
   connect(overlay, { 
 
@@ -87,7 +74,7 @@ function init()
 
     onMouseMove = onMouseMove 
 
-  })
+})
 
   connect(keypad, {
 
@@ -97,7 +84,7 @@ function init()
 
     onMouseMove = onKeypadTouchMove
 
-  })
+})
 
   connect(g_game, { 
 
@@ -105,7 +92,7 @@ function init()
 
     onGameEnd = offline 
 
-  })
+})
 
   if g_game.isOnline() then
 
@@ -114,8 +101,6 @@ function init()
   end
 
 end
-
-
 
 function terminate()
 
@@ -139,7 +124,7 @@ function terminate()
 
     onMouseMove = onMouseMove 
 
-  })
+})
 
   disconnect(keypad, {
 
@@ -149,7 +134,7 @@ function terminate()
 
     onMouseMove = onKeypadTouchMove
 
-  })
+})
 
   disconnect(g_game, { 
 
@@ -157,7 +142,7 @@ function terminate()
 
     onGameEnd = offline 
 
-  })
+})
 
   zoomInButton:destroy()
 
@@ -171,23 +156,17 @@ function terminate()
 
 end
 
-
-
 function hide()
 
   overlay:hide()
 
 end
 
-
-
 function show()
 
   overlay:show()
 
 end
-
-
 
 function online()
 
@@ -201,23 +180,15 @@ function online()
 
 end
 
-
-
 function offline()
 
   keypad:hide()
 
 end
 
-
-
 function onMouseMove(widget, pos, offset)
 
-
-
 end
-
-
 
 function onMousePress(widget, pos, button)
 
@@ -245,8 +216,6 @@ function onMousePress(widget, pos, button)
 
 end
 
-
-
 function onMouseRelease(widget, pos, button)
 
   if button == MouseTouch then
@@ -258,8 +227,6 @@ function onMouseRelease(widget, pos, button)
   end
 
 end
-
-
 
 function updateCursor()
 
@@ -285,8 +252,6 @@ function updateCursor()
 
 end
 
-
-
 function onKeypadTouchMove(widget, pos, offset)
 
   keypadMousePos = {x=(pos.x - widget:getPosition().x) / widget:getWidth(), 
@@ -296,8 +261,6 @@ function onKeypadTouchMove(widget, pos, offset)
   return true
 
 end
-
-
 
 function onKeypadTouchPress(widget, pos, button)
 
@@ -314,8 +277,6 @@ function onKeypadTouchPress(widget, pos, button)
   return true
 
 end
-
-
 
 function onKeypadTouchRelease(widget, pos, button)
 
@@ -336,8 +297,6 @@ function onKeypadTouchRelease(widget, pos, button)
   return true
 
 end
-
-
 
 function executeWalk()
 
@@ -442,12 +401,7 @@ end
 ```
 
 ---
-
-
-
 # mobile.otmod
-
-
 
 ```text
 
@@ -472,12 +426,7 @@ Module
 ```
 
 ---
-
-
-
 # mobile.otui
-
-
 
 ```otui
 
@@ -488,8 +437,6 @@ UIWidget
   focusable: false
 
   phantom: true
-
-
 
   UIProgressRect
 
@@ -510,8 +457,6 @@ UIWidget
     focusable: false
 
     phantom: true
-
-
 
   UIWidget
 
@@ -537,8 +482,6 @@ UIWidget
 
     image-rect: 25 0 150 150
 
-    
-
     UIWidget
 
       id: pointer
@@ -560,6 +503,3 @@ UIWidget
 ```
 
 ---
-
-
-

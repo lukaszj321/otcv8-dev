@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot_configs`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot_configs`
 
 ```text
 
@@ -13,9 +8,7 @@
 
     "items": [
 
-
-
-    ],
+],
 
     "maxDanger": 10,
 
@@ -23,23 +16,23 @@
 
     "containers": [
 
-      {
+{
 
         "count": 1,
 
         "id": 2853
 
-      }
+}
 
-    ],
+],
 
     "everyItem": true
 
-  },
+},
 
   "targeting": [
 
-    {
+{
 
       "useSpellAttack": false,
 
@@ -107,15 +100,12 @@
 
       "regex": "^cat$|^w.?lf$|^snake$|^troll$"
 
-    }
+}
 
-  ]
+]
 
 }
 
 ```
 
 ---
-
-
-

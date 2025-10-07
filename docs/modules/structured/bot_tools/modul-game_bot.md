@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot`
 
 ```lua
 
@@ -15,11 +10,7 @@ contentsPanel = nil
 
 editWindow = nil
 
-
-
 local checkEvent = nil
-
-
 
 local botStorage = {}
 
@@ -33,8 +24,6 @@ local botTabs = nil
 
 local botExecutor = nil
 
-
-
 local configList = nil
 
 local enableButton = nil
@@ -43,17 +32,11 @@ local executeEvent = nil
 
 local statusLabel = nil
 
-
-
 local configManagerUrl = "http://otclient.ovh/configs.php"
-
-
 
 function init()
 
   dofile("executor")
-
-  
 
   g_ui.importStyle("ui/basic.otui")
 
@@ -65,21 +48,15 @@ function init()
 
   g_ui.importStyle("ui/container.otui")
 
-  
-
   connect(g_game, { 
 
     onGameStart = online, 
 
     onGameEnd = offline, 
 
-  })
-
-  
+})
 
   initCallbacks()  
-
-  
 
   botButton = modules.client_topmenu.addRightGameToggleButton('botButton', tr('Bot'), '/images/topbuttons/bot', toggle, false, 99999)
 
@@ -87,13 +64,9 @@ function init()
 
   botButton:hide()
 
-
-
   botWindow = g_ui.loadUI('bot', modules.game_interface.getLeftPanel())
 
   botWindow:setup()
-
-
 
   contentsPanel = botWindow.contentsPanel
 
@@ -109,13 +82,9 @@ function init()
 
   botTabs:setContentWidget(contentsPanel.botPanel)  
 
-  
-
   editWindow = g_ui.displayUI('edit')
 
   editWindow:hide()
-
-    
 
   if g_game.isOnline() then
 
@@ -127,15 +96,11 @@ function init()
 
 end
 
-
-
 function terminate()
 
   save()
 
   clear()
-
-
 
   disconnect(g_game, { 
 
@@ -143,15 +108,11 @@ function terminate()
 
     onGameEnd = offline, 
 
-  })
-
-  
+})
 
   terminateCallbacks()
 
   editWindow:destroy()
-
-
 
   botWindow:destroy()
 
@@ -159,33 +120,23 @@ function terminate()
 
 end
 
-
-
 function clear()
 
   botExecutor = nil
 
   removeEvent(checkEvent)
 
-
-
   -- optimization, callback is not used when not needed
 
   g_game.enableTileThingLuaCallback(false)
-
-
 
   botTabs:clearTabs()  
 
   botTabs:setOn(false)
 
-  
-
   botMessages:destroyChildren()
 
   botMessages:updateLayout()
-
-  
 
   for i, socket in pairs(botWebSockets) do
 
@@ -194,8 +145,6 @@ function clear()
     botWebSockets[i] = nil
 
   end
-
-
 
   for i, widget in pairs(g_ui.getRootWidget():getChildren()) do
 
@@ -231,8 +180,6 @@ function clear()
 
   end
 
-  
-
   local gameMapPanel = modules.game_interface.getMapPanel()
 
   if gameMapPanel then
@@ -240,8 +187,6 @@ function clear()
     gameMapPanel:unlockVisibleFloor()   
 
   end
-
-  
 
   if g_sounds then
 
@@ -251,10 +196,6 @@ function clear()
 
 end
 
-
-
-
-
 function refresh()
 
   if not g_game.isOnline() then return end
@@ -262,8 +203,6 @@ function refresh()
   save()
 
   clear()
-
-  
 
   -- create bot dir
 
@@ -279,15 +218,11 @@ function refresh()
 
   end
 
-  
-
   -- get list of configs
 
   createDefaultConfigs()
 
   local configs = g_resources.listDirectoryFiles("/bot", false, false)  
-
-  
 
   -- clean
 
@@ -296,8 +231,6 @@ function refresh()
   enableButton.onClick = nil
 
   configList:clearOptions()  
-
-     
 
   -- select active config based on settings
 
@@ -313,11 +246,9 @@ function refresh()
 
       config=""
 
-    }
+}
 
   end  
-
-  
 
   -- init list and buttons
 
@@ -337,11 +268,7 @@ function refresh()
 
   end
 
-  
-
   enableButton:setOn(settings[index].enabled)
-
-  
 
   configList.onOptionChange = function(widget)
 
@@ -355,8 +282,6 @@ function refresh()
 
   end
 
-  
-
   enableButton.onClick = function(widget)
 
     settings[index].enabled = not settings[index].enabled
@@ -369,8 +294,6 @@ function refresh()
 
   end
 
-  
-
   if not g_game.isOnline() or not settings[index].enabled then
 
     statusLabel:setOn(true)
@@ -381,17 +304,11 @@ function refresh()
 
   end
 
-  
-
   local configName = settings[index].config
-
-
 
   -- storage
 
   botStorage = {}
-
-  
 
   local path = "/bot/" .. configName .. "/storage/"
 
@@ -400,8 +317,6 @@ function refresh()
     g_resources.makeDir(path)
 
   end
-
-
 
   botStorageFile = path.."profile_" .. g_settings.getNumber('profile') .. ".json"
 
@@ -423,23 +338,19 @@ function refresh()
 
   end
 
-
-
   -- run script
 
   local status, result = pcall(function() 
 
     return executeBot(configName, botStorage, botTabs, message, save, refresh, botWebSockets) end
 
-  )
+)
 
   if not status then
 
     return onError(result)
 
   end
-
-  
 
   statusLabel:setOn(false)
 
@@ -449,8 +360,6 @@ function refresh()
 
 end
 
-
-
 function save()
 
   if not botExecutor then
@@ -458,8 +367,6 @@ function save()
     return
 
   end
-
-  
 
   local settings = g_settings.getNode('bot') or {}
 
@@ -470,8 +377,6 @@ function save()
     return
 
   end
-
-  
 
   local status, result = pcall(function() 
 
@@ -485,29 +390,21 @@ function save()
 
   end
 
-  
-
   if result:len() > 100 * 1024 * 1024 then
 
     return onError("Storage file is too big, above 100MB, it won't be saved")
 
   end
 
-  
-
   g_resources.writeFileContents(botStorageFile, result)
 
 end
-
-
 
 function onMiniWindowClose()
 
   botButton:setOn(false)
 
 end
-
-
 
 function toggle()
 
@@ -527,8 +424,6 @@ function toggle()
 
 end
 
-
-
 function online()
 
   botButton:show()
@@ -540,8 +435,6 @@ function online()
   end
 
 end
-
-
 
 function offline()
 
@@ -555,8 +448,6 @@ function offline()
 
 end
 
-
-
 function onError(message)
 
   statusLabel:setOn(true)
@@ -566,8 +457,6 @@ function onError(message)
   g_logger.error("[BOT] " .. message)
 
 end
-
-
 
 function edit()
 
@@ -583,8 +472,6 @@ function edit()
 
   editWindow.manager.download.config:setText("")
 
-  
-
   editWindow:show()
 
   editWindow:focus()
@@ -592,8 +479,6 @@ function edit()
   editWindow:raise()
 
 end
-
-
 
 function createDefaultConfigs()
 
@@ -610,8 +495,6 @@ function createDefaultConfigs()
         return onError("Can't create /bot/" .. config_name .. " directory in " .. g_resources.getWriteDir())
 
       end
-
-
 
       local defaultConfigFiles = g_resources.listDirectoryFiles("default_configs/" .. config_name, true, false)
 
@@ -669,8 +552,6 @@ function createDefaultConfigs()
 
 end
 
-
-
 function uploadConfig()
 
   local config = editWindow.manager.upload.config:getCurrentOption().text
@@ -689,11 +570,7 @@ function uploadConfig()
 
   end
 
-  
-
   local infoBox = displayInfoBox(tr("Uploading config"), tr("Uploading config %s. Please wait.", config))
-
-  
 
   HTTP.postJSON(configManagerUrl .. "?config=" .. config:gsub("%s+", "_"), archive, function(data, err)
 
@@ -714,8 +591,6 @@ function uploadConfig()
   end)  
 
 end
-
-
 
 function downloadConfig()
 
@@ -765,8 +640,6 @@ function downloadConfig()
 
 end
 
-
-
 function compressConfig(configName)
 
   if not g_resources.directoryExists("/bot/" .. configName) then
@@ -807,8 +680,6 @@ function compressConfig(configName)
 
 end
 
-
-
 function decompressConfig(configName, archive)
 
   if g_resources.directoryExists("/bot/" .. configName) then
@@ -826,8 +697,6 @@ function decompressConfig(configName, archive)
     return onError("Can't create /bot/" .. configName .. " directory in " .. g_resources.getWriteDir())
 
   end
-
-  
 
   for file, contents in pairs(files) do
 
@@ -860,8 +729,6 @@ function decompressConfig(configName, archive)
   end
 
 end
-
-
 
 -- Executor
 
@@ -897,8 +764,6 @@ function message(category, msg)
 
   end
 
-  
-
   if botMessages:getChildCount() > 5 then
 
     botMessages:getFirstChild():destroy()
@@ -906,8 +771,6 @@ function message(category, msg)
   end
 
 end
-
-
 
 function check()
 
@@ -919,11 +782,7 @@ function check()
 
   end
 
-
-
   checkEvent = scheduleEvent(check, 10)
-
-  
 
   local status, result = pcall(function() 
 
@@ -939,8 +798,6 @@ function check()
 
   end 
 
-  
-
   -- remove old messages
 
   local widget = botMessages:getFirstChild()
@@ -952,8 +809,6 @@ function check()
   end
 
 end
-
-
 
 -- Callbacks
 
@@ -967,9 +822,7 @@ function initCallbacks()
 
     onKeyPress = botKeyPress 
 
-  })
-
-
+})
 
   connect(g_game, { 
 
@@ -1007,9 +860,7 @@ function initCallbacks()
 
     onSpellGroupCooldown = botGroupSpellCooldown
 
-  })
-
-  
+})
 
   connect(Tile, {
 
@@ -1017,9 +868,7 @@ function initCallbacks()
 
     onRemoveThing = botRemoveThing 
 
-  })
-
-
+})
 
   connect(Creature, {
 
@@ -1035,9 +884,7 @@ function initCallbacks()
 
     onWalk = botCreatureWalk,
 
-  })
-
-  
+})
 
   connect(LocalPlayer, {
 
@@ -1055,9 +902,7 @@ function initCallbacks()
 
     onInventoryChange = botInventoryChange
 
-  })
-
-  
+})
 
   connect(Container, {
 
@@ -1071,9 +916,7 @@ function initCallbacks()
 
     onRemoveItem = botContainerRemoveItem,
 
-  })
-
-  
+})
 
   connect(g_map, { 
 
@@ -1083,11 +926,9 @@ function initCallbacks()
 
     onStaticText = botOnStaticText
 
-  })
+})
 
 end
-
-
 
 function terminateCallbacks()
 
@@ -1099,9 +940,7 @@ function terminateCallbacks()
 
     onKeyPress = botKeyPress 
 
-  })
-
-                        
+})
 
   disconnect(g_game, { 
 
@@ -1135,9 +974,7 @@ function terminateCallbacks()
 
     onSpellGroupCooldown = botGroupSpellCooldown
 
-  })
-
-  
+})
 
   disconnect(Tile, {
 
@@ -1145,9 +982,7 @@ function terminateCallbacks()
 
     onRemoveThing = botRemoveThing 
 
-  })
-
-
+})
 
   disconnect(Creature, {
 
@@ -1163,9 +998,7 @@ function terminateCallbacks()
 
     onWalk = botCreatureWalk,
 
-  })  
-
-  
+})
 
   disconnect(LocalPlayer, {
 
@@ -1183,9 +1016,7 @@ function terminateCallbacks()
 
     onInventoryChange = botInventoryChange
 
-  })
-
-  
+})
 
   disconnect(Container, {
 
@@ -1199,9 +1030,7 @@ function terminateCallbacks()
 
     onRemoveItem = botContainerRemoveItem
 
-  })
-
-  
+})
 
   disconnect(g_map, { 
 
@@ -1211,11 +1040,9 @@ function terminateCallbacks()
 
     onStaticText = botOnStaticText
 
-  })
+})
 
 end
-
-
 
 function safeBotCall(func)
 
@@ -1229,8 +1056,6 @@ function safeBotCall(func)
 
 end
 
-
-
 function botKeyDown(widget, keyCode, keyboardModifiers)
 
   if botExecutor == nil then return false end
@@ -1240,8 +1065,6 @@ function botKeyDown(widget, keyCode, keyboardModifiers)
   safeBotCall(function() botExecutor.callbacks.onKeyDown(keyCode, keyboardModifiers) end)
 
 end
-
-
 
 function botKeyUp(widget, keyCode, keyboardModifiers)
 
@@ -1253,8 +1076,6 @@ function botKeyUp(widget, keyCode, keyboardModifiers)
 
 end
 
-
-
 function botKeyPress(widget, keyCode, keyboardModifiers, autoRepeatTicks)
 
   if botExecutor == nil then return false end
@@ -1265,8 +1086,6 @@ function botKeyPress(widget, keyCode, keyboardModifiers, autoRepeatTicks)
 
 end
 
-
-
 function botOnTalk(name, level, mode, text, channelId, pos)
 
   if botExecutor == nil then return false end
@@ -1274,8 +1093,6 @@ function botOnTalk(name, level, mode, text, channelId, pos)
   safeBotCall(function() botExecutor.callbacks.onTalk(name, level, mode, text, channelId, pos) end)
 
 end
-
-
 
 function botOnTextMessage(mode, text)
 
@@ -1285,8 +1102,6 @@ function botOnTextMessage(mode, text)
 
 end
 
-
-
 function botOnLoginAdvice(message)
 
   if botExecutor == nil then return false end
@@ -1294,8 +1109,6 @@ function botOnLoginAdvice(message)
   safeBotCall(function() botExecutor.callbacks.onLoginAdvice(message) end)
 
 end
-
-
 
 function botAddThing(tile, thing)
 
@@ -1305,8 +1118,6 @@ function botAddThing(tile, thing)
 
 end
 
-
-
 function botRemoveThing(tile, thing)
 
   if botExecutor == nil then return false end
@@ -1314,8 +1125,6 @@ function botRemoveThing(tile, thing)
   safeBotCall(function() botExecutor.callbacks.onRemoveThing(tile, thing) end)
 
 end
-
-
 
 function botCreatureAppear(creature)
 
@@ -1325,8 +1134,6 @@ function botCreatureAppear(creature)
 
 end
 
-
-
 function botCreatureDisappear(creature)
 
   if botExecutor == nil then return false end
@@ -1334,8 +1141,6 @@ function botCreatureDisappear(creature)
   safeBotCall(function() botExecutor.callbacks.onCreatureDisappear(creature) end)
 
 end
-
-
 
 function botCreaturePositionChange(creature, newPos, oldPos)
 
@@ -1345,8 +1150,6 @@ function botCreaturePositionChange(creature, newPos, oldPos)
 
 end
 
-
-
 function botCraetureHealthPercentChange(creature, healthPercent)
 
   if botExecutor == nil then return false end
@@ -1354,8 +1157,6 @@ function botCraetureHealthPercentChange(creature, healthPercent)
   safeBotCall(function() botExecutor.callbacks.onCreatureHealthPercentChange(creature, healthPercent) end)
 
 end
-
-
 
 function botOnUse(pos, itemId, stackPos, subType)
 
@@ -1365,8 +1166,6 @@ function botOnUse(pos, itemId, stackPos, subType)
 
 end
 
-
-
 function botOnUseWith(pos, itemId, target, subType)
 
   if botExecutor == nil then return false end
@@ -1374,8 +1173,6 @@ function botOnUseWith(pos, itemId, target, subType)
   safeBotCall(function() botExecutor.callbacks.onUseWith(pos, itemId, target, subType) end)
 
 end
-
-
 
 function botContainerOpen(container, previousContainer)
 
@@ -1385,8 +1182,6 @@ function botContainerOpen(container, previousContainer)
 
 end
 
-
-
 function botContainerClose(container)
 
   if botExecutor == nil then return false end
@@ -1394,8 +1189,6 @@ function botContainerClose(container)
   safeBotCall(function() botExecutor.callbacks.onContainerClose(container) end)
 
 end
-
-
 
 function botContainerUpdateItem(container, slot, item, oldItem)
 
@@ -1405,8 +1198,6 @@ function botContainerUpdateItem(container, slot, item, oldItem)
 
 end
 
-
-
 function botOnMissle(missle)
 
   if botExecutor == nil then return false end
@@ -1414,8 +1205,6 @@ function botOnMissle(missle)
   safeBotCall(function() botExecutor.callbacks.onMissle(missle) end)
 
 end
-
-
 
 function botOnAnimatedText(thing, text)
 
@@ -1425,8 +1214,6 @@ function botOnAnimatedText(thing, text)
 
 end
 
-
-
 function botOnStaticText(thing, text)
 
   if botExecutor == nil then return false end
@@ -1434,8 +1221,6 @@ function botOnStaticText(thing, text)
   safeBotCall(function() botExecutor.callbacks.onStaticText(thing, text) end)
 
 end
-
-
 
 function botChannelList(channels)
 
@@ -1445,8 +1230,6 @@ function botChannelList(channels)
 
 end
 
-
-
 function botOpenChannel(channelId, name)
 
   if botExecutor == nil then return false end
@@ -1454,8 +1237,6 @@ function botOpenChannel(channelId, name)
   safeBotCall(function() botExecutor.callbacks.onOpenChannel(channelId, name) end)
 
 end
-
-
 
 function botCloseChannel(channelId)
 
@@ -1465,8 +1246,6 @@ function botCloseChannel(channelId)
 
 end
 
-
-
 function botChannelEvent(channelId, name, event)
 
   if botExecutor == nil then return false end
@@ -1474,8 +1253,6 @@ function botChannelEvent(channelId, name, event)
   safeBotCall(function() botExecutor.callbacks.onChannelEvent(channelId, name, event) end)
 
 end
-
-
 
 function botCreatureTurn(creature, direction)
 
@@ -1485,8 +1262,6 @@ function botCreatureTurn(creature, direction)
 
 end
 
-
-
 function botCreatureWalk(creature, oldPos, newPos)
 
   if botExecutor == nil then return false end
@@ -1494,8 +1269,6 @@ function botCreatureWalk(creature, oldPos, newPos)
   safeBotCall(function() botExecutor.callbacks.onWalk(creature, oldPos, newPos) end)
 
 end
-
-
 
 function botImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
 
@@ -1505,8 +1278,6 @@ function botImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
 
 end
 
-
-
 function botModalDialog(id, title, message, buttons, enterButton, escapeButton, choices, priority)
 
   if botExecutor == nil then return false end
@@ -1514,8 +1285,6 @@ function botModalDialog(id, title, message, buttons, enterButton, escapeButton, 
   safeBotCall(function() botExecutor.callbacks.onModalDialog(id, title, message, buttons, enterButton, escapeButton, choices, priority) end)
 
 end
-
-
 
 function botGameEditText(id, itemId, maxLength, text, writer, time)
 
@@ -1525,8 +1294,6 @@ function botGameEditText(id, itemId, maxLength, text, writer, time)
 
 end
 
-
-
 function botAttackingCreatureChange(creature, oldCreature)
 
   if botExecutor == nil then return false end
@@ -1534,8 +1301,6 @@ function botAttackingCreatureChange(creature, oldCreature)
   safeBotCall(function() botExecutor.callbacks.onAttackingCreatureChange(creature,oldCreature) end)
 
 end
-
-
 
 function botManaChange(player, mana, maxMana, oldMana, oldMaxMana)
 
@@ -1545,8 +1310,6 @@ function botManaChange(player, mana, maxMana, oldMana, oldMaxMana)
 
 end
 
-
-
 function botStatesChange(player, states, oldStates)
 
   if botExecutor == nil then return false end
@@ -1554,8 +1317,6 @@ function botStatesChange(player, states, oldStates)
   safeBotCall(function() botExecutor.callbacks.onStatesChange(player, states, oldStates) end)
 
 end
-
-
 
 function botContainerAddItem(container, slot, item, oldItem)
 
@@ -1565,8 +1326,6 @@ function botContainerAddItem(container, slot, item, oldItem)
 
 end
 
-
-
 function botContainerRemoveItem(container, slot, item)
 
   if botExecutor == nil then return false end
@@ -1574,8 +1333,6 @@ function botContainerRemoveItem(container, slot, item)
   safeBotCall(function() botExecutor.callbacks.onRemoveItem(container, slot, item) end)
 
 end
-
-
 
 function botSpellCooldown(iconId, duration)
 
@@ -1585,8 +1342,6 @@ function botSpellCooldown(iconId, duration)
 
 end
 
-
-
 function botGroupSpellCooldown(iconId, duration)
 
   if botExecutor == nil then return false end
@@ -1594,8 +1349,6 @@ function botGroupSpellCooldown(iconId, duration)
   safeBotCall(function() botExecutor.callbacks.onGroupSpellCooldown(iconId, duration) end)
 
 end
-
-
 
 function botInventoryChange(player, slot, item, oldItem)
 
@@ -1608,12 +1361,7 @@ end
 ```
 
 ---
-
-
-
 # bot.otmod
-
-
 
 ```text
 
@@ -1636,12 +1384,7 @@ Module
 ```
 
 ---
-
-
-
 # bot.otui
-
-
 
 ```otui
 
@@ -1655,23 +1398,17 @@ BotTabBar < TabBar
 
   height: 20
 
-  
-
   $on:
 
     visible: true
 
     margin-top: 2
 
-
-
   $!on:
 
     visible: false
 
     margin-top: -20
-
-
 
 BotTabBarPanel < TabBarPanel
 
@@ -1686,8 +1423,6 @@ BotTabBarButton < TabBarButton
   $!first:
 
     margin-left: 0
-
-
 
 MiniWindow
 
@@ -1704,8 +1439,6 @@ MiniWindow
   &save: true
 
   &autoOpen: 10
-
-
 
   MiniWindowContents   
 
@@ -1735,8 +1468,6 @@ MiniWindow
 
       text-offset: 3 0
 
-      
-
     Button
 
       id: editConfig
@@ -1755,8 +1486,6 @@ MiniWindow
 
       margin-right: 37
 
-
-
     Button
 
       id: enableButton
@@ -1771,23 +1500,17 @@ MiniWindow
 
       margin-right: 2
 
-      
-
       $on:
 
         text: On
 
         color: #00AA00
 
-        
-
       $!on:
 
         text: Off
 
         color: #FF0000
-
-    
 
     Label
 
@@ -1811,21 +1534,15 @@ MiniWindow
 
       margin-right: 3
 
-      
-
       $on:
 
         margin-top: 3
-
-      
 
       $!on:
 
         text:
 
         margin-top: -13
-
-      
 
     HorizontalSeparator
 
@@ -1840,8 +1557,6 @@ MiniWindow
       margin-left: 2
 
       margin-right: 2
-
-
 
     Panel
 
@@ -1859,8 +1574,6 @@ MiniWindow
 
         fit-children: true
 
-
-
     HorizontalSeparator
 
       anchors.left: parent.left
@@ -1875,8 +1588,6 @@ MiniWindow
 
       margin-right: 2
 
-    
-
     BotTabBar
 
       id: botTabs
@@ -1888,8 +1599,6 @@ MiniWindow
       anchors.right: parent.right
 
       margin-right: -20
-
-      
 
     Panel
 
@@ -1908,12 +1617,7 @@ MiniWindow
 ```
 
 ---
-
-
-
 # configs.png
-
-
 
 ```text
 
@@ -1922,12 +1626,7 @@ MiniWindow
 ```
 
 ---
-
-
-
 # edit.otui
-
-
 
 ```otui
 
@@ -1945,8 +1644,6 @@ MainWindow
 
     size: 550 240
 
-
-
   Panel
 
     id: manager
@@ -1958,8 +1655,6 @@ MainWindow
     anchors.right: parent.right
 
     height: 152
-
-    
 
     Label
 
@@ -1977,8 +1672,6 @@ MainWindow
 
       !text: tr("Config Manager\nYou can use config manager to share configs between different machines, especially smartphones. After you configure your config, you can upload it, then you'll get unique hash code which you can use on diffent machinge (for eg. mobile phone) to download it.")
 
-      
-
     HorizontalSeparator
 
       anchors.top: prev.bottom
@@ -1990,8 +1683,6 @@ MainWindow
       margin-top: 3
 
       height: 2
-
-      
 
     Panel
 
@@ -2006,8 +1697,6 @@ MainWindow
       anchors.bottom: parent.bottom
 
       margin-top: 3
-
-
 
       Label
 
@@ -2024,8 +1713,6 @@ MainWindow
         text-wrap: true
 
         !text: tr("Upload config")
-
-
 
       Label
 
@@ -2045,8 +1732,6 @@ MainWindow
 
         !text: tr("Select config to upload")
 
-
-
       ComboBox
 
         id: config
@@ -2064,8 +1749,6 @@ MainWindow
         margin-right: 20
 
         text-offset: 3 0
-
-        
 
       Button
 
@@ -2087,8 +1770,6 @@ MainWindow
 
         @onClick: modules.game_bot.uploadConfig()
 
-        
-
     Panel
 
       id: download
@@ -2100,8 +1781,6 @@ MainWindow
       anchors.right: parent.right      
 
       anchors.bottom: parent.bottom
-
-
 
       Label
 
@@ -2118,8 +1797,6 @@ MainWindow
         text-wrap: true
 
         !text: tr("Download config")
-
-
 
       Label
 
@@ -2139,8 +1816,6 @@ MainWindow
 
         !text: tr("Enter config hash code")
 
-
-
       TextEdit
 
         id: config
@@ -2156,8 +1831,6 @@ MainWindow
         margin-left: 20
 
         margin-right: 20
-
-        
 
       Button
 
@@ -2179,8 +1852,6 @@ MainWindow
 
         @onClick: modules.game_bot.downloadConfig()        
 
-        
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -2192,8 +1863,6 @@ MainWindow
     margin-top: 3
 
     height: 2
-
-  
 
   Panel
 
@@ -2211,8 +1880,6 @@ MainWindow
 
       visible: false
 
-
-
     Label
 
       anchors.top: parent.top
@@ -2228,8 +1895,6 @@ MainWindow
       text-wrap: true
 
       !text: tr("Bot configs are stored in:")
-
-
 
     TextEdit
 
@@ -2249,8 +1914,6 @@ MainWindow
 
       text-align: center
 
-
-
     Button
 
       id: documentationButton
@@ -2266,8 +1929,6 @@ MainWindow
       width: 250
 
       @onClick: g_platform.openDir(g_resources.getWriteDir() .. "bot")
-
-
 
     Label
 
@@ -2287,8 +1948,6 @@ MainWindow
 
       !text: tr("Every directory in bot directory is treated as different config.\nTo create new config just create new directory.")
 
-
-
     Label
 
       margin-top: 5
@@ -2304,8 +1963,6 @@ MainWindow
       image-fixed-ratio: true
 
       image-size: 500 175
-
-
 
     Label
 
@@ -2325,8 +1982,6 @@ MainWindow
 
       !text: tr("Inside config directory put .lua and .otui files.\nEvery file will be loaded and executed in alphabetical order, .otui first and then .lua.")
 
-
-
     Label
 
       margin-top: 3
@@ -2345,8 +2000,6 @@ MainWindow
 
       !text: tr("To reload configs just press On and Off in bot window.\nTo learn more about bot click Tutorials button.")
 
-
-
   Button
 
     !text: tr('Documentation')
@@ -2358,8 +2011,6 @@ MainWindow
     width: 118
 
     @onClick: g_platform.openUrl("http://otclient.ovh/bot.php?documentation")
-
-
 
   Button
 
@@ -2375,8 +2026,6 @@ MainWindow
 
     @onClick: g_platform.openUrl("http://otclient.ovh/bot.php?tutorials")
 
-
-
   Button
 
     !text: tr('Scripts')
@@ -2390,8 +2039,6 @@ MainWindow
     width: 80
 
     @onClick: g_platform.openUrl("http://otclient.ovh/bot.php?scripts")
-
-
 
   Button
 
@@ -2407,8 +2054,6 @@ MainWindow
 
     @onClick: g_platform.openUrl("http://otclient.ovh/bot.php?forum")
 
-
-
   Button
 
     !text: tr('Discord')
@@ -2422,8 +2067,6 @@ MainWindow
     width: 80
 
     @onClick: g_platform.openUrl("http://otclient.ovh/bot.php?discord")
-
-  
 
   Button
 
@@ -2442,12 +2085,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # executor.lua
-
-
 
 ```lua
 
@@ -2479,15 +2117,11 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
   end
 
-  
-
   if #luaFiles == 0 then
 
     return error("Config (/bot/" .. config .. ") doesn't have lua files")
 
   end
-
-  
 
   -- init bot variables
 
@@ -2505,8 +2139,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
   context.reload = reloadCallback
 
-  
-
   context.storage = storage
 
   if context.storage._macros == nil then
@@ -2514,8 +2146,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
     context.storage._macros = {} -- active macros
 
   end
-
-
 
   -- websockets, macros, hotkeys, scheduler, icons, callbacks
 
@@ -2603,9 +2233,7 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
     onInventoryChange = {}
 
-  }
-
-  
+}
 
   -- basic functions & classes
 
@@ -2645,7 +2273,7 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
     clock = os.clock
 
-  }
+}
 
   context.load = function(str) return assert(load(str, nil, nil, context)) end
 
@@ -2675,8 +2303,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
   context.getVersion = g_app.getVersion
 
-  
-
   -- classes
 
   context.g_resources = g_resources
@@ -2705,9 +2331,7 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
     openDir = g_platform.openDir,
 
-  }
-
-
+}
 
   context.Item = Item
 
@@ -2731,8 +2355,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
   context.modules = modules
 
-
-
   -- log functions
 
   context.info = function(text) return msgCallback("info", tostring(text)) end
@@ -2743,8 +2365,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
   context.warning = context.warn      
 
-
-
   -- init context
 
   context.now = g_clock.millis()
@@ -2752,8 +2372,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
   context.time = g_clock.millis()
 
   context.player = g_game.getLocalPlayer()
-
-
 
   -- init functions
 
@@ -2767,8 +2385,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
   G.botContext = nil
 
-
-
   -- run ui scripts
 
   for i, file in ipairs(uiFiles) do
@@ -2776,8 +2392,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
     g_ui.importStyle(file)
 
   end
-
-
 
   -- run lua script
 
@@ -2789,8 +2403,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
   end
 
-
-
   return {
 
     script = function()      
@@ -2798,8 +2410,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
       context.now = g_clock.millis()
 
       context.time = g_clock.millis()
-
-      
 
       for i, macro in ipairs(context._macros) do
 
@@ -2824,8 +2434,6 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
         end
 
       end
-
-      
 
       while #context._scheduler > 0 and context._scheduler[1].execution <= g_clock.millis() do
 
@@ -3291,21 +2899,16 @@ function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, relo
 
       end
 
-    }    
+}
 
-  }
+}
 
 end
 
 ```
 
 ---
-
-
-
 # scripts.png
-
-
 
 ```text
 
@@ -3314,6 +2917,3 @@ end
 ```
 
 ---
-
-
-

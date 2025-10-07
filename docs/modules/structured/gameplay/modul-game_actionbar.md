@@ -1,9 +1,4 @@
-# ¦ Modul: `game_actionbar`
-
-
-
-
-
+﻿# ¦ Modul: `game_actionbar`
 
 ```lua
 
@@ -19,8 +14,6 @@ local window = nil
 
 local mouseGrabberWidget = nil
 
-
-
 local TYPE = {
 
   BLANK = 0,
@@ -32,8 +25,6 @@ local TYPE = {
   ITEM = 3
 
 }
-
-
 
 local ACTION = {
 
@@ -50,8 +41,6 @@ local ACTION = {
   USE_CROSS = 5
 
 }
-
-
 
 -- servers may have different id's, change if not working properly (only for protocols 910+)
 
@@ -77,13 +66,9 @@ local function translateVocation(id)
 
 end
 
-
-
 local function isSpell(text) -- returns bool or table (spelldata, param text)
 
   text = text:lower():trim()
-
-
 
   for spellName, spellData in pairs(SpellInfo['Default']) do
 
@@ -94,8 +79,6 @@ local function isSpell(text) -- returns bool or table (spelldata, param text)
     local data = spellData
 
     data.spellName = spellName
-
-
 
     if not param then
 
@@ -123,13 +106,9 @@ local function isSpell(text) -- returns bool or table (spelldata, param text)
 
   end
 
-
-
   return false
 
 end
-
-
 
 function init()
 
@@ -143,17 +122,13 @@ function init()
 
     onSpellCooldown = onSpellCooldown
 
-  })
-
-
+})
 
   if g_game.isOnline() then
 
     online()
 
   end
-
-
 
   -- taken from game_hotkeys
 
@@ -167,8 +142,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, {
@@ -181,11 +154,9 @@ function terminate()
 
     onSpellCooldown = onSpellCooldown
 
-  })
+})
 
 end
-
-
 
 function createActionBars()
 
@@ -194,8 +165,6 @@ function createActionBars()
   local leftPanel = modules.game_interface.getLeftActionPanel()
 
   local rightPanel = modules.game_interface.getRightActionPanel()
-
-
 
   -- 1-3: bottom
 
@@ -210,8 +179,6 @@ function createActionBars()
     local index
 
     local layout
-
-
 
     if i <= 3 then
 
@@ -239,8 +206,6 @@ function createActionBars()
 
     end
 
-
-
     actionBars[i] = g_ui.loadUI(layout, parent)
 
     actionBars[i]:setId("actionbar."..i)
@@ -253,23 +218,17 @@ function createActionBars()
 
 end
 
-
-
 function offline()
 
   -- save settings to json
 
   save()
 
-
-
   -- destroy windows
 
   destroyAssignWindows()
 
   mouseGrabberWidget:destroy()
-
-
 
   -- remove binds
 
@@ -282,8 +241,6 @@ function offline()
         local callback = actionButton.callback
 
         local hotkey = actionButton.hotkey and actionButton.hotkey:len() > 0 and actionButton.hotkey or false
-
-
 
         if callback and hotkey then
 
@@ -299,8 +256,6 @@ function offline()
 
   end
 
-
-
   -- destroy actionbars
 
   for i, panel in ipairs(actionBars) do
@@ -311,8 +266,6 @@ function offline()
 
 end
 
-
-
 function online()
 
   settingsFile = modules.client_profiles.getSettingsFilePath("actionbar_v2.json")
@@ -321,25 +274,17 @@ function online()
 
   load()
 
-
-
   -- create actionbars
 
   createActionBars()
-
-
 
   -- show & setup actionbars
 
   show()
 
-
-
   destroyAssignWindows()
 
 end
-
-
 
 function show()
 
@@ -349,8 +294,6 @@ function show()
 
     local enabled = g_settings.getBoolean("actionbar"..i, false)
 
-
-
     actionbar:setOn(enabled)
 
     setupActionBar(i)
@@ -359,39 +302,27 @@ function show()
 
 end
 
-
-
 function refresh()
 
   -- first save
 
   save()
 
-
-
   -- recheck file
 
   settingsFile = modules.client_profiles.getSettingsFilePath("actionbar_v2.json")
-
-
 
   -- load settings
 
   load()
 
-
-
   -- setup actionbars
 
   show()
 
-
-
   destroyAssignWindows()
 
 end
-
-
 
 function translateHotkeyDesc(text)
 
@@ -402,8 +333,6 @@ function translateHotkeyDesc(text)
     return ""
 
   end
-
-
 
   local values = {
 
@@ -425,17 +354,13 @@ function translateHotkeyDesc(text)
 
     {"Escape", "Esc"}
 
-  }
-
-
+}
 
   for i, v in pairs(values) do
 
     text = text:gsub(v[1], v[2])
 
   end
-
-
 
   if text:len() > 6 then
 
@@ -445,13 +370,9 @@ function translateHotkeyDesc(text)
 
   end
 
-
-
   return text
 
 end
-
-
 
 function destroyAssignWindows()
 
@@ -465,17 +386,13 @@ function destroyAssignWindows()
 
     'assignHotkeyWindow'
 
-  }
-
-
+}
 
   local rootWidget = g_ui.getRootWidget()
 
   for i, id in ipairs(windows) do
 
     local widget = rootWidget[id]
-
-
 
     if widget then
 
@@ -487,13 +404,9 @@ function destroyAssignWindows()
 
 end
 
-
-
 function changeLockState(widget)
 
   local actionbar = widget:getParent():getParent()
-
-
 
   widget:setOn(not widget:isOn())
 
@@ -501,13 +414,9 @@ function changeLockState(widget)
 
   actionbar.locked = not widget:isOn()
 
-
-
   settings[actionbar:getId()] = not widget:isOn() or nil
 
 end
-
-
 
 function moveActionButtons(widget)
 
@@ -518,8 +427,6 @@ function moveActionButtons(widget)
   local scroll = actionBar.actionScroll
 
   local buttons = {actionBar.prevPanel.prev, actionBar.prevPanel.first, actionBar.nextPanel.next, actionBar.nextPanel.last}
-
-
 
   if dir == "next" then
 
@@ -539,13 +446,9 @@ function moveActionButtons(widget)
 
   end
 
-
-
   local prevEnabled = scroll:getValue() > 0
 
   local nextEnabled = scroll:getValue() < scroll:getMaximum()
-
-  
 
   buttons[1]:setOn(prevEnabled)
 
@@ -565,13 +468,9 @@ function moveActionButtons(widget)
 
 end
 
-
-
 function onDropActionButton(self, mousePosition, mouseButton)
 
   if not g_ui.isMouseGrabbed() then return end
-
-
 
   local clickedWidget = modules.game_interface.getRootPanel():recursiveGetChildByPos(mousePosition, false)
 
@@ -587,13 +486,9 @@ function onDropActionButton(self, mousePosition, mouseButton)
 
         local cachedHotkey = cachedSettings.widget.hotkey
 
-
-
         settings[cachedSettings.id] = settings[clickedWidget:getId()]
 
         settings[clickedWidget:getId()] = cachedSettings.data
-
-        
 
         local clickedTill = clickedWidget.cooldownTill or 0
 
@@ -603,8 +498,6 @@ function onDropActionButton(self, mousePosition, mouseButton)
 
         local cachedStart = cachedSettings.widget.cooldownStart or 0
 
-
-
         cachedSettings.widget.cooldownTill = clickedTill
 
         cachedSettings.widget.cooldownStart = clickedStart
@@ -612,8 +505,6 @@ function onDropActionButton(self, mousePosition, mouseButton)
         clickedWidget.cooldownTill = cachedTill
 
         clickedWidget.cooldownStart = cachedStart
-
-
 
         -- hotkeys remain unchanged
 
@@ -624,8 +515,6 @@ function onDropActionButton(self, mousePosition, mouseButton)
         settings[clickedWidget:getId()] = settings[clickedWidget:getId()] or {}
 
         settings[clickedWidget:getId()].hotkey = clickedHotkey
-
-
 
         updateCooldown(clickedWidget)
 
@@ -641,8 +530,6 @@ function onDropActionButton(self, mousePosition, mouseButton)
 
   end
 
-
-
   cachedSettings.widget.item:setBorderColor('#00000000')
 
   cachedSettings = nil
@@ -652,8 +539,6 @@ function onDropActionButton(self, mousePosition, mouseButton)
   self:ungrabMouse()
 
 end
-
-
 
 function setupActionBar(n)
 
@@ -665,15 +550,11 @@ function setupActionBar(n)
 
   actionbar.tabBar.onMouseWheel = nil -- disable scroll wheel
 
-
-
   actionbar.locked = locked
 
   actionbar.nextPanel.lock:setOn(not locked)
 
   actionbar.nextPanel.lock.image:setOn(not locked)
-
-
 
   if not visible then
 
@@ -691,8 +572,6 @@ function setupActionBar(n)
 
       widget:setId(actionbar.n.."."..i)
 
-
-
       setupButton(widget)
 
     end
@@ -700,8 +579,6 @@ function setupActionBar(n)
   end
 
 end
-
-
 
 function setupButton(widget)
 
@@ -711,19 +588,13 @@ function setupButton(widget)
 
   local actionbar = widget:getParent():getParent()
 
-
-
   -- disable count
 
   widget.item:setShowCount(false)
 
-
-
   -- remove callback to avoid recurrency
 
   widget.item.onItemChange = nil
-
-
 
   -- clear settings
 
@@ -754,8 +625,6 @@ function setupButton(widget)
   widget.hotkey = config and config.hotkey or ""
 
   widget.callback = nil
-
-
 
   -- add new settings
 
@@ -789,19 +658,13 @@ function setupButton(widget)
 
   end
 
-
-
   -- callback
 
   setupAction(widget)
 
-
-
   --hotkey
 
   widget.hotkeyLabel:setText(translateHotkeyDesc(widget.hotkey))
-
-  
 
   if widget.spellData then
 
@@ -810,8 +673,6 @@ function setupButton(widget)
     widget.text:setImageSource(widget.spellData.source)
 
     widget.text:setImageClip(widget.spellData.clip)
-
-
 
     --param
 
@@ -831,8 +692,6 @@ function setupButton(widget)
 
   end
 
-
-
   widget.item.onDragEnter = function(self)
 
     if g_ui.isMouseGrabbed() or actionbar.locked then return end
@@ -841,23 +700,17 @@ function setupButton(widget)
 
     g_mouse.pushCursor('target')
 
-
-
     self:setBorderColor('#FFFFFF')
 
     cachedSettings = {id=widget:getId(), data=settings[widget:getId()], widget=widget}
 
   end
 
-
-
   -- popupmenu & execute action
 
   widget.onMouseRelease = function(widget, mousePos, mouseButton)
 
     if mouseButton == MouseRightButton then 
-
-
 
       local menu = g_ui.createWidget('PopupMenu')
 
@@ -870,8 +723,6 @@ function setupButton(widget)
       menu:addOption(widget.text:getText():len() > 0 and tr('Edit Text') or tr('Assign Text'), function() assignText(widget) end)
 
       menu:addOption(widget.hotkey and tr('Edit Hotkey') or tr('Assign Hotkey'), function() assignHotkey(widget) end)
-
-
 
       if widget.type > 0 then
 
@@ -891,8 +742,6 @@ function setupButton(widget)
 
   end
 
-
-
   widget.item.onItemChange = function(widget)
 
     widget:setOn(true)
@@ -900,8 +749,6 @@ function setupButton(widget)
     assignItem(widget:getParent())
 
   end
-
-
 
   -- tooltip
 
@@ -932,8 +779,6 @@ function setupButton(widget)
     end
 
   end
-
-
 
   local actionDesc
 
@@ -977,8 +822,6 @@ function setupButton(widget)
 
   end
 
-
-
   local hotkeyDesc = widget.hotkey and widget.hotkey:len() > 0 and widget.hotkey or "None"
 
   local tooltip = "Action Button "..id
@@ -987,13 +830,9 @@ function setupButton(widget)
 
   tooltip = tooltip.."\nHotkeys:  ".. hotkeyDesc
 
-
-
   widget.item:setTooltip(tooltip)
 
 end
-
-
 
 function resetSlot(widget)
 
@@ -1007,8 +846,6 @@ function resetSlot(widget)
 
   end
 
-  
-
   if hotkey then
 
     settings[widget:getId()] = {hotkey=hotkey}
@@ -1019,13 +856,9 @@ function resetSlot(widget)
 
   end
 
-
-
   setupButton(widget)
 
 end
-
-
 
 function assignItem(widget)
 
@@ -1037,8 +870,6 @@ function assignItem(widget)
 
   local id = widget.item:getItemId()
 
-
-
   -- check if item wasn't cleared
 
   if id == 0 and widget.item:isOn() then
@@ -1046,8 +877,6 @@ function assignItem(widget)
     return resetSlot(widget) 
 
   end
-
-
 
   -- create window
 
@@ -1059,15 +888,11 @@ function assignItem(widget)
 
   window:focus()
 
-
-
   -- basics
 
   window:setText("Assign Object to Action Button "..widget:getId())
 
   window:setId("assignItemWindow")
-
-
 
   -- select item
 
@@ -1077,8 +902,6 @@ function assignItem(widget)
 
   end
 
-
-
   -- checks
 
   window.item:setShowCount(false)
@@ -1087,8 +910,6 @@ function assignItem(widget)
 
     local item = window.item:getItem()
 
-
-
     if item then
 
       for i, child in ipairs(window.checks:getChildren()) do
@@ -1096,8 +917,6 @@ function assignItem(widget)
         -- add to radio grouo
 
         radio:addWidget(child)
-
-
 
         -- enabled
 
@@ -1151,8 +970,6 @@ function assignItem(widget)
 
     end
 
-
-
     -- validation
 
     window.buttonOk:setEnabled(item and item:getId() > 100)
@@ -1161,11 +978,7 @@ function assignItem(widget)
 
   end
 
-
-
   window.item:setItemId(id)
-
-
 
   -- select current action, if exists
 
@@ -1197,8 +1010,6 @@ function assignItem(widget)
 
     end
 
-
-
     for i, child in ipairs(radio.widgets) do
 
       local childId = child:getId()
@@ -1215,8 +1026,6 @@ function assignItem(widget)
 
   end
 
-
-
   -- functions
 
   local okFunc = function(destroy)
@@ -1231,15 +1040,11 @@ function assignItem(widget)
 
     end
 
-
-
     settings[widget:getId()] = {hotkey=hotkey}
 
     settings[widget:getId()].itemId = window.item:getItemId()
 
     settings[widget:getId()].type = TYPE.ITEM
-
-
 
     local selected = radio:getSelectedWidget():getId()
 
@@ -1265,8 +1070,6 @@ function assignItem(widget)
 
     end
 
-
-
     if destroy then
 
       window:destroy()
@@ -1279,8 +1082,6 @@ function assignItem(widget)
 
   end
 
-
-
   local cancelFunc = function()
 
     setupButton(widget)
@@ -1290,8 +1091,6 @@ function assignItem(widget)
     radio:destroy()
 
   end
-
-
 
   -- callbacks
 
@@ -1305,8 +1104,6 @@ function assignItem(widget)
 
   window.onEscape = cancelFunc
 
-
-
   local actionbar = widget:getParent():getParent()
 
   if actionbar.locked then
@@ -1317,13 +1114,9 @@ function assignItem(widget)
 
 end
 
-
-
 function assignText(widget)
 
   destroyAssignWindows()
-
-
 
   -- create window
 
@@ -1335,8 +1128,6 @@ function assignText(widget)
 
   window:focus()
 
-
-
   window.text.onTextChange = function(self, text)
 
     window.buttonOk:setEnabled(text:len() > 0)
@@ -1344,8 +1135,6 @@ function assignText(widget)
     window.buttonApply:setEnabled(text:len() > 0)
 
   end
-
-
 
   -- copy settings from current widget
 
@@ -1357,8 +1146,6 @@ function assignText(widget)
 
   end
 
-
-
   -- functions
 
   local okFunc = function(destroy) 
@@ -1366,8 +1153,6 @@ function assignText(widget)
     local autoSay = window.checkPanel.tick:isChecked()
 
     local text = window.text:getText()
-
-
 
     local hotkey = settings[widget:getId()] and settings[widget:getId()].hotkey
 
@@ -1379,11 +1164,7 @@ function assignText(widget)
 
     end
 
-
-
     settings[widget:getId()] = {hotkey=hotkey}
-
-
 
     local spell = isSpell(text)
 
@@ -1402,10 +1183,6 @@ function assignText(widget)
       end
 
       spellData.group = newGroup
-
-
-
-  
 
       settings[widget:getId()].type = TYPE.SPELL
 
@@ -1429,7 +1206,7 @@ function assignText(widget)
 
         id = spellData.id
 
-      }
+}
 
     else -- is just text
 
@@ -1440,8 +1217,6 @@ function assignText(widget)
       settings[widget:getId()].autoSay = autoSay
 
     end
-
-  
 
     if destroy then
 
@@ -1461,8 +1236,6 @@ function assignText(widget)
 
   end
 
-
-
   -- buttons
 
   window.buttonOk.onClick = function() okFunc(true) end
@@ -1475,8 +1248,6 @@ function assignText(widget)
 
   window.onEnter = function() okFunc(true) end
 
-
-
   local actionbar = widget:getParent():getParent()
 
   if actionbar.locked then
@@ -1487,15 +1258,11 @@ function assignText(widget)
 
 end
 
-
-
 function assignSpell(widget)
 
   destroyAssignWindows()
 
   local radio = UIRadioGroup.create()
-
-
 
   -- create window
 
@@ -1507,11 +1274,7 @@ function assignSpell(widget)
 
   window:focus()
 
-
-
   window:setText("Assign Spell to Action Button "..widget:getId())
-
-
 
   -- old tibia does not send vocation
 
@@ -1520,8 +1283,6 @@ function assignSpell(widget)
     window.checkPanel:setVisible(false)
 
   end
-
-
 
   local spells = modules.gamelib.SpellInfo['Default']
 
@@ -1543,8 +1304,6 @@ function assignSpell(widget)
 
     spellData.group = newGroup
 
-    
-
     widget:setId(spellData.id)
 
     widget:setText(spellName.."\n"..spellData.words)
@@ -1560,8 +1319,6 @@ function assignSpell(widget)
     widget.image:setImageSource(widget.source)
 
     widget.image:setImageClip(widget.clip)
-
-
 
     widget.spellData = {
 
@@ -1583,11 +1340,9 @@ function assignSpell(widget)
 
       id = spellData.id
 
-    }
+}
 
   end
-
-
 
   -- sort alphabetically
 
@@ -1601,21 +1356,15 @@ function assignSpell(widget)
 
   end
 
-
-
   local function filterByVocation(a, filter)
 
      -- disable callback
 
     window.spellList.onChildFocusChange = nil
 
-
-
     local widgets = window.spellList:getChildren()
 
     local vocation = translateVocation(g_game.getLocalPlayer():getVocation())
-
-
 
     -- visible
 
@@ -1637,8 +1386,6 @@ function assignSpell(widget)
 
     end
 
-
-
     -- select current one if exist
 
     local currentSpell = widget.spellData and widget.spellData.id or 0
@@ -1648,8 +1395,6 @@ function assignSpell(widget)
       for i, child in ipairs(radio.widgets) do
 
         local childId = child.spellData.id
-
-
 
         if childId == currentSpell then
 
@@ -1669,8 +1414,6 @@ function assignSpell(widget)
 
   end
 
-
-
   -- callback
 
   radio.onSelectionChange = function(widget, selected)
@@ -1685,8 +1428,6 @@ function assignSpell(widget)
 
       local param = selected.param
 
-
-
       -- preview
 
       window.preview:setText(name)
@@ -1694,8 +1435,6 @@ function assignSpell(widget)
       window.preview.image:setImageSource(source)
 
       window.preview.image:setImageClip(clip)
-
-
 
       -- param
 
@@ -1709,13 +1448,9 @@ function assignSpell(widget)
 
   end
 
-
-
   window.checkPanel.tick.onCheckChange = filterByVocation
 
   filterByVocation(nil, true)
-
-
 
   local okFunc = function(destroy) 
 
@@ -1725,11 +1460,7 @@ function assignSpell(widget)
 
     if not selected then return end
 
-
-
     selected.spellData.param = paramWidgetText
-
-
 
     local hotkey = settings[widget:getId()] and settings[widget:getId()].hotkey   
 
@@ -1741,15 +1472,11 @@ function assignSpell(widget)
 
     end
 
-
-
     settings[widget:getId()] = {hotkey=hotkey}
 
     settings[widget:getId()].spellData = selected.spellData
 
     settings[widget:getId()].type = TYPE.SPELL
-
- 
 
     if destroy then
 
@@ -1769,8 +1496,6 @@ function assignSpell(widget)
 
   end
 
-
-
   window.buttonOk.onClick = function() okFunc(true) end
 
   window.buttonApply.onClick = function() okFunc(false) end
@@ -1780,8 +1505,6 @@ function assignSpell(widget)
   window.onEscape = cancelFunc
 
   window.onEnter = function() okFunc(true) end
-
-
 
   local actionbar = widget:getParent():getParent()
 
@@ -1793,13 +1516,9 @@ function assignSpell(widget)
 
 end
 
-
-
 function assignHotkey(widget)
 
   destroyAssignWindows()
-
-
 
   -- create window
 
@@ -1810,8 +1529,6 @@ function assignHotkey(widget)
   window:raise()
 
   window:focus()
-
-
 
   local barN = widget:getParent():getParent().n
 
@@ -1831,8 +1548,6 @@ function assignHotkey(widget)
 
   end
 
-
-
   -- things
 
   barDesc = barDesc.." Action Bar: Action Button "..widget:getId()
@@ -1842,8 +1557,6 @@ function assignHotkey(widget)
   window.desc:setText(window.desc:getText()..barDesc..'"')
 
   window.display:setText(widget.hotkey or "")
-
-  
 
   -- hotkey
 
@@ -1859,13 +1572,9 @@ function assignHotkey(widget)
 
   end
 
-
-
   local okFunc = function() 
 
     local hotkey = window.display:getText()
-
-
 
     if settings[widget:getId()].hotkey and settings[widget:getId()].hotkey:len() > 0 and widget.callback then
 
@@ -1878,8 +1587,6 @@ function assignHotkey(widget)
     settings[widget:getId()] = settings[widget:getId()] or {}
 
     settings[widget:getId()].hotkey = hotkey
-
-  
 
     window:destroy()
 
@@ -1893,8 +1600,6 @@ function assignHotkey(widget)
 
     local hotkey = window.display:getText()
 
-
-
     if settings[widget:getId()].hotkey and settings[widget:getId()].hotkey:len() > 0 and widget.callback then
 
       local gameRootPanel = modules.game_interface.getRootPanel()
@@ -1906,8 +1611,6 @@ function assignHotkey(widget)
     settings[widget:getId()] = settings[widget:getId()] or {}
 
     settings[widget:getId()].hotkey = hotkey
-
-  
 
     window:destroy()
 
@@ -1923,15 +1626,11 @@ function assignHotkey(widget)
 
   end
 
-
-
   window.buttonOk.onClick = okFunc
 
   window.buttonClear.onClick = clearFunc
 
   window.buttonClose.onClick = closeFunc
-
-
 
   local actionbar = widget:getParent():getParent()
 
@@ -1942,8 +1641,6 @@ function assignHotkey(widget)
   end
 
 end
-
-
 
 function setupAction(widget)
 
@@ -2155,8 +1852,6 @@ function setupAction(widget)
 
   end
 
-
-
   if widget.hotkey and widget.hotkey:len() > 0 and widget.callback then
 
     local gameRootPanel = modules.game_interface.getRootPanel()
@@ -2166,8 +1861,6 @@ function setupAction(widget)
   end
 
 end
-
-
 
 function onSpellCooldown(iconId, duration)
 
@@ -2186,8 +1879,6 @@ function onSpellCooldown(iconId, duration)
   end
 
 end
-
-
 
 function onSpellGroupCooldown(groupId, duration)
 
@@ -2215,8 +1906,6 @@ function onSpellGroupCooldown(groupId, duration)
 
 end
 
-
-
 function startCooldown(action, duration)
 
   if type(action.cooldownTill) == 'number' and action.cooldownTill > g_clock.millis() + duration then
@@ -2232,8 +1921,6 @@ function startCooldown(action, duration)
   updateCooldown(action)
 
 end
-
-
 
 function updateCooldown(action)
 
@@ -2271,8 +1958,6 @@ function updateCooldown(action)
 
   end
 
-
-
   local retry
 
   if timeleft > 60000 then
@@ -2299,8 +1984,6 @@ function updateCooldown(action)
 
 end
 
-
-
 function save()
 
   local status, result = pcall(function() return json.encode(settings, 2) end)
@@ -2315,8 +1998,6 @@ function save()
 
   end
 
-
-
   if result:len() > 100 * 1024 * 1024 then
 
       return g_logger.error(
@@ -2325,13 +2006,9 @@ function save()
 
   end
 
-
-
   g_resources.writeFileContents(settingsFile, result)
 
 end
-
-
 
 function load()
 
@@ -2366,12 +2043,7 @@ end
 ```
 
 ---
-
-
-
 # actionbar.otmod
-
-
 
 ```text
 
@@ -2392,12 +2064,7 @@ Module
 ```
 
 ---
-
-
-
 # actionbar.otui
-
-
 
 ```otui
 
@@ -2410,8 +2077,6 @@ ActionButton < UIButton
   padding: 1
 
   margin-left: 1
-
-    
 
   Item
 
@@ -2433,8 +2098,6 @@ ActionButton < UIButton
 
     draggable: true
 
-    
-
     $!on:
 
       image-source: /images/game/actionbar/actionbarslot
@@ -2444,8 +2107,6 @@ ActionButton < UIButton
       image-clip: 0 0 34 34
 
       image-border: 0
-
-
 
     $on:
 
@@ -2457,13 +2118,9 @@ ActionButton < UIButton
 
       image-border: 3
 
-
-
     $pressed on:
 
       image-clip: 0 46 22 23
-
-
 
   Label
 
@@ -2482,8 +2139,6 @@ ActionButton < UIButton
     text-align: center
 
     font: verdana-9px
-
-
 
   Label
 
@@ -2507,8 +2162,6 @@ ActionButton < UIButton
 
     background: #292A2A
 
-
-
   Label
 
     id: parameterText
@@ -2531,8 +2184,6 @@ ActionButton < UIButton
 
     text-align: center
 
-
-
   UIProgressRect
 
     id: cooldown
@@ -2551,13 +2202,9 @@ ActionButton < UIButton
 
     color: white
 
-
-
 LeftSliders < Panel
 
   size: 17 34
-
-
 
   Button
 
@@ -2569,19 +2216,13 @@ LeftSliders < Panel
 
     @onClick: modules.game_actionbar.moveActionButtons(self)
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the previous action button
-
-
 
     UIWidget
 
@@ -2591,19 +2232,13 @@ LeftSliders < Panel
 
       phantom: true
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-disabled
 
-
-
       $on:
 
         image-source: /images/game/actionbar/arrow
-
-
 
   Button
 
@@ -2615,19 +2250,13 @@ LeftSliders < Panel
 
     @onClick: modules.game_actionbar.moveActionButtons(self)
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the first action button
-
-
 
     UIWidget
 
@@ -2637,25 +2266,17 @@ LeftSliders < Panel
 
       phantom: true
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-skip-disabled
-
-
 
       $on:
 
         image-source: /images/game/actionbar/arrow-skip
 
-
-
 RightSliders < Panel
 
   size: 29 34
-
-  
 
   Button
 
@@ -2671,19 +2292,13 @@ RightSliders < Panel
 
     @onClick: modules.game_actionbar.changeLockState(self)
 
-
-
     $!on:
 
       tooltip: Action Bar Locked: You cannot assign actions to or switch actions on action buttons by "drag&drop".
 
-
-
     $on:
 
       tooltip: Action Bar Unlocked: You can assign actions to or switch actions on action buttons by "drag&drop".
-
-
 
     UIWidget
 
@@ -2695,19 +2310,13 @@ RightSliders < Panel
 
       phantom: true
 
-      
-
       $!on:
 
         image-source: /images/game/actionbar/locked
 
-
-
       $on:
 
         image-source: /images/game/actionbar/unlocked
-
-
 
   Button
 
@@ -2727,19 +2336,13 @@ RightSliders < Panel
 
     on: true
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the next action button
-
-
 
     UIWidget
 
@@ -2757,19 +2360,13 @@ RightSliders < Panel
 
       on: true
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-disabled
 
-
-
       $on:
 
         image-source: /images/game/actionbar/arrow
-
-
 
   Button
 
@@ -2787,19 +2384,13 @@ RightSliders < Panel
 
     on: true
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the last action button
-
-
 
     UIWidget
 
@@ -2817,19 +2408,13 @@ RightSliders < Panel
 
       on: true
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-skip-disabled
 
-
-
       $on:
 
         image-source: /images/game/actionbar/arrow-skip
-
-  
 
 Panel
 
@@ -2843,23 +2428,17 @@ Panel
 
   margin-top: -1
 
-  
-
   $on:
 
     height: 40
 
     visible: true
 
-    
-
   $!on:
 
     height: 0
 
     visible: false
-
-
 
   LeftSliders
 
@@ -2870,8 +2449,6 @@ Panel
     anchors.verticalCenter: parent.verticalCenter
 
     margin-left: 1
-
-    
 
   ScrollablePanel
 
@@ -2899,8 +2476,6 @@ Panel
 
     layout: horizontalBox
 
-
-
   HorizontalScrollBar
 
     id: actionScroll
@@ -2917,8 +2492,6 @@ Panel
 
     visible: false
 
-
-
   RightSliders
 
     id: nextPanel
@@ -2932,12 +2505,7 @@ Panel
 ```
 
 ---
-
-
-
 # hotkey.otui
-
-
 
 ```otui
 
@@ -2946,8 +2514,6 @@ MainWindow
   id: assignHotkeyWindow
 
   size: 400 170
-
-
 
   FlatLabel
 
@@ -2964,8 +2530,6 @@ MainWindow
     text-align: center
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -2987,8 +2551,6 @@ MainWindow
 
     text: Click "Ok" to assign the hotkey. Click "Clear" to remove the hotkey from "
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -2998,8 +2560,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Button
 
@@ -3017,8 +2577,6 @@ MainWindow
 
     @onClick: self:getParent():destroy()
 
-
-
   Button
 
     id: buttonClear
@@ -3034,8 +2592,6 @@ MainWindow
     font: cipsoftFont
 
     text: Clear
-
-
 
   Button
 
@@ -3056,12 +2612,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # object.otui
-
-
 
 ```otui
 
@@ -3069,27 +2620,19 @@ RoundCheckBox < CheckBox
 
   image-source: /images/ui/checkbox_round
 
-  
-
   $first:
 
     margin-top: 2
 
-
-
   $!first:
 
     margin-top: 5
-
-
 
 MainWindow
 
   id: assignItemWindow
 
   size: 275 195
-
-
 
   UIItem
 
@@ -3111,8 +2654,6 @@ MainWindow
 
     image-border: 1
 
-
-
   Panel
 
     id: checks
@@ -3131,8 +2672,6 @@ MainWindow
 
       fit-children: true
 
-
-
     RoundCheckBox
 
       id: useSelf
@@ -3140,8 +2679,6 @@ MainWindow
       text: Use on yourself
 
       enabled: false
-
-    
 
     RoundCheckBox
 
@@ -3151,8 +2688,6 @@ MainWindow
 
       enabled: false
 
-
-
     RoundCheckBox
 
       id: useCross
@@ -3160,8 +2695,6 @@ MainWindow
       text: With crosshair
 
       enabled: false
-
-
 
     RoundCheckBox
 
@@ -3171,8 +2704,6 @@ MainWindow
 
       enabled: false
 
-
-
     RoundCheckBox
 
       id: use
@@ -3180,8 +2711,6 @@ MainWindow
       text: Use
 
       enabled: false
-
-
 
   Button
 
@@ -3201,8 +2730,6 @@ MainWindow
 
     text: Select item
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -3212,8 +2739,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Button
 
@@ -3228,8 +2753,6 @@ MainWindow
     font: cipsoftFont
 
     text: Close
-
-
 
   Button
 
@@ -3246,8 +2769,6 @@ MainWindow
     font: cipsoftFont
 
     text: Apply
-
-
 
   Button
 
@@ -3268,12 +2789,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # sideactionbar.otui
-
-
 
 ```otui
 
@@ -3286,8 +2802,6 @@ SideActionButton < UIButton
   padding: 1
 
   margin-top: 1
-
-    
 
   Item
 
@@ -3307,8 +2821,6 @@ SideActionButton < UIButton
 
     border-color: #00000000
 
-    
-
     $!on:
 
       image-source: /images/game/actionbar/actionbarslot
@@ -3318,8 +2830,6 @@ SideActionButton < UIButton
       image-clip: 0 0 34 34
 
       image-border: 0
-
-
 
     $on:
 
@@ -3331,13 +2841,9 @@ SideActionButton < UIButton
 
       image-border: 3
 
-
-
     $pressed on:
 
       image-clip: 0 46 22 23
-
-
 
   Label
 
@@ -3354,8 +2860,6 @@ SideActionButton < UIButton
     text-align: center
 
     font: verdana-9px
-
-
 
   Label
 
@@ -3379,8 +2883,6 @@ SideActionButton < UIButton
 
     background: #292A2A
 
-
-
   Label
 
     id: parameterText
@@ -3403,8 +2905,6 @@ SideActionButton < UIButton
 
     text-align: center
 
-
-
   UIProgressRect
 
     id: cooldown
@@ -3423,13 +2923,9 @@ SideActionButton < UIButton
 
     color: white
 
-
-
 TopSliders < Panel
 
   size: 34 17
-
-
 
   Button
 
@@ -3441,19 +2937,13 @@ TopSliders < Panel
 
     @onClick: modules.game_actionbar.moveActionButtons(self)
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the previous action button
-
-
 
     UIWidget
 
@@ -3467,19 +2957,13 @@ TopSliders < Panel
 
       rotation: 90
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-disabled
 
-
-
       $on:
 
         image-source: /images/game/actionbar/arrow
-
-
 
   Button
 
@@ -3491,19 +2975,13 @@ TopSliders < Panel
 
     @onClick: modules.game_actionbar.moveActionButtons(self)
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the first action button
-
-
 
     UIWidget
 
@@ -3517,25 +2995,17 @@ TopSliders < Panel
 
       rotation: 90
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-skip-disabled
-
-
 
       $on:
 
         image-source: /images/game/actionbar/arrow-skip
 
-
-
 BottomSliders < Panel
 
   size: 34 32
-
-  
 
   Button
 
@@ -3551,19 +3021,13 @@ BottomSliders < Panel
 
     @onClick: modules.game_actionbar.changeLockState(self)
 
-
-
     $!on:
 
       tooltip: Action Bar Locked: You cannot assign actions to or switch actions on action buttons by "drag&drop".
 
-
-
     $on:
 
       tooltip: Action Bar Unlocked: You can assign actions to or switch actions on action buttons by "drag&drop".
-
-
 
     UIWidget
 
@@ -3575,19 +3039,13 @@ BottomSliders < Panel
 
       margin-bottom: 1
 
-      
-
       $!on:
 
         image-source: /images/game/actionbar/locked
 
-
-
       $on:
 
         image-source: /images/game/actionbar/unlocked
-
-
 
   Button
 
@@ -3607,19 +3065,13 @@ BottomSliders < Panel
 
     on: true
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the next action button
-
-
 
     UIWidget
 
@@ -3635,19 +3087,13 @@ BottomSliders < Panel
 
       on: true
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-disabled
 
-
-
       $on:
 
         image-source: /images/game/actionbar/arrow
-
-
 
   Button
 
@@ -3665,19 +3111,13 @@ BottomSliders < Panel
 
     on: true
 
-
-
     $!on:
 
       tooltip: No further action buttons in this direction
 
-
-
     $on:
 
       tooltip: Move to the last action button
-
-
 
     UIWidget
 
@@ -3693,19 +3133,13 @@ BottomSliders < Panel
 
       on: true
 
-
-
       $!on:
 
         image-source: /images/game/actionbar/arrow-skip-disabled
 
-
-
       $on:
 
         image-source: /images/game/actionbar/arrow-skip
-
-  
 
 Panel
 
@@ -3719,23 +3153,17 @@ Panel
 
   margin-top: -5
 
-  
-
   $on:
 
     width: 37
 
     visible: true
 
-    
-
   $!on:
 
     width: 0
 
     visible: false
-
-
 
   TopSliders
 
@@ -3746,8 +3174,6 @@ Panel
     anchors.horizontalCenter: parent.horizontalCenter
 
     margin-top: 1
-
-    
 
   ScrollablePanel
 
@@ -3773,8 +3199,6 @@ Panel
 
     layout: verticalBox
 
-
-
   VerticalScrollBar
 
     id: actionScroll
@@ -3791,8 +3215,6 @@ Panel
 
     visible: false
 
-
-
   BottomSliders
 
     id: nextPanel
@@ -3806,12 +3228,7 @@ Panel
 ```
 
 ---
-
-
-
 # spell.otui
-
-
 
 ```otui
 
@@ -3831,25 +3248,17 @@ SpellPreview < UICheckBox
 
   change-cursor-image: false
 
-
-
   $hover !disabled:
 
     color: #ffffff
-
-
 
   $!checked:
 
     background-color: alpha
 
-
-
   $checked:
 
     background-color: #ffffff22
-
-
 
   $disabled:
 
@@ -3858,8 +3267,6 @@ SpellPreview < UICheckBox
     color: #dfdfdf88
 
     opacity: 0.8
-
-
 
   UIWidget
 
@@ -3875,8 +3282,6 @@ SpellPreview < UICheckBox
 
     size: 34 34
 
-
-
 MainWindow
 
   id: assignSpellWindow
@@ -3884,8 +3289,6 @@ MainWindow
   size: 275 310
 
   @onEscape: self:destroy()
-
-
 
   SpellPreview
 
@@ -3899,19 +3302,13 @@ MainWindow
 
     focusable: false
 
-
-
     $!checked:
 
       background-color: alpha
 
-
-
     $checked:
 
       background-color: alpha
-
-
 
   HorizontalSeparator
 
@@ -3922,8 +3319,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   TextList
 
@@ -3947,8 +3342,6 @@ MainWindow
 
     background-color: #484848
 
-
-
   VerticalScrollBar
 
     id: listScrollBar
@@ -3965,8 +3358,6 @@ MainWindow
 
     pixels-scroll: true
 
-
-
   FlatPanel
 
     id: checkPanel
@@ -3980,8 +3371,6 @@ MainWindow
     anchors.right: parent.right
 
     height: 20
-
-
 
     CheckBox
 
@@ -3998,8 +3387,6 @@ MainWindow
       text: Only show vocation spells
 
       checked: true
-
-
 
   Label
 
@@ -4021,19 +3408,13 @@ MainWindow
 
     on: false
 
-
-
     $on:
 
       color: white
 
-
-
     $!on:
 
       color: #c0c0c0
-
-
 
   TextEdit
 
@@ -4051,8 +3432,6 @@ MainWindow
 
     enabled: false
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -4062,8 +3441,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Button
 
@@ -4078,8 +3455,6 @@ MainWindow
     font: cipsoftFont
 
     text: Close
-
-
 
   Button
 
@@ -4096,8 +3471,6 @@ MainWindow
     font: cipsoftFont
 
     text: Apply
-
-
 
   Button
 
@@ -4118,12 +3491,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # text.otui
-
-
 
 ```otui
 
@@ -4135,8 +3503,6 @@ MainWindow
 
   text: Assign Text
 
-
-
   Label
 
     anchors.top: parent.top
@@ -4146,8 +3512,6 @@ MainWindow
     text: Text:
 
     text-horizontal-auto-resize: true
-
-
 
   TextEdit
 
@@ -4160,8 +3524,6 @@ MainWindow
     anchors.right: parent.right
 
     margin-top: 5
-
-
 
   FlatPanel
 
@@ -4176,8 +3538,6 @@ MainWindow
     anchors.right: parent.right
 
     height: 20
-
-
 
     CheckBox
 
@@ -4195,8 +3555,6 @@ MainWindow
 
       checked: true
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.bottom
@@ -4206,8 +3564,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Button
 
@@ -4222,8 +3578,6 @@ MainWindow
     font: cipsoftFont
 
     text: Close
-
-
 
   Button
 
@@ -4240,8 +3594,6 @@ MainWindow
     font: cipsoftFont
 
     text: Apply
-
-
 
   Button
 
@@ -4262,6 +3614,3 @@ MainWindow
 ```
 
 ---
-
-
-

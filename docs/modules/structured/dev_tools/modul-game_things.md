@@ -1,9 +1,4 @@
-# ¦ Modul: `game_things`
-
-
-
-
-
+﻿# ¦ Modul: `game_things`
 
 ```lua
 
@@ -11,15 +6,11 @@ filename =  nil
 
 loaded = false
 
-
-
 function setFileName(name)
 
   filename = name
 
 end
-
-
 
 function isLoaded()
 
@@ -27,15 +18,11 @@ function isLoaded()
 
 end
 
-
-
 function load()
 
   local version = g_game.getClientVersion()
 
   local things = g_settings.getNode('things')
-
-  
 
   local datPath, sprPath
 
@@ -62,8 +49,6 @@ function load()
     end
 
   end
-
-
 
   local errorMessage = ''
 
@@ -93,19 +78,13 @@ function load()
 
   end
 
-
-
   loaded = (errorMessage:len() == 0)
-
-
 
   if errorMessage:len() > 0 then
 
     local messageBox = displayErrorBox(tr('Error'), errorMessage)
 
     addEvent(function() messageBox:raise() messageBox:focus() end)
-
-
 
     g_game.setClientVersion(0)
 
@@ -118,12 +97,7 @@ end
 ```
 
 ---
-
-
-
 # things.otmod
-
-
 
 ```text
 
@@ -142,6 +116,3 @@ Module
 ```
 
 ---
-
-
-

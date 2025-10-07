@@ -1,17 +1,10 @@
-# ¦ Modul: `corelib/ui`
-
-
-
-
-
+﻿# ¦ Modul: `corelib/ui`
 
 ```lua
 
 -- @docclass
 
 g_effects = {}
-
-
 
 function g_effects.fadeIn(widget, time, elapsed)
 
@@ -41,8 +34,6 @@ function g_effects.fadeIn(widget, time, elapsed)
 
 end
 
-
-
 function g_effects.fadeOut(widget, time, elapsed)
 
   if not elapsed then elapsed = 0 end
@@ -71,8 +62,6 @@ function g_effects.fadeOut(widget, time, elapsed)
 
 end
 
-
-
 function g_effects.cancelFade(widget)
 
   removeEvent(widget.fadeEvent)
@@ -80,8 +69,6 @@ function g_effects.cancelFade(widget)
   widget.fadeEvent = nil
 
 end
-
-
 
 function g_effects.startBlink(widget, duration, interval, clickCancel)
 
@@ -91,21 +78,15 @@ function g_effects.startBlink(widget, duration, interval, clickCancel)
 
   clickCancel = clickCancel or true
 
-
-
   removeEvent(widget.blinkEvent)
 
   removeEvent(widget.blinkStopEvent)
-
-
 
   widget.blinkEvent = cycleEvent(function()
 
     widget:setOn(not widget:isOn())
 
   end, interval)
-
-
 
   if duration > 0 then
 
@@ -117,13 +98,9 @@ function g_effects.startBlink(widget, duration, interval, clickCancel)
 
   end
 
-
-
   connect(widget, { onClick = g_effects.stopBlink })
 
 end
-
-
 
 function g_effects.stopBlink(widget)
 
@@ -144,12 +121,7 @@ end
 ```
 
 ---
-
-
-
 # tooltip.lua
-
-
 
 ```lua
 
@@ -157,15 +129,11 @@ end
 
 g_tooltip = {}
 
-
-
 -- private variables
 
 local toolTipLabel
 
 local currentHoveredWidget
-
-
 
 -- private functions
 
@@ -173,21 +141,15 @@ local function moveToolTip(first)
 
   if not first and (not toolTipLabel:isVisible() or toolTipLabel:getOpacity() < 0.1) then return end
 
-
-
   local pos = g_window.getMousePosition()
 
   local windowSize = g_window.getSize()
 
   local labelSize = toolTipLabel:getSize()
 
-
-
   pos.x = pos.x + 1
 
   pos.y = pos.y + 1
-
-
 
   if windowSize.width - (pos.x + labelSize.width) < 10 then
 
@@ -199,8 +161,6 @@ local function moveToolTip(first)
 
   end
 
-
-
   if windowSize.height - (pos.y + labelSize.height) < 10 then
 
     pos.y = pos.y - labelSize.height - 3
@@ -211,13 +171,9 @@ local function moveToolTip(first)
 
   end
 
-
-
   toolTipLabel:setPosition(pos)
 
 end
-
-
 
 local function onWidgetHoverChange(widget, hovered)
 
@@ -245,8 +201,6 @@ local function onWidgetHoverChange(widget, hovered)
 
 end
 
-
-
 local function onWidgetStyleApply(widget, styleName, styleNode)
 
   if styleNode.tooltip then
@@ -257,8 +211,6 @@ local function onWidgetStyleApply(widget, styleName, styleNode)
 
 end
 
-
-
 -- public functions
 
 function g_tooltip.init()
@@ -266,8 +218,6 @@ function g_tooltip.init()
   connect(UIWidget, {  onStyleApply = onWidgetStyleApply,
 
                        onHoverChange = onWidgetHoverChange})
-
-
 
   addEvent(function()
 
@@ -285,15 +235,11 @@ function g_tooltip.init()
 
 end
 
-
-
 function g_tooltip.terminate()
 
   disconnect(UIWidget, { onStyleApply = onWidgetStyleApply,
 
                          onHoverChange = onWidgetHoverChange })
-
-
 
   currentHoveredWidget = nil
 
@@ -301,21 +247,15 @@ function g_tooltip.terminate()
 
   toolTipLabel = nil
 
-
-
   g_tooltip = nil
 
 end
-
-
 
 function g_tooltip.display(text)
 
   if text == nil or text:len() == 0 then return end
 
   if not toolTipLabel then return end
-
-
 
   toolTipLabel:setText(text)
 
@@ -333,39 +273,27 @@ function g_tooltip.display(text)
 
   moveToolTip(true)
 
-  
-
   connect(rootWidget, {
 
     onMouseMove = moveToolTip,
 
-  })  
+})
 
 end
-
-
 
 function g_tooltip.hide()
 
   g_effects.fadeOut(toolTipLabel, 100)
 
-  
-
   disconnect(rootWidget, {
 
     onMouseMove = moveToolTip,
 
-  })  
+})
 
 end
 
-
-
-
-
 -- @docclass UIWidget @{
-
-
 
 -- UIWidget extensions
 
@@ -375,15 +303,11 @@ function UIWidget:setTooltip(text)
 
 end
 
-
-
 function UIWidget:removeTooltip()
 
   self.tooltip = nil
 
 end
-
-
 
 function UIWidget:getTooltip()
 
@@ -391,11 +315,7 @@ function UIWidget:getTooltip()
 
 end
 
-
-
 -- @}
-
-
 
 g_tooltip.init()
 
@@ -404,20 +324,13 @@ connect(g_app, { onTerminate = g_tooltip.terminate })
 ```
 
 ---
-
-
-
 # uibutton.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIButton = extends(UIWidget, "UIButton")
-
-
 
 function UIButton.create()
 
@@ -429,8 +342,6 @@ function UIButton.create()
 
 end
 
-
-
 function UIButton:onMouseRelease(pos, button)
 
   return self:isPressed()
@@ -440,20 +351,13 @@ end
 ```
 
 ---
-
-
-
 # uicheckbox.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UICheckBox = extends(UIWidget, "UICheckBox")
-
-
 
 function UICheckBox.create()
 
@@ -467,8 +371,6 @@ function UICheckBox.create()
 
 end
 
-
-
 function UICheckBox:onClick()
 
   self:setChecked(not self:isChecked())
@@ -478,20 +380,13 @@ end
 ```
 
 ---
-
-
-
 # uicombobox.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIComboBox = extends(UIWidget, "UIComboBox")
-
-
 
 function UIComboBox.create()
 
@@ -515,8 +410,6 @@ function UIComboBox.create()
 
 end
 
-
-
 function UIComboBox:clearOptions()
 
   self.options = {}
@@ -527,23 +420,17 @@ function UIComboBox:clearOptions()
 
 end
 
-
-
 function UIComboBox:clear()
 
   return self:clearOptions()
 
 end
 
-
-
 function UIComboBox:getOptionsCount()
 
   return #self.options
 
 end
-
-
 
 function UIComboBox:isOption(text)
 
@@ -563,15 +450,11 @@ function UIComboBox:isOption(text)
 
 end
 
-
-
 function UIComboBox:setOption(text, dontSignal)
 
   self:setCurrentOption(text, dontSignal)
 
 end
-
-
 
 function UIComboBox:setCurrentOption(text, dontSignal)
 
@@ -599,8 +482,6 @@ function UIComboBox:setCurrentOption(text, dontSignal)
 
 end
 
-
-
 function UIComboBox:updateCurrentOption(newText)
 
   self.options[self.currentIndex].text = newText
@@ -608,8 +489,6 @@ function UIComboBox:updateCurrentOption(newText)
   self:setText(newText)
 
 end
-
-
 
 function UIComboBox:setCurrentOptionByData(data, dontSignal)
 
@@ -637,8 +516,6 @@ function UIComboBox:setCurrentOptionByData(data, dontSignal)
 
 end
 
-
-
 function UIComboBox:setCurrentIndex(index, dontSignal)
 
   if index >= 1 and index <= #self.options then
@@ -659,8 +536,6 @@ function UIComboBox:setCurrentIndex(index, dontSignal)
 
 end
 
-
-
 function UIComboBox:getCurrentOption()
 
   if table.haskey(self.options, self.currentIndex) then
@@ -670,8 +545,6 @@ function UIComboBox:getCurrentOption()
   end
 
 end
-
-
 
 function UIComboBox:addOption(text, data)
 
@@ -684,8 +557,6 @@ function UIComboBox:addOption(text, data)
   return index
 
 end
-
-
 
 function UIComboBox:removeOption(text)
 
@@ -712,8 +583,6 @@ function UIComboBox:removeOption(text)
   end
 
 end
-
-
 
 function UIComboBox:onMousePress(mousePos, mouseButton)
 
@@ -757,8 +626,6 @@ function UIComboBox:onMousePress(mousePos, mouseButton)
 
 end
 
-
-
 function UIComboBox:onMouseWheel(mousePos, direction)
 
   if not self.mouseScroll or self.disableScroll then
@@ -781,8 +648,6 @@ function UIComboBox:onMouseWheel(mousePos, direction)
 
 end
 
-
-
 function UIComboBox:onStyleApply(styleName, styleNode)
 
   if styleNode.options then
@@ -794,8 +659,6 @@ function UIComboBox:onStyleApply(styleName, styleNode)
     end
 
   end
-
-
 
   if styleNode.data then
 
@@ -812,8 +675,6 @@ function UIComboBox:onStyleApply(styleName, styleNode)
     end
 
   end
-
-
 
   for name,value in pairs(styleNode) do
 
@@ -839,15 +700,11 @@ function UIComboBox:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UIComboBox:setMouseScroll(scroll)
 
   self.mouseScroll = scroll
 
 end
-
-
 
 function UIComboBox:canMouseScroll()
 
@@ -858,20 +715,13 @@ end
 ```
 
 ---
-
-
-
 # uiimageview.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIImageView = extends(UIWidget, "UIImageView")
-
-
 
 function UIImageView.create()
 
@@ -888,8 +738,6 @@ function UIImageView.create()
   return imageView
 
 end
-
-
 
 function UIImageView:getDefaultZoom()
 
@@ -909,8 +757,6 @@ function UIImageView:getDefaultZoom()
 
 end
 
-
-
 function UIImageView:getImagePosition(x, y)
 
   x = x or self:getWidth() / 2
@@ -929,8 +775,6 @@ function UIImageView:getImagePosition(x, y)
 
 end
 
-
-
 function UIImageView:setImage(image)
 
   self:setImageSource(image)
@@ -942,8 +786,6 @@ function UIImageView:setImage(image)
   self:center()
 
 end
-
-
 
 function UIImageView:setZoom(zoom, x, y)
 
@@ -969,8 +811,6 @@ function UIImageView:setZoom(zoom, x, y)
 
 end
 
-
-
 function UIImageView:zoomIn(x, y)
 
   local zoom = self.zoom * 1.1
@@ -978,8 +818,6 @@ function UIImageView:zoomIn(x, y)
   self:setZoom(zoom, x, y)
 
 end
-
-
 
 function UIImageView:zoomOut(x, y)
 
@@ -989,15 +827,11 @@ function UIImageView:zoomOut(x, y)
 
 end
 
-
-
 function UIImageView:center()
 
   self:move(self:getImageTextureWidth() / 2, self:getImageTextureHeight() / 2)
 
 end
-
-
 
 function UIImageView:move(x, y, centerX, centerY)
 
@@ -1017,15 +851,11 @@ function UIImageView:move(x, y, centerX, centerY)
 
 end
 
-
-
 function UIImageView:onDragEnter(pos)
 
   return true
 
 end
-
-
 
 function UIImageView:onDragMove(pos, moved)
 
@@ -1037,15 +867,11 @@ function UIImageView:onDragMove(pos, moved)
 
 end
 
-
-
 function UIImageView:onDragLeave(widget, pos)
 
   return true
 
 end
-
-
 
 function UIImageView:onMouseWheel(mousePos, direction)
 
@@ -1068,30 +894,19 @@ end
 ```
 
 ---
-
-
-
 # uiinputbox.lua
-
-
 
 ```lua
 
 if not UIWindow then dofile 'uiwindow' end
 
-
-
 -- @docclass
 
 UIInputBox = extends(UIWindow, "UIInputBox")
 
-
-
 function UIInputBox.create(title, okCallback, cancelCallback)
 
   local inputBox = UIInputBox.internalCreate()
-
-
 
   inputBox:setText(title)
 
@@ -1125,13 +940,9 @@ function UIInputBox.create(title, okCallback, cancelCallback)
 
   end
 
-
-
   return inputBox
 
 end
-
-
 
 function UIInputBox:addLabel(text)
 
@@ -1142,8 +953,6 @@ function UIInputBox:addLabel(text)
   return label
 
 end
-
-
 
 function UIInputBox:addLineEdit(labelText, defaultText, maxLength)
 
@@ -1160,8 +969,6 @@ function UIInputBox:addLineEdit(labelText, defaultText, maxLength)
   return lineEdit
 
 end
-
-
 
 function UIInputBox:addTextEdit(labelText, defaultText, maxLength, visibleLines)
 
@@ -1183,8 +990,6 @@ function UIInputBox:addTextEdit(labelText, defaultText, maxLength, visibleLines)
 
 end
 
-
-
 function UIInputBox:addCheckBox(text, checked)
 
   local checkBox = g_ui.createWidget('InputBoxCheckBox', self)
@@ -1198,8 +1003,6 @@ function UIInputBox:addCheckBox(text, checked)
   return checkBox
 
 end
-
-
 
 function UIInputBox:addComboBox(labelText, ...)
 
@@ -1221,8 +1024,6 @@ function UIInputBox:addComboBox(labelText, ...)
 
 end
 
-
-
 function UIInputBox:addSpinBox(labelText, minimum, maximum, value, step)
 
   if labelText then self:addLabel(labelText) end
@@ -1243,15 +1044,11 @@ function UIInputBox:addSpinBox(labelText, minimum, maximum, value, step)
 
 end
 
-
-
 function UIInputBox:display(okButtonText, cancelButtonText)
 
   okButtonText = okButtonText or tr('Ok')
 
   cancelButtonText = cancelButtonText or tr('Cancel')
-
-
 
   local buttonsWidget = g_ui.createWidget('InputBoxButtonsPanel', self)
 
@@ -1261,27 +1058,19 @@ function UIInputBox:display(okButtonText, cancelButtonText)
 
   okButton.onClick = self.onEnter
 
-
-
   local cancelButton = g_ui.createWidget('InputBoxButton', buttonsWidget)
 
   cancelButton:setText(cancelButtonText)
 
   cancelButton.onClick = self.onEscape
 
-
-
   buttonsWidget:setHeight(okButton:getHeight())
-
-
 
   rootWidget:addChild(self)
 
   self:setStyle('InputBoxWindow')
 
 end
-
-
 
 function displayTextInputBox(title, label, okCallback, cancelCallback)
 
@@ -1292,8 +1081,6 @@ function displayTextInputBox(title, label, okCallback, cancelCallback)
   inputBox:display()
 
 end
-
-
 
 function displayNumberInputBox(title, label, okCallback, cancelCallback, min, max, value, step)
 
@@ -1308,20 +1095,13 @@ end
 ```
 
 ---
-
-
-
 # uilabel.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UILabel = extends(UIWidget, "UILabel")
-
-
 
 function UILabel.create()
 
@@ -1340,30 +1120,19 @@ end
 ```
 
 ---
-
-
-
 # uimessagebox.lua
-
-
 
 ```lua
 
 if not UIWindow then dofile 'uiwindow' end
 
-
-
 -- @docclass
 
 UIMessageBox = extends(UIWindow, "UIMessageBox")
 
-
-
 -- messagebox cannot be created from otui files
 
 UIMessageBox.create = nil
-
-
 
 function UIMessageBox.display(title, message, buttons, onEnterCallback, onEscapeCallback)
 
@@ -1371,37 +1140,25 @@ function UIMessageBox.display(title, message, buttons, onEnterCallback, onEscape
 
   rootWidget:addChild(messageBox)
 
-
-
   messageBox:setStyle('MainWindow')
 
   messageBox:setText(title)
-
-
 
   local messageLabel = g_ui.createWidget('MessageBoxLabel', messageBox)
 
   messageLabel:setText(message)
 
-
-
   local buttonsWidth = 0
 
   local buttonsHeight = 0
-
-
 
   local anchor = AnchorRight
 
   if buttons.anchor then anchor = buttons.anchor end
 
-
-
   local buttonHolder = g_ui.createWidget('MessageBoxButtonHolder', messageBox)
 
   buttonHolder:addAnchor(anchor, 'parent', anchor)
-
-
 
   for i=1,#buttons do
 
@@ -1429,19 +1186,13 @@ function UIMessageBox.display(title, message, buttons, onEnterCallback, onEscape
 
   end
 
-
-
   buttonHolder:setWidth(buttonsWidth)
 
   buttonHolder:setHeight(buttonsHeight)
 
-
-
   if onEnterCallback then connect(messageBox, { onEnter = onEnterCallback }) end
 
   if onEscapeCallback then connect(messageBox, { onEscape = onEscapeCallback }) end
-
-
 
   messageBox:setWidth(math.max(messageLabel:getWidth(), messageBox:getTextSize().width, buttonHolder:getWidth()) + messageBox:getPaddingLeft() + messageBox:getPaddingRight())
 
@@ -1450,8 +1201,6 @@ function UIMessageBox.display(title, message, buttons, onEnterCallback, onEscape
   return messageBox
 
 end
-
-
 
 function displayInfoBox(title, message)
 
@@ -1465,8 +1214,6 @@ function displayInfoBox(title, message)
 
 end
 
-
-
 function displayErrorBox(title, message)
 
   local messageBox
@@ -1478,8 +1225,6 @@ function displayErrorBox(title, message)
   return messageBox
 
 end
-
-
 
 function displayCancelBox(title, message)
 
@@ -1493,15 +1238,11 @@ function displayCancelBox(title, message)
 
 end
 
-
-
 function displayGeneralBox(title, message, buttons, onEnterCallback, onEscapeCallback)
 
   return UIMessageBox.display(title, message, buttons, onEnterCallback, onEscapeCallback)
 
 end
-
-
 
 function UIMessageBox:addButton(text, callback)
 
@@ -1517,8 +1258,6 @@ function UIMessageBox:addButton(text, callback)
 
 end
 
-
-
 function UIMessageBox:ok()
 
   signalcall(self.onOk, self)
@@ -1528,8 +1267,6 @@ function UIMessageBox:ok()
   self:destroy()
 
 end
-
-
 
 function UIMessageBox:cancel()
 
@@ -1544,20 +1281,13 @@ end
 ```
 
 ---
-
-
-
 # uiminiwindow.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIMiniWindow = extends(UIWindow, "UIMiniWindow")
-
-
 
 function UIMiniWindow.create()
 
@@ -1569,13 +1299,9 @@ function UIMiniWindow.create()
 
 end
 
-
-
 function UIMiniWindow:open(dontSave)
 
   self:setVisible(true)
-
-
 
   if not dontSave then
 
@@ -1583,13 +1309,9 @@ function UIMiniWindow:open(dontSave)
 
   end
 
-
-
   signalcall(self.onOpen, self)
 
 end
-
-
 
 function UIMiniWindow:close(dontSave)
 
@@ -1599,21 +1321,15 @@ function UIMiniWindow:close(dontSave)
 
   self:setVisible(false)
 
-
-
   if not dontSave then
 
     self:setSettings({closed = true})
 
   end
 
-
-
   signalcall(self.onClose, self)
 
 end
-
-
 
 function UIMiniWindow:minimize(dontSave)
 
@@ -1635,21 +1351,15 @@ function UIMiniWindow:minimize(dontSave)
 
   self:setHeight(self.minimizedHeight)
 
-
-
   if not dontSave then
 
     self:setSettings({minimized = true})
 
   end
 
-
-
   signalcall(self.onMinimize, self)
 
 end
-
-
 
 function UIMiniWindow:maximize(dontSave)
 
@@ -1669,15 +1379,11 @@ function UIMiniWindow:maximize(dontSave)
 
   self:setHeight(self:getSettings('height') or self.maximizedHeight)
 
-
-
   if not dontSave then
 
     self:setSettings({minimized = false})
 
   end
-
-
 
   local parent = self:getParent()
 
@@ -1687,13 +1393,9 @@ function UIMiniWindow:maximize(dontSave)
 
   end
 
-
-
   signalcall(self.onMaximize, self)
 
 end
-
-
 
 function UIMiniWindow:lock(dontSave)
 
@@ -1713,13 +1415,9 @@ function UIMiniWindow:lock(dontSave)
 
   end
 
-
-
   signalcall(self.onLockChange, self)
 
 end
-
-
 
 function UIMiniWindow:unlock(dontSave)
 
@@ -1743,8 +1441,6 @@ function UIMiniWindow:unlock(dontSave)
 
 end
 
-
-
 function UIMiniWindow:setup()
 
   self:getChildById('closeButton').onClick =
@@ -1765,8 +1461,6 @@ function UIMiniWindow:setup()
 
   end
 
-
-
   if(self.minimizeButton) then
 
     self.minimizeButton.onClick =
@@ -1786,8 +1480,6 @@ function UIMiniWindow:setup()
       end
 
   end
-
-  
 
   local lockButton = self:getChildById('lockButton')
 
@@ -1810,8 +1502,6 @@ function UIMiniWindow:setup()
       end
 
   end
-
-
 
   self:getChildById('miniwindowTopBar').onDoubleClick =
 
@@ -1837,13 +1527,7 @@ function UIMiniWindow:setup()
 
   end
 
-
-
   local oldParent = self:getParent()
-
-
-
-
 
   local settings = {}
 
@@ -1852,8 +1536,6 @@ function UIMiniWindow:setup()
     settings = g_settings.getNode('MiniWindows')
 
   end
-
-
 
   if settings then
 
@@ -1887,8 +1569,6 @@ function UIMiniWindow:setup()
 
       end
 
-
-
       if selfSettings.minimized then
 
         self:minimize(true)
@@ -1913,8 +1593,6 @@ function UIMiniWindow:setup()
 
       end
 
-
-
       if selfSettings.locked then
 
         self:lock(true)
@@ -1933,15 +1611,9 @@ function UIMiniWindow:setup()
 
   end
 
-
-
   local newParent = self:getParent()
 
-
-
   self.miniLoaded = true
-
-
 
   if self.save then
 
@@ -1959,13 +1631,9 @@ function UIMiniWindow:setup()
 
   end
 
-
-
   self:fitOnParent()
 
 end
-
-
 
 function UIMiniWindow:onVisibilityChange(visible)
 
@@ -1973,15 +1641,11 @@ function UIMiniWindow:onVisibilityChange(visible)
 
 end
 
-
-
 function UIMiniWindow:onDragEnter(mousePos)
 
   local parent = self:getParent()
 
   if not parent then return false end
-
-
 
   if parent:getClassName() == 'UIMiniWindowContainer' then
 
@@ -1995,8 +1659,6 @@ function UIMiniWindow:onDragEnter(mousePos)
 
   end
 
-
-
   local oldPos = self:getPosition()
 
   self.movingReference = { x = mousePos.x - oldPos.x, y = mousePos.y - oldPos.y }
@@ -2008,8 +1670,6 @@ function UIMiniWindow:onDragEnter(mousePos)
   return true
 
 end
-
-
 
 function UIMiniWindow:onDragLeave(droppedWidget, mousePos)
 
@@ -2027,15 +1687,11 @@ function UIMiniWindow:onDragLeave(droppedWidget, mousePos)
 
   end
 
-
-
   UIWindow:onDragLeave(self, droppedWidget, mousePos)
 
   self:saveParent(self:getParent())
 
 end
-
-
 
 function UIMiniWindow:onDragMove(mousePos, mouseMoved)
 
@@ -2053,8 +1709,6 @@ function UIMiniWindow:onDragMove(mousePos, mouseMoved)
 
       overAnyWidget = true
 
-
-
       local childCenterY = child:getY() + child:getHeight() / 2
 
       if child == self.movedWidget and mousePos.y < childCenterY and oldMousePosY < childCenterY then
@@ -2063,8 +1717,6 @@ function UIMiniWindow:onDragMove(mousePos, mouseMoved)
 
       end
 
-
-
       if self.movedWidget then
 
         self.setMovedChildMargin(self.movedOldMargin or 0)
@@ -2072,8 +1724,6 @@ function UIMiniWindow:onDragMove(mousePos, mouseMoved)
         self.setMovedChildMargin = nil
 
       end
-
-
 
       if mousePos.y < childCenterY then
 
@@ -2093,8 +1743,6 @@ function UIMiniWindow:onDragMove(mousePos, mouseMoved)
 
       end
 
-
-
       self.movedWidget = child
 
       self.setMovedChildMargin(self:getHeight())
@@ -2105,8 +1753,6 @@ function UIMiniWindow:onDragMove(mousePos, mouseMoved)
 
   end
 
-
-
   if not overAnyWidget and self.movedWidget then
 
     self.setMovedChildMargin(self.movedOldMargin or 0)
@@ -2115,13 +1761,9 @@ function UIMiniWindow:onDragMove(mousePos, mouseMoved)
 
   end
 
-
-
   return UIWindow.onDragMove(self, mousePos, mouseMoved)
 
 end
-
-
 
 function UIMiniWindow:onMousePress()
 
@@ -2139,8 +1781,6 @@ function UIMiniWindow:onMousePress()
 
 end
 
-
-
 function UIMiniWindow:onFocusChange(focused)
 
   if not focused then return end
@@ -2155,8 +1795,6 @@ function UIMiniWindow:onFocusChange(focused)
 
 end
 
-
-
 function UIMiniWindow:onHeightChange(height)
 
   if not self:isOn() then
@@ -2168,8 +1806,6 @@ function UIMiniWindow:onHeightChange(height)
   self:fitOnParent()
 
 end
-
-
 
 function UIMiniWindow:getSettings(name)
 
@@ -2193,13 +1829,9 @@ function UIMiniWindow:getSettings(name)
 
 end
 
-
-
 function UIMiniWindow:setSettings(data)
 
   if not self.save then return end
-
-
 
   local settings = g_settings.getNode('MiniWindows')
 
@@ -2209,8 +1841,6 @@ function UIMiniWindow:setSettings(data)
 
   end
 
-
-
   local id = self:getId()
 
   if not settings[id] then
@@ -2218,8 +1848,6 @@ function UIMiniWindow:setSettings(data)
     settings[id] = {}
 
   end
-
-
 
   for key,value in pairs(data) do
 
@@ -2227,19 +1855,13 @@ function UIMiniWindow:setSettings(data)
 
   end
 
-
-
   g_settings.setNode('MiniWindows', settings)
 
 end
 
-
-
 function UIMiniWindow:eraseSettings(data)
 
   if not self.save then return end
-
-
 
   local settings = g_settings.getNode('MiniWindows')
 
@@ -2248,8 +1870,6 @@ function UIMiniWindow:eraseSettings(data)
     settings = {}
 
   end
-
-
 
   local id = self:getId()
 
@@ -2259,27 +1879,19 @@ function UIMiniWindow:eraseSettings(data)
 
   end
 
-
-
   for key,value in pairs(data) do
 
     settings[id][key] = nil
 
   end
 
-
-
   g_settings.setNode('MiniWindows', settings)
 
 end
 
-
-
 function UIMiniWindow:clearSettings()
 
   if not self.save then return end
-
-
 
   local settings = g_settings.getNode('MiniWindows')
 
@@ -2289,19 +1901,13 @@ function UIMiniWindow:clearSettings()
 
   end
 
-
-
   local id = self:getId()
 
   settings[id] = {}
 
-
-
   g_settings.setNode('MiniWindows', settings)
 
 end
-
-
 
 function UIMiniWindow:saveParent(parent)
 
@@ -2323,8 +1929,6 @@ function UIMiniWindow:saveParent(parent)
 
 end
 
-
-
 function UIMiniWindow:saveParentPosition(parentId, position)
 
   local selfSettings = {}
@@ -2336,8 +1940,6 @@ function UIMiniWindow:saveParentPosition(parentId, position)
   self:setSettings(selfSettings)
 
 end
-
-
 
 function UIMiniWindow:saveParentIndex(parentId, index)
 
@@ -2353,23 +1955,17 @@ function UIMiniWindow:saveParentIndex(parentId, index)
 
 end
 
-
-
 function UIMiniWindow:disableResize()
 
   self:getChildById('bottomResizeBorder'):disable()
 
 end
 
-
-
 function UIMiniWindow:enableResize()
 
   self:getChildById('bottomResizeBorder'):enable()
 
 end
-
-
 
 function UIMiniWindow:fitOnParent()
 
@@ -2382,8 +1978,6 @@ function UIMiniWindow:fitOnParent()
   end
 
 end
-
-
 
 function UIMiniWindow:setParent(parent, dontsave)
 
@@ -2399,8 +1993,6 @@ function UIMiniWindow:setParent(parent, dontsave)
 
 end
 
-
-
 function UIMiniWindow:setHeight(height)
 
   UIWidget.setHeight(self, height)
@@ -2409,15 +2001,11 @@ function UIMiniWindow:setHeight(height)
 
 end
 
-
-
 function UIMiniWindow:setContentHeight(height)
 
   local contentsPanel = self:getChildById('contentsPanel')
 
   local minHeight = contentsPanel:getMarginTop() + contentsPanel:getMarginBottom() + contentsPanel:getPaddingTop() + contentsPanel:getPaddingBottom()
-
-
 
   local resizeBorder = self:getChildById('bottomResizeBorder')
 
@@ -2425,15 +2013,11 @@ function UIMiniWindow:setContentHeight(height)
 
 end
 
-
-
 function UIMiniWindow:setContentMinimumHeight(height)
 
   local contentsPanel = self:getChildById('contentsPanel')
 
   local minHeight = contentsPanel:getMarginTop() + contentsPanel:getMarginBottom() + contentsPanel:getPaddingTop() + contentsPanel:getPaddingBottom()
-
-
 
   local resizeBorder = self:getChildById('bottomResizeBorder')
 
@@ -2441,23 +2025,17 @@ function UIMiniWindow:setContentMinimumHeight(height)
 
 end
 
-
-
 function UIMiniWindow:setContentMaximumHeight(height)
 
   local contentsPanel = self:getChildById('contentsPanel')
 
   local minHeight = contentsPanel:getMarginTop() + contentsPanel:getMarginBottom() + contentsPanel:getPaddingTop() + contentsPanel:getPaddingBottom()
 
-
-
   local resizeBorder = self:getChildById('bottomResizeBorder')
 
   resizeBorder:setMaximum(minHeight + height)
 
 end
-
-
 
 function UIMiniWindow:getMinimumHeight()
 
@@ -2467,8 +2045,6 @@ function UIMiniWindow:getMinimumHeight()
 
 end
 
-
-
 function UIMiniWindow:getMaximumHeight()
 
   local resizeBorder = self:getChildById('bottomResizeBorder')
@@ -2476,8 +2052,6 @@ function UIMiniWindow:getMaximumHeight()
   return resizeBorder:getMaximum()
 
 end
-
-
 
 function UIMiniWindow:isResizeable()
 
@@ -2490,20 +2064,13 @@ end
 ```
 
 ---
-
-
-
 # uiminiwindowcontainer.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIMiniWindowContainer = extends(UIWidget, "UIMiniWindowContainer")
-
-
 
 function UIMiniWindowContainer.create()
 
@@ -2519,8 +2086,6 @@ function UIMiniWindowContainer.create()
 
 end
 
-
-
 -- TODO: connect to window onResize event
 
 -- TODO: try to resize another widget?
@@ -2534,8 +2099,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
     return
 
   end
-
-
 
   if not noRemoveChild then
 
@@ -2553,8 +2116,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
 
   end
 
-
-
   local sumHeight = 0
 
   local children = self:getChildren()
@@ -2569,8 +2130,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
 
   end
 
-
-
   local selfHeight = self:getHeight() - (self:getPaddingTop() + self:getPaddingBottom())
 
   if sumHeight <= selfHeight then
@@ -2579,11 +2138,7 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
 
   end
 
-
-
   local removeChildren = {}
-
-
 
   -- try to resize noRemoveChild
 
@@ -2597,8 +2152,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
 
   end
 
-
-
   -- try to remove no-save widget
 
   for i=#children,1,-1 do
@@ -2608,8 +2161,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
       break
 
     end
-
-
 
     local child = children[i]
 
@@ -2625,8 +2176,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
 
   end
 
-
-
   -- try to remove save widget, not forceOpen
 
   for i=#children,1,-1 do
@@ -2636,8 +2185,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
       break
 
     end
-
-
 
     local child = children[i]
 
@@ -2653,8 +2200,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
 
   end
 
-
-
   -- try to remove save widget
 
   for i=#children,1,-1 do
@@ -2664,8 +2209,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
       break
 
     end
-
-
 
     local child = children[i]
 
@@ -2680,8 +2223,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
     end
 
   end
-
-
 
   -- close widgets
 
@@ -2701,8 +2242,6 @@ function UIMiniWindowContainer:fitAll(noRemoveChild)
 
 end
 
-
-
 function UIMiniWindowContainer:onDrop(widget, mousePos)
 
   if widget.UIMiniWindowContainer then
@@ -2715,15 +2254,11 @@ function UIMiniWindowContainer:onDrop(widget, mousePos)
 
     end
 
-
-
     if oldParent then
 
       oldParent:removeChild(widget)
 
     end
-
-
 
     if widget.movedWidget then
 
@@ -2737,8 +2272,6 @@ function UIMiniWindowContainer:onDrop(widget, mousePos)
 
     end
 
-
-
     self:fitAll(widget)
 
     return true
@@ -2746,8 +2279,6 @@ function UIMiniWindowContainer:onDrop(widget, mousePos)
   end
 
 end
-
-
 
 function UIMiniWindowContainer:moveTo(newPanel)
 
@@ -2771,15 +2302,11 @@ function UIMiniWindowContainer:moveTo(newPanel)
 
 end
 
-
-
 function UIMiniWindowContainer:swapInsert(widget, index)
 
   local oldParent = widget:getParent()
 
   local oldIndex = self:getChildIndex(widget)
-
-
 
   if oldParent == self and oldIndex ~= index then
 
@@ -2800,8 +2327,6 @@ function UIMiniWindowContainer:swapInsert(widget, index)
   end
 
 end
-
-
 
 function UIMiniWindowContainer:scheduleInsert(widget, index)
 
@@ -2828,8 +2353,6 @@ function UIMiniWindowContainer:scheduleInsert(widget, index)
       end
 
       self:insertChild(index, widget)
-
-
 
       while true do
 
@@ -2877,8 +2400,6 @@ function UIMiniWindowContainer:scheduleInsert(widget, index)
 
 end
 
-
-
 function UIMiniWindowContainer:order()
 
   local children = self:getChildren()
@@ -2889,8 +2410,6 @@ function UIMiniWindowContainer:order()
 
   end
 
-
-
   table.sort(children, function(a, b)
 
     local indexA = a.miniIndex or a.autoOpen or 999
@@ -2900,8 +2419,6 @@ function UIMiniWindowContainer:order()
     return indexA < indexB
 
   end)
-
-
 
   self:reorderChildren(children)
 
@@ -2922,8 +2439,6 @@ function UIMiniWindowContainer:order()
   end
 
 end
-
-
 
 function UIMiniWindowContainer:saveChildren()
 
@@ -2947,8 +2462,6 @@ function UIMiniWindowContainer:saveChildren()
 
 end
 
-
-
 function UIMiniWindowContainer:onGeometryChange()
 
   self:fitAll()
@@ -2958,20 +2471,13 @@ end
 ```
 
 ---
-
-
-
 # uimovabletabbar.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIMoveableTabBar = extends(UIWidget, "UIMoveableTabBar")
-
-
 
 -- private functions
 
@@ -2981,13 +2487,9 @@ local function onTabClick(tab)
 
 end
 
-
-
 local function updateMargins(tabBar)
 
   if #tabBar.tabs == 0 then return end
-
-
 
   local currentMargin = 0
 
@@ -3000,8 +2502,6 @@ local function updateMargins(tabBar)
   end
 
 end
-
-
 
 local function updateNavigation(tabBar)
 
@@ -3019,8 +2519,6 @@ local function updateNavigation(tabBar)
 
   end
 
-
-
   if tabBar.nextNavigation then
 
     if #tabBar.postTabs > 0 or table.find(tabBar.tabs, tabBar.currentTab) ~= #tabBar.tabs then
@@ -3036,8 +2534,6 @@ local function updateNavigation(tabBar)
   end
 
 end
-
-
 
 local function updateIndexes(tabBar, tab, xoff)
 
@@ -3077,13 +2573,9 @@ local function updateIndexes(tabBar, tab, xoff)
 
 end
 
-
-
 local function getMaxMargin(tabBar, tab)
 
   if #tabBar.tabs == 0 then return 0 end
-
-
 
   local maxMargin = 0
 
@@ -3101,8 +2593,6 @@ local function getMaxMargin(tabBar, tab)
 
 end
 
-
-
 local function updateTabs(tabBar)
 
   if #tabBar.postTabs > 0 then
@@ -3118,8 +2608,6 @@ local function updateTabs(tabBar)
         break
 
       end
-
-
 
       table.remove(tabBar.postTabs, i)
 
@@ -3143,8 +2631,6 @@ local function updateTabs(tabBar)
 
       end
 
-
-
       table.remove(tabBar.preTabs, i)
 
       table.insert(tabBar.tabs, 1, tab)
@@ -3166,8 +2652,6 @@ local function updateTabs(tabBar)
   end
 
 end
-
-
 
 local function hideTabs(tabBar, fromBack, toArray, width)
 
@@ -3211,8 +2695,6 @@ local function hideTabs(tabBar, fromBack, toArray, width)
 
 end
 
-
-
 local function showPreTab(tabBar)
 
   if #tabBar.preTabs == 0 then
@@ -3221,13 +2703,9 @@ local function showPreTab(tabBar)
 
   end
 
-
-
   local tmpTab = tabBar.preTabs[#tabBar.preTabs]
 
   hideTabs(tabBar, true, tabBar.postTabs, tmpTab:getWidth())
-
-
 
   table.remove(tabBar.preTabs, #tabBar.preTabs)
 
@@ -3239,8 +2717,6 @@ local function showPreTab(tabBar)
 
 end
 
-
-
 local function showPostTab(tabBar)
 
   if #tabBar.postTabs == 0 then
@@ -3249,13 +2725,9 @@ local function showPostTab(tabBar)
 
   end
 
-
-
   local tmpTab = tabBar.postTabs[1]
 
   hideTabs(tabBar, false, tabBar.preTabs, tmpTab:getWidth())
-
-
 
   table.remove(tabBar.postTabs, 1)
 
@@ -3266,8 +2738,6 @@ local function showPostTab(tabBar)
   return tmpTab
 
 end
-
-
 
 local function onTabMousePress(tab, mousePos, mouseButton)
 
@@ -3281,8 +2751,6 @@ local function onTabMousePress(tab, mousePos, mouseButton)
 
 end
 
-
-
 local function onTabDragEnter(tab, mousePos)
 
   tab:raise()
@@ -3295,8 +2763,6 @@ local function onTabDragEnter(tab, mousePos)
 
 end
 
-
-
 local function onTabDragLeave(tab)
 
   updateMargins(tab.tabBar)
@@ -3307,23 +2773,17 @@ local function onTabDragLeave(tab)
 
 end
 
-
-
 local function onTabDragMove(tab, mousePos, mouseMoved)
 
   if tab == tab.tabBar.selected then
 
     local xoff = mousePos.x - tab.hotSpot
 
-
-
     -- update indexes
 
     updateIndexes(tab.tabBar, tab, xoff)
 
     updateIndexes(tab.tabBar, tab, xoff)
-
-
 
     -- update margins
 
@@ -3339,15 +2799,11 @@ local function onTabDragMove(tab, mousePos, mouseMoved)
 
 end
 
-
-
 local function tabBlink(tab, step)
 
   local step = step or 0
 
   tab:setOn(not tab:isOn())
-
-
 
   removeEvent(tab.blinkEvent)
 
@@ -3364,8 +2820,6 @@ local function tabBlink(tab, step)
   end
 
 end
-
-
 
 -- public functions
 
@@ -3403,8 +2857,6 @@ function UIMoveableTabBar.create()
 
 end
 
-
-
 function UIMoveableTabBar:onDestroy()
 
   if self.prevNavigation then
@@ -3413,23 +2865,17 @@ function UIMoveableTabBar:onDestroy()
 
   end
 
-
-
   if self.nextNavigation then
 
     self.nextNavigation:disable()
 
   end
 
-
-
   self.nextNavigation = nil
 
   self.prevNavigation = nil
 
 end
-
-
 
 function UIMoveableTabBar:setContentWidget(widget)
 
@@ -3443,8 +2889,6 @@ function UIMoveableTabBar:setContentWidget(widget)
 
 end
 
-
-
 function UIMoveableTabBar:setTabSpacing(tabSpacing)
 
   self.tabSpacing = tabSpacing
@@ -3452,8 +2896,6 @@ function UIMoveableTabBar:setTabSpacing(tabSpacing)
   updateMargins(self)
 
 end
-
-
 
 function UIMoveableTabBar:addTab(text, panel, menuCallback)
 
@@ -3464,8 +2906,6 @@ function UIMoveableTabBar:addTab(text, panel, menuCallback)
     panel:setId('tabPanel')
 
   end
-
-
 
   local tab = g_ui.createWidget(self:getStyleName() .. 'Button', self)
 
@@ -3497,8 +2937,6 @@ function UIMoveableTabBar:addTab(text, panel, menuCallback)
 
   tab.onDestroy = function() tab.tabPanel:destroy() end
 
-
-
   if #self.tabs == 0 then
 
     self:selectTab(tab)
@@ -3519,8 +2957,6 @@ function UIMoveableTabBar:addTab(text, panel, menuCallback)
 
     tab:setMarginLeft(newMargin)
 
-
-
     hideTabs(self, true, self.postTabs, tab:getWidth())
 
     table.insert(self.tabs, tab)
@@ -3535,15 +2971,11 @@ function UIMoveableTabBar:addTab(text, panel, menuCallback)
 
   end
 
-
-
   updateNavigation(self)
 
   return tab
 
 end
-
-
 
 -- Additional function to move the tab by lua
 
@@ -3552,8 +2984,6 @@ function UIMoveableTabBar:moveTab(tab, units)
   local index = table.find(self.tabs, tab)
 
   if index == nil then return end
-
-
 
   local focus = false
 
@@ -3565,11 +2995,7 @@ function UIMoveableTabBar:moveTab(tab, units)
 
   end
 
-
-
   table.remove(self.tabs, index)
-
-
 
   local newIndex = math.min(#self.tabs+1, math.max(index + units, 1))
 
@@ -3582,8 +3008,6 @@ function UIMoveableTabBar:moveTab(tab, units)
   return newIndex
 
 end
-
-
 
 function UIMoveableTabBar:onStyleApply(styleName, styleNode)
 
@@ -3601,8 +3025,6 @@ function UIMoveableTabBar:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UIMoveableTabBar:clearTabs()
 
   while #self.tabs > 0 do
@@ -3612,8 +3034,6 @@ function UIMoveableTabBar:clearTabs()
   end
 
 end
-
-
 
 function UIMoveableTabBar:removeTab(tab)
 
@@ -3636,8 +3056,6 @@ function UIMoveableTabBar:removeTab(tab)
     end
 
   end
-
-
 
   if tabTable == nil then
 
@@ -3670,8 +3088,6 @@ function UIMoveableTabBar:removeTab(tab)
   tab:destroy()
 
 end
-
-
 
 function UIMoveableTabBar:getTab(text)
 
@@ -3707,8 +3123,6 @@ function UIMoveableTabBar:getTab(text)
 
 end
 
-
-
 function UIMoveableTabBar:selectTab(tab)
 
   if self.currentTab == tab then return end
@@ -3729,8 +3143,6 @@ function UIMoveableTabBar:selectTab(tab)
 
   end
 
-
-
   if self.currentTab then
 
     self.currentTab:setChecked(false)
@@ -3747,8 +3159,6 @@ function UIMoveableTabBar:selectTab(tab)
 
   tab.blinking = false
 
-
-
   if tab.blinkEvent then
 
     removeEvent(tab.blinkEvent)
@@ -3756,8 +3166,6 @@ function UIMoveableTabBar:selectTab(tab)
     tab.blinkEvent = nil
 
   end
-
-
 
   local parent = tab:getParent()
 
@@ -3767,8 +3175,6 @@ function UIMoveableTabBar:selectTab(tab)
 
 end
 
-
-
 function UIMoveableTabBar:selectNextTab()
 
   if self.currentTab == nil then
@@ -3777,8 +3183,6 @@ function UIMoveableTabBar:selectNextTab()
 
   end
 
-
-
   local index = table.find(self.tabs, self.currentTab)
 
   if index == nil then
@@ -3786,8 +3190,6 @@ function UIMoveableTabBar:selectNextTab()
     return
 
   end
-
-
 
   local newIndex = index + 1
 
@@ -3811,8 +3213,6 @@ function UIMoveableTabBar:selectNextTab()
 
       end
 
-
-
       self:selectTab(self.tabs[1])
 
     end
@@ -3823,8 +3223,6 @@ function UIMoveableTabBar:selectNextTab()
 
   end
 
-
-
   local nextTab = self.tabs[newIndex]
 
   if not nextTab then
@@ -3833,13 +3231,9 @@ function UIMoveableTabBar:selectNextTab()
 
   end
 
-
-
   self:selectTab(nextTab)
 
 end
-
-
 
 function UIMoveableTabBar:selectPrevTab()
 
@@ -3849,8 +3243,6 @@ function UIMoveableTabBar:selectPrevTab()
 
   end
 
-
-
   local index = table.find(self.tabs, self.currentTab)
 
   if index == nil then
@@ -3858,8 +3250,6 @@ function UIMoveableTabBar:selectPrevTab()
     return
 
   end
-
-
 
   local newIndex = index - 1
 
@@ -3883,8 +3273,6 @@ function UIMoveableTabBar:selectPrevTab()
 
       end
 
-
-
       self:selectTab(self.tabs[#self.tabs])
 
     end
@@ -3895,8 +3283,6 @@ function UIMoveableTabBar:selectPrevTab()
 
   end
 
-
-
   local prevTab = self.tabs[newIndex]
 
   if not prevTab then
@@ -3905,13 +3291,9 @@ function UIMoveableTabBar:selectPrevTab()
 
   end
 
-
-
   self:selectTab(prevTab)
 
 end
-
-
 
 function UIMoveableTabBar:blinkTab(tab)
 
@@ -3923,15 +3305,11 @@ function UIMoveableTabBar:blinkTab(tab)
 
 end
 
-
-
 function UIMoveableTabBar:getTabPanel(tab)
 
   return tab.tabPanel
 
 end
-
-
 
 function UIMoveableTabBar:getCurrentTabPanel()
 
@@ -3943,23 +3321,17 @@ function UIMoveableTabBar:getCurrentTabPanel()
 
 end
 
-
-
 function UIMoveableTabBar:getCurrentTab()
 
   return self.currentTab
 
 end
 
-
-
 function UIMoveableTabBar:setNavigation(prevButton, nextButton)
 
   self.prevNavigation = prevButton
 
   self.nextNavigation = nextButton
-
-
 
   if self.prevNavigation then
 
@@ -3980,12 +3352,7 @@ end
 ```
 
 ---
-
-
-
 # uipopupmenu.lua
-
-
 
 ```lua
 
@@ -3993,11 +3360,7 @@ end
 
 UIPopupMenu = extends(UIWidget, "UIPopupMenu")
 
-
-
 local currentMenu
-
-
 
 function UIPopupMenu.create()
 
@@ -4015,8 +3378,6 @@ function UIPopupMenu.create()
 
 end
 
-
-
 function UIPopupMenu:display(pos)
 
   -- don't display if not options was added
@@ -4029,8 +3390,6 @@ function UIPopupMenu:display(pos)
 
   end
 
-
-
   if g_ui.isMouseGrabbed() then
 
     self:destroy()
@@ -4039,23 +3398,17 @@ function UIPopupMenu:display(pos)
 
   end
 
-
-
   if currentMenu then
 
     currentMenu:destroy()
 
   end
 
-
-
   if pos == nil then
 
     pos = g_window.getMousePosition()
 
   end
-
-
 
   rootWidget:addChild(self)
 
@@ -4070,8 +3423,6 @@ function UIPopupMenu:display(pos)
   currentMenu = self
 
 end
-
-
 
 function UIPopupMenu:onGeometryChange(oldRect, newRect)
 
@@ -4103,8 +3454,6 @@ function UIPopupMenu:onGeometryChange(oldRect, newRect)
 
 end
 
-
-
 function UIPopupMenu:addOption(optionName, optionCallback, shortcut)
 
   local optionWidget = g_ui.createWidget(self:getStyleName() .. 'Button', self)
@@ -4121,8 +3470,6 @@ function UIPopupMenu:addOption(optionName, optionCallback, shortcut)
 
   local width = optionWidget:getTextSize().width + optionWidget:getMarginLeft() + optionWidget:getMarginRight() + 15
 
-
-
   if shortcut then
 
     local shortcutLabel = g_ui.createWidget(self:getStyleName() .. 'ShortcutLabel', optionWidget)
@@ -4133,13 +3480,9 @@ function UIPopupMenu:addOption(optionName, optionCallback, shortcut)
 
   end
 
-
-
   self:setWidth(math.max(self:getWidth(), width))
 
 end
-
-
 
 function UIPopupMenu:addSeparator()
 
@@ -4147,15 +3490,11 @@ function UIPopupMenu:addSeparator()
 
 end
 
-
-
 function UIPopupMenu:setGameMenu(state)
 
   self.isGameMenu = state
 
 end
-
-
 
 function UIPopupMenu:onDestroy()
 
@@ -4168,8 +3507,6 @@ function UIPopupMenu:onDestroy()
   self:ungrabMouse()
 
 end
-
-
 
 function UIPopupMenu:onMousePress(mousePos, mouseButton)
 
@@ -4185,8 +3522,6 @@ function UIPopupMenu:onMousePress(mousePos, mouseButton)
 
 end
 
-
-
 function UIPopupMenu:onKeyPress(keyCode, keyboardModifiers)
 
   if keyCode == KeyEscape then
@@ -4201,8 +3536,6 @@ function UIPopupMenu:onKeyPress(keyCode, keyboardModifiers)
 
 end
 
-
-
 -- close all menus when the window is resized
 
 local function onRootGeometryUpdate()
@@ -4215,8 +3548,6 @@ local function onRootGeometryUpdate()
 
 end
 
-
-
 local function onGameEnd()
 
   if currentMenu and currentMenu.isGameMenu then
@@ -4227,8 +3558,6 @@ local function onGameEnd()
 
 end
 
-
-
 connect(rootWidget, { onGeometryChange = onRootGeometryUpdate })
 
 connect(g_game, { onGameEnd = onGameEnd } )
@@ -4236,12 +3565,7 @@ connect(g_game, { onGameEnd = onGameEnd } )
 ```
 
 ---
-
-
-
 # uipopupscrollmenu.lua
-
-
 
 ```lua
 
@@ -4249,17 +3573,11 @@ connect(g_game, { onGameEnd = onGameEnd } )
 
 UIPopupScrollMenu = extends(UIWidget, "UIPopupScrollMenu")
 
-
-
 local currentMenu
-
-
 
 function UIPopupScrollMenu.create()
 
   local menu = UIPopupScrollMenu.internalCreate()
-
-
 
   local scrollArea = g_ui.createWidget('UIScrollArea', menu)
 
@@ -4267,23 +3585,17 @@ function UIPopupScrollMenu.create()
 
   scrollArea:setId('scrollArea')
 
-
-
   local scrollBar = g_ui.createWidget('VerticalScrollBar', menu)
 
   scrollBar:setId('scrollBar')
 
   scrollBar.pixelsScroll = false
 
-
-
   scrollBar:addAnchor(AnchorRight, 'parent', AnchorRight)
 
   scrollBar:addAnchor(AnchorTop, 'parent', AnchorTop)
 
   scrollBar:addAnchor(AnchorBottom, 'parent', AnchorBottom)
-
-
 
   scrollArea:addAnchor(AnchorLeft, 'parent', AnchorLeft)
 
@@ -4295,8 +3607,6 @@ function UIPopupScrollMenu.create()
 
   scrollArea:setVerticalScrollBar(scrollBar)
 
-
-
   menu.scrollArea = scrollArea
 
   menu.scrollBar = scrollBar
@@ -4305,15 +3615,11 @@ function UIPopupScrollMenu.create()
 
 end
 
-
-
 function UIPopupScrollMenu:setScrollbarStep(step)
 
   self.scrollBar:setStep(step)
 
 end
-
-
 
 function UIPopupScrollMenu:display(pos)
 
@@ -4327,8 +3633,6 @@ function UIPopupScrollMenu:display(pos)
 
   end
 
-
-
   if g_ui.isMouseGrabbed() then
 
     self:destroy()
@@ -4337,23 +3641,17 @@ function UIPopupScrollMenu:display(pos)
 
   end
 
-
-
   if currentMenu then
 
     currentMenu:destroy()
 
   end
 
-
-
   if pos == nil then
 
     pos = g_window.getMousePosition()
 
   end
-
-
 
   rootWidget:addChild(self)
 
@@ -4364,8 +3662,6 @@ function UIPopupScrollMenu:display(pos)
   currentMenu = self
 
 end
-
-
 
 function UIPopupScrollMenu:onGeometryChange(oldRect, newRect)
 
@@ -4397,8 +3693,6 @@ function UIPopupScrollMenu:onGeometryChange(oldRect, newRect)
 
 end
 
-
-
 function UIPopupScrollMenu:addOption(optionName, optionCallback, shortcut)
 
   local optionWidget = g_ui.createWidget(self:getStyleName() .. 'Button', self.scrollArea)
@@ -4415,8 +3709,6 @@ function UIPopupScrollMenu:addOption(optionName, optionCallback, shortcut)
 
   local width = optionWidget:getTextSize().width + optionWidget:getMarginLeft() + optionWidget:getMarginRight() + 15
 
-
-
   if shortcut then
 
     local shortcutLabel = g_ui.createWidget(self:getStyleName() .. 'ShortcutLabel', optionWidget)
@@ -4427,21 +3719,15 @@ function UIPopupScrollMenu:addOption(optionName, optionCallback, shortcut)
 
   end
 
-
-
   self:setWidth(math.max(self:getWidth(), width))
 
 end
-
-
 
 function UIPopupScrollMenu:addSeparator()
 
   g_ui.createWidget(self:getStyleName() .. 'Separator', self.scrollArea)
 
 end
-
-
 
 function UIPopupScrollMenu:onDestroy()
 
@@ -4454,8 +3740,6 @@ function UIPopupScrollMenu:onDestroy()
   self:ungrabMouse()
 
 end
-
-
 
 function UIPopupScrollMenu:onMousePress(mousePos, mouseButton)
 
@@ -4471,8 +3755,6 @@ function UIPopupScrollMenu:onMousePress(mousePos, mouseButton)
 
 end
 
-
-
 function UIPopupScrollMenu:onKeyPress(keyCode, keyboardModifiers)
 
   if keyCode == KeyEscape then
@@ -4486,8 +3768,6 @@ function UIPopupScrollMenu:onKeyPress(keyCode, keyboardModifiers)
   return false
 
 end
-
-
 
 -- close all menus when the window is resized
 
@@ -4506,20 +3786,13 @@ connect(rootWidget, { onGeometryChange = onRootGeometryUpdate} )
 ```
 
 ---
-
-
-
 # uiprogressbar.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIProgressBar = extends(UIWidget, "UIProgressBar")
-
-
 
 function UIProgressBar.create()
 
@@ -4547,8 +3820,6 @@ function UIProgressBar.create()
 
 end
 
-
-
 function UIProgressBar:setMinimum(minimum)
 
   self.minimum = minimum
@@ -4560,8 +3831,6 @@ function UIProgressBar:setMinimum(minimum)
   end
 
 end
-
-
 
 function UIProgressBar:setMaximum(maximum)
 
@@ -4575,8 +3844,6 @@ function UIProgressBar:setMaximum(maximum)
 
 end
 
-
-
 function UIProgressBar:setValue(value, minimum, maximum)
 
   if minimum then
@@ -4585,15 +3852,11 @@ function UIProgressBar:setValue(value, minimum, maximum)
 
   end
 
-
-
   if maximum then
 
     self:setMaximum(maximum)
 
   end
-
-
 
   self.value = math.max(math.min(value, self.maximum), self.minimum)
 
@@ -4601,15 +3864,11 @@ function UIProgressBar:setValue(value, minimum, maximum)
 
 end
 
-
-
 function UIProgressBar:setPercent(percent)
 
   self:setValue(percent, 0, 100)
 
 end
-
-
 
 function UIProgressBar:getPercent()
 
@@ -4617,15 +3876,11 @@ function UIProgressBar:getPercent()
 
 end
 
-
-
 function UIProgressBar:getPercentPixels()
 
   return (self.maximum - self.minimum) / self:getWidth()
 
 end
-
-
 
 function UIProgressBar:getProgress()
 
@@ -4634,8 +3889,6 @@ function UIProgressBar:getProgress()
   return (self.value - self.minimum) / (self.maximum - self.minimum)
 
 end
-
-
 
 function UIProgressBar:updateBackground()
 
@@ -4653,15 +3906,11 @@ function UIProgressBar:updateBackground()
 
 end
 
-
-
 function UIProgressBar:onSetup()
 
   self:updateBackground()
 
 end
-
-
 
 function UIProgressBar:onStyleApply(name, node)
 
@@ -4699,8 +3948,6 @@ function UIProgressBar:onStyleApply(name, node)
 
 end
 
-
-
 function UIProgressBar:onGeometryChange(oldRect, newRect)
 
   if not self:isOn() then
@@ -4716,20 +3963,13 @@ end
 ```
 
 ---
-
-
-
 # uiradiogroup.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIRadioGroup = newclass("UIRadioGroup")
-
-
 
 function UIRadioGroup.create()
 
@@ -4743,8 +3983,6 @@ function UIRadioGroup.create()
 
 end
 
-
-
 function UIRadioGroup:destroy()
 
   for k,widget in pairs(self.widgets) do
@@ -4757,8 +3995,6 @@ function UIRadioGroup:destroy()
 
 end
 
-
-
 function UIRadioGroup:addWidget(widget)
 
   table.insert(self.widgets, widget)
@@ -4766,8 +4002,6 @@ function UIRadioGroup:addWidget(widget)
   widget.onClick = function(widget) self:selectWidget(widget) end
 
 end
-
-
 
 function UIRadioGroup:removeWidget(widget)
 
@@ -4783,19 +4017,13 @@ function UIRadioGroup:removeWidget(widget)
 
 end
 
-
-
 function UIRadioGroup:selectWidget(selectedWidget, dontSignal)
 
   if selectedWidget == self.selectedWidget then return end
 
-
-
   local previousSelectedWidget = self.selectedWidget
 
   self.selectedWidget = selectedWidget
-
-
 
   if previousSelectedWidget then
 
@@ -4803,15 +4031,11 @@ function UIRadioGroup:selectWidget(selectedWidget, dontSignal)
 
   end
 
-
-
   if selectedWidget then
 
     selectedWidget:setChecked(true)
 
   end
-
-
 
   if not dontSignal then
 
@@ -4821,13 +4045,9 @@ function UIRadioGroup:selectWidget(selectedWidget, dontSignal)
 
 end
 
-
-
 function UIRadioGroup:clearSelected()
 
   if not self.selectedWidget then return end
-
-
 
   local previousSelectedWidget = self.selectedWidget
 
@@ -4835,21 +4055,15 @@ function UIRadioGroup:clearSelected()
 
   self.selectedWidget = nil
 
-
-
   signalcall(self.onSelectionChange, self, nil, previousSelectedWidget)
 
 end
-
-
 
 function UIRadioGroup:getSelectedWidget()
 
   return self.selectedWidget
 
 end
-
-
 
 function UIRadioGroup:getFirstWidget()
 
@@ -4860,20 +4074,13 @@ end
 ```
 
 ---
-
-
-
 # uiresizeborder.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIResizeBorder = extends(UIWidget, "UIResizeBorder")
-
-
 
 function UIResizeBorder.create()
 
@@ -4889,8 +4096,6 @@ function UIResizeBorder.create()
 
 end
 
-
-
 function UIResizeBorder:onSetup()
 
   if self:getWidth() > self:getHeight() then
@@ -4905,8 +4110,6 @@ function UIResizeBorder:onSetup()
 
 end
 
-
-
 function UIResizeBorder:onDestroy()
 
   if self.hovering then
@@ -4916,8 +4119,6 @@ function UIResizeBorder:onDestroy()
   end
 
 end
-
-
 
 function UIResizeBorder:onHoverChange(hovered)
 
@@ -4965,8 +4166,6 @@ function UIResizeBorder:onHoverChange(hovered)
 
 end
 
-
-
 function UIResizeBorder:onMouseMove(mousePos, mouseMoved)
 
   if self:isPressed() then
@@ -4993,8 +4192,6 @@ function UIResizeBorder:onMouseMove(mousePos, mouseMoved)
 
     end
 
-
-
     self:checkBoundary(newSize)
 
     return true
@@ -5002,8 +4199,6 @@ function UIResizeBorder:onMouseMove(mousePos, mouseMoved)
   end
 
 end
-
-
 
 function UIResizeBorder:onMouseRelease(mousePos, mouseButton)
 
@@ -5018,8 +4213,6 @@ function UIResizeBorder:onMouseRelease(mousePos, mouseButton)
   end
 
 end
-
-
 
 function UIResizeBorder:onStyleApply(styleName, styleNode)
 
@@ -5039,8 +4232,6 @@ function UIResizeBorder:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UIResizeBorder:onVisibilityChange(visible)
 
   if visible and self.maximum == self.minimum then
@@ -5051,8 +4242,6 @@ function UIResizeBorder:onVisibilityChange(visible)
 
 end
 
-
-
 function UIResizeBorder:setMaximum(maximum)
 
   self.maximum = maximum
@@ -5060,8 +4249,6 @@ function UIResizeBorder:setMaximum(maximum)
   self:checkBoundary()
 
 end
-
-
 
 function UIResizeBorder:setMinimum(minimum)
 
@@ -5071,13 +4258,9 @@ function UIResizeBorder:setMinimum(minimum)
 
 end
 
-
-
 function UIResizeBorder:getMaximum() return self.maximum end
 
 function UIResizeBorder:getMinimum() return self.minimum end
-
-
 
 function UIResizeBorder:setParentSize(size)
 
@@ -5097,8 +4280,6 @@ function UIResizeBorder:setParentSize(size)
 
 end
 
-
-
 function UIResizeBorder:getParentSize()
 
   local parent = self:getParent()
@@ -5114,8 +4295,6 @@ function UIResizeBorder:getParentSize()
   end
 
 end
-
-
 
 function UIResizeBorder:checkBoundary(size)
 
@@ -5136,20 +4315,13 @@ end
 ```
 
 ---
-
-
-
 # uiscrollarea.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIScrollArea = extends(UIWidget, "UIScrollArea")
-
-
 
 -- public functions
 
@@ -5166,8 +4338,6 @@ function UIScrollArea.create()
   return scrollarea
 
 end
-
-
 
 function UIScrollArea:onStyleApply(styleName, styleNode)
 
@@ -5215,15 +4385,11 @@ function UIScrollArea:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UIScrollArea:updateScrollBars()
 
   local scrollWidth = math.max(self:getChildrenRect().width - self:getPaddingRect().width, 0)
 
   local scrollHeight = math.max(self:getChildrenRect().height - self:getPaddingRect().height, 0)
-
-
 
   local scrollbar = self.verticalScrollBar
 
@@ -5245,8 +4411,6 @@ function UIScrollArea:updateScrollBars()
 
   end
 
-
-
   local scrollbar = self.horizontalScrollBar
 
   if scrollbar then
@@ -5267,8 +4431,6 @@ function UIScrollArea:updateScrollBars()
 
   end
 
-
-
   if self.lastScrollWidth ~= scrollWidth then
 
     self:onScrollWidthChange()
@@ -5281,15 +4443,11 @@ function UIScrollArea:updateScrollBars()
 
   end
 
-
-
   self.lastScrollWidth = scrollWidth
 
   self.lastScrollHeight = scrollHeight
 
 end
-
-
 
 function UIScrollArea:setVerticalScrollBar(scrollbar)
 
@@ -5311,8 +4469,6 @@ function UIScrollArea:setVerticalScrollBar(scrollbar)
 
 end
 
-
-
 function UIScrollArea:setHorizontalScrollBar(scrollbar)
 
   self.horizontalScrollBar = scrollbar
@@ -5333,15 +4489,11 @@ function UIScrollArea:setHorizontalScrollBar(scrollbar)
 
 end
 
-
-
 function UIScrollArea:setInverted(inverted)
 
   self.inverted = inverted
 
 end
-
-
 
 function UIScrollArea:setAlwaysScrollMaximum(value)
 
@@ -5349,15 +4501,11 @@ function UIScrollArea:setAlwaysScrollMaximum(value)
 
 end
 
-
-
 function UIScrollArea:onLayoutUpdate()
 
   self:updateScrollBars()
 
 end
-
-
 
 function UIScrollArea:onMouseWheel(mousePos, mouseWheel)
 
@@ -5435,8 +4583,6 @@ function UIScrollArea:onMouseWheel(mousePos, mouseWheel)
 
 end
 
-
-
 function UIScrollArea:ensureChildVisible(child, offset)
 
   if child then
@@ -5459,8 +4605,6 @@ function UIScrollArea:ensureChildVisible(child, offset)
 
       end
 
-
-
       deltaY = (child:getY() + child:getHeight() + offset.y) - (paddingRect.y + paddingRect.height)
 
       if deltaY > 0 then
@@ -5479,8 +4623,6 @@ function UIScrollArea:ensureChildVisible(child, offset)
 
       end
 
-
-
       deltaX = (child:getX() + child:getWidth() + offset.x) - (paddingRect.x + paddingRect.width)
 
       if deltaX > 0 then
@@ -5495,8 +4637,6 @@ function UIScrollArea:ensureChildVisible(child, offset)
 
 end
 
-
-
 function UIScrollArea:onChildFocusChange(focusedChild, oldFocused, reason)
 
   if focusedChild and (reason == MouseFocusReason or reason == KeyboardFocusReason) then
@@ -5507,8 +4647,6 @@ function UIScrollArea:onChildFocusChange(focusedChild, oldFocused, reason)
 
 end
 
-
-
 function UIScrollArea:onScrollWidthChange()
 
   if self.alwaysScrollMaximum and self.horizontalScrollBar then
@@ -5518,8 +4656,6 @@ function UIScrollArea:onScrollWidthChange()
   end
 
 end
-
-
 
 function UIScrollArea:onScrollHeightChange()
 
@@ -5534,20 +4670,13 @@ end
 ```
 
 ---
-
-
-
 # uiscrollbar.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIScrollBar = extends(UIWidget, "UIScrollBar")
-
-
 
 -- private functions
 
@@ -5558,8 +4687,6 @@ local function calcValues(self)
   local decrementButton = self:getChildById('decrementButton')
 
   local incrementButton = self:getChildById('incrementButton')
-
-
 
   local pxrange, center
 
@@ -5581,15 +4708,9 @@ local function calcValues(self)
 
   end
 
-
-
   local range = self.maximum - self.minimum + 1
 
-
-
   local proportion
-
-
 
   if self.pixelsScroll then
 
@@ -5601,8 +4722,6 @@ local function calcValues(self)
 
   end
 
-
-
   local px = math.max(proportion * pxrange, 6)
 
   if g_app.isMobile() then
@@ -5612,8 +4731,6 @@ local function calcValues(self)
   end
 
   px = px - px % 2 + 1
-
-
 
   local offset = 0
 
@@ -5647,19 +4764,13 @@ local function calcValues(self)
 
   end
 
-
-
   return range, pxrange, px, offset, center
 
 end
 
-
-
 local function updateValueDisplay(widget)
 
   if widget == nil then return end
-
-
 
   if widget:getShowValue() then
 
@@ -5669,15 +4780,11 @@ local function updateValueDisplay(widget)
 
 end
 
-
-
 local function updateSlider(self)
 
   local slider = self:getChildById('sliderButton')
 
   if slider == nil then return end
-
-
 
   local range, pxrange, px, offset, center = calcValues(self)
 
@@ -5697,11 +4804,7 @@ local function updateSlider(self)
 
   updateValueDisplay(self)
 
-
-
   local status = (self.maximum ~= self.minimum)
-
-
 
   self:setOn(status)
 
@@ -5712,8 +4815,6 @@ local function updateSlider(self)
   end
 
 end
-
-
 
 local function parseSliderPos(self, slider, pos, move)
 
@@ -5733,8 +4834,6 @@ local function parseSliderPos(self, slider, pos, move)
 
   end
 
-
-
   if (delta > 0 and hotDistance + delta > self.hotDistance) or
 
      (delta < 0 and hotDistance + delta < self.hotDistance) then
@@ -5749,8 +4848,6 @@ local function parseSliderPos(self, slider, pos, move)
 
 end
 
-
-
 local function parseSliderPress(self, slider, pos, button)
 
   if self.orientation == 'vertical' then
@@ -5764,8 +4861,6 @@ local function parseSliderPress(self, slider, pos, button)
   end
 
 end
-
-
 
 -- public functions
 
@@ -5797,8 +4892,6 @@ function UIScrollBar.create()
 
 end
 
-
-
 function UIScrollBar:onSetup()
 
   self.setupDone = true
@@ -5813,13 +4906,9 @@ function UIScrollBar:onSetup()
 
   g_mouse.bindPress(sliderButton, function(mousePos, mouseButton) parseSliderPress(self, sliderButton, mousePos, mouseButton) end)
 
-
-
   updateSlider(self)
 
 end
-
-
 
 function UIScrollBar:onStyleApply(styleName, styleNode)
 
@@ -5867,8 +4956,6 @@ function UIScrollBar:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UIScrollBar:onDecrement()
 
   if g_keyboard.isCtrlPressed() then
@@ -5886,8 +4973,6 @@ function UIScrollBar:onDecrement()
   end
 
 end
-
-
 
 function UIScrollBar:onIncrement()
 
@@ -5907,8 +4992,6 @@ function UIScrollBar:onIncrement()
 
 end
 
-
-
 function UIScrollBar:decrement(count)
 
   count = count or self.step
@@ -5917,8 +5000,6 @@ function UIScrollBar:decrement(count)
 
 end
 
-
-
 function UIScrollBar:increment(count)
 
   count = count or self.step
@@ -5926,8 +5007,6 @@ function UIScrollBar:increment(count)
   self:setValue(self.value + count)
 
 end
-
-
 
 function UIScrollBar:setMaximum(maximum)
 
@@ -5953,8 +5032,6 @@ function UIScrollBar:setMaximum(maximum)
 
 end
 
-
-
 function UIScrollBar:setMinimum(minimum)
 
   if minimum == self.minimum then return end
@@ -5979,8 +5056,6 @@ function UIScrollBar:setMinimum(minimum)
 
 end
 
-
-
 function UIScrollBar:setRange(minimum, maximum)
 
   self:setMinimum(minimum)
@@ -5988,8 +5063,6 @@ function UIScrollBar:setRange(minimum, maximum)
   self:setMaximum(maximum)
 
 end
-
-
 
 function UIScrollBar:setValue(value)
 
@@ -6011,15 +5084,11 @@ function UIScrollBar:setValue(value)
 
 end
 
-
-
 function UIScrollBar:setMouseScroll(scroll)
 
   self.mouseScroll = scroll
 
 end
-
-
 
 function UIScrollBar:setStep(step)
 
@@ -6027,15 +5096,11 @@ function UIScrollBar:setStep(step)
 
 end
 
-
-
 function UIScrollBar:setOrientation(orientation)
 
   self.orientation = orientation
 
 end
-
-
 
 function UIScrollBar:setText(text)
 
@@ -6049,15 +5114,11 @@ function UIScrollBar:setText(text)
 
 end
 
-
-
 function UIScrollBar:onGeometryChange()
 
   updateSlider(self)
 
 end
-
-
 
 function UIScrollBar:onMouseWheel(mousePos, mouseWheel)
 
@@ -6105,8 +5166,6 @@ function UIScrollBar:onMouseWheel(mousePos, mouseWheel)
 
 end
 
-
-
 function UIScrollBar:getMaximum() return self.maximum end
 
 function UIScrollBar:getMinimum() return self.minimum end
@@ -6126,20 +5185,13 @@ function UIScrollBar:getMouseScroll() return self.mouseScroll end
 ```
 
 ---
-
-
-
 # uispinbox.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UISpinBox = extends(UITextEdit, "UISpinBox")
-
-
 
 function UISpinBox.create()
 
@@ -6171,8 +5223,6 @@ function UISpinBox.create()
 
 end
 
-
-
 function UISpinBox:onSetup()
 
   g_mouse.bindAutoPress(self:getChildById('up'), function() self:up() end, 300)
@@ -6180,8 +5230,6 @@ function UISpinBox:onSetup()
   g_mouse.bindAutoPress(self:getChildById('down'), function() self:down() end, 300)
 
 end
-
-
 
 function UISpinBox:onMouseWheel(mousePos, direction)
 
@@ -6205,8 +5253,6 @@ function UISpinBox:onMouseWheel(mousePos, direction)
 
 end
 
-
-
 function UISpinBox:onKeyPress()
 
   if self.firstchange then
@@ -6221,8 +5267,6 @@ function UISpinBox:onKeyPress()
 
 end
 
-
-
 function UISpinBox:onTextChange(text, oldText)
 
   if text:len() == 0 then
@@ -6232,8 +5276,6 @@ function UISpinBox:onTextChange(text, oldText)
     return
 
   end
-
-
 
   local number = tonumber(text)
 
@@ -6261,21 +5303,15 @@ function UISpinBox:onTextChange(text, oldText)
 
   end
 
-
-
   self:setValue(number)
 
 end
-
-
 
 function UISpinBox:onValueChange(value)
 
   -- nothing to do
 
 end
-
-
 
 function UISpinBox:onFocusChange(focused)
 
@@ -6290,8 +5326,6 @@ function UISpinBox:onFocusChange(focused)
   end
 
 end
-
-
 
 function UISpinBox:onStyleApply(styleName, styleNode)
 
@@ -6335,8 +5369,6 @@ function UISpinBox:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UISpinBox:showButtons()
 
   self:getChildById('up'):show()
@@ -6346,8 +5378,6 @@ function UISpinBox:showButtons()
   self.displayButtons = true
 
 end
-
-
 
 function UISpinBox:hideButtons()
 
@@ -6359,23 +5389,17 @@ function UISpinBox:hideButtons()
 
 end
 
-
-
 function UISpinBox:up()
 
   self:setValue(self.value + self.step)
 
 end
 
-
-
 function UISpinBox:down()
 
   self:setValue(self.value - self.step)
 
 end
-
-
 
 function UISpinBox:setValue(value, dontSignal)
 
@@ -6389,11 +5413,7 @@ function UISpinBox:setValue(value, dontSignal)
 
   value = math.max(math.min(self.maximum, value), self.minimum)
 
-
-
   if value == self.value then return end
-
-
 
   self.value = value
 
@@ -6402,8 +5422,6 @@ function UISpinBox:setValue(value, dontSignal)
     self:setText(value)
 
   end
-
-
 
   local upButton = self:getChildById('up')
 
@@ -6421,8 +5439,6 @@ function UISpinBox:setValue(value, dontSignal)
 
   end
 
-
-
   if not dontSignal then
 
     signalcall(self.onValueChange, self, value)
@@ -6431,15 +5447,11 @@ function UISpinBox:setValue(value, dontSignal)
 
 end
 
-
-
 function UISpinBox:getValue()
 
   return self.value
 
 end
-
-
 
 function UISpinBox:setMinimum(minimum)
 
@@ -6461,15 +5473,11 @@ function UISpinBox:setMinimum(minimum)
 
 end
 
-
-
 function UISpinBox:getMinimum()
 
   return self.minimum
 
 end
-
-
 
 function UISpinBox:setMaximum(maximum)
 
@@ -6485,15 +5493,11 @@ function UISpinBox:setMaximum(maximum)
 
 end
 
-
-
 function UISpinBox:getMaximum()
 
   return self.maximum
 
 end
-
-
 
 function UISpinBox:setStep(step)
 
@@ -6501,15 +5505,11 @@ function UISpinBox:setStep(step)
 
 end
 
-
-
 function UISpinBox:setMouseScroll(mouseScroll)
 
   self.mouseScroll = mouseScroll
 
 end
-
-
 
 function UISpinBox:getMouseScroll()
 
@@ -6520,20 +5520,13 @@ end
 ```
 
 ---
-
-
-
 # uisplitter.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UISplitter = extends(UIWidget, "UISplitter")
-
-
 
 function UISplitter.create()
 
@@ -6546,8 +5539,6 @@ function UISplitter.create()
   return splitter
 
 end
-
-
 
 function UISplitter:onHoverChange(hovered)
 
@@ -6598,8 +5589,6 @@ function UISplitter:onHoverChange(hovered)
   end
 
 end
-
-
 
 function UISplitter:onMouseMove(mousePos, mouseMoved)
 
@@ -6663,8 +5652,6 @@ function UISplitter:onMouseMove(mousePos, mouseMoved)
 
 end
 
-
-
 function UISplitter:onMouseRelease(mousePos, mouseButton)
 
   if not self:isHovered() then
@@ -6679,8 +5666,6 @@ function UISplitter:onMouseRelease(mousePos, mouseButton)
 
 end
 
-
-
 function UISplitter:onStyleApply(styleName, styleNode)
 
   if styleNode['relative-margin'] then
@@ -6691,8 +5676,6 @@ function UISplitter:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UISplitter:canUpdateMargin(newMargin)
 
   return newMargin
@@ -6702,20 +5685,13 @@ end
 ```
 
 ---
-
-
-
 # uitabbar.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UITabBar = extends(UIWidget, "UITabBar")
-
-
 
 -- private functions
 
@@ -6724,8 +5700,6 @@ local function onTabClick(tab)
   tab.tabBar:selectTab(tab)
 
 end
-
-
 
 local function onTabMouseRelease(tab, mousePos, mouseButton)
 
@@ -6736,8 +5710,6 @@ local function onTabMouseRelease(tab, mousePos, mouseButton)
   end
 
 end
-
-
 
 -- public functions
 
@@ -6753,15 +5725,11 @@ function UITabBar.create()
 
 end
 
-
-
 function UITabBar:onSetup()
 
   self.buttonsPanel = self:getChildById('buttonsPanel')
 
 end
-
-
 
 function UITabBar:setContentWidget(widget)
 
@@ -6775,8 +5743,6 @@ function UITabBar:setContentWidget(widget)
 
 end
 
-
-
 function UITabBar:addTab(text, panel, icon)
 
   if panel == nil then
@@ -6787,11 +5753,7 @@ function UITabBar:addTab(text, panel, icon)
 
   end
 
-
-
   local tab = g_ui.createWidget(self:getStyleName() .. 'Button', self.buttonsPanel)
-
-
 
   panel.isTab = true
 
@@ -6811,8 +5773,6 @@ function UITabBar:addTab(text, panel, icon)
 
   tab.onDestroy = function() tab.tabPanel:destroy() end
 
-
-
   table.insert(self.tabs, tab)
 
   if #self.tabs == 1 then
@@ -6821,21 +5781,15 @@ function UITabBar:addTab(text, panel, icon)
 
   end
 
-
-
   local tabStyle = {}
 
   tabStyle['icon-source'] = icon
 
   tab:mergeStyle(tabStyle)
 
-
-
   return tab
 
 end
-
-
 
 function UITabBar:addButton(text, func, icon)
 
@@ -6843,23 +5797,17 @@ function UITabBar:addButton(text, func, icon)
 
   button:setText(text)
 
-
-
   local style = {}
 
   style['icon-source'] = icon
 
   button:mergeStyle(style)
 
-
-
   button.onClick = func
 
   return button
 
 end
-
-
 
 function UITabBar:removeTab(tab)
 
@@ -6879,8 +5827,6 @@ function UITabBar:removeTab(tab)
 
 end
 
-
-
 function UITabBar:getTab(text)
 
   for k,tab in pairs(self.tabs) do
@@ -6894,8 +5840,6 @@ function UITabBar:getTab(text)
   end
 
 end
-
-
 
 function UITabBar:selectTab(tab)
 
@@ -6917,8 +5861,6 @@ function UITabBar:selectTab(tab)
 
   end
 
-
-
   if self.currentTab then
 
     self.currentTab:setChecked(false)
@@ -6933,8 +5875,6 @@ function UITabBar:selectTab(tab)
 
   tab:setOn(false)
 
-
-
   local parent = tab:getParent()
 
   if parent then
@@ -6944,8 +5884,6 @@ function UITabBar:selectTab(tab)
   end
 
 end
-
-
 
 function UITabBar:selectNextTab()
 
@@ -6963,8 +5901,6 @@ function UITabBar:selectNextTab()
 
 end
 
-
-
 function UITabBar:selectPrevTab()
 
   if self.currentTab == nil then return end
@@ -6981,15 +5917,11 @@ function UITabBar:selectPrevTab()
 
 end
 
-
-
 function UITabBar:getTabPanel(tab)
 
   return tab.tabPanel
 
 end
-
-
 
 function UITabBar:getCurrentTabPanel()
 
@@ -7001,15 +5933,11 @@ function UITabBar:getCurrentTabPanel()
 
 end
 
-
-
 function UITabBar:getCurrentTab()
 
   return self.currentTab
 
 end
-
-
 
 function UITabBar:getTabs()
 
@@ -7017,15 +5945,11 @@ function UITabBar:getTabs()
 
 end
 
-
-
 function UITabBar:getTabsPanel()
 
   return table.collect(self.tabs, function(_,tab) return tab.tabPanel end)
 
 end
-
-
 
 function UITabBar:clearTabs()
 
@@ -7040,12 +5964,7 @@ end
 ```
 
 ---
-
-
-
 # uitable.lua
-
-
 
 ```lua
 
@@ -7061,17 +5980,11 @@ end
 
 ]]
 
-
-
 TABLE_SORTING_ASC = 0
 
 TABLE_SORTING_DESC = 1
 
-
-
 UITable = extends(UIWidget, "UITable")
-
-
 
 -- Initialize default values
 
@@ -7109,13 +6022,9 @@ function UITable.create()
 
   table.autoSort = false
 
-
-
   return table
 
 end
-
-
 
 -- Clear table values
 
@@ -7139,8 +6048,6 @@ function UITable:onDestroy()
 
   self.selectedRow = nil
 
-
-
   if self.dataSpace then
 
     self.dataSpace:destroyChildren()
@@ -7150,8 +6057,6 @@ function UITable:onDestroy()
   end
 
 end
-
-
 
 -- Detect if a header is already defined
 
@@ -7166,8 +6071,6 @@ function UITable:onSetup()
   end
 
 end
-
-
 
 -- Parse table related styles
 
@@ -7225,8 +6128,6 @@ function UITable:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UITable:setColumnWidth(width)
 
   if self:hasHeader() then return end
@@ -7235,15 +6136,11 @@ function UITable:setColumnWidth(width)
 
 end
 
-
-
 function UITable:setDefaultColumnWidth(width)
 
   self.defaultColumnWidth = width
 
 end
-
-
 
 -- Check if the table has a header
 
@@ -7252,8 +6149,6 @@ function UITable:hasHeader()
   return self.headerRow ~= nil
 
 end
-
-
 
 -- Clear all rows
 
@@ -7275,15 +6170,11 @@ function UITable:clearData()
 
 end
 
-
-
 -- Set existing child as header
 
 function UITable:setHeader(headerWidget)
 
   self:removeHeader()
-
-
 
   if self.dataSpace then
 
@@ -7292,8 +6183,6 @@ function UITable:setHeader(headerWidget)
     self.dataSpace:applyStyle({ height = newHeight })
 
   end
-
-
 
   self.headerColumns = {}
 
@@ -7311,13 +6200,9 @@ function UITable:setHeader(headerWidget)
 
   end
 
-
-
   self.headerRow = headerWidget
 
 end
-
-
 
 -- Create and add header from table data
 
@@ -7331,11 +6216,7 @@ function UITable:addHeader(data)
 
   end
 
-
-
   self:removeHeader()
-
-
 
   -- build header columns
 
@@ -7375,8 +6256,6 @@ function UITable:addHeader(data)
 
   end
 
-
-
   -- create a new header
 
   local headerRow = g_ui.createWidget(self.headerRowBaseStyle, self)
@@ -7384,8 +6263,6 @@ function UITable:addHeader(data)
   local newHeight = self.dataSpace:getHeight()-headerRow:getHeight()-self.dataSpace:getMarginTop()
 
   self.dataSpace:applyStyle({ height = newHeight })
-
-
 
   headerRow:setId('header')
 
@@ -7403,15 +6280,11 @@ function UITable:addHeader(data)
 
   end
 
-
-
   self.headerRow = headerRow
 
   return headerRow
 
 end
-
-
 
 -- Remove header
 
@@ -7439,8 +6312,6 @@ function UITable:removeHeader()
 
 end
 
-
-
 function UITable:addRow(data, height)
 
   if not self.dataSpace then
@@ -7459,15 +6330,11 @@ function UITable:addRow(data, height)
 
   end
 
-
-
   local row = g_ui.createWidget(self.rowBaseStyle)
 
   row.table = self
 
   if height then row:setHeight(height) end
-
-
 
   local rowId = #self.rows + 1
 
@@ -7476,8 +6343,6 @@ function UITable:addRow(data, height)
   row:setId('row'..rowId)
 
   row:updateBackgroundColor()
-
-
 
   self.columns[rowId] = {}
 
@@ -7521,13 +6386,9 @@ function UITable:addRow(data, height)
 
   end
 
-
-
   self.dataSpace:addChild(row)
 
   table.insert(self.rows, row)
-
-
 
   if self.autoSort then
 
@@ -7535,13 +6396,9 @@ function UITable:addRow(data, height)
 
   end
 
-
-
   return row
 
 end
-
-
 
 -- Update row indices and background color
 
@@ -7560,8 +6417,6 @@ function UITable:updateRows()
   end
 
 end
-
-
 
 -- Removes the given row widget from the table
 
@@ -7587,21 +6442,15 @@ function UITable:removeRow(row)
 
 end
 
-
-
 function UITable:toggleSorting(enabled)
 
   self.autoSort = enabled
 
 end
 
-
-
 function UITable:setSorting(colId, sortType)
 
   self.headerColumns[colId]:focus()
-
-
 
   if sortType then
 
@@ -7629,8 +6478,6 @@ function UITable:setSorting(colId, sortType)
 
 end
 
-
-
 function UITable:sort()
 
   if self.sortColumn <= 0 then
@@ -7638,8 +6485,6 @@ function UITable:sort()
     return
 
   end
-
-
 
   if self.sortType == TABLE_SORTING_ASC then
 
@@ -7659,8 +6504,6 @@ function UITable:sort()
 
   end
 
-
-
   if self.dataSpace then
 
     for _, child in pairs(self.dataSpace:getChildren()) do
@@ -7670,8 +6513,6 @@ function UITable:sort()
     end
 
   end
-
-
 
   self:updateRows()
 
@@ -7685,8 +6526,6 @@ function UITable:sort()
 
     end
 
-
-
     self.columns[row.rowId] = {}
 
     for _, column in pairs(row:getChildren()) do
@@ -7699,19 +6538,13 @@ function UITable:sort()
 
 end
 
-
-
 function UITable:selectRow(selectedRow)
 
   if selectedRow == self.selectedRow then return end
 
-
-
   local previousSelectedRow = self.selectedRow
 
   self.selectedRow = selectedRow
-
-
 
   if previousSelectedRow then
 
@@ -7719,21 +6552,15 @@ function UITable:selectRow(selectedRow)
 
   end
 
-
-
   if selectedRow then
 
     selectedRow:setChecked(true)
 
   end
 
-
-
   signalcall(self.onSelectionChange, self, selectedRow, previousSelectedRow)
 
 end
-
-
 
 function UITable:setTableData(tableData)
 
@@ -7745,21 +6572,15 @@ function UITable:setTableData(tableData)
 
   end
 
-
-
   self.dataSpace = tableData
 
   self.dataSpace:applyStyle({ height = self:getHeight()-headerHeight-self:getMarginTop() })
 
 end
 
-
-
 function UITable:setRowStyle(style, dontUpdate)
 
   self.rowBaseStyle = style
-
-
 
   if not dontUpdate then
 
@@ -7773,13 +6594,9 @@ function UITable:setRowStyle(style, dontUpdate)
 
 end
 
-
-
 function UITable:setColumnStyle(style, dontUpdate)
 
   self.columBaseStyle = style
-
-
 
   if not dontUpdate then
 
@@ -7797,8 +6614,6 @@ function UITable:setColumnStyle(style, dontUpdate)
 
 end
 
-
-
 function UITable:setHeaderRowStyle(style)
 
   self.headerRowBaseStyle = style
@@ -7810,8 +6625,6 @@ function UITable:setHeaderRowStyle(style)
   end
 
 end
-
-
 
 function UITable:setHeaderColumnStyle(style)
 
@@ -7825,13 +6638,7 @@ function UITable:setHeaderColumnStyle(style)
 
 end
 
-
-
-
-
 UITableRow = extends(UIWidget, "UITableRow")
-
-
 
 function UITableRow:onFocusChange(focused)
 
@@ -7842,8 +6649,6 @@ function UITableRow:onFocusChange(focused)
   end
 
 end
-
-
 
 function UITableRow:onStyleApply(styleName, styleNode)
 
@@ -7863,13 +6668,9 @@ function UITableRow:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UITableRow:updateBackgroundColor()
 
   self.backgroundColor = nil
-
-
 
   local isEven = (self.rowId % 2 == 0)
 
@@ -7883,8 +6684,6 @@ function UITableRow:updateBackgroundColor()
 
   end
 
-
-
   if self.backgroundColor then
 
     self:mergeStyle({ ['background-color'] = self.backgroundColor })
@@ -7893,13 +6692,7 @@ function UITableRow:updateBackgroundColor()
 
 end
 
-
-
-
-
 UITableHeaderColumn = extends(UIButton, "UITableHeaderColumn")
-
-
 
 function UITableHeaderColumn:onClick()
 
@@ -7916,12 +6709,7 @@ end
 ```
 
 ---
-
-
-
 # uitextedit.lua
-
-
 
 ```lua
 
@@ -7950,8 +6738,6 @@ function UITextEdit:onStyleApply(styleName, styleNode)
   end
 
 end
-
-
 
 function UITextEdit:onMouseWheel(mousePos, mouseWheel)
 
@@ -7987,15 +6773,11 @@ function UITextEdit:onMouseWheel(mousePos, mouseWheel)
 
 end
 
-
-
 function UITextEdit:onTextAreaUpdate(virtualOffset, virtualSize, totalSize)
 
   self:updateScrollBars()
 
 end
-
-
 
 function UITextEdit:setVerticalScrollBar(scrollbar)
 
@@ -8015,8 +6797,6 @@ function UITextEdit:setVerticalScrollBar(scrollbar)
 
 end
 
-
-
 function UITextEdit:setHorizontalScrollBar(scrollbar)
 
   self.horizontalScrollBar = scrollbar
@@ -8035,8 +6815,6 @@ function UITextEdit:setHorizontalScrollBar(scrollbar)
 
 end
 
-
-
 function UITextEdit:updateScrollBars()
 
   local scrollSize = self:getTextTotalSize()
@@ -8044,8 +6822,6 @@ function UITextEdit:updateScrollBars()
   local scrollWidth = math.max(scrollSize.width - self:getTextVirtualSize().width, 0)
 
   local scrollHeight = math.max(scrollSize.height - self:getTextVirtualSize().height, 0)
-
-
 
   local scrollbar = self.verticalScrollBar
 
@@ -8059,8 +6835,6 @@ function UITextEdit:updateScrollBars()
 
   end
 
-
-
   local scrollbar = self.horizontalScrollBar
 
   if scrollbar then
@@ -8073,29 +6847,18 @@ function UITextEdit:updateScrollBars()
 
   end
 
-
-
 end
-
-
 
 -- todo: ontext change, focus to cursor
 
 ```
 
 ---
-
-
-
 # uiwidget.lua
-
-
 
 ```lua
 
 -- @docclass UIWidget
-
-
 
 function UIWidget:setMargin(...)
 
@@ -8138,20 +6901,13 @@ end
 ```
 
 ---
-
-
-
 # uiwindow.lua
-
-
 
 ```lua
 
 -- @docclass
 
 UIWindow = extends(UIWidget, "UIWindow")
-
-
 
 function UIWindow.create()
 
@@ -8166,8 +6922,6 @@ function UIWindow.create()
   return window
 
 end
-
-
 
 function UIWindow:onKeyDown(keyCode, keyboardModifiers)
 
@@ -8187,15 +6941,11 @@ function UIWindow:onKeyDown(keyCode, keyboardModifiers)
 
 end
 
-
-
 function UIWindow:onFocusChange(focused)
 
   if focused then self:raise() end
 
 end
-
-
 
 function UIWindow:onDragEnter(mousePos)
 
@@ -8213,15 +6963,11 @@ function UIWindow:onDragEnter(mousePos)
 
 end
 
-
-
 function UIWindow:onDragLeave(droppedWidget, mousePos)
 
   -- TODO: auto detect and reconnect anchors
 
 end
-
-
 
 function UIWindow:onDragMove(mousePos, mouseMoved)
 
@@ -8242,6 +6988,3 @@ end
 ```
 
 ---
-
-
-

@@ -1,17 +1,10 @@
-# ¦ Modul: `gamelib/ui`
-
-
-
-
-
+﻿# ¦ Modul: `gamelib/ui`
 
 ```lua
 
 -- @docclass
 
 UICreatureButton = extends(UIWidget, "UICreatureButton")
-
-
 
 local CreatureButtonColors = {
 
@@ -22,8 +15,6 @@ local CreatureButtonColors = {
   onFollowed = {notHovered = '#00FF00', hovered = '#88FF88' }
 
 }
-
-
 
 local LifeBarColors = {} -- Must be sorted by percentAbove
 
@@ -39,8 +30,6 @@ table.insert(LifeBarColors, {percentAbove = 3, color = '#910F0F' } )
 
 table.insert(LifeBarColors, {percentAbove = -1, color = '#850C0C' } )
 
-
-
 function UICreatureButton.create()
 
   local button = UICreatureButton.internalCreate()
@@ -55,15 +44,11 @@ function UICreatureButton.create()
 
 end
 
-
-
 function UICreatureButton:setCreature(creature)
 
     self.creature = creature
 
 end
-
-
 
 function UICreatureButton:getCreature()
 
@@ -71,15 +56,11 @@ function UICreatureButton:getCreature()
 
 end
 
-
-
 function UICreatureButton:getCreatureId()
 
     return self.creature:getId()
 
 end
-
-
 
 function UICreatureButton:setup(id)
 
@@ -94,8 +75,6 @@ function UICreatureButton:setup(id)
   self.emblemWidget = self:getChildById('emblem')
 
 end
-
-
 
 function UICreatureButton:update()
 
@@ -115,8 +94,6 @@ function UICreatureButton:update()
 
   color = self.isHovered and color.hovered or color.notHovered
 
-
-
   if self.color == color then
 
     return
@@ -124,8 +101,6 @@ function UICreatureButton:update()
   end
 
   self.color = color
-
-
 
   if color ~= CreatureButtonColors.onIdle.notHovered then
 
@@ -145,8 +120,6 @@ function UICreatureButton:update()
 
 end
 
-
-
 function UICreatureButton:creatureSetup(creature)
 
 	if self.creature ~= creature then
@@ -165,8 +138,6 @@ function UICreatureButton:creatureSetup(creature)
 
 	end
 
-
-
 	self:updateLifeBarPercent()
 
 	self:updateSkull()
@@ -176,8 +147,6 @@ function UICreatureButton:creatureSetup(creature)
   self:update()
 
 end
-
-
 
 function UICreatureButton:updateSkull()
 
@@ -196,8 +165,6 @@ function UICreatureButton:updateSkull()
   end
 
   self.skullId = skullId
-
-
 
   if skullId ~= SkullNone then
 
@@ -223,8 +190,6 @@ function UICreatureButton:updateSkull()
 
 end
 
-
-
 function UICreatureButton:updateEmblem()
 
   if not self.creature then
@@ -242,8 +207,6 @@ function UICreatureButton:updateEmblem()
   end
 
   self.emblemId = emblemId
-
-
 
   if emblemId ~= EmblemNone then
 
@@ -273,8 +236,6 @@ function UICreatureButton:updateEmblem()
 
 end
 
-
-
 function UICreatureButton:updateLifeBarPercent()
 
   if not self.creature then
@@ -291,13 +252,9 @@ function UICreatureButton:updateLifeBarPercent()
 
   end
 
-
-
   self.percent = percent
 
   self.lifeBarWidget:setPercent(percent)
-
-
 
   local color
 
@@ -313,8 +270,6 @@ function UICreatureButton:updateLifeBarPercent()
 
   end
 
-
-
   self.lifeBarWidget:setBackgroundColor(color)
 
 end
@@ -322,12 +277,7 @@ end
 ```
 
 ---
-
-
-
 # uiitem.lua
-
-
 
 ```lua
 
@@ -335,13 +285,9 @@ function UIItem:onDragEnter(mousePos)
 
   if self:isVirtual() then return false end
 
-
-
   local item = self:getItem()
 
   if not item then return false end
-
-
 
   self:setBorderWidth(1)
 
@@ -352,8 +298,6 @@ function UIItem:onDragEnter(mousePos)
   return true
 
 end
-
-
 
 function UIItem:onDragLeave(droppedWidget, mousePos)
 
@@ -371,19 +315,13 @@ function UIItem:onDragLeave(droppedWidget, mousePos)
 
 end
 
-
-
 function UIItem:onDrop(widget, mousePos, forced)
 
   if not self:canAcceptDrop(widget, mousePos) and not forced then return false end
 
-
-
   local item = widget.currentDragThing
 
   if not item or not item:isItem() then return false end
-
-  
 
   if self.selectable then
 
@@ -399,17 +337,11 @@ function UIItem:onDrop(widget, mousePos, forced)
 
   end
 
-
-
   local toPos = self.position
-
-
 
   local itemPos = item:getPosition()
 
   if itemPos.x == toPos.x and itemPos.y == toPos.y and itemPos.z == toPos.z then return false end
-
-
 
   if item:getCount() > 1 then
 
@@ -421,15 +353,11 @@ function UIItem:onDrop(widget, mousePos, forced)
 
   end
 
-
-
   self:setBorderWidth(0)
 
   return true
 
 end
-
-
 
 function UIItem:onDestroy()
 
@@ -439,8 +367,6 @@ function UIItem:onDestroy()
 
   end
 
-
-
   if self.hoveredWho then
 
     self.hoveredWho = nil
@@ -449,17 +375,11 @@ function UIItem:onDestroy()
 
 end
 
-
-
 function UIItem:onHoverChange(hovered)
 
   UIWidget.onHoverChange(self, hovered)
 
-    
-
   if self:isVirtual() or not self:isDraggable() then return end
-
-
 
   local draggingWidget = g_ui.getDraggingWidget()
 
@@ -487,8 +407,6 @@ function UIItem:onHoverChange(hovered)
 
 end
 
-
-
 function UIItem:onMouseRelease(mousePosition, mouseButton)
 
   if self.cancelNextRelease then
@@ -499,17 +417,11 @@ function UIItem:onMouseRelease(mousePosition, mouseButton)
 
   end
 
-
-
   if self:isVirtual() then return false end
-
-
 
   local item = self:getItem()
 
   if not item or not self:containsPoint(mousePosition) then return false end
-
-
 
   if modules.client_options.getOption('classicControl') and not g_app.isMobile() and
 
@@ -533,15 +445,11 @@ function UIItem:onMouseRelease(mousePosition, mouseButton)
 
 end
 
-
-
 function UIItem:canAcceptDrop(widget, mousePos)
 
   if not self.selectable and (self:isVirtual() or not self:isDraggable()) then return false end
 
   if not widget or not widget.currentDragThing then return false end
-
-
 
   local children = rootWidget:recursiveGetChildrenByPos(mousePos)
 
@@ -561,15 +469,11 @@ function UIItem:canAcceptDrop(widget, mousePos)
 
   end
 
-
-
   error('Widget ' .. self:getId() .. ' not in drop list.')
 
   return false
 
 end
-
-
 
 function UIItem:onClick(mousePos)
 
@@ -579,8 +483,6 @@ function UIItem:onClick(mousePos)
 
   end
 
-
-
   if modules.game_itemselector then
 
     modules.game_itemselector.show(self)
@@ -588,8 +490,6 @@ function UIItem:onClick(mousePos)
   end
 
 end
-
-
 
 function UIItem:onItemChange()
 
@@ -608,12 +508,7 @@ end
 ```
 
 ---
-
-
-
 # uiminimap.lua
-
-
 
 ```lua
 
@@ -622,8 +517,6 @@ function UIMinimap:onCreate()
   self.autowalk = true
 
 end
-
-
 
 function UIMinimap:onSetup()
 
@@ -643,11 +536,9 @@ function UIMinimap:onSetup()
 
     onRemoveAutomapFlag = self.onRemoveAutomapFlag,
 
-  })
+})
 
 end
-
-
 
 function UIMinimap:onDestroy()
 
@@ -665,15 +556,13 @@ function UIMinimap:onDestroy()
 
     onRemoveAutomapFlag = self.onRemoveAutomapFlag,
 
-  })
+})
 
   self:destroyFlagWindow()
 
   self.flags = {}
 
 end
-
-
 
 function UIMinimap:onVisibilityChange()
 
@@ -685,8 +574,6 @@ function UIMinimap:onVisibilityChange()
 
 end
 
-
-
 function UIMinimap:onCameraPositionChange(cameraPos)
 
   if self.cross then
@@ -697,8 +584,6 @@ function UIMinimap:onCameraPositionChange(cameraPos)
 
 end
 
-
-
 function UIMinimap:hideFloor()
 
   self.floorUpWidget:hide()
@@ -706,8 +591,6 @@ function UIMinimap:hideFloor()
   self.floorDownWidget:hide()
 
 end
-
-
 
 function UIMinimap:hideZoom()
 
@@ -717,15 +600,11 @@ function UIMinimap:hideZoom()
 
 end
 
-
-
 function UIMinimap:disableAutoWalk()
 
   self.autowalk = false
 
 end
-
-
 
 function UIMinimap:load()
 
@@ -749,8 +628,6 @@ function UIMinimap:load()
 
 end
 
-
-
 function UIMinimap:save()
 
   local settings = { flags={} }
@@ -767,7 +644,7 @@ function UIMinimap:save()
 
         description = flag.description,
 
-      })
+})
 
     end
 
@@ -778,8 +655,6 @@ function UIMinimap:save()
   g_settings.setNode('Minimap', settings)
 
 end
-
-
 
 local function onFlagMouseRelease(widget, pos, button)
 
@@ -801,8 +676,6 @@ local function onFlagMouseRelease(widget, pos, button)
 
 end
 
-
-
 function UIMinimap:setCrossPosition(pos)
 
   local cross = self.cross
@@ -816,8 +689,6 @@ function UIMinimap:setCrossPosition(pos)
     self.cross = cross
 
   end
-
-
 
   pos.z = self:getCameraPosition().z
 
@@ -835,8 +706,6 @@ function UIMinimap:setCrossPosition(pos)
 
 end
 
-
-
 function UIMinimap:addFlag(pos, icon, description, temporary)
 
   if not pos or not icon then return end
@@ -850,8 +719,6 @@ function UIMinimap:addFlag(pos, icon, description, temporary)
   end
 
   temporary = temporary or false
-
-
 
   flag = g_ui.createWidget('MinimapFlag')
 
@@ -887,8 +754,6 @@ function UIMinimap:addFlag(pos, icon, description, temporary)
 
 end
 
-
-
 function UIMinimap:addAlternativeWidget(widget, pos, maxZoom)
 
   widget.pos = pos
@@ -900,8 +765,6 @@ function UIMinimap:addAlternativeWidget(widget, pos, maxZoom)
   table.insert(self.alternatives, widget)
 
 end
-
-
 
 function UIMinimap:setAlternativeWidgetsVisible(show)
 
@@ -931,8 +794,6 @@ function UIMinimap:setAlternativeWidgetsVisible(show)
 
 end
 
-
-
 function UIMinimap:onZoomChange(zoom)
 
   for _,widget in pairs(self.alternatives) do
@@ -951,8 +812,6 @@ function UIMinimap:onZoomChange(zoom)
 
 end
 
-
-
 function UIMinimap:getFlag(pos)
 
   for _,flag in pairs(self.flags) do
@@ -969,8 +828,6 @@ function UIMinimap:getFlag(pos)
 
 end
 
-
-
 function UIMinimap:removeFlag(pos, icon, description)
 
   local flag = self:getFlag(pos)
@@ -983,8 +840,6 @@ function UIMinimap:removeFlag(pos, icon, description)
 
 end
 
-
-
 function UIMinimap:reset()
 
   self:setZoom(0)
@@ -996,8 +851,6 @@ function UIMinimap:reset()
   end
 
 end
-
-
 
 function UIMinimap:move(x, y)
 
@@ -1016,8 +869,6 @@ function UIMinimap:move(x, y)
   self:setCameraPosition(pos)
 
 end
-
-
 
 function UIMinimap:onMouseWheel(mousePos, direction)
 
@@ -1043,8 +894,6 @@ function UIMinimap:onMouseWheel(mousePos, direction)
 
 end
 
-
-
 function UIMinimap:onMousePress(pos, button)
 
   if not self:isDragging() then
@@ -1055,21 +904,15 @@ function UIMinimap:onMousePress(pos, button)
 
 end
 
-
-
 function UIMinimap:onMouseRelease(pos, button)
 
   if not self.allowNextRelease then return true end
 
   self.allowNextRelease = false
 
-
-
   local mapPos = self:getTilePosition(pos)
 
   if not mapPos then return end
-
-
 
   if button == MouseLeftButton then
 
@@ -1101,8 +944,6 @@ function UIMinimap:onMouseRelease(pos, button)
 
 end
 
-
-
 function UIMinimap:onDragEnter(pos)
 
   self.dragReference = pos
@@ -1112,8 +953,6 @@ function UIMinimap:onDragEnter(pos)
   return true
 
 end
-
-
 
 function UIMinimap:onDragMove(pos, moved)
 
@@ -1131,15 +970,11 @@ function UIMinimap:onDragMove(pos, moved)
 
 end
 
-
-
 function UIMinimap:onDragLeave(widget, pos)
 
   return true
 
 end
-
-
 
 function UIMinimap:onStyleApply(styleName, styleNode)
 
@@ -1155,19 +990,13 @@ function UIMinimap:onStyleApply(styleName, styleNode)
 
 end
 
-
-
 function UIMinimap:createFlagWindow(pos)
 
   if self.flagWindow then return end
 
   if not pos then return end
 
-
-
   self.flagWindow = g_ui.createWidget('MinimapFlagWindow', rootWidget)
-
-
 
   local positionLabel = self.flagWindow:getChildById('position')
 
@@ -1177,11 +1006,7 @@ function UIMinimap:createFlagWindow(pos)
 
   local cancelButton = self.flagWindow:getChildById('cancelButton')
 
-
-
   positionLabel:setText(string.format('%i, %i, %i', pos.x, pos.y, pos.z))
-
-
 
   local flagRadioGroup = UIRadioGroup.create()
 
@@ -1195,11 +1020,7 @@ function UIMinimap:createFlagWindow(pos)
 
   end
 
-
-
   flagRadioGroup:selectWidget(flagRadioGroup:getFirstWidget())
-
-
 
   local successFunc = function()
 
@@ -1209,33 +1030,23 @@ function UIMinimap:createFlagWindow(pos)
 
   end
 
-
-
   local cancelFunc = function()
 
     self:destroyFlagWindow()
 
   end
 
-
-
   okButton.onClick = successFunc
 
   cancelButton.onClick = cancelFunc
-
-
 
   self.flagWindow.onEnter = successFunc
 
   self.flagWindow.onEscape = cancelFunc
 
-
-
   self.flagWindow.onDestroy = function() flagRadioGroup:destroy() end
 
 end
-
-
 
 function UIMinimap:destroyFlagWindow()
 
@@ -1252,6 +1063,3 @@ end
 ```
 
 ---
-
-
-

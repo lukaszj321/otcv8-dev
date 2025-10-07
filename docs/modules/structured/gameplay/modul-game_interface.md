@@ -1,9 +1,4 @@
-# ¦ Modul: `game_interface`
-
-
-
-
-
+﻿# ¦ Modul: `game_interface`
 
 ```lua
 
@@ -45,13 +40,9 @@ hookedMenuOptions = {}
 
 lastDirTime = g_clock.millis()
 
-
-
 function init()
 
   g_ui.importStyle('styles/countwindow')
-
-
 
   connect(g_game, {
 
@@ -62,8 +53,6 @@ function init()
     onLoginAdvice = onLoginAdvice,
 
   }, true)
-
-
 
   -- Call load AFTER game window has been created and 
 
@@ -79,9 +68,7 @@ function init()
 
     onExit = save
 
-  })
-
-  
+})
 
   gameRootPanel = g_ui.displayUI('gameinterface')
 
@@ -91,15 +78,11 @@ function init()
 
   gameRootPanel.onGeometryChange = updateStretchShrink
 
-
-
   mouseGrabberWidget = gameRootPanel:getChildById('mouseGrabber')
 
   mouseGrabberWidget.onMouseRelease = onMouseGrabberRelease
 
   mouseGrabberWidget.onTouchRelease = mouseGrabberWidget.onMouseRelease
-
-
 
   bottomSplitter = gameRootPanel:getChildById('bottomSplitter')
 
@@ -123,35 +106,21 @@ function init()
 
   connect(gameLeftPanel, { onVisibilityChange = onLeftPanelVisibilityChange })
 
-
-
   logoutButton = modules.client_topmenu.addLeftButton('logoutButton', tr('Exit'),
 
     '/images/topbuttons/logout', tryLogout, true)
 
-
-
-
-
   gameRightPanels:addChild(g_ui.createWidget('GameSidePanel'))
-
- 
 
   setupLeftActions()
 
   refreshViewMode()
 
-
-
   bindKeys()
-
-  
 
   connect(gameMapPanel, { onGeometryChange = updateSize, onVisibleDimensionChange = updateSize })
 
   connect(g_game, { onMapChangeAwareRange = updateSize })
-
-
 
   if g_game.isOnline() then
 
@@ -161,13 +130,9 @@ function init()
 
 end
 
-
-
 function bindKeys()
 
   gameRootPanel:setAutoRepeatDelay(10)
-
-
 
   local lastAction = 0
 
@@ -193,21 +158,13 @@ function bindKeys()
 
 end
 
-
-
 function terminate()
 
   hide()
 
-
-
   hookedMenuOptions = {}
 
   markThing = nil
-
-  
-
-
 
   disconnect(g_game, {
 
@@ -217,15 +174,11 @@ function terminate()
 
     onLoginAdvice = onLoginAdvice
 
-  })
-
-
+})
 
   disconnect(gameMapPanel, { onGeometryChange = updateSize })
 
   connect(gameMapPanel, { onGeometryChange = updateSize, onVisibleDimensionChange = updateSize })
-
-
 
   logoutButton:destroy()
 
@@ -233,15 +186,11 @@ function terminate()
 
 end
 
-
-
 function onGameStart()
 
   refreshViewMode()
 
   show()
-
-  
 
   -- open tibia has delay in auto walking
 
@@ -257,8 +206,6 @@ function onGameStart()
 
 end
 
-
-
 function onGameEnd()
 
   hide()
@@ -266,8 +213,6 @@ function onGameEnd()
   modules.client_topmenu.getTopMenu():setImageColor('white')
 
 end
-
-
 
 function show()
 
@@ -281,13 +226,9 @@ function show()
 
   gameMapPanel:followCreature(g_game.getLocalPlayer())
 
-    
-
   updateStretchShrink()
 
   logoutButton:setTooltip(tr('Logout'))
-
-  
 
   addEvent(function()
 
@@ -309,15 +250,11 @@ function show()
 
 end
 
-
-
 function hide()
 
   disconnect(g_app, { onClose = tryExit })
 
   logoutButton:setTooltip(tr('Exit'))
-
-
 
   if logoutWindow then
 
@@ -351,8 +288,6 @@ function hide()
 
 end
 
-
-
 function save()
 
   local settings = {}
@@ -362,8 +297,6 @@ function save()
   g_settings.setNode('game_interface', settings)
 
 end
-
-
 
 function load()
 
@@ -381,15 +314,11 @@ function load()
 
 end
 
-
-
 function onLoginAdvice(message)
 
   displayInfoBox(tr("For Your Information"), message)
 
 end
-
-
 
 function forceExit()
 
@@ -401,8 +330,6 @@ function forceExit()
 
 end
 
-
-
 function tryExit()
 
   if exitWindow then
@@ -411,15 +338,11 @@ function tryExit()
 
   end
 
-
-
   local exitFunc = function() scheduleEvent(exit, 10) end
 
   local logoutFunc = function() g_game.safeLogout() exitWindow:destroy() exitWindow = nil end
 
   local cancelFunc = function() exitWindow:destroy() exitWindow = nil end
-
-
 
   exitWindow = displayGeneralBox(tr('Exit'), tr("If you shut down the program, your character might stay in the game.\nClick on 'Logout' to ensure that you character leaves the game properly.\nClick on 'Exit' if you want to exit the program without logging out your character."),
 
@@ -431,13 +354,9 @@ function tryExit()
 
     anchor=AnchorHorizontalCenter }, logoutFunc, cancelFunc)
 
-
-
   return true
 
 end
-
-
 
 function tryLogout(prompt)
 
@@ -455,23 +374,17 @@ function tryLogout(prompt)
 
   end
 
-
-
   if logoutWindow then
 
     return
 
   end
 
-
-
   local msg, yesCallback
 
   if not g_game.isConnectionOk() then
 
     msg = 'Your connection is failing, if you logout now your character will be still online, do you want to force logout?'
-
-
 
     yesCallback = function()
 
@@ -491,8 +404,6 @@ function tryLogout(prompt)
 
     msg = 'Are you sure you want to logout?'
 
-
-
     yesCallback = function()
 
       g_game.safeLogout()
@@ -509,8 +420,6 @@ function tryLogout(prompt)
 
   end
 
-
-
   local noCallback = function()
 
     logoutWindow:destroy()
@@ -518,8 +427,6 @@ function tryLogout(prompt)
     logoutWindow=nil
 
   end
-
-
 
   if prompt then
 
@@ -539,15 +446,11 @@ function tryLogout(prompt)
 
 end
 
-
-
 function updateStretchShrink()
 
   if modules.client_options.getOption('dontStretchShrink') and not alternativeView then
 
     gameMapPanel:setVisibleDimension({ width = 15, height = 11 })
-
-
 
     -- Set gameMapPanel size to height = 11 * 32 + 2
 
@@ -556,8 +459,6 @@ function updateStretchShrink()
   end
 
 end
-
-
 
 function onMouseGrabberRelease(self, mousePosition, mouseButton)
 
@@ -585,8 +486,6 @@ function onMouseGrabberRelease(self, mousePosition, mouseButton)
 
   end
 
-
-
   selectedThing = nil
 
   g_mouse.popCursor('target')
@@ -598,8 +497,6 @@ function onMouseGrabberRelease(self, mousePosition, mouseButton)
   return true
 
 end
-
-
 
 function onUseWith(clickedWidget, mousePosition)
 
@@ -649,8 +546,6 @@ function onUseWith(clickedWidget, mousePosition)
 
 end
 
-
-
 function onTradeWith(clickedWidget, mousePosition)
 
   if clickedWidget:getClassName() == 'UIGameMap' then
@@ -676,8 +571,6 @@ function onTradeWith(clickedWidget, mousePosition)
   end
 
 end
-
-
 
 function startUseWith(thing, subType)
 
@@ -711,8 +604,6 @@ function startUseWith(thing, subType)
 
 end
 
-
-
 function startTradeWith(thing)
 
   if not thing then return end
@@ -741,8 +632,6 @@ function startTradeWith(thing)
 
 end
 
-
-
 function isMenuHookCategoryEmpty(category)
 
   if category then
@@ -758,8 +647,6 @@ function isMenuHookCategoryEmpty(category)
   return true
 
 end
-
-
 
 function addMenuHook(category, name, callback, condition, shortcut)
 
@@ -777,11 +664,9 @@ function addMenuHook(category, name, callback, condition, shortcut)
 
     shortcut = shortcut
 
-  }
+}
 
 end
-
-
 
 function removeMenuHook(category, name)
 
@@ -797,25 +682,17 @@ function removeMenuHook(category, name)
 
 end
 
-
-
 function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
   if not g_game.isOnline() then return end
-
-
 
   local menu = g_ui.createWidget('PopupMenu')
 
   menu:setGameMenu(true)
 
-
-
   local classic = modules.client_options.getOption('classicControl')
 
   local shortcut = nil
-
-
 
   if not classic and not g_app.isMobile() then shortcut = '(Shift)' else shortcut = nil end
 
@@ -824,8 +701,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
     menu:addOption(tr('Look'), function() g_game.look(lookThing) end, shortcut)
 
   end
-
-
 
   if not classic and not g_app.isMobile() then shortcut = '(Ctrl)' else shortcut = nil end
 
@@ -859,8 +734,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
     end
 
-
-
     if useThing:isRotateable() then
 
       menu:addOption(tr('Rotate'), function() g_game.rotate(useThing) end)
@@ -879,8 +752,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
     end
 
-
-
     if g_game.getFeature(GameBrowseField) and useThing:getPosition().x ~= 0xffff then
 
       menu:addOption(tr('Browse Field'), function() g_game.browseField(useThing:getPosition()) end)
@@ -889,8 +760,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
   end
 
-
-
   if lookThing and not lookThing:isCreature() and not lookThing:isNotMoveable() and lookThing:isPickupable() then
 
     menu:addSeparator()
@@ -898,8 +767,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
     menu:addOption(tr('Trade with ...'), function() startTradeWith(lookThing) end)
 
   end
-
-
 
   if lookThing then
 
@@ -913,21 +780,15 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
   end
 
-
-
   if creatureThing then
 
     local localPlayer = g_game.getLocalPlayer()
 
     menu:addSeparator()
 
-
-
     if creatureThing:isLocalPlayer() then
 
       menu:addOption(tr('Set Outfit'), function() g_game.requestOutfit() end)
-
-
 
       if g_game.getFeature(GamePlayerMounts) then
 
@@ -943,15 +804,11 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
       end
 
-      
-
       if g_game.getFeature(GamePrey) and modules.game_prey then
 
         menu:addOption(tr('Open Prey Dialog'), function() modules.game_prey.show() end)
 
       end
-
-      
 
       if creatureThing:isPartyMember() then
 
@@ -973,8 +830,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
       end
 
-
-
     else
 
       local localPosition = localPlayer:getPosition()
@@ -993,8 +848,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
         end
 
-
-
         if g_game.getFollowingCreature() ~= creatureThing then
 
           menu:addOption(tr('Follow'), function() g_game.follow(creatureThing) end)
@@ -1006,8 +859,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
         end
 
       end
-
-
 
       if creatureThing:isPlayer() then
 
@@ -1031,8 +882,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
         end
 
-
-
         if modules.game_console.isIgnored(creatureName) then
 
           menu:addOption(tr('Unignore') .. ' ' .. creatureName, function() modules.game_console.removeIgnoredPlayer(creatureName) end)
@@ -1043,13 +892,9 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
         end
 
-
-
         local localPlayerShield = localPlayer:getShield()
 
         local creatureShield = creatureThing:getShield()
-
-
 
         if localPlayerShield == ShieldNone or localPlayerShield == ShieldWhiteBlue then
 
@@ -1093,8 +938,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
     end
 
-
-
     if modules.game_ruleviolation.hasWindowAccess() and creatureThing:isPlayer() then
 
       menu:addSeparator()
@@ -1103,15 +946,11 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
     end
 
-
-
     menu:addSeparator()
 
     menu:addOption(tr('Copy Name'), function() g_window.setClipboardText(creatureThing:getName()) end)
 
   end
-
-
 
   -- hooked menu options
 
@@ -1137,8 +976,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
   end
 
-
-
   if g_game.getFeature(GameBot) and useThing and useThing:isItem() then
 
     menu:addSeparator()
@@ -1157,19 +994,13 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
 
   end
 
-
-
   menu:display(menuPosition)
 
 end
 
-
-
 function processMouseAction(menuPosition, mouseButton, autoWalkPos, lookThing, useThing, creatureThing, attackCreature, marking)
 
   local keyboardModifiers = g_keyboard.getModifiers()
-
-
 
   if g_app.isMobile() then
 
@@ -1437,13 +1268,9 @@ function processMouseAction(menuPosition, mouseButton, autoWalkPos, lookThing, u
 
   end
 
-
-
   local player = g_game.getLocalPlayer()
 
   player:stopAutoWalk()  
-
-
 
   if autoWalkPos and keyboardModifiers == KeyboardNoModifier and (mouseButton == MouseLeftButton or mouseButton == MouseTouch2 or mouseButton == MouseTouch3) then
 
@@ -1463,13 +1290,9 @@ function processMouseAction(menuPosition, mouseButton, autoWalkPos, lookThing, u
 
   end
 
-
-
   return false
 
 end
-
-
 
 function moveStackableItem(item, toPos)
 
@@ -1495,8 +1318,6 @@ function moveStackableItem(item, toPos)
 
   local count = item:getCount()
 
-
-
   countWindow = g_ui.createWidget('CountWindow', rootWidget)
 
   local itembox = countWindow:getChildById('item')
@@ -1513,8 +1334,6 @@ function moveStackableItem(item, toPos)
 
   scrollbar:setValue(count)
 
-
-
   local spinbox = countWindow:getChildById('spinBox')
 
   spinbox:setMaximum(count)
@@ -1529,8 +1348,6 @@ function moveStackableItem(item, toPos)
 
   spinbox.firstEdit = true
 
-
-
   local spinBoxValueChange = function(self, value)
 
     spinbox.firstEdit = false
@@ -1540,8 +1357,6 @@ function moveStackableItem(item, toPos)
   end
 
   spinbox.onValueChange = spinBoxValueChange
-
-
 
   local check = function()
 
@@ -1577,10 +1392,6 @@ function moveStackableItem(item, toPos)
 
   end
 
-
-
-  
-
   g_keyboard.bindKeyPress("Up", function() check() spinbox:up() end, spinbox)
 
   g_keyboard.bindKeyPress("Down", function() check() spinbox:down() end, spinbox)
@@ -1594,8 +1405,6 @@ function moveStackableItem(item, toPos)
   g_keyboard.bindKeyPress("PageDown", function() check() spinbox:setValue(spinbox:getValue()-10) end, spinbox)
 
   g_keyboard.bindKeyPress("Enter", function() moveFunc() end, spinbox)
-
-
 
   scrollbar.onValueChange = function(self, value)
 
@@ -1613,15 +1422,11 @@ function moveStackableItem(item, toPos)
 
   countWindow.onEscape = cancelFunc
 
-
-
   okButton.onClick = moveFunc
 
   cancelButton.onClick = cancelFunc
 
 end
-
-
 
 function getRootPanel()
 
@@ -1629,15 +1434,11 @@ function getRootPanel()
 
 end
 
-
-
 function getMapPanel()
 
   return gameMapPanel
 
 end
-
-
 
 function getRightPanel()
 
@@ -1651,8 +1452,6 @@ function getRightPanel()
 
 end
 
-
-
 function getLeftPanel()
 
   if gameLeftPanels:getChildCount() >= 1 then
@@ -1664,8 +1463,6 @@ function getLeftPanel()
   return getRightPanel()
 
 end
-
-
 
 function getContainerPanel()
 
@@ -1689,8 +1486,6 @@ function getContainerPanel()
 
 end
 
-
-
 local function addRightPanel()
 
   if gameRightPanels:getChildCount() >= 4 then
@@ -1706,8 +1501,6 @@ local function addRightPanel()
   gameRightPanels:insertChild(1, panel)
 
 end
-
-
 
 local function addLeftPanel()
 
@@ -1725,8 +1518,6 @@ local function addLeftPanel()
 
 end
 
-
-
 local function removeRightPanel()
 
   if gameRightPanels:getChildCount() <= 1 then
@@ -1742,8 +1533,6 @@ local function removeRightPanel()
   gameRightPanels:removeChild(panel)
 
 end
-
-
 
 local function removeLeftPanel()
 
@@ -1769,15 +1558,11 @@ local function removeLeftPanel()
 
 end
 
-
-
 function getBottomPanel()
 
   return gameBottomPanel
 
 end
-
-
 
 function getBottomActionPanel()
 
@@ -1785,15 +1570,11 @@ function getBottomActionPanel()
 
 end
 
-
-
 function getLeftActionPanel()
 
   return gameLeftActionPanel
 
 end
-
-
 
 function getRightActionPanel()
 
@@ -1801,15 +1582,11 @@ function getRightActionPanel()
 
 end
 
-
-
 function getTopBar()
 
   return gameTopBar
 
 end
-
-
 
 function refreshViewMode()  
 
@@ -1818,8 +1595,6 @@ function refreshViewMode()
   local rightPanels = g_settings.getNumber("rightPanels") - gameRightPanels:getChildCount()
 
   local leftPanels = g_settings.getNumber("leftPanels") - 1 - gameLeftPanels:getChildCount()
-
-
 
   while rightPanels ~= 0 do
 
@@ -1857,15 +1632,11 @@ function refreshViewMode()
 
   end
 
-  
-
   if not g_game.isOnline() then
 
     return
 
   end
-
-
 
   local minimumWidth = (g_settings.getNumber("rightPanels") + g_settings.getNumber("leftPanels") - 1) * 200 + 200
 
@@ -1884,8 +1655,6 @@ function refreshViewMode()
     g_window.move(oldPos)
 
   end
-
-
 
   for i=1,gameRightPanels:getChildCount()+gameLeftPanels:getChildCount() do
 
@@ -1913,8 +1682,6 @@ function refreshViewMode()
 
   end
 
-  
-
   if classic then
 
     gameRightPanels:setMarginTop(0)
@@ -1929,11 +1696,7 @@ function refreshViewMode()
 
   end
 
-
-
   gameMapPanel:setVisibleDimension({ width = 15, height = 11 })
-
-  
 
   if classic then  
 
@@ -1955,11 +1718,7 @@ function refreshViewMode()
 
     gameMapPanel:setOn(false) -- frame
 
-
-
     modules.client_topmenu.getTopMenu():setImageColor('white')
-
-  
 
     if modules.game_console then
 
@@ -1989,8 +1748,6 @@ function refreshViewMode()
 
     end
 
-               
-
     modules.client_topmenu.getTopMenu():setImageColor('#ffffff66')  
 
     if g_app.isMobile() then
@@ -2013,21 +1770,15 @@ function refreshViewMode()
 
 --  end
 
-  
-
   if g_settings.getBoolean("cacheMap") then
 
     g_game.enableFeature(GameBiggerMapCache)
 
   end
 
-  
-
   updateSize()
 
 end
-
-
 
 function limitZoom()
 
@@ -2035,13 +1786,9 @@ function limitZoom()
 
 end
 
-
-
 function updateSize()
 
   if g_app.isMobile() then return end
-
-
 
   local classic = g_settings.getBoolean("classicView")
 
@@ -2049,15 +1796,11 @@ function updateSize()
 
   local width = gameMapPanel:getWidth()
 
-     
-
   if not classic then
 
     local rheight = gameRootPanel:getHeight()
 
     local rwidth = gameRootPanel:getWidth()
-
-
 
     local dimenstion = gameMapPanel:getVisibleDimension()  
 
@@ -2103,8 +1846,6 @@ function updateSize()
 
     end
 
-      
-
     if modules.game_bot then
 
       for i, child in ipairs(gameMapPanel:getChildren()) do
@@ -2128,8 +1869,6 @@ function updateSize()
     end  
 
   end
-
-  
 
     --[[
 
@@ -2158,8 +1897,6 @@ function updateSize()
   gameMapPanel:setMarginRight(extraMargin) ]]
 
 end
-
-
 
 function setupLeftActions()
 
@@ -2345,8 +2082,6 @@ function setupLeftActions()
 
 end
 
-
-
 function resetLeftActions()
 
   for _, widget in ipairs(gameLeftActions:getChildren()) do
@@ -2358,8 +2093,6 @@ function resetLeftActions()
   end
 
 end
-
-
 
 function getLeftAction()
 
@@ -2377,8 +2110,6 @@ function getLeftAction()
 
 end
 
-
-
 function isChatVisible()
 
   return gameBottomPanel:getHeight() >= 5
@@ -2388,12 +2119,7 @@ end
 ```
 
 ---
-
-
-
 # gameinterface.otui
-
-
 
 ```otui
 
@@ -2423,10 +2149,6 @@ GameSidePanel < UIMiniWindowContainer
 
     width: 200
 
-  
-
-
-
 GameMapPanel < UIGameMap
 
   padding: 4
@@ -2435,21 +2157,15 @@ GameMapPanel < UIGameMap
 
   image-border: 4
 
-
-
   $on:
 
     padding: 0
-
-    
 
 GameAction < UIButton
 
   size: 64 64
 
   phantom: false
-
-    
 
   UIButton
 
@@ -2475,17 +2191,11 @@ GameAction < UIButton
 
       background: alpha
 
-
-
-
-
 UIWidget
 
   id: gameRootPanel
 
   anchors.fill: parent
-
-  
 
   GameMapPanel
 
@@ -2501,8 +2211,6 @@ UIWidget
 
     focusable: false    
 
-    
-
   Panel
 
     id: gameLeftActions
@@ -2515,23 +2223,17 @@ UIWidget
 
     width: 64
 
-    
-
     $!mobile:
 
       visible: false
 
       width: 0
 
-    
-
     layout:
 
       type: verticalBox
 
       fit-children: true
-
-      
 
     GameAction
 
@@ -2563,8 +2265,6 @@ UIWidget
 
       @onSetup: self.image:setImageSource("/images/game/mobile/chat")
 
-    
-
   Panel
 
     id: gameLeftPanels
@@ -2583,8 +2283,6 @@ UIWidget
 
       anchors.left: gameLeftActions.right
 
-
-
     layout:
 
       type: horizontalBox
@@ -2592,8 +2290,6 @@ UIWidget
       fit-children: true
 
       spacing: -1
-
-
 
   Panel
 
@@ -2611,21 +2307,15 @@ UIWidget
 
     margin-top: 3
 
-
-
     $mobile:
 
       visible: false
-
-      
 
     layout:
 
       type: horizontalBox
 
       fit-children: true
-
-      
 
   Panel
 
@@ -2647,8 +2337,6 @@ UIWidget
 
       spacing: -1
 
-
-
   Panel
 
     id: gameRightActionPanel
@@ -2665,21 +2353,15 @@ UIWidget
 
     margin-top: 3
 
-
-
     $mobile:
 
       visible: false
-
-      
 
     layout:
 
       type: horizontalBox
 
       fit-children: true
-
-    
 
   Splitter
 
@@ -2701,13 +2383,9 @@ UIWidget
 
     @onGeometryChange: function(self) self:setMarginBottom(math.min(math.max(self:getParent():getHeight() - 150, 80), self:getMarginBottom())) end
 
-    
-
     $mobile:
 
       visible: false
-
-      
 
   Panel
 
@@ -2716,8 +2394,6 @@ UIWidget
     phantom: true
 
     focusable: false
-
-
 
     $!mobile:
 
@@ -2729,8 +2405,6 @@ UIWidget
 
       margin-top: 3
 
-
-
     $mobile:
 
       anchors.left: gameLeftPanels.right
@@ -2739,15 +2413,11 @@ UIWidget
 
       anchors.bottom: gameBottomPanel.top    
 
-      
-
     layout:
 
       type: verticalBox
 
       fit-children: true
-
-    
 
   Panel
 
@@ -2763,8 +2433,6 @@ UIWidget
 
       anchors.bottom: parent.bottom
 
-
-
     $mobile:
 
       anchors.left: gameLeftPanels.right
@@ -2773,8 +2441,6 @@ UIWidget
 
       anchors.bottom: parent.bottom
 
-      
-
   UIWidget
 
     id: mouseGrabber
@@ -2782,8 +2448,6 @@ UIWidget
     focusable: false
 
     visible: false
-
-
 
   Panel
 
@@ -2799,13 +2463,9 @@ UIWidget
 
     focusable: false
 
-
-
     $mobile:
 
       height: 0
-
-
 
     layout:
 
@@ -2816,12 +2476,7 @@ UIWidget
 ```
 
 ---
-
-
-
 # interface.otmod
-
-
 
 ```text
 
@@ -2920,6 +2575,3 @@ Module
 ```
 
 ---
-
-
-

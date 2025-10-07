@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/panels`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/panels`
 
 ```text
 
@@ -16,20 +11,13 @@ MAY BE REMOVED IN THE FUTURE
 ```
 
 ---
-
-
-
 # attacking.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
 local Panels = context.Panels
-
-
 
 Panels.MonsterEditor = function(monster, config, callback, parent)
 
@@ -41,8 +29,6 @@ Panels.MonsterEditor = function(monster, config, callback, parent)
 
   end
 
-
-
   local window = context.setupUI([[
 
 MainWindow
@@ -52,8 +38,6 @@ MainWindow
   size: 450 450
 
   !text: tr("Edit monster")
-
-  
 
   Label
 
@@ -69,8 +53,6 @@ MainWindow
 
     text: Use monster name * for any other monster not on the list
 
-
-
   Label
 
     id: info2
@@ -84,8 +66,6 @@ MainWindow
     text-align: center
 
     text: Add number (1-5) at the end of the name to create multiple configs
-
-
 
   TextEdit
 
@@ -103,8 +83,6 @@ MainWindow
 
     multiline: false
 
-
-
   Label
 
     anchors.verticalCenter: prev.verticalCenter
@@ -112,8 +90,6 @@ MainWindow
     anchors.left: parent.left
 
     text: Target name:
-
-
 
   Label
 
@@ -133,8 +109,6 @@ MainWindow
 
     text-align: center
 
-
-
   HorizontalScrollBar
 
     id: priority
@@ -152,8 +126,6 @@ MainWindow
     maximum: 10
 
     step: 1      
-
-
 
   Label
 
@@ -173,8 +145,6 @@ MainWindow
 
     text-align: center
 
-
-
   HorizontalScrollBar
 
     id: danger
@@ -192,8 +162,6 @@ MainWindow
     maximum: 10
 
     step: 1     
-
-
 
   Label
 
@@ -213,8 +181,6 @@ MainWindow
 
     text-align: center
 
-
-
   HorizontalScrollBar
 
     id: maxDistance
@@ -232,8 +198,6 @@ MainWindow
     maximum: 10
 
     step: 1
-
-
 
   Label
 
@@ -253,8 +217,6 @@ MainWindow
 
     text-align: center
 
-
-
   HorizontalScrollBar
 
     id: distance
@@ -272,8 +234,6 @@ MainWindow
     maximum: 5
 
     step: 1
-
-
 
   Label
 
@@ -293,8 +253,6 @@ MainWindow
 
     text-align: center
 
-
-
   HorizontalScrollBar
 
     id: minHealth
@@ -312,8 +270,6 @@ MainWindow
     maximum: 100
 
     step: 1
-
-
 
   Label
 
@@ -333,8 +289,6 @@ MainWindow
 
     text-align: center
 
-
-
   HorizontalScrollBar
 
     id: maxHealth
@@ -352,8 +306,6 @@ MainWindow
     maximum: 100
 
     step: 1
-
-    
 
   Label
 
@@ -377,8 +329,6 @@ MainWindow
 
     text-auto-resize: true
 
-
-
   Label
 
     id: attackSpellText
@@ -401,8 +351,6 @@ MainWindow
 
     text-auto-resize: true
 
-
-
   BotSwitch
 
     id: attack
@@ -418,8 +366,6 @@ MainWindow
     width: 55
 
     text: Attack
-
-
 
   BotSwitch
 
@@ -437,8 +383,6 @@ MainWindow
 
     text: Ignore
 
-
-
   BotSwitch
 
     id: avoid
@@ -454,8 +398,6 @@ MainWindow
     width: 55
 
     text: Avoid    
-
-
 
   BotSwitch
 
@@ -473,8 +415,6 @@ MainWindow
 
     text: Keep distance
 
-
-
   BotSwitch
 
     id: avoidAttacks
@@ -490,8 +430,6 @@ MainWindow
     margin-top: 10
 
     text: Avoid monster attacks
-
-
 
   BotSwitch
 
@@ -509,8 +447,6 @@ MainWindow
 
     text: Chase when has low health
 
-
-
   BotSwitch
 
     id: loot
@@ -526,8 +462,6 @@ MainWindow
     margin-top: 10
 
     text: Loot corpse
-
-
 
   BotSwitch
 
@@ -545,8 +479,6 @@ MainWindow
 
     text: Only for monsters
 
-
-
   BotSwitch
 
     id: dontWalk
@@ -562,8 +494,6 @@ MainWindow
     margin-top: 10
 
     text: Don't walk to target
-
-
 
   Label
 
@@ -583,8 +513,6 @@ MainWindow
 
     text-align: center
 
-
-
   TextEdit
 
     id: attackSpell
@@ -596,8 +524,6 @@ MainWindow
     anchors.top: prev.bottom
 
     margin-top: 2
-
-
 
   Label
 
@@ -615,8 +541,6 @@ MainWindow
 
     text-align: left
 
-
-
   BotItem
 
     id: attackItem
@@ -626,8 +550,6 @@ MainWindow
     anchors.verticalCenter: prev.verticalCenter
 
     margin-right: 30
-
-
 
   Button
 
@@ -643,8 +565,6 @@ MainWindow
 
     width: 60
 
-
-
   Button
 
     id: cancelButton
@@ -658,8 +578,6 @@ MainWindow
     width: 60
 
 ]], g_ui.getRootWidget())
-
-
 
   local destroy = function()
 
@@ -707,15 +625,13 @@ MainWindow
 
       attackSpell = window.attackSpell:getText()
 
-    }    
+}
 
     destroy()
 
     callback(monster, config)
 
   end
-
-
 
   window.okButton.onClick = doneFunc
 
@@ -724,10 +640,6 @@ MainWindow
   window.onEnter = doneFunc
 
   window.onEscape = destroy
-
-
-
-   
 
   window.priority.onValueChange = function(scroll, value)
 
@@ -765,8 +677,6 @@ MainWindow
 
   end
 
-
-
   window.priority:setValue(config.priority or 1)
 
   window.danger:setValue(config.danger or 1)  
@@ -783,13 +693,9 @@ MainWindow
 
   window.maxHealth:setValue(config.maxHealth or 100)
 
-
-
   window.attackSpell:setText(config.attackSpell or "")
 
   window.attackItem:setItemId(config.attackItem or 0)
-
-
 
   window.attack.onClick = function(widget)
 
@@ -839,8 +745,6 @@ MainWindow
 
   end 
 
-
-
   window.attack:setOn(config.attack)
 
   window.ignore:setOn(config.ignore)
@@ -852,8 +756,6 @@ MainWindow
     window.attack:setOn(true)
 
   end
-
-
 
   window.keepDistance.onClick = function(widget)
 
@@ -891,8 +793,6 @@ MainWindow
 
   end
 
-
-
   window.keepDistance:setOn(config.keepDistance)
 
   window.avoidAttacks:setOn(config.avoidAttacks)
@@ -917,11 +817,7 @@ MainWindow
 
   window.dontWalk:setOn(config.dontWalk)
 
-
-
   window.name:setText(monster)
-
-
 
   window:show()
 
@@ -930,8 +826,6 @@ MainWindow
   window:focus()
 
 end
-
-
 
 Panels.Attacking = function(parent)
 
@@ -943,8 +837,6 @@ Panel
 
   height: 140
 
-  
-
   BotLabel
 
     anchors.top: parent.top
@@ -954,8 +846,6 @@ Panel
     anchors.right: parent.right
 
     text: Attacking
-
-
 
   ComboBox
 
@@ -971,8 +861,6 @@ Panel
 
     width: 130
 
-
-
   Button
 
     id: enableButton
@@ -984,8 +872,6 @@ Panel
     anchors.right: parent.right
 
     margin-left: 5
-
-      
 
   Button
 
@@ -1003,8 +889,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: edit
@@ -1019,8 +903,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: remove
@@ -1034,8 +916,6 @@ Panel
     width: 60
 
     height: 17
-
-  
 
   TextList
 
@@ -1059,8 +939,6 @@ Panel
 
     auto-focus: first
 
-
-
   VerticalScrollBar
 
     id: listScrollbar
@@ -1074,8 +952,6 @@ Panel
     pixels-scroll: true
 
     step: 5
-
-
 
   Button
 
@@ -1093,8 +969,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: mEdit
@@ -1108,8 +982,6 @@ Panel
     width: 60
 
     height: 17
-
-
 
   Button
 
@@ -1125,11 +997,7 @@ Panel
 
     height: 17
 
-
-
 ]], parent)
-
-  
 
   if type(context.storage.attacking) ~= "table" then
 
@@ -1142,8 +1010,6 @@ Panel
     context.storage.attacking.configs = {}  
 
   end
-
-  
 
   local getConfigName = function(config)
 
@@ -1159,8 +1025,6 @@ Panel
 
   end
 
-
-
   local commands = {}
 
   local monsters = {}
@@ -1169,8 +1033,6 @@ Panel
 
   local refreshConfig = nil -- declared later
 
-
-
   local createNewConfig = function()
 
     if not context.storage.attacking.activeConfig or not context.storage.attacking.configs[context.storage.attacking.activeConfig] then
@@ -1178,8 +1040,6 @@ Panel
       return
 
     end
-
-    
 
     local newConfig = ""
 
@@ -1195,15 +1055,11 @@ Panel
 
     end    
 
-
-
     context.storage.attacking.configs[context.storage.attacking.activeConfig] = newConfig
 
     refreshConfig()
 
   end
-
-
 
   local parseConfig = function(config)
 
@@ -1212,8 +1068,6 @@ Panel
     monsters = {}
 
     configName = nil
-
-
 
     local matches = regexMatch(config, [[([^:^\n]+)(:?)([^\n]*)]])
 
@@ -1277,8 +1131,6 @@ Panel
 
   end
 
-  
-
   local ignoreOnOptionChange = true
 
   refreshConfig = function(scrollDown)
@@ -1299,8 +1151,6 @@ Panel
 
     end
 
-        
-
     ui.config:clear()
 
     for i, config in ipairs(context.storage.attacking.configs) do
@@ -1317,19 +1167,13 @@ Panel
 
     end
 
-    
-
     if (not context.storage.attacking.activeConfig or context.storage.attacking.activeConfig == 0) and #context.storage.attacking.configs > 0 then
 
        context.storage.attacking.activeConfig = 1
 
     end
 
-    
-
     ui.list:destroyChildren()
-
-    
 
     if context.storage.attacking.activeConfig and context.storage.attacking.configs[context.storage.attacking.activeConfig] then
 
@@ -1339,8 +1183,6 @@ Panel
 
     end
 
-    
-
     context.saveConfig()
 
     if scrollDown and ui.list:getLastChild() then
@@ -1349,15 +1191,9 @@ Panel
 
     end
 
-    
-
     ignoreOnOptionChange = false
 
   end
-
-
-
-  
 
   ui.config.onOptionChange = function(widget)
 
@@ -1463,10 +1299,6 @@ Panel
 
   end
 
-  
-
-  
-
   ui.mAdd.onClick = function()
 
     if not context.storage.attacking.activeConfig or not context.storage.attacking.configs[context.storage.attacking.activeConfig] then
@@ -1543,11 +1375,7 @@ Panel
 
   end
 
-
-
   refreshConfig()
-
-  
 
   -- processing
 
@@ -1559,15 +1387,11 @@ Panel
 
     end
 
-
-
     if not config.attack then
 
       return false
 
     end
-
-    
 
     if monster:isPlayer() and (config.monstersOnly == true or config.monstersOnly == nil) then
 
@@ -1575,23 +1399,17 @@ Panel
 
     end
 
-
-
     local pos = context.player:getPosition()
 
     local mpos = monster:getPosition()
 
     local hp = monster:getHealthPercent()
 
-    
-
     if config.minHealth > hp or config.maxHealth < hp then
 
       return false
 
     end  
-
-    
 
     local maxDistance = 5
 
@@ -1607,8 +1425,6 @@ Panel
 
     end
 
-    
-
     local distance = math.max(math.abs(pos.x-mpos.x), math.abs(pos.y-mpos.y))
 
     if distance > maxDistance then
@@ -1616,8 +1432,6 @@ Panel
       return false
 
     end 
-
-
 
     local pathTo = context.findPath(context.player:getPosition(), {x=mpos.x, y=mpos.y, z=mpos.z}, maxDistance + 2, { ignoreNonPathable = true, precision=1, allowOnlyVisibleTiles = true, ignoreCost = true })
 
@@ -1630,8 +1444,6 @@ Panel
     return true    
 
   end
-
-
 
   local getMonsterConfig = function(monster)
 
@@ -1669,8 +1481,6 @@ Panel
 
   end
 
-
-
   local calculatePriority = function(monster)
 
     local priority = 0
@@ -1682,8 +1492,6 @@ Panel
       return -1
 
     end
-
-
 
     local pos = context.player:getPosition()
 
@@ -1707,15 +1515,11 @@ Panel
 
     local distance = #pathTo
 
-        
-
     if monster == g_game.getAttackingCreature() then
 
       priority = priority + 10
 
     end
-
-
 
     if distance <= 4 then
 
@@ -1735,15 +1539,11 @@ Panel
 
     end
 
-
-
     if hp <= 25 and config.chase then
 
       priority = priority + 30
 
     end
-
-
 
     if hp <= 10 then
 
@@ -1769,15 +1569,11 @@ Panel
 
     end
 
-    
-
     priority = priority + config.priority * 10      
 
     return priority
 
   end
-
-
 
   local calculateMonsterDanger = function(monster)
 
@@ -1797,8 +1593,6 @@ Panel
 
   end
 
-
-
   local lastAttack = context.now
 
   local lootContainers = {}
@@ -1812,8 +1606,6 @@ Panel
   local lastAttackSpell = 0
 
   local lastAttackRune = 0
-
-
 
   local goForLoot = function()
 
@@ -1829,8 +1621,6 @@ Panel
 
     end
 
-    
-
     local pos = context.player:getPosition()
 
     table.sort(lootContainers, function(pos1, pos2)
@@ -1843,8 +1633,6 @@ Panel
 
     end)
 
-
-
     local cpos = lootContainers[1]
 
     if cpos.z ~= pos.z then
@@ -1854,8 +1642,6 @@ Panel
       return true
 
     end
-
-    
 
     if lootTries >= 5 then
 
@@ -1881,8 +1667,6 @@ Panel
 
       end
 
-      
-
       local topItem = tile:getTopUseThing()
 
       if not topItem or not topItem:isContainer() then
@@ -1894,8 +1678,6 @@ Panel
       end
 
       topItem:setMarked('orange')
-
-
 
       if dist <= 1 then
 
@@ -1913,8 +1695,6 @@ Panel
 
     end
 
-
-
     if dist <= 25 then
 
       if context.player:isWalking() then
@@ -1922,8 +1702,6 @@ Panel
         return true
 
       end
-
-
 
       lootTries = lootTries + 1
 
@@ -1933,23 +1711,17 @@ Panel
 
       end
 
-
-
       if context.autoWalk(cpos, 20, { ignoreNonPathable = true, precision = 1}) then
 
         return true
 
       end
 
-
-
       if context.autoWalk(cpos, 20, { ignoreNonPathable = true, precision = 2}) then
 
         return true
 
       end
-
-      
 
       if context.autoWalk(cpos, 20, { ignoreNonPathable = true, ignoreCreatures = true, precision = 2}) then
 
@@ -1969,8 +1741,6 @@ Panel
 
   end
 
-
-
   context.onCreatureDisappear(function(creature)
 
     if not creature:isMonster() then
@@ -1989,8 +1759,6 @@ Panel
 
     end
 
-
-
     local config = getMonsterConfig(creature)
 
     if not config or not config.loot then
@@ -2007,8 +1775,6 @@ Panel
 
     end
 
-    
-
     local tile = g_map.getTile(tpos)
 
     if not tile then
@@ -2016,8 +1782,6 @@ Panel
       return
 
     end
-
-    
 
     local topItem = tile:getTopUseThing()
 
@@ -2027,15 +1791,11 @@ Panel
 
     end
 
-    
-
     topItem:setMarked('blue')
 
     table.insert(lootContainers, tpos)
 
   end)
-
-
 
   context.onContainerOpen(function(container, prevContainer)
 
@@ -2046,8 +1806,6 @@ Panel
       return
 
     end
-
-
 
     if openContainerRequest + 500 > context.now and #lootContainers > 0 then
 
@@ -2069,8 +1827,6 @@ Panel
 
   end)  
 
-
-
   context.macro(200, function()
 
     if not context.storage.attacking.enabled then
@@ -2078,8 +1834,6 @@ Panel
       return
 
     end
-
-
 
     local attacking = nil
 
@@ -2094,8 +1848,6 @@ Panel
     local monsters = {}
 
     local danger = 0
-
-    
 
     for i, spec in ipairs(spectators) do
 
@@ -2123,23 +1875,17 @@ Panel
 
     end    
 
-
-
     if following then
 
       return
 
     end
 
-
-
     if waitForLooting > context.now then
 
       return
 
     end
-
-
 
     if #monsters == 0 or context.isInProtectionZone() then
 
@@ -2149,15 +1895,11 @@ Panel
 
     end
 
-
-
     table.sort(monsters, function(a, b)
 
       return a.attackingPriority > b.attackingPriority
 
     end)
-
-
 
     local target = monsters[1]
 
@@ -2166,8 +1908,6 @@ Panel
       return
 
     end
-
-    
 
     local pos = context.player:getPosition()
 
@@ -2178,8 +1918,6 @@ Panel
     local offsetX = pos.x - tpos.x
 
     local offsetY = pos.y - tpos.y
-
-
 
     local justStartedAttack = false
 
@@ -2194,8 +1932,6 @@ Panel
       justStartedAttack = true
 
     end
-
-
 
     -- proceed attack
 
@@ -2213,8 +1949,6 @@ Panel
 
     end
 
-    
-
     if not justStartedAttack and config.attackSpell and config.attackSpell:len() > 0 then
 
       if context.now > lastAttackSpell + 1000 and context.player:getHealthPercent() > 30 then
@@ -2228,8 +1962,6 @@ Panel
       end
 
     end
-
-
 
     if not justStartedAttack and config.attackItem and config.attackItem >= 100 then
 
@@ -2245,15 +1977,11 @@ Panel
 
     end
 
-    
-
     if modules.game_walking.lastManualWalk + 500 > context.now then
 
       return
 
     end
-
-    
 
     if danger < 8 then
 
@@ -2266,8 +1994,6 @@ Panel
       end
 
     end
-
-    
 
     target.ignoreByWaypoints = config.dontWalk
 
@@ -2282,8 +2008,6 @@ Panel
       return
 
     end
-
-
 
     local distance = math.max(math.abs(offsetX), math.abs(offsetY))
 
@@ -2333,8 +2057,6 @@ Panel
 
     end
 
-
-
     if config.avoidAttacks and distance <= 1 then
 
       if (offsetX == 0 and offsetY ~= 0) then
@@ -2364,8 +2086,6 @@ Panel
       end
 
     end
-
-     
 
     if distance > 1 then
 
@@ -2398,20 +2118,13 @@ end
 ```
 
 ---
-
-
-
 # basic.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
 local Panels = context.Panels
-
-
 
 Panels.Turning = function(parent)
 
@@ -2424,8 +2137,6 @@ Panels.Turning = function(parent)
 end
 
 Panels.AntiIdle = Panels.Turning
-
-
 
 Panels.AttackSpell = function(parent)
 
@@ -2453,8 +2164,6 @@ Panels.AttackSpell = function(parent)
 
 end
 
-
-
 Panels.AttackItem = function(parent)
 
   if not parent then
@@ -2463,27 +2172,19 @@ Panels.AttackItem = function(parent)
 
   end
 
-  
-
   local panelName = "attackItem"
 
   local ui = g_ui.createWidget("ItemAndButtonPanel", parent)
 
   ui:setId(panelName)
 
-  
-
   ui.title:setText("Auto attack item")
-
-  
 
   if not context.storage.attackItem then
 
     context.storage.attackItem = {}
 
   end
-
-  
 
   ui.title:setOn(context.storage.attackItem.enabled)
 
@@ -2495,8 +2196,6 @@ Panels.AttackItem = function(parent)
 
   end
 
-  
-
   ui.item.onItemChange = function(widget)
 
     context.storage.attackItem.item = widget:getItemId()
@@ -2504,8 +2203,6 @@ Panels.AttackItem = function(parent)
   end
 
   ui.item:setItemId(context.storage.attackItem.item or 3155)
-
-
 
   context.macro(500, function()
 
@@ -2524,20 +2221,13 @@ end
 ```
 
 ---
-
-
-
 # healing.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
 local Panels = context.Panels
-
-
 
 Panels.Haste = function(parent)
 
@@ -2563,8 +2253,6 @@ Panels.Haste = function(parent)
 
 end
 
-
-
 Panels.ManaShield = function(parent)
 
   local lastManaShield = 0
@@ -2584,8 +2272,6 @@ Panels.ManaShield = function(parent)
   end, parent)
 
 end
-
-
 
 Panels.AntiParalyze = function(parent)
 
@@ -2607,10 +2293,6 @@ Panels.AntiParalyze = function(parent)
 
 end
 
-
-
-
-
 Panels.Health = function(parent)
 
   if not parent then
@@ -2618,8 +2300,6 @@ Panels.Health = function(parent)
     parent = context.panel
 
   end
-
-  
 
   local panelName = "autoHealthPanel"
 
@@ -2633,13 +2313,9 @@ Panels.Health = function(parent)
 
   panelName = panelName .. panelId
 
-  
-
   local ui = g_ui.createWidget("DualScrollPanel", parent)
 
   ui:setId(panelName)
-
-  
 
   if not context.storage[panelName] then
 
@@ -2653,11 +2329,9 @@ Panels.Health = function(parent)
 
       text = "exura"
 
-    }
+}
 
   end
-
-
 
   ui.title:setOn(context.storage[panelName].enabled)
 
@@ -2669,8 +2343,6 @@ Panels.Health = function(parent)
 
   end
 
-
-
   ui.text.onTextChange = function(widget, text)
 
     context.storage[panelName].text = text    
@@ -2679,15 +2351,11 @@ Panels.Health = function(parent)
 
   ui.text:setText(context.storage[panelName].text or "exura")
 
-  
-
   local updateText = function()
 
     ui.title:setText("" .. context.storage[panelName].min .. "% <= hp <= " .. context.storage[panelName].max .. "%")  
 
   end
-
-  
 
   ui.scroll1.onValueChange = function(scroll, value)
 
@@ -2705,13 +2373,9 @@ Panels.Health = function(parent)
 
   end
 
-
-
   ui.scroll1:setValue(context.storage[panelName].min)
 
   ui.scroll2:setValue(context.storage[panelName].max)
-
-  
 
   context.macro(25, function()
 
@@ -2729,8 +2393,6 @@ Panels.Health = function(parent)
 
 end
 
-
-
 Panels.HealthItem = function(parent)
 
   if not parent then
@@ -2738,8 +2400,6 @@ Panels.HealthItem = function(parent)
     parent = context.panel
 
   end
-
-  
 
   local panelName = "autoHealthItemPanel"
 
@@ -2753,13 +2413,9 @@ Panels.HealthItem = function(parent)
 
   panelName = panelName .. panelId
 
-  
-
   local ui = g_ui.createWidget("DualScrollItemPanel", parent)
 
   ui:setId(panelName)
-
-  
 
   if not context.storage[panelName] then
 
@@ -2771,11 +2427,9 @@ Panels.HealthItem = function(parent)
 
       max = 60
 
-    }
+}
 
   end
-
-
 
   ui.title:setOn(context.storage[panelName].enabled)
 
@@ -2787,8 +2441,6 @@ Panels.HealthItem = function(parent)
 
   end
 
-
-
   ui.item.onItemChange = function(widget)
 
     context.storage[panelName].item = widget:getItemId()
@@ -2797,15 +2449,11 @@ Panels.HealthItem = function(parent)
 
   ui.item:setItemId(context.storage[panelName].item)
 
-  
-
   local updateText = function()
 
     ui.title:setText("" .. (context.storage[panelName].min or "") .. "% <= hp <= " .. (context.storage[panelName].max or "") .. "%")  
 
   end
-
-  
 
   ui.scroll1.onValueChange = function(scroll, value)
 
@@ -2823,13 +2471,9 @@ Panels.HealthItem = function(parent)
 
   end
 
-
-
   ui.scroll1:setValue(context.storage[panelName].min)
 
   ui.scroll2:setValue(context.storage[panelName].max)
-
-  
 
   context.macro(25, function()
 
@@ -2847,8 +2491,6 @@ Panels.HealthItem = function(parent)
 
 end
 
-
-
 Panels.Mana = function(parent)
 
   if not parent then
@@ -2856,8 +2498,6 @@ Panels.Mana = function(parent)
     parent = context.panel
 
   end
-
-  
 
   local panelName = "autoManaItemPanel"
 
@@ -2871,13 +2511,9 @@ Panels.Mana = function(parent)
 
   panelName = panelName .. panelId
 
-  
-
   local ui = g_ui.createWidget("DualScrollItemPanel", parent)
 
   ui:setId(panelName)
-
-  
 
   if not context.storage[panelName] then
 
@@ -2889,11 +2525,9 @@ Panels.Mana = function(parent)
 
       max = 60
 
-    }
+}
 
   end
-
-
 
   ui.title:setOn(context.storage[panelName].enabled)
 
@@ -2905,8 +2539,6 @@ Panels.Mana = function(parent)
 
   end
 
-
-
   ui.item.onItemChange = function(widget)
 
     context.storage[panelName].item = widget:getItemId()
@@ -2915,15 +2547,11 @@ Panels.Mana = function(parent)
 
   ui.item:setItemId(context.storage[panelName].item)
 
-  
-
   local updateText = function()
 
     ui.title:setText("" .. (context.storage[panelName].min or "") .. "% <= mana <= " .. (context.storage[panelName].max or "") .. "%")  
 
   end
-
-  
 
   ui.scroll1.onValueChange = function(scroll, value)
 
@@ -2941,13 +2569,9 @@ Panels.Mana = function(parent)
 
   end
 
-
-
   ui.scroll1:setValue(context.storage[panelName].min)
 
   ui.scroll2:setValue(context.storage[panelName].max)
-
-  
 
   context.macro(25, function()
 
@@ -2967,8 +2591,6 @@ end
 
 Panels.ManaItem = Panels.Mana
 
-
-
 Panels.Equip = function(parent)
 
   if not parent then
@@ -2976,8 +2598,6 @@ Panels.Equip = function(parent)
     parent = context.panel
 
   end
-
-  
 
   local panelName = "autoEquipItem"
 
@@ -2991,13 +2611,9 @@ Panels.Equip = function(parent)
 
   panelName = panelName .. panelId
 
-  
-
   local ui = g_ui.createWidget("TwoItemsAndSlotPanel", parent)
 
   ui:setId(panelName)
-
-  
 
   if not context.storage[panelName] then
 
@@ -3015,8 +2631,6 @@ Panels.Equip = function(parent)
 
   end
 
-  
-
   ui.title:setText("Auto equip")
 
   ui.title:setOn(context.storage[panelName].enabled)
@@ -3029,8 +2643,6 @@ Panels.Equip = function(parent)
 
   end
 
-  
-
   ui.item1:setItemId(context.storage[panelName].item1 or 0)
 
   ui.item1.onItemChange = function(widget)
@@ -3039,8 +2651,6 @@ Panels.Equip = function(parent)
 
   end
 
-  
-
   ui.item2:setItemId(context.storage[panelName].item2 or 0)
 
   ui.item2.onItemChange = function(widget)
@@ -3048,8 +2658,6 @@ Panels.Equip = function(parent)
     context.storage[panelName].item2 = widget:getItemId()
 
   end
-
-  
 
   if not context.storage[panelName].slot then
 
@@ -3064,8 +2672,6 @@ Panels.Equip = function(parent)
     context.storage[panelName].slot = widget.currentIndex
 
   end
-
-  
 
   context.macro(250, function()
 
@@ -3115,8 +2721,6 @@ end
 
 Panels.AutoEquip = Panels.Equip
 
-
-
 Panels.Eating = function(parent)
 
   if not parent then
@@ -3124,8 +2728,6 @@ Panels.Eating = function(parent)
     parent = context.panel
 
   end
-
-  
 
   local panelName = "autoEatingPanel"
 
@@ -3139,21 +2741,15 @@ Panels.Eating = function(parent)
 
   panelName = panelName .. panelId
 
-  
-
   local ui = g_ui.createWidget("ItemsPanel", parent)
 
   ui:setId(panelName)
-
-
 
   if not context.storage[panelName] then
 
     context.storage[panelName] = {}
 
   end
-
-
 
   ui.title:setText("Auto eating")
 
@@ -3167,15 +2763,11 @@ Panels.Eating = function(parent)
 
   end
 
-  
-
   if type(context.storage[panelName].items) ~= 'table' then
 
     context.storage[panelName].items = {3725, 0, 0, 0, 0}
 
   end
-
-
 
   for i=1,5 do
 
@@ -3188,8 +2780,6 @@ Panels.Eating = function(parent)
     ui.items:getChildByIndex(i):setItemId(context.storage[panelName].items[i])    
 
   end
-
-  
 
   context.macro(15000, function()    
 
@@ -3226,20 +2816,13 @@ end
 ```
 
 ---
-
-
-
 # looting.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
 local Panels = context.Panels
-
-
 
 Panels.Looting = function(parent)
 
@@ -3251,8 +2834,6 @@ Panel
 
   height: 180
 
-  
-
   BotLabel
 
     anchors.top: parent.top
@@ -3262,8 +2843,6 @@ Panel
     anchors.right: parent.right
 
     text: Looting
-
-
 
   ComboBox
 
@@ -3279,8 +2858,6 @@ Panel
 
     width: 130
 
-
-
   Button
 
     id: enableButton
@@ -3292,8 +2869,6 @@ Panel
     anchors.right: parent.right
 
     margin-left: 5
-
-      
 
   Button
 
@@ -3311,8 +2886,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: edit
@@ -3327,8 +2900,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: remove
@@ -3342,8 +2913,6 @@ Panel
     width: 60
 
     height: 17
-
-  
 
   ScrollablePanel
 
@@ -3371,8 +2940,6 @@ Panel
 
       flow: true
 
-
-
   BotSmallScrollBar
 
     id: scrollBar
@@ -3387,8 +2954,6 @@ Panel
 
     pixels-scroll: true
 
-
-
   BotLabel
 
     anchors.top: prev.bottom
@@ -3400,8 +2965,6 @@ Panel
     margin-top: 4
 
     text: Loot Containers
-
-
 
   ItemsRow
 
@@ -3417,15 +2980,9 @@ Panel
 
     margin-top: 2
 
-    
-
 ]], parent)
 
-  
-
   local lootContainers = { ui.containers.item1, ui.containers.item2, ui.containers.item3, ui.containers.item4, ui.containers.item5 }
-
-
 
   if type(context.storage.looting) ~= "table" then
 
@@ -3438,8 +2995,6 @@ Panel
     context.storage.looting.configs = {}  
 
   end
-
-
 
   local getConfigName = function(config)
 
@@ -3455,8 +3010,6 @@ Panel
 
   end
 
-
-
   local items = {}
 
   local itemsByKey = {}
@@ -3467,8 +3020,6 @@ Panel
 
   local refreshConfig = nil -- declared later
 
-
-
   local createNewConfig = function(focusedWidget)
 
     if not context.storage.looting.activeConfig or not context.storage.looting.configs[context.storage.looting.activeConfig] then
@@ -3477,15 +3028,11 @@ Panel
 
     end
 
-    
-
     local tmpItems = {}
 
     local tmpContainers = {}
 
     local focusIndex = 0
-
-
 
     local newConfig = ""
 
@@ -3535,15 +3082,11 @@ Panel
 
     end
 
-    
-
     context.storage.looting.configs[context.storage.looting.activeConfig] = newConfig
 
     refreshConfig(focusIndex)
 
   end
-
-  
 
   local parseConfig = function(config)
 
@@ -3587,8 +3130,6 @@ Panel
 
     end
 
-
-
     local itemsToShow = #items + 2
 
     if itemsToShow % 5 ~= 0 then
@@ -3602,8 +3143,6 @@ Panel
       itemsToShow = 10
 
     end
-
-    
 
     for i=1,itemsToShow do
 
@@ -3622,8 +3161,6 @@ Panel
       widget.onItemChange = createNewConfig
 
     end
-
-    
 
     for i, widget in ipairs(lootContainers) do
 
@@ -3653,8 +3190,6 @@ Panel
 
   end
 
-  
-
   local ignoreOnOptionChange = true
 
   refreshConfig = function(focusIndex)
@@ -3675,8 +3210,6 @@ Panel
 
     end
 
-        
-
     ui.config:clear()
 
     for i, config in ipairs(context.storage.looting.configs) do
@@ -3693,15 +3226,11 @@ Panel
 
     end
 
-    
-
     if (not context.storage.looting.activeConfig or context.storage.looting.activeConfig == 0) and #context.storage.looting.configs > 0 then
 
        context.storage.looting.activeConfig = 1
 
     end
-
-    
 
     ui.items:destroyChildren()
 
@@ -3715,8 +3244,6 @@ Panel
 
     end
 
-    
-
     if context.storage.looting.activeConfig and context.storage.looting.configs[context.storage.looting.activeConfig] then
 
       ui.config:setCurrentIndex(context.storage.looting.activeConfig)
@@ -3724,8 +3251,6 @@ Panel
       parseConfig(context.storage.looting.configs[context.storage.looting.activeConfig])
 
     end
-
-    
 
     context.saveConfig()
 
@@ -3735,13 +3260,9 @@ Panel
 
     end
 
-    
-
     ignoreOnOptionChange = false
 
   end
-
-
 
   ui.config.onOptionChange = function(widget)
 
@@ -3849,8 +3370,6 @@ Panel
 
   refreshConfig()
 
-
-
   context.onContainerOpen(function(container, prevContainer)
 
     if context.storage.attacking.enabled then
@@ -3870,8 +3389,6 @@ Panel
     end
 
   end)
-
-
 
   context.macro(200, function()
 
@@ -3931,15 +3448,11 @@ Panel
 
     end
 
-
-
     if #candidates == 0 then
 
       return
 
     end
-
-
 
     local container = candidates[math.random(1,#candidates)]
 
@@ -3962,8 +3475,6 @@ Panel
       end
 
     end
-
-    
 
     -- found item to loot
 
@@ -4019,8 +3530,6 @@ Panel
 
       end
 
-
-
       -- can't find backpack, try to open new
 
       for i, container in ipairs(lootContainersCandidates) do
@@ -4056,8 +3565,6 @@ Panel
       return
 
     end
-
-
 
     -- open remaining containers
 
@@ -4098,20 +3605,13 @@ end
 ```
 
 ---
-
-
-
 # tools.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
 local Panels = context.Panels
-
-
 
 Panels.TradeMessage = function(parent)
 
@@ -4140,8 +3640,6 @@ Panels.TradeMessage = function(parent)
   end, parent)
 
 end
-
-
 
 Panels.AutoStackItems = function(parent)
 
@@ -4182,20 +3680,13 @@ end
 ```
 
 ---
-
-
-
 # war.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
 local Panels = context.Panels
-
-
 
 Panels.AttackLeaderTarget = function(parent)
 
@@ -4267,10 +3758,6 @@ Panels.AttackLeaderTarget = function(parent)
 
 end
 
-
-
-
-
 Panels.LimitFloor = function(parent)  
 
   context.onPlayerPositionChange(function(pos)
@@ -4288,8 +3775,6 @@ Panels.LimitFloor = function(parent)
     end
 
   end)
-
-
 
   local switch = context.addSwitch("limitFloor", "Don't show higher floors", function(widget)
 
@@ -4319,8 +3804,6 @@ Panels.LimitFloor = function(parent)
 
 end
 
-
-
 Panels.AntiPush = function(parent)
 
   if not parent then
@@ -4329,23 +3812,17 @@ Panels.AntiPush = function(parent)
 
   end
 
-  
-
   local panelName = "antiPushPanel"  
 
   local ui = g_ui.createWidget("ItemsPanel", parent)
 
   ui:setId(panelName)
 
-
-
   if not context.storage[panelName] then
 
     context.storage[panelName] = {}
 
   end
-
-
 
   ui.title:setText("Anti push")
 
@@ -4359,15 +3836,11 @@ Panels.AntiPush = function(parent)
 
   end
 
-  
-
   if type(context.storage[panelName].items) ~= 'table' then
 
     context.storage[panelName].items = {3031, 3035, 0, 0, 0}
 
   end
-
-
 
   for i=1,5 do
 
@@ -4380,8 +3853,6 @@ Panels.AntiPush = function(parent)
     ui.items:getChildByIndex(i):setItemId(context.storage[panelName].items[i])    
 
   end
-
-  
 
   context.macro(100, function()    
 
@@ -4448,20 +3919,13 @@ end
 ```
 
 ---
-
-
-
 # waypoints.lua
-
-
 
 ```lua
 
 local context = G.botContext
 
 local Panels = context.Panels
-
-
 
 Panels.Waypoints = function(parent)
 
@@ -4473,8 +3937,6 @@ Panel
 
   height: 206
 
-  
-
   BotLabel
 
     anchors.top: parent.top
@@ -4484,8 +3946,6 @@ Panel
     anchors.right: parent.right
 
     text: Waypoints
-
-  
 
   ComboBox
 
@@ -4501,8 +3961,6 @@ Panel
 
     width: 130
 
-
-
   Button
 
     id: enableButton
@@ -4514,8 +3972,6 @@ Panel
     anchors.right: parent.right
 
     margin-left: 5
-
-      
 
   Button
 
@@ -4533,8 +3989,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: edit
@@ -4549,8 +4003,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: remove
@@ -4564,8 +4016,6 @@ Panel
     width: 60
 
     height: 17
-
-  
 
   TextList
 
@@ -4589,8 +4039,6 @@ Panel
 
     auto-focus: first
 
-    
-
   VerticalScrollBar
 
     id: listScrollbar
@@ -4605,8 +4053,6 @@ Panel
 
     step: 5
 
-    
-
   Label
 
     id: pos
@@ -4620,8 +4066,6 @@ Panel
     text-align: center
 
     margin-top: 2
-
-    
 
   Button
 
@@ -4639,8 +4083,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: wUse
@@ -4655,8 +4097,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: wUseWith
@@ -4670,8 +4110,6 @@ Panel
     width: 61
 
     height: 17
-
-
 
   Button
 
@@ -4689,8 +4127,6 @@ Panel
 
     height: 17
 
-    
-
   Button
 
     id: wSay
@@ -4705,8 +4141,6 @@ Panel
 
     height: 17
 
-
-
   Button
 
     id: wNpc
@@ -4720,8 +4154,6 @@ Panel
     width: 61
 
     height: 17
-
-    
 
   Button
 
@@ -4739,8 +4171,6 @@ Panel
 
     height: 17
 
-    
-
   Button
 
     id: wFollow
@@ -4754,8 +4184,6 @@ Panel
     width: 61
 
     height: 17
-
-
 
   Button
 
@@ -4771,8 +4199,6 @@ Panel
 
     height: 17
 
-    
-
   BotSwitch
 
     id: recording
@@ -4787,11 +4213,7 @@ Panel
 
     height: 17
 
-
-
 ]], parent)
-
-
 
   if type(context.storage.cavebot) ~= "table" then
 
@@ -4804,8 +4226,6 @@ Panel
     context.storage.cavebot.configs = {}  
 
   end
-
-  
 
   local getConfigName = function(config)
 
@@ -4820,8 +4240,6 @@ Panel
     return nil
 
   end
-
-  
 
   local isValidCommand = function(command)
 
@@ -4875,15 +4293,11 @@ Panel
 
   end
 
-
-
   local commands = {}
 
   local waitTo = 0
 
   local autoRecording = false
-
-
 
   local parseConfig = function(config)
 
@@ -4914,8 +4328,6 @@ Panel
       end
 
     end
-
-    
 
     for i=1,#commands do
 
@@ -4951,8 +4363,6 @@ Panel
 
   end
 
-  
-
   local ignoreOnOptionChange = true
 
   local refreshConfig = function(scrollDown)
@@ -4979,8 +4389,6 @@ Panel
 
     end
 
-        
-
     ui.config:clear()
 
     for i, config in ipairs(context.storage.cavebot.configs) do
@@ -4997,19 +4405,13 @@ Panel
 
     end
 
-    
-
     if (not context.storage.cavebot.activeConfig or context.storage.cavebot.activeConfig == 0) and #context.storage.cavebot.configs > 0 then
 
        context.storage.cavebot.activeConfig = 1
 
     end
 
-    
-
     ui.list:destroyChildren()
-
-    
 
     if context.storage.cavebot.activeConfig and context.storage.cavebot.configs[context.storage.cavebot.activeConfig] then
 
@@ -5019,8 +4421,6 @@ Panel
 
     end
 
-    
-
     context.saveConfig()
 
     if scrollDown and ui.list:getLastChild() then
@@ -5029,17 +4429,11 @@ Panel
 
     end
 
-    
-
     waitTo = 0
 
     ignoreOnOptionChange = false
 
   end
-
-
-
-  
 
   ui.config.onOptionChange = function(widget)
 
@@ -5161,15 +4555,11 @@ Panel
 
   end
 
-  
-
   -- waypoint editor
 
   -- auto recording
 
   local stepsSincleLastPos = 0
-
-  
 
   context.onPlayerPositionChange(function(newPos, oldPos)
 
@@ -5211,8 +4601,6 @@ Panel
 
     end
 
-
-
     if newText:len() > 0 then
 
       context.storage.cavebot.configs[context.storage.cavebot.activeConfig] = context.storage.cavebot.configs[context.storage.cavebot.activeConfig] .. "\n" .. newText
@@ -5222,8 +4610,6 @@ Panel
     end
 
   end)
-
-  
 
   context.onUse(function(pos, itemId, stackPos, subType)
 
@@ -5297,15 +4683,11 @@ Panel
 
   end)
 
-
-
   -- ui
 
   local pos = context.player:getPosition()
 
   ui.pos:setText("Position: " .. pos.x .. ", " .. pos.y .. ", " .. pos.z)
-
-
 
   ui.wGoto.onClick = function()
 
@@ -5327,8 +4709,6 @@ Panel
 
   end
 
-
-
   ui.wUse.onClick = function()
 
     if not context.storage.cavebot.activeConfig or not context.storage.cavebot.configs[context.storage.cavebot.activeConfig] then
@@ -5348,8 +4728,6 @@ Panel
     end)
 
   end
-
-  
 
   ui.wUseWith.onClick = function()
 
@@ -5371,8 +4749,6 @@ Panel
 
   end
 
-  
-
   ui.wWait.onClick = function()
 
     if not context.storage.cavebot.activeConfig or not context.storage.cavebot.configs[context.storage.cavebot.activeConfig] then
@@ -5390,8 +4766,6 @@ Panel
     end)
 
   end
-
-
 
   ui.wSay.onClick = function()
 
@@ -5411,8 +4785,6 @@ Panel
 
   end
 
-  
-
   ui.wNpc.onClick = function()
 
     if not context.storage.cavebot.activeConfig or not context.storage.cavebot.configs[context.storage.cavebot.activeConfig] then
@@ -5430,8 +4802,6 @@ Panel
     end)
 
   end
-
-
 
   ui.wLabel.onClick = function()
 
@@ -5451,8 +4821,6 @@ Panel
 
   end
 
-
-
   ui.wFollow.onClick = function()
 
     if not context.storage.cavebot.activeConfig or not context.storage.cavebot.configs[context.storage.cavebot.activeConfig] then
@@ -5471,8 +4839,6 @@ Panel
 
   end  
 
-  
-
   ui.wFunction.onClick = function()
 
     if not context.storage.cavebot.activeConfig or not context.storage.cavebot.configs[context.storage.cavebot.activeConfig] then
@@ -5490,8 +4856,6 @@ Panel
     end)
 
   end
-
-  
 
   ui.recording.onClick = function()
 
@@ -5515,11 +4879,7 @@ Panel
 
   end
 
-  
-
   refreshConfig()
-
-
 
   local usedGotoLabel = false
 
@@ -5530,8 +4890,6 @@ Panel
   local lastGotoSuccesful = true
 
   local lastOpenedContainer = 0
-
-  
 
   local functions = {
 
@@ -5591,9 +4949,7 @@ Panel
 
     end   
 
-  }
-
-  
+}
 
   context.onContainerOpen(function(container)
 
@@ -5605,10 +4961,6 @@ Panel
 
   end)
 
-
-
-  
-
   context.macro(250, function()
 
     if not context.storage.cavebot.enabled then
@@ -5617,15 +4969,11 @@ Panel
 
     end
 
-
-
     if modules.game_walking.lastManualWalk + 500 > context.now then
 
       return
 
     end
-
-    
 
     -- wait if walked or opened container recently
 
@@ -5636,8 +4984,6 @@ Panel
       return
 
     end
-
-    
 
     -- wait if attacking/following creature
 
@@ -5653,8 +4999,6 @@ Panel
 
     end
 
-    
-
     if not executeNextMacroCall then
 
       executeNextMacroCall = true
@@ -5664,8 +5008,6 @@ Panel
     end
 
     executeNextMacroCall = false
-
-    
 
     local commandWidget = ui.list:getFocusedChild()
 
@@ -5680,8 +5022,6 @@ Panel
       return
 
     end
-
-    
 
     local commandIndex = ui.list:getChildIndex(commandWidget)
 
@@ -5699,15 +5039,11 @@ Panel
 
     end
 
-    
-
     if commandIndex == 1 then
 
       lastGotoSuccesful = true
 
     end
-
-    
 
     if command.command == "goto" or command.command == "follow" then
 
@@ -5941,8 +5277,6 @@ Panel
 
     end
 
-        
-
     local nextIndex = 1 + commandIndex % #commands    
 
     local nextChild = ui.list:getChildByIndex(nextIndex)
@@ -5957,8 +5291,6 @@ Panel
 
   end)
 
-  
-
   return functions
 
 end
@@ -5966,6 +5298,3 @@ end
 ```
 
 ---
-
-
-

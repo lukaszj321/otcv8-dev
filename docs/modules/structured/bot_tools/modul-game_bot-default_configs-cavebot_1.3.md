@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/default_configs/cavebot_1.3`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3`
 
 ```lua
 
@@ -11,13 +6,9 @@
 
 -- visit http://bot.otclient.ovh/
 
-
-
 local cavebotTab = "Cave"
 
 local targetingTab = "Target"
-
-
 
 setDefaultTab(cavebotTab)
 
@@ -57,8 +48,6 @@ dofile("/cavebot/supply.lua")
 
 dofile("/cavebot/cavebot.lua")
 
-
-
 setDefaultTab(targetingTab)
 
 TargetBot = {} -- global namespace
@@ -88,18 +77,11 @@ dofile("/targetbot/target.lua")
 ```
 
 ---
-
-
-
 # hp.lua
-
-
 
 ```lua
 
 setDefaultTab("HP")
-
-
 
 --2x healing spell
 
@@ -113,11 +95,7 @@ setDefaultTab("HP")
 
 --4x equip
 
-
-
 UI.Label("Healing spells")
-
-
 
 if type(storage.healing1) ~= "table" then
 
@@ -130,8 +108,6 @@ if type(storage.healing2) ~= "table" then
   storage.healing2 = {on=false, title="HP%", text="exura vita", min=0, max=50}
 
 end
-
-
 
 -- create 2 healing widgets
 
@@ -159,8 +135,6 @@ for _, healingInfo in ipairs({storage.healing1, storage.healing2}) do
 
   healingmacro.setOn(healingInfo.on)
 
-
-
   UI.DualScrollPanel(healingInfo, function(widget, newParams) 
 
     healingInfo = newParams
@@ -171,15 +145,9 @@ for _, healingInfo in ipairs({storage.healing1, storage.healing2}) do
 
 end
 
-
-
 UI.Separator()
 
-
-
 UI.Label("Mana & health potions/runes")
-
-
 
 if type(storage.hpitem1) ~= "table" then
 
@@ -204,8 +172,6 @@ if type(storage.manaitem2) ~= "table" then
   storage.manaitem2 = {on=false, title="MP%", item=3157, min=0, max=50}
 
 end
-
-
 
 for i, healingInfo in ipairs({storage.hpitem1, storage.hpitem2, storage.manaitem1, storage.manaitem2}) do
 
@@ -241,8 +207,6 @@ for i, healingInfo in ipairs({storage.hpitem1, storage.hpitem2, storage.manaitem
 
   healingmacro.setOn(healingInfo.on)
 
-
-
   UI.DualScrollItemPanel(healingInfo, function(widget, newParams) 
 
     healingInfo = newParams
@@ -253,19 +217,13 @@ for i, healingInfo in ipairs({storage.hpitem1, storage.hpitem2, storage.manaitem
 
 end
 
-
-
 if g_game.getClientVersion() < 780 then
 
   UI.Label("In old tibia potions & runes work only when you have backpack with them opened")
 
 end
 
-
-
 UI.Separator()
-
-
 
 UI.Label("Mana shield spell:")
 
@@ -274,8 +232,6 @@ UI.TextEdit(storage.manaShield or "utamo vita", function(widget, newText)
   storage.manaShield = newText
 
 end)
-
-
 
 local lastManaShield = 0
 
@@ -295,8 +251,6 @@ macro(20, "mana shield", function()
 
 end)
 
-
-
 UI.Label("Haste spell:")
 
 UI.TextEdit(storage.hasteSpell or "utani hur", function(widget, newText)
@@ -304,8 +258,6 @@ UI.TextEdit(storage.hasteSpell or "utani hur", function(widget, newText)
   storage.hasteSpell = newText
 
 end)
-
-
 
 macro(500, "haste", function() 
 
@@ -323,8 +275,6 @@ macro(500, "haste", function()
 
 end)
 
-
-
 UI.Label("Anti paralyze spell:")
 
 UI.TextEdit(storage.antiParalyze or "utani hur", function(widget, newText)
@@ -332,8 +282,6 @@ UI.TextEdit(storage.antiParalyze or "utani hur", function(widget, newText)
   storage.antiParalyze = newText
 
 end)
-
-
 
 macro(100, "anti paralyze", function() 
 
@@ -351,11 +299,7 @@ macro(100, "anti paralyze", function()
 
 end)
 
-
-
 UI.Separator()
-
-
 
 UI.Label("Eatable items:")
 
@@ -364,8 +308,6 @@ if type(storage.foodItems) ~= "table" then
   storage.foodItems = {3582, 3577}
 
 end
-
-
 
 local foodContainer = UI.Container(function(widget, items)
 
@@ -376,8 +318,6 @@ end, true)
 foodContainer:setHeight(35)
 
 foodContainer:setItems(storage.foodItems)
-
-
 
 macro(10000, "eat food", function()
 
@@ -413,13 +353,9 @@ macro(10000, "eat food", function()
 
 end)
 
-
-
 UI.Separator()
 
 UI.Label("Auto equip")
-
-
 
 if type(storage.autoEquip) ~= "table" then
 
@@ -484,12 +420,7 @@ end)
 ```
 
 ---
-
-
-
 # main.lua
-
-
 
 ```lua
 
@@ -497,23 +428,11 @@ end)
 
 VERSION = "1.3"
 
-
-
 UI.Label("Config version: " .. VERSION)
 
-
-
 UI.Separator()
 
-
-
-
-
-
-
 UI.Separator()
-
-
 
 UI.Button("Discord", function()
 
@@ -521,15 +440,11 @@ UI.Button("Discord", function()
 
 end)
 
-
-
 UI.Button("Forum", function()
 
   g_platform.openUrl("http://otclient.net/")
 
 end)
-
-
 
 UI.Button("Help & Tutorials", function()
 
@@ -540,18 +455,11 @@ end)
 ```
 
 ---
-
-
-
 # mwall_timer.lua
-
-
 
 ```lua
 
 -- Magic wall & Wild growth timer
-
-
 
 -- config
 
@@ -563,13 +471,9 @@ local wildGrowthId = 2130
 
 local wildGrowthTime = 45000
 
-
-
 -- script
 
 local activeTimers = {}
-
-
 
 onAddThing(function(tile, thing)
 
@@ -595,8 +499,6 @@ onAddThing(function(tile, thing)
 
   end
 
-  
-
   local pos = tile:getPosition().x .. "," .. tile:getPosition().y .. "," .. tile:getPosition().z
 
   if not activeTimers[pos] or activeTimers[pos] < now then    
@@ -608,8 +510,6 @@ onAddThing(function(tile, thing)
   tile:setTimer(activeTimers[pos] - now)
 
 end)
-
-
 
 onRemoveThing(function(tile, thing)
 
@@ -634,12 +534,7 @@ end)
 ```
 
 ---
-
-
-
 # storage.json
-
-
 
 ```text
 
@@ -659,31 +554,31 @@ end)
 
     "on": false
 
-  },
+},
 
   "foodItems": [
 
-    {
+{
 
       "id": 3582,
 
       "count": 1
 
-    },
+},
 
-    {
+{
 
       "id": 3577,
 
       "count": 1
 
-    }
+}
 
-  ],
+],
 
   "autoEquip": [
 
-    {
+{
 
       "item1": 3052,
 
@@ -695,23 +590,9 @@ end)
 
       "slot": 9
 
-    },
+},
 
-    {
-
-      "item1": 0,
-
-      "title": "Auto Equip",
-
-      "item2": 0,
-
-      "on": false,
-
-      "slot": 0
-
-    },
-
-    {
+{
 
       "item1": 0,
 
@@ -723,9 +604,9 @@ end)
 
       "slot": 0
 
-    },
+},
 
-    {
+{
 
       "item1": 0,
 
@@ -737,9 +618,23 @@ end)
 
       "slot": 0
 
-    }
+},
 
-  ],
+{
+
+      "item1": 0,
+
+      "title": "Auto Equip",
+
+      "item2": 0,
+
+      "on": false,
+
+      "slot": 0
+
+}
+
+],
 
   "ingame_hotkeys": "singlehotkey(\"f1\", function()\nlocal shaders = {\"stars\", \"gold\", \"rainbow\", \"sweden\", \"brazil\", \"line\", \"3line\", \"circle\", \"outline\"}\nlocal p = 0\nfor i, c in pairs(getSpectators()) do\n    c:setOutfitShader(shaders[1 + p % 10])\n    p = p + 1\nend\nend)\n\nsinglehotkey(\"1\", function()\n  for _, s in ipairs(getSpectators()) do\n    if s:canShoot(3) then\n      info(s:getName())\n    else\n      warn(s:getName())\n    end\n  end\nend)",
 
@@ -755,7 +650,7 @@ end)
 
     "text": "exura vita"
 
-  },
+},
 
   "ingame_macros": "",
 
@@ -775,7 +670,7 @@ end)
 
     "on": false
 
-  },
+},
 
   "_configs": {
 
@@ -785,7 +680,7 @@ end)
 
       "enabled": false
 
-    },
+},
 
     "targetbot_configs": {
 
@@ -793,9 +688,9 @@ end)
 
       "selected": "config_name"
 
-    }
+}
 
-  },
+},
 
   "healing1": {
 
@@ -809,41 +704,41 @@ end)
 
     "text": "exura"
 
-  },
+},
 
   "dropItems": [
 
-    {
+{
 
       "id": 283,
 
       "count": 1
 
-    },
+},
 
-    {
+{
 
       "id": 284,
 
       "count": 1
 
-    },
+},
 
-    {
+{
 
       "id": 285,
 
       "count": 1
 
-    }
+}
 
-  ],
+],
 
   "_macros": {
 
     "": false
 
-  },
+},
 
   "manaitem1": {
 
@@ -859,7 +754,7 @@ end)
 
     "on": false
 
-  },
+},
 
   "hpitem2": {
 
@@ -875,7 +770,7 @@ end)
 
     "on": false
 
-  },
+},
 
   "manaShield": "utamo vita",
 
@@ -895,27 +790,20 @@ end)
 
     "text": "utevo lux"
 
-  }
+}
 
 }
 
 ```
 
 ---
-
-
-
 # tools.lua
-
-
 
 ```lua
 
 -- tools tab
 
 setDefaultTab("Tools")
-
-
 
 -- allows to test/edit bot lua scripts ingame, you can have multiple scripts like this, just change storage.ingame_lua
 
@@ -943,11 +831,7 @@ UI.Button("Ingame hotkey editor", function(newText)
 
 end)
 
-
-
 UI.Separator()
-
-
 
 for _, scripts in ipairs({storage.ingame_macros, storage.ingame_hotkeys}) do
 
@@ -969,21 +853,13 @@ for _, scripts in ipairs({storage.ingame_macros, storage.ingame_hotkeys}) do
 
 end
 
-
-
 UI.Separator()
-
-
 
 UI.Button("Zoom In map [ctrl + =]", function() zoomIn() end)
 
 UI.Button("Zoom Out map [ctrl + -]", function() zoomOut() end)
 
-
-
 UI.Separator()
-
-
 
 local moneyIds = {3031, 3035} -- gold coin, platinium coin
 
@@ -1018,8 +894,6 @@ macro(1000, "Exchange money", function()
   end
 
 end)
-
-
 
 macro(1000, "Stack items", function()
 
@@ -1057,8 +931,6 @@ macro(1000, "Stack items", function()
 
 end)
 
-
-
 macro(10000, "Anti Kick",  function()
 
   local dir = player:getDirection()
@@ -1068,8 +940,6 @@ macro(10000, "Anti Kick",  function()
   turn(dir)
 
 end)
-
-
 
 UI.Separator()
 
@@ -1081,8 +951,6 @@ if type(storage.dropItems) ~= "table" then
 
 end
 
-
-
 local foodContainer = UI.Container(function(widget, items)
 
   storage.dropItems = items
@@ -1092,8 +960,6 @@ end, true)
 foodContainer:setHeight(35)
 
 foodContainer:setItems(storage.dropItems)
-
-
 
 macro(5000, "drop items", function()
 
@@ -1129,11 +995,7 @@ macro(5000, "drop items", function()
 
 end)
 
-
-
 UI.Separator()
-
-
 
 UI.Label("Mana training")
 
@@ -1142,8 +1004,6 @@ if type(storage.manaTrain) ~= "table" then
   storage.manaTrain = {on=false, title="MP%", text="utevo lux", min=80, max=100}
 
 end
-
-
 
 local manatrainmacro = macro(1000, function()
 
@@ -1161,8 +1021,6 @@ end)
 
 manatrainmacro.setOn(storage.manaTrain.on)
 
-
-
 UI.DualScrollPanel(storage.manaTrain, function(widget, newParams) 
 
   storage.manaTrain = newParams
@@ -1171,11 +1029,7 @@ UI.DualScrollPanel(storage.manaTrain, function(widget, newParams)
 
 end)
 
-
-
 UI.Separator()
-
-
 
 macro(60000, "Send message on trade", function()
 
@@ -1201,13 +1055,8 @@ UI.TextEdit(storage.autoTradeMessage or "I'm using OTClientV8!", function(widget
 
 end)
 
-
-
 UI.Separator()
 
 ```
 
 ---
-
-
-

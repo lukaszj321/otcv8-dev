@@ -1,9 +1,4 @@
-# ¦ Modul: `game_viplist`
-
-
-
-
-
+﻿# ¦ Modul: `game_viplist`
 
 ```otui
 
@@ -17,8 +12,6 @@ MainWindow
 
   @onEscape: modules.game_viplist.destroyAddWindow()
 
-
-
   Label
 
     !text: tr('Please enter a character name:')
@@ -28,8 +21,6 @@ MainWindow
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   TextEdit
 
@@ -43,8 +34,6 @@ MainWindow
 
     margin-top: 4
 
-
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -54,8 +43,6 @@ MainWindow
     anchors.bottom: next.top
 
     margin-bottom: 10
-
-
 
   Button
 
@@ -70,8 +57,6 @@ MainWindow
     margin-right: 10
 
     @onClick: modules.game_viplist.addVip()
-
-
 
   Button
 
@@ -88,12 +73,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # editvip.otui
-
-
 
 ```otui
 
@@ -119,45 +99,31 @@ IconButton < CheckBox
 
   icon-offset: 4 6
 
-
-
   $first:
 
     margin-left: 0
-
-
 
   $!checked:
 
     image-clip: 26 0 26 26
 
-
-
   $hover !checked:
 
     image-clip: 78 0 26 26
-
-
 
   $checked:
 
     image-clip: 0 0 26 26
 
-
-
   $hover checked:
 
     image-clip: 52 0 26 26
-
-
 
 MainWindow
 
   size: 272 170
 
   !text: tr('Edit VIP list entry')
-
-
 
   Label
 
@@ -173,8 +139,6 @@ MainWindow
 
     width: 180
 
-
-
   Label
 
     !text: tr('Description') .. ':'
@@ -189,8 +153,6 @@ MainWindow
 
     margin-top: 5
 
-
-
   TextEdit
 
     id: descriptionText
@@ -202,8 +164,6 @@ MainWindow
     anchors.right: parent.right
 
     margin: 0 5
-
-
 
   Label
 
@@ -219,8 +179,6 @@ MainWindow
 
     margin-top: 5
 
-
-
   CheckBox
 
     id: checkBoxNotify
@@ -230,8 +188,6 @@ MainWindow
     anchors.left: prev.right
 
     margin: 2 6
-
-
 
   UIWidget
 
@@ -245,13 +201,9 @@ MainWindow
 
     height: 24
 
-
-
     IconButton
 
       id: icon0
-
-
 
     IconButton
 
@@ -259,15 +211,11 @@ MainWindow
 
       icon-clip: 12 0 12 12
 
-
-
     IconButton
 
       id: icon2
 
       icon-clip: 24 0 12 12
-
-
 
     IconButton
 
@@ -275,15 +223,11 @@ MainWindow
 
       icon-clip: 36 0 12 12
 
-
-
     IconButton
 
       id: icon4
 
       icon-clip: 48 0 12 12
-
-
 
     IconButton
 
@@ -291,15 +235,11 @@ MainWindow
 
       icon-clip: 60 0 12 12
 
-
-
     IconButton
 
       id: icon6
 
       icon-clip: 72 0 12 12
-
-
 
     IconButton
 
@@ -307,15 +247,11 @@ MainWindow
 
       icon-clip: 84 0 12 12
 
-
-
     IconButton
 
       id: icon8
 
       icon-clip: 96 0 12 12
-
-
 
     IconButton
 
@@ -323,15 +259,11 @@ MainWindow
 
       icon-clip: 108 0 12 12
 
-
-
     IconButton
 
       id: icon10
 
       icon-clip: 120 0 12 12
-
-
 
   HorizontalSeparator
 
@@ -342,8 +274,6 @@ MainWindow
     anchors.bottom: next.top
 
     margin-bottom: 10
-
-
 
   Button
 
@@ -358,8 +288,6 @@ MainWindow
     anchors.bottom: parent.bottom
 
     margin-right: 10
-
-
 
   Button
 
@@ -376,12 +304,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # viplist.lua
-
-
 
 ```lua
 
@@ -395,8 +318,6 @@ editVipWindow = nil
 
 vipInfo = {}
 
-
-
 function init()
 
   connect(g_game, { onGameStart = refresh,
@@ -407,21 +328,13 @@ function init()
 
                     onVipStateChange = onVipStateChange })
 
-
-
-
-
   g_keyboard.bindKeyDown('Ctrl+P', toggle)
-
-
 
   vipButton = modules.client_topmenu.addRightGameToggleButton('vipListButton', tr('VIP List') .. ' (Ctrl+P)', '/images/topbuttons/viplist', toggle, false, 3)
 
   vipButton:setOn(true)
 
   vipWindow = g_ui.loadUI('viplist', modules.game_interface.getRightPanel())
-
-
 
   if not g_game.getFeature(GameAdditionalVipInfo) then
 
@@ -435,8 +348,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   g_keyboard.unbindKeyDown('Ctrl+P')
@@ -449,15 +360,11 @@ function terminate()
 
                        onVipStateChange = onVipStateChange })
 
-
-
   if not g_game.getFeature(GameAdditionalVipInfo) then
 
     saveVipInfo()
 
   end
-
-
 
   if addVipWindow then
 
@@ -465,23 +372,17 @@ function terminate()
 
   end
 
-
-
   if editVipWindow then
 
     editVipWindow:destroy()
 
   end
 
-
-
   vipWindow:destroy()
 
   vipButton:destroy()
 
 end
-
-
 
 function loadVipInfo()
 
@@ -499,8 +400,6 @@ function loadVipInfo()
 
 end
 
-
-
 function saveVipInfo()
 
   settings = {}
@@ -510,10 +409,6 @@ function saveVipInfo()
   g_settings.mergeNode('VipList', settings)
 
 end
-
-
-
-
 
 function refresh()
 
@@ -525,13 +420,9 @@ function refresh()
 
   end
 
-
-
   vipWindow:setContentMinimumHeight(38)
 
 end
-
-
 
 function clear()
 
@@ -540,8 +431,6 @@ function clear()
   vipList:destroyChildren()
 
 end
-
-
 
 function toggle()
 
@@ -561,15 +450,11 @@ function toggle()
 
 end
 
-
-
 function onMiniWindowClose()
 
   vipButton:setOn(false)
 
 end
-
-
 
 function createAddWindow()
 
@@ -581,8 +466,6 @@ function createAddWindow()
 
 end
 
-
-
 function createEditWindow(widget)
 
   if editVipWindow then
@@ -591,41 +474,27 @@ function createEditWindow(widget)
 
   end
 
-
-
   editVipWindow = g_ui.displayUI('editvip')
-
-
 
   local name = widget:getText()
 
   local id = widget:getId():sub(4)
 
-
-
   local okButton = editVipWindow:getChildById('buttonOK')
 
   local cancelButton = editVipWindow:getChildById('buttonCancel')
-
-
 
   local nameLabel = editVipWindow:getChildById('nameLabel')
 
   nameLabel:setText(name)
 
-
-
   local descriptionText = editVipWindow:getChildById('descriptionText')
 
   descriptionText:appendText(widget:getTooltip())
 
-
-
   local notifyCheckBox = editVipWindow:getChildById('checkBoxNotify')
 
   notifyCheckBox:setChecked(widget.notifyLogin)
-
-
 
   local iconRadioGroup = UIRadioGroup.create()
 
@@ -637,8 +506,6 @@ function createEditWindow(widget)
 
   iconRadioGroup:selectWidget(editVipWindow:recursiveGetChildById('icon' .. widget.iconId))
 
-
-
   local cancelFunction = function()
 
     editVipWindow:destroy()
@@ -648,8 +515,6 @@ function createEditWindow(widget)
     editVipWindow = nil
 
   end
-
-
 
   local saveFunction = function()
 
@@ -663,8 +528,6 @@ function createEditWindow(widget)
 
     end
 
-
-
     local name = widget:getText()
 
     local state = widget.vipState
@@ -674,8 +537,6 @@ function createEditWindow(widget)
     local iconId = tonumber(iconRadioGroup:getSelectedWidget():getId():sub(5))
 
     local notify = notifyCheckBox:isChecked()
-
-
 
     if g_game.getFeature(GameAdditionalVipInfo) then
 
@@ -695,13 +556,9 @@ function createEditWindow(widget)
 
     end
 
-
-
     widget:destroy()
 
     onAddVip(id, name, state, description, iconId, notify)
-
-
 
     editVipWindow:destroy()
 
@@ -711,21 +568,15 @@ function createEditWindow(widget)
 
   end
 
-
-
   cancelButton.onClick = cancelFunction
 
   okButton.onClick = saveFunction
-
-
 
   editVipWindow.onEscape = cancelFunction
 
   editVipWindow.onEnter = saveFunction
 
 end
-
-
 
 function destroyAddWindow()
 
@@ -735,8 +586,6 @@ function destroyAddWindow()
 
 end
 
-
-
 function addVip()
 
   g_game.addVip(addVipWindow:getChildById('name'):getText())
@@ -745,8 +594,6 @@ function addVip()
 
 end
 
-
-
 function removeVip(widgetOrName)
 
   if not widgetOrName then
@@ -754,8 +601,6 @@ function removeVip(widgetOrName)
     return
 
   end
-
-
 
   local widget
 
@@ -789,8 +634,6 @@ function removeVip(widgetOrName)
 
   end
 
-
-
   if widget then
 
     local id = widget:getId():sub(4)
@@ -809,8 +652,6 @@ function removeVip(widgetOrName)
 
 end
 
-
-
 function hideOffline(state)
 
   settings = {}
@@ -819,13 +660,9 @@ function hideOffline(state)
 
   g_settings.mergeNode('VipList', settings)
 
-
-
   refresh()
 
 end
-
-
 
 function isHiddingOffline()
 
@@ -841,8 +678,6 @@ function isHiddingOffline()
 
 end
 
-
-
 function getSortedBy()
 
   local settings = g_settings.getNode('VipList')
@@ -857,8 +692,6 @@ function getSortedBy()
 
 end
 
-
-
 function sortBy(state)
 
   settings = {}
@@ -867,13 +700,9 @@ function sortBy(state)
 
   g_settings.mergeNode('VipList', settings)
 
-
-
   refresh()
 
 end
-
-
 
 function onAddVip(id, name, state, description, iconId, notify)  
 
@@ -882,8 +711,6 @@ function onAddVip(id, name, state, description, iconId, notify)
     return
 
   end
-
-  
 
   local vipList = vipWindow:getChildById('contentsPanel')
 
@@ -901,8 +728,6 @@ function onAddVip(id, name, state, description, iconId, notify)
 
   end
 
-  
-
   local label = g_ui.createWidget('VipListLabel')
 
   label.onMousePress = onVipListLabelMousePress
@@ -910,8 +735,6 @@ function onAddVip(id, name, state, description, iconId, notify)
   label:setId('vip' .. id)
 
   label:setText(name)
-
-
 
   if not g_game.getFeature(GameAdditionalVipInfo) then
 
@@ -953,8 +776,6 @@ function onAddVip(id, name, state, description, iconId, notify)
 
   end
 
-
-
   if state == VipState.Online then
 
     label:setColor('#00ff00')
@@ -969,17 +790,11 @@ function onAddVip(id, name, state, description, iconId, notify)
 
   end
 
-
-
   label.vipState = state
-
-
 
   label:setPhantom(false)
 
   connect(label, { onDoubleClick = function () g_game.openPrivateChannel(label:getText()) return true end } )
-
-
 
   if state == VipState.Offline and isHiddingOffline() then
 
@@ -987,13 +802,9 @@ function onAddVip(id, name, state, description, iconId, notify)
 
   end
 
-
-
   local nameLower = name:lower()
 
   local childrenCount = vipList:getChildCount()
-
-
 
   for i=1,childrenCount do
 
@@ -1009,19 +820,13 @@ function onAddVip(id, name, state, description, iconId, notify)
 
     end
 
-
-
     if (((state ~= VipState.Online and child.vipState ~= VipState.Online) or (state == VipState.Online and child.vipState == VipState.Online)) and getSortedBy() == 'status')
 
         or (label.iconId == child.iconId and getSortedBy() == 'type') or getSortedBy() == 'name' then
 
-
-
       local childText = child:getText():lower()
 
       local length = math.min(childText:len(), nameLower:len())
-
-
 
       for j=1,length do
 
@@ -1049,13 +854,9 @@ function onAddVip(id, name, state, description, iconId, notify)
 
   end
 
-
-
   vipList:insertChild(childrenCount+1, label)
 
 end
-
-
 
 function onVipStateChange(id, state)
 
@@ -1079,11 +880,7 @@ function onVipStateChange(id, state)
 
   label:destroy()
 
-
-
   onAddVip(id, name, state, description, iconId, notify)
-
-
 
   if notify and state ~= VipState.Pending then
 
@@ -1093,25 +890,17 @@ function onVipStateChange(id, state)
 
 end
 
-
-
 function onVipListMousePress(widget, mousePos, mouseButton)
 
   if mouseButton ~= MouseRightButton then return end
 
-
-
   local vipList = vipWindow:getChildById('contentsPanel')
-
-
 
   local menu = g_ui.createWidget('PopupMenu')
 
   menu:setGameMenu(true)
 
   menu:addOption(tr('Add new VIP'), function() createAddWindow() end)
-
-
 
   menu:addSeparator()
 
@@ -1125,15 +914,11 @@ function onVipListMousePress(widget, mousePos, mouseButton)
 
   end
 
-
-
   if not(getSortedBy() == 'name') then
 
     menu:addOption(tr('Sort by name'), function() sortBy('name') end)
 
   end
-
-
 
   if not(getSortedBy() == 'status') then
 
@@ -1141,35 +926,23 @@ function onVipListMousePress(widget, mousePos, mouseButton)
 
   end
 
-
-
   if not(getSortedBy() == 'type') then
 
     menu:addOption(tr('Sort by type'), function() sortBy('type') end)
 
   end
 
-
-
   menu:display(mousePos)
-
-
 
   return true
 
 end
 
-
-
 function onVipListLabelMousePress(widget, mousePos, mouseButton)
 
   if mouseButton ~= MouseRightButton then return end
 
-
-
   local vipList = vipWindow:getChildById('contentsPanel')
-
-
 
   local menu = g_ui.createWidget('PopupMenu')
 
@@ -1187,8 +960,6 @@ function onVipListLabelMousePress(widget, mousePos, mouseButton)
 
   menu:addOption(tr('Copy Name'), function() g_window.setClipboardText(widget:getText()) end)
 
-
-
   if modules.game_console.getOwnPrivateTab() then
 
     menu:addSeparator()
@@ -1198,8 +969,6 @@ function onVipListLabelMousePress(widget, mousePos, mouseButton)
     menu:addOption(tr('Exclude from private chat'), function() g_game.excludeFromOwnChannel(widget:getText()) end)
 
   end
-
-
 
   if not isHiddingOffline() then
 
@@ -1211,15 +980,11 @@ function onVipListLabelMousePress(widget, mousePos, mouseButton)
 
   end
 
-
-
   if not(getSortedBy() == 'name') then
 
     menu:addOption(tr('Sort by name'), function() sortBy('name') end)
 
   end
-
-
 
   if not(getSortedBy() == 'status') then
 
@@ -1227,11 +992,7 @@ function onVipListLabelMousePress(widget, mousePos, mouseButton)
 
   end
 
-
-
   menu:display(mousePos)
-
-
 
   return true
 
@@ -1240,12 +1001,7 @@ end
 ```
 
 ---
-
-
-
 # viplist.otmod
-
-
 
 ```text
 
@@ -1270,12 +1026,7 @@ Module
 ```
 
 ---
-
-
-
 # viplist.otui
-
-
 
 ```otui
 
@@ -1295,13 +1046,9 @@ VipListLabel < GameLabel
 
   phantom: false
 
-
-
   $first:
 
     margin-top: 5
-
-
 
 MiniWindow
 
@@ -1319,8 +1066,6 @@ MiniWindow
 
   &autoOpen: false
 
-
-
   MiniWindowContents
 
     layout: verticalBox
@@ -1334,6 +1079,3 @@ MiniWindow
 ```
 
 ---
-
-
-

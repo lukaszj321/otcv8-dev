@@ -1,9 +1,4 @@
-# ¦ Modul: `client_topmenu`
-
-
-
-
-
+﻿# ¦ Modul: `client_topmenu`
 
 ```lua
 
@@ -14,8 +9,6 @@ local topMenu
 local fpsUpdateEvent = nil
 
 local statusUpdateEvent = nil
-
-
 
 -- private functions
 
@@ -33,15 +26,11 @@ local function addButton(id, description, icon, callback, panel, toggle, front, 
 
   end
 
-  
-
   if topMenu.reverseButtons then
 
     front = not front
 
   end
-
-
 
   local button = panel:getChildById(id)
 
@@ -91,8 +80,6 @@ local function addButton(id, description, icon, callback, panel, toggle, front, 
 
 end
 
-
-
 -- public functions
 
 function init()
@@ -103,13 +90,9 @@ function init()
 
                     onPingBack = updatePing })
 
-
-
   topMenu = g_ui.createWidget('TopMenu', g_ui.getRootWidget())  
 
   g_keyboard.bindKeyDown('Ctrl+Shift+T', toggle)
-
-  
 
   if g_game.isOnline() then
 
@@ -117,15 +100,11 @@ function init()
 
   end
 
-  
-
   updateFps()  
 
   updateStatus()
 
 end
-
-
 
 function terminate()
 
@@ -139,15 +118,11 @@ function terminate()
 
   removeEvent(statusUpdateEvent)
 
-  
-
   g_keyboard.unbindKeyDown('Ctrl+Shift+T')
 
   topMenu:destroy()
 
 end
-
-
 
 function online()
 
@@ -167,11 +142,7 @@ function online()
 
   end
 
-  
-
   showGameButtons()
-
-
 
   if topMenu.pingLabel then
 
@@ -193,8 +164,6 @@ function online()
 
 end
 
-
-
 function offline()
 
   if topMenu.hideIngame then
@@ -209,8 +178,6 @@ function offline()
 
   end
 
-
-
   hideGameButtons()
 
   if topMenu.pingLabel then
@@ -222,8 +189,6 @@ function offline()
   updateStatus()
 
 end
-
-
 
 function updateFps()
 
@@ -237,8 +202,6 @@ function updateFps()
 
 end
 
-
-
 function updatePing(ping)
 
   if not topMenu.pingLabel then return end
@@ -248,8 +211,6 @@ function updatePing(ping)
     ping = g_proxy.getPing()
 
   end
-
-  
 
   local text = 'Ping: '
 
@@ -287,8 +248,6 @@ function updatePing(ping)
 
 end
 
-
-
 function setPingVisible(enable)
 
   if not topMenu.pingLabel then return end
@@ -296,8 +255,6 @@ function setPingVisible(enable)
   topMenu.pingLabel:setVisible(enable)
 
 end
-
-
 
 function setFpsVisible(enable)
 
@@ -307,15 +264,11 @@ function setFpsVisible(enable)
 
 end
 
-
-
 function addLeftButton(id, description, icon, callback, front, index)
 
   return addButton(id, description, icon, callback, topMenu.leftButtonsPanel, false, front, index)
 
 end
-
-
 
 function addLeftToggleButton(id, description, icon, callback, front, index)
 
@@ -323,23 +276,17 @@ function addLeftToggleButton(id, description, icon, callback, front, index)
 
 end
 
-
-
 function addRightButton(id, description, icon, callback, front, index)
 
   return addButton(id, description, icon, callback, topMenu.rightButtonsPanel, false, front, index)
 
 end
 
-
-
 function addRightToggleButton(id, description, icon, callback, front, index)
 
   return addButton(id, description, icon, callback, topMenu.rightButtonsPanel, true, front, index)
 
 end
-
-
 
 function addLeftGameButton(id, description, icon, callback, front, index)
 
@@ -355,8 +302,6 @@ function addLeftGameButton(id, description, icon, callback, front, index)
 
 end
 
-
-
 function addLeftGameToggleButton(id, description, icon, callback, front, index)
 
   local button = addButton(id, description, icon, callback, topMenu.leftGameButtonsPanel, true, front, index)
@@ -370,8 +315,6 @@ function addLeftGameToggleButton(id, description, icon, callback, front, index)
   return button
 
 end
-
-
 
 function addRightGameButton(id, description, icon, callback, front, index)
 
@@ -387,8 +330,6 @@ function addRightGameButton(id, description, icon, callback, front, index)
 
 end
 
-
-
 function addRightGameToggleButton(id, description, icon, callback, front, index)
 
   local button = addButton(id, description, icon, callback, topMenu.rightGameButtonsPanel, true, front, index)
@@ -402,8 +343,6 @@ function addRightGameToggleButton(id, description, icon, callback, front, index)
   return button
 
 end
-
-
 
 function showGameButtons()
 
@@ -421,8 +360,6 @@ function showGameButtons()
 
 end
 
-
-
 function hideGameButtons()
 
   topMenu.leftGameButtonsPanel:hide()
@@ -431,23 +368,17 @@ function hideGameButtons()
 
 end
 
-
-
 function getButton(id)
 
   return topMenu:recursiveGetChildById(id)
 
 end
 
-
-
 function getTopMenu()
 
   return topMenu
 
 end
-
-
 
 function toggle()
 
@@ -456,8 +387,6 @@ function toggle()
     return
 
   end
-
-  
 
   if topMenu:isVisible() then
 
@@ -470,8 +399,6 @@ function toggle()
   end
 
 end
-
-
 
 function hide()
 
@@ -491,8 +418,6 @@ function hide()
 
 end
 
-
-
 function show()
 
   topMenu:show()
@@ -510,8 +435,6 @@ function show()
   end
 
 end
-
-
 
 function updateStatus()
 
@@ -578,12 +501,7 @@ end
 ```
 
 ---
-
-
-
 # topmenu.otmod
-
-
 
 ```text
 
@@ -608,6 +526,3 @@ Module
 ```
 
 ---
-
-
-

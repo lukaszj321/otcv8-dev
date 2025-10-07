@@ -1,15 +1,8 @@
-# ¦ Modul: `game_protocol`
-
-
-
-
-
+﻿# ¦ Modul: `game_protocol`
 
 ```lua
 
 local registredOpcodes = nil
-
-
 
 local ServerPackets = {
 
@@ -79,8 +72,6 @@ local ServerPackets = {
 
 }
 
-
-
 -- Server Types
 
 local DAILY_REWARD_TYPE_ITEM = 1
@@ -90,8 +81,6 @@ local DAILY_REWARD_TYPE_STORAGE = 2
 local DAILY_REWARD_TYPE_PREY_REROLL = 3
 
 local DAILY_REWARD_TYPE_XP_BOOST = 4
-
-
 
 -- Client Types
 
@@ -106,8 +95,6 @@ local DAILY_REWARD_SYSTEM_TYPE_OTHER = 1
 local DAILY_REWARD_SYSTEM_TYPE_PREY_REROLL = 2
 
 local DAILY_REWARD_SYSTEM_TYPE_XP_BOOST = 3
-
-
 
 function init()
 
@@ -125,8 +112,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onEnterGame = registerProtocol,
@@ -135,13 +120,9 @@ function terminate()
 
                     onGameEnd = unregisterProtocol })
 
-                    
-
   unregisterProtocol()
 
 end
-
-
 
 function registerProtocol()
 
@@ -151,11 +132,7 @@ function registerProtocol()
 
   end
 
-  
-
   registredOpcodes = {}
-
-
 
   registerOpcode(ServerPackets.TeamFinderLeader, function(protocol, msg)
 
@@ -166,8 +143,6 @@ function registerProtocol()
 		return -- Server internal changes
 
 	end
-
-
 
 	msg:getU16() -- Min level
 
@@ -191,8 +166,6 @@ function registerProtocol()
 
 	end
 
-
-
 	local size = msg:getU16() -- Members size
 
 	for i = 1, size do
@@ -210,8 +183,6 @@ function registerProtocol()
 	end
 
   end)
-
-
 
   registerOpcode(ServerPackets.TeamFinderList, function(protocol, msg)
 
@@ -252,8 +223,6 @@ function registerProtocol()
 	end
 
   end)
-
-
 
   registerOpcode(ServerPackets.Inspection, function(protocol, msg)
 
@@ -299,8 +268,6 @@ function registerProtocol()
 
 	end
 
-
-
 	if bool > 0 then
 
 		msg:getString() -- Player name
@@ -338,8 +305,6 @@ function registerProtocol()
 	end
 
   end)
-
-
 
   registerOpcode(ServerPackets.Highscores, function(protocol, msg)
 
@@ -415,15 +380,11 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.Tutorial, function(protocol, msg)
 
 	msg:getU8() -- Tutorial id
 
   end)
-
-
 
   registerOpcode(ServerPackets.CyclopediaCharacterInfo, function(protocol, msg)
 
@@ -731,8 +692,6 @@ function registerProtocol()
 
 		msg:getU8() -- lookFeet
 
-
-
 		local size_2 = msg:getU16() -- Mount list size
 
 		for u = 1, size_2 do
@@ -917,8 +876,6 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.TournamentLeaderBoard, function(protocol, msg)
 
 	msg:getU16()
@@ -930,8 +887,6 @@ function registerProtocol()
 		msg:getString() -- World name
 
 	end
-
-
 
 	msg:getString() -- World selected
 
@@ -967,8 +922,6 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.LootContainer, function(protocol, msg)
 
 	msg:getU8() -- Fallback
@@ -985,8 +938,6 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.LootStats, function(protocol, msg)
 
 	readAddItem(msg)
@@ -994,8 +945,6 @@ function registerProtocol()
 	msg:getString() -- Item name
 
   end)
-
-
 
   registerOpcode(ServerPackets.ClientCheck, function(protocol, msg)
 
@@ -1009,8 +958,6 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.GameNews, function(protocol, msg)
 
 	msg:getU32() -- Category
@@ -1018,8 +965,6 @@ function registerProtocol()
 	msg:getU8() -- Page
 
   end)
-
-
 
   registerOpcode(ServerPackets.PartyAnalyzer, function(protocol, msg)
 
@@ -1037,8 +982,6 @@ function registerProtocol()
 
 		msg:getU8() -- (Highlight text bool)
 
-
-
 		msg:getU64() -- Loot count
 
 		msg:getU64() -- Supply count
@@ -1048,8 +991,6 @@ function registerProtocol()
 		msg:getU64() -- Heal count
 
 	end
-
-
 
 	msg:getU8()
 
@@ -1064,8 +1005,6 @@ function registerProtocol()
 	end
 
   end)
-
-
 
   registerOpcode(ServerPackets.UpdateCoinBalance, function(protocol, msg)
 
@@ -1085,15 +1024,11 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.isUpdateCoinBalance, function(protocol, msg)
 
 	msg:getU8() -- Is updating
 
   end)
-
-
 
   registerOpcode(ServerPackets.SpecialContainer, function(protocol, msg)
 
@@ -1102,8 +1037,6 @@ function registerProtocol()
 	local marketMenu = msg:getU8() -- ('Show in market')
 
   end)
-
-
 
   registerOpcode(ServerPackets.KillTracker, function(protocol, msg)
 
@@ -1135,15 +1068,11 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.UpdateSupplyTracker, function(protocol, msg)
 
 	msg:getU16() -- Item client ID
 
   end)
-
-
 
   registerOpcode(ServerPackets.UpdateTrackerAnalyzer, function(protocol, msg)
 
@@ -1165,8 +1094,6 @@ function registerProtocol()
 
   end)
 
-  
-
   registerOpcode(ServerPackets.UpdateLootTracker, function(protocol, msg)
 
 	readAddItem(msg)
@@ -1174,8 +1101,6 @@ function registerProtocol()
 	msg:getString() -- Item name
 
   end)
-
-  
 
   registerOpcode(ServerPackets.OpenStashSupply, function(protocol, msg)
 
@@ -1189,13 +1114,9 @@ function registerProtocol()
 
     end
 
-
-
 	msg:getU16() -- Stash size left (total - used)
 
   end)
-
-
 
   registerOpcode(ServerPackets.OpenRewardWall, function(protocol, msg)
 
@@ -1221,15 +1142,9 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.CloseRewardWall, function(protocol, msg)
 
-
-
   end)
-
-
 
   registerOpcode(ServerPackets.DailyRewardBasic, function(protocol, msg)
 
@@ -1257,8 +1172,6 @@ function registerProtocol()
 
   end)
 
-
-
   registerOpcode(ServerPackets.DailyRewardHistory, function(protocol, msg)
 
     local count = msg:getU8()
@@ -1276,8 +1189,6 @@ function registerProtocol()
     end
 
   end)
-
-  
 
   registerOpcode(ServerPackets.BestiaryTrackerTab, function(protocol, msg)
 
@@ -1301,27 +1212,17 @@ function registerProtocol()
 
   end)
 
-  
-
-  
-
 end
-
-
 
 function readAddItem(msg)
 
 	msg:getU16() -- Item client ID
-
- 
 
 	if g_game.getProtocolVersion() < 1150 then
 
 		msg:getU8() -- Unmarked
 
 	end
-
-
 
 	local var = msg:getU8()
 
@@ -1332,8 +1233,6 @@ function readAddItem(msg)
 			msg:getU32() -- Loot flag
 
 		end
-
-
 
 		if g_game.getProtocolVersion() >= 1260 then
 
@@ -1355,8 +1254,6 @@ function readAddItem(msg)
 
 end
 
-
-
 function unregisterProtocol()
 
   if registredOpcodes == nil then
@@ -1375,8 +1272,6 @@ function unregisterProtocol()
 
 end
 
-
-
 function registerOpcode(code, func)
 
   if registredOpcodes[code] ~= nil then
@@ -1390,8 +1285,6 @@ function registerOpcode(code, func)
   ProtocolGame.registerOpcode(code, func)
 
 end
-
-
 
 function readDailyReward(msg)
 
@@ -1419,8 +1312,6 @@ function readDailyReward(msg)
 
     local type = msg:getU8()
 
-    
-
 		if (type == DAILY_REWARD_SYSTEM_TYPE_PREY_REROLL) then
 
       msg:getU8()
@@ -1438,12 +1329,7 @@ end
 ```
 
 ---
-
-
-
 # protocol.otmod
-
-
 
 ```text
 
@@ -1472,6 +1358,3 @@ Module
 ```
 
 ---
-
-
-

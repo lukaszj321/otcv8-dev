@@ -1,15 +1,8 @@
-# ¦ Modul: `game_interface/widgets`
-
-
-
-
-
+﻿# ¦ Modul: `game_interface/widgets`
 
 ```lua
 
 UIGameMap = extends(UIMap, "UIGameMap")
-
-
 
 function UIGameMap.create()
 
@@ -31,8 +24,6 @@ function UIGameMap.create()
 
 end
 
-
-
 function UIGameMap:onDestroy()
 
   if self.updateMarkedCreatureEvent then
@@ -42,8 +33,6 @@ function UIGameMap:onDestroy()
   end
 
 end
-
-
 
 function UIGameMap:markThing(thing, color)
 
@@ -59,8 +48,6 @@ function UIGameMap:markThing(thing, color)
 
   end
 
-  
-
   self.markedThing = thing
 
   if self.markedThing and g_settings.getBoolean('highlightThingsUnderCursor') then
@@ -71,25 +58,17 @@ function UIGameMap:markThing(thing, color)
 
 end
 
-
-
 function UIGameMap:onDragEnter(mousePos)
 
   local tile = self:getTile(mousePos)
 
   if not tile then return false end
 
-
-
   local thing = tile:getTopMoveThing()
 
   if not thing then return false end
 
-
-
   self.currentDragThing = thing
-
-
 
   g_mouse.pushCursor('target')
 
@@ -98,8 +77,6 @@ function UIGameMap:onDragEnter(mousePos)
   return true
 
 end
-
-
 
 function UIGameMap:onDragLeave(droppedWidget, mousePos)
 
@@ -113,31 +90,21 @@ function UIGameMap:onDragLeave(droppedWidget, mousePos)
 
 end
 
-
-
 function UIGameMap:onDrop(widget, mousePos)
 
   if not self:canAcceptDrop(widget, mousePos) then return false end
-
-
 
   local tile = self:getTile(mousePos)
 
   if not tile then return false end
 
-
-
   local thing = widget.currentDragThing
 
   local toPos = tile:getPosition()
 
-
-
   local thingPos = thing:getPosition()
 
   if thingPos.x == toPos.x and thingPos.y == toPos.y and thingPos.z == toPos.z then return false end
-
-
 
   if thing:isItem() and thing:getCount() > 1 then
 
@@ -149,13 +116,9 @@ function UIGameMap:onDrop(widget, mousePos)
 
   end
 
-
-
   return true
 
 end
-
-
 
 function UIGameMap:onMouseMove(mousePos, mouseMoved)
 
@@ -165,8 +128,6 @@ function UIGameMap:onMouseMove(mousePos, mouseMoved)
 
 end
 
-
-
 function UIGameMap:onDragMove(mousePos, mouseMoved)
 
   self.mousePos = mousePos
@@ -174,8 +135,6 @@ function UIGameMap:onDragMove(mousePos, mouseMoved)
   return false
 
 end
-
-
 
 function UIGameMap:updateMarkedCreature()
 
@@ -193,8 +152,6 @@ function UIGameMap:updateMarkedCreature()
 
 end
 
-
-
 function UIGameMap:onMousePress()
 
   if not self:isDragging() and self.blockNextRelease < g_clock.millis() then
@@ -206,8 +163,6 @@ function UIGameMap:onMousePress()
   end
 
 end
-
-
 
 function UIGameMap:blockNextMouseRelease(postAction)
 
@@ -225,8 +180,6 @@ function UIGameMap:blockNextMouseRelease(postAction)
 
 end
 
-
-
 function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
   if not self.allowNextRelease and not self.markingMouseRelease then
@@ -238,8 +191,6 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
   local autoWalkPos = self:getPosition(mousePosition)
 
   local positionOffset = self:getPositionOffset(mousePosition)
-
-
 
   -- happens when clicking outside of map boundaries
 
@@ -255,8 +206,6 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
   end
 
-
-
   local localPlayerPos = g_game.getLocalPlayer():getPosition()
 
   if autoWalkPos.z ~= localPlayerPos.z then
@@ -271,8 +220,6 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
   end
 
-
-
   local lookThing
 
   local useThing
@@ -282,8 +229,6 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
   local multiUseThing
 
   local attackCreature
-
-
 
   local tile = self:getTile(mousePosition)
 
@@ -297,8 +242,6 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
   end
 
-
-
   local autoWalkTile = g_map.getTile(autoWalkPos)
 
   if autoWalkTile then
@@ -306,8 +249,6 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
     attackCreature = autoWalkTile:getTopCreatureEx(positionOffset)
 
   end
-
-
 
   if self.markingMouseRelease then
 
@@ -337,8 +278,6 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
   end
 
-
-
   local ret = modules.game_interface.processMouseAction(mousePosition, mouseButton, autoWalkPos, lookThing, useThing, creatureThing, attackCreature, self.markingMouseRelease)
 
   if ret then
@@ -347,13 +286,9 @@ function UIGameMap:onMouseRelease(mousePosition, mouseButton)
 
   end
 
-  
-
   return ret
 
 end
-
-
 
 function UIGameMap:onTouchRelease(mousePosition, mouseButton)
 
@@ -365,13 +300,9 @@ function UIGameMap:onTouchRelease(mousePosition, mouseButton)
 
 end
 
-
-
 function UIGameMap:canAcceptDrop(widget, mousePos)
 
   if not widget or not widget.currentDragThing then return false end
-
-
 
   local children = rootWidget:recursiveGetChildrenByPos(mousePos)
 
@@ -391,8 +322,6 @@ function UIGameMap:canAcceptDrop(widget, mousePos)
 
   end
 
-
-
   error('Widget ' .. self:getId() .. ' not in drop list.')
 
   return false
@@ -402,6 +331,3 @@ end
 ```
 
 ---
-
-
-

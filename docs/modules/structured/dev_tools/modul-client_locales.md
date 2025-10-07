@@ -1,15 +1,8 @@
-# ¦ Modul: `client_locales`
-
-
-
-
-
+﻿# ¦ Modul: `client_locales`
 
 ```lua
 
 dofile 'neededtranslations'
-
-
 
 -- private variables
 
@@ -20,8 +13,6 @@ local installedLocales
 local currentLocale
 
 local missingTranslations = {}
-
-
 
 function createWindow()
 
@@ -34,8 +25,6 @@ function createWindow()
   local spacing = layout:getCellSpacing()
 
   local size = layout:getCellSize()
-
-
 
   local count = 0
 
@@ -53,19 +42,13 @@ function createWindow()
 
   end
 
-
-
   count = math.max(1, math.min(count, 3))
 
   localesPanel:setWidth(size.width*count + spacing*(count-1))
 
-
-
   addEvent(function() addEvent(function() localesWindow:raise() localesWindow:focus() end) end)
 
 end
-
-
 
 function selectFirstLocale(name)
 
@@ -87,19 +70,13 @@ function selectFirstLocale(name)
 
 end
 
-
-
 -- public functions
 
 function init()
 
   installedLocales = {}
 
-
-
   installLocales('/locales')
-
-
 
   local userLocaleName = g_settings.get('locale', 'false')
 
@@ -117,21 +94,15 @@ function init()
 
 end
 
-
-
 function terminate()
 
   installedLocales = nil
 
   currentLocale = nil
 
-
-
   --disconnect(g_app, { onRun = createWindow })
 
 end
-
-
 
 function generateNewTranslationTable(localename)
 
@@ -171,8 +142,6 @@ function generateNewTranslationTable(localename)
 
 end
 
-
-
 function installLocale(locale)
 
   if not locale or not locale.name then
@@ -181,11 +150,7 @@ function installLocale(locale)
 
   end
 
-
-
   if _G.allowedLocales and not _G.allowedLocales[locale.name] then return end
-
-
 
   if locale.name ~= defaultLocaleName then
 
@@ -201,8 +166,6 @@ function installLocale(locale)
 
     end
 
-
-
     if #updatesNamesMissing > 0 then
 
       pdebug('Locale \'' .. locale.name .. '\' is missing ' .. #updatesNamesMissing .. ' translations.')
@@ -216,8 +179,6 @@ function installLocale(locale)
     end
 
   end
-
-
 
   local installedLocale = installedLocales[locale.name]
 
@@ -237,15 +198,11 @@ function installLocale(locale)
 
 end
 
-
-
 function installLocales(directory)
 
   dofiles(directory)
 
 end
-
-
 
 function setLocale(name)
 
@@ -271,23 +228,17 @@ function setLocale(name)
 
 end
 
-
-
 function getInstalledLocales()
 
   return installedLocales
 
 end
 
-
-
 function getCurrentLocale()
 
   return currentLocale
 
 end
-
-
 
 -- global function used to translate texts
 
@@ -314,8 +265,6 @@ function _G.tr(text, ...)
         end
 
       end
-
-
 
       if number[2] then
 
@@ -364,12 +313,7 @@ end
 ```
 
 ---
-
-
-
 # locales.otmod
-
-
 
 ```text
 
@@ -394,20 +338,13 @@ Module
 ```
 
 ---
-
-
-
 # locales.otui
-
-
 
 ```otui
 
 LocalesMainLabel < Label
 
   font: sans-bold-16px
-
-
 
 LocalesButton < UIWidget
 
@@ -421,8 +358,6 @@ LocalesButton < UIWidget
 
   font: verdana-11px-antialised
 
-
-
 UIWindow
 
   id: localesWindow
@@ -435,8 +370,6 @@ UIWindow
 
   anchors.fill: parent
 
-
-
   LocalesMainLabel
 
     !text: tr('Select your language')
@@ -448,8 +381,6 @@ UIWindow
     anchors.verticalCenter: parent.verticalCenter
 
     margin-top: -100
-
-
 
   Panel
 
@@ -476,12 +407,7 @@ UIWindow
 ```
 
 ---
-
-
-
 # neededtranslations.lua
-
-
 
 ```lua
 
@@ -1216,6 +1142,3 @@ neededTranslations = {
 ```
 
 ---
-
-
-

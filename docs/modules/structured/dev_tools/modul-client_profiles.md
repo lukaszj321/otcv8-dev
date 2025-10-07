@@ -1,17 +1,10 @@
-# ¦ Modul: `client_profiles`
-
-
-
-
-
+﻿# ¦ Modul: `client_profiles`
 
 ```lua
 
 local settings = {}
 
 ChangedProfile = false
-
-
 
 function init()
 
@@ -21,13 +14,9 @@ function init()
 
     onGameEnd = offline
 
-  })
-
-
+})
 
 end
-
-
 
 function terminate()
 
@@ -37,19 +26,15 @@ function terminate()
 
     onGameEnd = offline
 
-  })
+})
 
 end
-
-
 
 -- loads settings on character login
 
 function online()
 
   ChangedProfile = false
-
-
 
   -- startup arguments has higher priority than settings
 
@@ -61,19 +46,13 @@ function online()
 
   end
 
-
-
   load()
-
-
 
   if not index then
 
     setProfileOption(getProfileFromSettings() or 1)
 
   end
-
-
 
   -- create main settings dir
 
@@ -83,15 +62,11 @@ function online()
 
   end
 
-
-
   -- create profiles dirs
 
   for i=1,10 do
 
     local path = "/settings/profile_"..i
-
-
 
     if not g_resources.directoryExists(path) then
 
@@ -103,8 +78,6 @@ function online()
 
 end
 
-
-
 function setProfileOption(index)
 
   local currentProfile = g_settings.getNumber('profile')
@@ -112,8 +85,6 @@ function setProfileOption(index)
   currentProfile = tostring(currentProfile) 
 
   index = tostring(index)
-
-
 
   if currentProfile ~= index then
 
@@ -123,11 +94,7 @@ function setProfileOption(index)
 
   end
 
-
-
 end
-
-
 
 -- load profile number from settings
 
@@ -137,19 +104,13 @@ function getProfileFromSettings()
 
   if not g_game.isOnline() then return end
 
-
-
   local index = g_game.getCharacterName()
 
   local savedData = settings[index]
 
-
-
   return savedData
 
 end
-
-
 
 -- option to launch client with hardcoded profile
 
@@ -163,8 +124,6 @@ function getProfileFromStartupArgument()
 
     end
 
-
-
     for index, option in ipairs(startupOptions) do
 
         if option == "--profile" then
@@ -177,8 +136,6 @@ function getProfileFromStartupArgument()
 
             end
 
-
-
             g_logger.info("Startup options: Forced profile: "..profileIndex)
 
             -- set value in options
@@ -189,13 +146,9 @@ function getProfileFromStartupArgument()
 
     end
 
-
-
     return false
 
 end
-
-
 
 -- returns string path ie. "/settings/1/actionbar.json"
 
@@ -203,21 +156,15 @@ function getSettingsFilePath(fileNameWithFormat)
 
   local currentProfile = g_settings.getNumber('profile')
 
-
-
   return "/settings/profile_"..currentProfile.."/"..fileNameWithFormat
 
 end
-
-
 
 function offline()
 
   onProfileChange(true)
 
 end
-
-
 
 -- profile change callback (called in options), saves settings & reloads given module configs
 
@@ -233,13 +180,9 @@ function onProfileChange(offline)
 
   end
 
-
-
   local currentProfile = g_settings.getNumber('profile')
 
   local index = g_game.getCharacterName()
-
-  
 
   if index then
 
@@ -250,8 +193,6 @@ function onProfileChange(offline)
   end
 
 end
-
-
 
 -- collection of refresh functions from different modules
 
@@ -264,8 +205,6 @@ function collectiveReload()
   modules.game_bot.refresh()
 
 end
-
-
 
 -- json handlers
 
@@ -296,8 +235,6 @@ function load()
   end
 
 end
-
-
 
 function save()
 
@@ -330,12 +267,7 @@ end
 ```
 
 ---
-
-
-
 # profiles.otmod
-
-
 
 ```text
 
@@ -364,6 +296,3 @@ Module
 ```
 
 ---
-
-
-

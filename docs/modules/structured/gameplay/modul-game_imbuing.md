@@ -1,9 +1,4 @@
-# ¦ Modul: `game_imbuing`
-
-
-
-
-
+﻿# ¦ Modul: `game_imbuing`
 
 ```lua
 
@@ -35,8 +30,6 @@ local clearConfirmWindow
 
 local imbueConfirmWindow
 
-
-
 function init()
 
   connect(g_game, {
@@ -49,9 +42,7 @@ function init()
 
     onCloseImbuementWindow = onCloseImbuementWindow
 
-  })
-
-
+})
 
   imbuingWindow = g_ui.displayUI('imbuing')
 
@@ -66,8 +57,6 @@ function init()
   clearImbue = imbuingWindow.clearImbue
 
   imbuingWindow:hide()
-
-
 
   groupsCombo.onOptionChange = function(widget)
 
@@ -92,8 +81,6 @@ function init()
     end
 
   end
-
-
 
   imbueLevelsCombo.onOptionChange = function(widget)
 
@@ -215,8 +202,6 @@ function init()
 
   end
 
-
-
   protectionBtn.onClick = function()
 
     setProtection(not protection)
@@ -224,8 +209,6 @@ function init()
   end
 
 end
-
-
 
 function setProtection(value)
 
@@ -267,8 +250,6 @@ function setProtection(value)
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, {
@@ -281,15 +262,11 @@ function terminate()
 
     onCloseImbuementWindow = onCloseImbuementWindow
 
-  })
-
-  
+})
 
   imbuingWindow:destroy()
 
 end
-
-
 
 function resetSlots()
 
@@ -311,8 +288,6 @@ function resetSlots()
 
 end
 
-
-
 function selectSlot(widget, slotId, activeSlot)
 
   if activeSlot then
@@ -333,15 +308,11 @@ function selectSlot(widget, slotId, activeSlot)
 
     clearImbue.description:setText(activeSlot[1]["description"])
 
-
-
     hours = string.format("%02.f", math.floor(activeSlot[2]/3600))
 
     mins = string.format("%02.f", math.floor(activeSlot[2]/60 - (hours*60)))
 
     clearImbue.time.timeRemaining:setText(hours..":"..mins.."h")
-
-
 
     clearImbue.cost:setText(activeSlot[3])
 
@@ -354,8 +325,6 @@ function selectSlot(widget, slotId, activeSlot)
       emptyImbue.cost:setColor("red")
 
     end
-
-
 
     local yesCallback = function()
 
@@ -387,8 +356,6 @@ function selectSlot(widget, slotId, activeSlot)
 
     end
 
-
-
     clearImbue.clear.onClick = function()
 
       imbuingWindow:hide()
@@ -403,8 +370,6 @@ function selectSlot(widget, slotId, activeSlot)
 
     end
 
-
-
     clearImbue:setVisible(true)
 
   else
@@ -412,8 +377,6 @@ function selectSlot(widget, slotId, activeSlot)
     emptyImbue:setVisible(true)
 
     clearImbue:setVisible(false)
-
-
 
     local yesCallback = function()
 
@@ -447,8 +410,6 @@ function selectSlot(widget, slotId, activeSlot)
 
     end
 
-
-
     emptyImbue.imbue.onClick = function()
 
       imbuingWindow:hide()
@@ -479,8 +440,6 @@ function selectSlot(widget, slotId, activeSlot)
 
 end
 
-
-
 function onImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
 
   if not itemId then
@@ -494,8 +453,6 @@ function onImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
   imbueItems = table.copy(needItems)
 
   imbuingWindow.itemInfo.item:setItemId(itemId)
-
-
 
   for i=1, slots do
 
@@ -511,8 +468,6 @@ function onImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
 
     slot:setEnabled(true)
 
-
-
     if slot:getId() == "slot0" then
 
       selectSlot(slot, i - 1)
@@ -520,8 +475,6 @@ function onImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
     end
 
   end
-
-
 
   for i, slot in pairs(activeSlots) do
 
@@ -540,8 +493,6 @@ function onImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
     end
 
   end
-
-
 
   if imbuements ~= nil then
 
@@ -567,8 +518,6 @@ function onImbuementWindow(itemId, slots, activeSlots, imbuements, needItems)
 
 end
 
-
-
 function onResourceBalance(type, balance)
 
   if type == 0 then
@@ -589,15 +538,11 @@ function onResourceBalance(type, balance)
 
 end
 
-
-
 function onCloseImbuementWindow()
 
   resetSlots()
 
 end
-
-
 
 function hide()
 
@@ -606,8 +551,6 @@ function hide()
   imbuingWindow:hide()
 
 end
-
-
 
 function show()
 
@@ -618,8 +561,6 @@ function show()
   imbuingWindow:focus()
 
 end
-
-
 
 function toggle()
 
@@ -636,12 +577,7 @@ end
 ```
 
 ---
-
-
-
 # imbuing.otmod
-
-
 
 ```text
 
@@ -666,12 +602,7 @@ Module
 ```
 
 ---
-
-
-
 # imbuing.otui
-
-
 
 ```otui
 
@@ -689,15 +620,11 @@ Slot < Button
 
   !tooltip: tr('Items can have up to three imbuements slots. This slot is not available for this item.')
 
-
-
 RequiredItem < Panel
 
   width: 66
 
   height: 90
-
-
 
   UIItem
 
@@ -710,8 +637,6 @@ RequiredItem < Panel
     anchors.left: parent.left
 
     anchors.top: parent.top
-
-
 
   FlatLabel
 
@@ -727,8 +652,6 @@ RequiredItem < Panel
 
     anchors.top: prev.bottom
 
-
-
 ItemInformation < Panel
 
   height: 100
@@ -736,8 +659,6 @@ ItemInformation < Panel
   border: 1 black
 
   padding: 5
-
-
 
   Label
 
@@ -752,8 +673,6 @@ ItemInformation < Panel
     text-align: center
 
     !text: tr("Item Information")
-
-
 
   UIItem
 
@@ -773,8 +692,6 @@ ItemInformation < Panel
 
     width: 64
 
-
-
   Panel
 
     id: slots
@@ -791,8 +708,6 @@ ItemInformation < Panel
 
     anchors.right: parent.right
 
-
-
     Slot
 
       id: slot0
@@ -802,8 +717,6 @@ ItemInformation < Panel
       text-align: center
 
       anchors.left: parent.left
-
-
 
     Slot
 
@@ -817,8 +730,6 @@ ItemInformation < Panel
 
       anchors.left: prev.right
 
-
-
     Slot
 
       id: slot2
@@ -830,8 +741,6 @@ ItemInformation < Panel
       margin-left: 10
 
       anchors.left: prev.right
-
-
 
   Label
 
@@ -845,8 +754,6 @@ ItemInformation < Panel
 
     !text: tr("Select Slot:")
 
-
-
 EmptyImbue < Panel
 
   height: 240
@@ -854,8 +761,6 @@ EmptyImbue < Panel
   border: 1 black
 
   padding: 5
-
-
 
   Label
 
@@ -870,8 +775,6 @@ EmptyImbue < Panel
     text-align: center
 
     !text: tr("Imbue Empty Slot")
-
-
 
   ComboBox
 
@@ -889,8 +792,6 @@ EmptyImbue < Panel
 
     isdisabled: true
 
-
-
   ComboBox
 
     id: imbuement
@@ -902,8 +803,6 @@ EmptyImbue < Panel
     anchors.right: parent.right
 
     margin-left: 3
-
-
 
   Label
 
@@ -919,8 +818,6 @@ EmptyImbue < Panel
 
     height: 85
 
-
-
   Label
 
     id: info
@@ -930,8 +827,6 @@ EmptyImbue < Panel
     anchors.left: parent.left
 
     !text: tr('Requires the following astral sources:')
-
-
 
   Label
 
@@ -945,8 +840,6 @@ EmptyImbue < Panel
 
     text-align: right
 
-
-
   Label
 
     id: successRateTitle
@@ -958,8 +851,6 @@ EmptyImbue < Panel
     margin-right: 15
 
     !text: tr('Success Rate:')
-
-
 
   Panel
 
@@ -973,15 +864,11 @@ EmptyImbue < Panel
 
     anchors.bottom: parent.bottom
 
-
-
     RequiredItem
 
       id: item1
 
       anchors.left: parent.left
-
-
 
     RequiredItem
 
@@ -991,8 +878,6 @@ EmptyImbue < Panel
 
       anchors.left: prev.right
 
-
-
     RequiredItem
 
       id: item3
@@ -1000,8 +885,6 @@ EmptyImbue < Panel
       margin-left: 10
 
       anchors.left: prev.right
-
-
 
   UIButton
 
@@ -1023,8 +906,6 @@ EmptyImbue < Panel
 
     !tooltip: ("Bribe the fates! Click here to raise your chance to 100%. For guaranteed success use gold.")
 
-
-
   FlatLabel
 
     id: protectionCost
@@ -1038,8 +919,6 @@ EmptyImbue < Panel
     anchors.right: prev.right
 
     anchors.top: prev.bottom
-
-
 
   UIWidget
 
@@ -1063,8 +942,6 @@ EmptyImbue < Panel
 
     phantom: false
 
-
-
   UIButton
 
     id: imbue
@@ -1085,13 +962,9 @@ EmptyImbue < Panel
 
     !tooltip: tr("Click here to carry out the selected imbuement. This will consume the required astral sources and gold.")
 
-
-
     $pressed:
 
       image-clip: 0 66 128 66
-
-
 
   FlatLabel
 
@@ -1107,8 +980,6 @@ EmptyImbue < Panel
 
     anchors.top: prev.bottom
 
-
-
 ClearImbue < Panel
 
   height: 240
@@ -1116,8 +987,6 @@ ClearImbue < Panel
   border: 1 black
 
   padding: 5
-
-
 
   Label
 
@@ -1132,8 +1001,6 @@ ClearImbue < Panel
     text-align: center
 
     !text: tr("Clear Imbuement")
-
-
 
   ComboBox
 
@@ -1151,8 +1018,6 @@ ClearImbue < Panel
 
     enabled: false
 
-
-
   ComboBox
 
     id: imbuement
@@ -1166,8 +1031,6 @@ ClearImbue < Panel
     margin-left: 3
 
     enabled: false
-
-
 
   Label
 
@@ -1183,8 +1046,6 @@ ClearImbue < Panel
 
     height: 85
 
-
-
   Label
 
     id: info
@@ -1195,8 +1056,6 @@ ClearImbue < Panel
 
     !text: tr('Time remaining:')
 
-
-
   Label
 
     id: clearImbuementTitle
@@ -1206,8 +1065,6 @@ ClearImbue < Panel
     anchors.right: parent.right
 
     !text: tr('Clear imbuement:')
-
-
 
   Panel
 
@@ -1220,8 +1077,6 @@ ClearImbue < Panel
     anchors.left: parent.left
 
     anchors.bottom: parent.bottom
-
-
 
     FlatLabel
 
@@ -1238,8 +1093,6 @@ ClearImbue < Panel
       anchors.right: parent.right
 
       anchors.verticalCenter: parent.verticalCenter
-
-
 
   UIButton
 
@@ -1261,13 +1114,9 @@ ClearImbue < Panel
 
     !tooltip: tr("Your needs have changed? Click here to clear the imbuement from your item for a fee.")
 
-
-
     $pressed:
 
       image-clip: 0 66 128 66
-
-
 
   FlatLabel
 
@@ -1283,10 +1132,6 @@ ClearImbue < Panel
 
     anchors.top: prev.bottom
 
-
-
-
-
 MainWindow
 
   id: imbuingWindow
@@ -1299,8 +1144,6 @@ MainWindow
 
   @onEscape: modules.game_imbuing.hide()
 
-
-
   ItemInformation
 
     id: itemInfo
@@ -1310,8 +1153,6 @@ MainWindow
     anchors.top: parent.top
 
     anchors.right: parent.right
-
-
 
   EmptyImbue
 
@@ -1325,8 +1166,6 @@ MainWindow
 
     margin-top: 5
 
-
-
   ClearImbue
 
     id: clearImbue
@@ -1336,8 +1175,6 @@ MainWindow
     anchors.top: emptyImbue.top
 
     anchors.right: parent.right
-
-
 
   Button
 
@@ -1352,8 +1189,6 @@ MainWindow
     anchors.bottom: parent.bottom
 
     @onClick: modules.game_imbuing.hide()
-
-
 
   Label
 
@@ -1370,6 +1205,3 @@ MainWindow
 ```
 
 ---
-
-
-

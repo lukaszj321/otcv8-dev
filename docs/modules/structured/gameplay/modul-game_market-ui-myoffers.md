@@ -1,9 +1,4 @@
-# ¦ Modul: `game_market/ui/myoffers`
-
-
-
-
-
+﻿# ¦ Modul: `game_market/ui/myoffers`
 
 ```otui
 
@@ -14,8 +9,6 @@ OfferTableRow < TableRow
   color: #cccccc
 
   height: 15
-
-
 
 OfferTableColumn < TableColumn
 
@@ -29,13 +22,9 @@ OfferTableColumn < TableColumn
 
   width: 80
 
-
-
 OfferTableWarningColumn < OfferTableColumn
 
   color: #e03d3d
-
-
 
 OfferTableHeaderRow < TableHeaderRow
 
@@ -45,8 +34,6 @@ OfferTableHeaderRow < TableHeaderRow
 
   height: 20
 
-
-
 OfferTableHeaderColumn < SortableTableHeaderColumn
 
   font: verdana-11px-monochrome
@@ -55,23 +42,17 @@ OfferTableHeaderColumn < SortableTableHeaderColumn
 
   color: #cccccc
 
-
-
   $focus:
 
     background-color: #294f6d
 
     color: #ffffff
 
-
-
 Panel
 
   background-color: #22283399
 
   margin: 1
-
-
 
   Button
 
@@ -89,8 +70,6 @@ Panel
 
     enabled: false
 
-
-
   Label
 
     !text: tr('Sell Offers')
@@ -106,8 +85,6 @@ Panel
     margin-top: 20
 
     margin-left: 6
-
-
 
   Table
 
@@ -149,8 +126,6 @@ Panel
 
     header-row-style: false
 
-
-
     OfferTableHeaderRow
 
       id: header
@@ -185,8 +160,6 @@ Panel
 
         width: 120
 
-
-
   TableData
 
     id: mySellingTableData
@@ -201,8 +174,6 @@ Panel
 
     vertical-scrollbar: mySellingTableScrollBar
 
-
-
   VerticalScrollBar
 
     id: mySellingTableScrollBar
@@ -216,8 +187,6 @@ Panel
     step: 28
 
     pixels-scroll: true
-
-
 
   Label
 
@@ -234,8 +203,6 @@ Panel
     margin-top: 20
 
     margin-left: 6
-
-
 
   Button
 
@@ -254,8 +221,6 @@ Panel
     width: 80
 
     enabled: false
-
-
 
   Table
 
@@ -297,8 +262,6 @@ Panel
 
     header-row-style: false
 
-
-
     OfferTableHeaderRow
 
       id: header
@@ -333,8 +296,6 @@ Panel
 
         width: 120
 
-
-
   TableData
 
     id: myBuyingTableData
@@ -346,8 +307,6 @@ Panel
     anchors.right: myBuyingTable.right
 
     vertical-scrollbar: myBuyingTableScrollBar
-
-
 
   VerticalScrollBar
 
@@ -366,12 +325,7 @@ Panel
 ```
 
 ---
-
-
-
 # itemoffers.otui
-
-
 
 ```otui
 
@@ -380,8 +334,6 @@ Panel
   background-color: #22283399
 
   margin: 1
-
-
 
   Label
 
@@ -396,12 +348,7 @@ Panel
 ```
 
 ---
-
-
-
 # offerhistory.otui
-
-
 
 ```otui
 
@@ -410,8 +357,6 @@ Panel
   background-color: #22283399
 
   margin: 1
-
-
 
   Table
 
@@ -453,8 +398,6 @@ Panel
 
     header-row-style: false
 
-
-
     OfferTableHeaderRow
 
       id: header
@@ -495,8 +438,6 @@ Panel
 
         width: 120
 
-        
-
   TableData
 
     id: myHistoryTableData
@@ -510,8 +451,6 @@ Panel
     margin-top: 2
 
     vertical-scrollbar: myHistoryTableScrollBar
-
-
 
   VerticalScrollBar
 
@@ -530,6 +469,3 @@ Panel
 ```
 
 ---
-
-
-

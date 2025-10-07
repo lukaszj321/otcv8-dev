@@ -1,9 +1,4 @@
-# ¦ Modul: `client_feedback`
-
-
-
-
-
+﻿# ¦ Modul: `client_feedback`
 
 ```lua
 
@@ -21,23 +16,17 @@ local tries = 0
 
 local replyEvent = nil
 
-
-
 function init()
 
   feedbackWindow = g_ui.displayUI('feedback')
 
   feedbackWindow:hide()
 
-
-
   textEdit = feedbackWindow:getChildById('text')
 
   okButton = feedbackWindow:getChildById('okButton')
 
   cancelButton = feedbackWindow:getChildById('cancelButton')
-
-
 
   okButton.onClick = send
 
@@ -47,8 +36,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   feedbackWindow:destroy()
@@ -56,8 +43,6 @@ function terminate()
   removeEvent(replyEvent)
 
 end
-
-
 
 function show()
 
@@ -67,15 +52,11 @@ function show()
 
   end
 
-
-
   feedbackWindow:show()
 
   feedbackWindow:raise()
 
   feedbackWindow:focus()
-
-  
 
   textEdit:setMaxLength(8192)
 
@@ -87,13 +68,9 @@ function show()
 
   feedbackWindow:focusChild(textEdit, KeyboardFocusReason)
 
-  
-
   tries = 0
 
 end
-
-
 
 function hide()
 
@@ -104,8 +81,6 @@ function hide()
   textEdit:setCursorVisible(false)
 
 end
-
-
 
 function send()
 
@@ -125,7 +100,7 @@ function send()
 
         position = localPlayer:getPosition()
 
-      }
+}
 
     end
 
@@ -185,7 +160,7 @@ function send()
 
       os_name = g_platform.getOSName()
 
-    } 
+}
 
     local data = json.encode({
 
@@ -199,9 +174,7 @@ function send()
 
       details = details
 
-    })
-
-    
+})
 
     postId = HTTP.post(Services.feedback, data, function(ret, err) 
 
@@ -228,12 +201,7 @@ end
 ```
 
 ---
-
-
-
 # feedback.otmod
-
-
 
 ```text
 
@@ -260,12 +228,7 @@ Module
 ```
 
 ---
-
-
-
 # feedback.otui
-
-
 
 ```otui
 
@@ -276,8 +239,6 @@ MainWindow
   size: 400 280
 
   !text: tr("Feedback/Bug report")
-
-
 
   Label
 
@@ -297,8 +258,6 @@ MainWindow
 
     !text: tr("Bellow enter your feedback or bug report. Please include as much details as possible. Thank you!")
 
-
-
   MultilineTextEdit
 
     id: text
@@ -314,8 +273,6 @@ MainWindow
     vertical-scrollbar: textScroll
 
     text-wrap: true
-
-
 
   VerticalScrollBar
 
@@ -335,8 +292,6 @@ MainWindow
 
     pixels-scroll: true
 
-
-
   Button
 
     id: okButton
@@ -350,8 +305,6 @@ MainWindow
     margin-right: 10
 
     width: 60
-
-
 
   Button
 
@@ -368,6 +321,3 @@ MainWindow
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `game_questlog`
-
-
-
-
-
+﻿# ¦ Modul: `game_questlog`
 
 ```lua
 
@@ -17,19 +12,13 @@ trackerWindow = nil
 
 settings = {}
 
-
-
 local callDelay = 1000 -- each call delay is also increased by random values (0-callDelay/2)
 
 local dispatcher = {}
 
-
-
 function init()
 
   g_ui.importStyle('questlogwindow')
-
-
 
   window = g_ui.createWidget('QuestLogWindow', rootWidget)
 
@@ -41,8 +30,6 @@ function init()
 
   trackerWindow:hide()
 
-  
-
   if not g_app.isMobile() then
 
     questLogButton = modules.client_topmenu.addLeftGameButton('questLogButton', tr('Quest Log'), '/images/topbuttons/questlog', function() g_game.requestQuestLog() end, false, 8)
@@ -50,8 +37,6 @@ function init()
     questTrackerButton = modules.client_topmenu.addLeftGameButton('questTrackerButton', tr('Quest Tracker'), '/images/topbuttons/quest_tracker', toggle, false, 9)
 
   end
-
-  
 
   connect(g_game, { onQuestLog = onGameQuestLog,
 
@@ -65,8 +50,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onQuestLog = onGameQuestLog,
@@ -76,8 +59,6 @@ function terminate()
                        onGameEnd = offline,
 
                        onGameStart = online})
-
-
 
   offline()
 
@@ -95,8 +76,6 @@ function terminate()
 
 end
 
-
-
 function toggle()
 
   if trackerWindow:isVisible() then
@@ -110,8 +89,6 @@ function toggle()
   end
 
 end
-
-
 
 function offline()
 
@@ -137,8 +114,6 @@ function offline()
 
 end
 
-
-
 function online()
 
   local playerName = g_game.getCharacterName()
@@ -151,8 +126,6 @@ function online()
 
   refreshTrackerWidgets()
 
-
-
   local playerName = g_game.getCharacterName()
 
   settings[playerName] = settings[playerName] or {}
@@ -164,8 +137,6 @@ function online()
   local track = window.missionlog.track
 
   local missionDescription = window.missionlog.missionDescription
-
-
 
   connect(missionList, { 
 
@@ -185,13 +156,11 @@ function online()
 
       end 
 
-    }
+}
 
-  )
+)
 
 end
-
-
 
 function show(questlog)
 
@@ -233,8 +202,6 @@ function show(questlog)
 
 end
 
-
-
 function back()
 
   if window:isVisible() then
@@ -253,15 +220,11 @@ function back()
 
 end
 
-
-
 function showQuestLine()
 
   local questList = window.questlog.questList
 
   local child = questList:getFocusedChild()
-
-
 
   g_game.requestQuestLine(child.questId)
 
@@ -271,25 +234,17 @@ function showQuestLine()
 
 end
 
-
-
 function onGameQuestLog(quests)
 
   show(true)
 
-
-
   local questList = window.questlog.questList
-
-
 
   questList:destroyChildren()
 
   for i,questEntry in pairs(quests) do
 
     local id, name, completed = unpack(questEntry)
-
-
 
     local questLabel = g_ui.createWidget('QuestLabel', questList)
 
@@ -319,15 +274,11 @@ function onGameQuestLog(quests)
 
 end
 
-
-
 function onGameQuestLine(questId, questMissions)
 
   show(false)
 
   local missionList = window.missionlog.missionList
-
-
 
   if questId == window.missionlog.currentQuest then
 
@@ -338,8 +289,6 @@ function onGameQuestLine(questId, questMissions)
   for i,questMission in pairs(questMissions) do
 
     local name, description = unpack(questMission)
-
-
 
     --questlog
 
@@ -360,8 +309,6 @@ function onGameQuestLine(questId, questMissions)
     missionLabel.description = description
 
     missionLabel:setVisible(questId == window.missionlog.currentQuest)
-
-
 
     --tracker
 
@@ -389,15 +336,11 @@ function onGameQuestLine(questId, questMissions)
 
 end
 
-
-
 function onTrackOptionChange(checkbox)
 
   local newStatus = not checkbox:isChecked()
 
   checkbox:setChecked(newStatus)
-
-
 
   local missionList = window.missionlog.missionList
 
@@ -409,13 +352,9 @@ function onTrackOptionChange(checkbox)
 
   local trackdata = focused.trackData
 
-
-
   -- settings
 
   settings[trackdata] = newStatus
-
-
 
   local trackerWidget = trackerWindow.contentsPanel.list[trackdata]
 
@@ -425,15 +364,11 @@ function onTrackOptionChange(checkbox)
 
   end
 
-
-
   refreshQuests()
 
   save()
 
 end
-
-
 
 function refreshQuests()
 
@@ -443,8 +378,6 @@ function refreshQuests()
 
   data = data or {}
 
-
-
   -- do not execute when questlost is in use
 
   if not window:isVisible() then
@@ -452,8 +385,6 @@ function refreshQuests()
     for questData, track in pairs(data) do
 
       local id = string.split(questData, ".")[1]
-
-
 
       if not track then
 
@@ -464,8 +395,6 @@ function refreshQuests()
         dispatcher[questData] = dispatcher[questData] or g_clock.millis()
 
       end
-
-
 
       if dispatcher[questData] and g_clock.millis() > dispatcher[questData] + callDelay + math.random(callDelay/2) then
 
@@ -483,13 +412,9 @@ function refreshQuests()
 
   end
 
-
-
   scheduleEvent(refreshQuests, callDelay)
 
 end
-
-
 
 function refreshTrackerWidgets()
 
@@ -499,15 +424,11 @@ function refreshTrackerWidgets()
 
   data = data or {}
 
-
-
   for questData, enabled in pairs(data) do
 
     local data = string.split(questData, ".")
 
     local id = tonumber(data[1])
-
-
 
     local widget = trackerWindow.contentsPanel.list[questData]
 
@@ -520,8 +441,6 @@ function refreshTrackerWidgets()
   end
 
 end
-
-
 
 -- json handlers
 
@@ -552,8 +471,6 @@ function load()
   end
 
 end
-
-
 
 function save()
 
@@ -586,12 +503,7 @@ end
 ```
 
 ---
-
-
-
 # questlog.otmod
-
-
 
 ```text
 
@@ -616,12 +528,7 @@ Module
 ```
 
 ---
-
-
-
 # questlogwindow.otui
-
-
 
 ```otui
 
@@ -635,13 +542,9 @@ QuestTrackerLabel < Panel
 
     fit-children: true
 
-
-
   $!first:
 
     margin-top: 3
-
-
 
   Label
 
@@ -653,13 +556,9 @@ QuestTrackerLabel < Panel
 
     text-auto-resize: true
 
-
-
   HorizontalSeparator
 
     margin-top: 3
-
-
 
 QuestLabel < Label
 
@@ -675,19 +574,13 @@ QuestLabel < Label
 
   background-color: #484848
 
-
-
   $checked:
 
     background-color: #414141
 
-
-
   $focus:
 
     background-color: #ffffff22
-
-
 
 QuestLog < Panel
 
@@ -705,8 +598,6 @@ QuestLog < Panel
 
     vertical-scrollbar: questListScrollBar
 
-
-
   VerticalScrollBar
 
     id: questListScrollBar
@@ -720,8 +611,6 @@ QuestLog < Panel
     step: 14
 
     pixels-scroll: true
-
-
 
 MissionLog < Panel
 
@@ -738,8 +627,6 @@ MissionLog < Panel
     text-align: left
 
     text: questline name
-
-
 
   TextList
 
@@ -763,8 +650,6 @@ MissionLog < Panel
 
     background-color: #484848
 
-
-
   VerticalScrollBar
 
     id: missionListScrollBar
@@ -778,8 +663,6 @@ MissionLog < Panel
     step: 14
 
     pixels-scroll: true
-
-
 
   CheckBox
 
@@ -798,8 +681,6 @@ MissionLog < Panel
     @onClick: modules.game_questlog.onTrackOptionChange(self)
 
     enabled: false
-
-
 
   FlatLabel
 
@@ -821,8 +702,6 @@ MissionLog < Panel
 
     text-wrap: true
 
-
-
 QuestLogWindow < MainWindow
 
   id: questLogWindow
@@ -836,8 +715,6 @@ QuestLogWindow < MainWindow
   $mobile:
 
     size: 330 350
-
-
 
   QuestLog
 
@@ -853,15 +730,11 @@ QuestLogWindow < MainWindow
 
     visible: false
 
-  
-
   MissionLog
 
     id: missionlog
 
     anchors.fill: prev
-
-
 
   HorizontalSeparator
 
@@ -874,8 +747,6 @@ QuestLogWindow < MainWindow
     anchors.bottom: closeButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -894,8 +765,6 @@ QuestLogWindow < MainWindow
     size: 45 21
 
     @onClick: modules.game_questlog.back()
-
-
 
   Button
 
@@ -916,8 +785,6 @@ QuestLogWindow < MainWindow
     font: cipsoftFont
 
     @onClick: modules.game_questlog.showQuestLine()
-
-
 
   Button
 
@@ -941,8 +808,6 @@ QuestLogWindow < MainWindow
 
     @onClick: modules.game_questlog.toggle()
 
-
-
 QuestTracker < MiniWindow
 
   id: questTracker
@@ -952,8 +817,6 @@ QuestTracker < MiniWindow
   height: 60
 
   icon: /images/topbuttons/quest_tracker
-
-
 
   MiniWindowContents
 
@@ -965,8 +828,6 @@ QuestTracker < MiniWindow
 
     layout: verticalBox
 
-
-
     Panel
 
       id: list
@@ -976,8 +837,6 @@ QuestTracker < MiniWindow
         type: verticalBox
 
         fit-children: true
-
-
 
     Panel
 
@@ -1004,6 +863,3 @@ QuestTracker < MiniWindow
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `game_battle`
-
-
-
-
-
+﻿# ¦ Modul: `game_battle`
 
 ```lua
 
@@ -17,13 +12,9 @@ filterPanel = nil
 
 toggleFilterButton = nil
 
-
-
 mouseWidget = nil
 
 updateEvent = nil
-
-
 
 hoveredCreature = nil
 
@@ -31,15 +22,11 @@ newHoveredCreature = nil
 
 prevCreature = nil
 
-
-
 battleButtons = {}
 
 local ageNumber = 1
 
 local ages = {}
-
-
 
 function init()  
 
@@ -53,25 +40,17 @@ function init()
 
   g_keyboard.bindKeyDown('Ctrl+B', toggle)
 
-
-
   -- this disables scrollbar auto hiding
 
   local scrollbar = battleWindow:getChildById('miniwindowScrollBar')
 
   scrollbar:mergeStyle({ ['$!on'] = { }})
 
-
-
   battlePanel = battleWindow:recursiveGetChildById('battlePanel')
-
-
 
   filterPanel = battleWindow:recursiveGetChildById('filterPanel')
 
   toggleFilterButton = battleWindow:recursiveGetChildById('toggleFilterButton')
-
-
 
   if isHidingFilters() then
 
@@ -79,13 +58,9 @@ function init()
 
   end
 
-
-
   local sortTypeBox = filterPanel.sortPanel.sortTypeBox
 
   local sortOrderBox = filterPanel.sortPanel.sortOrderBox
-
-
 
   mouseWidget = g_ui.createWidget('UIButton')
 
@@ -95,11 +70,7 @@ function init()
 
   mouseWidget.cancelNextRelease = false
 
-
-
   battleWindow:setContentMinimumHeight(80)
-
-
 
   sortTypeBox:addOption('Name', 'name')
 
@@ -115,8 +86,6 @@ function init()
 
   sortTypeBox.onOptionChange = onChangeSortType
 
-
-
   sortOrderBox:addOption('Asc.', 'asc')
 
   sortOrderBox:addOption('Desc.', 'desc')
@@ -125,11 +94,7 @@ function init()
 
   sortOrderBox.onOptionChange = onChangeSortOrder
 
-
-
   battleWindow:setup()
-
-  
 
   for i=1,30 do
 
@@ -147,17 +112,13 @@ function init()
 
   end
 
-  
-
   updateBattleList()
-
-  
 
   connect(LocalPlayer, {
 
     onPositionChange = onPlayerPositionChange
 
-  })
+})
 
   connect(Creature, {
 
@@ -165,7 +126,7 @@ function init()
 
     onDisappear = updateSquare
 
-  })  
+})
 
   connect(g_game, { 
 
@@ -173,11 +134,9 @@ function init()
 
     onFollowingCreatureChange = updateSquare 
 
-  })
+})
 
 end
-
-
 
 function terminate()
 
@@ -187,11 +146,7 @@ function terminate()
 
   end
 
-  
-
   battleButtons = {}
-
-  
 
   g_keyboard.unbindKeyDown('Ctrl+B')
 
@@ -201,13 +156,11 @@ function terminate()
 
   mouseWidget:destroy()
 
-	
-
   disconnect(LocalPlayer, {
 
     onPositionChange = onPlayerPositionChange
 
-  })
+})
 
   disconnect(Creature, {
 
@@ -215,7 +168,7 @@ function terminate()
 
     onDisappear = onCreatureDisappear
 
-  })  
+})
 
   disconnect(g_game, { 
 
@@ -223,15 +176,11 @@ function terminate()
 
     onFollowingCreatureChange = updateSquare 
 
-  })
-
-
+})
 
   removeEvent(updateEvent)
 
 end
-
-
 
 function toggle()
 
@@ -251,15 +200,11 @@ function toggle()
 
 end
 
-
-
 function onMiniWindowClose()
 
   battleButton:setOn(false)
 
 end
-
-
 
 function getSortType()
 
@@ -283,8 +228,6 @@ function getSortType()
 
 end
 
-
-
 function setSortType(state)
 
   settings = {}
@@ -293,13 +236,9 @@ function setSortType(state)
 
   g_settings.mergeNode('BattleList', settings)
 
-
-
   checkCreatures()
 
 end
-
-
 
 function getSortOrder()
 
@@ -315,8 +254,6 @@ function getSortOrder()
 
 end
 
-
-
 function setSortOrder(state)
 
   settings = {}
@@ -325,13 +262,9 @@ function setSortOrder(state)
 
   g_settings.mergeNode('BattleList', settings)
 
-
-
   checkCreatures()
 
 end
-
-
 
 function isSortAsc()
 
@@ -339,15 +272,11 @@ function isSortAsc()
 
 end
 
-
-
 function isSortDesc()
 
     return getSortOrder() == 'desc'
 
 end
-
-
 
 function isHidingFilters()
 
@@ -363,8 +292,6 @@ function isHidingFilters()
 
 end
 
-
-
 function setHidingFilters(state)
 
   settings = {}
@@ -374,8 +301,6 @@ function setHidingFilters(state)
   g_settings.mergeNode('BattleList', settings)
 
 end
-
-
 
 function hideFilterPanel()
 
@@ -393,8 +318,6 @@ function hideFilterPanel()
 
 end
 
-
-
 function showFilterPanel()
 
   toggleFilterButton:getParent():setMarginTop(5)
@@ -408,8 +331,6 @@ function showFilterPanel()
   filterPanel:setVisible(true)
 
 end
-
-
 
 function toggleFilterPanel()
 
@@ -425,15 +346,11 @@ function toggleFilterPanel()
 
 end
 
-
-
 function onChangeSortType(comboBox, option, value)
 
   setSortType(value:lower())
 
 end
-
-
 
 function onChangeSortOrder(comboBox, option, value)
 
@@ -442,8 +359,6 @@ function onChangeSortOrder(comboBox, option, value)
   setSortOrder(value:lower():gsub('[.]', ''))
 
 end
-
-
 
 -- functions
 
@@ -457,8 +372,6 @@ function updateBattleList()
 
 end
 
-
-
 function checkCreatures()
 
   if not battlePanel or not g_game.isOnline() then
@@ -466,8 +379,6 @@ function checkCreatures()
     return
 
   end
-
-
 
   local player = g_game.getLocalPlayer()
 
@@ -477,15 +388,11 @@ function checkCreatures()
 
   end
 
-  
-
   local dimension = modules.game_interface.getMapPanel():getVisibleDimension()
 
   local spectators = g_map.getSpectatorsInRangeEx(player:getPosition(), false, math.floor(dimension.width / 2), math.floor(dimension.width / 2), math.floor(dimension.height / 2), math.floor(dimension.height / 2))
 
   local maxCreatures = battlePanel:getChildCount()
-
-  
 
   local creatures = {}
 
@@ -527,15 +434,11 @@ function checkCreatures()
 
   end
 
-  
-
   updateSquare()
 
   sortCreatures(creatures)
 
   battlePanel:getLayout():disableUpdates()
-
-  
 
   -- sorting
 
@@ -561,15 +464,11 @@ function checkCreatures()
 
   end
 
-  
-
   if g_app.isMobile() and #creatures > 0 then
 
     onBattleButtonHoverChange(battleButtons[1], true)
 
   end
-
-    
 
   for i=#creatures + 1,maxCreatures do
 
@@ -581,15 +480,11 @@ function checkCreatures()
 
   end
 
-
-
   battlePanel:getLayout():enableUpdates()
 
   battlePanel:getLayout():update()
 
 end
-
-
 
 function doCreatureFitFilters(creature)
 
@@ -605,19 +500,13 @@ function doCreatureFitFilters(creature)
 
   end
 
-
-
   local pos = creature:getPosition()
 
   if not pos then return false end
 
-
-
   local localPlayer = g_game.getLocalPlayer()
 
   if pos.z ~= localPlayer:getPosition().z or not creature:canBeSeen() then return false end
-
-
 
   local hidePlayers = filterPanel.buttons.hidePlayers:isChecked()
 
@@ -628,8 +517,6 @@ function doCreatureFitFilters(creature)
   local hideSkulls = filterPanel.buttons.hideSkulls:isChecked()
 
   local hideParty = filterPanel.buttons.hideParty:isChecked()
-
-
 
   if hidePlayers and creature:isPlayer() then
 
@@ -653,13 +540,9 @@ function doCreatureFitFilters(creature)
 
   end
 
-
-
   return true
 
 end
-
-
 
 local function getDistanceBetween(p1, p2)
 
@@ -667,13 +550,9 @@ local function getDistanceBetween(p1, p2)
 
 end
 
-
-
 function sortCreatures(creatures)
 
   local player = g_game.getLocalPlayer()
-
-  
 
   if getSortType() == 'distance' then
 
@@ -730,8 +609,6 @@ function sortCreatures(creatures)
   end
 
 end
-
-
 
 -- other functions
 
@@ -793,8 +670,6 @@ function onBattleButtonMouseRelease(self, mousePosition, mouseButton)
 
 end
 
-
-
 function onBattleButtonHoverChange(battleButton, hovered)
 
   if not hovered then
@@ -819,15 +694,11 @@ function onBattleButtonHoverChange(battleButton, hovered)
 
 end
 
-
-
 function onPlayerPositionChange(creature, newPos, oldPos)
 
   addEvent(checkCreatures)
 
 end
-
-
 
 local CreatureButtonColors = {
 
@@ -839,15 +710,11 @@ local CreatureButtonColors = {
 
 }
 
-
-
 function updateSquare()
 
   local following = g_game.getFollowingCreature()
 
   local attacking = g_game.getAttackingCreature()
-
-    
 
   if newHoveredCreature == nil then
 
@@ -873,8 +740,6 @@ function updateSquare()
 
   end
 
-  
-
   local color = CreatureButtonColors.onIdle
 
   local creature = nil
@@ -893,8 +758,6 @@ function updateSquare()
 
   end
 
-
-
   if prevCreature ~= creature then
 
     if prevCreature ~= nil then
@@ -907,15 +770,11 @@ function updateSquare()
 
   end
 
-  
-
   if not creature then
 
     return
 
   end
-
-  
 
   color = creature == hoveredCreature and color.hovered or color.notHovered
 
@@ -926,12 +785,7 @@ end
 ```
 
 ---
-
-
-
 # battle.otmod
-
-
 
 ```text
 
@@ -956,12 +810,7 @@ Module
 ```
 
 ---
-
-
-
 # battle.otui
-
-
 
 ```otui
 
@@ -973,73 +822,49 @@ BattleIcon < UICheckBox
 
   image-rect: 0 0 20 20
 
-
-
   $hover !disabled:
 
     color: #cccccc
-
-
 
   $!checked:
 
     image-clip: 0 0 20 20
 
-
-
   $hover !checked:
 
     image-clip: 0 40 20 20
-
-
 
   $checked:
 
     image-clip: 0 20 20 20
 
-
-
   $hover checked:
 
     image-clip: 0 60 20 20
-
-
 
   $disabled:
 
     image-color: #ffffff88
 
-
-
 BattlePlayers < BattleIcon
 
   image-source: /images/game/battle/battle_players
-
-
 
 BattleNPCs < BattleIcon
 
   image-source: /images/game/battle/battle_npcs
 
-
-
 BattleMonsters < BattleIcon
 
   image-source: /images/game/battle/battle_monsters
-
-
 
 BattleSkulls < BattleIcon
 
   image-source: /images/game/battle/battle_skulls
 
-
-
 BattleParty < BattleIcon
 
   image-source: /images/game/battle/battle_party
-
-
 
 MiniWindow
 
@@ -1057,8 +882,6 @@ MiniWindow
 
   &autoOpen: false
 
-
-
   Panel
 
     id: filterPanel
@@ -1072,8 +895,6 @@ MiniWindow
     anchors.right: miniwindowScrollBar.left
 
     height: 45
-
-
 
     Panel
 
@@ -1093,8 +914,6 @@ MiniWindow
 
         spacing: 5
 
-
-
       BattlePlayers
 
         id: hidePlayers
@@ -1104,8 +923,6 @@ MiniWindow
         @onSetup: if g_app.isMobile() then self:setChecked(true) end
 
         @onCheckChange: modules.game_battle.checkCreatures()
-
-          
 
       BattleNPCs
 
@@ -1117,8 +934,6 @@ MiniWindow
 
         @onCheckChange: modules.game_battle.checkCreatures()
 
-
-
       BattleMonsters
 
         id: hideMonsters
@@ -1127,8 +942,6 @@ MiniWindow
 
         @onCheckChange: modules.game_battle.checkCreatures()
 
-
-
       BattleSkulls
 
         id: hideSkulls
@@ -1136,8 +949,6 @@ MiniWindow
         !tooltip: tr('Hide non-skull players')
 
         @onCheckChange: modules.game_battle.checkCreatures()
-
-
 
       BattleParty
 
@@ -1148,8 +959,6 @@ MiniWindow
         @onSetup: if g_app.isMobile() then self:setChecked(true) end
 
         @onCheckChange: modules.game_battle.checkCreatures()
-
-
 
     Panel
 
@@ -1165,8 +974,6 @@ MiniWindow
 
       margin-top: 6
 
-
-
       ComboBox
 
         id: sortTypeBox
@@ -1181,8 +988,6 @@ MiniWindow
 
         margin-left: -31
 
-
-
       ComboBox
 
         id: sortOrderBox
@@ -1195,8 +1000,6 @@ MiniWindow
 
         margin-left: 4
 
-
-
   Panel
 
     height: 18
@@ -1208,8 +1011,6 @@ MiniWindow
     anchors.right: miniwindowScrollBar.left
 
     margin-top: 4
-
-
 
     UIWidget
 
@@ -1231,8 +1032,6 @@ MiniWindow
 
       phantom: false
 
-
-
   HorizontalSeparator
 
     anchors.top: prev.top
@@ -1245,15 +1044,11 @@ MiniWindow
 
     margin-top: 11
 
-
-
   MiniWindowContents
 
     anchors.top: prev.bottom
 
     margin-top: 6
-
-
 
     Panel
 
@@ -1278,12 +1073,7 @@ MiniWindow
 ```
 
 ---
-
-
-
 # battlebutton.otui
-
-
 
 ```otui
 
@@ -1294,6 +1084,3 @@ BattleButton < CreatureButton
 ```
 
 ---
-
-
-

@@ -1,4 +1,4 @@
-# Co
+﻿# Co
 
 n
 
@@ -24,10 +24,7 @@ g
 2. Commity: konwencja `type(scope): msg` (np. `docs(build): …`).
 3. PR z krótkim opisem i screenami.
 4. Review: 1 LGTM + zielone CI.
-
-## 
-
-S
+# # S
 
 t
 
@@ -39,8 +36,7 @@ e
 
 - Lua: patrz _Lua → Style guide_.
 - C++: clang-format (domyślny styl projektu).
-
-## Commity dok
+# # Commity dok
 
 u
 

@@ -1,21 +1,12 @@
-# ¦ Modul: `gamelib`
-
-
-
-
-
+﻿# ¦ Modul: `gamelib`
 
 ```lua
 
 -- @docconsts @{
 
-
-
 FloorHigher = 0
 
 FloorLower = 15
-
-
 
 SkullNone = 0
 
@@ -30,8 +21,6 @@ SkullRed = 4
 SkullBlack = 5
 
 SkullOrange = 6
-
-
 
 ShieldNone = 0
 
@@ -57,8 +46,6 @@ ShieldYellowNoSharedExp = 10
 
 ShieldGray = 11
 
-
-
 EmblemNone = 0
 
 EmblemGreen = 1
@@ -71,13 +58,9 @@ EmblemMember = 4
 
 EmblemOther = 5
 
-
-
 VipIconFirst = 0
 
 VipIconLast = 10
-
-
 
 Directions = {
 
@@ -98,8 +81,6 @@ Directions = {
   NorthWest = 7
 
 }
-
-
 
 Skill = {
 
@@ -131,8 +112,6 @@ Skill = {
 
 }
 
-
-
 North = Directions.North
 
 East = Directions.East
@@ -149,21 +128,15 @@ SouthWest = Directions.SouthWest
 
 NorthWest = Directions.NorthWest
 
-
-
 FightOffensive = 1
 
 FightBalanced = 2
 
 FightDefensive = 3
 
-
-
 DontChase = 0
 
 ChaseOpponent = 1
-
-
 
 PVPWhiteDove = 0
 
@@ -172,8 +145,6 @@ PVPWhiteHand = 1
 PVPYellowHand = 2
 
 PVPRedFist = 3
-
-
 
 GameProtocolChecksum = 1
 
@@ -329,15 +300,11 @@ GamePrey = 78
 
 GameDoubleMagicLevel = 79
 
-
-
 GameExtendedOpcode = 80
 
 GameMinimapLimitedToSingleFloor = 81
 
 GameSendWorldName = 82
-
-
 
 GameDoubleLevel = 83
 
@@ -353,15 +320,11 @@ GameSequencedPackets = 88
 
 GameTibia12Protocol = 89
 
-
-
 GameNewWalking = 90
 
 GameSlowerManualWalking = 91
 
 GameItemTooltip = 93
-
-
 
 GameBot = 95
 
@@ -372,8 +335,6 @@ GameForceLight = 97
 GameNoDebug = 98
 
 GameBotProtection = 99
-
-
 
 GameCreatureDirectionPassable = 100
 
@@ -395,13 +356,9 @@ GameCountU16 = 108
 
 GameDrawAuraOnTop = 109
 
-
-
 GamePacketSizeU32 = 110
 
 GamePacketCompression = 111
-
-
 
 GameOldInformationBar = 112
 
@@ -410,8 +367,6 @@ GameHealthInfoBackground = 113
 GameWingOffset = 114
 
 GameAuraFrontAndBack = 115 -- To use that: First layer is bottom/back, second (blend layer) is top/front
-
-
 
 GameMapDrawGroundFirst = 116 -- useful for big auras & wings
 
@@ -437,11 +392,7 @@ GameItemCustomAttributes = 126
 
 GameAnimatedTextCustomFont = 127
 
-
-
 LastGameFeature = 130
-
-        
 
 TextColors = {
 
@@ -466,8 +417,6 @@ TextColors = {
   white     = '#ffffff', --'#bebebe'
 
 }
-
-
 
 MessageModes = {
 
@@ -581,8 +530,6 @@ MessageModes = {
 
 }
 
-
-
 OTSERV_RSA  = "1091201329673994292788609605089955415282375029027981291234687579" ..
 
               "3726629149257644633073969600111060390723088861007265581882535850" ..
@@ -592,8 +539,6 @@ OTSERV_RSA  = "1091201329673994292788609605089955415282375029027981291234687579"
               "6207862794310902180176810615217550567108238764764442605581471797" ..
 
               "07119674283982419152118103759076030616683978566631413"
-
-
 
 CIPSOFT_RSA = "1321277432058722840622950990822933849527763264961655079678763618" ..
 
@@ -605,13 +550,9 @@ CIPSOFT_RSA = "1321277432058722840622950990822933849527763264961655079678763618"
 
               "88792221429527047321331896351555606801473202394175817"
 
-
-
 -- set to the latest Tibia.pic signature to make otclient compatible with official tibia
 
 PIC_SIGNATURE = 0x56C5DDE7
-
-
 
 OsTypes = {
 
@@ -629,8 +570,6 @@ OsTypes = {
 
 }
 
-
-
 PathFindResults = {
 
   Ok = 0,
@@ -645,8 +584,6 @@ PathFindResults = {
 
 }
 
-
-
 PathFindFlags = {
 
   AllowNullTiles = 1,
@@ -659,8 +596,6 @@ PathFindFlags = {
 
 }
 
-
-
 VipState = {
 
   Offline = 0,
@@ -670,8 +605,6 @@ VipState = {
   Pending = 2,
 
 }
-
-
 
 ExtendedIds = {
 
@@ -693,8 +626,6 @@ ExtendedIds = {
 
 }
 
-
-
 PreviewState = {
 
   Default = 0,
@@ -704,8 +635,6 @@ PreviewState = {
   Active = 2
 
 }
-
-
 
 Blessings = {
 
@@ -725,8 +654,6 @@ Blessings = {
 
 }
 
-
-
 DeathType = {
 
   Regular = 0,
@@ -735,8 +662,6 @@ DeathType = {
 
 }
 
-
-
 ProductType = {
 
   Other = 0,
@@ -744,8 +669,6 @@ ProductType = {
   NameChange = 1
 
 }
-
-
 
 StoreErrorType = {
 
@@ -763,8 +686,6 @@ StoreErrorType = {
 
 }
 
-
-
 StoreState = {
 
   None = 0,
@@ -777,8 +698,6 @@ StoreState = {
 
 }
 
-
-
 AccountStatus = {
 
   Ok = 0,
@@ -789,8 +708,6 @@ AccountStatus = {
 
 }
 
-
-
 SubscriptionStatus = {
 
   Free = 0,
@@ -798,8 +715,6 @@ SubscriptionStatus = {
   Premium = 1,
 
 }
-
-
 
 ChannelEvent = {
 
@@ -813,29 +728,18 @@ ChannelEvent = {
 
 }
 
-
-
 -- @}
 
 ```
 
 ---
-
-
-
 # creature.lua
-
-
 
 ```lua
 
 -- @docclass Creature
 
-
-
 -- @docconsts @{
-
-
 
 SkullNone = 0
 
@@ -850,8 +754,6 @@ SkullRed = 4
 SkullBlack = 5
 
 SkullOrange = 6
-
-
 
 ShieldNone = 0
 
@@ -875,8 +777,6 @@ ShieldBlueNoSharedExp = 9
 
 ShieldYellowNoSharedExp = 10
 
-
-
 EmblemNone = 0
 
 EmblemGreen = 1
@@ -884,8 +784,6 @@ EmblemGreen = 1
 EmblemRed = 2
 
 EmblemBlue = 3
-
-
 
 NpcIconNone = 0
 
@@ -897,8 +795,6 @@ NpcIconQuest = 3
 
 NpcIconTradeQuest = 4
 
-
-
 CreatureTypePlayer = 0
 
 CreatureTypeMonster = 1
@@ -909,11 +805,7 @@ CreatureTypeSummonOwn = 3
 
 CreatureTypeSummonOther = 4
 
-
-
 -- @}
-
-
 
 function getNextSkullId(skullId)
 
@@ -926,8 +818,6 @@ function getNextSkullId(skullId)
   return SkullRed
 
 end
-
-
 
 function getSkullImagePath(skullId)
 
@@ -962,8 +852,6 @@ function getSkullImagePath(skullId)
   return path
 
 end
-
-
 
 function getShieldImagePathAndBlink(shieldId)
 
@@ -1019,8 +907,6 @@ function getShieldImagePathAndBlink(shieldId)
 
 end
 
-
-
 function getEmblemImagePath(emblemId)
 
   local path
@@ -1051,8 +937,6 @@ function getEmblemImagePath(emblemId)
 
 end
 
-
-
 function getTypeImagePath(creatureType)
 
   local path
@@ -1070,8 +954,6 @@ function getTypeImagePath(creatureType)
   return path
 
 end
-
-
 
 function getIconImagePath(iconId)
 
@@ -1099,8 +981,6 @@ function getIconImagePath(iconId)
 
 end
 
-
-
 function Creature:onSkullChange(skullId)
 
   local imagePath = getSkullImagePath(skullId)
@@ -1112,8 +992,6 @@ function Creature:onSkullChange(skullId)
   end
 
 end
-
-
 
 function Creature:onShieldChange(shieldId)
 
@@ -1127,8 +1005,6 @@ function Creature:onShieldChange(shieldId)
 
 end
 
-
-
 function Creature:onEmblemChange(emblemId)
 
   local imagePath = getEmblemImagePath(emblemId)
@@ -1140,8 +1016,6 @@ function Creature:onEmblemChange(emblemId)
   end
 
 end
-
-
 
 function Creature:onTypeChange(typeId)
 
@@ -1155,8 +1029,6 @@ function Creature:onTypeChange(typeId)
 
 end
 
-
-
 function Creature:onIconChange(iconId)
 
   local imagePath = getIconImagePath(iconId)
@@ -1168,8 +1040,6 @@ function Creature:onIconChange(iconId)
   end
 
 end
-
-
 
 function Creature:setOutfitShader(shader)
 
@@ -1184,12 +1054,7 @@ end
 ```
 
 ---
-
-
-
 # game.lua
-
-
 
 ```lua
 
@@ -1198,8 +1063,6 @@ function g_game.getRsa()
   return G.currentRsa
 
 end
-
-
 
 function g_game.findPlayerItem(itemId, subType)
 
@@ -1221,13 +1084,9 @@ function g_game.findPlayerItem(itemId, subType)
 
     end
 
-
-
     return g_game.findItemInContainers(itemId, subType)
 
 end
-
-
 
 function g_game.chooseRsa(host)
 
@@ -1236,8 +1095,6 @@ function g_game.chooseRsa(host)
   if host:ends('.tibia.com') or host:ends('.cipsoft.com') then
 
     g_game.setRsa(CIPSOFT_RSA)
-
-
 
     if g_app.getOs() == 'windows' then
 
@@ -1261,8 +1118,6 @@ function g_game.chooseRsa(host)
 
   end
 
-
-
   -- Hack fix to resolve some 760 login issues
 
   if g_game.getClientVersion() <= 760 then
@@ -1272,8 +1127,6 @@ function g_game.chooseRsa(host)
   end
 
 end
-
-
 
 function g_game.setRsa(rsa, e)
 
@@ -1285,15 +1138,11 @@ function g_game.setRsa(rsa, e)
 
 end
 
-
-
 function g_game.isOfficialTibia()
 
   return G.currentRsa == CIPSOFT_RSA
 
 end
-
-
 
 function g_game.getSupportedClients()
 
@@ -1303,8 +1152,6 @@ function g_game.getSupportedClients()
 
     780, 781, 782, 790, 792,
 
-
-
     800, 810, 811, 820, 821, 822,
 
     830, 831, 840, 842, 850, 853,
@@ -1312,8 +1159,6 @@ function g_game.getSupportedClients()
     854, 855, 857, 860, 861, 862,
 
     870, 871,
-
-
 
     900, 910, 920, 931, 940, 943,
 
@@ -1324,8 +1169,6 @@ function g_game.getSupportedClients()
     980, 981, 982, 983, 984, 985,
 
     986,
-
-
 
     1000, 1001, 1002, 1010, 1011,
 
@@ -1351,11 +1194,9 @@ function g_game.getSupportedClients()
 
     1098, 1099
 
-  }
+}
 
 end
-
-
 
 -- The client version and protocol version where
 
@@ -1363,13 +1204,9 @@ end
 
 -- will be the normal standard.
 
-
-
 -- Client Version: Publicly given version when
 
 -- downloading Cipsoft client.
-
-
 
 -- Protocol Version: Previously was the same as
 
@@ -1379,19 +1216,13 @@ end
 
 -- if it does not match the client version.
 
-
-
 -- Reason for defining both: The server now requires a
 
 -- Client version and Protocol version from the client.
 
-
-
 -- Important: Use getClientVersion for specific protocol
 
 -- features to ensure we are using the proper version.
-
-
 
 function g_game.getClientProtocolVersion(client)
 
@@ -1415,13 +1246,11 @@ function g_game.getClientProtocolVersion(client)
 
     [1002] = 980
 
-  }
+}
 
   return clients[client] or client
 
 end
-
-
 
 if not G.currentRsa then
 
@@ -1432,12 +1261,7 @@ end
 ```
 
 ---
-
-
-
 # gamelib.otmod
-
-
 
 ```text
 
@@ -1450,8 +1274,6 @@ Module
   author: OTClient team
 
   website: https://github.com/edubart/otclient
-
-
 
   @onLoad: |
 
@@ -1469,8 +1291,6 @@ Module
 
     dofile 'game'
 
-
-
     dofile 'creature'
 
     dofile 'player'
@@ -1483,19 +1303,12 @@ Module
 
     dofile 'spells'
 
-
-
     dofiles 'ui'
 
 ```
 
 ---
-
-
-
 # market.lua
-
-
 
 ```lua
 
@@ -1507,8 +1320,6 @@ MarketMaxPrice = 999999999
 
 MarketMaxOffers = 100
 
-
-
 MarketAction = {
 
   Buy = 0,
@@ -1517,8 +1328,6 @@ MarketAction = {
 
 }
 
-
-
 MarketRequest = {
 
   MyOffers = 0xFFFE,
@@ -1526,8 +1335,6 @@ MarketRequest = {
   MyHistory = 0xFFFF
 
 }
-
-
 
 MarketOfferState = {
 
@@ -1542,8 +1349,6 @@ MarketOfferState = {
   AcceptedEx = 255
 
 }
-
-
 
 MarketCategory = {
 
@@ -1615,13 +1420,9 @@ MarketCategory = {
 
 }
 
-
-
 MarketCategory.First = MarketCategory.Armors
 
 MarketCategory.Last = MarketCategory.Unassigned
-
-
 
 MarketCategoryWeapons = {
 
@@ -1638,8 +1439,6 @@ MarketCategoryWeapons = {
   [MarketCategory.WandsRods] = { slots = {255, InventorySlotOther, InventorySlotLeft} }
 
 }
-
-
 
 MarketCategoryStrings = {
 
@@ -1711,8 +1510,6 @@ MarketCategoryStrings = {
 
 }
 
-
-
 function getMarketCategoryName(id)
 
   if table.haskey(MarketCategoryStrings, id) then
@@ -1722,8 +1519,6 @@ function getMarketCategoryName(id)
   end
 
 end
-
-
 
 function getMarketCategoryId(name)
 
@@ -1736,8 +1531,6 @@ function getMarketCategoryId(name)
   end
 
 end
-
-
 
 MarketItemDescription = {
 
@@ -1775,13 +1568,9 @@ MarketItemDescription = {
 
 }
 
-
-
 MarketItemDescription.First = MarketItemDescription.Armor
 
 MarketItemDescription.Last = MarketItemDescription.Weight
-
-
 
 MarketItemDescriptionStrings = {
 
@@ -1819,8 +1608,6 @@ MarketItemDescriptionStrings = {
 
 }
 
-
-
 function getMarketDescriptionName(id)
 
   if table.haskey(MarketItemDescriptionStrings, id) then
@@ -1830,8 +1617,6 @@ function getMarketDescriptionName(id)
   end
 
 end
-
-
 
 function getMarketDescriptionId(name)
 
@@ -1845,8 +1630,6 @@ function getMarketDescriptionId(name)
 
 end
 
-
-
 MarketSlotFilters = {
 
   [InventorySlotOther] = "Two-Handed",
@@ -1856,8 +1639,6 @@ MarketSlotFilters = {
   [255] = "Any"
 
 }
-
-
 
 MarketFilters = {
 
@@ -1871,13 +1652,9 @@ MarketFilters = {
 
 }
 
-
-
 MarketFilters.First = MarketFilters.Vocation
 
 MarketFilters.Last = MarketFilters.Depot
-
-
 
 function getMarketSlotFilterId(name)
 
@@ -1890,8 +1667,6 @@ function getMarketSlotFilterId(name)
   end
 
 end
-
-
 
 function getMarketSlotFilterName(id)
 
@@ -1906,18 +1681,11 @@ end
 ```
 
 ---
-
-
-
 # player.lua
-
-
 
 ```lua
 
 -- @docclass Player
-
-
 
 PlayerStates = {
 
@@ -1959,8 +1727,6 @@ PlayerStates = {
 
 }
 
-
-
 InventorySlotOther = 0
 
 InventorySlotHead = 1
@@ -1985,13 +1751,9 @@ InventorySlotAmmo = 10
 
 InventorySlotPurse = 11
 
-
-
 InventorySlotFirst = 1
 
 InventorySlotLast = 10
-
-
 
 function Player:isPartyLeader()
 
@@ -2006,8 +1768,6 @@ function Player:isPartyLeader()
           shield == ShieldYellowNoSharedExp)
 
 end
-
-
 
 function Player:isPartyMember()
 
@@ -2031,8 +1791,6 @@ function Player:isPartyMember()
 
 end
 
-
-
 function Player:isPartySharedExperienceActive()
 
   local shield = self:getShield()
@@ -2051,8 +1809,6 @@ function Player:isPartySharedExperienceActive()
 
 end
 
-
-
 function Player:hasVip(creatureName)
 
   for id, vip in pairs(g_game.getVips()) do
@@ -2065,8 +1821,6 @@ function Player:hasVip(creatureName)
 
 end
 
-
-
 function Player:isMounted()
 
   local outfit = self:getOutfit()
@@ -2074,8 +1828,6 @@ function Player:isMounted()
   return outfit.mount ~= nil and outfit.mount > 0
 
 end
-
-
 
 function Player:toggleMount()
 
@@ -2087,8 +1839,6 @@ function Player:toggleMount()
 
 end
 
-
-
 function Player:mount()
 
   if g_game.getFeature(GamePlayerMounts) then
@@ -2098,8 +1848,6 @@ function Player:mount()
   end
 
 end
-
-
 
 function Player:dismount()
 
@@ -2111,21 +1859,15 @@ function Player:dismount()
 
 end
 
-
-
 function Player:getItem(itemId, subType)
 
   return g_game.findPlayerItem(itemId, subType or -1)
 
 end
 
-
-
 function Player:getItems(itemId, subType)
 
   local subType = subType or -1
-
-
 
   local items = {}
 
@@ -2140,8 +1882,6 @@ function Player:getItems(itemId, subType)
     end
 
   end
-
-
 
   for i, container in pairs(g_game.getContainers()) do
 
@@ -2163,8 +1903,6 @@ function Player:getItems(itemId, subType)
 
 end
 
-
-
 function Player:getItemsCount(itemId)
 
   local items, count = self:getItems(itemId), 0
@@ -2179,8 +1917,6 @@ function Player:getItemsCount(itemId)
 
 end
 
-
-
 function Player:hasState(state, states)
 
   if not states then
@@ -2189,15 +1925,11 @@ function Player:hasState(state, states)
 
   end
 
-
-
   for i = 1, 32 do
 
     local pow = math.pow(2, i-1)
 
     if pow > states then break end
-
-
 
     local states = bit32.band(states, pow)
 
@@ -2216,26 +1948,17 @@ end
 ```
 
 ---
-
-
-
 # position.lua
-
-
 
 ```lua
 
 Position = {}
-
-
 
 function Position.equals(pos1, pos2)
 
   return pos1.x == pos2.x and pos1.y == pos2.y and pos1.z == pos2.z
 
 end
-
-
 
 function Position.greaterThan(pos1, pos2, orEqualTo)
 
@@ -2251,8 +1974,6 @@ function Position.greaterThan(pos1, pos2, orEqualTo)
 
 end
 
-
-
 function Position.lessThan(pos1, pos2, orEqualTo)
 
   if orEqualTo then
@@ -2267,15 +1988,11 @@ function Position.lessThan(pos1, pos2, orEqualTo)
 
 end
 
-
-
 function Position.isInRange(pos1, pos2, xRange, yRange)
 
   return math.abs(pos1.x-pos2.x) <= xRange and math.abs(pos1.y-pos2.y) <= yRange and pos1.z == pos2.z;
 
 end
-
-
 
 function Position.isValid(pos)
 
@@ -2283,15 +2000,11 @@ function Position.isValid(pos)
 
 end
 
-
-
 function Position.distance(pos1, pos2)
 
   return math.sqrt(math.pow((pos2.x - pos1.x), 2) + math.pow((pos2.y - pos1.y), 2))
 
 end
-
-
 
 function Position.manhattanDistance(pos1, pos2)
 
@@ -2302,12 +2015,7 @@ end
 ```
 
 ---
-
-
-
 # protocol.lua
-
-
 
 ```lua
 
@@ -2335,25 +2043,17 @@ GameServerOpcodes = {
 
     GameServerDeath                     = 40,
 
-
-
     -- all in game opcodes must be greater than 50
 
     GameServerFirstGameOpcode           = 50,
-
-
 
     -- otclient ONLY
 
     GameServerExtendedOpcode            = 50,
 
-
-
     -- NOTE: add any custom opcodes in this range
 
     -- 51 - 99
-
-
 
     -- original tibia ONLY
 
@@ -2529,8 +2229,6 @@ GameServerOpcodes = {
 
 }
 
-
-
 ClientOpcodes = {
 
     ClientEnterAccount                  = 1,
@@ -2543,25 +2241,17 @@ ClientOpcodes = {
 
     ClientPingBack                      = 30,
 
-
-
     -- all in game opcodes must be equal or greater than 50
 
     ClientFirstGameOpcode               = 50,
-
-
 
     -- otclient ONLY
 
     ClientExtendedOpcode                = 50,
 
-
-
     -- NOTE: add any custom opcodes in this range
 
     -- 51 - 99
-
-
 
     -- original tibia ONLY
 
@@ -2726,12 +2416,7 @@ ClientOpcodes = {
 ```
 
 ---
-
-
-
 # protocolgame.lua
-
-
 
 ```lua
 
@@ -2744,8 +2429,6 @@ local extendedJSONCallbacks = {}
 local extendedJSONData = {}
 
 local maxPacketSize = 65000
-
-
 
 function ProtocolGame:onOpcode(opcode, msg)
 
@@ -2765,8 +2448,6 @@ function ProtocolGame:onOpcode(opcode, msg)
 
 end
 
-
-
 function ProtocolGame:onExtendedOpcode(opcode, buffer)
 
   local callback = extendedCallbacks[opcode]
@@ -2776,8 +2457,6 @@ function ProtocolGame:onExtendedOpcode(opcode, buffer)
     callback(self, opcode, buffer)
 
   end
-
-  
 
   callback = extendedJSONCallbacks[opcode]
 
@@ -2825,8 +2504,6 @@ function ProtocolGame:onExtendedOpcode(opcode, buffer)
 
 end
 
-
-
 function ProtocolGame.registerOpcode(opcode, callback)
 
   if opcodeCallbacks[opcode] then
@@ -2835,21 +2512,15 @@ function ProtocolGame.registerOpcode(opcode, callback)
 
   end
 
-
-
   opcodeCallbacks[opcode] = callback
 
 end
-
-
 
 function ProtocolGame.unregisterOpcode(opcode)
 
   opcodeCallbacks[opcode] = nil
 
 end
-
-
 
 function ProtocolGame.registerExtendedOpcode(opcode, callback)
 
@@ -2859,15 +2530,11 @@ function ProtocolGame.registerExtendedOpcode(opcode, callback)
 
   end
 
-
-
   if opcode < 0 or opcode > 255 then
 
     error('Invalid opcode. Range: 0-255')
 
   end
-
-
 
   if extendedCallbacks[opcode] then
 
@@ -2875,13 +2542,9 @@ function ProtocolGame.registerExtendedOpcode(opcode, callback)
 
   end
 
-
-
   extendedCallbacks[opcode] = callback
 
 end
-
-
 
 function ProtocolGame.unregisterExtendedOpcode(opcode)
 
@@ -2891,21 +2554,15 @@ function ProtocolGame.unregisterExtendedOpcode(opcode)
 
   end
 
-
-
   if not extendedCallbacks[opcode] then
 
     error('Opcode is not registered.')
 
   end
 
-
-
   extendedCallbacks[opcode] = nil
 
 end
-
-
 
 function ProtocolGame.registerExtendedJSONOpcode(opcode, callback)
 
@@ -2915,15 +2572,11 @@ function ProtocolGame.registerExtendedJSONOpcode(opcode, callback)
 
   end
 
-
-
   if opcode < 0 or opcode > 255 then
 
     error('Invalid opcode. Range: 0-255')
 
   end
-
-
 
   if extendedJSONCallbacks[opcode] then
 
@@ -2931,13 +2584,9 @@ function ProtocolGame.registerExtendedJSONOpcode(opcode, callback)
 
   end
 
-
-
   extendedJSONCallbacks[opcode] = callback
 
 end
-
-
 
 function ProtocolGame.unregisterExtendedJSONOpcode(opcode)
 
@@ -2947,21 +2596,15 @@ function ProtocolGame.unregisterExtendedJSONOpcode(opcode)
 
   end
 
-
-
   if not extendedJSONCallbacks[opcode] then
 
     error('Opcode is not registered.')
 
   end
 
-
-
   extendedJSONCallbacks[opcode] = nil
 
 end
-
-
 
 function ProtocolGame:sendExtendedJSONOpcode(opcode, data)
 
@@ -2971,15 +2614,11 @@ function ProtocolGame:sendExtendedJSONOpcode(opcode, data)
 
   end
 
-
-
   if type(data) ~= "table" then
 
     error('Invalid data type, should be table')
 
   end
-
-  
 
   local buffer = json.encode(data)  
 
@@ -3014,20 +2653,13 @@ end
 ```
 
 ---
-
-
-
 # protocollogin.lua
-
-
 
 ```lua
 
 -- @docclass
 
 ProtocolLogin = extends(Protocol, "ProtocolLogin")
-
-
 
 LoginServerError = 10
 
@@ -3049,15 +2681,11 @@ LoginServerExtendedCharacterList = 101
 
 LoginServerProxyList = 110
 
-
-
 -- Since 10.76
 
 LoginServerRetry = 10
 
 LoginServerErrorNew = 11
-
-
 
 function ProtocolLogin:login(host, port, accountName, accountPassword, authenticatorToken, stayLogged)
 
@@ -3069,8 +2697,6 @@ function ProtocolLogin:login(host, port, accountName, accountPassword, authentic
 
   end
 
-
-
   self.accountName = accountName
 
   self.accountPassword = accountPassword
@@ -3081,21 +2707,15 @@ function ProtocolLogin:login(host, port, accountName, accountPassword, authentic
 
   self.connectCallback = self.sendLoginPacket
 
-
-
   self:connect(host, port)
 
 end
-
-
 
 function ProtocolLogin:cancelLogin()
 
   self:disconnect()
 
 end
-
-
 
 function ProtocolLogin:sendLoginPacket()
 
@@ -3115,15 +2735,11 @@ function ProtocolLogin:sendLoginPacket()
 
   end
 
-
-
   if g_game.getFeature(GameClientVersion) then
 
     msg:addU32(g_game.getClientVersion())
 
   end
-
-
 
   if g_game.getFeature(GameContentRevision) then
 
@@ -3141,15 +2757,11 @@ function ProtocolLogin:sendLoginPacket()
 
   msg:addU32(PIC_SIGNATURE)
 
-
-
   if g_game.getFeature(GamePreviewState) then
 
     msg:addU8(0)
 
   end
-
-
 
   local offset = msg:getMessageSize()
 
@@ -3158,8 +2770,6 @@ function ProtocolLogin:sendLoginPacket()
     -- first RSA byte must be 0
 
     msg:addU8(0)
-
-
 
     -- xtea key
 
@@ -3177,8 +2787,6 @@ function ProtocolLogin:sendLoginPacket()
 
   end
 
-
-
   if g_game.getFeature(GameAccountNames) then
 
     msg:addString(self.accountName)
@@ -3189,11 +2797,7 @@ function ProtocolLogin:sendLoginPacket()
 
   end
 
-
-
   msg:addString(self.accountPassword)
-
-
 
   if self.getLoginExtendedData then
 
@@ -3217,8 +2821,6 @@ function ProtocolLogin:sendLoginPacket()
 
   end
 
-
-
   local paddingBytes = g_crypt.rsaGetSize() - (msg:getMessageSize() - offset)
 
   assert(paddingBytes >= 0)
@@ -3229,23 +2831,17 @@ function ProtocolLogin:sendLoginPacket()
 
   end
 
-
-
   if g_game.getFeature(GameLoginPacketEncryption) then
 
     msg:encryptRsa()
 
   end
 
-
-
   if g_game.getFeature(GameOGLInformation) then
 
     msg:addU8(1) --unknown
 
     msg:addU8(1) --unknown
-
-
 
     if g_game.getProtocolVersion() >= 1072 then
 
@@ -3261,15 +2857,11 @@ function ProtocolLogin:sendLoginPacket()
 
   end
 
-
-
   -- add RSA encrypted auth token
 
   if g_game.getFeature(GameAuthenticator) then
 
     offset = msg:getMessageSize()
-
-
 
     -- first RSA byte must be 0
 
@@ -3277,15 +2869,11 @@ function ProtocolLogin:sendLoginPacket()
 
     msg:addString(self.authenticatorToken)
 
-
-
     if g_game.getFeature(GameSessionKey) then
 
       msg:addU8(booleantonumber(self.stayLogged))
 
     end
-
-
 
     paddingBytes = g_crypt.rsaGetSize() - (msg:getMessageSize() - offset)
 
@@ -3297,13 +2885,9 @@ function ProtocolLogin:sendLoginPacket()
 
     end
 
-
-
     msg:encryptRsa()
 
   end
-
-
 
   if g_game.getFeature(GamePacketSizeU32) then
 
@@ -3311,15 +2895,11 @@ function ProtocolLogin:sendLoginPacket()
 
   end
 
-
-
   if g_game.getFeature(GameProtocolChecksum) then
 
     self:enableChecksum()
 
   end
-
-
 
   self:send(msg)
 
@@ -3333,8 +2913,6 @@ function ProtocolLogin:sendLoginPacket()
 
 end
 
-
-
 function ProtocolLogin:onConnect()
 
   self.gotConnection = true
@@ -3344,8 +2922,6 @@ function ProtocolLogin:onConnect()
   self.connectCallback = nil
 
 end
-
-
 
 function ProtocolLogin:onRecv(msg)
 
@@ -3431,8 +3007,6 @@ function ProtocolLogin:onRecv(msg)
 
 end
 
-
-
 function ProtocolLogin:parseError(msg)
 
   local errorMessage = msg:getString()
@@ -3440,8 +3014,6 @@ function ProtocolLogin:parseError(msg)
   signalcall(self.onLoginError, self, errorMessage)
 
 end
-
-
 
 function ProtocolLogin:parseMotd(msg)
 
@@ -3451,8 +3023,6 @@ function ProtocolLogin:parseMotd(msg)
 
 end
 
-
-
 function ProtocolLogin:parseSessionKey(msg)
 
   local sessionKey = msg:getString()
@@ -3461,19 +3031,13 @@ function ProtocolLogin:parseSessionKey(msg)
 
 end
 
-
-
 function ProtocolLogin:parseCharacterList(msg)
 
   local characters = {}
 
-
-
   if g_game.getProtocolVersion() > 1010 then
 
     local worlds = {}
-
-
 
     local worldsCount = msg:getU8()
 
@@ -3494,8 +3058,6 @@ function ProtocolLogin:parseCharacterList(msg)
       worlds[worldId] = world
 
     end
-
-
 
     local charactersCount = msg:getU8()
 
@@ -3519,8 +3081,6 @@ function ProtocolLogin:parseCharacterList(msg)
 
     end
 
-
-
   else
 
     local charactersCount = msg:getU8()
@@ -3537,23 +3097,17 @@ function ProtocolLogin:parseCharacterList(msg)
 
       character.worldPort = msg:getU16()
 
-
-
       if g_game.getFeature(GamePreviewState) then
 
         character.previewState = msg:getU8()
 
       end
 
-
-
       characters[i] = character
 
     end
 
   end
-
-
 
   local account = {}
 
@@ -3562,8 +3116,6 @@ function ProtocolLogin:parseCharacterList(msg)
     account.status = msg:getU8()
 
     account.subStatus = msg:getU8()
-
-
 
     account.premDays = msg:getU32()
 
@@ -3583,13 +3135,9 @@ function ProtocolLogin:parseCharacterList(msg)
 
   end
 
-
-
   signalcall(self.onCharacterList, self, characters, account)
 
 end
-
-
 
 function ProtocolLogin:parseExtendedCharacterList(msg)
 
@@ -3603,15 +3151,11 @@ function ProtocolLogin:parseExtendedCharacterList(msg)
 
 end
 
-
-
 function ProtocolLogin:parseOpcode(opcode, msg)
 
   signalcall(self.onOpcode, self, opcode, msg)
 
 end
-
-
 
 function ProtocolLogin:onError(msg, code)
 
@@ -3624,12 +3168,7 @@ end
 ```
 
 ---
-
-
-
 # spells.lua
-
-
 
 ```lua
 
@@ -3649,8 +3188,6 @@ SpelllistSettings = {
 
   }--[[,
 
-
-
   ['Sample'] =  {
 
     iconFile = '/images/game/spells/sample',
@@ -3662,8 +3199,6 @@ SpelllistSettings = {
   }]]
 
 }
-
-
 
 SpellInfo = {
 
@@ -3947,11 +3482,7 @@ SpellInfo = {
 
     ['Divine Dazzle'] =            {id = 101, words = 'exana amp res',         exhaustion = 16000, premium = true,  type = 'Instant', icon = 'divinedazzle',           mana = 80,     level = 250,soul = 0, group = {[3] = 2000},               vocations = {3, 7}},
 
-
-
   }--[[,
-
-
 
   ['Sample'] = {
 
@@ -3968,8 +3499,6 @@ SpellInfo = {
   }]]
 
 }
-
-
 
 -- ['const_name'] =       {client_id, TFS_id}
 
@@ -4283,8 +3812,6 @@ SpellIcons = {
 
 }
 
-
-
 VocationNames = {
 
   [1] = 'Sorcerer',
@@ -4305,8 +3832,6 @@ VocationNames = {
 
 }
 
-
-
 SpellGroups = {
 
   [1] = 'Attack',
@@ -4321,17 +3846,11 @@ SpellGroups = {
 
 }
 
-
-
 Spells = {}
-
-
 
 function Spells.getClientId(spellName)
 
   local profile = Spells.getSpellProfileByName(spellName)
-
-
 
   local id = SpellInfo[profile][spellName].icon
 
@@ -4345,13 +3864,9 @@ function Spells.getClientId(spellName)
 
 end
 
-
-
 function Spells.getServerId(spellName)
 
   local profile = Spells.getSpellProfileByName(spellName)
-
-
 
   local id = SpellInfo[profile][spellName].icon
 
@@ -4365,15 +3880,11 @@ function Spells.getServerId(spellName)
 
 end
 
-
-
 function Spells.getSpellByName(name)
 
   return SpellInfo[Spells.getSpellProfileByName(name)][name]
 
 end
-
-
 
 function Spells.getSpellByWords(words)
 
@@ -4397,8 +3908,6 @@ function Spells.getSpellByWords(words)
 
 end
 
-
-
 function Spells.getSpellByIcon(iconId)
 
   for profile,data in pairs(SpellInfo) do
@@ -4419,8 +3928,6 @@ function Spells.getSpellByIcon(iconId)
 
 end
 
-
-
 function Spells.getSpellIconIds()
 
   local ids = {}
@@ -4438,8 +3945,6 @@ function Spells.getSpellIconIds()
   return ids
 
 end
-
-
 
 function Spells.getSpellProfileById(id)
 
@@ -4461,8 +3966,6 @@ function Spells.getSpellProfileById(id)
 
 end
 
-
-
 function Spells.getSpellProfileByWords(words)
 
   for profile,data in pairs(SpellInfo) do
@@ -4483,8 +3986,6 @@ function Spells.getSpellProfileByWords(words)
 
 end
 
-
-
 function Spells.getSpellProfileByName(spellName)
 
   for profile,data in pairs(SpellInfo) do
@@ -4500,8 +4001,6 @@ function Spells.getSpellProfileByName(spellName)
   return nil
 
 end
-
-
 
 function Spells.getSpellsByVocationId(vocId)
 
@@ -4525,8 +4024,6 @@ function Spells.getSpellsByVocationId(vocId)
 
 end
 
-
-
 function Spells.filterSpellsByGroups(spells, groups)
 
   local filtered = {}
@@ -4547,8 +4044,6 @@ function Spells.filterSpellsByGroups(spells, groups)
 
 end
 
-
-
 function Spells.getGroupIds(spell)
 
   local groups = {}
@@ -4562,8 +4057,6 @@ function Spells.getGroupIds(spell)
   return groups
 
 end
-
-
 
 function Spells.getImageClip(id, profile)
 
@@ -4580,18 +4073,11 @@ end
 ```
 
 ---
-
-
-
 # textmessages.lua
-
-
 
 ```lua
 
 local messageModeCallbacks = {}
-
-
 
 function g_game.onTextMessage(messageMode, message)
 
@@ -4605,8 +4091,6 @@ function g_game.onTextMessage(messageMode, message)
 
   end
 
-
-
   for _, callback in pairs(callbacks) do
 
     callback(messageMode, message)
@@ -4614,8 +4098,6 @@ function g_game.onTextMessage(messageMode, message)
   end
 
 end
-
-
 
 function registerMessageMode(messageMode, callback)
 
@@ -4625,15 +4107,11 @@ function registerMessageMode(messageMode, callback)
 
   end
 
-
-
   table.insert(messageModeCallbacks[messageMode], callback)
 
   return true
 
 end
-
-
 
 function unregisterMessageMode(messageMode, callback)
 
@@ -4643,8 +4121,6 @@ function unregisterMessageMode(messageMode, callback)
 
   end
 
-
-
   return table.removevalue(messageModeCallbacks[messageMode], callback)
 
 end
@@ -4652,12 +4128,7 @@ end
 ```
 
 ---
-
-
-
 # thing.lua
-
-
 
 ```lua
 
@@ -4672,8 +4143,6 @@ ThingCategoryMissile = 3
 ThingInvalidCategory = 4
 
 ThingLastCategory = ThingInvalidCategory
-
-
 
 ThingAttrGround           = 0
 
@@ -4749,8 +4218,6 @@ ThingAttrChargeable       = 254 -- deprecated
 
 ThingLastAttr             = 255
 
-
-
 SpriteMaskRed = 1
 
 SpriteMaskGreen = 2
@@ -4762,12 +4229,7 @@ SpriteMaskYellow = 4
 ```
 
 ---
-
-
-
 # util.lua
-
-
 
 ```lua
 
@@ -4776,8 +4238,6 @@ function postostring(pos)
   return pos.x .. " " .. pos.y .. " " .. pos.z
 
 end
-
-
 
 function dirtostring(dir)
 
@@ -4796,6 +4256,3 @@ end
 ```
 
 ---
-
-
-

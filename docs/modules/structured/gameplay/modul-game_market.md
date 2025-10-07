@@ -1,9 +1,4 @@
-# ¦ Modul: `game_market`
-
-
-
-
-
+﻿# ¦ Modul: `game_market`
 
 ```lua
 
@@ -15,11 +10,7 @@
 
             it as a pull request from your git fork.
 
-
-
       BeniS's Skype: benjiz69
-
-
 
       List:
 
@@ -29,29 +20,19 @@
 
         - Offer History
 
-
-
       * Clean up the interface building
 
         - Add a new market interface file to handle building?
-
-
 
       * Extend information features
 
         - Hover over offers for purchase information (balance after transaction, etc)
 
-  ]]
-
-
+]]
 
 Market = {}
 
-
-
 local protocol = runinsandbox('marketprotocol')
-
-
 
 marketWindow = nil
 
@@ -62,8 +43,6 @@ displaysTabBar = nil
 offersTabBar = nil
 
 selectionTabBar = nil
-
-
 
 marketOffersPanel = nil
 
@@ -92,8 +71,6 @@ itemsPanel = nil
 selectedOffer = {}
 
 selectedMyOffer = {}
-
-
 
 nameLabel = nil
 
@@ -131,8 +108,6 @@ anonymous = nil
 
 filterButtons = {}
 
-
-
 buyOfferTable = nil
 
 sellOfferTable = nil
@@ -143,8 +118,6 @@ buyStatsTable = nil
 
 sellStatsTable = nil
 
-
-
 buyCancelButton = nil
 
 sellCancelButton = nil
@@ -154,8 +127,6 @@ buyMyOfferTable = nil
 sellMyOfferTable = nil
 
 myOfferHistoryTabel = nil
-
-
 
 offerExhaust = {}
 
@@ -177,11 +148,7 @@ averagePrice = 0
 
 tibiaCoins = 0
 
-
-
 loaded = false
-
-
 
 local function isItemValid(item, category, searchFilter)
 
@@ -190,8 +157,6 @@ local function isItemValid(item, category, searchFilter)
     return false
 
   end
-
-
 
   if not category then
 
@@ -205,8 +170,6 @@ local function isItemValid(item, category, searchFilter)
 
   end
 
-
-
   -- filter item
 
   local slotFilter = false
@@ -219,15 +182,11 @@ local function isItemValid(item, category, searchFilter)
 
   local marketData = item.marketData
 
-
-
   local filterVocation = filterButtons[MarketFilters.Vocation]:isChecked()
 
   local filterLevel = filterButtons[MarketFilters.Level]:isChecked()
 
   local filterDepot = filterButtons[MarketFilters.Depot]:isChecked()
-
-
 
   if slotFilter then
 
@@ -275,8 +234,6 @@ local function isItemValid(item, category, searchFilter)
 
 end
 
-
-
 local function clearItems()
 
   currentItems = {}
@@ -284,8 +241,6 @@ local function clearItems()
   Market.refreshItemsWidget()
 
 end
-
-
 
 local function clearOffers()
 
@@ -298,8 +253,6 @@ local function clearOffers()
   sellOfferTable:clearData()
 
 end
-
-
 
 local function clearMyOffers()
 
@@ -315,8 +268,6 @@ local function clearMyOffers()
 
 end
 
-
-
 local function clearFilters()
 
   for _, filter in pairs(filterButtons) do
@@ -331,8 +282,6 @@ local function clearFilters()
 
 end
 
-
-
 local function clearFee()
 
   feeLabel:setText('')
@@ -341,15 +290,11 @@ local function clearFee()
 
 end
 
-
-
 local function refreshTypeList()
 
   offerTypeList:clearOptions()
 
   offerTypeList:addOption('Buy')
-
-
 
   if Market.isItemSelected() then
 
@@ -362,8 +307,6 @@ local function refreshTypeList()
   end
 
 end
-
-
 
 local function addOffer(offer, offerType)
 
@@ -391,19 +334,13 @@ local function addOffer(offer, offerType)
 
   end
 
-
-
   buyOfferTable:toggleSorting(false)
 
   sellOfferTable:toggleSorting(false)
 
-
-
   buyMyOfferTable:toggleSorting(false)
 
   sellMyOfferTable:toggleSorting(false)
-
-  
 
   if amount < 1 then return false end
 
@@ -414,8 +351,6 @@ local function addOffer(offer, offerType)
       buyOfferTable:setColumnStyle('OfferTableWarningColumn', true)
 
     end
-
-
 
     local row = nil
 
@@ -433,7 +368,7 @@ local function addOffer(offer, offerType)
 
         {text = string.gsub(os.date('%H:%M %d/%m/%y', timestamp), " ", "  "), sortvalue = timestamp}
 
-      })
+})
 
     else
 
@@ -449,13 +384,11 @@ local function addOffer(offer, offerType)
 
         {text = string.gsub(os.date('%H:%M %d/%m/%y', timestamp), " ", "  ")}
 
-      })
+})
 
     end
 
     row.ref = id
-
-
 
     if offer.warn then
 
@@ -473,8 +406,6 @@ local function addOffer(offer, offerType)
 
     end
 
-
-
     local row = nil
 
     if offer.var == MarketRequest.MyOffers then
@@ -491,7 +422,7 @@ local function addOffer(offer, offerType)
 
         {text = string.gsub(os.date('%H:%M %d/%m/%y', timestamp), " ", "  "), sortvalue = timestamp}
 
-      })
+})
 
     else
 
@@ -507,13 +438,11 @@ local function addOffer(offer, offerType)
 
         {text = string.gsub(os.date('%H:%M %d/%m/%y', timestamp), " ", "  "), sortvalue = timestamp}
 
-      })
+})
 
     end
 
     row.ref = id
-
-
 
     if offer.warn then
 
@@ -525,8 +454,6 @@ local function addOffer(offer, offerType)
 
   end
 
-
-
   buyOfferTable:toggleSorting(false)
 
   sellOfferTable:toggleSorting(false)
@@ -534,8 +461,6 @@ local function addOffer(offer, offerType)
   buyOfferTable:sort()
 
   sellOfferTable:sort()
-
-
 
   buyMyOfferTable:toggleSorting(false)
 
@@ -545,13 +470,9 @@ local function addOffer(offer, offerType)
 
   sellMyOfferTable:sort()
 
-
-
   return true
 
 end
-
-
 
 local function mergeOffer(offer)
 
@@ -561,8 +482,6 @@ local function mergeOffer(offer)
 
   end
 
-
-
   local id = offer:getId()
 
   local offerType = offer:getType()
@@ -571,8 +490,6 @@ local function mergeOffer(offer)
 
   local replaced = false
 
-
-
   if offerType == MarketAction.Buy then
 
     if averagePrice > 0 then
@@ -580,8 +497,6 @@ local function mergeOffer(offer)
       offer.warn = offer:getPrice() <= averagePrice - math.floor(averagePrice / 4)
 
     end
-
-
 
     for i = 1, #marketOffers[MarketAction.Buy] do
 
@@ -613,8 +528,6 @@ local function mergeOffer(offer)
 
     end
 
-
-
     for i = 1, #marketOffers[MarketAction.Sell] do
 
       local o = marketOffers[MarketAction.Sell][i]
@@ -643,8 +556,6 @@ local function mergeOffer(offer)
 
 end
 
-
-
 local function updateOffers(offers)
 
   if not buyOfferTable or not sellOfferTable then
@@ -653,21 +564,15 @@ local function updateOffers(offers)
 
   end
 
-
-
   balanceLabel:setColor('#bbbbbb')
 
   selectedOffer[MarketAction.Buy] = nil
 
   selectedOffer[MarketAction.Sell] = nil
 
-
-
   selectedMyOffer[MarketAction.Buy] = nil
 
   selectedMyOffer[MarketAction.Sell] = nil
-
-
 
   -- clear existing offer data
 
@@ -679,19 +584,13 @@ local function updateOffers(offers)
 
   sellOfferTable:setSorting(4, TABLE_SORTING_ASC)
 
-
-
   sellButton:setEnabled(false)
 
   buyButton:setEnabled(false)
 
-
-
   buyCancelButton:setEnabled(false)
 
   sellCancelButton:setEnabled(false)
-
-
 
   for _, offer in pairs(offers) do
 
@@ -710,8 +609,6 @@ local function updateOffers(offers)
   end
 
 end
-
-
 
 local function updateHistoryOffers(offers)
 
@@ -739,8 +636,6 @@ local function updateHistoryOffers(offers)
 
     end
 
-        
-
     local offerTypeName = "?"
 
     if offerType == MarketAction.Buy then
@@ -752,8 +647,6 @@ local function updateHistoryOffers(offers)
       offerTypeName = "Sell"
 
     end
-
-    
 
     local row = myOfferHistoryTabel:addRow({
 
@@ -769,7 +662,7 @@ local function updateHistoryOffers(offers)
 
       {text = string.gsub(os.date('%H:%M %d/%m/%y', timestamp), " ", "  "), sortvalue = timestamp}
 
-    })  
+})
 
   end
 
@@ -779,8 +672,6 @@ local function updateHistoryOffers(offers)
 
 end
 
-
-
 local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
   if not selectedItem then
@@ -788,8 +679,6 @@ local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
     return
 
   end
-
-
 
   -- update item details
 
@@ -803,13 +692,11 @@ local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
       {text = desc[2]}
 
-    }
+}
 
     detailsTable:addRow(columns)
 
   end
-
-
 
   -- update sale item statistics
 
@@ -857,8 +744,6 @@ local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
     end
 
-
-
     if offerAmount >= 5 and transactions >= 10 then
 
       averagePrice = math.round(totalPrice / transactions)
@@ -869,13 +754,9 @@ local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
     end
 
-
-
     sellStatsTable:addRow({{text = 'Total Transations:'}, {text = transactions}})
 
     sellStatsTable:addRow({{text = 'Highest Price:'}, {text = highestPrice}})
-
-
 
     if totalPrice > 0 and transactions > 0 then
 
@@ -889,13 +770,9 @@ local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
     end
 
-
-
     sellStatsTable:addRow({{text = 'Lowest Price:'}, {text = lowestPrice}})
 
   end
-
-
 
   -- update buy item statistics
 
@@ -939,13 +816,9 @@ local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
     end
 
-
-
     buyStatsTable:addRow({{text = 'Total Transations:'},{text = transactions}})
 
     buyStatsTable:addRow({{text = 'Highest Price:'}, {text = highestPrice}})
-
-
 
     if totalPrice > 0 and transactions > 0 then
 
@@ -959,23 +832,17 @@ local function updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
     end
 
-
-
     buyStatsTable:addRow({{text = 'Lowest Price:'}, {text = lowestPrice}})
 
   end
 
 end
 
-
-
 local function updateSelectedItem(widget)
 
   selectedItem.item = widget.item
 
   selectedItem.ref = widget
-
-
 
   Market.resetCreateOffer()
 
@@ -986,8 +853,6 @@ local function updateSelectedItem(widget)
     nameLabel:setText(selectedItem.item.marketData.name)
 
     clearOffers()
-
-
 
     Market.enableCreateOffer(true) -- update offer types
 
@@ -1001,8 +866,6 @@ local function updateSelectedItem(widget)
 
 end
 
-
-
 local function updateBalance(balance)
 
   local balance = tonumber(balance)
@@ -1013,21 +876,15 @@ local function updateBalance(balance)
 
   end
 
-
-
   if balance < 0 then balance = 0 end
 
   information.balance = balance
-
-
 
   balanceLabel:setText('Balance: '.. comma_value(balance) ..' gold')
 
   balanceLabel:resizeToText()
 
 end
-
-
 
 local function updateFee(price, amount)
 
@@ -1049,8 +906,6 @@ local function updateFee(price, amount)
 
 end
 
-
-
 local function destroyAmountWindow()
 
   if amountWindow then
@@ -1063,8 +918,6 @@ local function destroyAmountWindow()
 
 end
 
-
-
 local function cancelMyOffer(actionType)
 
   local offer = selectedMyOffer[actionType]
@@ -1075,8 +928,6 @@ local function cancelMyOffer(actionType)
 
 end
 
-
-
 local function openAmountWindow(callback, actionType, actionText)
 
   if not Market.isOfferSelected(actionType) then
@@ -1085,19 +936,13 @@ local function openAmountWindow(callback, actionType, actionText)
 
   end
 
-
-
   amountWindow = g_ui.createWidget('AmountWindow', rootWidget)
 
   amountWindow:lock()
 
-
-
   local offer = selectedOffer[actionType]
 
   local item = offer:getItem()
-
-
 
   local maximum = offer:getAmount()
 
@@ -1117,8 +962,6 @@ local function openAmountWindow(callback, actionType, actionText)
 
   end
 
-
-
   if item:isStackable() then
 
     maximum = math.min(maximum, MarketMaxAmountStackable)
@@ -1129,19 +972,13 @@ local function openAmountWindow(callback, actionType, actionText)
 
   end
 
-
-
   local itembox = amountWindow:getChildById('item')
 
   itembox:setItemId(item:getId())
 
-
-
   local scrollbar = amountWindow:getChildById('amountScrollBar')
 
   scrollbar:setText(comma_value(offer:getPrice()) ..'gp')
-
-
 
   scrollbar.onValueChange = function(widget, value)
 
@@ -1155,8 +992,6 @@ local function openAmountWindow(callback, actionType, actionText)
 
   scrollbar:setValue(1)
 
-
-
   local okButton = amountWindow:getChildById('buttonOk')
 
   if actionText then
@@ -1164,8 +999,6 @@ local function openAmountWindow(callback, actionType, actionText)
     okButton:setText(actionText)
 
   end
-
-
 
   local okFunc = function()
 
@@ -1179,8 +1012,6 @@ local function openAmountWindow(callback, actionType, actionText)
 
   end
 
-
-
   local cancelButton = amountWindow:getChildById('buttonCancel')
 
   local cancelFunc = function()
@@ -1189,21 +1020,15 @@ local function openAmountWindow(callback, actionType, actionText)
 
   end
 
-
-
   amountWindow.onEnter = okFunc
 
   amountWindow.onEscape = cancelFunc
-
-
 
   okButton.onClick = okFunc
 
   cancelButton.onClick = cancelFunc
 
 end
-
-
 
 local function onSelectSellOffer(table, selectedRow, previousSelectedRow)
 
@@ -1218,8 +1043,6 @@ local function onSelectSellOffer(table, selectedRow, previousSelectedRow)
     end
 
   end
-
-
 
   local offer = selectedOffer[MarketAction.Buy]
 
@@ -1261,8 +1084,6 @@ local function onSelectSellOffer(table, selectedRow, previousSelectedRow)
 
 end
 
-
-
 local function onSelectBuyOffer(table, selectedRow, previousSelectedRow)
 
   updateBalance()
@@ -1289,8 +1110,6 @@ local function onSelectBuyOffer(table, selectedRow, previousSelectedRow)
 
 end
 
-
-
 local function onSelectMyBuyOffer(table, selectedRow, previousSelectedRow)
 
   for _, offer in pairs(marketOffers[MarketAction.Buy]) do
@@ -1307,8 +1126,6 @@ local function onSelectMyBuyOffer(table, selectedRow, previousSelectedRow)
 
 end
 
-
-
 local function onSelectMySellOffer(table, selectedRow, previousSelectedRow)
 
   for _, offer in pairs(marketOffers[MarketAction.Sell]) do
@@ -1324,8 +1141,6 @@ local function onSelectMySellOffer(table, selectedRow, previousSelectedRow)
   end
 
 end
-
-
 
 local function onChangeCategory(combobox, option)
 
@@ -1355,15 +1170,11 @@ local function onChangeCategory(combobox, option)
 
 end
 
-
-
 local function onChangeSubCategory(combobox, option)
 
   Market.loadMarketItems(getMarketCategoryId(option))
 
   slotFilterList:clearOptions()
-
-
 
   local subId = getMarketCategoryId(subCategoryList:getCurrentOption().text)
 
@@ -1383,23 +1194,17 @@ local function onChangeSubCategory(combobox, option)
 
 end
 
-
-
 local function onChangeSlotFilter(combobox, option)
 
   Market.updateCurrentItems()
 
 end
 
-
-
 local function onChangeOfferType(combobox, option)
 
   local item = selectedItem.item
 
   local maximum = item.thingType:isStackable() and MarketMaxAmountStackable or MarketMaxAmount
-
-
 
   if option == 'Sell' then
 
@@ -1415,8 +1220,6 @@ local function onChangeOfferType(combobox, option)
 
 end
 
-
-
 local function onTotalPriceChange()
 
   local amount = amountEdit:getValue()
@@ -1424,8 +1227,6 @@ local function onTotalPriceChange()
   local totalPrice = totalPriceEdit:getValue()
 
   local piecePrice = math.floor(totalPrice/amount)
-
-
 
   piecePriceEdit:setValue(piecePrice, true)
 
@@ -1437,8 +1238,6 @@ local function onTotalPriceChange()
 
 end
 
-
-
 local function onPiecePriceChange()
 
   local amount = amountEdit:getValue()
@@ -1446,8 +1245,6 @@ local function onPiecePriceChange()
   local totalPrice = totalPriceEdit:getValue()
 
   local piecePrice = piecePriceEdit:getValue()
-
-
 
   totalPriceEdit:setValue(piecePrice*amount, true)
 
@@ -1458,8 +1255,6 @@ local function onPiecePriceChange()
   end
 
 end
-
-
 
 local function onAmountChange()
 
@@ -1469,8 +1264,6 @@ local function onAmountChange()
 
   local totalPrice = piecePrice * amount
 
-
-
   totalPriceEdit:setValue(piecePrice*amount, true)
 
   if Market.isItemSelected() then
@@ -1481,15 +1274,11 @@ local function onAmountChange()
 
 end
 
-
-
 local function onMarketMessage(messageMode, message)
 
   Market.displayMessage(message)
 
 end
-
-
 
 local function initMarketItems(items)
 
@@ -1501,13 +1290,9 @@ local function initMarketItems(items)
 
   marketItemNames = {}
 
-  
-
   -- save a list of items which are already added
 
   local itemSet = {}
-
-  
 
   -- parse items send by server
 
@@ -1543,11 +1328,9 @@ local function initMarketItems(items)
 
             tradeAs = entry.id
 
-          }
+}
 
-        }
-
-     
+}
 
         -- add new market item
 
@@ -1569,8 +1352,6 @@ local function initMarketItems(items)
 
   end
 
-
-
   -- populate all market items
 
   local types = g_things.findThingTypeByAttr(ThingAttrMarket, 0)
@@ -1578,8 +1359,6 @@ local function initMarketItems(items)
   for i = 1, #types do
 
     local itemType = types[i]
-
-
 
     local item = Item.create(itemType:getId())
 
@@ -1593,8 +1372,6 @@ local function initMarketItems(items)
 
           item:setId(marketData.showAs)
 
-
-
           -- create new marketItem block
 
           local marketItem = {
@@ -1605,9 +1382,7 @@ local function initMarketItems(items)
 
             marketData = marketData
 
-          }
-
-
+}
 
           -- add new market item
 
@@ -1627,8 +1402,6 @@ local function initMarketItems(items)
 
 end
 
-
-
 local function initInterface()
 
   -- TODO: clean this up
@@ -1639,27 +1412,19 @@ local function initInterface()
 
   mainTabBar:setContentWidget(marketWindow:getChildById('mainTabContent'))
 
-
-
   -- setup 'Market Offer' section tabs
 
   marketOffersPanel = g_ui.loadUI('ui/marketoffers')
 
   mainTabBar:addTab(tr('Market Offers'), marketOffersPanel)
 
-  
-
   selectionTabBar = marketOffersPanel:getChildById('leftTabBar')
 
   selectionTabBar:setContentWidget(marketOffersPanel:getChildById('leftTabContent'))
 
-
-
   browsePanel = g_ui.loadUI('ui/marketoffers/browse')
 
   selectionTabBar:addTab(tr('Browse'), browsePanel)
-
-
 
   -- Currently not used
 
@@ -1669,25 +1434,17 @@ local function initInterface()
 
   --selectionTabBar:addTab(tr('Overview'), overviewPanel)
 
-
-
   displaysTabBar = marketOffersPanel:getChildById('rightTabBar')
 
   displaysTabBar:setContentWidget(marketOffersPanel:getChildById('rightTabContent'))
-
-
 
   itemStatsPanel = g_ui.loadUI('ui/marketoffers/itemstats')
 
   displaysTabBar:addTab(tr('Statistics'), itemStatsPanel)
 
-
-
   itemDetailsPanel = g_ui.loadUI('ui/marketoffers/itemdetails')
 
   displaysTabBar:addTab(tr('Details'), itemDetailsPanel)
-
-
 
   itemOffersPanel = g_ui.loadUI('ui/marketoffers/itemoffers')
 
@@ -1695,37 +1452,25 @@ local function initInterface()
 
   displaysTabBar:selectTab(displaysTabBar:getTab(tr('Offers')))
 
-
-
   -- setup 'My Offer' section tabs
 
   myOffersPanel = g_ui.loadUI('ui/myoffers')
 
   local myOffersTab = mainTabBar:addTab(tr('My Offers'), myOffersPanel)
 
-
-
   offersTabBar = myOffersPanel:getChildById('offersTabBar')
 
   offersTabBar:setContentWidget(myOffersPanel:getChildById('offersTabContent'))
-
-
 
   currentOffersPanel = g_ui.loadUI('ui/myoffers/currentoffers')
 
   myCurrentOffersTab = offersTabBar:addTab(tr('Current Offers'), currentOffersPanel)
 
-
-
   offerHistoryPanel = g_ui.loadUI('ui/myoffers/offerhistory')
 
   myOfferHistoryTab = offersTabBar:addTab(tr('Offer History'), offerHistoryPanel)
 
-
-
   balanceLabel = marketWindow:getChildById('balanceLabel')
-
-
 
   mainTabBar.onTabChange = function(widget, tab)
 
@@ -1751,8 +1496,6 @@ local function initInterface()
 
   end
 
-  
-
   offersTabBar.onTabChange = function(widget, tab)
 
     if tab == myCurrentOffersTab then
@@ -1767,29 +1510,21 @@ local function initInterface()
 
   end
 
-
-
   -- setup offers
 
   buyButton = itemOffersPanel:getChildById('buyButton')
 
   buyButton.onClick = function() openAmountWindow(Market.acceptMarketOffer, MarketAction.Buy, 'Buy') end
 
-
-
   sellButton = itemOffersPanel:getChildById('sellButton')
 
   sellButton.onClick = function() openAmountWindow(Market.acceptMarketOffer, MarketAction.Sell, 'Sell') end
-
-
 
   -- setup selected item
 
   nameLabel = marketOffersPanel:getChildById('nameLabel')
 
   selectedItem = marketOffersPanel:getChildById('selectedItem')
-
-
 
   -- setup create new offer
 
@@ -1807,13 +1542,9 @@ local function initInterface()
 
   amountEdit.onValueChange = onAmountChange
 
-
-
   offerTypeList = marketOffersPanel:getChildById('offerTypeComboBox')
 
   offerTypeList.onOptionChange = onChangeOfferType
-
-
 
   anonymous = marketOffersPanel:getChildById('anonymousCheckBox')
 
@@ -1822,8 +1553,6 @@ local function initInterface()
   createOfferButton.onClick = Market.createNewOffer
 
   Market.enableCreateOffer(false)
-
-
 
   -- setup filters
 
@@ -1835,13 +1564,9 @@ local function initInterface()
 
   filterButtons[MarketFilters.SearchAll] = browsePanel:getChildById('filterSearchAll')
 
-
-
   -- set filter default values
 
   clearFilters()
-
-
 
   -- hook filters
 
@@ -1851,8 +1576,6 @@ local function initInterface()
 
   end
 
-
-
   searchEdit = browsePanel:getChildById('searchEdit')
 
   categoryList = browsePanel:getChildById('categoryComboBox')
@@ -1861,17 +1584,11 @@ local function initInterface()
 
   slotFilterList = browsePanel:getChildById('slotComboBox')
 
-
-
   slotFilterList:addOption(MarketSlotFilters[255])
 
   slotFilterList:setEnabled(false)
 
-  
-
   Market.updateCategories()
-
-  
 
   -- hook item filters
 
@@ -1880,8 +1597,6 @@ local function initInterface()
   subCategoryList.onOptionChange = onChangeSubCategory
 
   slotFilterList.onOptionChange = onChangeSlotFilter
-
-
 
   -- setup tables
 
@@ -1899,8 +1614,6 @@ local function initInterface()
 
   sellOfferTable.onSelectionChange = onSelectSellOffer
 
-
-
   -- setup my offers
 
   buyMyOfferTable = currentOffersPanel:recursiveGetChildById('myBuyingTable')
@@ -1909,27 +1622,17 @@ local function initInterface()
 
   myOfferHistoryTabel = offerHistoryPanel:recursiveGetChildById('myHistoryTable')
 
-  
-
   buyMyOfferTable.onSelectionChange = onSelectMyBuyOffer
 
   sellMyOfferTable.onSelectionChange = onSelectMySellOffer
-
-
 
   buyCancelButton = currentOffersPanel:getChildById('buyCancelButton')
 
   buyCancelButton.onClick = function() cancelMyOffer(MarketAction.Buy) end
 
-
-
   sellCancelButton = currentOffersPanel:getChildById('sellCancelButton')
 
   sellCancelButton.onClick = function() cancelMyOffer(MarketAction.Sell) end
-
-
-
-
 
   buyStatsTable:setColumnWidth({120, 270})
 
@@ -1937,13 +1640,9 @@ local function initInterface()
 
   detailsTable:setColumnWidth({80, 330})
 
-
-
   buyOfferTable:setSorting(4, TABLE_SORTING_DESC)
 
   sellOfferTable:setSorting(4, TABLE_SORTING_ASC)
-
-
 
   buyMyOfferTable:setSorting(3, TABLE_SORTING_DESC)
 
@@ -1952,8 +1651,6 @@ local function initInterface()
   myOfferHistoryTabel:setSorting(6, TABLE_SORTING_DESC)
 
 end
-
-
 
 function init()
 
@@ -1967,17 +1664,11 @@ function init()
 
   g_ui.importStyle('ui/general/amountwindow')
 
-
-
   offerExhaust[MarketAction.Sell] = 10
 
   offerExhaust[MarketAction.Buy] = 20
 
-
-
   registerMessageMode(MessageModes.Market, onMarketMessage)
-
-
 
   protocol.initProtocol()
 
@@ -1989,29 +1680,19 @@ function init()
 
   connect(g_game, { onCoinBalance = Market.onCoinBalance })
 
-  
-
   marketWindow = g_ui.createWidget('MarketWindow', rootWidget)
 
   marketWindow:hide()
-
-
 
   initInterface() -- build interface
 
 end
 
-
-
 function terminate()
 
   Market.close()
 
-
-
   unregisterMessageMode(MessageModes.Market, onMarketMessage)
-
-
 
   protocol.terminateProtocol()
 
@@ -2023,19 +1704,13 @@ function terminate()
 
   disconnect(g_game, { onCoinBalance = Market.onCoinBalance })
 
-
-
   destroyAmountWindow()
 
   marketWindow:destroy()
 
-
-
   Market = nil
 
 end
-
-
 
 function Market.reset()
 
@@ -2057,15 +1732,11 @@ function Market.reset()
 
 end
 
-
-
 function Market.updateCategories()
 
   categoryList:clearOptions()
 
   subCategoryList:clearOptions()
-
-  
 
   local categories = {}
 
@@ -2091,8 +1762,6 @@ function Market.updateCategories()
 
   end
 
-  
-
   table.sort(categories)
 
   for _, c in ipairs(categories) do
@@ -2101,15 +1770,11 @@ function Market.updateCategories()
 
   end
 
-  
-
   for i = MarketCategory.Ammunition, MarketCategory.WandsRods do
 
     subCategoryList:addOption(getMarketCategoryName(i))
 
   end
-
-  
 
   categoryList:addOption(getMarketCategoryName(255)) -- meta weapons
 
@@ -2119,21 +1784,15 @@ function Market.updateCategories()
 
 end
 
-
-
 function Market.displayMessage(message)
 
   if marketWindow:isHidden() then return end
-
-
 
   local infoBox = displayInfoBox(tr('Market Error'), message)
 
   infoBox:lock()
 
 end
-
-
 
 function Market.clearSelectedItem()
 
@@ -2146,8 +1805,6 @@ function Market.clearSelectedItem()
     offerTypeList:setText('Please Select')
 
     offerTypeList:setEnabled(false)
-
-
 
     clearOffers()
 
@@ -2163,15 +1820,11 @@ function Market.clearSelectedItem()
 
     selectedItem.ref = nil
 
-
-
     detailsTable:clearData()
 
     buyStatsTable:clearData()
 
     sellStatsTable:clearData()
-
-
 
     Market.enableCreateOffer(false)
 
@@ -2179,23 +1832,17 @@ function Market.clearSelectedItem()
 
 end
 
-
-
 function Market.isItemSelected()
 
   return selectedItem and selectedItem.item
 
 end
 
-
-
 function Market.isOfferSelected(type)
 
   return selectedOffer[type] and not selectedOffer[type]:isNull()
 
 end
-
-
 
 function Market.getDepotCount(itemId)
 
@@ -2208,8 +1855,6 @@ function Market.getDepotCount(itemId)
   return information.depotItems[itemId] or 0
 
 end
-
-
 
 function Market.enableCreateOffer(enable)
 
@@ -2225,21 +1870,15 @@ function Market.enableCreateOffer(enable)
 
   createOfferButton:setEnabled(enable)
 
-
-
   local prevAmountButton = marketOffersPanel:recursiveGetChildById('prevAmountButton')
 
   local nextAmountButton = marketOffersPanel:recursiveGetChildById('nextAmountButton')
-
-
 
   prevAmountButton:setEnabled(enable)
 
   nextAmountButton:setEnabled(enable)
 
 end
-
-
 
 function Market.close(notify)
 
@@ -2267,23 +1906,17 @@ function Market.close(notify)
 
 end
 
-
-
 function Market.incrementAmount()
 
   amountEdit:setValue(amountEdit:getValue() + 1)
 
 end
 
-
-
 function Market.decrementAmount()
 
   amountEdit:setValue(amountEdit:getValue() - 1)
 
 end
-
-
 
 function Market.updateCurrentItems()
 
@@ -2305,8 +1938,6 @@ function Market.updateCurrentItems()
 
 end
 
-
-
 function Market.resetCreateOffer(resetFee)
 
   piecePriceEdit:setValue(1)
@@ -2316,8 +1947,6 @@ function Market.resetCreateOffer(resetFee)
   amountEdit:setValue(1)
 
   refreshTypeList()
-
-
 
   if resetFee then
 
@@ -2331,27 +1960,19 @@ function Market.resetCreateOffer(resetFee)
 
 end
 
-
-
 function Market.refreshItemsWidget(selectItem)
 
   local selectItem = selectItem or 0
 
   itemsPanel = browsePanel:recursiveGetChildById('itemsPanel')
 
-
-
   local layout = itemsPanel:getLayout()
 
   layout:disableUpdates()
 
-
-
   Market.clearSelectedItem()
 
   itemsPanel:destroyChildren()
-
-
 
   if radioItemSet then
 
@@ -2360,8 +1981,6 @@ function Market.refreshItemsWidget(selectItem)
   end
 
   radioItemSet = UIRadioGroup.create()
-
-
 
   local select = nil
 
@@ -2375,8 +1994,6 @@ function Market.refreshItemsWidget(selectItem)
 
     itemBox.item = item
 
-
-
     if selectItem > 0 and item.marketData.tradeAs == selectItem then
 
       select = itemBox
@@ -2385,13 +2002,9 @@ function Market.refreshItemsWidget(selectItem)
 
     end
 
-
-
     local itemWidget = itemBox:getChildById('item')
 
     itemWidget:setItem(item.displayItem)
-
-
 
     local amount = Market.getDepotCount(item.marketData.tradeAs)
 
@@ -2403,13 +2016,9 @@ function Market.refreshItemsWidget(selectItem)
 
     end
 
-
-
     radioItemSet:addWidget(itemBox)
 
   end
-
-
 
   if select then
 
@@ -2417,15 +2026,11 @@ function Market.refreshItemsWidget(selectItem)
 
   end
 
-
-
   layout:enableUpdates()
 
   layout:update()
 
 end
-
-
 
 function Market.refreshOffers()
 
@@ -2451,8 +2056,6 @@ function Market.refreshOffers()
 
 end
 
-
-
 function Market.refreshMyOffers()
 
   clearMyOffers()
@@ -2460,8 +2063,6 @@ function Market.refreshMyOffers()
   MarketProtocol.sendMarketBrowseMyOffers()
 
 end
-
-
 
 function Market.refreshMyOffersHistory()
 
@@ -2471,15 +2072,9 @@ function Market.refreshMyOffersHistory()
 
 end
 
-
-
-
-
 function Market.loadMarketItems(category)
 
   clearItems()
-
-
 
   -- check search filter
 
@@ -2495,15 +2090,11 @@ function Market.loadMarketItems(category)
 
   end
 
-  
-
   if not marketItems[category] and category ~= MarketCategory.All then
 
     return
 
   end
-
-
 
   if category == MarketCategory.All then
 
@@ -2547,13 +2138,9 @@ function Market.loadMarketItems(category)
 
   end
 
-
-
   Market.refreshItemsWidget()
 
 end
-
-
 
 function Market.createNewOffer()
 
@@ -2569,27 +2156,19 @@ function Market.createNewOffer()
 
   end
 
-
-
   if not Market.isItemSelected() then
 
     return
 
   end
 
-
-
   local spriteId = selectedItem.item.marketData.tradeAs
-
-
 
   local piecePrice = piecePriceEdit:getValue()
 
   local amount = amountEdit:getValue()
 
   local anonymous = anonymous:isChecked() and 1 or 0
-
-
 
   -- error checking
 
@@ -2619,8 +2198,6 @@ function Market.createNewOffer()
 
   end
 
-
-
   if piecePrice > piecePriceEdit.maximum then
 
     errorMsg = errorMsg..'Price is too high.\n'
@@ -2630,8 +2207,6 @@ function Market.createNewOffer()
     errorMsg = errorMsg..'Price is too low.\n'
 
   end
-
-
 
   if amount > amountEdit.maximum then
 
@@ -2643,23 +2218,17 @@ function Market.createNewOffer()
 
   end
 
-
-
   if amount * piecePrice > MarketMaxPrice then
 
     errorMsg = errorMsg..'Total price is too high.\n'
 
   end
 
-
-
   if information.totalOffers >= MarketMaxOffers then
 
     errorMsg = errorMsg..'You cannot create more offers.\n'
 
   end
-
-
 
   local timeCheck = os.time() - lastCreatedOffer
 
@@ -2671,8 +2240,6 @@ function Market.createNewOffer()
 
   end
 
-
-
   if errorMsg ~= '' then
 
     Market.displayMessage(errorMsg)
@@ -2681,8 +2248,6 @@ function Market.createNewOffer()
 
   end
 
-
-
   MarketProtocol.sendMarketCreateOffer(type, spriteId, amount, piecePrice, anonymous)
 
   lastCreatedOffer = os.time()
@@ -2690,8 +2255,6 @@ function Market.createNewOffer()
   Market.resetCreateOffer()
 
 end
-
-
 
 function Market.acceptMarketOffer(amount, timestamp, counter)
 
@@ -2705,8 +2268,6 @@ function Market.acceptMarketOffer(amount, timestamp, counter)
 
 end
 
-
-
 function Market.onItemBoxChecked(widget)
 
   if widget:isChecked() then
@@ -2717,11 +2278,7 @@ function Market.onItemBoxChecked(widget)
 
 end
 
-
-
 -- protocol callback functions
-
-
 
 function Market.onMarketEnter(depotItems, offers, balance, vocation, items)
 
@@ -2733,13 +2290,9 @@ function Market.onMarketEnter(depotItems, offers, balance, vocation, items)
 
   end
 
-
-
   updateBalance(balance)
 
   averagePrice = 0
-
-
 
   information.totalOffers = offers
 
@@ -2767,13 +2320,9 @@ function Market.onMarketEnter(depotItems, offers, balance, vocation, items)
 
   end
 
-
-
   -- set list of depot items
 
   information.depotItems = depotItems
-
-
 
   for i = 1, #marketItems[MarketCategory.TibiaCoins] do
 
@@ -2782,8 +2331,6 @@ function Market.onMarketEnter(depotItems, offers, balance, vocation, items)
     depotItems[item:getId()] = tibiaCoins
 
   end
-
-  
 
   -- update the items widget to match depot items
 
@@ -2803,15 +2350,11 @@ function Market.onMarketEnter(depotItems, offers, balance, vocation, items)
 
   end
 
-
-
   if table.empty(currentItems) then
 
     Market.loadMarketItems(MarketCategory.First)
 
   end
-
-
 
   if g_game.isOnline() then
 
@@ -2823,23 +2366,17 @@ function Market.onMarketEnter(depotItems, offers, balance, vocation, items)
 
 end
 
-
-
 function Market.onMarketLeave()
 
   Market.close(false)
 
 end
 
-
-
 function Market.onMarketDetail(itemId, descriptions, purchaseStats, saleStats)
 
   updateDetails(itemId, descriptions, purchaseStats, saleStats)
 
 end
-
-
 
 function Market.onMarketBrowse(offers, offersType)    
 
@@ -2854,8 +2391,6 @@ function Market.onMarketBrowse(offers, offersType)
   end
 
 end
-
-
 
 function Market.onCoinBalance(coins, transferableCoins)
 
@@ -2876,12 +2411,7 @@ end
 ```
 
 ---
-
-
-
 # market.otmod
-
-
 
 ```text
 
@@ -2906,12 +2436,7 @@ Module
 ```
 
 ---
-
-
-
 # market.otui
-
-
 
 ```otui
 
@@ -2923,15 +2448,9 @@ MarketWindow < MainWindow
 
   size: 700 530
 
-
-
   @onEscape: Market.close()
 
-
-
   // Main Panel Window
-
-
 
   MarketTabBar
 
@@ -2944,8 +2463,6 @@ MarketWindow < MainWindow
     anchors.top: parent.top
 
     anchors.left: parent.left
-
-
 
   Panel
 
@@ -2967,8 +2484,6 @@ MarketWindow < MainWindow
 
     margin-bottom: 20
 
-
-
   Label
 
     id: balanceLabel
@@ -2982,8 +2497,6 @@ MarketWindow < MainWindow
     anchors.top: parent.top
 
     anchors.right: parent.right
-
-
 
   Button
 
@@ -3001,8 +2514,6 @@ MarketWindow < MainWindow
 
     @onClick: Market.close()
 
-
-
   Button
 
     id: refreshOffersButton
@@ -3018,8 +2529,6 @@ MarketWindow < MainWindow
     width: 110
 
     @onClick: Market.refreshOffers()
-
-
 
   Button
 
@@ -3042,12 +2551,7 @@ MarketWindow < MainWindow
 ```
 
 ---
-
-
-
 # marketoffer.lua
-
-
 
 ```lua
 
@@ -3055,13 +2559,9 @@ MarketOffer = {}
 
 MarketOffer.__index = MarketOffer
 
-
-
 local OFFER_TIMESTAMP = 1
 
 local OFFER_COUNTER = 2
-
-
 
 MarketOffer.new = function(offerId, t, item, amount, price, playerName, state, var)
 
@@ -3083,9 +2583,7 @@ MarketOffer.new = function(offerId, t, item, amount, price, playerName, state, v
 
     var = nil
 
-  }
-
-
+}
 
   if not offerId or type(offerId) ~= 'table'  then
 
@@ -3094,8 +2592,6 @@ MarketOffer.new = function(offerId, t, item, amount, price, playerName, state, v
   end
 
   offer.id = offerId
-
-
 
   t = tonumber(t)
 
@@ -3107,8 +2603,6 @@ MarketOffer.new = function(offerId, t, item, amount, price, playerName, state, v
 
   offer.type = t
 
-
-
   if not item then
 
     g_logger.error('MarketOffer.new - invalid item provided.')
@@ -3117,15 +2611,11 @@ MarketOffer.new = function(offerId, t, item, amount, price, playerName, state, v
 
   offer.item = item
 
-
-
   offer.amount = amount
 
   offer.price = price
 
   offer.player = playerName
-
-
 
   state = tonumber(state)
 
@@ -3141,15 +2631,11 @@ MarketOffer.new = function(offerId, t, item, amount, price, playerName, state, v
 
   offer.var = var
 
-
-
   setmetatable(offer, MarketOffer)
 
   return offer
 
 end
-
-
 
 function MarketOffer:isEqual(id)
 
@@ -3157,15 +2643,11 @@ function MarketOffer:isEqual(id)
 
 end
 
-
-
 function MarketOffer:isLessThan(id)
 
   return self.id[OFFER_TIMESTAMP] <= id[OFFER_TIMESTAMP] and self.id[OFFER_COUNTER] < id[OFFER_COUNTER]
 
 end
-
-
 
 function MarketOffer:isNull()
 
@@ -3173,11 +2655,7 @@ function MarketOffer:isNull()
 
 end
 
-
-
 -- Sets/Gets
-
-
 
 function MarketOffer:setId(id)
 
@@ -3191,15 +2669,11 @@ function MarketOffer:setId(id)
 
 end
 
-
-
 function MarketOffer:getId()
 
   return self.id
 
 end
-
-
 
 function MarketOffer:setType(t)
 
@@ -3213,15 +2687,11 @@ function MarketOffer:setType(t)
 
 end
 
-
-
 function MarketOffer:getType()
 
   return self.type
 
 end
-
-
 
 function MarketOffer:setItem(item)
 
@@ -3235,15 +2705,11 @@ function MarketOffer:setItem(item)
 
 end
 
-
-
 function MarketOffer:getItem()
 
   return self.item
 
 end
-
-
 
 function MarketOffer:setAmount(amount)
 
@@ -3257,15 +2723,11 @@ function MarketOffer:setAmount(amount)
 
 end
 
-
-
 function MarketOffer:getAmount()
 
   return self.amount
 
 end
-
-
 
 function MarketOffer:setPrice(price)
 
@@ -3279,23 +2741,17 @@ function MarketOffer:setPrice(price)
 
 end
 
-
-
 function MarketOffer:getPrice()
 
   return self.price
 
 end
 
-
-
 function MarketOffer:getTotalPrice()
 
   return self.price * self.amount
 
 end
-
-
 
 function MarketOffer:setPlayer(player)
 
@@ -3309,15 +2765,11 @@ function MarketOffer:setPlayer(player)
 
 end
 
-
-
 function MarketOffer:getPlayer()
 
   return self.player
 
 end
-
-
 
 function MarketOffer:setState(state)
 
@@ -3331,15 +2783,11 @@ function MarketOffer:setState(state)
 
 end
 
-
-
 function MarketOffer:getState()
 
   return self.state
 
 end
-
-
 
 function MarketOffer:getTimeStamp()
 
@@ -3352,8 +2800,6 @@ function MarketOffer:getTimeStamp()
   return self.id[OFFER_TIMESTAMP]
 
 end
-
-
 
 function MarketOffer:getCounter()
 
@@ -3370,30 +2816,19 @@ end
 ```
 
 ---
-
-
-
 # marketprotocol.lua
-
-
 
 ```lua
 
 MarketProtocol = {}
 
-
-
 -- private functions
-
-
 
 local silent
 
 local protocol
 
 local statistics = runinsandbox('offerstatistic')
-
-
 
 local function send(msg)
 
@@ -3405,15 +2840,11 @@ local function send(msg)
 
 end
 
-
-
 local function readMarketOffer(msg, action, var)
 
   local timestamp = msg:getU32()
 
   local counter = msg:getU16()
-
-
 
   local itemId = 0
 
@@ -3426,8 +2857,6 @@ local function readMarketOffer(msg, action, var)
     itemId = var
 
   end
-
-
 
   local amount = msg:getU16()
 
@@ -3449,13 +2878,9 @@ local function readMarketOffer(msg, action, var)
 
   end
 
-
-
   return MarketOffer.new({timestamp, counter}, action, Item.create(itemId), amount, price, playerName, state, var)
 
 end
-
-
 
 -- parsing protocols
 
@@ -3485,13 +2910,11 @@ local function parseMarketEnter(protocol, msg)
 
         name = name
 
-      })
+})
 
     end    
 
   end
-
-  
 
   local balance = 0
 
@@ -3509,8 +2932,6 @@ local function parseMarketEnter(protocol, msg)
 
   end
 
-  
-
   local vocation = -1
 
   if g_game.getProtocolVersion() >= 944 and g_game.getProtocolVersion() < 950 then
@@ -3520,8 +2941,6 @@ local function parseMarketEnter(protocol, msg)
   end
 
   local offers = msg:getU8()
-
-
 
   local depotItems = {}
 
@@ -3533,21 +2952,15 @@ local function parseMarketEnter(protocol, msg)
 
     local itemCount = msg:getU16() -- item count
 
-
-
     depotItems[itemId] = itemCount
 
   end
-
-
 
   signalcall(Market.onMarketEnter, depotItems, offers, balance, vocation, items)
 
   return true
 
 end
-
-
 
 local function parseMarketLeave(protocol, msg)
 
@@ -3557,13 +2970,9 @@ local function parseMarketLeave(protocol, msg)
 
 end
 
-
-
 local function parseMarketDetail(protocol, msg)
 
   local itemId = msg:getU16()
-
-
 
   local descriptions = {}
 
@@ -3581,8 +2990,6 @@ local function parseMarketDetail(protocol, msg)
 
   end
 
-
-
   if g_game.getProtocolVersion() >= 1100 then -- imbuements
 
     if msg:peekU16() ~= 0x00 then
@@ -3597,11 +3004,7 @@ local function parseMarketDetail(protocol, msg)
 
   end
 
-
-
   local time = (os.time() / 1000) * statistics.SECONDS_PER_DAY;
-
-
 
   local purchaseStats = {}
 
@@ -3617,15 +3020,11 @@ local function parseMarketDetail(protocol, msg)
 
     local lowestPrice = msg:getU32() -- lowest price
 
-
-
     local tmp = time - statistics.SECONDS_PER_DAY
 
     table.insert(purchaseStats, OfferStatistic.new(tmp, MarketAction.Buy, transactions, totalPrice, highestPrice, lowestPrice))
 
   end
-
-
 
   local saleStats = {}
 
@@ -3641,15 +3040,11 @@ local function parseMarketDetail(protocol, msg)
 
     local lowestPrice = msg:getU32() -- lowest price
 
-
-
     local tmp = time - statistics.SECONDS_PER_DAY
 
     table.insert(saleStats, OfferStatistic.new(tmp, MarketAction.Sell, transactions, totalPrice, highestPrice, lowestPrice))
 
   end
-
-
 
   signalcall(Market.onMarketDetail, itemId, descriptions, purchaseStats, saleStats)
 
@@ -3657,15 +3052,11 @@ local function parseMarketDetail(protocol, msg)
 
 end
 
-
-
 local function parseMarketBrowse(protocol, msg)
 
   local var = msg:getU16()
 
   local offers = {}
-
-
 
   local buyOfferCount = msg:getU32()
 
@@ -3675,8 +3066,6 @@ local function parseMarketBrowse(protocol, msg)
 
   end
 
-
-
   local sellOfferCount = msg:getU32()
 
   for i = 1, sellOfferCount do
@@ -3685,15 +3074,11 @@ local function parseMarketBrowse(protocol, msg)
 
   end
 
-
-
   signalcall(Market.onMarketBrowse, offers, var)
 
   return true
 
 end
-
-
 
 -- public functions
 
@@ -3703,8 +3088,6 @@ function initProtocol()
 
                     onGameEnd = MarketProtocol.unregisterProtocol })
 
-
-
   -- reloading module
 
   if g_game.isOnline() then
@@ -3713,21 +3096,15 @@ function initProtocol()
 
   end
 
-
-
   MarketProtocol.silent(false)
 
 end
-
-
 
 function terminateProtocol()
 
   disconnect(g_game, { onGameStart = MarketProtocol.registerProtocol,
 
                        onGameEnd = MarketProtocol.unregisterProtocol })
-
-
 
   -- reloading module
 
@@ -3737,15 +3114,11 @@ function terminateProtocol()
 
 end
 
-
-
 function MarketProtocol.updateProtocol(_protocol)
 
   protocol = _protocol
 
 end
-
-
 
 function MarketProtocol.registerProtocol()
 
@@ -3765,8 +3138,6 @@ function MarketProtocol.registerProtocol()
 
 end
 
-
-
 function MarketProtocol.unregisterProtocol()
 
   if g_game.getFeature(GamePlayerMarket) then
@@ -3785,19 +3156,13 @@ function MarketProtocol.unregisterProtocol()
 
 end
 
-
-
 function MarketProtocol.silent(mode)
 
   silent = mode
 
 end
 
-
-
 -- sending protocols
-
-
 
 function MarketProtocol.sendMarketLeave()
 
@@ -3816,8 +3181,6 @@ function MarketProtocol.sendMarketLeave()
   end
 
 end
-
-
 
 function MarketProtocol.sendMarketBrowse(browseId)
 
@@ -3839,23 +3202,17 @@ function MarketProtocol.sendMarketBrowse(browseId)
 
 end
 
-
-
 function MarketProtocol.sendMarketBrowseMyOffers()
 
   MarketProtocol.sendMarketBrowse(MarketRequest.MyOffers)
 
 end
 
-
-
 function MarketProtocol.sendMarketBrowseMyHistory()
 
   MarketProtocol.sendMarketBrowse(MarketRequest.MyHistory)
 
 end
-
-
 
 function MarketProtocol.sendMarketCreateOffer(type, spriteId, amount, price, anonymous)
 
@@ -3885,8 +3242,6 @@ function MarketProtocol.sendMarketCreateOffer(type, spriteId, amount, price, ano
 
 end
 
-
-
 function MarketProtocol.sendMarketCancelOffer(timestamp, counter)
 
   if g_game.getFeature(GamePlayerMarket) then
@@ -3908,8 +3263,6 @@ function MarketProtocol.sendMarketCancelOffer(timestamp, counter)
   end
 
 end
-
-
 
 function MarketProtocol.sendMarketAcceptOffer(timestamp, counter, amount)
 
@@ -3938,12 +3291,7 @@ end
 ```
 
 ---
-
-
-
 # offerstatistic.lua
-
-
 
 ```lua
 
@@ -3951,11 +3299,7 @@ OfferStatistic = {}
 
 OfferStatistic.__index = OfferStatistic
 
-
-
 SECONDS_PER_DAY = 86400
-
-
 
 OfferStatistic.new = function(timestamp, t, transactions, totalPrice, highestPrice, lowestPrice)
 
@@ -3973,11 +3317,9 @@ OfferStatistic.new = function(timestamp, t, transactions, totalPrice, highestPri
 
     lowestPrice = 0
 
-  }
+}
 
   stat.time = math.floor(timestamp / SECONDS_PER_DAY) * SECONDS_PER_DAY
-
-
 
   if t ~= MarketAction.Buy and t ~= MarketAction.Sell then
 
@@ -3987,8 +3329,6 @@ OfferStatistic.new = function(timestamp, t, transactions, totalPrice, highestPri
 
   stat.type = t
 
-
-
   stat.transactions = transactions
 
   stat.totalPrice = totalPrice
@@ -3997,15 +3337,11 @@ OfferStatistic.new = function(timestamp, t, transactions, totalPrice, highestPri
 
   stat.lowestPrice = lowestPrice
 
-
-
   setmetatable(stat, OfferStatistic)
 
   return stat
 
 end
-
-
 
 function OfferStatistic:isNull()
 
@@ -4013,11 +3349,7 @@ function OfferStatistic:isNull()
 
 end
 
-
-
 -- Sets/Gets
-
-
 
 function OfferStatistic:setTime(time)
 
@@ -4031,15 +3363,11 @@ function OfferStatistic:setTime(time)
 
 end
 
-
-
 function OfferStatistic:getTime()
 
   return self.time
 
 end
-
-
 
 function OfferStatistic:setType(t)
 
@@ -4053,15 +3381,11 @@ function OfferStatistic:setType(t)
 
 end
 
-
-
 function OfferStatistic:getType()
 
   return self.type
 
 end
-
-
 
 function OfferStatistic:setTransactions(transactions)
 
@@ -4075,15 +3399,11 @@ function OfferStatistic:setTransactions(transactions)
 
 end
 
-
-
 function OfferStatistic:getTransactions()
 
   return self.transactions
 
 end
-
-
 
 function OfferStatistic:setTotalPrice(amount)
 
@@ -4097,15 +3417,11 @@ function OfferStatistic:setTotalPrice(amount)
 
 end
 
-
-
 function OfferStatistic:getTotalPrice()
 
   return self.totalPrice
 
 end
-
-
 
 function OfferStatistic:setHighestPrice(highestPrice)
 
@@ -4119,15 +3435,11 @@ function OfferStatistic:setHighestPrice(highestPrice)
 
 end
 
-
-
 function OfferStatistic:getHighestPrice()
 
   return self.highestPrice
 
 end
-
-
 
 function OfferStatistic:setLowestPrice(lowestPrice)
 
@@ -4141,8 +3453,6 @@ function OfferStatistic:setLowestPrice(lowestPrice)
 
 end
 
-
-
 function OfferStatistic:getLowestPrice()
 
   return self.lowestPrice
@@ -4152,6 +3462,3 @@ end
 ```
 
 ---
-
-
-

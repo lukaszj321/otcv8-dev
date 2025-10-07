@@ -1,9 +1,4 @@
-# ¦ Modul: `game_market/ui/general`
-
-
-
-
-
+﻿# ¦ Modul: `game_market/ui/general`
 
 ```otui
 
@@ -14,8 +9,6 @@ AmountWindow < MainWindow
   !text: tr('Amount')
 
   size: 270 90
-
-
 
   Item
 
@@ -37,8 +30,6 @@ AmountWindow < MainWindow
 
     virtual: true
 
-
-
   HorizontalScrollBar
 
     id: amountScrollBar
@@ -52,8 +43,6 @@ AmountWindow < MainWindow
     margin-left: 10
 
     margin-top: -2
-
-
 
   Button
 
@@ -72,8 +61,6 @@ AmountWindow < MainWindow
     margin-top: 7
 
     focusable: false
-
-
 
   Button
 
@@ -98,12 +85,7 @@ AmountWindow < MainWindow
 ```
 
 ---
-
-
-
 # marketbuttons.otui
-
-
 
 ```otui
 
@@ -119,13 +101,9 @@ MarketButtonBox < ButtonBoxRounded
 
   text-align: center
 
-
-
   $checked:
 
     color: white
-
-
 
   $disabled:
 
@@ -136,12 +114,7 @@ MarketButtonBox < ButtonBoxRounded
 ```
 
 ---
-
-
-
 # marketcombobox.otui
-
-
 
 ```otui
 
@@ -152,8 +125,6 @@ MarketComboBoxPopupMenuButton < ComboBoxPopupMenuButton
   font: verdana-11px-rounded
 
   text-offset: 2 2
-
-
 
 MarketComboBoxPopupMenuSeparator < UIWidget
 
@@ -167,11 +138,7 @@ MarketComboBoxPopupMenuSeparator < UIWidget
 
   phantom: true
 
-
-
 MarketComboBoxPopupMenu < ComboBoxPopupMenu
-
-
 
 MarketComboBox < ComboBox
 
@@ -184,12 +151,7 @@ MarketComboBox < ComboBox
 ```
 
 ---
-
-
-
 # markettabs.otui
-
-
 
 ```otui
 
@@ -205,33 +167,23 @@ MarketTabBarButton < TabBarButton
 
   text-offset: 0 2
 
-
-
   $!first:
 
     anchors.left: prev.right
 
     margin-left: 0
 
-
-
   $hover !checked:
 
     color: #ffffff
-
-
 
   $checked:
 
     color: #ffffff
 
-
-
   $on !checked:
 
     color: #f55e5e
-
-
 
 MarketRightTabBar < TabBar
 
@@ -247,15 +199,11 @@ MarketRightTabBarButton < TabBarButton
 
   color: #929292
 
-
-
   $first:
 
     anchors.right: parent.right
 
     anchors.left: none
-
-
 
   $!first:
 
@@ -263,19 +211,13 @@ MarketRightTabBarButton < TabBarButton
 
     anchors.left: none
 
-
-
   $hover !checked:
 
     color: #ffffff
 
-
-
   $checked:
 
     color: #ffffff
-
-
 
   $on !checked:
 
@@ -284,6 +226,3 @@ MarketRightTabBarButton < TabBarButton
 ```
 
 ---
-
-
-

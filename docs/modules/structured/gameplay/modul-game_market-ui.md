@@ -1,15 +1,8 @@
-# ¦ Modul: `game_market/ui`
-
-
-
-
-
+﻿# ¦ Modul: `game_market/ui`
 
 ```otui
 
 Panel
-
-
 
   MarketTabBar
 
@@ -22,8 +15,6 @@ Panel
     anchors.top: parent.top
 
     anchors.left: parent.left
-
-
 
   Panel
 
@@ -41,8 +32,6 @@ Panel
 
     border-color: #000000
 
-
-
   MarketRightTabBar
 
     id: rightTabBar
@@ -54,8 +43,6 @@ Panel
     anchors.top: parent.top
 
     anchors.right: parent.right
-
-
 
   Panel
 
@@ -74,8 +61,6 @@ Panel
     border-width: 1
 
     border-color: #000000
-
-
 
   UIItem
 
@@ -99,8 +84,6 @@ Panel
 
     margin-left: 6
 
-
-
   Label
 
     id: nameLabel
@@ -118,8 +101,6 @@ Panel
     anchors.right: parent.right
 
     margin-left: 5
-
-
 
   Label
 
@@ -139,8 +120,6 @@ Panel
 
     margin-left: 6
 
-
-
   Label
 
     id: offerTypeLabel
@@ -157,8 +136,6 @@ Panel
 
     margin-top: 7
 
-
-
   MarketComboBox
 
     id: offerTypeComboBox
@@ -173,13 +150,9 @@ Panel
 
     width: 105
 
-
-
     $disabled:
 
       color: #aaaaaa44
-
-
 
   Label
 
@@ -196,8 +169,6 @@ Panel
     anchors.left: prev.right
 
     margin-left: 7
-
-
 
   SpinBox
 
@@ -217,13 +188,9 @@ Panel
 
     focusable: true
 
-
-
     $disabled:
 
       color: #aaaaaa44
-
-
 
   Label
 
@@ -240,8 +207,6 @@ Panel
     anchors.left: prev.right
 
     margin-left: 7
-
-
 
   SpinBox
 
@@ -261,13 +226,9 @@ Panel
 
     focusable: true
 
-
-
     $disabled:
 
       color: #aaaaaa44
-
-
 
   Label
 
@@ -283,8 +244,6 @@ Panel
 
     anchors.left: amountEdit.left
 
-
-
   PreviousButton
 
     id: prevAmountButton
@@ -296,8 +255,6 @@ Panel
     margin-left: 7
 
     @onClick: Market.decrementAmount()
-
-
 
   SpinBox
 
@@ -319,8 +276,6 @@ Panel
 
     focusable: true
 
-
-
   NextButton
 
     id: nextAmountButton
@@ -332,8 +287,6 @@ Panel
     margin-left: 3
 
     @onClick: Market.incrementAmount()
-
-
 
   Button
 
@@ -348,8 +301,6 @@ Panel
     margin-left: 7
 
     width: 90
-
-
 
   CheckBox
 
@@ -369,8 +320,6 @@ Panel
 
     width: 90
 
-
-
   Label
 
     id: feeLabel
@@ -386,18 +335,11 @@ Panel
 ```
 
 ---
-
-
-
 # myoffers.otui
-
-
 
 ```otui
 
 Panel
-
-
 
   MarketTabBar
 
@@ -412,8 +354,6 @@ Panel
     anchors.left: parent.left
 
     anchors.right: parent.right
-
-
 
   Panel
 
@@ -430,6 +370,3 @@ Panel
 ```
 
 ---
-
-
-

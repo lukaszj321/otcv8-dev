@@ -1,4 +1,4 @@
-# Troub
+﻿# Troub
 
 l
 
@@ -19,10 +19,7 @@ i
 n
 
 g
-
-## 
-
-B
+# # B
 
 u
 
@@ -33,10 +30,7 @@ l
 d
 
 - Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
-
-## 
-
-A
+# # A
 
 n
 
@@ -51,10 +45,7 @@ i
 d
 
 - Błąd NDK: sprawdź wersję i ścieżki SDK/NDK.
-
-## 
-
-W
+# # W
 
 S
 
