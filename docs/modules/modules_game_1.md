@@ -1,4 +1,4 @@
-﻿# Modules Game 1
+# Modules Game 1
 
 ---
 ## game_interface

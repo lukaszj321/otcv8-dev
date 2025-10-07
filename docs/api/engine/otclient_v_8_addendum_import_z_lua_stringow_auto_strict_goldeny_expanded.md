@@ -1,4 +1,4 @@
-﻿# OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)
+# OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)
 
 **Cel:** Dostarczyć kompletne, wdrażalne uzupełnienie do Part 4:  
 A) **Import z Lua‑stringów do AST** (AUTO‑STRICT, aktualizacja *in‑place*),  

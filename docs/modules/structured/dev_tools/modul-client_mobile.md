@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_mobile`
+# ¦ Modul: `client_mobile`
 
 ```lua
 

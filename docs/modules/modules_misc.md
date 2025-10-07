@@ -1,4 +1,4 @@
-﻿# Modules Misc
+# Modules Misc
 
 ---
 ## game_shop

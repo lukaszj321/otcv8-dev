@@ -1,4 +1,4 @@
-﻿# Modules Core
+# Modules Core
 
 ---
 ## client

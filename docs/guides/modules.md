@@ -1,4 +1,4 @@
-﻿# Moduły (vBot) — przewodnik
+# Moduły (vBot) — przewodnik
 
 !!! info "Cel"
 

@@ -1,4 +1,4 @@
-﻿# Structured modules
+# Structured modules
 
 > NOTE:
 
