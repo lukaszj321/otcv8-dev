@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
-
-
-
-
-
+﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
 
 ```text
 
@@ -39,15 +34,11 @@ extensions:[[
 
   "Depositer": [
 
-
-
-  ],
+],
 
   "Supply": [
 
-
-
-  ]
+]
 
 }
 
@@ -56,12 +47,7 @@ extensions:[[
 ```
 
 ---
-
-
-
 # fast_walking.cfg
-
-
 
 ```text
 
@@ -77,15 +63,11 @@ extensions:[[
 
   "Depositer": [
 
-
-
-  ],
+],
 
   "Supply": [
 
-
-
-  ]
+]
 
 }
 
@@ -94,12 +76,7 @@ extensions:[[
 ```
 
 ---
-
-
-
 # test_src.cfg
-
-
 
 ```text
 
@@ -133,17 +110,9 @@ goto:103,84,7
 
 function:[[
 
-
-
 TargetBot.enableLuring()
 
-
-
 return true
-
-
-
-
 
 ]]
 
@@ -155,17 +124,9 @@ goto:112,79,8
 
 function:[[
 
-
-
 TargetBot.disableLuring()
 
-
-
 return true
-
-
-
-
 
 ]]
 
@@ -245,17 +206,9 @@ goto:93,112,6
 
 function:[[
 
-
-
 TargetBot.disableLuring()
 
-
-
 return true
-
-
-
-
 
 ]]
 
@@ -297,15 +250,11 @@ extensions:[[
 
   "Depositer": [
 
-
-
-  ],
+],
 
   "Supply": [
 
-
-
-  ]
+]
 
 }
 
@@ -314,6 +263,3 @@ extensions:[[
 ```
 
 ---
-
-
-

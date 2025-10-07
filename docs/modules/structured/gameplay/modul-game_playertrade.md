@@ -1,21 +1,12 @@
-# ¦ Modul: `game_playertrade`
-
-
-
-
-
+﻿# ¦ Modul: `game_playertrade`
 
 ```lua
 
 tradeWindow = nil
 
-
-
 function init()
 
   g_ui.importStyle('tradewindow')
-
-
 
   connect(g_game, { onOwnTrade = onGameOwnTrade,
 
@@ -27,8 +18,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onOwnTrade = onGameOwnTrade,
@@ -39,8 +28,6 @@ function terminate()
 
                        onGameEnd = onGameCloseTrade })
 
-
-
   if tradeWindow then
 
     tradeWindow:destroy()
@@ -48,8 +35,6 @@ function terminate()
   end
 
 end
-
-
 
 function createTrade()
 
@@ -67,8 +52,6 @@ function createTrade()
 
 end
 
-
-
 function fillTrade(name, items, counter)
 
   if not tradeWindow then
@@ -77,13 +60,9 @@ function fillTrade(name, items, counter)
 
   end
 
-
-
   local tradeItemWidget = tradeWindow:getChildById('tradeItem')
 
   tradeItemWidget:setItemId(items[1]:getId())
-
-
 
   local tradeContainer
 
@@ -115,10 +94,6 @@ function fillTrade(name, items, counter)
 
   countLabel:setText(tr("Items") .. ": " .. #items)
 
-  
-
-
-
   for index,item in ipairs(items) do
 
     local itemWidget = g_ui.createWidget('Item', tradeContainer)
@@ -139,23 +114,17 @@ function fillTrade(name, items, counter)
 
 end
 
-
-
 function onGameOwnTrade(name, items)
 
   fillTrade(name, items, false)
 
 end
 
-
-
 function onGameCounterTrade(name, items)
 
   fillTrade(name, items, true)
 
 end
-
-
 
 function onGameCloseTrade()
 
@@ -172,12 +141,7 @@ end
 ```
 
 ---
-
-
-
 # playertrade.otmod
-
-
 
 ```text
 
@@ -202,12 +166,7 @@ Module
 ```
 
 ---
-
-
-
 # tradewindow.otui
-
-
 
 ```otui
 
@@ -216,8 +175,6 @@ TradeWindow < MiniWindow
   !text: tr('Trade')
 
   height: 150
-
-
 
   UIItem
 
@@ -235,13 +192,9 @@ TradeWindow < MiniWindow
 
     margin-left: 4
 
-
-
   MiniWindowContents
 
     padding: 2
-
-    
 
     Label
 
@@ -253,8 +206,6 @@ TradeWindow < MiniWindow
 
       anchors.right: parent.horizontalCenter
 
-
-
     Label
 
       id: counterTradeLabel
@@ -264,8 +215,6 @@ TradeWindow < MiniWindow
       anchors.left: parent.horizontalCenter
 
       anchors.right: parent.right
-
-
 
     Label
 
@@ -281,8 +230,6 @@ TradeWindow < MiniWindow
 
       text-align: center
 
-
-
     Label
 
       id: counterTradeCountLabel
@@ -296,8 +243,6 @@ TradeWindow < MiniWindow
       font: verdana-9px-bold
 
       text-align: center
-
-
 
     ScrollableFlatPanel
 
@@ -327,8 +272,6 @@ TradeWindow < MiniWindow
 
       vertical-scrollbar: ownTradeScrollBar
 
-
-
     VerticalScrollBar
 
       id: ownTradeScrollBar
@@ -346,8 +289,6 @@ TradeWindow < MiniWindow
       $!on:
 
         width: 0
-
-
 
     ScrollableFlatPanel
 
@@ -377,8 +318,6 @@ TradeWindow < MiniWindow
 
       vertical-scrollbar: counterTradeScrollBar
 
-
-
     VerticalScrollBar
 
       id: counterTradeScrollBar
@@ -397,8 +336,6 @@ TradeWindow < MiniWindow
 
         width: 0
 
-
-
     Button
 
       !text: tr('Accept')
@@ -416,8 +353,6 @@ TradeWindow < MiniWindow
       enabled: false
 
       @onClick: g_game.acceptTrade(); self:disable()
-
-
 
     Button
 
@@ -438,6 +373,3 @@ TradeWindow < MiniWindow
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `client_styles`
-
-
-
-
-
+﻿# ¦ Modul: `client_styles`
 
 ```lua
 
@@ -14,8 +9,6 @@ function init()
   local loaded_files = {}
 
   local layout = g_resources:getLayout()
-
-  
 
   local style_files = {}
 
@@ -39,8 +32,6 @@ function init()
 
   end
 
-  
-
   files = g_resources.listDirectoryFiles('/data/styles')
 
   for _,file in pairs(files) do
@@ -53,8 +44,6 @@ function init()
 
   end
 
-
-
   table.sort(style_files)
 
   for _,file in pairs(style_files) do
@@ -66,8 +55,6 @@ function init()
     end
 
   end
-
-
 
   if layout:len() > 0 then
 
@@ -89,8 +76,6 @@ function init()
 
   end
 
-
-
   files = g_resources.listDirectoryFiles('/data/fonts')
 
   for _,file in pairs(files) do
@@ -103,8 +88,6 @@ function init()
 
   end
 
-
-
   g_mouse.loadCursors('/data/cursors/cursors')
 
   if layout:len() > 0 and g_resources.directoryExists('/layouts/' .. layout .. '/cursors/cursors') then
@@ -115,8 +98,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
 end
@@ -124,12 +105,7 @@ end
 ```
 
 ---
-
-
-
 # styles.otmod
-
-
 
 ```text
 
@@ -154,6 +130,3 @@ Module
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `game_ruleviolation`
-
-
-
-
-
+﻿# ¦ Modul: `game_ruleviolation`
 
 ```lua
 
@@ -51,8 +46,6 @@ rvreasons[20] = tr("Destructive Behaviour")
 
 rvreasons[21] = tr("Excessive Unjustified Player Killing")
 
-
-
 rvactions = {}
 
 rvactions[0] = tr("Notation")
@@ -69,37 +62,25 @@ rvactions[5] = tr("Name Report + Banishment + Final Warning")
 
 rvactions[6] = tr("Statement Report")
 
-
-
 ruleViolationWindow = nil
 
 reasonsTextList = nil
 
 actionsTextList = nil
 
-
-
 function init()
 
   connect(g_game, { onGMActions = loadReasons })
-
-
 
   ruleViolationWindow = g_ui.displayUI('ruleviolation')
 
   ruleViolationWindow:setVisible(false)
 
-
-
   reasonsTextList = ruleViolationWindow:getChildById('reasonList')
 
   actionsTextList = ruleViolationWindow:getChildById('actionList')
 
-
-
   g_keyboard.bindKeyDown('Ctrl+Y', function() show() end)
-
-
 
   if g_game.isOnline() then
 
@@ -109,21 +90,15 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onGMActions = loadReasons })
 
   g_keyboard.unbindKeyDown('Ctrl+Y')
 
-
-
   ruleViolationWindow:destroy()
 
 end
-
-
 
 function hasWindowAccess()
 
@@ -131,15 +106,11 @@ function hasWindowAccess()
 
 end
 
-
-
 function loadReasons()
 
   reasonsTextList:destroyChildren()
 
   actionsTextList:destroyChildren()
-
-
 
   local actions = g_game.getGMActions()
 
@@ -157,13 +128,9 @@ function loadReasons()
 
   end
 
-
-
   if not hasWindowAccess() and ruleViolationWindow:isVisible() then hide() end
 
 end
-
-
 
 function show(target, statement)
 
@@ -175,15 +142,11 @@ function show(target, statement)
 
     end
 
-
-
     if statement then
 
       ruleViolationWindow:getChildById('statementText'):setText(statement)
 
     end
-
-
 
     ruleViolationWindow:show()
 
@@ -197,8 +160,6 @@ function show(target, statement)
 
 end
 
-
-
 function hide()
 
   ruleViolationWindow:hide()
@@ -206,8 +167,6 @@ function hide()
   clearForm()
 
 end
-
-
 
 function onSelectReason(reasonLabel, focused)
 
@@ -235,8 +194,6 @@ function onSelectReason(reasonLabel, focused)
 
 end
 
-
-
 function report()
 
   local reasonLabel = reasonsTextList:getFocusedChild()
@@ -249,8 +206,6 @@ function report()
 
   end
 
-
-
   local actionLabel = actionsTextList:getFocusedChild()
 
   if not actionLabel then
@@ -260,8 +215,6 @@ function report()
     return
 
   end
-
-
 
   local target = ruleViolationWindow:getChildById('nameText'):getText()
 
@@ -295,8 +248,6 @@ function report()
 
 end
 
-
-
 function clearForm()
 
   ruleViolationWindow:getChildById('nameText'):clearText()
@@ -312,12 +263,7 @@ end
 ```
 
 ---
-
-
-
 # ruleviolation.otmod
-
-
 
 ```text
 
@@ -342,12 +288,7 @@ Module
 ```
 
 ---
-
-
-
 # ruleviolation.otui
-
-
 
 ```otui
 
@@ -359,15 +300,11 @@ RVListLabel < Label
 
   focusable: true
 
-
-
   $focus:
 
     background-color: #ffffff22
 
     color: #ffffff
-
-
 
 RVLabel < Label
 
@@ -375,21 +312,15 @@ RVLabel < Label
 
   anchors.right: parent.right
 
-
-
   $first:
 
     anchors.top: parent.top
-
-
 
   $!first:
 
     margin-top: 10
 
     anchors.top: prev.bottom
-
-
 
 RVTextEdit < TextEdit
 
@@ -399,19 +330,13 @@ RVTextEdit < TextEdit
 
   anchors.right: parent.right
 
-
-
   $first:
 
     anchors.top: parent.top
 
-
-
   $!first:
 
     anchors.top: prev.bottom
-
-
 
 MainWindow
 
@@ -423,25 +348,17 @@ MainWindow
 
   @onEscape: hide()
 
-
-
   RVLabel
 
     !text: tr('Name') .. ':'
-
-
 
   RVTextEdit
 
     id: nameText
 
-
-
   RVLabel
 
     !text: tr('Statement') .. ':'
-
-
 
   RVTextEdit
 
@@ -449,13 +366,9 @@ MainWindow
 
     enabled: false
 
-
-
   RVLabel
 
     !text: tr('Reason') .. ':'
-
-
 
   TextList
 
@@ -475,8 +388,6 @@ MainWindow
 
     vertical-scrollbar: reasonListScrollBar
 
-
-
   VerticalScrollBar
 
     id: reasonListScrollBar
@@ -491,13 +402,9 @@ MainWindow
 
     pixels-scroll: true
 
-
-
   RVLabel
 
     !text: tr('Action') .. ':'
-
-
 
   TextList
 
@@ -517,8 +424,6 @@ MainWindow
 
     vertical-scrollbar: actionListScrollBar
 
-
-
   VerticalScrollBar
 
     id: actionListScrollBar
@@ -532,8 +437,6 @@ MainWindow
     step: 14
 
     pixels-scroll: true
-
-
 
   CheckBox
 
@@ -549,19 +452,13 @@ MainWindow
 
     anchors.right: parent.right
 
-
-
   RVLabel
 
     !text: tr('Comment') .. ':'
 
-
-
   RVTextEdit
 
     id: commentText
-
-
 
   Button
 
@@ -574,8 +471,6 @@ MainWindow
     anchors.bottom: parent.bottom
 
     @onClick: hide()
-
-
 
   Button
 
@@ -594,6 +489,3 @@ MainWindow
 ```
 
 ---
-
-
-

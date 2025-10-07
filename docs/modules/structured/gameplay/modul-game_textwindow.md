@@ -1,21 +1,12 @@
-# ¦ Modul: `game_textwindow`
-
-
-
-
-
+﻿# ¦ Modul: `game_textwindow`
 
 ```lua
 
 windows = {}
 
-
-
 function init()
 
   g_ui.importStyle('textwindow')
-
-
 
   connect(g_game, { onEditText = onGameEditText,
 
@@ -25,8 +16,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onEditText = onGameEditText,
@@ -35,13 +24,9 @@ function terminate()
 
                        onGameEnd = destroyWindows })
 
-
-
   destroyWindows()
 
 end
-
-
 
 function destroyWindows()
 
@@ -55,13 +40,9 @@ function destroyWindows()
 
 end
 
-
-
 function onGameEditText(id, itemId, maxLength, text, writer, time)
 
   local textWindow = g_ui.createWidget('TextWindow', rootWidget)
-
-
 
   local writeable = #text < maxLength and maxLength > 0
 
@@ -75,19 +56,13 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
 
   local cancelButton = textWindow:getChildById('cancelButton')
 
-
-
   local textScroll = textWindow:getChildById('textScroll')
-
-
 
   if textItem:isHidden() then
 
     textItem:show()
 
   end
-
-
 
   textItem:setItemId(itemId)
 
@@ -98,8 +73,6 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
   textEdit:setEditable(writeable)
 
   textEdit:setCursorVisible(writeable)
-
-
 
   local desc = ''
 
@@ -119,8 +92,6 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
 
   end
 
-
-
   if #text == 0 and not writeable then
 
     desc = tr("It is empty.")
@@ -131,17 +102,11 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
 
   end
 
-
-
   local lines = #{string.find(desc, '\n')}
 
   if lines < 2 then desc = desc .. '\n' end
 
-
-
   description:setText(desc)
-
-
 
   if not writeable then
 
@@ -159,15 +124,11 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
 
   end
 
-
-
   if description:getHeight() < 64 then
 
     description:setHeight(64)
 
   end
-
-
 
   local function destroy()
 
@@ -176,8 +137,6 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
     table.removevalue(windows, textWindow)
 
   end
-
-
 
   local doneFunc = function()
 
@@ -191,13 +150,9 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
 
   end
 
-
-
   okButton.onClick = doneFunc
 
   cancelButton.onClick = destroy
-
-
 
   if not writeable then
 
@@ -205,23 +160,15 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
 
   end
 
-
-
   textWindow.onEscape = destroy
-
-
 
   table.insert(windows, textWindow)
 
 end
 
-
-
 function onGameEditList(id, doorId, text)
 
   local textWindow = g_ui.createWidget('TextWindow', rootWidget)
-
-
 
   local textEdit = textWindow:getChildById('text')
 
@@ -231,8 +178,6 @@ function onGameEditList(id, doorId, text)
 
   local cancelButton = textWindow:getChildById('cancelButton')
 
-
-
   local textItem = textWindow:getChildById('textItem')
 
   if textItem and not textItem:isHidden() then
@@ -240,8 +185,6 @@ function onGameEditList(id, doorId, text)
     textItem:hide()
 
   end
-
-
 
   textEdit:setMaxLength(8192)
 
@@ -253,15 +196,11 @@ function onGameEditList(id, doorId, text)
 
   textWindow:setText(tr('Edit List'))
 
-
-
   if description:getHeight() < 64 then
 
     description:setHeight(64)
 
   end
-
-
 
   local function destroy()
 
@@ -271,8 +210,6 @@ function onGameEditList(id, doorId, text)
 
   end
 
-
-
   local doneFunc = function()
 
     g_game.editList(id, doorId, textEdit:getText())
@@ -281,15 +218,11 @@ function onGameEditList(id, doorId, text)
 
   end
 
-
-
   okButton.onClick = doneFunc
 
   cancelButton.onClick = destroy
 
   textWindow.onEscape = destroy
-
-
 
   table.insert(windows, textWindow)
 
@@ -298,12 +231,7 @@ end
 ```
 
 ---
-
-
-
 # textwindow.otmod
-
-
 
 ```text
 
@@ -330,12 +258,7 @@ Module
 ```
 
 ---
-
-
-
 # textwindow.otui
-
-
 
 ```otui
 
@@ -344,8 +267,6 @@ TextWindow < MainWindow
   id: textWindow
 
   size: 300 280
-
-
 
   Item
 
@@ -356,8 +277,6 @@ TextWindow < MainWindow
     anchors.top: parent.top
 
     anchors.left: parent.left
-
-
 
   Label
 
@@ -377,8 +296,6 @@ TextWindow < MainWindow
 
     text-wrap: true
 
-
-
   MultilineTextEdit
 
     id: text
@@ -394,8 +311,6 @@ TextWindow < MainWindow
     vertical-scrollbar: textScroll
 
     text-wrap: true
-
-
 
   VerticalScrollBar
 
@@ -415,8 +330,6 @@ TextWindow < MainWindow
 
     pixels-scroll: true
 
-
-
   Button
 
     id: okButton
@@ -430,8 +343,6 @@ TextWindow < MainWindow
     margin-right: 10
 
     width: 60
-
-
 
   Button
 
@@ -448,6 +359,3 @@ TextWindow < MainWindow
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `game_playermount`
-
-
-
-
-
+﻿# ¦ Modul: `game_playermount`
 
 ```lua
 
@@ -15,13 +10,11 @@ function init()
 
     onGameEnd = offline
 
-  })
+})
 
   if g_game.isOnline() then online() end
 
 end
-
-
 
 function terminate()
 
@@ -31,13 +24,11 @@ function terminate()
 
     onGameEnd = offline
 
-  })
+})
 
   offline()
 
 end
-
-
 
 function online()
 
@@ -49,8 +40,6 @@ function online()
 
 end
 
-
-
 function offline()
 
   if g_game.getFeature(GamePlayerMounts) then
@@ -60,8 +49,6 @@ function offline()
   end
 
 end
-
-
 
 function toggleMount()
 
@@ -75,8 +62,6 @@ function toggleMount()
 
 end
 
-
-
 function mount()
 
   local player = g_game.getLocalPlayer()
@@ -88,8 +73,6 @@ function mount()
   end
 
 end
-
-
 
 function dismount()
 
@@ -106,12 +89,7 @@ end
 ```
 
 ---
-
-
-
 # playermount.otmod
-
-
 
 ```text
 
@@ -136,6 +114,3 @@ Module
 ```
 
 ---
-
-
-

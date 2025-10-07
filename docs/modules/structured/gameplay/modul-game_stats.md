@@ -1,9 +1,4 @@
-# ¦ Modul: `game_stats`
-
-
-
-
-
+﻿# ¦ Modul: `game_stats`
 
 ```lua
 
@@ -11,13 +6,9 @@ ui = nil
 
 updateEvent = nil
 
-
-
 function init()
 
   ui = g_ui.loadUI('stats', modules.game_interface.getMapPanel())
-
-  
 
   if not modules.client_options.getOption("showPing") then
 
@@ -31,13 +22,9 @@ function init()
 
   end
 
-  
-
   updateEvent = scheduleEvent(update, 200)
 
 end
-
-
 
 function terminate()
 
@@ -45,21 +32,15 @@ function terminate()
 
 end
 
-
-
 function update()
 
   updateEvent = scheduleEvent(update, 500)
 
   if ui:isHidden() then return end
 
-
-
   text = 'FPS: ' .. g_app.getFps()
 
   ui.fps:setText(text)
-
-
 
   local ping = g_game.getPing()
 
@@ -68,8 +49,6 @@ function update()
     ping = g_proxy.getPing()
 
   end
-
-  
 
   local text = 'Ping: '
 
@@ -107,15 +86,11 @@ function update()
 
 end
 
-
-
 function show()
 
   ui:setVisible(true)
 
 end
-
-
 
 function hide()
 
@@ -126,12 +101,7 @@ end
 ```
 
 ---
-
-
-
 # stats.otmod
-
-
 
 ```text
 
@@ -156,12 +126,7 @@ Module
 ```
 
 ---
-
-
-
 # stats.otui
-
-
 
 ```otui
 
@@ -183,15 +148,11 @@ UIWidget
 
     type: verticalBox  
 
-  
-
   Label
 
     id: fps
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -202,6 +163,3 @@ UIWidget
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `game_bugreport`
-
-
-
-
-
+﻿# ¦ Modul: `game_bugreport`
 
 ```lua
 
@@ -11,35 +6,23 @@
 
 HOTKEY = 'Ctrl+Z'
 
-
-
 bugReportWindow = nil
 
 bugTextEdit = nil
-
-
 
 function init()
 
   g_ui.importStyle('bugreport')
 
-
-
   bugReportWindow = g_ui.createWidget('BugReportWindow', rootWidget)
 
   bugReportWindow:hide()
 
-
-
   bugTextEdit = bugReportWindow:getChildById('bugTextEdit')
-
-
 
   g_keyboard.bindKeyDown(HOTKEY, show, modules.game_interface.getRootPanel())
 
 end
-
-
 
 function terminate()
 
@@ -48,8 +31,6 @@ function terminate()
   bugReportWindow:destroy()
 
 end
-
-
 
 function doReport()
 
@@ -60,8 +41,6 @@ function doReport()
   modules.game_textmessage.displayGameMessage(tr('Bug report sent.'))
 
 end
-
-
 
 function show()
 
@@ -82,12 +61,7 @@ end
 ```
 
 ---
-
-
-
 # bugreport.otmod
-
-
 
 ```text
 
@@ -112,12 +86,7 @@ Module
 ```
 
 ---
-
-
-
 # bugreport.otui
-
-
 
 ```otui
 
@@ -128,8 +97,6 @@ BugReportWindow < MainWindow
   size: 280 250
 
   @onEscape: self:hide()
-
-
 
   Label
 
@@ -147,8 +114,6 @@ BugReportWindow < MainWindow
 
     anchors.right: parent.right
 
-
-
   MultilineTextEdit
 
     id: bugTextEdit
@@ -165,8 +130,6 @@ BugReportWindow < MainWindow
 
     margin-bottom: 8
 
-
-
   Button
 
     id: sendButton
@@ -182,8 +145,6 @@ BugReportWindow < MainWindow
     width: 80
 
     &onClick: doReport
-
-
 
   Button
 
@@ -202,6 +163,3 @@ BugReportWindow < MainWindow
 ```
 
 ---
-
-
-

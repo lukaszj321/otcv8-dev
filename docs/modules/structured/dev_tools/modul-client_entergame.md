@@ -1,15 +1,8 @@
-# ¦ Modul: `client_entergame`
-
-
-
-
-
+﻿# ¦ Modul: `client_entergame`
 
 ```lua
 
 CharacterList = { }
-
-
 
 -- private variables
 
@@ -35,23 +28,17 @@ local autoReconnectEvent
 
 local lastLogout = 0
 
-
-
 -- private functions
 
 local function tryLogin(charInfo, tries)
 
   tries = tries or 1
 
-
-
   if tries > 50 then
 
     return
 
   end
-
-
 
   if g_game.isOnline() then
 
@@ -66,8 +53,6 @@ local function tryLogin(charInfo, tries)
     return
 
   end
-
-
 
   CharacterList.hide()
 
@@ -87,8 +72,6 @@ local function tryLogin(charInfo, tries)
 
                                 end })
 
-
-
   -- save last used character
 
   g_settings.set('last-used-character', charInfo.characterName)
@@ -96,8 +79,6 @@ local function tryLogin(charInfo, tries)
   g_settings.set('last-used-world', charInfo.worldName)
 
 end
-
-
 
 local function updateWait(timeStart, timeEnd)
 
@@ -111,19 +92,13 @@ local function updateWait(timeStart, timeEnd)
 
       local timeStr = string.format("%.0f", timeEnd - time)
 
-
-
       local progressBar = waitingWindow:getChildById('progressBar')
 
       progressBar:setPercent(percent)
 
-
-
       local label = waitingWindow:getChildById('timeLabel')
 
       label:setText(tr('Trying to reconnect in %s seconds.', timeStr))
-
-
 
       updateWaitEvent = scheduleEvent(function() updateWait(timeStart, timeEnd) end, 1000 * progressBar:getPercentPixels() / 100 * (timeEnd - timeStart))
 
@@ -132,8 +107,6 @@ local function updateWait(timeStart, timeEnd)
     end
 
   end
-
-
 
   if updateWaitEvent then
 
@@ -145,8 +118,6 @@ local function updateWait(timeStart, timeEnd)
 
 end
 
-
-
 local function resendWait()
 
   if waitingWindow then
@@ -155,8 +126,6 @@ local function resendWait()
 
     waitingWindow = nil
 
-
-
     if updateWaitEvent then
 
       updateWaitEvent:cancel()
@@ -164,8 +133,6 @@ local function resendWait()
       updateWaitEvent = nil
 
     end
-
-
 
     if charactersWindow then
 
@@ -191,31 +158,21 @@ local function resendWait()
 
 end
 
-
-
 local function onLoginWait(message, time)
 
   CharacterList.destroyLoadBox()
 
-
-
   waitingWindow = g_ui.displayUI('waitinglist')
-
-
 
   local label = waitingWindow:getChildById('infoLabel')
 
   label:setText(message)
-
-
 
   updateWaitEvent = scheduleEvent(function() updateWait(g_clock.seconds(), g_clock.seconds() + time) end, 0)
 
   resendWaitEvent = scheduleEvent(resendWait, time * 1000)
 
 end
-
-
 
 function onGameLoginError(message)
 
@@ -235,8 +192,6 @@ function onGameLoginError(message)
 
 end
 
-
-
 function onGameLoginToken(unknown)
 
   CharacterList.destroyLoadBox()
@@ -254,8 +209,6 @@ function onGameLoginToken(unknown)
   end
 
 end
-
-
 
 function onGameConnectionError(message, code)
 
@@ -281,8 +234,6 @@ function onGameConnectionError(message, code)
 
 end
 
-
-
 function onGameUpdateNeeded(signature)
 
   CharacterList.destroyLoadBox()
@@ -299,8 +250,6 @@ function onGameUpdateNeeded(signature)
 
 end
 
-
-
 function onGameEnd()
 
   scheduleAutoReconnect()
@@ -309,15 +258,11 @@ function onGameEnd()
 
 end
 
-
-
 function onLogout()
 
   lastLogout = g_clock.millis()
 
 end
-
-
 
 function scheduleAutoReconnect()
 
@@ -336,8 +281,6 @@ function scheduleAutoReconnect()
   autoReconnectEvent = scheduleEvent(executeAutoReconnect, 2500)
 
 end
-
-
 
 function executeAutoReconnect()  
 
@@ -358,8 +301,6 @@ function executeAutoReconnect()
   CharacterList.doLogin()
 
 end
-
-
 
 -- public functions
 
@@ -383,8 +324,6 @@ function CharacterList.init()
 
   connect(g_game, { onLogout = onLogout })
 
-
-
   if G.characters then
 
     CharacterList.create(G.characters, G.characterAccount)
@@ -392,8 +331,6 @@ function CharacterList.init()
   end
 
 end
-
-
 
 function CharacterList.terminate()
 
@@ -415,8 +352,6 @@ function CharacterList.terminate()
 
   disconnect(g_game, { onLogout = onLogout })
 
-
-
   if charactersWindow then
 
     characterList = nil
@@ -426,8 +361,6 @@ function CharacterList.terminate()
     charactersWindow = nil
 
   end
-
-
 
   if loadBox then
 
@@ -439,8 +372,6 @@ function CharacterList.terminate()
 
   end
 
-
-
   if waitingWindow then
 
     waitingWindow:destroy()
@@ -448,8 +379,6 @@ function CharacterList.terminate()
     waitingWindow = nil
 
   end
-
-
 
   if updateWaitEvent then
 
@@ -459,8 +388,6 @@ function CharacterList.terminate()
 
   end
 
-
-
   if resendWaitEvent then
 
     removeEvent(resendWaitEvent)
@@ -468,8 +395,6 @@ function CharacterList.terminate()
     resendWaitEvent = nil
 
   end
-
-
 
   if loginEvent then
 
@@ -479,13 +404,9 @@ function CharacterList.terminate()
 
   end
 
-
-
   CharacterList = nil
 
 end
-
-
 
 function CharacterList.create(characters, account, otui)
 
@@ -497,23 +418,17 @@ function CharacterList.create(characters, account, otui)
 
   end
 
-
-
   charactersWindow = g_ui.displayUI(otui)
 
   characterList = charactersWindow:getChildById('characters')
 
   autoReconnectButton = charactersWindow:getChildById('autoReconnect')
 
-
-
   -- characters
 
   G.characters = characters
 
   G.characterAccount = account
-
-
 
   characterList:destroyChildren()
 
@@ -557,8 +472,6 @@ function CharacterList.create(characters, account, otui)
 
     end
 
-
-
     -- these are used by login
 
     widget.characterName = characterInfo.name
@@ -569,11 +482,7 @@ function CharacterList.create(characters, account, otui)
 
     widget.worldPort = characterInfo.worldPort
 
-
-
     connect(widget, { onDoubleClick = function () CharacterList.doLogin() return true end } )
-
-
 
     if i == 1 or (g_settings.get('last-used-character') == widget.characterName and g_settings.get('last-used-world') == widget.worldName) then
 
@@ -583,8 +492,6 @@ function CharacterList.create(characters, account, otui)
 
   end
 
-
-
   if focusLabel then
 
     characterList:focusChild(focusLabel, KeyboardFocusReason)
@@ -593,8 +500,6 @@ function CharacterList.create(characters, account, otui)
 
   end
 
-  
-
   characterList.onChildFocusChange = function()
 
     removeEvent(autoReconnectEvent)
@@ -602,8 +507,6 @@ function CharacterList.create(characters, account, otui)
     autoReconnectEvent = nil
 
   end
-
-
 
   -- account
 
@@ -618,8 +521,6 @@ function CharacterList.create(characters, account, otui)
     status = tr(' (Suspended)')
 
   end
-
-
 
   if account.subStatus == SubscriptionStatus.Free and account.premDays < 1 then
 
@@ -639,8 +540,6 @@ function CharacterList.create(characters, account, otui)
 
   end
 
-
-
   if account.premDays > 0 and account.premDays <= 7 then
 
     accountStatusLabel:setOn(true)
@@ -650,8 +549,6 @@ function CharacterList.create(characters, account, otui)
     accountStatusLabel:setOn(false)
 
   end
-
-  
 
   autoReconnectButton.onClick = function(widget)
 
@@ -665,13 +562,9 @@ function CharacterList.create(characters, account, otui)
 
 end
 
-
-
 function CharacterList.destroy()
 
   CharacterList.hide(true)
-
-
 
   if charactersWindow then
 
@@ -685,8 +578,6 @@ function CharacterList.destroy()
 
 end
 
-
-
 function CharacterList.show()
 
   if loadBox or errorBox or not charactersWindow then return end
@@ -697,15 +588,11 @@ function CharacterList.show()
 
   charactersWindow:focus()
 
-  
-
   local autoReconnect = g_settings.getBoolean('autoReconnect', true)
 
   autoReconnectButton:setOn(autoReconnect)
 
 end
-
-
 
 function CharacterList.hide(showLogin)
 
@@ -713,13 +600,9 @@ function CharacterList.hide(showLogin)
 
   autoReconnectEvent = nil
 
-
-
   showLogin = showLogin or false
 
   charactersWindow:hide()
-
-
 
   if showLogin and EnterGame and not g_game.isOnline() then
 
@@ -728,8 +611,6 @@ function CharacterList.hide(showLogin)
   end
 
 end
-
-
 
 function CharacterList.showAgain()
 
@@ -740,8 +621,6 @@ function CharacterList.showAgain()
   end
 
 end
-
-
 
 function CharacterList.isVisible()
 
@@ -755,15 +634,11 @@ function CharacterList.isVisible()
 
 end
 
-
-
 function CharacterList.doLogin()
 
   removeEvent(autoReconnectEvent)
 
   autoReconnectEvent = nil
-
-
 
   local selected = characterList:getFocusedChild()
 
@@ -797,8 +672,6 @@ function CharacterList.doLogin()
 
 end
 
-
-
 function CharacterList.destroyLoadBox()
 
   if loadBox then
@@ -811,8 +684,6 @@ function CharacterList.destroyLoadBox()
 
 end
 
-
-
 function CharacterList.cancelWait()
 
   if waitingWindow then
@@ -823,8 +694,6 @@ function CharacterList.cancelWait()
 
   end
 
-
-
   if updateWaitEvent then
 
     removeEvent(updateWaitEvent)
@@ -833,8 +702,6 @@ function CharacterList.cancelWait()
 
   end
 
-
-
   if resendWaitEvent then
 
     removeEvent(resendWaitEvent)
@@ -842,8 +709,6 @@ function CharacterList.cancelWait()
     resendWaitEvent = nil
 
   end
-
-
 
   CharacterList.destroyLoadBox()
 
@@ -854,12 +719,7 @@ end
 ```
 
 ---
-
-
-
 # characterlist.otui
-
-
 
 ```otui
 
@@ -887,13 +747,9 @@ CharacterWidget < UIWidget
 
   @onSetup: self:updateOnStates()
 
-
-
   $focus:
 
     background-color: #ffffff22
-
-
 
   Label
 
@@ -913,13 +769,9 @@ CharacterWidget < UIWidget
 
     text-offset: 2 0
 
-
-
     $on:
 
       color: #ffffff
-
-
 
   Label
 
@@ -941,13 +793,9 @@ CharacterWidget < UIWidget
 
     &baseText: '(%s)'
 
-
-
     $on:
 
       color: #ffffff
-
-
 
 StaticMainWindow
 
@@ -973,8 +821,6 @@ StaticMainWindow
 
     g_keyboard.bindKeyPress('Down', function() self:getChildById('characters'):focusNextChild(KeyboardFocusReason) end, self)  
 
-
-
   TextList
 
     id: characters
@@ -999,8 +845,6 @@ StaticMainWindow
 
     auto-focus: first
 
-
-
   VerticalScrollBar
 
     id: characterListScrollBar
@@ -1017,8 +861,6 @@ StaticMainWindow
 
     pixels-scroll: true
 
-
-
   Label
 
     id: accountStatusCaption
@@ -1030,8 +872,6 @@ StaticMainWindow
     anchors.bottom: separator.top
 
     margin-bottom: 5
-
-
 
   Label
 
@@ -1047,13 +887,9 @@ StaticMainWindow
 
     text-auto-resize: true
 
-
-
     $on:
 
       color: #FF0000
-
-
 
   HorizontalSeparator
 
@@ -1067,8 +903,6 @@ StaticMainWindow
 
     margin-bottom: 10
 
-
-
   Button
 
     id: autoReconnect
@@ -1079,23 +913,17 @@ StaticMainWindow
 
     anchors.bottom: parent.bottom
 
-    
-
     $!on:
 
       image-color: red    
 
       !text: tr('Auto reconnect: Off')
 
-
-
     $on:
 
       !text: tr('Auto reconnect: On')
 
       image-color: green
-
-
 
   Button
 
@@ -1112,8 +940,6 @@ StaticMainWindow
     margin-right: 10
 
     @onClick: CharacterList.doLogin()
-
-
 
   Button
 
@@ -1132,18 +958,11 @@ StaticMainWindow
 ```
 
 ---
-
-
-
 # entergame.lua
-
-
 
 ```lua
 
 EnterGame = { }
-
-
 
 -- private variables
 
@@ -1161,8 +980,6 @@ local server = nil
 
 local versionsFound = false
 
-
-
 local customServerSelectorPanel
 
 local serverSelectorPanel
@@ -1177,13 +994,9 @@ local rememberPasswordBox
 
 local protos = {"740", "760", "772", "792", "800", "810", "854", "860", "870", "910", "961", "1000", "1077", "1090", "1096", "1098", "1099", "1100", "1200", "1220"}
 
-
-
 local checkedByUpdater = {}
 
 local waitingForHttpResults = 0
-
-
 
 -- private functions
 
@@ -1199,15 +1012,11 @@ local function onProtocolError(protocol, message, errorCode)
 
 end
 
-
-
 local function onSessionKey(protocol, sessionKey)
 
   G.sessionKey = sessionKey
 
 end
-
-
 
 local function onCharacterList(protocol, characters, account, otui)
 
@@ -1216,8 +1025,6 @@ local function onCharacterList(protocol, characters, account, otui)
     local account = g_crypt.encrypt(G.account)
 
     local password = g_crypt.encrypt(G.password)
-
-
 
     g_settings.set('account', account)
 
@@ -1229,8 +1036,6 @@ local function onCharacterList(protocol, characters, account, otui)
 
   end
 
-
-
   for _, characterInfo in pairs(characters) do
 
     if characterInfo.previewState and characterInfo.previewState ~= PreviewState.Default then
@@ -1241,8 +1046,6 @@ local function onCharacterList(protocol, characters, account, otui)
 
   end
 
-
-
   if loadBox then
 
     loadBox:destroy()
@@ -1251,27 +1054,19 @@ local function onCharacterList(protocol, characters, account, otui)
 
   end
 
-    
-
   CharacterList.create(characters, account, otui)
 
   CharacterList.show()
 
-
-
   g_settings.save()
 
 end
-
-
 
 local function onUpdateNeeded(protocol, signature)
 
   return EnterGame.onError(tr('Your client needs updating, try redownloading it.'))
 
 end
-
-
 
 local function onProxyList(protocol, proxies)
 
@@ -1282,8 +1077,6 @@ local function onProxyList(protocol, proxies)
   end
 
 end
-
-
 
 local function parseFeatures(features)
 
@@ -1302,8 +1095,6 @@ local function parseFeatures(features)
   end  
 
 end
-
-
 
 local function validateThings(things)
 
@@ -1369,8 +1160,6 @@ local function validateThings(things)
 
 end
 
-
-
 local function onTibia12HTTPResult(session, playdata)
 
   local characters = {}
@@ -1385,7 +1174,7 @@ local function onTibia12HTTPResult(session, playdata)
 
     premDays = 0
 
-  }
+}
 
   if session["status"] ~= "active" then
 
@@ -1405,17 +1194,13 @@ local function onTibia12HTTPResult(session, playdata)
 
   end
 
-    
-
   local things = {
 
     data = {G.clientVersion .. "/Tibia.dat", ""},
 
     sprites = {G.clientVersion .. "/Tibia.cwm", ""},
 
-  }
-
-
+}
 
   local incorrectThings = validateThings(things)
 
@@ -1427,13 +1212,11 @@ local function onTibia12HTTPResult(session, playdata)
 
       sprites = {G.clientVersion .. "/Tibia.spr", ""},
 
-    }  
+}
 
     incorrectThings = validateThings(things)
 
   end
-
-  
 
   if #incorrectThings > 0 then
 
@@ -1449,7 +1232,7 @@ local function onTibia12HTTPResult(session, playdata)
 
         host = G.host
 
-      })
+})
 
     else
 
@@ -1459,11 +1242,7 @@ local function onTibia12HTTPResult(session, playdata)
 
   end
 
-  
-
   onSessionKey(nil, session["sessionkey"])
-
-  
 
   for _, world in pairs(playdata["worlds"]) do
 
@@ -1475,11 +1254,9 @@ local function onTibia12HTTPResult(session, playdata)
 
       address = world.externaladdressunprotected or world.externaladdressprotected or world.externalport
 
-    }
+}
 
   end
-
-  
 
   for _, character in pairs(playdata["characters"]) do
 
@@ -1497,13 +1274,11 @@ local function onTibia12HTTPResult(session, playdata)
 
         worldPort = world.port
 
-      })
+})
 
     end
 
   end
-
-  
 
   -- proxies
 
@@ -1523,8 +1298,6 @@ local function onTibia12HTTPResult(session, playdata)
 
   end
 
-  
-
   g_game.setCustomProtocolVersion(0)
 
   g_game.chooseRsa(G.host)
@@ -1541,13 +1314,9 @@ local function onTibia12HTTPResult(session, playdata)
 
   end
 
-  
-
   onCharacterList(nil, characters, account, nil)  
 
 end
-
-
 
 local function onHTTPResult(data, err)
 
@@ -1557,8 +1326,6 @@ local function onHTTPResult(data, err)
 
   end
 
-  
-
   waitingForHttpResults = waitingForHttpResults - 1
 
   if err and waitingForHttpResults > 0 then
@@ -1566,8 +1333,6 @@ local function onHTTPResult(data, err)
     return -- ignore, wait for other requests
 
   end
-
-
 
   if err then
 
@@ -1587,15 +1352,11 @@ local function onHTTPResult(data, err)
 
   end
 
-  
-
   if type(data["session"]) == "table" and type(data["playdata"]) == "table" then
 
     return onTibia12HTTPResult(data["session"], data["playdata"])
 
   end  
-
-  
 
   local characters = data["characters"]
 
@@ -1603,15 +1364,11 @@ local function onHTTPResult(data, err)
 
   local session = data["session"]
 
- 
-
   local version = data["version"]
 
   local things = data["things"]
 
   local customProtocol = data["customProtocol"]
-
-
 
   local features = data["features"]
 
@@ -1620,8 +1377,6 @@ local function onHTTPResult(data, err)
   local rsa = data["rsa"]
 
   local proxies = data["proxies"]
-
-
 
   local incorrectThings = validateThings(things)
 
@@ -1632,8 +1387,6 @@ local function onHTTPResult(data, err)
     return EnterGame.onError(incorrectThings)
 
   end
-
-  
 
   -- custom protocol
 
@@ -1651,8 +1404,6 @@ local function onHTTPResult(data, err)
 
   end
 
-  
-
   -- force player settings
 
   if settings ~= nil then
@@ -1665,8 +1416,6 @@ local function onHTTPResult(data, err)
 
   end
 
-    
-
   -- version
 
   G.clientVersion = version
@@ -1677,15 +1426,11 @@ local function onHTTPResult(data, err)
 
   g_game.setCustomOs(-1) -- disable
 
-  
-
   if rsa ~= nil then
 
     g_game.setRsa(rsa)
 
   end
-
-
 
   if features ~= nil then
 
@@ -1693,15 +1438,11 @@ local function onHTTPResult(data, err)
 
   end
 
-
-
   if session ~= nil and session:len() > 0 then
 
     onSessionKey(nil, session)
 
   end
-
-  
 
   -- proxies
 
@@ -1721,15 +1462,9 @@ local function onHTTPResult(data, err)
 
   end
 
-  
-
   onCharacterList(nil, characters, account, nil)  
 
 end
-
-
-
-
 
 -- public functions
 
@@ -1739,13 +1474,9 @@ function EnterGame.init()
 
   enterGame = g_ui.displayUI('entergame')
 
-  
-
   serverSelectorPanel = enterGame:getChildById('serverSelectorPanel')
 
   customServerSelectorPanel = enterGame:getChildById('customServerSelectorPanel')
-
-  
 
   serverSelector = serverSelectorPanel:getChildById('serverSelector')
 
@@ -1754,8 +1485,6 @@ function EnterGame.init()
   serverHostTextEdit = customServerSelectorPanel:getChildById('serverHostTextEdit')
 
   clientVersionSelector = customServerSelectorPanel:getChildById('clientVersionSelector')
-
-  
 
   if Servers ~= nil then 
 
@@ -1779,8 +1508,6 @@ function EnterGame.init()
 
   end
 
-
-
   if serverSelector:getOptionsCount() == 1 then
 
     enterGame:setHeight(enterGame:getHeight() - serverSelectorPanel:getHeight())
@@ -1788,8 +1515,6 @@ function EnterGame.init()
     serverSelectorPanel:setOn(false)
 
   end
-
-  
 
   local account = g_crypt.decrypt(g_settings.get('account'))
 
@@ -1800,8 +1525,6 @@ function EnterGame.init()
   local host = g_settings.get('host')
 
   local clientVersion = g_settings.get('client-version')
-
-
 
   if serverSelector:isOption(server) then
 
@@ -1823,27 +1546,19 @@ function EnterGame.init()
 
   end
 
-  
-
   enterGame:getChildById('accountPasswordTextEdit'):setText(password)
 
   enterGame:getChildById('accountNameTextEdit'):setText(account)
 
   rememberPasswordBox:setChecked(#account > 0)
 
-    
-
   g_keyboard.bindKeyDown('Ctrl+G', EnterGame.openWindow)
-
-
 
   if g_game.isOnline() then
 
     return EnterGame.hide()
 
   end
-
-
 
   scheduleEvent(function()
 
@@ -1853,15 +1568,11 @@ function EnterGame.init()
 
 end
 
-
-
 function EnterGame.terminate()
 
   if not enterGame then return end
 
   g_keyboard.unbindKeyDown('Ctrl+G')
-
-  
 
   enterGame:destroy()
 
@@ -1885,8 +1596,6 @@ function EnterGame.terminate()
 
 end
 
-
-
 function EnterGame.show()
 
   if not enterGame then return end
@@ -1901,8 +1610,6 @@ function EnterGame.show()
 
 end
 
-
-
 function EnterGame.hide()
 
   if not enterGame then return end
@@ -1910,8 +1617,6 @@ function EnterGame.hide()
   enterGame:hide()
 
 end
-
-
 
 function EnterGame.openWindow()
 
@@ -1926,8 +1631,6 @@ function EnterGame.openWindow()
   end
 
 end
-
-
 
 function EnterGame.clearAccountFields()
 
@@ -1944,8 +1647,6 @@ function EnterGame.clearAccountFields()
   g_settings.remove('password')
 
 end
-
-
 
 function EnterGame.onServerChange()
 
@@ -1987,8 +1688,6 @@ function EnterGame.onServerChange()
 
 end
 
-
-
 function EnterGame.doLogin(account, password, token, host)
 
   if g_game.isOnline() then
@@ -2000,8 +1699,6 @@ function EnterGame.doLogin(account, password, token, host)
     return
 
   end
-
-  
 
   G.account = account or enterGame:getChildById('accountNameTextEdit'):getText()
 
@@ -2016,8 +1713,6 @@ function EnterGame.doLogin(account, password, token, host)
   G.host = host or serverHostTextEdit:getText()
 
   G.clientVersion = tonumber(clientVersionSelector:getText())  
-
- 
 
   if not rememberPasswordBox:isChecked() then
 
@@ -2034,8 +1729,6 @@ function EnterGame.doLogin(account, password, token, host)
   g_settings.set('client-version', G.clientVersion)
 
   g_settings.save()
-
-
 
   local server_params = G.host:split(":")
 
@@ -2063,8 +1756,6 @@ function EnterGame.doLogin(account, password, token, host)
 
   end
 
-  
-
   local server_ip = server_params[1]
 
   local server_port = 7171
@@ -2087,17 +1778,13 @@ function EnterGame.doLogin(account, password, token, host)
 
   end
 
-  
-
   local things = {
 
     data = {G.clientVersion .. "/Tibia.dat", ""},
 
     sprites = {G.clientVersion .. "/Tibia.cwm", ""},
 
-  }
-
-  
+}
 
   local incorrectThings = validateThings(things)
 
@@ -2109,7 +1796,7 @@ function EnterGame.doLogin(account, password, token, host)
 
       sprites = {G.clientVersion .. "/Tibia.spr", ""},
 
-    }  
+}
 
     incorrectThings = validateThings(things)
 
@@ -2129,7 +1816,7 @@ function EnterGame.doLogin(account, password, token, host)
 
         host = G.host
 
-      })
+})
 
     else
 
@@ -2138,8 +1825,6 @@ function EnterGame.doLogin(account, password, token, host)
     end
 
   end
-
-
 
   protocolLogin = ProtocolLogin.create()
 
@@ -2152,8 +1837,6 @@ function EnterGame.doLogin(account, password, token, host)
   protocolLogin.onUpdateNeeded = onUpdateNeeded
 
   protocolLogin.onProxyList = onProxyList
-
-
 
   EnterGame.hide()
 
@@ -2168,8 +1851,6 @@ function EnterGame.doLogin(account, password, token, host)
                                   EnterGame.show()
 
                                 end })
-
-
 
   if G.clientVersion == 1000 then -- some people don't understand that tibia 10 uses 1100 protocol
 
@@ -2195,8 +1876,6 @@ function EnterGame.doLogin(account, password, token, host)
 
   end
 
-
-
   -- extra features from init.lua
 
   for i = 4, #server_params do
@@ -2205,8 +1884,6 @@ function EnterGame.doLogin(account, password, token, host)
 
   end
 
-  
-
   -- proxies
 
   if g_proxy then
@@ -2214,8 +1891,6 @@ function EnterGame.doLogin(account, password, token, host)
     g_proxy.clear()
 
   end
-
-  
 
   if modules.game_things.isLoaded() then
 
@@ -2235,8 +1910,6 @@ function EnterGame.doLogin(account, password, token, host)
 
 end
 
-
-
 function EnterGame.doLoginHttp()
 
   if G.host == nil or G.host:len() < 10 then
@@ -2244,8 +1917,6 @@ function EnterGame.doLoginHttp()
     return EnterGame.onError("Invalid server url: " .. G.host)    
 
   end
-
-
 
   loadBox = displayCancelBox(tr('Please wait'), tr('Connecting to login server...'))
 
@@ -2256,8 +1927,6 @@ function EnterGame.doLoginHttp()
                                   EnterGame.show()
 
                                 end })                                
-
-                              
 
   local data = {
 
@@ -2281,9 +1950,7 @@ function EnterGame.doLoginHttp()
 
     stayloggedin = true
 
-  }
-
-  
+}
 
   local server = serverSelector:getText()
 
@@ -2315,8 +1982,6 @@ function EnterGame.doLoginHttp()
 
 end
 
-
-
 function EnterGame.onError(err)
 
   if loadBox then
@@ -2332,8 +1997,6 @@ function EnterGame.onError(err)
   errorBox.onOk = EnterGame.show
 
 end
-
-
 
 function EnterGame.onLoginError(err)
 
@@ -2360,12 +2023,7 @@ end
 ```
 
 ---
-
-
-
 # entergame.otmod
-
-
 
 ```text
 
@@ -2385,8 +2043,6 @@ Module
 
   @onUnload: EnterGame.terminate() CharacterList.terminate()
 
-  
-
   load-later:
 
     - game_things
@@ -2396,12 +2052,7 @@ Module
 ```
 
 ---
-
-
-
 # entergame.otui
-
-
 
 ```otui
 
@@ -2410,8 +2061,6 @@ EnterGameWindow
   id: enterGame
 
   @onEnter: EnterGame.doLogin()
-
-
 
   MenuLabel
 
@@ -2422,8 +2071,6 @@ EnterGameWindow
     anchors.top: parent.top
 
     text-auto-resize: true
-
-
 
   TextEdit
 
@@ -2437,8 +2084,6 @@ EnterGameWindow
 
     margin-top: 2
 
-
-
   MenuLabel
 
     !text: tr('Password')
@@ -2450,8 +2095,6 @@ EnterGameWindow
     margin-top: 8
 
     text-auto-resize: true
-
-
 
   PasswordTextEdit
 
@@ -2465,8 +2108,6 @@ EnterGameWindow
 
     margin-top: 2
 
-    
-
   MenuLabel
 
     !text: tr('Token')
@@ -2479,8 +2120,6 @@ EnterGameWindow
 
     margin-top: 8
 
-
-
   TextEdit
 
     id: accountTokenTextEdit
@@ -2492,8 +2131,6 @@ EnterGameWindow
     anchors.top: prev.bottom
 
     margin-top: 2
-
-
 
   Panel
 
@@ -2511,23 +2148,17 @@ EnterGameWindow
 
     focusable: false
 
-    
-
     $on:
 
       visible: true
 
       margin-top: 0
 
-    
-
     $!on:
 
       visible: false
 
       margin-top: -52
-
-      
 
     HorizontalSeparator
 
@@ -2538,8 +2169,6 @@ EnterGameWindow
       anchors.top: parent.top
 
       margin-top: 10
-
-
 
     MenuLabel
 
@@ -2554,8 +2183,6 @@ EnterGameWindow
       text-auto-resize: true    
 
       margin-top: 5
-
-
 
     ComboBox
 
@@ -2581,8 +2208,6 @@ EnterGameWindow
 
       @onOptionChange: EnterGame.onServerChange()
 
-    
-
   Panel
 
     id: customServerSelectorPanel
@@ -2599,23 +2224,17 @@ EnterGameWindow
 
     focusable: true
 
-    
-
     $on:
 
       visible: true
 
       margin-top: 0
 
-    
-
     $!on:
 
       visible: false
 
       margin-top: -52
-
-    
 
     HorizontalSeparator
 
@@ -2626,8 +2245,6 @@ EnterGameWindow
       anchors.top: parent.top
 
       margin-top: 8
-
-
 
     MenuLabel
 
@@ -2643,8 +2260,6 @@ EnterGameWindow
 
       text-auto-resize: true
 
-
-
     TextEdit
 
       id: serverHostTextEdit
@@ -2659,8 +2274,6 @@ EnterGameWindow
 
       width: 150
 
-
-
     MenuLabel
 
       id: clientLabel
@@ -2674,8 +2287,6 @@ EnterGameWindow
       text-auto-resize: true
 
       margin-left: 10
-
-
 
     ComboBox
 
@@ -2697,8 +2308,6 @@ EnterGameWindow
 
       margin-right: 3
 
-      
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -2708,8 +2317,6 @@ EnterGameWindow
     anchors.top: prev.bottom
 
     margin-top: 10
-
-
 
   CheckBox
 
@@ -2727,8 +2334,6 @@ EnterGameWindow
 
     margin-top: 9
 
-
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -2738,8 +2343,6 @@ EnterGameWindow
     anchors.top: prev.bottom
 
     margin-top: 9
-
-
 
   Button
 
@@ -2758,8 +2361,6 @@ EnterGameWindow
     margin-right: 50
 
     @onClick: EnterGame.doLogin()
-
-
 
   Label
 
@@ -2780,12 +2381,7 @@ EnterGameWindow
 ```
 
 ---
-
-
-
 # waitinglist.otui
-
-
 
 ```otui
 
@@ -2798,8 +2394,6 @@ MainWindow
   size: 260 180
 
   @onEscape: CharacterList.cancelWait()
-
-
 
   Label
 
@@ -2814,8 +2408,6 @@ MainWindow
     anchors.right: parent.right
 
     text-wrap: true
-
-
 
   ProgressBar
 
@@ -2833,8 +2425,6 @@ MainWindow
 
     margin-bottom: 10
 
-
-
   Label
 
     id: timeLabel
@@ -2847,8 +2437,6 @@ MainWindow
 
     margin-bottom: 10
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -2860,8 +2448,6 @@ MainWindow
     anchors.bottom: next.top
 
     margin-bottom: 10
-
-
 
   Button
 
@@ -2880,6 +2466,3 @@ MainWindow
 ```
 
 ---
-
-
-

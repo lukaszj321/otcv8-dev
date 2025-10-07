@@ -1,9 +1,4 @@
-# ¦ Modul: `game_cooldown`
-
-
-
-
-
+﻿# ¦ Modul: `game_cooldown`
 
 ```lua
 
@@ -15,8 +10,6 @@ local ProgressCallback = {
 
 }
 
-
-
 cooldownWindow = nil
 
 cooldownButton = nil
@@ -27,15 +20,11 @@ cooldownPanel = nil
 
 lastPlayer = nil
 
-
-
 cooldown = {}
 
 cooldowns = {}
 
 groupCooldown = {}
-
-
 
 function init()
 
@@ -45,8 +34,6 @@ function init()
 
                     onSpellCooldown = onSpellCooldown })
 
-
-
   cooldownButton = modules.client_topmenu.addRightGameToggleButton('cooldownButton', 
 
     tr('Cooldowns'), '/images/topbuttons/cooldowns', toggle, false, 5)
@@ -55,21 +42,15 @@ function init()
 
   cooldownButton:hide()
 
-
-
   cooldownWindow = g_ui.loadUI('cooldown', modules.game_interface.getRightPanel())
 
   cooldownWindow:disableResize()
 
   cooldownWindow:setup()
 
-
-
   contentsPanel = cooldownWindow:getChildById('contentsPanel')
 
   cooldownPanel = contentsPanel:getChildById('cooldownPanel')
-
-
 
   -- preload cooldown images
 
@@ -79,8 +60,6 @@ function init()
 
   end
 
-
-
   if g_game.isOnline() then
 
     online()
@@ -88,8 +67,6 @@ function init()
   end
 
 end
-
-
 
 function terminate()
 
@@ -99,8 +76,6 @@ function terminate()
 
                        onSpellCooldown = onSpellCooldown })
 
-                       
-
   for key, val in pairs(cooldowns) do
 
     removeCooldown(key)
@@ -109,15 +84,11 @@ function terminate()
 
   cooldowns = {}
 
-
-
   cooldownWindow:destroy()
 
   cooldownButton:destroy()
 
 end
-
-
 
 function loadIcon(iconId)
 
@@ -127,13 +98,9 @@ function loadIcon(iconId)
 
   if not profile then return end
 
-
-
   clientIconId = Spells.getClientId(spellName)
 
   if not clientIconId then return end
-
-
 
   local icon = cooldownPanel:getChildById(iconId)
 
@@ -144,8 +111,6 @@ function loadIcon(iconId)
     icon:setId(iconId)
 
   end
-
-
 
   local spellSettings = SpelllistSettings[profile]
 
@@ -165,15 +130,11 @@ function loadIcon(iconId)
 
 end
 
-
-
 function onMiniWindowClose()
 
   cooldownButton:setOn(false)
 
 end
-
-
 
 function toggle()
 
@@ -193,8 +154,6 @@ function toggle()
 
 end
 
-
-
 function online()
 
   if g_game.getFeature(GameSpellList) then
@@ -209,8 +168,6 @@ function online()
 
   end
 
-
-
   if not lastPlayer or lastPlayer ~= g_game.getCharacterName() then
 
     refresh()
@@ -221,15 +178,11 @@ function online()
 
 end
 
-
-
 function refresh()
 
   cooldownPanel:destroyChildren()
 
 end
-
-
 
 function removeCooldown(progressRect)
 
@@ -249,8 +202,6 @@ function removeCooldown(progressRect)
 
 end
 
-
-
 function turnOffCooldown(progressRect)
 
   removeEvent(progressRect.event)
@@ -263,8 +214,6 @@ function turnOffCooldown(progressRect)
 
   end
 
-
-
   -- create particles
 
   --[[local particle = g_ui.createWidget('GroupCooldownParticles', progressRect)
@@ -273,21 +222,15 @@ function turnOffCooldown(progressRect)
 
   scheduleEvent(function() particle:destroy() end, 1000) -- hack until onEffectEnd]]
 
-
-
   cooldowns[progressRect] = nil
 
   progressRect = nil
 
 end
 
-
-
 function initCooldown(progressRect, updateCallback, finishCallback)
 
   progressRect:setPercent(0)
-
-
 
   progressRect.callback = {}
 
@@ -295,25 +238,17 @@ function initCooldown(progressRect, updateCallback, finishCallback)
 
   progressRect.callback[ProgressCallback.finish] = finishCallback
 
-
-
   updateCallback()
 
 end
-
-
 
 function updateCooldown(progressRect, duration)
 
   progressRect:setPercent(progressRect:getPercent() + 10000/duration)
 
-
-
   if progressRect:getPercent() < 100 then
 
     removeEvent(progressRect.event)
-
-
 
     progressRect.event = scheduleEvent(function() 
 
@@ -331,23 +266,17 @@ function updateCooldown(progressRect, duration)
 
 end
 
-
-
 function isGroupCooldownIconActive(groupId)
 
   return groupCooldown[groupId]
 
 end
 
-
-
 function isCooldownIconActive(iconId)
 
   return cooldown[iconId]
 
 end
-
-
 
 function onSpellCooldown(iconId, duration)
 
@@ -360,8 +289,6 @@ function onSpellCooldown(iconId, duration)
   end
 
   icon:setParent(cooldownPanel)
-
-
 
   local progressRect = icon:getChildById(iconId)
 
@@ -385,8 +312,6 @@ function onSpellCooldown(iconId, duration)
 
   progressRect:setTooltip(spellName)
 
-
-
   local updateFunc = function()
 
     updateCooldown(progressRect, duration)
@@ -409,13 +334,9 @@ function onSpellCooldown(iconId, duration)
 
 end
 
-
-
 function onSpellGroupCooldown(groupId, duration)
 
   if not SpellGroups[groupId] then return end
-
-
 
   local icon = contentsPanel:getChildById('groupIcon' .. SpellGroups[groupId])
 
@@ -428,8 +349,6 @@ function onSpellGroupCooldown(groupId, duration)
     removeEvent(icon.event)
 
   end
-
-
 
   progressRect.icon = icon
 
@@ -462,12 +381,7 @@ end
 ```
 
 ---
-
-
-
 # cooldown.otmod
-
-
 
 ```text
 
@@ -492,12 +406,7 @@ Module
 ```
 
 ---
-
-
-
 # cooldown.otui
-
-
 
 ```otui
 
@@ -513,8 +422,6 @@ SpellGroupIcon < UIWidget
 
   margin-top: 3
 
-
-
 SpellIcon < UIWidget
 
   size: 24 24
@@ -523,13 +430,9 @@ SpellIcon < UIWidget
 
   focusable: false
 
-
-
   $!first:
 
     margin-left: 1
-
-
 
 SpellProgressRect < UIProgressRect
 
@@ -539,13 +442,9 @@ SpellProgressRect < UIProgressRect
 
   focusable: false
 
-
-
 GroupCooldownParticles < UIParticles
 
   effect: groupcooldown-effect
-
-
 
 MiniWindow
 
@@ -562,8 +461,6 @@ MiniWindow
   &save: true
 
   &autoOpen: false
-
-
 
   MiniWindowContents
 
@@ -583,8 +480,6 @@ MiniWindow
 
         image-clip: 0 20 20 20
 
-
-
     SpellProgressRect
 
       id: progressRectAttack
@@ -592,8 +487,6 @@ MiniWindow
       anchors.fill: groupIconAttack
 
       !tooltip: tr('Attack')
-
-
 
     SpellGroupIcon
 
@@ -611,8 +504,6 @@ MiniWindow
 
         image-clip: 20 20 20 20
 
-
-
     SpellProgressRect
 
       id: progressRectHealing
@@ -620,8 +511,6 @@ MiniWindow
       anchors.fill: groupIconHealing
 
       !tooltip: tr('Healing')
-
-
 
     SpellGroupIcon
 
@@ -639,8 +528,6 @@ MiniWindow
 
         image-clip: 40 20 20 20
 
-
-
     SpellProgressRect
 
       id: progressRectSupport
@@ -648,8 +535,6 @@ MiniWindow
       anchors.fill: groupIconSupport
 
       !tooltip: tr('Support')
-
-
 
     SpellGroupIcon
 
@@ -667,8 +552,6 @@ MiniWindow
 
         image-clip: 60 20 20 20
 
-
-
     SpellProgressRect
 
       id: progressRectSpecial
@@ -676,8 +559,6 @@ MiniWindow
       anchors.fill: groupIconSpecial
 
       !tooltip: tr('Special')
-
-
 
     Panel
 
@@ -704,6 +585,3 @@ MiniWindow
 ```
 
 ---
-
-
-

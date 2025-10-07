@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <meta charset="utf-8" />
 <title>RAG demo — OTCv8 Docs</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -10,7 +10,7 @@
   button{padding:10px 14px;border:0;border-radius:8px;background:#222;color:#fff;cursor:pointer}
   li{margin:12px 0}
   .muted{opacity:.75}
-  #status{padding:8px 10px;border-radius:8px;background:color-mix(in oklab, Canvas 92%, CanvasText 8%);margin:12px 0}
+# status{padding:8px 10px;border-radius:8px;background:color-mix(in oklab, Canvas 92%, CanvasText 8%);margin:12px 0}
   mark{padding:0 2px;border-radius:3px}
 </style>
 
@@ -37,7 +37,7 @@
     if(!q) return text;
     const esc = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
     return text.replace(new RegExp(esc, 'ig'), m => `<mark>${m}</mark>`);
-  }
+}
 
   let data = null;
   let extractor = null;
@@ -53,7 +53,7 @@
     const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers/dist/transformers.min.js');
     extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
     setStatus('Gotowe. Wpisz zapytanie i kliknij „Szukaj”.');
-  }
+}
 
   async function search(q, k = 5) {
     if (!q.trim()) return [];
@@ -67,7 +67,7 @@
     }).sort((a,b)=> b.score - a.score).slice(0,k);
     setStatus('Gotowe.');
     return scored;
-  }
+}
 
   function render(list, q) {
     const out = $('out');
@@ -82,8 +82,8 @@
         <div><a href="${r.url}" target="_blank" rel="noreferrer">${r.url}</a></div>
         <div class="muted">${hi(preview, q)}…</div>`;
       out.appendChild(li);
-    }
-  }
+}
+}
 
   $('go').onclick = async () => {
     try {
@@ -92,7 +92,7 @@
       const res = await search(q, 5);
       render(res, q);
     } catch (e) { console.error(e); setStatus('Błąd: ' + (e?.message || e)); }
-  };
+};
   $('q').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('go').click(); });
 
   loadAll().catch(e => { console.error(e); setStatus('Błąd inicjalizacji: ' + (e?.message || e)); });

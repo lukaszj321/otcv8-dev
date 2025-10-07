@@ -1,9 +1,4 @@
-# ¦ Modul: `client_terminal`
-
-
-
-
-
+﻿# ¦ Modul: `client_terminal`
 
 ```lua
 
@@ -15,15 +10,11 @@ local function pcolored(text, color)
 
 end
 
-
-
 function draw_debug_boxes()
 
   g_ui.setDebugBoxesDrawing(not g_ui.isDrawingDebugBoxes())
 
 end
-
-
 
 function hide_map()
 
@@ -31,15 +22,11 @@ function hide_map()
 
 end
 
-
-
 function show_map()
 
   modules.game_interface.getMapPanel():show()
 
 end
-
-
 
 local pinging = false
 
@@ -81,8 +68,6 @@ function ping()
 
     end
 
-
-
     pcolored('Starting ping...')
 
     g_game.setPingDelay(0)
@@ -95,15 +80,11 @@ function ping()
 
 end
 
-
-
 function clear()
 
   modules.client_terminal.clear()
 
 end
-
-
 
 function ls(path)
 
@@ -127,15 +108,11 @@ function ls(path)
 
 end
 
-
-
 function about_version()
 
   pcolored(g_app.getName() .. ' ' .. g_app.getVersion() .. '\n' .. g_app.getAuthor())
 
 end
-
-
 
 function about_graphics()
 
@@ -146,8 +123,6 @@ function about_graphics()
   pcolored('Version' .. g_graphics.getVersion())
 
 end
-
-
 
 function about_modules()
 
@@ -172,12 +147,7 @@ end
 ```
 
 ---
-
-
-
 # terminal.lua
-
-
 
 ```lua
 
@@ -195,8 +165,6 @@ local MaxLogLines = 128
 
 local MaxHistory = 1000
 
-
-
 local oldenv = getfenv(0)
 
 setfenv(0, _G)
@@ -204,8 +172,6 @@ setfenv(0, _G)
 _G.commandEnv = runinsandbox('commands')
 
 setfenv(0, oldenv)
-
-
 
 -- private variables
 
@@ -239,8 +205,6 @@ local disabled = false
 
 local allLines = {}
 
-
-
 -- private functions
 
 local function navigateCommand(step)
@@ -250,8 +214,6 @@ local function navigateCommand(step)
     return
 
   end
-
-
 
   local numCommands = #commandHistory
 
@@ -277,29 +239,21 @@ local function navigateCommand(step)
 
 end
 
-
-
 local function completeCommand()
 
   local cursorPos = commandTextEdit:getCursorPos()
 
   if cursorPos == 0 then return end
 
-
-
   local commandBegin = commandTextEdit:getText():sub(1, cursorPos)
 
   local possibleCommands = {}
-
-
 
   -- create a list containing all globals
 
   local allVars = table.copy(_G)
 
   table.merge(allVars, commandEnv)
-
-
 
   -- match commands
 
@@ -312,8 +266,6 @@ local function completeCommand()
     end
 
   end
-
-
 
   -- complete command with one match
 
@@ -328,8 +280,6 @@ local function completeCommand()
   elseif #possibleCommands > 0 then
 
     print('>> ' .. commandBegin)
-
-
 
     -- expand command
 
@@ -371,8 +321,6 @@ local function completeCommand()
 
       commandTextEdit:setCursorPos(-1)
 
-
-
     for i,v in ipairs(possibleCommands) do
 
       print(v)
@@ -382,8 +330,6 @@ local function completeCommand()
   end
 
 end
-
-
 
 local function doCommand(textWidget)
 
@@ -397,8 +343,6 @@ local function doCommand(textWidget)
 
 end
 
-
-
 local function addNewline(textWidget)
 
   if not textWidget:isOn() then
@@ -411,15 +355,11 @@ local function addNewline(textWidget)
 
 end
 
-
-
 local function onCommandChange(textWidget, newText, oldText)
 
   local _, newLineCount = string.gsub(newText, '\n', '\n')
 
   textWidget:setHeight((newLineCount + 1) * textWidget.baseHeight)
-
-
 
   if newLineCount == 0 and textWidget:isOn() then
 
@@ -429,8 +369,6 @@ local function onCommandChange(textWidget, newText, oldText)
 
 end
 
-
-
 local function onLog(level, message, time)
 
   if disabled then return end
@@ -438,8 +376,6 @@ local function onLog(level, message, time)
   -- avoid logging while reporting logs (would cause a infinite loop)
 
   if logLocked then return end
-
-
 
   logLocked = true
 
@@ -449,8 +385,6 @@ local function onLog(level, message, time)
 
 end
 
-
-
 -- public functions
 
 function init()
@@ -459,11 +393,7 @@ function init()
 
   terminalWindow:setVisible(false)
 
-
-
   terminalWindow.onDoubleClick = popWindow
-
-
 
   terminalButton = modules.client_topmenu.addLeftButton('terminalButton', tr('Terminal') .. ' (Ctrl + T)', '/images/topbuttons/terminal', toggle)
 
@@ -471,11 +401,7 @@ function init()
 
   g_keyboard.bindKeyDown('Ctrl+T', toggle)
 
-
-
   commandHistory = g_settings.getList('terminal-history')
-
-
 
   commandTextEdit = terminalWindow:getChildById('commandTextEdit')
 
@@ -507,8 +433,6 @@ function init()
 
   g_keyboard.bindKeyDown('Escape', hide, terminalWindow)
 
-
-
   terminalBuffer = terminalWindow:getChildById('terminalBuffer')
 
   terminalSelectText = terminalWindow:getChildById('terminalSelectText')
@@ -519,11 +443,7 @@ function init()
 
   terminalBuffer.onScrollChange = function(self, value) terminalSelectText:setTextVirtualOffset(value) end
 
-
-
   g_logger.setOnLog(onLog)
-
-
 
   if not g_app.isRunning() then
 
@@ -541,17 +461,11 @@ function init()
 
 end
 
-
-
 function terminate()
 
   g_settings.setList('terminal-history', commandHistory)
 
-
-
   removeEvent(flushEvent)
-
-
 
   if poped then
 
@@ -569,11 +483,9 @@ function terminate()
 
     poped = poped
 
-  }
+}
 
   g_settings.setNode('terminal-window', settings)
-
-
 
   g_keyboard.unbindKeyDown('Ctrl+T')
 
@@ -589,15 +501,11 @@ function terminate()
 
 end
 
-
-
 function hideButton()
 
   --terminalButton:hide()
 
 end
-
-
 
 function popWindow()
 
@@ -659,8 +567,6 @@ function popWindow()
 
 end
 
-
-
 function toggle()
 
   if terminalWindow:isVisible() then
@@ -693,8 +599,6 @@ function toggle()
 
 end
 
-
-
 function show()
 
   terminalWindow:show()
@@ -705,15 +609,11 @@ function show()
 
 end
 
-
-
 function hide()
 
   terminalWindow:hide()
 
 end
-
-
 
 function disable()
 
@@ -725,15 +625,11 @@ function disable()
 
 end
 
-
-
 function flushLines()
 
   local numLines = terminalBuffer:getChildCount() + #cachedLines
 
   local fulltext = terminalSelectText:getText()
-
-
 
   for _,line in pairs(cachedLines) do
 
@@ -757,8 +653,6 @@ function flushLines()
 
     end
 
-
-
     local label = g_ui.createWidget('TerminalLabel', terminalBuffer)
 
     label:setId('terminalLabel' .. numLines)
@@ -767,21 +661,13 @@ function flushLines()
 
     label:setColor(line.color)
 
-
-
     table.insert(allLines, {text=line.text,color=line.color})
-
-
 
     fulltext = fulltext .. '\n' .. line.text
 
   end
 
-
-
   terminalSelectText:setText(fulltext)
-
-
 
   cachedLines = {}
 
@@ -791,8 +677,6 @@ function flushLines()
 
 end
 
-
-
 function addLine(text, color)
 
   if not flushEvent then
@@ -801,15 +685,11 @@ function addLine(text, color)
 
   end
 
-
-
   text = string.gsub(text, '\t', '    ')
 
   table.insert(cachedLines, {text=text, color=color})
 
 end
-
-
 
 function terminalPrint(value)
 
@@ -823,13 +703,9 @@ function terminalPrint(value)
 
 end
 
-
-
 function executeCommand(command)
 
   if command == nil or #string.gsub(command, '\n', '') == 0 then return end
-
-
 
   -- add command line
 
@@ -843,13 +719,9 @@ function executeCommand(command)
 
   end
 
-
-
   -- reset current history index
 
   currentHistoryIndex = 0
-
-
 
   -- add new command to history
 
@@ -865,8 +737,6 @@ function executeCommand(command)
 
   end
 
-
-
   -- detect and convert commands with simple syntax
 
   local realCommand
@@ -881,11 +751,7 @@ function executeCommand(command)
 
   end
 
-
-
   local func, err = loadstring(realCommand, "@")
-
-
 
   -- detect terminal commands
 
@@ -913,8 +779,6 @@ function executeCommand(command)
 
   end
 
-
-
   -- check for syntax errors
 
   if not func then
@@ -925,17 +789,11 @@ function executeCommand(command)
 
   end
 
-  
-
   commandEnv['player'] = g_game.getLocalPlayer()
-
-
 
   -- setup func env to commandEnv
 
   setfenv(func, commandEnv)
-
-
 
   -- execute the command
 
@@ -955,8 +813,6 @@ function executeCommand(command)
 
 end
 
-
-
 function clear()
 
   terminalBuffer:destroyChildren()
@@ -972,12 +828,7 @@ end
 ```
 
 ---
-
-
-
 # terminal.otmod
-
-
 
 ```text
 
@@ -1004,12 +855,7 @@ Module
 ```
 
 ---
-
-
-
 # terminal.otui
-
-
 
 ```otui
 
@@ -1022,8 +868,6 @@ TerminalLabel < UILabel
   text-auto-resize: true
 
   phantom: true
-
-
 
 TerminalSelectText < UITextEdit
 
@@ -1049,8 +893,6 @@ TerminalSelectText < UITextEdit
 
   auto-scroll: false
 
-
-
 UIWindow
 
   id: terminalWindow
@@ -1068,8 +910,6 @@ UIWindow
   $on:
 
     border: 1 black
-
-
 
   Label
 
@@ -1097,8 +937,6 @@ UIWindow
 
     visible: false
 
-
-
   ScrollablePanel
 
     id: terminalBuffer
@@ -1125,8 +963,6 @@ UIWindow
 
     margin-left: 2
 
-
-
   TerminalSelectText
 
     id: terminalSelectText
@@ -1134,8 +970,6 @@ UIWindow
     anchors.fill: terminalBuffer
 
     focusable: false
-
-
 
   VerticalScrollBar
 
@@ -1150,8 +984,6 @@ UIWindow
     step: 48
 
     pixels-scroll: true
-
-
 
   UILabel
 
@@ -1170,8 +1002,6 @@ UIWindow
     font: terminus-10px
 
     text: >
-
-
 
   UITextEdit
 
@@ -1207,8 +1037,6 @@ UIWindow
 
     text-auto-submit: true
 
-
-
     $on:
 
       border-width-left: 1
@@ -1216,8 +1044,6 @@ UIWindow
       border-width-top: 1
 
       multiline: true
-
-
 
   ResizeBorder
 
@@ -1230,8 +1056,6 @@ UIWindow
     anchors.right: parent.right
 
     enabled: false
-
-
 
   ResizeBorder
 
@@ -1248,6 +1072,3 @@ UIWindow
 ```
 
 ---
-
-
-

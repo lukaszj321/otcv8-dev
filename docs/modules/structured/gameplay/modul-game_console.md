@@ -1,9 +1,4 @@
-# ¦ Modul: `game_console`
-
-
-
-
-
+﻿# ¦ Modul: `game_console`
 
 ```otui
 
@@ -17,15 +12,11 @@ ChannelListLabel < Label
 
   focusable: true
 
-
-
   $focus:
 
     background-color: #ffffff22
 
     color: #ffffff
-
-
 
 MainWindow
 
@@ -36,8 +27,6 @@ MainWindow
   size: 250 238
 
   @onEscape: self:destroy()
-
-
 
   TextList
 
@@ -55,8 +44,6 @@ MainWindow
 
     focusable: false
 
-
-
   Label
 
     id: openPrivateChannelWithLabel
@@ -73,8 +60,6 @@ MainWindow
 
     margin-bottom: 2
 
-
-
   TextEdit
 
     id: openPrivateChannelWith
@@ -86,8 +71,6 @@ MainWindow
     anchors.bottom: next.top
 
     margin-bottom: 10
-
-
 
   Button
 
@@ -105,8 +88,6 @@ MainWindow
 
     @onClick: self:getParent():onEnter()
 
-
-
   Button
 
     id: buttonCancel
@@ -120,8 +101,6 @@ MainWindow
     anchors.bottom: parent.bottom
 
     @onClick: self:getParent():destroy()
-
-
 
   VerticalScrollBar
 
@@ -140,12 +119,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # communicationwindow.otui
-
-
 
 ```otui
 
@@ -161,15 +135,11 @@ IgnoreListLabel < Label
 
   phantom: false
 
-
-
   $focus:
 
     background-color: #ffffff22
 
     color: #ffffff
-
-
 
 WhiteListLabel < Label
 
@@ -183,17 +153,11 @@ WhiteListLabel < Label
 
   phantom: false
 
-
-
   $focus:
 
     background-color: #ffffff22
 
     color: #ffffff
-
-
-
-
 
 MainWindow
 
@@ -204,8 +168,6 @@ MainWindow
   size: 515 410
 
   @onEscape: self:destroy()
-
-
 
   CheckBox
 
@@ -219,8 +181,6 @@ MainWindow
 
     width: 180
 
-
-
   Label
 
     !text: tr('Ignored Players:')
@@ -230,8 +190,6 @@ MainWindow
     anchors.top: prev.bottom
 
     margin-top: 10
-
-
 
   TextList
 
@@ -255,8 +213,6 @@ MainWindow
 
     focusable: false
 
-
-
   TextEdit
 
     id: ignoreNameEdit
@@ -268,8 +224,6 @@ MainWindow
     width: 110
 
     margin-top: 5
-
-
 
   Button
 
@@ -287,8 +241,6 @@ MainWindow
 
     anchors.left: prev.right
 
-
-
   Button
 
     id: buttonIgnoreRemove
@@ -305,8 +257,6 @@ MainWindow
 
     anchors.left: prev.right
 
-
-
   Label
 
     !text: tr('Global ignore settings')
@@ -316,8 +266,6 @@ MainWindow
     anchors.top: prev.bottom
 
     margin-top: 20
-
-
 
   CheckBox
 
@@ -333,8 +281,6 @@ MainWindow
 
     margin-top: 5
 
-
-
   CheckBox
 
     id: checkboxIgnoreYelling
@@ -348,8 +294,6 @@ MainWindow
     width: 180
 
     margin-top: 5
-
-
 
   CheckBox
 
@@ -365,8 +309,6 @@ MainWindow
 
     width: 180
 
-
-
   Label
 
     !text: tr('Allowed Players:')
@@ -376,8 +318,6 @@ MainWindow
     anchors.left: prev.left
 
     margin-top: 10
-
-
 
   TextList
 
@@ -401,8 +341,6 @@ MainWindow
 
     focusable: false
 
-
-
   TextEdit
 
     id: whitelistNameEdit
@@ -414,8 +352,6 @@ MainWindow
     width: 110
 
     margin-top: 5
-
-
 
   Button
 
@@ -433,8 +369,6 @@ MainWindow
 
     anchors.left: prev.right
 
-
-
   Button
 
     id: buttonWhitelistRemove
@@ -451,8 +385,6 @@ MainWindow
 
     anchors.left: prev.right
 
-
-
   Label
 
     !text: tr('Global whitelist settings')
@@ -462,8 +394,6 @@ MainWindow
     anchors.top: prev.bottom
 
     margin-top: 20
-
-
 
   CheckBox
 
@@ -479,8 +409,6 @@ MainWindow
 
     margin-top: 5
 
-
-
   Panel
 
     anchors.bottom: parent.bottom
@@ -491,15 +419,11 @@ MainWindow
 
     height: 30
 
-
-
     Panel
 
       size: 160 30
 
       anchors.horizontalCenter: parent.horizontalCenter
-
-
 
       Button
 
@@ -512,8 +436,6 @@ MainWindow
         anchors.top: parent.top
 
         anchors.left: parent.left
-
-
 
       Button
 
@@ -529,8 +451,6 @@ MainWindow
 
         margin-left: 10
 
-
-
   VerticalScrollBar
 
     id: ignoreListScrollBar
@@ -544,8 +464,6 @@ MainWindow
     step: 14
 
     pixels-scroll: true
-
-
 
   VerticalScrollBar
 
@@ -564,12 +482,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # console.lua
-
-
 
 ```lua
 
@@ -615,8 +528,6 @@ SpeakTypesSettings = {
 
 }
 
-
-
 SpeakTypes = {
 
   [MessageModes.Say] = SpeakTypesSettings.say,
@@ -655,8 +566,6 @@ SpeakTypes = {
 
   [MessageModes.NpcFromStartBlock] = SpeakTypesSettings.privateNpcToPlayer,
 
-
-
   -- ignored types
 
   [MessageModes.Spell] = SpeakTypesSettings.none,
@@ -667,8 +576,6 @@ SpeakTypes = {
 
 }
 
-
-
 SayModes = {
 
   [1] = { speakTypeDesc = 'whisper', icon = '/images/game/console/whisper' },
@@ -678,8 +585,6 @@ SayModes = {
   [3] = { speakTypeDesc = 'yell', icon = '/images/game/console/yell' }
 
 }
-
-
 
 ChannelEventFormats = {
 
@@ -693,15 +598,11 @@ ChannelEventFormats = {
 
 }
 
-
-
 MAX_HISTORY = 500
 
 MAX_LINES = 100
 
 HELP_CHANNEL = 9
-
-
 
 consolePanel = nil
 
@@ -741,11 +642,7 @@ ignoredChannels = {}
 
 filters = {}
 
-
-
 floatingMode = false
-
-
 
 local communicationSettings = {
 
@@ -764,8 +661,6 @@ local communicationSettings = {
   whitelistedPlayers = {}
 
 }
-
-
 
 function init()
 
@@ -797,9 +692,7 @@ function init()
 
     onGameEnd = offline,
 
-  })
-
-
+})
 
   consolePanel = g_ui.loadUI('console', modules.game_interface.getBottomPanel())
 
@@ -813,8 +706,6 @@ function init()
 
   channels = {}
 
-    
-
   consolePanel.onDragEnter = onDragEnter
 
   consolePanel.onDragLeave = onDragLeave
@@ -827,33 +718,23 @@ function init()
 
   consoleTabBar.onDragMove = onDragMove
 
-  
-
   consolePanel.onKeyPress = function(self, keyCode, keyboardModifiers)
 
     if not (keyboardModifiers == KeyboardCtrlModifier and keyCode == KeyC) then return false end
-
-
 
     local tab = consoleTabBar:getCurrentTab()
 
     if not tab then return false end
 
-
-
     local selection = tab.tabPanel:getChildById('consoleBuffer').selectionText
 
     if not selection then return false end
-
-
 
     g_window.setClipboardText(selection)
 
     return true
 
   end
-
-
 
   g_keyboard.bindKeyPress('Shift+Up', function() navigateMessageHistory(1) end, consolePanel)
 
@@ -867,15 +748,11 @@ function init()
 
   g_keyboard.bindKeyPress('Ctrl+A', function() consoleTextEdit:clearText() end, consolePanel)
 
-
-
   -- apply buttom functions after loaded
 
   consoleTabBar:setNavigation(consolePanel:getChildById('prevChannelButton'), consolePanel:getChildById('nextChannelButton'))
 
   consoleTabBar.onTabChange = onTabChange
-
-
 
   -- tibia like hotkeys
 
@@ -887,13 +764,9 @@ function init()
 
   g_keyboard.bindKeyDown('Ctrl+H', openHelp, gameRootPanel)
 
-
-
   consoleToggleChat = consolePanel:getChildById('toggleChat')
 
   load()
-
-
 
   if g_game.isOnline() then
 
@@ -902,8 +775,6 @@ function init()
   end
 
 end
-
-
 
 function clearSelection(consoleBuffer)
 
@@ -918,8 +789,6 @@ function clearSelection(consoleBuffer)
   consoleBuffer.selection = nil
 
 end
-
-
 
 function selectAll(consoleBuffer)
 
@@ -945,8 +814,6 @@ function selectAll(consoleBuffer)
 
 end
 
-
-
 function toggleChat()
 
   if consoleToggleChat:isChecked() then
@@ -960,8 +827,6 @@ function toggleChat()
   end
 
 end
-
-
 
 function enableChat(temporarily)
 
@@ -979,21 +844,15 @@ function enableChat(temporarily)
 
   end
 
-
-
   consoleTextEdit:setVisible(true)
 
   consoleTextEdit:setText("")
 
   consoleTextEdit:focus()
 
-
-
   local gameRootPanel = modules.game_interface.getRootPanel()
 
   g_keyboard.unbindKeyDown("Enter", gameRootPanel)
-
-  
 
   if temporarily then
 
@@ -1015,17 +874,11 @@ function enableChat(temporarily)
 
   end
 
-
-
   modules.game_walking.disableWSAD()
-
-
 
   consoleToggleChat:setTooltip(tr("Disable chat mode, allow to walk using ASDW"))
 
 end
-
-
 
 function disableChat(temporarily)
 
@@ -1043,13 +896,9 @@ function disableChat(temporarily)
 
   end
 
-
-
   consoleTextEdit:setVisible(false)
 
   consoleTextEdit:setText("")
-
-
 
   local quickFunc = function()
 
@@ -1065,31 +914,21 @@ function disableChat(temporarily)
 
   end
 
-  
-
   local gameRootPanel = modules.game_interface.getRootPanel()
 
   g_keyboard.bindKeyDown("Enter", quickFunc, gameRootPanel)
 
-
-
   modules.game_walking.enableWSAD()
-
-
 
   consoleToggleChat:setTooltip(tr("Enable chat mode"))
 
 end
-
-
 
 function isChatEnabled()
 
   return consoleTextEdit:isVisible()
 
 end
-
-
 
 function terminate()
 
@@ -1123,13 +962,9 @@ function terminate()
 
     onChannelEvent = onChannelEvent,
 
-  })
-
-
+})
 
   if g_game.isOnline() then clear() end
-
-
 
   local gameRootPanel = modules.game_interface.getRootPanel()
 
@@ -1139,11 +974,7 @@ function terminate()
 
   g_keyboard.unbindKeyDown('Ctrl+H', gameRootPanel)
 
-
-
   saveCommunicationSettings()
-
-
 
   if channelsWindow then
 
@@ -1151,23 +982,17 @@ function terminate()
 
   end
 
-
-
   if communicationWindow then
 
     communicationWindow:destroy()
 
   end
 
-
-
   if violationWindow then
 
     violationWindow:destroy()
 
   end
-
-
 
   consoleTabBar = nil
 
@@ -1177,21 +1002,15 @@ function terminate()
 
   consoleTextEdit = nil
 
-
-
   consolePanel:destroy()
 
   consolePanel = nil
 
   ownPrivateName = nil
 
-
-
   Console = nil
 
 end
-
-
 
 function save()
 
@@ -1202,8 +1021,6 @@ function save()
   g_settings.setNode('game_console', settings)
 
 end
-
-
 
 function load()
 
@@ -1219,8 +1036,6 @@ function load()
 
 end
 
-
-
 function onTabChange(tabBar, tab)
 
   if tab == defaultTab or tab == serverTab then
@@ -1234,8 +1049,6 @@ function onTabChange(tabBar, tab)
   end
 
 end
-
-
 
 function clear()
 
@@ -1273,8 +1086,6 @@ function clear()
 
   g_settings.setNode('lastChannelsOpen', lastChannelsOpen)
 
-
-
   -- close channels
 
   for _, channelName in pairs(channels) do
@@ -1287,8 +1098,6 @@ function clear()
 
   channels = {}
 
-
-
   consoleTabBar:removeTab(defaultTab)
 
   defaultTab = nil
@@ -1296,8 +1105,6 @@ function clear()
   consoleTabBar:removeTab(serverTab)
 
   serverTab = nil
-
-
 
   local npcTab = consoleTabBar:getTab('NPCs')
 
@@ -1309,8 +1116,6 @@ function clear()
 
   end
 
-
-
   if violationReportTab then
 
     consoleTabBar:removeTab(violationReportTab)
@@ -1319,11 +1124,7 @@ function clear()
 
   end
 
-
-
   consoleTextEdit:clearText()
-
-
 
   if violationWindow then
 
@@ -1332,8 +1133,6 @@ function clear()
     violationWindow = nil
 
   end
-
-
 
   if channelsWindow then
 
@@ -1344,8 +1143,6 @@ function clear()
   end
 
 end
-
-
 
 function switchMode(newView)
 
@@ -1367,15 +1164,11 @@ function switchMode(newView)
 
 end
 
-
-
 function onDragEnter(widget, pos)
 
   return floatingMode
 
 end
-
-
 
 function onDragMove(widget, pos, moved)
 
@@ -1391,23 +1184,17 @@ function onDragMove(widget, pos, moved)
 
 end
 
-
-
 function onDragLeave(widget, pos)
 
   return floatingMode
 
 end
 
-
-
 function clearChannel(consoleTabBar)
 
   consoleTabBar:getCurrentTab().tabPanel:getChildById('consoleBuffer'):destroyChildren()
 
 end
-
-
 
 function setTextEditText(text)
 
@@ -1416,8 +1203,6 @@ function setTextEditText(text)
   consoleTextEdit:setCursorPos(-1)
 
 end
-
-
 
 function openHelp()
 
@@ -1432,8 +1217,6 @@ function openHelp()
   g_game.joinChannel(helpChannel)
 
 end
-
-
 
 function openPlayerReportRuleViolationWindow()
 
@@ -1471,8 +1254,6 @@ function openPlayerReportRuleViolationWindow()
 
 end
 
-
-
 function addTab(name, focus)
 
   local tab = getTab(name)
@@ -1497,8 +1278,6 @@ function addTab(name, focus)
 
 end
 
-
-
 function removeTab(tab)
 
   if type(tab) == 'string' then
@@ -1507,15 +1286,11 @@ function removeTab(tab)
 
   end
 
-
-
   if tab == defaultTab or tab == serverTab then
 
     return
 
   end
-
-
 
   if tab == violationReportTab then
 
@@ -1545,21 +1320,15 @@ function removeTab(tab)
 
   end
 
-
-
   if getCurrentTab() == tab then
 
     consoleTabBar:selectTab(defaultTab)
 
   end
 
-
-
   consoleTabBar:removeTab(tab)
 
 end
-
-
 
 function removeCurrentTab()
 
@@ -1567,15 +1336,11 @@ function removeCurrentTab()
 
 end
 
-
-
 function getTab(name)
 
   return consoleTabBar:getTab(name)
 
 end
-
-
 
 function getChannelTab(channelId)
 
@@ -1591,8 +1356,6 @@ function getChannelTab(channelId)
 
 end
 
-
-
 function getRuleViolationsTab()
 
   if violationsChannelId then
@@ -1605,15 +1368,11 @@ function getRuleViolationsTab()
 
 end
 
-
-
 function getCurrentTab()
 
   return consoleTabBar:getCurrentTab()
 
 end
-
-
 
 function addChannel(name, id)
 
@@ -1629,8 +1388,6 @@ function addChannel(name, id)
 
 end
 
-
-
 function addPrivateChannel(receiver)
 
   channels[receiver] = receiver
@@ -1638,8 +1395,6 @@ function addPrivateChannel(receiver)
   return addTab(receiver, true)
 
 end
-
-
 
 function addPrivateText(text, speaktype, name, isPrivateCommand, creatureName)
 
@@ -1652,8 +1407,6 @@ function addPrivateText(text, speaktype, name, isPrivateCommand, creatureName)
     focus = true
 
   end
-
-
 
   local privateTab = getTab(name)
 
@@ -1683,8 +1436,6 @@ function addPrivateText(text, speaktype, name, isPrivateCommand, creatureName)
 
 end
 
-
-
 function addText(text, speaktype, tabName, creatureName)
 
   local tab = getTab(tabName)
@@ -1696,8 +1447,6 @@ function addText(text, speaktype, tabName, creatureName)
   end
 
 end
-
-
 
 -- Contains letter width for font "verdana-11px-antialised" as console is based on it
 
@@ -1733,15 +1482,11 @@ local letterWidth = {  -- New line (10) and Space (32) have width 1 because they
 
 }
 
-
-
 -- Return information about start, end in the string and the highlighted words
 
 function getHighlightedText(text)
 
   local tmpData = {}
-
-
 
   repeat
 
@@ -1755,19 +1500,13 @@ function getHighlightedText(text)
 
   until not(string.find(text, "{([^}]+)}", tmpData[#tmpData-1]))
 
-
-
   return tmpData
 
 end
 
-
-
 function getNewHighlightedText(text, color, highlightColor)
 
   local tmpData = {}
-
-  
 
   for i, part in ipairs(text:split("{")) do
 
@@ -1801,19 +1540,13 @@ function getNewHighlightedText(text, color, highlightColor)
 
   end
 
-
-
   return tmpData
 
 end
 
-
-
 function addTabText(text, speaktype, tab, creatureName)
 
   if not tab or tab.locked or not text or #text == 0 then return end
-
-
 
   if modules.client_options.getOption('showTimestampsInConsole') then
 
@@ -1821,13 +1554,9 @@ function addTabText(text, speaktype, tab, creatureName)
 
   end
 
-
-
   local panel = consoleTabBar:getTabPanel(tab)
 
   local consoleBuffer = panel:getChildById('consoleBuffer')
-
-
 
   local label = nil
 
@@ -1838,8 +1567,6 @@ function addTabText(text, speaktype, tab, creatureName)
     consoleBuffer:moveChildToIndex(label, consoleBuffer:getChildCount())
 
   end
-
-
 
   if not label then
 
@@ -1855,8 +1582,6 @@ function addTabText(text, speaktype, tab, creatureName)
 
   consoleTabBar:blinkTab(tab)
 
-
-
   if speaktype.npcChat and (g_game.getCharacterName() ~= creatureName or g_game.getCharacterName() == 'Account Manager') then
 
     local highlightData = getNewHighlightedText(text, speaktype.color, "#1f9ffe")
@@ -1868,8 +1593,6 @@ function addTabText(text, speaktype, tab, creatureName)
     end
 
   end
-
-
 
   label.name = creatureName
 
@@ -1926,8 +1649,6 @@ function addTabText(text, speaktype, tab, creatureName)
     local selfIndex = parent:getChildIndex(self)
 
     local child = parent:getChildByPos(mousePos)
-
-
 
     -- find bonding children
 
@@ -1993,21 +1714,13 @@ function addTabText(text, speaktype, tab, creatureName)
 
     end
 
-
-
     if not child then return false end
 
-
-
     local childIndex = parent:getChildIndex(child)
-
-
 
     -- remove old selection
 
     clearSelection(consoleBuffer)
-
-
 
     -- update self selection
 
@@ -2017,11 +1730,7 @@ function addTabText(text, speaktype, tab, creatureName)
 
     self:setSelection(textBegin, textPos)
 
-
-
     consoleBuffer.selection = { first = math.min(selfIndex, childIndex), last = math.max(selfIndex, childIndex) }
-
-
 
     -- update siblings selection
 
@@ -2032,8 +1741,6 @@ function addTabText(text, speaktype, tab, creatureName)
         parent:getChildByIndex(selectionChild):selectAll()
 
       end
-
-
 
       local textPos = child:getTextPos(mousePos)
 
@@ -2049,15 +1756,11 @@ function addTabText(text, speaktype, tab, creatureName)
 
     end
 
-
-
     return true
 
   end
 
 end
-
-
 
 function removeTabLabelByName(tab, name)
 
@@ -2077,15 +1780,11 @@ function removeTabLabelByName(tab, name)
 
 end
 
-
-
 function processChannelTabMenu(tab, mousePos, mouseButton)
 
   local menu = g_ui.createWidget('PopupMenu')
 
   menu:setGameMenu(true)
-
-
 
   local worldName = g_game.getWorldName()
 
@@ -2102,8 +1801,6 @@ function processChannelTabMenu(tab, mousePos, mouseButton)
     menu:addSeparator()
 
   end
-
-
 
   if consoleTabBar:getCurrentTab() == tab then
 
@@ -2123,27 +1820,19 @@ function processChannelTabMenu(tab, mousePos, mouseButton)
 
       end
 
-
-
       local filename = worldName .. ' - ' .. characterName .. ' - ' .. channelName .. '.txt'
 
       local filepath = '/user_dir/' .. filename
 
-
-
       -- extra information at the beginning
 
       table.insert(lines, 1, os.date('\nChannel saved at %a %b %d %H:%M:%S %Y'))
-
-
 
       if g_resources.fileExists(filepath) then
 
         table.insert(lines, 1, protectedcall(g_resources.readFileContents, filepath) or '')
 
       end
-
-
 
       g_resources.writeFileContents(filepath, table.concat(lines, '\n'))
 
@@ -2153,13 +1842,9 @@ function processChannelTabMenu(tab, mousePos, mouseButton)
 
   end
 
-
-
   menu:display(mousePos)
 
 end
-
-
 
 function processMessageMenu(mousePos, mouseButton, creatureName, text, label, tab)
 
@@ -2213,8 +1898,6 @@ function processMessageMenu(mousePos, mouseButton, creatureName, text, label, ta
 
       end
 
-
-
       menu:addOption(tr('Copy name'), function () g_window.setClipboardText(creatureName) end)
 
     end
@@ -2251,8 +1934,6 @@ function processMessageMenu(mousePos, mouseButton, creatureName, text, label, ta
 
 end
 
-
-
 function sendCurrentMessage()
 
   local message = consoleTextEdit:getText()
@@ -2263,15 +1944,11 @@ function sendCurrentMessage()
 
   consoleTextEdit:clearText()
 
-
-
   -- send message
 
   sendMessage(message)
 
 end
-
-
 
 function addFilter(filter)
 
@@ -2279,23 +1956,17 @@ function addFilter(filter)
 
 end
 
-
-
 function removeFilter(filter)
 
   table.removevalue(filters, filter)
 
 end
 
-
-
 function sendMessage(message, tab)
 
   local tab = tab or getCurrentTab()
 
   if not tab then return end
-
-
 
   for k,func in pairs(filters) do
 
@@ -2306,8 +1977,6 @@ function sendMessage(message, tab)
     end
 
   end
-
-
 
   -- when talking on server log, the message goes to default channel
 
@@ -2320,8 +1989,6 @@ function sendMessage(message, tab)
     name = defaultTab:getText()
 
   end
-
-
 
   -- handling chat commands
 
@@ -2337,8 +2004,6 @@ function sendMessage(message, tab)
 
   local chatCommandMessage
 
-
-
   -- player used yell command
 
   chatCommandMessage = message:match("^%#[y|Y] (.*)")
@@ -2352,8 +2017,6 @@ function sendMessage(message, tab)
     message = chatCommandMessage
 
   end
-
-
 
    -- player used whisper
 
@@ -2369,8 +2032,6 @@ function sendMessage(message, tab)
 
   end
 
-
-
   -- player say
 
   chatCommandMessage = message:match("^%#[s|S] (.*)")
@@ -2385,8 +2046,6 @@ function sendMessage(message, tab)
 
   end
 
-
-
   -- player red talk on channel
 
   chatCommandMessage = message:match("^%#[c|C] (.*)")
@@ -2398,8 +2057,6 @@ function sendMessage(message, tab)
     message = chatCommandMessage
 
   end
-
-
 
   -- player broadcast
 
@@ -2414,8 +2071,6 @@ function sendMessage(message, tab)
     channel = 0
 
   end
-
-
 
   local findIni, findEnd, chatCommandInitial, chatCommandPrivate, chatCommandEnd, chatCommandMessage = message:find("([%*%@])(.+)([%*%@])(.*)")
 
@@ -2439,13 +2094,9 @@ function sendMessage(message, tab)
 
   end
 
-
-
   message = message:gsub("^(%s*)(.*)","%2") -- remove space characters from message init
 
   if #message == 0 then return end
-
-
 
   -- add new command to history
 
@@ -2463,8 +2114,6 @@ function sendMessage(message, tab)
 
   end
 
-
-
   local speaktypedesc
 
   if (channel or tab == defaultTab) and not chatCommandPrivateReady then
@@ -2480,8 +2129,6 @@ function sendMessage(message, tab)
       speaktypedesc = chatCommandSayMode or 'channelYellow'
 
     end
-
-
 
     g_game.talkChannel(SpeakTypesSettings[speaktypedesc].speakType, channel, message)
 
@@ -2539,10 +2186,6 @@ function sendMessage(message, tab)
 
     end
 
-
-
-
-
     local speaktype = SpeakTypesSettings[speaktypedesc]
 
     local player = g_game.getLocalPlayer()
@@ -2561,8 +2204,6 @@ function sendMessage(message, tab)
 
 end
 
-
-
 function sayModeChange(sayMode)
 
   local buttom = consolePanel:getChildById('sayModeButton')
@@ -2573,19 +2214,13 @@ function sayModeChange(sayMode)
 
   end
 
-
-
   if sayMode > #SayModes then sayMode = 1 end
-
-
 
   buttom:setIcon(SayModes[sayMode].icon)
 
   buttom.sayMode = sayMode
 
 end
-
-
 
 function getOwnPrivateTab()
 
@@ -2595,15 +2230,11 @@ function getOwnPrivateTab()
 
 end
 
-
-
 function setIgnoreNpcMessages(ignore)
 
   ignoreNpcMessages = ignore
 
 end
-
-
 
 function navigateMessageHistory(step)
 
@@ -2612,8 +2243,6 @@ function navigateMessageHistory(step)
     return
 
   end
-
-
 
   local numCommands = #messageHistory
 
@@ -2645,8 +2274,6 @@ function navigateMessageHistory(step)
 
 end
 
-
-
 function applyMessagePrefixies(name, level, message)
 
   if name and #name > 0 then
@@ -2667,8 +2294,6 @@ function applyMessagePrefixies(name, level, message)
 
 end
 
-
-
 function onTalk(name, level, mode, message, channelId, creaturePos)
 
   if mode == MessageModes.GamemasterBroadcast then
@@ -2679,19 +2304,11 @@ function onTalk(name, level, mode, message, channelId, creaturePos)
 
   end
 
-
-
   local isNpcMode = (mode == MessageModes.NpcFromStartBlock or mode == MessageModes.NpcFrom)
-
-
 
   if ignoreNpcMessages and isNpcMode then return end
 
-
-
   speaktype = SpeakTypes[mode]
-
-
 
   if not speaktype then
 
@@ -2701,8 +2318,6 @@ function onTalk(name, level, mode, message, channelId, creaturePos)
 
   end
 
-
-
   local localPlayer = g_game.getLocalPlayer()
 
   if name ~= g_game.getCharacterName()
@@ -2710,8 +2325,6 @@ function onTalk(name, level, mode, message, channelId, creaturePos)
       and isUsingIgnoreList()
 
         and not(isUsingWhiteList()) or (isUsingWhiteList() and not(isWhitelisted(name)) and not(isAllowingVIPs() and localPlayer:hasVip(name))) then
-
-
 
     if mode == MessageModes.Yell and isIgnoringYelling() then
 
@@ -2729,15 +2342,11 @@ function onTalk(name, level, mode, message, channelId, creaturePos)
 
   end
 
-
-
   if mode == MessageModes.RVRChannel then
 
     channelId = violationsChannelId
 
   end
-
-
 
   if (mode == MessageModes.Say or mode == MessageModes.Whisper or mode == MessageModes.Yell or
 
@@ -2779,23 +2388,13 @@ function onTalk(name, level, mode, message, channelId, creaturePos)
 
   end
 
-
-
   local defaultMessage = mode <= 3 and true or false
-
-
 
   if speaktype == SpeakTypesSettings.none then return end
 
-
-
   if speaktype.hideInConsole then return end
 
-
-
   local composedMessage = applyMessagePrefixies(name, level, message)
-
-
 
   if mode == MessageModes.RVRAnswer then
 
@@ -2827,8 +2426,6 @@ function onTalk(name, level, mode, message, channelId, creaturePos)
 
     end
 
-
-
     if channel then
 
       addText(composedMessage, speaktype, channel, name)
@@ -2845,23 +2442,17 @@ function onTalk(name, level, mode, message, channelId, creaturePos)
 
 end
 
-
-
 function onOpenChannel(channelId, channelName)
 
   addChannel(channelName, channelId)
 
 end
 
-
-
 function onOpenPrivateChannel(receiver)
 
   addPrivateChannel(receiver)
 
 end
-
-
 
 function onOpenOwnPrivateChannel(channelId, channelName)
 
@@ -2876,8 +2467,6 @@ function onOpenOwnPrivateChannel(channelId, channelName)
   ownPrivateName = channelName
 
 end
-
-
 
 function onCloseChannel(channelId)
 
@@ -2903,8 +2492,6 @@ function onCloseChannel(channelId)
 
 end
 
-
-
 function processViolation(name, text)
 
   local tabname = name .. '\'...'
@@ -2921,8 +2508,6 @@ function processViolation(name, text)
 
 end
 
-
-
 function onRuleViolationChannel(channelId)
 
   violationsChannelId = channelId
@@ -2933,8 +2518,6 @@ function onRuleViolationChannel(channelId)
 
 end
 
-
-
 function onRuleViolationRemove(name)
 
   local tab = getRuleViolationsTab()
@@ -2944,8 +2527,6 @@ function onRuleViolationRemove(name)
   removeTabLabelByName(tab, name)
 
 end
-
-
 
 function onRuleViolationCancel(name)
 
@@ -2959,8 +2540,6 @@ function onRuleViolationCancel(name)
 
 end
 
-
-
 function onRuleViolationLock()
 
   if not violationReportTab then return end
@@ -2972,8 +2551,6 @@ function onRuleViolationLock()
   violationReportTab.locked = true
 
 end
-
-
 
 function doChannelListSubmit()
 
@@ -3013,13 +2590,9 @@ function doChannelListSubmit()
 
   end
 
-
-
   channelsWindow:destroy()
 
 end
-
-
 
 function onChannelList(channelList)
 
@@ -3037,15 +2610,11 @@ function onChannelList(channelList)
 
   g_keyboard.bindKeyPress('Up', function() channelListPanel:focusPreviousChild(KeyboardFocusReason) end, channelsWindow)
 
-
-
   for k,v in pairs(channelList) do
 
     local channelId = v[1]
 
     local channelName = v[2]
-
-
 
     if #channelName > 0 then
 
@@ -3054,8 +2623,6 @@ function onChannelList(channelList)
       label.channelId = channelId
 
       label:setText(channelName)
-
-
 
       label:setPhantom(false)
 
@@ -3067,15 +2634,11 @@ function onChannelList(channelList)
 
 end
 
-
-
 function loadCommunicationSettings()
 
   communicationSettings.whitelistedPlayers = {}
 
   communicationSettings.ignoredPlayers = {}
-
-
 
   local ignoreNode = g_settings.getNode('IgnorePlayers')
 
@@ -3089,8 +2652,6 @@ function loadCommunicationSettings()
 
   end
 
-
-
   local whitelistNode = g_settings.getNode('WhitelistedPlayers')
 
   if whitelistNode then
@@ -3102,8 +2663,6 @@ function loadCommunicationSettings()
     end
 
   end
-
-
 
   communicationSettings.useIgnoreList = g_settings.getBoolean('UseIgnoreList')
 
@@ -3117,8 +2676,6 @@ function loadCommunicationSettings()
 
 end
 
-
-
 function saveCommunicationSettings()
 
   local tmpIgnoreList = {}
@@ -3131,8 +2688,6 @@ function saveCommunicationSettings()
 
   end
 
-
-
   local tmpWhiteList = {}
 
   local whitelistedPlayers = getWhitelistedPlayers()
@@ -3142,8 +2697,6 @@ function saveCommunicationSettings()
     table.insert(tmpWhiteList, whitelistedPlayers[i])
 
   end
-
-
 
   g_settings.set('UseIgnoreList', communicationSettings.useIgnoreList)
 
@@ -3159,15 +2712,11 @@ function saveCommunicationSettings()
 
 end
 
-
-
 function getIgnoredPlayers()
 
   return communicationSettings.ignoredPlayers
 
 end
-
-
 
 function getWhitelistedPlayers()
 
@@ -3175,15 +2724,11 @@ function getWhitelistedPlayers()
 
 end
 
-
-
 function isUsingIgnoreList()
 
   return communicationSettings.useIgnoreList
 
 end
-
-
 
 function isUsingWhiteList()
 
@@ -3197,8 +2742,6 @@ function isIgnored(name)
 
 end
 
-
-
 function addIgnoredPlayer(name)
 
   if isIgnored(name) then return end
@@ -3209,23 +2752,17 @@ function addIgnoredPlayer(name)
 
 end
 
-
-
 function removeIgnoredPlayer(name)
 
   table.removevalue(communicationSettings.ignoredPlayers, name)
 
 end
 
-
-
 function isWhitelisted(name)
 
   return table.find(communicationSettings.whitelistedPlayers, name, true)
 
 end
-
-
 
 function addWhitelistedPlayer(name)
 
@@ -3235,15 +2772,11 @@ function addWhitelistedPlayer(name)
 
 end
 
-
-
 function removeWhitelistedPlayer(name)
 
   table.removevalue(communicationSettings.whitelistedPlayers, name)
 
 end
-
-
 
 function isIgnoringPrivate()
 
@@ -3251,23 +2784,17 @@ function isIgnoringPrivate()
 
 end
 
-
-
 function isIgnoringYelling()
 
   return communicationSettings.yelling
 
 end
 
-
-
 function isAllowingVIPs()
 
   return communicationSettings.allowVIPs
 
 end
-
-
 
 function onClickIgnoreButton()
 
@@ -3281,8 +2808,6 @@ function onClickIgnoreButton()
 
   communicationWindow.onDestroy = function() communicationWindow = nil end
 
-
-
   local useIgnoreListBox = communicationWindow:getChildById('checkboxUseIgnoreList')
 
   useIgnoreListBox:setChecked(communicationSettings.useIgnoreList)
@@ -3290,8 +2815,6 @@ function onClickIgnoreButton()
   local useWhiteListBox = communicationWindow:getChildById('checkboxUseWhiteList')
 
   useWhiteListBox:setChecked(communicationSettings.useWhiteList)
-
-
 
   local removeIgnoreButton = communicationWindow:getChildById('buttonIgnoreRemove')
 
@@ -3315,8 +2838,6 @@ function onClickIgnoreButton()
 
   end
 
-
-
   local removeWhitelistButton = communicationWindow:getChildById('buttonWhitelistRemove')
 
   removeWhitelistButton:disable()
@@ -3338,8 +2859,6 @@ function onClickIgnoreButton()
     removeWhitelistButton:disable()
 
   end
-
-
 
   local newlyIgnoredPlayers = {}
 
@@ -3369,8 +2888,6 @@ function onClickIgnoreButton()
 
   addIgnoreButton.onClick = addIgnoreFunction
 
-
-
   local newlyWhitelistedPlayers = {}
 
   local addWhitelistName = communicationWindow:getChildById('whitelistNameEdit')
@@ -3399,8 +2916,6 @@ function onClickIgnoreButton()
 
   addWhitelistButton.onClick = addWhitelistFunction
 
-
-
   communicationWindow.onEnter = function()
 
       if addWhitelistName:isFocused() then
@@ -3415,8 +2930,6 @@ function onClickIgnoreButton()
 
     end
 
-
-
   local ignorePrivateMessageBox = communicationWindow:getChildById('checkboxIgnorePrivateMessages')
 
   ignorePrivateMessageBox:setChecked(communicationSettings.privateMessages)
@@ -3428,8 +2941,6 @@ function onClickIgnoreButton()
   local allowVIPsBox = communicationWindow:getChildById('checkboxAllowVIPs')
 
   allowVIPsBox:setChecked(communicationSettings.allowVIPs)
-
-
 
   local saveButton = communicationWindow:recursiveGetChildById('buttonSave')
 
@@ -3443,8 +2954,6 @@ function onClickIgnoreButton()
 
       end
 
-
-
       communicationSettings.whitelistedPlayers = {}
 
       for i = 1, whiteListPanel:getChildCount() do
@@ -3452,8 +2961,6 @@ function onClickIgnoreButton()
         addWhitelistedPlayer(whiteListPanel:getChildByIndex(i):getText())
 
       end
-
-
 
       communicationSettings.useIgnoreList = useIgnoreListBox:isChecked()
 
@@ -3469,8 +2976,6 @@ function onClickIgnoreButton()
 
     end
 
-
-
   local cancelButton = communicationWindow:recursiveGetChildById('buttonCancel')
 
   cancelButton.onClick = function()
@@ -3478,8 +2983,6 @@ function onClickIgnoreButton()
       communicationWindow:destroy()
 
     end
-
-
 
   local ignoredPlayers = getIgnoredPlayers()
 
@@ -3490,8 +2993,6 @@ function onClickIgnoreButton()
     label:setText(ignoredPlayers[i])
 
   end
-
-
 
   local whitelistedPlayers = getWhitelistedPlayers()
 
@@ -3505,17 +3006,11 @@ function onClickIgnoreButton()
 
 end
 
-
-
 function online()
 
   defaultTab = addTab(tr('Default'), true)
 
   serverTab = addTab(tr('Server Log'), false)
-
-
-
-
 
   if g_game.getClientVersion() >= 820 then
 
@@ -3524,8 +3019,6 @@ function online()
     tab.npcChat = true
 
   end
-
-  
 
   if g_game.getClientVersion() < 862 then
 
@@ -3573,8 +3066,6 @@ function online()
 
 end
 
-
-
 function offline()
 
   if g_game.getClientVersion() < 862 then
@@ -3589,8 +3080,6 @@ function offline()
 
 end
 
-
-
 function onChannelEvent(channelId, name, type)
 
   local fmt = ChannelEventFormats[type]
@@ -3602,8 +3091,6 @@ function onChannelEvent(channelId, name, type)
     return
 
   end
-
-
 
   local channel = channels[channelId]
 
@@ -3624,12 +3111,7 @@ end
 ```
 
 ---
-
-
-
 # console.otmod
-
-
 
 ```text
 
@@ -3654,12 +3136,7 @@ Module
 ```
 
 ---
-
-
-
 # console.otui
-
-
 
 ```otui
 
@@ -3672,12 +3149,7 @@ ConsolePanel
 ```
 
 ---
-
-
-
 # violationwindow.otui
-
-
 
 ```otui
 
@@ -3688,8 +3160,6 @@ MainWindow
   !text: tr('Report Rule Violation')
 
   size: 300 240
-
-
 
   Label
 
@@ -3704,8 +3174,6 @@ MainWindow
     anchors.right: parent.right
 
     anchors.top: parent.top
-
-
 
   TextEdit
 
@@ -3727,8 +3195,6 @@ MainWindow
 
     max-length: 255
 
-
-
   Button
 
     id: buttonOk
@@ -3744,8 +3210,6 @@ MainWindow
     margin-right: 10
 
     @onClick: self:getParent():onEnter()
-
-
 
   Button
 
@@ -3764,6 +3228,3 @@ MainWindow
 ```
 
 ---
-
-
-

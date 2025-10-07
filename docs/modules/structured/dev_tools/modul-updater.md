@@ -1,27 +1,14 @@
-# ¦ Modul: `updater`
-
-
-
-
-
+﻿# ¦ Modul: `updater`
 
 ```lua
 
 Updater = { }
 
-
-
 Updater.maxRetries = 5
-
-
 
 --[[
 
-
-
 ]]--
-
-
 
 local updaterWindow
 
@@ -30,8 +17,6 @@ local loadModulesFunction
 local scheduledEvent
 
 local httpOperationId = 0
-
-
 
 local function onLog(level, message, time)
 
@@ -45,8 +30,6 @@ local function onLog(level, message, time)
 
 end
 
-
-
 local function initAppWindow()
 
   if g_resources.getLayout() == "mobile" then
@@ -59,8 +42,6 @@ local function initAppWindow()
 
   end
 
-
-
   -- window size
 
   local size = { width = 1024, height = 600 }
@@ -68,8 +49,6 @@ local function initAppWindow()
   size = g_settings.getSize('window-size', size)
 
   g_window.resize(size)
-
-
 
   -- window position, default is the screen center
 
@@ -87,21 +66,15 @@ local function initAppWindow()
 
   g_window.move(pos)
 
-
-
   -- window maximized?
 
   local maximized = g_settings.getBoolean('window-maximized', false)
 
   if maximized then g_window.maximize() end
 
-
-
   g_window.setTitle(g_app.getName())
 
   g_window.setIcon('/images/clienticon')
-
-  
 
   if g_app.isMobile() then
 
@@ -114,8 +87,6 @@ local function initAppWindow()
   end
 
 end
-
-
 
 local function loadModules()
 
@@ -130,8 +101,6 @@ local function loadModules()
   end
 
 end
-
-
 
 local function downloadFiles(url, files, index, retries, doneCallback)
 
@@ -149,8 +118,6 @@ local function downloadFiles(url, files, index, retries, doneCallback)
 
   local file_checksum = entry[2]
 
-  
-
   if retries > 0 then
 
     updaterWindow.downloadStatus:setText(tr("Downloading (%i retry):\n%s", retries, file))
@@ -164,8 +131,6 @@ local function downloadFiles(url, files, index, retries, doneCallback)
   updaterWindow.downloadProgress:setPercent(0)
 
   updaterWindow.mainProgress:setPercent(math.floor(100 * index / #files))
-
-  
 
   httpOperationId = HTTP.download(url .. file, file,
 
@@ -211,8 +176,6 @@ local function downloadFiles(url, files, index, retries, doneCallback)
 
 end
 
-
-
 local function updateFiles(data, keepCurrentFiles)
 
   if not updaterWindow then return end
@@ -240,8 +203,6 @@ local function updateFiles(data, keepCurrentFiles)
     keepCurrentFiles = true
 
   end
-
-  
 
   local newFiles = false
 
@@ -297,8 +258,6 @@ local function updateFiles(data, keepCurrentFiles)
 
   end
 
-  
-
   if #toUpdate == 0 then -- nothing to update
 
     updaterWindow.mainProgress:setPercent(100)
@@ -308,8 +267,6 @@ local function updateFiles(data, keepCurrentFiles)
     return
 
   end
-
-  
 
   -- update of some files require full client restart
 
@@ -338,8 +295,6 @@ local function updateFiles(data, keepCurrentFiles)
     end
 
   end
-
-  
 
   updaterWindow.status:setText(tr("Updating %i files", #toUpdate))
 
@@ -401,8 +356,6 @@ local function updateFiles(data, keepCurrentFiles)
 
 end
 
-
-
 -- public functions
 
 function Updater.init(loadModulesFunc)
@@ -417,8 +370,6 @@ function Updater.init(loadModulesFunc)
 
 end
 
-
-
 function Updater.terminate()
 
   loadModulesFunction = nil
@@ -426,8 +377,6 @@ function Updater.terminate()
   Updater.abort()
 
 end
-
-
 
 function Updater.abort()
 
@@ -447,13 +396,9 @@ function Updater.abort()
 
 end
 
-
-
 function Updater.check(args)
 
   if updaterWindow then return end
-
-  
 
   updaterWindow = g_ui.displayUI('updater')
 
@@ -462,8 +407,6 @@ function Updater.check(args)
   updaterWindow:focus()
 
   updaterWindow:raise()  
-
-  
 
   local updateData = nil
 
@@ -491,8 +434,6 @@ function Updater.check(args)
 
   progressUpdater(0)
 
-
-
   httpOperationId = HTTP.postJSON(Services.updater, {
 
     version = APP_VERSION,
@@ -519,8 +460,6 @@ function Updater.check(args)
 
 end
 
-
-
 function Updater.error(message)
 
   removeEvent(scheduledEvent)
@@ -534,8 +473,6 @@ function Updater.error(message)
   end
 
 end
-
-
 
 function Updater.changeUrl()
 
@@ -566,12 +503,7 @@ end
 ```
 
 ---
-
-
-
 # updater.otmod
-
-
 
 ```text
 
@@ -593,8 +525,6 @@ Module
 
   @onUnload: Updater.terminate()
 
-  
-
   load-later:
 
     - client_background
@@ -602,12 +532,7 @@ Module
 ```
 
 ---
-
-
-
 # updater.otui
-
-
 
 ```otui
 
@@ -619,15 +544,11 @@ StaticMainWindow
 
   width: 350
 
-
-
   layout:
 
     type: verticalBox
 
     fit-children: true
-
-      
 
   Label
 
@@ -636,8 +557,6 @@ StaticMainWindow
     !text: tr('Checking for updates')
 
     text-align: center
-
-
 
   ProgressBar
 
@@ -651,8 +570,6 @@ StaticMainWindow
 
     margin-top: 5
 
-
-
   Label
 
     id: downloadStatus
@@ -664,8 +581,6 @@ StaticMainWindow
     text-wrap: true
 
     visible: false
-
-
 
   ProgressBar
 
@@ -680,8 +595,6 @@ StaticMainWindow
     margin-top: 5
 
     visible: false
-
-          
 
   Button
 
@@ -703,8 +616,6 @@ StaticMainWindow
 
       visible: false
 
-
-
   Button
 
     margin-left: 90
@@ -719,10 +630,4 @@ StaticMainWindow
 
 ---
 
-
-
-
-
 {% endraw %}
-
-

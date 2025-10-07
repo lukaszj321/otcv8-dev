@@ -1,9 +1,4 @@
-# ¦ Modul: `game_minimap`
-
-
-
-
-
+﻿# ¦ Modul: `game_minimap`
 
 ```otui
 
@@ -29,33 +24,21 @@ FlagButton < CheckBox
 
   text:
 
-
-
   $!checked:
 
     image-clip: 26 0 26 26
-
-
 
   $hover !checked:
 
     image-clip: 78 0 26 26
 
-
-
   $checked:
 
     image-clip: 0 0 26 26
 
-
-
   $hover checked:
 
     image-clip: 52 0 26 26
-
-
-
-
 
 FlagWindow < MainWindow
 
@@ -64,8 +47,6 @@ FlagWindow < MainWindow
   !text: tr('Create Map Mark')
 
   size: 196 185
-
-
 
   Label
 
@@ -81,8 +62,6 @@ FlagWindow < MainWindow
 
     margin-top: 2
 
-
-
   Label
 
     !text: tr('Description') .. ':'
@@ -92,8 +71,6 @@ FlagWindow < MainWindow
     anchors.top: prev.bottom
 
     margin-top: 7
-
-
 
   TextEdit
 
@@ -107,8 +84,6 @@ FlagWindow < MainWindow
 
     width: 158
 
-
-
   FlagButton
 
     id: flag1
@@ -121,8 +96,6 @@ FlagWindow < MainWindow
 
     margin-left: 0
 
-
-
   FlagButton
 
     id: flag2
@@ -132,8 +105,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -145,8 +116,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag4
@@ -156,8 +125,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -169,8 +136,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag6
@@ -180,8 +145,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -193,8 +156,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag8
@@ -204,8 +165,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -217,8 +176,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag10
@@ -228,8 +185,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -245,8 +200,6 @@ FlagWindow < MainWindow
 
     margin-left: 0
 
-
-
   FlagButton
 
     id: flag12
@@ -256,8 +209,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -269,8 +220,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag14
@@ -280,8 +229,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -293,8 +240,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag16
@@ -304,8 +249,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -317,8 +260,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag18
@@ -328,8 +269,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   FlagButton
 
@@ -341,8 +280,6 @@ FlagWindow < MainWindow
 
     anchors.top: prev.top
 
-
-
   FlagButton
 
     id: flag20
@@ -352,8 +289,6 @@ FlagWindow < MainWindow
     anchors.left: prev.right
 
     anchors.top: prev.top
-
-
 
   Button
 
@@ -368,8 +303,6 @@ FlagWindow < MainWindow
     anchors.bottom: parent.bottom
 
     margin-right: 10
-
-
 
   Button
 
@@ -386,12 +319,7 @@ FlagWindow < MainWindow
 ```
 
 ---
-
-
-
 # minimap.lua
-
-
 
 ```lua
 
@@ -409,15 +337,11 @@ oldZoom = nil
 
 oldPos = nil
 
-
-
 function init()
 
   minimapWindow = g_ui.loadUI('minimap', modules.game_interface.getRightPanel())
 
   minimapWindow:setContentMinimumHeight(64)
-
-
 
   if not minimapWindow.forceOpen then
 
@@ -429,11 +353,7 @@ function init()
 
   end
 
-
-
   minimapWidget = minimapWindow:recursiveGetChildById('minimap')
-
-
 
   local gameRootPanel = modules.game_interface.getRootPanel()
 
@@ -449,11 +369,7 @@ function init()
 
   g_keyboard.bindKeyDown('Ctrl+Shift+M', toggleFullMap)
 
-
-
   minimapWindow:setup()
-
-
 
   connect(g_game, {
 
@@ -461,17 +377,13 @@ function init()
 
     onGameEnd = offline,
 
-  })
-
-
+})
 
   connect(LocalPlayer, {
 
     onPositionChange = updateCameraPosition
 
-  })
-
-
+})
 
   if g_game.isOnline() then
 
@@ -481,8 +393,6 @@ function init()
 
 end
 
-
-
 function terminate()
 
   if g_game.isOnline() then
@@ -491,25 +401,19 @@ function terminate()
 
   end
 
-
-
   disconnect(g_game, {
 
     onGameStart = online,
 
     onGameEnd = offline,
 
-  })
-
-
+})
 
   disconnect(LocalPlayer, {
 
     onPositionChange = updateCameraPosition
 
-  })
-
-
+})
 
   local gameRootPanel = modules.game_interface.getRootPanel()
 
@@ -525,8 +429,6 @@ function terminate()
 
   g_keyboard.unbindKeyDown('Ctrl+Shift+M')
 
-
-
   minimapWindow:destroy()
 
   if minimapButton then
@@ -536,8 +438,6 @@ function terminate()
   end
 
 end
-
-
 
 function toggle()
 
@@ -559,8 +459,6 @@ function toggle()
 
 end
 
-
-
 function onMiniWindowClose()
 
   if minimapButton then
@@ -571,8 +469,6 @@ function onMiniWindowClose()
 
 end
 
-
-
 function online()
 
   loadMap()
@@ -581,27 +477,19 @@ function online()
 
 end
 
-
-
 function offline()
 
   saveMap()
 
 end
 
-
-
 function loadMap()
 
   local clientVersion = g_game.getClientVersion()
 
-
-
   g_minimap.clean()
 
   loaded = false
-
-
 
   local minimapFile = '/minimap.otmm'
 
@@ -637,8 +525,6 @@ function loadMap()
 
 end
 
-
-
 function saveMap()
 
   local clientVersion = g_game.getClientVersion()
@@ -650,8 +536,6 @@ function saveMap()
   minimapWidget:save()
 
 end
-
-
 
 function updateCameraPosition()
 
@@ -676,8 +560,6 @@ function updateCameraPosition()
   end
 
 end
-
-
 
 function toggleFullMap()
 
@@ -707,8 +589,6 @@ function toggleFullMap()
 
   end
 
-
-
   local zoom = oldZoom or 0
 
   local pos = oldPos or minimapWidget:getCameraPosition()
@@ -726,12 +606,7 @@ end
 ```
 
 ---
-
-
-
 # minimap.otmod
-
-
 
 ```text
 
@@ -756,12 +631,7 @@ Module
 ```
 
 ---
-
-
-
 # minimap.otui
-
-
 
 ```otui
 
@@ -782,6 +652,3 @@ MinimapWindow
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `client_background`
-
-
-
-
-
+﻿# ¦ Modul: `client_background`
 
 ```lua
 
@@ -13,8 +8,6 @@ local background
 
 local clientVersionLabel
 
-
-
 -- public functions
 
 function init()
@@ -23,13 +16,9 @@ function init()
 
   background:lower()
 
-
-
   clientVersionLabel = background:getChildById('clientVersionLabel')
 
   clientVersionLabel:setText('OTClientV8 ' .. g_app.getVersion() .. '\nrev ' .. g_app.getBuildRevision() .. '\nMade by:\n' .. g_app.getAuthor() .. "")
-
-  
 
   if not g_game.isOnline() then
 
@@ -37,15 +26,11 @@ function init()
 
   end
 
-
-
   connect(g_game, { onGameStart = hide })
 
   connect(g_game, { onGameEnd = show })
 
 end
-
-
 
 function terminate()
 
@@ -53,19 +38,13 @@ function terminate()
 
   disconnect(g_game, { onGameEnd = show })
 
-
-
   g_effects.cancelFade(background:getChildById('clientVersionLabel'))
 
   background:destroy()
 
-
-
   Background = nil
 
 end
-
-
 
 function hide()
 
@@ -73,15 +52,11 @@ function hide()
 
 end
 
-
-
 function show()
 
   background:show()
 
 end
-
-
 
 function hideVersionLabel()
 
@@ -89,15 +64,11 @@ function hideVersionLabel()
 
 end
 
-
-
 function setVersionText(text)
 
   clientVersionLabel:setText(text)
 
 end
-
-
 
 function getBackground()
 
@@ -108,12 +79,7 @@ end
 ```
 
 ---
-
-
-
 # background.otmod
-
-
 
 ```text
 
@@ -138,12 +104,7 @@ Module
 ```
 
 ---
-
-
-
 # background.otui
-
-
 
 ```otui
 
@@ -162,8 +123,6 @@ UIWidget
   image-fixed-ratio: true
 
   margin-top: 1
-
-
 
   UILabel
 
@@ -192,6 +151,3 @@ UIWidget
 ```
 
 ---
-
-
-

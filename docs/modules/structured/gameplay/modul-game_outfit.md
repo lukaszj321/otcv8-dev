@@ -1,23 +1,14 @@
-# ¦ Modul: `game_outfit`
-
-
-
-
-
+﻿# ¦ Modul: `game_outfit`
 
 ```lua
 
 local window = nil
-
-
 
 local appearanceGroup = nil
 
 local colorModeGroup = nil
 
 local colorBoxGroup = nil
-
-
 
 local floor = nil
 
@@ -37,13 +28,9 @@ local showShaderCheck = nil
 
 local showBarsCheck = nil
 
-
-
 local colorBoxes = {}
 
 local currentColorBox = nil
-
-
 
 ignoreNextOutfitWindow = 0
 
@@ -52,8 +39,6 @@ local floorTiles = 7
 local settingsFile = "/settings/outfit.json"
 
 local settings = {}
-
-
 
 local tempOutfit = {}
 
@@ -77,8 +62,6 @@ local ServerData = {
 
 }
 
-
-
 local AppearanceData = {
 
   "preset",
@@ -99,27 +82,23 @@ local AppearanceData = {
 
 }
 
-
-
 function init()
 
   connect(
 
     g_game,
 
-    {
+{
 
       onOpenOutfitWindow = create,
 
       onGameEnd = destroy
 
-    }
+}
 
-  )
+)
 
 end
-
-
 
 function terminate()
 
@@ -127,21 +106,19 @@ function terminate()
 
     g_game,
 
-    {
+{
 
       onOpenOutfitWindow = create,
 
       onGameEnd = destroy
 
-    }
+}
 
-  )
+)
 
   destroy()
 
 end
-
-
 
 function onMovementChange(checkBox, checked)
 
@@ -151,15 +128,11 @@ function onMovementChange(checkBox, checked)
 
 end
 
-
-
 function onShowFloorChange(checkBox, checked)
 
   if checked then
 
     floor:show()
-
-
 
     -- Magic!
 
@@ -253,7 +226,7 @@ function onShowFloorChange(checkBox, checked)
 
       delay
 
-    )
+)
 
   else
 
@@ -261,13 +234,9 @@ function onShowFloorChange(checkBox, checked)
 
   end
 
-
-
   settings.showFloor = checked
 
 end
-
-
 
 function onShowMountChange(checkBox, checked)
 
@@ -276,8 +245,6 @@ function onShowMountChange(checkBox, checked)
   updatePreview()
 
 end
-
-
 
 function onShowOutfitChange(checkBox, checked)
 
@@ -297,8 +264,6 @@ function onShowOutfitChange(checkBox, checked)
 
 end
 
-
-
 function onShowAuraChange(checkBox, checked)
 
   settings.showAura = checked
@@ -306,8 +271,6 @@ function onShowAuraChange(checkBox, checked)
   updatePreview()
 
 end
-
-
 
 function onShowWingsChange(checkBox, checked)
 
@@ -317,8 +280,6 @@ function onShowWingsChange(checkBox, checked)
 
 end
 
-
-
 function onShowShaderChange(checkBox, checked)
 
   settings.showShader = checked
@@ -327,8 +288,6 @@ function onShowShaderChange(checkBox, checked)
 
 end
 
-
-
 function onShowBarsChange(checkBox, checked)
 
   settings.showBars = checked
@@ -336,8 +295,6 @@ function onShowBarsChange(checkBox, checked)
   updatePreview()
 
 end
-
-
 
 local PreviewOptions = {
 
@@ -357,8 +314,6 @@ local PreviewOptions = {
 
 }
 
-
-
 function create(currentOutfit, outfitList, mountList, wingList, auraList, shaderList, healthBarList, manaBarList)
 
   if ignoreNextOutfitWindow and g_clock.millis() < ignoreNextOutfitWindow + 1000 then
@@ -367,15 +322,11 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   end
 
-
-
   if window then
 
     destroy()
 
   end
-
-
 
   if currentOutfit.shader == "" then
 
@@ -383,11 +334,7 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   end
 
-
-
   loadSettings()
-
-
 
   ServerData = {
 
@@ -407,13 +354,9 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
     manaBars = manaBarList
 
-  }
-
-
+}
 
   window = g_ui.displayUI("outfitwindow")
-
-
 
   floor = window.preview.panel.floor
 
@@ -425,27 +368,19 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   floor:hide()
 
-
-
   for _, appKey in ipairs(AppearanceData) do
 
     updateAppearanceText(appKey, "None")
 
   end
 
-
-
   previewCreature = window.preview.panel.creature
-
-
 
   if settings.currentPreset > 0 then
 
     local preset = settings.presets[settings.currentPreset]
 
     tempOutfit = table.copy(preset.outfit)
-
-
 
     updateAppearanceText("preset", preset.title)
 
@@ -455,15 +390,9 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   end
 
-
-
   updatePreview()
 
-
-
   updateAppearanceTexts(currentOutfit)
-
-
 
   if g_game.getFeature(GamePlayerMounts) then
 
@@ -484,8 +413,6 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
     end
 
   end
-
-
 
   if currentOutfit.addons == 3 then
 
@@ -511,11 +438,7 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   window.configure.addon2.check.onCheckChange = onAddonChange
 
-
-
   configureAddons(currentOutfit.addons)
-
-
 
   movementCheck = window.preview.panel.movement
 
@@ -533,8 +456,6 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   showBarsCheck = window.preview.options.showBars.check
 
-
-
   movementCheck.onCheckChange = onMovementChange
 
   for _, option in ipairs(window.preview.options:getChildren()) do
@@ -543,13 +464,9 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   end
 
-
-
   movementCheck:setChecked(settings.movement)
 
   showFloorCheck:setChecked(settings.showFloor)
-
-
 
   if not settings.showOutfit then
 
@@ -565,8 +482,6 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   end
 
-
-
   showOutfitCheck:setChecked(settings.showOutfit)
 
   showMountCheck:setChecked(settings.showMount)
@@ -578,8 +493,6 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
   showShaderCheck:setChecked(settings.showShader)
 
   showBarsCheck:setChecked(settings.showBars)
-
-
 
   colorBoxGroup = UIRadioGroup.create()
 
@@ -597,8 +510,6 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
       colorBox.colorId = j * 19 + i
 
-
-
       if colorBox.colorId == currentOutfit.head then
 
         currentColorBox = colorBox
@@ -613,11 +524,7 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   end
 
-
-
   colorBoxGroup.onSelectionChange = onColorCheckChange
-
-
 
   appearanceGroup = UIRadioGroup.create()
 
@@ -637,13 +544,9 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   appearanceGroup:addWidget(window.appearance.settings.manaBar.check)
 
-
-
   appearanceGroup.onSelectionChange = onAppearanceChange
 
   appearanceGroup:selectWidget(window.appearance.settings.preset.check)
-
-
 
   colorModeGroup = UIRadioGroup.create()
 
@@ -655,13 +558,9 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   colorModeGroup:addWidget(window.appearance.colorMode.detail)
 
-
-
   colorModeGroup.onSelectionChange = onColorModeChange
 
   colorModeGroup:selectWidget(window.appearance.colorMode.head)
-
-
 
   window.preview.options.showMount:setVisible(g_game.getFeature(GamePlayerMounts))
 
@@ -670,8 +569,6 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
   window.preview.options.showAura:setVisible(g_game.getFeature(GameWingsAndAura))
 
   window.preview.options.showShader:setVisible(g_game.getFeature(GameOutfitShaders))
-
-
 
   window.appearance.settings.mount:setVisible(g_game.getFeature(GamePlayerMounts))
 
@@ -685,17 +582,11 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   window.appearance.settings.manaBar:setVisible(g_game.getFeature(GameHealthInfoBackground))
 
-
-
   window.configure.mount:setVisible(g_game.getFeature(GamePlayerMounts))
-
-
 
   window.listSearch.search.onKeyPress = onFilterSearch
 
 end
-
-
 
 function destroy()
 
@@ -704,8 +595,6 @@ function destroy()
     window:destroy()
 
     window = nil
-
-
 
     floor = nil
 
@@ -725,13 +614,9 @@ function destroy()
 
     showBarsCheck = nil
 
-
-
     colorBoxes = {}
 
     currentColorBox = nil
-
-
 
     appearanceGroup:destroy()
 
@@ -744,8 +629,6 @@ function destroy()
     colorBoxGroup:destroy()
 
     colorBoxGroup = nil
-
-
 
     ServerData = {
 
@@ -765,9 +648,7 @@ function destroy()
 
       manaBars = {}
 
-    }
-
-
+}
 
     saveSettings()
 
@@ -776,8 +657,6 @@ function destroy()
   end
 
 end
-
-
 
 function configureAddons(addons)
 
@@ -788,8 +667,6 @@ function configureAddons(addons)
   window.configure.addon1.check:setEnabled(hasAddon1)
 
   window.configure.addon2.check:setEnabled(hasAddon2)
-
-
 
   window.configure.addon1.check.onCheckChange = nil
 
@@ -825,8 +702,6 @@ function configureAddons(addons)
 
 end
 
-
-
 function newPreset()
 
   if not settings.presets then
@@ -834,8 +709,6 @@ function newPreset()
     settings.presets = {}
 
   end
-
-
 
   local presetWidget = g_ui.createWidget("PresetButton", window.presetsList)
 
@@ -851,8 +724,6 @@ function newPreset()
 
   presetWidget.creature:setCenter(true)
 
-
-
   settings.presets[presetId] = {
 
     title = "New Preset",
@@ -861,17 +732,13 @@ function newPreset()
 
     mounted = window.configure.mount.check:isChecked()
 
-  }
-
-
+}
 
   presetWidget:focus()
 
   window.presetsList:ensureChildVisible(presetWidget, {x = 0, y = 196})
 
 end
-
-
 
 function deletePreset()
 
@@ -889,15 +756,11 @@ function deletePreset()
 
   end
 
-
-
   if not presetId or presetId == 0 then
 
     return
 
   end
-
-
 
   table.remove(settings.presets, presetId)
 
@@ -919,8 +782,6 @@ function deletePreset()
 
 end
 
-
-
 function savePreset()
 
   local presetId = settings.currentPreset
@@ -937,15 +798,11 @@ function savePreset()
 
   end
 
-
-
   if not presetId or presetId == 0 then
 
     return
 
   end
-
-
 
   local outfitCopy = table.copy(tempOutfit)
 
@@ -960,8 +817,6 @@ function savePreset()
   settings.currentPreset = presetId
 
 end
-
-
 
 function renamePreset()
 
@@ -979,15 +834,11 @@ function renamePreset()
 
   end
 
-
-
   if not presetId or presetId == 0 then
 
     return
 
   end
-
-
 
   local presetWidget = window.presetsList[presetId]
 
@@ -1005,8 +856,6 @@ function renamePreset()
 
 end
 
-
-
 function saveRename(presetId)
 
   local presetWidget = window.presetsList[presetId]
@@ -1016,8 +865,6 @@ function saveRename(presetId)
     return
 
   end
-
-
 
   local newTitle = presetWidget.rename.input:getText():trim()
 
@@ -1031,8 +878,6 @@ function saveRename(presetId)
 
   settings.presets[presetId].title = newTitle
 
-
-
   if presetId == settings.currentPreset then
 
     updateAppearanceText("preset", newTitle)
@@ -1040,8 +885,6 @@ function saveRename(presetId)
   end
 
 end
-
-
 
 function onAppearanceChange(widget, selectedWidget)
 
@@ -1083,8 +926,6 @@ function onAppearanceChange(widget, selectedWidget)
 
 end
 
-
-
 function showPresets()
 
   window.listSearch:hide()
@@ -1092,8 +933,6 @@ function showPresets()
   window.selectionList:hide()
 
   window.selectionScroll:hide()
-
-
 
   local focused = nil
 
@@ -1121,8 +960,6 @@ function showPresets()
 
   end
 
-
-
   if focused then
 
     local w = window.presetsList[focused]
@@ -1132,8 +969,6 @@ function showPresets()
     window.presetsList:ensureChildVisible(w, {x = 0, y = 196})
 
   end
-
-
 
   window.presetsList.onChildFocusChange = onPresetSelect
 
@@ -1145,8 +980,6 @@ function showPresets()
 
 end
 
-
-
 function showOutfits()
 
   window.presetsList:hide()
@@ -1155,13 +988,9 @@ function showOutfits()
 
   window.presetButtons:hide()
 
-
-
   window.selectionList.onChildFocusChange = nil
 
   window.selectionList:destroyChildren()
-
-
 
   local focused = nil
 
@@ -1170,8 +999,6 @@ function showOutfits()
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId(outfitData[1])
-
-
 
     local outfit = table.copy(previewCreature:getOutfit())
 
@@ -1207,8 +1034,6 @@ function showOutfits()
 
   end
 
-
-
   if focused then
 
     local w = window.selectionList[focused]
@@ -1218,8 +1043,6 @@ function showOutfits()
     window.selectionList:ensureChildVisible(w, {x = 0, y = 196})
 
   end
-
-
 
   window.selectionList.onChildFocusChange = onOutfitSelect
 
@@ -1231,8 +1054,6 @@ function showOutfits()
 
 end
 
-
-
 function showMounts()
 
   window.presetsList:hide()
@@ -1241,13 +1062,9 @@ function showMounts()
 
   window.presetButtons:hide()
 
-
-
   window.selectionList.onChildFocusChange = nil
 
   window.selectionList:destroyChildren()
-
-
 
   local focused = nil
 
@@ -1256,8 +1073,6 @@ function showMounts()
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId(mountData[1])
-
-
 
     button.outfit:setOutfit({type = mountData[1]})
 
@@ -1273,21 +1088,15 @@ function showMounts()
 
   end
 
-
-
   if #ServerData.mounts == 1 then
 
     window.selectionList:focusChild(nil)
 
   end
 
-
-
   window.configure.mount.check:setEnabled(focused)
 
   window.configure.mount.check:setChecked(g_game.getLocalPlayer():isMounted() and focused)
-
-
 
   if focused ~= nil then
 
@@ -1299,8 +1108,6 @@ function showMounts()
 
   end
 
-
-
   window.selectionList.onChildFocusChange = onMountSelect
 
   window.selectionList:show()
@@ -1311,8 +1118,6 @@ function showMounts()
 
 end
 
-
-
 function showAuras()
 
   window.presetsList:hide()
@@ -1321,23 +1126,17 @@ function showAuras()
 
   window.presetButtons:hide()
 
-
-
   window.selectionList.onChildFocusChange = nil
 
   window.selectionList:destroyChildren()
 
-
-
   local focused = nil
 
-  do
+do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId("0")
-
-
 
     button.outfit:setOutfit({type = 0})
 
@@ -1351,15 +1150,11 @@ function showAuras()
 
   end
 
-
-
   for _, auraData in ipairs(ServerData.auras) do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId(auraData[1])
-
-
 
     button.outfit:setOutfit({type = auraData[1]})
 
@@ -1375,8 +1170,6 @@ function showAuras()
 
   end
 
-
-
   if focused ~= nil then
 
     local w = window.selectionList[focused]
@@ -1386,8 +1179,6 @@ function showAuras()
     window.selectionList:ensureChildVisible(w, {x = 0, y = 196})
 
   end
-
-
 
   window.selectionList.onChildFocusChange = onAuraSelect
 
@@ -1399,8 +1190,6 @@ function showAuras()
 
 end
 
-
-
 function showWings()
 
   window.presetsList:hide()
@@ -1409,23 +1198,17 @@ function showWings()
 
   window.presetButtons:hide()
 
-
-
   window.selectionList.onChildFocusChange = nil
 
   window.selectionList:destroyChildren()
 
-
-
   local focused = nil
 
-  do
+do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId("0")
-
-
 
     button.outfit:setOutfit({type = 0})
 
@@ -1439,15 +1222,11 @@ function showWings()
 
   end
 
-
-
   for _, wingsData in ipairs(ServerData.wings) do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId(wingsData[1])
-
-
 
     button.outfit:setOutfit({type = wingsData[1]})
 
@@ -1463,8 +1242,6 @@ function showWings()
 
   end
 
-
-
   if focused ~= nil then
 
     local w = window.selectionList[focused]
@@ -1474,8 +1251,6 @@ function showWings()
     window.selectionList:ensureChildVisible(w, {x = 0, y = 196})
 
   end
-
-
 
   window.selectionList.onChildFocusChange = onWingsSelect
 
@@ -1487,8 +1262,6 @@ function showWings()
 
 end
 
-
-
 function showShaders()
 
   window.presetsList:hide()
@@ -1497,23 +1270,17 @@ function showShaders()
 
   window.presetButtons:hide()
 
-
-
   window.selectionList.onChildFocusChange = nil
 
   window.selectionList:destroyChildren()
 
-
-
   local focused = nil
 
-  do
+do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId("outfit_default")
-
-
 
     button.outfit:setOutfit({type = tempOutfit.type, addons = tempOutfit.addons, shader = "outfit_default"})
 
@@ -1527,15 +1294,11 @@ function showShaders()
 
   end
 
-
-
   for _, shaderData in ipairs(ServerData.shaders) do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId(shaderData[2])
-
-
 
     button.outfit:setOutfit({type = tempOutfit.type, addons = tempOutfit.addons, shader = shaderData[2]})
 
@@ -1551,8 +1314,6 @@ function showShaders()
 
   end
 
-
-
   if focused ~= nil then
 
     local w = window.selectionList[focused]
@@ -1562,8 +1323,6 @@ function showShaders()
     window.selectionList:ensureChildVisible(w, {x = 0, y = 196})
 
   end
-
-
 
   window.selectionList.onChildFocusChange = onShaderSelect
 
@@ -1575,8 +1334,6 @@ function showShaders()
 
 end
 
-
-
 function showHealthBars()
 
   window.presetsList:hide()
@@ -1585,23 +1342,17 @@ function showHealthBars()
 
   window.presetButtons:hide()
 
-
-
   window.selectionList.onChildFocusChange = nil
 
   window.selectionList:destroyChildren()
 
-
-
   local focused = nil
 
-  do
+do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId("0")
-
-
 
     button.outfit:hide()
 
@@ -1615,25 +1366,17 @@ function showHealthBars()
 
   end
 
-
-
   for _, barData in ipairs(ServerData.healthBars) do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId(barData[1])
 
-
-
     button.outfit:hide()
-
-
 
     button.bar:setImageSource(g_healthBars.getHealthBarPath(barData[1]))
 
     button.bar:show()
-
-
 
     button.name:setText(barData[2])
 
@@ -1645,8 +1388,6 @@ function showHealthBars()
 
   end
 
-
-
   if focused ~= nil then
 
     local w = window.selectionList[focused]
@@ -1656,8 +1397,6 @@ function showHealthBars()
     window.selectionList:ensureChildVisible(w, {x = 0, y = 196})
 
   end
-
-
 
   window.selectionList.onChildFocusChange = onHealthBarSelect
 
@@ -1669,8 +1408,6 @@ function showHealthBars()
 
 end
 
-
-
 function showManaBars()
 
   window.presetsList:hide()
@@ -1679,23 +1416,17 @@ function showManaBars()
 
   window.presetButtons:hide()
 
-
-
   window.selectionList.onChildFocusChange = nil
 
   window.selectionList:destroyChildren()
 
-
-
   local focused = nil
 
-  do
+do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId("0")
-
-
 
     button.outfit:hide()
 
@@ -1709,25 +1440,17 @@ function showManaBars()
 
   end
 
-
-
   for _, barData in ipairs(ServerData.manaBars) do
 
     local button = g_ui.createWidget("SelectionButton", window.selectionList)
 
     button:setId(barData[1])
 
-
-
     button.outfit:hide()
-
-
 
     button.bar:setImageSource(g_healthBars.getManaBarPath(barData[1]))
 
     button.bar:show()
-
-
 
     button.name:setText(barData[2])
 
@@ -1739,8 +1462,6 @@ function showManaBars()
 
   end
 
-
-
   if focused ~= nil then
 
     local w = window.selectionList[focused]
@@ -1750,8 +1471,6 @@ function showManaBars()
     window.selectionList:ensureChildVisible(w, {x = 0, y = 196})
 
   end
-
-
 
   window.selectionList.onChildFocusChange = onManaBarSelect
 
@@ -1763,8 +1482,6 @@ function showManaBars()
 
 end
 
-
-
 function onPresetSelect(list, focusedChild, unfocusedChild, reason)
 
   if focusedChild then
@@ -1774,8 +1491,6 @@ function onPresetSelect(list, focusedChild, unfocusedChild, reason)
     local preset = settings.presets[presetId]
 
     tempOutfit = table.copy(preset.outfit)
-
-
 
     for _, outfitData in ipairs(ServerData.outfits) do
 
@@ -1789,23 +1504,15 @@ function onPresetSelect(list, focusedChild, unfocusedChild, reason)
 
     end
 
-
-
     if g_game.getFeature(GamePlayerMounts) then
 
       window.configure.mount.check:setChecked(preset.mounted and tempOutfit.mount > 0)
 
     end
 
-
-
     settings.currentPreset = presetId
 
-
-
     updatePreview()
-
-
 
     updateAppearanceTexts(tempOutfit)
 
@@ -1814,8 +1521,6 @@ function onPresetSelect(list, focusedChild, unfocusedChild, reason)
   end
 
 end
-
-
 
 function onOutfitSelect(list, focusedChild, unfocusedChild, reason)
 
@@ -1829,15 +1534,9 @@ function onOutfitSelect(list, focusedChild, unfocusedChild, reason)
 
     tempOutfit.addons = outfit.addons
 
-
-
     deselectPreset()
 
-
-
     configureAddons(outfit.addons)
-
-
 
     if showOutfitCheck:isChecked() then
 
@@ -1851,8 +1550,6 @@ function onOutfitSelect(list, focusedChild, unfocusedChild, reason)
 
 end
 
-
-
 function onMountSelect(list, focusedChild, unfocusedChild, reason)
 
   if focusedChild then
@@ -1861,11 +1558,7 @@ function onMountSelect(list, focusedChild, unfocusedChild, reason)
 
     tempOutfit.mount = mountType
 
-
-
     deselectPreset()
-
-
 
     if showMountCheck:isChecked() then
 
@@ -1873,21 +1566,15 @@ function onMountSelect(list, focusedChild, unfocusedChild, reason)
 
     end
 
-
-
     window.configure.mount.check:setEnabled(tempOutfit.mount > 0)
 
     window.configure.mount.check:setChecked(g_game.getLocalPlayer():isMounted() and tempOutfit.mount > 0)
-
-
 
     updateAppearanceText("mount", focusedChild.name:getText())
 
   end
 
 end
-
-
 
 function onAuraSelect(list, focusedChild, unfocusedChild, reason)
 
@@ -1899,19 +1586,13 @@ function onAuraSelect(list, focusedChild, unfocusedChild, reason)
 
     updatePreview()
 
-
-
     deselectPreset()
-
-
 
     updateAppearanceText("aura", focusedChild.name:getText())
 
   end
 
 end
-
-
 
 function onWingsSelect(list, focusedChild, unfocusedChild, reason)
 
@@ -1923,19 +1604,13 @@ function onWingsSelect(list, focusedChild, unfocusedChild, reason)
 
     updatePreview()
 
-
-
     deselectPreset()
-
-
 
     updateAppearanceText("wings", focusedChild.name:getText())
 
   end
 
 end
-
-
 
 function onShaderSelect(list, focusedChild, unfocusedChild, reason)
 
@@ -1947,19 +1622,13 @@ function onShaderSelect(list, focusedChild, unfocusedChild, reason)
 
     updatePreview()
 
-
-
     deselectPreset()
-
-
 
     updateAppearanceText("shader", focusedChild.name:getText())
 
   end
 
 end
-
-
 
 function onHealthBarSelect(list, focusedChild, unfocusedChild, reason)
 
@@ -1971,19 +1640,13 @@ function onHealthBarSelect(list, focusedChild, unfocusedChild, reason)
 
     updatePreview()
 
-
-
     deselectPreset()
-
-
 
     updateAppearanceText("healthBar", focusedChild.name:getText())
 
   end
 
 end
-
-
 
 function onManaBarSelect(list, focusedChild, unfocusedChild, reason)
 
@@ -1995,11 +1658,7 @@ function onManaBarSelect(list, focusedChild, unfocusedChild, reason)
 
     updatePreview()
 
-
-
     deselectPreset()
-
-
 
     updateAppearanceText("manaBar", focusedChild.name:getText())
 
@@ -2007,15 +1666,11 @@ function onManaBarSelect(list, focusedChild, unfocusedChild, reason)
 
 end
 
-
-
 function updateAppearanceText(widget, text)
 
   window.appearance.settings[widget].name:setText(text)
 
 end
-
-
 
 function updateAppearanceTexts(outfit)
 
@@ -2024,8 +1679,6 @@ function updateAppearanceTexts(outfit)
     updateAppearanceText(appKey, "None")
 
   end
-
-
 
   for key, value in pairs(outfit) do
 
@@ -2073,21 +1726,15 @@ function updateAppearanceTexts(outfit)
 
 end
 
-
-
 function deselectPreset()
 
   settings.currentPreset = 0
 
 end
 
-
-
 function onAddonChange(widget, checked)
 
   local addonId = widget:getParent():getId()
-
-
 
   local addons = tempOutfit.addons
 
@@ -2101,11 +1748,7 @@ function onAddonChange(widget, checked)
 
   end
 
-
-
   settings.currentPreset = 0
-
-
 
   tempOutfit.addons = addons
 
@@ -2118,8 +1761,6 @@ function onAddonChange(widget, checked)
   end
 
 end
-
-
 
 function onColorModeChange(widget, selectedWidget)
 
@@ -2145,8 +1786,6 @@ function onColorModeChange(widget, selectedWidget)
 
 end
 
-
-
 function onColorCheckChange(widget, selectedWidget)
 
   local colorId = selectedWidget.colorId
@@ -2171,11 +1810,7 @@ function onColorCheckChange(widget, selectedWidget)
 
   end
 
-
-
   updatePreview()
-
-
 
   if appearanceGroup:getSelectedWidget() == window.appearance.settings.outfit.check then
 
@@ -2185,15 +1820,11 @@ function onColorCheckChange(widget, selectedWidget)
 
 end
 
-
-
 function updatePreview()
 
   local direction = previewCreature:getDirection()
 
   local previewOutfit = table.copy(tempOutfit)
-
-
 
   if not settings.showOutfit then
 
@@ -2205,15 +1836,11 @@ function updatePreview()
 
   end
 
-
-
   if not settings.showMount then
 
     previewOutfit.mount = 0
 
   end
-
-
 
   if not settings.showAura then
 
@@ -2221,23 +1848,17 @@ function updatePreview()
 
   end
 
-
-
   if not settings.showWings then
 
     previewOutfit.wings = 0
 
   end
 
-
-
   if not settings.showShader then
 
     previewOutfit.shader = "outfit_default"
 
   end
-
-
 
   if not settings.showBars then
 
@@ -2277,8 +1898,6 @@ function updatePreview()
 
     end
 
-
-
     local healthBar = window.preview.panel.bars.healthBar
 
     local manaBar = window.preview.panel.bars.manaBar
@@ -2305,13 +1924,9 @@ function updatePreview()
 
       local manaOffset = g_healthBars.getHealthBarOffset(previewOutfit.manaBar)
 
-
-
       if previewOutfit.healthBar > 0 then
 
         healthBar.image:setImageSource(g_healthBars.getHealthBarPath(previewOutfit.healthBar))
-
-
 
         healthBar:setMarginTop(-healthOffset.y + 1)
 
@@ -2339,17 +1954,11 @@ function updatePreview()
 
       end
 
-
-
       if previewOutfit.manaBar > 0 then
 
         manaBar.image:setImageSource(g_healthBars.getManaBarPath(previewOutfit.manaBar))
 
-
-
         manaBar:setMarginTop(healthBarOffset.y + 1 - manaOffset.y)
-
-
 
         manaBar.image:setMarginTop(-manaOffset.y)
 
@@ -2375,15 +1984,11 @@ function updatePreview()
 
   end
 
-
-
   previewCreature:setOutfit(previewOutfit)
 
   previewCreature:setDirection(direction)
 
 end
-
-
 
 function rotate(value)
 
@@ -2406,8 +2011,6 @@ function rotate(value)
   floor:setMargin(0)
 
 end
-
-
 
 function onFilterSearch()
 
@@ -2449,11 +2052,9 @@ function onFilterSearch()
 
     end
 
-  )
+)
 
 end
-
-
 
 function saveSettings()
 
@@ -2465,11 +2066,9 @@ function saveSettings()
 
   end
 
-
-
   local fullSettings = {}
 
-  do
+do
 
     local json_status, json_data =
 
@@ -2481,9 +2080,7 @@ function saveSettings()
 
       end
 
-    )
-
-
+)
 
     if not json_status then
 
@@ -2497,11 +2094,7 @@ function saveSettings()
 
   end
 
-
-
   fullSettings[g_game.getCharacterName()] = settings
-
-
 
   local json_status, json_data =
 
@@ -2513,9 +2106,7 @@ function saveSettings()
 
     end
 
-  )
-
-
+)
 
   if not json_status then
 
@@ -2525,13 +2116,9 @@ function saveSettings()
 
   end
 
-
-
   g_resources.writeFileContents(settingsFile, json.encode(fullSettings))
 
 end
-
-
 
 function loadSettings()
 
@@ -2540,8 +2127,6 @@ function loadSettings()
     g_resources.makeDir("/settings")
 
   end
-
-
 
   if g_resources.fileExists(settingsFile) then
 
@@ -2555,9 +2140,7 @@ function loadSettings()
 
       end
 
-    )
-
-
+)
 
     if not json_status then
 
@@ -2566,8 +2149,6 @@ function loadSettings()
       return
 
     end
-
-
 
     settings = json_data[g_game.getCharacterName()]
 
@@ -2584,8 +2165,6 @@ function loadSettings()
   end
 
 end
-
-
 
 function loadDefaultSettings()
 
@@ -2611,13 +2190,11 @@ function loadDefaultSettings()
 
     currentPreset = 0
 
-  }
+}
 
   settings.currentPreset = 0
 
 end
-
-
 
 function accept()
 
@@ -2645,8 +2222,6 @@ function accept()
 
   end
 
-
-
   g_game.changeOutfit(tempOutfit)
 
   destroy()
@@ -2656,12 +2231,7 @@ end
 ```
 
 ---
-
-
-
 # outfit.otmod
-
-
 
 ```text
 
@@ -2686,12 +2256,7 @@ Module
 ```
 
 ---
-
-
-
 # outfitwindow.otui
-
-
 
 ```otui
 
@@ -2703,13 +2268,8 @@ FloorTile < UIWidget
 
   phantom: true
 
-
-
 OutfitWindow
 
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `game_unjustifiedpoints`
-
-
-
-
-
+﻿# ¦ Modul: `game_unjustifiedpoints`
 
 ```lua
 
@@ -13,15 +8,11 @@ unjustifiedPointsButton = nil
 
 contentsPanel = nil
 
-
-
 openPvpSituationsLabel = nil
 
 currentSkullWidget = nil
 
 skullTimeLabel = nil
-
-
 
 dayProgressBar = nil
 
@@ -29,15 +20,11 @@ weekProgressBar = nil
 
 monthProgressBar = nil
 
-
-
 daySkullWidget = nil
 
 weekSkullWidget = nil
 
 monthSkullWidget = nil
-
-
 
 function init()
 
@@ -49,8 +36,6 @@ function init()
 
   connect(LocalPlayer, { onSkullChange = onSkullChange } )
 
-
-
   unjustifiedPointsButton = modules.client_topmenu.addRightGameToggleButton('unjustifiedPointsButton',
 
     tr('Unjustified Points'), '/images/topbuttons/unjustifiedpoints', toggle)
@@ -59,27 +44,19 @@ function init()
 
   unjustifiedPointsButton:hide()
 
-
-
   unjustifiedPointsWindow = g_ui.loadUI('unjustifiedpoints', modules.game_interface.getRightPanel())
 
   unjustifiedPointsWindow:disableResize()
 
   unjustifiedPointsWindow:setup()
 
-
-
   contentsPanel = unjustifiedPointsWindow:getChildById('contentsPanel')
-
-
 
   openPvpSituationsLabel = contentsPanel:getChildById('openPvpSituationsLabel')
 
   currentSkullWidget = contentsPanel:getChildById('currentSkullWidget')
 
   skullTimeLabel = contentsPanel:getChildById('skullTimeLabel')
-
-
 
   dayProgressBar = contentsPanel:getChildById('dayProgressBar')
 
@@ -93,8 +70,6 @@ function init()
 
   monthSkullWidget = contentsPanel:getChildById('monthSkullWidget')
 
-
-
   if g_game.isOnline() then
 
     online()
@@ -102,8 +77,6 @@ function init()
   end
 
 end
-
-
 
 function terminate()
 
@@ -115,23 +88,17 @@ function terminate()
 
   disconnect(LocalPlayer, { onSkullChange = onSkullChange } )
 
-
-
   unjustifiedPointsWindow:destroy()
 
   unjustifiedPointsButton:destroy()
 
 end
 
-
-
 function onMiniWindowClose()
 
   unjustifiedPointsButton:setOn(false)
 
 end
-
-
 
 function toggle()
 
@@ -151,8 +118,6 @@ function toggle()
 
 end
 
-
-
 function online()
 
   if g_game.getFeature(GameUnjustifiedPoints) then
@@ -167,25 +132,17 @@ function online()
 
   end
 
-
-
   refresh()
 
 end
-
-
 
 function refresh()
 
   local localPlayer = g_game.getLocalPlayer()
 
-
-
   local unjustifiedPoints = g_game.getUnjustifiedPoints()
 
   onUnjustifiedPointsChange(unjustifiedPoints)
-
-
 
   onSkullChange(localPlayer, localPlayer:getSkull())
 
@@ -193,13 +150,9 @@ function refresh()
 
 end
 
-
-
 function onSkullChange(localPlayer, skull)
 
   if not localPlayer:isLocalPlayer() then return end
-
-
 
   if skull == SkullRed or skull == SkullBlack then
 
@@ -215,8 +168,6 @@ function onSkullChange(localPlayer, skull)
 
   end
 
-
-
   daySkullWidget:setIcon(getSkullImagePath(getNextSkullId(skull)))
 
   weekSkullWidget:setIcon(getSkullImagePath(getNextSkullId(skull)))
@@ -225,15 +176,11 @@ function onSkullChange(localPlayer, skull)
 
 end
 
-
-
 function onOpenPvpSituationsChange(amount)
 
   openPvpSituationsLabel:setText(amount)
 
 end
-
-
 
 local function getColorByKills(kills)
 
@@ -247,13 +194,9 @@ local function getColorByKills(kills)
 
   end
 
-
-
   return 'green'
 
 end
-
-
 
 function onUnjustifiedPointsChange(unjustifiedPoints)
 
@@ -271,8 +214,6 @@ function onUnjustifiedPointsChange(unjustifiedPoints)
 
   end
 
-
-
   dayProgressBar:setValue(unjustifiedPoints.killsDay, 0, 100)
 
   dayProgressBar:setBackgroundColor(getColorByKills(unjustifiedPoints.killsDayRemaining))
@@ -281,8 +222,6 @@ function onUnjustifiedPointsChange(unjustifiedPoints)
 
   dayProgressBar:setText(string.format('%i kill%s left',  unjustifiedPoints.killsDayRemaining, (unjustifiedPoints.killsDayRemaining == 1 and '' or 's')))
 
-
-
   weekProgressBar:setValue(unjustifiedPoints.killsWeek, 0, 100)
 
   weekProgressBar:setBackgroundColor(getColorByKills(unjustifiedPoints.killsWeekRemaining))
@@ -290,8 +229,6 @@ function onUnjustifiedPointsChange(unjustifiedPoints)
   weekProgressBar:setTooltip(string.format('Unjustified points gained during the last 7 days.\n%i kill%s left.', unjustifiedPoints.killsWeekRemaining, (unjustifiedPoints.killsWeekRemaining == 1 and '' or 's')))
 
   weekProgressBar:setText(string.format('%i kill%s left',  unjustifiedPoints.killsWeekRemaining, (unjustifiedPoints.killsWeekRemaining == 1 and '' or 's')))
-
-
 
   monthProgressBar:setValue(unjustifiedPoints.killsMonth, 0, 100)
 
@@ -306,12 +243,7 @@ end
 ```
 
 ---
-
-
-
 # unjustifiedpoints.otmod
-
-
 
 ```text
 
@@ -334,12 +266,7 @@ Module
 ```
 
 ---
-
-
-
 # unjustifiedpoints.otui
-
-
 
 ```otui
 
@@ -355,8 +282,6 @@ SkullProgressBar < ProgressBar
 
   anchors.right: parent.right
 
-
-
 SkullWidget < UIWidget
 
   size: 13 13
@@ -366,8 +291,6 @@ SkullWidget < UIWidget
   anchors.right: parent.right
 
   image-source: /images/game/skull_socket
-
-
 
 MiniWindow
 
@@ -384,8 +307,6 @@ MiniWindow
   &save: true
 
   &autoOpen: false
-
-
 
   MiniWindowContents
 
@@ -405,8 +326,6 @@ MiniWindow
 
       margin-left: 10
 
-
-
     Label
 
       id: openPvpSituationsLabel
@@ -421,8 +340,6 @@ MiniWindow
 
       phantom: false
 
-
-
     Label
 
       anchors.top: parent.top
@@ -435,8 +352,6 @@ MiniWindow
 
       margin-right: 10
 
-
-
     SkullWidget
 
       id: currentSkullWidget
@@ -444,8 +359,6 @@ MiniWindow
       anchors.top: prev.bottom
 
       margin-right: 10
-
-
 
     Label
 
@@ -461,15 +374,11 @@ MiniWindow
 
       phantom: false
 
-
-
     SkullProgressBar
 
       id: dayProgressBar
 
       margin-top: 10
-
-
 
     SkullWidget
 
@@ -477,13 +386,9 @@ MiniWindow
 
       anchors.top: prev.top
 
-
-
     SkullProgressBar
 
       id: weekProgressBar
-
-
 
     SkullWidget
 
@@ -491,13 +396,9 @@ MiniWindow
 
       anchors.top: prev.top
 
-
-
     SkullProgressBar
 
       id: monthProgressBar
-
-
 
     SkullWidget
 
@@ -508,6 +409,3 @@ MiniWindow
 ```
 
 ---
-
-
-

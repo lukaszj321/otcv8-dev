@@ -1,15 +1,8 @@
-# ¦ Modul: `game_containers`
-
-
-
-
-
+﻿# ¦ Modul: `game_containers`
 
 ```lua
 
 local gameStart = 0
-
-
 
 function init()
 
@@ -27,15 +20,11 @@ function init()
 
     onGameEnd = clean
 
-  })
-
-
+})
 
   reloadContainers()
 
 end
-
-
 
 function terminate()
 
@@ -53,11 +42,9 @@ function terminate()
 
     onGameEnd = clean
 
-  })
+})
 
 end
-
-
 
 function reloadContainers()
 
@@ -71,8 +58,6 @@ function reloadContainers()
 
 end
 
-
-
 function clean()
 
   for containerid,container in pairs(g_game.getContainers()) do
@@ -83,15 +68,11 @@ function clean()
 
 end
 
-
-
 function markStart()
 
   gameStart = g_clock.millis()
 
 end
-
-
 
 function destroy(container)
 
@@ -107,8 +88,6 @@ function destroy(container)
 
 end
 
-
-
 function refreshContainerItems(container)
 
   for slot=0,container:getCapacity()-1 do
@@ -119,8 +98,6 @@ function refreshContainerItems(container)
 
   end
 
-
-
   if container:hasPages() then
 
     refreshContainerPages(container)
@@ -128,8 +105,6 @@ function refreshContainerItems(container)
   end
 
 end
-
-
 
 function toggleContainerPages(containerWindow, hasPages)
 
@@ -157,8 +132,6 @@ function toggleContainerPages(containerWindow, hasPages)
 
 end
 
-
-
 function refreshContainerPages(container)
 
   local currentPage = 1 + math.floor(container:getFirstIndex() / container:getCapacity())
@@ -166,8 +139,6 @@ function refreshContainerPages(container)
   local pages = 1 + math.floor(math.max(0, (container:getSize() - 1)) / container:getCapacity())
 
   container.window:recursiveGetChildById('pageLabel'):setText(string.format('Page %i of %i', currentPage, pages))
-
-
 
   local prevPageButton = container.window:recursiveGetChildById('prevPageButton')
 
@@ -183,8 +154,6 @@ function refreshContainerPages(container)
 
   end
 
-
-
   local nextPageButton = container.window:recursiveGetChildById('nextPageButton')
 
   if currentPage >= pages then
@@ -198,8 +167,6 @@ function refreshContainerPages(container)
     nextPageButton.onClick = function() g_game.seekInContainer(container:getId(), container:getFirstIndex() + container:getCapacity()) end
 
   end
-
-  
 
   local pagePanel = container.window:recursiveGetChildById('pagePanel')
 
@@ -225,8 +192,6 @@ function refreshContainerPages(container)
 
 end
 
-
-
 function onContainerOpen(container, previousContainer)
 
   local containerWindow
@@ -242,8 +207,6 @@ function onContainerOpen(container, previousContainer)
   else
 
     containerWindow = g_ui.createWidget('ContainerWindow', modules.game_interface.getContainerPanel())
-
-
 
     -- white border flash effect
 
@@ -263,8 +226,6 @@ function onContainerOpen(container, previousContainer)
 
   end
 
-  
-
   containerWindow:setId('container' .. container:getId())
 
   if gameStart + 1000 < g_clock.millis() then
@@ -272,8 +233,6 @@ function onContainerOpen(container, previousContainer)
     containerWindow:clearSettings()
 
   end
-
-  
 
   local containerPanel = containerWindow:getChildById('contentsPanel')
 
@@ -305,8 +264,6 @@ function onContainerOpen(container, previousContainer)
 
   end
 
-  
-
   containerWindow.onMouseRelease = function(widget, mousePos, mouseButton)
 
     if mouseButton == MouseButton4 then
@@ -333,15 +290,11 @@ function onContainerOpen(container, previousContainer)
 
   end
 
-
-
   -- this disables scrollbar auto hiding
 
   local scrollbar = containerWindow:getChildById('miniwindowScrollBar')
 
   scrollbar:mergeStyle({ ['$!on'] = { }})
-
-
 
   local upButton = containerWindow:getChildById('upButton')
 
@@ -353,19 +306,13 @@ function onContainerOpen(container, previousContainer)
 
   upButton:setVisible(container:hasParent())
 
-
-
   local name = container:getName()
 
   name = name:sub(1,1):upper() .. name:sub(2)
 
   containerWindow:setText(name)
 
-
-
   containerItemWidget:setItem(container:getContainerItem())
-
-
 
   containerPanel:destroyChildren()
 
@@ -381,8 +328,6 @@ function onContainerOpen(container, previousContainer)
 
     itemWidget.position = container:getSlotPosition(slot)
 
-
-
     if not container:isUnlocked() then
 
       itemWidget:setBorderColor('red')
@@ -391,19 +336,13 @@ function onContainerOpen(container, previousContainer)
 
   end
 
-
-
   container.window = containerWindow
 
   container.itemsPanel = containerPanel
 
-
-
   toggleContainerPages(containerWindow, container:hasPages())
 
   refreshContainerPages(container)
-
-
 
   local layout = containerPanel:getLayout()
 
@@ -412,8 +351,6 @@ function onContainerOpen(container, previousContainer)
   containerWindow:setContentMinimumHeight(cellSize.height)
 
   containerWindow:setContentMaximumHeight(cellSize.height*layout:getNumLines())
-
-
 
   if container:hasPages() then
 
@@ -427,8 +364,6 @@ function onContainerOpen(container, previousContainer)
 
   end
 
-
-
   if not previousContainer then
 
     local filledLines = math.max(math.ceil(container:getItemsCount() / layout:getNumColumns()), 1)
@@ -437,21 +372,15 @@ function onContainerOpen(container, previousContainer)
 
   end
 
-
-
   containerWindow:setup()
 
 end
-
-
 
 function onContainerClose(container)
 
   destroy(container)
 
 end
-
-
 
 function onContainerChangeSize(container, size)
 
@@ -460,8 +389,6 @@ function onContainerChangeSize(container, size)
   refreshContainerItems(container)
 
 end
-
-
 
 function onContainerUpdateItem(container, slot, item, oldItem)
 
@@ -476,12 +403,7 @@ end
 ```
 
 ---
-
-
-
 # containers.otmod
-
-
 
 ```text
 
@@ -506,6 +428,3 @@ Module
 ```
 
 ---
-
-
-

@@ -1,15 +1,8 @@
-# ¦ Modul: `game_hotkeys`
-
-
-
-
-
+﻿# ¦ Modul: `game_hotkeys`
 
 ```lua
 
 extraHotkeys = {}
-
-
 
 function addExtraHotkey(name, description, callback)
 
@@ -21,13 +14,9 @@ function addExtraHotkey(name, description, callback)
 
     callback = callback
 
-  })
-
-  
+})
 
 end
-
-
 
 function setupExtraHotkeys(combobox)
 
@@ -99,8 +88,6 @@ function setupExtraHotkeys(combobox)
 
   end)
 
-  
-
   addExtraHotkey("attackPrevious", "Attack previous target from battle list", function(repeated)
 
     if repeated or not modules.game_battle then
@@ -141,8 +128,6 @@ function setupExtraHotkeys(combobox)
 
   end)
 
-
-
   addExtraHotkey("toogleWsad", "Enable/disable wsad walking", function(repeated)
 
     if repeated or not modules.game_console then
@@ -163,8 +148,6 @@ function setupExtraHotkeys(combobox)
 
   end)  
 
-  
-
   for index, actionDetails in ipairs(extraHotkeys) do
 
     combobox:addOption(actionDetails.description)
@@ -172,8 +155,6 @@ function setupExtraHotkeys(combobox)
   end
 
 end
-
-
 
 function executeExtraHotkey(action, repeated)
 
@@ -190,8 +171,6 @@ function executeExtraHotkey(action, repeated)
   end
 
 end
-
-
 
 function translateActionToActionComboboxIndex(action)
 
@@ -211,8 +190,6 @@ function translateActionToActionComboboxIndex(action)
 
 end
 
-
-
 function translateActionComboboxIndexToAction(index)
 
   if index > 1 and index <= #extraHotkeys then
@@ -224,8 +201,6 @@ function translateActionComboboxIndexToAction(index)
   return nil
 
 end
-
-
 
 function getActionDescription(action)
 
@@ -248,12 +223,7 @@ end
 ```
 
 ---
-
-
-
 # hotkeys_manager.lua
-
-
 
 ```lua
 
@@ -264,8 +234,6 @@ HOTKEY_MANAGER_USEONSELF = 1
 HOTKEY_MANAGER_USEONTARGET = 2
 
 HOTKEY_MANAGER_USEWITH = 3
-
-
 
 HotkeyColors = {
 
@@ -284,8 +252,6 @@ HotkeyColors = {
   extraAction = '#FFAA00'
 
 }
-
-
 
 hotkeysManagerLoaded = false
 
@@ -341,8 +307,6 @@ currentConfig = 1
 
 configValueChanged = false
 
-
-
 -- public functions
 
 function init()
@@ -358,8 +322,6 @@ function init()
   hotkeysWindow = g_ui.displayUI('hotkeys_manager')
 
   hotkeysWindow:setVisible(false)
-
-  
 
   configSelector = hotkeysWindow:getChildById('configSelector')
 
@@ -387,8 +349,6 @@ function init()
 
   useWith = hotkeysWindow:getChildById('useWith')
 
-
-
   useRadioGroup = UIRadioGroup.create()
 
   useRadioGroup:addWidget(useOnSelf)
@@ -399,8 +359,6 @@ function init()
 
   useRadioGroup.onSelectionChange = function(self, selected) onChangeUseType(selected) end
 
-
-
   mouseGrabberWidget = g_ui.createWidget('UIWidget')
 
   mouseGrabberWidget:setVisible(false)
@@ -409,15 +367,11 @@ function init()
 
   mouseGrabberWidget.onMouseRelease = onChooseItemMouseRelease
 
-
-
   currentHotkeys.onChildFocusChange = function(self, hotkeyLabel) onSelectHotkeyLabel(hotkeyLabel) end
 
   g_keyboard.bindKeyPress('Down', function() currentHotkeys:focusNextChild(KeyboardFocusReason) end, hotkeysWindow)
 
   g_keyboard.bindKeyPress('Up', function() currentHotkeys:focusPreviousChild(KeyboardFocusReason) end, hotkeysWindow)
-
-
 
   if hotkeysWindow.action and setupExtraHotkeys then
 
@@ -425,17 +379,13 @@ function init()
 
   end
 
-
-
   connect(g_game, {
 
     onGameStart = online,
 
     onGameEnd = offline
 
-  })  
-
-  
+})
 
   for i = 1, configSelector:getOptionsCount() do
 
@@ -443,13 +393,9 @@ function init()
 
   end
 
-
-
   load()
 
 end
-
-
 
 function terminate()
 
@@ -459,17 +405,11 @@ function terminate()
 
     onGameEnd = offline
 
-  })
-
-
+})
 
   g_keyboard.unbindKeyDown('Ctrl+K')
 
-
-
   unload()
-
-
 
   hotkeysWindow:destroy()
 
@@ -483,8 +423,6 @@ function terminate()
 
 end
 
-
-
 function online()
 
   reload()
@@ -493,8 +431,6 @@ function online()
 
 end
 
-
-
 function offline()
 
   unload()
@@ -502,8 +438,6 @@ function offline()
   hide()
 
 end
-
-
 
 function show()
 
@@ -521,15 +455,11 @@ function show()
 
 end
 
-
-
 function hide()
 
   hotkeysWindow:hide()
 
 end
-
-
 
 function toggle()
 
@@ -545,8 +475,6 @@ function toggle()
 
 end
 
-
-
 function ok()
 
   save()
@@ -554,8 +482,6 @@ function ok()
   hide()
 
 end
-
-
 
 function cancel()
 
@@ -565,15 +491,11 @@ function cancel()
 
 end
 
-
-
 function load(forceDefaults)
 
   hotkeysManagerLoaded = false
 
   currentConfig = 1
-
-  
 
   local hotkeysNode = g_settings.getNode('hotkeys') or {}
 
@@ -585,21 +507,13 @@ function load(forceDefaults)
 
   end  
 
-  
-
   configSelector:setCurrentIndex(currentConfig, true)
-
-
 
   local hotkeySettings = hotkeyConfigs[currentConfig]:getNode('hotkeys')
 
   local hotkeys = {}
 
-
-
   if not table.empty(hotkeySettings) then hotkeys = hotkeySettings end
-
-
 
   hotkeyList = {}
 
@@ -621,23 +535,17 @@ function load(forceDefaults)
 
   end
 
-
-
   if currentHotkeys:getChildCount() == 0 then
 
     loadDefautComboKeys()
 
   end
 
-  
-
   configValueChanged = false
 
   hotkeysManagerLoaded = true
 
 end
-
-
 
 function unload()
 
@@ -661,8 +569,6 @@ function unload()
 
 end
 
-
-
 function reset()
 
   unload()
@@ -670,8 +576,6 @@ function reset()
   load(true)
 
 end
-
-
 
 function reload()
 
@@ -681,8 +585,6 @@ function reload()
 
 end
 
-
-
 function save()
 
   if not configValueChanged then
@@ -691,15 +593,9 @@ function save()
 
   end
 
-  
-
   local hotkeySettings = hotkeyConfigs[currentConfig]:getNode('hotkeys') or {}  
 
-  
-
   table.clear(hotkeySettings)
-
-
 
   for _,child in pairs(currentHotkeys:getChildren()) do
 
@@ -717,19 +613,15 @@ function save()
 
       action = child.action
 
-    }
+}
 
   end
-
-
 
   hotkeyList = hotkeySettings
 
   hotkeyConfigs[currentConfig]:setNode('hotkeys', hotkeySettings)
 
   hotkeyConfigs[currentConfig]:save()
-
-  
 
   local index = g_game.getCharacterName() .. "_" .. g_game.getClientVersion()
 
@@ -742,8 +634,6 @@ function save()
   g_settings.save()
 
 end
-
-
 
 function onConfigChange()
 
@@ -760,8 +650,6 @@ function onConfigChange()
   reload()  
 
 end
-
-
 
 function loadDefautComboKeys()
 
@@ -791,15 +679,11 @@ function loadDefautComboKeys()
 
 end
 
-
-
 function setDefaultComboKeys(combo)
 
   defaultComboKeys = combo
 
 end
-
-
 
 function onChooseItemMouseRelease(self, mousePosition, mouseButton)
 
@@ -837,8 +721,6 @@ function onChooseItemMouseRelease(self, mousePosition, mouseButton)
 
   end
 
-
-
   if item and currentHotkeyLabel then
 
     currentHotkeyLabel.itemId = item:getId()
@@ -869,11 +751,7 @@ function onChooseItemMouseRelease(self, mousePosition, mouseButton)
 
   end
 
-
-
   show()
-
-
 
   g_mouse.popCursor('target')
 
@@ -882,8 +760,6 @@ function onChooseItemMouseRelease(self, mousePosition, mouseButton)
   return true
 
 end
-
-
 
 function startChooseItem()
 
@@ -896,8 +772,6 @@ function startChooseItem()
   hide()
 
 end
-
-
 
 function clearObject()
 
@@ -919,15 +793,11 @@ function clearObject()
 
 end
 
-
-
 function addHotkey()
 
   local assignWindow = g_ui.createWidget('HotkeyAssignWindow', rootWidget)
 
   assignWindow:grabKeyboard()
-
-
 
   local comboLabel = assignWindow:getChildById('comboPreview')
 
@@ -936,8 +806,6 @@ function addHotkey()
   assignWindow.onKeyDown = hotkeyCapture
 
 end
-
-
 
 function addKeyCombo(keyCombo, keySettings, focus)
 
@@ -952,8 +820,6 @@ function addKeyCombo(keyCombo, keySettings, focus)
     hotkeyLabel = g_ui.createWidget('HotkeyListLabel')
 
     hotkeyLabel:setId(keyCombo)
-
-
 
     local children = currentHotkeys:getChildren()
 
@@ -988,8 +854,6 @@ function addKeyCombo(keyCombo, keySettings, focus)
       end
 
     end
-
-
 
     if keySettings then
 
@@ -1027,11 +891,7 @@ function addKeyCombo(keyCombo, keySettings, focus)
 
     end
 
-
-
     updateHotkeyLabel(hotkeyLabel)
-
-
 
     local gameRootPanel = modules.game_interface.getRootPanel()
 
@@ -1045,13 +905,9 @@ function addKeyCombo(keyCombo, keySettings, focus)
 
     end
 
-
-
     boundCombosCallback[keyCombo] = function(k, c, ticks) prepareKeyCombo(keyCombo, ticks) end
 
     g_keyboard.bindKeyPress(keyCombo, boundCombosCallback[keyCombo], gameRootPanel)
-
-        
 
     if not keyCombo:lower():find("ctrl") then
 
@@ -1069,8 +925,6 @@ function addKeyCombo(keyCombo, keySettings, focus)
 
   end
 
-
-
   if focus then
 
     currentHotkeys:focusChild(hotkeyLabel)
@@ -1084,8 +938,6 @@ function addKeyCombo(keyCombo, keySettings, focus)
   configValueChanged = true
 
 end
-
-
 
 function prepareKeyCombo(keyCombo, ticks)
 
@@ -1107,8 +959,6 @@ function prepareKeyCombo(keyCombo, ticks)
 
     end
 
-    
-
     if hotKey.itemId == nil and hotKey.action == nil then -- say
 
       scheduleEvent(function() doKeyCombo(keyCombo, ticks >= 5) end, g_settings.getNumber('hotkeyDelay'))
@@ -1120,8 +970,6 @@ function prepareKeyCombo(keyCombo, ticks)
     end
 
 end
-
-
 
 function doKeyCombo(keyCombo, repeated)
 
@@ -1143,13 +991,9 @@ function doKeyCombo(keyCombo, repeated)
 
   end
 
-  
-
   local hotKey = hotkeyList[keyCombo]
 
   if not hotKey then return end
-
-
 
   local hotkeyDelay = 100  
 
@@ -1243,15 +1087,11 @@ function doKeyCombo(keyCombo, repeated)
 
       end
 
-
-
       modules.game_interface.startUseWith(item, hotKey.subType or - 1)
 
       return
 
     end
-
-
 
     if not attackingCreature:getTile() then return end
 
@@ -1292,8 +1132,6 @@ function doKeyCombo(keyCombo, repeated)
   end
 
 end
-
-
 
 function updateHotkeyLabel(hotkeyLabel)
 
@@ -1354,8 +1192,6 @@ function updateHotkeyLabel(hotkeyLabel)
   end
 
 end
-
-
 
 function updateHotkeyForm(reset)
 
@@ -1517,8 +1353,6 @@ function updateHotkeyForm(reset)
 
 end
 
-
-
 function removeHotkey()
 
   if currentHotkeyLabel == nil then return end
@@ -1537,8 +1371,6 @@ function removeHotkey()
 
 end
 
-
-
 function updateHotkeyAction()
 
   if not hotkeysManagerLoaded then return end
@@ -1554,8 +1386,6 @@ function updateHotkeyAction()
   updateHotkeyForm()
 
 end
-
-
 
 function onHotkeyTextChange(value)
 
@@ -1579,8 +1409,6 @@ function onHotkeyTextChange(value)
 
 end
 
-
-
 function onSendAutomaticallyChange(autoSend)
 
   if not hotkeysManagerLoaded then return end
@@ -1598,8 +1426,6 @@ function onSendAutomaticallyChange(autoSend)
   updateHotkeyForm()
 
 end
-
-
 
 function onChangeUseType(useTypeWidget)
 
@@ -1633,8 +1459,6 @@ function onChangeUseType(useTypeWidget)
 
 end
 
-
-
 function onSelectHotkeyLabel(hotkeyLabel)
 
   currentHotkeyLabel = hotkeyLabel
@@ -1642,8 +1466,6 @@ function onSelectHotkeyLabel(hotkeyLabel)
   updateHotkeyForm(true)
 
 end
-
-
 
 function hotkeyCapture(assignWindow, keyCode, keyboardModifiers)
 
@@ -1663,8 +1485,6 @@ function hotkeyCapture(assignWindow, keyCode, keyboardModifiers)
 
 end
 
-
-
 function hotkeyCaptureOk(assignWindow, keyCombo)
 
   addKeyCombo(keyCombo, nil, true)
@@ -1676,12 +1496,7 @@ end
 ```
 
 ---
-
-
-
 # hotkeys_manager.otmod
-
-
 
 ```text
 
@@ -1706,12 +1521,7 @@ Module
 ```
 
 ---
-
-
-
 # hotkeys_manager.otui
-
-
 
 ```otui
 
@@ -1727,13 +1537,9 @@ HotkeyListLabel < UILabel
 
   phantom: false
 
-
-
   $focus:
 
     background-color: #ffffff22
-
-
 
 MainWindow
 
@@ -1743,13 +1549,9 @@ MainWindow
 
   size: 370 475
 
-
-
   @onEnter: modules.game_hotkeys.ok()
 
   @onEscape: modules.game_hotkeys.cancel()
-
-  
 
   ComboBox
 
@@ -1783,10 +1585,6 @@ MainWindow
 
       self:addOption(tr("Hotkeys config #5"))
 
-    
-
-
-
   VerticalScrollBar
 
     id: currentHotkeysScrollBar
@@ -1802,8 +1600,6 @@ MainWindow
     step: 14
 
     pixels-scroll: true
-
-
 
   TextList
 
@@ -1821,8 +1617,6 @@ MainWindow
 
     focusable: false
 
-
-
   Button
 
     id: resetButton
@@ -1839,8 +1633,6 @@ MainWindow
 
     margin-right: 10
 
-
-
   Button
 
     id: addHotkeyButton
@@ -1856,8 +1648,6 @@ MainWindow
     margin-right: 5
 
     @onClick: modules.game_hotkeys.addHotkey()
-
-
 
   Button
 
@@ -1877,8 +1667,6 @@ MainWindow
 
     @onClick: modules.game_hotkeys.removeHotkey()
 
-
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -1889,8 +1677,6 @@ MainWindow
 
     margin-top: 5
 
-    
-
   Label
 
     anchors.left: parent.left
@@ -1900,8 +1686,6 @@ MainWindow
     margin-top: 10
 
     !text: tr('Extra action:')    
-
-  
 
   ComboBox
 
@@ -1921,8 +1705,6 @@ MainWindow
 
     @onOptionChange: modules.game_hotkeys.updateHotkeyAction()
 
-
-
   HorizontalSeparator
 
     anchors.left: parent.left
@@ -1932,8 +1714,6 @@ MainWindow
     anchors.top: prev.bottom
 
     margin-top: 5
-
-
 
   Label
 
@@ -1951,8 +1731,6 @@ MainWindow
 
     margin-top: 6
 
-
-
   TextEdit
 
     id: hotkeyText
@@ -1968,8 +1746,6 @@ MainWindow
     margin-top: 2
 
     @onTextChange: modules.game_hotkeys.onHotkeyTextChange(self:getText())
-
-
 
   CheckBox
 
@@ -1989,8 +1765,6 @@ MainWindow
 
     @onCheckChange: modules.game_hotkeys.onSendAutomaticallyChange(self:isChecked())
 
-
-
   Item
 
     id: itemPreview
@@ -2002,8 +1776,6 @@ MainWindow
     margin-top: 10
 
     virtual: true
-
-
 
   Button
 
@@ -2022,8 +1794,6 @@ MainWindow
     margin-left: 10
 
     @onClick: modules.game_hotkeys.startChooseItem()
-
-
 
   Button
 
@@ -2045,8 +1815,6 @@ MainWindow
 
     @onClick: modules.game_hotkeys.clearObject()
 
-
-
   ButtonBox
 
     id: useOnSelf
@@ -2066,8 +1834,6 @@ MainWindow
     checked: false
 
     margin-left: 10
-
-
 
   ButtonBox
 
@@ -2089,8 +1855,6 @@ MainWindow
 
     margin-top: 2
 
-
-
   ButtonBox
 
     id: useWith
@@ -2111,8 +1875,6 @@ MainWindow
 
     margin-top: 2
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -2124,8 +1886,6 @@ MainWindow
     anchors.bottom: next.top
 
     margin-bottom: 5
-
-
 
   Button
 
@@ -2143,8 +1903,6 @@ MainWindow
 
     margin-right: 10
 
-
-
   Button
 
     id: cancelButton
@@ -2159,8 +1917,6 @@ MainWindow
 
     @onClick: modules.game_hotkeys.cancel()
 
-
-
 HotkeyAssignWindow < MainWindow
 
   id: assignWindow
@@ -2170,8 +1926,6 @@ HotkeyAssignWindow < MainWindow
   size: 360 150
 
   @onEscape: self:destroy()
-
-
 
   Label
 
@@ -2187,8 +1941,6 @@ HotkeyAssignWindow < MainWindow
 
     text-align: left
 
-
-
   Label
 
     id: comboPreview
@@ -2203,8 +1955,6 @@ HotkeyAssignWindow < MainWindow
 
     text-auto-resize: true
 
-
-
   HorizontalSeparator
 
     id: separator
@@ -2216,8 +1966,6 @@ HotkeyAssignWindow < MainWindow
     anchors.bottom: next.top
 
     margin-bottom: 10
-
-
 
   Button
 
@@ -2234,8 +1982,6 @@ HotkeyAssignWindow < MainWindow
     margin-right: 10
 
     @onClick: modules.game_hotkeys.hotkeyCaptureOk(self:getParent(), self:getParent():getChildById('comboPreview').keyCombo)
-
-
 
   Button
 
@@ -2254,6 +2000,3 @@ HotkeyAssignWindow < MainWindow
 ```
 
 ---
-
-
-

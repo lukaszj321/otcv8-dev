@@ -1,9 +1,4 @@
-# ¦ Modul: `game_healthinfo`
-
-
-
-
-
+﻿# ¦ Modul: `game_healthinfo`
 
 ```lua
 
@@ -43,8 +38,6 @@ Icons[PlayerStates.Bleeding] = { tooltip = tr('You are bleeding'), path = '/imag
 
 Icons[PlayerStates.Hungry] = { tooltip = tr('You are hungry'), path = '/images/game/states/hungry', id = 'condition_hungry' }
 
-
-
 healthInfoWindow = nil
 
 healthBar = nil
@@ -63,8 +56,6 @@ manaTooltip = 'Your character mana is %d out of %d.'
 
 experienceTooltip = 'You have %d%% to advance to level %d.'
 
-
-
 overlay = nil
 
 healthCircleFront = nil
@@ -78,8 +69,6 @@ manaCircle = nil
 topHealthBar = nil
 
 topManaBar = nil
-
-
 
 function init()
 
@@ -95,17 +84,11 @@ function init()
 
                          onFreeCapacityChange = onFreeCapacityChange })
 
-
-
   connect(g_game, { onGameEnd = offline })
-
-
 
   healthInfoWindow = g_ui.loadUI('healthinfo', modules.game_interface.getRightPanel())
 
   healthInfoWindow:disableResize()
-
-  
 
   if not healthInfoWindow.forceOpen then
 
@@ -123,8 +106,6 @@ function init()
 
   end
 
-
-
   healthBar = healthInfoWindow:recursiveGetChildById('healthBar')
 
   manaBar = healthInfoWindow:recursiveGetChildById('manaBar')
@@ -134,8 +115,6 @@ function init()
   soulLabel = healthInfoWindow:recursiveGetChildById('soulLabel')
 
   capLabel = healthInfoWindow:recursiveGetChildById('capLabel')
-
-
 
   overlay = g_ui.createWidget('HealthOverlay', modules.game_interface.getMapPanel())  
 
@@ -151,11 +130,7 @@ function init()
 
   topManaBar = overlay:getChildById('topManaBar')
 
-  
-
   connect(overlay, { onGeometryChange = onOverlayGeometryChange })
-
-  
 
   -- load condition icons
 
@@ -164,8 +139,6 @@ function init()
     g_textures.preload(v.path)
 
   end
-
-
 
   if g_game.isOnline() then
 
@@ -185,19 +158,11 @@ function init()
 
   end
 
-
-
-
-
   hideLabels()
 
   hideExperience()
 
-
-
   healthInfoWindow:setup()
-
-  
 
   if g_app.isMobile() then
 
@@ -208,8 +173,6 @@ function init()
   end
 
 end
-
-
 
 function terminate()
 
@@ -225,13 +188,9 @@ function terminate()
 
                             onFreeCapacityChange = onFreeCapacityChange })
 
-
-
   disconnect(g_game, { onGameEnd = offline })
 
   disconnect(overlay, { onGeometryChange = onOverlayGeometryChange })
-
-  
 
   healthInfoWindow:destroy()
 
@@ -244,8 +203,6 @@ function terminate()
   overlay:destroy()
 
 end
-
-
 
 function toggle()
 
@@ -267,13 +224,9 @@ function toggle()
 
 end
 
-
-
 function toggleIcon(bitChanged)
 
   local content = healthInfoWindow:recursiveGetChildById('conditionPanel')
-
-
 
   local icon = content:getChildById(Icons[bitChanged].id)
 
@@ -291,8 +244,6 @@ function toggleIcon(bitChanged)
 
 end
 
-
-
 function loadIcon(bitChanged)
 
   local icon = g_ui.createWidget('ConditionWidget', content)
@@ -307,15 +258,11 @@ function loadIcon(bitChanged)
 
 end
 
-
-
 function offline()
 
   healthInfoWindow:recursiveGetChildById('conditionPanel'):destroyChildren()
 
 end
-
-
 
 -- hooked events
 
@@ -329,8 +276,6 @@ function onMiniWindowClose()
 
 end
 
-
-
 function onHealthChange(localPlayer, health, maxHealth)
 
   if health > maxHealth then
@@ -339,23 +284,17 @@ function onHealthChange(localPlayer, health, maxHealth)
 
   end
 
-
-
   healthBar:setText(comma_value(health) .. ' / ' .. comma_value(maxHealth))
 
   healthBar:setTooltip(tr(healthTooltip, health, maxHealth))
 
   healthBar:setValue(health, 0, maxHealth)
 
-
-
   topHealthBar:setText(comma_value(health) .. ' / ' .. comma_value(maxHealth))
 
   topHealthBar:setTooltip(tr(healthTooltip, health, maxHealth))
 
   topHealthBar:setValue(health, 0, maxHealth)
-
-
 
   local healthPercent = math.floor(g_game.getLocalPlayer():getHealthPercent())
 
@@ -366,8 +305,6 @@ function onHealthChange(localPlayer, health, maxHealth)
   healthCircleFront:setImageClip(rect)
 
   healthCircleFront:setImageRect(rect)
-
-
 
   if healthPercent > 92 then
 
@@ -397,8 +334,6 @@ function onHealthChange(localPlayer, health, maxHealth)
 
 end
 
-
-
 function onManaChange(localPlayer, mana, maxMana)
 
   if mana > maxMana then
@@ -407,23 +342,17 @@ function onManaChange(localPlayer, mana, maxMana)
 
   end
 
-  
-
   manaBar:setText(comma_value(mana) .. ' / ' .. comma_value(maxMana))
 
   manaBar:setTooltip(tr(manaTooltip, mana, maxMana))
 
   manaBar:setValue(mana, 0, maxMana)
 
-
-
   topManaBar:setText(comma_value(mana) .. ' / ' .. comma_value(maxMana))
 
   topManaBar:setTooltip(tr(manaTooltip, mana, maxMana))
 
   topManaBar:setValue(mana, 0, maxMana)
-
-
 
   local Ymppc = math.floor(208 * (1 - (math.floor((maxMana - (maxMana - mana)) * 100 / maxMana) / 100)))
 
@@ -435,8 +364,6 @@ function onManaChange(localPlayer, mana, maxMana)
 
 end
 
-
-
 function onLevelChange(localPlayer, value, percent)
 
   experienceBar:setText(percent .. '%')
@@ -447,15 +374,11 @@ function onLevelChange(localPlayer, value, percent)
 
 end
 
-
-
 function onSoulChange(localPlayer, soul)
 
   soulLabel:setText(tr('Soul') .. ': ' .. soul)
 
 end
-
-
 
 function onFreeCapacityChange(player, freeCapacity)
 
@@ -463,13 +386,9 @@ function onFreeCapacityChange(player, freeCapacity)
 
 end
 
-
-
 function onStatesChange(localPlayer, now, old)
 
   if now == old then return end
-
-
 
   local bitsChanged = bit32.bxor(now, old)
 
@@ -491,8 +410,6 @@ function onStatesChange(localPlayer, now, old)
 
 end
 
-
-
 -- personalization functions
 
 function hideLabels()
@@ -511,8 +428,6 @@ function hideLabels()
 
 end
 
-
-
 function hideExperience()
 
   local removeHeight = experienceBar:getMarginRect().height
@@ -523,13 +438,9 @@ function hideExperience()
 
 end
 
-
-
 function setHealthTooltip(tooltip)
 
   healthTooltip = tooltip
-
-
 
   local localPlayer = g_game.getLocalPlayer()
 
@@ -541,13 +452,9 @@ function setHealthTooltip(tooltip)
 
 end
 
-
-
 function setManaTooltip(tooltip)
 
   manaTooltip = tooltip
-
-
 
   local localPlayer = g_game.getLocalPlayer()
 
@@ -559,13 +466,9 @@ function setManaTooltip(tooltip)
 
 end
 
-
-
 function setExperienceTooltip(tooltip)
 
   experienceTooltip = tooltip
-
-
 
   local localPlayer = g_game.getLocalPlayer()
 
@@ -576,8 +479,6 @@ function setExperienceTooltip(tooltip)
   end
 
 end
-
-
 
 function onOverlayGeometryChange() 
 
@@ -599,8 +500,6 @@ function onOverlayGeometryChange()
 
   end
 
-
-
   local classic = g_settings.getBoolean("classicView")
 
   local minMargin = 40
@@ -621,13 +520,9 @@ function onOverlayGeometryChange()
 
   end
 
-
-
   local height = overlay:getHeight()
 
   local width = overlay:getWidth()
-
-     
 
   topHealthBar:setMarginLeft(math.max(minMargin, (width - height + 50) / 2 + 2))
 
@@ -638,12 +533,7 @@ end
 ```
 
 ---
-
-
-
 # healthinfo.otmod
-
-
 
 ```text
 
@@ -668,12 +558,7 @@ Module
 ```
 
 ---
-
-
-
 # healthinfo.otui
-
-
 
 ```otui
 
@@ -690,6 +575,3 @@ HealthInfoWindow
 ```
 
 ---
-
-
-

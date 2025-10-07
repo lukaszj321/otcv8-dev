@@ -1,17 +1,10 @@
-# ¦ Modul: `game_skills`
-
-
-
-
-
+﻿# ¦ Modul: `game_skills`
 
 ```lua
 
 skillsWindow = nil
 
 skillsButton = nil
-
-
 
 function init()
 
@@ -49,7 +42,7 @@ function init()
 
     onBaseSkillChange = onBaseSkillChange
 
-  })
+})
 
   connect(g_game, {
 
@@ -57,9 +50,7 @@ function init()
 
     onGameEnd = offline
 
-  })
-
-
+})
 
   skillsButton = modules.client_topmenu.addRightGameToggleButton('skillsButton', tr('Skills'), '/images/topbuttons/skills', toggle, false, 1)
 
@@ -67,15 +58,11 @@ function init()
 
   skillsWindow = g_ui.loadUI('skills', modules.game_interface.getRightPanel())
 
-  
-
   refresh()
 
   skillsWindow:setup()
 
 end
-
-
 
 function terminate()
 
@@ -113,7 +100,7 @@ function terminate()
 
     onBaseSkillChange = onBaseSkillChange
 
-  })
+})
 
   disconnect(g_game, {
 
@@ -121,9 +108,7 @@ function terminate()
 
     onGameEnd = offline
 
-  })
-
-
+})
 
   skillsWindow:destroy()
 
@@ -131,23 +116,17 @@ function terminate()
 
 end
 
-
-
 function expForLevel(level)
 
   return math.floor((50*level*level*level)/3 - 100*level*level + (850*level)/3 - 200)
 
 end
 
-
-
 function expToAdvance(currentLevel, currentExp)
 
   return expForLevel(currentLevel+1) - currentExp
 
 end
-
-
 
 function resetSkillColor(id)
 
@@ -159,8 +138,6 @@ function resetSkillColor(id)
 
 end
 
-
-
 function toggleSkill(id, state)
 
   local skill = skillsWindow:recursiveGetChildById(id)
@@ -168,8 +145,6 @@ function toggleSkill(id, state)
   skill:setVisible(state)
 
 end
-
-
 
 function setSkillBase(id, value, baseValue)
 
@@ -182,8 +157,6 @@ function setSkillBase(id, value, baseValue)
   local skill = skillsWindow:recursiveGetChildById(id)
 
   local widget = skill:getChildById('value')
-
-
 
   if value > baseValue then
 
@@ -207,8 +180,6 @@ function setSkillBase(id, value, baseValue)
 
 end
 
-
-
 function setSkillValue(id, value)
 
   local skill = skillsWindow:recursiveGetChildById(id)
@@ -218,8 +189,6 @@ function setSkillValue(id, value)
   widget:setText(value)
 
 end
-
-
 
 function setSkillColor(id, value)
 
@@ -231,8 +200,6 @@ function setSkillColor(id, value)
 
 end
 
-
-
 function setSkillTooltip(id, value)
 
   local skill = skillsWindow:recursiveGetChildById(id)
@@ -242,8 +209,6 @@ function setSkillTooltip(id, value)
   widget:setTooltip(value)
 
 end
-
-
 
 function setSkillPercent(id, percent, tooltip, color)
 
@@ -255,15 +220,11 @@ function setSkillPercent(id, percent, tooltip, color)
 
     widget:setPercent(math.floor(percent))
 
-
-
     if tooltip then
 
       widget:setTooltip(tooltip)
 
     end
-
-
 
     if color then
 
@@ -275,15 +236,11 @@ function setSkillPercent(id, percent, tooltip, color)
 
 end
 
-
-
 function checkAlert(id, value, maxValue, threshold, greaterThan)
 
   if greaterThan == nil then greaterThan = false end
 
   local alert = false
-
-
 
   -- maxValue can be set to false to check value and threshold
 
@@ -296,8 +253,6 @@ function checkAlert(id, value, maxValue, threshold, greaterThan)
       return
 
     end
-
-
 
     if greaterThan then
 
@@ -325,8 +280,6 @@ function checkAlert(id, value, maxValue, threshold, greaterThan)
 
     end
 
-
-
     local percent = math.floor((value / maxValue) * 100)
 
     if greaterThan then
@@ -349,8 +302,6 @@ function checkAlert(id, value, maxValue, threshold, greaterThan)
 
   end
 
-
-
   if alert then
 
     setSkillColor(id, '#b22222') -- red
@@ -362,8 +313,6 @@ function checkAlert(id, value, maxValue, threshold, greaterThan)
   end
 
 end
-
-
 
 function update()
 
@@ -379,8 +328,6 @@ function update()
 
   end
 
-
-
   local regenerationTime = skillsWindow:recursiveGetChildById('regenerationTime')
 
   if not g_game.getFeature(GamePlayerRegenerationTime) then
@@ -395,21 +342,15 @@ function update()
 
 end
 
-
-
 function refresh()
 
   local player = g_game.getLocalPlayer()
 
   if not player then return end
 
-
-
   if expSpeedEvent then expSpeedEvent:cancel() end
 
   expSpeedEvent = cycleEvent(checkExpSpeed, 30*1000)
-
-
 
   onExperienceChange(player, player:getExperience())
 
@@ -433,8 +374,6 @@ function refresh()
 
   onSpeedChange(player, player:getSpeed())
 
-
-
   local hasAdditionalSkills = g_game.getFeature(GameAdditionalSkills)
 
   for i = Skill.Fist, Skill.ManaLeechAmount do
@@ -442,8 +381,6 @@ function refresh()
     onSkillChange(player, i, player:getSkillLevel(i), player:getSkillLevelPercent(i))
 
     onBaseSkillChange(player, i, player:getSkillBaseLevel(i))
-
-
 
     if i > Skill.Fishing then
 
@@ -453,11 +390,7 @@ function refresh()
 
   end
 
-
-
   update()
-
-
 
   local contentsPanel = skillsWindow:getChildById('contentsPanel')
 
@@ -475,15 +408,11 @@ function refresh()
 
 end
 
-
-
 function offline()
 
   if expSpeedEvent then expSpeedEvent:cancel() expSpeedEvent = nil end
 
 end
-
-
 
 function toggle()
 
@@ -503,15 +432,11 @@ function toggle()
 
 end
 
-
-
 function checkExpSpeed()
 
   local player = g_game.getLocalPlayer()
 
   if not player then return end
-
-
 
   local currentExp = player:getExperience()
 
@@ -539,15 +464,11 @@ function checkExpSpeed()
 
 end
 
-
-
 function onMiniWindowClose()
 
   skillsButton:setOn(false)
 
 end
-
-
 
 function onSkillButtonClick(button)
 
@@ -570,8 +491,6 @@ function onSkillButtonClick(button)
   end
 
 end
-
-
 
 function onExperienceChange(localPlayer, value)
 
@@ -601,8 +520,6 @@ function onExperienceChange(localPlayer, value)
 
 end
 
-
-
 function onLevelChange(localPlayer, value, percent)
 
   setSkillValue('level', value)
@@ -610,8 +527,6 @@ function onLevelChange(localPlayer, value, percent)
   local text = tr('You have %s percent to go', 100 - percent) .. '\n' ..
 
                comma_value(expToAdvance(localPlayer:getLevel(), localPlayer:getExperience())) .. tr(' of experience left')
-
-
 
   if localPlayer.expSpeed ~= nil then
 
@@ -635,13 +550,9 @@ function onLevelChange(localPlayer, value, percent)
 
   end
 
-
-
   setSkillPercent('level', percent, text)
 
 end
-
-
 
 function onHealthChange(localPlayer, health, maxHealth)
 
@@ -651,8 +562,6 @@ function onHealthChange(localPlayer, health, maxHealth)
 
 end
 
-
-
 function onManaChange(localPlayer, mana, maxMana)
 
   setSkillValue('mana', mana)
@@ -661,15 +570,11 @@ function onManaChange(localPlayer, mana, maxMana)
 
 end
 
-
-
 function onSoulChange(localPlayer, soul)
 
   setSkillValue('soul', soul)
 
 end
-
-
 
 function onFreeCapacityChange(localPlayer, freeCapacity)
 
@@ -679,15 +584,11 @@ function onFreeCapacityChange(localPlayer, freeCapacity)
 
 end
 
-
-
 function onTotalCapacityChange(localPlayer, totalCapacity)
 
   checkAlert('capacity', localPlayer:getFreeCapacity(), totalCapacity, 20)
 
 end
-
-
 
 function onStaminaChange(localPlayer, stamina)
 
@@ -703,11 +604,7 @@ function onStaminaChange(localPlayer, stamina)
 
   local percent = math.floor(100 * stamina / (42 * 60)) -- max is 42 hours --TODO not in all client versions
 
-
-
   setSkillValue('stamina', hours .. ":" .. minutes)
-
-
 
   --TODO not all client versions have premium time
 
@@ -759,8 +656,6 @@ function onStaminaChange(localPlayer, stamina)
 
 end
 
-
-
 function onOfflineTrainingChange(localPlayer, offlineTrainingTime)
 
   if not g_game.getFeature(GameOfflineTrainingTime) then
@@ -781,15 +676,11 @@ function onOfflineTrainingChange(localPlayer, offlineTrainingTime)
 
   local percent = 100 * offlineTrainingTime / (12 * 60) -- max is 12 hours
 
-
-
   setSkillValue('offlineTraining', hours .. ":" .. minutes)
 
   setSkillPercent('offlineTraining', percent, tr('You have %s percent', percent))
 
 end
-
-
 
 function onRegenerationChange(localPlayer, regenerationTime)
 
@@ -809,27 +700,19 @@ function onRegenerationChange(localPlayer, regenerationTime)
 
   end
 
-
-
   setSkillValue('regenerationTime', minutes .. ":" .. seconds)
 
   checkAlert('regenerationTime', regenerationTime, false, 300)
 
 end
 
-
-
 function onSpeedChange(localPlayer, speed)
 
   setSkillValue('speed', speed)
 
-
-
   onBaseSpeedChange(localPlayer, localPlayer:getBaseSpeed())
 
 end
-
-
 
 function onBaseSpeedChange(localPlayer, baseSpeed)
 
@@ -837,21 +720,15 @@ function onBaseSpeedChange(localPlayer, baseSpeed)
 
 end
 
-
-
 function onMagicLevelChange(localPlayer, magiclevel, percent)
 
   setSkillValue('magiclevel', magiclevel)
 
   setSkillPercent('magiclevel', percent, tr('You have %s percent to go', 100 - percent))
 
-
-
   onBaseMagicLevelChange(localPlayer, localPlayer:getBaseMagicLevel())
 
 end
-
-
 
 function onBaseMagicLevelChange(localPlayer, baseMagicLevel)
 
@@ -859,21 +736,15 @@ function onBaseMagicLevelChange(localPlayer, baseMagicLevel)
 
 end
 
-
-
 function onSkillChange(localPlayer, id, level, percent)
 
   setSkillValue('skillId' .. id, level)
 
   setSkillPercent('skillId' .. id, percent, tr('You have %s percent to go', 100 - percent))
 
-
-
   onBaseSkillChange(localPlayer, id, localPlayer:getSkillBaseLevel(id))
 
 end
-
-
 
 function onBaseSkillChange(localPlayer, id, baseLevel)
 
@@ -884,12 +755,7 @@ end
 ```
 
 ---
-
-
-
 # skills.otmod
-
-
 
 ```text
 
@@ -918,18 +784,11 @@ Module
 ```
 
 ---
-
-
-
 # skills.otui
-
-
 
 ```otui
 
 SkillFirstWidget < UIWidget
-
-
 
 SkillButton < UIButton
 
@@ -939,13 +798,9 @@ SkillButton < UIButton
 
   &onClick: onSkillButtonClick
 
-
-
 SmallSkillButton < SkillButton
 
   height: 14
-
-
 
 SkillNameLabel < GameLabel
 
@@ -956,8 +811,6 @@ SkillNameLabel < GameLabel
   anchors.top: parent.top
 
   anchors.bottom: parent.bottom
-
-
 
 SkillValueLabel < GameLabel
 
@@ -974,8 +827,6 @@ SkillValueLabel < GameLabel
   anchors.bottom: parent.bottom
 
   anchors.left: prev.left
-
-
 
 SkillPercentPanel < ProgressBar
 
@@ -995,8 +846,6 @@ SkillPercentPanel < ProgressBar
 
   phantom: false
 
-
-
 MiniWindow
 
   id: skillWindow
@@ -1013,8 +862,6 @@ MiniWindow
 
   &autoOpen: false
 
-
-
   MiniWindowContents
 
     padding-left: 5
@@ -1022,8 +869,6 @@ MiniWindow
     padding-right: 5
 
     layout: verticalBox
-
-
 
     SkillButton
 
@@ -1039,8 +884,6 @@ MiniWindow
 
       SkillValueLabel
 
-
-
     SkillButton
 
       id: level
@@ -1055,8 +898,6 @@ MiniWindow
 
         background-color: red
 
-
-
     SkillButton
 
       id: health
@@ -1068,8 +909,6 @@ MiniWindow
         !text: tr('Hit Points')
 
       SkillValueLabel
-
-
 
     SkillButton
 
@@ -1083,8 +922,6 @@ MiniWindow
 
       SkillValueLabel
 
-
-
     SkillButton
 
       id: soul
@@ -1096,8 +933,6 @@ MiniWindow
         !text: tr('Soul Points')
 
       SkillValueLabel
-
-
 
     SkillButton
 
@@ -1111,8 +946,6 @@ MiniWindow
 
       SkillValueLabel
 
-
-
     SkillButton
 
       id: speed
@@ -1125,8 +958,6 @@ MiniWindow
 
       SkillValueLabel
 
-
-
     SkillButton
 
       id: regenerationTime
@@ -1136,8 +967,6 @@ MiniWindow
         !text: tr('Regeneration Time')
 
       SkillValueLabel
-
-
 
     SkillButton
 
@@ -1151,8 +980,6 @@ MiniWindow
 
       SkillPercentPanel
 
-
-
     SkillButton
 
       id: offlineTraining
@@ -1164,8 +991,6 @@ MiniWindow
       SkillValueLabel
 
       SkillPercentPanel
-
-
 
     SkillButton
 
@@ -1181,8 +1006,6 @@ MiniWindow
 
         background-color: red
 
-
-
     SkillButton
 
       id: skillId0
@@ -1194,8 +1017,6 @@ MiniWindow
       SkillValueLabel
 
       SkillPercentPanel
-
-
 
     SkillButton
 
@@ -1209,8 +1030,6 @@ MiniWindow
 
       SkillPercentPanel
 
-
-
     SkillButton
 
       id: skillId2
@@ -1222,8 +1041,6 @@ MiniWindow
       SkillValueLabel
 
       SkillPercentPanel
-
-
 
     SkillButton
 
@@ -1237,8 +1054,6 @@ MiniWindow
 
       SkillPercentPanel
 
-
-
     SkillButton
 
       id: skillId4
@@ -1250,8 +1065,6 @@ MiniWindow
       SkillValueLabel
 
       SkillPercentPanel
-
-
 
     SkillButton
 
@@ -1265,8 +1078,6 @@ MiniWindow
 
       SkillPercentPanel
 
-
-
     SkillButton
 
       id: skillId6
@@ -1279,8 +1090,6 @@ MiniWindow
 
       SkillPercentPanel
 
-
-
     SmallSkillButton
 
       id: skillId7
@@ -1290,8 +1099,6 @@ MiniWindow
         !text: tr('Critical Hit Chance')
 
       SkillValueLabel
-
-
 
     SmallSkillButton
 
@@ -1303,8 +1110,6 @@ MiniWindow
 
       SkillValueLabel
 
-
-
     SmallSkillButton
 
       id: skillId9
@@ -1314,8 +1119,6 @@ MiniWindow
         !text: tr('Life Leech Chance')
 
       SkillValueLabel
-
-
 
     SmallSkillButton
 
@@ -1327,8 +1130,6 @@ MiniWindow
 
       SkillValueLabel
 
-
-
     SmallSkillButton
 
       id: skillId11
@@ -1338,8 +1139,6 @@ MiniWindow
         !text: tr('Mana Leech Chance')
 
       SkillValueLabel
-
-
 
     SmallSkillButton
 
@@ -1354,6 +1153,3 @@ MiniWindow
 ```
 
 ---
-
-
-

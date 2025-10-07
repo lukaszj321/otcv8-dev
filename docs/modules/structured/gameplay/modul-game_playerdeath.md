@@ -1,9 +1,4 @@
-# ¦ Modul: `game_playerdeath`
-
-
-
-
-
+﻿# ¦ Modul: `game_playerdeath`
 
 ```otui
 
@@ -16,8 +11,6 @@ DeathWindow < MainWindow
   &baseWidth: 350
 
   &baseHeight: 15
-
-
 
   Label
 
@@ -35,8 +28,6 @@ DeathWindow < MainWindow
 
     margin-top: 2
 
-
-
   Button
 
     id: buttonOk
@@ -50,8 +41,6 @@ DeathWindow < MainWindow
     anchors.bottom: parent.bottom
 
     margin-left: 160
-
-
 
   Button
 
@@ -70,18 +59,11 @@ DeathWindow < MainWindow
 ```
 
 ---
-
-
-
 # playerdeath.lua
-
-
 
 ```lua
 
 deathWindow = nil
-
-
 
 local deathTexts = {
 
@@ -93,13 +75,9 @@ local deathTexts = {
 
 }
 
-
-
 function init()
 
   g_ui.importStyle('deathwindow')
-
-
 
   connect(g_game, { onDeath = display,
 
@@ -107,21 +85,15 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onDeath = display,
 
                        onGameEnd = reset })
 
-
-
   reset()
 
 end
-
-
 
 function reset()
 
@@ -135,8 +107,6 @@ function reset()
 
 end
 
-
-
 function display(deathType, penalty)
 
   displayDeadMessage()
@@ -145,21 +115,15 @@ function display(deathType, penalty)
 
 end
 
-
-
 function displayDeadMessage()
 
   local advanceLabel = modules.game_interface.getRootPanel():recursiveGetChildById('middleCenterLabel')
 
   if advanceLabel:isVisible() then return end
 
-
-
   modules.game_textmessage.displayGameMessage(tr('You are dead.'))
 
 end
-
-
 
 function openWindow(deathType, penalty)
 
@@ -171,11 +135,7 @@ function openWindow(deathType, penalty)
 
   end
 
-
-
   deathWindow = g_ui.createWidget('DeathWindow', rootWidget)
-
-
 
   local textLabel = deathWindow:getChildById('labelText')
 
@@ -209,13 +169,9 @@ function openWindow(deathType, penalty)
 
   end
 
-
-
   local okButton = deathWindow:getChildById('buttonOk')
 
   local cancelButton = deathWindow:getChildById('buttonCancel')
-
-
 
   local okFunc = function()
 
@@ -237,13 +193,9 @@ function openWindow(deathType, penalty)
 
   end
 
-
-
   deathWindow.onEnter = okFunc
 
   deathWindow.onEscape = cancelFunc
-
-
 
   okButton.onClick = okFunc
 
@@ -254,12 +206,7 @@ end
 ```
 
 ---
-
-
-
 # playerdeath.otmod
-
-
 
 ```text
 
@@ -284,6 +231,3 @@ Module
 ```
 
 ---
-
-
-

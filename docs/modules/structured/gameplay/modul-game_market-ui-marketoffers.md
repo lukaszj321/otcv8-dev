@@ -1,9 +1,4 @@
-# ¦ Modul: `game_market/ui/marketoffers`
-
-
-
-
-
+﻿# ¦ Modul: `game_market/ui/marketoffers`
 
 ```otui
 
@@ -18,8 +13,6 @@ MarketItemBox < UICheckBox
   color: #aaaaaa
 
   text-align: center
-
-
 
   Item
 
@@ -39,19 +32,13 @@ MarketItemBox < UICheckBox
 
     margin: 1
 
-
-
   $checked:
 
     border-color: #ffffff
 
-
-
   $hover !checked:
 
     border-color: #aaaaaa
-
-
 
   $disabled:
 
@@ -59,15 +46,11 @@ MarketItemBox < UICheckBox
 
     color: #aaaaaa88
 
-
-
 Panel
 
   background-color: #22283399
 
   margin: 1
-
-
 
   MarketComboBox
 
@@ -85,8 +68,6 @@ Panel
 
     margin-left: 3
 
-
-
   MarketComboBox
 
     id: subCategoryComboBox
@@ -103,13 +84,9 @@ Panel
 
     margin-left: 3
 
-
-
     $disabled:
 
       color: #aaaaaa44
-
-
 
   MarketButtonBox
 
@@ -135,8 +112,6 @@ Panel
 
     height: 20
 
-
-
   MarketButtonBox
 
     id: filterVocation
@@ -159,8 +134,6 @@ Panel
 
     height: 20
 
-
-
   MarketComboBox
 
     id: slotComboBox
@@ -175,13 +148,9 @@ Panel
 
     margin-left: 3
 
-
-
     $disabled:
 
       color: #aaaaaa44
-
-
 
   MarketButtonBox
 
@@ -205,8 +174,6 @@ Panel
 
     margin-left: 3
 
-
-
   Panel
 
     id: itemsContainer
@@ -227,8 +194,6 @@ Panel
 
     margin-right: 3
 
-
-
     VerticalScrollBar
 
       id: itemsPanelListScrollBar
@@ -242,8 +207,6 @@ Panel
       step: 28
 
       pixels-scroll: true
-
-
 
     ScrollablePanel
 
@@ -269,8 +232,6 @@ Panel
 
         auto-spacing: true
 
-
-
   Label
 
     !text: tr('Find') .. ':'
@@ -287,8 +248,6 @@ Panel
 
     text-offset: 0 2
 
-
-
   TextEdit
 
     id: searchEdit
@@ -302,8 +261,6 @@ Panel
     width: 113
 
     @onTextChange: Market.updateCurrentItems()
-
-
 
   MarketButtonBox
 
@@ -326,12 +283,7 @@ Panel
 ```
 
 ---
-
-
-
 # itemdetails.otui
-
-
 
 ```otui
 
@@ -353,8 +305,6 @@ DetailsTableRow < TableRow
 
   odd-background-color: alpha
 
-
-
 DetailsTableColumn < TableColumn
 
   font: verdana-11px-monochrome
@@ -369,15 +319,11 @@ DetailsTableColumn < TableColumn
 
   focusable: false
 
-
-
 Panel
 
   background-color: #22283399
 
   margin: 1
-
-
 
   Table
 
@@ -415,8 +361,6 @@ Panel
 
     column-style: DetailsTableColumn
 
-
-
   TableData
 
     id: detailsTableData
@@ -430,8 +374,6 @@ Panel
     anchors.right: detailsTable.right
 
     vertical-scrollbar: detailsTableScrollBar
-
-
 
   VerticalScrollBar
 
@@ -450,12 +392,7 @@ Panel
 ```
 
 ---
-
-
-
 # itemoffers.otui
-
-
 
 ```otui
 
@@ -466,8 +403,6 @@ OfferTableRow < TableRow
   color: #cccccc
 
   height: 15
-
-
 
 OfferTableColumn < TableColumn
 
@@ -481,13 +416,9 @@ OfferTableColumn < TableColumn
 
   width: 80
 
-
-
 OfferTableWarningColumn < OfferTableColumn
 
   color: #e03d3d
-
-
 
 OfferTableHeaderRow < TableHeaderRow
 
@@ -497,8 +428,6 @@ OfferTableHeaderRow < TableHeaderRow
 
   height: 20
 
-
-
 OfferTableHeaderColumn < SortableTableHeaderColumn
 
   font: verdana-11px-monochrome
@@ -507,23 +436,17 @@ OfferTableHeaderColumn < SortableTableHeaderColumn
 
   color: #cccccc
 
-
-
   $focus:
 
     background-color: #294f6d
 
     color: #ffffff
 
-
-
 Panel
 
   background-color: #22283399
 
   margin: 1
-
-
 
   Button
 
@@ -541,8 +464,6 @@ Panel
 
     enabled: false
 
-
-
   Label
 
     !text: tr('Sell Offers')
@@ -558,8 +479,6 @@ Panel
     margin-top: 44
 
     margin-left: 6
-
-
 
   Table
 
@@ -599,8 +518,6 @@ Panel
 
     header-row-style: false
 
-
-
     OfferTableHeaderRow
 
       id: header
@@ -635,8 +552,6 @@ Panel
 
         width: 120
 
-
-
   TableData
 
     id: sellingTableData
@@ -651,8 +566,6 @@ Panel
 
     vertical-scrollbar: sellingTableScrollBar
 
-
-
   VerticalScrollBar
 
     id: sellingTableScrollBar
@@ -666,8 +579,6 @@ Panel
     step: 28
 
     pixels-scroll: true
-
-
 
   Button
 
@@ -687,8 +598,6 @@ Panel
 
     enabled: false
 
-
-
   Label
 
     !text: tr('Buy Offers')
@@ -704,8 +613,6 @@ Panel
     margin-top: 9
 
     margin-left: 6
-
-
 
   Table
 
@@ -745,8 +652,6 @@ Panel
 
     header-row-style: false
 
-
-
     OfferTableHeaderRow
 
       id: header
@@ -781,8 +686,6 @@ Panel
 
         width: 120
 
-
-
   TableData
 
     id: buyingTableData
@@ -794,8 +697,6 @@ Panel
     anchors.right: buyingTable.right
 
     vertical-scrollbar: buyingTableScrollBar
-
-
 
   VerticalScrollBar
 
@@ -814,12 +715,7 @@ Panel
 ```
 
 ---
-
-
-
 # itemstats.otui
-
-
 
 ```otui
 
@@ -835,8 +731,6 @@ StatsTableRow < TableRow
 
   focusable: false
 
-
-
 StatsTableColumn < TableColumn
 
   font: verdana-11px-monochrome
@@ -851,15 +745,11 @@ StatsTableColumn < TableColumn
 
   focusable: false
 
-
-
 Panel
 
   background-color: #22283399
 
   margin: 1
-
-
 
   Label
 
@@ -878,8 +768,6 @@ Panel
     margin-top: 44
 
     margin-left: 6
-
-
 
   Table
 
@@ -915,8 +803,6 @@ Panel
 
     column-style: StatsTableColumn
 
-
-
   TableData
 
     id: buyStatsTableData
@@ -931,8 +817,6 @@ Panel
 
     vertical-scrollbar: buyStatsTableScrollBar
 
-
-
   VerticalScrollBar
 
     id: buyStatsTableScrollBar
@@ -946,8 +830,6 @@ Panel
     step: 28
 
     pixels-scroll: true
-
-
 
   Label
 
@@ -964,8 +846,6 @@ Panel
     margin-top: 9
 
     margin-left: 6
-
-
 
   Table
 
@@ -997,8 +877,6 @@ Panel
 
     column-style: StatsTableColumn
 
-
-
   TableData
 
     id: sellStatsTableData
@@ -1012,8 +890,6 @@ Panel
     anchors.right: sellStatsTable.right
 
     vertical-scrollbar: sellStatsTableScrollBar
-
-
 
   VerticalScrollBar
 
@@ -1032,12 +908,7 @@ Panel
 ```
 
 ---
-
-
-
 # overview.otui
-
-
 
 ```otui
 
@@ -1046,8 +917,6 @@ Panel
   background-color: #22283399
 
   margin: 1
-
-
 
   Label
 
@@ -1076,6 +945,3 @@ Panel
 ```
 
 ---
-
-
-

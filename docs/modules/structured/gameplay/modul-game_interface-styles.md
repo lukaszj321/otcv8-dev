@@ -1,9 +1,4 @@
-# ¦ Modul: `game_interface/styles`
-
-
-
-
-
+﻿# ¦ Modul: `game_interface/styles`
 
 ```otui
 
@@ -14,8 +9,6 @@ CountWindow < MainWindow
   !text: tr('Move Stackable Item')
 
   size: 196 90
-
-
 
   SpinBox
 
@@ -35,8 +28,6 @@ CountWindow < MainWindow
 
     focusable: true
 
-
-
   Item
 
     id: item
@@ -53,8 +44,6 @@ CountWindow < MainWindow
 
     virtual: true
 
-
-
   HorizontalScrollBar
 
     id: countScrollBar
@@ -70,8 +59,6 @@ CountWindow < MainWindow
     margin-top: -2
 
     focusable: false
-
-
 
   Button
 
@@ -90,8 +77,6 @@ CountWindow < MainWindow
     margin-top: 7
 
     focusable: false
-
-
 
   Button
 
@@ -116,6 +101,3 @@ CountWindow < MainWindow
 ```
 
 ---
-
-
-

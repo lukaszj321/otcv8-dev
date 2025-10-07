@@ -1,9 +1,4 @@
-# ¦ Modul: `game_features`
-
-
-
-
-
+﻿# ¦ Modul: `game_features`
 
 ```lua
 
@@ -13,15 +8,11 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onClientVersionChange = updateFeatures })
 
 end
-
-
 
 function updateFeatures(version)
 
@@ -33,8 +24,6 @@ function updateFeatures(version)
 
     end
 
-    
-
     -- you can add custom features here, list of them is in the modules\gamelib\const.lua
 
     g_game.enableFeature(GameBot)
@@ -45,8 +34,6 @@ function updateFeatures(version)
 
     --g_game.enableFeature(GameSpritesAlphaChannel)
 
-    
-
     if(version >= 770) then
 
         g_game.enableFeature(GameLooktypeU16)
@@ -56,8 +43,6 @@ function updateFeatures(version)
         g_game.enableFeature(GameLoginPacketEncryption)
 
     end
-
-
 
     if(version >= 780) then
 
@@ -75,15 +60,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 790) then
 
         g_game.enableFeature(GameWritableDate)
 
     end
-
-
 
     if(version >= 840) then
 
@@ -95,8 +76,6 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 841) then
 
         g_game.enableFeature(GameChallengeOnLogin)
@@ -107,15 +86,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 854) then
 
         g_game.enableFeature(GameCreatureEmblems)
 
     end
-
-
 
     if(version >= 860) then
 
@@ -123,15 +98,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 862) then
 
         g_game.enableFeature(GamePenalityOnDeath)
 
     end
-
-
 
     if(version >= 870) then
 
@@ -142,8 +113,6 @@ function updateFeatures(version)
         g_game.enableFeature(GameSpellList)
 
     end
-
-
 
     if(version >= 910) then
 
@@ -163,15 +132,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 940) then
 
         g_game.enableFeature(GamePlayerMarket)
 
     end
-
-
 
     if(version >= 953) then
 
@@ -181,8 +146,6 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 960) then
 
         g_game.enableFeature(GameSpritesU32)
@@ -191,23 +154,17 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 963) then
 
         g_game.enableFeature(GameAdditionalVipInfo)
 
     end
 
-
-
     if(version >= 972) then
 
         g_game.enableFeature(GameDoublePlayerGoodsMoney)
 
     end
-
-
 
     if(version >= 980) then
 
@@ -217,8 +174,6 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 981) then
 
         g_game.enableFeature(GameLoginPending)
@@ -226,8 +181,6 @@ function updateFeatures(version)
         g_game.enableFeature(GameNewSpeedLaw)
 
     end
-
-
 
     if(version >= 984) then
 
@@ -237,8 +190,6 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1000) then
 
         g_game.enableFeature(GameThingMarks)
@@ -246,8 +197,6 @@ function updateFeatures(version)
         g_game.enableFeature(GamePVPMode)
 
     end
-
-
 
     if(version >= 1035) then
 
@@ -257,8 +206,6 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1036) then
 
         g_game.enableFeature(GameCreatureIcons)
@@ -267,15 +214,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1038) then
 
         g_game.enableFeature(GamePremiumExpiration)
 
     end
-
-
 
     if(version >= 1050) then
 
@@ -283,15 +226,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1053) then
 
         g_game.enableFeature(GameUnjustifiedPoints)
 
     end
-
-
 
     if(version >= 1054) then
 
@@ -299,15 +238,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1055) then
 
         g_game.enableFeature(GameDeathType)
 
     end
-
-
 
     if(version >= 1057) then
 
@@ -315,15 +250,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1061) then
 
         g_game.enableFeature(GameOGLInformation)
 
     end
-
-
 
     if(version >= 1071) then
 
@@ -331,15 +262,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1072) then
 
         g_game.enableFeature(GameAuthenticator)
 
     end
-
-
 
     if(version >= 1074) then
 
@@ -347,15 +274,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1080) then
 
         g_game.enableFeature(GameIngameStore)
 
     end
-
-
 
     if(version >= 1092) then
 
@@ -363,15 +286,11 @@ function updateFeatures(version)
 
     end
 
-
-
     if(version >= 1093) then
 
         g_game.enableFeature(GameIngameStoreHighlights)
 
     end
-
-
 
     if(version >= 1094) then
 
@@ -379,15 +298,11 @@ function updateFeatures(version)
 
     end
 
-    
-
     if(version >= 1100) then
 
         g_game.enableFeature(GamePrey)    
 
     end
-
-    
 
     if(version >= 1200) then
 
@@ -401,8 +316,6 @@ function updateFeatures(version)
 
     end
 
-    
-
     modules.game_things.load()
 
 end
@@ -410,12 +323,7 @@ end
 ```
 
 ---
-
-
-
 # features.otmod
-
-
 
 ```text
 
@@ -438,6 +346,3 @@ Module
 ```
 
 ---
-
-
-

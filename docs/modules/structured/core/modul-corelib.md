@@ -1,21 +1,12 @@
-# ¦ Modul: `corelib`
-
-
-
-
-
+﻿# ¦ Modul: `corelib`
 
 ```lua
 
 --[[
 
-
-
  base64 -- v1.5.1 public domain Lua base64 encoder/decoder
 
  no warranty implied; use at your own risk
-
-
 
  Needs bit32.extract function. If not present it's implemented using BitOp
 
@@ -25,39 +16,21 @@
 
    http://ricilake.blogspot.co.uk/2007/10/iterating-bits-in-lua.html
 
-
-
  author: Ilya Kolbin (iskolbin@gmail.com)
 
  url: github.com/iskolbin/lbase64
 
-
-
  COMPATIBILITY
-
-
 
  Lua 5.1, 5.2, 5.3, LuaJIT
 
-
-
  LICENSE
-
-
 
  See end of file for license information.
 
-
-
 --]]
 
-
-
-
-
 base64 = {}
-
-
 
 local extract = _G.bit32 and _G.bit32.extract
 
@@ -111,10 +84,6 @@ if not extract then
 
 end
 
-
-
-
-
 function base64.makeencoder( s62, s63, spad )
 
 	local encoder = {}
@@ -137,8 +106,6 @@ function base64.makeencoder( s62, s63, spad )
 
 end
 
-
-
 function base64.makedecoder( s62, s63, spad )
 
 	local decoder = {}
@@ -153,17 +120,11 @@ function base64.makedecoder( s62, s63, spad )
 
 end
 
-
-
 local DEFAULT_ENCODER = base64.makeencoder()
 
 local DEFAULT_DECODER = base64.makedecoder()
 
-
-
 local char, concat = string.char, table.concat
-
-
 
 function base64.encode( str, encoder, usecaching )
 
@@ -226,8 +187,6 @@ function base64.encode( str, encoder, usecaching )
 	return concat( t )
 
 end
-
-
 
 function base64.decode( b64, decoder, usecaching )
 
@@ -321,8 +280,6 @@ function base64.decode( b64, decoder, usecaching )
 
 end
 
-
-
 --[[
 
 Copyright (c) 2018 Ilya Kolbin
@@ -362,18 +319,11 @@ SOFTWARE.
 ```
 
 ---
-
-
-
 # bitwise.lua
-
-
 
 ```lua
 
 Bit = {}
-
-
 
 function Bit.bit(p)
 
@@ -381,23 +331,17 @@ function Bit.bit(p)
 
 end
 
-
-
 function Bit.hasBit(x, p)
 
   return x % (p + p) >= p
 
 end
 
-
-
 function Bit.setbit(x, p)
 
   return Bit.hasBit(x, p) and x or x + p
 
 end
-
-
 
 function Bit.clearbit(x, p)
 
@@ -408,18 +352,11 @@ end
 ```
 
 ---
-
-
-
 # config.lua
-
-
 
 ```lua
 
 -- @docclass
-
-
 
 local function convertSettingValue(value)
 
@@ -459,15 +396,11 @@ local function convertSettingValue(value)
 
 end
 
-
-
 function Config:set(key, value)
 
   self:setValue(key, convertSettingValue(value))
 
 end
-
-
 
 function Config:setDefault(key, value)
 
@@ -478,8 +411,6 @@ function Config:setDefault(key, value)
   return true
 
 end
-
-
 
 function Config:get(key, default)
 
@@ -493,15 +424,11 @@ function Config:get(key, default)
 
 end
 
-
-
 function Config:getString(key, default)
 
   return self:get(key, default)
 
 end
-
-
 
 function Config:getInteger(key, default)
 
@@ -511,8 +438,6 @@ function Config:getInteger(key, default)
 
 end
 
-
-
 function Config:getNumber(key, default)
 
   local v = tonumber(self:get(key, default)) or 0
@@ -521,15 +446,11 @@ function Config:getNumber(key, default)
 
 end
 
-
-
 function Config:getBoolean(key, default)
 
   return toboolean(self:get(key, default))
 
 end
-
-
 
 function Config:getPoint(key, default)
 
@@ -537,23 +458,17 @@ function Config:getPoint(key, default)
 
 end
 
-
-
 function Config:getRect(key, default)
 
   return torect(self:get(key, default))
 
 end
 
-
-
 function Config:getSize(key, default)
 
   return tosize(self:get(key, default))
 
 end
-
-
 
 function Config:getColor(key, default)
 
@@ -564,18 +479,11 @@ end
 ```
 
 ---
-
-
-
 # const.lua
-
-
 
 ```lua
 
 -- @docconsts @{
-
-
 
 AnchorNone = 0
 
@@ -591,8 +499,6 @@ AnchorVerticalCenter = 5
 
 AnchorHorizontalCenter = 6
 
-
-
 LogDebug = 0
 
 LogInfo = 1
@@ -603,8 +509,6 @@ LogError = 3
 
 LogFatal = 4
 
-
-
 MouseFocusReason = 0
 
 KeyboardFocusReason = 1
@@ -613,15 +517,11 @@ ActiveFocusReason = 2
 
 OtherFocusReason = 3
 
-
-
 AutoFocusNone = 0
 
 AutoFocusFirst = 1
 
 AutoFocusLast = 2
-
-
 
 KeyboardNoModifier = 0
 
@@ -638,8 +538,6 @@ KeyboardCtrlShiftModifier = 5
 KeyboardAltShiftModifier = 6
 
 KeyboardCtrlAltShiftModifier = 7
-
-
 
 MouseNoButton = 0
 
@@ -659,15 +557,11 @@ MouseButton4 = 7 -- side mouse button 1
 
 MouseButton5 = 8 -- side mouse button 2
 
-
-
 MouseNoWheel = 0
 
 MouseWheelUp = 1
 
 MouseWheelDown = 2
-
-
 
 AlignNone = 0
 
@@ -700,8 +594,6 @@ AlignTopCenter = 20
 AlignBottomCenter = 24
 
 AlignCenter = 48
-
-
 
 KeyUnknown = 0
 
@@ -935,13 +827,9 @@ KeyNumpad8 = 149
 
 KeyNumpad9 = 150
 
-
-
 FirstKey = KeyUnknown
 
 LastKey = KeyNumpad9
-
-
 
 ExtendedActivate = 0
 
@@ -949,11 +837,7 @@ ExtendedLocales = 1
 
 ExtendedParticles = 2
 
-
-
 -- @}
-
-
 
 KeyCodeDescs = {
 
@@ -1191,8 +1075,6 @@ KeyCodeDescs = {
 
 }
 
-
-
 NetworkMessageTypes = {
 
   Boolean = 1,
@@ -1213,8 +1095,6 @@ NetworkMessageTypes = {
 
 }
 
-
-
 SoundChannels = {
 
   Music = 1,
@@ -1230,12 +1110,7 @@ SoundChannels = {
 ```
 
 ---
-
-
-
 # corelib.otmod
-
-
 
 ```text
 
@@ -1251,8 +1126,6 @@ Module
 
   reloadable: false
 
-
-
   @onLoad: |
 
     dofile 'math'
@@ -1264,8 +1137,6 @@ Module
     dofile 'bitwise'
 
     dofile 'struct'
-
-
 
     dofile 'const'
 
@@ -1283,21 +1154,15 @@ Module
 
     dofile 'net'
 
-
-
     dofiles 'classes'
 
     dofiles 'ui'
-
-
 
     dofile 'inputmessage'
 
     dofile 'outputmessage'
 
     dofile 'orderedtable'
-
-    
 
     dofile 'base64'
 
@@ -1310,18 +1175,11 @@ Module
 ```
 
 ---
-
-
-
 # globals.lua
-
-
 
 ```lua
 
 -- @docvars @{
-
-
 
 -- root widget
 
@@ -1329,21 +1187,13 @@ rootWidget = g_ui.getRootWidget()
 
 modules = package.loaded
 
-
-
 -- G is used as a global table to save variables in memory between reloads
 
 G = G or {}
 
-
-
 -- @}
 
-
-
 -- @docfuncs @{
-
-
 
 function scheduleEvent(callback, delay)
 
@@ -1367,8 +1217,6 @@ function scheduleEvent(callback, delay)
 
 end
 
-
-
 function addEvent(callback, front)
 
   local desc = "lua"
@@ -1390,8 +1238,6 @@ function addEvent(callback, front)
   return event
 
 end
-
-
 
 function cycleEvent(callback, interval)
 
@@ -1415,15 +1261,11 @@ function cycleEvent(callback, interval)
 
 end
 
-
-
 function periodicalEvent(eventFunc, conditionFunc, delay, autoRepeatDelay)
 
   delay = delay or 30
 
   autoRepeatDelay = autoRepeatDelay or delay
-
-
 
   local func
 
@@ -1443,8 +1285,6 @@ function periodicalEvent(eventFunc, conditionFunc, delay, autoRepeatDelay)
 
   end
 
-
-
   scheduleEvent(function()
 
     func()
@@ -1452,8 +1292,6 @@ function periodicalEvent(eventFunc, conditionFunc, delay, autoRepeatDelay)
   end, autoRepeatDelay)
 
 end
-
-
 
 function removeEvent(event)
 
@@ -1467,19 +1305,12 @@ function removeEvent(event)
 
 end
 
-
-
 -- @}
 
 ```
 
 ---
-
-
-
 # http.lua
-
-
 
 ```lua
 
@@ -1499,8 +1330,6 @@ HTTP = {
 
 }
 
-
-
 function HTTP.get(url, callback)
 
   if not g_http or not g_http.get then
@@ -1517,8 +1346,6 @@ function HTTP.get(url, callback)
 
 end
 
-
-
 function HTTP.getJSON(url, callback)
 
   if not g_http or not g_http.get then
@@ -1534,8 +1361,6 @@ function HTTP.getJSON(url, callback)
   return operation
 
 end
-
-
 
 function HTTP.post(url, data, callback)
 
@@ -1559,8 +1384,6 @@ function HTTP.post(url, data, callback)
 
 end
 
-
-
 function HTTP.postJSON(url, data, callback)
 
   if not g_http or not g_http.post then
@@ -1583,8 +1406,6 @@ function HTTP.postJSON(url, data, callback)
 
 end
 
-
-
 function HTTP.download(url, file, callback, progressCallback)
 
   if not g_http or not g_http.download then
@@ -1600,8 +1421,6 @@ function HTTP.download(url, file, callback, progressCallback)
   return operation
 
 end
-
-
 
 function HTTP.downloadImage(url, callback)
 
@@ -1634,8 +1453,6 @@ function HTTP.downloadImage(url, callback)
   return operation
 
 end
-
-
 
 function HTTP.webSocket(url, callbacks, timeout, jsonWebsocket)
 
@@ -1679,13 +1496,11 @@ function HTTP.webSocket(url, callbacks, timeout, jsonWebsocket)
 
     end
 
-  }
+}
 
 end
 
 HTTP.WebSocket = HTTP.webSocket
-
-
 
 function HTTP.webSocketJSON(url, callbacks, timeout)
 
@@ -1694,8 +1509,6 @@ function HTTP.webSocketJSON(url, callbacks, timeout)
 end
 
 HTTP.WebSocketJSON = HTTP.webSocketJSON
-
-
 
 function HTTP.cancel(operationId)
 
@@ -1710,8 +1523,6 @@ function HTTP.cancel(operationId)
   return g_http.cancel(operationId)
 
 end
-
-
 
 function HTTP.onGet(operationId, url, err, data)
 
@@ -1763,8 +1574,6 @@ function HTTP.onGet(operationId, url, err, data)
 
 end
 
-
-
 function HTTP.onGetProgress(operationId, url, progress)
 
   local operation = HTTP.operations[operationId]
@@ -1775,11 +1584,7 @@ function HTTP.onGetProgress(operationId, url, progress)
 
   end
 
-  
-
 end
-
-
 
 function HTTP.onPost(operationId, url, err, data)
 
@@ -1831,8 +1636,6 @@ function HTTP.onPost(operationId, url, err, data)
 
 end
 
-
-
 function HTTP.onPostProgress(operationId, url, progress)
 
   local operation = HTTP.operations[operationId]
@@ -1844,8 +1647,6 @@ function HTTP.onPostProgress(operationId, url, progress)
   end
 
 end
-
-
 
 function HTTP.onDownload(operationId, url, err, path, checksum)
 
@@ -1885,8 +1686,6 @@ function HTTP.onDownload(operationId, url, err, path, checksum)
 
 end
 
-
-
 function HTTP.onDownloadProgress(operationId, url, progress, speed)
 
   local operation = HTTP.operations[operationId]
@@ -1905,8 +1704,6 @@ function HTTP.onDownloadProgress(operationId, url, progress, speed)
 
 end
 
-
-
 function HTTP.onWsOpen(operationId, message)
 
   local operation = HTTP.operations[operationId]
@@ -1924,8 +1721,6 @@ function HTTP.onWsOpen(operationId, message)
   end
 
 end
-
-
 
 function HTTP.onWsMessage(operationId, message)
 
@@ -1987,8 +1782,6 @@ function HTTP.onWsMessage(operationId, message)
 
 end
 
-
-
 function HTTP.onWsClose(operationId, message)
 
   local operation = HTTP.operations[operationId]
@@ -2006,8 +1799,6 @@ function HTTP.onWsClose(operationId, message)
   end
 
 end
-
-
 
 function HTTP.onWsError(operationId, message)
 
@@ -2027,11 +1818,9 @@ function HTTP.onWsError(operationId, message)
 
 end
 
-
-
 connect(g_http, 
 
-  {
+{
 
     onGet = HTTP.onGet,
 
@@ -2053,19 +1842,14 @@ connect(g_http,
 
     onWsError = HTTP.onWsError,
 
-  })
+})
 
 g_http.setUserAgent(HTTP.agent)
 
 ```
 
 ---
-
-
-
 # inputmessage.lua
-
-
 
 ```lua
 
@@ -2115,8 +1899,6 @@ function InputMessage:getData()
 
 end
 
-
-
 function InputMessage:getTable()
 
   local ret = {}
@@ -2137,8 +1919,6 @@ function InputMessage:getTable()
 
 end
 
-
-
 function InputMessage:getColor()
 
   local color = {}
@@ -2154,8 +1934,6 @@ function InputMessage:getColor()
   return color
 
 end
-
-
 
 function InputMessage:getPosition()
 
@@ -2174,12 +1952,7 @@ end
 ```
 
 ---
-
-
-
 # json.lua
-
-
 
 ```lua
 
@@ -2229,11 +2002,7 @@ end
 
 --
 
-
-
 json = { _version = "0.1.1" }
-
-
 
 -------------------------------------------------------------------------------
 
@@ -2241,11 +2010,7 @@ json = { _version = "0.1.1" }
 
 -------------------------------------------------------------------------------
 
-
-
 local encode
-
-
 
 local escape_char_map = {
 
@@ -2265,8 +2030,6 @@ local escape_char_map = {
 
 }
 
-
-
 local escape_char_map_inv = { [ "\\/" ] = "/" }
 
 for k, v in pairs(escape_char_map) do
@@ -2275,19 +2038,11 @@ for k, v in pairs(escape_char_map) do
 
 end
 
-
-
-
-
 local function make_indent(state)
 
   return string.rep(" ", state.currentIndentLevel * state.indent)
 
 end
-
-
-
-
 
 local function escape_char(c)
 
@@ -2295,19 +2050,11 @@ local function escape_char(c)
 
 end
 
-
-
-
-
 local function encode_nil()
 
   return "null"
 
 end
-
-
-
-
 
 local function encode_table(val, state)
 
@@ -2316,8 +2063,6 @@ local function encode_table(val, state)
   local stack = state.stack
 
   local pretty = state.indent > 0
-
-
 
   local close_indent = make_indent(state)
 
@@ -2333,17 +2078,11 @@ local function encode_table(val, state)
 
   local close_bracket = pretty and ("\n" .. close_indent .. "]") or "]"
 
-
-
   -- Circular reference?
 
   if stack[val] then error("circular reference") end
 
-
-
   stack[val] = true
-
-
 
   if rawget(val, 1) ~= nil or next(val) == nil then
 
@@ -2385,8 +2124,6 @@ local function encode_table(val, state)
 
     return open_bracket .. table.concat(res, comma) .. close_bracket
 
-
-
   else
 
     -- Treat as an object
@@ -2415,19 +2152,11 @@ local function encode_table(val, state)
 
 end
 
-
-
-
-
 local function encode_string(val)
 
   return '"' .. val:gsub('[%z\1-\31\\"]', escape_char) .. '"'
 
 end
-
-
-
-
 
 local function encode_number(val)
 
@@ -2443,10 +2172,6 @@ local function encode_number(val)
 
 end
 
-
-
-
-
 local type_func_map = {
 
   [ "nil"     ] = encode_nil,
@@ -2460,10 +2185,6 @@ local type_func_map = {
   [ "boolean" ] = tostring,
 
 }
-
-
-
-
 
 encode = function(val, state)
 
@@ -2481,8 +2202,6 @@ encode = function(val, state)
 
 end
 
-
-
 function json.encode(val, indent)
 
   local state = {
@@ -2493,15 +2212,11 @@ function json.encode(val, indent)
 
     stack = {}
 
-  }
+}
 
   return encode(val, state)
 
 end
-
-
-
-
 
 -------------------------------------------------------------------------------
 
@@ -2509,11 +2224,7 @@ end
 
 -------------------------------------------------------------------------------
 
-
-
 local parse
-
-
 
 local function create_set(...)
 
@@ -2529,8 +2240,6 @@ local function create_set(...)
 
 end
 
-
-
 local space_chars   = create_set(" ", "\t", "\r", "\n")
 
 local delim_chars   = create_set(" ", "\t", "\r", "\n", "]", "}", ",")
@@ -2538,8 +2247,6 @@ local delim_chars   = create_set(" ", "\t", "\r", "\n", "]", "}", ",")
 local escape_chars  = create_set("\\", "/", '"', "b", "f", "n", "r", "t", "u")
 
 local literals      = create_set("true", "false", "null")
-
-
 
 local literal_map = {
 
@@ -2550,10 +2257,6 @@ local literal_map = {
   [ "null"  ] = nil,
 
 }
-
-
-
-
 
 local function next_char(str, idx, set, negate)
 
@@ -2570,10 +2273,6 @@ local function next_char(str, idx, set, negate)
   return #str + 1
 
 end
-
-
-
-
 
 local function decode_error(str, idx, msg)
 
@@ -2598,10 +2297,6 @@ local function decode_error(str, idx, msg)
   error( string.format("%s at line %d col %d", msg, line_count, col_count) )
 
 end
-
-
-
-
 
 local function codepoint_to_utf8(n)
 
@@ -2633,10 +2328,6 @@ local function codepoint_to_utf8(n)
 
 end
 
-
-
-
-
 local function parse_unicode_escape(s)
 
   local n1 = tonumber( s:sub(3, 6),  16 )
@@ -2657,10 +2348,6 @@ local function parse_unicode_escape(s)
 
 end
 
-
-
-
-
 local function parse_string(str, i)
 
   local has_unicode_escape = false
@@ -2675,15 +2362,11 @@ local function parse_string(str, i)
 
     local x = str:byte(j)
 
-
-
     if x < 32 then
 
       decode_error(str, j, "control character in string")
 
     end
-
-
 
     if last == 92 then -- "\\" (escape char)
 
@@ -2723,8 +2406,6 @@ local function parse_string(str, i)
 
       last = nil
 
-
-
     elseif x == 34 then -- '"' (end of string)
 
       local s = str:sub(i + 1, j - 1)
@@ -2749,8 +2430,6 @@ local function parse_string(str, i)
 
       return s, j + 1
 
-
-
     else
 
       last = x
@@ -2762,10 +2441,6 @@ local function parse_string(str, i)
   decode_error(str, i, "expected closing quote for string")
 
 end
-
-
-
-
 
 local function parse_number(str, i)
 
@@ -2785,10 +2460,6 @@ local function parse_number(str, i)
 
 end
 
-
-
-
-
 local function parse_literal(str, i)
 
   local x = next_char(str, i, delim_chars)
@@ -2804,10 +2475,6 @@ local function parse_literal(str, i)
   return literal_map[word], x
 
 end
-
-
-
-
 
 local function parse_array(str, i)
 
@@ -2858,10 +2525,6 @@ local function parse_array(str, i)
   return res, i
 
 end
-
-
-
-
 
 local function parse_object(str, i)
 
@@ -2933,10 +2596,6 @@ local function parse_object(str, i)
 
 end
 
-
-
-
-
 local char_func_map = {
 
   [ '"' ] = parse_string,
@@ -2975,10 +2634,6 @@ local char_func_map = {
 
 }
 
-
-
-
-
 parse = function(str, idx)
 
   local chr = str:sub(idx, idx)
@@ -2994,10 +2649,6 @@ parse = function(str, idx)
   decode_error(str, idx, "unexpected character '" .. chr .. "'")
 
 end
-
-
-
-
 
 function json.decode(str)
 
@@ -3024,20 +2675,13 @@ end
 ```
 
 ---
-
-
-
 # keyboard.lua
-
-
 
 ```lua
 
 -- @docclass
 
 g_keyboard = {}
-
-
 
 -- private functions
 
@@ -3063,8 +2707,6 @@ function translateKeyCombo(keyCombo)
 
 end
 
-
-
 local function getKeyCode(key)
 
   for keyCode, keyDesc in pairs(KeyCodeDescs) do
@@ -3079,8 +2721,6 @@ local function getKeyCode(key)
 
 end
 
-
-
 function retranslateKeyComboDesc(keyComboDesc)
 
   if keyComboDesc == nil then
@@ -3089,15 +2729,11 @@ function retranslateKeyComboDesc(keyComboDesc)
 
   end
 
-
-
   if type(keyComboDesc) == 'number' then
 
     keyComboDesc = tostring(keyComboDesc)
 
   end
-
-
 
   local keyCombo = {}
 
@@ -3118,8 +2754,6 @@ function retranslateKeyComboDesc(keyComboDesc)
   return translateKeyCombo(keyCombo)
 
 end
-
-
 
 function determineKeyComboDesc(keyCode, keyboardModifiers)
 
@@ -3179,8 +2813,6 @@ function determineKeyComboDesc(keyCode, keyboardModifiers)
 
 end
 
-
-
 local function onWidgetKeyDown(widget, keyCode, keyboardModifiers)
 
   if keyCode == KeyUnknown then return false end
@@ -3194,8 +2826,6 @@ local function onWidgetKeyDown(widget, keyCode, keyboardModifiers)
   return signalcall(callback, widget, keyCode)
 
 end
-
-
 
 local function onWidgetKeyUp(widget, keyCode, keyboardModifiers)
 
@@ -3211,8 +2841,6 @@ local function onWidgetKeyUp(widget, keyCode, keyboardModifiers)
 
 end
 
-
-
 local function onWidgetKeyPress(widget, keyCode, keyboardModifiers, autoRepeatTicks)
 
   if keyCode == KeyUnknown then return false end
@@ -3222,8 +2850,6 @@ local function onWidgetKeyPress(widget, keyCode, keyboardModifiers, autoRepeatTi
   return signalcall(callback, widget, keyCode, autoRepeatTicks)
 
 end
-
-
 
 local function connectKeyDownEvent(widget)
 
@@ -3237,8 +2863,6 @@ local function connectKeyDownEvent(widget)
 
 end
 
-
-
 local function connectKeyUpEvent(widget)
 
   if widget.boundKeyUpCombos then return end
@@ -3251,8 +2875,6 @@ local function connectKeyUpEvent(widget)
 
 end
 
-
-
 local function connectKeyPressEvent(widget)
 
   if widget.boundKeyPressCombos then return end
@@ -3262,8 +2884,6 @@ local function connectKeyPressEvent(widget)
   widget.boundKeyPressCombos = {}
 
 end
-
-
 
 -- public functions
 
@@ -3287,8 +2907,6 @@ function g_keyboard.bindKeyDown(keyComboDesc, callback, widget, alone)
 
 end
 
-
-
 function g_keyboard.bindKeyUp(keyComboDesc, callback, widget, alone)
 
   widget = widget or rootWidget
@@ -3309,8 +2927,6 @@ function g_keyboard.bindKeyUp(keyComboDesc, callback, widget, alone)
 
 end
 
-
-
 function g_keyboard.bindKeyPress(keyComboDesc, callback, widget)
 
   widget = widget or rootWidget
@@ -3322,8 +2938,6 @@ function g_keyboard.bindKeyPress(keyComboDesc, callback, widget)
   connect(widget.boundKeyPressCombos, keyComboDesc, callback)
 
 end
-
-
 
 local function getUnbindArgs(arg1, arg2)
 
@@ -3345,8 +2959,6 @@ local function getUnbindArgs(arg1, arg2)
 
 end
 
-
-
 function g_keyboard.unbindKeyDown(keyComboDesc, arg1, arg2)
 
   local callback, widget = getUnbindArgs(arg1, arg2)
@@ -3358,8 +2970,6 @@ function g_keyboard.unbindKeyDown(keyComboDesc, arg1, arg2)
   disconnect(widget.boundKeyDownCombos, keyComboDesc, callback)
 
 end
-
-
 
 function g_keyboard.unbindKeyUp(keyComboDesc, arg1, arg2)
 
@@ -3373,8 +2983,6 @@ function g_keyboard.unbindKeyUp(keyComboDesc, arg1, arg2)
 
 end
 
-
-
 function g_keyboard.unbindKeyPress(keyComboDesc, arg1, arg2)
 
   local callback, widget = getUnbindArgs(arg1, arg2)
@@ -3387,15 +2995,11 @@ function g_keyboard.unbindKeyPress(keyComboDesc, arg1, arg2)
 
 end
 
-
-
 function g_keyboard.getModifiers()
 
   return g_window.getKeyboardModifiers()
 
 end
-
-
 
 function g_keyboard.isKeyPressed(key)
 
@@ -3408,8 +3012,6 @@ function g_keyboard.isKeyPressed(key)
   return g_window.isKeyPressed(key)
 
 end
-
-
 
 function g_keyboard.areKeysPressed(keyComboDesc)
 
@@ -3459,8 +3061,6 @@ function g_keyboard.areKeysPressed(keyComboDesc)
 
 end
 
-
-
 function g_keyboard.isKeySetPressed(keys, all)
 
   all = all or false
@@ -3493,8 +3093,6 @@ function g_keyboard.isKeySetPressed(keys, all)
 
 end
 
-
-
 function g_keyboard.isInUse()
 
   for i = FirstKey, LastKey do
@@ -3511,23 +3109,17 @@ function g_keyboard.isInUse()
 
 end
 
-
-
 function g_keyboard.isCtrlPressed()
 
   return bit32.band(g_window.getKeyboardModifiers(), KeyboardCtrlModifier) ~= 0
 
 end
 
-
-
 function g_keyboard.isAltPressed()
 
   return bit32.band(g_window.getKeyboardModifiers(), KeyboardAltModifier) ~= 0
 
 end
-
-
 
 function g_keyboard.isShiftPressed()
 
@@ -3538,18 +3130,11 @@ end
 ```
 
 ---
-
-
-
 # math.lua
-
-
 
 ```lua
 
 -- @docclass math
-
-
 
 local U8  = 2^8
 
@@ -3558,8 +3143,6 @@ local U16 = 2^16
 local U32 = 2^32
 
 local U64 = 2^64
-
-
 
 function math.round(num, idp)
 
@@ -3577,15 +3160,11 @@ function math.round(num, idp)
 
 end
 
-
-
 function math.isu8(num)
 
   return math.isinteger(num) and num >= 0 and num < U8
 
 end
-
-
 
 function math.isu16(num)
 
@@ -3593,23 +3172,17 @@ function math.isu16(num)
 
 end
 
-
-
 function math.isu32(num)
 
   return math.isinteger(num) and num >= U16 and num < U32
 
 end
 
-
-
 function math.isu64(num)
 
   return math.isinteger(num) and num >= U32 and num < U64
 
 end
-
-
 
 function math.isinteger(num)
 
@@ -3620,12 +3193,7 @@ end
 ```
 
 ---
-
-
-
 # mouse.lua
-
-
 
 ```lua
 
@@ -3663,8 +3231,6 @@ function g_mouse.bindAutoPress(widget, callback, delay, button)
 
 end
 
-
-
 function g_mouse.bindPressMove(widget, callback)
 
   connect(widget, { onMouseMove = function(widget, mousePos, mouseMoved)
@@ -3680,8 +3246,6 @@ function g_mouse.bindPressMove(widget, callback)
   end })
 
 end
-
-
 
 function g_mouse.bindPress(widget, callback, button)
 
@@ -3704,12 +3268,7 @@ end
 ```
 
 ---
-
-
-
 # net.lua
-
-
 
 ```lua
 
@@ -3748,12 +3307,7 @@ end
 ```
 
 ---
-
-
-
 # orderedtable.lua
-
-
 
 ```lua
 
@@ -3773,8 +3327,6 @@ function __genOrderedIndex( t )
 
 end
 
-
-
 function orderedNext(t, state)
 
     -- Equivalent of the next function, but returns the keys in the alphabetic
@@ -3782,8 +3334,6 @@ function orderedNext(t, state)
     -- order. We use a temporary ordered key table that is stored in the
 
     -- table being iterated.
-
-
 
     local key = nil
 
@@ -3813,15 +3363,11 @@ function orderedNext(t, state)
 
     end
 
-
-
     if key then
 
         return key, t[key]
 
     end
-
-
 
     -- no more value to return, cleanup
 
@@ -3830,8 +3376,6 @@ function orderedNext(t, state)
     return
 
 end
-
-
 
 function orderedPairs(t)
 
@@ -3846,12 +3390,7 @@ end
 ```
 
 ---
-
-
-
 # outputmessage.lua
-
-
 
 ```lua
 
@@ -3917,13 +3456,9 @@ function OutputMessage:addData(data)
 
 end
 
-
-
 function OutputMessage:addTable(data)
 
   local size = 0
-
-
 
   -- reserve for size (should be addData, find a way to use it further)
 
@@ -3932,8 +3467,6 @@ function OutputMessage:addTable(data)
   self:addU16(size)
 
   local sizeSize = self:getWritePos() - sizePos
-
-
 
   -- add values
 
@@ -3947,8 +3480,6 @@ function OutputMessage:addTable(data)
 
   end
 
-
-
   -- write size
 
   local currentPos = self:getWritePos()
@@ -3957,8 +3488,6 @@ function OutputMessage:addTable(data)
 
   self:addU16(size)
 
-
-
   -- fix msg size and go back to end
 
   self:setMessageSize(self:getMessageSize() - sizeSize)
@@ -3966,8 +3495,6 @@ function OutputMessage:addTable(data)
   self:setWritePos(currentPos)
 
 end
-
-
 
 function OutputMessage:addColor(color)
 
@@ -3980,8 +3507,6 @@ function OutputMessage:addColor(color)
   self:addU8(color.a)
 
 end
-
-
 
 function OutputMessage:addPosition(position)
 
@@ -3996,36 +3521,22 @@ end
 ```
 
 ---
-
-
-
 # settings.lua
-
-
 
 ```lua
 
 g_settings = makesingleton(g_configs.getSettings())
-
-
 
 -- Reserved for future functionality
 
 ```
 
 ---
-
-
-
 # string.lua
-
-
 
 ```lua
 
 -- @docclass string
-
-
 
 function string:split(delim)
 
@@ -4057,15 +3568,11 @@ function string:split(delim)
 
 end
 
-
-
 function string:starts(start)
 
   return string.sub(self, 1, #start) == start
 
 end
-
-
 
 function string:ends(test)
 
@@ -4073,15 +3580,11 @@ function string:ends(test)
 
 end
 
-
-
 function string:trim()
 
   return string.match(self, '^%s*(.*%S)') or ''
 
 end
-
-
 
 function string:explode(sep, limit)
 
@@ -4090,8 +3593,6 @@ function string:explode(sep, limit)
     return {}
 
   end
-
-
 
   local i, pos, tmp, t = 0, 1, "", {}
 
@@ -4103,8 +3604,6 @@ function string:explode(sep, limit)
 
     pos = e + 1
 
-
-
     i = i + 1
 
     if limit ~= nil and i == limit then
@@ -4115,8 +3614,6 @@ function string:explode(sep, limit)
 
   end
 
-
-
   tmp = self:sub(pos):trim()
 
   table.insert(t, tmp)
@@ -4124,8 +3621,6 @@ function string:explode(sep, limit)
   return t
 
 end
-
-
 
 function string:contains(str, checkCase, start, plain)
 
@@ -4144,18 +3639,11 @@ end
 ```
 
 ---
-
-
-
 # struct.lua
-
-
 
 ```lua
 
 Struct = {}
-
-
 
 function Struct.pack(format, ...)
 
@@ -4165,13 +3653,9 @@ function Struct.pack(format, ...)
 
   local endianness = true
 
-
-
   for i = 1, format:len() do
 
     local opt = format:sub(i, i)
-
-
 
     if opt == '>' then
 
@@ -4183,15 +3667,11 @@ function Struct.pack(format, ...)
 
       local val = tonumber(table.remove(vars, 1))
 
-
-
       if val < 0 then
 
         val = val + 2 ^ (n * 8 - 1)
 
       end
-
-
 
       local bytes = {}
 
@@ -4202,8 +3682,6 @@ function Struct.pack(format, ...)
         val = math.floor(val / (2 ^ 8))
 
       end
-
-
 
       if not endianness then
 
@@ -4221,8 +3699,6 @@ function Struct.pack(format, ...)
 
       local sign = 0
 
-
-
       if val < 0 then
 
         sign = 1 
@@ -4230,8 +3706,6 @@ function Struct.pack(format, ...)
         val = -val 
 
       end
-
-
 
       local mantissa, exponent = math.frexp(val)
 
@@ -4248,8 +3722,6 @@ function Struct.pack(format, ...)
         exponent = exponent + ((opt == 'd') and 1022 or 126)
 
       end
-
-
 
       local bytes = {}
 
@@ -4277,8 +3749,6 @@ function Struct.pack(format, ...)
 
       end
 
-
-
       table.insert(bytes, string.char(math.floor(exponent * ((opt == 'd') and 16 or 128) + val) % (2 ^ 8)))
 
       val = math.floor((exponent * ((opt == 'd') and 16 or 128) + val) / (2 ^ 8))
@@ -4286,8 +3756,6 @@ function Struct.pack(format, ...)
       table.insert(bytes, string.char(math.floor(sign * 128 + val) % (2 ^ 8)))
 
       val = math.floor((sign * 128 + val) / (2 ^ 8))
-
-
 
       if not endianness then
 
@@ -4311,8 +3779,6 @@ function Struct.pack(format, ...)
 
       local length = tonumber(n)
 
-
-
       if length > 0 then
 
         local str = tostring(table.remove(vars, 1))
@@ -4333,13 +3799,9 @@ function Struct.pack(format, ...)
 
   end
 
-
-
   return table.concat(stream)
 
 end
-
-
 
 function Struct.unpack(format, stream)
 
@@ -4349,13 +3811,9 @@ function Struct.unpack(format, stream)
 
   local endianness = true
 
-
-
   for i = 1, format:len() do
 
     local opt = format:sub(i, i)
-
-
 
     if opt == '>' then
 
@@ -4366,8 +3824,6 @@ function Struct.unpack(format, stream)
       local n = opt:find('[hH]') and 2 or opt:find('[iI]') and 4 or opt:find('[lL]') and 8 or 1
 
       local signed = opt:lower() == opt
-
-
 
       local val = 0
 
@@ -4389,15 +3845,11 @@ function Struct.unpack(format, stream)
 
       end
 
-
-
       if signed then
 
         val = val - 2 ^ (n * 8 - 1)
 
       end
-
-
 
       table.insert(vars, val)
 
@@ -4409,15 +3861,11 @@ function Struct.unpack(format, stream)
 
       iterator = iterator + n
 
-
-
       if not endianness then
 
         x = string.reverse(x)
 
       end
-
-
 
       local sign = 1
 
@@ -4429,15 +3877,11 @@ function Struct.unpack(format, stream)
 
       end
 
-
-
       if string.byte(x, n) > 127 then
 
         sign = -1
 
       end
-
-
 
       local exponent = (string.byte(x, n) % 128) * ((opt == 'd') and 16 or 2) + math.floor(string.byte(x, n - 1) / ((opt == 'd') and 16 or 128))
 
@@ -4465,13 +3909,9 @@ function Struct.unpack(format, stream)
 
         end
 
-
-
         table.insert(bytes, stream:sub(j, j))
 
       end
-
-
 
       local str = table.concat(bytes)
 
@@ -4493,8 +3933,6 @@ function Struct.unpack(format, stream)
 
   end
 
-
-
   return unpack(vars)
 
 end
@@ -4502,18 +3940,11 @@ end
 ```
 
 ---
-
-
-
 # table.lua
-
-
 
 ```lua
 
 -- @docclass table
-
-
 
 function table.dump(t, depth)
 
@@ -4539,8 +3970,6 @@ function table.dump(t, depth)
 
 end
 
-
-
 function table.clear(t)
 
   for k,v in pairs(t) do
@@ -4550,8 +3979,6 @@ function table.clear(t)
   end
 
 end
-
-
 
 function table.copy(t)
 
@@ -4566,8 +3993,6 @@ function table.copy(t)
   return res
 
 end
-
-
 
 function table.recursivecopy(t)
 
@@ -4591,8 +4016,6 @@ function table.recursivecopy(t)
 
 end
 
-
-
 function table.selectivecopy(t, keys)
 
   local res = { }
@@ -4607,8 +4030,6 @@ function table.selectivecopy(t, keys)
 
 end
 
-
-
 function table.merge(t, src)
 
   for k,v in pairs(src) do
@@ -4618,8 +4039,6 @@ function table.merge(t, src)
   end
 
 end
-
-
 
 function table.find(t, value, lowercase)
 
@@ -4637,8 +4056,6 @@ function table.find(t, value, lowercase)
 
 end
 
-
-
 function table.findbykey(t, key, lowercase)
 
   for k,v in pairs(t) do
@@ -4655,15 +4072,11 @@ function table.findbykey(t, key, lowercase)
 
 end
 
-
-
 function table.contains(t, value, lowercase)
 
   return table.find(t, value, lowercase) ~= nil
 
 end
-
-
 
 function table.findkey(t, key)
 
@@ -4679,15 +4092,11 @@ function table.findkey(t, key)
 
 end
 
-
-
 function table.haskey(t, key)
 
   return table.findkey(t, key) ~= nil
 
 end
-
-
 
 function table.removevalue(t, value)
 
@@ -4706,8 +4115,6 @@ function table.removevalue(t, value)
   return false
 
 end
-
-
 
 function table.popvalue(value)
 
@@ -4735,8 +4142,6 @@ function table.popvalue(value)
 
 end
 
-
-
 function table.compare(t, other)
 
   if #t ~= #other then return false end
@@ -4751,8 +4156,6 @@ function table.compare(t, other)
 
 end
 
-
-
 function table.empty(t)
 
   if t and type(t) == 'table' then
@@ -4764,8 +4167,6 @@ function table.empty(t)
   return true
 
 end
-
-
 
 function table.permute(t, n, count)
 
@@ -4783,8 +4184,6 @@ function table.permute(t, n, count)
 
 end
 
-
-
 function table.findbyfield(t, fieldname, fieldvalue)
 
   for _i,subt in pairs(t) do
@@ -4801,8 +4200,6 @@ function table.findbyfield(t, fieldname, fieldvalue)
 
 end
 
-
-
 function table.size(t)
 
   local size = 0
@@ -4813,13 +4210,9 @@ function table.size(t)
 
   end
 
-
-
   return size
 
 end
-
-
 
 function table.tostring(t)
 
@@ -4851,8 +4244,6 @@ function table.tostring(t)
 
 end
 
-
-
 function table.collect(t, func)
 
   local res = {}
@@ -4877,8 +4268,6 @@ function table.collect(t, func)
 
 end
 
-
-
 function table.equals(t, comp)
 
   if type(t) == "table" and type(comp) == "table" then
@@ -4894,8 +4283,6 @@ function table.equals(t, comp)
   return true
 
 end
-
-
 
 function table.equal(t1,t2,ignore_mt)
 
@@ -4935,8 +4322,6 @@ function table.equal(t1,t2,ignore_mt)
 
 end
 
-
-
 function table.isList(t)
 
   local size = #t
@@ -4944,8 +4329,6 @@ function table.isList(t)
   return table.size(t) == size and size > 0
 
 end
-
-
 
 function table.isStringList(t)
 
@@ -4965,8 +4348,6 @@ function table.isStringList(t)
 
 end
 
-
-
 function table.isStringPairList(t)
 
   if not table.isList(t) then return false end
@@ -4984,8 +4365,6 @@ function table.isStringPairList(t)
   return true
 
 end
-
-
 
 function table.encodeStringPairList(t)
 
@@ -5008,8 +4387,6 @@ function table.encodeStringPairList(t)
   return ret
 
 end
-
-
 
 function table.decodeStringPairList(l)
 
@@ -5090,12 +4467,7 @@ end
 ```
 
 ---
-
-
-
 # test.lua
-
-
 
 ```lua
 
@@ -5108,8 +4480,6 @@ Test = {
     screenShot = 1    
 
 }
-
-
 
 Test.Test = function(name, func)
 
@@ -5125,7 +4495,7 @@ Test.Test = function(name, func)
 
         start = 0
 
-    }
+}
 
     local test = function(testFunc)
 
@@ -5157,8 +4527,6 @@ Test.Test = function(name, func)
 
 end
 
-
-
 Test.run = function()
 
     if Test.activeTest > #Test.tests then
@@ -5189,8 +4557,6 @@ Test.run = function()
 
     end
 
-
-
     local action = test.actions[1]
 
     if action.type == "test" then
@@ -5217,8 +4583,6 @@ Test.run = function()
 
     end
 
-
-
     scheduleEvent(Test.run, 100)
 
 end
@@ -5226,18 +4590,11 @@ end
 ```
 
 ---
-
-
-
 # util.lua
-
-
 
 ```lua
 
 -- @docfuncs @{
-
-
 
 function print(...)
 
@@ -5263,15 +4620,11 @@ function print(...)
 
 end
 
-
-
 function pinfo(msg)
 
   g_logger.log(LogInfo, msg)
 
 end
-
-
 
 function perror(msg)
 
@@ -5279,15 +4632,11 @@ function perror(msg)
 
 end
 
-
-
 function pwarning(msg)
 
   g_logger.log(LogWarning, msg)
 
 end
-
-
 
 function pdebug(msg)
 
@@ -5295,15 +4644,11 @@ function pdebug(msg)
 
 end
 
-
-
 function fatal(msg)
 
   g_logger.log(LogFatal, msg)
 
 end
-
-
 
 function exit()
 
@@ -5311,15 +4656,11 @@ function exit()
 
 end
 
-
-
 function quit()
 
   g_app.exit()
 
 end
-
-
 
 function connect(object, arg1, arg2, arg3)
 
@@ -5341,8 +4682,6 @@ function connect(object, arg1, arg2, arg3)
 
   end
 
-
-
   for signal,slot in pairs(signalsAndSlots) do
 
     if not object[signal] then
@@ -5361,8 +4700,6 @@ function connect(object, arg1, arg2, arg3)
 
     end
 
-
-
     if not object[signal] then
 
       object[signal] = slot
@@ -5373,15 +4710,11 @@ function connect(object, arg1, arg2, arg3)
 
     end
 
-
-
     if type(slot) ~= 'function' then
 
       perror(debug.traceback('unable to connect a non function value'))
 
     end
-
-
 
     if type(object[signal]) == 'table' then
 
@@ -5400,8 +4733,6 @@ function connect(object, arg1, arg2, arg3)
   end
 
 end
-
-
 
 function disconnect(object, arg1, arg2)
 
@@ -5429,8 +4760,6 @@ function disconnect(object, arg1, arg2)
 
   end
 
-
-
   for signal,slot in pairs(signalsAndSlots) do
 
     if not object[signal] then
@@ -5451,8 +4780,6 @@ function disconnect(object, arg1, arg2)
 
           table.remove(object[signal], k)
 
-
-
           if #object[signal] == 1 then
 
             object[signal] = object[signal][1]
@@ -5471,8 +4798,6 @@ function disconnect(object, arg1, arg2)
 
 end
 
-
-
 function newclass(name)
 
   if not name then
@@ -5480,8 +4805,6 @@ function newclass(name)
     perror(debug.traceback('new class has no name.'))
 
   end
-
-
 
   local class = {}
 
@@ -5509,8 +4832,6 @@ function newclass(name)
 
 end
 
-
-
 function extends(base, name)
 
   if not name then
@@ -5518,8 +4839,6 @@ function extends(base, name)
     perror(debug.traceback('extended class has no name.'))
 
   end
-
-
 
   local derived = {}
 
@@ -5546,8 +4865,6 @@ function extends(base, name)
   return derived
 
 end
-
-
 
 function runinsandbox(func, ...)
 
@@ -5579,8 +4896,6 @@ function runinsandbox(func, ...)
 
 end
 
-
-
 function loadasmodule(name, file)
 
   file = file or resolvepath(name, 2)
@@ -5598,8 +4913,6 @@ function loadasmodule(name, file)
   return env
 
 end
-
-
 
 local function module_loader(modname)
 
@@ -5627,8 +4940,6 @@ end
 
 table.insert(package.loaders, 1, module_loader)
 
-
-
 function import(table)
 
   assert(type(table) == 'table')
@@ -5642,8 +4953,6 @@ function import(table)
   end
 
 end
-
-
 
 function export(what, key)
 
@@ -5663,8 +4972,6 @@ function export(what, key)
 
 end
 
-
-
 function unexport(key)
 
   if type(key) == 'table' then
@@ -5682,8 +4989,6 @@ function unexport(key)
   end
 
 end
-
-
 
 function getfsrcpath(depth)
 
@@ -5712,8 +5017,6 @@ function getfsrcpath(depth)
   return path
 
 end
-
-
 
 function resolvepath(filePath, depth)
 
@@ -5749,8 +5052,6 @@ function resolvepath(filePath, depth)
 
 end
 
-
-
 function toboolean(v)
 
   if type(v) == 'string' then
@@ -5781,8 +5082,6 @@ function toboolean(v)
 
 end
 
-
-
 function fromboolean(boolean)
 
   if boolean then
@@ -5796,8 +5095,6 @@ function fromboolean(boolean)
   end
 
 end
-
-
 
 function booleantonumber(boolean)
 
@@ -5813,8 +5110,6 @@ function booleantonumber(boolean)
 
 end
 
-
-
 function numbertoboolean(number)
 
   if number ~= 0 then
@@ -5829,8 +5124,6 @@ function numbertoboolean(number)
 
 end
 
-
-
 function protectedcall(func, ...)
 
   local status, ret = pcall(func, ...)
@@ -5841,15 +5134,11 @@ function protectedcall(func, ...)
 
   end
 
-
-
   perror(ret)
 
   return false
 
 end
-
-
 
 function signalcall(param, ...)
 
@@ -5895,15 +5184,11 @@ function signalcall(param, ...)
 
 end
 
-
-
 function tr(s, ...)
 
   return string.format(s, ...)
 
 end
-
-
 
 function getOppositeAnchor(anchor)
 
@@ -5937,8 +5222,6 @@ function getOppositeAnchor(anchor)
 
 end
 
-
-
 function makesingleton(obj)
 
   local singleton = {}
@@ -5961,8 +5244,6 @@ function makesingleton(obj)
 
 end
 
-
-
 function comma_value(amount)
 
   local formatted = amount
@@ -5983,13 +5264,8 @@ function comma_value(amount)
 
 end
 
-
-
 -- @}
 
 ```
 
 ---
-
-
-

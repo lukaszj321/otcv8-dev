@@ -1,9 +1,4 @@
-# ¦ Modul: `game_npctrade`
-
-
-
-
-
+﻿# ¦ Modul: `game_npctrade`
 
 ```lua
 
@@ -18,8 +13,6 @@ CURRENCY_DECIMAL = false
 WEIGHT_UNIT = 'oz'
 
 LAST_INVENTORY = 10
-
-
 
 npcWindow = nil
 
@@ -61,8 +54,6 @@ sellTab = nil
 
 initialized = false
 
-
-
 showWeight = true
 
 buyWithBackpack = nil
@@ -87,15 +78,9 @@ playerItems = {}
 
 selectedItem = nil
 
-
-
 cancelNextRelease = nil
 
-
-
 sellAllWithDelayEvent = nil
-
-
 
 function init()
 
@@ -103,13 +88,9 @@ function init()
 
   npcWindow:setVisible(false)
 
-
-
   itemsPanel = npcWindow:recursiveGetChildById('itemsPanel')
 
   searchText = npcWindow:recursiveGetChildById('searchText')
-
-
 
   setupPanel = npcWindow:recursiveGetChildById('setupPanel')
 
@@ -133,8 +114,6 @@ function init()
 
   tradeButton = npcWindow:recursiveGetChildById('tradeButton')
 
-
-
   buyWithBackpack = npcWindow:recursiveGetChildById('buyWithBackpack')
 
   ignoreCapacity = npcWindow:recursiveGetChildById('ignoreCapacity')
@@ -151,8 +130,6 @@ function init()
 
   sellTab = npcWindow:getChildById('sellTab')
 
-
-
   radioTabs = UIRadioGroup.create()
 
   radioTabs:addWidget(buyTab)
@@ -163,19 +140,13 @@ function init()
 
   radioTabs.onSelectionChange = onTradeTypeChange
 
-
-
   cancelNextRelease = false
-
-
 
   if g_game.isOnline() then
 
     playerFreeCapacity = g_game.getLocalPlayer():getFreeCapacity()
 
   end
-
-
 
   connect(g_game, { onGameEnd = hide,
 
@@ -185,19 +156,13 @@ function init()
 
                     onPlayerGoods = onPlayerGoods } )
 
-
-
   connect(LocalPlayer, { onFreeCapacityChange = onFreeCapacityChange,
 
                          onInventoryChange = onInventoryChange } )
 
-
-
   initialized = true
 
 end
-
-
 
 function terminate()
 
@@ -207,8 +172,6 @@ function terminate()
 
   removeEvent(sellAllWithDelayEvent)
 
-  
-
   disconnect(g_game, {  onGameEnd = hide,
 
                         onOpenNpcTrade = onOpenNpcTrade,
@@ -217,15 +180,11 @@ function terminate()
 
                         onPlayerGoods = onPlayerGoods } )
 
-
-
   disconnect(LocalPlayer, { onFreeCapacityChange = onFreeCapacityChange,
 
                             onInventoryChange = onInventoryChange } )
 
 end
-
-
 
 function show()
 
@@ -241,8 +200,6 @@ function show()
 
     end
 
-
-
     npcWindow:show()
 
     npcWindow:raise()
@@ -253,35 +210,23 @@ function show()
 
 end
 
-
-
 function hide()
 
   removeEvent(sellAllWithDelayEvent)
 
-
-
   npcWindow:hide()
-
-
 
   local layout = itemsPanel:getLayout()
 
   layout:disableUpdates()
 
-
-
   clearSelectedItem()
-
-
 
   searchText:clearText()
 
   setupPanel:disable()
 
   itemsPanel:destroyChildren()
-
-
 
   if radioItems then
 
@@ -291,15 +236,11 @@ function hide()
 
   end
 
-
-
   layout:enableUpdates()
 
   layout:update()  
 
 end
-
-
 
 function onItemBoxChecked(widget)
 
@@ -313,8 +254,6 @@ function onItemBoxChecked(widget)
 
     tradeButton:enable()
 
-
-
     if getCurrentTradeType() == SELL then
 
       quantityScroll:setValue(quantityScroll:getMaximum())
@@ -324,8 +263,6 @@ function onItemBoxChecked(widget)
   end
 
 end
-
-
 
 function onQuantityValueChange(quantity)
 
@@ -339,8 +276,6 @@ function onQuantityValueChange(quantity)
 
 end
 
-
-
 function onTradeTypeChange(radioTabs, selected, deselected)
 
   tradeButton:setText(selected:getText())
@@ -348,8 +283,6 @@ function onTradeTypeChange(radioTabs, selected, deselected)
   selected:setOn(true)
 
   deselected:setOn(false)
-
-
 
   local currentTradeType = getCurrentTradeType()
 
@@ -365,15 +298,11 @@ function onTradeTypeChange(radioTabs, selected, deselected)
 
   sellAllWithDelayButton:setVisible(currentTradeType == SELL)
 
-  
-
   refreshTradeItems()
 
   refreshPlayerGoods()
 
 end
-
-
 
 function onTradeClick()
 
@@ -391,15 +320,11 @@ function onTradeClick()
 
 end
 
-
-
 function onSearchTextChange()
 
   refreshPlayerGoods()
 
 end
-
-
 
 function itemPopup(self, mousePosition, mouseButton)
 
@@ -410,8 +335,6 @@ function itemPopup(self, mousePosition, mouseButton)
     return false
 
   end
-
-
 
   if mouseButton == MouseRightButton then
 
@@ -441,8 +364,6 @@ function itemPopup(self, mousePosition, mouseButton)
 
 end
 
-
-
 function onBuyWithBackpackChange()
 
   if selectedItem then
@@ -453,15 +374,11 @@ function onBuyWithBackpackChange()
 
 end
 
-
-
 function onIgnoreCapacityChange()
 
   refreshPlayerGoods()
 
 end
-
-
 
 function onIgnoreEquippedChange()
 
@@ -469,15 +386,11 @@ function onIgnoreEquippedChange()
 
 end
 
-
-
 function onShowAllItemsChange()
 
   refreshPlayerGoods()
 
 end
-
-
 
 function setCurrency(currency, decimal)
 
@@ -486,8 +399,6 @@ function setCurrency(currency, decimal)
   CURRENCY_DECIMAL = decimal
 
 end
-
-
 
 function setShowWeight(state)
 
@@ -499,8 +410,6 @@ function setShowWeight(state)
 
 end
 
-
-
 function setShowYourCapacity(state)
 
   capacityDesc:setVisible(state)
@@ -510,8 +419,6 @@ function setShowYourCapacity(state)
   ignoreCapacity:setVisible(state)
 
 end
-
-
 
 function clearSelectedItem()
 
@@ -539,8 +446,6 @@ function clearSelectedItem()
 
 end
 
-
-
 function getCurrentTradeType()
 
   if tradeButton:getText() == tr('Buy') then
@@ -554,8 +459,6 @@ function getCurrentTradeType()
   end
 
 end
-
-
 
 function getItemPrice(item, single)
 
@@ -591,8 +494,6 @@ function getItemPrice(item, single)
 
 end
 
-
-
 function getSellQuantity(item)
 
   if not item or not playerItems[item:getId()] then return 0 end
@@ -621,8 +522,6 @@ function getSellQuantity(item)
 
 end
 
-
-
 function canTradeItem(item)
 
   if getCurrentTradeType() == BUY then
@@ -637,8 +536,6 @@ function canTradeItem(item)
 
 end
 
-
-
 function refreshItem(item)
 
   idLabel:setText(item.ptr:getId())
@@ -648,8 +545,6 @@ function refreshItem(item)
   weightLabel:setText(string.format('%.2f', item.weight) .. ' ' .. WEIGHT_UNIT)
 
   priceLabel:setText(formatCurrency(getItemPrice(item)))
-
-
 
   if getCurrentTradeType() == BUY then
 
@@ -677,13 +572,9 @@ function refreshItem(item)
 
   end
 
-
-
   setupPanel:enable()
 
 end
-
-
 
 function refreshTradeItems()
 
@@ -691,19 +582,13 @@ function refreshTradeItems()
 
   layout:disableUpdates()
 
-
-
   clearSelectedItem()
-
-
 
   searchText:clearText()
 
   setupPanel:disable()
 
   itemsPanel:destroyChildren()
-
-
 
   if radioItems then
 
@@ -713,8 +598,6 @@ function refreshTradeItems()
 
   radioItems = UIRadioGroup.create()
 
-
-
   local currentTradeItems = tradeItems[getCurrentTradeType()]
 
   for key,item in pairs(currentTradeItems) do
@@ -722,8 +605,6 @@ function refreshTradeItems()
     local itemBox = g_ui.createWidget('NPCItemBox', itemsPanel)
 
     itemBox.item = item
-
-
 
     local text = ''
 
@@ -745,21 +626,15 @@ function refreshTradeItems()
 
     itemBox:setText(text)
 
-
-
     local itemWidget = itemBox:getChildById('item')
 
     itemWidget:setItem(item.ptr)
 
     itemWidget.onMouseRelease = itemPopup
 
-
-
     radioItems:addWidget(itemBox)
 
   end
-
-
 
   layout:enableUpdates()
 
@@ -767,31 +642,21 @@ function refreshTradeItems()
 
 end
 
-
-
 function refreshPlayerGoods()
 
   if not initialized then return end
 
-
-
   checkSellAllTooltip()
-
-
 
   moneyLabel:setText(formatCurrency(playerMoney))
 
   capacityLabel:setText(string.format('%.2f', playerFreeCapacity) .. ' ' .. WEIGHT_UNIT)
-
-
 
   local currentTradeType = getCurrentTradeType()
 
   local searchFilter = searchText:getText():lower()
 
   local foundSelectedItem = false
-
-
 
   local items = itemsPanel:getChildCount()
 
@@ -801,23 +666,17 @@ function refreshPlayerGoods()
 
     local item = itemWidget.item
 
-
-
     local canTrade = canTradeItem(item)
 
     itemWidget:setOn(canTrade)
 
     itemWidget:setEnabled(canTrade)
 
-
-
     local searchCondition = (searchFilter == '') or (searchFilter ~= '' and string.find(item.name:lower(), searchFilter) ~= nil)
 
     local showAllItemsCondition = (currentTradeType == BUY) or (showAllItems:isChecked()) or (currentTradeType == SELL and not showAllItems:isChecked() and canTrade)
 
     itemWidget:setVisible(searchCondition and showAllItemsCondition)
-
-
 
     if selectedItem == item and itemWidget:isEnabled() and itemWidget:isVisible() then
 
@@ -827,15 +686,11 @@ function refreshPlayerGoods()
 
   end
 
-
-
   if not foundSelectedItem then
 
     clearSelectedItem()
 
   end
-
-
 
   if selectedItem then
 
@@ -844,8 +699,6 @@ function refreshPlayerGoods()
   end
 
 end
-
-
 
 function onOpenNpcTrade(items)
 
@@ -871,8 +724,6 @@ function onOpenNpcTrade(items)
 
     end
 
-    
-
     if item[5] > 0 then
 
       local newItem = {}
@@ -891,15 +742,11 @@ function onOpenNpcTrade(items)
 
   end
 
-
-
   refreshTradeItems()
 
   addEvent(show) -- player goods has not been parsed yet
 
 end
-
-
 
 function closeNpcTrade()
 
@@ -909,21 +756,15 @@ function closeNpcTrade()
 
 end
 
-
-
 function onCloseNpcTrade()
 
   addEvent(hide)
 
 end
 
-
-
 function onPlayerGoods(money, items)
 
   playerMoney = money
-
-
 
   playerItems = {}
 
@@ -943,19 +784,13 @@ function onPlayerGoods(money, items)
 
   end
 
-
-
   refreshPlayerGoods()
 
 end
 
-
-
 function onFreeCapacityChange(localPlayer, freeCapacity, oldFreeCapacity)
 
   playerFreeCapacity = freeCapacity
-
-
 
   if npcWindow:isVisible() then
 
@@ -965,15 +800,11 @@ function onFreeCapacityChange(localPlayer, freeCapacity, oldFreeCapacity)
 
 end
 
-
-
 function onInventoryChange(inventory, item, oldItem)
 
   refreshPlayerGoods()
 
 end
-
-
 
 function getTradeItemData(id, type)
 
@@ -982,8 +813,6 @@ function getTradeItemData(id, type)
     return false
 
   end
-
-
 
   if type then
 
@@ -1019,8 +848,6 @@ function getTradeItemData(id, type)
 
 end
 
-
-
 function checkSellAllTooltip()
 
   sellAllButton:setEnabled(true)
@@ -1031,15 +858,11 @@ function checkSellAllTooltip()
 
   sellAllWithDelayButton:removeTooltip()
 
-
-
   local total = 0
 
   local info = ''
 
   local first = true
-
-
 
   for key, amount in pairs(playerItems) do
 
@@ -1060,8 +883,6 @@ function checkSellAllTooltip()
                  data.name.." ("..
 
                  data.price*amount.." gold)"
-
-
 
           total = total+(data.price*amount)
 
@@ -1093,8 +914,6 @@ function checkSellAllTooltip()
 
 end
 
-
-
 function formatCurrency(amount)
 
   if CURRENCY_DECIMAL then
@@ -1109,8 +928,6 @@ function formatCurrency(amount)
 
 end
 
-
-
 function getMaxAmount()
 
   if getCurrentTradeType() == SELL and g_game.getFeature(GameDoubleShopSellAmount) then
@@ -1122,8 +939,6 @@ function getMaxAmount()
   return 100
 
 end
-
-
 
 function sellAll(delayed, exceptions)
 
@@ -1186,12 +1001,7 @@ end
 ```
 
 ---
-
-
-
 # npctrade.otmod
-
-
 
 ```text
 
@@ -1216,12 +1026,7 @@ Module
 ```
 
 ---
-
-
-
 # npctrade.otui
-
-
 
 ```otui
 
@@ -1234,8 +1039,6 @@ NPCOfferLabel < Label
   margin-left: 5
 
   text-auto-resize: true
-
-
 
 NPCItemBox < UICheckBox
 
@@ -1251,8 +1054,6 @@ NPCItemBox < UICheckBox
 
   @onCheckChange: modules.game_npctrade.onItemBoxChecked(self)
 
-
-
   Item
 
     id: item
@@ -1267,27 +1068,19 @@ NPCItemBox < UICheckBox
 
     margin-top: 3
 
-
-
   $checked on:
 
     border-color: #ffffff
 
-
-
   $!checked:
 
     border-color: #000000
-
-
 
   $!on:
 
     image-color: #ffffff88
 
     color: #aaaaaa88
-
-
 
 MainWindow
 
@@ -1299,13 +1092,9 @@ MainWindow
 
   @onEscape: modules.game_npctrade.closeNpcTrade()
 
-
-
   $mobile:
 
     size: 550 360
-
-
 
   TabButton
 
@@ -1327,8 +1116,6 @@ MainWindow
 
     margin-top: 0
 
-
-
   TabButton
 
     id: sellTab
@@ -1343,8 +1130,6 @@ MainWindow
 
     anchors.top: parent.top
 
-
-
   FlatPanel
 
     height: 250
@@ -1357,13 +1142,9 @@ MainWindow
 
     margin-top: 5
 
-
-
     $mobile:
 
       height: 150
-
-
 
     VerticalScrollBar
 
@@ -1378,8 +1159,6 @@ MainWindow
       step: 24
 
       pixels-scroll: true
-
-
 
     ScrollablePanel
 
@@ -1411,8 +1190,6 @@ MainWindow
 
         auto-spacing: true
 
-
-
   FlatPanel
 
     id: setupPanel
@@ -1433,8 +1210,6 @@ MainWindow
 
     image-color: #ffffff88
 
-
-
     Label
 
       !text: tr('Name') .. ':'
@@ -1449,13 +1224,9 @@ MainWindow
 
       width: 85
 
-
-
     NPCOfferLabel
 
       id: name
-
-
 
     Label
 
@@ -1473,13 +1244,9 @@ MainWindow
 
       width: 15
 
-
-
     NPCOfferLabel
 
       id: id
-
-
 
     Label
 
@@ -1495,13 +1262,9 @@ MainWindow
 
       width: 85
 
-
-
     NPCOfferLabel
 
       id: price
-
-
 
     Label
 
@@ -1517,13 +1280,9 @@ MainWindow
 
       width: 85
 
-
-
     NPCOfferLabel
 
       id: money
-
-
 
     Label
 
@@ -1541,13 +1300,9 @@ MainWindow
 
       width: 85
 
-
-
     NPCOfferLabel
 
       id: weight
-
-
 
     Label
 
@@ -1565,13 +1320,9 @@ MainWindow
 
       width: 85
 
-
-
     NPCOfferLabel
 
       id: capacity
-
-
 
     HorizontalScrollBar
 
@@ -1599,8 +1350,6 @@ MainWindow
 
       @onValueChange: modules.game_npctrade.onQuantityValueChange(self:getValue())
 
-
-
   FlatPanel
 
     id: buyOptions
@@ -1617,8 +1366,6 @@ MainWindow
 
     image-color: #ffffff88
 
-
-
     Label
 
       id: searchLabel
@@ -1634,8 +1381,6 @@ MainWindow
       margin-top: 7
 
       margin-left: 5
-
-
 
     TextEdit
 
@@ -1655,8 +1400,6 @@ MainWindow
 
       @onTextChange: modules.game_npctrade.onSearchTextChange()
 
-
-
     CheckBox
 
       id: buyWithBackpack
@@ -1675,8 +1418,6 @@ MainWindow
 
       @onCheckChange: modules.game_npctrade.onBuyWithBackpackChange()
 
-
-
     CheckBox
 
       id: ignoreCapacity
@@ -1694,8 +1435,6 @@ MainWindow
       margin-top: 3
 
       @onCheckChange: modules.game_npctrade.onIgnoreCapacityChange()
-
-
 
     CheckBox
 
@@ -1719,8 +1458,6 @@ MainWindow
 
       @onCheckChange: modules.game_npctrade.onIgnoreEquippedChange()
 
-
-
     CheckBox
 
       id: showAllItems
@@ -1743,8 +1480,6 @@ MainWindow
 
       @onCheckChange: modules.game_npctrade.onShowAllItemsChange()
 
-
-
   Button
 
     id: sellAllWithDelayButton
@@ -1762,8 +1497,6 @@ MainWindow
     visible: false
 
     @onClick: modules.game_npctrade.sellAll(true)
-
-
 
   Button
 
@@ -1783,8 +1516,6 @@ MainWindow
 
     @onClick: modules.game_npctrade.sellAll()
 
-
-
   Button
 
     id: tradeButton
@@ -1801,8 +1532,6 @@ MainWindow
 
     @onClick: modules.game_npctrade.onTradeClick()
 
-
-
   Button
 
     !text: tr('Close')
@@ -1818,6 +1547,3 @@ MainWindow
 ```
 
 ---
-
-
-

@@ -1,17 +1,10 @@
-# ¦ Modul: `game_shop`
-
-
-
-
-
+﻿# ¦ Modul: `game_shop`
 
 ```lua
 
 -- private variables
 
 local SHOP_EXTENTED_OPCODE = 201
-
-
 
 shop = nil
 
@@ -27,15 +20,11 @@ local browsingHistory = false
 
 local transferValue = 0
 
-
-
 -- for classic store
 
 local storeUrl = ""
 
 local coinsPacketSize = 0
-
-
 
 local CATEGORIES = {}
 
@@ -45,11 +34,7 @@ local STATUS = {}
 
 local AD = {}
 
-
-
 local selectedOffer = {}
-
-
 
 local function sendAction(action, data)
 
@@ -58,8 +43,6 @@ local function sendAction(action, data)
     return
 
   end
-
-  
 
   local protocolGame = g_game.getProtocolGame()
 
@@ -76,8 +59,6 @@ local function sendAction(action, data)
   end  
 
 end
-
-
 
 -- public functions
 
@@ -103,13 +84,9 @@ function init()
 
     onCoinBalance = onCoinBalance    
 
-  })
-
-
+})
 
   ProtocolGame.registerExtendedJSONOpcode(SHOP_EXTENTED_OPCODE, onExtendedJSONOpcode)
-
-  
 
   if g_game.isOnline() then
 
@@ -122,8 +99,6 @@ function init()
   createTransferWindow()
 
 end
-
-
 
 function terminate()
 
@@ -147,13 +122,9 @@ function terminate()
 
     onCoinBalance = onCoinBalance    
 
-  })
-
-
+})
 
   ProtocolGame.unregisterExtendedJSONOpcode(SHOP_EXTENTED_OPCODE, onExtendedJSONOpcode)
-
-  
 
   if shopButton then
 
@@ -181,8 +152,6 @@ function terminate()
 
 end
 
-
-
 function check()
 
   otcv8shop = false
@@ -190,8 +159,6 @@ function check()
   sendAction("init")
 
 end
-
-
 
 function hide()
 
@@ -204,8 +171,6 @@ function hide()
   shop:hide()
 
 end
-
-
 
 function show()
 
@@ -221,8 +186,6 @@ function show()
 
   end
 
-  
-
   shop:show()
 
   shop:raise()
@@ -231,13 +194,9 @@ function show()
 
 end
 
-
-
 function softHide()
 
   if not transferWindow then return end
-
-
 
   transferWindow:hide()
 
@@ -245,13 +204,9 @@ function softHide()
 
 end
 
-
-
 function showTransfer()
 
   if not shop or not transferWindow then return end
-
-
 
   hide()
 
@@ -263,21 +218,15 @@ function showTransfer()
 
 end
 
-
-
 function hideTransfer()
 
   if not shop or not transferWindow then return end
-
-
 
   transferWindow:hide()
 
   show()
 
 end
-
-
 
 function toggle()
 
@@ -299,8 +248,6 @@ function toggle()
 
 end
 
-
-
 function createShop()
 
   if shop then return end
@@ -315,8 +262,6 @@ function createShop()
 
 end
 
-
-
 function createTransferWindow()
 
   if transferWindow then return end
@@ -326,8 +271,6 @@ function createTransferWindow()
   transferWindow:hide()
 
 end
-
-
 
 function onStoreInit(url, coins)
 
@@ -361,8 +304,6 @@ function onStoreInit(url, coins)
 
 end
 
-
-
 function onStoreCategories(categories)
 
   if not shop or otcv8shop then return end
@@ -389,7 +330,7 @@ function onStoreCategories(categories)
 
       offers = {}
 
-    })
+})
 
   end
 
@@ -397,15 +338,11 @@ function onStoreCategories(categories)
 
 end
 
-
-
 function onStoreOffers(categoryName, offers)
 
   if not shop or otcv8shop then return end
 
   local updated = false
-
-    
 
   for i, category in ipairs(CATEGORIES) do
 
@@ -459,7 +396,7 @@ function onStoreOffers(categoryName, offers)
 
             description=offer.description        
 
-          })
+})
 
         end
 
@@ -475,15 +412,11 @@ function onStoreOffers(categoryName, offers)
 
   end
 
-  
-
   local activeCategory = shop.categories:getFocusedChild()
 
   changeCategory(activeCategory, activeCategory)
 
 end
-
-
 
 function onStoreTransactionHistory(currentPage, hasNextPage, offers)
 
@@ -507,11 +440,9 @@ function onStoreTransactionHistory(currentPage, hasNextPage, offers)
 
       description=offer.description        
 
-    })
+})
 
   end
-
-  
 
   if not browsingHistory then return end  
 
@@ -526,8 +457,6 @@ function onStoreTransactionHistory(currentPage, hasNextPage, offers)
   end
 
 end
-
-
 
 function onStorePurchase(message)
 
@@ -547,8 +476,6 @@ function onStorePurchase(message)
 
 end
 
-
-
 function onStoreError(errorType, message)
 
   if not shop or otcv8shop then return end
@@ -564,8 +491,6 @@ function onStoreError(errorType, message)
   end
 
 end
-
-
 
 function onCoinBalance(coins, transferableCoins)
 
@@ -583,8 +508,6 @@ function onCoinBalance(coins, transferableCoins)
 
 end
 
-
-
 function transferCoins()
 
   if not transferWindow then return end
@@ -595,8 +518,6 @@ function transferCoins()
 
   local recipient = transferWindow.recipient:getText()
 
-
-
   g_game.transferCoins(recipient, amount)
 
   transferWindow.recipient:setText('')
@@ -605,15 +526,11 @@ function transferCoins()
 
 end
 
-
-
 function onExtendedJSONOpcode(protocol, code, json_data)
 
   createShop()
 
   createTransferWindow()
-
-
 
   local action = json_data['action']
 
@@ -626,8 +543,6 @@ function onExtendedJSONOpcode(protocol, code, json_data)
     return false
 
   end
-
-  
 
   otcv8shop = true
 
@@ -645,8 +560,6 @@ function onExtendedJSONOpcode(protocol, code, json_data)
 
   end
 
-
-
   if status then
 
     processStatus(status)
@@ -654,8 +567,6 @@ function onExtendedJSONOpcode(protocol, code, json_data)
   end
 
 end
-
-
 
 function clearOffers()
 
@@ -668,8 +579,6 @@ function clearOffers()
   end
 
 end
-
-
 
 function clearCategories()
 
@@ -687,8 +596,6 @@ function clearCategories()
 
 end
 
-
-
 function clearHistory()
 
   HISTORY = {}
@@ -700,8 +607,6 @@ function clearHistory()
   end
 
 end
-
-
 
 function processCategories(data)
 
@@ -735,8 +640,6 @@ function processCategories(data)
 
 end
 
-
-
 function processHistory(data)
 
   if table.equal(HISTORY,data) then
@@ -755,8 +658,6 @@ function processHistory(data)
 
 end
 
-
-
 function processMessage(data)
 
   if msgWindow then
@@ -764,8 +665,6 @@ function processMessage(data)
     msgWindow:destroy()
 
   end
-
-    
 
   local title = tr(data["title"])
 
@@ -791,8 +690,6 @@ function processMessage(data)
 
 end
 
-
-
 function processStatus(data)
 
   if table.equal(STATUS,data) then
@@ -802,8 +699,6 @@ function processStatus(data)
   end
 
   STATUS = data
-
-
 
   if data['ad'] then 
 
@@ -837,8 +732,6 @@ function processStatus(data)
 
 end
 
-
-
 function processAd(data)
 
   if table.equal(AD,data) then
@@ -848,8 +741,6 @@ function processAd(data)
   end
 
   AD = data
-
-  
 
   if data['image'] and data['image']:sub(1, 4):lower() == "http" then
 
@@ -900,8 +791,6 @@ function processAd(data)
   end
 
 end
-
-
 
 function addCategory(data)
 
@@ -963,8 +852,6 @@ function addCategory(data)
 
 end
 
-
-
 function showHistory(force)
 
   if browsingHistory and not force then
@@ -973,8 +860,6 @@ function showHistory(force)
 
   end
 
-
-
   if g_game.getFeature(GameIngameStore) and not otcv8shop then
 
     g_game.openTransactionHistory(100)
@@ -982,8 +867,6 @@ function showHistory(force)
   end
 
   sendAction("history")
-
-
 
   browsingHistory = true
 
@@ -998,8 +881,6 @@ function showHistory(force)
   end
 
 end
-
-
 
 function addOffer(category, data)
 
@@ -1079,10 +960,6 @@ function addOffer(category, data)
 
 end
 
-
-
-
-
 function changeCategory(widget, newCategory)
 
   if not newCategory then
@@ -1090,8 +967,6 @@ function changeCategory(widget, newCategory)
     return
 
   end
-
-  
 
   if g_game.getFeature(GameIngameStore) and widget ~= newCategory and not otcv8shop then
 
@@ -1107,8 +982,6 @@ function changeCategory(widget, newCategory)
 
   end
 
-  
-
   browsingHistory = false
 
   local id = tonumber(newCategory:getId():split("_")[2])
@@ -1122,8 +995,6 @@ function changeCategory(widget, newCategory)
   end
 
 end
-
-
 
 function buyOffer(widget)
 
@@ -1153,11 +1024,7 @@ function buyOffer(widget)
 
   end
 
-  
-
   selectedOffer = {category=category, offer=offer, title=item.title, cost=item.cost, id=widget.offerId}
-
-  
 
   scheduleEvent(function()
 
@@ -1166,8 +1033,6 @@ function buyOffer(widget)
         msgWindow:destroy()
 
       end
-
-      
 
       local title = tr("Buying from shop")
 
@@ -1192,8 +1057,6 @@ function buyOffer(widget)
     end, 50)
 
 end
-
-
 
 function buyConfirmed()
 
@@ -1231,8 +1094,6 @@ function buyConfirmed()
 
 end
 
-
-
 function buyCanceled()
 
   msgWindow:destroy()
@@ -1246,12 +1107,7 @@ end
 ```
 
 ---
-
-
-
 # shop.otmod
-
-
 
 ```text
 
@@ -1278,12 +1134,7 @@ Module
 ```
 
 ---
-
-
-
 # shop.otui
-
-
 
 ```otui
 
@@ -1295,13 +1146,9 @@ ShopCategory < Panel
 
   background: alpha
 
-
-
   $focus:
 
     background: #99999999
-
-  
 
   Label
 
@@ -1322,8 +1169,6 @@ ShopCategory < Panel
     color: white
 
     font: verdana-11px-rounded    
-
-    
 
 ShopCategoryItem < ShopCategory
 
@@ -1347,8 +1192,6 @@ ShopCategoryItem < ShopCategory
 
     size: 32 32
 
-    
-
 ShopCategoryCreature < ShopCategory
 
   UICreature
@@ -1368,8 +1211,6 @@ ShopCategoryCreature < ShopCategory
     margin-left: 2
 
     size: 32 32
-
-    
 
 ShopCategoryImage < ShopCategory
 
@@ -1391,25 +1232,15 @@ ShopCategoryImage < ShopCategory
 
     size: 32 32    
 
-    
-
-    
-
-    
-
 ShopOffer < Panel
 
   height: 56
 
   background: alpha
 
-  
-
   $focus:
 
     background: #99999999
-
-
 
   Label
 
@@ -1430,8 +1261,6 @@ ShopOffer < Panel
     color: white
 
     font: verdana-11px-rounded
-
-
 
   Label
 
@@ -1459,8 +1288,6 @@ ShopOffer < Panel
 
     font: verdana-11px-rounded
 
-    
-
   Button
 
     id: buyButton
@@ -1478,8 +1305,6 @@ ShopOffer < Panel
     margin-right: 15
 
     text-align: center
-
-    
 
 ShopOfferItem < ShopOffer
 
@@ -1503,8 +1328,6 @@ ShopOfferItem < ShopOffer
 
     size: 48 48
 
-    
-
 ShopOfferCreature < ShopOffer
 
   UICreature
@@ -1524,8 +1347,6 @@ ShopOfferCreature < ShopOffer
     margin-left: 2
 
     size: 48 48
-
-    
 
 ShopOfferImage < ShopOffer
 
@@ -1547,8 +1368,6 @@ ShopOfferImage < ShopOffer
 
     size: 48 48    
 
-  
-
 MainWindow
 
   id: shopWindow
@@ -1563,8 +1382,6 @@ MainWindow
 
     size: 500 360
 
-
-
   Panel
 
     id: infoPanel
@@ -1576,8 +1393,6 @@ MainWindow
     width: 230
 
     height: 60
-
-
 
     Label
 
@@ -1592,8 +1407,6 @@ MainWindow
       text: -
 
       text-auto-resize: true
-
-    
 
     Button
 
@@ -1611,8 +1424,6 @@ MainWindow
 
       !text: tr("Buy points")
 
-
-
   Panel
 
     id: adPanel
@@ -1626,8 +1437,6 @@ MainWindow
     margin-left: 10
 
     height: 0
-
-    
 
     Label
 
@@ -1646,8 +1455,6 @@ MainWindow
       text-align: center
 
       font: sans-bold-16px
-
-  
 
   TextList    
 
@@ -1671,8 +1478,6 @@ MainWindow
 
     focusable: false
 
-
-
   VerticalScrollBar
 
     id: categoriesScrollBar
@@ -1686,8 +1491,6 @@ MainWindow
     step: 50
 
     pixels-scroll: true
-
-
 
   TextList
 
@@ -1711,8 +1514,6 @@ MainWindow
 
     focusable: false
 
-
-
   VerticalScrollBar
 
     id: offersScrollBar
@@ -1727,8 +1528,6 @@ MainWindow
 
     pixels-scroll: true
 
-
-
   Button
 
     id: transactionHistory
@@ -1742,8 +1541,6 @@ MainWindow
     anchors.bottom: parent.bottom
 
     @onClick: modules.game_shop.showHistory()
-
-
 
   Button
 
@@ -1760,8 +1557,6 @@ MainWindow
     anchors.verticalCenter: prev.verticalCenter
 
     @onClick: modules.game_shop.showTransfer()
-
-
 
   Button
 
@@ -1780,12 +1575,7 @@ MainWindow
 ```
 
 ---
-
-
-
 # transfer.otui
-
-
 
 ```otui
 
@@ -1798,8 +1588,6 @@ MainWindow
   size: 280 240
 
   @onEscape: modules.game_shop.hideTransfer()
-
-
 
   Label
 
@@ -1815,8 +1603,6 @@ MainWindow
 
     !text: tr('Please select the amount of Tibia Coins you would like to gift and enter the name of the character that should receive the Tibia Coins.')
 
-
-
   Label
 
     anchors.top: prev.bottom
@@ -1826,8 +1612,6 @@ MainWindow
     margin-top: 20
 
     !text: tr('Reciepient:')
-
-
 
   TextEdit
 
@@ -1840,8 +1624,6 @@ MainWindow
     width: 150
 
     text-align: left
-
-
 
   Label
 
@@ -1859,8 +1641,6 @@ MainWindow
 
     !text: tr('Transferable Tibia Coins:')
 
-
-
   Label
 
     id: coinsAmountLabel
@@ -1872,8 +1652,6 @@ MainWindow
     margin-top: 20
 
     !text: tr('Amount to gift: ')
-
-
 
   SpinBox
 
@@ -1895,8 +1673,6 @@ MainWindow
 
     editable: true
 
-
-
   HorizontalSeparator
 
     anchors.right: parent.right
@@ -1906,8 +1682,6 @@ MainWindow
     anchors.bottom: cancelButton.top
 
     margin-bottom: 8    
-
-
 
   Button
 
@@ -1928,8 +1702,6 @@ MainWindow
     margin-right: 5
 
     @onClick: modules.game_shop.hideTransfer()
-
-
 
   Button
 
@@ -1952,6 +1724,3 @@ MainWindow
 ```
 
 ---
-
-
-

@@ -1,9 +1,4 @@
-# ¦ Modul: `game_walking`
-
-
-
-
-
+﻿# ¦ Modul: `game_walking`
 
 ```lua
 
@@ -41,13 +36,9 @@ autoFinishNextServerWalk = 0
 
 turnKeys = {}
 
-
-
 function init()
 
   connect(g_game, { onTeleport = onTeleport })
-
-  
 
   connect(LocalPlayer, {
 
@@ -59,9 +50,7 @@ function init()
 
     onCancelWalk = onCancelWalk
 
-  })
-
-
+})
 
   modules.game_interface.getRootPanel().onFocusChange = stopSmartWalk
 
@@ -69,13 +58,9 @@ function init()
 
 end
 
-
-
 function terminate()
 
   disconnect(g_game, { onTeleport = onTeleport })
-
-  
 
   disconnect(LocalPlayer, {
 
@@ -85,7 +70,7 @@ function terminate()
 
     onWalkFinish = onWalkFinish
 
-  })
+})
 
   removeEvent(autoWalkEvent)
 
@@ -96,8 +81,6 @@ function terminate()
   disableWSAD()
 
 end
-
-
 
 function bindKeys()
 
@@ -125,8 +108,6 @@ function bindKeys()
 
   bindWalkKey('Numpad7', NorthWest)
 
-
-
   bindTurnKey('Ctrl+Up', North)
 
   bindTurnKey('Ctrl+Right', East)
@@ -144,8 +125,6 @@ function bindKeys()
   bindTurnKey('Ctrl+Numpad4', West)
 
 end
-
-
 
 function unbindKeys()
 
@@ -173,8 +152,6 @@ function unbindKeys()
 
   unbindWalkKey('Numpad7', NorthWest)
 
-
-
   unbindTurnKey('Ctrl+Up', North)
 
   unbindTurnKey('Ctrl+Right', East)
@@ -192,8 +169,6 @@ function unbindKeys()
   unbindTurnKey('Ctrl+Numpad4', West)
 
 end
-
-
 
 function enableWSAD()
 
@@ -213,8 +188,6 @@ function enableWSAD()
 
   end
 
-
-
   bindWalkKey("W", North)
 
   bindWalkKey("D", East)
@@ -223,8 +196,6 @@ function enableWSAD()
 
   bindWalkKey("A", West)
 
-
-
   bindTurnKey("Ctrl+W", North)
 
   bindTurnKey("Ctrl+D", East)
@@ -232,8 +203,6 @@ function enableWSAD()
   bindTurnKey("Ctrl+S", South)
 
   bindTurnKey("Ctrl+A", West)
-
-
 
   bindWalkKey("E", NorthEast)
 
@@ -245,8 +214,6 @@ function enableWSAD()
 
 end
 
-
-
 function disableWSAD()
 
   if not wsadWalking then
@@ -257,8 +224,6 @@ function disableWSAD()
 
   wsadWalking = false
 
-
-
   unbindWalkKey("W")
 
   unbindWalkKey("D")
@@ -267,8 +232,6 @@ function disableWSAD()
 
   unbindWalkKey("A")
 
-
-
   unbindTurnKey("Ctrl+W")
 
   unbindTurnKey("Ctrl+D")
@@ -276,8 +239,6 @@ function disableWSAD()
   unbindTurnKey("Ctrl+S")
 
   unbindTurnKey("Ctrl+A")
-
-
 
   unbindWalkKey("E")
 
@@ -288,8 +249,6 @@ function disableWSAD()
   unbindWalkKey("Z")
 
 end
-
-
 
 function bindWalkKey(key, dir)
 
@@ -303,8 +262,6 @@ function bindWalkKey(key, dir)
 
 end
 
-
-
 function unbindWalkKey(key)
 
   local gameRootPanel = modules.game_interface.getRootPanel()
@@ -316,8 +273,6 @@ function unbindWalkKey(key)
   g_keyboard.unbindKeyPress(key, gameRootPanel)
 
 end
-
-
 
 function bindTurnKey(key, dir)
 
@@ -333,8 +288,6 @@ function bindTurnKey(key, dir)
 
 end
 
-
-
 function unbindTurnKey(key)
 
   turnKeys[key] = nil
@@ -349,8 +302,6 @@ function unbindTurnKey(key)
 
 end
 
-
-
 function stopSmartWalk()
 
   smartWalkDirs = {}
@@ -358,8 +309,6 @@ function stopSmartWalk()
   smartWalkDir = nil
 
 end
-
-
 
 function changeWalkDir(dir, pop)
 
@@ -380,8 +329,6 @@ function changeWalkDir(dir, pop)
     table.insert(smartWalkDirs, 1, dir)
 
   end
-
-
 
   smartWalkDir = smartWalkDirs[1]
 
@@ -421,8 +368,6 @@ function changeWalkDir(dir, pop)
 
 end
 
-
-
 function smartWalk(dir, ticks)
 
   walkEvent = scheduleEvent(function() 
@@ -443,8 +388,6 @@ function smartWalk(dir, ticks)
 
 end
 
-
-
 function canChangeFloorDown(pos)
 
   pos.z = pos.z + 1
@@ -454,8 +397,6 @@ function canChangeFloorDown(pos)
   return toTile and toTile:hasElevation(3)
 
 end
-
-
 
 function canChangeFloorUp(pos)
 
@@ -467,13 +408,9 @@ function canChangeFloorUp(pos)
 
 end
 
-
-
 function onPositionChange(player, newPos, oldPos)
 
 end
-
-
 
 function onWalk(player, newPos, oldPos)
 
@@ -484,8 +421,6 @@ function onWalk(player, newPos, oldPos)
   end
 
 end
-
-
 
 function onTeleport(player, newPos, oldPos)
 
@@ -513,8 +448,6 @@ function onTeleport(player, newPos, oldPos)
 
 end
 
-
-
 function onWalkFinish(player)
 
   lastFinishedStep = g_clock.millis()
@@ -529,15 +462,11 @@ function onWalkFinish(player)
 
 end
 
-
-
 function onCancelWalk(player)
 
   player:lockWalk(50)
 
 end
-
-
 
 function walk(dir, ticks) 
 
@@ -551,8 +480,6 @@ function walk(dir, ticks)
 
   end
 
-
-
   if player:isWalkLocked() then
 
     nextWalkDir = nil
@@ -561,15 +488,11 @@ function walk(dir, ticks)
 
   end
 
-
-
   if g_game.isFollowing() then
 
     g_game.cancelFollow()
 
   end
-
-
 
   if player:isAutoWalking() then
 
@@ -585,8 +508,6 @@ function walk(dir, ticks)
 
   end
 
-     
-
   local dash = false
 
   local ignoredCanWalk = false
@@ -596,8 +517,6 @@ function walk(dir, ticks)
     dash = g_settings.getBoolean("dash", false)
 
   end
-
-
 
   local ticksToNextWalk = player:getStepTicksLeft()
 
@@ -627,8 +546,6 @@ function walk(dir, ticks)
 
   end
 
-  
-
   --if nextWalkDir ~= nil and lastFinishedStep + 200 < g_clock.millis() then
 
   --  print("Cancel " .. nextWalkDir)
@@ -642,8 +559,6 @@ function walk(dir, ticks)
     dir = nextWalkDir
 
   end
-
-
 
   local toPos = player:getPrewalkingPosition(true)
 
@@ -691,8 +606,6 @@ function walk(dir, ticks)
 
   local toTile = g_map.getTile(toPos)
 
-
-
   if walkLock >= g_clock.millis() and lastWalkDir == dir then
 
     nextWalkDir = nil
@@ -700,8 +613,6 @@ function walk(dir, ticks)
     return
 
   end
-
-
 
   if firstStep and lastWalkDir == dir and lastWalk + g_settings.getNumber('walkFirstStepDelay') > g_clock.millis() then
 
@@ -713,15 +624,11 @@ function walk(dir, ticks)
 
   end
 
-  
-
   if dash and lastWalkDir == dir and lastWalk + 50 > g_clock.millis() then
 
     return
 
   end  
-
-  
 
   firstStep = (not player:isWalking() and lastFinishedStep + 100 < g_clock.millis() and walkLock + 100 < g_clock.millis())
 
@@ -730,8 +637,6 @@ function walk(dir, ticks)
     walkLock = walkLock + math.max(g_settings.getNumber('walkFirstStepDelay'), 100)
 
   end
-
-  
 
   nextWalkDir = nil
 
@@ -783,8 +688,6 @@ function walk(dir, ticks)
 
   end
 
-
-
   if player:isServerWalking() and not dash then
 
     g_game.stop()
@@ -797,15 +700,11 @@ function walk(dir, ticks)
 
   g_game.walk(dir, preWalked)  
 
-  
-
   if not firstStep and lastWalkDir ~= dir then
 
     walkLock = g_clock.millis() + g_settings.getNumber('walkTurnDelay')    
 
   end
-
-  
 
   lastWalkDir = dir
 
@@ -814,8 +713,6 @@ function walk(dir, ticks)
   return true
 
 end
-
-
 
 function turn(dir, repeated)
 
@@ -827,11 +724,7 @@ function turn(dir, repeated)
 
   end
 
-  
-
   removeEvent(walkEvent)
-
-  
 
   if not repeated or (lastTurn + 100 < g_clock.millis()) then
 
@@ -857,8 +750,6 @@ function turn(dir, repeated)
 
 end
 
-
-
 function checkTurn()
 
   for keys, direction in pairs(turnKeys) do
@@ -876,12 +767,7 @@ end
 ```
 
 ---
-
-
-
 # walking.otmod
-
-
 
 ```text
 
@@ -906,6 +792,3 @@ Module
 ```
 
 ---
-
-
-

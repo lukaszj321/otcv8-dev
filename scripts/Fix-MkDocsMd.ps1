@@ -1,173 +1,179 @@
-<#  Fix-MkDocsMd.ps1
-    - Walks docs/, fixes broken headings (one-letter-per-line blocks),
-      ensures a proper H1/title, trims BOMs, normalizes line endings,
-      and optionally writes changes with .bak backups.
+<# 
+Fix-MkDocsMd.ps1
+Użycie:
+  # podgląd (bez zapisu)
+  powershell -NoProfile -File ".\scripts\Fix-MkDocsMd.ps1" -Path ".\docs"
 
-    Usage:
-      # preview
-      powershell -NoProfile -File .\scripts\Fix-MkDocsMd.ps1 -Path .\docs
-
-      # apply (creates .bak next to each changed file)
-      powershell -NoProfile -File .\scripts\Fix-MkDocsMd.ps1 -Path .\docs -Apply
+  # zapisz zmiany (tworzy *.bak obok plików)
+  powershell -NoProfile -File ".\scripts\Fix-MkDocsMd.ps1" -Path ".\docs" -Apply
 #>
 
 [CmdletBinding()]
 param(
   [Parameter(Mandatory=$true)]
   [string]$Path,
+
   [switch]$Apply
 )
 
-Set-StrictMode -Version Latest
-$ErrorActionPreference = 'Stop'
+# --- Pomocnicze -------------------------------------------------------------
 
-function Get-MdFiles([string]$root) {
-  if (-not (Test-Path $root)) { throw "Path not found: $root" }
-  Get-ChildItem -Path $root -Recurse -Include *.md -File
-}
-
-function Normalize-LineEndings([string]$text) {
-  $text -replace "(`r`n|`r|`n)", "`r`n"
-}
-
-function Remove-UTF8-BOM([byte[]]$bytes) {
-  if ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) {
-    return ,$bytes[3..($bytes.Length-1)]
+function Get-MdFiles {
+  param([string]$Root)
+  if (-not (Test-Path -LiteralPath $Root)) {
+    throw "Ścieżka nie istnieje: $Root"
   }
-  return ,$bytes
+  Get-ChildItem -LiteralPath $Root -Recurse -File -Include *.md
 }
 
-function Join-OneCharLines([string]$text) {
-  $lines = $text -split "`r`n"
+function Read-TextUtf8 {
+  param([string]$File)
+  # Zawsze zwróć JEDEN string (nie tablica linii)
+  return [System.IO.File]::ReadAllText($File,[System.Text.Encoding]::UTF8)
+}
+
+function Write-TextUtf8 {
+  param([string]$File,[string]$Text)
+  # Pisz jako UTF-8 (bez BOM)
+  [System.IO.File]::WriteAllText($File,$Text,[System.Text.Encoding]::UTF8)
+}
+
+# --- Transformacje ----------------------------------------------------------
+
+function Remove-InvisibleChars {
+  param([string]$Text)
+  $zwsp = [char]0x200B  # Zero-Width Space
+  $shy  = [char]0x00AD  # Soft Hyphen
+  $bom  = [char]0xFEFF  # BOM w środku pliku
+  $Text = $Text -replace [regex]::Escape("$bom"), ""
+  $Text = $Text -replace [regex]::Escape("$zwsp"), ""
+  $Text = $Text -replace [regex]::Escape("$shy"), ""
+  return $Text
+}
+
+function Normalize-Headings {
+  param([string]$Text)
+  # Uporządkuj # do ###### + pojedyncza spacja po kratkach
+  $Text = $Text -replace '(?m)^\s*######\s*', '###### '
+  $Text = $Text -replace '(?m)^\s*#####\s*',  '##### '
+  $Text = $Text -replace '(?m)^\s*####\s*',   '#### '
+  $Text = $Text -replace '(?m)^\s*###\s*',    '### '
+  $Text = $Text -replace '(?m)^\s*##\s*',     '## '
+  $Text = $Text -replace '(?m)^\s*#\s*',      '# '
+  # Wyrównaj: "#    Tytuł" -> "# Tytuł" (pojedyncza spacja)
+  $Text = $Text -replace '(?m)^(\#{1,6})\s+(.*)$', '$1 $2'
+  return $Text
+}
+
+function Join-OneCharLines {
+  param([string]$Text)
+
+  # Heurystyka: jeżeli występuje blok >= 6 kolejnych linii,
+  # gdzie każda linia ma 1–2 widoczne znaki (litera/cyfra/punktacja),
+  # to sklej to w jedną linię (bez spacji w środku),
+  # zachowując ewentualne nawiasy/łączniki.
+  $lines = $Text -split "`r?`n",-1
   $out = New-Object System.Collections.Generic.List[string]
-  $i = 0
-  while ($i -lt $lines.Count) {
-    $j = $i
-    while ($j -lt $lines.Count) {
-      $l = $lines[$j].Trim()
-      if ($l.Length -le 2 -and $l -ne '') { $j++; continue }
-      break
-    }
-    $runLen = $j - $i
-    if ($runLen -ge 10) {
-      $joined = ($lines[$i..($j-1)] | ForEach-Object { $_.Trim() }) -join ''
-      if ($out.Count -gt 0 -and $out[$out.Count-1] -ne '') { $out.Add('') }
-      $out.Add($joined)
-      $out.Add('')
-      $i = $j
+  $buffer = New-Object System.Collections.Generic.List[string]
+
+  function Flush-Buffer {
+    param([System.Collections.Generic.List[string]]$buf,
+          [System.Collections.Generic.List[string]]$dst)
+    if ($buf.Count -ge 6) {
+      # sklej znaki bez separatora, a potem zredukuj wielokrotne spacje
+      $joined = ($buf -join '') -replace '\s{2,}',' '
+      $dst.Add($joined)
     } else {
-      $out.Add($lines[$i])
-      $i++
+      foreach ($b in $buf) { $dst.Add($b) }
+    }
+    $buf.Clear()
+  }
+
+  foreach ($ln in $lines) {
+    $trim = $ln.Trim()
+    # Dopuszczamy 1–2 znaki (litery/cyfry/punktacja), ewentualnie pojedynczą spację
+    if ($trim -match '^[\p{L}\p{N}\p{P}]{1,2}$') {
+      $buffer.Add($trim)
+    } else {
+      if ($buffer.Count -gt 0) { Flush-Buffer -buf $buffer -dst $out }
+      $out.Add($ln)
     }
   }
-  ($out -join "`r`n")
+  if ($buffer.Count -gt 0) { Flush-Buffer -buf $buffer -dst $out }
+
+  return ($out -join "`r`n")
 }
 
-function Ensure-H1([string]$text, [string]$filePath) {
-  # Work on a List[string], not an array (PS 5.1 safe)
-  $arr = $text -split "`r`n"
-  $lines = New-Object System.Collections.Generic.List[string]
-  $lines.AddRange($arr)
-
-  # skip YAML front matter
-  $start = 0
-  if ($lines.Count -gt 0 -and $lines[0].Trim() -eq '---') {
-    $k = 1
-    while ($k -lt $lines.Count -and $lines[$k].Trim() -ne '---') { $k++ }
-    if ($k -lt $lines.Count) { $start = $k + 1 }
+function Fix-RawBlocks {
+  param([string]$Text)
+  $open  = ([regex]'{%\s*raw\s*%}').Matches($Text).Count
+  $close = ([regex]'{%\s*endraw\s*%}').Matches($Text).Count
+  if ($open -gt $close) {
+    $missing = $open - $close
+    $Text = $Text.TrimEnd() + "`r`n" + ("{% endraw %}`r`n" * $missing)
   }
+  return $Text
+}
 
-  # find first non-empty line
-  $firstIdx = -1
-  for ($ix = $start; $ix -lt $lines.Count; $ix++) {
-    if ($lines[$ix] -match '\S') { $firstIdx = [int]$ix; break }
-  }
+function Normalize-BlankLines {
+  param([string]$Text)
+  # Usuń linie z samymi białymi znakami, ujednolić CRLF
+  $Text = ($Text -replace '(?m)^\s+$','').TrimEnd()
+  # wymuś CRLF jako separator
+  $Text = ($Text -split "`r?`n") -join "`r`n"
+  return $Text + "`r`n"
+}
 
-  if ($firstIdx -eq -1) {
-    $title = [IO.Path]::GetFileNameWithoutExtension($filePath) -replace '_',' ' -replace '-',' '
-    return "# $title`r`n"
-  }
+# --- Główna logika ----------------------------------------------------------
 
-  $firstLine = $lines[$firstIdx]
+$files = Get-MdFiles -Root $Path
 
-  if ($firstLine -match '^\s*#\s+') {
-    $title = $firstLine -replace '^\s*#\s+','# '
-    $lines[$firstIdx] = $title.TrimEnd()
-  }
-  elseif ($firstLine -match '^\s*<h1[^>]*>.*</h1>\s*$') {
-    $titleText = ($firstLine -replace '^\s*<h1[^>]*>','' -replace '</h1>\s*$','').Trim()
-    $lines[$firstIdx] = "# $titleText"
-  }
-  else {
-    if ($firstLine -notmatch '^\s*#{2,}\s+') {
-      $lines[$firstIdx] = ("# " + $firstLine).TrimEnd()
+$checked = 0
+$changed = 0
+$unchanged = 0
+$changedList = @()
+
+foreach ($f in $files) {
+  $checked++
+
+  $orig = Read-TextUtf8 -File $f.FullName
+  $txt  = $orig
+
+  $txt = Remove-InvisibleChars  -Text $txt
+  $txt = Normalize-Headings     -Text $txt
+  $txt = Join-OneCharLines      -Text $txt
+  $txt = Fix-RawBlocks          -Text $txt
+  $txt = Normalize-BlankLines   -Text $txt
+
+  if ($txt -ne $orig) {
+    $changed++
+    $changedList += $f.FullName
+
+    if ($Apply) {
+      # backup
+      Copy-Item -LiteralPath $f.FullName -Destination ($f.FullName + ".bak") -Force
+      Write-TextUtf8 -File $f.FullName -Text $txt
+      Write-Host "Fix: $($f.FullName)" -ForegroundColor Cyan
     }
-  }
-
-  # remove duplicate H1 within next 5 lines
-  $toRemove = @()
-  $maxCheck = [Math]::Min($firstIdx + 5, $lines.Count - 1)
-  for ($j = $firstIdx + 1; $j -le $maxCheck; $j++) {
-    if ($lines[$j] -match '^\s*#\s+') { $toRemove += $j }
-  }
-  # remove from bottom to top to keep indices valid
-  foreach ($idx in ($toRemove | Sort-Object -Descending)) {
-    $lines.RemoveAt([int]$idx)
-  }
-
-  ($lines -join "`r`n")
-}
-
-function Fix-File([IO.FileInfo]$file, [switch]$apply) {
-  $raw = [IO.File]::ReadAllBytes($file.FullName)
-  $raw = Remove-UTF8-BOM $raw
-  $text = [System.Text.Encoding]::UTF8.GetString($raw)
-
-  $orig = $text
-
-  $text = Normalize-LineEndings $text
-  $text = Join-OneCharLines $text
-  $text = Ensure-H1 $text $file.FullName
-
-  $changed = ($text -ne $orig)
-  if ($changed -and $apply) {
-    $bak = "$($file.FullName).bak"
-    if (-not (Test-Path $bak)) { Copy-Item -Path $file.FullName -Destination $bak -Force }
-    [IO.File]::WriteAllText($file.FullName, $text, (New-Object System.Text.UTF8Encoding($false)))
-  }
-
-  [PSCustomObject]@{
-    File    = $file.FullName
-    Changed = $changed
+  } else {
+    $unchanged++
   }
 }
 
-# MAIN
-$files = Get-MdFiles -root $Path
-if ($files.Count -eq 0) {
-  Write-Host "No markdown files found under: $Path" -ForegroundColor Yellow
-  exit 0
-}
+Write-Host ""
+Write-Host "Checked: $checked files" -ForegroundColor Yellow
+Write-Host "Changed: $changed" -ForegroundColor Green
+Write-Host "Unchanged: $unchanged" -ForegroundColor Gray
+Write-Host ""
 
-$results = foreach ($f in $files) { Fix-File -file $f -apply:$Apply.IsPresent }
-
-$changed = $results | Where-Object { $_.Changed }
-$unchanged = $results | Where-Object { -not $_.Changed }
-
-Write-Host "Checked: $($results.Count) files" -ForegroundColor Cyan
-Write-Host "Changed: $($changed.Count)" -ForegroundColor Cyan
-Write-Host "Unchanged: $($unchanged.Count)" -ForegroundColor DarkGray
-
-if (-not $Apply) {
-  Write-Host ""
-  Write-Host "Preview mode. Use -Apply to write changes (creates .bak)." -ForegroundColor Yellow
-} else {
-  Write-Host ""
+if ($Apply) {
   Write-Host "Apply mode. Changes written. Backups *.bak created next to files." -ForegroundColor Green
+} else {
+  Write-Host "Preview mode. Use -Apply to write changes (creates .bak)." -ForegroundColor Yellow
 }
 
-if ($changed.Count -gt 0) {
+if ($changedList.Count -gt 0) {
   Write-Host ""
-  Write-Host "Changed files:" -ForegroundColor Cyan
-  $changed.File | ForEach-Object { Write-Host " - $_" }
+  Write-Host "Changed files:" -ForegroundColor Yellow
+  $changedList | ForEach-Object { Write-Host " - $_" }
 }

@@ -1,13 +1,10 @@
-# Client Overview (Game Logic, Entities, Map)
+﻿# Client Overview (Game Logic, Entities, Map)
 
 Poniżej znajduje się przegląd klas i metod z folderu `client/`, odpowiedzialnych za logikę gry, gracza, mapę, efekty, kreatury i inne systemy w grze.
-
-
-## client/animatedtext.cpp
+# # client/animatedtext.cpp
 
 - `rect(p, textSize)`
-
-## client/animatedtext.h
+# # client/animatedtext.h
 
 class AnimatedText
 - `AnimatedText()`
@@ -24,12 +21,10 @@ class AnimatedText
 - `isAnimatedText()`
 - `getText()`
 - `onAppear()`
-
-## client/animator.cpp
+# # client/animator.cpp
 
 - `calculateSynchronous()`
-
-## client/animator.h
+# # client/animator.h
 
 class Animator
 - `Animator()`
@@ -48,19 +43,16 @@ class Animator
 - `getLoopPhase()`
 - `getPhaseDuration(int phase)`
 - `calculateSynchronous()`
-
-## client/client.cpp
+# # client/client.cpp
 
 - `registerLuaFunctions()`
-
-## client/client.h
+# # client/client.h
 
 class Client
 - `init(std::vector<std::string>& args)`
 - `terminate()`
 - `registerLuaFunctions()`
-
-## client/container.h
+# # client/container.h
 
 class Container
 class Game
@@ -88,8 +80,7 @@ class Game
 - `onUpdateItem(int slot, const ItemPtr& item)`
 - `onRemoveItem(int slot, const ItemPtr& lastItem)`
 - `updateItemsPositions()`
-
-## client/creature.cpp
+# # client/creature.cpp
 
 - `rect(getDrawOffset() - (m_walking ? m_walkOffset : Point(0,0)), Size(Otc::TILE_PIXELS - getDisplacementY(), Otc::TILE_PIXELS - getDisplacementX()))`
 - `rect(getDrawOffset() - getDisplacement(), Size(g_sprites.spriteSize(), g_sprites.spriteSize()))`
@@ -104,8 +95,7 @@ class Game
 - `Point(8, 8) * g_sprites.getOffsetFactor()`
 - `Point(0, 0)`
 - `StaticText())`
-
-## client/creature.h
+# # client/creature.h
 
 class Creature
 class Npc
@@ -239,8 +229,7 @@ class Monster
 - `updateJump()`
 - `isNpc()`
 - `isMonster()`
-
-## client/creatures.cpp
+# # client/creatures.cpp
 
 - `cType(nullptr)`
 - `ret(new Creature)`
@@ -250,8 +239,7 @@ class Monster
 - `TiXmlElement("spawn")`
 - `newType(new CreatureType(cName))`
 - `ret(new Spawn)`
-
-## client/creatures.h
+# # client/creatures.h
 
 class Spawn
 class CreatureManager
@@ -296,8 +284,7 @@ class CreatureManager
 - `isLoaded()`
 - `isSpawnLoaded()`
 - `internalLoadCreatureBuffer(TiXmlElement* elem, const CreatureTypePtr& m)`
-
-## client/declarations.h
+# # client/declarations.h
 
 class Map
 class Game
@@ -336,8 +323,7 @@ class UIMapAnchorLayout
 class UIPositionAnchor
 class UISprite
 class HealthBar
-
-## client/effect.h
+# # client/effect.h
 
 class Effect
 - `draw(const Point& dest, bool animate = true, LightView* lightView = nullptr)`
@@ -347,8 +333,7 @@ class Effect
 - `asEffect()`
 - `isEffect()`
 - `onAppear()`
-
-## client/game.cpp
+# # client/game.cpp
 
 - `resetGameStates()`
 - `Container(containerId, capacity, name, containerItem, hasParent, isUnlocked, hasPages, containerSize, firstIndex))`
@@ -357,8 +342,7 @@ class Effect
 - `PacketRecorder(recordTo)))`
 - `PacketPlayer(file))`
 - `resetGameStates()`
-
-## client/game.h
+# # client/game.h
 
 class Game
 class ProtocolGame
@@ -590,8 +574,7 @@ class Map
 - `disableBotCall()`
 - `setAttackingCreature(const CreaturePtr& creature)`
 - `setFollowingCreature(const CreaturePtr& creature)`
-
-## client/healthbars.cpp
+# # client/healthbars.cpp
 
 - `bar(new HealthBar)`
 - `bar(new HealthBar)`
@@ -599,8 +582,7 @@ class Map
 - `Point()`
 - `Point()`
 - `Point()`
-
-## client/healthbars.h
+# # client/healthbars.h
 
 class HealthBar
 class HealthBars
@@ -628,15 +610,13 @@ class HealthBars
 - `getManaBarOffsetBar(int id)`
 - `getHealthBarHeight(int id)`
 - `getManaBarHeight(int id)`
-
-## client/houses.cpp
+# # client/houses.cpp
 
 - `House(houseId)), addHouse(house)`
 - `TiXmlDeclaration("1.0", "UTF-8", "")`
 - `TiXmlElement("houses")`
 - `TiXmlElement("house")`
-
-## client/houses.h
+# # client/houses.h
 
 class House
 class HouseManager
@@ -673,8 +653,7 @@ class HouseManager
 - `getHouseList()`
 - `filterHouses(uint32 townId)`
 - `findHouse(uint32 houseId)`
-
-## client/item.cpp
+# # client/item.cpp
 
 - `item(new Item)`
 - `item(new Item)`
@@ -684,8 +663,7 @@ class HouseManager
 - `setCount(in->getU16())`
 - `rawGetThingType()->isGround()`
 - `getAnimator()->getPhase()`
-
-## client/item.h
+# # client/item.h
 
 class Item
 - `Item()`
@@ -751,15 +729,13 @@ class Item
 - `getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern = 0, int animationPhase = 0)`
 - `setCustomAttribute(uint16 key, uint64 value)`
 - `getCustomAttribute(uint16 key)`
-
-## client/itemtype.cpp
+# # client/itemtype.cpp
 
 - `tmp(new ItemType)`
 - `tmp(new ItemType)`
 - `setClientId(node->getU16())`
 - `setName(node->getString(len))`
-
-## client/itemtype.h
+# # client/itemtype.h
 
 class ItemType
 - `ItemType()`
@@ -776,12 +752,10 @@ class ItemType
 - `getDesc()`
 - `isNull()`
 - `isWritable()`
-
-## client/lightview.cpp
+# # client/lightview.cpp
 
 - `pos(x * g_sprites.spriteSize() + g_sprites.spriteSize() / 2, y * g_sprites.spriteSize() + g_sprites.spriteSize() / 2)`
-
-## client/lightview.h
+# # client/lightview.h
 
 class LightView
 - `addLight(const Point& pos, const Light& light)`
@@ -790,14 +764,12 @@ class LightView
 - `setFieldBrightness(const Point& pos, size_t start, uint8_t color)`
 - `size()`
 - `draw()`
-
-## client/localplayer.cpp
+# # client/localplayer.cpp
 
 - `updateWalk()`
 - `self(asLocalPlayer())`
 - `cancelNewWalk(direction)`
-
-## client/localplayer.h
+# # client/localplayer.h
 
 class LocalPlayer
 class Game
@@ -882,8 +854,7 @@ class Game
 - `updateWalkOffset(uint8 totalPixelsWalked, bool inNextFrame = false)`
 - `updateWalk()`
 - `terminateWalk()`
-
-## client/luafunctions_client.cpp
+# # client/luafunctions_client.cpp
 
 - `ProtocolGamePtr(new ProtocolGame)`
 - `HousePtr(new House)`
@@ -902,8 +873,7 @@ class Game
 - `UIMinimapPtr(new UIMinimap)`
 - `UIProgressRectPtr(new UIProgressRect)`
 - `UIGraphPtr(new UIGraph)`
-
-## client/luavaluecasts_client.cpp
+# # client/luavaluecasts_client.cpp
 
 - `push_luavalue(const Outfit& outfit)`
 - `luavalue_cast(int index, Outfit& outfit)`
@@ -920,8 +890,7 @@ class Game
 - `luavalue_cast(int index, Light& light)`
 - `push_luavalue(const UnjustifiedPoints& unjustifiedPoints)`
 - `luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints)`
-
-## client/luavaluecasts_client.h
+# # client/luavaluecasts_client.h
 
 - `push_luavalue(const Outfit& outfit)`
 - `luavalue_cast(int index, Outfit& outfit)`
@@ -938,8 +907,7 @@ class Game
 - `luavalue_cast(int index, Light& light)`
 - `push_luavalue(const UnjustifiedPoints& unjustifiedPoints)`
 - `luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints)`
-
-## client/map.cpp
+# # client/map.cpp
 
 - `removeThing(tile->getThing(stackPos))`
 - `getSpectatorsInRangeEx(centerPos, multiFloor, m_awareRange.left - 1, m_awareRange.right - 2, m_awareRange.top - 1, m_awareRange.bottom - 2)`
@@ -955,8 +923,7 @@ class Game
 - `checkSightLine(fromPos, toPos) || checkSightLine(toPos, fromPos)`
 - `operator()(Node* a, Node* b)`
 - `operator()(Node* a, Node* b)`
-
-## client/map.h
+# # client/map.h
 
 class TileBlock
 class Map
@@ -1052,8 +1019,7 @@ class Map
 - `checkSightLine(const Position& fromPos, const Position& toPos)`
 - `removeUnawareThings()`
 - `getBlockIndex(const Position& pos)`
-
-## client/mapio.cpp
+# # client/mapio.cpp
 
 - `setDescription(tmp)`
 - `setSpawnFile(fileName.substr(0, fileName.rfind('/') + 1) + tmp)`
@@ -1061,8 +1027,7 @@ class Map
 - `House(hId))`
 - `Town(townId, townName, townCoords)))`
 - `root(new OutputBinaryTree(fin))`
-
-## client/mapview.cpp
+# # client/mapview.cpp
 
 - `Texture(m_drawDimension, false, true))`
 - `drawTileTexts(rect, srcRect)`
@@ -1073,8 +1038,7 @@ class Map
 - `Point(realPos.x % g_sprites.spriteSize(), realPos.y % g_sprites.spriteSize())`
 - `Rect(drawOffset, srcSize)`
 - `calcFirstVisibleFloor()`
-
-## client/mapview.h
+# # client/mapview.h
 
 class MapView
 class Map
@@ -1136,8 +1100,7 @@ class Map
 - `calcFirstVisibleFloor(bool forFading = false)`
 - `calcLastVisibleFloor()`
 - `transformPositionTo2D(const Position& position, const Position& relativePosition)`
-
-## client/minimap.cpp
+# # client/minimap.cpp
 
 - `image(new Image(Size(MMBLOCK_SIZE, MMBLOCK_SIZE)))`
 - `Texture(image))`
@@ -1157,8 +1120,7 @@ class Map
 - `decompressBuffer(blockSize)`
 - `compressBuffer(compressBound(blockSize))`
 - `filePath(g_resources.getWriteDir()), tmpFilePath(g_resources.getWriteDir())`
-
-## client/minimap.h
+# # client/minimap.h
 
 class MinimapBlock
 class Minimap
@@ -1191,8 +1153,7 @@ class Minimap
 - `getBlockOffset(const Point& pos)`
 - `getIndexPosition(int index, int z)`
 - `getBlockIndex(const Position& pos)`
-
-## client/missile.h
+# # client/missile.h
 
 class Missile
 - `draw(const Point& dest, bool animate = true, LightView* lightView = nullptr)`
@@ -1203,14 +1164,12 @@ class Missile
 - `isMissile()`
 - `getSource()`
 - `getDestination()`
-
-## client/outfit.cpp
+# # client/outfit.cpp
 
 - `DrawQueueItemOutfitWithShader(outfitParams->dest, outfitParams->texture, outfitParams->src, outfitParams->offset, center, 0, m_shader, m_center)`
 - `DrawQueueItemOutfit(outfitParams->dest, outfitParams->texture, outfitParams->src, outfitParams->offset, colors, outfitParams->color, m_center)`
 - `DrawQueueItemOutfitWithShader(outfitParams->dest, outfitParams->texture, outfitParams->src, outfitParams->offset, center, colors, m_shader, m_center)`
-
-## client/outfit.h
+# # client/outfit.h
 
 class Outfit
 - `Outfit()`
@@ -1254,15 +1213,13 @@ class Outfit
 - `draw()`
 - `draw(const Point& pos)`
 - `cache()`
-
-## client/player.h
+# # client/player.h
 
 class Player
 - `Player()`
 - `asPlayer()`
 - `isPlayer()`
-
-## client/position.h
+# # client/position.h
 
 class Position
 - `Position() : x(65535), y(65535), z(255)`
@@ -1292,20 +1249,17 @@ class Position
 - `coveredDown(int n = 1)`
 - `toString()`
 - `operator()(const Position& pos)`
-
-## client/protocolcodes.cpp
-
-- `buildMessageModesMap(int version)`
-- `translateMessageModeFromServer(uint8 mode)`
-- `translateMessageModeToServer(Otc::MessageMode mode)`
-
-## client/protocolcodes.h
+# # client/protocolcodes.cpp
 
 - `buildMessageModesMap(int version)`
 - `translateMessageModeFromServer(uint8 mode)`
 - `translateMessageModeToServer(Otc::MessageMode mode)`
+# # client/protocolcodes.h
 
-## client/protocolgame.h
+- `buildMessageModesMap(int version)`
+- `translateMessageModeFromServer(uint8 mode)`
+- `translateMessageModeToServer(Otc::MessageMode mode)`
+# # client/protocolgame.h
 
 class ProtocolGame
 class Game
@@ -1578,8 +1532,7 @@ class Game
 - `getImbuementInfo(const InputMessagePtr& msg)`
 - `getRecivedPacketsCount()`
 - `getRecivedPacketsSize()`
-
-## client/protocolgameparse.cpp
+# # client/protocolgameparse.cpp
 
 - `s(STATS_PACKETS, std::to_string((int)opcode))`
 - `parseLogin(msg)`
@@ -1743,8 +1696,7 @@ class Game
 - `tilePos(x + nx + offset, y + ny + offset, z)`
 - `id(0)")`
 - `Position(x, y, z)`
-
-## client/protocolgamesend.cpp
+# # client/protocolgamesend.cpp
 
 - `msg(new OutputMessage)`
 - `msg(new OutputMessage)`
@@ -1846,8 +1798,7 @@ class Game
 - `msg(new OutputMessage)`
 - `msg(new OutputMessage)`
 - `msg(new OutputMessage)`
-
-## client/spritemanager.cpp
+# # client/spritemanager.cpp
 
 - `loadCwmSpr(cwmFile)`
 - `loadCasualSpr(sprFile)`
@@ -1858,8 +1809,7 @@ class Game
 - `getSpriteImageCasual(id)`
 - `image(new Image(Size(m_spriteSize, m_spriteSize)))`
 - `image(new Image(Size(m_spriteSize, m_spriteSize)))`
-
-## client/spritemanager.h
+# # client/spritemanager.h
 
 class SpriteManager
 - `SpriteManager()`
@@ -1881,12 +1831,10 @@ class SpriteManager
 - `loadCwmSpr(std::string file)`
 - `getSpriteImageCasual(int id)`
 - `getSpriteImageHd(int id)`
-
-## client/statictext.cpp
+# # client/statictext.cpp
 
 - `addColoredMessage(name, mode, { text, "" })`
-
-## client/statictext.h
+# # client/statictext.h
 
 class StaticText
 - `StaticText()`
@@ -1908,8 +1856,7 @@ class StaticText
 - `update()`
 - `scheduleUpdate()`
 - `compose()`
-
-## client/thing.h
+# # client/thing.h
 
 class Thing
 - `Thing()`
@@ -2062,8 +2009,7 @@ class Thing
 - `onPositionChange(const Position& newPos, const Position& oldPos)`
 - `onAppear()`
 - `onDisappear()`
-
-## client/thingstype.h
+# # client/thingstype.h
 
 class ThingsType
 - `load(const std::string& file)`
@@ -2074,8 +2020,7 @@ class ThingsType
 - `getFirstItemId()`
 - `getMaxItemid()`
 - `isValidItemId(int id)`
-
-## client/thingtype.cpp
+# # client/thingtype.cpp
 
 - `sprites(std::move(m_spritesIndex))`
 - `image(new Image(Size(spriteSize * m_size.width() * m_layers * m_numPatternX, spriteSize * m_size.height() * m_animationPhases * m_numPatternY * m_numPatternZ)))`
@@ -2093,8 +2038,7 @@ class ThingsType
 - `Image(textureSize * spriteSize))`
 - `drawRect(framePos + Point(m_size.width(), m_size.height()) * spriteSize - Point(1,1), framePos)`
 - `Texture(fullImage, true, false, true))`
-
-## client/thingtype.h
+# # client/thingtype.h
 
 class ThingType
 - `ThingType()`
@@ -2187,16 +2131,14 @@ class ThingType
 - `draw()`
 - `draw(const Point& pos)`
 - `cache()`
-
-## client/thingtypemanager.cpp
+# # client/thingtypemanager.cpp
 
 - `type(new ThingType)`
 - `OTMLException(node, "not a valid thing category")`
 - `OTMLException(node2, "thing not found")`
 - `itemType(new ItemType)`
 - `parseItemType(atoi(s.c_str()), element)`
-
-## client/thingtypemanager.h
+# # client/thingtypemanager.h
 
 class ThingTypeManager
 - `init()`
@@ -2225,14 +2167,12 @@ class ThingTypeManager
 - `isOtbLoaded()`
 - `isValidDatId(uint16 id, ThingCategory category)`
 - `isValidOtbId(uint16 id)`
-
-## client/tile.cpp
+# # client/tile.cpp
 
 - `StaticText())`
 - `300000(300s)!")`
 - `StaticText())`
-
-## client/tile.h
+# # client/tile.h
 
 class Tile
 - `calculateCorpseCorrection()`
@@ -2315,8 +2255,7 @@ class Tile
 - `getWidget()`
 - `removeWidget()`
 - `checkTranslucentLight()`
-
-## client/towns.h
+# # client/towns.h
 
 class Town
 class TownManager
@@ -2334,8 +2273,7 @@ class TownManager
 - `getTowns()`
 - `clear()`
 - `findTown(uint32 townId)`
-
-## client/uicreature.h
+# # client/uicreature.h
 
 class UICreature
 - `drawSelf(Fw::DrawPane drawPane)`
@@ -2356,8 +2294,7 @@ class UICreature
 - `setOldScaling(bool value)`
 - `onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
 - `onGeometryChange(const Rect& oldRect, const Rect& newRect)`
-
-## client/uigraph.h
+# # client/uigraph.h
 
 class UIGraph
 - `UIGraph()`
@@ -2369,8 +2306,7 @@ class UIGraph
 - `setTitle(const std::string& title)`
 - `setShowLabels(bool value)`
 - `onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
-
-## client/uiitem.h
+# # client/uiitem.h
 
 class UIItem
 - `UIItem()`
@@ -2393,13 +2329,11 @@ class UIItem
 - `isItemVisible()`
 - `onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
 - `cacheCountText()`
-
-## client/uimap.cpp
+# # client/uimap.cpp
 
 - `Position()`
 - `Point(0, 0)`
-
-## client/uimap.h
+# # client/uimap.h
 
 class UIMap
 - `UIMap()`
@@ -2458,14 +2392,12 @@ class UIMap
 - `onGeometryChange(const Rect& oldRect, const Rect& newRect)`
 - `updateVisibleDimension()`
 - `updateMapSize()`
-
-## client/uimapanchorlayout.cpp
+# # client/uimapanchorlayout.cpp
 
 - `VALIDATE(false)`
 - `anchor(new UIPositionAnchor(anchoredEdge, hookedPosition, hookedEdge))`
 - `update()`
-
-## client/uimapanchorlayout.h
+# # client/uimapanchorlayout.h
 
 class UIPositionAnchor
 class UIMapAnchorLayout
@@ -2474,12 +2406,10 @@ class UIMapAnchorLayout
 - `UIMapAnchorLayout(UIWidgetPtr parentWidget) : UIAnchorLayout(parentWidget)`
 - `centerInPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition)`
 - `fillPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition)`
-
-## client/uiminimap.cpp
+# # client/uiminimap.cpp
 
 - `UIMapAnchorLayout(static_self_cast<UIWidget>()))`
-
-## client/uiminimap.h
+# # client/uiminimap.h
 
 class UIMinimap
 - `UIMinimap()`
@@ -2509,8 +2439,7 @@ class UIMinimap
 - `onCameraPositionChange(const Position& position, const Position& oldPosition)`
 - `onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
 - `update()`
-
-## client/uiprogressrect.h
+# # client/uiprogressrect.h
 
 class UIProgressRect
 - `UIProgressRect()`
@@ -2518,12 +2447,10 @@ class UIProgressRect
 - `setPercent(float percent)`
 - `getPercent()`
 - `onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
-
-## client/uisprite.cpp
+# # client/uisprite.cpp
 
 - `Texture(image)`
-
-## client/uisprite.h
+# # client/uisprite.h
 
 class UISprite
 - `UISprite()`
@@ -2536,8 +2463,7 @@ class UISprite
 - `setSpriteVisible(bool visible)`
 - `hasSprite()`
 - `onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode)`
-
-## client/walkmatrix.h
+# # client/walkmatrix.h
 
 class WalkMatrix
 - `updatePosition(const Position& newPos)`
