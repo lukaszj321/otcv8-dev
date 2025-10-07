@@ -225,3 +225,7 @@ nav:
 
   - Narzędzia:
     - Przegląd: tools/tools.md
+nav:
+- Start: index.md
+- API Reference:
+  - 'otcv8-full-api': 'api/otcv8-full-api.md'
