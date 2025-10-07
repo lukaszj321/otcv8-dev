@@ -1,18 +1,18 @@
-# OTCv8 — Dokumentacja
+# OTCv8 â€” Dokumentacja
 
-Witaj w dokumentacji **OTCv8**. PoniA�ąA��tej najwaA�ąA��tniejsze dziaA�ąA?€L?y:
+Witaj w dokumentacji **OTCv8**. PoniAďż˝Ä…Aďż˝ďż˝tej najwaAďż˝Ä…Aďż˝ďż˝tniejsze dziaAďż˝Ä…A?â‚¬L?y:
 
-- **Architektura** – przegląd klienta, frameworka i struktury A�ą�aLsrAldeA�ąA?€L?.
-- **ModuA�ąA?€L?y** – opis moduA�ąA?€L?Alw gry (częA�ąA?€Lzć 1 i 2), rdzeA�ą„ i dodatki.
-- **API** – funkcje Lua klienta, specyfikacje silnika, presetAlw i walidatora.
-- **Dane** – przewodnik po strukturach danych.
-- **Przewodniki** – architektura (legacy), wprowadzenie do moduA�ąA?€L?Alw, WebSocket.
-- **Budowanie** – instrukcje dla Windows, Linux, Android.
-- **Dev** – FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
-- **Wiedza** – materiaA�ąA?€L?y referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
-- **Lua** – API ogAllne i styl pisania.
-- **UI** – przewodnik OTUI.
-- **Narzędzia** – przegląd narzędzi.
+- **Architektura** â€“ przeglÄ…d klienta, frameworka i struktury Aďż˝Ä…ďż˝aLsrAldeAďż˝Ä…A?â‚¬L?.
+- **ModuAďż˝Ä…A?â‚¬L?y** â€“ opis moduAďż˝Ä…A?â‚¬L?Alw gry (czÄ™Aďż˝Ä…A?â‚¬LzÄ‡ 1 i 2), rdzeAďż˝Ä…â€ž i dodatki.
+- **API** â€“ funkcje Lua klienta, specyfikacje silnika, presetAlw i walidatora.
+- **Dane** â€“ przewodnik po strukturach danych.
+- **Przewodniki** â€“ architektura (legacy), wprowadzenie do moduAďż˝Ä…A?â‚¬L?Alw, WebSocket.
+- **Budowanie** â€“ instrukcje dla Windows, Linux, Android.
+- **Dev** â€“ FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
+- **Wiedza** â€“ materiaAďż˝Ä…A?â‚¬L?y referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
+- **Lua** â€“ API ogAllne i styl pisania.
+- **UI** â€“ przewodnik OTUI.
+- **NarzÄ™dzia** â€“ przeglÄ…d narzÄ™dzi.
 
-> JeA�ąA?€Lzli szukasz szybkiego startu, przejdA�ą�aLs do:  
-> **Architektura Ă�?A?€ A?€�? _Przegląd klienta_** lub **Budowanie Ă�?A?€ A?€�? _Windows_**.
+> JeAďż˝Ä…A?â‚¬Lzli szukasz szybkiego startu, przejdAďż˝Ä…ďż˝aLs do:  
+> **Architektura Ä‚ďż˝?A?â‚¬ A?â‚¬ďż˝? _PrzeglÄ…d klienta_** lub **Budowanie Ä‚ďż˝?A?â‚¬ A?â‚¬ďż˝? _Windows_**.
