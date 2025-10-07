@@ -1,6 +1,6 @@
-# ¦ Modul: `game_bot/default_configs/vBot_4.7`
+# Â¦ Modul: `game_bot/default_configs/vBot_4.7`
 
-```lua
+`$fenceInfo
 
 -- load all otui files, order doesn't matter
 

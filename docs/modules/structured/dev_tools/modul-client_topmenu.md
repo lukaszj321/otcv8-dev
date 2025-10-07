@@ -1,6 +1,6 @@
-# ¦ Modul: `client_topmenu`
+# Â¦ Modul: `client_topmenu`
 
-```lua
+`$fenceInfo
 
 -- private variables
 
@@ -503,7 +503,7 @@ end
 ---
 # topmenu.otmod
 
-```text
+`$fenceInfo
 
 Module
 

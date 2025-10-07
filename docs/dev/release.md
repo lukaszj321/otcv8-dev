@@ -2,9 +2,9 @@
 
 1. Bump wersji (semver) / tag.
 2. Changelog z PR od ostatniego taga.
-3. Build artefaktów (CI).
+3. Build artefaktĂłw (CI).
 4. Publikacja + checksumy.
 ## Wersjonowanie dokumentacji
 
-- Docsy budują się z gałęzi `master`.
+- Docsy budujÄ… siÄ™ z gaÄąâ€šÄ™zi `master`.
 

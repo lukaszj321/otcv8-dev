@@ -1,6 +1,6 @@
-# ¦ Modul: `game_prey`
+# Â¦ Modul: `game_prey`
 
-```lua
+`$fenceInfo
 
 -- sponsored by kivera-global.com
 
@@ -1009,7 +1009,7 @@ end
 ---
 # prey.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -1036,7 +1036,7 @@ Module
 ---
 # prey.otui
 
-```otui
+`$fenceInfo
 
 LockedPreyPanel < Panel
 

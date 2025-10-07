@@ -1,6 +1,6 @@
-# ¦ Modul: `game_containers`
+# Â¦ Modul: `game_containers`
 
-```lua
+`$fenceInfo
 
 local gameStart = 0
 
@@ -405,7 +405,7 @@ end
 ---
 # containers.otmod
 
-```text
+`$fenceInfo
 
 Module
 

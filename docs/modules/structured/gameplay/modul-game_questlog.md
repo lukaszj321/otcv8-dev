@@ -1,6 +1,6 @@
-# ¦ Modul: `game_questlog`
+# Â¦ Modul: `game_questlog`
 
-```lua
+`$fenceInfo
 
 questLogButton = nil
 
@@ -505,7 +505,7 @@ end
 ---
 # questlog.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -530,7 +530,7 @@ Module
 ---
 # questlogwindow.otui
 
-```otui
+`$fenceInfo
 
 QuestTrackerLabel < Panel
 

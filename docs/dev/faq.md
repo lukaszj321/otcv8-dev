@@ -1,5 +1,5 @@
 # FAQ
 
-**Czy mogę używać swoich modułów?** Tak, wrzuć do `modules/<nazwa>` i zarejestruj w konfiguracji.
+**Czy mogÄ™ uÄąÄ˝ywaÄ‡ swoich moduÄąâ€šĂłw?** Tak, wrzuÄ‡ do `modules/<nazwa>` i zarejestruj w konfiguracji.
 
-**Czy działa na Linux/Windows?** Tak — patrz sekcja _Build_.
+**Czy dziaÄąâ€ša na Linux/Windows?** Tak â€” patrz sekcja _Build_.

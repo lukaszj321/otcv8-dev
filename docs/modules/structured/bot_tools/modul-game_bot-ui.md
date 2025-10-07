@@ -1,6 +1,6 @@
-# ¦ Modul: `game_bot/ui`
+# Â¦ Modul: `game_bot/ui`
 
-```otui
+`$fenceInfo
 
 BotButton < Button
 
@@ -155,7 +155,7 @@ SlotComboBox < ComboBox
 ---
 # config.otui
 
-```otui
+`$fenceInfo
 
 BotConfig < Panel
 
@@ -266,7 +266,7 @@ BotConfig < Panel
 ---
 # container.otui
 
-```otui
+`$fenceInfo
 
 BotContainer < Panel
 
@@ -307,7 +307,7 @@ BotContainer < Panel
 ---
 # icons.otui
 
-```otui
+`$fenceInfo
 
 BotIcon < UIWidget
 
@@ -420,7 +420,7 @@ BotIcon < UIWidget
 ---
 # panels.otui
 
-```otui
+`$fenceInfo
 
 DualScrollPanel < Panel
 

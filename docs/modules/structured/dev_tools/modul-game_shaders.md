@@ -1,6 +1,6 @@
-# ¦ Modul: `game_shaders`
+# Â¦ Modul: `game_shaders`
 
-```lua
+`$fenceInfo
 
 function init()
 
@@ -37,7 +37,7 @@ end
 ---
 # shaders.otmod
 
-```text
+`$fenceInfo
 
 Module
 

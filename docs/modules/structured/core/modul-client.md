@@ -1,6 +1,6 @@
-# ¦ Modul: `client`
+# Â¦ Modul: `client`
 
-```lua
+`$fenceInfo
 
 local musicFilename = "/sounds/startup"
 
@@ -211,7 +211,7 @@ end
 ---
 # client.otmod
 
-```text
+`$fenceInfo
 
 Module
 

@@ -1,6 +1,6 @@
-# ¦ Modul: `game_buttons`
+# Â¦ Modul: `game_buttons`
 
-```lua
+`$fenceInfo
 
 buttonsWindow = nil
 
@@ -95,7 +95,7 @@ end
 ---
 # buttons.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -118,7 +118,7 @@ Module
 ---
 # buttons.otui
 
-```otui
+`$fenceInfo
 
 GameButtonsWindow
 

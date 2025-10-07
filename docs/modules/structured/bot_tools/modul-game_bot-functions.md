@@ -1,6 +1,6 @@
-# ¦ Modul: `game_bot/functions`
+# Â¦ Modul: `game_bot/functions`
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -459,7 +459,7 @@ end
 ---
 # config.lua
 
-```lua
+`$fenceInfo
 
 --[[
 
@@ -962,7 +962,7 @@ end
 ---
 # const.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -1015,7 +1015,7 @@ context.InventorySlotLast = 10
 ---
 # icon.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -1336,7 +1336,7 @@ end
 ---
 # main.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -1732,7 +1732,8 @@ end
 # map.lua
 
 {% raw %}
-```lua
+{% raw %}
+`$fenceInfo
 
 local context = G.botContext
 
@@ -2232,11 +2233,12 @@ end
 
 ```
 {% endraw %}
+{% endraw %}
 
 ---
 # npc.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -2481,7 +2483,7 @@ context.NPC.finishTrade = context.NPC.closeTrade
 ---
 # player.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -2774,7 +2776,7 @@ modules.game_cooldown.isCooldownIconActive(id)
 ---
 # player_conditions.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -2839,7 +2841,7 @@ context.isHungry = function() return context.hasCondition(PlayerStates.Hungry) e
 ---
 # player_inventory.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -2926,7 +2928,7 @@ end
 ---
 # script_loader.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -3041,7 +3043,7 @@ end
 ---
 # server.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -3220,7 +3222,7 @@ end
 ---
 # sound.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -3281,7 +3283,7 @@ end
 ---
 # test.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -3292,7 +3294,7 @@ context.test = function() return context.info("test") end
 ---
 # tools.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -3329,7 +3331,7 @@ end
 ---
 # ui.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -3397,7 +3399,8 @@ end
 # ui_elements.lua
 
 {% raw %}
-```lua
+{% raw %}
+`$fenceInfo
 
 local context = G.botContext
 
@@ -4087,11 +4090,12 @@ end
 
 ```
 {% endraw %}
+{% endraw %}
 
 ---
 # ui_legacy.lua
 
-```lua
+`$fenceInfo
 
 local context = G.botContext
 
@@ -4339,7 +4343,8 @@ end
 # ui_windows.lua
 
 {% raw %}
-```lua
+{% raw %}
+`$fenceInfo
 
 local context = G.botContext
 
@@ -4432,6 +4437,7 @@ UI.ConfirmationWindow = function(title, question, callback)
 end
 
 ```
+{% endraw %}
 {% endraw %}
 
 ---

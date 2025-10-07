@@ -1,6 +1,6 @@
-# ¦ Modul: `game_textwindow`
+# Â¦ Modul: `game_textwindow`
 
-```lua
+`$fenceInfo
 
 windows = {}
 
@@ -233,7 +233,7 @@ end
 ---
 # textwindow.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -260,7 +260,7 @@ Module
 ---
 # textwindow.otui
 
-```otui
+`$fenceInfo
 
 TextWindow < MainWindow
 

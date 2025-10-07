@@ -1,6 +1,6 @@
-# ¦ Modul: `game_outfit`
+# Â¦ Modul: `game_outfit`
 
-```lua
+`$fenceInfo
 
 local window = nil
 
@@ -2233,7 +2233,7 @@ end
 ---
 # outfit.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -2258,7 +2258,7 @@ Module
 ---
 # outfitwindow.otui
 
-```otui
+`$fenceInfo
 
 FloorTile < UIWidget
 

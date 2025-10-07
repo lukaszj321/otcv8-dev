@@ -1,6 +1,6 @@
-# ¦ Modul: `game_modaldialog`
+# Â¦ Modul: `game_modaldialog`
 
-```lua
+`$fenceInfo
 
 modalDialog = nil
 
@@ -233,7 +233,7 @@ end
 ---
 # modaldialog.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -260,7 +260,7 @@ Module
 ---
 # modaldialog.otui
 
-```otui
+`$fenceInfo
 
 ChoiceListLabel < Label
 

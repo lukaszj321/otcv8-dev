@@ -1,6 +1,6 @@
-# ¦ Modul: `gamelib/ui`
+# Â¦ Modul: `gamelib/ui`
 
-```lua
+`$fenceInfo
 
 -- @docclass
 
@@ -279,7 +279,7 @@ end
 ---
 # uiitem.lua
 
-```lua
+`$fenceInfo
 
 function UIItem:onDragEnter(mousePos)
 
@@ -510,7 +510,7 @@ end
 ---
 # uiminimap.lua
 
-```lua
+`$fenceInfo
 
 function UIMinimap:onCreate()
 

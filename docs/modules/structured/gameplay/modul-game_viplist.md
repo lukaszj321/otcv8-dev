@@ -1,6 +1,6 @@
-# ¦ Modul: `game_viplist`
+# Â¦ Modul: `game_viplist`
 
-```otui
+`$fenceInfo
 
 MainWindow
 
@@ -75,7 +75,7 @@ MainWindow
 ---
 # editvip.otui
 
-```otui
+`$fenceInfo
 
 IconButton < CheckBox
 
@@ -306,7 +306,7 @@ MainWindow
 ---
 # viplist.lua
 
-```lua
+`$fenceInfo
 
 vipWindow = nil
 
@@ -1003,7 +1003,7 @@ end
 ---
 # viplist.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -1028,7 +1028,7 @@ Module
 ---
 # viplist.otui
 
-```otui
+`$fenceInfo
 
 VipListLabel < GameLabel
 

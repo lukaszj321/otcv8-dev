@@ -1,6 +1,6 @@
-# ¦ Modul: `game_battle`
+# Â¦ Modul: `game_battle`
 
-```lua
+`$fenceInfo
 
 battleWindow = nil
 
@@ -787,7 +787,7 @@ end
 ---
 # battle.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -812,7 +812,7 @@ Module
 ---
 # battle.otui
 
-```otui
+`$fenceInfo
 
 BattleIcon < UICheckBox
 
@@ -1075,7 +1075,7 @@ MiniWindow
 ---
 # battlebutton.otui
 
-```otui
+`$fenceInfo
 
 BattleButton < CreatureButton
 

@@ -1,6 +1,6 @@
-# ¦ Modul: `game_bugreport`
+# Â¦ Modul: `game_bugreport`
 
-```lua
+`$fenceInfo
 
 -- TODO: find another hotkey for this. Ctrl+Z will be reserved to undo on textedits.
 
@@ -63,7 +63,7 @@ end
 ---
 # bugreport.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -88,7 +88,7 @@ Module
 ---
 # bugreport.otui
 
-```otui
+`$fenceInfo
 
 BugReportWindow < MainWindow
 

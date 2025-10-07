@@ -1,6 +1,6 @@
 # Architektura (skrĂłt)
 
-```mermaid
+`$fenceInfo
 graph TD
   Client[OTCv8 Client] -->|Lua| vBot[vBot Modules]
   Client -->|OTUI| UI[UI System]
@@ -13,10 +13,10 @@ graph TD
 
 C++ Core â€“ silnik render/UI/IO
 
-Lua â€“ logika moduĹ‚Ăłw (vBot)
+Lua â€“ logika moduĂ„Ä…Ă˘â‚¬ĹˇĂłw (vBot)
 
 OTUI â€“ deklaratywne layouty
 
 === "Kontrakty"
 
-Eventy Lua âź· UI, IPC/WS, zasoby
+Eventy Lua Ä‚ËÄąĹźÂ· UI, IPC/WS, zasoby

@@ -1,6 +1,6 @@
-# ¦ Modul: `game_things`
+# Â¦ Modul: `game_things`
 
-```lua
+`$fenceInfo
 
 filename =  nil
 
@@ -99,7 +99,7 @@ end
 ---
 # things.otmod
 
-```text
+`$fenceInfo
 
 Module
 

@@ -1,6 +1,6 @@
-# ¦ Modul: `client_stats`
+# Â¦ Modul: `client_stats`
 
-```lua
+`$fenceInfo
 
 local statsWindow = nil
 
@@ -407,7 +407,7 @@ end
 ---
 # stats.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -432,7 +432,7 @@ Module
 ---
 # stats.otui
 
-```otui
+`$fenceInfo
 
 DebugText < Label
 

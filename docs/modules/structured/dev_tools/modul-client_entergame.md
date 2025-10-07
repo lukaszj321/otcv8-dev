@@ -1,6 +1,6 @@
-# ¦ Modul: `client_entergame`
+# Â¦ Modul: `client_entergame`
 
-```lua
+`$fenceInfo
 
 CharacterList = { }
 
@@ -721,7 +721,7 @@ end
 ---
 # characterlist.otui
 
-```otui
+`$fenceInfo
 
 CharacterWidget < UIWidget
 
@@ -960,7 +960,7 @@ StaticMainWindow
 ---
 # entergame.lua
 
-```lua
+`$fenceInfo
 
 EnterGame = { }
 
@@ -2025,7 +2025,7 @@ end
 ---
 # entergame.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -2054,7 +2054,7 @@ Module
 ---
 # entergame.otui
 
-```otui
+`$fenceInfo
 
 EnterGameWindow
 
@@ -2383,7 +2383,7 @@ EnterGameWindow
 ---
 # waitinglist.otui
 
-```otui
+`$fenceInfo
 
 MainWindow
 

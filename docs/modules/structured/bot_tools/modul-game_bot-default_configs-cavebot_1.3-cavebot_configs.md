@@ -1,6 +1,6 @@
-# ¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
+# Â¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
 
-```text
+`$fenceInfo
 
 goto:1033,1044,7
 
@@ -49,7 +49,7 @@ extensions:[[
 ---
 # fast_walking.cfg
 
-```text
+`$fenceInfo
 
 goto:84,112,6
 
@@ -78,7 +78,7 @@ extensions:[[
 ---
 # test_src.cfg
 
-```text
+`$fenceInfo
 
 goto:93,129,7
 

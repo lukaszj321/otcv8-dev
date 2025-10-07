@@ -1,7 +1,8 @@
-# ¦ Modul: `client_textedit`
+# Â¦ Modul: `client_textedit`
 
 {% raw %}
-```lua
+{% raw %}
+`$fenceInfo
 
 local activeWindow
 
@@ -299,11 +300,12 @@ end
 
 ```
 {% endraw %}
+{% endraw %}
 
 ---
 # textedit.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -328,7 +330,7 @@ Module
 ---
 # textedit.otui
 
-```otui
+`$fenceInfo
 
 TextEditButtons < Panel
 

@@ -1,6 +1,6 @@
-# ¦ Modul: `game_interface/widgets`
+# Â¦ Modul: `game_interface/widgets`
 
-```lua
+`$fenceInfo
 
 UIGameMap = extends(UIMap, "UIGameMap")
 

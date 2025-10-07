@@ -1,6 +1,6 @@
 # Framework Overview (UI, System, Input)
 
-Poniżej znajduje się przegląd klas i metod z folderu `framework/`, odpowiedzialnych za interfejs graficzny, zarządzanie UI, inputy, zdarzenia i inne aspekty systemowe klienta.
+PoniÄąÄ˝ej znajduje siÄ™ przeglÄ…d klas i metod z folderu `framework/`, odpowiedzialnych za interfejs graficzny, zarzÄ…dzanie UI, inputy, zdarzenia i inne aspekty systemowe klienta.
 ## framework/global.h
 
 - `fatalError(const char* error, const char* file, int line)`

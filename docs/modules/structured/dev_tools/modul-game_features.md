@@ -1,6 +1,6 @@
-# ¦ Modul: `game_features`
+# Â¦ Modul: `game_features`
 
-```lua
+`$fenceInfo
 
 function init()
 
@@ -325,7 +325,7 @@ end
 ---
 # features.otmod
 
-```text
+`$fenceInfo
 
 Module
 

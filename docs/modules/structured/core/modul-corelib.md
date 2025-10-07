@@ -1,6 +1,6 @@
-# ¦ Modul: `corelib`
+# Â¦ Modul: `corelib`
 
-```lua
+`$fenceInfo
 
 --[[
 
@@ -321,7 +321,7 @@ SOFTWARE.
 ---
 # bitwise.lua
 
-```lua
+`$fenceInfo
 
 Bit = {}
 
@@ -354,7 +354,7 @@ end
 ---
 # config.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass
 
@@ -481,7 +481,7 @@ end
 ---
 # const.lua
 
-```lua
+`$fenceInfo
 
 -- @docconsts @{
 
@@ -1112,7 +1112,7 @@ SoundChannels = {
 ---
 # corelib.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -1177,7 +1177,7 @@ Module
 ---
 # globals.lua
 
-```lua
+`$fenceInfo
 
 -- @docvars @{
 
@@ -1312,7 +1312,7 @@ end
 ---
 # http.lua
 
-```lua
+`$fenceInfo
 
 HTTP = {
 
@@ -1851,7 +1851,7 @@ g_http.setUserAgent(HTTP.agent)
 ---
 # inputmessage.lua
 
-```lua
+`$fenceInfo
 
 function InputMessage:getData()
 
@@ -1954,7 +1954,7 @@ end
 ---
 # json.lua
 
-```lua
+`$fenceInfo
 
 --
 
@@ -2677,7 +2677,7 @@ end
 ---
 # keyboard.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass
 
@@ -3132,7 +3132,7 @@ end
 ---
 # math.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass math
 
@@ -3195,7 +3195,7 @@ end
 ---
 # mouse.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass
 
@@ -3270,7 +3270,7 @@ end
 ---
 # net.lua
 
-```lua
+`$fenceInfo
 
 function translateNetworkError(errcode, connecting, errdesc)
 
@@ -3309,7 +3309,7 @@ end
 ---
 # orderedtable.lua
 
-```lua
+`$fenceInfo
 
 function __genOrderedIndex( t )
 
@@ -3392,7 +3392,7 @@ end
 ---
 # outputmessage.lua
 
-```lua
+`$fenceInfo
 
 function OutputMessage:addData(data)
 
@@ -3523,7 +3523,7 @@ end
 ---
 # settings.lua
 
-```lua
+`$fenceInfo
 
 g_settings = makesingleton(g_configs.getSettings())
 
@@ -3534,7 +3534,7 @@ g_settings = makesingleton(g_configs.getSettings())
 ---
 # string.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass string
 
@@ -3641,7 +3641,7 @@ end
 ---
 # struct.lua
 
-```lua
+`$fenceInfo
 
 Struct = {}
 
@@ -3942,7 +3942,7 @@ end
 ---
 # table.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass table
 
@@ -4469,7 +4469,7 @@ end
 ---
 # test.lua
 
-```lua
+`$fenceInfo
 
 Test = {
 
@@ -4592,7 +4592,7 @@ end
 ---
 # util.lua
 
-```lua
+`$fenceInfo
 
 -- @docfuncs @{
 

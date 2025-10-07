@@ -1,6 +1,6 @@
-# ¦ Modul: `game_inventory`
+# Â¦ Modul: `game_inventory`
 
-```lua
+`$fenceInfo
 
 Icons = {}
 
@@ -843,7 +843,7 @@ end
 ---
 # inventory.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -868,7 +868,7 @@ Module
 ---
 # inventory.otui
 
-```otui
+`$fenceInfo
 
 InventoryWindow
 
