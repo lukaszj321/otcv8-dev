@@ -1,6 +1,6 @@
-# ¦ Modul: `client_profiles`
+# Â¦ Modul: `client_profiles`
 
-```lua
+`$fenceInfo
 
 local settings = {}
 
@@ -269,7 +269,7 @@ end
 ---
 # profiles.otmod
 
-```text
+`$fenceInfo
 
 Module
 

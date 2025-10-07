@@ -1,68 +1,68 @@
 # otclientv8-dev/src/client
 
-> NOTE: Wszystkie pliki w repozytorium są objęte licencją MIT (2010–2017 OTClient, autor Edubart).
-## Ogólny opis
-Implementacja klasy `AnimatedText`, która odpowiada za renderowanie animowanego tekstu na mapie, takiego jak komunikaty o zadanych obrażeniach, leczeniu czy zdobytych punktach doświadczenia. Plik zawiera logikę animacji, rysowania oraz łączenia podobnych tekstów w jeden.
+> NOTE: Wszystkie pliki w repozytorium sÄ… objÄ™te licencjÄ… MIT (2010â€“2017 OTClient, autor Edubart).
+## OgĂłlny opis
+Implementacja klasy `AnimatedText`, ktĂłra odpowiada za renderowanie animowanego tekstu na mapie, takiego jak komunikaty o zadanych obraÄąÄ˝eniach, leczeniu czy zdobytych punktach doÄąâ€şwiadczenia. Plik zawiera logikÄ™ animacji, rysowania oraz Äąâ€šÄ…czenia podobnych tekstĂłw w jeden.
 ## Klasa `AnimatedText`
 ## Opis
-Klasa `AnimatedText` dziedziczy po `Thing` i reprezentuje tekst, który pojawia się w określonym miejscu na mapie, a następnie animuje swoje położenie i przezroczystość, by ostatecznie zniknąć.
+Klasa `AnimatedText` dziedziczy po `Thing` i reprezentuje tekst, ktĂłry pojawia siÄ™ w okreÄąâ€şlonym miejscu na mapie, a nastÄ™pnie animuje swoje poÄąâ€šoÄąÄ˝enie i przezroczystoÄąâ€şÄ‡, by ostatecznie zniknÄ…Ä‡.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `AnimatedText()` | Konstruktor. Inicjalizuje domyślne właściwości tekstu, takie jak czcionka i wyrównanie. |
-| `drawText(const Point& dest, const Rect& visibleRect)` | Rysuje tekst w określonym miejscu, uwzględniając postęp animacji. Animacja obejmuje ruch w górę (i opcjonalnie po przekątnej) oraz stopniowe zanikanie. |
-| `onAppear()` | Metoda wywoływana, gdy tekst pojawia się na mapie. Resetuje timer animacji i planuje usunięcie obiektu po zakończeniu animacji. |
-| `setColor(int color)` | Ustawia kolor tekstu na podstawie 8-bitowej wartości. |
-| `setText(const std::string& text)` | Ustawia treść tekstu. |
-| `setFont(const std::string& fontName)` | Ustawia czcionkę tekstu na podstawie nazwy. |
-| `merge(const AnimatedTextPtr& other)` | Próbuje połączyć tekst z innym obiektem `AnimatedText`. Łączenie jest możliwe, jeśli oba teksty mają ten sam kolor, czcionkę, a animacja obecnego tekstu nie jest zbyt zaawansowana. Teksty liczbowe są sumowane. |
-## Zależności i powiązania
-- **`map.h`**: Używa `g_map` do usuwania obiektu `AnimatedText` po zakończeniu animacji.
-- **`game.h`**: Używa `g_game` do sprawdzania, czy funkcja `GameDiagonalAnimatedText` jest włączona.
-- **`framework/core/clock.h`**: Używa `g_clock` do pomiaru czasu animacji.
-- **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania usunięcia obiektu.
-- **`framework/graphics/graphics.h`**: Używa `g_fonts` do zarządzania czcionkami.
-## Przykład użycia
-Obiekty `AnimatedText` są tworzone przez `ProtocolGame` w odpowiedzi na komunikaty serwera (np. o obrażeniach) i dodawane do `g_map`, która zarządza ich cyklem życia i rysowaniem.
+| `AnimatedText()` | Konstruktor. Inicjalizuje domyÄąâ€şlne wÄąâ€šaÄąâ€şciwoÄąâ€şci tekstu, takie jak czcionka i wyrĂłwnanie. |
+| `drawText(const Point& dest, const Rect& visibleRect)` | Rysuje tekst w okreÄąâ€şlonym miejscu, uwzglÄ™dniajÄ…c postÄ™p animacji. Animacja obejmuje ruch w gĂłrÄ™ (i opcjonalnie po przekÄ…tnej) oraz stopniowe zanikanie. |
+| `onAppear()` | Metoda wywoÄąâ€šywana, gdy tekst pojawia siÄ™ na mapie. Resetuje timer animacji i planuje usuniÄ™cie obiektu po zakoÄąâ€žczeniu animacji. |
+| `setColor(int color)` | Ustawia kolor tekstu na podstawie 8-bitowej wartoÄąâ€şci. |
+| `setText(const std::string& text)` | Ustawia treÄąâ€şÄ‡ tekstu. |
+| `setFont(const std::string& fontName)` | Ustawia czcionkÄ™ tekstu na podstawie nazwy. |
+| `merge(const AnimatedTextPtr& other)` | PrĂłbuje poÄąâ€šÄ…czyÄ‡ tekst z innym obiektem `AnimatedText`. ÄąÂÄ…czenie jest moÄąÄ˝liwe, jeÄąâ€şli oba teksty majÄ… ten sam kolor, czcionkÄ™, a animacja obecnego tekstu nie jest zbyt zaawansowana. Teksty liczbowe sÄ… sumowane. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`map.h`**: UÄąÄ˝ywa `g_map` do usuwania obiektu `AnimatedText` po zakoÄąâ€žczeniu animacji.
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania, czy funkcja `GameDiagonalAnimatedText` jest wÄąâ€šÄ…czona.
+- **`framework/core/clock.h`**: UÄąÄ˝ywa `g_clock` do pomiaru czasu animacji.
+- **`framework/core/eventdispatcher.h`**: UÄąÄ˝ywa `g_dispatcher` do planowania usuniÄ™cia obiektu.
+- **`framework/graphics/graphics.h`**: UÄąÄ˝ywa `g_fonts` do zarzÄ…dzania czcionkami.
+## PrzykÄąâ€šad uÄąÄ˝ycia
+Obiekty `AnimatedText` sÄ… tworzone przez `ProtocolGame` w odpowiedzi na komunikaty serwera (np. o obraÄąÄ˝eniach) i dodawane do `g_map`, ktĂłra zarzÄ…dza ich cyklem ÄąÄ˝ycia i rysowaniem.
 
-```cpp
-// Przykład tworzenia (logika w ProtocolGame::parseAnimatedText)
+`$fenceInfo
+// PrzykÄąâ€šad tworzenia (logika w ProtocolGame::parseAnimatedText)
 AnimatedTextPtr animatedText = AnimatedTextPtr(new AnimatedText);
 animatedText->setColor(color);
 animatedText->setText(text);
 g_map.addThing(animatedText, position);
 ```
 ---
-# 📄 houses.h
-## Ogólny opis
-Plik ten definiuje klasy `House` i `HouseManager`, które służą do zarządzania informacjami o domach w grze. Zawiera definicje struktur przechowujących atrybuty domów, takie jak nazwa, ID, wejście, oraz metody do zarządzania nimi.
+# Ä‘Ĺşâ€śâ€ž houses.h
+## OgĂłlny opis
+Plik ten definiuje klasy `House` i `HouseManager`, ktĂłre sÄąâ€šuÄąÄ˝Ä… do zarzÄ…dzania informacjami o domach w grze. Zawiera definicje struktur przechowujÄ…cych atrybuty domĂłw, takie jak nazwa, ID, wejÄąâ€şcie, oraz metody do zarzÄ…dzania nimi.
 ## Klasa `House`
 ## Opis
-Reprezentuje pojedynczy dom w świecie gry. Przechowuje jego atrybuty, listę przynależnych do niego pól (tiles) oraz drzwi.
+Reprezentuje pojedynczy dom w Äąâ€şwiecie gry. Przechowuje jego atrybuty, listÄ™ przynaleÄąÄ˝nych do niego pĂłl (tiles) oraz drzwi.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `House(uint32 hId, ...)` | Konstruktor tworzący dom o zadanym ID, nazwie i pozycji wejściowej. |
+| `House(uint32 hId, ...)` | Konstruktor tworzÄ…cy dom o zadanym ID, nazwie i pozycji wejÄąâ€şciowej. |
 | `setTile(const TilePtr& tile)` | Dodaje pole (tile) do domu. |
-| `getTile(const Position& pos)` | Zwraca wskaźnik do pola na podanej pozycji, jeśli należy ono do domu. |
-| `setName(const std::string& name)` | Ustawia nazwę domu. |
-| `getName()` | Zwraca nazwę domu. |
+| `getTile(const Position& pos)` | Zwraca wskaÄąĹźnik do pola na podanej pozycji, jeÄąâ€şli naleÄąÄ˝y ono do domu. |
+| `setName(const std::string& name)` | Ustawia nazwÄ™ domu. |
+| `getName()` | Zwraca nazwÄ™ domu. |
 | `setId(uint32 hId)` | Ustawia unikalne ID domu. |
 | `getId()` | Zwraca ID domu. |
-| `setTownId(uint32 tid)` | Ustawia ID miasta, w którym znajduje się dom. |
+| `setTownId(uint32 tid)` | Ustawia ID miasta, w ktĂłrym znajduje siÄ™ dom. |
 | `getTownId()` | Zwraca ID miasta. |
 | `setSize(uint32 s)` | Ustawia rozmiar domu. |
 | `getSize()` | Zwraca rozmiar domu. |
-| `setRent(uint32 r)` | Ustawia cenę wynajmu domu. |
-| `getRent()` | Zwraca cenę wynajmu. |
-| `setEntry(const Position& p)` | Ustawia pozycję wejścia do domu. |
-| `getEntry()` | Zwraca pozycję wejścia. |
+| `setRent(uint32 r)` | Ustawia cenÄ™ wynajmu domu. |
+| `getRent()` | Zwraca cenÄ™ wynajmu. |
+| `setEntry(const Position& p)` | Ustawia pozycjÄ™ wejÄąâ€şcia do domu. |
+| `getEntry()` | Zwraca pozycjÄ™ wejÄąâ€şcia. |
 | `addDoor(const ItemPtr& door)` | Dodaje drzwi do domu i przypisuje im unikalne ID. |
 | `removeDoor(const ItemPtr& door)` | Usuwa drzwi z domu. |
 | `removeDoorById(uint32 doorId)` | Usuwa drzwi na podstawie ich ID. |
 ## Klasa `HouseManager`
 ## Opis
-Singleton (`g_houses`) zarządzający wszystkimi domami w grze. Odpowiada za ich dodawanie, usuwanie, wczytywanie i zapisywanie z plików XML.
+Singleton (`g_houses`) zarzÄ…dzajÄ…cy wszystkimi domami w grze. Odpowiada za ich dodawanie, usuwanie, wczytywanie i zapisywanie z plikĂłw XML.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
@@ -72,369 +72,369 @@ Singleton (`g_houses`) zarządzający wszystkimi domami w grze. Odpowiada za ich
 | `getHouseByName(std::string name)` | Zwraca dom o podanej nazwie. |
 | `load(const std::string& fileName)` | Wczytuje dane o domach z pliku XML. |
 | `save(const std::string& fileName)` | Zapisuje dane o domach do pliku XML. |
-| `sort()` | Sortuje listę domów alfabetycznie według nazwy. |
-| `clear()` | Czyści listę domów. |
-| `getHouseList()` | Zwraca listę wszystkich domów. |
-| `filterHouses(uint32 townId)` | Zwraca listę domów należących do określonego miasta. |
+| `sort()` | Sortuje listÄ™ domĂłw alfabetycznie wedÄąâ€šug nazwy. |
+| `clear()` | CzyÄąâ€şci listÄ™ domĂłw. |
+| `getHouseList()` | Zwraca listÄ™ wszystkich domĂłw. |
+| `filterHouses(uint32 townId)` | Zwraca listÄ™ domĂłw naleÄąÄ˝Ä…cych do okreÄąâ€şlonego miasta. |
 ## Zmienne globalne
-- `HouseManager g_houses`: Globalna instancja managera domów.
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów wskaźników, takich jak `HousePtr` i `TilePtr`.
-- **`tile.h`**: Używa obiektów `Tile` do określenia obszaru domu.
-- **`item.h`**: Zarządza drzwiami, które są obiektami typu `Item`.
-- **`framework/luaengine/luaobject.h`**: Klasy są eksponowane do Lua.
+- `HouseManager g_houses`: Globalna instancja managera domĂłw.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw wskaÄąĹźnikĂłw, takich jak `HousePtr` i `TilePtr`.
+- **`tile.h`**: UÄąÄ˝ywa obiektĂłw `Tile` do okreÄąâ€şlenia obszaru domu.
+- **`item.h`**: ZarzÄ…dza drzwiami, ktĂłre sÄ… obiektami typu `Item`.
+- **`framework/luaengine/luaobject.h`**: Klasy sÄ… eksponowane do Lua.
 
 ---
-# 📄 animatedtext.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `AnimatedText`. Definiuje interfejs klasy, która zarządza animowanym tekstem na mapie.
+# Ä‘Ĺşâ€śâ€ž animatedtext.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `AnimatedText`. Definiuje interfejs klasy, ktĂłra zarzÄ…dza animowanym tekstem na mapie.
 ## Klasa `AnimatedText`
 ## Opis
-Dziedziczy po `Thing`. Służy do wyświetlania tekstu, który porusza się i zanika. Jest to obiekt "efemeryczny", który istnieje na mapie tylko przez czas trwania animacji.
+Dziedziczy po `Thing`. SÄąâ€šuÄąÄ˝y do wyÄąâ€şwietlania tekstu, ktĂłry porusza siÄ™ i zanika. Jest to obiekt "efemeryczny", ktĂłry istnieje na mapie tylko przez czas trwania animacji.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `AnimatedText()` | Konstruktor. |
-| `drawText(const Point& dest, const Rect& visibleRect)` | Rysuje tekst na ekranie z uwzględnieniem animacji. |
+| `drawText(const Point& dest, const Rect& visibleRect)` | Rysuje tekst na ekranie z uwzglÄ™dnieniem animacji. |
 | `setColor(int color)` | Ustawia kolor tekstu. |
-| `setText(const std::string& text)` | Ustawia treść tekstu. |
-| `setOffset(const Point& offset)` | Ustawia przesunięcie (offset) rysowania tekstu, używane do unikania nakładania się tekstów. |
-| `setFont(const std::string& fontName)` | Ustawia czcionkę tekstu. |
+| `setText(const std::string& text)` | Ustawia treÄąâ€şÄ‡ tekstu. |
+| `setOffset(const Point& offset)` | Ustawia przesuniÄ™cie (offset) rysowania tekstu, uÄąÄ˝ywane do unikania nakÄąâ€šadania siÄ™ tekstĂłw. |
+| `setFont(const std::string& fontName)` | Ustawia czcionkÄ™ tekstu. |
 | `getColor()` | Zwraca kolor tekstu. |
-| `getCachedText()` | Zwraca obiekt `CachedText` przechowujący tekst i informacje o renderowaniu. |
-| `getOffset()` | Zwraca aktualne przesunięcie tekstu. |
-| `getTimer()` | Zwraca timer używany do animacji. |
-| `merge(const AnimatedTextPtr& other)` | Funkcja do łączenia z innym `AnimatedText`. |
-| `asAnimatedText()` | Rzutuje wskaźnik na `AnimatedTextPtr`. |
+| `getCachedText()` | Zwraca obiekt `CachedText` przechowujÄ…cy tekst i informacje o renderowaniu. |
+| `getOffset()` | Zwraca aktualne przesuniÄ™cie tekstu. |
+| `getTimer()` | Zwraca timer uÄąÄ˝ywany do animacji. |
+| `merge(const AnimatedTextPtr& other)` | Funkcja do Äąâ€šÄ…czenia z innym `AnimatedText`. |
+| `asAnimatedText()` | Rzutuje wskaÄąĹźnik na `AnimatedTextPtr`. |
 | `isAnimatedText()` | Zwraca `true`. |
-| `getText()` | Zwraca treść tekstu. |
-## Zależności i powiązania
+| `getText()` | Zwraca treÄąâ€şÄ‡ tekstu. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`thing.h`**: Klasa bazowa.
-- **`framework/graphics/fontmanager.h`**: Zarządzanie czcionkami.
+- **`framework/graphics/fontmanager.h`**: ZarzÄ…dzanie czcionkami.
 - **`framework/core/timer.h`**: Pomiar czasu animacji.
 - **`framework/graphics/cachedtext.h`**: Efektywne renderowanie tekstu.
 
 ---
-# 📄 animator.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Animator`, która zarządza animacjami klatek dla obiektów w grze, takich jak przedmioty czy efekty.
+# Ä‘Ĺşâ€śâ€ž animator.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Animator`, ktĂłra zarzÄ…dza animacjami klatek dla obiektĂłw w grze, takich jak przedmioty czy efekty.
 ## Klasa `Animator`
 ## Opis
-Klasa `Animator` kontroluje, która klatka animacji powinna być wyświetlona w danym momencie. Obsługuje różne tryby animacji, takie jak pętle, ping-pong, animacje asynchroniczne i losowe.
+Klasa `Animator` kontroluje, ktĂłra klatka animacji powinna byÄ‡ wyÄąâ€şwietlona w danym momencie. ObsÄąâ€šuguje rĂłÄąÄ˝ne tryby animacji, takie jak pÄ™tle, ping-pong, animacje asynchroniczne i losowe.
 ## Typy wyliczeniowe
-- **`AnimationPhase`**: Określa fazę animacji (np. automatyczna, losowa, asynchroniczna).
-- **`AnimationDirection`**: Określa kierunek animacji (do przodu, do tyłu).
+- **`AnimationPhase`**: OkreÄąâ€şla fazÄ™ animacji (np. automatyczna, losowa, asynchroniczna).
+- **`AnimationDirection`**: OkreÄąâ€şla kierunek animacji (do przodu, do tyÄąâ€šu).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `Animator()` | Konstruktor. |
 | `unserialize(int animationPhases, const FileStreamPtr& fin)` | Wczytuje dane animatora ze strumienia. |
 | `serialize(const FileStreamPtr& fin)` | Zapisuje dane animatora do strumienia. |
-| `setPhase(int phase)` | Ustawia bieżącą fazę animacji. |
-| `getPhase()` | Oblicza i zwraca bieżącą fazę animacji na podstawie czasu. |
-| `getPhaseAt(Timer& timer, int lastPhase)` | Oblicza fazę animacji w danym momencie czasu (używane przez `Effect` dla niezależnych animacji). |
-| `getStartPhase()` | Zwraca początkową fazę animacji. |
-| `getAnimationPhases()` | Zwraca całkowitą liczbę faz animacji. |
-| `isAsync()` | Zwraca `true`, jeśli animacja jest asynchroniczna. |
-| `isComplete()` | Zwraca `true`, jeśli animacja została zakończona. |
-| `getTotalDuration()` | Zwraca całkowity czas trwania animacji. |
-| `resetAnimation()` | Resetuje stan animacji do początkowego. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
-- **`framework/core/timer.h`**: Używane do pomiaru czasu i synchronizacji animacji.
+| `setPhase(int phase)` | Ustawia bieÄąÄ˝Ä…cÄ… fazÄ™ animacji. |
+| `getPhase()` | Oblicza i zwraca bieÄąÄ˝Ä…cÄ… fazÄ™ animacji na podstawie czasu. |
+| `getPhaseAt(Timer& timer, int lastPhase)` | Oblicza fazÄ™ animacji w danym momencie czasu (uÄąÄ˝ywane przez `Effect` dla niezaleÄąÄ˝nych animacji). |
+| `getStartPhase()` | Zwraca poczÄ…tkowÄ… fazÄ™ animacji. |
+| `getAnimationPhases()` | Zwraca caÄąâ€škowitÄ… liczbÄ™ faz animacji. |
+| `isAsync()` | Zwraca `true`, jeÄąâ€şli animacja jest asynchroniczna. |
+| `isComplete()` | Zwraca `true`, jeÄąâ€şli animacja zostaÄąâ€ša zakoÄąâ€žczona. |
+| `getTotalDuration()` | Zwraca caÄąâ€škowity czas trwania animacji. |
+| `resetAnimation()` | Resetuje stan animacji do poczÄ…tkowego. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
+- **`framework/core/timer.h`**: UÄąÄ˝ywane do pomiaru czasu i synchronizacji animacji.
 
 ---
-# 📄 animator.cpp
-## Ogólny opis
-Implementacja klasy `Animator`. Zawiera logikę obliczania faz animacji w zależności od czasu i trybu pracy.
+# Ä‘Ĺşâ€śâ€ž animator.cpp
+## OgĂłlny opis
+Implementacja klasy `Animator`. Zawiera logikÄ™ obliczania faz animacji w zaleÄąÄ˝noÄąâ€şci od czasu i trybu pracy.
 ## Klasa `Animator`
 ## Opis
-Plik implementuje logikę działania animatora. Obliczenia fazy zależą od tego, czy animacja jest synchroniczna (wszystkie obiekty tego samego typu animują się tak samo) czy asynchroniczna (każdy obiekt animuje się niezależnie).
+Plik implementuje logikÄ™ dziaÄąâ€šania animatora. Obliczenia fazy zaleÄąÄ˝Ä… od tego, czy animacja jest synchroniczna (wszystkie obiekty tego samego typu animujÄ… siÄ™ tak samo) czy asynchroniczna (kaÄąÄ˝dy obiekt animuje siÄ™ niezaleÄąÄ˝nie).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `unserialize(...)` | Wczytuje z pliku binarnego liczbę faz, tryb `async`, liczbę pętli, fazę startową oraz czas trwania każdej klatki (min/max). |
+| `unserialize(...)` | Wczytuje z pliku binarnego liczbÄ™ faz, tryb `async`, liczbÄ™ pÄ™tli, fazÄ™ startowÄ… oraz czas trwania kaÄąÄ˝dej klatki (min/max). |
 | `serialize(...)` | Zapisuje dane animatora do pliku binarnego. |
-| `setPhase(int phase)` | Ustawia aktualną fazę animacji. Dla animacji asynchronicznych resetuje timer i ustawia czas trwania klatki. Dla synchronicznych przelicza fazę na podstawie globalnego zegara. |
-| `getPhase()` | Główna metoda aktualizująca. Na podstawie czasu, jaki upłynął od ostatniego wywołania, decyduje, czy należy przejść do następnej klatki animacji. |
-| `getPhaseAt(...)` | Metoda używana przez efekty (`Effect`) do uzyskania fazy animacji niezależnie od innych obiektów tego samego typu. Używa własnego timera i pseudolosowego generatora do określenia czasu trwania klatek. |
-| `getStartPhase()` | Zwraca fazę startową; jeśli ustawiono na losową, losuje ją z dostępnego zakresu. |
-| `resetAnimation()` | Przywraca animator do stanu początkowego. |
-| `getPingPongPhase()` | Oblicza następną fazę dla animacji typu "ping-pong" (do przodu i do tyłu). |
-| `getLoopPhase()` | Oblicza następną fazę dla animacji w pętli. |
+| `setPhase(int phase)` | Ustawia aktualnÄ… fazÄ™ animacji. Dla animacji asynchronicznych resetuje timer i ustawia czas trwania klatki. Dla synchronicznych przelicza fazÄ™ na podstawie globalnego zegara. |
+| `getPhase()` | GÄąâ€šĂłwna metoda aktualizujÄ…ca. Na podstawie czasu, jaki upÄąâ€šynÄ…Äąâ€š od ostatniego wywoÄąâ€šania, decyduje, czy naleÄąÄ˝y przejÄąâ€şÄ‡ do nastÄ™pnej klatki animacji. |
+| `getPhaseAt(...)` | Metoda uÄąÄ˝ywana przez efekty (`Effect`) do uzyskania fazy animacji niezaleÄąÄ˝nie od innych obiektĂłw tego samego typu. UÄąÄ˝ywa wÄąâ€šasnego timera i pseudolosowego generatora do okreÄąâ€şlenia czasu trwania klatek. |
+| `getStartPhase()` | Zwraca fazÄ™ startowÄ…; jeÄąâ€şli ustawiono na losowÄ…, losuje jÄ… z dostÄ™pnego zakresu. |
+| `resetAnimation()` | Przywraca animator do stanu poczÄ…tkowego. |
+| `getPingPongPhase()` | Oblicza nastÄ™pnÄ… fazÄ™ dla animacji typu "ping-pong" (do przodu i do tyÄąâ€šu). |
+| `getLoopPhase()` | Oblicza nastÄ™pnÄ… fazÄ™ dla animacji w pÄ™tli. |
 | `getPhaseDuration(int phase)` | Zwraca czas trwania danej klatki animacji (losowy w zakresie min-max). |
-| `calculateSynchronous()` | Oblicza bieżącą fazę dla animacji synchronicznej, bazując na globalnym czasie i sumarycznym czasie trwania wszystkich klatek. |
+| `calculateSynchronous()` | Oblicza bieÄąÄ˝Ä…cÄ… fazÄ™ dla animacji synchronicznej, bazujÄ…c na globalnym czasie i sumarycznym czasie trwania wszystkich klatek. |
 | `getTotalDuration()` | Zwraca sumaryczny czas trwania wszystkich klatek animacji. |
-## Zależności i powiązania
-- **`framework/core/clock.h`**: Używa `g_clock` do synchronizacji animacji.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`framework/core/clock.h`**: UÄąÄ˝ywa `g_clock` do synchronizacji animacji.
 - **`framework/core/filestream.h`**: Do operacji serializacji/deserializacji.
 
 ---
-# 📄 client.cpp
-## Ogólny opis
-Plik implementuje klasę `Client`, która jest głównym punktem wejścia i zarządzania dla aplikacji klienckiej. Odpowiada za inicjalizację i zamykanie kluczowych modułów gry.
+# Ä‘Ĺşâ€śâ€ž client.cpp
+## OgĂłlny opis
+Plik implementuje klasÄ™ `Client`, ktĂłra jest gÄąâ€šĂłwnym punktem wejÄąâ€şcia i zarzÄ…dzania dla aplikacji klienckiej. Odpowiada za inicjalizacjÄ™ i zamykanie kluczowych moduÄąâ€šĂłw gry.
 ## Klasa `Client`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `init(std::vector<std::string>& args)` | Inicjalizuje wszystkie główne moduły klienta w odpowiedniej kolejności: rejestruje funkcje Lua, a następnie inicjalizuje `g_map`, `g_minimap`, `g_game`, `g_shaders`, `g_things`, `g_healthBars`. |
-| `terminate()` | Zamyka wszystkie moduły w odwrotnej kolejności do inicjalizacji, zwalniając zasoby. |
+| `init(std::vector<std::string>& args)` | Inicjalizuje wszystkie gÄąâ€šĂłwne moduÄąâ€šy klienta w odpowiedniej kolejnoÄąâ€şci: rejestruje funkcje Lua, a nastÄ™pnie inicjalizuje `g_map`, `g_minimap`, `g_game`, `g_shaders`, `g_things`, `g_healthBars`. |
+| `terminate()` | Zamyka wszystkie moduÄąâ€šy w odwrotnej kolejnoÄąâ€şci do inicjalizacji, zwalniajÄ…c zasoby. |
 ## Zmienne globalne
 - `Client g_client`: Globalna instancja klasy `Client`.
-## Zależności i powiązania
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`game.h`**: Inicjalizuje i zamyka `g_game`.
 - **`map.h`**: Inicjalizuje i zamyka `g_map`.
 - **`minimap.h`**: Inicjalizuje i zamyka `g_minimap`.
-- **`spritemanager.h`**: Pośrednio zarządza `g_sprites` poprzez `g_things`.
+- **`spritemanager.h`**: PoÄąâ€şrednio zarzÄ…dza `g_sprites` poprzez `g_things`.
 - **`healthbars.h`**: Inicjalizuje i zamyka `g_healthBars`.
-- **`framework/core/modulemanager.h`**: Używane do zarządzania modułami.
+- **`framework/core/modulemanager.h`**: UÄąÄ˝ywane do zarzÄ…dzania moduÄąâ€šami.
 - **`framework/graphics/shadermanager.h`**: Inicjalizuje i zamyka `g_shaders`.
 
 ---
-# 📄 client.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Client`. Deklaruje interfejs głównej klasy aplikacji klienckiej.
+# Ä‘Ĺşâ€śâ€ž client.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Client`. Deklaruje interfejs gÄąâ€šĂłwnej klasy aplikacji klienckiej.
 ## Klasa `Client`
 ## Opis
-Klasa `Client` jest odpowiedzialna za zarządzanie cyklem życia aplikacji klienckiej.
+Klasa `Client` jest odpowiedzialna za zarzÄ…dzanie cyklem ÄąÄ˝ycia aplikacji klienckiej.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `init(std::vector<std::string>& args)` | Inicjalizuje aplikację. |
-| `terminate()` | Kończy działanie aplikacji, zwalniając zasoby. |
-| `registerLuaFunctions()` | Rejestruje funkcje C++ dostępne w środowisku Lua. |
+| `init(std::vector<std::string>& args)` | Inicjalizuje aplikacjÄ™. |
+| `terminate()` | KoÄąâ€žczy dziaÄąâ€šanie aplikacji, zwalniajÄ…c zasoby. |
+| `registerLuaFunctions()` | Rejestruje funkcje C++ dostÄ™pne w Äąâ€şrodowisku Lua. |
 ## Zmienne globalne
-- `Client g_client`: Deklaracja zewnętrznej globalnej instancji klienta.
-## Zależności i powiązania
-- **`global.h`**: Zawiera podstawowe definicje i stałe używane w kliencie.
+- `Client g_client`: Deklaracja zewnÄ™trznej globalnej instancji klienta.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`global.h`**: Zawiera podstawowe definicje i staÄąâ€še uÄąÄ˝ywane w kliencie.
 
 ---
-# 📄 CMakeLists.txt
-## Ogólny opis
-Plik konfiguracyjny systemu budowania CMake dla modułu klienta. Definiuje on, które pliki źródłowe (`.cpp`, `.h`) zostaną skompilowane i włączone do finalnej aplikacji klienckiej.
+# Ä‘Ĺşâ€śâ€ž CMakeLists.txt
+## OgĂłlny opis
+Plik konfiguracyjny systemu budowania CMake dla moduÄąâ€šu klienta. Definiuje on, ktĂłre pliki ÄąĹźrĂłdÄąâ€šowe (`.cpp`, `.h`) zostanÄ… skompilowane i wÄąâ€šÄ…czone do finalnej aplikacji klienckiej.
 ## Struktura pliku
 ## Definicje preprocesora
-- `add_definitions(-DCLIENT)`: Dodaje makro `CLIENT` do wszystkich kompilowanych plików, co pozwala na warunkową kompilację kodu specyficznego dla klienta.
-## Lista plików źródłowych (`client_SOURCES`)
-Plik zawiera jedną długą listę wszystkich plików źródłowych i nagłówkowych, które składają się na moduł klienta. Pliki są pogrupowane w logiczne kategorie za pomocą komentarzy:
-- **`# client`**: Główne pliki klienta.
-- **`# core`**: Rdzeń logiki gry (mapa, przedmioty, postacie, etc.).
-- **`# lua`**: Pliki związane z integracją z silnikiem Lua.
-- **`# net`**: Logika sieciowa i protokoły.
-- **`# ui`**: Niestandardowe widżety interfejsu użytkownika.
+- `add_definitions(-DCLIENT)`: Dodaje makro `CLIENT` do wszystkich kompilowanych plikĂłw, co pozwala na warunkowÄ… kompilacjÄ™ kodu specyficznego dla klienta.
+## Lista plikĂłw ÄąĹźrĂłdÄąâ€šowych (`client_SOURCES`)
+Plik zawiera jednÄ… dÄąâ€šugÄ… listÄ™ wszystkich plikĂłw ÄąĹźrĂłdÄąâ€šowych i nagÄąâ€šĂłwkowych, ktĂłre skÄąâ€šadajÄ… siÄ™ na moduÄąâ€š klienta. Pliki sÄ… pogrupowane w logiczne kategorie za pomocÄ… komentarzy:
+- **`# client`**: GÄąâ€šĂłwne pliki klienta.
+- **`# core`**: RdzeÄąâ€ž logiki gry (mapa, przedmioty, postacie, etc.).
+- **`# lua`**: Pliki zwiÄ…zane z integracjÄ… z silnikiem Lua.
+- **`# net`**: Logika sieciowa i protokoÄąâ€šy.
+- **`# ui`**: Niestandardowe widÄąÄ˝ety interfejsu uÄąÄ˝ytkownika.
 - **`# util`**: Pomocnicze klasy i struktury, jak `Position`.
-## Zależności i powiązania
-Ten plik jest kluczowy dla procesu budowania i definiuje, które części kodu źródłowego są ze sobą powiązane i tworzą aplikację kliencką. Każdy plik dodany do tej listy staje się częścią projektu.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+Ten plik jest kluczowy dla procesu budowania i definiuje, ktĂłre czÄ™Äąâ€şci kodu ÄąĹźrĂłdÄąâ€šowego sÄ… ze sobÄ… powiÄ…zane i tworzÄ… aplikacjÄ™ klienckÄ…. KaÄąÄ˝dy plik dodany do tej listy staje siÄ™ czÄ™Äąâ€şciÄ… projektu.
 
 ---
-# 📄 const.h
-## Ogólny opis
-Plik nagłówkowy zawierający globalne stałe i typy wyliczeniowe używane w całej aplikacji klienckiej. Definiuje kluczowe wartości, takie jak flagi rysowania, atrybuty przedmiotów, tryby gry, a także identyfikatory funkcji serwera (`GameFeature`).
+# Ä‘Ĺşâ€śâ€ž const.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy zawierajÄ…cy globalne staÄąâ€še i typy wyliczeniowe uÄąÄ˝ywane w caÄąâ€šej aplikacji klienckiej. Definiuje kluczowe wartoÄąâ€şci, takie jak flagi rysowania, atrybuty przedmiotĂłw, tryby gry, a takÄąÄ˝e identyfikatory funkcji serwera (`GameFeature`).
 ## Namespace `Otc`
 ## Typy wyliczeniowe
-- **`enum` (anonimowy)**: Zawiera ogólne stałe, takie jak `MAX_ELEVATION`, `SEA_FLOOR`, `MAX_Z`, czasy trwania animacji (`ANIMATED_TEXT_DURATION`) i inne.
-- **`DepthConst`**: Stałe związane z głębokością renderowania.
-- **`DrawFlags`**: Flagi określające, które elementy sceny mają być rysowane (np. podłoże, postacie, efekty).
-- **`DatOpts`**: Atrybuty przedmiotów wczytywane z plików `.dat`.
-- **`InventorySlot`**: Identyfikatory slotów ekwipunku.
-- **`Statistic`**: Identyfikatory statystyk gracza (życie, mana, doświadczenie).
-- **`Skill`**: Identyfikatory umiejętności gracza.
-- **`Direction`**: Kierunki (północ, południe, etc.).
-- **`FluidsColor`**, **`FluidsType`**: Kolory i typy płynów.
-- **`FightModes`**, **`ChaseModes`**, **`PVPModes`**: Tryby walki, ścigania i PvP.
-- **`PlayerSkulls`**: Typy czaszek nad głową gracza.
+- **`enum` (anonimowy)**: Zawiera ogĂłlne staÄąâ€še, takie jak `MAX_ELEVATION`, `SEA_FLOOR`, `MAX_Z`, czasy trwania animacji (`ANIMATED_TEXT_DURATION`) i inne.
+- **`DepthConst`**: StaÄąâ€še zwiÄ…zane z gÄąâ€šÄ™bokoÄąâ€şciÄ… renderowania.
+- **`DrawFlags`**: Flagi okreÄąâ€şlajÄ…ce, ktĂłre elementy sceny majÄ… byÄ‡ rysowane (np. podÄąâ€šoÄąÄ˝e, postacie, efekty).
+- **`DatOpts`**: Atrybuty przedmiotĂłw wczytywane z plikĂłw `.dat`.
+- **`InventorySlot`**: Identyfikatory slotĂłw ekwipunku.
+- **`Statistic`**: Identyfikatory statystyk gracza (ÄąÄ˝ycie, mana, doÄąâ€şwiadczenie).
+- **`Skill`**: Identyfikatory umiejÄ™tnoÄąâ€şci gracza.
+- **`Direction`**: Kierunki (pĂłÄąâ€šnoc, poÄąâ€šudnie, etc.).
+- **`FluidsColor`**, **`FluidsType`**: Kolory i typy pÄąâ€šynĂłw.
+- **`FightModes`**, **`ChaseModes`**, **`PVPModes`**: Tryby walki, Äąâ€şcigania i PvP.
+- **`PlayerSkulls`**: Typy czaszek nad gÄąâ€šowÄ… gracza.
 - **`PlayerShields`**: Typy tarcz imprezowych (party shields).
 - **`PlayerEmblems`**: Emblematy gildii.
 - **`CreatureIcons`**: Ikony nad postaciami NPC.
 - **`PlayerStates`**: Stany gracza (zatrucie, podpalenie, etc.).
-- **`MessageMode`**: Tryby wiadomości w grze (say, whisper, yell, etc.).
-- **`GameFeature`**: Flagi określające, które funkcje są obsługiwane przez serwer. Jest to kluczowy enum dla zapewnienia kompatybilności z różnymi wersjami serwerów.
-- **`PathFindResult`**: Wyniki algorytmu wyszukiwania ścieżki.
-- **`PathFindFlags`**: Flagi modyfikujące działanie algorytmu wyszukiwania ścieżki.
-- **`AutomapFlags`**: Ikony znaczników na minimapie.
-- **`VipState`**: Stany graczy na liście VIP.
-- **`SpeedFormula`**: Różne formuły obliczania prędkości postaci.
-- **`Blessings`**: Błogosławieństwa.
-- **`DeathType`**: Typ śmierci (zwykła, z błogosławieństwem).
-- **`StoreProductTypes`**, **`StoreErrorTypes`**, **`StoreStates`**: Typy związane ze sklepem w grze (Store).
-- **`Prey...`**: Enumeracje związane z systemem Prey.
+- **`MessageMode`**: Tryby wiadomoÄąâ€şci w grze (say, whisper, yell, etc.).
+- **`GameFeature`**: Flagi okreÄąâ€şlajÄ…ce, ktĂłre funkcje sÄ… obsÄąâ€šugiwane przez serwer. Jest to kluczowy enum dla zapewnienia kompatybilnoÄąâ€şci z rĂłÄąÄ˝nymi wersjami serwerĂłw.
+- **`PathFindResult`**: Wyniki algorytmu wyszukiwania Äąâ€şcieÄąÄ˝ki.
+- **`PathFindFlags`**: Flagi modyfikujÄ…ce dziaÄąâ€šanie algorytmu wyszukiwania Äąâ€şcieÄąÄ˝ki.
+- **`AutomapFlags`**: Ikony znacznikĂłw na minimapie.
+- **`VipState`**: Stany graczy na liÄąâ€şcie VIP.
+- **`SpeedFormula`**: RĂłÄąÄ˝ne formuÄąâ€šy obliczania prÄ™dkoÄąâ€şci postaci.
+- **`Blessings`**: BÄąâ€šogosÄąâ€šawieÄąâ€žstwa.
+- **`DeathType`**: Typ Äąâ€şmierci (zwykÄąâ€ša, z bÄąâ€šogosÄąâ€šawieÄąâ€žstwem).
+- **`StoreProductTypes`**, **`StoreErrorTypes`**, **`StoreStates`**: Typy zwiÄ…zane ze sklepem w grze (Store).
+- **`Prey...`**: Enumeracje zwiÄ…zane z systemem Prey.
 - **`MagicEffectsType_t`**: Typy operacji w zaawansowanych efektach magicznych.
-## Zależności i powiązania
-Ten plik jest fundamentalny i jest dołączany w większości plików projektu, ponieważ definiuje podstawowe "słownictwo" używane w logice gry.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+Ten plik jest fundamentalny i jest doÄąâ€šÄ…czany w wiÄ™kszoÄąâ€şci plikĂłw projektu, poniewaÄąÄ˝ definiuje podstawowe "sÄąâ€šownictwo" uÄąÄ˝ywane w logice gry.
 
 ---
-# 📄 container.cpp
-## Ogólny opis
-Implementacja klasy `Container`, która reprezentuje pojemniki w grze, takie jak plecaki. Plik zawiera logikę zarządzania przedmiotami wewnątrz kontenera oraz obsługę zdarzeń z nim związanych.
+# Ä‘Ĺşâ€śâ€ž container.cpp
+## OgĂłlny opis
+Implementacja klasy `Container`, ktĂłra reprezentuje pojemniki w grze, takie jak plecaki. Plik zawiera logikÄ™ zarzÄ…dzania przedmiotami wewnÄ…trz kontenera oraz obsÄąâ€šugÄ™ zdarzeÄąâ€ž z nim zwiÄ…zanych.
 ## Klasa `Container`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `Container(...)` | Konstruktor. Inicjalizuje kontener na podstawie danych otrzymanych z serwera. |
-| `getItem(int slot)` | Zwraca przedmiot znajdujący się w danym slocie. |
-| `onOpen(const ContainerPtr& previousContainer)` | Wywołuje callback Lua `onOpen`, gdy kontener jest otwierany. |
-| `onClose()` | Oznacza kontener jako zamknięty i wywołuje callback Lua `onClose`. |
-| `onAddItem(const ItemPtr& item, int slot)` | Dodaje przedmiot do kontenera. Jeśli kontener ma strony (`hasPages`), a slot jest poza widocznym zakresem, jedynie aktualizuje rozmiar. W przeciwnym razie dodaje przedmiot do listy i wywołuje callbacki Lua `onSizeChange` i `onAddItem`. |
+| `getItem(int slot)` | Zwraca przedmiot znajdujÄ…cy siÄ™ w danym slocie. |
+| `onOpen(const ContainerPtr& previousContainer)` | WywoÄąâ€šuje callback Lua `onOpen`, gdy kontener jest otwierany. |
+| `onClose()` | Oznacza kontener jako zamkniÄ™ty i wywoÄąâ€šuje callback Lua `onClose`. |
+| `onAddItem(const ItemPtr& item, int slot)` | Dodaje przedmiot do kontenera. JeÄąâ€şli kontener ma strony (`hasPages`), a slot jest poza widocznym zakresem, jedynie aktualizuje rozmiar. W przeciwnym razie dodaje przedmiot do listy i wywoÄąâ€šuje callbacki Lua `onSizeChange` i `onAddItem`. |
 | `findItemById(uint itemId, int subType)` | Wyszukuje przedmiot w kontenerze po jego ID i opcjonalnie podtypie. |
-| `onAddItems(const std::vector<ItemPtr>& items)` | Dodaje wiele przedmiotów naraz (np. przy otwarciu kontenera). |
-| `onUpdateItem(int slot, const ItemPtr& item)` | Aktualizuje przedmiot w danym slocie, zastępując stary nowym. |
-| `onRemoveItem(int slot, const ItemPtr& lastItem)` | Usuwa przedmiot z danego slota. Jeśli `lastItem` jest podany (dla kontenerów ze stronami), jest on dodawany na końcu widocznej części kontenera. |
-| `updateItemsPositions()` | Aktualizuje pozycje wszystkich przedmiotów w kontenerze, aby odzwierciedlały ich sloty. |
-## Zależności i powiązania
-- **`item.h`**: Zarządza obiektami typu `Item`.
-- **`framework/luaengine/luaobject.h`**: Dziedziczy po `LuaObject`, aby umożliwić interakcję z Lua.
+| `onAddItems(const std::vector<ItemPtr>& items)` | Dodaje wiele przedmiotĂłw naraz (np. przy otwarciu kontenera). |
+| `onUpdateItem(int slot, const ItemPtr& item)` | Aktualizuje przedmiot w danym slocie, zastÄ™pujÄ…c stary nowym. |
+| `onRemoveItem(int slot, const ItemPtr& lastItem)` | Usuwa przedmiot z danego slota. JeÄąâ€şli `lastItem` jest podany (dla kontenerĂłw ze stronami), jest on dodawany na koÄąâ€žcu widocznej czÄ™Äąâ€şci kontenera. |
+| `updateItemsPositions()` | Aktualizuje pozycje wszystkich przedmiotĂłw w kontenerze, aby odzwierciedlaÄąâ€šy ich sloty. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`item.h`**: ZarzÄ…dza obiektami typu `Item`.
+- **`framework/luaengine/luaobject.h`**: Dziedziczy po `LuaObject`, aby umoÄąÄ˝liwiÄ‡ interakcjÄ™ z Lua.
 
 ---
-# 📄 creature.cpp
-## Ogólny opis
-Implementacja klasy `Creature`, która jest podstawową klasą dla wszystkich żywych istot w grze (graczy, potworów, NPC). Plik ten zawiera złożoną logikę rysowania, animacji, poruszania się, skakania oraz wyświetlania informacji o postaci.
+# Ä‘Ĺşâ€śâ€ž creature.cpp
+## OgĂłlny opis
+Implementacja klasy `Creature`, ktĂłra jest podstawowÄ… klasÄ… dla wszystkich ÄąÄ˝ywych istot w grze (graczy, potworĂłw, NPC). Plik ten zawiera zÄąâ€šoÄąÄ˝onÄ… logikÄ™ rysowania, animacji, poruszania siÄ™, skakania oraz wyÄąâ€şwietlania informacji o postaci.
 ## Klasa `Creature`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Główna funkcja rysująca. Renderuje postać, jej ubiór, kwadraty oznaczające (np. cel ataku), a także dodaje światło do `LightView`. |
-| `drawOutfit(...)` | Rysuje sam ubiór postaci w zadanym prostokącie, używane głównie w interfejsie użytkownika. |
-| `drawInformation(...)` | Rysuje pasek życia, many, nazwę, ikony (czaszka, tarcza) nad postacią. |
-| `turn(Otc::Direction direction)` | Zmienia kierunek, w którym zwrócona jest postać. |
-| `walk(const Position& oldPos, const Position& newPos)` | Inicjuje proces chodzenia z `oldPos` do `newPos`, ustawiając kierunek, timery i rozpoczynając aktualizację animacji. |
+| `draw(...)` | GÄąâ€šĂłwna funkcja rysujÄ…ca. Renderuje postaÄ‡, jej ubiĂłr, kwadraty oznaczajÄ…ce (np. cel ataku), a takÄąÄ˝e dodaje Äąâ€şwiatÄąâ€šo do `LightView`. |
+| `drawOutfit(...)` | Rysuje sam ubiĂłr postaci w zadanym prostokÄ…cie, uÄąÄ˝ywane gÄąâ€šĂłwnie w interfejsie uÄąÄ˝ytkownika. |
+| `drawInformation(...)` | Rysuje pasek ÄąÄ˝ycia, many, nazwÄ™, ikony (czaszka, tarcza) nad postaciÄ…. |
+| `turn(Otc::Direction direction)` | Zmienia kierunek, w ktĂłrym zwrĂłcona jest postaÄ‡. |
+| `walk(const Position& oldPos, const Position& newPos)` | Inicjuje proces chodzenia z `oldPos` do `newPos`, ustawiajÄ…c kierunek, timery i rozpoczynajÄ…c aktualizacjÄ™ animacji. |
 | `stopWalk()` | Natychmiastowo przerywa proces chodzenia. |
-| `jump(int height, int duration)` | Rozpoczyna animację skoku postaci. |
-| `updateJump()` | Aktualizuje wysokość skoku w każdej klatce animacji. |
-| `onAppear()` | Obsługuje pojawienie się postaci na ekranie. Decyduje, czy postać przyszła, teleportowała się, czy tylko się obróciła. |
-| `onDisappear()` | Obsługuje zniknięcie postaci z ekranu, planując jej ostateczne usunięcie. |
-| `onDeath()` | Wywołuje callback Lua `onDeath`. |
-| `updateWalkAnimation(...)` | Aktualizuje fazę animacji chodzenia na podstawie czasu i przebytych pikseli. |
-| `updateWalkOffset(...)` | Oblicza przesunięcie postaci podczas chodzenia. |
-| `updateWalkingTile()` | Aktualizuje, na którym polu (`Tile`) postać jest obecnie rysowana podczas animacji chodzenia. |
-| `nextWalkUpdate()` | Planuje następną aktualizację stanu chodzenia. |
-| `updateWalk()` | Główna funkcja aktualizująca stan chodzenia, wywoływana cyklicznie. |
-| `terminateWalk()` | Kończy proces chodzenia, resetując wszystkie związane z nim zmienne. |
-| `setHealthPercent(uint8 healthPercent)` | Ustawia procent życia i aktualizuje kolor paska życia. |
-| `setOutfit(const Outfit& outfit)` | Zmienia ubiór postaci. |
-| `setSpeed(uint16 speed)` | Ustawia prędkość poruszania się postaci. |
-| `getStepDuration(...)` | Oblicza czas trwania jednego kroku w milisekundach na podstawie prędkości postaci, prędkości podłoża i formuł prędkości serwera. |
-| `getDisplacement()` | Zwraca przesunięcie rysowania postaci, które centruje ją na polu. |
-| `addTopWidget(...)` / `addBottomWidget(...)` | Dodaje widżety, które będą rysowane nad lub pod postacią. |
+| `jump(int height, int duration)` | Rozpoczyna animacjÄ™ skoku postaci. |
+| `updateJump()` | Aktualizuje wysokoÄąâ€şÄ‡ skoku w kaÄąÄ˝dej klatce animacji. |
+| `onAppear()` | ObsÄąâ€šuguje pojawienie siÄ™ postaci na ekranie. Decyduje, czy postaÄ‡ przyszÄąâ€ša, teleportowaÄąâ€ša siÄ™, czy tylko siÄ™ obrĂłciÄąâ€ša. |
+| `onDisappear()` | ObsÄąâ€šuguje znikniÄ™cie postaci z ekranu, planujÄ…c jej ostateczne usuniÄ™cie. |
+| `onDeath()` | WywoÄąâ€šuje callback Lua `onDeath`. |
+| `updateWalkAnimation(...)` | Aktualizuje fazÄ™ animacji chodzenia na podstawie czasu i przebytych pikseli. |
+| `updateWalkOffset(...)` | Oblicza przesuniÄ™cie postaci podczas chodzenia. |
+| `updateWalkingTile()` | Aktualizuje, na ktĂłrym polu (`Tile`) postaÄ‡ jest obecnie rysowana podczas animacji chodzenia. |
+| `nextWalkUpdate()` | Planuje nastÄ™pnÄ… aktualizacjÄ™ stanu chodzenia. |
+| `updateWalk()` | GÄąâ€šĂłwna funkcja aktualizujÄ…ca stan chodzenia, wywoÄąâ€šywana cyklicznie. |
+| `terminateWalk()` | KoÄąâ€žczy proces chodzenia, resetujÄ…c wszystkie zwiÄ…zane z nim zmienne. |
+| `setHealthPercent(uint8 healthPercent)` | Ustawia procent ÄąÄ˝ycia i aktualizuje kolor paska ÄąÄ˝ycia. |
+| `setOutfit(const Outfit& outfit)` | Zmienia ubiĂłr postaci. |
+| `setSpeed(uint16 speed)` | Ustawia prÄ™dkoÄąâ€şÄ‡ poruszania siÄ™ postaci. |
+| `getStepDuration(...)` | Oblicza czas trwania jednego kroku w milisekundach na podstawie prÄ™dkoÄąâ€şci postaci, prÄ™dkoÄąâ€şci podÄąâ€šoÄąÄ˝a i formuÄąâ€š prÄ™dkoÄąâ€şci serwera. |
+| `getDisplacement()` | Zwraca przesuniÄ™cie rysowania postaci, ktĂłre centruje jÄ… na polu. |
+| `addTopWidget(...)` / `addBottomWidget(...)` | Dodaje widÄąÄ˝ety, ktĂłre bÄ™dÄ… rysowane nad lub pod postaciÄ…. |
 ## Zmienne statyczne
-- `m_speedFormula`: Tablica przechowująca współczynniki do zaawansowanego obliczania prędkości.
-## Zależności i powiązania
+- `m_speedFormula`: Tablica przechowujÄ…ca wspĂłÄąâ€šczynniki do zaawansowanego obliczania prÄ™dkoÄąâ€şci.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`localplayer.h`**: Logika rysowania informacji o pasku many jest specyficzna dla lokalnego gracza.
-- **`map.h`**, **`tile.h`**: Interakcje ze światem gry (pobieranie pól, prędkości podłoża).
-- **`game.h`**: Dostęp do globalnych ustawień gry i funkcji serwera.
-- **`lightview.h`**: Dodawanie dynamicznego światła emitowanego przez postać.
-- **`healthbars.h`**: Używa `g_healthBars` do pobierania niestandardowych teł dla pasków życia/many.
-- **`spritemanager.h`**: Używa `g_sprites` do pobierania rozmiaru sprite'ów.
+- **`map.h`**, **`tile.h`**: Interakcje ze Äąâ€şwiatem gry (pobieranie pĂłl, prÄ™dkoÄąâ€şci podÄąâ€šoÄąÄ˝a).
+- **`game.h`**: DostÄ™p do globalnych ustawieÄąâ€ž gry i funkcji serwera.
+- **`lightview.h`**: Dodawanie dynamicznego Äąâ€şwiatÄąâ€ša emitowanego przez postaÄ‡.
+- **`healthbars.h`**: UÄąÄ˝ywa `g_healthBars` do pobierania niestandardowych teÄąâ€š dla paskĂłw ÄąÄ˝ycia/many.
+- **`spritemanager.h`**: UÄąÄ˝ywa `g_sprites` do pobierania rozmiaru sprite'Ăłw.
 
 ---
-# 📄 container.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Container`. Definiuje interfejs do zarządzania pojemnikami w grze.
+# Ä‘Ĺşâ€śâ€ž container.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Container`. Definiuje interfejs do zarzÄ…dzania pojemnikami w grze.
 ## Klasa `Container`
 ## Opis
-Klasa `Container` dziedziczy po `LuaObject`, co pozwala na jej użycie w skryptach Lua. Reprezentuje obiekt w grze, który może przechowywać inne przedmioty, jak plecak czy skrzynka.
+Klasa `Container` dziedziczy po `LuaObject`, co pozwala na jej uÄąÄ˝ycie w skryptach Lua. Reprezentuje obiekt w grze, ktĂłry moÄąÄ˝e przechowywaÄ‡ inne przedmioty, jak plecak czy skrzynka.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `getItem(int slot)` | Zwraca wskaźnik do przedmiotu w danym slocie. |
-| `getItems()` | Zwraca kolekcję (`std::deque`) wszystkich przedmiotów w kontenerze. |
-| `getItemsCount()` | Zwraca liczbę przedmiotów w kontenerze. |
-| `getSlotPosition(int slot)` | Zwraca specjalnie zakodowaną pozycję, która identyfikuje slot w tym kontenerze. |
+| `getItem(int slot)` | Zwraca wskaÄąĹźnik do przedmiotu w danym slocie. |
+| `getItems()` | Zwraca kolekcjÄ™ (`std::deque`) wszystkich przedmiotĂłw w kontenerze. |
+| `getItemsCount()` | Zwraca liczbÄ™ przedmiotĂłw w kontenerze. |
+| `getSlotPosition(int slot)` | Zwraca specjalnie zakodowanÄ… pozycjÄ™, ktĂłra identyfikuje slot w tym kontenerze. |
 | `getId()` | Zwraca ID kontenera. |
-| `getCapacity()` | Zwraca pojemność kontenera. |
-| `getContainerItem()` | Zwraca przedmiot, który reprezentuje ten kontener. |
-| `getName()` | Zwraca nazwę kontenera. |
-| `hasParent()` | Zwraca `true`, jeśli kontener znajduje się w innym kontenerze. |
-| `isClosed()` | Zwraca `true`, jeśli kontener został zamknięty. |
-| `isUnlocked()` | Zwraca `true`, jeśli można przesuwać w nim przedmioty. |
-| `hasPages()` | Zwraca `true`, jeśli kontener obsługuje paginację. |
-| `getSize()` | Zwraca całkowitą liczbę przedmiotów w kontenerze (może być większa niż pojemność, jeśli ma strony). |
-| `getFirstIndex()` | Zwraca indeks pierwszego przedmiotu na bieżącej stronie. |
+| `getCapacity()` | Zwraca pojemnoÄąâ€şÄ‡ kontenera. |
+| `getContainerItem()` | Zwraca przedmiot, ktĂłry reprezentuje ten kontener. |
+| `getName()` | Zwraca nazwÄ™ kontenera. |
+| `hasParent()` | Zwraca `true`, jeÄąâ€şli kontener znajduje siÄ™ w innym kontenerze. |
+| `isClosed()` | Zwraca `true`, jeÄąâ€şli kontener zostaÄąâ€š zamkniÄ™ty. |
+| `isUnlocked()` | Zwraca `true`, jeÄąâ€şli moÄąÄ˝na przesuwaÄ‡ w nim przedmioty. |
+| `hasPages()` | Zwraca `true`, jeÄąâ€şli kontener obsÄąâ€šuguje paginacjÄ™. |
+| `getSize()` | Zwraca caÄąâ€škowitÄ… liczbÄ™ przedmiotĂłw w kontenerze (moÄąÄ˝e byÄ‡ wiÄ™ksza niÄąÄ˝ pojemnoÄąâ€şÄ‡, jeÄąâ€şli ma strony). |
+| `getFirstIndex()` | Zwraca indeks pierwszego przedmiotu na bieÄąÄ˝Ä…cej stronie. |
 | `findItemById(uint itemId, int subType)` | Wyszukuje przedmiot po ID i opcjonalnym podtypie. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów, np. `ItemPtr`.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw, np. `ItemPtr`.
 - **`item.h`**: Przechowuje obiekty `Item`.
-- **`game.h`**: Klasa `Game` jest przyjacielem, co pozwala jej wywoływać chronione metody `onOpen`, `onClose`, etc.
+- **`game.h`**: Klasa `Game` jest przyjacielem, co pozwala jej wywoÄąâ€šywaÄ‡ chronione metody `onOpen`, `onClose`, etc.
 
 ---
-# 📄 creature.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Creature` oraz jej specjalizacji: `Npc` i `Monster`. Definiuje interfejs dla wszystkich istot w grze.
+# Ä‘Ĺşâ€śâ€ž creature.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Creature` oraz jej specjalizacji: `Npc` i `Monster`. Definiuje interfejs dla wszystkich istot w grze.
 ## Klasa `Creature`
 ## Opis
-Klasa bazowa dla wszystkich postaci w grze. Dziedziczy po `Thing`. Zawiera logikę związaną z wyglądem, ruchem, stanami i interakcjami.
+Klasa bazowa dla wszystkich postaci w grze. Dziedziczy po `Thing`. Zawiera logikÄ™ zwiÄ…zanÄ… z wyglÄ…dem, ruchem, stanami i interakcjami.
 ## Typy wyliczeniowe
-- **`enum` (anonimowy)**: Definiuje stałe `SHIELD_BLINK_TICKS` i `VOLATILE_SQUARE_DURATION`.
+- **`enum` (anonimowy)**: Definiuje staÄąâ€še `SHIELD_BLINK_TICKS` i `VOLATILE_SQUARE_DURATION`.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Rysuje postać w danym miejscu na mapie. |
-| `drawOutfit(...)` | Rysuje sam ubiór postaci, używane w UI. |
-| `drawInformation(...)` | Rysuje informacje nad postacią (nazwa, paski życia/many, ikony). |
+| `draw(...)` | Rysuje postaÄ‡ w danym miejscu na mapie. |
+| `drawOutfit(...)` | Rysuje sam ubiĂłr postaci, uÄąÄ˝ywane w UI. |
+| `drawInformation(...)` | Rysuje informacje nad postaciÄ… (nazwa, paski ÄąÄ˝ycia/many, ikony). |
 | `setId(uint32 id)` | Ustawia ID postaci. |
-| `setName(const std::string& name)` | Ustawia nazwę postaci. |
-| `setHealthPercent(uint8 healthPercent)` | Ustawia procent życia. |
-| `setDirection(Otc::Direction direction)` | Ustawia kierunek, w którym postać jest zwrócona. |
-| `setOutfit(const Outfit& outfit)` | Ustawia ubiór postaci. |
-| `setSpeed(uint16 speed)` | Ustawia prędkość poruszania się. |
-| `addTimedSquare(uint8 color)` | Wyświetla tymczasowy kolorowy kwadrat pod postacią. |
+| `setName(const std::string& name)` | Ustawia nazwÄ™ postaci. |
+| `setHealthPercent(uint8 healthPercent)` | Ustawia procent ÄąÄ˝ycia. |
+| `setDirection(Otc::Direction direction)` | Ustawia kierunek, w ktĂłrym postaÄ‡ jest zwrĂłcona. |
+| `setOutfit(const Outfit& outfit)` | Ustawia ubiĂłr postaci. |
+| `setSpeed(uint16 speed)` | Ustawia prÄ™dkoÄąâ€şÄ‡ poruszania siÄ™. |
+| `addTimedSquare(uint8 color)` | WyÄąâ€şwietla tymczasowy kolorowy kwadrat pod postaciÄ…. |
 | `getStepDuration(...)` | Zwraca czas trwania jednego kroku. |
 | `walk(const Position& oldPos, const Position& newPos)` | Inicjuje ruch postaci. |
 | `stopWalk()` | Przerywa ruch postaci. |
-| `isWalking()` | Zwraca `true`, jeśli postać jest w trakcie chodu. |
-| `isDead()` | Zwraca `true`, jeśli postać ma 0% życia. |
+| `isWalking()` | Zwraca `true`, jeÄąâ€şli postaÄ‡ jest w trakcie chodu. |
+| `isDead()` | Zwraca `true`, jeÄąâ€şli postaÄ‡ ma 0% ÄąÄ˝ycia. |
 | `getThingType()` | Zwraca `ThingType` dla aktualnego ubioru postaci. |
-| `addTopWidget(...)`, `addBottomWidget(...)` | Dodaje widżety do rysowania nad/pod postacią. |
+| `addTopWidget(...)`, `addBottomWidget(...)` | Dodaje widÄąÄ˝ety do rysowania nad/pod postaciÄ…. |
 ## Klasa `Npc`
 ## Opis
-Specjalizacja `Creature` dla postaci niezależnych (NPC).
+Specjalizacja `Creature` dla postaci niezaleÄąÄ˝nych (NPC).
 ## Klasa `Monster`
 ## Opis
-Specjalizacja `Creature` dla potworów.
-## Zależności i powiązania
+Specjalizacja `Creature` dla potworĂłw.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`thing.h`**: Klasa bazowa.
-- **`outfit.h`**: Używa `Outfit` do zarządzania wyglądem.
+- **`outfit.h`**: UÄąÄ˝ywa `Outfit` do zarzÄ…dzania wyglÄ…dem.
 - **`tile.h`**: Interakcje z polami mapy.
-- **`mapview.h`**: Używana do rysowania w kontekście widoku mapy.
-- **`framework/ui/uiwidget.h`**: Dołączanie widżetów do postaci.
+- **`mapview.h`**: UÄąÄ˝ywana do rysowania w kontekÄąâ€şcie widoku mapy.
+- **`framework/ui/uiwidget.h`**: DoÄąâ€šÄ…czanie widÄąÄ˝etĂłw do postaci.
 
 ---
-# 📄 creatures.h
-## Ogólny opis
-Plik nagłówkowy definiujący klasy do zarządzania typami stworzeń (`CreatureType`) oraz ich miejscami odradzania (`Spawn`). Jest to część systemu, który prawdopodobnie służy do edycji map lub działania jako serwer, a nie tylko do gry.
+# Ä‘Ĺşâ€śâ€ž creatures.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy klasy do zarzÄ…dzania typami stworzeÄąâ€ž (`CreatureType`) oraz ich miejscami odradzania (`Spawn`). Jest to czÄ™Äąâ€şÄ‡ systemu, ktĂłry prawdopodobnie sÄąâ€šuÄąÄ˝y do edycji map lub dziaÄąâ€šania jako serwer, a nie tylko do gry.
 ## Typy wyliczeniowe
-- **`CreatureAttr`**: Atrybuty typu stworzenia (pozycja, nazwa, ubiór, etc.).
-- **`CreatureRace`**: Rasa stworzenia (NPC, potwór).
-- **`SpawnAttr`**: Atrybuty spawnu (promień, środek).
+- **`CreatureAttr`**: Atrybuty typu stworzenia (pozycja, nazwa, ubiĂłr, etc.).
+- **`CreatureRace`**: Rasa stworzenia (NPC, potwĂłr).
+- **`SpawnAttr`**: Atrybuty spawnu (promieÄąâ€ž, Äąâ€şrodek).
 ## Klasa `Spawn`
 ## Opis
-Reprezentuje obszar odradzania się stworzeń (spawn). Przechowuje informacje o środku, promieniu oraz listę potworów/NPC, które się w nim pojawiają.
+Reprezentuje obszar odradzania siÄ™ stworzeÄąâ€ž (spawn). Przechowuje informacje o Äąâ€şrodku, promieniu oraz listÄ™ potworĂłw/NPC, ktĂłre siÄ™ w nim pojawiajÄ….
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `setRadius(int32 r)` | Ustawia promień spawnu. |
-| `getRadius()` | Zwraca promień spawnu. |
-| `setCenterPos(const Position& pos)` | Ustawia centralną pozycję spawnu. |
-| `getCenterPos()` | Zwraca centralną pozycję spawnu. |
-| `getCreatures()` | Zwraca listę typów stworzeń w tym spawnie. |
-| `addCreature(const Position& placePos, const CreatureTypePtr& cType)` | Dodaje stworzenie do spawnu w określonym miejscu. |
+| `setRadius(int32 r)` | Ustawia promieÄąâ€ž spawnu. |
+| `getRadius()` | Zwraca promieÄąâ€ž spawnu. |
+| `setCenterPos(const Position& pos)` | Ustawia centralnÄ… pozycjÄ™ spawnu. |
+| `getCenterPos()` | Zwraca centralnÄ… pozycjÄ™ spawnu. |
+| `getCreatures()` | Zwraca listÄ™ typĂłw stworzeÄąâ€ž w tym spawnie. |
+| `addCreature(const Position& placePos, const CreatureTypePtr& cType)` | Dodaje stworzenie do spawnu w okreÄąâ€şlonym miejscu. |
 | `removeCreature(const Position& pos)` | Usuwa stworzenie z danej pozycji. |
-| `clear()` | Czyści listę stworzeń. |
+| `clear()` | CzyÄąâ€şci listÄ™ stworzeÄąâ€ž. |
 ## Klasa `CreatureType`
 ## Opis
-Reprezentuje szablon (typ) stworzenia. Przechowuje domyślne właściwości, takie jak nazwa, ubiór czy kierunek, które są używane do tworzenia instancji `Creature`.
+Reprezentuje szablon (typ) stworzenia. Przechowuje domyÄąâ€şlne wÄąâ€šaÄąâ€şciwoÄąâ€şci, takie jak nazwa, ubiĂłr czy kierunek, ktĂłre sÄ… uÄąÄ˝ywane do tworzenia instancji `Creature`.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setSpawnTime(int32 spawnTime)` | Ustawia czas odradzania. |
 | `getSpawnTime()` | Zwraca czas odradzania. |
-| `setName(const std::string& name)` | Ustawia nazwę typu. |
-| `getName()` | Zwraca nazwę. |
-| `setOutfit(const Outfit& o)` | Ustawia domyślny ubiór. |
-| `getOutfit()` | Zwraca domyślny ubiór. |
-| `cast()` | Tworzy i zwraca instancję `Creature` na podstawie tego typu. |
+| `setName(const std::string& name)` | Ustawia nazwÄ™ typu. |
+| `getName()` | Zwraca nazwÄ™. |
+| `setOutfit(const Outfit& o)` | Ustawia domyÄąâ€şlny ubiĂłr. |
+| `getOutfit()` | Zwraca domyÄąâ€şlny ubiĂłr. |
+| `cast()` | Tworzy i zwraca instancjÄ™ `Creature` na podstawie tego typu. |
 ## Klasa `CreatureManager`
 ## Opis
-Singleton (`g_creatures`) zarządzający wszystkimi typami stworzeń i spawnami. Wczytuje te dane z plików XML.
+Singleton (`g_creatures`) zarzÄ…dzajÄ…cy wszystkimi typami stworzeÄąâ€ž i spawnami. Wczytuje te dane z plikĂłw XML.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
@@ -446,24 +446,24 @@ Singleton (`g_creatures`) zarządzający wszystkimi typami stworzeń i spawnami.
 | `getSpawn(const Position& centerPos)` | Zwraca spawn na podstawie jego centralnej pozycji. |
 | `addSpawn(...)` | Dodaje nowy spawn. |
 ## Zmienne globalne
-- `CreatureManager g_creatures`: Globalna instancja managera stworzeń.
-## Zależności i powiązania
-- **`declarations.h`**, **`outfit.h`**: Definicje typów.
+- `CreatureManager g_creatures`: Globalna instancja managera stworzeÄąâ€ž.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**, **`outfit.h`**: Definicje typĂłw.
 - **`creature.h`**: `CreatureType::cast()` tworzy obiekty `Creature`.
 
 ---
-# 📄 declarations.h
-## Ogólny opis
-Plik nagłówkowy zawierający deklaracje wyprzedzające (forward declarations) oraz definicje typów wskaźników i kolekcji używanych w całym module klienta. Jego głównym celem jest przełamanie cyklicznych zależności między plikami nagłówkowymi.
-## Zawartość
-## Deklaracje wyprzedzające
-Plik deklaruje istnienie klas bez konieczności dołączania ich pełnych definicji. Obejmuje to klasy z różnych modułów:
+# Ä‘Ĺşâ€śâ€ž declarations.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy zawierajÄ…cy deklaracje wyprzedzajÄ…ce (forward declarations) oraz definicje typĂłw wskaÄąĹźnikĂłw i kolekcji uÄąÄ˝ywanych w caÄąâ€šym module klienta. Jego gÄąâ€šĂłwnym celem jest przeÄąâ€šamanie cyklicznych zaleÄąÄ˝noÄąâ€şci miÄ™dzy plikami nagÄąâ€šĂłwkowymi.
+## ZawartoÄąâ€şÄ‡
+## Deklaracje wyprzedzajÄ…ce
+Plik deklaruje istnienie klas bez koniecznoÄąâ€şci doÄąâ€šÄ…czania ich peÄąâ€šnych definicji. Obejmuje to klasy z rĂłÄąÄ˝nych moduÄąâ€šĂłw:
 - **Core**: `Map`, `Game`, `Tile`, `Thing`, `Item`, `Creature`, `LocalPlayer`, `Effect`, `House`, `Town` itp.
 - **Net**: `ProtocolLogin`, `ProtocolGame`.
 - **UI**: `UIItem`, `UICreature`, `UIMap`, `UIMinimap` itp.
 - **Custom**: `HealthBar`.
-## Definicje typów (`typedef`)
-Definiuje inteligentne wskaźniki (`shared_object_ptr`) dla większości zadeklarowanych klas, np.:
+## Definicje typĂłw (`typedef`)
+Definiuje inteligentne wskaÄąĹźniki (`shared_object_ptr`) dla wiÄ™kszoÄąâ€şci zadeklarowanych klas, np.:
 - `MapViewPtr`
 - `TilePtr`
 - `ThingPtr`
@@ -471,297 +471,297 @@ Definiuje inteligentne wskaźniki (`shared_object_ptr`) dla większości zadekla
 - `CreaturePtr`
 - `LocalPlayerPtr`
 ## Definicje kolekcji (`typedef`)
-Definiuje standardowe typy kolekcji dla zadeklarowanych obiektów, ułatwiając ich użycie w kodzie:
+Definiuje standardowe typy kolekcji dla zadeklarowanych obiektĂłw, uÄąâ€šatwiajÄ…c ich uÄąÄ˝ycie w kodzie:
 - `ThingList` (`std::vector<ThingPtr>`)
 - `HouseList` (`std::list<HousePtr>`)
 - `TileMap` (`std::unordered_map<Position, TilePtr, PositionHasher>`)
-## Zależności i powiązania
-- **`global.h`**: Dołącza podstawowe definicje.
-- Plik ten jest dołączany przez niemal wszystkie inne pliki nagłówkowe w module, aby zapewnić dostęp do definicji typów wskaźników i uniknąć problemów z zależnościami.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`global.h`**: DoÄąâ€šÄ…cza podstawowe definicje.
+- Plik ten jest doÄąâ€šÄ…czany przez niemal wszystkie inne pliki nagÄąâ€šĂłwkowe w module, aby zapewniÄ‡ dostÄ™p do definicji typĂłw wskaÄąĹźnikĂłw i uniknÄ…Ä‡ problemĂłw z zaleÄąÄ˝noÄąâ€şciami.
 
 ---
-# 📄 creatures.cpp
-## Ogólny opis
-Implementacja `CreatureManager` i `Spawn`, odpowiedzialnych za zarządzanie typami stworzeń i ich miejscami odradzania. Plik zawiera logikę wczytywania i zapisywania danych z plików XML oraz zarządzania stworzeniami na mapie.
+# Ä‘Ĺşâ€śâ€ž creatures.cpp
+## OgĂłlny opis
+Implementacja `CreatureManager` i `Spawn`, odpowiedzialnych za zarzÄ…dzanie typami stworzeÄąâ€ž i ich miejscami odradzania. Plik zawiera logikÄ™ wczytywania i zapisywania danych z plikĂłw XML oraz zarzÄ…dzania stworzeniami na mapie.
 ## Funkcje pomocnicze
-- **`isInZone(...)`**: Sprawdza, czy dana pozycja znajduje się w promieniu spawnu.
+- **`isInZone(...)`**: Sprawdza, czy dana pozycja znajduje siÄ™ w promieniu spawnu.
 ## Klasa `Spawn`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `load(TiXmlElement* node)` | Wczytuje dane spawnu z węzła XML, w tym pozycję centralną, promień oraz listę stworzeń z ich atrybutami. |
-| `save(TiXmlElement* node)` | Zapisuje dane spawnu do węzła XML. |
-| `addCreature(...)` | Dodaje stworzenie do spawnu. Najpierw tworzy instancję `Creature` na podstawie `CreatureType` za pomocą `cast()`, a następnie dodaje ją na mapę (`g_map.addThing`). |
+| `load(TiXmlElement* node)` | Wczytuje dane spawnu z wÄ™zÄąâ€ša XML, w tym pozycjÄ™ centralnÄ…, promieÄąâ€ž oraz listÄ™ stworzeÄąâ€ž z ich atrybutami. |
+| `save(TiXmlElement* node)` | Zapisuje dane spawnu do wÄ™zÄąâ€ša XML. |
+| `addCreature(...)` | Dodaje stworzenie do spawnu. Najpierw tworzy instancjÄ™ `Creature` na podstawie `CreatureType` za pomocÄ… `cast()`, a nastÄ™pnie dodaje jÄ… na mapÄ™ (`g_map.addThing`). |
 | `removeCreature(...)` | Usuwa stworzenie ze spawnu i z mapy. |
-| `getCreatures()` | Zwraca listę wszystkich typów stworzeń w tym spawnie. |
+| `getCreatures()` | Zwraca listÄ™ wszystkich typĂłw stworzeÄąâ€ž w tym spawnie. |
 ## Klasa `CreatureType`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `cast()` | Tworzy nową instancję `Creature`, ustawia jej nazwę, kierunek i ubiór na podstawie danych z `CreatureType`, a następnie zwraca ją jako `CreaturePtr`. |
+| `cast()` | Tworzy nowÄ… instancjÄ™ `Creature`, ustawia jej nazwÄ™, kierunek i ubiĂłr na podstawie danych z `CreatureType`, a nastÄ™pnie zwraca jÄ… jako `CreaturePtr`. |
 ## Klasa `CreatureManager`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `terminate()` | Czyści wszystkie dane managera. |
-| `loadMonsters(const std::string& file)` | Wczytuje główny plik XML z potworami, który zawiera odnośniki do pojedynczych plików XML dla każdego potwora. |
+| `terminate()` | CzyÄąâ€şci wszystkie dane managera. |
+| `loadMonsters(const std::string& file)` | Wczytuje gÄąâ€šĂłwny plik XML z potworami, ktĂłry zawiera odnoÄąâ€şniki do pojedynczych plikĂłw XML dla kaÄąÄ˝dego potwora. |
 | `loadSingleCreature(const std::string& file)` | Wczytuje dane pojedynczego stworzenia z pliku XML. |
 | `loadNpcs(const std::string& folder)` | Wczytuje wszystkie pliki XML z danego folderu jako definicje NPC. |
 | `loadSpawns(const std::string& fileName)` | Wczytuje plik XML ze spawnami i umieszcza stworzenia na mapie. |
-| `saveSpawns(const std::string& fileName)` | Zapisuje aktualny stan spawnów do pliku XML. |
-| `internalLoadCreatureBuffer(...)` | Parsuje bufor XML z definicją stworzenia, tworzy obiekt `CreatureType` i dodaje go do listy. |
-| `getCreatureByName(std::string name)` | Wyszukuje typ stworzenia po nazwie (z normalizacją wielkości liter). |
-| `getCreatureByLook(int look)` | Wyszukuje typ stworzenia po jego ID wyglądu (outfit ID lub item ID). |
+| `saveSpawns(const std::string& fileName)` | Zapisuje aktualny stan spawnĂłw do pliku XML. |
+| `internalLoadCreatureBuffer(...)` | Parsuje bufor XML z definicjÄ… stworzenia, tworzy obiekt `CreatureType` i dodaje go do listy. |
+| `getCreatureByName(std::string name)` | Wyszukuje typ stworzenia po nazwie (z normalizacjÄ… wielkoÄąâ€şci liter). |
+| `getCreatureByLook(int look)` | Wyszukuje typ stworzenia po jego ID wyglÄ…du (outfit ID lub item ID). |
 | `getSpawn(...)` / `getSpawnForPlacePos(...)` | Wyszukuje spawn na podstawie pozycji. |
-| `addSpawn(...)` | Dodaje nowy spawn lub aktualizuje istniejący. |
+| `addSpawn(...)` | Dodaje nowy spawn lub aktualizuje istniejÄ…cy. |
 | `deleteSpawn(...)` | Usuwa spawn z managera. |
-## Zależności i powiązania
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`map.h`**: Dodaje i usuwa stworzenia z mapy (`g_map`).
 - **`creature.h`**: Tworzy instancje `Creature`.
-- **`framework/xml/tinyxml.h`**: Używane do parsowania plików XML.
-- **`framework/core/resourcemanager.h`**: Do odczytu plików z danymi.
+- **`framework/xml/tinyxml.h`**: UÄąÄ˝ywane do parsowania plikĂłw XML.
+- **`framework/core/resourcemanager.h`**: Do odczytu plikĂłw z danymi.
 
 ---
-# 📄 effect.cpp
-## Ogólny opis
-Implementacja klasy `Effect`, która odpowiada za renderowanie efektów wizualnych na mapie, takich jak eksplozje, efekty magiczne itp.
+# Ä‘Ĺşâ€śâ€ž effect.cpp
+## OgĂłlny opis
+Implementacja klasy `Effect`, ktĂłra odpowiada za renderowanie efektĂłw wizualnych na mapie, takich jak eksplozje, efekty magiczne itp.
 ## Klasa `Effect`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Rysuje efekt na ekranie. Oblicza aktualną fazę animacji na podstawie czasu, który upłynął od pojawienia się efektu. Jeśli włączona jest funkcja `GameEnhancedAnimations`, używa `Animator::getPhaseAt` dla płynniejszej, niezależnej animacji. |
-| `onAppear()` | Metoda wywoływana, gdy efekt pojawia się na mapie. Resetuje timer animacji i planuje automatyczne usunięcie efektu po zakończeniu jego całkowitego czasu trwania. |
-| `setId(uint32 id)` | Ustawia ID efektu, sprawdzając jego poprawność w `g_things`. |
-| `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla danego efektu. |
-## Zależności i powiązania
-- **`map.h`**: Używa `g_map` do usunięcia efektu po zakończeniu animacji.
-- **`game.h`**: Sprawdza, czy włączona jest funkcja `GameEnhancedAnimations`.
-- **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania usunięcia.
+| `draw(...)` | Rysuje efekt na ekranie. Oblicza aktualnÄ… fazÄ™ animacji na podstawie czasu, ktĂłry upÄąâ€šynÄ…Äąâ€š od pojawienia siÄ™ efektu. JeÄąâ€şli wÄąâ€šÄ…czona jest funkcja `GameEnhancedAnimations`, uÄąÄ˝ywa `Animator::getPhaseAt` dla pÄąâ€šynniejszej, niezaleÄąÄ˝nej animacji. |
+| `onAppear()` | Metoda wywoÄąâ€šywana, gdy efekt pojawia siÄ™ na mapie. Resetuje timer animacji i planuje automatyczne usuniÄ™cie efektu po zakoÄąâ€žczeniu jego caÄąâ€škowitego czasu trwania. |
+| `setId(uint32 id)` | Ustawia ID efektu, sprawdzajÄ…c jego poprawnoÄąâ€şÄ‡ w `g_things`. |
+| `getThingType()` / `rawGetThingType()` | ZwracajÄ… `ThingType` dla danego efektu. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`map.h`**: UÄąÄ˝ywa `g_map` do usuniÄ™cia efektu po zakoÄąâ€žczeniu animacji.
+- **`game.h`**: Sprawdza, czy wÄąâ€šÄ…czona jest funkcja `GameEnhancedAnimations`.
+- **`framework/core/eventdispatcher.h`**: UÄąÄ˝ywa `g_dispatcher` do planowania usuniÄ™cia.
 
 ---
-# 📄 global.h
-## Ogólny opis
-Plik nagłówkowy, który pełni rolę centralnego punktu dołączania najważniejszych plików nagłówkowych używanych w całym projekcie klienta.
-## Zawartość
-- **`#include <framework/global.h>`**: Dołącza globalne definicje z warstwy frameworka.
-- **`#include "const.h"`**: Dołącza stałe i typy wyliczeniowe specyficzne dla klienta gry.
-- **`#include "position.h"`**: Dołącza definicję klasy `Position`.
+# Ä‘Ĺşâ€śâ€ž global.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy, ktĂłry peÄąâ€šni rolÄ™ centralnego punktu doÄąâ€šÄ…czania najwaÄąÄ˝niejszych plikĂłw nagÄąâ€šĂłwkowych uÄąÄ˝ywanych w caÄąâ€šym projekcie klienta.
+## ZawartoÄąâ€şÄ‡
+- **`#include <framework/global.h>`**: DoÄąâ€šÄ…cza globalne definicje z warstwy frameworka.
+- **`#include "const.h"`**: DoÄąâ€šÄ…cza staÄąâ€še i typy wyliczeniowe specyficzne dla klienta gry.
+- **`#include "position.h"`**: DoÄąâ€šÄ…cza definicjÄ™ klasy `Position`.
 ## Cel
-Celem tego pliku jest uproszczenie dołączania nagłówków w innych plikach. Zamiast dołączać wiele podstawowych plików, wystarczy dołączyć `global.h`.
+Celem tego pliku jest uproszczenie doÄąâ€šÄ…czania nagÄąâ€šĂłwkĂłw w innych plikach. Zamiast doÄąâ€šÄ…czaÄ‡ wiele podstawowych plikĂłw, wystarczy doÄąâ€šÄ…czyÄ‡ `global.h`.
 
 ---
-# 📄 effect.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Effect`, definiujący jej interfejs.
+# Ä‘Ĺşâ€śâ€ž effect.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Effect`, definiujÄ…cy jej interfejs.
 ## Klasa `Effect`
 ## Opis
-Klasa `Effect` dziedziczy po `Thing` i reprezentuje krótkotrwały efekt wizualny na mapie.
-## Stałe
-- **`EFFECT_TICKS_PER_FRAME`**: Domyślny czas trwania jednej klatki animacji efektu (75 ms).
+Klasa `Effect` dziedziczy po `Thing` i reprezentuje krĂłtkotrwaÄąâ€šy efekt wizualny na mapie.
+## StaÄąâ€še
+- **`EFFECT_TICKS_PER_FRAME`**: DomyÄąâ€şlny czas trwania jednej klatki animacji efektu (75 ms).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Rysuje efekt w danym miejscu na mapie. |
 | `setId(uint32 id)` | Ustawia ID (typ) efektu. |
 | `getId()` | Zwraca ID efektu. |
-| `asEffect()` | Rzutuje wskaźnik na `EffectPtr`. |
+| `asEffect()` | Rzutuje wskaÄąĹźnik na `EffectPtr`. |
 | `isEffect()` | Zwraca `true`. |
 | `getThingType()` | Zwraca `ThingType` dla tego efektu. |
-## Zależności i powiązania
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`thing.h`**: Klasa bazowa.
-- **`framework/core/timer.h`**: Używa `Timer` do śledzenia postępu animacji.
+- **`framework/core/timer.h`**: UÄąÄ˝ywa `Timer` do Äąâ€şledzenia postÄ™pu animacji.
 
 ---
-# 📄 healthbars.cpp
-## Ogólny opis
-Implementacja `HealthBars`, globalnego managera niestandardowych teł dla pasków życia i many. Umożliwia ładowanie i przypisywanie różnych grafik do pasków zdrowia w zależności od ID ubioru postaci.
+# Ä‘Ĺşâ€śâ€ž healthbars.cpp
+## OgĂłlny opis
+Implementacja `HealthBars`, globalnego managera niestandardowych teÄąâ€š dla paskĂłw ÄąÄ˝ycia i many. UmoÄąÄ˝liwia Äąâ€šadowanie i przypisywanie rĂłÄąÄ˝nych grafik do paskĂłw zdrowia w zaleÄąÄ˝noÄąâ€şci od ID ubioru postaci.
 ## Klasa `HealthBars`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `init()` | Inicjalizuje wektory na paski życia i many, rezerwując miejsce i dodając `nullptr` jako domyślny pasek (ID 0). |
-| `terminate()` | Czyści wszystkie załadowane tła pasków. |
-| `addHealthBackground(...)` | Dodaje nowe tło dla paska życia. Tworzy obiekt `HealthBar`, ustawia jego właściwości (ścieżka, tekstura, offsety, wysokość) i dodaje go do wektora `m_healthBars`. |
-| `addManaBackground(...)` | Działa analogicznie do `addHealthBackground`, ale dla pasków many. |
-| `getHealthBarPath(int id)` | Zwraca ścieżkę do pliku graficznego dla paska życia o danym ID. |
-| `getManaBarPath(int id)` | Zwraca ścieżkę do pliku graficznego dla paska many o danym ID. |
-| `getHealthBarOffset(int id)` | Zwraca przesunięcie tła dla paska życia. |
-| `getManaBarOffset(int id)` | Zwraca przesunięcie tła dla paska many. |
-| `getHealthBarOffsetBar(int id)` | Zwraca przesunięcie samego paska (wypełnienia) wewnątrz tła. |
-| `getManaBarOffsetBar(int id)` | Działa analogicznie dla paska many. |
-| `getHealthBarHeight(int id)` | Zwraca wysokość paska życia. |
-| `getManaBarHeight(int id)` | Zwraca wysokość paska many. |
+| `init()` | Inicjalizuje wektory na paski ÄąÄ˝ycia i many, rezerwujÄ…c miejsce i dodajÄ…c `nullptr` jako domyÄąâ€şlny pasek (ID 0). |
+| `terminate()` | CzyÄąâ€şci wszystkie zaÄąâ€šadowane tÄąâ€ša paskĂłw. |
+| `addHealthBackground(...)` | Dodaje nowe tÄąâ€šo dla paska ÄąÄ˝ycia. Tworzy obiekt `HealthBar`, ustawia jego wÄąâ€šaÄąâ€şciwoÄąâ€şci (Äąâ€şcieÄąÄ˝ka, tekstura, offsety, wysokoÄąâ€şÄ‡) i dodaje go do wektora `m_healthBars`. |
+| `addManaBackground(...)` | DziaÄąâ€ša analogicznie do `addHealthBackground`, ale dla paskĂłw many. |
+| `getHealthBarPath(int id)` | Zwraca Äąâ€şcieÄąÄ˝kÄ™ do pliku graficznego dla paska ÄąÄ˝ycia o danym ID. |
+| `getManaBarPath(int id)` | Zwraca Äąâ€şcieÄąÄ˝kÄ™ do pliku graficznego dla paska many o danym ID. |
+| `getHealthBarOffset(int id)` | Zwraca przesuniÄ™cie tÄąâ€ša dla paska ÄąÄ˝ycia. |
+| `getManaBarOffset(int id)` | Zwraca przesuniÄ™cie tÄąâ€ša dla paska many. |
+| `getHealthBarOffsetBar(int id)` | Zwraca przesuniÄ™cie samego paska (wypeÄąâ€šnienia) wewnÄ…trz tÄąâ€ša. |
+| `getManaBarOffsetBar(int id)` | DziaÄąâ€ša analogicznie dla paska many. |
+| `getHealthBarHeight(int id)` | Zwraca wysokoÄąâ€şÄ‡ paska ÄąÄ˝ycia. |
+| `getManaBarHeight(int id)` | Zwraca wysokoÄąâ€şÄ‡ paska many. |
 ## Klasa `HealthBar`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `setTexture(const std::string& path)` | Wczytuje teksturę tła paska z podanej ścieżki za pomocą `g_textures`. |
+| `setTexture(const std::string& path)` | Wczytuje teksturÄ™ tÄąâ€ša paska z podanej Äąâ€şcieÄąÄ˝ki za pomocÄ… `g_textures`. |
 ## Zmienne globalne
 - `HealthBars g_healthBars`: Globalna instancja managera.
-## Zależności i powiązania
-- **`framework/graphics/texturemanager.h`**: Używa `g_textures` do ładowania grafik.
-- **`creature.cpp`**: Logika rysowania informacji o postaci (`drawInformation`) używa `g_healthBars` do pobierania niestandardowych teł pasków.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`framework/graphics/texturemanager.h`**: UÄąÄ˝ywa `g_textures` do Äąâ€šadowania grafik.
+- **`creature.cpp`**: Logika rysowania informacji o postaci (`drawInformation`) uÄąÄ˝ywa `g_healthBars` do pobierania niestandardowych teÄąâ€š paskĂłw.
 
 ---
-# 📄 game.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Game`, która jest centralnym punktem zarządzania stanem gry. Definiuje interfejs do obsługi logowania, akcji gracza, komunikacji z serwerem oraz przechowywania stanu gry.
+# Ä‘Ĺşâ€śâ€ž game.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Game`, ktĂłra jest centralnym punktem zarzÄ…dzania stanem gry. Definiuje interfejs do obsÄąâ€šugi logowania, akcji gracza, komunikacji z serwerem oraz przechowywania stanu gry.
 ## Klasa `Game`
 ## Opis
-Singleton (`g_game`) pełniący rolę fasady dla całej logiki gry. Zarządza sesją gracza, protokołem sieciowym, stanem lokalnego gracza i interakcjami ze światem gry.
+Singleton (`g_game`) peÄąâ€šniÄ…cy rolÄ™ fasady dla caÄąâ€šej logiki gry. ZarzÄ…dza sesjÄ… gracza, protokoÄąâ€šem sieciowym, stanem lokalnego gracza i interakcjami ze Äąâ€şwiatem gry.
 ## Struktury
-- **`UnjustifiedPoints`**: Przechowuje informacje o punktach za nieuzasadnione zabójstwa w systemie PvP.
+- **`UnjustifiedPoints`**: Przechowuje informacje o punktach za nieuzasadnione zabĂłjstwa w systemie PvP.
 ## Metody (Publiczne)
 | Grupa | Metody | Opis |
 | --- | --- | --- |
-| **Zarządzanie sesją** | `loginWorld`, `playRecord`, `cancelLogin`, `forceLogout`, `safeLogout` | Logowanie do świata gry, odtwarzanie nagrań, wylogowywanie. |
-| **Akcje gracza** | `walk`, `autoWalk`, `turn`, `stop`, `look`, `move`, `use`, `useWith` | Wysyłanie żądań akcji gracza do serwera. |
-| **Kontenery** | `open`, `close`, `refreshContainer` | Zarządzanie kontenerami. |
-| **Walka** | `attack`, `follow`, `cancelAttackAndFollow` | Zarządzanie atakiem i śledzeniem. |
-| **Komunikacja** | `talk`, `talkChannel`, `talkPrivate` | Wysyłanie wiadomości. |
-| **Zarządzanie stanem** | `setProtocolVersion`, `setClientVersion`, `enableFeature`, `getFeature` | Konfiguracja klienta i obsługa funkcji serwera. |
-| **Gettery** | `isOnline`, `isDead`, `getLocalPlayer`, `getProtocolGame`, `getPing` | Dostęp do aktualnego stanu gry. |
-## Metody (Chronione - Handlery Protokołu)
-Plik definiuje również liczne metody `process...`, które są wywoływane przez `ProtocolGame` w odpowiedzi na otrzymane pakiety z serwera. Przykłady:
+| **ZarzÄ…dzanie sesjÄ…** | `loginWorld`, `playRecord`, `cancelLogin`, `forceLogout`, `safeLogout` | Logowanie do Äąâ€şwiata gry, odtwarzanie nagraÄąâ€ž, wylogowywanie. |
+| **Akcje gracza** | `walk`, `autoWalk`, `turn`, `stop`, `look`, `move`, `use`, `useWith` | WysyÄąâ€šanie ÄąÄ˝Ä…daÄąâ€ž akcji gracza do serwera. |
+| **Kontenery** | `open`, `close`, `refreshContainer` | ZarzÄ…dzanie kontenerami. |
+| **Walka** | `attack`, `follow`, `cancelAttackAndFollow` | ZarzÄ…dzanie atakiem i Äąâ€şledzeniem. |
+| **Komunikacja** | `talk`, `talkChannel`, `talkPrivate` | WysyÄąâ€šanie wiadomoÄąâ€şci. |
+| **ZarzÄ…dzanie stanem** | `setProtocolVersion`, `setClientVersion`, `enableFeature`, `getFeature` | Konfiguracja klienta i obsÄąâ€šuga funkcji serwera. |
+| **Gettery** | `isOnline`, `isDead`, `getLocalPlayer`, `getProtocolGame`, `getPing` | DostÄ™p do aktualnego stanu gry. |
+## Metody (Chronione - Handlery ProtokoÄąâ€šu)
+Plik definiuje rĂłwnieÄąÄ˝ liczne metody `process...`, ktĂłre sÄ… wywoÄąâ€šywane przez `ProtocolGame` w odpowiedzi na otrzymane pakiety z serwera. PrzykÄąâ€šady:
 - `processLoginError`, `processEnterGame`
 - `processTextMessage`, `processTalk`
 - `processOpenContainer`, `processContainerAddItem`
 - `processInventoryChange`
 - `processWalkCancel`
-## Zależności i powiązania
-- **`declarations.h`**: Używa wielu zadeklarowanych typów (`ItemPtr`, `CreaturePtr`, etc.).
-- **`protocolgame.h`**: Ściśle powiązana z protokołem sieciowym.
-- **`localplayer.h`**: Zarządza instancją `LocalPlayer`.
-- **`container.h`**: Zarządza kolekcją otwartych kontenerów.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: UÄąÄ˝ywa wielu zadeklarowanych typĂłw (`ItemPtr`, `CreaturePtr`, etc.).
+- **`protocolgame.h`**: ÄąĹˇciÄąâ€şle powiÄ…zana z protokoÄąâ€šem sieciowym.
+- **`localplayer.h`**: ZarzÄ…dza instancjÄ… `LocalPlayer`.
+- **`container.h`**: ZarzÄ…dza kolekcjÄ… otwartych kontenerĂłw.
 
 ---
-# 📄 healthbars.h
-## Ogólny opis
-Plik nagłówkowy definiujący klasy `HealthBar` i `HealthBars` do zarządzania niestandardowymi tłami pasków życia i many.
+# Ä‘Ĺşâ€śâ€ž healthbars.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy klasy `HealthBar` i `HealthBars` do zarzÄ…dzania niestandardowymi tÄąâ€šami paskĂłw ÄąÄ˝ycia i many.
 ## Klasa `HealthBar`
 ## Opis
-Prosta klasa przechowująca informacje o pojedynczym niestandardowym tle paska zdrowia lub many.
+Prosta klasa przechowujÄ…ca informacje o pojedynczym niestandardowym tle paska zdrowia lub many.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `setPath(const std::string& path)` | Ustawia ścieżkę do pliku graficznego. |
-| `getPath()` | Zwraca ścieżkę. |
-| `setTexture(const std::string& path)` | Ładuje teksturę. |
-| `getTexture()` | Zwraca wskaźnik do tekstury. |
-| `setOffset(int x, int y)` | Ustawia przesunięcie (offset) całego tła względem punktu zaczepienia. |
-| `getOffset()` | Zwraca przesunięcie. |
-| `setBarOffset(int x, int y)` | Ustawia przesunięcie samego paska (wypełnienia) wewnątrz tła. |
-| `getBarOffset()` | Zwraca przesunięcie paska. |
-| `setHeight(int height)` | Ustawia wysokość paska. |
-| `getHeight()` | Zwraca wysokość. |
+| `setPath(const std::string& path)` | Ustawia Äąâ€şcieÄąÄ˝kÄ™ do pliku graficznego. |
+| `getPath()` | Zwraca Äąâ€şcieÄąÄ˝kÄ™. |
+| `setTexture(const std::string& path)` | ÄąÂaduje teksturÄ™. |
+| `getTexture()` | Zwraca wskaÄąĹźnik do tekstury. |
+| `setOffset(int x, int y)` | Ustawia przesuniÄ™cie (offset) caÄąâ€šego tÄąâ€ša wzglÄ™dem punktu zaczepienia. |
+| `getOffset()` | Zwraca przesuniÄ™cie. |
+| `setBarOffset(int x, int y)` | Ustawia przesuniÄ™cie samego paska (wypeÄąâ€šnienia) wewnÄ…trz tÄąâ€ša. |
+| `getBarOffset()` | Zwraca przesuniÄ™cie paska. |
+| `setHeight(int height)` | Ustawia wysokoÄąâ€şÄ‡ paska. |
+| `getHeight()` | Zwraca wysokoÄąâ€şÄ‡. |
 ## Klasa `HealthBars`
 ## Opis
-Singleton (`g_healthBars`) zarządzający kolekcją obiektów `HealthBar`. Działa jako repozytorium dla wszystkich niestandardowych teł pasków.
+Singleton (`g_healthBars`) zarzÄ…dzajÄ…cy kolekcjÄ… obiektĂłw `HealthBar`. DziaÄąâ€ša jako repozytorium dla wszystkich niestandardowych teÄąâ€š paskĂłw.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` | Inicjalizuje managera. |
 | `terminate()` | Zwalnia zasoby. |
-| `addHealthBackground(...)` | Dodaje nowe tło dla paska życia. |
-| `addManaBackground(...)` | Dodaje nowe tło dla paska many. |
-| `getHealthBar(int id)` | Zwraca obiekt `HealthBar` dla paska życia o danym ID. |
+| `addHealthBackground(...)` | Dodaje nowe tÄąâ€šo dla paska ÄąÄ˝ycia. |
+| `addManaBackground(...)` | Dodaje nowe tÄąâ€šo dla paska many. |
+| `getHealthBar(int id)` | Zwraca obiekt `HealthBar` dla paska ÄąÄ˝ycia o danym ID. |
 | `getManaBar(int id)` | Zwraca obiekt `HealthBar` dla paska many o danym ID. |
-| `getHealthBarPath(int id)` | Zwraca ścieżkę do grafiki paska życia. |
-| `getManaBarPath(int id)` | Zwraca ścieżkę do grafiki paska many. |
-| `...` | Gettery dla pozostałych właściwości paska. |
+| `getHealthBarPath(int id)` | Zwraca Äąâ€şcieÄąÄ˝kÄ™ do grafiki paska ÄąÄ˝ycia. |
+| `getManaBarPath(int id)` | Zwraca Äąâ€şcieÄąÄ˝kÄ™ do grafiki paska many. |
+| `...` | Gettery dla pozostaÄąâ€šych wÄąâ€šaÄąâ€şciwoÄąâ€şci paska. |
 ## Zmienne globalne
-- `HealthBars g_healthBars`: Deklaracja zewnętrznej instancji managera.
-## Zależności i powiązania
+- `HealthBars g_healthBars`: Deklaracja zewnÄ™trznej instancji managera.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`declarations.h`**: Podstawowe definicje.
-- **`framework/graphics/declarations.h`**: Deklaracje typów graficznych, np. `TexturePtr`.
+- **`framework/graphics/declarations.h`**: Deklaracje typĂłw graficznych, np. `TexturePtr`.
 
 ---
-# 📄 houses.cpp
-## Ogólny opis
-Implementacja klas `House` i `HouseManager`, które zarządzają danymi o domach w grze. Plik zawiera logikę wczytywania i zapisywania danych o domach z/do plików XML oraz zarządzania ich stanem.
+# Ä‘Ĺşâ€śâ€ž houses.cpp
+## OgĂłlny opis
+Implementacja klas `House` i `HouseManager`, ktĂłre zarzÄ…dzajÄ… danymi o domach w grze. Plik zawiera logikÄ™ wczytywania i zapisywania danych o domach z/do plikĂłw XML oraz zarzÄ…dzania ich stanem.
 ## Klasa `House`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `setTile(const TilePtr& tile)` | Dodaje pole do domu, ustawiając na nim flagę `TILESTATE_HOUSE` i ID domu. |
-| `getTile(const Position& position)` | Zwraca pole na podanej pozycji, jeśli należy ono do domu. |
-| `addDoor(const ItemPtr& door)` | Dodaje drzwi do domu, przypisując im unikalne, inkrementowane ID. |
-| `removeDoorById(uint32 doorId)` | Usuwa drzwi o podanym ID (ustawia wskaźnik na `nullptr` w wektorze). |
-| `load(const TiXmlElement *elem)` | Wczytuje atrybuty domu (nazwa, czynsz, rozmiar, ID miasta, pozycja wejścia) z węzła XML. |
-| `save(TiXmlElement* elem)` | Zapisuje atrybuty domu do węzła XML. |
+| `setTile(const TilePtr& tile)` | Dodaje pole do domu, ustawiajÄ…c na nim flagÄ™ `TILESTATE_HOUSE` i ID domu. |
+| `getTile(const Position& position)` | Zwraca pole na podanej pozycji, jeÄąâ€şli naleÄąÄ˝y ono do domu. |
+| `addDoor(const ItemPtr& door)` | Dodaje drzwi do domu, przypisujÄ…c im unikalne, inkrementowane ID. |
+| `removeDoorById(uint32 doorId)` | Usuwa drzwi o podanym ID (ustawia wskaÄąĹźnik na `nullptr` w wektorze). |
+| `load(const TiXmlElement *elem)` | Wczytuje atrybuty domu (nazwa, czynsz, rozmiar, ID miasta, pozycja wejÄąâ€şcia) z wÄ™zÄąâ€ša XML. |
+| `save(TiXmlElement* elem)` | Zapisuje atrybuty domu do wÄ™zÄąâ€ša XML. |
 ## Klasa `HouseManager`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `addHouse(const HousePtr& house)` | Dodaje dom do listy, jeśli jeszcze nie istnieje. |
+| `addHouse(const HousePtr& house)` | Dodaje dom do listy, jeÄąâ€şli jeszcze nie istnieje. |
 | `removeHouse(uint32 houseId)` | Usuwa dom o podanym ID. |
 | `getHouse(uint32 houseId)` | Wyszukuje i zwraca dom po jego ID. |
 | `getHouseByName(std::string name)` | Wyszukuje i zwraca dom po jego nazwie. |
-| `load(const std::string& fileName)` | Wczytuje listę domów z pliku XML. Dla każdego domu w pliku, jeśli już istnieje w menedżerze, aktualizuje jego dane; w przeciwnym razie tworzy nowy. |
-| `save(const std::string& fileName)` | Zapisuje listę wszystkich domów do pliku XML. |
-| `filterHouses(uint32 townId)` | Zwraca listę domów należących do miasta o podanym ID. |
-| `findHouse(uint32 houseId)` | Wewnętrzna metoda do wyszukiwania iteratora do domu na liście. |
-| `sort()` | Sortuje listę domów alfabetycznie według nazwy. |
+| `load(const std::string& fileName)` | Wczytuje listÄ™ domĂłw z pliku XML. Dla kaÄąÄ˝dego domu w pliku, jeÄąâ€şli juÄąÄ˝ istnieje w menedÄąÄ˝erze, aktualizuje jego dane; w przeciwnym razie tworzy nowy. |
+| `save(const std::string& fileName)` | Zapisuje listÄ™ wszystkich domĂłw do pliku XML. |
+| `filterHouses(uint32 townId)` | Zwraca listÄ™ domĂłw naleÄąÄ˝Ä…cych do miasta o podanym ID. |
+| `findHouse(uint32 houseId)` | WewnÄ™trzna metoda do wyszukiwania iteratora do domu na liÄąâ€şcie. |
+| `sort()` | Sortuje listÄ™ domĂłw alfabetycznie wedÄąâ€šug nazwy. |
 ## Zmienne globalne
-- `HouseManager g_houses`: Globalna instancja managera domów.
-## Zależności i powiązania
+- `HouseManager g_houses`: Globalna instancja managera domĂłw.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`map.h`**: Interakcje z obiektami `Tile` (`tile->setFlag(...)`).
-- **`framework/core/resourcemanager.h`**: Do odczytu plików XML z danymi domów.
+- **`framework/core/resourcemanager.h`**: Do odczytu plikĂłw XML z danymi domĂłw.
 
 ---
-# 📄 item.cpp
-## Ogólny opis
-Implementacja klasy `Item`, która reprezentuje przedmioty w grze. Plik zawiera logikę rysowania przedmiotów, obsługę ich atrybutów oraz serializację/deserializację do formatu binarnego (OTBM).
+# Ä‘Ĺşâ€śâ€ž item.cpp
+## OgĂłlny opis
+Implementacja klasy `Item`, ktĂłra reprezentuje przedmioty w grze. Plik zawiera logikÄ™ rysowania przedmiotĂłw, obsÄąâ€šugÄ™ ich atrybutĂłw oraz serializacjÄ™/deserializacjÄ™ do formatu binarnego (OTBM).
 ## Klasa `Item`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `create(int id, int countOrSubtype)` | Statyczna metoda fabryczna do tworzenia przedmiotu na podstawie jego ID klienta. |
-| `createFromOtb(int id)` | Statyczna metoda fabryczna do tworzenia przedmiotu na podstawie jego ID serwera (z plików OTB). |
-| `getName()` | Zwraca nazwę przedmiotu na podstawie jego typu. |
-| `draw(...)` | Rysuje przedmiot na ekranie. Oblicza fazę animacji oraz wzór (pattern) na podstawie jego właściwości (np. liczba przedmiotów w stosie, typ płynu). |
-| `setId(uint32 id)` / `setOtbId(uint16 id)` | Ustawia ID przedmiotu, odpowiednio konwertując między ID klienta a serwera. |
+| `createFromOtb(int id)` | Statyczna metoda fabryczna do tworzenia przedmiotu na podstawie jego ID serwera (z plikĂłw OTB). |
+| `getName()` | Zwraca nazwÄ™ przedmiotu na podstawie jego typu. |
+| `draw(...)` | Rysuje przedmiot na ekranie. Oblicza fazÄ™ animacji oraz wzĂłr (pattern) na podstawie jego wÄąâ€šaÄąâ€şciwoÄąâ€şci (np. liczba przedmiotĂłw w stosie, typ pÄąâ€šynu). |
+| `setId(uint32 id)` / `setOtbId(uint16 id)` | Ustawia ID przedmiotu, odpowiednio konwertujÄ…c miÄ™dzy ID klienta a serwera. |
 | `unserializeItem(const BinaryTreePtr &in)` | Wczytuje atrybuty przedmiotu z binarnego drzewa (format OTBM). |
 | `serializeItem(const OutputBinaryTreePtr& out)` | Zapisuje atrybuty przedmiotu do binarnego drzewa. |
-| `getSubType()` | Zwraca podtyp przedmiotu (np. typ płynu). |
-| `getCount()` | Zwraca liczbę przedmiotów w stosie (jeśli jest stackable). |
-| `clone()` | Tworzy i zwraca głęboką kopię przedmiotu. |
-| `calculatePatterns(...)` | Oblicza, który wzór (pattern) sprite'a powinien być użyty, w zależności od typu przedmiotu (stackable, hangable, fluid container). |
-| `calculateAnimationPhase(bool animate)` | Oblicza bieżącą klatkę animacji. Obsługuje animacje synchroniczne i asynchroniczne. |
-| `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla tego przedmiotu. |
-## Zależności i powiązania
-- **`thingtypemanager.h`**: Używa `g_things` do uzyskiwania informacji o typach przedmiotów.
-- **`spritemanager.h`**: Używa `g_sprites` do pobierania danych o sprite'ach.
-- **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera (np. `GameNewFluids`).
-- **`tile.h`**: Interakcje z polem, na którym leży przedmiot (np. do określenia, jak zawiesić przedmiot).
+| `getSubType()` | Zwraca podtyp przedmiotu (np. typ pÄąâ€šynu). |
+| `getCount()` | Zwraca liczbÄ™ przedmiotĂłw w stosie (jeÄąâ€şli jest stackable). |
+| `clone()` | Tworzy i zwraca gÄąâ€šÄ™bokÄ… kopiÄ™ przedmiotu. |
+| `calculatePatterns(...)` | Oblicza, ktĂłry wzĂłr (pattern) sprite'a powinien byÄ‡ uÄąÄ˝yty, w zaleÄąÄ˝noÄąâ€şci od typu przedmiotu (stackable, hangable, fluid container). |
+| `calculateAnimationPhase(bool animate)` | Oblicza bieÄąÄ˝Ä…cÄ… klatkÄ™ animacji. ObsÄąâ€šuguje animacje synchroniczne i asynchroniczne. |
+| `getThingType()` / `rawGetThingType()` | ZwracajÄ… `ThingType` dla tego przedmiotu. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`thingtypemanager.h`**: UÄąÄ˝ywa `g_things` do uzyskiwania informacji o typach przedmiotĂłw.
+- **`spritemanager.h`**: UÄąÄ˝ywa `g_sprites` do pobierania danych o sprite'ach.
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania funkcji serwera (np. `GameNewFluids`).
+- **`tile.h`**: Interakcje z polem, na ktĂłrym leÄąÄ˝y przedmiot (np. do okreÄąâ€şlenia, jak zawiesiÄ‡ przedmiot).
 
 ---
-# 📄 itemtype.cpp
-## Ogólny opis
-Implementacja klasy `ItemType`, która reprezentuje szablon (typ) przedmiotu. Plik zawiera logikę wczytywania definicji typów przedmiotów z binarnego formatu OTB.
+# Ä‘Ĺşâ€śâ€ž itemtype.cpp
+## OgĂłlny opis
+Implementacja klasy `ItemType`, ktĂłra reprezentuje szablon (typ) przedmiotu. Plik zawiera logikÄ™ wczytywania definicji typĂłw przedmiotĂłw z binarnego formatu OTB.
 ## Klasa `ItemType`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `unserialize(const BinaryTreePtr& node)` | Deserializuje dane typu przedmiotu z węzła binarnego drzewa. Odczytuje kategorię przedmiotu oraz listę jego atrybutów, takich jak ID serwera, ID klienta, nazwa, czy jest zapisywalny itp. Obsługuje różnice w formacie w zależności od wersji klienta. |
+| `unserialize(const BinaryTreePtr& node)` | Deserializuje dane typu przedmiotu z wÄ™zÄąâ€ša binarnego drzewa. Odczytuje kategoriÄ™ przedmiotu oraz listÄ™ jego atrybutĂłw, takich jak ID serwera, ID klienta, nazwa, czy jest zapisywalny itp. ObsÄąâ€šuguje rĂłÄąÄ˝nice w formacie w zaleÄąÄ˝noÄąâ€şci od wersji klienta. |
 ## Logika serializacji
-Metoda `unserialize` zawiera logikę dostosowującą wczytywanie atrybutów do różnych wersji klienta Tibii. Na przykład, dla starszych wersji klienta, ID serwera musi być dostosowane, aby poprawnie mapować przedmioty.
+Metoda `unserialize` zawiera logikÄ™ dostosowujÄ…cÄ… wczytywanie atrybutĂłw do rĂłÄąÄ˝nych wersji klienta Tibii. Na przykÄąâ€šad, dla starszych wersji klienta, ID serwera musi byÄ‡ dostosowane, aby poprawnie mapowaÄ‡ przedmioty.
 
-> NOTE: Statyczna zmienna `lastId` jest używana do tworzenia "pustych" typów przedmiotów, jeśli w pliku OTB występują luki w numeracji ID serwera. Jest to mechanizm zapewniający spójność indeksowania.
-## Zależności i powiązania
-- **`thingtypemanager.h`**: Jest ściśle powiązana z `ThingTypeManager`, który zarządza wszystkimi typami przedmiotów i wywołuje `unserialize`.
-- **`game.h`**: Używa `g_game` do sprawdzania wersji klienta, co wpływa na logikę parsowania.
-- **`framework/core/binarytree.h`**: Używa `BinaryTree` do odczytu danych z formatu OTB.
+> NOTE: Statyczna zmienna `lastId` jest uÄąÄ˝ywana do tworzenia "pustych" typĂłw przedmiotĂłw, jeÄąâ€şli w pliku OTB wystÄ™pujÄ… luki w numeracji ID serwera. Jest to mechanizm zapewniajÄ…cy spĂłjnoÄąâ€şÄ‡ indeksowania.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`thingtypemanager.h`**: Jest Äąâ€şciÄąâ€şle powiÄ…zana z `ThingTypeManager`, ktĂłry zarzÄ…dza wszystkimi typami przedmiotĂłw i wywoÄąâ€šuje `unserialize`.
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania wersji klienta, co wpÄąâ€šywa na logikÄ™ parsowania.
+- **`framework/core/binarytree.h`**: UÄąÄ˝ywa `BinaryTree` do odczytu danych z formatu OTB.
 
 ---
-# 📄 item.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Item`, która reprezentuje konkretny przedmiot w grze.
+# Ä‘Ĺşâ€śâ€ž item.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Item`, ktĂłra reprezentuje konkretny przedmiot w grze.
 ## Klasa `Item`
 ## Opis
-Dziedziczy po `Thing`. Reprezentuje instancję przedmiotu, która może znajdować się na mapie, w kontenerze lub w ekwipunku gracza. Posiada właściwości takie jak ID, liczba/podtyp, kolor, a także może zawierać inne przedmioty, jeśli jest kontenerem.
+Dziedziczy po `Thing`. Reprezentuje instancjÄ™ przedmiotu, ktĂłra moÄąÄ˝e znajdowaÄ‡ siÄ™ na mapie, w kontenerze lub w ekwipunku gracza. Posiada wÄąâ€šaÄąâ€şciwoÄąâ€şci takie jak ID, liczba/podtyp, kolor, a takÄąÄ˝e moÄąÄ˝e zawieraÄ‡ inne przedmioty, jeÄąâ€şli jest kontenerem.
 ## Typy wyliczeniowe
-- **`ItemAttr`**: Definiuje klucze atrybutów, które mogą być przypisane do przedmiotu (np. `ATTR_COUNT`, `ATTR_ACTION_ID`, `ATTR_TEXT`).
+- **`ItemAttr`**: Definiuje klucze atrybutĂłw, ktĂłre mogÄ… byÄ‡ przypisane do przedmiotu (np. `ATTR_COUNT`, `ATTR_ACTION_ID`, `ATTR_TEXT`).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
@@ -770,31 +770,31 @@ Dziedziczy po `Thing`. Reprezentuje instancję przedmiotu, która może znajdowa
 | `draw(...)` | Rysuje przedmiot na ekranie. |
 | `setId(uint32 id)` | Ustawia ID klienta przedmiotu. |
 | `setOtbId(uint16 id)` | Ustawia ID serwera (OTB) przedmiotu. |
-| `setCountOrSubType(int value)` | Ustawia liczbę (dla przedmiotów stackowalnych) lub podtyp (dla płynów, etc.). |
-| `getCount()` | Zwraca liczbę przedmiotów. |
+| `setCountOrSubType(int value)` | Ustawia liczbÄ™ (dla przedmiotĂłw stackowalnych) lub podtyp (dla pÄąâ€šynĂłw, etc.). |
+| `getCount()` | Zwraca liczbÄ™ przedmiotĂłw. |
 | `getSubType()` | Zwraca podtyp przedmiotu. |
 | `getServerId()` | Zwraca ID serwera. |
 | `unserializeItem(...)` | Wczytuje atrybuty przedmiotu z formatu binarnego. |
 | `serializeItem(...)` | Zapisuje atrybuty przedmiotu do formatu binarnego. |
-| `isContainer()` | Zwraca `true`, jeśli przedmiot jest kontenerem. |
-| `clone()` | Tworzy głęboką kopię przedmiotu. |
-| `getContainerItems()` | Zwraca listę przedmiotów wewnątrz, jeśli jest kontenerem. |
-| `setCustomAttribute(...)` | Ustawia niestandardowy atrybut przedmiotu (funkcja dla serwerów niestandardowych). |
-## Zależności i powiązania
+| `isContainer()` | Zwraca `true`, jeÄąâ€şli przedmiot jest kontenerem. |
+| `clone()` | Tworzy gÄąâ€šÄ™bokÄ… kopiÄ™ przedmiotu. |
+| `getContainerItems()` | Zwraca listÄ™ przedmiotĂłw wewnÄ…trz, jeÄąâ€şli jest kontenerem. |
+| `setCustomAttribute(...)` | Ustawia niestandardowy atrybut przedmiotu (funkcja dla serwerĂłw niestandardowych). |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`thing.h`**: Klasa bazowa.
-- **`itemtype.h`**: Każdy `Item` jest instancją jakiegoś `ItemType`.
+- **`itemtype.h`**: KaÄąÄ˝dy `Item` jest instancjÄ… jakiegoÄąâ€ş `ItemType`.
 
 ---
-# 📄 itemtype.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `ItemType`, która reprezentuje szablon (typ) przedmiotu.
+# Ä‘Ĺşâ€śâ€ž itemtype.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `ItemType`, ktĂłra reprezentuje szablon (typ) przedmiotu.
 ## Klasa `ItemType`
 ## Opis
-Przechowuje niezmienne właściwości dla danego typu przedmiotu, wczytywane z plików OTB. Wszystkie instancje `Item` o tym samym ID dzielą jeden obiekt `ItemType`.
+Przechowuje niezmienne wÄąâ€šaÄąâ€şciwoÄąâ€şci dla danego typu przedmiotu, wczytywane z plikĂłw OTB. Wszystkie instancje `Item` o tym samym ID dzielÄ… jeden obiekt `ItemType`.
 ## Typy wyliczeniowe
-- **`ItemCategory`**: Kategorie przedmiotów (broń, zbroja, pojemnik itp.).
+- **`ItemCategory`**: Kategorie przedmiotĂłw (broÄąâ€ž, zbroja, pojemnik itp.).
 - **`ItemTypeAttr`**: Atrybuty typu przedmiotu wczytywane z OTB.
-- **`ClientVersion`**: Wersje klienta, używane do obsługi różnic w formatach plików.
+- **`ClientVersion`**: Wersje klienta, uÄąÄ˝ywane do obsÄąâ€šugi rĂłÄąÄ˝nic w formatach plikĂłw.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
@@ -803,1008 +803,1008 @@ Przechowuje niezmienne właściwości dla danego typu przedmiotu, wczytywane z p
 | `getServerId()` | Zwraca ID serwera. |
 | `setClientId(uint16 clientId)` | Ustawia ID klienta. |
 | `getClientId()` | Zwraca ID klienta. |
-| `getCategory()` | Zwraca kategorię przedmiotu. |
-| `getName()` | Zwraca nazwę przedmiotu. |
-| `isWritable()` | Zwraca `true`, jeśli na przedmiocie można pisać. |
-## Zależności i powiązania
-- **`framework/luaengine/luaobject.h`**: Dziedziczy z `LuaObject`, aby być dostępnym z Lua.
-- **`framework/xml/tinyxml.h`**: Używane do parsowania dodatkowych danych z `items.xml`.
+| `getCategory()` | Zwraca kategoriÄ™ przedmiotu. |
+| `getName()` | Zwraca nazwÄ™ przedmiotu. |
+| `isWritable()` | Zwraca `true`, jeÄąâ€şli na przedmiocie moÄąÄ˝na pisaÄ‡. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`framework/luaengine/luaobject.h`**: Dziedziczy z `LuaObject`, aby byÄ‡ dostÄ™pnym z Lua.
+- **`framework/xml/tinyxml.h`**: UÄąÄ˝ywane do parsowania dodatkowych danych z `items.xml`.
 
 ---
-# 📄 lightview.cpp
-## Ogólny opis
-Implementacja klasy `LightView`, która zarządza i renderuje dynamiczne oświetlenie na mapie.
+# Ä‘Ĺşâ€śâ€ž lightview.cpp
+## OgĂłlny opis
+Implementacja klasy `LightView`, ktĂłra zarzÄ…dza i renderuje dynamiczne oÄąâ€şwietlenie na mapie.
 ## Klasa `LightView`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `addLight(const Point& pos, uint8_t color, uint8_t intensity)` | Dodaje nowe źródło światła do sceny. Jeśli w tym samym miejscu istnieje już światło o tym samym kolorze, wybierana jest większa intensywność. |
-| `setFieldBrightness(...)` | Ustawia jasność dla danego pola na mapie. Ta metoda nie jest w pełni zaimplementowana i jej rola wydaje się ograniczona. |
-| `draw()` | Główna funkcja renderująca. Przebiega przez wszystkie pola widoczne na ekranie i dla każdego piksela oblicza finalny kolor światła, sumując wpływ globalnego oświetlenia i wszystkich pobliskich źródeł światła. Wynik jest zapisywany do bufora, a następnie przesyłany do tekstury (`m_lightTexture`), która jest rysowana na ekranie z trybem mieszania `CompositionMode_Multiply`, aby przyciemnić scenę. |
+| `addLight(const Point& pos, uint8_t color, uint8_t intensity)` | Dodaje nowe ÄąĹźrĂłdÄąâ€šo Äąâ€şwiatÄąâ€ša do sceny. JeÄąâ€şli w tym samym miejscu istnieje juÄąÄ˝ Äąâ€şwiatÄąâ€šo o tym samym kolorze, wybierana jest wiÄ™ksza intensywnoÄąâ€şÄ‡. |
+| `setFieldBrightness(...)` | Ustawia jasnoÄąâ€şÄ‡ dla danego pola na mapie. Ta metoda nie jest w peÄąâ€šni zaimplementowana i jej rola wydaje siÄ™ ograniczona. |
+| `draw()` | GÄąâ€šĂłwna funkcja renderujÄ…ca. Przebiega przez wszystkie pola widoczne na ekranie i dla kaÄąÄ˝dego piksela oblicza finalny kolor Äąâ€şwiatÄąâ€ša, sumujÄ…c wpÄąâ€šyw globalnego oÄąâ€şwietlenia i wszystkich pobliskich ÄąĹźrĂłdeÄąâ€š Äąâ€şwiatÄąâ€ša. Wynik jest zapisywany do bufora, a nastÄ™pnie przesyÄąâ€šany do tekstury (`m_lightTexture`), ktĂłra jest rysowana na ekranie z trybem mieszania `CompositionMode_Multiply`, aby przyciemniÄ‡ scenÄ™. |
 ## Logika renderowania
 1.  Tworzony jest bufor pikseli o rozmiarze widocznego obszaru mapy.
-2.  Każdy piksel w buforze jest inicjalizowany globalnym światłem otoczenia.
-3.  Dla każdego piksela iteruje się przez wszystkie źródła światła.
-4.  Obliczana jest odległość piksela od źródła światła, a na jej podstawie intensywność światła w tym punkcie.
-5.  Kolor światła jest mieszany z kolorem piksela w buforze (wybierany jest najjaśniejszy kanał R, G, B).
-6.  Po przetworzeniu wszystkich pikseli, bufor jest ładowany do tekstury.
-7.  Tekstura światła jest rysowana na wierzchu sceny, przyciemniając ją.
-## Zależności i powiązania
-- **`spritemanager.h`**: Używa `g_sprites.spriteSize()` do obliczeń związanych z rozmiarami pól.
-- **`framework/graphics/painter.h`**: Używa `g_painter` do rysowania finalnej tekstury światła.
+2.  KaÄąÄ˝dy piksel w buforze jest inicjalizowany globalnym Äąâ€şwiatÄąâ€šem otoczenia.
+3.  Dla kaÄąÄ˝dego piksela iteruje siÄ™ przez wszystkie ÄąĹźrĂłdÄąâ€ša Äąâ€şwiatÄąâ€ša.
+4.  Obliczana jest odlegÄąâ€šoÄąâ€şÄ‡ piksela od ÄąĹźrĂłdÄąâ€ša Äąâ€şwiatÄąâ€ša, a na jej podstawie intensywnoÄąâ€şÄ‡ Äąâ€şwiatÄąâ€ša w tym punkcie.
+5.  Kolor Äąâ€şwiatÄąâ€ša jest mieszany z kolorem piksela w buforze (wybierany jest najjaÄąâ€şniejszy kanaÄąâ€š R, G, B).
+6.  Po przetworzeniu wszystkich pikseli, bufor jest Äąâ€šadowany do tekstury.
+7.  Tekstura Äąâ€şwiatÄąâ€ša jest rysowana na wierzchu sceny, przyciemniajÄ…c jÄ….
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`spritemanager.h`**: UÄąÄ˝ywa `g_sprites.spriteSize()` do obliczeÄąâ€ž zwiÄ…zanych z rozmiarami pĂłl.
+- **`framework/graphics/painter.h`**: UÄąÄ˝ywa `g_painter` do rysowania finalnej tekstury Äąâ€şwiatÄąâ€ša.
 
 ---
-# 📄 lightview.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `LightView`, która jest odpowiedzialna za system dynamicznego oświetlenia w grze.
+# Ä‘Ĺşâ€śâ€ž lightview.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `LightView`, ktĂłra jest odpowiedzialna za system dynamicznego oÄąâ€şwietlenia w grze.
 ## Struktura `TileLight`
 ## Opis
-Prosta struktura przechowująca informacje o świetle dla pojedynczego pola mapy.
-- `start`: Indeks początkowy w liście świateł, od którego należy zacząć obliczenia dla tego pola.
-- `color`: Kolor światła.
+Prosta struktura przechowujÄ…ca informacje o Äąâ€şwietle dla pojedynczego pola mapy.
+- `start`: Indeks poczÄ…tkowy w liÄąâ€şcie Äąâ€şwiateÄąâ€š, od ktĂłrego naleÄąÄ˝y zaczÄ…Ä‡ obliczenia dla tego pola.
+- `color`: Kolor Äąâ€şwiatÄąâ€ša.
 ## Klasa `LightView`
 ## Opis
-Dziedziczy po `DrawQueueItem`, co oznacza, że obiekty tej klasy mogą być dodawane do kolejki rysowania. `LightView` agreguje wszystkie źródła światła w widocznym obszarze i renderuje je do jednej tekstury, która następnie jest nakładana na scenę.
+Dziedziczy po `DrawQueueItem`, co oznacza, ÄąÄ˝e obiekty tej klasy mogÄ… byÄ‡ dodawane do kolejki rysowania. `LightView` agreguje wszystkie ÄąĹźrĂłdÄąâ€ša Äąâ€şwiatÄąâ€ša w widocznym obszarze i renderuje je do jednej tekstury, ktĂłra nastÄ™pnie jest nakÄąâ€šadana na scenÄ™.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `LightView(...)` | Konstruktor. Inicjalizuje widok światła z podanym rozmiarem, teksturą docelową, globalnym kolorem i intensywnością światła. |
-| `addLight(...)` | Dodaje źródło światła w danej pozycji. |
-| `setFieldBrightness(...)` | Ustawia jasność dla danego pola (obecnie nie w pełni wykorzystywane). |
-| `size()` | Zwraca liczbę źródeł światła. |
-| `draw()` | Metoda renderująca, która wykonuje obliczenia oświetlenia i rysuje finalną teksturę. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
-- **`thingtype.h`**: Używa struktury `Light` zdefiniowanej w `thingtype.h`.
+| `LightView(...)` | Konstruktor. Inicjalizuje widok Äąâ€şwiatÄąâ€ša z podanym rozmiarem, teksturÄ… docelowÄ…, globalnym kolorem i intensywnoÄąâ€şciÄ… Äąâ€şwiatÄąâ€ša. |
+| `addLight(...)` | Dodaje ÄąĹźrĂłdÄąâ€šo Äąâ€şwiatÄąâ€ša w danej pozycji. |
+| `setFieldBrightness(...)` | Ustawia jasnoÄąâ€şÄ‡ dla danego pola (obecnie nie w peÄąâ€šni wykorzystywane). |
+| `size()` | Zwraca liczbÄ™ ÄąĹźrĂłdeÄąâ€š Äąâ€şwiatÄąâ€ša. |
+| `draw()` | Metoda renderujÄ…ca, ktĂłra wykonuje obliczenia oÄąâ€şwietlenia i rysuje finalnÄ… teksturÄ™. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
+- **`thingtype.h`**: UÄąÄ˝ywa struktury `Light` zdefiniowanej w `thingtype.h`.
 - **`framework/graphics/drawqueue.h`**: Jest elementem kolejki rysowania.
 
 ---
-# 📄 localplayer.cpp
-## Ogólny opis
-Implementacja klasy `LocalPlayer`, która reprezentuje postać sterowaną przez gracza. Rozszerza klasę `Player` o logikę specyficzną dla lokalnego gracza, taką jak obsługa ruchu inicjowanego przez klienta (pre-walking), blokady chodzenia, auto-walking oraz zarządzanie statystykami.
+# Ä‘Ĺşâ€śâ€ž localplayer.cpp
+## OgĂłlny opis
+Implementacja klasy `LocalPlayer`, ktĂłra reprezentuje postaÄ‡ sterowanÄ… przez gracza. Rozszerza klasÄ™ `Player` o logikÄ™ specyficznÄ… dla lokalnego gracza, takÄ… jak obsÄąâ€šuga ruchu inicjowanego przez klienta (pre-walking), blokady chodzenia, auto-walking oraz zarzÄ…dzanie statystykami.
 ## Klasa `LocalPlayer`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `lockWalk(int millis)` | Blokuje możliwość chodzenia na określony czas, np. po użyciu przedmiotu. |
-| `canWalk(Otc::Direction direction, ...)` | Sprawdza, czy gracz może wykonać krok w danym kierunku. Uwzględnia blokady, paraliż, trwający ruch oraz limity "pre-walkingu". |
-| `walk(const Position& oldPos, const Position& newPos)` | Obsługuje ruch potwierdzony przez serwer. Jeśli ruch odpowiada wykonanemu "pre-walk", usuwa go z kolejki. Jeśli nie, traktuje to jako ruch wymuszony przez serwer (np. odepchnięcie). |
-| `preWalk(Otc::Direction direction)` | Inicjuje "pre-walking" – ruch wykonywany przez klienta przed potwierdzeniem z serwera, aby zniwelować opóźnienie sieciowe. Dodaje nową pozycję do kolejki `m_preWalking`. |
-| `cancelNewWalk(Otc::Direction dir)` | Anuluje wszystkie ruchy "pre-walk" w odpowiedzi na pakiet "cancel walk" z serwera. Może próbować ponowić auto-walking. |
-| `predictiveCancelWalk(...)` | Anuluje ruchy "pre-walk" na podstawie predykcji, jeśli serwer odrzuci krok w połowie ścieżki. |
-| `autoWalk(Position destination, ...)` | Inicjuje automatyczne poruszanie się do celu. Asynchronicznie wyszukuje ścieżkę i wysyła ją do serwera. |
+| `lockWalk(int millis)` | Blokuje moÄąÄ˝liwoÄąâ€şÄ‡ chodzenia na okreÄąâ€şlony czas, np. po uÄąÄ˝yciu przedmiotu. |
+| `canWalk(Otc::Direction direction, ...)` | Sprawdza, czy gracz moÄąÄ˝e wykonaÄ‡ krok w danym kierunku. UwzglÄ™dnia blokady, paraliÄąÄ˝, trwajÄ…cy ruch oraz limity "pre-walkingu". |
+| `walk(const Position& oldPos, const Position& newPos)` | ObsÄąâ€šuguje ruch potwierdzony przez serwer. JeÄąâ€şli ruch odpowiada wykonanemu "pre-walk", usuwa go z kolejki. JeÄąâ€şli nie, traktuje to jako ruch wymuszony przez serwer (np. odepchniÄ™cie). |
+| `preWalk(Otc::Direction direction)` | Inicjuje "pre-walking" â€“ ruch wykonywany przez klienta przed potwierdzeniem z serwera, aby zniwelowaÄ‡ opĂłÄąĹźnienie sieciowe. Dodaje nowÄ… pozycjÄ™ do kolejki `m_preWalking`. |
+| `cancelNewWalk(Otc::Direction dir)` | Anuluje wszystkie ruchy "pre-walk" w odpowiedzi na pakiet "cancel walk" z serwera. MoÄąÄ˝e prĂłbowaÄ‡ ponowiÄ‡ auto-walking. |
+| `predictiveCancelWalk(...)` | Anuluje ruchy "pre-walk" na podstawie predykcji, jeÄąâ€şli serwer odrzuci krok w poÄąâ€šowie Äąâ€şcieÄąÄ˝ki. |
+| `autoWalk(Position destination, ...)` | Inicjuje automatyczne poruszanie siÄ™ do celu. Asynchronicznie wyszukuje Äąâ€şcieÄąÄ˝kÄ™ i wysyÄąâ€ša jÄ… do serwera. |
 | `stopAutoWalk()` | Przerywa auto-walking. |
-| `stopWalk()` | Natychmiastowo zatrzymuje wszelki ruch, czyszcząc kolejkę "pre-walk". |
-| `updateWalkOffset(...)` | Specjalna implementacja dla "pre-walk", gdzie offset jest liczony w przeciwnym kierunku niż normalny ruch. |
-| `updateWalk()` | Aktualizuje stan chodzenia; kończy krok, gdy upłynie jego czas trwania. |
-| `terminateWalk()` | Finalizuje krok, resetuje stan chodzenia i wywołuje callback `onWalkFinish`. |
-| `onPositionChange(...)` | Obsługuje zmianę pozycji; jeśli osiągnięto cel auto-walk, zatrzymuje go. |
-| `set...(...)` | Szereg metod `set` (np. `setHealth`, `setSkill`, `setExperience`), które aktualizują stan lokalnego gracza i wywołują odpowiednie callbacki Lua, informując o zmianach. |
-| `hasSight(const Position& pos)` | Sprawdza, czy dana pozycja jest w zasięgu wzroku gracza. |
-## Zależności i powiązania
-- **`map.h`**, **`tile.h`**: Do sprawdzania, czy pola są możliwe do przejścia.
+| `stopWalk()` | Natychmiastowo zatrzymuje wszelki ruch, czyszczÄ…c kolejkÄ™ "pre-walk". |
+| `updateWalkOffset(...)` | Specjalna implementacja dla "pre-walk", gdzie offset jest liczony w przeciwnym kierunku niÄąÄ˝ normalny ruch. |
+| `updateWalk()` | Aktualizuje stan chodzenia; koÄąâ€žczy krok, gdy upÄąâ€šynie jego czas trwania. |
+| `terminateWalk()` | Finalizuje krok, resetuje stan chodzenia i wywoÄąâ€šuje callback `onWalkFinish`. |
+| `onPositionChange(...)` | ObsÄąâ€šuguje zmianÄ™ pozycji; jeÄąâ€şli osiÄ…gniÄ™to cel auto-walk, zatrzymuje go. |
+| `set...(...)` | Szereg metod `set` (np. `setHealth`, `setSkill`, `setExperience`), ktĂłre aktualizujÄ… stan lokalnego gracza i wywoÄąâ€šujÄ… odpowiednie callbacki Lua, informujÄ…c o zmianach. |
+| `hasSight(const Position& pos)` | Sprawdza, czy dana pozycja jest w zasiÄ™gu wzroku gracza. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`map.h`**, **`tile.h`**: Do sprawdzania, czy pola sÄ… moÄąÄ˝liwe do przejÄąâ€şcia.
 - **`game.h`**: Do komunikacji z serwerem i zatrzymywania akcji gry.
-- **`framework/core/eventdispatcher.h`**: Do planowania ponownych prób auto-walkingu.
+- **`framework/core/eventdispatcher.h`**: Do planowania ponownych prĂłb auto-walkingu.
 
 ---
-# 📄 map.cpp
-## Ogólny opis
-Implementacja klasy `Map`, która jest centralnym repozytorium dla wszystkich danych o świecie gry. Plik zawiera logikę zarządzania polami (`Tile`), umieszczania na nich obiektów (`Thing`), wyszukiwania ścieżek oraz zarządzania widocznym obszarem mapy.
+# Ä‘Ĺşâ€śâ€ž map.cpp
+## OgĂłlny opis
+Implementacja klasy `Map`, ktĂłra jest centralnym repozytorium dla wszystkich danych o Äąâ€şwiecie gry. Plik zawiera logikÄ™ zarzÄ…dzania polami (`Tile`), umieszczania na nich obiektĂłw (`Thing`), wyszukiwania Äąâ€şcieÄąÄ˝ek oraz zarzÄ…dzania widocznym obszarem mapy.
 ## Klasa `Map`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` / `terminate()` | Inicjalizuje i zwalnia zasoby mapy. |
-| `addMapView(...)` / `removeMapView(...)` | Dodaje i usuwa widoki mapy (`MapView`), które będą renderować dane. |
+| `addMapView(...)` / `removeMapView(...)` | Dodaje i usuwa widoki mapy (`MapView`), ktĂłre bÄ™dÄ… renderowaÄ‡ dane. |
 | `notificateTileUpdate(...)` | Powiadamia wszystkie `MapView` o aktualizacji danego pola, co powoduje jego przerysowanie. |
-| `clean()` / `cleanDynamicThings()` | Czyści mapę ze wszystkich pól lub tylko z obiektów dynamicznych (stworzenia, efekty). |
-| `addThing(...)` | Dodaje obiekt (`Thing`) na mapę w danej pozycji. Obsługuje specjalne przypadki dla pocisków, animowanych i statycznych tekstów (np. łączenie tekstów o obrażeniach). |
+| `clean()` / `cleanDynamicThings()` | CzyÄąâ€şci mapÄ™ ze wszystkich pĂłl lub tylko z obiektĂłw dynamicznych (stworzenia, efekty). |
+| `addThing(...)` | Dodaje obiekt (`Thing`) na mapÄ™ w danej pozycji. ObsÄąâ€šuguje specjalne przypadki dla pociskĂłw, animowanych i statycznych tekstĂłw (np. Äąâ€šÄ…czenie tekstĂłw o obraÄąÄ˝eniach). |
 | `getThing(...)` / `removeThing(...)` | Pobiera lub usuwa obiekt z mapy. |
-| `getOrCreateTile(...)` | Zwraca istniejące pole lub tworzy nowe, jeśli nie istnieje. |
-| `getTiles(...)` | Zwraca listę wszystkich pól na danym piętrze lub na całej mapie. |
+| `getOrCreateTile(...)` | Zwraca istniejÄ…ce pole lub tworzy nowe, jeÄąâ€şli nie istnieje. |
+| `getTiles(...)` | Zwraca listÄ™ wszystkich pĂłl na danym piÄ™trze lub na caÄąâ€šej mapie. |
 | `cleanTile(...)` | Usuwa wszystkie obiekty z danego pola. |
-| `setCentralPosition(...)` | Ustawia pozycję kamery, co powoduje usunięcie obiektów spoza nowego zasięgu widzenia. |
-| `getSpectators(...)` | Zwraca listę stworzeń w zasięgu widzenia. |
-| `isAwareOfPosition(...)` | Sprawdza, czy dana pozycja jest w zasięgu widzenia kamery. |
-| `findPath(...)` | Implementacja algorytmu wyszukiwania ścieżki A*. |
-| `newFindPath(...)` | Nowsza, asynchroniczna implementacja wyszukiwania ścieżki. |
-| `findPathAsync(...)` | Uruchamia `newFindPath` w osobnym wątku. |
-| `findEveryPath(...)` | Implementacja algorytmu Dijkstry do znalezienia wszystkich możliwych ścieżek w danym zasięgu. |
+| `setCentralPosition(...)` | Ustawia pozycjÄ™ kamery, co powoduje usuniÄ™cie obiektĂłw spoza nowego zasiÄ™gu widzenia. |
+| `getSpectators(...)` | Zwraca listÄ™ stworzeÄąâ€ž w zasiÄ™gu widzenia. |
+| `isAwareOfPosition(...)` | Sprawdza, czy dana pozycja jest w zasiÄ™gu widzenia kamery. |
+| `findPath(...)` | Implementacja algorytmu wyszukiwania Äąâ€şcieÄąÄ˝ki A*. |
+| `newFindPath(...)` | Nowsza, asynchroniczna implementacja wyszukiwania Äąâ€şcieÄąÄ˝ki. |
+| `findPathAsync(...)` | Uruchamia `newFindPath` w osobnym wÄ…tku. |
+| `findEveryPath(...)` | Implementacja algorytmu Dijkstry do znalezienia wszystkich moÄąÄ˝liwych Äąâ€şcieÄąÄ˝ek w danym zasiÄ™gu. |
 ## Struktura danych
-- **`m_tileBlocks`**: Pola mapy są przechowywane w blokach 32x32, co optymalizuje zużycie pamięci. `std::map<uint, TileBlock> m_tileBlocks[Otc::MAX_Z+1]` przechowuje te bloki dla każdego piętra.
-- **`m_knownCreatures`**: Mapa znanych stworzeń, indeksowana po ich ID.
-## Zależności i powiązania
-- **`game.h`**: Dostęp do stanu gry, np. funkcji serwera (`GameFeature`).
+- **`m_tileBlocks`**: Pola mapy sÄ… przechowywane w blokach 32x32, co optymalizuje zuÄąÄ˝ycie pamiÄ™ci. `std::map<uint, TileBlock> m_tileBlocks[Otc::MAX_Z+1]` przechowuje te bloki dla kaÄąÄ˝dego piÄ™tra.
+- **`m_knownCreatures`**: Mapa znanych stworzeÄąâ€ž, indeksowana po ich ID.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`game.h`**: DostÄ™p do stanu gry, np. funkcji serwera (`GameFeature`).
 - **`localplayer.h`**: Do centrowania kamery i aktualizacji pozycji gracza.
-- **`tile.h`**: Zarządza obiektami `Tile`.
+- **`tile.h`**: ZarzÄ…dza obiektami `Tile`.
 - **`mapview.h`**: Powiadamia `MapView` o zmianach.
-- **`minimap.h`**: Aktualizuje minimapę przy zmianach na polach.
+- **`minimap.h`**: Aktualizuje minimapÄ™ przy zmianach na polach.
 
 ---
-# 📄 luavaluecasts_client.h
-## Ogólny opis
-Plik nagłówkowy definiujący funkcje do konwersji (rzutowania) niestandardowych typów danych C++ na wartości Lua i z powrotem. Jest to kluczowy element integracji logiki gry z silnikiem skryptowym Lua.
+# Ä‘Ĺşâ€śâ€ž luavaluecasts_client.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy funkcje do konwersji (rzutowania) niestandardowych typĂłw danych C++ na wartoÄąâ€şci Lua i z powrotem. Jest to kluczowy element integracji logiki gry z silnikiem skryptowym Lua.
 ## Funkcje
 | Nazwa | Opis |
 | --- | --- |
-| `push_luavalue(const Outfit& outfit)` | Konwertuje obiekt `Outfit` na tabelę Lua i umieszcza ją na stosie. |
-| `luavalue_cast(int index, Outfit& outfit)` | Odczytuje tabelę Lua ze stosu i konwertuje ją na obiekt `Outfit`. |
-| `push_luavalue(const Position& pos)` | Konwertuje obiekt `Position` na tabelę Lua (`{x=, y=, z=}`). |
-| `luavalue_cast(int index, Position& pos)` | Odczytuje tabelę Lua i konwertuje ją na obiekt `Position`. |
-| `push_luavalue(const MarketData& data)` | Konwertuje strukturę `MarketData` na tabelę Lua. |
-| `luavalue_cast(int index, MarketData& data)` | Odczytuje tabelę Lua i konwertuje ją na `MarketData`. |
-| `push_luavalue(const StoreCategory& category)` | Konwertuje `StoreCategory` na tabelę Lua. |
-| `luavalue_cast(int index, StoreCategory& data)` | Konwertuje tabelę Lua na `StoreCategory`. |
-| `push_luavalue(const StoreOffer& offer)` | Konwertuje `StoreOffer` na tabelę Lua. |
-| `luavalue_cast(int index, StoreOffer& offer)` | Konwertuje tabelę Lua na `StoreOffer`. |
-| `push_luavalue(const Imbuement& offer)` | Konwertuje `Imbuement` na tabelę Lua. |
-| `push_luavalue(const Light& light)` | Konwertuje `Light` na tabelę Lua. |
-| `luavalue_cast(int index, Light& light)` | Konwertuje tabelę Lua na `Light`. |
-| `push_luavalue(const UnjustifiedPoints& unjustifiedPoints)` | Konwertuje `UnjustifiedPoints` na tabelę Lua. |
-| `luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints)` | Konwertuje tabelę Lua na `UnjustifiedPoints`. |
-## Zależności i powiązania
-- **`global.h`**, **`game.h`**, **`outfit.h`**: Zawierają definicje typów, które są konwertowane.
+| `push_luavalue(const Outfit& outfit)` | Konwertuje obiekt `Outfit` na tabelÄ™ Lua i umieszcza jÄ… na stosie. |
+| `luavalue_cast(int index, Outfit& outfit)` | Odczytuje tabelÄ™ Lua ze stosu i konwertuje jÄ… na obiekt `Outfit`. |
+| `push_luavalue(const Position& pos)` | Konwertuje obiekt `Position` na tabelÄ™ Lua (`{x=, y=, z=}`). |
+| `luavalue_cast(int index, Position& pos)` | Odczytuje tabelÄ™ Lua i konwertuje jÄ… na obiekt `Position`. |
+| `push_luavalue(const MarketData& data)` | Konwertuje strukturÄ™ `MarketData` na tabelÄ™ Lua. |
+| `luavalue_cast(int index, MarketData& data)` | Odczytuje tabelÄ™ Lua i konwertuje jÄ… na `MarketData`. |
+| `push_luavalue(const StoreCategory& category)` | Konwertuje `StoreCategory` na tabelÄ™ Lua. |
+| `luavalue_cast(int index, StoreCategory& data)` | Konwertuje tabelÄ™ Lua na `StoreCategory`. |
+| `push_luavalue(const StoreOffer& offer)` | Konwertuje `StoreOffer` na tabelÄ™ Lua. |
+| `luavalue_cast(int index, StoreOffer& offer)` | Konwertuje tabelÄ™ Lua na `StoreOffer`. |
+| `push_luavalue(const Imbuement& offer)` | Konwertuje `Imbuement` na tabelÄ™ Lua. |
+| `push_luavalue(const Light& light)` | Konwertuje `Light` na tabelÄ™ Lua. |
+| `luavalue_cast(int index, Light& light)` | Konwertuje tabelÄ™ Lua na `Light`. |
+| `push_luavalue(const UnjustifiedPoints& unjustifiedPoints)` | Konwertuje `UnjustifiedPoints` na tabelÄ™ Lua. |
+| `luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints)` | Konwertuje tabelÄ™ Lua na `UnjustifiedPoints`. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`global.h`**, **`game.h`**, **`outfit.h`**: ZawierajÄ… definicje typĂłw, ktĂłre sÄ… konwertowane.
 - **`framework/luaengine/declarations.h`**: Deklaracje funkcji z silnika Lua.
 - **`luavaluecasts_client.cpp`**: Zawiera implementacje tych funkcji.
 
 ---
-# 📄 mapio.cpp
-## Ogólny opis
-Plik ten zawiera implementację metod klasy `Map` odpowiedzialnych za operacje wejścia/wyjścia, czyli wczytywanie i zapisywanie danych mapy w formatach OTBM (OpenTibia Binary Map) i OTCM (OTClient Map).
+# Ä‘Ĺşâ€śâ€ž mapio.cpp
+## OgĂłlny opis
+Plik ten zawiera implementacjÄ™ metod klasy `Map` odpowiedzialnych za operacje wejÄąâ€şcia/wyjÄąâ€şcia, czyli wczytywanie i zapisywanie danych mapy w formatach OTBM (OpenTibia Binary Map) i OTCM (OTClient Map).
 ## Klasa `Map`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `loadOtbm(const std::string& fileName)` | Wczytuje mapę z pliku binarnego `.otbm`. Parsuje nagłówek, sprawdza wersję i sygnaturę, a następnie iteruje przez węzły binarnego drzewa, tworząc pola (`Tile`), przedmioty (`Item`) oraz wczytując informacje o miastach, domach i punktach nawigacyjnych (waypoints). |
-| `saveOtbm(const std::string& fileName)` | Zapisuje aktualny stan mapy do pliku `.otbm`. Tworzy strukturę binarnego drzewa, zapisuje nagłówek, a następnie serializuje wszystkie pola, przedmioty na nich, a także informacje o miastach, domach i waypointach. |
-| `loadOtcm(const std::string& fileName)` | Wczytuje mapę z własnego, prostszego formatu klienta (`.otcm`). Format ten jest mniej rozbudowany niż OTBM i przechowuje głównie informacje o polach i przedmiotach. |
-| `saveOtcm(const std::string& fileName)` | Zapisuje mapę do formatu `.otcm`. |
+| `loadOtbm(const std::string& fileName)` | Wczytuje mapÄ™ z pliku binarnego `.otbm`. Parsuje nagÄąâ€šĂłwek, sprawdza wersjÄ™ i sygnaturÄ™, a nastÄ™pnie iteruje przez wÄ™zÄąâ€šy binarnego drzewa, tworzÄ…c pola (`Tile`), przedmioty (`Item`) oraz wczytujÄ…c informacje o miastach, domach i punktach nawigacyjnych (waypoints). |
+| `saveOtbm(const std::string& fileName)` | Zapisuje aktualny stan mapy do pliku `.otbm`. Tworzy strukturÄ™ binarnego drzewa, zapisuje nagÄąâ€šĂłwek, a nastÄ™pnie serializuje wszystkie pola, przedmioty na nich, a takÄąÄ˝e informacje o miastach, domach i waypointach. |
+| `loadOtcm(const std::string& fileName)` | Wczytuje mapÄ™ z wÄąâ€šasnego, prostszego formatu klienta (`.otcm`). Format ten jest mniej rozbudowany niÄąÄ˝ OTBM i przechowuje gÄąâ€šĂłwnie informacje o polach i przedmiotach. |
+| `saveOtcm(const std::string& fileName)` | Zapisuje mapÄ™ do formatu `.otcm`. |
 ## Logika wczytywania OTBM
-1.  Otwiera plik i weryfikuje jego sygnaturę (`OTBM`).
-2.  Odczytuje nagłówek, zawierający wymiary mapy i wersje OTB.
-3.  Parsuje główny węzeł danych, odczytując atrybuty takie jak opis mapy oraz ścieżki do plików z danymi o spawnach i domach.
-4.  Iteruje przez węzły `OTBM_TILE_AREA`, które grupują pola w blokach.
-5.  Dla każdego pola (`OTBM_TILE`) odczytuje jego atrybuty (flagi, przedmioty). Przedmioty, które są kontenerami, są parsowane rekurencyjnie.
-6.  Wczytuje definicje miast (`OTBM_TOWNS`) i waypointów (`OTBM_WAYPOINTS`).
-## Zależności i powiązania
+1.  Otwiera plik i weryfikuje jego sygnaturÄ™ (`OTBM`).
+2.  Odczytuje nagÄąâ€šĂłwek, zawierajÄ…cy wymiary mapy i wersje OTB.
+3.  Parsuje gÄąâ€šĂłwny wÄ™zeÄąâ€š danych, odczytujÄ…c atrybuty takie jak opis mapy oraz Äąâ€şcieÄąÄ˝ki do plikĂłw z danymi o spawnach i domach.
+4.  Iteruje przez wÄ™zÄąâ€šy `OTBM_TILE_AREA`, ktĂłre grupujÄ… pola w blokach.
+5.  Dla kaÄąÄ˝dego pola (`OTBM_TILE`) odczytuje jego atrybuty (flagi, przedmioty). Przedmioty, ktĂłre sÄ… kontenerami, sÄ… parsowane rekurencyjnie.
+6.  Wczytuje definicje miast (`OTBM_TOWNS`) i waypointĂłw (`OTBM_WAYPOINTS`).
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`tile.h`**, **`item.h`**: Tworzy obiekty `Tile` i `Item` na podstawie wczytanych danych.
-- **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera, które mogą wpływać na sposób parsowania.
-- **`houses.h`**, **`towns.h`**: Wypełnia menedżery `g_houses` i `g_towns` danymi z mapy.
-- **`framework/core/filestream.h`**, **`framework/core/binarytree.h`**: Narzędzia do obsługi plików binarnych i struktury drzewa binarnego.
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania funkcji serwera, ktĂłre mogÄ… wpÄąâ€šywaÄ‡ na sposĂłb parsowania.
+- **`houses.h`**, **`towns.h`**: WypeÄąâ€šnia menedÄąÄ˝ery `g_houses` i `g_towns` danymi z mapy.
+- **`framework/core/filestream.h`**, **`framework/core/binarytree.h`**: NarzÄ™dzia do obsÄąâ€šugi plikĂłw binarnych i struktury drzewa binarnego.
 
 ---
-# 📄 luavaluecasts_client.cpp
-## Ogólny opis
-Implementacja funkcji do konwersji (rzutowania) niestandardowych typów danych C++ na wartości Lua i z powrotem. Ten plik zawiera logikę "tłumaczenia" złożonych obiektów C++ na tabele Lua i odwrotnie.
+# Ä‘Ĺşâ€śâ€ž luavaluecasts_client.cpp
+## OgĂłlny opis
+Implementacja funkcji do konwersji (rzutowania) niestandardowych typĂłw danych C++ na wartoÄąâ€şci Lua i z powrotem. Ten plik zawiera logikÄ™ "tÄąâ€šumaczenia" zÄąâ€šoÄąÄ˝onych obiektĂłw C++ na tabele Lua i odwrotnie.
 ## Funkcje
 ## `push_luavalue`
-Te funkcje przyjmują jako argument obiekt C++ i umieszczają jego reprezentację w Lua na stosie. Złożone obiekty są zazwyczaj konwertowane na tabele Lua.
-- **`push_luavalue(const Outfit& outfit)`**: Tworzy tabelę Lua z polami `type`, `auxType`, `head`, `body`, `legs`, `feet`, `addons`, `mount` etc. i wypełnia ją danymi z obiektu `Outfit`.
-- **`push_luavalue(const Position& pos)`**: Tworzy tabelę `{x, y, z}`.
-- **`push_luavalue(const MarketData& data)`**: Tworzy tabelę z danymi rynkowymi.
-- **`push_luavalue(const Imbuement& i)`**: Tworzy złożoną, zagnieżdżoną tabelę reprezentującą imbuement, włączając w to listę materiałów.
+Te funkcje przyjmujÄ… jako argument obiekt C++ i umieszczajÄ… jego reprezentacjÄ™ w Lua na stosie. ZÄąâ€šoÄąÄ˝one obiekty sÄ… zazwyczaj konwertowane na tabele Lua.
+- **`push_luavalue(const Outfit& outfit)`**: Tworzy tabelÄ™ Lua z polami `type`, `auxType`, `head`, `body`, `legs`, `feet`, `addons`, `mount` etc. i wypeÄąâ€šnia jÄ… danymi z obiektu `Outfit`.
+- **`push_luavalue(const Position& pos)`**: Tworzy tabelÄ™ `{x, y, z}`.
+- **`push_luavalue(const MarketData& data)`**: Tworzy tabelÄ™ z danymi rynkowymi.
+- **`push_luavalue(const Imbuement& i)`**: Tworzy zÄąâ€šoÄąÄ˝onÄ…, zagnieÄąÄ˝dÄąÄ˝onÄ… tabelÄ™ reprezentujÄ…cÄ… imbuement, wÄąâ€šÄ…czajÄ…c w to listÄ™ materiaÄąâ€šĂłw.
 ## `luavalue_cast`
-Te funkcje przyjmują jako argument indeks na stosie Lua i referencję do obiektu C++. Odczytują wartość ze stosu (zwykle tabelę) i wypełniają obiekt C++ odpowiednimi danymi.
-- **`luavalue_cast(int index, Outfit& outfit)`**: Odczytuje pola z tabeli Lua i ustawia odpowiednie właściwości w obiekcie `Outfit`.
+Te funkcje przyjmujÄ… jako argument indeks na stosie Lua i referencjÄ™ do obiektu C++. OdczytujÄ… wartoÄąâ€şÄ‡ ze stosu (zwykle tabelÄ™) i wypeÄąâ€šniajÄ… obiekt C++ odpowiednimi danymi.
+- **`luavalue_cast(int index, Outfit& outfit)`**: Odczytuje pola z tabeli Lua i ustawia odpowiednie wÄąâ€šaÄąâ€şciwoÄąâ€şci w obiekcie `Outfit`.
 - **`luavalue_cast(int index, Position& pos)`**: Odczytuje pola `x`, `y`, `z` z tabeli.
-- **`luavalue_cast(int index, MarketData& data)`**: Wypełnia strukturę `MarketData`.
-## Zależności i powiązania
-- **`framework/luaengine/luainterface.h`**: Dostęp do funkcji `g_lua` do manipulacji stosem Lua.
-- **`game.h`**: Używa `g_game` do sprawdzania, które `GameFeature` są aktywne, co wpływa na to, które pola obiektu `Outfit` są serializowane/deserializowane (np. `GamePlayerMounts`).
+- **`luavalue_cast(int index, MarketData& data)`**: WypeÄąâ€šnia strukturÄ™ `MarketData`.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`framework/luaengine/luainterface.h`**: DostÄ™p do funkcji `g_lua` do manipulacji stosem Lua.
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania, ktĂłre `GameFeature` sÄ… aktywne, co wpÄąâ€šywa na to, ktĂłre pola obiektu `Outfit` sÄ… serializowane/deserializowane (np. `GamePlayerMounts`).
 - **`luavaluecasts_client.h`**: Deklaracje tych funkcji.
 
 ---
-# 📄 mapview.cpp
-## Ogólny opis
-Implementacja klasy `MapView`, która jest odpowiedzialna za renderowanie widoku mapy. Plik zawiera skomplikowaną logikę określania, które pola są widoczne, jak je rysować w odpowiedniej kolejności (z uwzględnieniem pięter i efektu paralaksy) oraz jak zarządzać oświetleniem i tekstami na mapie.
+# Ä‘Ĺşâ€śâ€ž mapview.cpp
+## OgĂłlny opis
+Implementacja klasy `MapView`, ktĂłra jest odpowiedzialna za renderowanie widoku mapy. Plik zawiera skomplikowanÄ… logikÄ™ okreÄąâ€şlania, ktĂłre pola sÄ… widoczne, jak je rysowaÄ‡ w odpowiedniej kolejnoÄąâ€şci (z uwzglÄ™dnieniem piÄ™ter i efektu paralaksy) oraz jak zarzÄ…dzaÄ‡ oÄąâ€şwietleniem i tekstami na mapie.
 ## Klasa `MapView`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawMapBackground(...)` | Główna funkcja rysująca tło mapy. Przygotowuje bufor ramki (`FrameBuffer`), inicjalizuje `LightView` (jeśli oświetlenie jest włączone) i rysuje wszystkie widoczne piętra, zaczynając od najniższego. |
-| `drawFloor(...)` | Rysuje pojedyncze piętro. Iteruje po `m_cachedVisibleTiles` i wywołuje metody `drawGround`, `drawBottom`, `drawCreatures` i `drawTop` dla każdego pola (`Tile`). |
-| `drawMapForeground(...)` | Rysuje elementy pierwszego planu, takie jak paski zdrowia, nazwy postaci, teksty (statyczne i animowane) oraz ostatecznie nakłada warstwę oświetlenia. |
-| `updateVisibleTilesCache()` | Kluczowa metoda optymalizacyjna. Oblicza, które pola są widoczne dla kamery, i zapisuje je w pamięci podręcznej (`m_cachedVisibleTiles`). Sortuje je w kolejności rysowania (diagonalnie), aby zachować poprawną perspektywę 2.5D. |
-| `updateGeometry(...)` | Aktualizuje geometrię widoku, w tym wymiary widoczne i wymiary bufora ramki. |
-| `onTileUpdate(...)` / `onMapCenterChange(...)` | Metody wywoływane przez `g_map`, które oznaczają, że pamięć podręczna widocznych pól musi zostać zaktualizowana. |
-| `calcFirstVisibleFloor(...)` / `calcLastVisibleFloor(...)` | Oblicza, które piętra są widoczne dla gracza na podstawie jego pozycji i otoczenia (np. dziury w podłodze, okna). |
-| `transformPositionTo2D(...)` | Konwertuje pozycję 3D (x, y, z) na współrzędne 2D na ekranie, uwzględniając perspektywę izometryczną. |
-| `getCameraPosition()` | Zwraca aktualną pozycję kamery, która albo podąża za stworzeniem (`m_followingCreature`), albo jest ustawiona ręcznie. |
-## Zależności i powiązania
+| `drawMapBackground(...)` | GÄąâ€šĂłwna funkcja rysujÄ…ca tÄąâ€šo mapy. Przygotowuje bufor ramki (`FrameBuffer`), inicjalizuje `LightView` (jeÄąâ€şli oÄąâ€şwietlenie jest wÄąâ€šÄ…czone) i rysuje wszystkie widoczne piÄ™tra, zaczynajÄ…c od najniÄąÄ˝szego. |
+| `drawFloor(...)` | Rysuje pojedyncze piÄ™tro. Iteruje po `m_cachedVisibleTiles` i wywoÄąâ€šuje metody `drawGround`, `drawBottom`, `drawCreatures` i `drawTop` dla kaÄąÄ˝dego pola (`Tile`). |
+| `drawMapForeground(...)` | Rysuje elementy pierwszego planu, takie jak paski zdrowia, nazwy postaci, teksty (statyczne i animowane) oraz ostatecznie nakÄąâ€šada warstwÄ™ oÄąâ€şwietlenia. |
+| `updateVisibleTilesCache()` | Kluczowa metoda optymalizacyjna. Oblicza, ktĂłre pola sÄ… widoczne dla kamery, i zapisuje je w pamiÄ™ci podrÄ™cznej (`m_cachedVisibleTiles`). Sortuje je w kolejnoÄąâ€şci rysowania (diagonalnie), aby zachowaÄ‡ poprawnÄ… perspektywÄ™ 2.5D. |
+| `updateGeometry(...)` | Aktualizuje geometriÄ™ widoku, w tym wymiary widoczne i wymiary bufora ramki. |
+| `onTileUpdate(...)` / `onMapCenterChange(...)` | Metody wywoÄąâ€šywane przez `g_map`, ktĂłre oznaczajÄ…, ÄąÄ˝e pamiÄ™Ä‡ podrÄ™czna widocznych pĂłl musi zostaÄ‡ zaktualizowana. |
+| `calcFirstVisibleFloor(...)` / `calcLastVisibleFloor(...)` | Oblicza, ktĂłre piÄ™tra sÄ… widoczne dla gracza na podstawie jego pozycji i otoczenia (np. dziury w podÄąâ€šodze, okna). |
+| `transformPositionTo2D(...)` | Konwertuje pozycjÄ™ 3D (x, y, z) na wspĂłÄąâ€šrzÄ™dne 2D na ekranie, uwzglÄ™dniajÄ…c perspektywÄ™ izometrycznÄ…. |
+| `getCameraPosition()` | Zwraca aktualnÄ… pozycjÄ™ kamery, ktĂłra albo podÄ…ÄąÄ˝a za stworzeniem (`m_followingCreature`), albo jest ustawiona rÄ™cznie. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`map.h`**, **`tile.h`**: Intensywnie korzysta z `g_map` do pobierania danych o polach i obiektach.
-- **`game.h`**: Dostęp do `g_game` w celu pobrania lokalnego gracza i sprawdzenia funkcji serwera.
-- **`lightview.h`**: Tworzy i zarządza obiektem `LightView` do renderowania oświetlenia.
-- **`framework/graphics/framebuffermanager.h`**: Używa buforów ramki do optymalizacji renderowania.
+- **`game.h`**: DostÄ™p do `g_game` w celu pobrania lokalnego gracza i sprawdzenia funkcji serwera.
+- **`lightview.h`**: Tworzy i zarzÄ…dza obiektem `LightView` do renderowania oÄąâ€şwietlenia.
+- **`framework/graphics/framebuffermanager.h`**: UÄąÄ˝ywa buforĂłw ramki do optymalizacji renderowania.
 
 ---
-# 📄 mapview.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `MapView`. Definiuje interfejs widoku mapy, który jest głównym komponentem renderującym świat gry.
+# Ä‘Ĺşâ€śâ€ž mapview.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `MapView`. Definiuje interfejs widoku mapy, ktĂłry jest gÄąâ€šĂłwnym komponentem renderujÄ…cym Äąâ€şwiat gry.
 ## Klasa `MapView`
 ## Opis
-Klasa `MapView` zarządza kamerą, widocznym obszarem mapy, a także koordynuje proces rysowania wszystkich elementów świata gry. Może istnieć wiele instancji `MapView`, co pozwala na renderowanie mapy w różnych miejscach interfejsu.
+Klasa `MapView` zarzÄ…dza kamerÄ…, widocznym obszarem mapy, a takÄąÄ˝e koordynuje proces rysowania wszystkich elementĂłw Äąâ€şwiata gry. MoÄąÄ˝e istnieÄ‡ wiele instancji `MapView`, co pozwala na renderowanie mapy w rĂłÄąÄ˝nych miejscach interfejsu.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawMapBackground(...)` | Rysuje tło mapy (pola, obiekty na ziemi). |
-| `drawMapForeground(...)` | Rysuje pierwszy plan (postacie, teksty, oświetlenie). |
-| `lockFirstVisibleFloor(int floor)` | Wymusza, aby najniższym widocznym piętrem było podane piętro. |
-| `unlockFirstVisibleFloor()` | Wyłącza wymuszone piętro. |
-| `setVisibleDimension(const Size& dim)` | Ustawia wymiary widocznego obszaru w jednostkach pól (np. 15x11). |
-| `followCreature(const CreaturePtr& creature)` | Ustawia kamerę, aby podążała za danym stworzeniem. |
-| `setCameraPosition(const Position& pos)` | Ustawia kamerę na stałą pozycję. |
-| `getCameraPosition()` | Zwraca aktualną pozycję kamery. |
-| `getPosition(const Point& point, ...)` | Konwertuje współrzędne ekranu na pozycję na mapie. |
-| `setDrawFlags(Otc::DrawFlags flags)` | Ustawia flagi rysowania, określające, co ma być renderowane. |
-| `setAnimated(bool animated)` | Włącza/wyłącza animacje. |
-| `setFloorFading(int value)` | Ustawia czas zanikania/pojawiania się pięter. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów (`Position`, `CreaturePtr`).
-- **`lightview.h`**: Używa `LightView` do rysowania świateł.
+| `drawMapBackground(...)` | Rysuje tÄąâ€šo mapy (pola, obiekty na ziemi). |
+| `drawMapForeground(...)` | Rysuje pierwszy plan (postacie, teksty, oÄąâ€şwietlenie). |
+| `lockFirstVisibleFloor(int floor)` | Wymusza, aby najniÄąÄ˝szym widocznym piÄ™trem byÄąâ€šo podane piÄ™tro. |
+| `unlockFirstVisibleFloor()` | WyÄąâ€šÄ…cza wymuszone piÄ™tro. |
+| `setVisibleDimension(const Size& dim)` | Ustawia wymiary widocznego obszaru w jednostkach pĂłl (np. 15x11). |
+| `followCreature(const CreaturePtr& creature)` | Ustawia kamerÄ™, aby podÄ…ÄąÄ˝aÄąâ€ša za danym stworzeniem. |
+| `setCameraPosition(const Position& pos)` | Ustawia kamerÄ™ na staÄąâ€šÄ… pozycjÄ™. |
+| `getCameraPosition()` | Zwraca aktualnÄ… pozycjÄ™ kamery. |
+| `getPosition(const Point& point, ...)` | Konwertuje wspĂłÄąâ€šrzÄ™dne ekranu na pozycjÄ™ na mapie. |
+| `setDrawFlags(Otc::DrawFlags flags)` | Ustawia flagi rysowania, okreÄąâ€şlajÄ…ce, co ma byÄ‡ renderowane. |
+| `setAnimated(bool animated)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza animacje. |
+| `setFloorFading(int value)` | Ustawia czas zanikania/pojawiania siÄ™ piÄ™ter. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw (`Position`, `CreaturePtr`).
+- **`lightview.h`**: UÄąÄ˝ywa `LightView` do rysowania Äąâ€şwiateÄąâ€š.
 - **`framework/luaengine/luaobject.h`**: Dziedziczy z `LuaObject`.
 
 ---
-# 📄 minimap.h
-## Ogólny opis
-Plik nagłówkowy dla `Minimap` i powiązanych struktur. Definiuje interfejs do zarządzania danymi minimapy i jej renderowania.
-## Struktury i stałe
+# Ä‘Ĺşâ€śâ€ž minimap.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `Minimap` i powiÄ…zanych struktur. Definiuje interfejs do zarzÄ…dzania danymi minimapy i jej renderowania.
+## Struktury i staÄąâ€še
 - **`MMBLOCK_SIZE`**: Rozmiar bloku minimapy (64x64 piksele).
 - **`MinimapTileFlags`**: Flagi dla kafelka minimapy (np. `MinimapTileWasSeen`, `MinimapTileNotPathable`).
-- **`MinimapTile`**: Struktura przechowująca dane pojedynczego piksela minimapy (kolor, flagi, prędkość).
+- **`MinimapTile`**: Struktura przechowujÄ…ca dane pojedynczego piksela minimapy (kolor, flagi, prÄ™dkoÄąâ€şÄ‡).
 ## Klasa `MinimapBlock`
 ## Opis
-Reprezentuje pojedynczy blok (chunk) minimapy o rozmiarze `MMBLOCK_SIZE` x `MMBLOCK_SIZE`. Każdy blok ma własną teksturę, co optymalizuje renderowanie.
+Reprezentuje pojedynczy blok (chunk) minimapy o rozmiarze `MMBLOCK_SIZE` x `MMBLOCK_SIZE`. KaÄąÄ˝dy blok ma wÄąâ€šasnÄ… teksturÄ™, co optymalizuje renderowanie.
 - `m_texture`: Tekstura generowana na podstawie danych z `m_tiles`.
-- `m_tiles`: Tablica `MinimapTile` przechowująca dane dla każdego piksela w bloku.
-- `m_mustUpdate`: Flaga informująca, czy tekstura wymaga ponownego wygenerowania.
+- `m_tiles`: Tablica `MinimapTile` przechowujÄ…ca dane dla kaÄąÄ˝dego piksela w bloku.
+- `m_mustUpdate`: Flaga informujÄ…ca, czy tekstura wymaga ponownego wygenerowania.
 ## Klasa `Minimap`
 ## Opis
-Singleton (`g_minimap`) zarządzający wszystkimi danymi minimapy. Przechowuje `MinimapBlock` dla każdego piętra i koordynuje ich rysowanie.
+Singleton (`g_minimap`) zarzÄ…dzajÄ…cy wszystkimi danymi minimapy. Przechowuje `MinimapBlock` dla kaÄąÄ˝dego piÄ™tra i koordynuje ich rysowanie.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` / `terminate()` | Inicjalizacja i zamykanie managera. |
-| `clean()` | Czyści wszystkie dane minimapy. |
-| `draw(...)` | Rysuje minimapę na ekranie w danym prostokącie. |
-| `getTilePoint(const Position& pos, ...)` | Konwertuje pozycję na mapie na współrzędne na widżecie minimapy. |
-| `getTilePosition(const Point& point, ...)` | Konwertuje współrzędne na widżecie minimapy na pozycję na mapie. |
+| `clean()` | CzyÄąâ€şci wszystkie dane minimapy. |
+| `draw(...)` | Rysuje minimapÄ™ na ekranie w danym prostokÄ…cie. |
+| `getTilePoint(const Position& pos, ...)` | Konwertuje pozycjÄ™ na mapie na wspĂłÄąâ€šrzÄ™dne na widÄąÄ˝ecie minimapy. |
+| `getTilePosition(const Point& point, ...)` | Konwertuje wspĂłÄąâ€šrzÄ™dne na widÄąÄ˝ecie minimapy na pozycjÄ™ na mapie. |
 | `updateTile(const Position& pos, const TilePtr& tile)` | Aktualizuje dane piksela minimapy na podstawie danych z `Tile`. |
 | `getTile(const Position& pos)` | Zwraca dane `MinimapTile` dla danej pozycji. |
 | `loadImage(...)` | Wczytuje dane minimapy z pliku graficznego (np. PNG). |
 | `saveImage(...)` | Zapisuje widoczny obszar minimapy do pliku graficznego. |
 | `loadOtmm(...)` / `saveOtmm(...)` | Wczytuje/zapisuje dane minimapy w formacie `.otmm`. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
 - **`tile.h`**: `updateTile` pobiera dane z obiektu `Tile`.
 
 ---
-# 📄 missile.cpp
-## Ogólny opis
-Implementacja klasy `Missile`, która odpowiada za renderowanie pocisków w grze.
+# Ä‘Ĺşâ€śâ€ž missile.cpp
+## OgĂłlny opis
+Implementacja klasy `Missile`, ktĂłra odpowiada za renderowanie pociskĂłw w grze.
 ## Klasa `Missile`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Rysuje pocisk na ekranie. Oblicza jego pozycję na ścieżce lotu na podstawie czasu, który upłynął (`m_animationTimer.ticksElapsed() / m_duration`). Wybiera odpowiedni wzór (pattern) sprite'a na podstawie kierunku lotu. |
-| `setPath(const Position& fromPosition, const Position& toPosition)` | Ustawia ścieżkę lotu pocisku od pozycji początkowej do końcowej. Oblicza kierunek, czas trwania lotu i planuje automatyczne usunięcie pocisku po dotarciu do celu. |
-| `setId(uint32 id)` | Ustawia ID (typ) pocisku, weryfikując jego poprawność. |
-| `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla danego pocisku. |
+| `draw(...)` | Rysuje pocisk na ekranie. Oblicza jego pozycjÄ™ na Äąâ€şcieÄąÄ˝ce lotu na podstawie czasu, ktĂłry upÄąâ€šynÄ…Äąâ€š (`m_animationTimer.ticksElapsed() / m_duration`). Wybiera odpowiedni wzĂłr (pattern) sprite'a na podstawie kierunku lotu. |
+| `setPath(const Position& fromPosition, const Position& toPosition)` | Ustawia Äąâ€şcieÄąÄ˝kÄ™ lotu pocisku od pozycji poczÄ…tkowej do koÄąâ€žcowej. Oblicza kierunek, czas trwania lotu i planuje automatyczne usuniÄ™cie pocisku po dotarciu do celu. |
+| `setId(uint32 id)` | Ustawia ID (typ) pocisku, weryfikujÄ…c jego poprawnoÄąâ€şÄ‡. |
+| `getThingType()` / `rawGetThingType()` | ZwracajÄ… `ThingType` dla danego pocisku. |
 ## Logika animacji
-Pozycja pocisku jest interpolowana liniowo między punktem startowym a końcowym. Frakcja postępu `fraction` jest obliczana jako stosunek czasu, który upłynął, do całkowitego czasu trwania lotu. Przesunięcie rysowania `m_delta * fraction` jest dodawane do pozycji początkowej.
-## Zależności i powiązania
-- **`map.h`**: Używa `g_map` do usunięcia pocisku po zakończeniu lotu.
-- **`spritemanager.h`**: Używa `g_sprites.spriteSize()` do skalowania przesunięcia.
-- **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania usunięcia.
+Pozycja pocisku jest interpolowana liniowo miÄ™dzy punktem startowym a koÄąâ€žcowym. Frakcja postÄ™pu `fraction` jest obliczana jako stosunek czasu, ktĂłry upÄąâ€šynÄ…Äąâ€š, do caÄąâ€škowitego czasu trwania lotu. PrzesuniÄ™cie rysowania `m_delta * fraction` jest dodawane do pozycji poczÄ…tkowej.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`map.h`**: UÄąÄ˝ywa `g_map` do usuniÄ™cia pocisku po zakoÄąâ€žczeniu lotu.
+- **`spritemanager.h`**: UÄąÄ˝ywa `g_sprites.spriteSize()` do skalowania przesuniÄ™cia.
+- **`framework/core/eventdispatcher.h`**: UÄąÄ˝ywa `g_dispatcher` do planowania usuniÄ™cia.
 
 ---
-# 📄 missile.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Missile`, która reprezentuje pociski i inne efekty dystansowe.
+# Ä‘Ĺşâ€śâ€ž missile.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Missile`, ktĂłra reprezentuje pociski i inne efekty dystansowe.
 ## Klasa `Missile`
 ## Opis
-Dziedziczy po `Thing`. Reprezentuje obiekt, który przemieszcza się od jednej pozycji do drugiej w określonym czasie.
+Dziedziczy po `Thing`. Reprezentuje obiekt, ktĂłry przemieszcza siÄ™ od jednej pozycji do drugiej w okreÄąâ€şlonym czasie.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Rysuje pocisk w jego aktualnej pozycji na ścieżce. |
+| `draw(...)` | Rysuje pocisk w jego aktualnej pozycji na Äąâ€şcieÄąÄ˝ce. |
 | `setId(uint32 id)` | Ustawia ID (typ) pocisku. |
-| `setPath(const Position& from, const Position& to)` | Ustawia początek i koniec ścieżki pocisku. |
+| `setPath(const Position& from, const Position& to)` | Ustawia poczÄ…tek i koniec Äąâ€şcieÄąÄ˝ki pocisku. |
 | `getId()` | Zwraca ID pocisku. |
-| `asMissile()` | Rzutuje wskaźnik na `MissilePtr`. |
+| `asMissile()` | Rzutuje wskaÄąĹźnik na `MissilePtr`. |
 | `isMissile()` | Zwraca `true`. |
 | `getThingType()` | Zwraca `ThingType` dla pocisku. |
-| `getSource()` | Zwraca pozycję początkową. |
-| `getDestination()` | Zwraca pozycję końcową. |
-## Zależności i powiązania
+| `getSource()` | Zwraca pozycjÄ™ poczÄ…tkowÄ…. |
+| `getDestination()` | Zwraca pozycjÄ™ koÄąâ€žcowÄ…. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`thing.h`**: Klasa bazowa.
-- **`framework/core/timer.h`**: Używa `Timer` do animacji ruchu.
+- **`framework/core/timer.h`**: UÄąÄ˝ywa `Timer` do animacji ruchu.
 
 ---
-# 📄 outfit.cpp
-## Ogólny opis
-Implementacja klasy `Outfit` oraz niestandardowych elementów kolejki rysowania `DrawQueueItemOutfit` i `DrawQueueItemOutfitWithShader`. Plik zawiera złożoną logikę rysowania ubioru postaci, w tym warstw, kolorów, dodatków, wierzchowców, skrzydeł, aury i shaderów.
+# Ä‘Ĺşâ€śâ€ž outfit.cpp
+## OgĂłlny opis
+Implementacja klasy `Outfit` oraz niestandardowych elementĂłw kolejki rysowania `DrawQueueItemOutfit` i `DrawQueueItemOutfitWithShader`. Plik zawiera zÄąâ€šoÄąÄ˝onÄ… logikÄ™ rysowania ubioru postaci, w tym warstw, kolorĂłw, dodatkĂłw, wierzchowcĂłw, skrzydeÄąâ€š, aury i shaderĂłw.
 ## Klasa `Outfit`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(Point dest, ...)` | Główna funkcja rysująca ubiór. Wykonuje następujące kroki: <br> 1. Koryguje kierunek. <br> 2. Oblicza fazę animacji (chodzenia, bezczynności, UI). <br> 3. Rysuje aurę (tylną warstwę, jeśli dotyczy). <br> 4. Rysuje wierzchowca. <br> 5. Rysuje skrzydła (w zależności od kierunku, przed lub za postacią). <br> 6. Rysuje poszczególne warstwy ubioru (podstawę i dodatki), kolorując je za pomocą specjalnego shadera (`DrawQueueItemOutfit`). <br> 7. Rysuje aurę (przednią warstwę). |
-| `draw(const Rect& dest, ...)` | Wersja rysująca ubiór przeskalowany do danego prostokąta, używana w UI. |
-| `resetClothes()` | Resetuje wszystkie elementy ubioru (głowa, ciało, etc.) do wartości domyślnych (0). |
+| `draw(Point dest, ...)` | GÄąâ€šĂłwna funkcja rysujÄ…ca ubiĂłr. Wykonuje nastÄ™pujÄ…ce kroki: <br> 1. Koryguje kierunek. <br> 2. Oblicza fazÄ™ animacji (chodzenia, bezczynnoÄąâ€şci, UI). <br> 3. Rysuje aurÄ™ (tylnÄ… warstwÄ™, jeÄąâ€şli dotyczy). <br> 4. Rysuje wierzchowca. <br> 5. Rysuje skrzydÄąâ€ša (w zaleÄąÄ˝noÄąâ€şci od kierunku, przed lub za postaciÄ…). <br> 6. Rysuje poszczegĂłlne warstwy ubioru (podstawÄ™ i dodatki), kolorujÄ…c je za pomocÄ… specjalnego shadera (`DrawQueueItemOutfit`). <br> 7. Rysuje aurÄ™ (przedniÄ… warstwÄ™). |
+| `draw(const Rect& dest, ...)` | Wersja rysujÄ…ca ubiĂłr przeskalowany do danego prostokÄ…ta, uÄąÄ˝ywana w UI. |
+| `resetClothes()` | Resetuje wszystkie elementy ubioru (gÄąâ€šowa, ciaÄąâ€šo, etc.) do wartoÄąâ€şci domyÄąâ€şlnych (0). |
 ## Klasy `DrawQueueItem...`
 ## Opis
-Niestandardowe elementy kolejki rysowania, które pozwalają na zaawansowane renderowanie ubiorów.
-- **`DrawQueueItemOutfit`**: Używa specjalnego shadera (`outfit.frag`), który na podstawie 32-bitowej liczby `m_colors` i tekstury z warstwami, koloruje każdą z czterech części ubioru (głowa, ciało, nogi, stopy) na odpowiedni kolor.
-- **`DrawQueueItemOutfitWithShader`**: Rozszerza powyższą logikę o dodatkowy, niestandardowy shader (np. efekt "ghost"), który jest nakładany na finalny obraz ubioru.
-## Zależności i powiązania
-- **`game.h`**: Sprawdza, które `GameFeature` są aktywne, aby decydować, które elementy ubioru rysować (np. wierzchowce, skrzydła).
-- **`thingtypemanager.h`**: Używa `g_things` do pobierania `ThingType` dla ubioru, wierzchowca, skrzydeł, aury.
-- **`spritemanager.h`**: Używa `g_sprites` do skalowania i pozycjonowania.
+Niestandardowe elementy kolejki rysowania, ktĂłre pozwalajÄ… na zaawansowane renderowanie ubiorĂłw.
+- **`DrawQueueItemOutfit`**: UÄąÄ˝ywa specjalnego shadera (`outfit.frag`), ktĂłry na podstawie 32-bitowej liczby `m_colors` i tekstury z warstwami, koloruje kaÄąÄ˝dÄ… z czterech czÄ™Äąâ€şci ubioru (gÄąâ€šowa, ciaÄąâ€šo, nogi, stopy) na odpowiedni kolor.
+- **`DrawQueueItemOutfitWithShader`**: Rozszerza powyÄąÄ˝szÄ… logikÄ™ o dodatkowy, niestandardowy shader (np. efekt "ghost"), ktĂłry jest nakÄąâ€šadany na finalny obraz ubioru.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`game.h`**: Sprawdza, ktĂłre `GameFeature` sÄ… aktywne, aby decydowaÄ‡, ktĂłre elementy ubioru rysowaÄ‡ (np. wierzchowce, skrzydÄąâ€ša).
+- **`thingtypemanager.h`**: UÄąÄ˝ywa `g_things` do pobierania `ThingType` dla ubioru, wierzchowca, skrzydeÄąâ€š, aury.
+- **`spritemanager.h`**: UÄąÄ˝ywa `g_sprites` do skalowania i pozycjonowania.
 - **`framework/graphics/drawqueue.h`**: Dodaje niestandardowe elementy do kolejki rysowania.
-- **`framework/graphics/shadermanager.h`**: Zarządza i używa shaderów do kolorowania i efektów.
+- **`framework/graphics/shadermanager.h`**: ZarzÄ…dza i uÄąÄ˝ywa shaderĂłw do kolorowania i efektĂłw.
 
 ---
-# 📄 outfit.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Outfit` oraz powiązanych struktur do rysowania.
+# Ä‘Ĺşâ€śâ€ž outfit.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Outfit` oraz powiÄ…zanych struktur do rysowania.
 ## Klasa `Outfit`
 ## Opis
-Reprezentuje wygląd (ubiór) postaci. Przechowuje informacje o ID wyglądu, kolorach poszczególnych części ciała, dodatkach, wierzchowcu, skrzydłach, aurze i niestandardowym shaderze.
+Reprezentuje wyglÄ…d (ubiĂłr) postaci. Przechowuje informacje o ID wyglÄ…du, kolorach poszczegĂłlnych czÄ™Äąâ€şci ciaÄąâ€ša, dodatkach, wierzchowcu, skrzydÄąâ€šach, aurze i niestandardowym shaderze.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Dwie przeciążone wersje funkcji rysującej ubiór: jedna w punkcie (na mapie), druga w prostokącie (w UI). |
-| `setId(int id)` | Ustawia ID ubioru (dla potworów) lub przedmiotu (dla niewidzialności). |
-| `setHead(int head)` | Ustawia kolor głowy. |
+| `draw(...)` | Dwie przeciÄ…ÄąÄ˝one wersje funkcji rysujÄ…cej ubiĂłr: jedna w punkcie (na mapie), druga w prostokÄ…cie (w UI). |
+| `setId(int id)` | Ustawia ID ubioru (dla potworĂłw) lub przedmiotu (dla niewidzialnoÄąâ€şci). |
+| `setHead(int head)` | Ustawia kolor gÄąâ€šowy. |
 | `setBody(int body)` | Ustawia kolor torsu. |
-| `setLegs(int legs)` | Ustawia kolor nóg. |
-| `setFeet(int feet)` | Ustawia kolor stóp. |
+| `setLegs(int legs)` | Ustawia kolor nĂłg. |
+| `setFeet(int feet)` | Ustawia kolor stĂłp. |
 | `setAddons(int addons)` | Ustawia dodatki (bitmaska). |
 | `setMount(int mount)` | Ustawia ID wierzchowca. |
-| `setWings(int wings)` | Ustawia ID skrzydeł. |
+| `setWings(int wings)` | Ustawia ID skrzydeÄąâ€š. |
 | `setAura(int aura)` | Ustawia ID aury. |
-| `setShader(const std::string& shader)` | Ustawia nazwę niestandardowego shadera. |
+| `setShader(const std::string& shader)` | Ustawia nazwÄ™ niestandardowego shadera. |
 ## Struktury `DrawQueueItem...`
 ## Opis
-Definicje niestandardowych elementów kolejki rysowania, które obsługują zaawansowane renderowanie ubiorów.
-- **`DrawQueueItemOutfit`**: Renderuje ubiór z dynamicznym kolorowaniem poszczególnych części.
-- **`DrawQueueItemOutfitWithShader`**: Dodaje obsługę niestandardowego shadera efektów specjalnych.
-## Zależności i powiązania
-- **`thingtypemanager.h`**: Używa `ThingCategory` i `ThingType`.
-- **`framework/graphics/drawqueue.h`**: Dziedziczą z `DrawQueueItemTexturedRect`.
+Definicje niestandardowych elementĂłw kolejki rysowania, ktĂłre obsÄąâ€šugujÄ… zaawansowane renderowanie ubiorĂłw.
+- **`DrawQueueItemOutfit`**: Renderuje ubiĂłr z dynamicznym kolorowaniem poszczegĂłlnych czÄ™Äąâ€şci.
+- **`DrawQueueItemOutfitWithShader`**: Dodaje obsÄąâ€šugÄ™ niestandardowego shadera efektĂłw specjalnych.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`thingtypemanager.h`**: UÄąÄ˝ywa `ThingCategory` i `ThingType`.
+- **`framework/graphics/drawqueue.h`**: DziedziczÄ… z `DrawQueueItemTexturedRect`.
 
 ---
-# 📄 player.cpp
-## Ogólny opis
-Ten plik jest obecnie pusty, co oznacza, że klasa `Player` nie posiada żadnej dodatkowej implementacji poza tym, co dziedziczy z klasy `Creature`.
+# Ä‘Ĺşâ€śâ€ž player.cpp
+## OgĂłlny opis
+Ten plik jest obecnie pusty, co oznacza, ÄąÄ˝e klasa `Player` nie posiada ÄąÄ˝adnej dodatkowej implementacji poza tym, co dziedziczy z klasy `Creature`.
 ## Klasa `Player`
 ## Opis
-Klasa `Player` jest specjalizacją `Creature`. Służy do reprezentowania postaci graczy w grze. W przyszłości może zawierać logikę specyficzną tylko dla graczy, która nie dotyczy potworów czy NPC.
-## Zależności i powiązania
-- **`player.h`**: Plik nagłówkowy dla tej implementacji.
+Klasa `Player` jest specjalizacjÄ… `Creature`. SÄąâ€šuÄąÄ˝y do reprezentowania postaci graczy w grze. W przyszÄąâ€šoÄąâ€şci moÄąÄ˝e zawieraÄ‡ logikÄ™ specyficznÄ… tylko dla graczy, ktĂłra nie dotyczy potworĂłw czy NPC.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`player.h`**: Plik nagÄąâ€šĂłwkowy dla tej implementacji.
 
 ---
-# 📄 player.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `Player`, która jest specjalizacją klasy `Creature`.
+# Ä‘Ĺşâ€śâ€ž player.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `Player`, ktĂłra jest specjalizacjÄ… klasy `Creature`.
 ## Klasa `Player`
 ## Opis
-Dziedziczy po `Creature`. Reprezentuje postać gracza (niekoniecznie lokalnego). Nie dodaje żadnych nowych pól ani metod, ale służy do rozróżnienia typów stworzeń w systemie typów C++.
+Dziedziczy po `Creature`. Reprezentuje postaÄ‡ gracza (niekoniecznie lokalnego). Nie dodaje ÄąÄ˝adnych nowych pĂłl ani metod, ale sÄąâ€šuÄąÄ˝y do rozrĂłÄąÄ˝nienia typĂłw stworzeÄąâ€ž w systemie typĂłw C++.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `asPlayer()` | Rzutuje wskaźnik na `PlayerPtr`. |
+| `asPlayer()` | Rzutuje wskaÄąĹźnik na `PlayerPtr`. |
 | `isPlayer()` | Zwraca `true`. |
-## Zależności i powiązania
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`creature.h`**: Klasa bazowa.
 
 ---
-# 📄 protocolcodes.cpp
-## Ogólny opis
-Implementacja funkcji pomocniczych zadeklarowanych w `protocolcodes.h`. Głównym zadaniem tego pliku jest zarządzanie mapowaniem trybów wiadomości (`Otc::MessageMode`) na ich liczbowe odpowiedniki używane w protokole sieciowym, które mogą się różnić w zależności od wersji klienta.
+# Ä‘Ĺşâ€śâ€ž protocolcodes.cpp
+## OgĂłlny opis
+Implementacja funkcji pomocniczych zadeklarowanych w `protocolcodes.h`. GÄąâ€šĂłwnym zadaniem tego pliku jest zarzÄ…dzanie mapowaniem trybĂłw wiadomoÄąâ€şci (`Otc::MessageMode`) na ich liczbowe odpowiedniki uÄąÄ˝ywane w protokole sieciowym, ktĂłre mogÄ… siÄ™ rĂłÄąÄ˝niÄ‡ w zaleÄąÄ˝noÄąâ€şci od wersji klienta.
 ## Namespace `Proto`
 ## Zmienne globalne
-- **`std::map<uint8, uint8> messageModesMap`**: Mapa przechowująca powiązanie między wewnętrznym enumem `Otc::MessageMode` a wartością liczbową wysyłaną/odbieraną z serwera.
+- **`std::map<uint8, uint8> messageModesMap`**: Mapa przechowujÄ…ca powiÄ…zanie miÄ™dzy wewnÄ™trznym enumem `Otc::MessageMode` a wartoÄąâ€şciÄ… liczbowÄ… wysyÄąâ€šanÄ…/odbieranÄ… z serwera.
 ## Funkcje
 | Nazwa | Opis |
 | --- | --- |
-| `buildMessageModesMap(int version)` | Wypełnia `messageModesMap` na podstawie podanej wersji protokołu. Zawiera bloki `if/else if` dla różnych zakresów wersji, definiując odpowiednie mapowania. Jest to kluczowe dla zachowania kompatybilności wstecznej. |
-| `translateMessageModeFromServer(uint8 mode)` | Tłumaczy liczbowy tryb wiadomości otrzymany z serwera na wewnętrzny enum `Otc::MessageMode`. |
-| `translateMessageModeToServer(Otc::MessageMode mode)` | Tłumaczy wewnętrzny enum `Otc::MessageMode` na jego liczbowy odpowiednik, który zostanie wysłany do serwera. |
-## Zależności i powiązania
-- **`protocolcodes.h`**: Deklaracje funkcji i enumów.
-- **`game.cpp`**: `Game::setProtocolVersion` wywołuje `buildMessageModesMap`, aby zaktualizować mapowania po zmianie wersji protokołu.
+| `buildMessageModesMap(int version)` | WypeÄąâ€šnia `messageModesMap` na podstawie podanej wersji protokoÄąâ€šu. Zawiera bloki `if/else if` dla rĂłÄąÄ˝nych zakresĂłw wersji, definiujÄ…c odpowiednie mapowania. Jest to kluczowe dla zachowania kompatybilnoÄąâ€şci wstecznej. |
+| `translateMessageModeFromServer(uint8 mode)` | TÄąâ€šumaczy liczbowy tryb wiadomoÄąâ€şci otrzymany z serwera na wewnÄ™trzny enum `Otc::MessageMode`. |
+| `translateMessageModeToServer(Otc::MessageMode mode)` | TÄąâ€šumaczy wewnÄ™trzny enum `Otc::MessageMode` na jego liczbowy odpowiednik, ktĂłry zostanie wysÄąâ€šany do serwera. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`protocolcodes.h`**: Deklaracje funkcji i enumĂłw.
+- **`game.cpp`**: `Game::setProtocolVersion` wywoÄąâ€šuje `buildMessageModesMap`, aby zaktualizowaÄ‡ mapowania po zmianie wersji protokoÄąâ€šu.
 
 ---
-# 📄 minimap.cpp
-## Ogólny opis
-Implementacja `Minimap` i `MinimapBlock`, które razem tworzą system minimapy w grze. Plik zawiera logikę renderowania, aktualizacji danych, a także wczytywania i zapisywania minimapy w formatach `.otmm` i graficznych.
+# Ä‘Ĺşâ€śâ€ž minimap.cpp
+## OgĂłlny opis
+Implementacja `Minimap` i `MinimapBlock`, ktĂłre razem tworzÄ… system minimapy w grze. Plik zawiera logikÄ™ renderowania, aktualizacji danych, a takÄąÄ˝e wczytywania i zapisywania minimapy w formatach `.otmm` i graficznych.
 ## Klasa `MinimapBlock`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `clean()` | Resetuje wszystkie dane w bloku do stanu początkowego. |
-| `update()` | Jeśli blok został zmodyfikowany (`m_mustUpdate`), generuje nową teksturę na podstawie danych z `m_tiles`. Tworzy obiekt `Image`, wypełnia go kolorami pikseli, a następnie tworzy z niego teksturę. |
-| `updateTile(...)` | Aktualizuje dane pojedynczego piksela w bloku i ustawia flagę `m_mustUpdate`. |
+| `clean()` | Resetuje wszystkie dane w bloku do stanu poczÄ…tkowego. |
+| `update()` | JeÄąâ€şli blok zostaÄąâ€š zmodyfikowany (`m_mustUpdate`), generuje nowÄ… teksturÄ™ na podstawie danych z `m_tiles`. Tworzy obiekt `Image`, wypeÄąâ€šnia go kolorami pikseli, a nastÄ™pnie tworzy z niego teksturÄ™. |
+| `updateTile(...)` | Aktualizuje dane pojedynczego piksela w bloku i ustawia flagÄ™ `m_mustUpdate`. |
 ## Klasa `Minimap`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Rysuje minimapę na ekranie. Oblicza, które bloki (`MinimapBlock`) są widoczne, aktualizuje ich tekstury (jeśli to konieczne), a następnie rysuje je w odpowiednich pozycjach. |
-| `getTilePoint(...)` / `getTilePosition(...)` | Funkcje pomocnicze do konwersji między pozycją na mapie a współrzędnymi na widżecie minimapy. |
-| `updateTile(const Position& pos, const TilePtr& tile)` | Pobiera kolor i flagi z `Tile` i aktualizuje odpowiadający mu piksel w `MinimapBlock`. |
+| `draw(...)` | Rysuje minimapÄ™ na ekranie. Oblicza, ktĂłre bloki (`MinimapBlock`) sÄ… widoczne, aktualizuje ich tekstury (jeÄąâ€şli to konieczne), a nastÄ™pnie rysuje je w odpowiednich pozycjach. |
+| `getTilePoint(...)` / `getTilePosition(...)` | Funkcje pomocnicze do konwersji miÄ™dzy pozycjÄ… na mapie a wspĂłÄąâ€šrzÄ™dnymi na widÄąÄ˝ecie minimapy. |
+| `updateTile(const Position& pos, const TilePtr& tile)` | Pobiera kolor i flagi z `Tile` i aktualizuje odpowiadajÄ…cy mu piksel w `MinimapBlock`. |
 | `getTile(const Position& pos)` | Zwraca dane `MinimapTile` dla danej pozycji. |
-| `threadGetTile(...)` | Wersja `getTile` bezpieczna dla wątków, używana przez asynchroniczne wyszukiwanie ścieżki. |
-| `loadImage(...)` | Wczytuje dane minimapy z pliku graficznego, analizując kolory pikseli w celu określenia właściwości (np. czy pole jest możliwe do przejścia). |
-| `saveOtmm(...)` / `loadOtmm(...)` | Obsługuje serializację/deserializację danych minimapy do/z formatu `.otmm`, który używa kompresji zlib dla każdego bloku. |
+| `threadGetTile(...)` | Wersja `getTile` bezpieczna dla wÄ…tkĂłw, uÄąÄ˝ywana przez asynchroniczne wyszukiwanie Äąâ€şcieÄąÄ˝ki. |
+| `loadImage(...)` | Wczytuje dane minimapy z pliku graficznego, analizujÄ…c kolory pikseli w celu okreÄąâ€şlenia wÄąâ€šaÄąâ€şciwoÄąâ€şci (np. czy pole jest moÄąÄ˝liwe do przejÄąâ€şcia). |
+| `saveOtmm(...)` / `loadOtmm(...)` | ObsÄąâ€šuguje serializacjÄ™/deserializacjÄ™ danych minimapy do/z formatu `.otmm`, ktĂłry uÄąÄ˝ywa kompresji zlib dla kaÄąÄ˝dego bloku. |
 ## Struktura danych
-- `m_tileBlocks`: Tablica map `std::unordered_map<uint, MinimapBlock_ptr>`, gdzie każdy element tablicy odpowiada jednemu piętru (`z`). Mapa przechowuje bloki minimapy, indeksowane przez skrót ich pozycji.
-## Zależności i powiązania
-- **`tile.h`**: Pobiera dane do aktualizacji minimapy z obiektów `Tile`.
-- **`game.h`**: Używa `g_game` do sprawdzania funkcji, np. `GameDontCacheFiles`.
-- **`framework/graphics/...`**: Używa klas `Image`, `Texture`, `Painter` do operacji graficznych.
+- `m_tileBlocks`: Tablica map `std::unordered_map<uint, MinimapBlock_ptr>`, gdzie kaÄąÄ˝dy element tablicy odpowiada jednemu piÄ™tru (`z`). Mapa przechowuje bloki minimapy, indeksowane przez skrĂłt ich pozycji.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`tile.h`**: Pobiera dane do aktualizacji minimapy z obiektĂłw `Tile`.
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania funkcji, np. `GameDontCacheFiles`.
+- **`framework/graphics/...`**: UÄąÄ˝ywa klas `Image`, `Texture`, `Painter` do operacji graficznych.
 - **`framework/core/resourcemanager.h`**: Do operacji na plikach.
 - **`zlib.h`**: Do kompresji/dekompresji danych w formacie `.otmm`.
 
 ---
-# 📄 position.h
-## Ogólny opis
-Plik nagłówkowy definiujący strukturę `Position` oraz powiązane z nią funkcje pomocnicze. Jest to fundamentalna struktura używana w całym projekcie do reprezentowania współrzędnych w trójwymiarowym świecie gry.
+# Ä‘Ĺşâ€śâ€ž position.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy strukturÄ™ `Position` oraz powiÄ…zane z niÄ… funkcje pomocnicze. Jest to fundamentalna struktura uÄąÄ˝ywana w caÄąâ€šym projekcie do reprezentowania wspĂłÄąâ€šrzÄ™dnych w trĂłjwymiarowym Äąâ€şwiecie gry.
 ## Struktura `Position`
 ## Pola
-- `int x`, `int y`: Współrzędne na płaszczyźnie poziomej.
-- `short z`: Współrzędna piętra.
+- `int x`, `int y`: WspĂłÄąâ€šrzÄ™dne na pÄąâ€šaszczyÄąĹźnie poziomej.
+- `short z`: WspĂłÄąâ€šrzÄ™dna piÄ™tra.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `Position(uint16 x, uint16 y, uint8 z)` | Konstruktor. |
-| `translatedToDirection(Otc::Direction direction)` | Zwraca nową pozycję przesuniętą o jedno pole w danym kierunku. |
-| `translatedToReverseDirection(...)` | Zwraca nową pozycję przesuniętą w kierunku przeciwnym. |
-| `translatedToDirections(...)` | Przetwarza listę kierunków i zwraca listę kolejnych pozycji na ścieżce. |
-| `getAngleFromPositions(from, to)` | Statyczna metoda obliczająca kąt (w radianach) między dwiema pozycjami. |
-| `getDirectionFromPositions(from, to)` | Statyczna metoda zwracająca kierunek (`Otc::Direction`) z jednej pozycji do drugiej. |
-| `isMapPosition()` | Sprawdza, czy pozycja jest poprawną pozycją na mapie. |
-| `isValid()` | Sprawdza, czy pozycja jest "ważna" (różna od pozycji specjalnej 65535, 65535, 255). |
+| `translatedToDirection(Otc::Direction direction)` | Zwraca nowÄ… pozycjÄ™ przesuniÄ™tÄ… o jedno pole w danym kierunku. |
+| `translatedToReverseDirection(...)` | Zwraca nowÄ… pozycjÄ™ przesuniÄ™tÄ… w kierunku przeciwnym. |
+| `translatedToDirections(...)` | Przetwarza listÄ™ kierunkĂłw i zwraca listÄ™ kolejnych pozycji na Äąâ€şcieÄąÄ˝ce. |
+| `getAngleFromPositions(from, to)` | Statyczna metoda obliczajÄ…ca kÄ…t (w radianach) miÄ™dzy dwiema pozycjami. |
+| `getDirectionFromPositions(from, to)` | Statyczna metoda zwracajÄ…ca kierunek (`Otc::Direction`) z jednej pozycji do drugiej. |
+| `isMapPosition()` | Sprawdza, czy pozycja jest poprawnÄ… pozycjÄ… na mapie. |
+| `isValid()` | Sprawdza, czy pozycja jest "waÄąÄ˝na" (rĂłÄąÄ˝na od pozycji specjalnej 65535, 65535, 255). |
 | `distance(const Position& pos)` | Oblicza dystans euklidesowy. |
-| `manhattanDistance(const Position& pos)` | Oblicza odległość w metryce taksówkowej. |
-| `up()`, `down()`, `coveredUp()`, `coveredDown()` | Metody do przemieszczania się między piętrami z uwzględnieniem perspektywy izometrycznej. |
-| `toString()` | Zwraca pozycję w formacie "x,y,z". |
-| `operator==`, `operator!=`, `operator<` | Operatory porównania. |
+| `manhattanDistance(const Position& pos)` | Oblicza odlegÄąâ€šoÄąâ€şÄ‡ w metryce taksĂłwkowej. |
+| `up()`, `down()`, `coveredUp()`, `coveredDown()` | Metody do przemieszczania siÄ™ miÄ™dzy piÄ™trami z uwzglÄ™dnieniem perspektywy izometrycznej. |
+| `toString()` | Zwraca pozycjÄ™ w formacie "x,y,z". |
+| `operator==`, `operator!=`, `operator<` | Operatory porĂłwnania. |
 | `operator+`, `operator-` | Operatory arytmetyczne. |
 ## Struktura `PositionHasher`
 ## Opis
-Funktor używany do haszowania obiektów `Position`, co pozwala na używanie ich jako kluczy w kontenerach `std::unordered_map`.
-## Zależności i powiązania
+Funktor uÄąÄ˝ywany do haszowania obiektĂłw `Position`, co pozwala na uÄąÄ˝ywanie ich jako kluczy w kontenerach `std::unordered_map`.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`const.h`**: Definicje `Otc::Direction` i `Otc::MAX_Z`.
-- Plik ten jest dołączany w niemal każdym pliku, który operuje na logice świata gry.
+- Plik ten jest doÄąâ€šÄ…czany w niemal kaÄąÄ˝dym pliku, ktĂłry operuje na logice Äąâ€şwiata gry.
 
 ---
-# 📄 protocolcodes.h
-## Ogólny opis
-Plik nagłówkowy definiujący kody operacyjne (opcodes) używane w protokole sieciowym między klientem a serwerem gry. Zawiera również definicje typów stworzeń i mapowanie trybów wiadomości.
+# Ä‘Ĺşâ€śâ€ž protocolcodes.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy kody operacyjne (opcodes) uÄąÄ˝ywane w protokole sieciowym miÄ™dzy klientem a serwerem gry. Zawiera rĂłwnieÄąÄ˝ definicje typĂłw stworzeÄąâ€ž i mapowanie trybĂłw wiadomoÄąâ€şci.
 ## Namespace `Proto`
 ## Typy wyliczeniowe
-- **`LoginServerOpts`**: Kody operacyjne używane podczas komunikacji z serwerem logowania.
-- **`ItemOpcode`**: Specjalne ID używane do identyfikacji stworzeń i tekstów w strumieniu danych o polach mapy.
-- **`GameServerOpcodes`**: Kody operacyjne dla pakietów wysyłanych z serwera do klienta. Lista jest długa i zawiera kody dla wszystkich akcji w grze, takich jak logowanie, ruch postaci, aktualizacje mapy, wiadomości, handel itp.
-- **`ClientOpcodes`**: Kody operacyjne dla pakietów wysyłanych z klienta do serwera.
-- **`CreatureType`**: Typy stworzeń (gracz, potwór, NPC).
-- **`CreaturesIdRange`**: Zakresy ID dla różnych typów stworzeń.
+- **`LoginServerOpts`**: Kody operacyjne uÄąÄ˝ywane podczas komunikacji z serwerem logowania.
+- **`ItemOpcode`**: Specjalne ID uÄąÄ˝ywane do identyfikacji stworzeÄąâ€ž i tekstĂłw w strumieniu danych o polach mapy.
+- **`GameServerOpcodes`**: Kody operacyjne dla pakietĂłw wysyÄąâ€šanych z serwera do klienta. Lista jest dÄąâ€šuga i zawiera kody dla wszystkich akcji w grze, takich jak logowanie, ruch postaci, aktualizacje mapy, wiadomoÄąâ€şci, handel itp.
+- **`ClientOpcodes`**: Kody operacyjne dla pakietĂłw wysyÄąâ€šanych z klienta do serwera.
+- **`CreatureType`**: Typy stworzeÄąâ€ž (gracz, potwĂłr, NPC).
+- **`CreaturesIdRange`**: Zakresy ID dla rĂłÄąÄ˝nych typĂłw stworzeÄąâ€ž.
 ## Funkcje
-- **`buildMessageModesMap(int version)`**: Buduje mapę tłumaczącą wewnętrzne tryby wiadomości na kody protokołu dla danej wersji.
+- **`buildMessageModesMap(int version)`**: Buduje mapÄ™ tÄąâ€šumaczÄ…cÄ… wewnÄ™trzne tryby wiadomoÄąâ€şci na kody protokoÄąâ€šu dla danej wersji.
 - **`translateMessageModeFromServer(uint8 mode)`**: Konwertuje kod z serwera na `Otc::MessageMode`.
 - **`translateMessageModeToServer(Otc::MessageMode mode)`**: Konwertuje `Otc::MessageMode` na kod dla serwera.
 
-> NOTE: Lista opkodów zawiera zarówno standardowe kody z protokołu Tibii, jak i niestandardowe kody specyficzne dla OTClient (`OTClientV8 64-79`) i rozszerzone opkody (`GameServerExtendedOpcode`).
-## Zależności i powiązania
+> NOTE: Lista opkodĂłw zawiera zarĂłwno standardowe kody z protokoÄąâ€šu Tibii, jak i niestandardowe kody specyficzne dla OTClient (`OTClientV8 64-79`) i rozszerzone opkody (`GameServerExtendedOpcode`).
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`global.h`**: Podstawowe definicje.
-- Ten plik jest kluczowy dla `ProtocolGame`, który używa tych kodów do identyfikacji i parsowania pakietów sieciowych.
+- Ten plik jest kluczowy dla `ProtocolGame`, ktĂłry uÄąÄ˝ywa tych kodĂłw do identyfikacji i parsowania pakietĂłw sieciowych.
 
 ---
-# 📄 protocolgame.cpp
-## Ogólny opis
-Implementacja części klasy `ProtocolGame` odpowiedzialnej za zarządzanie połączeniem i podstawową obsługę zdarzeń sieciowych.
+# Ä‘Ĺşâ€śâ€ž protocolgame.cpp
+## OgĂłlny opis
+Implementacja czÄ™Äąâ€şci klasy `ProtocolGame` odpowiedzialnej za zarzÄ…dzanie poÄąâ€šÄ…czeniem i podstawowÄ… obsÄąâ€šugÄ™ zdarzeÄąâ€ž sieciowych.
 ## Klasa `ProtocolGame`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `login(...)` | Inicjuje proces logowania, zapisując dane uwierzytelniające i dane świata, a następnie nawiązuje połączenie z serwerem. |
-| `onConnect()` | Metoda wywoływana po pomyślnym nawiązaniu połączenia. Włącza odpowiednie funkcje protokołu (np. sumy kontrolne, szyfrowanie, duże pakiety) w zależności od `GameFeature` i wysyła pierwszy pakiet logowania. |
-| `onRecv(const InputMessagePtr& inputMessage)` | Główna pętla odbioru danych. Wywoływana za każdym razem, gdy nadejdzie nowy pakiet. Weryfikuje rozmiar wiadomości (jeśli `GameMessageSizeCheck` jest aktywne), a następnie przekazuje pakiet do `parseMessage` w celu przetworzenia. Po przetworzeniu planuje odbiór kolejnego pakietu. |
-| `onError(const boost::system::error_code& error)` | Obsługuje błędy połączenia. Powiadamia `g_game` o błędzie i rozłącza klienta. |
-## Zależności i powiązania
-- **`game.h`**: Ściśle współpracuje z `g_game`, informując go o stanie połączenia i przekazując przetworzone dane.
-- **`player.h`**, **`localplayer.h`**: Ustawia instancję `LocalPlayer` na początku połączenia.
-- **`framework/net/protocol.h`**: Dziedziczy z `Protocol` i wykorzystuje jego mechanizmy do obsługi połączenia TCP.
+| `login(...)` | Inicjuje proces logowania, zapisujÄ…c dane uwierzytelniajÄ…ce i dane Äąâ€şwiata, a nastÄ™pnie nawiÄ…zuje poÄąâ€šÄ…czenie z serwerem. |
+| `onConnect()` | Metoda wywoÄąâ€šywana po pomyÄąâ€şlnym nawiÄ…zaniu poÄąâ€šÄ…czenia. WÄąâ€šÄ…cza odpowiednie funkcje protokoÄąâ€šu (np. sumy kontrolne, szyfrowanie, duÄąÄ˝e pakiety) w zaleÄąÄ˝noÄąâ€şci od `GameFeature` i wysyÄąâ€ša pierwszy pakiet logowania. |
+| `onRecv(const InputMessagePtr& inputMessage)` | GÄąâ€šĂłwna pÄ™tla odbioru danych. WywoÄąâ€šywana za kaÄąÄ˝dym razem, gdy nadejdzie nowy pakiet. Weryfikuje rozmiar wiadomoÄąâ€şci (jeÄąâ€şli `GameMessageSizeCheck` jest aktywne), a nastÄ™pnie przekazuje pakiet do `parseMessage` w celu przetworzenia. Po przetworzeniu planuje odbiĂłr kolejnego pakietu. |
+| `onError(const boost::system::error_code& error)` | ObsÄąâ€šuguje bÄąâ€šÄ™dy poÄąâ€šÄ…czenia. Powiadamia `g_game` o bÄąâ€šÄ™dzie i rozÄąâ€šÄ…cza klienta. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`game.h`**: ÄąĹˇciÄąâ€şle wspĂłÄąâ€špracuje z `g_game`, informujÄ…c go o stanie poÄąâ€šÄ…czenia i przekazujÄ…c przetworzone dane.
+- **`player.h`**, **`localplayer.h`**: Ustawia instancjÄ™ `LocalPlayer` na poczÄ…tku poÄąâ€šÄ…czenia.
+- **`framework/net/protocol.h`**: Dziedziczy z `Protocol` i wykorzystuje jego mechanizmy do obsÄąâ€šugi poÄąâ€šÄ…czenia TCP.
 
 ---
-# 📄 protocolgame.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `ProtocolGame`. Definiuje interfejs protokołu sieciowego używanego do komunikacji z serwerem gry. Zawiera deklaracje funkcji do wysyłania pakietów oraz parsowania odpowiedzi z serwera.
+# Ä‘Ĺşâ€śâ€ž protocolgame.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `ProtocolGame`. Definiuje interfejs protokoÄąâ€šu sieciowego uÄąÄ˝ywanego do komunikacji z serwerem gry. Zawiera deklaracje funkcji do wysyÄąâ€šania pakietĂłw oraz parsowania odpowiedzi z serwera.
 ## Klasa `ProtocolGame`
 ## Opis
-Dziedziczy po `Protocol`. Jest to centralny punkt obsługi komunikacji sieciowej w grze.
-## Metody (Wysyłanie)
-Plik deklaruje dużą liczbę metod `send...`, z których każda odpowiada za wysłanie konkretnego pakietu do serwera. Przykłady:
-- `sendLoginPacket(...)`: Wysyła pakiet logowania.
-- `sendWalkNorth()`: Wysyła żądanie ruchu na północ.
-- `sendMove(...)`: Wysyła żądanie przesunięcia przedmiotu.
-- `sendTalk(...)`: Wysyła wiadomość czatu.
-- `sendAttack(...)`: Wysyła żądanie ataku.
+Dziedziczy po `Protocol`. Jest to centralny punkt obsÄąâ€šugi komunikacji sieciowej w grze.
+## Metody (WysyÄąâ€šanie)
+Plik deklaruje duÄąÄ˝Ä… liczbÄ™ metod `send...`, z ktĂłrych kaÄąÄ˝da odpowiada za wysÄąâ€šanie konkretnego pakietu do serwera. PrzykÄąâ€šady:
+- `sendLoginPacket(...)`: WysyÄąâ€ša pakiet logowania.
+- `sendWalkNorth()`: WysyÄąâ€ša ÄąÄ˝Ä…danie ruchu na pĂłÄąâ€šnoc.
+- `sendMove(...)`: WysyÄąâ€ša ÄąÄ˝Ä…danie przesuniÄ™cia przedmiotu.
+- `sendTalk(...)`: WysyÄąâ€ša wiadomoÄąâ€şÄ‡ czatu.
+- `sendAttack(...)`: WysyÄąâ€ša ÄąÄ˝Ä…danie ataku.
 ## Metody (Parsowanie)
-Deklaruje również metody `parse...`, które są wywoływane w `protocolgameparse.cpp` do przetwarzania pakietów przychodzących z serwera. Przykłady:
-- `parseMapDescription(...)`: Parsuje pełny opis mapy.
-- `parseCreatureHealth(...)`: Parsuje aktualizację życia stworzenia.
-- `parseTextMessage(...)`: Parsuje wiadomość tekstową.
+Deklaruje rĂłwnieÄąÄ˝ metody `parse...`, ktĂłre sÄ… wywoÄąâ€šywane w `protocolgameparse.cpp` do przetwarzania pakietĂłw przychodzÄ…cych z serwera. PrzykÄąâ€šady:
+- `parseMapDescription(...)`: Parsuje peÄąâ€šny opis mapy.
+- `parseCreatureHealth(...)`: Parsuje aktualizacjÄ™ ÄąÄ˝ycia stworzenia.
+- `parseTextMessage(...)`: Parsuje wiadomoÄąâ€şÄ‡ tekstowÄ….
 ## Metody (Pomocnicze)
-- `getThing(...)`, `getItem(...)`, `getCreature(...)`, `getPosition(...)`: Funkcje pomocnicze do odczytywania złożonych typów danych ze strumienia `InputMessage`.
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów (`Position`, `CreaturePtr`, etc.).
-- **`protocolcodes.h`**: Używa kodów operacyjnych zdefiniowanych w tym pliku.
+- `getThing(...)`, `getItem(...)`, `getCreature(...)`, `getPosition(...)`: Funkcje pomocnicze do odczytywania zÄąâ€šoÄąÄ˝onych typĂłw danych ze strumienia `InputMessage`.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw (`Position`, `CreaturePtr`, etc.).
+- **`protocolcodes.h`**: UÄąÄ˝ywa kodĂłw operacyjnych zdefiniowanych w tym pliku.
 - **`framework/net/protocol.h`**: Klasa bazowa.
 
 ---
-# 📄 spritemanager.cpp
-## Ogólny opis
-Implementacja `SpriteManager`, klasy odpowiedzialnej za zarządzanie plikami sprite'ów (`.spr`, `.cwm`). Plik zawiera logikę wczytywania, zapisywania, a także deszyfrowania i dekompresji danych sprite'ów.
+# Ä‘Ĺşâ€śâ€ž spritemanager.cpp
+## OgĂłlny opis
+Implementacja `SpriteManager`, klasy odpowiedzialnej za zarzÄ…dzanie plikami sprite'Ăłw (`.spr`, `.cwm`). Plik zawiera logikÄ™ wczytywania, zapisywania, a takÄąÄ˝e deszyfrowania i dekompresji danych sprite'Ăłw.
 ## Klasa `SpriteManager`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `loadSpr(std::string file)` | Główna funkcja wczytująca. Sprawdza, czy istnieje plik `.cwm` (HD mod) lub `.spr` i wywołuje odpowiednią metodę wczytującą. |
-| `saveSpr(...)` / `saveSpr64(...)` | Metody do zapisywania sprite'ów w formacie `.spr` (32x32 lub 64x64). Wymaga `WITH_ENCRYPTION`. |
+| `loadSpr(std::string file)` | GÄąâ€šĂłwna funkcja wczytujÄ…ca. Sprawdza, czy istnieje plik `.cwm` (HD mod) lub `.spr` i wywoÄąâ€šuje odpowiedniÄ… metodÄ™ wczytujÄ…cÄ…. |
+| `saveSpr(...)` / `saveSpr64(...)` | Metody do zapisywania sprite'Ăłw w formacie `.spr` (32x32 lub 64x64). Wymaga `WITH_ENCRYPTION`. |
 | `encryptSprites(...)` | Zapisuje sprite'y w niestandardowym, zaszyfrowanym formacie OTV8. |
 | `dumpSprites(...)` | Zapisuje wszystkie sprite'y jako pojedyncze pliki PNG do danego folderu (funkcja deweloperska). |
-| `unload()` | Zwalnia wszystkie zasoby związane ze sprite'ami. |
-| `getSpriteImage(int id)` | Główna metoda do pobierania obrazu sprite'a. Wywołuje odpowiednią implementację w zależności od tego, czy załadowano mod HD (`.cwm`) czy standardowy plik (`.spr`). |
-| `loadCasualSpr(...)` | Wczytuje standardowy plik `.spr`. Odczytuje sygnaturę i liczbę sprite'ów. Obsługuje również zaszyfrowany format OTV8. |
-| `loadCwmSpr(...)` | Wczytuje plik `.cwm`, który jest zbiorem skompresowanych danych PNG. Używa `PngUnpacker` do rozpakowania wszystkich sprite'ów do pamięci. |
-| `getSpriteImageCasual(int id)` | Pobiera obraz sprite'a z pliku `.spr`. Odczytuje adres sprite'a z tablicy offsetów, a następnie dekompresuje dane pikseli, które są zapisane w formacie RLE (run-length encoding) z przezroczystymi i kolorowymi pikselami. |
-| `getSpriteImageHd(int id)` | Pobiera obraz sprite'a z pamięci podręcznej wczytanej z pliku `.cwm`. Dekoduje dane PNG dla danego sprite'a. |
-## Zależności i powiązania
-- **`game.h`**: Używa `g_game` do sprawdzania `GameFeature`, które wpływają na format pliku `.spr`.
+| `unload()` | Zwalnia wszystkie zasoby zwiÄ…zane ze sprite'ami. |
+| `getSpriteImage(int id)` | GÄąâ€šĂłwna metoda do pobierania obrazu sprite'a. WywoÄąâ€šuje odpowiedniÄ… implementacjÄ™ w zaleÄąÄ˝noÄąâ€şci od tego, czy zaÄąâ€šadowano mod HD (`.cwm`) czy standardowy plik (`.spr`). |
+| `loadCasualSpr(...)` | Wczytuje standardowy plik `.spr`. Odczytuje sygnaturÄ™ i liczbÄ™ sprite'Ăłw. ObsÄąâ€šuguje rĂłwnieÄąÄ˝ zaszyfrowany format OTV8. |
+| `loadCwmSpr(...)` | Wczytuje plik `.cwm`, ktĂłry jest zbiorem skompresowanych danych PNG. UÄąÄ˝ywa `PngUnpacker` do rozpakowania wszystkich sprite'Ăłw do pamiÄ™ci. |
+| `getSpriteImageCasual(int id)` | Pobiera obraz sprite'a z pliku `.spr`. Odczytuje adres sprite'a z tablicy offsetĂłw, a nastÄ™pnie dekompresuje dane pikseli, ktĂłre sÄ… zapisane w formacie RLE (run-length encoding) z przezroczystymi i kolorowymi pikselami. |
+| `getSpriteImageHd(int id)` | Pobiera obraz sprite'a z pamiÄ™ci podrÄ™cznej wczytanej z pliku `.cwm`. Dekoduje dane PNG dla danego sprite'a. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania `GameFeature`, ktĂłre wpÄąâ€šywajÄ… na format pliku `.spr`.
 - **`framework/core/resourcemanager.h`**: Do operacji na plikach.
 - **`framework/graphics/image.h`**: Zwraca obiekty `ImagePtr`.
 - **`framework/util/crypt.h`**: Do deszyfrowania formatu OTV8.
-- **`framework/util/pngunpacker.h`**: Do rozpakowywania plików `.cwm`.
+- **`framework/util/pngunpacker.h`**: Do rozpakowywania plikĂłw `.cwm`.
 
 ---
-# 📄 protocolgamesend.cpp
-## Ogólny opis
-Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za **wysyłanie** pakietów do serwera gry. Każda metoda odpowiada za stworzenie i wysłanie konkretnego komunikatu zgodnie z protokołem sieciowym.
+# Ä‘Ĺşâ€śâ€ž protocolgamesend.cpp
+## OgĂłlny opis
+Plik ten zawiera implementacjÄ™ metod klasy `ProtocolGame` odpowiedzialnych za **wysyÄąâ€šanie** pakietĂłw do serwera gry. KaÄąÄ˝da metoda odpowiada za stworzenie i wysÄąâ€šanie konkretnego komunikatu zgodnie z protokoÄąâ€šem sieciowym.
 ## Klasa `ProtocolGame`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `send(const OutputMessagePtr& outputMessage, ...)` | Wysyła przygotowany pakiet, sprawdzając uprzednio zabezpieczenia anty-botowe (`g_game.checkBotProtection()`). |
-| `sendLoginPacket(...)` | Tworzy i wysyła pakiet logowania. Zawiera logikę szyfrowania RSA, dodawania klucza XTEA, a także wysyłania dodatkowych danych identyfikacyjnych klienta (nazwa użytkownika, CPU, adresy MAC), jeśli serwer to obsługuje. |
-| `sendWalkNorth()`, `sendWalkEast()`, etc. | Wysyłają jednobajtowe pakiety z żądaniem ruchu w danym kierunku. |
-| `sendAutoWalk(...)` | Wysyła sekwencję kierunków dla automatycznego poruszania się. |
-| `sendNewWalk(...)` | Wysyła pakiet dla nowego systemu chodzenia, zawierający ID kroku, ID predykcji, pozycję i ścieżkę. |
-| `sendMove(...)` | Wysyła żądanie przesunięcia przedmiotu/stworzenia. |
-| `sendUseItem(...)`, `sendUseItemWith(...)` | Wysyłają żądania użycia przedmiotów. |
-| `sendTalk(...)` | Wysyła wiadomość czatu. Konstruuje pakiet w zależności od trybu wiadomości (publiczny, prywatny, kanał). |
-| `sendAttack(...)`, `sendFollow(...)` | Wysyłają żądania ataku lub śledzenia stworzenia, zawierając sekwencyjny numer identyfikujący akcję. |
-| `sendChangeOutfit(...)` | Wysyła nowy ubiór gracza, uwzględniając wszystkie jego elementy (kolory, dodatki, wierzchowiec, etc.) w zależności od wspieranych przez serwer funkcji. |
-| `addPosition(const OutputMessagePtr& msg, ...)` | Pomocnicza metoda do dodawania współrzędnych `Position` do pakietu. |
+| `send(const OutputMessagePtr& outputMessage, ...)` | WysyÄąâ€ša przygotowany pakiet, sprawdzajÄ…c uprzednio zabezpieczenia anty-botowe (`g_game.checkBotProtection()`). |
+| `sendLoginPacket(...)` | Tworzy i wysyÄąâ€ša pakiet logowania. Zawiera logikÄ™ szyfrowania RSA, dodawania klucza XTEA, a takÄąÄ˝e wysyÄąâ€šania dodatkowych danych identyfikacyjnych klienta (nazwa uÄąÄ˝ytkownika, CPU, adresy MAC), jeÄąâ€şli serwer to obsÄąâ€šuguje. |
+| `sendWalkNorth()`, `sendWalkEast()`, etc. | WysyÄąâ€šajÄ… jednobajtowe pakiety z ÄąÄ˝Ä…daniem ruchu w danym kierunku. |
+| `sendAutoWalk(...)` | WysyÄąâ€ša sekwencjÄ™ kierunkĂłw dla automatycznego poruszania siÄ™. |
+| `sendNewWalk(...)` | WysyÄąâ€ša pakiet dla nowego systemu chodzenia, zawierajÄ…cy ID kroku, ID predykcji, pozycjÄ™ i Äąâ€şcieÄąÄ˝kÄ™. |
+| `sendMove(...)` | WysyÄąâ€ša ÄąÄ˝Ä…danie przesuniÄ™cia przedmiotu/stworzenia. |
+| `sendUseItem(...)`, `sendUseItemWith(...)` | WysyÄąâ€šajÄ… ÄąÄ˝Ä…dania uÄąÄ˝ycia przedmiotĂłw. |
+| `sendTalk(...)` | WysyÄąâ€ša wiadomoÄąâ€şÄ‡ czatu. Konstruuje pakiet w zaleÄąÄ˝noÄąâ€şci od trybu wiadomoÄąâ€şci (publiczny, prywatny, kanaÄąâ€š). |
+| `sendAttack(...)`, `sendFollow(...)` | WysyÄąâ€šajÄ… ÄąÄ˝Ä…dania ataku lub Äąâ€şledzenia stworzenia, zawierajÄ…c sekwencyjny numer identyfikujÄ…cy akcjÄ™. |
+| `sendChangeOutfit(...)` | WysyÄąâ€ša nowy ubiĂłr gracza, uwzglÄ™dniajÄ…c wszystkie jego elementy (kolory, dodatki, wierzchowiec, etc.) w zaleÄąÄ˝noÄąâ€şci od wspieranych przez serwer funkcji. |
+| `addPosition(const OutputMessagePtr& msg, ...)` | Pomocnicza metoda do dodawania wspĂłÄąâ€šrzÄ™dnych `Position` do pakietu. |
 ## Logika
-Większość funkcji w tym pliku ma prostą strukturę:
-1.  Stwórz nowy `OutputMessage`.
-2.  Dodaj kod operacyjny (opcode) za pomocą `msg->addU8(...)`.
-3.  Dodaj kolejne dane (ID, pozycje, stringi) zgodnie ze specyfikacją protokołu.
-4.  Wyślij pakiet za pomocą `send(msg)`.
-## Zależności i powiązania
-- **`game.h`**: Używa `g_game` do sprawdzania funkcji serwera (`GameFeature`), które determinują format wysyłanych pakietów.
-- **`localplayer.h`**: Używa pozycji lokalnego gracza w niektórych pakietach (np. `sendTalk`).
-- **`framework/util/crypt.h`**: Używa `g_crypt` do szyfrowania RSA.
-- **`framework/platform/platform.h`**: Pobiera informacje o systemie do wysłania w pakiecie logowania.
+WiÄ™kszoÄąâ€şÄ‡ funkcji w tym pliku ma prostÄ… strukturÄ™:
+1.  StwĂłrz nowy `OutputMessage`.
+2.  Dodaj kod operacyjny (opcode) za pomocÄ… `msg->addU8(...)`.
+3.  Dodaj kolejne dane (ID, pozycje, stringi) zgodnie ze specyfikacjÄ… protokoÄąâ€šu.
+4.  WyÄąâ€şlij pakiet za pomocÄ… `send(msg)`.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`game.h`**: UÄąÄ˝ywa `g_game` do sprawdzania funkcji serwera (`GameFeature`), ktĂłre determinujÄ… format wysyÄąâ€šanych pakietĂłw.
+- **`localplayer.h`**: UÄąÄ˝ywa pozycji lokalnego gracza w niektĂłrych pakietach (np. `sendTalk`).
+- **`framework/util/crypt.h`**: UÄąÄ˝ywa `g_crypt` do szyfrowania RSA.
+- **`framework/platform/platform.h`**: Pobiera informacje o systemie do wysÄąâ€šania w pakiecie logowania.
 
 ---
-# 📄 localplayer.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `LocalPlayer`, która reprezentuje postać sterowaną przez gracza. Jest to specjalizacja klasy `Player`.
+# Ä‘Ĺşâ€śâ€ž localplayer.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `LocalPlayer`, ktĂłra reprezentuje postaÄ‡ sterowanÄ… przez gracza. Jest to specjalizacja klasy `Player`.
 ## Klasa `LocalPlayer`
 ## Opis
-Dziedziczy po `Player`. Dodaje funkcjonalności specyficzne dla gracza, który jest kontrolowany przez klienta, takie jak:
+Dziedziczy po `Player`. Dodaje funkcjonalnoÄąâ€şci specyficzne dla gracza, ktĂłry jest kontrolowany przez klienta, takie jak:
 -   **Pre-walking**: Przewidywanie ruchu przed otrzymaniem odpowiedzi z serwera.
--   **Auto-walking**: Automatyczne poruszanie się do celu.
--   **Zarządzanie stanem**: Przechowuje szczegółowe statystyki (życie, mana, umiejętności, etc.).
+-   **Auto-walking**: Automatyczne poruszanie siÄ™ do celu.
+-   **ZarzÄ…dzanie stanem**: Przechowuje szczegĂłÄąâ€šowe statystyki (ÄąÄ˝ycie, mana, umiejÄ™tnoÄąâ€şci, etc.).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `lockWalk(int millis)` | Blokuje możliwość chodzenia na określony czas. |
+| `lockWalk(int millis)` | Blokuje moÄąÄ˝liwoÄąâ€şÄ‡ chodzenia na okreÄąâ€şlony czas. |
 | `stopAutoWalk()` | Przerywa auto-walking. |
 | `autoWalk(Position destination, ...)` | Rozpoczyna auto-walking do celu. |
-| `canWalk(...)` | Sprawdza, czy gracz może się poruszyć. |
-| `isPreWalking()` | Zwraca `true`, jeśli gracz wykonuje ruch "pre-walk". |
-| `getPrewalkingPosition(...)` | Zwraca pozycję, na której gracz znajdzie się po zakończeniu wszystkich ruchów "pre-walk". |
+| `canWalk(...)` | Sprawdza, czy gracz moÄąÄ˝e siÄ™ poruszyÄ‡. |
+| `isPreWalking()` | Zwraca `true`, jeÄąâ€şli gracz wykonuje ruch "pre-walk". |
+| `getPrewalkingPosition(...)` | Zwraca pozycjÄ™, na ktĂłrej gracz znajdzie siÄ™ po zakoÄąâ€žczeniu wszystkich ruchĂłw "pre-walk". |
 | `setHealth(...)`, `setMana(...)`, etc. | Metody do ustawiania statystyk gracza. |
 | `getHealth()`, `getMana()`, etc. | Metody do pobierania statystyk. |
-| `hasSight(const Position& pos)` | Sprawdza, czy pozycja jest w zasięgu wzroku. |
-## Zależności i powiązania
+| `hasSight(const Position& pos)` | Sprawdza, czy pozycja jest w zasiÄ™gu wzroku. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`player.h`**: Klasa bazowa.
-- **`walkmatrix.h`**: Używa `WalkMatrix` do śledzenia predykcji ruchu.
+- **`walkmatrix.h`**: UÄąÄ˝ywa `WalkMatrix` do Äąâ€şledzenia predykcji ruchu.
 
 ---
-# 📄 towns.cpp
-## Ogólny opis
-Implementacja `Town` i `TownManager`, które służą do zarządzania danymi o miastach w grze.
+# Ä‘Ĺşâ€śâ€ž towns.cpp
+## OgĂłlny opis
+Implementacja `Town` i `TownManager`, ktĂłre sÄąâ€šuÄąÄ˝Ä… do zarzÄ…dzania danymi o miastach w grze.
 ## Klasa `Town`
 ## Metody
-- **`Town(uint32 tid, ...)`**: Konstruktor, który inicjalizuje miasto z podanym ID, nazwą i pozycją (zwykle świątyni).
+- **`Town(uint32 tid, ...)`**: Konstruktor, ktĂłry inicjalizuje miasto z podanym ID, nazwÄ… i pozycjÄ… (zwykle Äąâ€şwiÄ…tyni).
 ## Klasa `TownManager`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `addTown(const TownPtr &town)` | Dodaje nowe miasto do listy, jeśli jeszcze nie istnieje. |
+| `addTown(const TownPtr &town)` | Dodaje nowe miasto do listy, jeÄąâ€şli jeszcze nie istnieje. |
 | `removeTown(uint32 townId)` | Usuwa miasto o podanym ID. |
 | `getTown(uint32 townId)` | Zwraca miasto po jego ID. |
 | `getTownByName(std::string name)` | Zwraca miasto po jego nazwie. |
-| `findTown(uint32 townId)` | Wewnętrzna metoda do wyszukiwania iteratora do miasta. |
-| `sort()` | Sortuje listę miast alfabetycznie według nazwy. |
+| `findTown(uint32 townId)` | WewnÄ™trzna metoda do wyszukiwania iteratora do miasta. |
+| `sort()` | Sortuje listÄ™ miast alfabetycznie wedÄąâ€šug nazwy. |
 ## Zmienne globalne
 - **`TownManager g_towns`**: Globalna instancja managera miast.
-## Zależności i powiązania
-- **`mapio.cpp`**: Menedżer `g_towns` jest wypełniany danymi podczas wczytywania mapy w formacie OTBM.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`mapio.cpp`**: MenedÄąÄ˝er `g_towns` jest wypeÄąâ€šniany danymi podczas wczytywania mapy w formacie OTBM.
 
 ---
-# 📄 spritemanager.h
-## Ogólny opis
-Plik nagłówkowy dla `SpriteManager`, singletonu odpowiedzialnego za zarządzanie plikami sprite'ów (`.spr`).
+# Ä‘Ĺşâ€śâ€ž spritemanager.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `SpriteManager`, singletonu odpowiedzialnego za zarzÄ…dzanie plikami sprite'Ăłw (`.spr`).
 ## Klasa `SpriteManager`
 ## Opis
-Centralny punkt dostępu do danych graficznych sprite'ów. Odpowiada za wczytywanie, deszyfrowanie, dekompresję i dostarczanie obrazów poszczególnych sprite'ów.
+Centralny punkt dostÄ™pu do danych graficznych sprite'Ăłw. Odpowiada za wczytywanie, deszyfrowanie, dekompresjÄ™ i dostarczanie obrazĂłw poszczegĂłlnych sprite'Ăłw.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `loadSpr(std::string file)` | Wczytuje plik sprite'ów (automatycznie wykrywa format: `.spr`, `.cwm`, OTV8). |
-| `unload()` | Zwalnia wszystkie załadowane dane sprite'ów. |
-| `saveSpr(...)` / `encryptSprites(...)` | Metody (dostępne z `WITH_ENCRYPTION`) do zapisywania i szyfrowania plików sprite'ów. |
-| `getSignature()` | Zwraca sygnaturę wczytanego pliku `.spr`. |
-| `getSpritesCount()` | Zwraca liczbę sprite'ów w pliku. |
-| `getSpriteImage(int id)` | Główna metoda do pobierania obrazu sprite'a o danym ID. |
-| `isLoaded()` | Zwraca `true`, jeśli plik sprite'ów jest załadowany. |
+| `loadSpr(std::string file)` | Wczytuje plik sprite'Ăłw (automatycznie wykrywa format: `.spr`, `.cwm`, OTV8). |
+| `unload()` | Zwalnia wszystkie zaÄąâ€šadowane dane sprite'Ăłw. |
+| `saveSpr(...)` / `encryptSprites(...)` | Metody (dostÄ™pne z `WITH_ENCRYPTION`) do zapisywania i szyfrowania plikĂłw sprite'Ăłw. |
+| `getSignature()` | Zwraca sygnaturÄ™ wczytanego pliku `.spr`. |
+| `getSpritesCount()` | Zwraca liczbÄ™ sprite'Ăłw w pliku. |
+| `getSpriteImage(int id)` | GÄąâ€šĂłwna metoda do pobierania obrazu sprite'a o danym ID. |
+| `isLoaded()` | Zwraca `true`, jeÄąâ€şli plik sprite'Ăłw jest zaÄąâ€šadowany. |
 | `spriteSize()` | Zwraca rozmiar boku pojedynczego sprite'a (np. 32 lub 64 piksele). |
-| `getOffsetFactor()` | Zwraca współczynnik skalowania dla przemieszczeń (displacement) w zależności od `spriteSize`. |
-| `isHdMod()` | Zwraca `true`, jeśli załadowano modyfikację HD (`.cwm`). |
+| `getOffsetFactor()` | Zwraca wspĂłÄąâ€šczynnik skalowania dla przemieszczeÄąâ€ž (displacement) w zaleÄąÄ˝noÄąâ€şci od `spriteSize`. |
+| `isHdMod()` | Zwraca `true`, jeÄąâ€şli zaÄąâ€šadowano modyfikacjÄ™ HD (`.cwm`). |
 ## Zmienne globalne
-- **`SpriteManager g_sprites`**: Globalna instancja managera sprite'ów.
-## Zależności i powiązania
+- **`SpriteManager g_sprites`**: Globalna instancja managera sprite'Ăłw.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`framework/core/declarations.h`**: Podstawowe deklaracje.
-- **`framework/graphics/declarations.h`**: Deklaracje typów graficznych.
-- Niemal każda klasa renderująca obiekty w grze (np. `ThingType`, `Item`, `Creature`) zależy od `SpriteManager`.
+- **`framework/graphics/declarations.h`**: Deklaracje typĂłw graficznych.
+- Niemal kaÄąÄ˝da klasa renderujÄ…ca obiekty w grze (np. `ThingType`, `Item`, `Creature`) zaleÄąÄ˝y od `SpriteManager`.
 
 ---
-# 📄 tile.cpp
-## Ogólny opis
-Implementacja klasy `Tile`, która reprezentuje pojedyncze pole na mapie gry. Plik zawiera logikę rysowania pola i wszystkich znajdujących się na nim obiektów, zarządzania stosem obiektów oraz dostarczania informacji o właściwościach pola.
+# Ä‘Ĺşâ€śâ€ž tile.cpp
+## OgĂłlny opis
+Implementacja klasy `Tile`, ktĂłra reprezentuje pojedyncze pole na mapie gry. Plik zawiera logikÄ™ rysowania pola i wszystkich znajdujÄ…cych siÄ™ na nim obiektĂłw, zarzÄ…dzania stosem obiektĂłw oraz dostarczania informacji o wÄąâ€šaÄąâ€şciwoÄąâ€şciach pola.
 ## Klasa `Tile`
 ## Metody
 ## Rysowanie
 | Nazwa | Opis |
 | --- | --- |
-| `drawGround(...)` | Rysuje podłoże i obiekty na najniższej warstwie. Oblicza `m_drawElevation` (przesunięcie w pionie dla obiektów o wysokości > 1). |
-| `drawBottom(...)` | Rysuje przedmioty, które znajdują się na spodzie, ale nad podłożem (np. ściany). |
-| `drawCreatures(...)` | Rysuje stworzenia na tym polu oraz stworzenia, które na nie wchodzą. |
-| `drawTop(...)` | Rysuje przedmioty na wierzchu, efekty oraz ponownie stworzenia, aby obsłużyć przypadki nakładania się. |
+| `drawGround(...)` | Rysuje podÄąâ€šoÄąÄ˝e i obiekty na najniÄąÄ˝szej warstwie. Oblicza `m_drawElevation` (przesuniÄ™cie w pionie dla obiektĂłw o wysokoÄąâ€şci > 1). |
+| `drawBottom(...)` | Rysuje przedmioty, ktĂłre znajdujÄ… siÄ™ na spodzie, ale nad podÄąâ€šoÄąÄ˝em (np. Äąâ€şciany). |
+| `drawCreatures(...)` | Rysuje stworzenia na tym polu oraz stworzenia, ktĂłre na nie wchodzÄ…. |
+| `drawTop(...)` | Rysuje przedmioty na wierzchu, efekty oraz ponownie stworzenia, aby obsÄąâ€šuÄąÄ˝yÄ‡ przypadki nakÄąâ€šadania siÄ™. |
 | `drawTexts(...)` | Rysuje tekst przypisany do pola (np. timer). |
-| `drawWidget(...)` | Rysuje przypisany do pola widżet. |
-## Zarządzanie obiektami
+| `drawWidget(...)` | Rysuje przypisany do pola widÄąÄ˝et. |
+## ZarzÄ…dzanie obiektami
 | Nazwa | Opis |
 | --- | --- |
-| `addThing(...)` | Dodaje obiekt (`Thing`) na stos w odpowiedniej pozycji, uwzględniając jego priorytet (ziemia, przedmioty, stworzenia). |
+| `addThing(...)` | Dodaje obiekt (`Thing`) na stos w odpowiedniej pozycji, uwzglÄ™dniajÄ…c jego priorytet (ziemia, przedmioty, stworzenia). |
 | `removeThing(...)` | Usuwa obiekt ze stosu. |
-| `addWalkingCreature(...)` | Dodaje stworzenie do listy "przechodzących" przez to pole, które są rysowane osobno. |
+| `addWalkingCreature(...)` | Dodaje stworzenie do listy "przechodzÄ…cych" przez to pole, ktĂłre sÄ… rysowane osobno. |
 | `getThing(...)` | Zwraca obiekt z danej pozycji na stosie. |
-| `getTopThing()`, `getTopCreature()`, etc. | Zwracają "najważniejszy" obiekt danego typu na polu, uwzględniając logikę gry (np. na co patrzy gracz, czego używa). |
-| `getItems()`, `getCreatures()` | Zwracają listy wszystkich przedmiotów lub stworzeń na polu. |
-## Właściwości
+| `getTopThing()`, `getTopCreature()`, etc. | ZwracajÄ… "najwaÄąÄ˝niejszy" obiekt danego typu na polu, uwzglÄ™dniajÄ…c logikÄ™ gry (np. na co patrzy gracz, czego uÄąÄ˝ywa). |
+| `getItems()`, `getCreatures()` | ZwracajÄ… listy wszystkich przedmiotĂłw lub stworzeÄąâ€ž na polu. |
+## WÄąâ€šaÄąâ€şciwoÄąâ€şci
 | Nazwa | Opis |
 | --- | --- |
-| `isWalkable(...)` | Sprawdza, czy po polu można chodzić (czy nie ma blokujących przedmiotów lub stworzeń). |
-| `isPathable()` | Sprawdza, czy algorytm wyszukiwania ścieżki może używać tego pola. |
-| `isFullGround()` | Sprawdza, czy podłoże całkowicie zakrywa pole pod nim. |
-| `getGroundSpeed()` | Zwraca prędkość poruszania się po tym polu. |
-## Zależności i powiązania
-- **`map.h`**: Używa `g_map` do pobierania sąsiednich pól (np. przy korekcji zwłok).
-- **`game.h`**: Dostęp do `g_game` w celu sprawdzania `GameFeature`.
-- **`thing.h`**, **`item.h`**, **`creature.h`**: Zarządza tymi obiektami.
-- **`lightview.h`**: Przekazuje `LightView` do metod rysujących obiekty, aby mogły dodać swoje światło.
+| `isWalkable(...)` | Sprawdza, czy po polu moÄąÄ˝na chodziÄ‡ (czy nie ma blokujÄ…cych przedmiotĂłw lub stworzeÄąâ€ž). |
+| `isPathable()` | Sprawdza, czy algorytm wyszukiwania Äąâ€şcieÄąÄ˝ki moÄąÄ˝e uÄąÄ˝ywaÄ‡ tego pola. |
+| `isFullGround()` | Sprawdza, czy podÄąâ€šoÄąÄ˝e caÄąâ€škowicie zakrywa pole pod nim. |
+| `getGroundSpeed()` | Zwraca prÄ™dkoÄąâ€şÄ‡ poruszania siÄ™ po tym polu. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`map.h`**: UÄąÄ˝ywa `g_map` do pobierania sÄ…siednich pĂłl (np. przy korekcji zwÄąâ€šok).
+- **`game.h`**: DostÄ™p do `g_game` w celu sprawdzania `GameFeature`.
+- **`thing.h`**, **`item.h`**, **`creature.h`**: ZarzÄ…dza tymi obiektami.
+- **`lightview.h`**: Przekazuje `LightView` do metod rysujÄ…cych obiekty, aby mogÄąâ€šy dodaÄ‡ swoje Äąâ€şwiatÄąâ€šo.
 
 ---
-# 📄 statictext.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `StaticText`, która reprezentuje tekst pojawiający się nad głowami stworzeń lub na polach mapy.
+# Ä‘Ĺşâ€śâ€ž statictext.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `StaticText`, ktĂłra reprezentuje tekst pojawiajÄ…cy siÄ™ nad gÄąâ€šowami stworzeÄąâ€ž lub na polach mapy.
 ## Struktura `StaticTextMessage`
--   **`texts`**: Wektor par `std::string`, gdzie pierwsza to treść, a druga to kolor w formacie hex.
--   **`time`**: Czas (w tickach), po którym wiadomość powinna zniknąć.
+-   **`texts`**: Wektor par `std::string`, gdzie pierwsza to treÄąâ€şÄ‡, a druga to kolor w formacie hex.
+-   **`time`**: Czas (w tickach), po ktĂłrym wiadomoÄąâ€şÄ‡ powinna zniknÄ…Ä‡.
 ## Klasa `StaticText`
 ## Opis
-Dziedziczy po `Thing`. Zarządza kolejką wiadomości, które są wyświetlane jedna po drugiej. Jest używana do mowy postaci, potworów, a także do niestandardowych tekstów na mapie.
+Dziedziczy po `Thing`. ZarzÄ…dza kolejkÄ… wiadomoÄąâ€şci, ktĂłre sÄ… wyÄąâ€şwietlane jedna po drugiej. Jest uÄąÄ˝ywana do mowy postaci, potworĂłw, a takÄąÄ˝e do niestandardowych tekstĂłw na mapie.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawText(...)` | Rysuje aktualnie wyświetlaną wiadomość. |
-| `getName()` | Zwraca nazwę postaci mówiącej. |
-| `getText()` | Zwraca aktualnie wyświetlany tekst. |
-| `getMessageMode()` | Zwraca tryb wiadomości (np. `Say`, `Yell`). |
-| `addMessage(...)` / `addColoredMessage(...)` | Dodaje nową wiadomość do kolejki. Oblicza czas jej wyświetlania na podstawie długości. |
-| `setText(...)` / `setFont(...)` | Ustawia surowy tekst i czcionkę (głównie dla niestandardowych tekstów). |
-| `isYell()` | Zwraca `true`, jeśli tryb wiadomości to krzyk. |
-## Zależności i powiązania
+| `drawText(...)` | Rysuje aktualnie wyÄąâ€şwietlanÄ… wiadomoÄąâ€şÄ‡. |
+| `getName()` | Zwraca nazwÄ™ postaci mĂłwiÄ…cej. |
+| `getText()` | Zwraca aktualnie wyÄąâ€şwietlany tekst. |
+| `getMessageMode()` | Zwraca tryb wiadomoÄąâ€şci (np. `Say`, `Yell`). |
+| `addMessage(...)` / `addColoredMessage(...)` | Dodaje nowÄ… wiadomoÄąâ€şÄ‡ do kolejki. Oblicza czas jej wyÄąâ€şwietlania na podstawie dÄąâ€šugoÄąâ€şci. |
+| `setText(...)` / `setFont(...)` | Ustawia surowy tekst i czcionkÄ™ (gÄąâ€šĂłwnie dla niestandardowych tekstĂłw). |
+| `isYell()` | Zwraca `true`, jeÄąâ€şli tryb wiadomoÄąâ€şci to krzyk. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`thing.h`**: Klasa bazowa.
-- **`framework/graphics/cachedtext.h`**: Używa `CachedText` do efektywnego renderowania tekstu.
-- **`framework/core/timer.h`**: Używane do zarządzania czasem życia wiadomości.
+- **`framework/graphics/cachedtext.h`**: UÄąÄ˝ywa `CachedText` do efektywnego renderowania tekstu.
+- **`framework/core/timer.h`**: UÄąÄ˝ywane do zarzÄ…dzania czasem ÄąÄ˝ycia wiadomoÄąâ€şci.
 
 ---
-# 📄 uimapanchorlayout.cpp
-## Ogólny opis
-Implementacja `UIPositionAnchor` i `UIMapAnchorLayout`, które rozszerzają standardowy system kotwic (`UIAnchorLayout`) o możliwość przypinania widżetów do konkretnych pozycji na minimapie.
+# Ä‘Ĺşâ€śâ€ž uimapanchorlayout.cpp
+## OgĂłlny opis
+Implementacja `UIPositionAnchor` i `UIMapAnchorLayout`, ktĂłre rozszerzajÄ… standardowy system kotwic (`UIAnchorLayout`) o moÄąÄ˝liwoÄąâ€şÄ‡ przypinania widÄąÄ˝etĂłw do konkretnych pozycji na minimapie.
 ## Klasa `UIPositionAnchor`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `getHookedPoint(...)` | Kluczowa metoda, która oblicza współrzędną (X lub Y) na ekranie na podstawie `m_hookedPosition`. Pobiera `UIMinimap`, prosi go o prostokąt (`Rect`) odpowiadający danemu polu na mapie (`getTileRect`), a następnie zwraca odpowiednią krawędź tego prostokąta (np. `left`, `top`, `horizontalCenter`). |
+| `getHookedPoint(...)` | Kluczowa metoda, ktĂłra oblicza wspĂłÄąâ€šrzÄ™dnÄ… (X lub Y) na ekranie na podstawie `m_hookedPosition`. Pobiera `UIMinimap`, prosi go o prostokÄ…t (`Rect`) odpowiadajÄ…cy danemu polu na mapie (`getTileRect`), a nastÄ™pnie zwraca odpowiedniÄ… krawÄ™dÄąĹź tego prostokÄ…ta (np. `left`, `top`, `horizontalCenter`). |
 ## Klasa `UIMapAnchorLayout`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `addPositionAnchor(...)` | Tworzy nowy obiekt `UIPositionAnchor` i dodaje go do grupy kotwic dla danego widżetu. |
-| `centerInPosition(...)` | Funkcja pomocnicza, która dodaje dwie kotwice (`HorizontalCenter` i `VerticalCenter`), aby wyśrodkować widżet na danym polu mapy. |
-| `fillPosition(...)` | Funkcja pomocnicza, która dodaje cztery kotwice (`Left`, `Right`, `Top`, `Bottom`), aby widżet wypełnił obszar danego pola na mapie. |
-## Zależności i powiązania
-- **`uiminimap.h`**: `UIPositionAnchor` rzutuje widżet-rodzica na `UIMinimap`, aby uzyskać dostęp do metody `getTileRect`.
-- **`framework/ui/uiwidget.h`**: Współpracuje z widżetami.
+| `addPositionAnchor(...)` | Tworzy nowy obiekt `UIPositionAnchor` i dodaje go do grupy kotwic dla danego widÄąÄ˝etu. |
+| `centerInPosition(...)` | Funkcja pomocnicza, ktĂłra dodaje dwie kotwice (`HorizontalCenter` i `VerticalCenter`), aby wyÄąâ€şrodkowaÄ‡ widÄąÄ˝et na danym polu mapy. |
+| `fillPosition(...)` | Funkcja pomocnicza, ktĂłra dodaje cztery kotwice (`Left`, `Right`, `Top`, `Bottom`), aby widÄąÄ˝et wypeÄąâ€šniÄąâ€š obszar danego pola na mapie. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`uiminimap.h`**: `UIPositionAnchor` rzutuje widÄąÄ˝et-rodzica na `UIMinimap`, aby uzyskaÄ‡ dostÄ™p do metody `getTileRect`.
+- **`framework/ui/uiwidget.h`**: WspĂłÄąâ€špracuje z widÄąÄ˝etami.
 - **`framework/ui/uianchorlayout.h`**: Rozszerza standardowy layout kotwic.
 
 ---
-# 📄 thing.h
-## Ogólny opis
-Plik nagłówkowy dla `Thing`, abstrakcyjnej klasy bazowej dla wszystkich obiektów, które mogą pojawić się na mapie w grze.
+# Ä‘Ĺşâ€śâ€ž thing.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `Thing`, abstrakcyjnej klasy bazowej dla wszystkich obiektĂłw, ktĂłre mogÄ… pojawiÄ‡ siÄ™ na mapie w grze.
 ## Klasa `Thing`
 ## Opis
-Dziedziczy po `LuaObject`. Definiuje wspólny interfejs dla przedmiotów, stworzeń, efektów, pocisków i tekstów. Każdy obiekt `Thing` ma pozycję i należy do określonego typu (`ThingType`).
+Dziedziczy po `LuaObject`. Definiuje wspĂłlny interfejs dla przedmiotĂłw, stworzeÄąâ€ž, efektĂłw, pociskĂłw i tekstĂłw. KaÄąÄ˝dy obiekt `Thing` ma pozycjÄ™ i naleÄąÄ˝y do okreÄąâ€şlonego typu (`ThingType`).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `draw(...)` | Wirtualna metoda do rysowania obiektu. |
-| `setPosition(const Position& position)` | Ustawia pozycję obiektu. |
-| `getPosition()` | Zwraca pozycję obiektu. |
-| `getStackPriority()` | Zwraca priorytet na stosie, który decyduje o kolejności rysowania i interakcji. |
-| `getTile()` | Zwraca wskaźnik do pola (`Tile`), na którym znajduje się obiekt. |
-| `getStackPos()` | Zwraca pozycję obiektu na stosie wewnątrz pola. |
+| `setPosition(const Position& position)` | Ustawia pozycjÄ™ obiektu. |
+| `getPosition()` | Zwraca pozycjÄ™ obiektu. |
+| `getStackPriority()` | Zwraca priorytet na stosie, ktĂłry decyduje o kolejnoÄąâ€şci rysowania i interakcji. |
+| `getTile()` | Zwraca wskaÄąĹźnik do pola (`Tile`), na ktĂłrym znajduje siÄ™ obiekt. |
+| `getStackPos()` | Zwraca pozycjÄ™ obiektu na stosie wewnÄ…trz pola. |
 | `isItem()`, `isCreature()`, etc. | Wirtualne metody do identyfikacji typu obiektu. |
-| `getThingType()` / `rawGetThingType()` | Zwracają `ThingType` dla tego obiektu. |
-| `getSize()`, `getWidth()`, `getHeight()`, etc. | Metody-skróty do właściwości z `ThingType`. |
-| `onPositionChange(...)`, `onAppear()`, `onDisappear()` | Wirtualne metody wywoływane w kluczowych momentach cyklu życia obiektu. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów, np. `TilePtr`.
-- **`thingtype.h`**: Każdy `Thing` ma swój `ThingType`.
+| `getThingType()` / `rawGetThingType()` | ZwracajÄ… `ThingType` dla tego obiektu. |
+| `getSize()`, `getWidth()`, `getHeight()`, etc. | Metody-skrĂłty do wÄąâ€šaÄąâ€şciwoÄąâ€şci z `ThingType`. |
+| `onPositionChange(...)`, `onAppear()`, `onDisappear()` | Wirtualne metody wywoÄąâ€šywane w kluczowych momentach cyklu ÄąÄ˝ycia obiektu. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw, np. `TilePtr`.
+- **`thingtype.h`**: KaÄąÄ˝dy `Thing` ma swĂłj `ThingType`.
 - **`framework/luaengine/luaobject.h`**: Klasa bazowa.
 
 ---
-# 📄 uiitem.h
-## Ogólny opis
-Plik nagłówkowy dla `UIItem`, widżetu interfejsu użytkownika przeznaczonego do wyświetlania przedmiotów (`Item`).
+# Ä‘Ĺşâ€śâ€ž uiitem.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `UIItem`, widÄąÄ˝etu interfejsu uÄąÄ˝ytkownika przeznaczonego do wyÄąâ€şwietlania przedmiotĂłw (`Item`).
 ## Klasa `UIItem`
 ## Opis
-Dziedziczy po `UIWidget`. Służy do renderowania przedmiotów w UI, np. w ekwipunku, kontenerach, oknach handlu.
+Dziedziczy po `UIWidget`. SÄąâ€šuÄąÄ˝y do renderowania przedmiotĂłw w UI, np. w ekwipunku, kontenerach, oknach handlu.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje tło, obraz, a następnie sam przedmiot (`m_item->draw(...)`), liczbę sztuk (jeśli dotyczy) i ramkę. |
-| `setItemId(int id)` | Ustawia przedmiot do wyświetlenia na podstawie jego ID. |
-| `setItemCount(int count)` | Ustawia liczbę sztuk przedmiotu. |
-| `setItem(const ItemPtr& item)` | Ustawia przedmiot do wyświetlenia na podstawie istniejącego obiektu `Item`. |
-| `setVirtual(bool virt)` | Oznacza, czy przedmiot jest "wirtualny" (nie jest prawdziwą instancją, tylko reprezentacją wizualną). |
-| `setShowCount(bool value)` | Włącza/wyłącza wyświetlanie liczby sztuk. |
+| `drawSelf(...)` | Rysuje tÄąâ€šo, obraz, a nastÄ™pnie sam przedmiot (`m_item->draw(...)`), liczbÄ™ sztuk (jeÄąâ€şli dotyczy) i ramkÄ™. |
+| `setItemId(int id)` | Ustawia przedmiot do wyÄąâ€şwietlenia na podstawie jego ID. |
+| `setItemCount(int count)` | Ustawia liczbÄ™ sztuk przedmiotu. |
+| `setItem(const ItemPtr& item)` | Ustawia przedmiot do wyÄąâ€şwietlenia na podstawie istniejÄ…cego obiektu `Item`. |
+| `setVirtual(bool virt)` | Oznacza, czy przedmiot jest "wirtualny" (nie jest prawdziwÄ… instancjÄ…, tylko reprezentacjÄ… wizualnÄ…). |
+| `setShowCount(bool value)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza wyÄąâ€şwietlanie liczby sztuk. |
 | `setItemShader(const std::string& str)` | Ustawia niestandardowy shader dla przedmiotu. |
-| `getItem()` | Zwraca obiekt `Item` powiązany z widżetem. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
+| `getItem()` | Zwraca obiekt `Item` powiÄ…zany z widÄąÄ˝etem. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 - **`item.h`**: Przechowuje i rysuje obiekt `Item`.
 
 ---
-# 📄 thing.cpp
-## Ogólny opis
-Implementacja klasy bazowej `Thing`. Zawiera podstawową logikę wspólną dla wszystkich obiektów na mapie.
+# Ä‘Ĺşâ€śâ€ž thing.cpp
+## OgĂłlny opis
+Implementacja klasy bazowej `Thing`. Zawiera podstawowÄ… logikÄ™ wspĂłlnÄ… dla wszystkich obiektĂłw na mapie.
 ## Klasa `Thing`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `setPosition(const Position& position)` | Aktualizuje pozycję obiektu i wywołuje wirtualną metodę `onPositionChange`. |
-| `getStackPriority()` | Zwraca priorytet obiektu na stosie wewnątrz pola. Kolejność jest ściśle zdefiniowana: ziemia, obramowanie ziemi, obiekty na dole (np. ściany), obiekty na górze (np. dywany), stworzenia, a na końcu zwykłe przedmioty. |
-| `getTile()` | Zwraca wskaźnik do pola, na którym znajduje się obiekt, używając `g_map`. |
-| `getParentContainer()` | Jeśli obiekt znajduje się w kontenerze, zwraca wskaźnik do tego kontenera. Pozycja w kontenerze jest specjalnie kodowana. |
-| `getStackPos()` | Zwraca pozycję na stosie: albo wewnątrz kontenera, albo na polu mapy. |
-| `getThingType()` / `rawGetThingType()` | Zwracają domyślny, "pusty" `ThingType`. Muszą być nadpisane przez klasy pochodne. |
-| `updatedMarkedColor()` | Aktualizuje kolor i przezroczystość znacznika (jeśli jest ustawiony), tworząc efekt pulsowania. |
-## Zależności i powiązania
-- **`spritemanager.h`**, **`thingtypemanager.h`**: Podstawowe zależności.
+| `setPosition(const Position& position)` | Aktualizuje pozycjÄ™ obiektu i wywoÄąâ€šuje wirtualnÄ… metodÄ™ `onPositionChange`. |
+| `getStackPriority()` | Zwraca priorytet obiektu na stosie wewnÄ…trz pola. KolejnoÄąâ€şÄ‡ jest Äąâ€şciÄąâ€şle zdefiniowana: ziemia, obramowanie ziemi, obiekty na dole (np. Äąâ€şciany), obiekty na gĂłrze (np. dywany), stworzenia, a na koÄąâ€žcu zwykÄąâ€še przedmioty. |
+| `getTile()` | Zwraca wskaÄąĹźnik do pola, na ktĂłrym znajduje siÄ™ obiekt, uÄąÄ˝ywajÄ…c `g_map`. |
+| `getParentContainer()` | JeÄąâ€şli obiekt znajduje siÄ™ w kontenerze, zwraca wskaÄąĹźnik do tego kontenera. Pozycja w kontenerze jest specjalnie kodowana. |
+| `getStackPos()` | Zwraca pozycjÄ™ na stosie: albo wewnÄ…trz kontenera, albo na polu mapy. |
+| `getThingType()` / `rawGetThingType()` | ZwracajÄ… domyÄąâ€şlny, "pusty" `ThingType`. MuszÄ… byÄ‡ nadpisane przez klasy pochodne. |
+| `updatedMarkedColor()` | Aktualizuje kolor i przezroczystoÄąâ€şÄ‡ znacznika (jeÄąâ€şli jest ustawiony), tworzÄ…c efekt pulsowania. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`spritemanager.h`**, **`thingtypemanager.h`**: Podstawowe zaleÄąÄ˝noÄąâ€şci.
 - **`map.h`**: Do pobierania `Tile`.
-- **`game.h`**: Do pobierania kontenerów.
+- **`game.h`**: Do pobierania kontenerĂłw.
 
 ---
-# 📄 uimap.cpp
-## Ogólny opis
-Implementacja `UIMap`, widżetu interfejsu użytkownika, który renderuje główny widok mapy gry.
+# Ä‘Ĺşâ€śâ€ž uimap.cpp
+## OgĂłlny opis
+Implementacja `UIMap`, widÄąÄ˝etu interfejsu uÄąÄ˝ytkownika, ktĂłry renderuje gÄąâ€šĂłwny widok mapy gry.
 ## Klasa `UIMap`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Główna funkcja rysująca. Jest wywoływana trzykrotnie dla różnych "warstw" (`DrawPane`): <br> 1. `MapBackgroundPane`: Rysuje tło mapy (`m_mapView->drawMapBackground`). <br> 2. `MapForegroundPane`: Rysuje pierwszy plan (`m_mapView->drawMapForeground`). <br> 3. `ForegroundPane`: Rysuje obramowanie wokół mapy. |
-| `setZoom(int zoom)` | Ustawia poziom przybliżenia, co wpływa na `m_mapView->setVisibleDimension`. |
-| `zoomIn()` / `zoomOut()` | Zmienia poziom przybliżenia o stałą wartość. |
+| `drawSelf(Fw::DrawPane drawPane)` | GÄąâ€šĂłwna funkcja rysujÄ…ca. Jest wywoÄąâ€šywana trzykrotnie dla rĂłÄąÄ˝nych "warstw" (`DrawPane`): <br> 1. `MapBackgroundPane`: Rysuje tÄąâ€šo mapy (`m_mapView->drawMapBackground`). <br> 2. `MapForegroundPane`: Rysuje pierwszy plan (`m_mapView->drawMapForeground`). <br> 3. `ForegroundPane`: Rysuje obramowanie wokĂłÄąâ€š mapy. |
+| `setZoom(int zoom)` | Ustawia poziom przybliÄąÄ˝enia, co wpÄąâ€šywa na `m_mapView->setVisibleDimension`. |
+| `zoomIn()` / `zoomOut()` | Zmienia poziom przybliÄąÄ˝enia o staÄąâ€šÄ… wartoÄąâ€şÄ‡. |
 | `setVisibleDimension(...)` | Ustawia widoczny wymiar w `m_mapView` i aktualizuje proporcje. |
-| `setKeepAspectRatio(bool enable)` | Włącza/wyłącza zachowanie stałych proporcji widoku mapy. |
-| `getPosition(const Point& mousePos)` | Konwertuje pozycję kursora na ekranie na pozycję (`Position`) w świecie gry. |
-| `getTile(const Point& mousePos)` | Zwraca pole (`Tile`) pod kursorem, przeszukując widoczne piętra od góry do dołu w poszukiwaniu klikalnego obiektu. |
+| `setKeepAspectRatio(bool enable)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza zachowanie staÄąâ€šych proporcji widoku mapy. |
+| `getPosition(const Point& mousePos)` | Konwertuje pozycjÄ™ kursora na ekranie na pozycjÄ™ (`Position`) w Äąâ€şwiecie gry. |
+| `getTile(const Point& mousePos)` | Zwraca pole (`Tile`) pod kursorem, przeszukujÄ…c widoczne piÄ™tra od gĂłry do doÄąâ€šu w poszukiwaniu klikalnego obiektu. |
 | `updateVisibleDimension()` | Przelicza i ustawia widoczny wymiar w `m_mapView` na podstawie aktualnego zoomu i proporcji. |
-| `updateMapSize()` | Dopasowuje rozmiar i pozycję prostokąta rysowania mapy (`m_mapRect`) do rozmiaru widżetu, zachowując proporcje, jeśli to wymagane. |
-## Zależności i powiązania
-- **`game.h`**, **`map.h`**: Dostęp do globalnych obiektów gry i mapy.
-- **`mapview.h`**: `UIMap` jest "opakowaniem" dla `MapView`, przekazując mu zadania renderowania.
-- **`framework/otml/otml.h`**: Parsuje właściwości z plików OTML, takie jak `multifloor` czy `animated`.
+| `updateMapSize()` | Dopasowuje rozmiar i pozycjÄ™ prostokÄ…ta rysowania mapy (`m_mapRect`) do rozmiaru widÄąÄ˝etu, zachowujÄ…c proporcje, jeÄąâ€şli to wymagane. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`game.h`**, **`map.h`**: DostÄ™p do globalnych obiektĂłw gry i mapy.
+- **`mapview.h`**: `UIMap` jest "opakowaniem" dla `MapView`, przekazujÄ…c mu zadania renderowania.
+- **`framework/otml/otml.h`**: Parsuje wÄąâ€šaÄąâ€şciwoÄąâ€şci z plikĂłw OTML, takie jak `multifloor` czy `animated`.
 
 ---
-# 📄 statictext.cpp
-## Ogólny opis
-Implementacja `StaticText`, klasy odpowiedzialnej za wyświetlanie mowy postaci i innych tekstów na mapie.
+# Ä‘Ĺşâ€śâ€ž statictext.cpp
+## OgĂłlny opis
+Implementacja `StaticText`, klasy odpowiedzialnej za wyÄąâ€şwietlanie mowy postaci i innych tekstĂłw na mapie.
 ## Klasa `StaticText`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawText(...)` | Rysuje tekst na ekranie, centrując go i dopasowując do prostokąta nadrzędnego. |
-| `addMessage(...)` / `addColoredMessage(...)` | Dodaje nową wiadomość do kolejki. Jeśli jest to pierwsza wiadomość, ustawia tryb (np. `Say`, `Yell`) i nazwę mówiącego. Jeśli kolejne wiadomości pasują do poprzednich (ten sam mówiący i tryb), są dodawane do kolejki. Oblicza czas wyświetlania na podstawie długości tekstu. |
-| `update()` | Metoda wywoływana po upłynięciu czasu wyświetlania wiadomości. Usuwa najstarszą wiadomość z kolejki. Jeśli kolejka jest pusta, planuje usunięcie całego obiektu `StaticText` z mapy. |
-| `scheduleUpdate()` | Planuje wywołanie `update()` po czasie równym czasowi życia najstarszej wiadomości w kolejce. |
-| `compose()` | Tworzy sformatowany tekst do wyświetlenia. Łączy wszystkie wiadomości z kolejki, dodaje nagłówki (np. "Player says:"), ustawia kolory i zawija tekst, jeśli jest zbyt długi. |
-## Logika działania
-`StaticText` działa jak kolejka FIFO dla wiadomości. Każda nowa wiadomość jest dodawana na koniec. `compose` tworzy jeden ciągły, sformatowany tekst ze wszystkich wiadomości w kolejce, który jest następnie rysowany przez `drawText`. `scheduleUpdate` i `update` zapewniają, że wiadomości znikają po określonym czasie, a cały obiekt jest usuwany, gdy nie ma już nic do wyświetlenia.
-## Zależności i powiązania
-- **`map.h`**: Używa `g_map` do usunięcia obiektu po zakończeniu.
-- **`framework/core/eventdispatcher.h`**: Używa `g_dispatcher` do planowania aktualizacji.
-- **`framework/graphics/fontmanager.h`**: Używa `g_fonts` do zarządzania czcionkami.
+| `drawText(...)` | Rysuje tekst na ekranie, centrujÄ…c go i dopasowujÄ…c do prostokÄ…ta nadrzÄ™dnego. |
+| `addMessage(...)` / `addColoredMessage(...)` | Dodaje nowÄ… wiadomoÄąâ€şÄ‡ do kolejki. JeÄąâ€şli jest to pierwsza wiadomoÄąâ€şÄ‡, ustawia tryb (np. `Say`, `Yell`) i nazwÄ™ mĂłwiÄ…cego. JeÄąâ€şli kolejne wiadomoÄąâ€şci pasujÄ… do poprzednich (ten sam mĂłwiÄ…cy i tryb), sÄ… dodawane do kolejki. Oblicza czas wyÄąâ€şwietlania na podstawie dÄąâ€šugoÄąâ€şci tekstu. |
+| `update()` | Metoda wywoÄąâ€šywana po upÄąâ€šyniÄ™ciu czasu wyÄąâ€şwietlania wiadomoÄąâ€şci. Usuwa najstarszÄ… wiadomoÄąâ€şÄ‡ z kolejki. JeÄąâ€şli kolejka jest pusta, planuje usuniÄ™cie caÄąâ€šego obiektu `StaticText` z mapy. |
+| `scheduleUpdate()` | Planuje wywoÄąâ€šanie `update()` po czasie rĂłwnym czasowi ÄąÄ˝ycia najstarszej wiadomoÄąâ€şci w kolejce. |
+| `compose()` | Tworzy sformatowany tekst do wyÄąâ€şwietlenia. ÄąÂÄ…czy wszystkie wiadomoÄąâ€şci z kolejki, dodaje nagÄąâ€šĂłwki (np. "Player says:"), ustawia kolory i zawija tekst, jeÄąâ€şli jest zbyt dÄąâ€šugi. |
+## Logika dziaÄąâ€šania
+`StaticText` dziaÄąâ€ša jak kolejka FIFO dla wiadomoÄąâ€şci. KaÄąÄ˝da nowa wiadomoÄąâ€şÄ‡ jest dodawana na koniec. `compose` tworzy jeden ciÄ…gÄąâ€šy, sformatowany tekst ze wszystkich wiadomoÄąâ€şci w kolejce, ktĂłry jest nastÄ™pnie rysowany przez `drawText`. `scheduleUpdate` i `update` zapewniajÄ…, ÄąÄ˝e wiadomoÄąâ€şci znikajÄ… po okreÄąâ€şlonym czasie, a caÄąâ€šy obiekt jest usuwany, gdy nie ma juÄąÄ˝ nic do wyÄąâ€şwietlenia.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`map.h`**: UÄąÄ˝ywa `g_map` do usuniÄ™cia obiektu po zakoÄąâ€žczeniu.
+- **`framework/core/eventdispatcher.h`**: UÄąÄ˝ywa `g_dispatcher` do planowania aktualizacji.
+- **`framework/graphics/fontmanager.h`**: UÄąÄ˝ywa `g_fonts` do zarzÄ…dzania czcionkami.
 
 ---
-# 📄 uiitem.cpp
-## Ogólny opis
-Implementacja `UIItem`, widżetu do wyświetlania przedmiotów w interfejsie użytkownika.
+# Ä‘Ĺşâ€śâ€ž uiitem.cpp
+## OgĂłlny opis
+Implementacja `UIItem`, widÄąÄ˝etu do wyÄąâ€şwietlania przedmiotĂłw w interfejsie uÄąÄ˝ytkownika.
 ## Klasa `UIItem`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Renderuje tło, obraz, a następnie sam przedmiot (`m_item->draw(...)`), używając prostokąta `getPaddingRect()`. Jeśli `m_showCount` jest włączone, rysuje również liczbę przedmiotów w prawym dolnym rogu. |
-| `setItemId(int id)` | Tworzy nowy obiekt `Item` (jeśli go nie było) lub aktualizuje ID istniejącego. |
-| `setItemCount(int count)` | Ustawia liczbę przedmiotów i aktualizuje tekst licznika. |
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widÄąÄ˝et. Renderuje tÄąâ€šo, obraz, a nastÄ™pnie sam przedmiot (`m_item->draw(...)`), uÄąÄ˝ywajÄ…c prostokÄ…ta `getPaddingRect()`. JeÄąâ€şli `m_showCount` jest wÄąâ€šÄ…czone, rysuje rĂłwnieÄąÄ˝ liczbÄ™ przedmiotĂłw w prawym dolnym rogu. |
+| `setItemId(int id)` | Tworzy nowy obiekt `Item` (jeÄąâ€şli go nie byÄąâ€šo) lub aktualizuje ID istniejÄ…cego. |
+| `setItemCount(int count)` | Ustawia liczbÄ™ przedmiotĂłw i aktualizuje tekst licznika. |
 | `setItem(const ItemPtr& item)` | Ustawia przedmiot na podstawie gotowego obiektu `ItemPtr`. |
 | `setItemShader(const std::string& str)` | Ustawia niestandardowy shader dla renderowanego przedmiotu. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `item-id`, `item-count`, `virtual`. |
-| `cacheCountText()` | Formatuje tekst licznika. Dla liczb >= 1000 używa skrótu "k" (np. "1.2k"), jeśli funkcja `GameCountU16` jest aktywna. |
-## Zależności i powiązania
-- **`spritemanager.h`**: Używany przez `Item` do pobierania sprite'ów.
+| `cacheCountText()` | Formatuje tekst licznika. Dla liczb >= 1000 uÄąÄ˝ywa skrĂłtu "k" (np. "1.2k"), jeÄąâ€şli funkcja `GameCountU16` jest aktywna. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`spritemanager.h`**: UÄąÄ˝ywany przez `Item` do pobierania sprite'Ăłw.
 - **`game.h`**: Sprawdza `GameFeature`, np. `GameCountU16`.
-- **`framework/otml/otml.h`**: Do parsowania stylów.
+- **`framework/otml/otml.h`**: Do parsowania stylĂłw.
 - **`framework/graphics/graphics.h`**: Do operacji rysowania.
 
 ---
-# 📄 thingstype.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `ThingsType` (błąd w nazwie, prawdopodobnie powinno być `ThingTypeManager`). Definiuje interfejs singletonu, który zarządza wszystkimi typami obiektów (`ThingType`) w grze, wczytywanymi z plików `.dat`.
+# Ä‘Ĺşâ€śâ€ž thingstype.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `ThingsType` (bÄąâ€šÄ…d w nazwie, prawdopodobnie powinno byÄ‡ `ThingTypeManager`). Definiuje interfejs singletonu, ktĂłry zarzÄ…dza wszystkimi typami obiektĂłw (`ThingType`) w grze, wczytywanymi z plikĂłw `.dat`.
 
-> NOTE: Nazwa klasy `ThingsType` jest myląca. W rzeczywistości jest to menedżer, który przechowuje i zarządza obiektami `ThingType`. W innych plikach jest on nazywany `ThingTypeManager`.
+> NOTE: Nazwa klasy `ThingsType` jest mylÄ…ca. W rzeczywistoÄąâ€şci jest to menedÄąÄ˝er, ktĂłry przechowuje i zarzÄ…dza obiektami `ThingType`. W innych plikach jest on nazywany `ThingTypeManager`.
 ## Klasa `ThingsType`
 ## Typy wyliczeniowe
-- **`Categories`**: Kategorie obiektów (Przedmiot, Stworzenie, Efekt, Pocisk).
+- **`Categories`**: Kategorie obiektĂłw (Przedmiot, Stworzenie, Efekt, Pocisk).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `load(const std::string& file)` | Wczytuje i parsuje plik `.dat`. |
-| `unload()` | Zwalnia załadowane dane. |
+| `unload()` | Zwalnia zaÄąâ€šadowane dane. |
 | `parseThingType(...)` | Parsuje dane pojedynczego typu obiektu ze strumienia pliku. |
-| `getEmptyThingType()` | Zwraca pusty, domyślny obiekt `ThingType`. |
+| `getEmptyThingType()` | Zwraca pusty, domyÄąâ€şlny obiekt `ThingType`. |
 | `getThingType(uint16 id, Categories category)` | Zwraca `ThingType` dla danego ID i kategorii. |
-| `getSignature()` | Zwraca sygnaturę wczytanego pliku `.dat`. |
-| `isLoaded()` | Zwraca `true`, jeśli plik `.dat` jest załadowany. |
-| `isValidItemId(int id)` | Sprawdza, czy ID przedmiotu jest w prawidłowym zakresie. |
+| `getSignature()` | Zwraca sygnaturÄ™ wczytanego pliku `.dat`. |
+| `isLoaded()` | Zwraca `true`, jeÄąâ€şli plik `.dat` jest zaÄąâ€šadowany. |
+| `isValidItemId(int id)` | Sprawdza, czy ID przedmiotu jest w prawidÄąâ€šowym zakresie. |
 ## Zmienne globalne
-- **`ThingsType g_thingsType`**: Globalna instancja managera (później w kodzie używane jest `g_things`).
-## Zależności i powiązania
-- **`thingtype.h`**: Zarządza obiektami `ThingType`.
+- **`ThingsType g_thingsType`**: Globalna instancja managera (pĂłÄąĹźniej w kodzie uÄąÄ˝ywane jest `g_things`).
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`thingtype.h`**: ZarzÄ…dza obiektami `ThingType`.
 - **`framework/core/declarations.h`**: Podstawowe deklaracje.
 
 ---
-# 📄 uigraph.h
-## Ogólny opis
-Plik nagłówkowy dla `UIGraph`, widżetu służącego do rysowania prostych wykresów liniowych.
+# Ä‘Ĺşâ€śâ€ž uigraph.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `UIGraph`, widÄąÄ˝etu sÄąâ€šuÄąÄ˝Ä…cego do rysowania prostych wykresĂłw liniowych.
 ## Klasa `UIGraph`
 ## Opis
-Dziedziczy po `UIWidget`. Przechowuje kolejkę wartości i renderuje je jako wykres liniowy.
+Dziedziczy po `UIWidget`. Przechowuje kolejkÄ™ wartoÄąâ€şci i renderuje je jako wykres liniowy.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje wykres. Oblicza skalę, przygotowuje punkty i rysuje linię za pomocą `g_drawQueue->addLine`. |
-| `clear()` | Czyści wszystkie wartości z wykresu. |
-| `addValue(int value, ...)` | Dodaje nową wartość do wykresu. Jeśli liczba wartości przekroczy pojemność, najstarsza jest usuwana. |
-| `setLineWidth(int width)` | Ustawia grubość linii wykresu. |
-| `setCapacity(int capacity)` | Ustawia maksymalną liczbę wartości przechowywanych przez wykres. |
-| `setTitle(const std::string& title)` | Ustawia tytuł wyświetlany nad wykresem. |
-| `setShowLabels(bool value)` | Włącza/wyłącza wyświetlanie etykiet (wartość min, max, aktualna). |
-## Zależności i powiązania
+| `drawSelf(...)` | Rysuje wykres. Oblicza skalÄ™, przygotowuje punkty i rysuje liniÄ™ za pomocÄ… `g_drawQueue->addLine`. |
+| `clear()` | CzyÄąâ€şci wszystkie wartoÄąâ€şci z wykresu. |
+| `addValue(int value, ...)` | Dodaje nowÄ… wartoÄąâ€şÄ‡ do wykresu. JeÄąâ€şli liczba wartoÄąâ€şci przekroczy pojemnoÄąâ€şÄ‡, najstarsza jest usuwana. |
+| `setLineWidth(int width)` | Ustawia gruboÄąâ€şÄ‡ linii wykresu. |
+| `setCapacity(int capacity)` | Ustawia maksymalnÄ… liczbÄ™ wartoÄąâ€şci przechowywanych przez wykres. |
+| `setTitle(const std::string& title)` | Ustawia tytuÄąâ€š wyÄąâ€şwietlany nad wykresem. |
+| `setShowLabels(bool value)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza wyÄąâ€şwietlanie etykiet (wartoÄąâ€şÄ‡ min, max, aktualna). |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
 ---
-# 📄 uicreature.h
-## Ogólny opis
-Plik nagłówkowy dla `UICreature`, widżetu interfejsu użytkownika do wyświetlania stworzeń.
+# Ä‘Ĺşâ€śâ€ž uicreature.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `UICreature`, widÄąÄ˝etu interfejsu uÄąÄ˝ytkownika do wyÄąâ€şwietlania stworzeÄąâ€ž.
 ## Klasa `UICreature`
 ## Opis
-Dziedziczy po `UIWidget`. Umożliwia renderowanie postaci (jej ubioru) w elementach UI, takich jak okno ekwipunku, battle list, czy okno wyboru stroju.
+Dziedziczy po `UIWidget`. UmoÄąÄ˝liwia renderowanie postaci (jej ubioru) w elementach UI, takich jak okno ekwipunku, battle list, czy okno wyboru stroju.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje postać za pomocą `m_creature->drawOutfit(...)`. Obsługuje automatyczne obracanie postaci, jeśli jest włączone. |
-| `setCreature(const CreaturePtr& creature)` | Ustawia stworzenie do wyświetlenia. |
-| `setFixedCreatureSize(bool fixed)` | Ustawia, czy rozmiar renderowanej postaci ma być stały, czy skalowany do rozmiaru widżetu. |
-| `setOutfit(const Outfit& outfit)` | Ustawia ubiór do wyświetlenia. Jeśli nie ma przypisanego stworzenia, tworzy nowe. |
-| `setAutoRotating(bool value)` | Włącza/wyłącza automatyczne obracanie się postaci. |
-| `setDirection(Otc::Direction direction)` | Ustawia stały kierunek, w którym postać jest zwrócona. |
-| `setScale(float scale)` | Ustawia skalę rysowania postaci. |
-| `setAnimate(bool value)` | Włącza/wyłącza animację postaci. |
-| `setCenter(bool value)` | Włącza/wyłącza centrowanie outfitu. |
-| `setOldScaling(bool value)` | Używa starego algorytmu skalowania. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
+| `drawSelf(...)` | Rysuje postaÄ‡ za pomocÄ… `m_creature->drawOutfit(...)`. ObsÄąâ€šuguje automatyczne obracanie postaci, jeÄąâ€şli jest wÄąâ€šÄ…czone. |
+| `setCreature(const CreaturePtr& creature)` | Ustawia stworzenie do wyÄąâ€şwietlenia. |
+| `setFixedCreatureSize(bool fixed)` | Ustawia, czy rozmiar renderowanej postaci ma byÄ‡ staÄąâ€šy, czy skalowany do rozmiaru widÄąÄ˝etu. |
+| `setOutfit(const Outfit& outfit)` | Ustawia ubiĂłr do wyÄąâ€şwietlenia. JeÄąâ€şli nie ma przypisanego stworzenia, tworzy nowe. |
+| `setAutoRotating(bool value)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza automatyczne obracanie siÄ™ postaci. |
+| `setDirection(Otc::Direction direction)` | Ustawia staÄąâ€šy kierunek, w ktĂłrym postaÄ‡ jest zwrĂłcona. |
+| `setScale(float scale)` | Ustawia skalÄ™ rysowania postaci. |
+| `setAnimate(bool value)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza animacjÄ™ postaci. |
+| `setCenter(bool value)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza centrowanie outfitu. |
+| `setOldScaling(bool value)` | UÄąÄ˝ywa starego algorytmu skalowania. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 - **`creature.h`**: Przechowuje i rysuje obiekt `Creature`.
 
 ---
-# 📄 thingtype.cpp
-## Ogólny opis
-Implementacja klasy `ThingType`, która reprezentuje szablon dla wszystkich obiektów w grze. Plik zawiera logikę serializacji, deserializacji, a przede wszystkim renderowania obiektów danego typu.
+# Ä‘Ĺşâ€śâ€ž thingtype.cpp
+## OgĂłlny opis
+Implementacja klasy `ThingType`, ktĂłra reprezentuje szablon dla wszystkich obiektĂłw w grze. Plik zawiera logikÄ™ serializacji, deserializacji, a przede wszystkim renderowania obiektĂłw danego typu.
 ## Klasa `ThingType`
 ## Metody
 ## Serializacja / Deserializacja
 | Nazwa | Opis |
 | --- | --- |
-| `serialize(...)` | Zapisuje atrybuty `ThingType` do strumienia binarnego, zgodnie z formatem plików `.dat`. |
-| `unserialize(...)` | Wczytuje atrybuty `ThingType` ze strumienia. Zawiera złożoną logikę do obsługi różnic w formatach `.dat` między różnymi wersjami klienta Tibii, mapując stare atrybuty na nowe. |
-| `unserializeOtml(...)` | Wczytuje dodatkowe, niestandardowe atrybuty z plików OTML, takie jak przezroczystość czy niestandardowe obrazy. |
+| `serialize(...)` | Zapisuje atrybuty `ThingType` do strumienia binarnego, zgodnie z formatem plikĂłw `.dat`. |
+| `unserialize(...)` | Wczytuje atrybuty `ThingType` ze strumienia. Zawiera zÄąâ€šoÄąÄ˝onÄ… logikÄ™ do obsÄąâ€šugi rĂłÄąÄ˝nic w formatach `.dat` miÄ™dzy rĂłÄąÄ˝nymi wersjami klienta Tibii, mapujÄ…c stare atrybuty na nowe. |
+| `unserializeOtml(...)` | Wczytuje dodatkowe, niestandardowe atrybuty z plikĂłw OTML, takie jak przezroczystoÄąâ€şÄ‡ czy niestandardowe obrazy. |
 ## Rysowanie
 | Nazwa | Opis |
 | --- | --- |
-| `draw(...)` | Główna metoda rysująca. Pobiera teksturę dla danej fazy animacji, oblicza, który jej fragment (`Rect`) odpowiada danemu wzorowi (pattern) i warstwie, a następnie dodaje go do kolejki rysowania. |
-| `drawOutfit(...)` | Specjalna wersja do rysowania ubiorów, która zwraca parametry potrzebne do renderowania z dynamicznym kolorowaniem przez `DrawQueueItemOutfit`. |
-| `drawWithShader(...)` | Wersja rysująca z użyciem niestandardowego shadera. |
-## Zarządzanie teksturami
+| `draw(...)` | GÄąâ€šĂłwna metoda rysujÄ…ca. Pobiera teksturÄ™ dla danej fazy animacji, oblicza, ktĂłry jej fragment (`Rect`) odpowiada danemu wzorowi (pattern) i warstwie, a nastÄ™pnie dodaje go do kolejki rysowania. |
+| `drawOutfit(...)` | Specjalna wersja do rysowania ubiorĂłw, ktĂłra zwraca parametry potrzebne do renderowania z dynamicznym kolorowaniem przez `DrawQueueItemOutfit`. |
+| `drawWithShader(...)` | Wersja rysujÄ…ca z uÄąÄ˝yciem niestandardowego shadera. |
+## ZarzÄ…dzanie teksturami
 | Nazwa | Opis |
 | --- | --- |
-| `getTexture(int animationPhase)` | Zwraca teksturę dla danej fazy animacji. Jeśli tekstura nie została jeszcze utworzona, generuje ją "w locie": <br> 1. Tworzy duży obraz (atlas). <br> 2. Składa go z pojedynczych sprite'ów pobranych z `g_sprites`. <br> 3. Tworzy z niego obiekt `Texture` i przechowuje go w pamięci podręcznej. <br> 4. Zapisuje również prostokąty (`Rect`) i przesunięcia dla każdej klatki na tej teksturze. |
-| `unload()` | Zwalnia wygenerowane tekstury z pamięci, aby oszczędzać zasoby. Są one ponownie generowane przy następnym użyciu. |
-| `getBestTextureDimension(...)` | Oblicza optymalny rozmiar tekstury-atlasu, aby pomieścić wszystkie klatki animacji. |
-## Zależności i powiązania
-- **`spritemanager.h`**: Używa `g_sprites` do pobierania obrazów pojedynczych sprite'ów.
-- **`game.h`**: Sprawdza `GameFeature`, co wpływa na logikę deserializacji i animacji.
-- **`lightview.h`**: Przekazuje `LightView` do dodawania światła, jeśli obiekt je emituje.
+| `getTexture(int animationPhase)` | Zwraca teksturÄ™ dla danej fazy animacji. JeÄąâ€şli tekstura nie zostaÄąâ€ša jeszcze utworzona, generuje jÄ… "w locie": <br> 1. Tworzy duÄąÄ˝y obraz (atlas). <br> 2. SkÄąâ€šada go z pojedynczych sprite'Ăłw pobranych z `g_sprites`. <br> 3. Tworzy z niego obiekt `Texture` i przechowuje go w pamiÄ™ci podrÄ™cznej. <br> 4. Zapisuje rĂłwnieÄąÄ˝ prostokÄ…ty (`Rect`) i przesuniÄ™cia dla kaÄąÄ˝dej klatki na tej teksturze. |
+| `unload()` | Zwalnia wygenerowane tekstury z pamiÄ™ci, aby oszczÄ™dzaÄ‡ zasoby. SÄ… one ponownie generowane przy nastÄ™pnym uÄąÄ˝yciu. |
+| `getBestTextureDimension(...)` | Oblicza optymalny rozmiar tekstury-atlasu, aby pomieÄąâ€şciÄ‡ wszystkie klatki animacji. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`spritemanager.h`**: UÄąÄ˝ywa `g_sprites` do pobierania obrazĂłw pojedynczych sprite'Ăłw.
+- **`game.h`**: Sprawdza `GameFeature`, co wpÄąâ€šywa na logikÄ™ deserializacji i animacji.
+- **`lightview.h`**: Przekazuje `LightView` do dodawania Äąâ€şwiatÄąâ€ša, jeÄąâ€şli obiekt je emituje.
 - **`framework/graphics/...`**: Intensywnie korzysta z klas `Texture`, `Image`, `Painter` i `DrawQueue`.
 
 ---
-# 📄 towns.h
-## Ogólny opis
-Plik nagłówkowy definiujący klasy `Town` i `TownManager` do zarządzania miastami w grze.
+# Ä‘Ĺşâ€śâ€ž towns.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy klasy `Town` i `TownManager` do zarzÄ…dzania miastami w grze.
 ## Klasa `Town`
 ## Opis
-Prosta klasa przechowująca dane o pojedynczym mieście: ID, nazwę i pozycję (zazwyczaj świątyni).
+Prosta klasa przechowujÄ…ca dane o pojedynczym mieÄąâ€şcie: ID, nazwÄ™ i pozycjÄ™ (zazwyczaj Äąâ€şwiÄ…tyni).
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `setId(uint32 tid)` | Ustawia ID miasta. |
-| `setName(const std::string& name)` | Ustawia nazwę miasta. |
-| `setPos(const Position& pos)` | Ustawia pozycję miasta. |
-| `getId()` / `getName()` / `getPos()` | Zwracają odpowiednie właściwości. |
+| `setName(const std::string& name)` | Ustawia nazwÄ™ miasta. |
+| `setPos(const Position& pos)` | Ustawia pozycjÄ™ miasta. |
+| `getId()` / `getName()` / `getPos()` | ZwracajÄ… odpowiednie wÄąâ€šaÄąâ€şciwoÄąâ€şci. |
 ## Klasa `TownManager`
 ## Opis
-Singleton (`g_towns`) zarządzający kolekcją wszystkich miast.
+Singleton (`g_towns`) zarzÄ…dzajÄ…cy kolekcjÄ… wszystkich miast.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
@@ -1812,27 +1812,27 @@ Singleton (`g_towns`) zarządzający kolekcją wszystkich miast.
 | `removeTown(uint32 townId)` | Usuwa miasto po ID. |
 | `getTown(uint32 townId)` | Zwraca miasto po ID. |
 | `getTownByName(std::string name)` | Zwraca miasto po nazwie. |
-| `sort()` | Sortuje listę miast alfabetycznie. |
-| `getTowns()` | Zwraca listę wszystkich miast. |
-| `clear()` | Czyści listę miast. |
+| `sort()` | Sortuje listÄ™ miast alfabetycznie. |
+| `getTowns()` | Zwraca listÄ™ wszystkich miast. |
+| `clear()` | CzyÄąâ€şci listÄ™ miast. |
 ## Zmienne globalne
 - **`TownManager g_towns`**: Globalna instancja managera miast.
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów, np. `TownPtr`, `Position`.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw, np. `TownPtr`, `Position`.
 
 ---
-# 📄 thingtype.h
-## Ogólny opis
-Plik nagłówkowy dla klasy `ThingType`, która jest szablonem dla wszystkich obiektów w grze. Definiuje ona ich wspólne, niezmienne właściwości.
+# Ä‘Ĺşâ€śâ€ž thingtype.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla klasy `ThingType`, ktĂłra jest szablonem dla wszystkich obiektĂłw w grze. Definiuje ona ich wspĂłlne, niezmienne wÄąâ€šaÄąâ€şciwoÄąâ€şci.
 ## Klasa `ThingType`
 ## Opis
-Dziedziczy po `LuaObject`. Przechowuje dane wczytane z plików `.dat` i `.otml`, takie jak wymiary, wzory, animacje, atrybuty (np. czy jest blokujący, czy świeci). Wszystkie instancje `Thing` o tym samym ID współdzielą jeden obiekt `ThingType`.
+Dziedziczy po `LuaObject`. Przechowuje dane wczytane z plikĂłw `.dat` i `.otml`, takie jak wymiary, wzory, animacje, atrybuty (np. czy jest blokujÄ…cy, czy Äąâ€şwieci). Wszystkie instancje `Thing` o tym samym ID wspĂłÄąâ€šdzielÄ… jeden obiekt `ThingType`.
 ## Typy wyliczeniowe
-- **`ThingCategory`**: Kategorie obiektów (przedmiot, stworzenie, etc.).
+- **`ThingCategory`**: Kategorie obiektĂłw (przedmiot, stworzenie, etc.).
 - **`ThingAttr`**: Atrybuty obiektu (np. `ThingAttrGround`, `ThingAttrNotWalkable`).
 ## Struktury
 - **`MarketData`**: Dane rynkowe przedmiotu.
-- **`Light`**: Parametry emitowanego światła.
+- **`Light`**: Parametry emitowanego Äąâ€şwiatÄąâ€ša.
 - **`DrawOutfitParams`**: Parametry potrzebne do narysowania ubioru.
 ## Metody
 | Nazwa | Opis |
@@ -1840,459 +1840,459 @@ Dziedziczy po `LuaObject`. Przechowuje dane wczytane z plików `.dat` i `.otml`,
 | `unserialize(...)` | Wczytuje dane z binarnego formatu `.dat`. |
 | `unserializeOtml(...)` | Wczytuje dodatkowe dane z formatu `.otml`. |
 | `draw(...)` | Renderuje obiekt. |
-| `drawOutfit(...)` | Specjalna funkcja do renderowania ubiorów. |
+| `drawOutfit(...)` | Specjalna funkcja do renderowania ubiorĂłw. |
 | `getId()` | Zwraca ID klienta. |
-| `getCategory()` | Zwraca kategorię. |
-| `getSize()`, `getWidth()`, `getHeight()` | Zwracają wymiary w jednostkach pól. |
-| `getAnimationPhases()` | Zwraca liczbę klatek animacji. |
-| `getAnimator()` | Zwraca animator, jeśli jest dostępny. |
+| `getCategory()` | Zwraca kategoriÄ™. |
+| `getSize()`, `getWidth()`, `getHeight()` | ZwracajÄ… wymiary w jednostkach pĂłl. |
+| `getAnimationPhases()` | Zwraca liczbÄ™ klatek animacji. |
+| `getAnimator()` | Zwraca animator, jeÄąâ€şli jest dostÄ™pny. |
 | `hasAttr(ThingAttr attr)` | Sprawdza, czy obiekt posiada dany atrybut. |
-| `isGround()`, `isNotWalkable()`, etc. | Funkcje pomocnicze sprawdzające konkretne atrybuty. |
-## Zależności i powiązania
-- **`animator.h`**: Może posiadać `Animator` do zarządzania animacjami.
-- **`framework/graphics/...`**: Używa `Texture`, `DrawQueue` do renderowania.
+| `isGround()`, `isNotWalkable()`, etc. | Funkcje pomocnicze sprawdzajÄ…ce konkretne atrybuty. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`animator.h`**: MoÄąÄ˝e posiadaÄ‡ `Animator` do zarzÄ…dzania animacjami.
+- **`framework/graphics/...`**: UÄąÄ˝ywa `Texture`, `DrawQueue` do renderowania.
 - **`framework/luaengine/luaobject.h`**: Klasa bazowa.
 
 ---
-# 📄 uicreature.cpp
-## Ogólny opis
-Implementacja `UICreature`, widżetu do wyświetlania stworzeń w interfejsie użytkownika.
+# Ä‘Ĺşâ€śâ€ž uicreature.cpp
+## OgĂłlny opis
+Implementacja `UICreature`, widÄąÄ˝etu do wyÄąâ€şwietlania stworzeÄąâ€ž w interfejsie uÄąÄ˝ytkownika.
 ## Klasa `UICreature`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Jeśli przypisano stworzenie (`m_creature`), wywołuje jego metodę `drawOutfit`, aby narysować jego wygląd w prostokącie widżetu. Obsługuje automatyczne obracanie postaci, jeśli opcja `m_autoRotating` jest włączona. |
-| `setOutfit(const Outfit& outfit)` | Ustawia ubiór do wyświetlenia. Jeśli widżet nie ma jeszcze przypisanego obiektu `Creature`, tworzy nową, pustą instancję. |
-| `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `outfit-id`, `outfit-head`, `outfit-body` itp., i na ich podstawie konfiguruje wyświetlany ubiór. |
-| `setCenter(bool value)` | Ustawia flagę centrowania w obiekcie `Outfit`, co wpływa na sposób jego rysowania. |
-## Zależności i powiązania
-- **`spritemanager.h`**: Używane przez `Creature::drawOutfit`.
-- **`framework/otml/otml.h`**: Do parsowania stylów.
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widÄąÄ˝et. JeÄąâ€şli przypisano stworzenie (`m_creature`), wywoÄąâ€šuje jego metodÄ™ `drawOutfit`, aby narysowaÄ‡ jego wyglÄ…d w prostokÄ…cie widÄąÄ˝etu. ObsÄąâ€šuguje automatyczne obracanie postaci, jeÄąâ€şli opcja `m_autoRotating` jest wÄąâ€šÄ…czona. |
+| `setOutfit(const Outfit& outfit)` | Ustawia ubiĂłr do wyÄąâ€şwietlenia. JeÄąâ€şli widÄąÄ˝et nie ma jeszcze przypisanego obiektu `Creature`, tworzy nowÄ…, pustÄ… instancjÄ™. |
+| `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `outfit-id`, `outfit-head`, `outfit-body` itp., i na ich podstawie konfiguruje wyÄąâ€şwietlany ubiĂłr. |
+| `setCenter(bool value)` | Ustawia flagÄ™ centrowania w obiekcie `Outfit`, co wpÄąâ€šywa na sposĂłb jego rysowania. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`spritemanager.h`**: UÄąÄ˝ywane przez `Creature::drawOutfit`.
+- **`framework/otml/otml.h`**: Do parsowania stylĂłw.
 - **`framework/graphics/drawqueue.h`**: Do dodawania operacji rysowania.
 
 ---
-# 📄 thingtypemanager.h
-## Ogólny opis
-Plik nagłówkowy dla `ThingTypeManager`, singletonu zarządzającego wszystkimi typami obiektów (`ThingType`) i przedmiotów (`ItemType`).
+# Ä‘Ĺşâ€śâ€ž thingtypemanager.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `ThingTypeManager`, singletonu zarzÄ…dzajÄ…cego wszystkimi typami obiektĂłw (`ThingType`) i przedmiotĂłw (`ItemType`).
 ## Klasa `ThingTypeManager`
 ## Opis
-Centralne repozytorium dla definicji wszystkich obiektów w grze. Odpowiada za wczytywanie plików `.dat`, `.otb` i `.xml`, które zawierają te definicje, oraz za dostarczanie ich na żądanie.
+Centralne repozytorium dla definicji wszystkich obiektĂłw w grze. Odpowiada za wczytywanie plikĂłw `.dat`, `.otb` i `.xml`, ktĂłre zawierajÄ… te definicje, oraz za dostarczanie ich na ÄąÄ˝Ä…danie.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
 | `init()` / `terminate()` | Inicjalizacja i zamykanie managera. |
-| `check()` | Okresowo wywoływana metoda, która zwalnia z pamięci tekstury nieużywanych `ThingType`, aby oszczędzać zasoby. |
-| `loadDat(...)`, `loadOtml(...)`, `loadOtb(...)`, `loadXml(...)` | Metody do wczytywania różnych formatów plików z danymi o obiektach. |
+| `check()` | Okresowo wywoÄąâ€šywana metoda, ktĂłra zwalnia z pamiÄ™ci tekstury nieuÄąÄ˝ywanych `ThingType`, aby oszczÄ™dzaÄ‡ zasoby. |
+| `loadDat(...)`, `loadOtml(...)`, `loadOtb(...)`, `loadXml(...)` | Metody do wczytywania rĂłÄąÄ˝nych formatĂłw plikĂłw z danymi o obiektach. |
 | `getThingType(id, category)` | Zwraca `ThingType` dla danego ID klienta i kategorii. |
 | `getItemType(id)` | Zwraca `ItemType` dla danego ID serwera (OTB). |
 | `findItemTypeByClientId(id)` | Wyszukuje `ItemType` po jego ID klienta. |
 | `findItemTypeByName(name)` | Wyszukuje `ItemType` po nazwie. |
-| `isDatLoaded()`, `isOtbLoaded()` | Sprawdzają, czy odpowiednie pliki zostały załadowane. |
-| `getDatSignature()` | Zwraca sygnaturę pliku `.dat`. |
+| `isDatLoaded()`, `isOtbLoaded()` | SprawdzajÄ…, czy odpowiednie pliki zostaÄąâ€šy zaÄąâ€šadowane. |
+| `getDatSignature()` | Zwraca sygnaturÄ™ pliku `.dat`. |
 ## Zmienne globalne
 - **`ThingTypeManager g_things`**: Globalna instancja managera.
-## Zależności i powiązania
-- **`thingtype.h`**, **`itemtype.h`**: Zarządza obiektami tych klas.
-- Jest to jedna z najbardziej fundamentalnych klas w kliencie, używana przez niemal każdy moduł, który ma do czynienia z obiektami w grze.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`thingtype.h`**, **`itemtype.h`**: ZarzÄ…dza obiektami tych klas.
+- Jest to jedna z najbardziej fundamentalnych klas w kliencie, uÄąÄ˝ywana przez niemal kaÄąÄ˝dy moduÄąâ€š, ktĂłry ma do czynienia z obiektami w grze.
 
 ---
-# 📄 uigraph.cpp
-## Ogólny opis
-Implementacja `UIGraph`, widżetu do rysowania wykresów liniowych.
+# Ä‘Ĺşâ€śâ€ž uigraph.cpp
+## OgĂłlny opis
+Implementacja `UIGraph`, widÄąÄ˝etu do rysowania wykresĂłw liniowych.
 ## Klasa `UIGraph`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje wykres. Oblicza minimalną i maksymalną wartość w widocznym zakresie, aby przeskalować wykres do wysokości widżetu. Następnie tworzy listę punktów i rysuje między nimi linie za pomocą `g_drawQueue->addLine`. Rysuje również tytuł i etykiety (min, max, aktualna wartość), jeśli są włączone. |
-| `clear()` | Czyści wszystkie dane z wykresu. |
-| `addValue(int value, ...)` | Dodaje nową wartość do kolejki `m_values`. Jeśli kolejka przekroczy pojemność (`m_capacity`), najstarsza wartość jest usuwana. Opcjonalnie ignoruje małe, powtarzające się wartości, aby uniknąć "szumu" na wykresie. |
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje wykres. Oblicza minimalnÄ… i maksymalnÄ… wartoÄąâ€şÄ‡ w widocznym zakresie, aby przeskalowaÄ‡ wykres do wysokoÄąâ€şci widÄąÄ˝etu. NastÄ™pnie tworzy listÄ™ punktĂłw i rysuje miÄ™dzy nimi linie za pomocÄ… `g_drawQueue->addLine`. Rysuje rĂłwnieÄąÄ˝ tytuÄąâ€š i etykiety (min, max, aktualna wartoÄąâ€şÄ‡), jeÄąâ€şli sÄ… wÄąâ€šÄ…czone. |
+| `clear()` | CzyÄąâ€şci wszystkie dane z wykresu. |
+| `addValue(int value, ...)` | Dodaje nowÄ… wartoÄąâ€şÄ‡ do kolejki `m_values`. JeÄąâ€şli kolejka przekroczy pojemnoÄąâ€şÄ‡ (`m_capacity`), najstarsza wartoÄąâ€şÄ‡ jest usuwana. Opcjonalnie ignoruje maÄąâ€še, powtarzajÄ…ce siÄ™ wartoÄąâ€şci, aby uniknÄ…Ä‡ "szumu" na wykresie. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `line-width`, `capacity`, `title`. |
-## Zależności i powiązania
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`framework/graphics/drawqueue.h`**: Do rysowania linii i tekstu.
-- **`framework/otml/otml.h`**: Do parsowania stylów.
+- **`framework/otml/otml.h`**: Do parsowania stylĂłw.
 
 ---
-# 📄 uimap.h
-## Ogólny opis
-Plik nagłówkowy dla `UIMap`, widżetu UI, który jest odpowiedzialny za wyświetlanie mapy gry.
+# Ä‘Ĺşâ€śâ€ž uimap.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `UIMap`, widÄąÄ˝etu UI, ktĂłry jest odpowiedzialny za wyÄąâ€şwietlanie mapy gry.
 ## Klasa `UIMap`
 ## Opis
-Dziedziczy po `UIWidget`. Działa jako "okno" na świat gry, wykorzystując `MapView` do faktycznego renderowania. Umożliwia interakcję z mapą, taką jak przesuwanie, przybliżanie i pobieranie informacji o tym, co znajduje się pod kursorem.
+Dziedziczy po `UIWidget`. DziaÄąâ€ša jako "okno" na Äąâ€şwiat gry, wykorzystujÄ…c `MapView` do faktycznego renderowania. UmoÄąÄ˝liwia interakcjÄ™ z mapÄ…, takÄ… jak przesuwanie, przybliÄąÄ˝anie i pobieranie informacji o tym, co znajduje siÄ™ pod kursorem.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje mapę w trzech przejściach (tło, pierwszy plan, interfejs). |
-| `movePixels(int x, int y)` | Przesuwa widok kamery o zadaną liczbę pikseli. |
-| `setZoom(int zoom)` / `zoomIn()` / `zoomOut()` | Zarządza poziomem przybliżenia mapy. |
-| `followCreature(...)` | Ustawia kamerę, aby podążała za stworzeniem. |
-| `setCameraPosition(...)` | Ustawia kamerę na stałą pozycję. |
-| `getPosition(const Point& mousePos)` | Zwraca pozycję na mapie (`Position`) odpowiadającą danym współrzędnym myszy na widżecie. |
+| `drawSelf(...)` | Rysuje mapÄ™ w trzech przejÄąâ€şciach (tÄąâ€šo, pierwszy plan, interfejs). |
+| `movePixels(int x, int y)` | Przesuwa widok kamery o zadanÄ… liczbÄ™ pikseli. |
+| `setZoom(int zoom)` / `zoomIn()` / `zoomOut()` | ZarzÄ…dza poziomem przybliÄąÄ˝enia mapy. |
+| `followCreature(...)` | Ustawia kamerÄ™, aby podÄ…ÄąÄ˝aÄąâ€ša za stworzeniem. |
+| `setCameraPosition(...)` | Ustawia kamerÄ™ na staÄąâ€šÄ… pozycjÄ™. |
+| `getPosition(const Point& mousePos)` | Zwraca pozycjÄ™ na mapie (`Position`) odpowiadajÄ…cÄ… danym wspĂłÄąâ€šrzÄ™dnym myszy na widÄąÄ˝ecie. |
 | `getTile(const Point& mousePos)` | Zwraca `Tile` pod kursorem. |
-| `setKeepAspectRatio(bool enable)` | Włącza/wyłącza zachowanie stałych proporcji mapy. |
+| `setKeepAspectRatio(bool enable)` | WÄąâ€šÄ…cza/wyÄąâ€šÄ…cza zachowanie staÄąâ€šych proporcji mapy. |
 | `setVisibleDimension(...)` | Ustawia rozmiar widocznego obszaru mapy w polach. |
-## Zależności i powiązania
-- **`mapview.h`**: Używa `MapView` do renderowania.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`mapview.h`**: UÄąÄ˝ywa `MapView` do renderowania.
 - **`tile.h`**: Metoda `getTile` zwraca obiekt `Tile`.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
 ---
-# 📄 uiminimap.cpp
-## Ogólny opis
-Implementacja `UIMinimap`, widżetu interfejsu użytkownika do wyświetlania minimapy.
+# Ä‘Ĺşâ€śâ€ž uiminimap.cpp
+## OgĂłlny opis
+Implementacja `UIMinimap`, widÄąÄ˝etu interfejsu uÄąÄ˝ytkownika do wyÄąâ€şwietlania minimapy.
 ## Klasa `UIMinimap`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Wywołuje `g_minimap.draw`, przekazując prostokąt widżetu, pozycję kamery i skalę, aby narysować odpowiedni fragment minimapy. |
-| `setZoom(int zoom)` | Ustawia poziom przybliżenia minimapy. Wartość zoom jest konwertowana na współczynnik skali (`m_scale`). |
-| `setCameraPosition(const Position& pos)` | Ustawia centralną pozycję, wokół której rysowana jest minimapa. |
-| `floorUp()` / `floorDown()` | Zmienia aktualnie wyświetlane piętro. |
-| `getTilePoint(...)` / `getTilePosition(...)` | Konwertują pozycję na mapie na współrzędne na widżecie i odwrotnie. |
-| `anchorPosition(...)` / `fillPosition(...)` / `centerInPosition(...)` | Metody do przypinania innych widżetów do konkretnych pozycji na minimapie za pomocą `UIMapAnchorLayout`. |
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widÄąÄ˝et. WywoÄąâ€šuje `g_minimap.draw`, przekazujÄ…c prostokÄ…t widÄąÄ˝etu, pozycjÄ™ kamery i skalÄ™, aby narysowaÄ‡ odpowiedni fragment minimapy. |
+| `setZoom(int zoom)` | Ustawia poziom przybliÄąÄ˝enia minimapy. WartoÄąâ€şÄ‡ zoom jest konwertowana na wspĂłÄąâ€šczynnik skali (`m_scale`). |
+| `setCameraPosition(const Position& pos)` | Ustawia centralnÄ… pozycjÄ™, wokĂłÄąâ€š ktĂłrej rysowana jest minimapa. |
+| `floorUp()` / `floorDown()` | Zmienia aktualnie wyÄąâ€şwietlane piÄ™tro. |
+| `getTilePoint(...)` / `getTilePosition(...)` | KonwertujÄ… pozycjÄ™ na mapie na wspĂłÄąâ€šrzÄ™dne na widÄąÄ˝ecie i odwrotnie. |
+| `anchorPosition(...)` / `fillPosition(...)` / `centerInPosition(...)` | Metody do przypinania innych widÄąÄ˝etĂłw do konkretnych pozycji na minimapie za pomocÄ… `UIMapAnchorLayout`. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `zoom`, `min-zoom`, `max-zoom`. |
-## Zależności i powiązania
-- **`minimap.h`**: Używa `g_minimap` do renderowania danych.
-- **`uimapanchorlayout.h`**: Posiada `UIMapAnchorLayout` do zarządzania przypiętymi widżetami.
-- **`game.h`**: Dostęp do globalnych obiektów.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`minimap.h`**: UÄąÄ˝ywa `g_minimap` do renderowania danych.
+- **`uimapanchorlayout.h`**: Posiada `UIMapAnchorLayout` do zarzÄ…dzania przypiÄ™tymi widÄąÄ˝etami.
+- **`game.h`**: DostÄ™p do globalnych obiektĂłw.
 
 ---
-# 📄 uiprogressrect.cpp
-## Ogólny opis
-Implementacja `UIProgressRect`, niestandardowego widżetu, który wizualizuje postęp za pomocą wypełniającego się okręgu (lub kwadratu) w sposób radialny.
+# Ä‘Ĺşâ€śâ€ž uiprogressrect.cpp
+## OgĂłlny opis
+Implementacja `UIProgressRect`, niestandardowego widÄąÄ˝etu, ktĂłry wizualizuje postÄ™p za pomocÄ… wypeÄąâ€šniajÄ…cego siÄ™ okrÄ™gu (lub kwadratu) w sposĂłb radialny.
 ## Klasa `UIProgressRect`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Zamiast standardowego paska postępu, rysuje serię trójkątów, których wierzchołki rozchodzą się od środka prostokąta, tworząc efekt radialnego wypełnienia. Wypełnienie jest podzielone na 4 ćwiartki, a każda z nich na dwa segmenty, co daje 8 kroków animacji. |
-| `setPercent(float percent)` | Ustawia procent wypełnienia (od 0.0 do 100.0). |
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widÄąÄ˝et. Zamiast standardowego paska postÄ™pu, rysuje seriÄ™ trĂłjkÄ…tĂłw, ktĂłrych wierzchoÄąâ€ški rozchodzÄ… siÄ™ od Äąâ€şrodka prostokÄ…ta, tworzÄ…c efekt radialnego wypeÄąâ€šnienia. WypeÄąâ€šnienie jest podzielone na 4 Ä‡wiartki, a kaÄąÄ˝da z nich na dwa segmenty, co daje 8 krokĂłw animacji. |
+| `setPercent(float percent)` | Ustawia procent wypeÄąâ€šnienia (od 0.0 do 100.0). |
 | `onStyleApply(...)` | Parsuje atrybut `percent` z OTML. |
 ## Logika rysowania
-Wypełnienie jest realizowane przez rysowanie trójkątów. Każdy trójkąt ma jeden wierzchołek w środku prostokąta, a dwa pozostałe na jego krawędziach. W miarę wzrostu `m_percent`, kolejne trójkąty są rysowane, tworząc iluzję płynnego, okrężnego wypełnienia.
-## Zależności i powiązania
-- **`framework/otml/otml.h`**: Do parsowania stylów.
+WypeÄąâ€šnienie jest realizowane przez rysowanie trĂłjkÄ…tĂłw. KaÄąÄ˝dy trĂłjkÄ…t ma jeden wierzchoÄąâ€šek w Äąâ€şrodku prostokÄ…ta, a dwa pozostaÄąâ€še na jego krawÄ™dziach. W miarÄ™ wzrostu `m_percent`, kolejne trĂłjkÄ…ty sÄ… rysowane, tworzÄ…c iluzjÄ™ pÄąâ€šynnego, okrÄ™ÄąÄ˝nego wypeÄąâ€šnienia.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`framework/otml/otml.h`**: Do parsowania stylĂłw.
 - **`framework/graphics/graphics.h`**: Do operacji rysowania.
 
 ---
-# 📄 uimapanchorlayout.h
-## Ogólny opis
-Plik nagłówkowy definiujący `UIPositionAnchor` i `UIMapAnchorLayout`. Rozszerzają one standardowy system kotwic o możliwość przypinania widżetów do dynamicznych pozycji na `UIMinimap`.
+# Ä‘Ĺşâ€śâ€ž uimapanchorlayout.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy `UIPositionAnchor` i `UIMapAnchorLayout`. RozszerzajÄ… one standardowy system kotwic o moÄąÄ˝liwoÄąâ€şÄ‡ przypinania widÄąÄ˝etĂłw do dynamicznych pozycji na `UIMinimap`.
 ## Klasa `UIPositionAnchor`
 ## Opis
-Dziedziczy po `UIAnchor`. Zamiast przypinać się do krawędzi innego widżetu, przypina się do pozycji (`Position`) na mapie.
--   `m_hookedPosition`: Pozycja na mapie, do której kotwica jest przypięta.
+Dziedziczy po `UIAnchor`. Zamiast przypinaÄ‡ siÄ™ do krawÄ™dzi innego widÄąÄ˝etu, przypina siÄ™ do pozycji (`Position`) na mapie.
+-   `m_hookedPosition`: Pozycja na mapie, do ktĂłrej kotwica jest przypiÄ™ta.
 ## Metody
--   **`getHookedPoint(...)`**: Nadpisana metoda, która oblicza pozycję na ekranie, pobierając z `UIMinimap` prostokąt odpowiadający `m_hookedPosition`.
+-   **`getHookedPoint(...)`**: Nadpisana metoda, ktĂłra oblicza pozycjÄ™ na ekranie, pobierajÄ…c z `UIMinimap` prostokÄ…t odpowiadajÄ…cy `m_hookedPosition`.
 ## Klasa `UIMapAnchorLayout`
 ## Opis
 Dziedziczy po `UIAnchorLayout`. Specjalizuje layout kotwic do pracy z `UIMinimap`.
 ## Metody
--   **`addPositionAnchor(...)`**: Dodaje kotwicę typu `UIPositionAnchor`.
--   **`centerInPosition(...)`**, **`fillPosition(...)`**: Funkcje pomocnicze do łatwego centrowania lub wypełniania obszaru pola na mapie przez inny widżet.
-## Zależności i powiązania
+-   **`addPositionAnchor(...)`**: Dodaje kotwicÄ™ typu `UIPositionAnchor`.
+-   **`centerInPosition(...)`**, **`fillPosition(...)`**: Funkcje pomocnicze do Äąâ€šatwego centrowania lub wypeÄąâ€šniania obszaru pola na mapie przez inny widÄąÄ˝et.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
 - **`framework/ui/uianchorlayout.h`**: Klasa bazowa.
-- **`uiminimap.h`**: Layout jest przeznaczony do użycia z `UIMinimap`.
+- **`uiminimap.h`**: Layout jest przeznaczony do uÄąÄ˝ycia z `UIMinimap`.
 
 ---
-# 📄 uiminimap.h
-## Ogólny opis
-Plik nagłówkowy dla `UIMinimap`, widżetu do wyświetlania minimapy.
+# Ä‘Ĺşâ€śâ€ž uiminimap.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `UIMinimap`, widÄąÄ˝etu do wyÄąâ€şwietlania minimapy.
 ## Klasa `UIMinimap`
 ## Opis
-Dziedziczy po `UIWidget`. Renderuje dane z `Minimap` i pozwala na interakcje, takie jak zmiana piętra czy przybliżenia. Posiada również `UIMapAnchorLayout` do pozycjonowania innych widżetów względem pozycji na minimapie.
+Dziedziczy po `UIWidget`. Renderuje dane z `Minimap` i pozwala na interakcje, takie jak zmiana piÄ™tra czy przybliÄąÄ˝enia. Posiada rĂłwnieÄąÄ˝ `UIMapAnchorLayout` do pozycjonowania innych widÄąÄ˝etĂłw wzglÄ™dem pozycji na minimapie.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `zoomIn()` / `zoomOut()` / `setZoom(int zoom)` | Zarządzają poziomem przybliżenia. |
-| `setCameraPosition(const Position& pos)` | Ustawia pozycję, która ma być w centrum minimapy. |
-| `floorUp()` / `floorDown()` | Zmienia wyświetlane piętro. |
-| `getTilePoint(...)` / `getTileRect(...)` | Zwracają współrzędne ekranowe dla danego pola na mapie. |
-| `getTilePosition(...)` | Konwertuje współrzędne ekranowe na pozycję na mapie. |
-| `anchorPosition(...)` | Przypina inny widżet do pozycji na minimapie. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
+| `zoomIn()` / `zoomOut()` / `setZoom(int zoom)` | ZarzÄ…dzajÄ… poziomem przybliÄąÄ˝enia. |
+| `setCameraPosition(const Position& pos)` | Ustawia pozycjÄ™, ktĂłra ma byÄ‡ w centrum minimapy. |
+| `floorUp()` / `floorDown()` | Zmienia wyÄąâ€şwietlane piÄ™tro. |
+| `getTilePoint(...)` / `getTileRect(...)` | ZwracajÄ… wspĂłÄąâ€šrzÄ™dne ekranowe dla danego pola na mapie. |
+| `getTilePosition(...)` | Konwertuje wspĂłÄąâ€šrzÄ™dne ekranowe na pozycjÄ™ na mapie. |
+| `anchorPosition(...)` | Przypina inny widÄąÄ˝et do pozycji na minimapie. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
 ---
-# 📄 uiprogressrect.h
-## Ogólny opis
-Plik nagłówkowy dla `UIProgressRect`, widżetu do wyświetlania paska postępu w formie radialnej.
+# Ä‘Ĺşâ€śâ€ž uiprogressrect.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `UIProgressRect`, widÄąÄ˝etu do wyÄąâ€şwietlania paska postÄ™pu w formie radialnej.
 ## Klasa `UIProgressRect`
 ## Opis
-Dziedziczy po `UIWidget`. Zamiast typowego paska, rysuje wypełnienie w sposób okrężny.
+Dziedziczy po `UIWidget`. Zamiast typowego paska, rysuje wypeÄąâ€šnienie w sposĂłb okrÄ™ÄąÄ˝ny.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(...)` | Rysuje widżet. |
-| `setPercent(float percent)` | Ustawia procent postępu (0-100). |
+| `drawSelf(...)` | Rysuje widÄąÄ˝et. |
+| `setPercent(float percent)` | Ustawia procent postÄ™pu (0-100). |
 | `getPercent()` | Zwraca aktualny procent. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
 ---
-# 📄 uisprite.cpp
-## Ogólny opis
-Implementacja `UISprite`, widżetu do wyświetlania pojedynczego sprite'a z plików `.spr`.
+# Ä‘Ĺşâ€śâ€ž uisprite.cpp
+## OgĂłlny opis
+Implementacja `UISprite`, widÄąÄ˝etu do wyÄąâ€şwietlania pojedynczego sprite'a z plikĂłw `.spr`.
 ## Klasa `UISprite`
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widżet. Jeśli `m_sprite` jest załadowany, rysuje go wewnątrz prostokąta widżetu z uwzględnieniem paddingu. |
-| `setSpriteId(uint32 id)` | Ustawia ID sprite'a do wyświetlenia. Pobiera obraz z `g_sprites`, a następnie tworzy z niego teksturę. |
+| `drawSelf(Fw::DrawPane drawPane)` | Rysuje widÄąÄ˝et. JeÄąâ€şli `m_sprite` jest zaÄąâ€šadowany, rysuje go wewnÄ…trz prostokÄ…ta widÄąÄ˝etu z uwzglÄ™dnieniem paddingu. |
+| `setSpriteId(uint32 id)` | Ustawia ID sprite'a do wyÄąâ€şwietlenia. Pobiera obraz z `g_sprites`, a nastÄ™pnie tworzy z niego teksturÄ™. |
 | `onStyleApply(...)` | Parsuje niestandardowe atrybuty z OTML, takie jak `sprite-id`, `sprite-color`. |
-## Zależności i powiązania
-- **`spritemanager.h`**: Używa `g_sprites` do pobierania obrazów sprite'ów.
-- **`framework/otml/otml.h`**: Do parsowania stylów.
-- **`framework/graphics/graphics.h`**: Do operacji rysowania i zarządzania teksturami.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`spritemanager.h`**: UÄąÄ˝ywa `g_sprites` do pobierania obrazĂłw sprite'Ăłw.
+- **`framework/otml/otml.h`**: Do parsowania stylĂłw.
+- **`framework/graphics/graphics.h`**: Do operacji rysowania i zarzÄ…dzania teksturami.
 
 ---
-# 📄 uisprite.h
-## Ogólny opis
-Plik nagłówkowy dla `UISprite`, widżetu do wyświetlania pojedynczego sprite'a.
+# Ä‘Ĺşâ€śâ€ž uisprite.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy dla `UISprite`, widÄąÄ˝etu do wyÄąâ€şwietlania pojedynczego sprite'a.
 ## Klasa `UISprite`
 ## Opis
-Dziedziczy po `UIWidget`. Prosty widżet, którego jedynym celem jest wyświetlenie obrazu sprite'a o danym ID.
+Dziedziczy po `UIWidget`. Prosty widÄąÄ˝et, ktĂłrego jedynym celem jest wyÄąâ€şwietlenie obrazu sprite'a o danym ID.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `setSpriteId(uint32 id)` | Ustawia ID sprite'a do wyświetlenia. |
+| `setSpriteId(uint32 id)` | Ustawia ID sprite'a do wyÄąâ€şwietlenia. |
 | `getSpriteId()` | Zwraca ID sprite'a. |
-| `setSpriteColor(Color color)` | Ustawia kolor, w jakim sprite ma być renderowany. |
-| `hasSprite()` | Zwraca `true`, jeśli sprite jest załadowany. |
-## Zależności i powiązania
-- **`declarations.h`**: Definicje typów.
+| `setSpriteColor(Color color)` | Ustawia kolor, w jakim sprite ma byÄ‡ renderowany. |
+| `hasSprite()` | Zwraca `true`, jeÄąâ€şli sprite jest zaÄąâ€šadowany. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`declarations.h`**: Definicje typĂłw.
 - **`framework/ui/uiwidget.h`**: Klasa bazowa.
 
 ---
-# 📄 walkmatrix.h
-## Ogólny opis
-Plik nagłówkowy definiujący klasę `WalkMatrix`, która jest używana do śledzenia i zarządzania predykcjami kroków lokalnego gracza w nowym systemie chodzenia (`GameNewWalking`).
+# Ä‘Ĺşâ€śâ€ž walkmatrix.h
+## OgĂłlny opis
+Plik nagÄąâ€šĂłwkowy definiujÄ…cy klasÄ™ `WalkMatrix`, ktĂłra jest uÄąÄ˝ywana do Äąâ€şledzenia i zarzÄ…dzania predykcjami krokĂłw lokalnego gracza w nowym systemie chodzenia (`GameNewWalking`).
 ## Klasa `WalkMatrix`
 ## Opis
-Jest to macierz 7x7, która przechowuje wartości (liczniki lub ID predykcji) dla pól w zasięgu 3x3 wokół aktualnej pozycji gracza. Służy do synchronizacji kroków między klientem a serwerem.
+Jest to macierz 7x7, ktĂłra przechowuje wartoÄąâ€şci (liczniki lub ID predykcji) dla pĂłl w zasiÄ™gu 3x3 wokĂłÄąâ€š aktualnej pozycji gracza. SÄąâ€šuÄąÄ˝y do synchronizacji krokĂłw miÄ™dzy klientem a serwerem.
 ## Metody
 | Nazwa | Opis |
 | --- | --- |
-| `updatePosition(const Position& newPos)` | Aktualizuje wewnętrzną pozycję gracza i przesuwa zawartość macierzy, aby odzwierciedlić ruch. Stare, odległe wartości są zerowane. |
-| `inRange(const Position& pos2)` | Sprawdza, czy dana pozycja mieści się w zasięgu macierzy (3x3 wokół gracza). |
-| `update(const Position& pos2, int32_t value)` | Ustawia wartość w macierzy dla danej pozycji. Jeśli `value` nie jest podane, używa inkrementowanego licznika. Zwraca ustawioną wartość, która służy jako ID predykcji. |
-| `get(const Position& pos2)` | Zwraca wartość z macierzy dla danej pozycji. |
-| `clear()` | Zeruje całą macierz. |
-| `reset(uint32_t value)` | Wypełnia całą macierz daną wartością. |
-| `dump()` | Zwraca tekstową reprezentację macierzy do celów debugowania. |
-## Zależności i powiązania
-- **`position.h`**: Używa `Position` do operacji na współrzędnych.
-- **`localplayer.cpp`**: Obiekt `WalkMatrix` jest polem klasy `LocalPlayer` i jest używany w logice pre-walkingu.
+| `updatePosition(const Position& newPos)` | Aktualizuje wewnÄ™trznÄ… pozycjÄ™ gracza i przesuwa zawartoÄąâ€şÄ‡ macierzy, aby odzwierciedliÄ‡ ruch. Stare, odlegÄąâ€še wartoÄąâ€şci sÄ… zerowane. |
+| `inRange(const Position& pos2)` | Sprawdza, czy dana pozycja mieÄąâ€şci siÄ™ w zasiÄ™gu macierzy (3x3 wokĂłÄąâ€š gracza). |
+| `update(const Position& pos2, int32_t value)` | Ustawia wartoÄąâ€şÄ‡ w macierzy dla danej pozycji. JeÄąâ€şli `value` nie jest podane, uÄąÄ˝ywa inkrementowanego licznika. Zwraca ustawionÄ… wartoÄąâ€şÄ‡, ktĂłra sÄąâ€šuÄąÄ˝y jako ID predykcji. |
+| `get(const Position& pos2)` | Zwraca wartoÄąâ€şÄ‡ z macierzy dla danej pozycji. |
+| `clear()` | Zeruje caÄąâ€šÄ… macierz. |
+| `reset(uint32_t value)` | WypeÄąâ€šnia caÄąâ€šÄ… macierz danÄ… wartoÄąâ€şciÄ…. |
+| `dump()` | Zwraca tekstowÄ… reprezentacjÄ™ macierzy do celĂłw debugowania. |
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`position.h`**: UÄąÄ˝ywa `Position` do operacji na wspĂłÄąâ€šrzÄ™dnych.
+- **`localplayer.cpp`**: Obiekt `WalkMatrix` jest polem klasy `LocalPlayer` i jest uÄąÄ˝ywany w logice pre-walkingu.
 
 ---
-# 📄 protocolgameparse.cpp
-## Ogólny opis
-Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za **parsowanie** pakietów przychodzących z serwera gry. Jest to serce logiki sieciowej po stronie klienta.
+# Ä‘Ĺşâ€śâ€ž protocolgameparse.cpp
+## OgĂłlny opis
+Plik ten zawiera implementacjÄ™ metod klasy `ProtocolGame` odpowiedzialnych za **parsowanie** pakietĂłw przychodzÄ…cych z serwera gry. Jest to serce logiki sieciowej po stronie klienta.
 ## Klasa `ProtocolGame`
 ## Metody
 ## `parseMessage(const InputMessagePtr& msg)`
-Główna funkcja-dyspozytor. Odczytuje jednobajtowy kod operacyjny (opcode) z wiadomości, a następnie wywołuje odpowiednią metodę `parse...` do przetworzenia reszty pakietu. Obsługuje również niestandardowe opkody i przekazywanie ich do Lua.
+GÄąâ€šĂłwna funkcja-dyspozytor. Odczytuje jednobajtowy kod operacyjny (opcode) z wiadomoÄąâ€şci, a nastÄ™pnie wywoÄąâ€šuje odpowiedniÄ… metodÄ™ `parse...` do przetworzenia reszty pakietu. ObsÄąâ€šuguje rĂłwnieÄąÄ˝ niestandardowe opkody i przekazywanie ich do Lua.
 ## Metody `parse...`
-Każda metoda `parse...` jest odpowiedzialna za odczytanie danych z `InputMessage` dla konkretnego opkodu i zaktualizowanie stanu gry. Przykłady:
-- **`parseMapDescription(...)`**: Parsuje pełny opis widocznego obszaru mapy, tworząc pola i obiekty.
-- **`parseTileAddThing(...)`**: Dodaje nowy obiekt na mapę.
-- **`parseCreatureMove(...)`**: Aktualizuje pozycję stworzenia na mapie.
-- **`parseCreatureHealth(...)`**: Aktualizuje procent życia stworzenia.
-- **`parseTalk(...)`**: Przetwarza wiadomość czatu i przekazuje ją do `g_game`.
-- **`parseOpenContainer(...)`**: Tworzy nowy kontener i wypełnia go przedmiotami.
+KaÄąÄ˝da metoda `parse...` jest odpowiedzialna za odczytanie danych z `InputMessage` dla konkretnego opkodu i zaktualizowanie stanu gry. PrzykÄąâ€šady:
+- **`parseMapDescription(...)`**: Parsuje peÄąâ€šny opis widocznego obszaru mapy, tworzÄ…c pola i obiekty.
+- **`parseTileAddThing(...)`**: Dodaje nowy obiekt na mapÄ™.
+- **`parseCreatureMove(...)`**: Aktualizuje pozycjÄ™ stworzenia na mapie.
+- **`parseCreatureHealth(...)`**: Aktualizuje procent ÄąÄ˝ycia stworzenia.
+- **`parseTalk(...)`**: Przetwarza wiadomoÄąâ€şÄ‡ czatu i przekazuje jÄ… do `g_game`.
+- **`parseOpenContainer(...)`**: Tworzy nowy kontener i wypeÄąâ€šnia go przedmiotami.
 - **`parsePlayerStats(...)`**: Aktualizuje statystyki lokalnego gracza.
 - **`parseCancelWalk(...)`**: Informuje `g_game` o anulowaniu kroku.
 ## Metody pomocnicze `get...`
-- **`getThing(...)`**, **`getItem(...)`**, **`getCreature(...)`**, **`getPosition(...)`**: Funkcje pomocnicze, które odczytują złożone typy danych (jak `Item` czy `Creature`) z `InputMessage`, uwzględniając różnice w formacie zależne od `GameFeature`. `getCreature`, na przykład, decyduje, czy stworzyć nowy obiekt `Creature`, czy zaktualizować istniejący.
-## Zależności i powiązania
-- **`game.h`**, **`map.h`**, **`localplayer.h`**: Ściśle współpracuje z tymi klasami, wywołując ich metody w celu aktualizacji stanu gry.
-- **`thingtypemanager.h`**: Używa `g_things` do weryfikacji ID przedmiotów i efektów.
-- **`luavaluecasts_client.h`**: Używane do przekazywania złożonych obiektów do Lua.
-- **`protocolcodes.h`**: Używa zdefiniowanych tam kodów operacyjnych.
+- **`getThing(...)`**, **`getItem(...)`**, **`getCreature(...)`**, **`getPosition(...)`**: Funkcje pomocnicze, ktĂłre odczytujÄ… zÄąâ€šoÄąÄ˝one typy danych (jak `Item` czy `Creature`) z `InputMessage`, uwzglÄ™dniajÄ…c rĂłÄąÄ˝nice w formacie zaleÄąÄ˝ne od `GameFeature`. `getCreature`, na przykÄąâ€šad, decyduje, czy stworzyÄ‡ nowy obiekt `Creature`, czy zaktualizowaÄ‡ istniejÄ…cy.
+## ZaleÄąÄ˝noÄąâ€şci i powiÄ…zania
+- **`game.h`**, **`map.h`**, **`localplayer.h`**: ÄąĹˇciÄąâ€şle wspĂłÄąâ€špracuje z tymi klasami, wywoÄąâ€šujÄ…c ich metody w celu aktualizacji stanu gry.
+- **`thingtypemanager.h`**: UÄąÄ˝ywa `g_things` do weryfikacji ID przedmiotĂłw i efektĂłw.
+- **`luavaluecasts_client.h`**: UÄąÄ˝ywane do przekazywania zÄąâ€šoÄąÄ˝onych obiektĂłw do Lua.
+- **`protocolcodes.h`**: UÄąÄ˝ywa zdefiniowanych tam kodĂłw operacyjnych.
 
 ---
-# 📑 Spis treści
+# Ä‘Ĺşâ€śâ€ Spis treÄąâ€şci
 
-- [📄 animatedtext.cpp](#-animatedtextcpp)
+- [Ä‘Ĺşâ€śâ€ž animatedtext.cpp](#-animatedtextcpp)
   - [Klasa `AnimatedText`](#-klasa-animatedtext)
-- [📄 houses.h](#-housesh)
+- [Ä‘Ĺşâ€śâ€ž houses.h](#-housesh)
   - [Klasa `House`](#-klasa-house)
   - [Klasa `HouseManager`](#-klasa-housemanager)
-- [📄 animatedtext.h](#-animatedtexth)
+- [Ä‘Ĺşâ€śâ€ž animatedtext.h](#-animatedtexth)
   - [Klasa `AnimatedText`](#-klasa-animatedtext-1)
-- [📄 animator.h](#-animatorh)
+- [Ä‘Ĺşâ€śâ€ž animator.h](#-animatorh)
   - [Klasa `Animator`](#-klasa-animator)
-- [📄 animator.cpp](#-animatorcpp)
+- [Ä‘Ĺşâ€śâ€ž animator.cpp](#-animatorcpp)
   - [Klasa `Animator`](#-klasa-animator-1)
-- [📄 client.cpp](#-clientcpp)
+- [Ä‘Ĺşâ€śâ€ž client.cpp](#-clientcpp)
   - [Klasa `Client`](#-klasa-client)
-- [📄 client.h](#-clienth)
+- [Ä‘Ĺşâ€śâ€ž client.h](#-clienth)
   - [Klasa `Client`](#-klasa-client-1)
-- [📄 CMakeLists.txt](#-cmakeliststxt)
-- [📄 const.h](#-consth)
+- [Ä‘Ĺşâ€śâ€ž CMakeLists.txt](#-cmakeliststxt)
+- [Ä‘Ĺşâ€śâ€ž const.h](#-consth)
   - [Namespace `Otc`](#-namespace-otc)
-- [📄 container.cpp](#-containercpp)
+- [Ä‘Ĺşâ€śâ€ž container.cpp](#-containercpp)
   - [Klasa `Container`](#-klasa-container)
-- [📄 creature.cpp](#-creaturecpp)
+- [Ä‘Ĺşâ€śâ€ž creature.cpp](#-creaturecpp)
   - [Klasa `Creature`](#-klasa-creature)
-- [📄 container.h](#-containerh)
+- [Ä‘Ĺşâ€śâ€ž container.h](#-containerh)
   - [Klasa `Container`](#-klasa-container-1)
-- [📄 creature.h](#-creatureh)
+- [Ä‘Ĺşâ€śâ€ž creature.h](#-creatureh)
   - [Klasa `Creature`](#-klasa-creature-1)
   - [Klasa `Npc`](#-klasa-npc)
   - [Klasa `Monster`](#-klasa-monster)
-- [📄 creatures.h](#-creaturesh)
+- [Ä‘Ĺşâ€śâ€ž creatures.h](#-creaturesh)
   - [Klasa `Spawn`](#-klasa-spawn)
   - [Klasa `CreatureType`](#-klasa-creaturetype)
   - [Klasa `CreatureManager`](#-klasa-creaturemanager)
-- [📄 declarations.h](#-declarationsh)
-- [📄 creatures.cpp](#-creaturescpp)
+- [Ä‘Ĺşâ€śâ€ž declarations.h](#-declarationsh)
+- [Ä‘Ĺşâ€śâ€ž creatures.cpp](#-creaturescpp)
   - [Klasa `Spawn`](#-klasa-spawn-1)
   - [Klasa `CreatureType`](#-klasa-creaturetype-1)
   - [Klasa `CreatureManager`](#-klasa-creaturemanager-1)
-- [📄 effect.cpp](#-effectcpp)
+- [Ä‘Ĺşâ€śâ€ž effect.cpp](#-effectcpp)
   - [Klasa `Effect`](#-klasa-effect)
-- [📄 global.h](#-globalh)
-- [📄 effect.h](#-effecth)
+- [Ä‘Ĺşâ€śâ€ž global.h](#-globalh)
+- [Ä‘Ĺşâ€śâ€ž effect.h](#-effecth)
   - [Klasa `Effect`](#-klasa-effect-1)
-- [📄 healthbars.cpp](#-healthbarscpp)
+- [Ä‘Ĺşâ€śâ€ž healthbars.cpp](#-healthbarscpp)
   - [Klasa `HealthBars`](#-klasa-healthbars)
   - [Klasa `HealthBar`](#-klasa-healthbar)
-- [📄 game.h](#-gameh)
+- [Ä‘Ĺşâ€śâ€ž game.h](#-gameh)
   - [Klasa `Game`](#-klasa-game)
-- [📄 healthbars.h](#-healthbarsh)
+- [Ä‘Ĺşâ€śâ€ž healthbars.h](#-healthbarsh)
   - [Klasa `HealthBar`](#-klasa-healthbar-1)
   - [Klasa `HealthBars`](#-klasa-healthbars-1)
-- [📄 houses.cpp](#-housescpp)
+- [Ä‘Ĺşâ€śâ€ž houses.cpp](#-housescpp)
   - [Klasa `House`](#-klasa-house-1)
   - [Klasa `HouseManager`](#-klasa-housemanager-1)
-- [📄 item.cpp](#-itemcpp)
+- [Ä‘Ĺşâ€śâ€ž item.cpp](#-itemcpp)
   - [Klasa `Item`](#-klasa-item)
-- [📄 itemtype.cpp](#-itemtypecpp)
+- [Ä‘Ĺşâ€śâ€ž itemtype.cpp](#-itemtypecpp)
   - [Klasa `ItemType`](#-klasa-itemtype)
-- [📄 item.h](#-itemh)
+- [Ä‘Ĺşâ€śâ€ž item.h](#-itemh)
   - [Klasa `Item`](#-klasa-item-1)
-- [📄 itemtype.h](#-itemtypeh)
+- [Ä‘Ĺşâ€śâ€ž itemtype.h](#-itemtypeh)
   - [Klasa `ItemType`](#-klasa-itemtype-1)
-- [📄 lightview.cpp](#-lightviewcpp)
+- [Ä‘Ĺşâ€śâ€ž lightview.cpp](#-lightviewcpp)
   - [Klasa `LightView`](#-klasa-lightview)
-- [📄 lightview.h](#-lightviewh)
+- [Ä‘Ĺşâ€śâ€ž lightview.h](#-lightviewh)
   - [Klasa `LightView`](#-klasa-lightview-1)
-- [📄 localplayer.cpp](#-localplayercpp)
+- [Ä‘Ĺşâ€śâ€ž localplayer.cpp](#-localplayercpp)
   - [Klasa `LocalPlayer`](#-klasa-localplayer)
-- [📄 map.cpp](#-mapcpp)
+- [Ä‘Ĺşâ€śâ€ž map.cpp](#-mapcpp)
   - [Klasa `Map`](#-klasa-map)
-- [📄 map.h](#-maph)
+- [Ä‘Ĺşâ€śâ€ž map.h](#-maph)
   - [Klasa `Map`](#-klasa-map-1)
-- [📄 luavaluecasts_client.h](#-luavaluecasts_clienth)
-- [📄 mapio.cpp](#-mapiocpp)
+- [Ä‘Ĺşâ€śâ€ž luavaluecasts_client.h](#-luavaluecasts_clienth)
+- [Ä‘Ĺşâ€śâ€ž mapio.cpp](#-mapiocpp)
   - [Klasa `Map`](#-klasa-map-2)
-- [📄 luavaluecasts_client.cpp](#-luavaluecasts_clientcpp)
-- [📄 mapview.cpp](#-mapviewcpp)
+- [Ä‘Ĺşâ€śâ€ž luavaluecasts_client.cpp](#-luavaluecasts_clientcpp)
+- [Ä‘Ĺşâ€śâ€ž mapview.cpp](#-mapviewcpp)
   - [Klasa `MapView`](#-klasa-mapview)
-- [📄 mapview.h](#-mapviewh)
+- [Ä‘Ĺşâ€śâ€ž mapview.h](#-mapviewh)
   - [Klasa `MapView`](#-klasa-mapview-1)
-- [📄 minimap.h](#-minimaph)
+- [Ä‘Ĺşâ€śâ€ž minimap.h](#-minimaph)
   - [Klasa `MinimapBlock`](#-klasa-minimapblock)
   - [Klasa `Minimap`](#-klasa-minimap)
-- [📄 missile.cpp](#-missilecpp)
+- [Ä‘Ĺşâ€śâ€ž missile.cpp](#-missilecpp)
   - [Klasa `Missile`](#-klasa-missile)
-- [📄 missile.h](#-missileh)
+- [Ä‘Ĺşâ€śâ€ž missile.h](#-missileh)
   - [Klasa `Missile`](#-klasa-missile-1)
-- [📄 outfit.cpp](#-outfitcpp)
+- [Ä‘Ĺşâ€śâ€ž outfit.cpp](#-outfitcpp)
   - [Klasa `Outfit`](#-klasa-outfit)
-- [📄 outfit.h](#-outfith)
+- [Ä‘Ĺşâ€śâ€ž outfit.h](#-outfith)
   - [Klasa `Outfit`](#-klasa-outfit-1)
-- [📄 player.cpp](#-playercpp)
+- [Ä‘Ĺşâ€śâ€ž player.cpp](#-playercpp)
   - [Klasa `Player`](#-klasa-player)
-- [📄 player.h](#-playerh)
+- [Ä‘Ĺşâ€śâ€ž player.h](#-playerh)
   - [Klasa `Player`](#-klasa-player-1)
-- [📄 protocolcodes.cpp](#-protocolcodescpp)
+- [Ä‘Ĺşâ€śâ€ž protocolcodes.cpp](#-protocolcodescpp)
   - [Namespace `Proto`](#-namespace-proto)
-- [📄 minimap.cpp](#-minimapcpp)
+- [Ä‘Ĺşâ€śâ€ž minimap.cpp](#-minimapcpp)
   - [Klasa `MinimapBlock`](#-klasa-minimapblock-1)
   - [Klasa `Minimap`](#-klasa-minimap-1)
-- [📄 position.h](#-positionh)
+- [Ä‘Ĺşâ€śâ€ž position.h](#-positionh)
   - [Struktura `Position`](#-struktura-position)
   - [Struktura `PositionHasher`](#-struktura-positionhasher)
-- [📄 protocolcodes.h](#-protocolcodesh)
+- [Ä‘Ĺşâ€śâ€ž protocolcodes.h](#-protocolcodesh)
   - [Namespace `Proto`](#-namespace-proto-1)
-- [📄 protocolgame.cpp](#-protocolgamecpp)
+- [Ä‘Ĺşâ€śâ€ž protocolgame.cpp](#-protocolgamecpp)
   - [Klasa `ProtocolGame`](#-klasa-protocolgame)
-- [📄 protocolgame.h](#-protocolgameh)
+- [Ä‘Ĺşâ€śâ€ž protocolgame.h](#-protocolgameh)
   - [Klasa `ProtocolGame`](#-klasa-protocolgame-1)
-- [📄 spritemanager.cpp](#-spritemanagercpp)
+- [Ä‘Ĺşâ€śâ€ž spritemanager.cpp](#-spritemanagercpp)
   - [Klasa `SpriteManager`](#-klasa-spritemanager)
-- [📄 protocolgamesend.cpp](#-protocolgamesendcpp)
+- [Ä‘Ĺşâ€śâ€ž protocolgamesend.cpp](#-protocolgamesendcpp)
   - [Klasa `ProtocolGame`](#-klasa-protocolgame-2)
-- [📄 localplayer.h](#-localplayerh)
+- [Ä‘Ĺşâ€śâ€ž localplayer.h](#-localplayerh)
   - [Klasa `LocalPlayer`](#-klasa-localplayer-1)
-- [📄 towns.cpp](#-townscpp)
+- [Ä‘Ĺşâ€śâ€ž towns.cpp](#-townscpp)
   - [Klasa `Town`](#-klasa-town)
   - [Klasa `TownManager`](#-klasa-townmanager)
-- [📄 spritemanager.h](#-spritemanagerh)
+- [Ä‘Ĺşâ€śâ€ž spritemanager.h](#-spritemanagerh)
   - [Klasa `SpriteManager`](#-klasa-spritemanager-1)
-- [📄 tile.cpp](#-tilecpp)
+- [Ä‘Ĺşâ€śâ€ž tile.cpp](#-tilecpp)
   - [Klasa `Tile`](#-klasa-tile)
-- [📄 statictext.h](#-statictexth)
+- [Ä‘Ĺşâ€śâ€ž statictext.h](#-statictexth)
   - [Klasa `StaticText`](#-klasa-statictext)
-- [📄 uimapanchorlayout.cpp](#-uimapanchorlayoutcpp)
+- [Ä‘Ĺşâ€śâ€ž uimapanchorlayout.cpp](#-uimapanchorlayoutcpp)
   - [Klasa `UIPositionAnchor`](#-klasa-uipositionanchor)
   - [Klasa `UIMapAnchorLayout`](#-klasa-uimapanchorlayout)
-- [📄 thing.h](#-thingh)
+- [Ä‘Ĺşâ€śâ€ž thing.h](#-thingh)
   - [Klasa `Thing`](#-klasa-thing)
-- [📄 uiitem.h](#-uiitemh)
+- [Ä‘Ĺşâ€śâ€ž uiitem.h](#-uiitemh)
   - [Klasa `UIItem`](#-klasa-uiitem)
-- [📄 thing.cpp](#-thingcpp)
+- [Ä‘Ĺşâ€śâ€ž thing.cpp](#-thingcpp)
   - [Klasa `Thing`](#-klasa-thing-1)
-- [📄 uimap.cpp](#-uimapcpp)
+- [Ä‘Ĺşâ€śâ€ž uimap.cpp](#-uimapcpp)
   - [Klasa `UIMap`](#-klasa-uimap)
-- [📄 thingstype.h](#-thingstypeh)
+- [Ä‘Ĺşâ€śâ€ž thingstype.h](#-thingstypeh)
   - [Klasa `ThingsType`](#-klasa-thingstype)
-- [📄 uigraph.h](#-uigraphh)
+- [Ä‘Ĺşâ€śâ€ž uigraph.h](#-uigraphh)
   - [Klasa `UIGraph`](#-klasa-uigraph)
-- [📄 uicreature.h](#-uicreatureh)
+- [Ä‘Ĺşâ€śâ€ž uicreature.h](#-uicreatureh)
   - [Klasa `UICreature`](#-klasa-uicreature)
-- [📄 thingtype.cpp](#-thingtypecpp)
+- [Ä‘Ĺşâ€śâ€ž thingtype.cpp](#-thingtypecpp)
   - [Klasa `ThingType`](#-klasa-thingtype)
-- [📄 towns.h](#-townsh)
+- [Ä‘Ĺşâ€śâ€ž towns.h](#-townsh)
   - [Klasa `Town`](#-klasa-town-1)
   - [Klasa `TownManager`](#-klasa-townmanager-1)
-- [📄 thingtype.h](#-thingtypeh)
+- [Ä‘Ĺşâ€śâ€ž thingtype.h](#-thingtypeh)
   - [Klasa `ThingType`](#-klasa-thingtype-1)
-- [📄 uicreature.cpp](#-uicreaturecpp)
+- [Ä‘Ĺşâ€śâ€ž uicreature.cpp](#-uicreaturecpp)
   - [Klasa `UICreature`](#-klasa-uicreature-1)
-- [📄 thingtypemanager.h](#-thingtypemanagerh)
+- [Ä‘Ĺşâ€śâ€ž thingtypemanager.h](#-thingtypemanagerh)
   - [Klasa `ThingTypeManager`](#-klasa-thingtypemanager)
-- [📄 thingtypemanager.cpp](#-thingtypemanagercpp)
+- [Ä‘Ĺşâ€śâ€ž thingtypemanager.cpp](#-thingtypemanagercpp)
   - [Klasa `ThingTypeManager`](#-klasa-thingtypemanager-1)
-- [📄 tile.h](#-tileh)
+- [Ä‘Ĺşâ€śâ€ž tile.h](#-tileh)
   - [Klasa `Tile`](#-klasa-tile-1)
-- [📄 uimap.h](#-uimaph)
+- [Ä‘Ĺşâ€śâ€ž uimap.h](#-uimaph)
   - [Klasa `UIMap`](#-klasa-uimap-1)
-- [📄 uiminimap.cpp](#-uiminimappp)
+- [Ä‘Ĺşâ€śâ€ž uiminimap.cpp](#-uiminimappp)
   - [Klasa `UIMinimap`](#-klasa-uiminimap)
-- [📄 uiprogressrect.cpp](#-uiprogressrectcpp)
+- [Ä‘Ĺşâ€śâ€ž uiprogressrect.cpp](#-uiprogressrectcpp)
   - [Klasa `UIProgressRect`](#-klasa-uiprogressrect)
-- [📄 uimapanchorlayout.h](#-uimapanchorlayouth)
+- [Ä‘Ĺşâ€śâ€ž uimapanchorlayout.h](#-uimapanchorlayouth)
   - [Klasa `UIPositionAnchor`](#-klasa-uipositionanchor-1)
   - [Klasa `UIMapAnchorLayout`](#-klasa-uimapanchorlayout-1)
-- [📄 uiminimap.h](#-uiminimaph)
+- [Ä‘Ĺşâ€śâ€ž uiminimap.h](#-uiminimaph)
   - [Klasa `UIMinimap`](#-klasa-uiminimap-1)
-- [📄 game.cpp](#-gamecpp)
+- [Ä‘Ĺşâ€śâ€ž game.cpp](#-gamecpp)
   - [Klasa `Game`](#-klasa-game-1)
-- [📄 uiprogressrect.h](#-uiprogressrecth)
+- [Ä‘Ĺşâ€śâ€ž uiprogressrect.h](#-uiprogressrecth)
   - [Klasa `UIProgressRect`](#-klasa-uiprogressrect-1)
-- [📄 uisprite.cpp](#-uispritecpp)
+- [Ä‘Ĺşâ€śâ€ž uisprite.cpp](#-uispritecpp)
   - [Klasa `UISprite`](#-klasa-uisprite)
-- [📄 uisprite.h](#-uispriteh)
+- [Ä‘Ĺşâ€śâ€ž uisprite.h](#-uispriteh)
   - [Klasa `UISprite`](#-klasa-uisprite-1)
-- [📄 walkmatrix.h](#-walkmatrixh)
+- [Ä‘Ĺşâ€śâ€ž walkmatrix.h](#-walkmatrixh)
   - [Klasa `WalkMatrix`](#-klasa-walkmatrix)
-- [📄 protocolgameparse.cpp](#-protocolgameparsecpp)
+- [Ä‘Ĺşâ€śâ€ž protocolgameparse.cpp](#-protocolgameparsecpp)
   - [Klasa `ProtocolGame`](#-klasa-protocolgame-3)
-- [📄 luafunctions_client.cpp](#-luafunctions_clientcpp)
-# 🔍 Indeks funkcji/metod
+- [Ä‘Ĺşâ€śâ€ž luafunctions_client.cpp](#-luafunctions_clientcpp)
+# Ä‘Ĺşâ€ťĹ¤ Indeks funkcji/metod
 - `AnimatedText::AnimatedText()`
 - `AnimatedText::drawText(const Point&, const Rect&)`
 - `AnimatedText::merge(const AnimatedTextPtr&)`
@@ -2575,10 +2575,10 @@ Każda metoda `parse...` jest odpowiedzialna za odczytanie danych z `InputMessag
 - `UISprite::setSpriteId(uint32)`
 - `WalkMatrix::update(const Position&, int32_t)`
 - `WalkMatrix::updatePosition(const Position&)`
-# 🧭 Mapa zależności
-Poniższy diagram przedstawia główne zależności i przepływ informacji między kluczowymi modułami systemu.
+# Ä‘ĹşÂ§Â­ Mapa zaleÄąÄ˝noÄąâ€şci
+PoniÄąÄ˝szy diagram przedstawia gÄąâ€šĂłwne zaleÄąÄ˝noÄąâ€şci i przepÄąâ€šyw informacji miÄ™dzy kluczowymi moduÄąâ€šami systemu.
 
-```mermaid
+`$fenceInfo
 graph TD
     subgraph "Aplikacja i UI"
         Client[Client] -->|inicjalizuje| Game
@@ -2586,14 +2586,14 @@ graph TD
         Client -->|inicjalizuje| ThingTypeManager
         UIMap[UIMap] -->|renderuje| MapView
         MapView -->|odczytuje dane| Map
-        UICreature[UICreature] -->|wyświetla| Creature
-        UIItem[UIItem] -->|wyświetla| Item
+        UICreature[UICreature] -->|wyÄąâ€şwietla| Creature
+        UIItem[UIItem] -->|wyÄąâ€şwietla| Item
     end
 
     subgraph "Logika Gry"
-        Game[Game] -->|wysyła akcje| ProtocolGame
-        Game -->|zarządza| LocalPlayer
-        Game -->|zarządza| Map
+        Game[Game] -->|wysyÄąâ€ša akcje| ProtocolGame
+        Game -->|zarzÄ…dza| LocalPlayer
+        Game -->|zarzÄ…dza| Map
         LocalPlayer[LocalPlayer] -->|dziedziczy| Player
         Player -->|dziedziczy| Creature
         Creature -->|dziedziczy| Thing
@@ -2601,9 +2601,9 @@ graph TD
         Thing -->|ma| ThingType
     end
 
-    subgraph "Sieć"
+    subgraph "SieÄ‡"
         ProtocolGame[ProtocolGame] -->|parsuje pakiety| Game
-        ProtocolGame -->|wysyła pakiety| TCPSocket
+        ProtocolGame -->|wysyÄąâ€ša pakiety| TCPSocket
     end
 
     subgraph "Dane i Zasoby"
@@ -2612,7 +2612,7 @@ graph TD
         SpriteManager[SpriteManager] -->|wczytuje| SPR["sprites.spr"]
         Map -->|wczytuje| OTBM["map.otbm"]
         Minimap -->|wczytuje| OTMM["minimap.otmm"]
-        ThingType -->|używa| SpriteManager
+        ThingType -->|uÄąÄ˝ywa| SpriteManager
     end
 
     MapView --> Creature
@@ -2621,40 +2621,40 @@ graph TD
     Tile --> Thing
 ```
 
-**Opis zależności:**
--   **Client** jest punktem startowym, który inicjalizuje wszystkie główne moduły (`Game`, `Map`, `ThingTypeManager`).
--   **Game** jest centralnym "mózgiem" aplikacji, zarządzającym stanem gry, lokalnym graczem i komunikacją sieciową poprzez `ProtocolGame`.
--   **ProtocolGame** jest odpowiedzialny za serializację i deserializację danych przesyłanych do i z serwera. Aktualizuje stan `Game` na podstawie otrzymanych pakietów.
--   **Map** przechowuje wszystkie dane o świecie gry, w tym `Tile` (pola) i `Thing` (obiekty).
+**Opis zaleÄąÄ˝noÄąâ€şci:**
+-   **Client** jest punktem startowym, ktĂłry inicjalizuje wszystkie gÄąâ€šĂłwne moduÄąâ€šy (`Game`, `Map`, `ThingTypeManager`).
+-   **Game** jest centralnym "mĂłzgiem" aplikacji, zarzÄ…dzajÄ…cym stanem gry, lokalnym graczem i komunikacjÄ… sieciowÄ… poprzez `ProtocolGame`.
+-   **ProtocolGame** jest odpowiedzialny za serializacjÄ™ i deserializacjÄ™ danych przesyÄąâ€šanych do i z serwera. Aktualizuje stan `Game` na podstawie otrzymanych pakietĂłw.
+-   **Map** przechowuje wszystkie dane o Äąâ€şwiecie gry, w tym `Tile` (pola) i `Thing` (obiekty).
 -   **MapView** jest odpowiedzialny za renderowanie danych z `Map` na ekranie. Jest to warstwa wizualizacyjna dla danych mapy.
--   **ThingTypeManager** i **SpriteManager** to menedżery zasobów, które wczytują dane z plików `.dat`, `.otb` i `.spr`, dostarczając definicje i grafiki dla wszystkich obiektów w grze.
--   Hierarchia dziedziczenia obiektów: `Thing` jest bazą dla `Item` i `Creature`. `Creature` jest bazą dla `Player`, a `Player` dla `LocalPlayer`.
--   Widżety UI (`UIMap`, `UICreature`, `UIItem`) są wyspecjalizowanymi komponentami do wyświetlania odpowiednich elementów logiki gry.
-# 🧱 Architektura systemu
-System jest zbudowany w oparciu o architekturę warstwową, gdzie każda warstwa ma jasno zdefiniowane obowiązki. Można wyróżnić następujące główne komponenty:
+-   **ThingTypeManager** i **SpriteManager** to menedÄąÄ˝ery zasobĂłw, ktĂłre wczytujÄ… dane z plikĂłw `.dat`, `.otb` i `.spr`, dostarczajÄ…c definicje i grafiki dla wszystkich obiektĂłw w grze.
+-   Hierarchia dziedziczenia obiektĂłw: `Thing` jest bazÄ… dla `Item` i `Creature`. `Creature` jest bazÄ… dla `Player`, a `Player` dla `LocalPlayer`.
+-   WidÄąÄ˝ety UI (`UIMap`, `UICreature`, `UIItem`) sÄ… wyspecjalizowanymi komponentami do wyÄąâ€şwietlania odpowiednich elementĂłw logiki gry.
+# Ä‘ĹşÂ§Â± Architektura systemu
+System jest zbudowany w oparciu o architekturÄ™ warstwowÄ…, gdzie kaÄąÄ˝da warstwa ma jasno zdefiniowane obowiÄ…zki. MoÄąÄ˝na wyrĂłÄąÄ˝niÄ‡ nastÄ™pujÄ…ce gÄąâ€šĂłwne komponenty:
 
 1.  **Framework (Warstwa podstawowa)**
-    -   **Core**: Zarządzanie aplikacją, pętlą główną, zdarzeniami (`EventDispatcher`), zasobami (`ResourceManager`), czasem (`Clock`).
-    -   **Graphics**: Nisko-poziomowe renderowanie, zarządzanie teksturami (`TextureManager`), shaderami (`ShaderManager`), czcionkami (`FontManager`) i kolejką rysowania (`DrawQueue`).
-    -   **UI**: System interfejsu użytkownika oparty na widżetach (`UIWidget`) i stylach OTML.
-    -   **LuaEngine**: Integracja z silnikiem skryptowym Lua, umożliwiająca rozszerzanie logiki gry.
-    -   **Net**: Nisko-poziomowa obsługa połączeń sieciowych (`Protocol`, `Connection`).
+    -   **Core**: ZarzÄ…dzanie aplikacjÄ…, pÄ™tlÄ… gÄąâ€šĂłwnÄ…, zdarzeniami (`EventDispatcher`), zasobami (`ResourceManager`), czasem (`Clock`).
+    -   **Graphics**: Nisko-poziomowe renderowanie, zarzÄ…dzanie teksturami (`TextureManager`), shaderami (`ShaderManager`), czcionkami (`FontManager`) i kolejkÄ… rysowania (`DrawQueue`).
+    -   **UI**: System interfejsu uÄąÄ˝ytkownika oparty na widÄąÄ˝etach (`UIWidget`) i stylach OTML.
+    -   **LuaEngine**: Integracja z silnikiem skryptowym Lua, umoÄąÄ˝liwiajÄ…ca rozszerzanie logiki gry.
+    -   **Net**: Nisko-poziomowa obsÄąâ€šuga poÄąâ€šÄ…czeÄąâ€ž sieciowych (`Protocol`, `Connection`).
 
 2.  **Client (Warstwa aplikacji)**
-    -   **Zarządzanie stanem gry (`Game`)**: Centralny singleton, który zarządza sesją gry, stanem lokalnego gracza, interakcjami i komunikacją z serwerem. Działa jak fasada dla reszty systemu.
-    -   **Obsługa protokołu (`ProtocolGame`)**: Implementacja protokołu sieciowego. Tłumaczy akcje gracza na pakiety i pakiety z serwera na zmiany w stanie gry.
-    -   **Reprezentacja świata gry (`Map`, `Tile`, `Thing`)**: Obiektowy model świata gry. `Map` przechowuje kolekcję `Tile`, a każdy `Tile` przechowuje stos `Thing` (przedmiotów, stworzeń, etc.).
-    -   **Zarządzanie zasobami gry (`ThingTypeManager`, `SpriteManager`)**: Singletony odpowiedzialne za wczytywanie i dostarczanie definicji i grafik dla wszystkich obiektów w grze z plików `.dat`, `.otb`, `.spr`.
-    -   **Renderowanie (`MapView`, `Minimap`)**: Klasy odpowiedzialne za wizualizację danych z `Map`. `MapView` renderuje główny widok gry, a `Minimap` - minimapę. Wykorzystują one `DrawQueue` z warstwy frameworka.
-    -   **UI klienta (`UIMap`, `UIItem`, `UICreature`)**: Wyspecjalizowane widżety, które łączą dane z logiki gry (np. `Item`, `Creature`) z systemem UI frameworka.
-## Przepływ danych i zdarzeń
--   **Wejście użytkownika**: Zdarzenia wejścia (mysz, klawiatura) są przechwytywane przez `UIWidget`. Jeśli akcja dotyczy gry (np. kliknięcie na mapie), wywoływana jest odpowiednia metoda w `Game` (np. `g_game.walk()`).
--   **Wysyłanie danych**: `Game` wywołuje metodę w `ProtocolGame` (np. `sendWalkNorth()`), która tworzy pakiet i wysyła go na serwer.
--   **Odbieranie danych**: `ProtocolGame` odbiera pakiet, `parseMessage` identyfikuje jego typ na podstawie opkodu i wywołuje odpowiednią metodę `parse...`.
--   **Aktualizacja stanu**: Metoda `parse...` (np. `parseCreatureMove`) odczytuje dane z pakietu i wywołuje metody w `Game` lub `Map` (np. `g_map.addThing(...)`), które modyfikują stan gry.
--   **Renderowanie**: W każdej klatce, `UIMap` wywołuje `MapView::drawMapBackground` i `drawMapForeground`. `MapView` pobiera aktualny stan z `g_map` (widoczne `Tile` i `Thing`), a następnie rysuje je na ekranie, używając `ThingTypeManager` i `SpriteManager` do uzyskania odpowiednich grafik.
+    -   **ZarzÄ…dzanie stanem gry (`Game`)**: Centralny singleton, ktĂłry zarzÄ…dza sesjÄ… gry, stanem lokalnego gracza, interakcjami i komunikacjÄ… z serwerem. DziaÄąâ€ša jak fasada dla reszty systemu.
+    -   **ObsÄąâ€šuga protokoÄąâ€šu (`ProtocolGame`)**: Implementacja protokoÄąâ€šu sieciowego. TÄąâ€šumaczy akcje gracza na pakiety i pakiety z serwera na zmiany w stanie gry.
+    -   **Reprezentacja Äąâ€şwiata gry (`Map`, `Tile`, `Thing`)**: Obiektowy model Äąâ€şwiata gry. `Map` przechowuje kolekcjÄ™ `Tile`, a kaÄąÄ˝dy `Tile` przechowuje stos `Thing` (przedmiotĂłw, stworzeÄąâ€ž, etc.).
+    -   **ZarzÄ…dzanie zasobami gry (`ThingTypeManager`, `SpriteManager`)**: Singletony odpowiedzialne za wczytywanie i dostarczanie definicji i grafik dla wszystkich obiektĂłw w grze z plikĂłw `.dat`, `.otb`, `.spr`.
+    -   **Renderowanie (`MapView`, `Minimap`)**: Klasy odpowiedzialne za wizualizacjÄ™ danych z `Map`. `MapView` renderuje gÄąâ€šĂłwny widok gry, a `Minimap` - minimapÄ™. WykorzystujÄ… one `DrawQueue` z warstwy frameworka.
+    -   **UI klienta (`UIMap`, `UIItem`, `UICreature`)**: Wyspecjalizowane widÄąÄ˝ety, ktĂłre Äąâ€šÄ…czÄ… dane z logiki gry (np. `Item`, `Creature`) z systemem UI frameworka.
+## PrzepÄąâ€šyw danych i zdarzeÄąâ€ž
+-   **WejÄąâ€şcie uÄąÄ˝ytkownika**: Zdarzenia wejÄąâ€şcia (mysz, klawiatura) sÄ… przechwytywane przez `UIWidget`. JeÄąâ€şli akcja dotyczy gry (np. klikniÄ™cie na mapie), wywoÄąâ€šywana jest odpowiednia metoda w `Game` (np. `g_game.walk()`).
+-   **WysyÄąâ€šanie danych**: `Game` wywoÄąâ€šuje metodÄ™ w `ProtocolGame` (np. `sendWalkNorth()`), ktĂłra tworzy pakiet i wysyÄąâ€ša go na serwer.
+-   **Odbieranie danych**: `ProtocolGame` odbiera pakiet, `parseMessage` identyfikuje jego typ na podstawie opkodu i wywoÄąâ€šuje odpowiedniÄ… metodÄ™ `parse...`.
+-   **Aktualizacja stanu**: Metoda `parse...` (np. `parseCreatureMove`) odczytuje dane z pakietu i wywoÄąâ€šuje metody w `Game` lub `Map` (np. `g_map.addThing(...)`), ktĂłre modyfikujÄ… stan gry.
+-   **Renderowanie**: W kaÄąÄ˝dej klatce, `UIMap` wywoÄąâ€šuje `MapView::drawMapBackground` i `drawMapForeground`. `MapView` pobiera aktualny stan z `g_map` (widoczne `Tile` i `Thing`), a nastÄ™pnie rysuje je na ekranie, uÄąÄ˝ywajÄ…c `ThingTypeManager` i `SpriteManager` do uzyskania odpowiednich grafik.
 
-Ta architektura oddziela logikę gry od renderowania i obsługi sieci, co ułatwia zarządzanie kodem i jego rozbudowę. Użycie Lua pozwala na dynamiczne modyfikowanie zachowań interfejsu i logiki bez potrzeby rekompilacji całego klienta.
+Ta architektura oddziela logikÄ™ gry od renderowania i obsÄąâ€šugi sieci, co uÄąâ€šatwia zarzÄ…dzanie kodem i jego rozbudowÄ™. UÄąÄ˝ycie Lua pozwala na dynamiczne modyfikowanie zachowaÄąâ€ž interfejsu i logiki bez potrzeby rekompilacji caÄąâ€šego klienta.
 
 
 

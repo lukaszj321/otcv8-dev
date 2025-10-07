@@ -1,6 +1,6 @@
-# ¦ Modul: `game_market/ui/marketoffers`
+# Â¦ Modul: `game_market/ui/marketoffers`
 
-```otui
+`$fenceInfo
 
 MarketItemBox < UICheckBox
 
@@ -285,7 +285,7 @@ Panel
 ---
 # itemdetails.otui
 
-```otui
+`$fenceInfo
 
 DetailsTableRow < TableRow
 
@@ -394,7 +394,7 @@ Panel
 ---
 # itemoffers.otui
 
-```otui
+`$fenceInfo
 
 OfferTableRow < TableRow
 
@@ -717,7 +717,7 @@ Panel
 ---
 # itemstats.otui
 
-```otui
+`$fenceInfo
 
 StatsTableRow < TableRow
 
@@ -910,7 +910,7 @@ Panel
 ---
 # overview.otui
 
-```otui
+`$fenceInfo
 
 Panel
 

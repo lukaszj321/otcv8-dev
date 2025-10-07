@@ -1,6 +1,6 @@
-# ¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot`
+# Â¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot`
 
-```lua
+`$fenceInfo
 
 TargetBot.Creature = {}
 
@@ -184,7 +184,8 @@ end
 # creature_attack.lua
 
 {% raw %}
-```lua
+{% raw %}
+`$fenceInfo
 
 TargetBot.Creature.attack = function(params, targets, isLooting) -- params {config, creature, danger, priority}
 
@@ -412,11 +413,12 @@ end
 
 ```
 {% endraw %}
+{% endraw %}
 
 ---
 # creature_editor.lua
 
-```lua
+`$fenceInfo
 
 TargetBot.Creature.edit = function(config, callback) -- callback = function(newConfig)
 
@@ -621,7 +623,7 @@ end
 ---
 # creature_editor.otui
 
-```otui
+`$fenceInfo
 
 TargetBotCreatureEditorScrollBar < Panel
 
@@ -910,7 +912,7 @@ TargetBotCreatureEditorWindow < MainWindow
 ---
 # creature_priority.lua
 
-```lua
+`$fenceInfo
 
 TargetBot.Creature.calculatePriority = function(creature, config, path)
 
@@ -985,7 +987,7 @@ end
 ---
 # looting.lua
 
-```lua
+`$fenceInfo
 
 TargetBot.Looting = {}
 
@@ -1536,7 +1538,7 @@ end)
 ---
 # looting.otui
 
-```otui
+`$fenceInfo
 
 TargetBotLootingPanel < Panel
 
@@ -1681,7 +1683,7 @@ TargetBotLootingPanel < Panel
 ---
 # target.lua
 
-```lua
+`$fenceInfo
 
 local targetbotMacro = nil
 
@@ -2188,7 +2190,7 @@ end
 ---
 # target.otui
 
-```otui
+`$fenceInfo
 
 TargetBotEntry < Label
 
@@ -2387,7 +2389,7 @@ TargetBotPanel < Panel
 ---
 # walking.lua
 
-```lua
+`$fenceInfo
 
 local dest
 

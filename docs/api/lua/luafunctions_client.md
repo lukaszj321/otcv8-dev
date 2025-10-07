@@ -1,7 +1,7 @@
 # Source: luafunctions_client.cpp
 
-This guide covers global objects and functions available in the OTClient Lua environment. It’s intended to help scripters understand and use the client-side Lua API effectively.
-klawisz esc, aby anulować • klawisz enter, aby zapisać
+This guide covers global objects and functions available in the OTClient Lua environment. ItĂ˘â‚¬â„˘s intended to help scripters understand and use the client-side Lua API effectively.
+klawisz esc, aby anulowaÄ‡ â€˘ klawisz enter, aby zapisaÄ‡
 ---
 ## [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
@@ -13,7 +13,7 @@ This document provides a detailed overview of the core Lua functions, classes, a
 These singleton objects provide access to the main components of the client application.
 ## **Client (`g_client`)**
 The central object for managing the client's state.
-```lua
+`$fenceInfo
 -- Versioning and Info
 g_client:getEngine()           -- Returns the engine name (e.g., "OTClientV8")
 g_client:getVersion()          -- Returns the client version string
@@ -36,7 +36,7 @@ g_client:setFramerateLimit(limit) -- Sets the FPS limit
 ```
 ## **Window (`g_window`)**
 Manages the application window.
-```lua
+`$fenceInfo
 g_window:setTitle(title)       -- Sets the window title
 g_window:setSize(size)         -- Sets the window size
 g_window:hide()                -- Hides the window
@@ -52,7 +52,7 @@ g_window:isVisible()           -- Checks if the window is visible
 ```
 ## **Application (`g_app`)**
 Handles application-level properties and data storage.
-```lua
+`$fenceInfo
 g_app:setName(name)            -- Sets the application name
 g_app:setCompactName(name)     -- Sets a compact name for the app
 g_app:setVersion(version)      -- Sets the app version string
@@ -68,7 +68,7 @@ g_app:saveSettings()           -- Saves settings to the config file
 ```
 ## **Resource Manager (`g_resources`)**
 Manages loading and accessing game assets.
-```lua
+`$fenceInfo
 g_resources:addSearchPath(path, prepend) -- Adds a directory to the asset search path
 g_resources:removeSearchPath(path)   -- Removes a directory from the search path
 g_resources:getBaseDir()         -- Gets the base application directory
@@ -80,7 +80,7 @@ g_resources:makeDir(path)        -- Creates a directory
 ```
 ## **Sound Manager (`g_sounds`)**
 Controls audio playback.
-```lua
+`$fenceInfo
 g_sounds:play(filename, volume)   -- Plays a sound file
 g_sounds:playMusic(filename, volume) -- Plays a music file (streams it)
 g_sounds:stopMusic()              -- Stops the currently playing music
@@ -88,18 +88,18 @@ g_sounds:setVolume(volume)        -- Sets the master audio volume (0.0 - 1.0)
 ```
 ## **Input (`g_keyboard`, `g_mouse`)**
 Handles keyboard and mouse input.
-```lua
+`$fenceInfo
 -- Keyboard
 g_keyboard:getModifiers()          -- Returns a string with active modifiers ("shift", "ctrl", "alt")
 g_keyboard:setRepeatDelay(delay)   -- Sets the key repeat delay
 g_keyboard:setRepeatInterval(interval) -- Sets the key repeat interval
 
-... (Pozostałe wiersze: 124)
-Zwiń
+... (PozostaÄąâ€še wiersze: 124)
+ZwiÄąâ€ž
 message.txt
 11 KB
 Dildo
- zmienił(-a) tytuł posta: ＯＴＣｌｉｅｎｔ░░Ｖ８░░–░░Ｌｕａ░░ＡＰＩ░░Ｄｏｃｕｍｅｎｔａｔｉｏｎ — 16:26
+ zmieniÄąâ€š(-a) tytuÄąâ€š posta: ÄŹÄ˝Ĺ»ÄŹÄ˝Â´ÄŹÄ˝ĹÄŹËťĹšÄŹËťâ€°ÄŹËťâ€¦ÄŹËťĹ˝ÄŹËťâ€ťĂ˘â€“â€Ă˘â€“â€ÄŹÄ˝Â¶ÄŹÄ˝ÂĂ˘â€“â€Ă˘â€“â€â€“Ă˘â€“â€Ă˘â€“â€ÄŹÄ˝Â¬ÄŹËťâ€˘ÄŹËťÂĂ˘â€“â€Ă˘â€“â€ÄŹÄ˝Ë‡ÄŹÄ˝Â°ÄŹÄ˝Â©Ă˘â€“â€Ă˘â€“â€ÄŹÄ˝Â¤ÄŹËťĹąÄŹËťÂÄŹËťâ€˘ÄŹËťĹ¤ÄŹËťâ€¦ÄŹËťĹ˝ÄŹËťâ€ťÄŹËťÂÄŹËťâ€ťÄŹËťâ€°ÄŹËťĹąÄŹËťĹ˝ â€” 16:26
 
 ---
 ## [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
@@ -112,7 +112,7 @@ This document provides a detailed overview of the core Lua functions, classes, a
 These singleton objects provide access to the main components of the client application.
 ## **Client (`g_client`)**
 The central object for managing the client's state.
-```lua
+```
 -- Versioning and Info
 g_client:getEngine()           -- Returns the engine name (e.g., "OTClientV8")
 g_client:getVersion()          -- Returns the client version string
@@ -132,10 +132,10 @@ g_client:getFps()              -- Returns the current frames per second
 g_client:getUps()              -- Returns the current updates per second
 g_client:getMemoryUsage()      -- Returns memory usage in kilobytes
 g_client:setFramerateLimit(limit) -- Sets the FPS limit
-```
+`$fenceInfo
 ## **Window (`g_window`)**
 Manages the application window.
-```lua
+```
 g_window:setTitle(title)       -- Sets the window title
 g_window:setSize(size)         -- Sets the window size
 g_window:hide()                -- Hides the window
@@ -148,10 +148,10 @@ g_window:getDisplaySize()      -- Returns the size of the display/monitor
 g_window:getPlatform()         -- Returns the OS platform (e.g., "windows", "linux")
 g_window:isMaximized()         -- Checks if the window is maximized
 g_window:isVisible()           -- Checks if the window is visible
-```
+`$fenceInfo
 ## **Application (`g_app`)**
 Handles application-level properties and data storage.
-```lua
+```
 g_app:setName(name)            -- Sets the application name
 g_app:setCompactName(name)     -- Sets a compact name for the app
 g_app:setVersion(version)      -- Sets the app version string
@@ -164,10 +164,10 @@ g_app:setDataDirectory(dir)    -- Sets the data directory
 g_app:getSettings()            -- Returns a table with application settings
 g_app:loadSettings()           -- Loads settings from the config file
 g_app:saveSettings()           -- Saves settings to the config file
-```
+`$fenceInfo
 ## **Resource Manager (`g_resources`)**
 Manages loading and accessing game assets.
-```lua
+```
 g_resources:addSearchPath(path, prepend) -- Adds a directory to the asset search path
 g_resources:removeSearchPath(path)   -- Removes a directory from the search path
 g_resources:getBaseDir()         -- Gets the base application directory
@@ -176,18 +176,18 @@ g_resources:fileExists(path)     -- Checks if a file exists in the search paths
 g_resources:readFile(path)       -- Reads the content of a file
 g_resources:writeFile(path, content) -- Writes content to a file
 g_resources:makeDir(path)        -- Creates a directory
-```
+`$fenceInfo
 ## **Sound Manager (`g_sounds`)**
 Controls audio playback.
-```lua
+```
 g_sounds:play(filename, volume)   -- Plays a sound file
 g_sounds:playMusic(filename, volume) -- Plays a music file (streams it)
 g_sounds:stopMusic()              -- Stops the currently playing music
 g_sounds:setVolume(volume)        -- Sets the master audio volume (0.0 - 1.0)
-```
+`$fenceInfo
 ## **Input (`g_keyboard`, `g_mouse`)**
 Handles keyboard and mouse input.
-```lua
+```
 -- Keyboard
 g_keyboard:getModifiers()          -- Returns a string with active modifiers ("shift", "ctrl", "alt")
 g_keyboard:setRepeatDelay(delay)   -- Sets the key repeat delay
@@ -197,7 +197,7 @@ g_keyboard:setRepeatInterval(interval) -- Sets the key repeat interval
 g_mouse:setCursor(cursorName)      -- Sets the mouse cursor from a predefined list
 g_mouse:resetCursor()              -- Resets the mouse cursor to default
 g_mouse:isPressed(button)          -- Checks if a mouse button is pressed
-```
+`$fenceInfo
 ## **Other Managers**
 - **`g_logger`**: For logging messages (`log`, `info`, `warning`, `error`, `fatal`).
 - **`g_clock`**: Provides access to time (`millis`, `micros`, `seconds`).
@@ -211,24 +211,24 @@ g_mouse:isPressed(button)          -- Checks if a mouse button is pressed
 
 These functions are available globally and are essential for scheduling, event handling, and utility tasks.
 ## **Event Scheduling**
-```lua
+```
 schedule(event, delay)         -- Schedules a function to run after a delay (in milliseconds)
 scheduleEvent(event, delay)    -- Same as schedule()
 removeEvent(eventId)           -- Removes a scheduled event by its ID
 removeEvents(func)             -- Removes all events associated with a specific function
 delay(ms, func)                -- Creates a function that, when called, will execute 'func' after a delay
-```
+`$fenceInfo
 ## **Event Connection (Signals & Slots)**
 This system allows you to connect functions (slots) to signals emitted by UI widgets and other objects.
-```lua
+```
 connect(object, signals, handler) -- Connects a handler function to a signal
 disconnect(object, signals)     -- Disconnects all handlers from a signal
 signalcall(signal, object, ...) -- Manually triggers a signal on an object
-```
+`$fenceInfo
 **Example:**
 `connect(myButton, { onClick = myClickHandler } )`
 ## **Utility Functions**
-```lua
+```
 log(level, ...)            -- Logs a message with a specific level
 error(message, level)      -- Throws a Lua error
 dofile(path, safe)         -- Executes a Lua file
@@ -238,7 +238,7 @@ tonumber(value, base)      -- Converts a value to a number
 ipairs(table)              -- Iterator for numeric table indices
 pairs(table)               -- Iterator for all table key-value pairs
 pcall(func, ...)           -- Calls a function in protected mode
-```
+`$fenceInfo
 
 ---
 ## **3. UI Widget Classes**
@@ -246,7 +246,7 @@ pcall(func, ...)           -- Calls a function in protected mode
 This is the core of the OTClient UI framework. All UI elements are widgets.
 ## **Base Class: `UIWidget`**
 The foundation for all other UI components. Contains properties for position, size, visibility, and more.
-```lua
+```
 -- Common Properties (can be set/get)
 widget:setId(id)
 widget:setParent(parent)
@@ -275,7 +275,7 @@ widget:centerIn(parent) -- Centers the widget in its parent
 widget:getStyle() -- Gets the style table
 widget:addStyle(style) -- Adds a style
 widget:clearStyle() -- Clears the style
-```
+`$fenceInfo
 ## **Layouts**
 Layouts are containers that automatically arrange their child widgets.
 - **`UILayout`**: Base layout class.

@@ -1,6 +1,6 @@
-# ¦ Modul: `client_terminal`
+# Â¦ Modul: `client_terminal`
 
-```lua
+`$fenceInfo
 
 local function pcolored(text, color)
 
@@ -149,7 +149,7 @@ end
 ---
 # terminal.lua
 
-```lua
+`$fenceInfo
 
 -- configs
 
@@ -830,7 +830,7 @@ end
 ---
 # terminal.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -857,7 +857,7 @@ Module
 ---
 # terminal.otui
 
-```otui
+`$fenceInfo
 
 TerminalLabel < UILabel
 

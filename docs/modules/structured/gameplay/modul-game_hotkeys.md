@@ -1,6 +1,6 @@
-# ¦ Modul: `game_hotkeys`
+# Â¦ Modul: `game_hotkeys`
 
-```lua
+`$fenceInfo
 
 extraHotkeys = {}
 
@@ -225,7 +225,7 @@ end
 ---
 # hotkeys_manager.lua
 
-```lua
+`$fenceInfo
 
 HOTKEY_MANAGER_USE = nil
 
@@ -1498,7 +1498,7 @@ end
 ---
 # hotkeys_manager.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -1523,7 +1523,7 @@ Module
 ---
 # hotkeys_manager.otui
 
-```otui
+`$fenceInfo
 
 HotkeyListLabel < UILabel
 

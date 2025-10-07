@@ -1,7 +1,8 @@
-# ¦ Modul: `game_market`
+# Â¦ Modul: `game_market`
 
 {% raw %}
-```lua
+{% raw %}
+`$fenceInfo
 
 --[[
 
@@ -2411,11 +2412,12 @@ end
 
 ```
 {% endraw %}
+{% endraw %}
 
 ---
 # market.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -2440,7 +2442,7 @@ Module
 ---
 # market.otui
 
-```otui
+`$fenceInfo
 
 MarketWindow < MainWindow
 
@@ -2555,7 +2557,7 @@ MarketWindow < MainWindow
 ---
 # marketoffer.lua
 
-```lua
+`$fenceInfo
 
 MarketOffer = {}
 
@@ -2820,7 +2822,7 @@ end
 ---
 # marketprotocol.lua
 
-```lua
+`$fenceInfo
 
 MarketProtocol = {}
 
@@ -3295,7 +3297,7 @@ end
 ---
 # offerstatistic.lua
 
-```lua
+`$fenceInfo
 
 OfferStatistic = {}
 

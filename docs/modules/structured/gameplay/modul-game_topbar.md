@@ -1,6 +1,6 @@
-# ¦ Modul: `game_topbar`
+# Â¦ Modul: `game_topbar`
 
-```lua
+`$fenceInfo
 
 Icons = {}
 
@@ -863,7 +863,7 @@ end
 ---
 # topbar.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -890,7 +890,7 @@ Module
 ---
 # topbar.otui
 
-```otui
+`$fenceInfo
 
 StatsPanel < Panel
 

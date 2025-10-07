@@ -1,6 +1,6 @@
-# ¦ Modul: `game_cooldown`
+# Â¦ Modul: `game_cooldown`
 
-```lua
+`$fenceInfo
 
 local ProgressCallback = {
 
@@ -383,7 +383,7 @@ end
 ---
 # cooldown.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -408,7 +408,7 @@ Module
 ---
 # cooldown.otui
 
-```otui
+`$fenceInfo
 
 SpellGroupIcon < UIWidget
 

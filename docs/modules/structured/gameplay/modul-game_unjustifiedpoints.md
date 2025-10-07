@@ -1,6 +1,6 @@
-# ¦ Modul: `game_unjustifiedpoints`
+# Â¦ Modul: `game_unjustifiedpoints`
 
-```lua
+`$fenceInfo
 
 unjustifiedPointsWindow = nil
 
@@ -245,7 +245,7 @@ end
 ---
 # unjustifiedpoints.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -268,7 +268,7 @@ Module
 ---
 # unjustifiedpoints.otui
 
-```otui
+`$fenceInfo
 
 SkullProgressBar < ProgressBar
 

@@ -1,6 +1,6 @@
-# ¦ Modul: `game_walking`
+# Â¦ Modul: `game_walking`
 
-```lua
+`$fenceInfo
 
 smartWalkDirs = {}
 
@@ -769,7 +769,7 @@ end
 ---
 # walking.otmod
 
-```text
+`$fenceInfo
 
 Module
 

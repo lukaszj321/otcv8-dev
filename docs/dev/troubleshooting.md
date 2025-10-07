@@ -2,11 +2,11 @@
  
 ## Build
 
-- Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
+- Brak zaleÄąÄ˝noÄąâ€şci vcpkg Ă˘â€ â€™ zainstaluj pakiety i przebuduj cache.
 ## Android
 
-- Błąd NDK: sprawdź wersję i ścieżki SDK/NDK.
+- BÄąâ€šÄ…d NDK: sprawdÄąĹź wersjÄ™ i Äąâ€şcieÄąÄ˝ki SDK/NDK.
 ## Ws
 
-- Rozłączenia: sprawdź pingTimeout/pingInterval oraz proxy.
+- RozÄąâ€šÄ…czenia: sprawdÄąĹź pingTimeout/pingInterval oraz proxy.
 

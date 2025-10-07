@@ -1,6 +1,6 @@
-# ¦ Modul: `client_background`
+# Â¦ Modul: `client_background`
 
-```lua
+`$fenceInfo
 
 -- private variables
 
@@ -81,7 +81,7 @@ end
 ---
 # background.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -106,7 +106,7 @@ Module
 ---
 # background.otui
 
-```otui
+`$fenceInfo
 
 UIWidget
 

@@ -1,15 +1,15 @@
 # Contributing
 
 
-1. Fork → branch `feature/…`.
-2. Commity: konwencja `type(scope): msg` (np. `docs(build): …`).
-3. PR z krótkim opisem i screenami.
+1. Fork Ă˘â€ â€™ branch `feature/Ă˘â‚¬Â¦`.
+2. Commity: konwencja `type(scope): msg` (np. `docs(build): Ă˘â‚¬Â¦`).
+3. PR z krĂłtkim opisem i screenami.
 4. Review: 1 LGTM + zielone CI.
 ## Style
 
-- Lua: patrz _Lua → Style guide_.
-- C++: clang-format (domyślny styl projektu).
+- Lua: patrz _Lua Ă˘â€ â€™ Style guide_.
+- C++: clang-format (domyÄąâ€şlny styl projektu).
 ## Commity dokumentacji
 
-- Zmiany w `docs/**` nie uruchamiają CMake (paths-ignore).
+- Zmiany w `docs/**` nie uruchamiajÄ… CMake (paths-ignore).
 

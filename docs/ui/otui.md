@@ -2,10 +2,10 @@
 
 !!! info
 
-    OTUI to deklaratywne layouty interfejsu użytkownika.
-## Przykład layoutu
+    OTUI to deklaratywne layouty interfejsu uÄąÄ˝ytkownika.
+## PrzykÄąâ€šad layoutu
 
-```otui
+`$fenceInfo
 Panel
   id: main
   anchor: top left
@@ -16,12 +16,12 @@ Label
   anchors.centerIn: parent
 
 ```
-## Zdarzenia / wiązania
+## Zdarzenia / wiÄ…zania
 
-- Właściwości elementów można powiązać z danymi (np. przez Lua).
-- Aktualizacje push przez eventy modułów.
-## Wskazówki
+- WÄąâ€šaÄąâ€şciwoÄąâ€şci elementĂłw moÄąÄ˝na powiÄ…zaÄ‡ z danymi (np. przez Lua).
+- Aktualizacje push przez eventy moduÄąâ€šĂłw.
+## WskazĂłwki
 
 - Trzymaj layouty w `layouts/*`.
-- Styluj wspólnymi klasami, nie inline.
+- Styluj wspĂłlnymi klasami, nie inline.
 

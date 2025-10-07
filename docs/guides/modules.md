@@ -1,11 +1,11 @@
-# Moduły (vBot) — przewodnik
+# ModuÄąâ€šy (vBot) â€” przewodnik
 
 !!! info "Cel"
 
-    Jak tworzyć i ładować moduły Lua dla klienta OTCv8.
-## Struktura modułu
+    Jak tworzyÄ‡ i Äąâ€šadowaÄ‡ moduÄąâ€šy Lua dla klienta OTCv8.
+## Struktura moduÄąâ€šu
 
-```bash
+`$fenceInfo
 modules/
 my-module/
 init.lua
@@ -13,9 +13,9 @@ config.lua
 README.md
 
 ```
-## Minimalny moduł(LUA)
+## Minimalny moduÄąâ€š(LUA)
 
-```lua
+`$fenceInfo
 -- modules/my-module/init.lua
 local M = {}
 
@@ -30,9 +30,9 @@ end
 return M
 
 ```
-## Rejestrowanie zdarzeń (przykład)
+## Rejestrowanie zdarzeÄąâ€ž (przykÄąâ€šad)
 
-```lua
+`$fenceInfo
 onTalk(function(name, level, mode, text)
   if text:find("hello") then print("Hi " .. name) end
 end)
@@ -40,15 +40,15 @@ end)
 ```
 ## Konfiguracja
 
-- `config.lua` – wartości domyślne (np. hotkeye, progi).
-- Pliki konfiguracyjne użytkownika trzymaj oddzielnie.
+- `config.lua` â€“ wartoÄąâ€şci domyÄąâ€şlne (np. hotkeye, progi).
+- Pliki konfiguracyjne uÄąÄ˝ytkownika trzymaj oddzielnie.
 ## Ddebug / logi
 
 - Pisz do konsoli lub pliku `logs/my-module.log`.
-- Dodaj flagę `DEBUG=true` i warunkowe logowanie.
+- Dodaj flagÄ™ `DEBUG=true` i warunkowe logowanie.
 ## Dobre praktyki
 
-- Nazwy przestrzeni modułu (`my_module.*`).
-- Brak efektów ubocznych przy `require`.
+- Nazwy przestrzeni moduÄąâ€šu (`my_module.*`).
+- Brak efektĂłw ubocznych przy `require`.
 - Komendy eksportuj jawnie (np. `M.start`, `M.stop`).
 

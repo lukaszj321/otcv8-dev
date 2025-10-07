@@ -1,6 +1,6 @@
-# ¦ Modul: `gamelib`
+# Â¦ Modul: `gamelib`
 
-```lua
+`$fenceInfo
 
 -- @docconsts @{
 
@@ -735,7 +735,7 @@ ChannelEvent = {
 ---
 # creature.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass Creature
 
@@ -1056,7 +1056,7 @@ end
 ---
 # game.lua
 
-```lua
+`$fenceInfo
 
 function g_game.getRsa()
 
@@ -1263,7 +1263,7 @@ end
 ---
 # gamelib.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -1310,7 +1310,7 @@ Module
 ---
 # market.lua
 
-```lua
+`$fenceInfo
 
 MarketMaxAmount = 2000
 
@@ -1683,7 +1683,7 @@ end
 ---
 # player.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass Player
 
@@ -1950,7 +1950,7 @@ end
 ---
 # position.lua
 
-```lua
+`$fenceInfo
 
 Position = {}
 
@@ -2017,7 +2017,7 @@ end
 ---
 # protocol.lua
 
-```lua
+`$fenceInfo
 
 GameServerOpcodes = {
 
@@ -2418,7 +2418,7 @@ ClientOpcodes = {
 ---
 # protocolgame.lua
 
-```lua
+`$fenceInfo
 
 local opcodeCallbacks = {}
 
@@ -2655,7 +2655,7 @@ end
 ---
 # protocollogin.lua
 
-```lua
+`$fenceInfo
 
 -- @docclass
 
@@ -3170,7 +3170,7 @@ end
 ---
 # spells.lua
 
-```lua
+`$fenceInfo
 
 SpelllistSettings = {
 
@@ -4075,7 +4075,7 @@ end
 ---
 # textmessages.lua
 
-```lua
+`$fenceInfo
 
 local messageModeCallbacks = {}
 
@@ -4130,7 +4130,7 @@ end
 ---
 # thing.lua
 
-```lua
+`$fenceInfo
 
 ThingCategoryItem = 0
 
@@ -4231,7 +4231,7 @@ SpriteMaskYellow = 4
 ---
 # util.lua
 
-```lua
+`$fenceInfo
 
 function postostring(pos)
 

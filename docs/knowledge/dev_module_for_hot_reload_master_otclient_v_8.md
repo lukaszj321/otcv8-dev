@@ -1,42 +1,42 @@
-# Dev Module for Hot‑Reload (MASTER) – **OTClient v8**
+# Dev Module for HotĂ˘â‚¬â€Reload (MASTER) â€“ **OTClient v8**
 
-> Cel: dostarczyć **produkcyjny moduł Lua** wspierający hot‑reload skryptów OTClient oraz **NDJSON logowanie** do integracji ze Studio. Dokument zawiera: pełną strukturę plików, kompletny kod, konfigurację, protokoły, scenariusze testowe, checklisty i wskazówki operacyjne. **Transfer 1:1** – gotowe do wklejenia.
+> Cel: dostarczyÄ‡ **produkcyjny moduÄąâ€š Lua** wspierajÄ…cy hotĂ˘â‚¬â€reload skryptĂłw OTClient oraz **NDJSON logowanie** do integracji ze Studio. Dokument zawiera: peÄąâ€šnÄ… strukturÄ™ plikĂłw, kompletny kod, konfiguracjÄ™, protokoÄąâ€šy, scenariusze testowe, checklisty i wskazĂłwki operacyjne. **Transfer 1:1** â€“ gotowe do wklejenia.
 
 ---
-## 0) Założenia i zakres
-- **Hot‑reload:** wyzwalane skrótem klawiszowym w kliencie **lub** przez „flag file” (`modules/.dev/reload.flag`).
+## 0) ZaÄąâ€šoÄąÄ˝enia i zakres
+- **HotĂ˘â‚¬â€reload:** wyzwalane skrĂłtem klawiszowym w kliencie **lub** przez â€žflag fileâ€ť (`modules/.dev/reload.flag`).
 - **Logi NDJSON:** zapisywane do `modules/.dev/log.jsonl` (rotacja rozmiaru).
-- **Bezpieczeństwo:** brak step‑debuggera; debug przez logi i komunikaty.
-- **Zależności:** standardowe API OTClient v8 (m.in. `g_modules.reloadModules`, `g_resources.readFile/writeFile`, `addEvent/scheduleEvent`).
+- **BezpieczeÄąâ€žstwo:** brak stepĂ˘â‚¬â€debuggera; debug przez logi i komunikaty.
+- **ZaleÄąÄ˝noÄąâ€şci:** standardowe API OTClient v8 (m.in. `g_modules.reloadModules`, `g_resources.readFile/writeFile`, `addEvent/scheduleEvent`).
 
 ---
-## 1) Struktura plików modułu
-```
+## 1) Struktura plikĂłw moduÄąâ€šu
+`$fenceInfo
 modules/
-└─ dev/
-   ├─ dev.otmod
-   ├─ dev.lua
-   └─ ui/
-      └─ dev.otui   # (opcjonalne mini‑UI)
-# Katalog roboczy dla flag/logów (musi istnieć):
+Ă˘â€ťâ€ťĂ˘â€ťâ‚¬ dev/
+   Ă˘â€ťĹ›Ă˘â€ťâ‚¬ dev.otmod
+   Ă˘â€ťĹ›Ă˘â€ťâ‚¬ dev.lua
+   Ă˘â€ťâ€ťĂ˘â€ťâ‚¬ ui/
+      Ă˘â€ťâ€ťĂ˘â€ťâ‚¬ dev.otui   # (opcjonalne miniĂ˘â‚¬â€UI)
+# Katalog roboczy dla flag/logĂłw (musi istnieÄ‡):
 modules/.dev/
-   ├─ reload.flag   # plik‑flaga (pusty lub z treścią)
-   └─ log.jsonl     # NDJSON (tworzony automatycznie)
+   Ă˘â€ťĹ›Ă˘â€ťâ‚¬ reload.flag   # plikĂ˘â‚¬â€flaga (pusty lub z treÄąâ€şciÄ…)
+   Ă˘â€ťâ€ťĂ˘â€ťâ‚¬ log.jsonl     # NDJSON (tworzony automatycznie)
 ```
-> Uwaga: Utwórz katalog `modules/.dev/` ręcznie, jeśli nie istnieje.
+> Uwaga: UtwĂłrz katalog `modules/.dev/` rÄ™cznie, jeÄąâ€şli nie istnieje.
 
 ---
-## 2) `dev.otmod` (pełny plik)
-```otml
+## 2) `dev.otmod` (peÄąâ€šny plik)
+`$fenceInfo
 name: dev
 description: Development tools (hot-reload + NDJSON log)
-# Moduł ładuje dev.lua przy starcie klienta
-# (dodatkowe pola otmod według konwencji projektu)
+# ModuÄąâ€š Äąâ€šaduje dev.lua przy starcie klienta
+# (dodatkowe pola otmod wedÄąâ€šug konwencji projektu)
 ```
 
 ---
 ## 3) `ui/dev.otui` (opcjonalny szkielet UI)
-```otui
+`$fenceInfo
 DevWindow < UIWidget {
   id: devWindow
   width: 260
@@ -44,11 +44,11 @@ DevWindow < UIWidget {
   text: tr("Dev Tools")
 }
 ```
-> OTUI: wcięcia 2 spacje; kolejność pól: GEOMETRIA → STYL → ZACHOWANIE.
+> OTUI: wciÄ™cia 2 spacje; kolejnoÄąâ€şÄ‡ pĂłl: GEOMETRIA Ă˘â€ â€™ STYL Ă˘â€ â€™ ZACHOWANIE.
 
 ---
-## 4) `dev.lua` (pełny, produkcyjny kod modułu)
-```lua
+## 4) `dev.lua` (peÄąâ€šny, produkcyjny kod moduÄąâ€šu)
+`$fenceInfo
 -- modules/dev/dev.lua
 -- Dev tools: hot-reload via flag file + NDJSON logging
 -- Wymaga katalogu: modules/.dev/
@@ -59,13 +59,13 @@ local M = {}
 local CFG = {
   flagPath = 'modules/.dev/reload.flag',
   logPath  = 'modules/.dev/log.jsonl',
-  pollMs   = 400,      -- interwał sprawdzania flagi
+  pollMs   = 400,      -- interwaÄąâ€š sprawdzania flagi
   minReloadIntervalMs = 800, -- anty-drd
   maxLogBytes = 512 * 1024,  -- 512 KB rotacji
   echoToConsole = true,
 }
 
--- === Stan modułu ===
+-- === Stan moduÄąâ€šu ===
 local state = {
   lastReloadAt = 0,
   reloading = false,
@@ -77,7 +77,7 @@ local function nowMs()
   if g_clock and g_clock.millis then
     return g_clock.millis()
   end
-  -- fallback (sekundy → ms)
+  -- fallback (sekundy Ă˘â€ â€™ ms)
   return (os.time() or 0) * 1000
 end
 
@@ -116,7 +116,7 @@ local function encodeJSON(v)
       for k, val in pairs(v) do
         out[#out+1] = '"' .. jsonEscape(k) .. '":' .. encodeJSON(val)
       end
-      table.sort(out) -- stabilna kolejność kluczy
+      table.sort(out) -- stabilna kolejnoÄąâ€şÄ‡ kluczy
       return '{' .. table.concat(out, ',') .. '}'
     end
   end
@@ -136,7 +136,7 @@ end
 
 local function ensureLogSize(s)
   if #s <= CFG.maxLogBytes then return s end
-  -- rotacja: obetnij do ostatnich maxLogBytes (od granicy \n jeśli możliwe)
+  -- rotacja: obetnij do ostatnich maxLogBytes (od granicy \n jeÄąâ€şli moÄąÄ˝liwe)
   local cut = string.sub(s, -CFG.maxLogBytes)
   local p = cut:find('\n')
   if p then
@@ -222,7 +222,7 @@ local function doReload(reason)
   return ok
 end
 
--- public API do ręcznego wywołania z konsoli
+-- public API do rÄ™cznego wywoÄąâ€šania z konsoli
 function M.requestReload(reason)
   return doReload(reason or 'manual')
 end
@@ -244,60 +244,60 @@ local function start()
   end)
 end
 
--- start modułu
+-- start moduÄąâ€šu
 start()
 
 return M
 ```
 
 ---
-## 5) Protokół integracji ze **Studio**
-- **Wyzwalanie reloadu:** Studio zapisuje/"dotyka" `modules/.dev/reload.flag` → moduł wykrywa i woła `g_modules.reloadModules()`.
-- **Logi NDJSON:** Studio tail‑uje `modules/.dev/log.jsonl` i filtruje po `level/tag/file:line`.
-- **Akcje ręczne:** z konsoli: `modules.dev.dev.requestReload('manual')` (jeżeli środowisko wspiera wywołania).
+## 5) ProtokĂłÄąâ€š integracji ze **Studio**
+- **Wyzwalanie reloadu:** Studio zapisuje/"dotyka" `modules/.dev/reload.flag` Ă˘â€ â€™ moduÄąâ€š wykrywa i woÄąâ€ša `g_modules.reloadModules()`.
+- **Logi NDJSON:** Studio tailĂ˘â‚¬â€uje `modules/.dev/log.jsonl` i filtruje po `level/tag/file:line`.
+- **Akcje rÄ™czne:** z konsoli: `modules.dev.dev.requestReload('manual')` (jeÄąÄ˝eli Äąâ€şrodowisko wspiera wywoÄąâ€šania).
 
 ---
 ## 6) Konfiguracja i warianty
-- `CFG.pollMs` – interwał sprawdzania flagi (zalecane 300–600 ms).
-- `CFG.minReloadIntervalMs` – anty‑drganie przy seryjnych zapisach.
-- `CFG.maxLogBytes` – rotacja logu (zapobiega rozrostowi pliku).
-- `CFG.echoToConsole` – mirror logów do konsoli klienta.
+- `CFG.pollMs` â€“ interwaÄąâ€š sprawdzania flagi (zalecane 300â€“600 ms).
+- `CFG.minReloadIntervalMs` â€“ antyĂ˘â‚¬â€drganie przy seryjnych zapisach.
+- `CFG.maxLogBytes` â€“ rotacja logu (zapobiega rozrostowi pliku).
+- `CFG.echoToConsole` â€“ mirror logĂłw do konsoli klienta.
 
-> Zmiany konfiguracji wprowadzaj w `dev.lua` i przeładuj moduły.
+> Zmiany konfiguracji wprowadzaj w `dev.lua` i przeÄąâ€šaduj moduÄąâ€šy.
 
 ---
 ## 7) Scenariusze testowe (QA)
-1. **Start modułu:** uruchom klienta → w `log.jsonl` linia `startup/dev module ready`.
-2. **Reload przez flagę:** utwórz pusty `modules/.dev/reload.flag` → w logu `reload/requested` i `reload/done`.
-3. **Anty‑drganie:** utwórz 3× flagę w < 800 ms → 1 realny reload.
-4. **Błąd podczas reloadu (symulacja):** tymczasowo zasymuluj błąd w `g_modules.reloadModules` (jeśli możliwe) → `reload/failed` (ERROR) w logu.
-5. **Rotacja logu:** wygeneruj > `maxLogBytes` → plik przycięty do dozwolonego rozmiaru, bez rozbicia JSON.
+1. **Start moduÄąâ€šu:** uruchom klienta Ă˘â€ â€™ w `log.jsonl` linia `startup/dev module ready`.
+2. **Reload przez flagÄ™:** utwĂłrz pusty `modules/.dev/reload.flag` Ă˘â€ â€™ w logu `reload/requested` i `reload/done`.
+3. **AntyĂ˘â‚¬â€drganie:** utwĂłrz 3Ä‚â€” flagÄ™ w < 800 ms Ă˘â€ â€™ 1 realny reload.
+4. **BÄąâ€šÄ…d podczas reloadu (symulacja):** tymczasowo zasymuluj bÄąâ€šÄ…d w `g_modules.reloadModules` (jeÄąâ€şli moÄąÄ˝liwe) Ă˘â€ â€™ `reload/failed` (ERROR) w logu.
+5. **Rotacja logu:** wygeneruj > `maxLogBytes` Ă˘â€ â€™ plik przyciÄ™ty do dozwolonego rozmiaru, bez rozbicia JSON.
 
 ---
-## 8) Checklisty wdrożeniowe
-- [ ] Utwórz `modules/.dev/` (zapisywalny katalog).
+## 8) Checklisty wdroÄąÄ˝eniowe
+- [ ] UtwĂłrz `modules/.dev/` (zapisywalny katalog).
 - [ ] Skopiuj `dev.otmod`, `dev.lua`, opcjonalnie `ui/dev.otui` do `modules/dev/`.
-- [ ] Uruchom klienta; sprawdź, czy `log.jsonl` powstał.
+- [ ] Uruchom klienta; sprawdÄąĹź, czy `log.jsonl` powstaÄąâ€š.
 - [ ] Zapisz/"dotknij" `modules/.dev/reload.flag`; obserwuj `log.jsonl`.
-- [ ] Skonfiguruj Studio, by tail‑owało `log.jsonl` i zapisywało flagę.
+- [ ] Skonfiguruj Studio, by tailĂ˘â‚¬â€owaÄąâ€šo `log.jsonl` i zapisywaÄąâ€šo flagÄ™.
 
 ---
 ## 9) Noty operacyjne
-- Jeśli `modules/.dev/` nie istnieje lub brak uprawnień zapisu, **logi trafią tylko na konsolę** (zależnie od `echoToConsole`).
-- `writeFile` nadpisuje – dlatego **append** realizujemy przez odczyt→doklejenie→zapis + rotację.
-- Wydziel logowanie ciężkie (duże `meta`) – może spowolnić zapis; zalecane krótkie pola.
+- JeÄąâ€şli `modules/.dev/` nie istnieje lub brak uprawnieÄąâ€ž zapisu, **logi trafiÄ… tylko na konsolÄ™** (zaleÄąÄ˝nie od `echoToConsole`).
+- `writeFile` nadpisuje â€“ dlatego **append** realizujemy przez odczytĂ˘â€ â€™doklejenieĂ˘â€ â€™zapis + rotacjÄ™.
+- Wydziel logowanie ciÄ™ÄąÄ˝kie (duÄąÄ˝e `meta`) â€“ moÄąÄ˝e spowolniÄ‡ zapis; zalecane krĂłtkie pola.
 
 ---
 ## 10) Rozszerzenia (opcjonalne)
-- **Keybind reloadu:** dodać skrót klawiszowy wiążący `M.requestReload()` (jeśli środowisko udostępnia mapowanie klawiszy).
-- **UI DevWindow:** przyciski *Request Reload*, *Open Log*, licznik reloadów.
-- **Heartbeat:** wpis NDJSON co X sekund potwierdzający żywotność modułu.
+- **Keybind reloadu:** dodaÄ‡ skrĂłt klawiszowy wiÄ…ÄąÄ˝Ä…cy `M.requestReload()` (jeÄąâ€şli Äąâ€şrodowisko udostÄ™pnia mapowanie klawiszy).
+- **UI DevWindow:** przyciski *Request Reload*, *Open Log*, licznik reloadĂłw.
+- **Heartbeat:** wpis NDJSON co X sekund potwierdzajÄ…cy ÄąÄ˝ywotnoÄąâ€şÄ‡ moduÄąâ€šu.
 
 ---
 ## 11) Definition of Done (DoD)
-- [ ] Moduł ładuje się, loguje `startup` (NDJSON + konsola).
-- [ ] Flaga wyzwala `reload` deterministycznie (z anty‑drganiem).
-- [ ] Rotacja logu działa; plik nie rośnie nieograniczenie.
+- [ ] ModuÄąâ€š Äąâ€šaduje siÄ™, loguje `startup` (NDJSON + konsola).
+- [ ] Flaga wyzwala `reload` deterministycznie (z antyĂ˘â‚¬â€drganiem).
+- [ ] Rotacja logu dziaÄąâ€ša; plik nie roÄąâ€şnie nieograniczenie.
 - [ ] Studio wykrywa logi i poprawnie je filtruje.
-- [ ] Brak globali; `local` wszędzie; brak użycia `unpack` (tylko `table.unpack`).
+- [ ] Brak globali; `local` wszÄ™dzie; brak uÄąÄ˝ycia `unpack` (tylko `table.unpack`).
 

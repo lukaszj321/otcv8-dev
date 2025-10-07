@@ -1,6 +1,6 @@
-# ¦ Modul: `client_styles`
+# Â¦ Modul: `client_styles`
 
-```lua
+`$fenceInfo
 
 function init()
 
@@ -107,7 +107,7 @@ end
 ---
 # styles.otmod
 
-```text
+`$fenceInfo
 
 Module
 

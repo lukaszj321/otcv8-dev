@@ -1,6 +1,6 @@
-# ¦ Modul: `crash_reporter`
+# Â¦ Modul: `crash_reporter`
 
-```lua
+`$fenceInfo
 
 local CRASH_FILE = "exception.dmp"
 
@@ -47,7 +47,7 @@ end
 ---
 # crash_reporter.otmod
 
-```text
+`$fenceInfo
 
 Module
 

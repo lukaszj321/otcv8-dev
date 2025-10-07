@@ -1,6 +1,6 @@
-# ¦ Modul: `game_imbuing`
+# Â¦ Modul: `game_imbuing`
 
-```lua
+`$fenceInfo
 
 local imbuingWindow
 
@@ -579,7 +579,7 @@ end
 ---
 # imbuing.otmod
 
-```text
+`$fenceInfo
 
 Module
 
@@ -604,7 +604,7 @@ Module
 ---
 # imbuing.otui
 
-```otui
+`$fenceInfo
 
 Slot < Button
 

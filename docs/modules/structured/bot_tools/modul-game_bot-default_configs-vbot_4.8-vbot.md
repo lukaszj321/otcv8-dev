@@ -1,6 +1,6 @@
-# ¦ Modul: `game_bot/default_configs/vBot_4.8/vBot`
+# Â¦ Modul: `game_bot/default_configs/vBot_4.8/vBot`
 
-```lua
+`$fenceInfo
 
 setDefaultTab('main')
 
@@ -2361,7 +2361,7 @@ end)
 ---
 # AttackBot.otui
 
-```otui
+`$fenceInfo
 
 AttackEntry < UIWidget
 
@@ -3464,7 +3464,7 @@ AttackBotWindow < MainWindow
 ---
 # BotServer.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -3909,7 +3909,7 @@ addSeparator()
 ---
 # BotServer.otui
 
-```otui
+`$fenceInfo
 
 BotServerData < Panel
 
@@ -4266,7 +4266,7 @@ BotServerWindow < MainWindow
 ---
 # Conditions.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("HP")
 
@@ -4715,7 +4715,7 @@ Panel
 ---
 # Conditions.otui
 
-```otui
+`$fenceInfo
 
 UturaComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -5530,7 +5530,7 @@ ConditionsWindow < MainWindow
 ---
 # Containers.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -6745,7 +6745,7 @@ end)
 ---
 # Dropper.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -7000,7 +7000,7 @@ end)
 ---
 # Equipper.lua
 
-```lua
+`$fenceInfo
 
 local panelName = "EquipperPanel"
 
@@ -8379,7 +8379,7 @@ end)
 ---
 # HealBot.lua
 
-```lua
+`$fenceInfo
 
 local standBySpells = false
 
@@ -9672,7 +9672,7 @@ end)
 ---
 # HealBot.otui
 
-```otui
+`$fenceInfo
 
 SettingCheckBox < CheckBox
 
@@ -10527,7 +10527,7 @@ HealWindow < MainWindow
 ---
 # Sio.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -10984,7 +10984,7 @@ addSeparator()
 ---
 # alarms.lua
 
-```lua
+`$fenceInfo
 
 local panelName = "alarms"
 
@@ -11351,7 +11351,7 @@ end)
 ---
 # alarms.otui
 
-```otui
+`$fenceInfo
 
 AlarmCheckBox < Panel
 
@@ -11598,7 +11598,7 @@ AlarmsWindow < MainWindow
 ---
 # analyzer.lua
 
-```lua
+`$fenceInfo
 
 --[[
 
@@ -14725,7 +14725,7 @@ end
 ---
 # analyzer.otui
 
-```otui
+`$fenceInfo
 
 BossCreaturePanel < Panel
 
@@ -15606,7 +15606,7 @@ FeaturesWindow < MainWindow
 ---
 # antiRs.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -15671,7 +15671,7 @@ end)
 ---
 # cast_food.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("HP")
 
@@ -15722,7 +15722,7 @@ end
 ---
 # cavebot.lua
 
-```lua
+`$fenceInfo
 
 -- Cavebot by otclient@otclient.ovh
 
@@ -15829,7 +15829,7 @@ dofile("/targetbot/target.lua")
 ---
 # cavebot_control_panel.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Cave")
 
@@ -15936,7 +15936,7 @@ end, panel.buttons)
 ---
 # combo.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -16737,7 +16737,7 @@ end
 ---
 # combo.otui
 
-```otui
+`$fenceInfo
 
 AttackComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -17432,7 +17432,7 @@ ComboWindow < MainWindow
 ---
 # configs.lua
 
-```lua
+`$fenceInfo
 
 --[[ 
 
@@ -17609,7 +17609,7 @@ end
 ---
 # depositer_config.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Cave")
 
@@ -17864,7 +17864,7 @@ sellContainer:setItems(storage.cavebotSell)
 ---
 # depositer_config.otui
 
-```otui
+`$fenceInfo
 
 StashItem < Panel
 
@@ -18047,7 +18047,7 @@ DepositerPanel < MainWindow
 ---
 # depot_withdraw.lua
 
-```lua
+`$fenceInfo
 
 -- config
 
@@ -18182,7 +18182,7 @@ end)
 ---
 # eat_food.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("HP")
 
@@ -18279,7 +18279,7 @@ UI.Separator()
 ---
 # equip.lua
 
-```lua
+`$fenceInfo
 
 -- config
 
@@ -18356,7 +18356,7 @@ end)
 ---
 # equipper.otui
 
-```otui
+`$fenceInfo
 
 SlotBotItem < BotItem
 
@@ -19297,7 +19297,7 @@ EquipWindow < MainWindow
 ---
 # exeta.lua
 
-```lua
+`$fenceInfo
 
 local voc = player:getVocation()
 
@@ -19356,7 +19356,7 @@ end
 ---
 # extras.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -20519,7 +20519,7 @@ end
 ---
 # extras.otui
 
-```otui
+`$fenceInfo
 
 ExtrasScrollBar < Panel
 
@@ -20800,7 +20800,7 @@ ExtrasWindow < MainWindow
 ---
 # hold_target.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -20857,7 +20857,7 @@ end)
 ---
 # ingame_editor.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Tools")
 
@@ -20904,7 +20904,7 @@ UI.Button("Ingame script editor", function(newText)
 ---
 # items.lua
 
-```lua
+`$fenceInfo
 
 LootItems = {
 
@@ -23711,7 +23711,7 @@ WasteItems = {
 ---
 # main.lua
 
-```lua
+`$fenceInfo
 
 local version = "4.8"
 
@@ -23774,7 +23774,7 @@ end)
 ---
 # new_cavebot_lib.lua
 
-```lua
+`$fenceInfo
 
 CaveBot = {} -- global namespace
 
@@ -24683,7 +24683,7 @@ end
 ---
 # new_healer.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Main")
 
@@ -25478,7 +25478,7 @@ end)
 ---
 # new_healer.otui
 
-```otui
+`$fenceInfo
 
 CategoryCheckBox < CheckBox
 
@@ -26183,7 +26183,7 @@ FriendHealer < MainWindow
 ---
 # npc_talk.lua
 
-```lua
+`$fenceInfo
 
 onAttackingCreatureChange(function(creature, OldCreature)
 
@@ -26200,7 +26200,7 @@ end)
 ---
 # playerlist.lua
 
-```lua
+`$fenceInfo
 
 --[[
 
@@ -26837,7 +26837,7 @@ end)
 ---
 # playerlist.otui
 
-```otui
+`$fenceInfo
 
 PlayerLabel < UIWidget
 
@@ -27100,7 +27100,7 @@ PlayerListWindow < MainWindow
 ---
 # pushmax.lua
 
-```lua
+`$fenceInfo
 
 ---@diagnostic disable: undefined-global
 
@@ -27613,7 +27613,7 @@ end)
 ---
 # pushmax.otui
 
-```otui
+`$fenceInfo
 
 PushMaxWindow < MainWindow
 
@@ -27770,7 +27770,7 @@ PushMaxWindow < MainWindow
 ---
 # quiver_label.lua
 
-```lua
+`$fenceInfo
 
 local quiverSlot = modules.game_inventory.inventoryWindow:recursiveGetChildById('slot5')
 
@@ -27869,7 +27869,7 @@ end)
 ---
 # quiver_manager.lua
 
-```lua
+`$fenceInfo
 
 if voc() == 2 or voc() == 12 then
 
@@ -28028,7 +28028,7 @@ end
 ---
 # siolist.otui
 
-```otui
+`$fenceInfo
 
 VocationPanel < Panel
 
@@ -28367,7 +28367,7 @@ SioListWindow < MainWindow
 ---
 # spy_level.lua
 
-```lua
+`$fenceInfo
 
 -- config
 
@@ -28412,7 +28412,7 @@ end)
 ---
 # supplies.lua
 
-```lua
+`$fenceInfo
 
 setDefaultTab("Cave")
 
@@ -29231,7 +29231,7 @@ end
 ---
 # supplies.otui
 
-```otui
+`$fenceInfo
 
 ProfileLabel < UIWidget
 
@@ -29668,7 +29668,7 @@ SuppliesWindow < MainWindow
 ---
 # tools.lua
 
-```lua
+`$fenceInfo
 
 -- tools tab
 
@@ -29757,7 +29757,7 @@ UI.Separator()
 ---
 # version.txt
 
-```text
+`$fenceInfo
 
 4.8
 
@@ -29766,7 +29766,7 @@ UI.Separator()
 ---
 # vlib.lua
 
-```lua
+`$fenceInfo
 
 -- Author: Vithrax
 
@@ -31885,7 +31885,7 @@ diamondArrowArea = [[
 ---
 # xeno_menu.lua
 
-```lua
+`$fenceInfo
 
 modules.game_interface.gameRootPanel.onMouseRelease = function(widget, mousePos, mouseButton)
 
