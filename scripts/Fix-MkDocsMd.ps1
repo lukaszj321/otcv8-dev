@@ -141,8 +141,8 @@ function Fix-Content {
 # --- Wykonanie ---
 $files = Get-MdFiles -Root $Path -Skip $ExcludeDirs
 if (-not $files) {
-    Write-Host "Brak plików .md w '$Path' (po odfiltrowaniu katalogów)." -ForegroundColor Yellow
-    exit 0
+  Write-Host "Brak plików .md w '$Path' (po odfiltrowaniu katalogów)." -ForegroundColor Yellow
+  exit 0
 }
 
 [int]$checked = 0
@@ -150,24 +150,24 @@ if (-not $files) {
 $changedList = New-Object System.Collections.Generic.List[string]
 
 foreach ($f in $files) {
-    $checked++
-    $raw = Get-Content -LiteralPath $f.FullName -Raw -Encoding Byte
-    # Wymuś odczyt jako UTF8 (bez BOM), bez ryzyka utraty bajtów
-    $text = [System.Text.Encoding]::UTF8.GetString($raw)
+  $checked++
+  $raw = Get-Content -LiteralPath $f.FullName -Raw -Encoding Byte
+  # Wymuś odczyt jako UTF8 (bez BOM), bez ryzyka utraty bajtów
+  $text = [System.Text.Encoding]::UTF8.GetString($raw)
 
-    $res = Fix-Content -Text $text
-    if ($res.Changed) {
-        $changed++
-        $changedList.Add($f.FullName)
-        if ($Apply) {
-            $bak = "$($f.FullName).bak"
-            if (-not (Test-Path -LiteralPath $bak)) {
-                [System.IO.File]::WriteAllBytes($bak, $raw)
-            }
-            Set-Content -LiteralPath $f.FullName -Value $res.NewText -Encoding UTF8
-            Write-Host "Fix: $($f.FullName)" -ForegroundColor Green
-        }
+  $res = Fix-Content -Text $text
+  if ($res.Changed) {
+    $changed++
+    $changedList.Add($f.FullName)
+    if ($Apply) {
+      $bak = "$($f.FullName).bak"
+      if (-not (Test-Path -LiteralPath $bak)) {
+        [System.IO.File]::WriteAllBytes($bak, $raw)
+      }
+      Set-Content -LiteralPath $f.FullName -Value $res.NewText -Encoding UTF8
+      Write-Host "Fix: $($f.FullName)" -ForegroundColor Green
     }
+  }
 }
 
 Write-Host ""
@@ -177,16 +177,15 @@ Write-Host ("Unchanged: {0}" -f ($checked - $changed))
 Write-Host ""
 
 if (-not $Apply) {
-    Write-Host "Preview mode. Use -Apply to write changes (creates .bak)." -ForegroundColor Yellow
-    if ($changed -gt 0) {
-        Write-Host "`nChanged files:" -ForegroundColor Cyan
-        $changedList | ForEach-Object { Write-Host " - $($_)" }
-    }
-}
-else {
-    Write-Host "Apply mode. Changes written. Backups *.bak created next to files." -ForegroundColor Cyan
-    if ($changed -gt 0) {
-        Write-Host "`nChanged files:" -ForegroundColor Cyan
-        $changedList | ForEach-Object { Write-Host " - $($_)" }
-    }
+  Write-Host "Preview mode. Use -Apply to write changes (creates .bak)." -ForegroundColor Yellow
+  if ($changed -gt 0) {
+    Write-Host "`nChanged files:" -ForegroundColor Cyan
+    $changedList | ForEach-Object { Write-Host " - $($_)" }
+  }
+} else {
+  Write-Host "Apply mode. Changes written. Backups *.bak created next to files." -ForegroundColor Cyan
+  if ($changed -gt 0) {
+    Write-Host "`nChanged files:" -ForegroundColor Cyan
+    $changedList | ForEach-Object { Write-Host " - $($_)" }
+  }
 }
