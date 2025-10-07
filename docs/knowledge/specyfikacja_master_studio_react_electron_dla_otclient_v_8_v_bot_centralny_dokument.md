@@ -73,7 +73,7 @@ v
 ---
 ## 6. Kontrakty i modele danych (kanoniczne, wersjonowane)
 > Każdy JSON zawiera `$schemaVersion` i jest walidowany testami kontraktowymi.
-## # 6.1. `resources/api.json` (kuratorowane, seed + ingest)
+## 6.1. `resources/api.json` (kuratorowane, seed + ingest)
 ```json
 {
   "$schemaVersion": 1,
@@ -92,7 +92,7 @@ v
 }
 ```
 > **Uwaga:** to seed. Pełny `api.json` powstaje wg §7 z lokalnych plików dokumentacji.
-## # 6.2. `project-index.json` (z automatycznego skanu)
+## 6.2. `project-index.json` (z automatycznego skanu)
 ```json
 {
   "$schemaVersion": 1,
@@ -102,23 +102,23 @@ v
   "relations": {"lua_to_otui": [{"lua": "modules/client/client.lua", "otui": "modules/client/ui/main.otui", "via": "g_ui.loadUI"}], "includes": [{"from": "modules/a/main.lua", "to": "modules/a/util.lua", "via": "dofile"}]}
 }
 ```
-## # 6.3. `otui-rules.json` (lint/auto‑fix)
+## 6.3. `otui-rules.json` (lint/auto‑fix)
 ```json
 {"$schemaVersion":1,"rules":[{"id":"OTUI-001","description":"Kolejność pól: GEOMETRIA→STYL→ZACHOWANIE.","fixable":true},{"id":"OTUI-002","description":"Stałe stringi muszą używać tr().","fixable":true},{"id":"OTUI-003","description":"Walidacja anchors/margins (brak sprzeczności).","fixable":false},{"id":"OTUI-004","description":"Weryfikacja istnienia zasobów (obrazy, fonty, style).","fixable":false}]}
 ```
-## # 6.4. `templates.json` (generator)
+## 6.4. `templates.json` (generator)
 ```json
 {"$schemaVersion":1,"module.default":{"title":"Moduł OTClient — szkielet","files":[{"path":"modules/hello/hello.otmod","contents":"name: hello\n"},{"path":"modules/hello/hello.lua","contents":"-- entry point\nlocal M = {}\nreturn M\n"},{"path":"modules/hello/ui/hello.otui","contents":"MainWindow < UIWidget { }\n"}],"checklist":["Umieść katalog w modules/","Uruchom klienta i przeładuj moduły","Sprawdź log po starcie modułu"]}}
 ```
-## # 6.5. `docstrings.json`
+## 6.5. `docstrings.json`
 ```json
 {"$schemaVersion":1,"entries":[{"file":"modules/x/main.lua","line":10,"symbol":"foo","params":[{"name":"a","type":"number"}],"returns":[{"type":"boolean"}],"comment":"---@param a number\n---@return boolean"}]}
 ```
-## # 6.6. `assets-map.json`
+## 6.6. `assets-map.json`
 ```json
 {"$schemaVersion":1,"assets":{"images":["images/button.png"],"fonts":["fonts/verdana.otf"],"styles":["styles/dark.otui"]}}
 ```
-## # 6.7. `.studio/config.json`
+## 6.7. `.studio/config.json`
 ```json
 {"$schemaVersion":1,"projectRoot":"/abs/path/to/project","apiPath":"resources/api.json","otuiRulesPath":"resources/otui-rules.json","templatesPath":"resources/templates.json","logPath":"/abs/path/to/log.ndjson","ignore":["**/node_modules/**",".git/**"]}
 ```
@@ -359,4 +359,5 @@ Przykład:
 - Ten dokument jest **źródłem prawdy (SoT)**. Dodatkowe canvasy muszą odwoływać się do sekcji (§) i kontraktów tutaj zdefiniowanych.
 - Zmiany wymagają podniesienia `$schemaVersion` i przejścia testów kontraktowych.
 - Wszelkie dane są przygotowane z myślą o pracy **offline** w oparciu o lokalne pliki dokumentacji i kodu.
+
 

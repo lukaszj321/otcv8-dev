@@ -4,7 +4,7 @@
 ## game_interface
 # Game Interface Module
 ## `gameinterface.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `bindKeys()`
@@ -56,7 +56,7 @@
 - `local addLeftPanel()`
 - `local removeRightPanel()`
 - `local removeLeftPanel()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `addEvent`
 - `connect`
@@ -82,7 +82,7 @@
 - `onVisibleDimensionChange`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -96,7 +96,7 @@
 ## game_inventory
 # Game Inventory Module
 ## `inventory.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -123,7 +123,7 @@
 - `onSoulChange(localPlayer, soul)`
 - `onFreeCapacityChange(player, freeCapacity)`
 - `onStatesChange(localPlayer, now, old)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onAutoWalk`
@@ -151,7 +151,7 @@
 - `onStatesChange`
 - `onWalk`
 - `online`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -161,7 +161,7 @@
 ## game_console
 # Game Console Module
 ## `console.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `clearSelection(consoleBuffer)`
@@ -240,7 +240,7 @@
 - `online()`
 - `offline()`
 - `onChannelEvent(channelId, name, type)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onChannelEvent`
@@ -272,7 +272,7 @@
 - `onTalk`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -284,15 +284,15 @@
 ## game_things
 # Game Things Module
 ## `things.lua`
-## # Funkcje
+## Funkcje
 
 - `setFileName(name)`
 - `isLoaded()`
 - `load()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `addEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 
@@ -300,7 +300,7 @@
 ## game_textmessage
 # Game Textmessage Module
 ## `textmessage.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -312,13 +312,13 @@
 - `displayGameMessage(text)`
 - `displayBroadcastMessage(text)`
 - `clearMessages()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onAutoWalkFail`
 - `onGameEnd`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -327,14 +327,15 @@
 ## game_buttons
 # Game Buttons Module
 ## `buttons.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
 - `takeButtons(buttons)`
 - `takeButton(button, dontUpdateOrder)`
 - `updateOrder()`
-## # Wywołania API
+## Wywołania API
 
 - `g_ui`
+
 

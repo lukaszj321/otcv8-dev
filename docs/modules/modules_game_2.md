@@ -4,7 +4,7 @@
 ## game_hotkeys
 # Game Hotkeys Module
 ## `hotkeys_extra.lua`
-## # Funkcje
+## Funkcje
 
 - `addExtraHotkey(name, description, callback)`
 - `setupExtraHotkeys(combobox)`
@@ -12,11 +12,11 @@
 - `translateActionToActionComboboxIndex(action)`
 - `translateActionComboboxIndexToAction(index)`
 - `getActionDescription(action)`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 ## `hotkeys_manager.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -52,7 +52,7 @@
 - `onSelectHotkeyLabel(hotkeyLabel)`
 - `hotkeyCapture(assignWindow, keyCode, keyboardModifiers)`
 - `hotkeyCaptureOk(assignWindow, keyCombo)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onChangeUseType`
@@ -69,7 +69,7 @@
 - `onSendAutomaticallyChange`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -81,7 +81,7 @@
 ## game_minimap
 # Game Minimap Module
 ## `minimap.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -93,7 +93,7 @@
 - `saveMap()`
 - `updateCameraPosition()`
 - `toggleFullMap()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onGameEnd`
@@ -101,7 +101,7 @@
 - `onMiniWindowClose`
 - `onPositionChange`
 - `online`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -111,11 +111,11 @@
 ## game_actionbar
 # Game Actionbar Module
 ## `actionbar.lua`
-## # Opis
+## Opis
 -- servers may have different id's, change if not working properly (only for protocols 910+)
 
 -- ek
-## # Funkcje
+## Funkcje
 
 - `translateVocation(id)`
 - `isSpell(text)`
@@ -149,7 +149,7 @@
 - `local translateVocation(id)`
 - `local isSpell(text)`
 - `local filterByVocation(a, filter)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onCheckChange`
@@ -173,7 +173,7 @@
 - `online`
 - `only`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -185,7 +185,7 @@
 ## game_skills
 # Game Skills Module
 ## `skills.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -222,7 +222,7 @@
 - `onBaseMagicLevelChange(localPlayer, baseMagicLevel)`
 - `onSkillChange(localPlayer, id, level, percent)`
 - `onBaseSkillChange(localPlayer, id, baseLevel)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onBaseMagicLevelChange`
@@ -246,7 +246,7 @@
 - `onStaminaChange`
 - `onTotalCapacityChange`
 - `only`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -256,17 +256,17 @@
 ## game_stats
 # Game Stats Module
 ## `stats.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
 - `update()`
 - `show()`
 - `hide()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -275,7 +275,7 @@
 ## game_viplist
 # Game Viplist Module
 ## `viplist.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -298,7 +298,7 @@
 - `onVipStateChange(id, state)`
 - `onVipListMousePress(widget, mousePos, mouseButton)`
 - `onVipListLabelMousePress(widget, mousePos, mouseButton)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onAddVip`
@@ -313,7 +313,7 @@
 - `onVipListLabelMousePress`
 - `onVipListMousePress`
 - `onVipStateChange`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -324,7 +324,7 @@
 ## game_spelllist
 # Game Spelllist Module
 ## `spelllist.lua`
-## # Funkcje
+## Funkcje
 
 - `getSpelllistProfile()`
 - `setSpelllistProfile(name)`
@@ -340,7 +340,7 @@
 - `toggleFilter(widget, selectedWidget)`
 - `resizeWindow()`
 - `resetWindow()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onChildFocusChange`
@@ -350,7 +350,7 @@
 - `onSelectionChange`
 - `online`
 - `only`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -360,7 +360,7 @@
 ## game_outfit
 # Game Outfit Module
 ## `outfit.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -410,7 +410,7 @@
 - `loadSettings()`
 - `loadDefaultSettings()`
 - `accept()`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `addEvent`
 - `connect`
@@ -442,7 +442,7 @@
 - `onShowShaderChange`
 - `onShowWingsChange`
 - `onWingsSelect`
-## # Wywołania API
+## Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -452,7 +452,7 @@
 ## game_shaders
 # Game Shaders Module
 ## `shaders.lua`
-## # Opis
+## Opis
 -- add manually your shaders from /data/shaders
 
 -- map shaders
@@ -460,11 +460,11 @@
 -- use modules.game_interface.gameMapPanel:setShader("map_rainbow") to set shader
 
 -- outfit shaders
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
-## # Wywołania API
+## Wywołania API
 
 - `g_shaders`
 
@@ -472,7 +472,7 @@
 ## game_cooldown
 # Game Cooldown Module
 ## `cooldown.lua`
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
@@ -489,7 +489,7 @@
 - `isCooldownIconActive(iconId)`
 - `onSpellCooldown(iconId, duration)`
 - `onSpellGroupCooldown(groupId, duration)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onEffectEnd`
@@ -499,7 +499,7 @@
 - `onSpellGroupCooldown`
 - `online`
 - `scheduleEvent`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
 - `g_ui`
@@ -508,21 +508,22 @@
 ## game_features
 # Game Features Module
 ## `features.lua`
-## # Opis
+## Opis
 -- you can add custom features here, list of them is in the modules\gamelib\const.lua
 
 --g_game.enableFeature(GameExtendedOpcode)
-## # Funkcje
+## Funkcje
 
 - `init()`
 - `terminate()`
 - `updateFeatures(version)`
-## # Eventy / Hooki
+## Eventy / Hooki
 
 - `connect`
 - `onClientVersionChange`
 - `only`
-## # Wywołania API
+## Wywołania API
 
 - `g_game`
+
 
