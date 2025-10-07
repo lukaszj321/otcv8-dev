@@ -1,5 +1,5 @@
 {% raw %}
-# ¦ Modul: `corelib/ui`
+# | Modul: `corelib/ui`
 
 ```lua
 

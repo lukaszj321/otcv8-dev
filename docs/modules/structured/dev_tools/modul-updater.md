@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `updater`
+# | Modul: `updater`
 
 ```lua
 
@@ -20,7 +20,7 @@ local httpOperationId = 0
 
 local function onLog(level, message, time)
 
-  if level == LogError then    
+  if level == LogError then
 
     Updater.error(message)
 
@@ -38,7 +38,7 @@ local function initAppWindow()
 
   else
 
-    g_window.setMinimumSize({ width = 800, height = 640 })  
+    g_window.setMinimumSize({ width = 800, height = 640 })
 
   end
 
@@ -188,7 +188,7 @@ local function updateFiles(data, keepCurrentFiles)
 
   if type(data["error"]) == 'string' and data["error"]:len() > 0 then
 
-    return Updater.error(data["error"])    
+    return Updater.error(data["error"])
 
   end
 
@@ -316,7 +316,7 @@ local function updateFiles(data, keepCurrentFiles)
 
     updaterWindow.downloadProgress:hide()
 
-    updaterWindow.downloadStatus:hide() 
+    updaterWindow.downloadStatus:hide()
 
     scheduledEvent = scheduleEvent(function()
 
@@ -350,7 +350,7 @@ local function updateFiles(data, keepCurrentFiles)
 
       end
 
-    end, 100)  
+    end, 100)
 
   end)
 
@@ -406,7 +406,7 @@ function Updater.check(args)
 
   updaterWindow:focus()
 
-  updaterWindow:raise()  
+  updaterWindow:raise()
 
   local updateData = nil
 
@@ -448,7 +448,7 @@ function Updater.check(args)
 
   }, function(data, err)
 
-    if err then      
+    if err then
 
       return Updater.error(err)
 

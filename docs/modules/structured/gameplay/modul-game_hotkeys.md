@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_hotkeys`
+# | Modul: `game_hotkeys`
 
 ```lua
 

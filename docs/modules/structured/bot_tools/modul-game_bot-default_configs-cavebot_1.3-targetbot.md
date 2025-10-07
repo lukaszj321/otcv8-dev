@@ -1,5 +1,5 @@
 {% raw %}
-# ¦ Modul: `game_bot/default_configs/cavebot_1.3/targetbot`
+# | Modul: `game_bot/default_configs/cavebot_1.3/targetbot`
 
 ```lua
 
