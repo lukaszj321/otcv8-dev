@@ -94,13 +94,6 @@ g_keyboard:getModifiers()          -- Returns a string with active modifiers ("s
 g_keyboard:setRepeatDelay(delay)   -- Sets the key repeat delay
 g_keyboard:setRepeatInterval(interval) -- Sets the key repeat interval
 
-... (Pozostałe wiersze: 124)
-Zwiń
-message.txt
-11 KB
-Dildo
- zmienił(-a) tytuł posta: ＯＴＣｌｉｅｎｔ░░Ｖ８░░–░░Ｌｕａ░░ＡＰＩ░░Ｄｏｃｕｍｅｎｔａｔｉｏｎ — 16:26
-
 ---
 ## # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
@@ -305,6 +298,9 @@ These are not widgets but are used extensively to define widget properties.
 - **`Font`**: Represents a font asset.
 - **`Image`**: Represents an image asset.
 
----
-```
+---
+
+```
+
+
 
