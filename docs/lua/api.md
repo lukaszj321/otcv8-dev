@@ -1,24 +1,4 @@
-# Lua API (
-
-p
-
-r
-
-z
-
-y
-
-k
-
-ł
-
-a
-
-d
-
-y
-
-)
+# Lua API (przykłady)
 
 ```lua
 -- przykład zdarzenia
