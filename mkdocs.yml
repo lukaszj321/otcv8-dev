@@ -347,11 +347,11 @@ remote_name: origin
 
 validation:
   nav:
-    omitted_files: warning
-    not_found: warning
-    absolute_links: warning
+    omitted_files: warn
+    not_found: warn
+    absolute_links: warn
   links:
-    not_found: warning
-    absolute_links: warning
-    unrecognized_links: warning
-    anchors: warning
+    not_found: warn
+    absolute_links: warn
+    unrecognized_links: warn
+    anchors: warn
