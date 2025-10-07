@@ -1,4 +1,4 @@
-# Architektura (skrót)
+# Architektura (skrĂłt)
 
 ```mermaid
 graph TD
@@ -11,12 +11,12 @@ graph TD
 
 === "Warstwy"
 
-C++ Core – silnik render/UI/IO
+C++ Core â€“ silnik render/UI/IO
 
-Lua – logika modułów (vBot)
+Lua â€“ logika moduĹ‚Ăłw (vBot)
 
-OTUI – deklaratywne layouty
+OTUI â€“ deklaratywne layouty
 
 === "Kontrakty"
 
-Eventy Lua ⟷ UI, IPC/WS, zasoby
+Eventy Lua âź· UI, IPC/WS, zasoby

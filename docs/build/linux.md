@@ -1,4 +1,4 @@
-# Build — Linux
+# Build â€” Linux
 
-1. Zależności systemowe (gcc/clang, cmake, itp.)
+1. ZaleĹĽnoĹ›ci systemowe (gcc/clang, cmake, itp.)
 2. Kroki kompilacji.

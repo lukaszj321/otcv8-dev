@@ -1,18 +1,18 @@
-# OTCv8 — Dokumentacja
+# OTCv8 â€” Dokumentacja
 
-Witaj w dokumentacji **OTCv8**. Poniżej najważniejsze działy:
+Witaj w dokumentacji **OTCv8**. PoniĹĽej najwaĹĽniejsze dziaĹ‚y:
 
-- **Architektura** – przegląd klienta, frameworka i struktury źródeł.
-- **Moduły** – opis modułów gry (część 1 i 2), rdzeń i dodatki.
-- **API** – funkcje Lua klienta, specyfikacje silnika, presetów i walidatora.
-- **Dane** – przewodnik po strukturach danych.
-- **Przewodniki** – architektura (legacy), wprowadzenie do modułów, WebSocket.
-- **Budowanie** – instrukcje dla Windows, Linux, Android.
-- **Dev** – FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
-- **Wiedza** – materiały referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
-- **Lua** – API ogólne i styl pisania.
-- **UI** – przewodnik OTUI.
-- **Narzędzia** – przegląd narzędzi.
+- **Architektura** â€“ przeglÄ…d klienta, frameworka i struktury ĹşrĂłdeĹ‚.
+- **ModuĹ‚y** â€“ opis moduĹ‚Ăłw gry (czÄ™Ĺ›Ä‡ 1 i 2), rdzeĹ„ i dodatki.
+- **API** â€“ funkcje Lua klienta, specyfikacje silnika, presetĂłw i walidatora.
+- **Dane** â€“ przewodnik po strukturach danych.
+- **Przewodniki** â€“ architektura (legacy), wprowadzenie do moduĹ‚Ăłw, WebSocket.
+- **Budowanie** â€“ instrukcje dla Windows, Linux, Android.
+- **Dev** â€“ FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
+- **Wiedza** â€“ materiaĹ‚y referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
+- **Lua** â€“ API ogĂłlne i styl pisania.
+- **UI** â€“ przewodnik OTUI.
+- **NarzÄ™dzia** â€“ przeglÄ…d narzÄ™dzi.
 
-> Jeśli szukasz szybkiego startu, przejdź do:  
-> **Architektura → _Przegląd klienta_** lub **Budowanie → _Windows_**.
+> JeĹ›li szukasz szybkiego startu, przejdĹş do:  
+> **Architektura â†’ _PrzeglÄ…d klienta_** lub **Budowanie â†’ _Windows_**.

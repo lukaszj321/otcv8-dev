@@ -1,4 +1,4 @@
-﻿# OTUI - podstawy
+# OTUI - podstawy
 
 !!! info
 

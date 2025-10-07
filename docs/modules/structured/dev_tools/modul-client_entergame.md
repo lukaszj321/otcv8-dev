@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_entergame`
+# ¦ Modul: `client_entergame`
 
 ```lua
 

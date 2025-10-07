@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3`
+# ¦ Modul: `game_bot/default_configs/cavebot_1.3`
 
 ```lua
 

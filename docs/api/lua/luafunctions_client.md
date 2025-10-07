@@ -1,4 +1,4 @@
-﻿# Source: luafunctions_client.cpp
+# Source: luafunctions_client.cpp
 
 This guide covers global objects and functions available in the OTClient Lua environment. It’s intended to help scripters understand and use the client-side Lua API effectively.
 klawisz esc, aby anulować • klawisz enter, aby zapisać
@@ -305,8 +305,8 @@ These are not widgets but are used extensively to define widget properties.
 - **`Font`**: Represents a font asset.
 - **`Image`**: Represents an image asset.
 
----
-```
+---
+```
 
 
 

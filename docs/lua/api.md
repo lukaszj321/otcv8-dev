@@ -1,11 +1,11 @@
-# Lua API (przykłady)
+# Lua API (przykĹ‚ady)
 
 ```lua
--- przykład zdarzenia
+-- przykĹ‚ad zdarzenia
 onTalk(function(name, level, mode, text)
   -- ...
 end)
 
 ```
 
-> Docelowo: generowane referencje (LDoc/EmmyLua) + przykłady.
+> Docelowo: generowane referencje (LDoc/EmmyLua) + przykĹ‚ady.
