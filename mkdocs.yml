@@ -45,7 +45,6 @@ plugins:
       enable_creation_date: true
       type: timeago
       fallback_to_build_date: true
-  - redirects
 
 markdown_extensions:
   - admonition
@@ -340,10 +339,3 @@ nav:
       - "Moduł: `updater.lua`": modules/structured/dev_tools/modul-updater-lua.md
       - "Moduł: Updater Module": modules/structured/dev_tools/modul-updater-module.md
       - "Moduł: `walking.lua`": modules/structured/dev_tools/modul-walking-lua.md
-
-redirect_maps:
-  "guides/architecture.md": "architektura/client_overview.md"
-  "modules/modules_core.md": "modules/structured/core/INDEX.md"
-  "modules/modules_game_1.md": "modules/structured/gameplay/INDEX.md"
-  "modules/modules_game_2.md": "modules/structured/gameplay/INDEX.md"
-  "modules/modules_misc.md": "modules/structured/dev_tools/INDEX.md"
