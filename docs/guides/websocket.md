@@ -1,24 +1,4 @@
-?# Realtime (
-
-W
-
-e
-
-b
-
-S
-
-o
-
-c
-
-k
-
-e
-
-t
-
-)
+﻿# Realtime (websocket)
 
 ```mermaid
 sequenceDiagram
@@ -32,40 +12,12 @@ sequenceDiagram
   UI->>S: cmd: START/STOP, settings
 
 ```
-# # Z
-
-a
-
-s
-
-a
-
-d
-
-y
+## Zasady
 
 - **WSS** + origin allowlist + rate-limit.
 - Autoryzacja w handshake (JWT / session).
-- Walidacja schemat�w wiadomosci.
-# # Przyklad (Node +
-
-s
-
-o
-
-c
-
-k
-
-e
-
-t
-
-i
-
-o
-
-)
+- Walidacja schematów wiadomości.
+## Przykład (Node + socket io)
 
 ```ts
 io.use(authMiddleware);
@@ -76,3 +28,4 @@ io.on("connection", (s) => {
   });
 });
 ```
+

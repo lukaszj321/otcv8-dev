@@ -1,47 +1,9 @@
-?# Moduly (vBot) -
-
-p
-
-r
-
-z
-
-e
-
-w
-
-o
-
-d
-
-n
-
-i
-
-k
+﻿# Moduły (vBot) — przewodnik
 
 !!! info "Cel"
 
-    Jak tworzyc i ladowac moduly Lua dla klienta OTCv8.
-# # Strukt
-
-u
-
-r
-
-a
-
-m
-
-o
-
-d
-
-u
-
-l
-
-u
+    Jak tworzyć i ładować moduły Lua dla klienta OTCv8.
+## Struktura modułu
 
 ```bash
 modules/
@@ -51,25 +13,7 @@ config.lua
 README.md
 
 ```
-# # Minimalny m
-
-o
-
-d
-
-u
-
-l
-
-(
-
-L
-
-u
-
-a
-
-)
+## Minimalny moduł(LUA)
 
 ```lua
 -- modules/my-module/init.lua
@@ -86,25 +30,7 @@ end
 return M
 
 ```
-# # Rejestrowanie zdarzen (
-
-p
-
-r
-
-z
-
-y
-
-k
-
-l
-
-a
-
-d
-
-)
+## Rejestrowanie zdarzeń (przykład)
 
 ```lua
 onTalk(function(name, level, mode, text)
@@ -112,70 +38,17 @@ onTalk(function(name, level, mode, text)
 end)
 
 ```
-# # Kon
+## Konfiguracja
 
-f
-
-i
-
-g
-
-u
-
-r
-
-a
-
-c
-
-j
-
-a
-
-- `config.lua` - wartosci domyslne (np. hotkeye, progi).
-- Pliki konfiguracyjne uzytkownika trzymaj oddzielnie.
-# # D
-
-e
-
-b
-
-u
-
-g
-
-/
-
-l
-
-o
-
-g
-
-i
+- `config.lua` – wartości domyślne (np. hotkeye, progi).
+- Pliki konfiguracyjne użytkownika trzymaj oddzielnie.
+## Ddebug / logi
 
 - Pisz do konsoli lub pliku `logs/my-module.log`.
-- Dodaj flage `DEBUG=true` i warunkowe logowanie.
-# # Dobr
+- Dodaj flagę `DEBUG=true` i warunkowe logowanie.
+## Dobre praktyki
 
-e
-
-p
-
-r
-
-a
-
-k
-
-t
-
-y
-
-k
-
-i
-
-- Nazwy przestrzeni modulu (`my_module.*`).
-- Brak efekt�w ubocznych przy `require`.
+- Nazwy przestrzeni modułu (`my_module.*`).
+- Brak efektów ubocznych przy `require`.
 - Komendy eksportuj jawnie (np. `M.start`, `M.stop`).
+

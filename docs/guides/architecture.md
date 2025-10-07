@@ -1,32 +1,22 @@
-# Architektura (w skr�cie)
-
-Ponizszy diagram przedstawia kluczowe komponenty i przeplyw danych w architekturze OTCv8.
+# Architektura (skrót)
 
 ```mermaid
 graph TD
-    CppCore[C++ Core]
-    UI[UI System]
-    vBot[Moduly vBot]
-    WS[WebSocket / IPC]
+  Client[OTCv8 Client] -->|Lua| vBot[vBot Modules]
+  Client -->|OTUI| UI[UI System]
+  Client --> CppCore[C++ Core]
+  WS[WebSocket/IPC] --> Client
 
-    subgraph "OTCv8 Client"
-        CppCore -->|Udostepnia API| LuaEngine[Silnik Lua]
-        LuaEngine -->|Wykonuje logike| vBot
-        CppCore -->|Renderuje| UI
-        LuaEngine -->|Steruje| UI
-    end
-
-    WS -->|Komunikacja zewnetrzna| CppCore
 ```
-
-### Opis Warstw
 
 === "Warstwy"
 
-- **C++ Core** - Niskopoziomowy silnik odpowiedzialny za renderowanie, obsluge sieci, dzwieku i operacje na plikach.
-- **Lua** - Warstwa skryptowa, w kt�rej dziala cala logika gry, moduly i interfejs (np. vBot).
-- **OTUI** - Deklaratywny system oparty na skladni `yaml`, uzywany do szybkiego budowania i stylowania interfejsu uzytkownika.
+C++ Core – silnik render/UI/IO
+
+Lua – logika modułów (vBot)
+
+OTUI – deklaratywne layouty
 
 === "Kontrakty"
 
-- **Eventy Lua ? UI, IPC/WS, Zasoby** - Logika pisana w Lua reaguje na zdarzenia i komunikuje sie z reszta aplikacji, sterujac interfejsem, obslugujac komunikacje i zarzadzajac zasobami.
+Eventy Lua ⟷ UI, IPC/WS, zasoby

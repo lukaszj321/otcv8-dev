@@ -1,18 +1,6 @@
-?# R
+﻿# Roadmap
 
-o
-
-a
-
-d
-
-m
-
-a
-
-p
-
-- [ ] Pelna referencja API Lua (LDoc).
-- [ ] Generowanie Doxygen dla C++ i wpiecie do docs.
-- [ ] Wiecej przyklad�w OTUI.
+- [ ] Pełna referencja API Lua (LDoc).
+- [ ] Generowanie Doxygen dla C++ i wpięcie do docs.
+- [ ] Więcej przykładów OTUI.
 - [ ] Testy E2E dashboardu.
