@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_options`
+# | Modul: `client_options`
 
 ```otui
 

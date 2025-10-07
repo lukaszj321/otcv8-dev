@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `corelib`
+# | Modul: `corelib`
 
 ```lua
 
