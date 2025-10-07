@@ -1,96 +1,68 @@
-<#
-.SYNOPSIS
-    Konwertuje kodowanie plikow tekstowych (np. .md) z Windows-1250 na UTF-8 bez BOM.
-.DESCRIPTION
-    Skrypt rekursywnie przeszukuje podany folder w poszukiwaniu plikow .md,
-    ktore maja problemy z kodowaniem polskich znakow.
-    Domyslnie dziala w trybie symulacji (Dry Run). Uzycie przelacznika -Apply
-    powoduje fizyczne nadpisanie plikow w nowym kodowaniu.
-.PARAMETER Path
-    Sciezka do folderu, ktory ma zostac przeszukany (np. ".\docs").
-.PARAMETER Apply
-    Przelacznik, ktory aktywuje tryb zapisu zmian. Bez niego skrypt tylko
-    wyswietli, ktore pliki zostalyby zmienione.
-.EXAMPLE
-    # Tryb symulacji (Dry Run)
-    powershell -NoProfile -File ".\scripts\Fix-Mojibake-PL-v4.ps1" -Path ".\docs"
-.EXAMPLE
-    # Tryb zapisu zmian
-    powershell -NoProfile -File ".\scripts\Fix-Mojibake-PL-v4.ps1" -Path ".\docs" -Apply
-#>
-[CmdletBinding()]
 param(
-    [Parameter(Mandatory=$true)]
-    [string]$Path,
-
-    [Parameter(Mandatory=$false)]
-    [switch]$Apply
+    [string]$Path = ".\docs",
+    [switch]$WhatIf
 )
 
-# --- Konfiguracja ---
-$sourceEncoding = [System.Text.Encoding]::GetEncoding('windows-1250')
-$targetEncoding = New-Object System.Text.UTF8Encoding($false) # UTF-8 bez BOM
-$fileFilter = "*.md"
-# ---
+if (-not (Test-Path $Path)) { Write-Error "Nie ma folderu: $Path"; exit 1 }
 
-if (-not (Test-Path -Path $Path -PathType Container)) {
-    Write-Error "BLAD: Podana sciezka '$Path' nie istnieje lub nie jest folderem."
-    exit 1
+# Backup
+$ts = Get-Date -Format "yyyyMMdd_HHmmss"
+$backup = "__md_backup_$ts"
+if (-not $WhatIf) { Copy-Item $Path $backup -Recurse -Force | Out-Null }
+Write-Host "Backup -> .\$backup"
+
+# Encodings
+$encLatin1 = [System.Text.Encoding]::GetEncoding(28591) # ISO-8859-1
+$encUtf8NoBom = New-Object System.Text.UTF8Encoding($false)
+$BOM = [char]0xFEFF
+$NBSP = [char]0x00A0
+
+function Has-Mojibake([string]$s) {
+    # szukamy typowych „Ã / Â / â” po złej dekodacji (regex z \uXXXX, bez polskich liter)
+    return [bool]([regex]::IsMatch($s, "\u00C3|\u00C2|\u00E2"))
 }
 
-$files = Get-ChildItem -Path $Path -Filter $fileFilter -Recurse
+function Fix-Text([string]$s) {
+    # Rekodowanie Latin1->UTF8 naprawia większość przypadków (np. Ã…‚ -> ł, â€“ -> –)
+    $bytes = $encLatin1.GetBytes($s)
+    $t = [System.Text.Encoding]::UTF8.GetString($bytes)
 
-if ($null -eq $files) {
-    Write-Warning "Nie znaleziono zadnych plikow '$fileFilter' w sciezce '$Path'."
-    exit 0
+    # Usunięcie BOM na początku, NBSP -> spacja, standaryzacja EOL
+    if ($t.Length -gt 0 -and $t[0] -eq $BOM) { $t = $t.Substring(1) }
+    $t = $t.Replace($NBSP, ' ')
+    $t = $t -replace "`r`n", "`n"
+    return $t
 }
 
-if ($Apply) {
-    Write-Host ">>> Tryb ZAPISU ZMIAN. Pliki zostana nadpisane kodowaniem UTF-8." -ForegroundColor Yellow
-} else {
-    Write-Host ">>> Tryb SYMULACJI (Dry Run). Zmiany nie zostana zapisane." -ForegroundColor Cyan
-    Write-Host ">>> Aby zapisac zmiany, uruchom skrypt z przelacznikiem -Apply." -ForegroundColor Cyan
-}
-Write-Host "----------------------------------------------------------------"
+$files = Get-ChildItem $Path -Recurse -Include *.md -File
+$checked = 0; $changed = 0
 
-$convertedCount = 0
-$foundToConvertCount = 0
-foreach ($file in $files) {
-    try {
-        $filePath = $file.FullName
-        
-        # Sprawdzamy, czy plik zawiera znaki spoza podstawowego ASCII
-        $bytes = [System.IO.File]::ReadAllBytes($filePath)
-        $testContentUtf8 = [System.IO.File]::ReadAllText($filePath, $targetEncoding)
+foreach ($f in $files) {
+    $checked++
+    # czytaj jako UTF-8 (bez BOM) – jeśli plik ma błędne znaki, i tak naprawimy po detekcji
+    $orig = [System.IO.File]::ReadAllText($f.FullName, $encUtf8NoBom)
 
-        # Heurystyka: jesli odczytany jako UTF8 zawiera znak zastepczy (�) ORAZ 
-        # odczytany jako cp1250 go nie zawiera, to jest kandydatem do konwersji.
-        if ($testContentUtf8.Contains([char]0xFFFD)) {
-             $originalContent = [System.IO.File]::ReadAllText($filePath, $sourceEncoding)
-             if (-not $originalContent.Contains([char]0xFFFD)) {
-                $foundToConvertCount++
-                Write-Host "[OK] Znaleziono do konwersji: $filePath" -ForegroundColor White
-
-                if ($Apply) {
-                    [System.IO.File]::WriteAllText($filePath, $originalContent, $targetEncoding)
-                    Write-Host "     -> Zapisano zmiany." -ForegroundColor Yellow
-                    $convertedCount++
-                }
-             } else {
-                Write-Host "[INFO] Pominieto (plik uszkodzony w obu kodowaniach): $filePath" -ForegroundColor Gray
-             }
-        } else {
-            Write-Host "[INFO] Pominieto (prawdopodobnie juz jest UTF-8): $filePath" -ForegroundColor Green
+    if (Has-Mojibake $orig) {
+        $fixed = Fix-Text $orig
+        if ($fixed -ne $orig) {
+            $changed++
+            if ($WhatIf) {
+                Write-Host "Would fix: $($f.FullName)"
+            }
+            else {
+                [System.IO.File]::WriteAllText($f.FullName, $fixed, $encUtf8NoBom)
+                Write-Host "Fix: $($f.FullName)"
+            }
         }
-    } catch {
-        Write-Error "Blad podczas przetwarzania pliku '$($file.FullName)': $_"
+        else {
+            Write-Host "OK:  $($f.FullName)"
+        }
+    }
+    else {
+        Write-Host "OK:  $($f.FullName)"
     }
 }
 
-Write-Host "----------------------------------------------------------------"
-Write-Host "Zakonczono."
-if ($Apply) {
-    Write-Host "Przekonwertowano $convertedCount z $($files.Count) plikow." -ForegroundColor Green
-} else {
-    Write-Host "Znaleziono $foundToConvertCount plikow do konwersji. Uzyj -Apply, aby zapisac zmiany." -ForegroundColor Cyan
-}
+Write-Host "Checked: $checked"
+Write-Host "Changed: $changed"
+if ($WhatIf) { Write-Host "(Symulacja — pliki NIE zapisane)" }
