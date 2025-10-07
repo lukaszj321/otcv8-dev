@@ -7,37 +7,37 @@ Plik `const.h` pełni rolę centralnego repozytorium dla stałych, makr i typów
 ## Makra matematyczne
 
 -   `DEG_TO_RAD`: Służy do konwersji stopni na radiany.
-    ```cpp
+```cpp
 # define DEG_TO_RAD (acos(-1)/180.0)
-    ```
+```
 -   `RAD_TO_DEC`: Służy do konwersji radianów na stopnie.
-    ```cpp
+```cpp
 # define RAD_TO_DEC (180.0/acos(-1))
-    ```
+```
 ## Makra budowania (Build Macros)
 
 Makra te są definiowane podczas kompilacji i dostarczają informacji o wersji i środowisku budowania.
 
 -   `BUILD_COMMIT`: Przechowuje hash commita Git. Domyślnie "dev".
-    ```cpp
+```cpp
 # ifndef BUILD_COMMIT
 # define BUILD_COMMIT "dev"
 # endif
-    ```
+```
 -   `BUILD_REVISION`: Przechowuje numer rewizji. Domyślnie 0.
-    ```cpp
+```cpp
 # ifndef BUILD_REVISION
 # define BUILD_REVISION 0
 # endif
-    ```
+```
 -   `BUILD_TYPE`: Określa typ budowania (np. "release", "debug"). Domyślnie "unknown".
-    ```cpp
+```cpp
 # ifndef BUILD_TYPE
 # define BUILD_TYPE "unknown"
 # endif
-    ```
+```
 -   `BUILD_ARCH`: Określa architekturę procesora (x64, x86). Wykrywane automatycznie, jeśli nie jest zdefiniowane.
-    ```cpp
+```cpp
 # ifndef BUILD_ARCH
 # if defined(__amd64) || defined(_M_X64)
 # define BUILD_ARCH "x64"
@@ -47,7 +47,7 @@ Makra te są definiowane podczas kompilacji i dostarczają informacji o wersji i
 # define BUILD_ARCH "unknown"
 # endif
 # endif
-    ```
+```
 ## Namespace `Fw`
 
 Przestrzeń nazw `Fw` (skrót od Framework) grupuje wszystkie stałe i typy wyliczeniowe, aby uniknąć konfliktów nazw w globalnej przestrzeni nazw.
