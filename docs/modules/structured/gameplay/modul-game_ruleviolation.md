@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_ruleviolation`
+# Modul: `game_ruleviolation`
 
-`$fenceInfo
 
 rvreasons = {}
 
@@ -265,7 +264,6 @@ end
 ---
 # ruleviolation.otmod
 
-`$fenceInfo
 
 Module
 
@@ -290,7 +288,6 @@ Module
 ---
 # ruleviolation.otui
 
-`$fenceInfo
 
 RVListLabel < Label
 

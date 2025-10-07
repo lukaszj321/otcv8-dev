@@ -1,6 +1,5 @@
-# Â¦ Modul: `crash_reporter`
+# Modul: `crash_reporter`
 
-`$fenceInfo
 
 local CRASH_FILE = "exception.dmp"
 
@@ -47,7 +46,6 @@ end
 ---
 # crash_reporter.otmod
 
-`$fenceInfo
 
 Module
 

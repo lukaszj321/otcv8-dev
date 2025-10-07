@@ -1,6 +1,5 @@
-# Â¦ Modul: `client_feedback`
+# Modul: `client_feedback`
 
-`$fenceInfo
 
 local feedbackWindow
 
@@ -203,7 +202,6 @@ end
 ---
 # feedback.otmod
 
-`$fenceInfo
 
 Module
 
@@ -230,7 +228,6 @@ Module
 ---
 # feedback.otui
 
-`$fenceInfo
 
 MainWindow
 

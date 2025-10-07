@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_market/ui/general`
+# Modul: `game_market/ui/general`
 
-`$fenceInfo
 
 AmountWindow < MainWindow
 
@@ -87,7 +86,6 @@ AmountWindow < MainWindow
 ---
 # marketbuttons.otui
 
-`$fenceInfo
 
 MarketButtonBox < ButtonBoxRounded
 
@@ -116,7 +114,6 @@ MarketButtonBox < ButtonBoxRounded
 ---
 # marketcombobox.otui
 
-`$fenceInfo
 
 MarketComboBoxPopupMenuButton < ComboBoxPopupMenuButton
 
@@ -153,7 +150,6 @@ MarketComboBox < ComboBox
 ---
 # markettabs.otui
 
-`$fenceInfo
 
 MarketTabBar < TabBar
 

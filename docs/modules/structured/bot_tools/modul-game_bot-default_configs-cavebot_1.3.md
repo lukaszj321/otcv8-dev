@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_bot/default_configs/cavebot_1.3`
+# Modul: `game_bot/default_configs/cavebot_1.3`
 
-`$fenceInfo
 
 -- Cavebot by otclient@otclient.ovh
 
@@ -79,7 +78,6 @@ dofile("/targetbot/target.lua")
 ---
 # hp.lua
 
-`$fenceInfo
 
 setDefaultTab("HP")
 
@@ -422,7 +420,6 @@ end)
 ---
 # main.lua
 
-`$fenceInfo
 
 -- main tab
 
@@ -457,7 +454,6 @@ end)
 ---
 # mwall_timer.lua
 
-`$fenceInfo
 
 -- Magic wall & Wild growth timer
 
@@ -536,7 +532,6 @@ end)
 ---
 # storage.json
 
-`$fenceInfo
 
 {
 
@@ -799,7 +794,6 @@ end)
 ---
 # tools.lua
 
-`$fenceInfo
 
 -- tools tab
 

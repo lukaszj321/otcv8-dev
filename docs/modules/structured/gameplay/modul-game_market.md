@@ -1,8 +1,5 @@
-# Â¦ Modul: `game_market`
+# Modul: `game_market`
 
-{% raw %}
-{% raw %}
-`$fenceInfo
 
 --[[
 
@@ -2411,13 +2408,10 @@ function Market.onCoinBalance(coins, transferableCoins)
 end
 
 ```
-{% endraw %}
-{% endraw %}
 
 ---
 # market.otmod
 
-`$fenceInfo
 
 Module
 
@@ -2442,7 +2436,6 @@ Module
 ---
 # market.otui
 
-`$fenceInfo
 
 MarketWindow < MainWindow
 
@@ -2557,7 +2550,6 @@ MarketWindow < MainWindow
 ---
 # marketoffer.lua
 
-`$fenceInfo
 
 MarketOffer = {}
 
@@ -2822,7 +2814,6 @@ end
 ---
 # marketprotocol.lua
 
-`$fenceInfo
 
 MarketProtocol = {}
 
@@ -3297,7 +3288,6 @@ end
 ---
 # offerstatistic.lua
 
-`$fenceInfo
 
 OfferStatistic = {}
 

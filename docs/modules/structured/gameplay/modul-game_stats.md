@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_stats`
+# Modul: `game_stats`
 
-`$fenceInfo
 
 ui = nil
 
@@ -103,7 +102,6 @@ end
 ---
 # stats.otmod
 
-`$fenceInfo
 
 Module
 
@@ -128,7 +126,6 @@ Module
 ---
 # stats.otui
 
-`$fenceInfo
 
 UIWidget
 

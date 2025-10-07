@@ -12,7 +12,7 @@
 - `translateActionToActionComboboxIndex(action)`
 - `translateActionComboboxIndexToAction(index)`
 - `getActionDescription(action)`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 ## `hotkeys_manager.lua`
@@ -69,7 +69,7 @@
 - `onSendAutomaticallyChange`
 - `online`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -101,7 +101,7 @@
 - `onMiniWindowClose`
 - `onPositionChange`
 - `online`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -173,7 +173,7 @@
 - `online`
 - `only`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -246,7 +246,7 @@
 - `onStaminaChange`
 - `onTotalCapacityChange`
 - `only`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -266,7 +266,7 @@
 ## Eventy / Hooki
 
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_ui`
@@ -313,7 +313,7 @@
 - `onVipListLabelMousePress`
 - `onVipListMousePress`
 - `onVipStateChange`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -350,7 +350,7 @@
 - `onSelectionChange`
 - `online`
 - `only`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_keyboard`
@@ -442,7 +442,7 @@
 - `onShowShaderChange`
 - `onShowWingsChange`
 - `onWingsSelect`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_clock`
 - `g_game`
@@ -464,7 +464,7 @@
 
 - `init()`
 - `terminate()`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_shaders`
 
@@ -499,7 +499,7 @@
 - `onSpellGroupCooldown`
 - `online`
 - `scheduleEvent`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
 - `g_ui`
@@ -522,8 +522,6 @@
 - `connect`
 - `onClientVersionChange`
 - `only`
-## WywoĹ‚ania API
+## Wywoania API
 
 - `g_game`
-
-

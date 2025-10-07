@@ -1,6 +1,5 @@
-# Â¦ Modul: `corelib/ui`
+# Modul: `corelib/ui`
 
-`$fenceInfo
 
 -- @docclass
 
@@ -123,7 +122,6 @@ end
 ---
 # tooltip.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -326,7 +324,6 @@ connect(g_app, { onTerminate = g_tooltip.terminate })
 ---
 # uibutton.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -353,7 +350,6 @@ end
 ---
 # uicheckbox.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -382,7 +378,6 @@ end
 ---
 # uicombobox.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -717,7 +712,6 @@ end
 ---
 # uiimageview.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -896,7 +890,6 @@ end
 ---
 # uiinputbox.lua
 
-`$fenceInfo
 
 if not UIWindow then dofile 'uiwindow' end
 
@@ -1097,7 +1090,6 @@ end
 ---
 # uilabel.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -1122,8 +1114,6 @@ end
 ---
 # uimessagebox.lua
 
-{% raw %}
-`$fenceInfo
 
 if not UIWindow then dofile 'uiwindow' end
 
@@ -1280,12 +1270,10 @@ function UIMessageBox:cancel()
 end
 
 ```
-{% endraw %}
 
 ---
 # uiminiwindow.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -2068,7 +2056,6 @@ end
 ---
 # uiminiwindowcontainer.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -2475,7 +2462,6 @@ end
 ---
 # uimovabletabbar.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -3356,7 +3342,6 @@ end
 ---
 # uipopupmenu.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -3569,7 +3554,6 @@ connect(g_game, { onGameEnd = onGameEnd } )
 ---
 # uipopupscrollmenu.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -3790,7 +3774,6 @@ connect(rootWidget, { onGeometryChange = onRootGeometryUpdate} )
 ---
 # uiprogressbar.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -3967,7 +3950,6 @@ end
 ---
 # uiradiogroup.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -4078,7 +4060,6 @@ end
 ---
 # uiresizeborder.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -4319,7 +4300,6 @@ end
 ---
 # uiscrollarea.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -4674,7 +4654,6 @@ end
 ---
 # uiscrollbar.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -5189,7 +5168,6 @@ function UIScrollBar:getMouseScroll() return self.mouseScroll end
 ---
 # uispinbox.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -5524,7 +5502,6 @@ end
 ---
 # uisplitter.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -5689,7 +5666,6 @@ end
 ---
 # uitabbar.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -5968,7 +5944,6 @@ end
 ---
 # uitable.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -6713,7 +6688,6 @@ end
 ---
 # uitextedit.lua
 
-`$fenceInfo
 
 function UITextEdit:onStyleApply(styleName, styleNode)
 
@@ -6858,7 +6832,6 @@ end
 ---
 # uiwidget.lua
 
-`$fenceInfo
 
 -- @docclass UIWidget
 
@@ -6905,7 +6878,6 @@ end
 ---
 # uiwindow.lua
 
-`$fenceInfo
 
 -- @docclass
 

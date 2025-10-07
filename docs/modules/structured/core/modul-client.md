@@ -1,6 +1,5 @@
-# Â¦ Modul: `client`
+# Modul: `client`
 
-`$fenceInfo
 
 local musicFilename = "/sounds/startup"
 
@@ -211,7 +210,6 @@ end
 ---
 # client.otmod
 
-`$fenceInfo
 
 Module
 

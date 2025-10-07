@@ -1,22 +1,20 @@
 # Parser & Schemas (MASTER): **AST + JSON Schema** dla **OTClient Studio**
 
-> Cel dokumentu: dostarczyÄ‡ **kompletne, operacyjne** specyfikacje parserĂłw (LuaĂ˘â‚¬â€Lite, OTUI/OTML) oraz **kontrakty walidacyjne** (JSON Schema) dla artefaktĂłw narzÄ™dzia: `api.json`, `project-index.json`, `otui-rules.json`, `templates.json`, `docstrings.json`, `assets-map.json`, `.studio/config.json`, a takÄąÄ˝e **schemat linii logu NDJSON**. Wszystko w formie gotowej do bezpoÄąâ€şredniej implementacji (TypeScript/Node) i automatycznej walidacji.
+> Cel dokumentu: dostarczyc **kompletne, operacyjne** specyfikacje parserow (Luaa'Lite, OTUI/OTML) oraz **kontrakty walidacyjne** (JSON Schema) dla artefaktow narzedzia: `api.json`, `project-index.json`, `otui-rules.json`, `templates.json`, `docstrings.json`, `assets-map.json`, `.studio/config.json`, a takLLe **schemat linii logu NDJSON**. Wszystko w formie gotowej do bezpoLredniej implementacji (TypeScript/Node) i automatycznej walidacji.
 
 ---
-## 0) ZaÄąâ€šoÄąÄ˝enia ogĂłlne
-- **DeterministycznoÄąâ€şÄ‡:** Emisja AST/indeksĂłw musi byÄ‡ deterministyczna (stabilne sortowanie kluczy, list po `loc.start.offset`).
-- **Lokalizacja (`loc`):** KaÄąÄ˝dy wÄ™zeÄąâ€š ma `loc`:
-`$fenceInfo
+## 0) ZaL'oLLenia ogolne
+- **DeterministycznoLc:** Emisja AST/indeksow musi byc deterministyczna (stabilne sortowanie kluczy, list po `loc.start.offset`).
+- **Lokalizacja (`loc`):** KaLLdy wezeL' ma `loc`:
 {"file":"/abs/path.lua","start":{"offset":123,"line":5,"column":10},"end":{"offset":140,"line":5,"column":27}}
 ```
-- **Identyfikator wÄ™zÄąâ€ša (`id`)**: opcjonalny, `sha1(file + start.offset + type)`.
-- **Tolerant parsing:** Parser nie przerywa na pierwszy bÄąâ€šÄ…d; emituje `errors[]` i moÄąÄ˝liwie peÄąâ€šne AST.
-- **Kody bÄąâ€šÄ™dĂłw:** prefiksowane domenÄ… (`LUA_`, `OTUI_`, `OTMOD_`, `GEN_`). Sekcja 7.
+- **Identyfikator wezL'a (`id`)**: opcjonalny, `sha1(file + start.offset + type)`.
+- **Tolerant parsing:** Parser nie przerywa na pierwszy bL'ad; emituje `errors[]` i moLLliwie peL'ne AST.
+- **Kody bL'edow:** prefiksowane domena (`LUA_`, `OTUI_`, `OTMOD_`, `GEN_`). Sekcja 7.
 
 ---
-## 1) OTUI/OTML â€” Gramatyka i AST
-## 1.1 Gramatyka (EBNF â€“ praktyczna)
-`$fenceInfo
+## 1) OTUI/OTML - Gramatyka i AST
+## 1.1 Gramatyka (EBNF - praktyczna)
 File        := (Decl | Comment)*
 Decl        := Type ("<" Base ">")? Spacing? "{" Body "}"
 Body        := (KV | Decl | Comment)*
@@ -33,8 +31,7 @@ String      := '"' (\\.|[^"\\])* '"' | '\'' (\\.|[^'\\])* '\''
 Number      := /[-+]?[0-9]+(\.[0-9]+)?/
 Bool        := "true" | "false"
 ```
-## 1.2 AST OTUI â€” JSON Schema
-`$fenceInfo
+## 1.2 AST OTUI - JSON Schema
 {
   "$id": "https://schemas.otc.studio/otui-ast.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -129,22 +126,20 @@ Bool        := "true" | "false"
 }
 }
 ```
-## 1.3 Kategoryzacja atrybutĂłw (lint)
+## 1.3 Kategoryzacja atrybutow (lint)
 - **GEOMETRY:** `x,y,width,height,anchors,margin,padding,min-width,max-width,min-height,max-height`
 - **STYLE:** `font,color,image,style,opacity,icon,background,spacing`
 - **BEHAVIOR:** `id,focusable,draggable,enabled,visible,onClick,onText,tooltip`
 > Lista jest rozszerzalna per projekt (`otui-rules.json`).
-## 1.4 PrzykÄąâ€šad AST (OTUI)
-WejÄąâ€şcie:
-`$fenceInfo
+## 1.4 PrzykL'ad AST (OTUI)
+WejLcie:
 MainWindow < UIWidget {
   id: main
   width: 300
   text: "Hello"
 }
 ```
-Szkic wyjÄąâ€şcia (skrĂłcony):
-`$fenceInfo
+Szkic wyjLcia (skrocony):
 {
   "type":"OTUIFile","loc":{"file":"/p/ui/main.otui","start":{"offset":0,"line":1,"column":1},"end":{"offset":55,"line":5,"column":2}},
   "errors":[],
@@ -159,13 +154,12 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 ```
 
 ---
-## 2) LuaĂ˘â‚¬â€Lite â€” AST i zakres parsera
-> Celem jest lekki AST do potrzeb IDE (symbole, funkcje, wywoÄąâ€šania, literaÄąâ€šy, tabele). Nie jest to peÄąâ€šna interpretacja Lua.
-## 2.1 Zakres tokenĂłw/wÄ™zÄąâ€šĂłw
-- **WÄ™zÄąâ€šy:** `Chunk, LocalStatement, Assignment, FunctionDecl, CallStatement, CallExpr, Identifier, StringLiteral, NumberLiteral, BooleanLiteral, NilLiteral, TableConstructor, TableField, ReturnStatement, IfStatement (nagÄąâ€šĂłwki), DoBlock (prosty)`.
-- **Pomijane:** zÄąâ€šoÄąÄ˝one metatablice, goto/label (oznacz jako `UnknownNode`).
-## 2.2 LuaĂ˘â‚¬â€Lite AST â€” JSON Schema
-`$fenceInfo
+## 2) Luaa'Lite - AST i zakres parsera
+> Celem jest lekki AST do potrzeb IDE (symbole, funkcje, wywoL'ania, literaL'y, tabele). Nie jest to peL'na interpretacja Lua.
+## 2.1 Zakres tokenow/wezL'ow
+- **WezL'y:** `Chunk, LocalStatement, Assignment, FunctionDecl, CallStatement, CallExpr, Identifier, StringLiteral, NumberLiteral, BooleanLiteral, NilLiteral, TableConstructor, TableField, ReturnStatement, IfStatement (nagL'owki), DoBlock (prosty)`.
+- **Pomijane:** zL'oLLone metatablice, goto/label (oznacz jako `UnknownNode`).
+## 2.2 Luaa'Lite AST - JSON Schema
 {
   "$id": "https://schemas.otc.studio/lua-lite-ast.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -223,15 +217,14 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 }
 ```
-## 2.3 Mapowanie zdarzeÄąâ€ž/symboli istotnych dla OTClient/vBot
-- Wykrywanie `g_ui.loadUI("Ă˘â‚¬Â¦")` Ă˘â€ â€™ relacja `lua_to_otui`.
-- Wykrywanie `dofile("Ă˘â‚¬Â¦")`/`require("Ă˘â‚¬Â¦")` Ă˘â€ â€™ relacja `includes`.
-- Heurystyki vBot: identyfikuj wywoÄąâ€šania `macro(`, callbacki `onTextMessage`, `onCreatureHealth`, itp. Ă˘â€ â€™ taguj w indeksie jako `botSymbols`.
+## 2.3 Mapowanie zdarzeL"/symboli istotnych dla OTClient/vBot
+- Wykrywanie `g_ui.loadUI("a|")` a' relacja `lua_to_otui`.
+- Wykrywanie `dofile("a|")`/`require("a|")` a' relacja `includes`.
+- Heurystyki vBot: identyfikuj wywoL'ania `macro(`, callbacki `onTextMessage`, `onCreatureHealth`, itp. a' taguj w indeksie jako `botSymbols`.
 
 ---
-## 3) Kontrakty walidacji artefaktĂłw (JSON Schema)
+## 3) Kontrakty walidacji artefaktow (JSON Schema)
 ## 3.1 `resources/api.json`
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/api.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -265,7 +258,6 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 ```
 ## 3.2 `project-index.json`
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/project-index.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -282,7 +274,6 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 ```
 ## 3.3 `otui-rules.json`
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/otui-rules.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -296,7 +287,6 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 ```
 ## 3.4 `templates.json`
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/templates.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -318,7 +308,6 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 ```
 ## 3.5 `docstrings.json`
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/docstrings.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -332,7 +321,6 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 ```
 ## 3.6 `assets-map.json`
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/assets-map.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -346,7 +334,6 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 ```
 ## 3.7 `.studio/config.json`
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/studio-config.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -365,7 +352,6 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 }
 ```
 ## 3.8 `ndjson` (schemat pojedynczej linii logu)
-`$fenceInfo
 {
   "$id": "https://schemas.otc.studio/log-line.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -386,36 +372,34 @@ Szkic wyjÄąâ€şcia (skrĂłcony):
 
 ---
 ## 4) Kontrakty IPC (Parser Service)
-**KanaÄąâ€šy:**
-- `parser:otui:parse` Ă˘â€ â€™ req: `{path | content}` Ă˘â€ â€™ res: `OTUIFile` (AST) + `errors[]`.
-- `parser:lua:parse` Ă˘â€ â€™ req: `{path | content}` Ă˘â€ â€™ res: `Chunk` (AST) + `errors[]`.
-- `parser:scan:index` Ă˘â€ â€™ req: `{root}` Ă˘â€ â€™ res: `project-index.json`.
-- `parser:docstrings` Ă˘â€ â€™ req: `{files[]}` Ă˘â€ â€™ res: `docstrings.json`.
+**KanaL'y:**
+- `parser:otui:parse` a' req: `{path | content}` a' res: `OTUIFile` (AST) + `errors[]`.
+- `parser:lua:parse` a' req: `{path | content}` a' res: `Chunk` (AST) + `errors[]`.
+- `parser:scan:index` a' req: `{root}` a' res: `project-index.json`.
+- `parser:docstrings` a' req: `{files[]}` a' res: `docstrings.json`.
 
-**BÄąâ€šÄ™dy:** `{code,msg,loc?}`; kody wg Â§7.
+**BL'edy:** `{code,msg,loc?}`; kody wg 7.
 
 ---
-## 5) ReguÄąâ€šy walidacji i jakoÄąâ€şci
-- **JSON Schema gates:** kaÄąÄ˝da emisja `*.json` walidowana przed zapisem; bÄąâ€šÄ…d = rollback.
-- **Stabilne sortowanie:** listy sortuj po `loc.start.offset` lub alfabetycznie (klucze obiektĂłw alfabetycznie).
-- **Backupy:** przy autoĂ˘â‚¬â€fix zapisz `*.bak` + diff.
+## 5) ReguL'y walidacji i jakoLci
+- **JSON Schema gates:** kaLLda emisja `*.json` walidowana przed zapisem; bL'ad = rollback.
+- **Stabilne sortowanie:** listy sortuj po `loc.start.offset` lub alfabetycznie (klucze obiektow alfabetycznie).
+- **Backupy:** przy autoa'fix zapisz `*.bak` + diff.
 - **Hash indeksu:** `sha1(size+mtime)` dla cache inkrementalnego.
 
 ---
-## 6) Test vectors (prĂłbki wejÄąâ€şcia/wyjÄąâ€şcia)
+## 6) Test vectors (probki wejLcia/wyjLcia)
 ## 6.1 OTUI proste
-WejÄąâ€şcie `main.otui`:
-`$fenceInfo
+WejLcie `main.otui`:
 Window < UIWidget {
   id: root
   width: 320
   text: "Title"
 }
 ```
-Oczekiwany AST: zgodny ze schematem Â§1.2 (sprawdÄąĹź kategorie: idĂ˘â€ â€™BEHAVIOR, widthĂ˘â€ â€™GEOMETRY, textĂ˘â€ â€™STYLE).
-## 6.2 LuaĂ˘â‚¬â€Lite â€” symbole
-WejÄąâ€şcie `client.lua`:
-`$fenceInfo
+Oczekiwany AST: zgodny ze schematem 1.2 (sprawdLs kategorie: ida'BEHAVIOR, widtha'GEOMETRY, texta'STYLE).
+## 6.2 Luaa'Lite - symbole
+WejLcie `client.lua`:
 local M = {}
 function M.reload()
   g_modules.reloadModules()
@@ -425,37 +409,35 @@ M.init = function()
 end
 return M
 ```
-Oczekiwane relacje: `lua_to_otui[0].otui == 'ui/main.otui'`; wykryta funkcja `M.reload` + wywoÄąâ€šanie `g_modules.reloadModules`.
-## 6.3 `api.json` â€“ walidacja
-Ziarno z dokumentu MASTER musi przejÄąâ€şÄ‡ `api.schema.json`; nazwy funkcji zgodne z regex.
+Oczekiwane relacje: `lua_to_otui[0].otui == 'ui/main.otui'`; wykryta funkcja `M.reload` + wywoL'anie `g_modules.reloadModules`.
+## 6.3 `api.json` - walidacja
+Ziarno z dokumentu MASTER musi przejLc `api.schema.json`; nazwy funkcji zgodne z regex.
 
 ---
-## 7) Kody bÄąâ€šÄ™dĂłw i odzyskiwanie
-- **LUA_001**: nieoczekiwany token Ă˘â€ â€™ pomiÄąâ€ž do `;`/koÄąâ€žca linii/bloku.
-- **LUA_101**: niezamkniÄ™ta lista argumentĂłw Ă˘â€ â€™ zamknij heurystycznie przy `)` najbliÄąÄ˝szym.
-- **OTUI_001**: niezamkniÄ™ty blok `{` Ă˘â€ â€™ domknij na koÄąâ€žcu pliku, dodaj ParseError.
-- **OTUI_101**: niepoprawny literaÄąâ€š Ă˘â€ â€™ potraktuj jako `Identifier` i zarejestruj bÄąâ€šÄ…d.
-- **OTMOD_001**: brak `name` Ă˘â€ â€™ bÄąâ€šÄ…d twardy (blokuj generator).
-- **GEN_500**: bÄąâ€šÄ…d I/O Ă˘â€ â€™ sprĂłbuj ponownie raz, potem fail.
+## 7) Kody bL'edow i odzyskiwanie
+- **LUA_001**: nieoczekiwany token a' pomiL" do `;`/koL"ca linii/bloku.
+- **LUA_101**: niezamknieta lista argumentow a' zamknij heurystycznie przy `)` najbliLLszym.
+- **OTUI_001**: niezamkniety blok `{` a' domknij na koL"cu pliku, dodaj ParseError.
+- **OTUI_101**: niepoprawny literaL' a' potraktuj jako `Identifier` i zarejestruj bL'ad.
+- **OTMOD_001**: brak `name` a' bL'ad twardy (blokuj generator).
+- **GEN_500**: bL'ad I/O a' sprobuj ponownie raz, potem fail.
 
 ---
-## 8) WydajnoÄąâ€şÄ‡ i limity
-- AST do 2 MB pliku w < 200 ms (cel); duÄąÄ˝e pliki: tryb â€žbig-fileâ€ť (bez czÄ™Äąâ€şci analiz).
-- Indeks projektu 5k plikĂłw: < 5 s z cache, < 30 s zimny start.
-- ZuÄąÄ˝ycie pamiÄ™ci: < 500 MB dla indeksu 5k plikĂłw.
+## 8) WydajnoLc i limity
+- AST do 2 MB pliku w < 200 ms (cel); duLLe pliki: tryb "big-file" (bez czeLci analiz).
+- Indeks projektu 5k plikow: < 5 s z cache, < 30 s zimny start.
+- ZuLLycie pamieci: < 500 MB dla indeksu 5k plikow.
 
 ---
-## 9) Checklisty wdroÄąÄ˝eniowe (dla tej warstwy)
-- [ ] Zaimplementowane parsery (OTUI, LuaĂ˘â‚¬â€Lite) zgodnie z Â§1 i Â§2.
+## 9) Checklisty wdroLLeniowe (dla tej warstwy)
+- [ ] Zaimplementowane parsery (OTUI, Luaa'Lite) zgodnie z 1 i 2.
 - [ ] Emisja AST z `loc`, `errors`, deterministycznym sortem.
-- [ ] JSON Schemy z Â§3 wÄąâ€šÄ…czone w walidacjÄ™ przed zapisem.
-- [ ] IPC z Â§4 â€“ kontrakty pokryte testami kontraktowymi.
-- [ ] Test vectors z Â§6 â€“ zielone snapshoty AST i indeksĂłw.
-- [ ] Pomiar czasu/zuÄąÄ˝ycia pamiÄ™ci â€“ w normie Â§8.
+- [ ] JSON Schemy z 3 wL'aczone w walidacje przed zapisem.
+- [ ] IPC z 4 - kontrakty pokryte testami kontraktowymi.
+- [ ] Test vectors z 6 - zielone snapshoty AST i indeksow.
+- [ ] Pomiar czasu/zuLLycia pamieci - w normie 8.
 
 ---
 ## 10) Noty
-- ReguÄąâ€ša `tr()` dla statycznych tekstĂłw w OTUI bywa zaleÄąÄ˝na od bazy â€“ przewidziana jako **opcja** w `otui-rules.json`.
-- Schematy wykorzystujÄ… Draft 2020Ă˘â‚¬â€12; moÄąÄ˝liwa migracja wstecz do DraftĂ˘â‚¬â€07 (wymaga drobnych zmian sÄąâ€šownikĂłw).
-
-
+- ReguL'a `tr()` dla statycznych tekstow w OTUI bywa zaleLLna od bazy - przewidziana jako **opcja** w `otui-rules.json`.
+- Schematy wykorzystuja Draft 2020a'12; moLLliwa migracja wstecz do Drafta'07 (wymaga drobnych zmian sL'ownikow).

@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_textmessage`
+# Modul: `game_textmessage`
 
-`$fenceInfo
 
 MessageSettings = {
 
@@ -229,7 +228,6 @@ end
 ---
 # textmessage.otmod
 
-`$fenceInfo
 
 Module
 
@@ -254,7 +252,6 @@ Module
 ---
 # textmessage.otui
 
-`$fenceInfo
 
 TextMessageLabel < UILabel
 

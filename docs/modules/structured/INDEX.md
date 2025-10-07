@@ -83,4 +83,3 @@
 - **game_viplist** -> ./gameplay/modul-game_viplist.md
 - **game_walking** -> ./gameplay/modul-game_walking.md
 - **updater** -> ./dev_tools/modul-updater.md
-

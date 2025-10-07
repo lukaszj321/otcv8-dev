@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_protocol`
+# Modul: `game_protocol`
 
-`$fenceInfo
 
 local registredOpcodes = nil
 
@@ -1331,7 +1330,6 @@ end
 ---
 # protocol.otmod
 
-`$fenceInfo
 
 Module
 

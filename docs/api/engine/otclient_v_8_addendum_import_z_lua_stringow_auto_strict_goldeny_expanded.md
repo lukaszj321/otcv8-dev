@@ -1,43 +1,41 @@
-# OTClient v8 â€” Addendum: Import z LuaĂ˘â‚¬â€stringĂłw (AUTOĂ˘â‚¬â€STRICT) + Goldeny (Expanded)
+# OTClient v8 - Addendum: Import z Luaa'stringow (AUTOa'STRICT) + Goldeny (Expanded)
 
-**Cel:** DostarczyÄ‡ kompletne, wdraÄąÄ˝alne uzupeÄąâ€šnienie do Part 4:  
-A) **Import z LuaĂ˘â‚¬â€stringĂłw do AST** (AUTOĂ˘â‚¬â€STRICT, aktualizacja *inĂ˘â‚¬â€place*),  
-B) **Rozszerzona biblioteka goldenĂłw** (roundĂ˘â‚¬â€trip 1:1),  
-C) **Runner z obsÄąâ€šugÄ… profili** (`game_bot`, `client`, Ă˘â‚¬Â¦).
+**Cel:** Dostarczyc kompletne, wdraLLalne uzupeL'nienie do Part 4:  
+A) **Import z Luaa'stringow do AST** (AUTOa'STRICT, aktualizacja *ina'place*),  
+B) **Rozszerzona biblioteka goldenow** (rounda'trip 1:1),  
+C) **Runner z obsL'uga profili** (`game_bot`, `client`, a|).
 
 ---
-## Spis treÄąâ€şci
-- [A. Import z LuaĂ˘â‚¬â€stringĂłw Ă˘â€ â€™ AST (AUTOĂ˘â‚¬â€STRICT)](#a-import)
-  - [A.1 Wykrywanie blokĂłw: zmienne i kotwice komentarzowe](#a-1)
+## Spis treLci
+- [A. Import z Luaa'stringow a' AST (AUTOa'STRICT)](#a-import)
+  - [A.1 Wykrywanie blokow: zmienne i kotwice komentarzowe](#a-1)
   - [A.2 API ekstrakcji i podmiany (TypeScript)](#a-2)
-  - [A.3 Polityka AUTOĂ˘â‚¬â€STRICT i bÄąâ€šÄ™dy importu](#a-3)
-  - [A.4 PrzepÄąâ€šyw IDE (import Ă˘â€ â€™ edycja Ă˘â€ â€™ eksport do Lua/plik)](#a-4)
+  - [A.3 Polityka AUTOa'STRICT i bL'edy importu](#a-3)
+  - [A.4 PrzepL'yw IDE (import a' edycja a' eksport do Lua/plik)](#a-4)
 - [B. Goldeny (expanded)](#b-goldens)
-  - [B.1 Indeks JSON (nazwy Ă˘â€ â€™ opis)](#b-1)
+  - [B.1 Indeks JSON (nazwy a' opis)](#b-1)
   - [B.2 Wybrane goldeny (STRICT OTUI)](#b-2)
-- [C. Runner roundĂ˘â‚¬â€trip + walidacja profili](#c-runner)
+- [C. Runner rounda'trip + walidacja profili](#c-runner)
 
 ---
 
 <div id="a-import"></div>
-## A. Import z LuaĂ˘â‚¬â€stringĂłw Ă˘â€ â€™ AST (AUTOĂ˘â‚¬â€STRICT)
+## A. Import z Luaa'stringow a' AST (AUTOa'STRICT)
 
 <div id="a-1"></div>
-## A.1 Wykrywanie blokĂłw: zmienne i kotwice komentarzowe
-**ObsÄąâ€šugiwane formy:**
-1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` â€” preferowana w kodzie ÄąĹźrĂłdÄąâ€šowym.  
-2) **Kotwice**: `-- @OTUI_BEGIN name=<name>` Ă˘â‚¬Â¦ `-- @OTUI_END name=<name>` â€” czytelny marker w Lua.
+## A.1 Wykrywanie blokow: zmienne i kotwice komentarzowe
+**ObsL'ugiwane formy:**
+1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` - preferowana w kodzie LsrodL'owym.  
+2) **Kotwice**: `-- @OTUI_BEGIN name=<name>` a| `-- @OTUI_END name=<name>` - czytelny marker w Lua.
 
 **Regexy (TS, `gms`):**
-`$fenceInfo
 export const RX_VAR = /(^|\n)\s*local\s+([A-Za-z0-9_]+)_OTUI\s*=\s*\[\[([\s\S]*?)\]\]/gms;
 export const RX_TAG = /(^|\n)\s*--\s*@OTUI_BEGIN\s+name=([A-Za-z0-9_]+)[^\n]*\n([\s\S]*?)\n\s*--\s*@OTUI_END\s+name=\2/gms;
 ```
-> **STRICT OTUI** wewnÄ…trz blokĂłw: brak tabĂłw/komentarzy/BOM; wciÄ™cia 2 sp.; kolejnoÄąâ€şÄ‡ atrybutĂłw GEOMETRIAĂ˘â€ â€™STYLĂ˘â€ â€™ZACHOWANIE.
+> **STRICT OTUI** wewnatrz blokow: brak tabow/komentarzy/BOM; wciecia 2 sp.; kolejnoLc atrybutow GEOMETRIAa'STYLa'ZACHOWANIE.
 
 <div id="a-2"></div>
 ## A.2 API ekstrakcji i podmiany (TypeScript)
-`$fenceInfo
 export interface LuaOtuiBlock { name: string; otui: string; start: number; end: number; kind: 'var'|'tag' }
 
 export function extractLuaOtuiBlocks(lua: string): LuaOtuiBlock[] {
@@ -62,19 +60,19 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ```
 
 <div id="a-3"></div>
-## A.3 Polityka AUTOĂ˘â‚¬â€STRICT i bÄąâ€šÄ™dy importu
-- **AUTOĂ˘â‚¬â€STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeÄąâ€şli zmieni treÄąâ€şÄ‡ Ă˘â€ â€™ `W:STRICT` (propozycja autoĂ˘â‚¬â€zapisania).  
-- **BÄąâ€šÄ™dy importu:**
-  - `E:LUAĂ˘â‚¬â€DUP` â€” wiÄ™cej niÄąÄ˝ jeden blok o tej samej nazwie w pliku.  
-  - `E:LUAĂ˘â‚¬â€NOUPD` â€” brak bloku do podmiany.  
-  - `E:STRICT` â€” komentarze/taby/BOM wewnÄ…trz bloku OTUI.  
-  - `E:PARSE` â€” niepoprawny OTUI po `ensureStrictOtui()`.
+## A.3 Polityka AUTOa'STRICT i bL'edy importu
+- **AUTOa'STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeLli zmieni treLc a' `W:STRICT` (propozycja autoa'zapisania).  
+- **BL'edy importu:**
+  - `E:LUAa'DUP` - wiecej niLL jeden blok o tej samej nazwie w pliku.  
+  - `E:LUAa'NOUPD` - brak bloku do podmiany.  
+  - `E:STRICT` - komentarze/taby/BOM wewnatrz bloku OTUI.  
+  - `E:PARSE` - niepoprawny OTUI po `ensureStrictOtui()`.
 
 <div id="a-4"></div>
-## A.4 PrzepÄąâ€šyw IDE (import Ă˘â€ â€™ edycja Ă˘â€ â€™ eksport do Lua/plik)
-1. **Import**: odczytaj plik Lua Ă˘â€ â€™ `extractLuaOtuiBlocks()` Ă˘â€ â€™ wybĂłr bloku Ă˘â€ â€™ `ensureStrictOtui()` Ă˘â€ â€™ `parseOtui()` Ă˘â€ â€™ edycja w IDE.  
-2. **Eksport**: `serializeAst()` Ă˘â€ â€™ `ensureStrictOtui()` Ă˘â€ â€™ `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).  
-3. **Walidacja profilu**: `validateAst(ast, { profile: 'game_bot' })` przed zapisem; blokujÄ…ce `E:BLK` przerywajÄ… zapis.
+## A.4 PrzepL'yw IDE (import a' edycja a' eksport do Lua/plik)
+1. **Import**: odczytaj plik Lua a' `extractLuaOtuiBlocks()` a' wybor bloku a' `ensureStrictOtui()` a' `parseOtui()` a' edycja w IDE.  
+2. **Eksport**: `serializeAst()` a' `ensureStrictOtui()` a' `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).  
+3. **Walidacja profilu**: `validateAst(ast, { profile: 'game_bot' })` przed zapisem; blokujace `E:BLK` przerywaja zapis.
 
 ---
 
@@ -82,8 +80,7 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ## B. Goldeny (expanded)
 
 <div id="b-1"></div>
-## B.1 Indeks JSON (nazwy Ă˘â€ â€™ opis)
-`$fenceInfo
+## B.1 Indeks JSON (nazwy a' opis)
 [
   {"name":"mainwindow_basic","desc":"MainWindow + content (fill)"},
   {"name":"staticmain_basic","desc":"StaticMainWindow + content"},
@@ -96,23 +93,22 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
   {"name":"status_overlay_basic","desc":"StatusOverlay (Label+Progress+Cancel)"},
   {"name":"tabbar_tabwidget_pair","desc":"TabBar + TabWidget (para)"},
   {"name":"toolbar_basic","desc":"Toolbar z dwiema akcjami i separatorem"},
-  {"name":"titlebar_buttons_set","desc":"Titlebar z tytuÄąâ€šem i przyciskami close/min"},
+  {"name":"titlebar_buttons_set","desc":"Titlebar z tytuL'em i przyciskami close/min"},
   {"name":"groupbox_form_basic","desc":"GroupBox z headerem i contentem"},
   {"name":"tabbed_miniwindow","desc":"MiniWindow z TabBar + TabWidget"},
-  {"name":"combobox_basic","desc":"ComboBox (szerokoÄąâ€şÄ‡ staÄąâ€ša)"},
+  {"name":"combobox_basic","desc":"ComboBox (szerokoLc staL'a)"},
   {"name":"checkbox_basic","desc":"CheckBox (wariant podstawowy)"},
   {"name":"progressbar_basic","desc":"ProgressBar (rozmiar minimalny)"},
   {"name":"label_wrap_basic","desc":"Label z text-wrap"},
   {"name":"panel_with_padding","desc":"Panel (anchors.fill + padding)"},
-  {"name":"textlist_with_hscroll","desc":"TextList + HorizontalScrollBar (dok do doÄąâ€šu)"},
-  {"name":"login_screen_basic","desc":"StaticMainWindow â€“ prosty ekran logowania"}
+  {"name":"textlist_with_hscroll","desc":"TextList + HorizontalScrollBar (dok do doL'u)"},
+  {"name":"login_screen_basic","desc":"StaticMainWindow - prosty ekran logowania"}
 ]
 ```
 
 <div id="b-2"></div>
 ## B.2 Wybrane goldeny (STRICT OTUI)
 **`toolbar_basic`**
-`$fenceInfo
 Toolbar
   id: tools
   size: 200 22
@@ -133,7 +129,6 @@ Toolbar
 ```
 
 **`titlebar_buttons_set`**
-`$fenceInfo
 Titlebar
   id: tb
   size: 200 20
@@ -155,7 +150,6 @@ Titlebar
 ```
 
 **`groupbox_form_basic`**
-`$fenceInfo
 GroupBox
   id: group
   size: 220 120
@@ -185,7 +179,6 @@ GroupBox
 ```
 
 **`tabbed_miniwindow`**
-`$fenceInfo
 MiniWindow < MainWindow
   id: mini
   size: 280 200
@@ -233,7 +226,6 @@ MiniWindow < MainWindow
 ```
 
 **`textlist_with_hscroll`**
-`$fenceInfo
 UIWidget
   id: wrap
   size: 240 120
@@ -253,8 +245,7 @@ UIWidget
     step: 8
 ```
 
-**`login_screen_basic`** (podglÄ…d)
-`$fenceInfo
+**`login_screen_basic`** (podglad)
 StaticMainWindow
   id: smw_login
   size: 320 240
@@ -302,8 +293,7 @@ StaticMainWindow
 ---
 
 <div id="c-runner"></div>
-## C. Runner roundĂ˘â‚¬â€trip + walidacja profili
-`$fenceInfo
+## C. Runner rounda'trip + walidacja profili
 export interface GoldenCase { name: string; otui?: string }
 export interface GoldenIO { read(path: string): string; write(path: string, data: string): void }
 export interface GoldenReport { passed: string[]; failed: Array<{name: string; reason: string}> }
@@ -327,6 +317,4 @@ export function runGoldenSuite(cases: GoldenCase[], io: GoldenIO, opts?: { profi
 }
 ```
 
-> **Notatka:** Ten addendum nie zmienia zasad bazowych; integruj gotowe sekcje Aâ€“C z Twoim pipelineĂ˘â‚¬â„˘em IDE oraz CI.
-
-
+> **Notatka:** Ten addendum nie zmienia zasad bazowych; integruj gotowe sekcje A-C z Twoim pipelineaem IDE oraz CI.

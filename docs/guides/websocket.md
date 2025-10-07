@@ -1,6 +1,5 @@
 # Realtime (websocket)
 
-`$fenceInfo
 sequenceDiagram
   participant UI as Dashboard (SPA)
   participant WS as WebSocket (wss)
@@ -16,10 +15,9 @@ sequenceDiagram
 
 - **WSS** + origin allowlist + rate-limit.
 - Autoryzacja w handshake (JWT / session).
-- Walidacja schematĂłw wiadomoÄąâ€şci.
-## PrzykÄąâ€šad (Node + socket io)
+- Walidacja schematow wiadomoLci.
+## PrzykL'ad (Node + socket io)
 
-`$fenceInfo
 io.use(authMiddleware);
 io.on("connection", (s) => {
   s.join(`user:${s.user.id}`);
@@ -28,4 +26,3 @@ io.on("connection", (s) => {
   });
 });
 ```
-

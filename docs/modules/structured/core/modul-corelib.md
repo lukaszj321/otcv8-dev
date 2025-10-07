@@ -1,6 +1,5 @@
-# Â¦ Modul: `corelib`
+# Modul: `corelib`
 
-`$fenceInfo
 
 --[[
 
@@ -321,7 +320,6 @@ SOFTWARE.
 ---
 # bitwise.lua
 
-`$fenceInfo
 
 Bit = {}
 
@@ -354,7 +352,6 @@ end
 ---
 # config.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -481,7 +478,6 @@ end
 ---
 # const.lua
 
-`$fenceInfo
 
 -- @docconsts @{
 
@@ -1112,7 +1108,6 @@ SoundChannels = {
 ---
 # corelib.otmod
 
-`$fenceInfo
 
 Module
 
@@ -1177,7 +1172,6 @@ Module
 ---
 # globals.lua
 
-`$fenceInfo
 
 -- @docvars @{
 
@@ -1312,7 +1306,6 @@ end
 ---
 # http.lua
 
-`$fenceInfo
 
 HTTP = {
 
@@ -1851,7 +1844,6 @@ g_http.setUserAgent(HTTP.agent)
 ---
 # inputmessage.lua
 
-`$fenceInfo
 
 function InputMessage:getData()
 
@@ -1954,7 +1946,6 @@ end
 ---
 # json.lua
 
-`$fenceInfo
 
 --
 
@@ -2677,7 +2668,6 @@ end
 ---
 # keyboard.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -3132,7 +3122,6 @@ end
 ---
 # math.lua
 
-`$fenceInfo
 
 -- @docclass math
 
@@ -3195,7 +3184,6 @@ end
 ---
 # mouse.lua
 
-`$fenceInfo
 
 -- @docclass
 
@@ -3270,7 +3258,6 @@ end
 ---
 # net.lua
 
-`$fenceInfo
 
 function translateNetworkError(errcode, connecting, errdesc)
 
@@ -3309,7 +3296,6 @@ end
 ---
 # orderedtable.lua
 
-`$fenceInfo
 
 function __genOrderedIndex( t )
 
@@ -3392,7 +3378,6 @@ end
 ---
 # outputmessage.lua
 
-`$fenceInfo
 
 function OutputMessage:addData(data)
 
@@ -3523,7 +3508,6 @@ end
 ---
 # settings.lua
 
-`$fenceInfo
 
 g_settings = makesingleton(g_configs.getSettings())
 
@@ -3534,7 +3518,6 @@ g_settings = makesingleton(g_configs.getSettings())
 ---
 # string.lua
 
-`$fenceInfo
 
 -- @docclass string
 
@@ -3641,7 +3624,6 @@ end
 ---
 # struct.lua
 
-`$fenceInfo
 
 Struct = {}
 
@@ -3942,7 +3924,6 @@ end
 ---
 # table.lua
 
-`$fenceInfo
 
 -- @docclass table
 
@@ -4469,7 +4450,6 @@ end
 ---
 # test.lua
 
-`$fenceInfo
 
 Test = {
 
@@ -4592,7 +4572,6 @@ end
 ---
 # util.lua
 
-`$fenceInfo
 
 -- @docfuncs @{
 

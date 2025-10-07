@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_walking`
+# Modul: `game_walking`
 
-`$fenceInfo
 
 smartWalkDirs = {}
 
@@ -769,7 +768,6 @@ end
 ---
 # walking.otmod
 
-`$fenceInfo
 
 Module
 

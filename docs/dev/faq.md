@@ -1,5 +1,5 @@
 # FAQ
 
-**Czy mogÄ™ uÄąÄ˝ywaÄ‡ swoich moduÄąâ€šĂłw?** Tak, wrzuÄ‡ do `modules/<nazwa>` i zarejestruj w konfiguracji.
+**Czy moge uLLywac swoich moduL'ow?** Tak, wrzuc do `modules/<nazwa>` i zarejestruj w konfiguracji.
 
-**Czy dziaÄąâ€ša na Linux/Windows?** Tak â€” patrz sekcja _Build_.
+**Czy dziaL'a na Linux/Windows?** Tak - patrz sekcja _Build_.

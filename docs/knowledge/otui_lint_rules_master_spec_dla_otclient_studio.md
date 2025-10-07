@@ -1,15 +1,14 @@
-# OTUI Lint Rules (MASTER) â€“ Specyfikacja dla **OTClient Studio**
+# OTUI Lint Rules (MASTER) - Specyfikacja dla **OTClient Studio**
 
-> Cel: kompletny katalog reguÄąâ€š lint/autoĂ˘â‚¬â€fix dla **OTUI/OTML** uÄąÄ˝ywany przez Studio. Dokument definiuje: zachowania reguÄąâ€š, algorytmy autoĂ˘â‚¬â€fix, format diagnostyk, konfiguracjÄ™, testĂ˘â‚¬â€wektory, integracjÄ™ z edytorem i wymagania jakoÄąâ€şciowe. **Transfer 1:1** â€“ gotowe do bezpoÄąâ€şredniej implementacji.
+> Cel: kompletny katalog reguL' lint/autoa'fix dla **OTUI/OTML** uLLywany przez Studio. Dokument definiuje: zachowania reguL', algorytmy autoa'fix, format diagnostyk, konfiguracje, testa'wektory, integracje z edytorem i wymagania jakoLciowe. **Transfer 1:1** - gotowe do bezpoLredniej implementacji.
 
 ---
-## 0) ZaÄąâ€šoÄąÄ˝enia wspĂłlne
-- **Parser/AST**: zgodnie z dokumentem â€žParser & Schemas: AST + JSON Schema (OTClient Studio)â€ť (Â§ OTUI AST). KaÄąÄ˝dy wÄ™zeÄąâ€š posiada `loc` (`file`, `start`, `end`).
-- **Kategoryzacja atrybutĂłw**: `GEOMETRY`, `STYLE`, `BEHAVIOR` (lista bazowa w Â§1.3 tego dokumentu; rozszerzalna).
-- **DeterministycznoÄąâ€şÄ‡**: wyniki lint i autoĂ˘â‚¬â€fix sÄ… deterministyczne (stabilny sort atrybutĂłw, niezmiennoÄąâ€şÄ‡ biaÄąâ€šych znakĂłw poza miejscem naprawy).
-- **Backup i diff**: przy autoĂ˘â‚¬â€fix zapisywany jest plik `.bak` oraz generowany jest diff (Unified) do podglÄ…du w UI.
-- **Format diagnostyk** (kanaÄąâ€š do edytora):
-`$fenceInfo
+## 0) ZaL'oLLenia wspolne
+- **Parser/AST**: zgodnie z dokumentem "Parser & Schemas: AST + JSON Schema (OTClient Studio)" ( OTUI AST). KaLLdy wezeL' posiada `loc` (`file`, `start`, `end`).
+- **Kategoryzacja atrybutow**: `GEOMETRY`, `STYLE`, `BEHAVIOR` (lista bazowa w 1.3 tego dokumentu; rozszerzalna).
+- **DeterministycznoLc**: wyniki lint i autoa'fix sa deterministyczne (stabilny sort atrybutow, niezmiennoLc biaL'ych znakow poza miejscem naprawy).
+- **Backup i diff**: przy autoa'fix zapisywany jest plik `.bak` oraz generowany jest diff (Unified) do podgladu w UI.
+- **Format diagnostyk** (kanaL' do edytora):
 {
   "code": "OTUI-001",
   "severity": "ERROR|WARN|INFO|HINT",
@@ -21,15 +20,14 @@
 ```
 
 ---
-## 1) Katalog reguÄąâ€š (z autoĂ˘â‚¬â€fix tam, gdzie bezpieczny)
+## 1) Katalog reguL' (z autoa'fix tam, gdzie bezpieczny)
 
-> **Legenda pĂłl:** `Opis`, `Wykrywanie`, `AutoĂ˘â‚¬â€fix`, `PrzykÄąâ€šad (before/after)`, `Severity`, `BezpieczeÄąâ€žstwo`, `Konfiguracja`.
-## OTUIĂ˘â‚¬â€001 â€” KolejnoÄąâ€şÄ‡ pĂłl: GEOMETRIA Ă˘â€ â€™ STYL Ă˘â€ â€™ ZACHOWANIE (**autoĂ˘â‚¬â€fix**)
-- **Opis**: w obrÄ™bie kaÄąÄ˝dego bloku deklaracji widÄąÄ˝etu atrybuty muszÄ… byÄ‡ uporzÄ…dkowane wg kategorii.
-- **Wykrywanie**: przeanalizuj listÄ™ `KV` w `Decl.body`; jeÄąâ€şli sekwencja kategorii zawiera inwersje (np. `STYLE` przed `GEOMETRY`), zgÄąâ€šoÄąâ€ş problem.
-- **AutoĂ˘â‚¬â€fix**: stabilne sortowanie kluczy: najpierw wszystkie `GEOMETRY`, potem `STYLE`, potem `BEHAVIOR`. Zachowaj wzglÄ™dnÄ… kolejnoÄąâ€şÄ‡ wewnÄ…trz kategorii i przenieÄąâ€ş komentarze razem z parÄ… `KV`.
-- **PrzykÄąâ€šad**
-`$fenceInfo
+> **Legenda pol:** `Opis`, `Wykrywanie`, `Autoa'fix`, `PrzykL'ad (before/after)`, `Severity`, `BezpieczeL"stwo`, `Konfiguracja`.
+## OTUIa'001 - KolejnoLc pol: GEOMETRIA a' STYL a' ZACHOWANIE (**autoa'fix**)
+- **Opis**: w obrebie kaLLdego bloku deklaracji widLLetu atrybuty musza byc uporzadkowane wg kategorii.
+- **Wykrywanie**: przeanalizuj liste `KV` w `Decl.body`; jeLli sekwencja kategorii zawiera inwersje (np. `STYLE` przed `GEOMETRY`), zgL'oL problem.
+- **Autoa'fix**: stabilne sortowanie kluczy: najpierw wszystkie `GEOMETRY`, potem `STYLE`, potem `BEHAVIOR`. Zachowaj wzgledna kolejnoLc wewnatrz kategorii i przenieL komentarze razem z para `KV`.
+- **PrzykL'ad**
 # BEFORE
 Window < UIWidget {
   text: "Hello"
@@ -44,134 +42,131 @@ Window < UIWidget {
 }
 ```
 - **Severity**: WARN (podniesienie do ERROR konfigurowalne).
-- **BezpieczeÄąâ€žstwo**: bezpieczny autoĂ˘â‚¬â€fix.
+- **BezpieczeL"stwo**: bezpieczny autoa'fix.
 - **Konfiguracja**:
-`$fenceInfo
 {"OTUI-001":{"enabled":true,"severity":"WARN"}}
 ```
-## OTUIĂ˘â‚¬â€002 â€” Statyczne teksty muszÄ… uÄąÄ˝ywaÄ‡ `tr()` (**autoĂ˘â‚¬â€fix**)
-- **Opis**: literaÄąâ€šy string w atrybutach kategorii STYLE (np. `text`) muszÄ… byÄ‡ opakowane `tr("...")`.
-- **Wykrywanie**: `KV.key` Ă˘ÂÂ STYLE Ă˘ÂÂ§ `value.type == StringLiteral` Ă˘ÂÂ§ `value.value` nie zaczyna siÄ™ od `tr(`.
-- **AutoĂ˘â‚¬â€fix**: zamieÄąâ€ž `"Tekst"` Ă˘â€ â€™ `tr("Tekst")`. Wyklucz klucze `id`, nazwy klas/stylĂłw.
-- **PrzykÄąâ€šad**
-`$fenceInfo
+## OTUIa'002 - Statyczne teksty musza uLLywac `tr()` (**autoa'fix**)
+- **Opis**: literaL'y string w atrybutach kategorii STYLE (np. `text`) musza byc opakowane `tr("...")`.
+- **Wykrywanie**: `KV.key` a STYLE a `value.type == StringLiteral` a `value.value` nie zaczyna sie od `tr(`.
+- **Autoa'fix**: zamieL" `"Tekst"` a' `tr("Tekst")`. Wyklucz klucze `id`, nazwy klas/stylow.
+- **PrzykL'ad**
 # BEFORE
 Label < UIWidget { text: "Start" }
 # AFTER
 Label < UIWidget { text: tr("Start") }
 ```
 - **Severity**: WARN.
-- **BezpieczeÄąâ€žstwo**: bezpieczny autoĂ˘â‚¬â€fix.
+- **BezpieczeL"stwo**: bezpieczny autoa'fix.
 - **Konfiguracja**: `{ "OTUI-002": {"enabled": true, "severity": "WARN", "allowList": ["tooltip"] } }`
-## OTUIĂ˘â‚¬â€003 â€” Sprzeczne `anchors` / `margins` (detekcja)
-- **Opis**: wykrywa sprzecznoÄąâ€şci (np. jednoczesne kotwice wykluczajÄ…ce siÄ™ lub ujemne marginesy tam, gdzie to niedozwolone w projekcie).
-- **Wykrywanie**: analizuj wartoÄąâ€şci `anchors` (obiekt/array) i `margin/Ă˘â‚¬Â¦`; reguÄąâ€šy domenowe: brak `left`+`right` bez `width` (jeÄąâ€şli projekt tak definiuje), brak ujemnych `margin`.
-- **AutoĂ˘â‚¬â€fix**: brak (tylko sugestie: usuÄąâ€ž `right` lub dodaj `width`).
-- **Severity**: ERROR (domyÄąâ€şlnie).
-- **BezpieczeÄąâ€žstwo**: brak autoĂ˘â‚¬â€fixu.
-## OTUIĂ˘â‚¬â€004 â€” ZasĂłb nie istnieje (STYLE Ă˘â€ â€™ `image`, `font`, `style`)
-- **Opis**: odwoÄąâ€šanie do pliku zasobu, ktĂłrego nie ma w projekcie.
-- **Wykrywanie**: sprawdÄąĹź Äąâ€şcieÄąÄ˝ki wzglÄ™dem `project-root/data/Ă˘â‚¬Â¦` lub mapy zasobĂłw (`assets-map.json`).
-- **AutoĂ˘â‚¬â€fix**: brak; podaj propozycje (fuzzy match) najbliÄąÄ˝szych nazw.
+## OTUIa'003 - Sprzeczne `anchors` / `margins` (detekcja)
+- **Opis**: wykrywa sprzecznoLci (np. jednoczesne kotwice wykluczajace sie lub ujemne marginesy tam, gdzie to niedozwolone w projekcie).
+- **Wykrywanie**: analizuj wartoLci `anchors` (obiekt/array) i `margin/a|`; reguL'y domenowe: brak `left`+`right` bez `width` (jeLli projekt tak definiuje), brak ujemnych `margin`.
+- **Autoa'fix**: brak (tylko sugestie: usuL" `right` lub dodaj `width`).
+- **Severity**: ERROR (domyLlnie).
+- **BezpieczeL"stwo**: brak autoa'fixu.
+## OTUIa'004 - Zasob nie istnieje (STYLE a' `image`, `font`, `style`)
+- **Opis**: odwoL'anie do pliku zasobu, ktorego nie ma w projekcie.
+- **Wykrywanie**: sprawdLs LcieLLki wzgledem `project-root/data/a|` lub mapy zasobow (`assets-map.json`).
+- **Autoa'fix**: brak; podaj propozycje (fuzzy match) najbliLLszych nazw.
 - **Severity**: ERROR.
-## OTUIĂ˘â‚¬â€005 â€” Zduplikowane `id` w obrÄ™bie pliku
-- **Opis**: `KV.key == id` nie moÄąÄ˝e wystÄ…piÄ‡ wielokrotnie z tÄ… samÄ… wartoÄąâ€şciÄ… w pliku.
+## OTUIa'005 - Zduplikowane `id` w obrebie pliku
+- **Opis**: `KV.key == id` nie moLLe wystapic wielokrotnie z ta sama wartoLcia w pliku.
 - **Wykrywanie**: deduplikacja w `OTUIFile.body` (poziom pliku).
-- **AutoĂ˘â‚¬â€fix**: brak; zaproponuj nowe `id` (`<id>_1`).
+- **Autoa'fix**: brak; zaproponuj nowe `id` (`<id>_1`).
 - **Severity**: ERROR.
-## OTUIĂ˘â‚¬â€006 â€” Konwencja nazewnictwa `id`
+## OTUIa'006 - Konwencja nazewnictwa `id`
 - **Opis**: `id` dopuszcza `[a-z0-9_]+` (konfigurowalne).
 - **Wykrywanie**: regex na `Identifier|StringLiteral`.
-- **AutoĂ˘â‚¬â€fix**: opcjonalna transformacja do lower_snake_case (jeÄąâ€şli wÄąâ€šÄ…czona).
+- **Autoa'fix**: opcjonalna transformacja do lower_snake_case (jeLli wL'aczona).
 - **Severity**: WARN.
-## OTUIĂ˘â‚¬â€007 â€” Nieznany atrybut widÄąÄ˝etu
-- **Opis**: klucz `KV.key` nie znajduje siÄ™ w dozwolonych dla danego widÄąÄ˝etu (lista referencyjna + allowĂ˘â‚¬â€list projektu).
-- **Wykrywanie**: porĂłwnanie do bazy atrybutĂłw; jeÄąâ€şli brak dopasowania Ă˘â€ â€™ problem.
-- **AutoĂ˘â‚¬â€fix**: brak; podpowiedÄąĹź najbliÄąÄ˝szych kluczy (Levenshtein).
+## OTUIa'007 - Nieznany atrybut widLLetu
+- **Opis**: klucz `KV.key` nie znajduje sie w dozwolonych dla danego widLLetu (lista referencyjna + allowa'list projektu).
+- **Wykrywanie**: porownanie do bazy atrybutow; jeLli brak dopasowania a' problem.
+- **Autoa'fix**: brak; podpowiedLs najbliLLszych kluczy (Levenshtein).
 - **Severity**: WARN.
-## OTUIĂ˘â‚¬â€008 â€” Atrybut przestarzaÄąâ€šy (deprecated)
-- **Opis**: uÄąÄ˝ycie atrybutu oznaczonego jako przestarzaÄąâ€šy w profilu projektu.
+## OTUIa'008 - Atrybut przestarzaL'y (deprecated)
+- **Opis**: uLLycie atrybutu oznaczonego jako przestarzaL'y w profilu projektu.
 - **Wykrywanie**: dopasowanie do listy `deprecatedAttributes` (konfiguracja).
-- **AutoĂ˘â‚¬â€fix**: propozycja zamiennika (jeÄąâ€şli podany w konfiguracji).
+- **Autoa'fix**: propozycja zamiennika (jeLli podany w konfiguracji).
 - **Severity**: WARN.
-## OTUIĂ˘â‚¬â€009 â€” Normalizacja booleanĂłw
-- **Opis**: wartoÄąâ€şci bool powinny byÄ‡ `true|false` (nie `0|1|"true"`).
+## OTUIa'009 - Normalizacja booleanow
+- **Opis**: wartoLci bool powinny byc `true|false` (nie `0|1|"true"`).
 - **Wykrywanie**: `value` typu `Identifier/StringLiteral/NumberLiteral` odwzorowuje bool.
-- **AutoĂ˘â‚¬â€fix**: zamieÄąâ€ž na `true/false`.
+- **Autoa'fix**: zamieL" na `true/false`.
 - **Severity**: HINT.
-## OTUIĂ˘â‚¬â€010 â€” Format kolorĂłw
-- **Opis**: akceptowane formaty kolorĂłw wg projektu (np. `#RRGGBB`, `rgba(...)`).
+## OTUIa'010 - Format kolorow
+- **Opis**: akceptowane formaty kolorow wg projektu (np. `#RRGGBB`, `rgba(...)`).
 - **Wykrywanie**: regex na `StringLiteral`.
-- **AutoĂ˘â‚¬â€fix**: konwersja do kanonicznego formatu (jeÄąâ€şli moÄąÄ˝liwa).
+- **Autoa'fix**: konwersja do kanonicznego formatu (jeLli moLLliwa).
 - **Severity**: WARN.
-## OTUIĂ˘â‚¬â€011 â€” Jednostki wymiarĂłw/liczb
-- **Opis**: liczby powinny byÄ‡ bez jednostek (lub z konkretnÄ… notacjÄ… â€“ zaleÄąÄ˝nie od projektu).
-- **Wykrywanie**: `NumberLiteral` OK; `StringLiteral` z sufiksem jednostki Ă˘â€ â€™ problem (opcjonalnie).
-- **AutoĂ˘â‚¬â€fix**: usuniÄ™cie sufiksu, jeÄąâ€şli wÄąâ€šÄ…czone.
+## OTUIa'011 - Jednostki wymiarow/liczb
+- **Opis**: liczby powinny byc bez jednostek (lub z konkretna notacja - zaleLLnie od projektu).
+- **Wykrywanie**: `NumberLiteral` OK; `StringLiteral` z sufiksem jednostki a' problem (opcjonalnie).
+- **Autoa'fix**: usuniecie sufiksu, jeLli wL'aczone.
 - **Severity**: HINT/WARN.
-## OTUIĂ˘â‚¬â€012 â€” Cykl dziedziczenia widÄąÄ˝etĂłw
+## OTUIa'012 - Cykl dziedziczenia widLLetow
 - **Opis**: `Decl.base` tworzy cykl (A < B, B < C, C < A).
-- **Wykrywanie**: graf dziedziczenia per plik (lub caÄąâ€šy projekt); detekcja cykli.
-- **AutoĂ˘â‚¬â€fix**: brak; raport Äąâ€şcieÄąÄ˝ki cyklu.
+- **Wykrywanie**: graf dziedziczenia per plik (lub caL'y projekt); detekcja cykli.
+- **Autoa'fix**: brak; raport LcieLLki cyklu.
 - **Severity**: ERROR.
-## OTUIĂ˘â‚¬â€013 â€” Puste deklaracje
-- **Opis**: `Decl` bez atrybutĂłw i potomkĂłw.
+## OTUIa'013 - Puste deklaracje
+- **Opis**: `Decl` bez atrybutow i potomkow.
 - **Wykrywanie**: `Decl.body.length == 0`.
-- **AutoĂ˘â‚¬â€fix**: usuÄąâ€ž pusty blok (opcjonalnie, jeÄąâ€şli nie referencjonowany).
+- **Autoa'fix**: usuL" pusty blok (opcjonalnie, jeLli nie referencjonowany).
 - **Severity**: INFO.
-## OTUIĂ˘â‚¬â€014 â€” Niezreferencjonowany widÄąÄ˝et (analiza projektowa)
-- **Opis**: `Decl` nigdy nie Äąâ€šadowany przez `g_ui.loadUI` ani dziedziczony.
-- **Wykrywanie**: korelacja z `project-index.json.relations.lua_to_otui` i bazÄ… typĂłw.
-- **AutoĂ˘â‚¬â€fix**: brak; informacja do porzÄ…dkĂłw.
+## OTUIa'014 - Niezreferencjonowany widLLet (analiza projektowa)
+- **Opis**: `Decl` nigdy nie L'adowany przez `g_ui.loadUI` ani dziedziczony.
+- **Wykrywanie**: korelacja z `project-index.json.relations.lua_to_otui` i baza typow.
+- **Autoa'fix**: brak; informacja do porzadkow.
 - **Severity**: INFO.
-## OTUIĂ˘â‚¬â€015 â€” OdnoÄąâ€şnik do stylu nie istnieje
-- **Opis**: `style: "Ă˘â‚¬Â¦"` nie znajduje siÄ™ w katalogu stylĂłw projektu.
-- **Wykrywanie**: porĂłwnanie do listy stylĂłw (assetsĂ˘â‚¬â€map lub dedykowana baza stylĂłw).
-- **AutoĂ˘â‚¬â€fix**: brak; fuzzy proposals.
+## OTUIa'015 - OdnoLnik do stylu nie istnieje
+- **Opis**: `style: "a|"` nie znajduje sie w katalogu stylow projektu.
+- **Wykrywanie**: porownanie do listy stylow (assetsa'map lub dedykowana baza stylow).
+- **Autoa'fix**: brak; fuzzy proposals.
 - **Severity**: WARN.
-## OTUIĂ˘â‚¬â€016 â€” Event handler w kluczu `on...` ma niekanonicznÄ… wartoÄąâ€şÄ‡
-- **Opis**: wartoÄąâ€şci eventĂłw powinny byÄ‡ identyfikatorami (nie stringami) â€” zaleÄąÄ˝nie od konwencji projektu.
-- **Wykrywanie**: `key` zaczyna siÄ™ od `on` + wielka litera; `value.type != Identifier`.
-- **AutoĂ˘â‚¬â€fix**: usuÄąâ€ž cudzysÄąâ€šowy (opcjonalnie).
+## OTUIa'016 - Event handler w kluczu `on...` ma niekanoniczna wartoLc
+- **Opis**: wartoLci eventow powinny byc identyfikatorami (nie stringami) - zaleLLnie od konwencji projektu.
+- **Wykrywanie**: `key` zaczyna sie od `on` + wielka litera; `value.type != Identifier`.
+- **Autoa'fix**: usuL" cudzysL'owy (opcjonalnie).
 - **Severity**: HINT/WARN.
-## OTUIĂ˘â‚¬â€017 â€” Atrybuty powielone w obrÄ™bie tego samego `Decl`
-- **Opis**: ten sam `key` wystÄ™puje wielokrotnie â€“ ostatni wygrywa (nieczytelne).
+## OTUIa'017 - Atrybuty powielone w obrebie tego samego `Decl`
+- **Opis**: ten sam `key` wystepuje wielokrotnie - ostatni wygrywa (nieczytelne).
 - **Wykrywanie**: duplikaty `KV.key` w `Decl.body`.
-- **AutoĂ˘â‚¬â€fix**: scal albo usuÄąâ€ž duplikaty (zachowaj ostatni) â€” **opcjonalne**.
+- **Autoa'fix**: scal albo usuL" duplikaty (zachowaj ostatni) - **opcjonalne**.
 - **Severity**: WARN.
-## OTUIĂ˘â‚¬â€018 â€” BiaÄąâ€še znaki i wciÄ™cia (2 spacje)
-- **Opis**: standaryzacja wciÄ™Ä‡ i trailing spaces.
-- **Wykrywanie**: tokenizer whitespace; linie z tabami/koÄąâ€žcĂłwkami spacji.
-- **AutoĂ˘â‚¬â€fix**: konwersja TABĂ˘â€ â€™2 spacje, trim koÄąâ€žcĂłwek.
+## OTUIa'018 - BiaL'e znaki i wciecia (2 spacje)
+- **Opis**: standaryzacja wciec i trailing spaces.
+- **Wykrywanie**: tokenizer whitespace; linie z tabami/koL"cowkami spacji.
+- **Autoa'fix**: konwersja TABa'2 spacje, trim koL"cowek.
 - **Severity**: HINT.
-## OTUIĂ˘â‚¬â€019 â€” Komentarze (#) format
-- **Opis**: komentarz powinien poprzedzaÄ‡ deklaracjÄ™ lub staÄ‡ po wartoÄąâ€şci (a nie w Äąâ€şrodku tokena).
+## OTUIa'019 - Komentarze (#) format
+- **Opis**: komentarz powinien poprzedzac deklaracje lub stac po wartoLci (a nie w Lrodku tokena).
 - **Wykrywanie**: pozycje `Comment` vs `KV`/`Decl`.
-- **AutoĂ˘â‚¬â€fix**: przenieÄąâ€ş komentarz do poprawnej pozycji (jeÄąâ€şli moÄąÄ˝liwe).
+- **Autoa'fix**: przenieL komentarz do poprawnej pozycji (jeLli moLLliwe).
 - **Severity**: HINT.
-## OTUIĂ˘â‚¬â€020 â€” Klucze nieobsÄąâ€šugiwane przez dany typ bazowy
-- **Opis**: atrybut zarezerwowany dla innego typu (np. `icon` na widÄąÄ˝ecie, ktĂłry go nie wspiera â€” wg bazy projektu).
-- **Wykrywanie**: mapowanie `Type`Ă˘â€ â€™dozwolone atrybuty.
-- **AutoĂ˘â‚¬â€fix**: brak.
+## OTUIa'020 - Klucze nieobsL'ugiwane przez dany typ bazowy
+- **Opis**: atrybut zarezerwowany dla innego typu (np. `icon` na widLLecie, ktory go nie wspiera - wg bazy projektu).
+- **Wykrywanie**: mapowanie `Type`a'dozwolone atrybuty.
+- **Autoa'fix**: brak.
 - **Severity**: WARN.
 
 ---
-## 2) Mapowanie kategorii atrybutĂłw (bazowa lista rozszerzalna)
+## 2) Mapowanie kategorii atrybutow (bazowa lista rozszerzalna)
 - **GEOMETRY**: `x,y,width,height,anchors,margin,padding,min-width,max-width,min-height,max-height`
 - **STYLE**: `font,color,image,style,opacity,icon,background,spacing,text`
 - **BEHAVIOR**: `id,focusable,draggable,enabled,visible,onClick,onText,tooltip`
-> Lista jest punktem startowym; moÄąÄ˝e zostaÄ‡ poszerzona w `otui-rules.json`.
+> Lista jest punktem startowym; moLLe zostac poszerzona w `otui-rules.json`.
 
 ---
-## 3) Integracja z edytorem (Monaco) â€“ diagnostyka i Quick Fix
-- **Publish diagnostyk**: na kaÄąÄ˝dy zapis i/lub po krĂłtkim debounce (150 ms) po zmianie.
-- **Format**: jak w Â§0; severity mapowane na kolor/ikonÄ™.
-- **Quick Fix**: prezentuj `fix.title`; po akceptacji wykonaj `edits[]` (wspieraj multiĂ˘â‚¬â€file).
-- **PodglÄ…d diff**: dla autoĂ˘â‚¬â€fixĂłw wymagajÄ…cych wiÄ™kszej zmiany (OTUIĂ˘â‚¬â€001) pokaÄąÄ˝ unified diff.
+## 3) Integracja z edytorem (Monaco) - diagnostyka i Quick Fix
+- **Publish diagnostyk**: na kaLLdy zapis i/lub po krotkim debounce (150 ms) po zmianie.
+- **Format**: jak w 0; severity mapowane na kolor/ikone.
+- **Quick Fix**: prezentuj `fix.title`; po akceptacji wykonaj `edits[]` (wspieraj multia'file).
+- **Podglad diff**: dla autoa'fixow wymagajacych wiekszej zmiany (OTUIa'001) pokaLL unified diff.
 
 ---
-## 4) Konfiguracja reguÄąâ€š (JSON)
-`$fenceInfo
+## 4) Konfiguracja reguL' (JSON)
 {
   "$schemaVersion": 1,
   "rules": {
@@ -200,9 +195,8 @@ Label < UIWidget { text: tr("Start") }
 ```
 
 ---
-## 5) Algorytmy autoĂ˘â‚¬â€fix (pseudokod TS)
-## 5.1 OTUIĂ˘â‚¬â€001 (sort kategorii)
-`$fenceInfo
+## 5) Algorytmy autoa'fix (pseudokod TS)
+## 5.1 OTUIa'001 (sort kategorii)
 function fixOrder(decl: Decl): Edit[] {
   const groups = {G: [] as KV[], S: [] as KV[], B: [] as KV[]};
   for (const kv of decl.body.filter(isKV)) {
@@ -217,8 +211,7 @@ function fixOrder(decl: Decl): Edit[] {
   return [{ file: decl.loc.file, range: rangeOfKVBlock(decl), text }];
 }
 ```
-## 5.2 OTUIĂ˘â‚¬â€002 (wrap `tr()`)
-`$fenceInfo
+## 5.2 OTUIa'002 (wrap `tr()`)
 function wrapTr(kv: KV): Edit[] {
   if (kv.value.type !== 'StringLiteral') return [];
   if (kv.key === 'id') return [];
@@ -229,8 +222,7 @@ function wrapTr(kv: KV): Edit[] {
   }];
 }
 ```
-## 5.3 OTUIĂ˘â‚¬â€009 (booleany)
-`$fenceInfo
+## 5.3 OTUIa'009 (booleany)
 function normalizeBool(kv: KV): Edit[] {
   const val = kv.value;
   const toBool = (s: string) => /^(?:true|1)$/i.test(s);
@@ -245,57 +237,51 @@ function normalizeBool(kv: KV): Edit[] {
 ```
 
 ---
-## 6) TestĂ˘â‚¬â€wektory (minimalny zestaw regresji)
-## 6.1 KolejnoÄąâ€şÄ‡ pĂłl
-**WejÄąâ€şcie**
-`$fenceInfo
+## 6) Testa'wektory (minimalny zestaw regresji)
+## 6.1 KolejnoLc pol
+**WejLcie**
 W < UIWidget { text: "x" width: 1 id: a }
 ```
-**Oczekiwane**: pojedyncza diagnostyka `OTUI-001` + autoĂ˘â‚¬â€fix sortujÄ…cy.
+**Oczekiwane**: pojedyncza diagnostyka `OTUI-001` + autoa'fix sortujacy.
 ## 6.2 `tr()` wrap
-**WejÄąâ€şcie**
-`$fenceInfo
+**WejLcie**
 L < UIWidget { text: "Start" id: start }
 ```
-**Oczekiwane**: `OTUI-002` z autoĂ˘â‚¬â€fix Ă˘â€ â€™ `text: tr("Start")`.
-## 6.3 ZasĂłb nie istnieje
-**WejÄąâ€şcie**
-`$fenceInfo
+**Oczekiwane**: `OTUI-002` z autoa'fix a' `text: tr("Start")`.
+## 6.3 Zasob nie istnieje
+**WejLcie**
 B < UIWidget { image: "images/missing.png" }
 ```
-**Oczekiwane**: `OTUI-004` (ERROR), propozycje fuzzy jeÄąâ€şli `images/button.png` istnieje.
+**Oczekiwane**: `OTUI-004` (ERROR), propozycje fuzzy jeLli `images/button.png` istnieje.
 ## 6.4 Duplikat `id`
-**WejÄąâ€şcie**
-`$fenceInfo
+**WejLcie**
 A < UIWidget { id: x }
 B < UIWidget { id: x }
 ```
-**Oczekiwane**: `OTUI-005` na drugim wystÄ…pieniu.
+**Oczekiwane**: `OTUI-005` na drugim wystapieniu.
 
 ---
-## 7) Kody bÄąâ€šÄ™dĂłw parsera/enginu (dla OTUI)
-- `OTUI_PARSE_001` â€“ niezamkniÄ™ty blok `{` (ParseError)
-- `OTUI_PARSE_002` â€“ nieznany token/literaÄąâ€š Ă˘â€ â€™ potraktowano jako `Identifier`
-- `OTUI_ENGINE_001` â€“ nieprawidÄąâ€šowa kategoria atrybutu (brak w mapie)
-- `OTUI_ENGINE_100` â€“ bÄąâ€šÄ…d I/O przy sprawdzaniu zasobĂłw
+## 7) Kody bL'edow parsera/enginu (dla OTUI)
+- `OTUI_PARSE_001` - niezamkniety blok `{` (ParseError)
+- `OTUI_PARSE_002` - nieznany token/literaL' a' potraktowano jako `Identifier`
+- `OTUI_ENGINE_001` - nieprawidL'owa kategoria atrybutu (brak w mapie)
+- `OTUI_ENGINE_100` - bL'ad I/O przy sprawdzaniu zasobow
 
 ---
-## 8) WydajnoÄąâ€şÄ‡ i limity
-- ReguÄąâ€šy jednoprzebiegowe; jedna analiza AST/plik.
-- Sprawdzenie zasobĂłw buforowane (cache Äąâ€şcieÄąÄ˝ek Ă˘â€ â€™ hash katalogĂłw assets).
-- CaÄąâ€šy lint dla pliku < 50 ms (target), batch 100 plikĂłw < 2 s.
+## 8) WydajnoLc i limity
+- ReguL'y jednoprzebiegowe; jedna analiza AST/plik.
+- Sprawdzenie zasobow buforowane (cache LcieLLek a' hash katalogow assets).
+- CaL'y lint dla pliku < 50 ms (target), batch 100 plikow < 2 s.
 
 ---
-## 9) Checklisty wdroÄąÄ˝eniowe (dla warstwy Lint)
-- [ ] Implementacja wszystkich reguÄąâ€š OTUIĂ˘â‚¬â€001Ă˘â‚¬Â¦020.
-- [ ] WÄąâ€šÄ…czone autoĂ˘â‚¬â€fix dla 001/002/009/018; pozostaÄąâ€še bezpieczne â€“ opcjonalnie.
-- [ ] Konfiguracja reguÄąâ€š w `otui-rules.json`; integracja w UI (enable/disable, severity).
-- [ ] Testy z Â§6 â€“ zielone; snapshoty zmian po autoĂ˘â‚¬â€fix.
-- [ ] Cache zasobĂłw i fuzzy propozycje dziaÄąâ€šajÄ….
+## 9) Checklisty wdroLLeniowe (dla warstwy Lint)
+- [ ] Implementacja wszystkich reguL' OTUIa'001a|020.
+- [ ] WL'aczone autoa'fix dla 001/002/009/018; pozostaL'e bezpieczne - opcjonalnie.
+- [ ] Konfiguracja reguL' w `otui-rules.json`; integracja w UI (enable/disable, severity).
+- [ ] Testy z 6 - zielone; snapshoty zmian po autoa'fix.
+- [ ] Cache zasobow i fuzzy propozycje dziaL'aja.
 
 ---
-## 10) Noty koÄąâ€žcowe
-- ReguÄąâ€šy sÄ… projektowalne â€“ dopuszcza siÄ™ dodawanie wÄąâ€šasnych rozszerzeÄąâ€ž, o ile nie zmieniajÄ… publicznych kontraktĂłw (format diagnostyk i edycji).
-- Wszelkie zmiany w zestawie reguÄąâ€š wymagajÄ… podniesienia `$schemaVersion` w konfiguracji i aktualizacji testĂ˘â‚¬â€wektorĂłw.
-
-
+## 10) Noty koL"cowe
+- ReguL'y sa projektowalne - dopuszcza sie dodawanie wL'asnych rozszerzeL", o ile nie zmieniaja publicznych kontraktow (format diagnostyk i edycji).
+- Wszelkie zmiany w zestawie reguL' wymagaja podniesienia `$schemaVersion` w konfiguracji i aktualizacji testa'wektorow.

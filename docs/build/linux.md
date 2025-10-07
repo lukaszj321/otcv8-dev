@@ -1,4 +1,4 @@
-# Build â€” Linux
+# Build - Linux
 
-1. ZaleĂ„Ä…Ă„ËťnoĂ„Ä…Ă˘â‚¬Ĺźci systemowe (gcc/clang, cmake, itp.)
+1. ZaleAaAnoAaasci systemowe (gcc/clang, cmake, itp.)
 2. Kroki kompilacji.

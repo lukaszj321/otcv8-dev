@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot`
+# Modul: `game_bot/default_configs/cavebot_1.3/cavebot`
 
-`$fenceInfo
 
 CaveBot.Actions = {}
 
@@ -467,7 +466,6 @@ end)
 ---
 # cavebot.lua
 
-`$fenceInfo
 
 local cavebotMacro = nil
 
@@ -874,7 +872,6 @@ end
 ---
 # cavebot.otui
 
-`$fenceInfo
 
 CaveBotAction < Label
 
@@ -971,7 +968,6 @@ CaveBotPanel < Panel
 ---
 # config.lua
 
-`$fenceInfo
 
 -- config for bot
 
@@ -1144,7 +1140,6 @@ end
 ---
 # config.otui
 
-`$fenceInfo
 
 CaveBotConfigPanel < Panel
 
@@ -1243,7 +1238,6 @@ CaveBotConfigBooleanValuePanel < Panel
 ---
 # depositer.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Depositer = {}
 
@@ -1292,7 +1286,6 @@ end
 ---
 # editor.lua
 
-`$fenceInfo
 
 CaveBot.Editor = {}
 
@@ -1621,7 +1614,6 @@ end
 ---
 # editor.otui
 
-`$fenceInfo
 
 CaveBotEditorButton < Button
 
@@ -1702,7 +1694,6 @@ CaveBotEditorPanel < Panel
 ---
 # example_functions.lua
 
-`$fenceInfo
 
 CaveBot.Editor.ExampleFunctions = {}
 
@@ -1867,7 +1858,6 @@ return "retry"
 ---
 # extension_template.lua
 
-`$fenceInfo
 
 -- example cavebot extension (remember to add this file to ../cavebot.lua)
 
@@ -1976,7 +1966,6 @@ end
 ---
 # recorder.lua
 
-`$fenceInfo
 
 -- auto recording for cavebot
 
@@ -2097,7 +2086,6 @@ end
 ---
 # supply.lua
 
-`$fenceInfo
 
 CaveBot.Extensions.Supply = {}
 
@@ -2152,7 +2140,6 @@ end
 ---
 # supply.otui
 
-`$fenceInfo
 
 SupplyItem < Panel
 
@@ -2285,9 +2272,6 @@ SupplyItemList < Panel
 ---
 # walking.lua
 
-{% raw %}
-{% raw %}
-`$fenceInfo
 
 -- walking
 
@@ -2456,7 +2440,5 @@ CaveBot.walkTo = function(dest, maxDist, params)
 end
 
 ```
-{% endraw %}
-{% endraw %}
 
 ---

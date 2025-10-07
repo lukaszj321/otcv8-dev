@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_spelllist`
+# Modul: `game_spelllist`
 
-`$fenceInfo
 
 local SpelllistProfile = 'Default'
 
@@ -657,7 +656,6 @@ end
 ---
 # spelllist.otmod
 
-`$fenceInfo
 
 Module
 
@@ -682,7 +680,6 @@ Module
 ---
 # spelllist.otui
 
-`$fenceInfo
 
 SpellListLabel < Label
 

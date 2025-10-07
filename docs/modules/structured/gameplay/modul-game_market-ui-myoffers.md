@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_market/ui/myoffers`
+# Modul: `game_market/ui/myoffers`
 
-`$fenceInfo
 
 OfferTableRow < TableRow
 
@@ -327,7 +326,6 @@ Panel
 ---
 # itemoffers.otui
 
-`$fenceInfo
 
 Panel
 
@@ -350,7 +348,6 @@ Panel
 ---
 # offerhistory.otui
 
-`$fenceInfo
 
 Panel
 

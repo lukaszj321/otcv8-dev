@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_playermount`
+# Modul: `game_playermount`
 
-`$fenceInfo
 
 function init()
 
@@ -91,7 +90,6 @@ end
 ---
 # playermount.otmod
 
-`$fenceInfo
 
 Module
 

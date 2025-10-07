@@ -1,37 +1,36 @@
-# Specyfikacja implementacji (MASTER v1.0): **Studio React/Electron** dla skryptĂłw **OTClient v8** + **modules/game_bot (vBot)**
+# Specyfikacja implementacji (MASTER v1.0): **Studio React/Electron** dla skryptow **OTClient v8** + **modules/game_bot (vBot)**
 
-> Dokument centralny â€“ peÄąâ€šna, profesjonalna specyfikacja do autonomicznej implementacji narzÄ™dzia. Zawiera architekturÄ™, modele danych, protokoÄąâ€šy, checklisty, reguÄąâ€šy jakoÄąâ€şci, plan wdroÄąÄ˝enia, testy, ryzyka i artefakty startowe. Wszystkie kroki sÄ… deterministyczne i moÄąÄ˝liwe do zautomatyzowania na podstawie danych zawartych w tym dokumencie.
+> Dokument centralny - peL'na, profesjonalna specyfikacja do autonomicznej implementacji narzedzia. Zawiera architekture, modele danych, protokoL'y, checklisty, reguL'y jakoLci, plan wdroLLenia, testy, ryzyka i artefakty startowe. Wszystkie kroki sa deterministyczne i moLLliwe do zautomatyzowania na podstawie danych zawartych w tym dokumencie.
 
 ---
 ## 0. Executive Summary
-- **Cel:** zbudowaÄ‡ wieloplatformowe Studio (desktop **Electron** + **React/TypeScript**) do tworzenia, analizy i utrzymania skryptĂłw **Lua/OTUI/OTML** dla **OTClient v8** oraz **vBot**.
+- **Cel:** zbudowac wieloplatformowe Studio (desktop **Electron** + **React/TypeScript**) do tworzenia, analizy i utrzymania skryptow **Lua/OTUI/OTML** dla **OTClient v8** oraz **vBot**.
 - **Core features:**
   1) Inteligentne **podpowiedzi API** (kuratorowany `api.json` + indeks ze skanu repo),
-  2) **Lint/autoĂ˘â‚¬â€fix** dla **OTUI** i lekkie reguÄąâ€šy dla **Lua**,
-  3) **Generator** moduÄąâ€šĂłw/szablonĂłw,
-  4) Integracja z klientem: **hotĂ˘â‚¬â€reload** i **Log Viewer** (debug przez logi),
-  5) Praca **offlineĂ˘â‚¬â€first**.
-- **Ograniczenia:** brak oficjalnego stepĂ˘â‚¬â€debuggera Lua; debug realizowany przez logi oraz hotĂ˘â‚¬â€reload.
+  2) **Lint/autoa'fix** dla **OTUI** i lekkie reguL'y dla **Lua**,
+  3) **Generator** moduL'ow/szablonow,
+  4) Integracja z klientem: **hota'reload** i **Log Viewer** (debug przez logi),
+  5) Praca **offlinea'first**.
+- **Ograniczenia:** brak oficjalnego stepa'debuggera Lua; debug realizowany przez logi oraz hota'reload.
 
 ---
-## 1. SÄąâ€šownik pojÄ™Ä‡
-- **OTClient v8** â€“ klient gry (Lua/OTUI/OTML).
-- **vBot** â€“ moduÄąâ€š `modules/game_bot` (makra/triggery).
-- **HotĂ˘â‚¬â€reload** â€“ `g_modules.reloadModules()` (skrĂłt w kliencie lub moduÄąâ€š dev).
-- **Flag file** â€“ plikĂ˘â‚¬â€flaga `modules/.dev/reload.flag` wyzwalajÄ…cy hotĂ˘â‚¬â€reload.
-- **NDJSON** â€“ log *newlineĂ˘â‚¬â€delimited JSON* (kaÄąÄ˝da linia = obiekt JSON).
+## 1. SL'ownik pojec
+- **OTClient v8** - klient gry (Lua/OTUI/OTML).
+- **vBot** - moduL' `modules/game_bot` (makra/triggery).
+- **Hota'reload** - `g_modules.reloadModules()` (skrot w kliencie lub moduL' dev).
+- **Flag file** - plika'flaga `modules/.dev/reload.flag` wyzwalajacy hota'reload.
+- **NDJSON** - log *newlinea'delimited JSON* (kaLLda linia = obiekt JSON).
 
 ---
 ## 2. Zakres / Poza zakresem
-**MVP w zakresie:** edycja Lua/OTUI/OTML, podpowiedzi API, lint/autoĂ˘â‚¬â€fix (OTUI + LuaĂ˘â‚¬â€lite), generator szablonĂłw, skan repo i indeks, Log Viewer, hotĂ˘â‚¬â€reload.
+**MVP w zakresie:** edycja Lua/OTUI/OTML, podpowiedzi API, lint/autoa'fix (OTUI + Luaa'lite), generator szablonow, skan repo i indeks, Log Viewer, hota'reload.
 
-**Poza MVP:** stepĂ˘â‚¬â€debugger (breakpointy), zdalne eval Lua; profiling runtime; zÄąâ€šoÄąÄ˝one RPC do klienta (inne niÄąÄ˝ plik/log/skrĂłt).
+**Poza MVP:** stepa'debugger (breakpointy), zdalne eval Lua; profiling runtime; zL'oLLone RPC do klienta (inne niLL plik/log/skrot).
 
 ---
 ## 3. Architektura systemu
-**Wariant rekomendowany:** Desktop **Electron** (React/TS + Node/FS), integracja z OTClient przez system plikĂłw i skrĂłt hotĂ˘â‚¬â€reload.
+**Wariant rekomendowany:** Desktop **Electron** (React/TS + Node/FS), integracja z OTClient przez system plikow i skrot hota'reload.
 
-`$fenceInfo
 +--------------------+       IPC        +-------------------+
 | React/TS Frontend  | <--------------> | Electron Main/Pre |
 | (Vite + Monaco)    |                  |   + Node/FS       |
@@ -40,60 +39,58 @@
 v
 +--------------------+         plik/flag/log         +----------------+
 |  Projekt lokalny   | <----------------------------> |  OTClient v8  |
-| (lua/otui/otmod/Ă˘â‚¬Â¦) |                               | (hotĂ˘â‚¬â€reload)  |
+| (lua/otui/otmod/a|) |                               | (hota'reload)  |
 +--------------------+                                +----------------+
 ```
 
-**Alternatywa web:** React + lokalny serwis Node (HTTP/WebSocket) + File System Access API (ograniczenia dostÄ™pu; rekomendowane tylko gdy Electron jest niewskazany).
+**Alternatywa web:** React + lokalny serwis Node (HTTP/WebSocket) + File System Access API (ograniczenia dostepu; rekomendowane tylko gdy Electron jest niewskazany).
 
 ---
 ## 4. Wymagania funkcjonalne (FR)
-**FRĂ˘â‚¬â€01 â€“ Projekty:** wybĂłr katalogu, ostatnie projekty, walidacja (`modules/`, `.otmod`).
-**FRĂ˘â‚¬â€02 â€“ Eksplorator:** drzewo `.lua/.otui/.otmod` + assets; CRUD na plikach; dragĂ˘â‚¬â€drop; operacje atomowe.
-**FRĂ˘â‚¬â€03 â€“ Edytor:** Monaco (Lua/OTUI/OTML/JSON), goĂ˘â‚¬â€to symbol, minimapa, format, folding.
-**FRĂ˘â‚¬â€04 â€“ IntelliSense:** hover, signature help, autocomplete z `api.json` + indeks projektu + docstrings.
-**FRĂ˘â‚¬â€05 â€“ Lint OTUI:** kolejnoÄąâ€şÄ‡ pĂłl, `tr()` dla staÄąâ€šych, anchors/margins, istnienie zasobĂłw; autoĂ˘â‚¬â€fix dla kolejnoÄąâ€şci i `tr()`.
-**FRĂ˘â‚¬â€06 â€“ Lint Lua (lite):** preferuj `local`, wykryj globalne; `table.unpack` vs `unpack`.
-**FRĂ˘â‚¬â€07 â€“ Generator:** moduÄąâ€šy (`.otmod` + `main.lua` + `ui/*.otui`) + snippety vBot z checklistÄ….
-**FRĂ˘â‚¬â€08 â€“ Skan/Indeks:** glob, parsery Lua/OTUI/OTML, relacje `dofile/require` i `g_ui.loadUI`; cache inkrementalny.
-**FRĂ˘â‚¬â€09 â€“ Integracja z OTClient:** przycisk â€žPrzeÄąâ€šaduj w kliencieâ€ť (skrĂłt/flag file).
-**FRĂ˘â‚¬â€10 â€“ Log Viewer:** tail NDJSON/tekst, filtry (level/tag/file:line), wyszukiwarka, eksport.
-**FRĂ˘â‚¬â€11 â€“ Ustawienia:** Äąâ€şcieÄąÄ˝ki artefaktĂłw i logu, ignore patterns, motyw; import/eksport.
-**FRĂ˘â‚¬â€12 â€“ Wbudowany help:** panel â€žAPI & HowĂ˘â‚¬â€toâ€ť, wyszukiwarka offline.
+**FRa'01 - Projekty:** wybor katalogu, ostatnie projekty, walidacja (`modules/`, `.otmod`).
+**FRa'02 - Eksplorator:** drzewo `.lua/.otui/.otmod` + assets; CRUD na plikach; draga'drop; operacje atomowe.
+**FRa'03 - Edytor:** Monaco (Lua/OTUI/OTML/JSON), goa'to symbol, minimapa, format, folding.
+**FRa'04 - IntelliSense:** hover, signature help, autocomplete z `api.json` + indeks projektu + docstrings.
+**FRa'05 - Lint OTUI:** kolejnoLc pol, `tr()` dla staL'ych, anchors/margins, istnienie zasobow; autoa'fix dla kolejnoLci i `tr()`.
+**FRa'06 - Lint Lua (lite):** preferuj `local`, wykryj globalne; `table.unpack` vs `unpack`.
+**FRa'07 - Generator:** moduL'y (`.otmod` + `main.lua` + `ui/*.otui`) + snippety vBot z checklista.
+**FRa'08 - Skan/Indeks:** glob, parsery Lua/OTUI/OTML, relacje `dofile/require` i `g_ui.loadUI`; cache inkrementalny.
+**FRa'09 - Integracja z OTClient:** przycisk "PrzeL'aduj w kliencie" (skrot/flag file).
+**FRa'10 - Log Viewer:** tail NDJSON/tekst, filtry (level/tag/file:line), wyszukiwarka, eksport.
+**FRa'11 - Ustawienia:** LcieLLki artefaktow i logu, ignore patterns, motyw; import/eksport.
+**FRa'12 - Wbudowany help:** panel "API & Howa'to", wyszukiwarka offline.
 
-**Kryteria akceptacji (wybrane):** indeks 5k plikĂłw < 5 s z cache; brak crashy przy edycji plikĂłw 2 MB; >90% trafieÄąâ€ž podpowiedzi dla znanych symboli; autoĂ˘â‚¬â€fix deterministyczny.
+**Kryteria akceptacji (wybrane):** indeks 5k plikow < 5 s z cache; brak crashy przy edycji plikow 2 MB; >90% trafieL" podpowiedzi dla znanych symboli; autoa'fix deterministyczny.
 
 ---
 ## 5. Wymagania niefunkcjonalne (NFR)
 - **Perf:** indeks < 5 s (cache), < 30 s zimny start; Monaco 60 FPS podczas pisania.
-- **Security:** brak sieci (offlineĂ˘â‚¬â€first), sandbox Renderer, IPC whitelist, brak uruchamiania Lua.
+- **Security:** brak sieci (offlinea'first), sandbox Renderer, IPC whitelist, brak uruchamiania Lua.
 - **Portability:** Windows/macOS/Linux; Web (opcjonalnie, ograniczenia FS API).
-- **Reliability:** zapisy atomowe (tempĂ˘â€ â€™rename), odtwarzanie cache po awarii.
+- **Reliability:** zapisy atomowe (tempa'rename), odtwarzanie cache po awarii.
 
 ---
 ## 6. Kontrakty i modele danych (kanoniczne, wersjonowane)
-> KaÄąÄ˝dy JSON zawiera `$schemaVersion` i jest walidowany testami kontraktowymi.
+> KaLLdy JSON zawiera `$schemaVersion` i jest walidowany testami kontraktowymi.
 ## 6.1. `resources/api.json` (kuratorowane, seed + ingest)
-`$fenceInfo
 {
   "$schemaVersion": 1,
   "generatedAt": "2025-10-02T00:00:00Z",
   "functions": [
-    {"name": "g_modules.reloadModules", "module": "g_modules", "params": [], "returns": [], "description": "PrzeÄąâ€šadowuje moduÄąâ€šy i skrypty OTClient.", "since": "v8"},
+    {"name": "g_modules.reloadModules", "module": "g_modules", "params": [], "returns": [], "description": "PrzeL'adowuje moduL'y i skrypty OTClient.", "since": "v8"},
     {"name": "g_resources.readFile", "module": "g_resources", "params": [{"name": "path", "type": "string"}], "returns": [{"type": "string"}], "description": "Czyta plik do stringa."},
     {"name": "g_resources.writeFile", "module": "g_resources", "params": [{"name": "path", "type": "string"}, {"name": "data", "type": "string"}], "returns": [{"type": "boolean"}], "description": "Zapisuje string do pliku."}
 ],
   "events": [
-    {"name": "onGameStart", "target": "Game", "payload": [], "description": "WywoÄąâ€šywane przy starcie gry."}
+    {"name": "onGameStart", "target": "Game", "payload": [], "description": "WywoL'ywane przy starcie gry."}
 ],
   "objects": [
-    {"name": "g_resources", "members": ["readFile", "writeFile"], "description": "MenedÄąÄ˝er zasobĂłw."}
+    {"name": "g_resources", "members": ["readFile", "writeFile"], "description": "MenedLLer zasobow."}
 ]
 }
 ```
-> **Uwaga:** to seed. PeÄąâ€šny `api.json` powstaje wg Â§7 z lokalnych plikĂłw dokumentacji.
+> **Uwaga:** to seed. PeL'ny `api.json` powstaje wg 7 z lokalnych plikow dokumentacji.
 ## 6.2. `project-index.json` (z automatycznego skanu)
-`$fenceInfo
 {
   "$schemaVersion": 1,
   "root": "/abs/path/to/project",
@@ -102,95 +99,88 @@ v
   "relations": {"lua_to_otui": [{"lua": "modules/client/client.lua", "otui": "modules/client/ui/main.otui", "via": "g_ui.loadUI"}], "includes": [{"from": "modules/a/main.lua", "to": "modules/a/util.lua", "via": "dofile"}]}
 }
 ```
-## 6.3. `otui-rules.json` (lint/autoĂ˘â‚¬â€fix)
-`$fenceInfo
-{"$schemaVersion":1,"rules":[{"id":"OTUI-001","description":"KolejnoÄąâ€şÄ‡ pĂłl: GEOMETRIAĂ˘â€ â€™STYLĂ˘â€ â€™ZACHOWANIE.","fixable":true},{"id":"OTUI-002","description":"StaÄąâ€še stringi muszÄ… uÄąÄ˝ywaÄ‡ tr().","fixable":true},{"id":"OTUI-003","description":"Walidacja anchors/margins (brak sprzecznoÄąâ€şci).","fixable":false},{"id":"OTUI-004","description":"Weryfikacja istnienia zasobĂłw (obrazy, fonty, style).","fixable":false}]}
+## 6.3. `otui-rules.json` (lint/autoa'fix)
+{"$schemaVersion":1,"rules":[{"id":"OTUI-001","description":"KolejnoLc pol: GEOMETRIAa'STYLa'ZACHOWANIE.","fixable":true},{"id":"OTUI-002","description":"StaL'e stringi musza uLLywac tr().","fixable":true},{"id":"OTUI-003","description":"Walidacja anchors/margins (brak sprzecznoLci).","fixable":false},{"id":"OTUI-004","description":"Weryfikacja istnienia zasobow (obrazy, fonty, style).","fixable":false}]}
 ```
 ## 6.4. `templates.json` (generator)
-`$fenceInfo
-{"$schemaVersion":1,"module.default":{"title":"ModuÄąâ€š OTClient â€” szkielet","files":[{"path":"modules/hello/hello.otmod","contents":"name: hello\n"},{"path":"modules/hello/hello.lua","contents":"-- entry point\nlocal M = {}\nreturn M\n"},{"path":"modules/hello/ui/hello.otui","contents":"MainWindow < UIWidget { }\n"}],"checklist":["UmieÄąâ€şÄ‡ katalog w modules/","Uruchom klienta i przeÄąâ€šaduj moduÄąâ€šy","SprawdÄąĹź log po starcie moduÄąâ€šu"]}}
+{"$schemaVersion":1,"module.default":{"title":"ModuL' OTClient - szkielet","files":[{"path":"modules/hello/hello.otmod","contents":"name: hello\n"},{"path":"modules/hello/hello.lua","contents":"-- entry point\nlocal M = {}\nreturn M\n"},{"path":"modules/hello/ui/hello.otui","contents":"MainWindow < UIWidget { }\n"}],"checklist":["UmieLc katalog w modules/","Uruchom klienta i przeL'aduj moduL'y","SprawdLs log po starcie moduL'u"]}}
 ```
 ## 6.5. `docstrings.json`
-`$fenceInfo
 {"$schemaVersion":1,"entries":[{"file":"modules/x/main.lua","line":10,"symbol":"foo","params":[{"name":"a","type":"number"}],"returns":[{"type":"boolean"}],"comment":"---@param a number\n---@return boolean"}]}
 ```
 ## 6.6. `assets-map.json`
-`$fenceInfo
 {"$schemaVersion":1,"assets":{"images":["images/button.png"],"fonts":["fonts/verdana.otf"],"styles":["styles/dark.otui"]}}
 ```
 ## 6.7. `.studio/config.json`
-`$fenceInfo
 {"$schemaVersion":1,"projectRoot":"/abs/path/to/project","apiPath":"resources/api.json","otuiRulesPath":"resources/otui-rules.json","templatesPath":"resources/templates.json","logPath":"/abs/path/to/log.ndjson","ignore":["**/node_modules/**",".git/**"]}
 ```
 
 ---
-## 7. Procedura ingest â€“ budowa `api.json`
-**WejÄąâ€şcia:** lokalne pliki dokumentacji (`OTClient_data_documentation_FULL.md`, `luafunctionscpp.md`, `modules_Documentation.md`, `src framework.md`, `src client.md`).
+## 7. Procedura ingest - budowa `api.json`
+**WejLcia:** lokalne pliki dokumentacji (`OTClient_data_documentation_FULL.md`, `luafunctionscpp.md`, `modules_Documentation.md`, `src framework.md`, `src client.md`).
 
 **Kroki:**
-1) Segmentacja MD (H1â€“H3) i klasyfikacja sekcji: API/Events/Hooks/Globals/Managers.
-2) Ekstrakcja sygnatur: `name(params) -> returns`, opisĂłw, przykÄąâ€šadĂłw, statusu (`since/deprecated`).
+1) Segmentacja MD (H1-H3) i klasyfikacja sekcji: API/Events/Hooks/Globals/Managers.
+2) Ekstrakcja sygnatur: `name(params) -> returns`, opisow, przykL'adow, statusu (`since/deprecated`).
 3) Normalizacja nazewnictwa (`module`: `g_resources`, `g_modules`, itp.).
 4) Walidacja: unikalne `name`, kompletne `params/returns`.
-5) Scalanie z `docstrings.json` (uzupeÄąâ€šnienia typĂłw/przykÄąâ€šadĂłw).
+5) Scalanie z `docstrings.json` (uzupeL'nienia typow/przykL'adow).
 6) Eksport `resources/api.json` (dodaj `generatedAt`, `$schemaVersion`).
 
-**Wzorce (regex â€“ przykÄąâ€šadowe):**
+**Wzorce (regex - przykL'adowe):**
 - Funkcja: `^\s*([A-Za-z0-9_\.\:]+)\s*\(([^)]*)\)\s*(?:->\s*([^\n{]+))?`
 - Param: `---@param\s+(\w+)\s+([\w<>\|]+)`
 - Return: `---@return\s+([\w<>\|]+)`
-- Event: `\bon[A-Z][A-Za-z0-9]+\b` (lub sekcje â€žEventsâ€ť).
+- Event: `\bon[A-Z][A-Za-z0-9]+\b` (lub sekcje "Events").
 
-**Polityka typĂłw:** `string|number|boolean|table|any|nil|function|userdata`; `optional` jeÄąâ€şli oznaczone `?` lub w kwadratowych nawiasach.
+**Polityka typow:** `string|number|boolean|table|any|nil|function|userdata`; `optional` jeLli oznaczone `?` lub w kwadratowych nawiasach.
 
-**Quality Gate:** 0 duplikatĂłw; Ă˘â€°Ä„95% pozycji z opisem i kompletnymi parametrami; walidacja JSON wg schematu.
+**Quality Gate:** 0 duplikatow; aA95% pozycji z opisem i kompletnymi parametrami; walidacja JSON wg schematu.
 
 ---
-## 8. Skaner i parsery â€“ specyfikacja
-**FS skan:** glob `**/*.{lua,otui,otmod}`; wyklucz `.git/**`, `**/node_modules/**`, `**/.studio-cache/**`; hash (size+mtime) Ă˘â€ â€™ indeks inkrementalny.
+## 8. Skaner i parsery - specyfikacja
+**FS skan:** glob `**/*.{lua,otui,otmod}`; wyklucz `.git/**`, `**/node_modules/**`, `**/.studio-cache/**`; hash (size+mtime) a' indeks inkrementalny.
 
 **Parser Lua:**
-- Tokenizacja: identyfikatory, stringi, komentarze (`--`, blokowe), sÄąâ€šowa kluczowe.
+- Tokenizacja: identyfikatory, stringi, komentarze (`--`, blokowe), sL'owa kluczowe.
 - Ekstrakcja: `function name(...)`, `obj:method(...)` (pozycja file:line).
-- Docstrings: `---` + adnotacje `---@param`, `---@return` Ă˘â€ â€™ `docstrings.json`.
-- Relacje: `dofile("path")`, `require("...")` Ă˘â€ â€™ `relations.includes`.
-- Heurystyki vBot: wykrywanie `macro(`, `onTextMessage`, itp. Ă˘â€ â€™ tag `botSymbols`.
+- Docstrings: `---` + adnotacje `---@param`, `---@return` a' `docstrings.json`.
+- Relacje: `dofile("path")`, `require("...")` a' `relations.includes`.
+- Heurystyki vBot: wykrywanie `macro(`, `onTextMessage`, itp. a' tag `botSymbols`.
 
 **Parser OTUI/OTML:**
-- AST wg skrĂłconej EBNF:
-`$fenceInfo
+- AST wg skroconej EBNF:
 File := (Decl | Comment)*
 Decl := Type ("<" Base ">")? "{" (KV | Decl)* "}"
 KV   := Key ":" Value
 Value:= String | Number | Bool | Ident | Array | Object
 ```
-- Kategoryzacja atrybutĂłw: GEOMETRIA (`x`,`y`,`width`,`height`,`anchors`,`margin`), STYL (`font`,`color`,`image`,`style`), ZACHOWANIE (`draggable`,`onClick`,`id`).
-- Relacje: `g_ui.loadUI("path")` Ă˘â€ â€™ `relations.lua_to_otui`.
+- Kategoryzacja atrybutow: GEOMETRIA (`x`,`y`,`width`,`height`,`anchors`,`margin`), STYL (`font`,`color`,`image`,`style`), ZACHOWANIE (`draggable`,`onClick`,`id`).
+- Relacje: `g_ui.loadUI("path")` a' `relations.lua_to_otui`.
 
-**Parser `.otmod`:** klucz:wartoÄąâ€şÄ‡ (+ listy); wymagane `name`; waliduj znaki w `name`.
+**Parser `.otmod`:** klucz:wartoLc (+ listy); wymagane `name`; waliduj znaki w `name`.
 
-**Kody bÄąâ€šÄ™dĂłw parsera:** `P001` (Lua tokenizer), `P101` (OTUI niezamkniÄ™ty blok), `P201` (.otmod brak `name`).
-
----
-## 9. Lint/AutoĂ˘â‚¬â€fix â€“ reguÄąâ€šy
-- **OTUIĂ˘â‚¬â€001 (order):** sortuj atrybuty: GEOMETRIA Ă˘â€ â€™ STYL Ă˘â€ â€™ ZACHOWANIE (autoĂ˘â‚¬â€fix: przetasuj z zachowaniem komentarzy).
-- **OTUIĂ˘â‚¬â€002 (tr):** staÄąâ€še literaÄąâ€šy string wrapuj `tr()` (autoĂ˘â‚¬â€fix; ignoruj `id`/nazwy klas).
-- **OTUIĂ˘â‚¬â€003 (anchors):** wykryj sprzecznoÄąâ€şci anchors/margins (sugestie, bez autoĂ˘â‚¬â€fix).
-- **OTUIĂ˘â‚¬â€004 (assets):** zgÄąâ€šoÄąâ€ş brakujÄ…ce zasoby (fuzzy podpowiedzi).
-- **LUAĂ˘â‚¬â€001 (locals):** ostrzegaj globali; autoĂ˘â‚¬â€fix: `local` jeÄąâ€şli bez kolizji.
-- **LUAĂ˘â‚¬â€002 (unpack):** zamieniaj `unpack` -> `table.unpack` (autoĂ˘â‚¬â€fix bezpieczny).
+**Kody bL'edow parsera:** `P001` (Lua tokenizer), `P101` (OTUI niezamkniety blok), `P201` (.otmod brak `name`).
 
 ---
-## 10. Integracja z OTClient (hotĂ˘â‚¬â€reload, logi)
-**Tryb A (podstawowy):** zapis Ă˘â€ â€™ skrĂłt hotĂ˘â‚¬â€reload w kliencie (np. Ctrl+Shift+R).
+## 9. Lint/Autoa'fix - reguL'y
+- **OTUIa'001 (order):** sortuj atrybuty: GEOMETRIA a' STYL a' ZACHOWANIE (autoa'fix: przetasuj z zachowaniem komentarzy).
+- **OTUIa'002 (tr):** staL'e literaL'y string wrapuj `tr()` (autoa'fix; ignoruj `id`/nazwy klas).
+- **OTUIa'003 (anchors):** wykryj sprzecznoLci anchors/margins (sugestie, bez autoa'fix).
+- **OTUIa'004 (assets):** zgL'oL brakujace zasoby (fuzzy podpowiedzi).
+- **LUAa'001 (locals):** ostrzegaj globali; autoa'fix: `local` jeLli bez kolizji.
+- **LUAa'002 (unpack):** zamieniaj `unpack` -> `table.unpack` (autoa'fix bezpieczny).
 
-**Tryb B (z moduÄąâ€šem dev):** Studio zapisuje `modules/.dev/reload.flag`; moduÄąâ€š dev w kliencie wykrywa i:
-1) wywoÄąâ€šuje `g_modules.reloadModules()`,
+---
+## 10. Integracja z OTClient (hota'reload, logi)
+**Tryb A (podstawowy):** zapis a' skrot hota'reload w kliencie (np. Ctrl+Shift+R).
+
+**Tryb B (z moduL'em dev):** Studio zapisuje `modules/.dev/reload.flag`; moduL' dev w kliencie wykrywa i:
+1) wywoL'uje `g_modules.reloadModules()`,
 2) usuwa/przepisuje plik flagi,
 3) opcjonalnie loguje wynik (NDJSON) do `modules/.dev/log.jsonl`.
 
-**Szkic moduÄąâ€šu dev (Lua):**
-`$fenceInfo
+**Szkic moduL'u dev (Lua):**
 local dev = {}
 local flagPath = 'modules/.dev/reload.flag'
 
@@ -226,30 +216,29 @@ return dev
 
 **Logi (NDJSON):** pola: `ts` (ISO), `level` (INFO|WARN|ERROR), `tag`, `file`, `line`, `msg`, `meta`.
 
-PrzykÄąâ€šad:
-`$fenceInfo
+PrzykL'ad:
 {"ts":"2025-10-02T12:34:56.789Z","level":"INFO","tag":"dev","file":"modules/x/main.lua","line":42,"msg":"Hot reload done","meta":{"changed":3}}
 ```
 
 ---
-## 11. UI/UX (ekrany i przepÄąâ€šywy)
-- **Start:** wybĂłr/ostatnie projekty, skrĂłty do dokumentacji, â€žNowy moduÄąâ€šâ€ť.
-- **Eksplorator:** drzewo plikĂłw, akcje kontekstowe, status operacji FS.
+## 11. UI/UX (ekrany i przepL'ywy)
+- **Start:** wybor/ostatnie projekty, skroty do dokumentacji, "Nowy moduL'".
+- **Eksplorator:** drzewo plikow, akcje kontekstowe, status operacji FS.
 - **Edytor:** Monaco + panel boczny (API/Doc), statusbar (pozycja, problems, encoding).
-- **Diagnostyka:** lista Issues (filtry), Quick Fix, przejÄąâ€şcia do linii.
-- **API Browser:** lista obiektĂłw Ă˘â€ â€™ szczegĂłÄąâ€šy (opis, params, examples) Ă˘â€ â€™ â€žWstaw snippetâ€ť.
+- **Diagnostyka:** lista Issues (filtry), Quick Fix, przejLcia do linii.
+- **API Browser:** lista obiektow a' szczegoL'y (opis, params, examples) a' "Wstaw snippet".
 - **Log Viewer:** stream z filtrami (ERR/WARN/INFO), szukanie, pauza, eksport.
-- **Ustawienia:** Äąâ€şcieÄąÄ˝ki zasobĂłw, logu, motyw, ignorowane foldery, mapowanie skrĂłtu.
+- **Ustawienia:** LcieLLki zasobow, logu, motyw, ignorowane foldery, mapowanie skrotu.
 
 ---
-## 12. IPC (Electron) â€“ kontrakty
-- `studio:scan:start` â€“ req: `{root}` Ă˘â€ â€™ res: `project-index.json` | err: `{code,msg}`
-- `studio:api:load` â€“ req: `{path}` Ă˘â€ â€™ res: `api.json`
-- `studio:lint:run` â€“ req: `{files[]}` Ă˘â€ â€™ res: `{problems[]}`
-- `studio:templates:generate` â€“ req: `{templateId, targetDir, vars}` Ă˘â€ â€™ res: `{createdFiles[]}`
-- `studio:log:tail` â€“ req: `{path}` Ă˘â€ â€™ stream: `{line}` | `{eof}` | `{error}`
+## 12. IPC (Electron) - kontrakty
+- `studio:scan:start` - req: `{root}` a' res: `project-index.json` | err: `{code,msg}`
+- `studio:api:load` - req: `{path}` a' res: `api.json`
+- `studio:lint:run` - req: `{files[]}` a' res: `{problems[]}`
+- `studio:templates:generate` - req: `{templateId, targetDir, vars}` a' res: `{createdFiles[]}`
+- `studio:log:tail` - req: `{path}` a' stream: `{line}` | `{eof}` | `{error}`
 
-**BÄąâ€šÄ™dy:** `E_FS_001` (dostÄ™p FS), `E_PARSE_LUA`, `E_PARSE_OTUI`, `E_JSON_SCHEMA`.
+**BL'edy:** `E_FS_001` (dostep FS), `E_PARSE_LUA`, `E_PARSE_OTUI`, `E_JSON_SCHEMA`.
 
 ---
 ## 13. Warstwa stanu FE
@@ -258,106 +247,104 @@ PrzykÄąâ€šad:
 - **Normalizacja:** mapy symboli `name -> {files[]}`.
 
 ---
-## 14. BezpieczeÄąâ€žstwo i prywatnoÄąâ€şÄ‡
-- Renderer sandbox, restrykcyjne IPC, brak sieci (domyÄąâ€şlnie), brak wykonywania Lua.
-- Backup `.bak` przy autoĂ˘â‚¬â€fixach; zapisy atomowe.
+## 14. BezpieczeL"stwo i prywatnoLc
+- Renderer sandbox, restrykcyjne IPC, brak sieci (domyLlnie), brak wykonywania Lua.
+- Backup `.bak` przy autoa'fixach; zapisy atomowe.
 
 ---
-## 15. WydajnoÄąâ€şÄ‡ i stabilnoÄąâ€şÄ‡
-- Worker Threads dla parserĂłw; debounce 150 ms; cache w `.studio-cache/`.
-- â€žBig file modeâ€ť w Monaco > 2 MB (ograniczenie czÄ™Äąâ€şci funkcji).
+## 15. WydajnoLc i stabilnoLc
+- Worker Threads dla parserow; debounce 150 ms; cache w `.studio-cache/`.
+- "Big file mode" w Monaco > 2 MB (ograniczenie czeLci funkcji).
 
 ---
 ## 16. i18n, A11y, theming
 - i18n: `en`/`pl`; wymuszaj `tr()` w OTUI poprzez lint.
 - A11y: ARIA, focus outlines, kontrast WCAG AA.
-- Tematy: Light/Dark/HighĂ˘â‚¬â€Contrast; zapis w config.
+- Tematy: Light/Dark/Higha'Contrast; zapis w config.
 
 ---
 ## 17. Testy i QA
 - **Unit:** parsery (Lua/OTUI), lint rules, generator.
 - **Contract:** walidacja JSON kontra schemat, IPC payloady/typy.
-- **Integration:** skan 5k plikĂłw, pomiary czasu/RAM.
-- **E2E (Playwright):** flow â€žOpen Ă˘â€ â€™ Edit Ă˘â€ â€™ Lint Ă˘â€ â€™ Generate Ă˘â€ â€™ Reload Ă˘â€ â€™ Logsâ€ť.
+- **Integration:** skan 5k plikow, pomiary czasu/RAM.
+- **E2E (Playwright):** flow "Open a' Edit a' Lint a' Generate a' Reload a' Logs".
 - **Regression:** snapshot AST/diagnostyki.
 
-**DoD (final):** patrz Â§21 â€“ wszystkie punkty odhaczone.
+**DoD (final):** patrz 21 - wszystkie punkty odhaczone.
 
 ---
 ## 18. Build/Release/Update
 - `electron-builder` (Win NSIS, macOS dmg, Linux AppImage); podpisy binarek.
-- AutoĂ˘â‚¬â€update (opcjonalny), domyÄąâ€şlnie wyÄąâ€šÄ…czony â€“ narzÄ™dzie offlineĂ˘â‚¬â€first.
+- Autoa'update (opcjonalny), domyLlnie wyL'aczony - narzedzie offlinea'first.
 
 ---
-## 19. Observability narzÄ™dzia
+## 19. Observability narzedzia
 - Log aplikacji: `.studio/logs/app.ndjson`; poziomy: DEBUG/INFO/WARN/ERROR.
-- Metryki: czas skanu, liczba plikĂłw, czas lintu, bÄąâ€šÄ™dy parserĂłw.
+- Metryki: czas skanu, liczba plikow, czas lintu, bL'edy parserow.
 
 ---
-## 20. Migracje i zgodnoÄąâ€şÄ‡
+## 20. Migracje i zgodnoLc
 - `$schemaVersion` w artefaktach; migracje `vN -> vN+1` dla config/cache.
 
 ---
-## 21. Plan wdroÄąÄ˝enia i checklisty
-**Etap 0 â€“ Inicjalizacja**
+## 21. Plan wdroLLenia i checklisty
+**Etap 0 - Inicjalizacja**
 - [ ] Monorepo (pnpm), Vite+React+TS, Electron scaffold.
 - [ ] Monaco, routing, layout.
 
-**Etap 1 â€“ Kontrakty i zasoby**
+**Etap 1 - Kontrakty i zasoby**
 - [ ] Interfejsy TS (ApiFunction/ApiEvent/ProjectIndex/OtuiRule/Template).
-- [ ] DodaÄ‡ `resources/api.json` (seed), `otui-rules.json`, `templates.json`.
+- [ ] Dodac `resources/api.json` (seed), `otui-rules.json`, `templates.json`.
 
-**Etap 2 â€“ Skaner/Parsery**
+**Etap 2 - Skaner/Parsery**
 - [ ] Glob/FS, cache, incremental hashing.
 - [ ] Parser Lua + docstrings + relacje.
-- [ ] Parser OTUI/OTML + kategoryzacja atrybutĂłw.
+- [ ] Parser OTUI/OTML + kategoryzacja atrybutow.
 - [ ] Parser `.otmod`.
 
-**Etap 3 â€“ IDE/UX**
+**Etap 3 - IDE/UX**
 - [ ] Explorer, Edytor, API Browser.
 - [ ] Diagnostyka + Quick Fix.
 
-**Etap 4 â€“ Integracja z klientem**
-- [ ] PrzeÄąâ€šaduj (skrĂłt/flag) + Log Viewer.
+**Etap 4 - Integracja z klientem**
+- [ ] PrzeL'aduj (skrot/flag) + Log Viewer.
 
-**Etap 5 â€“ Stabilizacja**
+**Etap 5 - Stabilizacja**
 - [ ] Testy (unit/contract/integration/E2E), pakiety instalacyjne.
 
-**Definition of Done (KoÄąâ€žcowe):**
-- [ ] Aplikacja offline; projekty siÄ™ otwierajÄ…; indeks i symbole dziaÄąâ€šajÄ….
+**Definition of Done (KoL"cowe):**
+- [ ] Aplikacja offline; projekty sie otwieraja; indeks i symbole dziaL'aja.
 - [ ] `api.json` zasila podpowiedzi (hover/complete/signature help).
-- [ ] Lint OTUI/Lua i autoĂ˘â‚¬â€fix (backup `.bak`).
-- [ ] Integracja z OTClient: hotĂ˘â‚¬â€reload + logi stabilne.
-- [ ] Pakiety Win/macOS/Linux; dokumentacja uÄąÄ˝ytkownika; sample project.
+- [ ] Lint OTUI/Lua i autoa'fix (backup `.bak`).
+- [ ] Integracja z OTClient: hota'reload + logi stabilne.
+- [ ] Pakiety Win/macOS/Linux; dokumentacja uLLytkownika; sample project.
 
 ---
 ## 22. Ryzyka i mitigacje
-- **Brak stepĂ˘â‚¬â€debuggera:** Log Viewer + snippety logujÄ…ce + mapowanie file:line.
-- **RĂłÄąÄ˝nice wersji:** `since/deprecated` w `api.json`, profile klienta.
-- **WydajnoÄąâ€şÄ‡:** indeks inkrementalny, workers, throttling.
+- **Brak stepa'debuggera:** Log Viewer + snippety logujace + mapowanie file:line.
+- **RoLLnice wersji:** `since/deprecated` w `api.json`, profile klienta.
+- **WydajnoLc:** indeks inkrementalny, workers, throttling.
 - **Parsery:** testy kontraktowe + snapshoty, tolerant parsing.
 
 ---
-## 23. Artefakty â€“ komplet MVP (gotowe w tym dokumencie)
-- `resources/api.json` â€“ seed (6.1 + 24.A)
-- `resources/otui-rules.json` â€“ (6.3 + 24.B)
-- `resources/templates.json` â€“ (6.4 + 24.C)
-- `docstrings.json` â€“ format (6.5)
-- `assets-map.json` â€“ format (6.6)
-- `.studio/config.json` â€“ format (6.7)
+## 23. Artefakty - komplet MVP (gotowe w tym dokumencie)
+- `resources/api.json` - seed (6.1 + 24.A)
+- `resources/otui-rules.json` - (6.3 + 24.B)
+- `resources/templates.json` - (6.4 + 24.C)
+- `docstrings.json` - format (6.5)
+- `assets-map.json` - format (6.6)
+- `.studio/config.json` - format (6.7)
 
 ---
-## 24. PrzykÄąâ€šadowe dane (seed do startu)
-**A. `resources/api.json` (seed)** â€“ patrz Â§6.1 (peÄąâ€šny JSON wstawiony).
+## 24. PrzykL'adowe dane (seed do startu)
+**A. `resources/api.json` (seed)** - patrz 6.1 (peL'ny JSON wstawiony).
 
-**B. `resources/otui-rules.json` (seed)** â€“ patrz Â§6.3 (peÄąâ€šny JSON wstawiony).
+**B. `resources/otui-rules.json` (seed)** - patrz 6.3 (peL'ny JSON wstawiony).
 
-**C. `resources/templates.json` (seed)** â€“ patrz Â§6.4 (peÄąâ€šny JSON wstawiony).
+**C. `resources/templates.json` (seed)** - patrz 6.4 (peL'ny JSON wstawiony).
 
 ---
-## 25. Noty koÄąâ€žcowe
-- Ten dokument jest **ÄąĹźrĂłdÄąâ€šem prawdy (SoT)**. Dodatkowe canvasy muszÄ… odwoÄąâ€šywaÄ‡ siÄ™ do sekcji (Â§) i kontraktĂłw tutaj zdefiniowanych.
-- Zmiany wymagajÄ… podniesienia `$schemaVersion` i przejÄąâ€şcia testĂłw kontraktowych.
-- Wszelkie dane sÄ… przygotowane z myÄąâ€şlÄ… o pracy **offline** w oparciu o lokalne pliki dokumentacji i kodu.
-
-
+## 25. Noty koL"cowe
+- Ten dokument jest **LsrodL'em prawdy (SoT)**. Dodatkowe canvasy musza odwoL'ywac sie do sekcji () i kontraktow tutaj zdefiniowanych.
+- Zmiany wymagaja podniesienia `$schemaVersion` i przejLcia testow kontraktowych.
+- Wszelkie dane sa przygotowane z myLla o pracy **offline** w oparciu o lokalne pliki dokumentacji i kodu.

@@ -1,6 +1,5 @@
-# Â¦ Modul: `game_interface/styles`
+# Modul: `game_interface/styles`
 
-`$fenceInfo
 
 CountWindow < MainWindow
 
