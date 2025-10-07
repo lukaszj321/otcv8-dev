@@ -3,15 +3,15 @@
 This guide covers global objects and functions available in the OTClient Lua environment. It’s intended to help scripters understand and use the client-side Lua API effectively.
 klawisz esc, aby anulować • klawisz enter, aby zapisać
 ---
-# # # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
+## # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
 This document provides a detailed overview of the core Lua functions, classes, and global managers registered in `luafunctions_client.cpp`. These functions are fundamental for controlling the client's behavior, managing the user interface, and handling events.
 
 ---
-# # # **1. Core Globals & Managers**
+## # **1. Core Globals & Managers**
 
 These singleton objects provide access to the main components of the client application.
-# # # # **Client (`g_client`)**
+## # # **Client (`g_client`)**
 The central object for managing the client's state.
 ```lua
 -- Versioning and Info
@@ -34,7 +34,7 @@ g_client:getUps()              -- Returns the current updates per second
 g_client:getMemoryUsage()      -- Returns memory usage in kilobytes
 g_client:setFramerateLimit(limit) -- Sets the FPS limit
 ```
-# # # # **Window (`g_window`)**
+## # # **Window (`g_window`)**
 Manages the application window.
 ```lua
 g_window:setTitle(title)       -- Sets the window title
@@ -50,7 +50,7 @@ g_window:getPlatform()         -- Returns the OS platform (e.g., "windows", "lin
 g_window:isMaximized()         -- Checks if the window is maximized
 g_window:isVisible()           -- Checks if the window is visible
 ```
-# # # # **Application (`g_app`)**
+## # # **Application (`g_app`)**
 Handles application-level properties and data storage.
 ```lua
 g_app:setName(name)            -- Sets the application name
@@ -66,7 +66,7 @@ g_app:getSettings()            -- Returns a table with application settings
 g_app:loadSettings()           -- Loads settings from the config file
 g_app:saveSettings()           -- Saves settings to the config file
 ```
-# # # # **Resource Manager (`g_resources`)**
+## # # **Resource Manager (`g_resources`)**
 Manages loading and accessing game assets.
 ```lua
 g_resources:addSearchPath(path, prepend) -- Adds a directory to the asset search path
@@ -78,7 +78,7 @@ g_resources:readFile(path)       -- Reads the content of a file
 g_resources:writeFile(path, content) -- Writes content to a file
 g_resources:makeDir(path)        -- Creates a directory
 ```
-# # # # **Sound Manager (`g_sounds`)**
+## # # **Sound Manager (`g_sounds`)**
 Controls audio playback.
 ```lua
 g_sounds:play(filename, volume)   -- Plays a sound file
@@ -86,7 +86,7 @@ g_sounds:playMusic(filename, volume) -- Plays a music file (streams it)
 g_sounds:stopMusic()              -- Stops the currently playing music
 g_sounds:setVolume(volume)        -- Sets the master audio volume (0.0 - 1.0)
 ```
-# # # # **Input (`g_keyboard`, `g_mouse`)**
+## # # **Input (`g_keyboard`, `g_mouse`)**
 Handles keyboard and mouse input.
 ```lua
 -- Keyboard
@@ -102,15 +102,15 @@ Dildo
  zmienił(-a) tytuł posta: ＯＴＣｌｉｅｎｔ░░Ｖ８░░–░░Ｌｕａ░░ＡＰＩ░░Ｄｏｃｕｍｅｎｔａｔｉｏｎ — 16:26
 
 ---
-# # # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
+## # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
 This document provides a detailed overview of the core Lua functions, classes, and global managers registered in `luafunctions_client.cpp`. These functions are fundamental for controlling the client's behavior, managing the user interface, and handling events.
 
 ---
-# # # **1. Core Globals & Managers**
+## # **1. Core Globals & Managers**
 
 These singleton objects provide access to the main components of the client application.
-# # # # **Client (`g_client`)**
+## # # **Client (`g_client`)**
 The central object for managing the client's state.
 ```lua
 -- Versioning and Info
@@ -133,7 +133,7 @@ g_client:getUps()              -- Returns the current updates per second
 g_client:getMemoryUsage()      -- Returns memory usage in kilobytes
 g_client:setFramerateLimit(limit) -- Sets the FPS limit
 ```
-# # # # **Window (`g_window`)**
+## # # **Window (`g_window`)**
 Manages the application window.
 ```lua
 g_window:setTitle(title)       -- Sets the window title
@@ -149,7 +149,7 @@ g_window:getPlatform()         -- Returns the OS platform (e.g., "windows", "lin
 g_window:isMaximized()         -- Checks if the window is maximized
 g_window:isVisible()           -- Checks if the window is visible
 ```
-# # # # **Application (`g_app`)**
+## # # **Application (`g_app`)**
 Handles application-level properties and data storage.
 ```lua
 g_app:setName(name)            -- Sets the application name
@@ -165,7 +165,7 @@ g_app:getSettings()            -- Returns a table with application settings
 g_app:loadSettings()           -- Loads settings from the config file
 g_app:saveSettings()           -- Saves settings to the config file
 ```
-# # # # **Resource Manager (`g_resources`)**
+## # # **Resource Manager (`g_resources`)**
 Manages loading and accessing game assets.
 ```lua
 g_resources:addSearchPath(path, prepend) -- Adds a directory to the asset search path
@@ -177,7 +177,7 @@ g_resources:readFile(path)       -- Reads the content of a file
 g_resources:writeFile(path, content) -- Writes content to a file
 g_resources:makeDir(path)        -- Creates a directory
 ```
-# # # # **Sound Manager (`g_sounds`)**
+## # # **Sound Manager (`g_sounds`)**
 Controls audio playback.
 ```lua
 g_sounds:play(filename, volume)   -- Plays a sound file
@@ -185,7 +185,7 @@ g_sounds:playMusic(filename, volume) -- Plays a music file (streams it)
 g_sounds:stopMusic()              -- Stops the currently playing music
 g_sounds:setVolume(volume)        -- Sets the master audio volume (0.0 - 1.0)
 ```
-# # # # **Input (`g_keyboard`, `g_mouse`)**
+## # # **Input (`g_keyboard`, `g_mouse`)**
 Handles keyboard and mouse input.
 ```lua
 -- Keyboard
@@ -198,7 +198,7 @@ g_mouse:setCursor(cursorName)      -- Sets the mouse cursor from a predefined li
 g_mouse:resetCursor()              -- Resets the mouse cursor to default
 g_mouse:isPressed(button)          -- Checks if a mouse button is pressed
 ```
-# # # # **Other Managers**
+## # # **Other Managers**
 - **`g_logger`**: For logging messages (`log`, `info`, `warning`, `error`, `fatal`).
 - **`g_clock`**: Provides access to time (`millis`, `micros`, `seconds`).
 - **`g_http`**: For making HTTP requests (`get`, `post`, `download`).
@@ -207,10 +207,10 @@ g_mouse:isPressed(button)          -- Checks if a mouse button is pressed
 - **`g_clipboard`**: To interact with the system clipboard (`setText`, `getText`).
 
 ---
-# # # **2. Global Functions & Event System**
+## # **2. Global Functions & Event System**
 
 These functions are available globally and are essential for scheduling, event handling, and utility tasks.
-# # # # **Event Scheduling**
+## # # **Event Scheduling**
 ```lua
 schedule(event, delay)         -- Schedules a function to run after a delay (in milliseconds)
 scheduleEvent(event, delay)    -- Same as schedule()
@@ -218,7 +218,7 @@ removeEvent(eventId)           -- Removes a scheduled event by its ID
 removeEvents(func)             -- Removes all events associated with a specific function
 delay(ms, func)                -- Creates a function that, when called, will execute 'func' after a delay
 ```
-# # # # **Event Connection (Signals & Slots)**
+## # # **Event Connection (Signals & Slots)**
 This system allows you to connect functions (slots) to signals emitted by UI widgets and other objects.
 ```lua
 connect(object, signals, handler) -- Connects a handler function to a signal
@@ -227,7 +227,7 @@ signalcall(signal, object, ...) -- Manually triggers a signal on an object
 ```
 **Example:**
 `connect(myButton, { onClick = myClickHandler } )`
-# # # # **Utility Functions**
+## # # **Utility Functions**
 ```lua
 log(level, ...)            -- Logs a message with a specific level
 error(message, level)      -- Throws a Lua error
@@ -241,10 +241,10 @@ pcall(func, ...)           -- Calls a function in protected mode
 ```
 
 ---
-# # # **3. UI Widget Classes**
+## # **3. UI Widget Classes**
 
 This is the core of the OTClient UI framework. All UI elements are widgets.
-# # # # **Base Class: `UIWidget`**
+## # # **Base Class: `UIWidget`**
 The foundation for all other UI components. Contains properties for position, size, visibility, and more.
 ```lua
 -- Common Properties (can be set/get)
@@ -276,13 +276,13 @@ widget:getStyle() -- Gets the style table
 widget:addStyle(style) -- Adds a style
 widget:clearStyle() -- Clears the style
 ```
-# # # # **Layouts**
+## # # **Layouts**
 Layouts are containers that automatically arrange their child widgets.
 - **`UILayout`**: Base layout class.
 - **`UIAnchorLayout`**: Arranges children based on anchors (e.g., `top`, `bottom`, `left`, `right`, `horizontalCenter`, `verticalCenter`). This is the most flexible and commonly used layout.
 - **`UIBoxLayout`**: Arranges children in a horizontal (`Horizontal`) or vertical (`Vertical`) line.
 - **`UIGridLayout`**: Arranges children in a grid.
-# # # # **Basic Widgets**
+## # # **Basic Widgets**
 - **`UILabel`**: Displays simple, single-line text.
 - **`UIMultilineLabel`**: Displays multi-line text.
 - **`UIButton`**: A clickable button, often with text or an icon. Emits `onClick`.
@@ -290,13 +290,13 @@ Layouts are containers that automatically arrange their child widgets.
 - **`UITextEdit`**: An input field for the user to type text. Emits `onTextChange`.
 - **`UICheckBox`**: A standard checkbox. Emits `onCheckChange`.
 - **`UIProgressBar`**: A progress bar.
-# # # # **Complex Widgets**
+## # # **Complex Widgets**
 - **`UIWindow`**: A draggable window with a title bar, content area, and optional buttons.
 - **`UIComboBox`**: A dropdown menu for selecting one option from a list. Emits `onOptionChange`.
 - **`UIMenu` / `UIMenuBar`**: For creating context menus or top application menus.
 - **`UIMovie`**: Displays animated sprites (`.spr`) or GIFs.
 - **`UIClipping`**: A widget that clips its children to its own rectangular area.
-# # # # **Graphics Primitives**
+## # # **Graphics Primitives**
 These are not widgets but are used extensively to define widget properties.
 - **`Rect`**: Defines a rectangle (`x`, `y`, `width`, `height`).
 - **`Size`**: Defines a size (`width`, `height`).
@@ -305,4 +305,6 @@ These are not widgets but are used extensively to define widget properties.
 - **`Font`**: Represents a font asset.
 - **`Image`**: Represents an image asset.
 
----
+---
+```
+

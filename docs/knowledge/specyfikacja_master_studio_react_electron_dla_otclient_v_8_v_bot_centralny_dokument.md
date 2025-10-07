@@ -3,7 +3,7 @@
 > Dokument centralny – pełna, profesjonalna specyfikacja do autonomicznej implementacji narzędzia. Zawiera architekturę, modele danych, protokoły, checklisty, reguły jakości, plan wdrożenia, testy, ryzyka i artefakty startowe. Wszystkie kroki są deterministyczne i możliwe do zautomatyzowania na podstawie danych zawartych w tym dokumencie.
 
 ---
-# # 0. Executive Summary
+## 0. Executive Summary
 - **Cel:** zbudować wieloplatformowe Studio (desktop **Electron** + **React/TypeScript**) do tworzenia, analizy i utrzymania skryptów **Lua/OTUI/OTML** dla **OTClient v8** oraz **vBot**.
 - **Core features:**
   1) Inteligentne **podpowiedzi API** (kuratorowany `api.json` + indeks ze skanu repo),
@@ -14,7 +14,7 @@
 - **Ograniczenia:** brak oficjalnego step‑debuggera Lua; debug realizowany przez logi oraz hot‑reload.
 
 ---
-# # 1. Słownik pojęć
+## 1. Słownik pojęć
 - **OTClient v8** – klient gry (Lua/OTUI/OTML).
 - **vBot** – moduł `modules/game_bot` (makra/triggery).
 - **Hot‑reload** – `g_modules.reloadModules()` (skrót w kliencie lub moduł dev).
@@ -22,13 +22,13 @@
 - **NDJSON** – log *newline‑delimited JSON* (każda linia = obiekt JSON).
 
 ---
-# # 2. Zakres / Poza zakresem
+## 2. Zakres / Poza zakresem
 **MVP w zakresie:** edycja Lua/OTUI/OTML, podpowiedzi API, lint/auto‑fix (OTUI + Lua‑lite), generator szablonów, skan repo i indeks, Log Viewer, hot‑reload.
 
 **Poza MVP:** step‑debugger (breakpointy), zdalne eval Lua; profiling runtime; złożone RPC do klienta (inne niż plik/log/skrót).
 
 ---
-# # 3. Architektura systemu
+## 3. Architektura systemu
 **Wariant rekomendowany:** Desktop **Electron** (React/TS + Node/FS), integracja z OTClient przez system plików i skrót hot‑reload.
 
 ```
@@ -47,7 +47,7 @@ v
 **Alternatywa web:** React + lokalny serwis Node (HTTP/WebSocket) + File System Access API (ograniczenia dostępu; rekomendowane tylko gdy Electron jest niewskazany).
 
 ---
-# # 4. Wymagania funkcjonalne (FR)
+## 4. Wymagania funkcjonalne (FR)
 **FR‑01 – Projekty:** wybór katalogu, ostatnie projekty, walidacja (`modules/`, `.otmod`).
 **FR‑02 – Eksplorator:** drzewo `.lua/.otui/.otmod` + assets; CRUD na plikach; drag‑drop; operacje atomowe.
 **FR‑03 – Edytor:** Monaco (Lua/OTUI/OTML/JSON), go‑to symbol, minimapa, format, folding.
@@ -64,16 +64,16 @@ v
 **Kryteria akceptacji (wybrane):** indeks 5k plików < 5 s z cache; brak crashy przy edycji plików 2 MB; >90% trafień podpowiedzi dla znanych symboli; auto‑fix deterministyczny.
 
 ---
-# # 5. Wymagania niefunkcjonalne (NFR)
+## 5. Wymagania niefunkcjonalne (NFR)
 - **Perf:** indeks < 5 s (cache), < 30 s zimny start; Monaco 60 FPS podczas pisania.
 - **Security:** brak sieci (offline‑first), sandbox Renderer, IPC whitelist, brak uruchamiania Lua.
 - **Portability:** Windows/macOS/Linux; Web (opcjonalnie, ograniczenia FS API).
 - **Reliability:** zapisy atomowe (temp→rename), odtwarzanie cache po awarii.
 
 ---
-# # 6. Kontrakty i modele danych (kanoniczne, wersjonowane)
+## 6. Kontrakty i modele danych (kanoniczne, wersjonowane)
 > Każdy JSON zawiera `$schemaVersion` i jest walidowany testami kontraktowymi.
-# # # 6.1. `resources/api.json` (kuratorowane, seed + ingest)
+## # 6.1. `resources/api.json` (kuratorowane, seed + ingest)
 ```json
 {
   "$schemaVersion": 1,
@@ -92,7 +92,7 @@ v
 }
 ```
 > **Uwaga:** to seed. Pełny `api.json` powstaje wg §7 z lokalnych plików dokumentacji.
-# # # 6.2. `project-index.json` (z automatycznego skanu)
+## # 6.2. `project-index.json` (z automatycznego skanu)
 ```json
 {
   "$schemaVersion": 1,
@@ -102,29 +102,29 @@ v
   "relations": {"lua_to_otui": [{"lua": "modules/client/client.lua", "otui": "modules/client/ui/main.otui", "via": "g_ui.loadUI"}], "includes": [{"from": "modules/a/main.lua", "to": "modules/a/util.lua", "via": "dofile"}]}
 }
 ```
-# # # 6.3. `otui-rules.json` (lint/auto‑fix)
+## # 6.3. `otui-rules.json` (lint/auto‑fix)
 ```json
 {"$schemaVersion":1,"rules":[{"id":"OTUI-001","description":"Kolejność pól: GEOMETRIA→STYL→ZACHOWANIE.","fixable":true},{"id":"OTUI-002","description":"Stałe stringi muszą używać tr().","fixable":true},{"id":"OTUI-003","description":"Walidacja anchors/margins (brak sprzeczności).","fixable":false},{"id":"OTUI-004","description":"Weryfikacja istnienia zasobów (obrazy, fonty, style).","fixable":false}]}
 ```
-# # # 6.4. `templates.json` (generator)
+## # 6.4. `templates.json` (generator)
 ```json
 {"$schemaVersion":1,"module.default":{"title":"Moduł OTClient — szkielet","files":[{"path":"modules/hello/hello.otmod","contents":"name: hello\n"},{"path":"modules/hello/hello.lua","contents":"-- entry point\nlocal M = {}\nreturn M\n"},{"path":"modules/hello/ui/hello.otui","contents":"MainWindow < UIWidget { }\n"}],"checklist":["Umieść katalog w modules/","Uruchom klienta i przeładuj moduły","Sprawdź log po starcie modułu"]}}
 ```
-# # # 6.5. `docstrings.json`
+## # 6.5. `docstrings.json`
 ```json
 {"$schemaVersion":1,"entries":[{"file":"modules/x/main.lua","line":10,"symbol":"foo","params":[{"name":"a","type":"number"}],"returns":[{"type":"boolean"}],"comment":"---@param a number\n---@return boolean"}]}
 ```
-# # # 6.6. `assets-map.json`
+## # 6.6. `assets-map.json`
 ```json
 {"$schemaVersion":1,"assets":{"images":["images/button.png"],"fonts":["fonts/verdana.otf"],"styles":["styles/dark.otui"]}}
 ```
-# # # 6.7. `.studio/config.json`
+## # 6.7. `.studio/config.json`
 ```json
 {"$schemaVersion":1,"projectRoot":"/abs/path/to/project","apiPath":"resources/api.json","otuiRulesPath":"resources/otui-rules.json","templatesPath":"resources/templates.json","logPath":"/abs/path/to/log.ndjson","ignore":["**/node_modules/**",".git/**"]}
 ```
 
 ---
-# # 7. Procedura ingest – budowa `api.json`
+## 7. Procedura ingest – budowa `api.json`
 **Wejścia:** lokalne pliki dokumentacji (`OTClient_data_documentation_FULL.md`, `luafunctionscpp.md`, `modules_Documentation.md`, `src framework.md`, `src client.md`).
 
 **Kroki:**
@@ -146,7 +146,7 @@ v
 **Quality Gate:** 0 duplikatów; ≥95% pozycji z opisem i kompletnymi parametrami; walidacja JSON wg schematu.
 
 ---
-# # 8. Skaner i parsery – specyfikacja
+## 8. Skaner i parsery – specyfikacja
 **FS skan:** glob `**/*.{lua,otui,otmod}`; wyklucz `.git/**`, `**/node_modules/**`, `**/.studio-cache/**`; hash (size+mtime) → indeks inkrementalny.
 
 **Parser Lua:**
@@ -172,7 +172,7 @@ Value:= String | Number | Bool | Ident | Array | Object
 **Kody błędów parsera:** `P001` (Lua tokenizer), `P101` (OTUI niezamknięty blok), `P201` (.otmod brak `name`).
 
 ---
-# # 9. Lint/Auto‑fix – reguły
+## 9. Lint/Auto‑fix – reguły
 - **OTUI‑001 (order):** sortuj atrybuty: GEOMETRIA → STYL → ZACHOWANIE (auto‑fix: przetasuj z zachowaniem komentarzy).
 - **OTUI‑002 (tr):** stałe literały string wrapuj `tr()` (auto‑fix; ignoruj `id`/nazwy klas).
 - **OTUI‑003 (anchors):** wykryj sprzeczności anchors/margins (sugestie, bez auto‑fix).
@@ -181,7 +181,7 @@ Value:= String | Number | Bool | Ident | Array | Object
 - **LUA‑002 (unpack):** zamieniaj `unpack` -> `table.unpack` (auto‑fix bezpieczny).
 
 ---
-# # 10. Integracja z OTClient (hot‑reload, logi)
+## 10. Integracja z OTClient (hot‑reload, logi)
 **Tryb A (podstawowy):** zapis → skrót hot‑reload w kliencie (np. Ctrl+Shift+R).
 
 **Tryb B (z modułem dev):** Studio zapisuje `modules/.dev/reload.flag`; moduł dev w kliencie wykrywa i:
@@ -232,7 +232,7 @@ Przykład:
 ```
 
 ---
-# # 11. UI/UX (ekrany i przepływy)
+## 11. UI/UX (ekrany i przepływy)
 - **Start:** wybór/ostatnie projekty, skróty do dokumentacji, „Nowy moduł”.
 - **Eksplorator:** drzewo plików, akcje kontekstowe, status operacji FS.
 - **Edytor:** Monaco + panel boczny (API/Doc), statusbar (pozycja, problems, encoding).
@@ -242,7 +242,7 @@ Przykład:
 - **Ustawienia:** ścieżki zasobów, logu, motyw, ignorowane foldery, mapowanie skrótu.
 
 ---
-# # 12. IPC (Electron) – kontrakty
+## 12. IPC (Electron) – kontrakty
 - `studio:scan:start` – req: `{root}` → res: `project-index.json` | err: `{code,msg}`
 - `studio:api:load` – req: `{path}` → res: `api.json`
 - `studio:lint:run` – req: `{files[]}` → res: `{problems[]}`
@@ -252,29 +252,29 @@ Przykład:
 **Błędy:** `E_FS_001` (dostęp FS), `E_PARSE_LUA`, `E_PARSE_OTUI`, `E_JSON_SCHEMA`.
 
 ---
-# # 13. Warstwa stanu FE
+## 13. Warstwa stanu FE
 - **Zustand:** `projectStore`, `editorStore`, `diagnosticsStore`, `apiStore`, `logStore`.
 - **Persist:** `.studio/config.json` przez backend FS.
 - **Normalizacja:** mapy symboli `name -> {files[]}`.
 
 ---
-# # 14. Bezpieczeństwo i prywatność
+## 14. Bezpieczeństwo i prywatność
 - Renderer sandbox, restrykcyjne IPC, brak sieci (domyślnie), brak wykonywania Lua.
 - Backup `.bak` przy auto‑fixach; zapisy atomowe.
 
 ---
-# # 15. Wydajność i stabilność
+## 15. Wydajność i stabilność
 - Worker Threads dla parserów; debounce 150 ms; cache w `.studio-cache/`.
 - „Big file mode” w Monaco > 2 MB (ograniczenie części funkcji).
 
 ---
-# # 16. i18n, A11y, theming
+## 16. i18n, A11y, theming
 - i18n: `en`/`pl`; wymuszaj `tr()` w OTUI poprzez lint.
 - A11y: ARIA, focus outlines, kontrast WCAG AA.
 - Tematy: Light/Dark/High‑Contrast; zapis w config.
 
 ---
-# # 17. Testy i QA
+## 17. Testy i QA
 - **Unit:** parsery (Lua/OTUI), lint rules, generator.
 - **Contract:** walidacja JSON kontra schemat, IPC payloady/typy.
 - **Integration:** skan 5k plików, pomiary czasu/RAM.
@@ -284,21 +284,21 @@ Przykład:
 **DoD (final):** patrz §21 – wszystkie punkty odhaczone.
 
 ---
-# # 18. Build/Release/Update
+## 18. Build/Release/Update
 - `electron-builder` (Win NSIS, macOS dmg, Linux AppImage); podpisy binarek.
 - Auto‑update (opcjonalny), domyślnie wyłączony – narzędzie offline‑first.
 
 ---
-# # 19. Observability narzędzia
+## 19. Observability narzędzia
 - Log aplikacji: `.studio/logs/app.ndjson`; poziomy: DEBUG/INFO/WARN/ERROR.
 - Metryki: czas skanu, liczba plików, czas lintu, błędy parserów.
 
 ---
-# # 20. Migracje i zgodność
+## 20. Migracje i zgodność
 - `$schemaVersion` w artefaktach; migracje `vN -> vN+1` dla config/cache.
 
 ---
-# # 21. Plan wdrożenia i checklisty
+## 21. Plan wdrożenia i checklisty
 **Etap 0 – Inicjalizacja**
 - [ ] Monorepo (pnpm), Vite+React+TS, Electron scaffold.
 - [ ] Monaco, routing, layout.
@@ -331,14 +331,14 @@ Przykład:
 - [ ] Pakiety Win/macOS/Linux; dokumentacja użytkownika; sample project.
 
 ---
-# # 22. Ryzyka i mitigacje
+## 22. Ryzyka i mitigacje
 - **Brak step‑debuggera:** Log Viewer + snippety logujące + mapowanie file:line.
 - **Różnice wersji:** `since/deprecated` w `api.json`, profile klienta.
 - **Wydajność:** indeks inkrementalny, workers, throttling.
 - **Parsery:** testy kontraktowe + snapshoty, tolerant parsing.
 
 ---
-# # 23. Artefakty – komplet MVP (gotowe w tym dokumencie)
+## 23. Artefakty – komplet MVP (gotowe w tym dokumencie)
 - `resources/api.json` – seed (6.1 + 24.A)
 - `resources/otui-rules.json` – (6.3 + 24.B)
 - `resources/templates.json` – (6.4 + 24.C)
@@ -347,7 +347,7 @@ Przykład:
 - `.studio/config.json` – format (6.7)
 
 ---
-# # 24. Przykładowe dane (seed do startu)
+## 24. Przykładowe dane (seed do startu)
 **A. `resources/api.json` (seed)** – patrz §6.1 (pełny JSON wstawiony).
 
 **B. `resources/otui-rules.json` (seed)** – patrz §6.3 (pełny JSON wstawiony).
@@ -355,7 +355,8 @@ Przykład:
 **C. `resources/templates.json` (seed)** – patrz §6.4 (pełny JSON wstawiony).
 
 ---
-# # 25. Noty końcowe
+## 25. Noty końcowe
 - Ten dokument jest **źródłem prawdy (SoT)**. Dodatkowe canvasy muszą odwoływać się do sekcji (§) i kontraktów tutaj zdefiniowanych.
 - Zmiany wymagają podniesienia `$schemaVersion` i przejścia testów kontraktowych.
 - Wszelkie dane są przygotowane z myślą o pracy **offline** w oparciu o lokalne pliki dokumentacji i kodu.
+

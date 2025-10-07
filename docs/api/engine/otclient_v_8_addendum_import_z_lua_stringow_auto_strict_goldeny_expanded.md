@@ -6,7 +6,7 @@ B) **Rozszerzona biblioteka goldenów** (round‑trip 1:1),
 C) **Runner z obsługą profili** (`game_bot`, `client`, …).
 
 ---
-# # Spis treści
+## Spis treści
 - [A. Import z Lua‑stringów → AST (AUTO‑STRICT)](#a-import)
   - [A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe](#a-1)
   - [A.2 API ekstrakcji i podmiany (TypeScript)](#a-2)
@@ -20,10 +20,10 @@ C) **Runner z obsługą profili** (`game_bot`, `client`, …).
 ---
 
 <div id="a-import"></div>
-# # A. Import z Lua‑stringów → AST (AUTO‑STRICT)
+## A. Import z Lua‑stringów → AST (AUTO‑STRICT)
 
 <div id="a-1"></div>
-# # # A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe
+## # A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe
 **Obsługiwane formy:**
 1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` — preferowana w kodzie źródłowym.  
 2) **Kotwice**: `-- @OTUI_BEGIN name=<name>` … `-- @OTUI_END name=<name>` — czytelny marker w Lua.
@@ -36,7 +36,7 @@ export const RX_TAG = /(^|\n)\s*--\s*@OTUI_BEGIN\s+name=([A-Za-z0-9_]+)[^\n]*\n(
 > **STRICT OTUI** wewnątrz bloków: brak tabów/komentarzy/BOM; wcięcia 2 sp.; kolejność atrybutów GEOMETRIA→STYL→ZACHOWANIE.
 
 <div id="a-2"></div>
-# # # A.2 API ekstrakcji i podmiany (TypeScript)
+## # A.2 API ekstrakcji i podmiany (TypeScript)
 ```ts
 export interface LuaOtuiBlock { name: string; otui: string; start: number; end: number; kind: 'var'|'tag' }
 
@@ -62,7 +62,7 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ```
 
 <div id="a-3"></div>
-# # # A.3 Polityka AUTO‑STRICT i błędy importu
+## # A.3 Polityka AUTO‑STRICT i błędy importu
 - **AUTO‑STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeśli zmieni treść → `W:STRICT` (propozycja auto‑zapisania).  
 - **Błędy importu:**
   - `E:LUA‑DUP` — więcej niż jeden blok o tej samej nazwie w pliku.  
@@ -71,7 +71,7 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
   - `E:PARSE` — niepoprawny OTUI po `ensureStrictOtui()`.
 
 <div id="a-4"></div>
-# # # A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)
+## # A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)
 1. **Import**: odczytaj plik Lua → `extractLuaOtuiBlocks()` → wybór bloku → `ensureStrictOtui()` → `parseOtui()` → edycja w IDE.  
 2. **Eksport**: `serializeAst()` → `ensureStrictOtui()` → `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).  
 3. **Walidacja profilu**: `validateAst(ast, { profile: 'game_bot' })` przed zapisem; blokujące `E:BLK` przerywają zapis.
@@ -79,10 +79,10 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ---
 
 <div id="b-goldens"></div>
-# # B. Goldeny (expanded)
+## B. Goldeny (expanded)
 
 <div id="b-1"></div>
-# # # B.1 Indeks JSON (nazwy → opis)
+## # B.1 Indeks JSON (nazwy → opis)
 ```json
 [
   {"name":"mainwindow_basic","desc":"MainWindow + content (fill)"},
@@ -110,7 +110,7 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ```
 
 <div id="b-2"></div>
-# # # B.2 Wybrane goldeny (STRICT OTUI)
+## # B.2 Wybrane goldeny (STRICT OTUI)
 **`toolbar_basic`**
 ```otui
 Toolbar
@@ -302,7 +302,7 @@ StaticMainWindow
 ---
 
 <div id="c-runner"></div>
-# # C. Runner round‑trip + walidacja profili
+## C. Runner round‑trip + walidacja profili
 ```ts
 export interface GoldenCase { name: string; otui?: string }
 export interface GoldenIO { read(path: string): string; write(path: string, data: string): void }
@@ -328,3 +328,4 @@ export function runGoldenSuite(cases: GoldenCase[], io: GoldenIO, opts?: { profi
 ```
 
 > **Notatka:** Ten addendum nie zmienia zasad bazowych; integruj gotowe sekcje A–C z Twoim pipeline’em IDE oraz CI.
+

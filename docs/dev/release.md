@@ -16,7 +16,7 @@ e
 2. Changelog z PR od ostatniego taga.
 3. Build artefaktów (CI).
 4. Publikacja + checksumy.
-# # Wersjonowanie dok
+## Wersjonowanie dok
 
 u
 
@@ -37,3 +37,4 @@ j
 i
 
 - Docsy budują się z gałęzi `master`.
+
