@@ -1731,6 +1731,7 @@ end
 ---
 # map.lua
 
+{% raw %}
 ```lua
 
 local context = G.botContext
@@ -2230,6 +2231,7 @@ context.isTrapped = function(creature)
 end
 
 ```
+{% endraw %}
 
 ---
 # npc.lua
@@ -3394,6 +3396,7 @@ end
 ---
 # ui_elements.lua
 
+{% raw %}
 ```lua
 
 local context = G.botContext
@@ -4083,6 +4086,7 @@ UI.SwitchAndButton = function(params, callbackSwitch, callbackButton, callback, 
 end
 
 ```
+{% endraw %}
 
 ---
 # ui_legacy.lua
@@ -4334,6 +4338,7 @@ end
 ---
 # ui_windows.lua
 
+{% raw %}
 ```lua
 
 local context = G.botContext
@@ -4427,5 +4432,6 @@ UI.ConfirmationWindow = function(title, question, callback)
 end
 
 ```
+{% endraw %}
 
 ---

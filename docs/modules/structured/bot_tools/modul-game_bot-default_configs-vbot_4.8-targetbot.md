@@ -183,6 +183,7 @@ end
 ---
 # creature_attack.lua
 
+{% raw %}
 ```lua
 
 local targetBotLure = false
@@ -630,6 +631,7 @@ onPlayerPositionChange(function(newPos, oldPos)
 end)
 
 ```
+{% endraw %}
 
 ---
 # creature_editor.lua

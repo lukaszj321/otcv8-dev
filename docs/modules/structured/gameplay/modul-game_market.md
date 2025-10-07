@@ -1,5 +1,6 @@
 ﻿# ¦ Modul: `game_market`
 
+{% raw %}
 ```lua
 
 --[[
@@ -2409,6 +2410,7 @@ function Market.onCoinBalance(coins, transferableCoins)
 end
 
 ```
+{% endraw %}
 
 ---
 # market.otmod
