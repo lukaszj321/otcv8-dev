@@ -1,16 +1,4 @@
-﻿# R
-
-o
-
-a
-
-d
-
-m
-
-a
-
-p
+﻿# Roadmap
 
 - [ ] Pełna referencja API Lua (LDoc).
 - [ ] Generowanie Doxygen dla C++ i wpięcie do docs.

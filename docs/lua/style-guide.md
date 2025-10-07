@@ -1,24 +1,4 @@
-# Lua —
-
-s
-
-t
-
-y
-
-l
-
-e
-
-g
-
-u
-
-i
-
-d
-
-e
+# Lua — style guide
 
 - snake_case dla zmiennych i funkcji.
 - Moduły zwracają tabelę publicznego API.
