@@ -1,4 +1,4 @@
-# Ĺ Modul: `gamelib/ui`
+﻿# ¦ Modul: `gamelib/ui`
 
 ```lua
 

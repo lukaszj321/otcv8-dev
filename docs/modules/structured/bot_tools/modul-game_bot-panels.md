@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_bot/panels`
+﻿# ¦ Modul: `game_bot/panels`
 
 ```text
 

@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_console`
+﻿# ¦ Modul: `game_console`
 
 ```otui
 

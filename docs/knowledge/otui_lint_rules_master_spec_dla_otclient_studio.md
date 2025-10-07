@@ -1,13 +1,13 @@
-# OTUI Lint Rules (MASTER) – Specyfikacja dla **OTClient Studio**
+﻿# OTUI Lint Rules (MASTER) – Specyfikacja dla **OTClient Studio**
 
-> Cel: kompletny katalog reguł lint/auto-fix dla **OTUI/OTML** używany przez Studio. Dokument definiuje: zachowania reguł, algorytmy auto-fix, format diagnostyk, konfigurację, test-wektory, integrację z edytorem i wymagania jakościowe. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
+> Cel: kompletny katalog reguł lint/auto‑fix dla **OTUI/OTML** używany przez Studio. Dokument definiuje: zachowania reguł, algorytmy auto‑fix, format diagnostyk, konfigurację, test‑wektory, integrację z edytorem i wymagania jakościowe. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
 
 ---
 # # 0) Założenia wspólne
 - **Parser/AST**: zgodnie z dokumentem „Parser & Schemas: AST + JSON Schema (OTClient Studio)” (§ OTUI AST). Każdy węzeł posiada `loc` (`file`, `start`, `end`).
 - **Kategoryzacja atrybutów**: `GEOMETRY`, `STYLE`, `BEHAVIOR` (lista bazowa w §1.3 tego dokumentu; rozszerzalna).
-- **Deterministyczność**: wyniki lint i auto-fix są deterministyczne (stabilny sort atrybutów, niezmienność białych znaków poza miejscem naprawy).
-- **Backup i diff**: przy auto-fix zapisywany jest plik `.bak` oraz generowany jest diff (Unified) do podglądu w UI.
+- **Deterministyczność**: wyniki lint i auto‑fix są deterministyczne (stabilny sort atrybutów, niezmienność białych znaków poza miejscem naprawy).
+- **Backup i diff**: przy auto‑fix zapisywany jest plik `.bak` oraz generowany jest diff (Unified) do podglądu w UI.
 - **Format diagnostyk** (kanał do edytora):
 ```json
 {
@@ -21,13 +21,13 @@
 ```
 
 ---
-# # 1) Katalog reguł (z auto-fix tam, gdzie bezpieczny)
+# # 1) Katalog reguł (z auto‑fix tam, gdzie bezpieczny)
 
-> **Legenda pól:** `Opis`, `Wykrywanie`, `Auto-fix`, `Przykład (before/after)`, `Severity`, `Bezpieczeństwo`, `Konfiguracja`.
-# # # OTUI-001 — Kolejność pól: GEOMETRIA → STYL → ZACHOWANIE (**auto-fix**)
+> **Legenda pól:** `Opis`, `Wykrywanie`, `Auto‑fix`, `Przykład (before/after)`, `Severity`, `Bezpieczeństwo`, `Konfiguracja`.
+# # # OTUI‑001 — Kolejność pól: GEOMETRIA → STYL → ZACHOWANIE (**auto‑fix**)
 - **Opis**: w obrębie każdego bloku deklaracji widżetu atrybuty muszą być uporządkowane wg kategorii.
 - **Wykrywanie**: przeanalizuj listę `KV` w `Decl.body`; jeśli sekwencja kategorii zawiera inwersje (np. `STYLE` przed `GEOMETRY`), zgłoś problem.
-- **Auto-fix**: stabilne sortowanie kluczy: najpierw wszystkie `GEOMETRY`, potem `STYLE`, potem `BEHAVIOR`. Zachowaj względną kolejność wewnątrz kategorii i przenieś komentarze razem z parą `KV`.
+- **Auto‑fix**: stabilne sortowanie kluczy: najpierw wszystkie `GEOMETRY`, potem `STYLE`, potem `BEHAVIOR`. Zachowaj względną kolejność wewnątrz kategorii i przenieś komentarze razem z parą `KV`.
 - **Przykład**
 ```otui
 # BEFORE
@@ -44,15 +44,15 @@ Window < UIWidget {
 }
 ```
 - **Severity**: WARN (podniesienie do ERROR konfigurowalne).
-- **Bezpieczeństwo**: bezpieczny auto-fix.
+- **Bezpieczeństwo**: bezpieczny auto‑fix.
 - **Konfiguracja**:
 ```json
 {"OTUI-001":{"enabled":true,"severity":"WARN"}}
 ```
-# # # OTUI-002 — Statyczne teksty muszą używać `tr()` (**auto-fix**)
+# # # OTUI‑002 — Statyczne teksty muszą używać `tr()` (**auto‑fix**)
 - **Opis**: literały string w atrybutach kategorii STYLE (np. `text`) muszą być opakowane `tr("...")`.
 - **Wykrywanie**: `KV.key` ∈ STYLE ∧ `value.type == StringLiteral` ∧ `value.value` nie zaczyna się od `tr(`.
-- **Auto-fix**: zamień `"Tekst"` → `tr("Tekst")`. Wyklucz klucze `id`, nazwy klas/stylów.
+- **Auto‑fix**: zamień `"Tekst"` → `tr("Tekst")`. Wyklucz klucze `id`, nazwy klas/stylów.
 - **Przykład**
 ```otui
 # BEFORE
@@ -61,98 +61,98 @@ Label < UIWidget { text: "Start" }
 Label < UIWidget { text: tr("Start") }
 ```
 - **Severity**: WARN.
-- **Bezpieczeństwo**: bezpieczny auto-fix.
+- **Bezpieczeństwo**: bezpieczny auto‑fix.
 - **Konfiguracja**: `{ "OTUI-002": {"enabled": true, "severity": "WARN", "allowList": ["tooltip"] } }`
-# # # OTUI-003 — Sprzeczne `anchors` / `margins` (detekcja)
+# # # OTUI‑003 — Sprzeczne `anchors` / `margins` (detekcja)
 - **Opis**: wykrywa sprzeczności (np. jednoczesne kotwice wykluczające się lub ujemne marginesy tam, gdzie to niedozwolone w projekcie).
 - **Wykrywanie**: analizuj wartości `anchors` (obiekt/array) i `margin/…`; reguły domenowe: brak `left`+`right` bez `width` (jeśli projekt tak definiuje), brak ujemnych `margin`.
-- **Auto-fix**: brak (tylko sugestie: usuń `right` lub dodaj `width`).
+- **Auto‑fix**: brak (tylko sugestie: usuń `right` lub dodaj `width`).
 - **Severity**: ERROR (domyślnie).
-- **Bezpieczeństwo**: brak auto-fixu.
-# # # OTUI-004 — Zasób nie istnieje (STYLE → `image`, `font`, `style`)
+- **Bezpieczeństwo**: brak auto‑fixu.
+# # # OTUI‑004 — Zasób nie istnieje (STYLE → `image`, `font`, `style`)
 - **Opis**: odwołanie do pliku zasobu, którego nie ma w projekcie.
 - **Wykrywanie**: sprawdź ścieżki względem `project-root/data/…` lub mapy zasobów (`assets-map.json`).
-- **Auto-fix**: brak; podaj propozycje (fuzzy match) najbliższych nazw.
+- **Auto‑fix**: brak; podaj propozycje (fuzzy match) najbliższych nazw.
 - **Severity**: ERROR.
-# # # OTUI-005 — Zduplikowane `id` w obrębie pliku
+# # # OTUI‑005 — Zduplikowane `id` w obrębie pliku
 - **Opis**: `KV.key == id` nie może wystąpić wielokrotnie z tą samą wartością w pliku.
 - **Wykrywanie**: deduplikacja w `OTUIFile.body` (poziom pliku).
-- **Auto-fix**: brak; zaproponuj nowe `id` (`<id>_1`).
+- **Auto‑fix**: brak; zaproponuj nowe `id` (`<id>_1`).
 - **Severity**: ERROR.
-# # # OTUI-006 — Konwencja nazewnictwa `id`
+# # # OTUI‑006 — Konwencja nazewnictwa `id`
 - **Opis**: `id` dopuszcza `[a-z0-9_]+` (konfigurowalne).
 - **Wykrywanie**: regex na `Identifier|StringLiteral`.
-- **Auto-fix**: opcjonalna transformacja do lower_snake_case (jeśli włączona).
+- **Auto‑fix**: opcjonalna transformacja do lower_snake_case (jeśli włączona).
 - **Severity**: WARN.
-# # # OTUI-007 — Nieznany atrybut widżetu
-- **Opis**: klucz `KV.key` nie znajduje się w dozwolonych dla danego widżetu (lista referencyjna + allow-list projektu).
+# # # OTUI‑007 — Nieznany atrybut widżetu
+- **Opis**: klucz `KV.key` nie znajduje się w dozwolonych dla danego widżetu (lista referencyjna + allow‑list projektu).
 - **Wykrywanie**: porównanie do bazy atrybutów; jeśli brak dopasowania → problem.
-- **Auto-fix**: brak; podpowiedź najbliższych kluczy (Levenshtein).
+- **Auto‑fix**: brak; podpowiedź najbliższych kluczy (Levenshtein).
 - **Severity**: WARN.
-# # # OTUI-008 — Atrybut przestarzały (deprecated)
+# # # OTUI‑008 — Atrybut przestarzały (deprecated)
 - **Opis**: użycie atrybutu oznaczonego jako przestarzały w profilu projektu.
 - **Wykrywanie**: dopasowanie do listy `deprecatedAttributes` (konfiguracja).
-- **Auto-fix**: propozycja zamiennika (jeśli podany w konfiguracji).
+- **Auto‑fix**: propozycja zamiennika (jeśli podany w konfiguracji).
 - **Severity**: WARN.
-# # # OTUI-009 — Normalizacja booleanów
+# # # OTUI‑009 — Normalizacja booleanów
 - **Opis**: wartości bool powinny być `true|false` (nie `0|1|"true"`).
 - **Wykrywanie**: `value` typu `Identifier/StringLiteral/NumberLiteral` odwzorowuje bool.
-- **Auto-fix**: zamień na `true/false`.
+- **Auto‑fix**: zamień na `true/false`.
 - **Severity**: HINT.
-# # # OTUI-010 — Format kolorów
+# # # OTUI‑010 — Format kolorów
 - **Opis**: akceptowane formaty kolorów wg projektu (np. `#RRGGBB`, `rgba(...)`).
 - **Wykrywanie**: regex na `StringLiteral`.
-- **Auto-fix**: konwersja do kanonicznego formatu (jeśli możliwa).
+- **Auto‑fix**: konwersja do kanonicznego formatu (jeśli możliwa).
 - **Severity**: WARN.
-# # # OTUI-011 — Jednostki wymiarów/liczb
+# # # OTUI‑011 — Jednostki wymiarów/liczb
 - **Opis**: liczby powinny być bez jednostek (lub z konkretną notacją – zależnie od projektu).
 - **Wykrywanie**: `NumberLiteral` OK; `StringLiteral` z sufiksem jednostki → problem (opcjonalnie).
-- **Auto-fix**: usunięcie sufiksu, jeśli włączone.
+- **Auto‑fix**: usunięcie sufiksu, jeśli włączone.
 - **Severity**: HINT/WARN.
-# # # OTUI-012 — Cykl dziedziczenia widżetów
+# # # OTUI‑012 — Cykl dziedziczenia widżetów
 - **Opis**: `Decl.base` tworzy cykl (A < B, B < C, C < A).
 - **Wykrywanie**: graf dziedziczenia per plik (lub cały projekt); detekcja cykli.
-- **Auto-fix**: brak; raport ścieżki cyklu.
+- **Auto‑fix**: brak; raport ścieżki cyklu.
 - **Severity**: ERROR.
-# # # OTUI-013 — Puste deklaracje
+# # # OTUI‑013 — Puste deklaracje
 - **Opis**: `Decl` bez atrybutów i potomków.
 - **Wykrywanie**: `Decl.body.length == 0`.
-- **Auto-fix**: usuń pusty blok (opcjonalnie, jeśli nie referencjonowany).
+- **Auto‑fix**: usuń pusty blok (opcjonalnie, jeśli nie referencjonowany).
 - **Severity**: INFO.
-# # # OTUI-014 — Niezreferencjonowany widżet (analiza projektowa)
+# # # OTUI‑014 — Niezreferencjonowany widżet (analiza projektowa)
 - **Opis**: `Decl` nigdy nie ładowany przez `g_ui.loadUI` ani dziedziczony.
 - **Wykrywanie**: korelacja z `project-index.json.relations.lua_to_otui` i bazą typów.
-- **Auto-fix**: brak; informacja do porządków.
+- **Auto‑fix**: brak; informacja do porządków.
 - **Severity**: INFO.
-# # # OTUI-015 — Odnośnik do stylu nie istnieje
+# # # OTUI‑015 — Odnośnik do stylu nie istnieje
 - **Opis**: `style: "…"` nie znajduje się w katalogu stylów projektu.
-- **Wykrywanie**: porównanie do listy stylów (assets-map lub dedykowana baza stylów).
-- **Auto-fix**: brak; fuzzy proposals.
+- **Wykrywanie**: porównanie do listy stylów (assets‑map lub dedykowana baza stylów).
+- **Auto‑fix**: brak; fuzzy proposals.
 - **Severity**: WARN.
-# # # OTUI-016 — Event handler w kluczu `on...` ma niekanoniczną wartość
+# # # OTUI‑016 — Event handler w kluczu `on...` ma niekanoniczną wartość
 - **Opis**: wartości eventów powinny być identyfikatorami (nie stringami) — zależnie od konwencji projektu.
 - **Wykrywanie**: `key` zaczyna się od `on` + wielka litera; `value.type != Identifier`.
-- **Auto-fix**: usuń cudzysłowy (opcjonalnie).
+- **Auto‑fix**: usuń cudzysłowy (opcjonalnie).
 - **Severity**: HINT/WARN.
-# # # OTUI-017 — Atrybuty powielone w obrębie tego samego `Decl`
+# # # OTUI‑017 — Atrybuty powielone w obrębie tego samego `Decl`
 - **Opis**: ten sam `key` występuje wielokrotnie – ostatni wygrywa (nieczytelne).
 - **Wykrywanie**: duplikaty `KV.key` w `Decl.body`.
-- **Auto-fix**: scal albo usuń duplikaty (zachowaj ostatni) — **opcjonalne**.
+- **Auto‑fix**: scal albo usuń duplikaty (zachowaj ostatni) — **opcjonalne**.
 - **Severity**: WARN.
-# # # OTUI-018 — Białe znaki i wcięcia (2 spacje)
+# # # OTUI‑018 — Białe znaki i wcięcia (2 spacje)
 - **Opis**: standaryzacja wcięć i trailing spaces.
 - **Wykrywanie**: tokenizer whitespace; linie z tabami/końcówkami spacji.
-- **Auto-fix**: konwersja TAB→2 spacje, trim końcówek.
+- **Auto‑fix**: konwersja TAB→2 spacje, trim końcówek.
 - **Severity**: HINT.
-# # # OTUI-019 — Komentarze (#) format
+# # # OTUI‑019 — Komentarze (#) format
 - **Opis**: komentarz powinien poprzedzać deklarację lub stać po wartości (a nie w środku tokena).
 - **Wykrywanie**: pozycje `Comment` vs `KV`/`Decl`.
-- **Auto-fix**: przenieś komentarz do poprawnej pozycji (jeśli możliwe).
+- **Auto‑fix**: przenieś komentarz do poprawnej pozycji (jeśli możliwe).
 - **Severity**: HINT.
-# # # OTUI-020 — Klucze nieobsługiwane przez dany typ bazowy
+# # # OTUI‑020 — Klucze nieobsługiwane przez dany typ bazowy
 - **Opis**: atrybut zarezerwowany dla innego typu (np. `icon` na widżecie, który go nie wspiera — wg bazy projektu).
 - **Wykrywanie**: mapowanie `Type`→dozwolone atrybuty.
-- **Auto-fix**: brak.
+- **Auto‑fix**: brak.
 - **Severity**: WARN.
 
 ---
@@ -166,8 +166,8 @@ Label < UIWidget { text: tr("Start") }
 # # 3) Integracja z edytorem (Monaco) – diagnostyka i Quick Fix
 - **Publish diagnostyk**: na każdy zapis i/lub po krótkim debounce (150 ms) po zmianie.
 - **Format**: jak w §0; severity mapowane na kolor/ikonę.
-- **Quick Fix**: prezentuj `fix.title`; po akceptacji wykonaj `edits[]` (wspieraj multi-file).
-- **Podgląd diff**: dla auto-fixów wymagających większej zmiany (OTUI-001) pokaż unified diff.
+- **Quick Fix**: prezentuj `fix.title`; po akceptacji wykonaj `edits[]` (wspieraj multi‑file).
+- **Podgląd diff**: dla auto‑fixów wymagających większej zmiany (OTUI‑001) pokaż unified diff.
 
 ---
 # # 4) Konfiguracja reguł (JSON)
@@ -200,8 +200,8 @@ Label < UIWidget { text: tr("Start") }
 ```
 
 ---
-# # 5) Algorytmy auto-fix (pseudokod TS)
-# # # 5.1 OTUI-001 (sort kategorii)
+# # 5) Algorytmy auto‑fix (pseudokod TS)
+# # # 5.1 OTUI‑001 (sort kategorii)
 ```ts
 function fixOrder(decl: Decl): Edit[] {
   const groups = {G: [] as KV[], S: [] as KV[], B: [] as KV[]};
@@ -217,7 +217,7 @@ function fixOrder(decl: Decl): Edit[] {
   return [{ file: decl.loc.file, range: rangeOfKVBlock(decl), text }];
 }
 ```
-# # # 5.2 OTUI-002 (wrap `tr()`)
+# # # 5.2 OTUI‑002 (wrap `tr()`)
 ```ts
 function wrapTr(kv: KV): Edit[] {
   if (kv.value.type !== 'StringLiteral') return [];
@@ -229,7 +229,7 @@ function wrapTr(kv: KV): Edit[] {
   }];
 }
 ```
-# # # 5.3 OTUI-009 (booleany)
+# # # 5.3 OTUI‑009 (booleany)
 ```ts
 function normalizeBool(kv: KV): Edit[] {
   const val = kv.value;
@@ -245,19 +245,19 @@ function normalizeBool(kv: KV): Edit[] {
 ```
 
 ---
-# # 6) Test-wektory (minimalny zestaw regresji)
+# # 6) Test‑wektory (minimalny zestaw regresji)
 # # # 6.1 Kolejność pól
 **Wejście**
 ```otui
 W < UIWidget { text: "x" width: 1 id: a }
 ```
-**Oczekiwane**: pojedyncza diagnostyka `OTUI-001` + auto-fix sortujący.
+**Oczekiwane**: pojedyncza diagnostyka `OTUI-001` + auto‑fix sortujący.
 # # # 6.2 `tr()` wrap
 **Wejście**
 ```otui
 L < UIWidget { text: "Start" id: start }
 ```
-**Oczekiwane**: `OTUI-002` z auto-fix → `text: tr("Start")`.
+**Oczekiwane**: `OTUI-002` z auto‑fix → `text: tr("Start")`.
 # # # 6.3 Zasób nie istnieje
 **Wejście**
 ```otui
@@ -287,13 +287,13 @@ B < UIWidget { id: x }
 
 ---
 # # 9) Checklisty wdrożeniowe (dla warstwy Lint)
-- [ ] Implementacja wszystkich reguł OTUI-001…020.
-- [ ] Włączone auto-fix dla 001/002/009/018; pozostałe bezpieczne – opcjonalnie.
+- [ ] Implementacja wszystkich reguł OTUI‑001…020.
+- [ ] Włączone auto‑fix dla 001/002/009/018; pozostałe bezpieczne – opcjonalnie.
 - [ ] Konfiguracja reguł w `otui-rules.json`; integracja w UI (enable/disable, severity).
-- [ ] Testy z §6 – zielone; snapshoty zmian po auto-fix.
+- [ ] Testy z §6 – zielone; snapshoty zmian po auto‑fix.
 - [ ] Cache zasobów i fuzzy propozycje działają.
 
 ---
 # # 10) Noty końcowe
 - Reguły są projektowalne – dopuszcza się dodawanie własnych rozszerzeń, o ile nie zmieniają publicznych kontraktów (format diagnostyk i edycji).
-- Wszelkie zmiany w zestawie reguł wymagają podniesienia `$schemaVersion` w konfiguracji i aktualizacji test-wektorów.
+- Wszelkie zmiany w zestawie reguł wymagają podniesienia `$schemaVersion` w konfiguracji i aktualizacji test‑wektorów.

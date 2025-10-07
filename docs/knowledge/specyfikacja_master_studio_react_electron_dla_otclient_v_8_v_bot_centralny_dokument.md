@@ -1,4 +1,4 @@
-# Specyfikacja implementacji (MASTER v1.0): **Studio React/Electron** dla skryptów **OTClient v8** + **modules/game_bot (vBot)**
+﻿# Specyfikacja implementacji (MASTER v1.0): **Studio React/Electron** dla skryptów **OTClient v8** + **modules/game_bot (vBot)**
 
 > Dokument centralny – pełna, profesjonalna specyfikacja do autonomicznej implementacji narzędzia. Zawiera architekturę, modele danych, protokoły, checklisty, reguły jakości, plan wdrożenia, testy, ryzyka i artefakty startowe. Wszystkie kroki są deterministyczne i możliwe do zautomatyzowania na podstawie danych zawartych w tym dokumencie.
 
@@ -7,29 +7,29 @@
 - **Cel:** zbudować wieloplatformowe Studio (desktop **Electron** + **React/TypeScript**) do tworzenia, analizy i utrzymania skryptów **Lua/OTUI/OTML** dla **OTClient v8** oraz **vBot**.
 - **Core features:**
   1) Inteligentne **podpowiedzi API** (kuratorowany `api.json` + indeks ze skanu repo),
-  2) **Lint/auto-fix** dla **OTUI** i lekkie reguły dla **Lua**,
+  2) **Lint/auto‑fix** dla **OTUI** i lekkie reguły dla **Lua**,
   3) **Generator** modułów/szablonów,
-  4) Integracja z klientem: **hot-reload** i **Log Viewer** (debug przez logi),
-  5) Praca **offline-first**.
-- **Ograniczenia:** brak oficjalnego step-debuggera Lua; debug realizowany przez logi oraz hot-reload.
+  4) Integracja z klientem: **hot‑reload** i **Log Viewer** (debug przez logi),
+  5) Praca **offline‑first**.
+- **Ograniczenia:** brak oficjalnego step‑debuggera Lua; debug realizowany przez logi oraz hot‑reload.
 
 ---
 # # 1. Słownik pojęć
 - **OTClient v8** – klient gry (Lua/OTUI/OTML).
 - **vBot** – moduł `modules/game_bot` (makra/triggery).
-- **Hot-reload** – `g_modules.reloadModules()` (skrót w kliencie lub moduł dev).
-- **Flag file** – plik-flaga `modules/.dev/reload.flag` wyzwalający hot-reload.
-- **NDJSON** – log *newline-delimited JSON* (każda linia = obiekt JSON).
+- **Hot‑reload** – `g_modules.reloadModules()` (skrót w kliencie lub moduł dev).
+- **Flag file** – plik‑flaga `modules/.dev/reload.flag` wyzwalający hot‑reload.
+- **NDJSON** – log *newline‑delimited JSON* (każda linia = obiekt JSON).
 
 ---
 # # 2. Zakres / Poza zakresem
-**MVP w zakresie:** edycja Lua/OTUI/OTML, podpowiedzi API, lint/auto-fix (OTUI + Lua-lite), generator szablonów, skan repo i indeks, Log Viewer, hot-reload.
+**MVP w zakresie:** edycja Lua/OTUI/OTML, podpowiedzi API, lint/auto‑fix (OTUI + Lua‑lite), generator szablonów, skan repo i indeks, Log Viewer, hot‑reload.
 
-**Poza MVP:** step-debugger (breakpointy), zdalne eval Lua; profiling runtime; złożone RPC do klienta (inne niż plik/log/skrót).
+**Poza MVP:** step‑debugger (breakpointy), zdalne eval Lua; profiling runtime; złożone RPC do klienta (inne niż plik/log/skrót).
 
 ---
 # # 3. Architektura systemu
-**Wariant rekomendowany:** Desktop **Electron** (React/TS + Node/FS), integracja z OTClient przez system plików i skrót hot-reload.
+**Wariant rekomendowany:** Desktop **Electron** (React/TS + Node/FS), integracja z OTClient przez system plików i skrót hot‑reload.
 
 ```
 +--------------------+       IPC        +-------------------+
@@ -40,7 +40,7 @@
 v
 +--------------------+         plik/flag/log         +----------------+
 |  Projekt lokalny   | <----------------------------> |  OTClient v8  |
-| (lua/otui/otmod/…) |                               | (hot-reload)  |
+| (lua/otui/otmod/…) |                               | (hot‑reload)  |
 +--------------------+                                +----------------+
 ```
 
@@ -48,25 +48,25 @@ v
 
 ---
 # # 4. Wymagania funkcjonalne (FR)
-**FR-01 – Projekty:** wybór katalogu, ostatnie projekty, walidacja (`modules/`, `.otmod`).
-**FR-02 – Eksplorator:** drzewo `.lua/.otui/.otmod` + assets; CRUD na plikach; drag-drop; operacje atomowe.
-**FR-03 – Edytor:** Monaco (Lua/OTUI/OTML/JSON), go-to symbol, minimapa, format, folding.
-**FR-04 – IntelliSense:** hover, signature help, autocomplete z `api.json` + indeks projektu + docstrings.
-**FR-05 – Lint OTUI:** kolejność pól, `tr()` dla stałych, anchors/margins, istnienie zasobów; auto-fix dla kolejności i `tr()`.
-**FR-06 – Lint Lua (lite):** preferuj `local`, wykryj globalne; `table.unpack` vs `unpack`.
-**FR-07 – Generator:** moduły (`.otmod` + `main.lua` + `ui/*.otui`) + snippety vBot z checklistą.
-**FR-08 – Skan/Indeks:** glob, parsery Lua/OTUI/OTML, relacje `dofile/require` i `g_ui.loadUI`; cache inkrementalny.
-**FR-09 – Integracja z OTClient:** przycisk „Przeładuj w kliencie” (skrót/flag file).
-**FR-10 – Log Viewer:** tail NDJSON/tekst, filtry (level/tag/file:line), wyszukiwarka, eksport.
-**FR-11 – Ustawienia:** ścieżki artefaktów i logu, ignore patterns, motyw; import/eksport.
-**FR-12 – Wbudowany help:** panel „API & How-to”, wyszukiwarka offline.
+**FR‑01 – Projekty:** wybór katalogu, ostatnie projekty, walidacja (`modules/`, `.otmod`).
+**FR‑02 – Eksplorator:** drzewo `.lua/.otui/.otmod` + assets; CRUD na plikach; drag‑drop; operacje atomowe.
+**FR‑03 – Edytor:** Monaco (Lua/OTUI/OTML/JSON), go‑to symbol, minimapa, format, folding.
+**FR‑04 – IntelliSense:** hover, signature help, autocomplete z `api.json` + indeks projektu + docstrings.
+**FR‑05 – Lint OTUI:** kolejność pól, `tr()` dla stałych, anchors/margins, istnienie zasobów; auto‑fix dla kolejności i `tr()`.
+**FR‑06 – Lint Lua (lite):** preferuj `local`, wykryj globalne; `table.unpack` vs `unpack`.
+**FR‑07 – Generator:** moduły (`.otmod` + `main.lua` + `ui/*.otui`) + snippety vBot z checklistą.
+**FR‑08 – Skan/Indeks:** glob, parsery Lua/OTUI/OTML, relacje `dofile/require` i `g_ui.loadUI`; cache inkrementalny.
+**FR‑09 – Integracja z OTClient:** przycisk „Przeładuj w kliencie” (skrót/flag file).
+**FR‑10 – Log Viewer:** tail NDJSON/tekst, filtry (level/tag/file:line), wyszukiwarka, eksport.
+**FR‑11 – Ustawienia:** ścieżki artefaktów i logu, ignore patterns, motyw; import/eksport.
+**FR‑12 – Wbudowany help:** panel „API & How‑to”, wyszukiwarka offline.
 
-**Kryteria akceptacji (wybrane):** indeks 5k plików < 5 s z cache; brak crashy przy edycji plików 2 MB; >90% trafień podpowiedzi dla znanych symboli; auto-fix deterministyczny.
+**Kryteria akceptacji (wybrane):** indeks 5k plików < 5 s z cache; brak crashy przy edycji plików 2 MB; >90% trafień podpowiedzi dla znanych symboli; auto‑fix deterministyczny.
 
 ---
 # # 5. Wymagania niefunkcjonalne (NFR)
 - **Perf:** indeks < 5 s (cache), < 30 s zimny start; Monaco 60 FPS podczas pisania.
-- **Security:** brak sieci (offline-first), sandbox Renderer, IPC whitelist, brak uruchamiania Lua.
+- **Security:** brak sieci (offline‑first), sandbox Renderer, IPC whitelist, brak uruchamiania Lua.
 - **Portability:** Windows/macOS/Linux; Web (opcjonalnie, ograniczenia FS API).
 - **Reliability:** zapisy atomowe (temp→rename), odtwarzanie cache po awarii.
 
@@ -102,7 +102,7 @@ v
   "relations": {"lua_to_otui": [{"lua": "modules/client/client.lua", "otui": "modules/client/ui/main.otui", "via": "g_ui.loadUI"}], "includes": [{"from": "modules/a/main.lua", "to": "modules/a/util.lua", "via": "dofile"}]}
 }
 ```
-# # # 6.3. `otui-rules.json` (lint/auto-fix)
+# # # 6.3. `otui-rules.json` (lint/auto‑fix)
 ```json
 {"$schemaVersion":1,"rules":[{"id":"OTUI-001","description":"Kolejność pól: GEOMETRIA→STYL→ZACHOWANIE.","fixable":true},{"id":"OTUI-002","description":"Stałe stringi muszą używać tr().","fixable":true},{"id":"OTUI-003","description":"Walidacja anchors/margins (brak sprzeczności).","fixable":false},{"id":"OTUI-004","description":"Weryfikacja istnienia zasobów (obrazy, fonty, style).","fixable":false}]}
 ```
@@ -172,17 +172,17 @@ Value:= String | Number | Bool | Ident | Array | Object
 **Kody błędów parsera:** `P001` (Lua tokenizer), `P101` (OTUI niezamknięty blok), `P201` (.otmod brak `name`).
 
 ---
-# # 9. Lint/Auto-fix – reguły
-- **OTUI-001 (order):** sortuj atrybuty: GEOMETRIA → STYL → ZACHOWANIE (auto-fix: przetasuj z zachowaniem komentarzy).
-- **OTUI-002 (tr):** stałe literały string wrapuj `tr()` (auto-fix; ignoruj `id`/nazwy klas).
-- **OTUI-003 (anchors):** wykryj sprzeczności anchors/margins (sugestie, bez auto-fix).
-- **OTUI-004 (assets):** zgłoś brakujące zasoby (fuzzy podpowiedzi).
-- **LUA-001 (locals):** ostrzegaj globali; auto-fix: `local` jeśli bez kolizji.
-- **LUA-002 (unpack):** zamieniaj `unpack` -> `table.unpack` (auto-fix bezpieczny).
+# # 9. Lint/Auto‑fix – reguły
+- **OTUI‑001 (order):** sortuj atrybuty: GEOMETRIA → STYL → ZACHOWANIE (auto‑fix: przetasuj z zachowaniem komentarzy).
+- **OTUI‑002 (tr):** stałe literały string wrapuj `tr()` (auto‑fix; ignoruj `id`/nazwy klas).
+- **OTUI‑003 (anchors):** wykryj sprzeczności anchors/margins (sugestie, bez auto‑fix).
+- **OTUI‑004 (assets):** zgłoś brakujące zasoby (fuzzy podpowiedzi).
+- **LUA‑001 (locals):** ostrzegaj globali; auto‑fix: `local` jeśli bez kolizji.
+- **LUA‑002 (unpack):** zamieniaj `unpack` -> `table.unpack` (auto‑fix bezpieczny).
 
 ---
-# # 10. Integracja z OTClient (hot-reload, logi)
-**Tryb A (podstawowy):** zapis → skrót hot-reload w kliencie (np. Ctrl+Shift+R).
+# # 10. Integracja z OTClient (hot‑reload, logi)
+**Tryb A (podstawowy):** zapis → skrót hot‑reload w kliencie (np. Ctrl+Shift+R).
 
 **Tryb B (z modułem dev):** Studio zapisuje `modules/.dev/reload.flag`; moduł dev w kliencie wykrywa i:
 1) wywołuje `g_modules.reloadModules()`,
@@ -260,7 +260,7 @@ Przykład:
 ---
 # # 14. Bezpieczeństwo i prywatność
 - Renderer sandbox, restrykcyjne IPC, brak sieci (domyślnie), brak wykonywania Lua.
-- Backup `.bak` przy auto-fixach; zapisy atomowe.
+- Backup `.bak` przy auto‑fixach; zapisy atomowe.
 
 ---
 # # 15. Wydajność i stabilność
@@ -271,7 +271,7 @@ Przykład:
 # # 16. i18n, A11y, theming
 - i18n: `en`/`pl`; wymuszaj `tr()` w OTUI poprzez lint.
 - A11y: ARIA, focus outlines, kontrast WCAG AA.
-- Tematy: Light/Dark/High-Contrast; zapis w config.
+- Tematy: Light/Dark/High‑Contrast; zapis w config.
 
 ---
 # # 17. Testy i QA
@@ -286,7 +286,7 @@ Przykład:
 ---
 # # 18. Build/Release/Update
 - `electron-builder` (Win NSIS, macOS dmg, Linux AppImage); podpisy binarek.
-- Auto-update (opcjonalny), domyślnie wyłączony – narzędzie offline-first.
+- Auto‑update (opcjonalny), domyślnie wyłączony – narzędzie offline‑first.
 
 ---
 # # 19. Observability narzędzia
@@ -326,13 +326,13 @@ Przykład:
 **Definition of Done (Końcowe):**
 - [ ] Aplikacja offline; projekty się otwierają; indeks i symbole działają.
 - [ ] `api.json` zasila podpowiedzi (hover/complete/signature help).
-- [ ] Lint OTUI/Lua i auto-fix (backup `.bak`).
-- [ ] Integracja z OTClient: hot-reload + logi stabilne.
+- [ ] Lint OTUI/Lua i auto‑fix (backup `.bak`).
+- [ ] Integracja z OTClient: hot‑reload + logi stabilne.
 - [ ] Pakiety Win/macOS/Linux; dokumentacja użytkownika; sample project.
 
 ---
 # # 22. Ryzyka i mitigacje
-- **Brak step-debuggera:** Log Viewer + snippety logujące + mapowanie file:line.
+- **Brak step‑debuggera:** Log Viewer + snippety logujące + mapowanie file:line.
 - **Różnice wersji:** `since/deprecated` w `api.json`, profile klienta.
 - **Wydajność:** indeks inkrementalny, workers, throttling.
 - **Parsery:** testy kontraktowe + snapshoty, tolerant parsing.

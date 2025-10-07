@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_walking`
+﻿# ¦ Modul: `game_walking`
 
 ```lua
 

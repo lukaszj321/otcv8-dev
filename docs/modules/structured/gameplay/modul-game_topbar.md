@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_topbar`
+﻿# ¦ Modul: `game_topbar`
 
 ```lua
 

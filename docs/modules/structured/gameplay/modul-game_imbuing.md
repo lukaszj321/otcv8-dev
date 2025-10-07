@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_imbuing`
+﻿# ¦ Modul: `game_imbuing`
 
 ```lua
 
