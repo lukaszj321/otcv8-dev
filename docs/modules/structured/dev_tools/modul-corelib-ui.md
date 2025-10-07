@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `corelib/ui`
+# � Modul: `corelib/ui`
 
 ```lua
 
@@ -1209,7 +1209,7 @@ function displayInfoBox(title, message)
 
   local defaultCallback = function() messageBox:ok() end
 
-  messageBox = UIMessageBox.display(title, message, {{text='Ok', callback=defaultCallback}}, defaultCallback, defaultCallback)
+  messageBox = UIMessageBox.display(title, message, { { text = 'Ok', callback = defaultCallback } }, defaultCallback, defaultCallback)
 
   return messageBox
 
@@ -1221,7 +1221,7 @@ function displayErrorBox(title, message)
 
   local defaultCallback = function() messageBox:ok() end
 
-  messageBox = UIMessageBox.display(title, message, {{text='Ok', callback=defaultCallback}}, defaultCallback, defaultCallback)
+  messageBox = UIMessageBox.display(title, message, { { text = 'Ok', callback = defaultCallback } }, defaultCallback, defaultCallback)
 
   return messageBox
 
@@ -1233,7 +1233,7 @@ function displayCancelBox(title, message)
 
   local defaultCallback = function() messageBox:cancel() end
 
-  messageBox = UIMessageBox.display(title, message, {{text='Cancel', callback=defaultCallback}}, defaultCallback, defaultCallback)
+  messageBox = UIMessageBox.display(title, message, { { text = 'Cancel', callback = defaultCallback } }, defaultCallback, defaultCallback)
 
   return messageBox
 
