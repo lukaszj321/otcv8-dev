@@ -46,12 +46,31 @@ jobs:
             mkdocs-redirects \
             pymdown-extensions
 
-      # (opcjonalnie) jeśli chcesz generować mkdocs.yml w CI:
       # - name: Generate mkdocs.yml
       #   run: python scripts/generate_mkdocs.py
 
-      - name: Build site
-        run: mkdocs build --clean -v
+      - name: Build site (keep-alive + log)
+        shell: bash
+        run: |
+          # utrzymuj aktywność, żeby Actions nie ubił kroku za "ciszę"
+          ( while true; do echo "[keep-alive] $(date -u +%H:%M:%S)"; sleep 30; done ) &
+          KEEPALIVE_PID=$!
+          set -o pipefail
+          mkdocs build --clean -v 2>&1 | tee build.log || STATUS=$?
+          kill $KEEPALIVE_PID || true
+          if [ -n "$STATUS" ]; then
+            echo "::group::Last 200 lines of build.log"
+            tail -n 200 build.log || true
+            echo "::endgroup::"
+            exit $STATUS
+          fi
+
+      - name: Upload build log (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mkdocs-build-log
+          path: build.log
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
