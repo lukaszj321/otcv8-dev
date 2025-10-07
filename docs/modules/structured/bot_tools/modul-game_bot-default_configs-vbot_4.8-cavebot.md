@@ -5738,6 +5738,7 @@ end
 ---
 # walking.lua
 
+{% raw %}
 ```lua
 
 -- walking
@@ -5907,6 +5908,7 @@ CaveBot.walkTo = function(dest, maxDist, params)
 end
 
 ```
+{% endraw %}
 
 ---
 # withdraw.lua

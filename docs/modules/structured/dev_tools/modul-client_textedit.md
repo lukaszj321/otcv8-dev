@@ -1,5 +1,6 @@
 ﻿# ¦ Modul: `client_textedit`
 
+{% raw %}
 ```lua
 
 local activeWindow
@@ -297,6 +298,7 @@ function multilineEditor(description, text, callback)
 end
 
 ```
+{% endraw %}
 
 ---
 # textedit.otmod

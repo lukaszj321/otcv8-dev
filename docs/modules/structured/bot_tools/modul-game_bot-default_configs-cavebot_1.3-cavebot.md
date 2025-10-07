@@ -2285,6 +2285,7 @@ SupplyItemList < Panel
 ---
 # walking.lua
 
+{% raw %}
 ```lua
 
 -- walking
@@ -2454,5 +2455,6 @@ CaveBot.walkTo = function(dest, maxDist, params)
 end
 
 ```
+{% endraw %}
 
 ---

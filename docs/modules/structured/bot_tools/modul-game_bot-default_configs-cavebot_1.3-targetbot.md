@@ -183,6 +183,7 @@ end
 ---
 # creature_attack.lua
 
+{% raw %}
 ```lua
 
 TargetBot.Creature.attack = function(params, targets, isLooting) -- params {config, creature, danger, priority}
@@ -410,6 +411,7 @@ TargetBot.Creature.walk = function(creature, config, targets)
 end
 
 ```
+{% endraw %}
 
 ---
 # creature_editor.lua
