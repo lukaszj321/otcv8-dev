@@ -1,24 +1,4 @@
-# C+
-
--
-
-—
-
-p
-
-r
-
-z
-
-e
-
-g
-
-l
-
-ą
-
-d
+# C+ - przegląd
 
 - Struktura katalogów
 - Kluczowe klasy/entrypoints
