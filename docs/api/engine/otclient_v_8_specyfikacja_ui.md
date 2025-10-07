@@ -3310,4 +3310,3 @@ Raport: lista różnic, heatmapy, log walidatora (STRUCT/anchors/macierze).
 - **Słownik**: 31
 
 ---
-

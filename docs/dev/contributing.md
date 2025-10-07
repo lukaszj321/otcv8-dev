@@ -1,4 +1,4 @@
-﻿# Contributing
+# Contributing
 
 
 1. Fork → branch `feature/…`.
@@ -12,4 +12,3 @@
 ## Commity dokumentacji
 
 - Zmiany w `docs/**` nie uruchamiają CMake (paths-ignore).
-

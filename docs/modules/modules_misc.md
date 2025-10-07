@@ -1,4 +1,4 @@
-﻿# Modules Misc
+# Modules Misc
 
 ---
 ## game_shop
@@ -1137,4 +1137,3 @@
 
 - `g_ui`
 - `g_window`
-

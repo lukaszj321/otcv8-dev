@@ -1,4 +1,4 @@
-﻿# Troubleshoting
+# Troubleshoting
  
 ## Build
 
@@ -9,4 +9,3 @@
 ## Ws
 
 - Rozłączenia: sprawdź pingTimeout/pingInterval oraz proxy.
-

@@ -1,4 +1,4 @@
-﻿# Moduły (vBot) — przewodnik
+# Moduły (vBot) — przewodnik
 
 !!! info "Cel"
 
@@ -51,4 +51,3 @@ end)
 - Nazwy przestrzeni modułu (`my_module.*`).
 - Brak efektów ubocznych przy `require`.
 - Komendy eksportuj jawnie (np. `M.start`, `M.stop`).
-

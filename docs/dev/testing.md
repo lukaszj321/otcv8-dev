@@ -1,4 +1,4 @@
-﻿# Testy
+# Testy
 
 - Lua: testy jednostkowe (busted) — folder `spec/`.
 - C++: GoogleTest (jeśli dostępne).
@@ -6,4 +6,3 @@
 ## Raport błędu
 
 - Kroki odtworzenia, logi, wersja, OS.
-

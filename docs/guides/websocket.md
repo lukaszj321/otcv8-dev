@@ -1,4 +1,4 @@
-﻿# Realtime (websocket)
+# Realtime (websocket)
 
 ```mermaid
 sequenceDiagram
@@ -28,4 +28,3 @@ io.on("connection", (s) => {
   });
 });
 ```
-
