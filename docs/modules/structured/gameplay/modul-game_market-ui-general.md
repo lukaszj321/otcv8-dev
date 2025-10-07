@@ -1,5 +1,6 @@
-# Modul: `game_market/ui/general`
+﻿# ¦ Modul: `game_market/ui/general`
 
+```otui
 
 AmountWindow < MainWindow
 
@@ -86,6 +87,7 @@ AmountWindow < MainWindow
 ---
 # marketbuttons.otui
 
+```otui
 
 MarketButtonBox < ButtonBoxRounded
 
@@ -114,6 +116,7 @@ MarketButtonBox < ButtonBoxRounded
 ---
 # marketcombobox.otui
 
+```otui
 
 MarketComboBoxPopupMenuButton < ComboBoxPopupMenuButton
 
@@ -150,6 +153,7 @@ MarketComboBox < ComboBox
 ---
 # markettabs.otui
 
+```otui
 
 MarketTabBar < TabBar
 

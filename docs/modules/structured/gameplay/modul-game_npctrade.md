@@ -1,5 +1,6 @@
-# Modul: `game_npctrade`
+﻿# ¦ Modul: `game_npctrade`
 
+```lua
 
 BUY = 1
 
@@ -1002,6 +1003,7 @@ end
 ---
 # npctrade.otmod
 
+```text
 
 Module
 
@@ -1026,6 +1028,7 @@ Module
 ---
 # npctrade.otui
 
+```otui
 
 NPCOfferLabel < Label
 

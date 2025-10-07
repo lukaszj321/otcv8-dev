@@ -1,5 +1,6 @@
-# Modul: `client_terminal`
+﻿# ¦ Modul: `client_terminal`
 
+```lua
 
 local function pcolored(text, color)
 
@@ -148,6 +149,7 @@ end
 ---
 # terminal.lua
 
+```lua
 
 -- configs
 
@@ -828,6 +830,7 @@ end
 ---
 # terminal.otmod
 
+```text
 
 Module
 
@@ -854,6 +857,7 @@ Module
 ---
 # terminal.otui
 
+```otui
 
 TerminalLabel < UILabel
 

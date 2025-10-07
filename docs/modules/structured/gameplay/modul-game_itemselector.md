@@ -1,5 +1,6 @@
-# Modul: `game_itemselector`
+﻿# ¦ Modul: `game_itemselector`
 
+```lua
 
 local activeWindow
 
@@ -128,6 +129,7 @@ end
 ---
 # itemselector.otmod
 
+```text
 
 Module
 
@@ -154,6 +156,7 @@ Module
 ---
 # itemselector.otui
 
+```otui
 
 ItemSelectorWindow < MainWindow
 

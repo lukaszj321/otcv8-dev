@@ -1,5 +1,6 @@
-# Modul: `game_minimap`
+﻿# ¦ Modul: `game_minimap`
 
+```otui
 
 FlagButton < CheckBox
 
@@ -320,6 +321,7 @@ FlagWindow < MainWindow
 ---
 # minimap.lua
 
+```lua
 
 minimapWidget = nil
 
@@ -606,6 +608,7 @@ end
 ---
 # minimap.otmod
 
+```text
 
 Module
 
@@ -630,6 +633,7 @@ Module
 ---
 # minimap.otui
 
+```otui
 
 MinimapWindow
 

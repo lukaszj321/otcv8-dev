@@ -1,5 +1,6 @@
-# Modul: `client`
+﻿# ¦ Modul: `client`
 
+```lua
 
 local musicFilename = "/sounds/startup"
 
@@ -210,6 +211,7 @@ end
 ---
 # client.otmod
 
+```text
 
 Module
 

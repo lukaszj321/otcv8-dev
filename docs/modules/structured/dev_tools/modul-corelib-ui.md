@@ -1,5 +1,6 @@
-# Modul: `corelib/ui`
+﻿# ¦ Modul: `corelib/ui`
 
+```lua
 
 -- @docclass
 
@@ -122,6 +123,7 @@ end
 ---
 # tooltip.lua
 
+```lua
 
 -- @docclass
 
@@ -324,6 +326,7 @@ connect(g_app, { onTerminate = g_tooltip.terminate })
 ---
 # uibutton.lua
 
+```lua
 
 -- @docclass
 
@@ -350,6 +353,7 @@ end
 ---
 # uicheckbox.lua
 
+```lua
 
 -- @docclass
 
@@ -378,6 +382,7 @@ end
 ---
 # uicombobox.lua
 
+```lua
 
 -- @docclass
 
@@ -712,6 +717,7 @@ end
 ---
 # uiimageview.lua
 
+```lua
 
 -- @docclass
 
@@ -890,6 +896,7 @@ end
 ---
 # uiinputbox.lua
 
+```lua
 
 if not UIWindow then dofile 'uiwindow' end
 
@@ -1090,6 +1097,7 @@ end
 ---
 # uilabel.lua
 
+```lua
 
 -- @docclass
 
@@ -1114,6 +1122,8 @@ end
 ---
 # uimessagebox.lua
 
+{% raw %}
+```lua
 
 if not UIWindow then dofile 'uiwindow' end
 
@@ -1199,7 +1209,7 @@ function displayInfoBox(title, message)
 
   local defaultCallback = function() messageBox:ok() end
 
-  messageBox = UIMessageBox.display(title, message, { { text = 'Ok', callback = defaultCallback } }, defaultCallback, defaultCallback)
+  messageBox = UIMessageBox.display(title, message, {{text='Ok', callback=defaultCallback}}, defaultCallback, defaultCallback)
 
   return messageBox
 
@@ -1211,7 +1221,7 @@ function displayErrorBox(title, message)
 
   local defaultCallback = function() messageBox:ok() end
 
-  messageBox = UIMessageBox.display(title, message, { { text = 'Ok', callback = defaultCallback } }, defaultCallback, defaultCallback)
+  messageBox = UIMessageBox.display(title, message, {{text='Ok', callback=defaultCallback}}, defaultCallback, defaultCallback)
 
   return messageBox
 
@@ -1223,7 +1233,7 @@ function displayCancelBox(title, message)
 
   local defaultCallback = function() messageBox:cancel() end
 
-  messageBox = UIMessageBox.display(title, message, { { text = 'Cancel', callback = defaultCallback } }, defaultCallback, defaultCallback)
+  messageBox = UIMessageBox.display(title, message, {{text='Cancel', callback=defaultCallback}}, defaultCallback, defaultCallback)
 
   return messageBox
 
@@ -1270,10 +1280,12 @@ function UIMessageBox:cancel()
 end
 
 ```
+{% endraw %}
 
 ---
 # uiminiwindow.lua
 
+```lua
 
 -- @docclass
 
@@ -2056,6 +2068,7 @@ end
 ---
 # uiminiwindowcontainer.lua
 
+```lua
 
 -- @docclass
 
@@ -2462,6 +2475,7 @@ end
 ---
 # uimovabletabbar.lua
 
+```lua
 
 -- @docclass
 
@@ -3342,6 +3356,7 @@ end
 ---
 # uipopupmenu.lua
 
+```lua
 
 -- @docclass
 
@@ -3554,6 +3569,7 @@ connect(g_game, { onGameEnd = onGameEnd } )
 ---
 # uipopupscrollmenu.lua
 
+```lua
 
 -- @docclass
 
@@ -3774,6 +3790,7 @@ connect(rootWidget, { onGeometryChange = onRootGeometryUpdate} )
 ---
 # uiprogressbar.lua
 
+```lua
 
 -- @docclass
 
@@ -3950,6 +3967,7 @@ end
 ---
 # uiradiogroup.lua
 
+```lua
 
 -- @docclass
 
@@ -4060,6 +4078,7 @@ end
 ---
 # uiresizeborder.lua
 
+```lua
 
 -- @docclass
 
@@ -4300,6 +4319,7 @@ end
 ---
 # uiscrollarea.lua
 
+```lua
 
 -- @docclass
 
@@ -4654,6 +4674,7 @@ end
 ---
 # uiscrollbar.lua
 
+```lua
 
 -- @docclass
 
@@ -5168,6 +5189,7 @@ function UIScrollBar:getMouseScroll() return self.mouseScroll end
 ---
 # uispinbox.lua
 
+```lua
 
 -- @docclass
 
@@ -5502,6 +5524,7 @@ end
 ---
 # uisplitter.lua
 
+```lua
 
 -- @docclass
 
@@ -5666,6 +5689,7 @@ end
 ---
 # uitabbar.lua
 
+```lua
 
 -- @docclass
 
@@ -5944,6 +5968,7 @@ end
 ---
 # uitable.lua
 
+```lua
 
 -- @docclass
 
@@ -6688,6 +6713,7 @@ end
 ---
 # uitextedit.lua
 
+```lua
 
 function UITextEdit:onStyleApply(styleName, styleNode)
 
@@ -6832,6 +6858,7 @@ end
 ---
 # uiwidget.lua
 
+```lua
 
 -- @docclass UIWidget
 
@@ -6878,6 +6905,7 @@ end
 ---
 # uiwindow.lua
 
+```lua
 
 -- @docclass
 

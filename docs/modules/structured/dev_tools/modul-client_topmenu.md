@@ -1,5 +1,6 @@
-# Modul: `client_topmenu`
+﻿# ¦ Modul: `client_topmenu`
 
+```lua
 
 -- private variables
 
@@ -502,6 +503,7 @@ end
 ---
 # topmenu.otmod
 
+```text
 
 Module
 

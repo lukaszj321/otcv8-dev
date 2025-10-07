@@ -1,5 +1,17 @@
-# SL'ownik
+﻿# S
 
-- **OTUI** - jezyk layoutow UI.
-- **vBot** - moduL'y Lua automatyzujace zachowania.
-- **RAG** - Retrieval Augmented Generation (wyszukiwanie + LLM).
+ł
+
+o
+
+w
+
+n
+
+i
+
+k
+
+- **OTUI** — język layoutów UI.
+- **vBot** — moduły Lua automatyzujące zachowania.
+- **RAG** — Retrieval Augmented Generation (wyszukiwanie + LLM).

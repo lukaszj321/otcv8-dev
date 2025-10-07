@@ -1,5 +1,6 @@
-# Modul: `client_mobile`
+﻿# ¦ Modul: `client_mobile`
 
+```lua
 
 local overlay
 
@@ -402,6 +403,7 @@ end
 ---
 # mobile.otmod
 
+```text
 
 Module
 
@@ -426,6 +428,7 @@ Module
 ---
 # mobile.otui
 
+```otui
 
 UIWidget
 

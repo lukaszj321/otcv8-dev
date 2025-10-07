@@ -1,19 +1,19 @@
-# vBot Playbook - **modules/game_bot (MASTER)**
+﻿# vBot Playbook – **modules/game_bot (MASTER)**
 
-> Cel: peL'ny, operacyjny przewodnik dla implementacji i utrzymania skryptow **vBot** (moduL' `modules/game_bot`) w ramach **OTClient Studio**. Dokument zawiera: standardy kodowania, wzorce (makra/triggeray), snippety, heurystyki skanera, wymagania jakoLciowe, checklisty, testa'wektory i integracje z narzedziem. **Transfer 1:1** - gotowe do wdroLLenia.
-
----
-## 0) Executive Summary
-- **Co obejmuje:** makra okresowe, triggeray eventowe, interakcje z UI/Lwiatem gry, wzorce bezpieczeL"stwa, logowanie, diagnostyke i performance.
-- **Jak uLLywac:** jako *LsrodL'o prawdy* dla generatorow w Studio (szablony vBot), lint vBot (reguL'y domenowe) oraz heurystyk skanera (detekcja symboli vBot w kodzie).
+> Cel: pełny, operacyjny przewodnik dla implementacji i utrzymania skryptów **vBot** (moduł `modules/game_bot`) w ramach **OTClient Studio**. Dokument zawiera: standardy kodowania, wzorce (makra/trigger’y), snippety, heurystyki skanera, wymagania jakościowe, checklisty, test‑wektory i integrację z narzędziem. **Transfer 1:1** – gotowe do wdrożenia.
 
 ---
-## 1) SL'ownik i konwencje
-- **Makro** - blok wykonywany cyklicznie (interwaL' ms) lub sterowany warunkiem.
-- **Trigger** - blok reagujacy na zdarzenie (np. wiadomoLc, zmiana HP, wejLcie na tile).
-- **Guard** - warunek bezpieczeL"stwa (np. `isConnected()`, `not isBusy()`), ktory musi byc speL'niony przed akcja.
-- **Cooldown** - minimalny czas miedzy kolejnymi akcjami (zapobiega spamowi).
-- **State** - lokalny stan makra (zapamietanie poprzedniej decyzji/targetu).
+# # 0) Executive Summary
+- **Co obejmuje:** makra okresowe, trigger’y eventowe, interakcje z UI/światem gry, wzorce bezpieczeństwa, logowanie, diagnostykę i performance.
+- **Jak używać:** jako *źródło prawdy* dla generatorów w Studio (szablony vBot), lint vBot (reguły domenowe) oraz heurystyk skanera (detekcja symboli vBot w kodzie).
+
+---
+# # 1) Słownik i konwencje
+- **Makro** – blok wykonywany cyklicznie (interwał ms) lub sterowany warunkiem.
+- **Trigger** – blok reagujący na zdarzenie (np. wiadomość, zmiana HP, wejście na tile).
+- **Guard** – warunek bezpieczeństwa (np. `isConnected()`, `not isBusy()`), który musi być spełniony przed akcją.
+- **Cooldown** – minimalny czas między kolejnymi akcjami (zapobiega spamowi).
+- **State** – lokalny stan makra (zapamiętanie poprzedniej decyzji/targetu).
 
 Konwencje nazewnictwa (zalecane):
 - Pliki: `vb_<obszar>_<cel>.lua` np. `vb_combat_uh.lua`.
@@ -22,25 +22,27 @@ Konwencje nazewnictwa (zalecane):
 - Logi: prefiks `"[vBot]"` i tagi (`[heal]`, `[loot]`).
 
 ---
-## 2) Architektura vBot (w ujeciu skryptowym)
-- **Warstwa zdarzeL" gry** a' callbacki (np. text message, damage, map change).
-- **Warstwa makr** a' petle interwaL'owe i warunki.
-- **Warstwa akcji** a' uLLycia czarow/przedmiotow, ruch, interakcja z UI.
-- **Warstwa narzedzi** a' helpers (cooldown, debouncing, retry), logowanie NDJSON (opcjonalnie).
+# # 2) Architektura vBot (w ujęciu skryptowym)
+- **Warstwa zdarzeń gry** → callbacki (np. text message, damage, map change).
+- **Warstwa makr** → pętle interwałowe i warunki.
+- **Warstwa akcji** → użycia czarów/przedmiotów, ruch, interakcja z UI.
+- **Warstwa narzędzi** → helpers (cooldown, debouncing, retry), logowanie NDJSON (opcjonalnie).
 
-KaLLdy komponent powinien byc **izolowany** (funkcje `local`, brak globali), testowalny oraz posiadac jasne **guards**.
+Każdy komponent powinien być **izolowany** (funkcje `local`, brak globali), testowalny oraz posiadać jasne **guards**.
 
 ---
-## 3) Wzorce (makra i triggeray)
-> PoniLLsze wzorce to gotowe schematy do generatora w Studio. KaLLdy zawiera: cel, prea'warunki, interfejs konfiguracyjny, guards, cooldown, logowanie oraz sekcje bezpieczeL"stwa.
-## 3.1 Makro: Autoa'Heal na progu HP
-**Cel:** rzucenie czaru/ uLLycie pota, gdy HP < progu.
+# # 3) Wzorce (makra i trigger’y)
+> Poniższe wzorce to gotowe schematy do generatora w Studio. Każdy zawiera: cel, pre‑warunki, interfejs konfiguracyjny, guards, cooldown, logowanie oraz sekcję bezpieczeństwa.
+# # # 3.1 Makro: Auto‑Heal na progu HP
+**Cel:** rzucenie czaru/ użycie pota, gdy HP < progu.
 
 **Konfiguracja (OTML/JSON dla Studio):**
+```json
 {"name":"vb_auto_heal","threshold":60,"spell":"exura","cooldownMs":1200}
 ```
 
 **Szkielet (Lua):**
+```lua
 -- vb_auto_heal.lua
 local THRESHOLD = 60      -- procent
 local SPELL = 'exura'
@@ -63,20 +65,22 @@ local function tick()
   end
 end
 
--- rejestracja makra w schedulerze (implementacja zaleLLna od Lrodowiska vBot)
--- macro(200, tick) -- jeLli Lrodowisko udostepnia
--- w OTC Studio: dodaj do petli narzedzia lub harmonogramu moduL'u
+-- rejestracja makra w schedulerze (implementacja zależna od środowiska vBot)
+-- macro(200, tick) -- jeśli środowisko udostępnia
+-- w OTC Studio: dodaj do pętli narzędzia lub harmonogramu modułu
 ```
 
-**BezpieczeL"stwo:** sprawdLs `g_game.isOnline()`, wstrzymaj w czasie `isWalking()`; cooldown aA GCD klienta, sprawdLs mane przed `say()`.
-## 3.2 Trigger: Reakcja na wiadomoLc tekstowa
-**Cel:** wykrycie frazy i akcja (np. odpowiedLs, log, zapis zdarzenia).
+**Bezpieczeństwo:** sprawdź `g_game.isOnline()`, wstrzymaj w czasie `isWalking()`; cooldown ≥ GCD klienta, sprawdź manę przed `say()`.
+# # # 3.2 Trigger: Reakcja na wiadomość tekstową
+**Cel:** wykrycie frazy i akcja (np. odpowiedź, log, zapis zdarzenia).
 
 **Konfiguracja:**
+```json
 {"name":"vb_msg_react","match":"^hi$","reply":"hello"}
 ```
 
 **Szkielet (Lua):**
+```lua
 -- vb_msg_react.lua
 local PATTERN = '^hi$'
 local REPLY = 'hello'
@@ -89,25 +93,27 @@ local function onTextMessage(mode, text)
   end
 end
 
--- rejestracja: attach do zdarzenia tekstowego w Lrodowisku vBot/OTClient
--- modules.game_textmessage.onTextMessage:connect(onTextMessage) -- przykL'ad; dostosuj do dostepnych hookow
+-- rejestracja: attach do zdarzenia tekstowego w środowisku vBot/OTClient
+-- modules.game_textmessage.onTextMessage:connect(onTextMessage) -- przykład; dostosuj do dostępnych hooków
 ```
 
-**BezpieczeL"stwo:** sanitacja regex (escape), limit odpowiedzi (cooldown per nadawca), nie odpowiadaj na wL'asne linie.
-## 3.3 Makro: Autoa'Haste (buff w ruchu)
-**Cel:** utrzymywanie buffa szybkoLci przy poruszaniu sie.
+**Bezpieczeństwo:** sanitacja regex (escape), limit odpowiedzi (cooldown per nadawca), nie odpowiadaj na własne linie.
+# # # 3.3 Makro: Auto‑Haste (buff w ruchu)
+**Cel:** utrzymywanie buffa szybkości przy poruszaniu się.
 
 **Konfiguracja:**
+```json
 {"name":"vb_auto_haste","spell":"utani hur","cooldownMs":6000}
 ```
 
 **Szkielet:**
+```lua
 local SPELL = 'utani hur'
 local COOLDOWN = 6000
 local last = 0
 
 local function hasHaste()
-  -- sprawdLs ikony buffow na UI lub stan gracza (jeLli dostepny)
+  -- sprawdź ikony buffów na UI lub stan gracza (jeśli dostępny)
   return false
 end
 
@@ -123,26 +129,28 @@ end
 -- macro(300, tick)
 ```
 
-**BezpieczeL"stwo:** nie spamuj - sprawdLs buff i cooldown; upewnij sie, LLe gracz ma mane.
-## 3.4 Trigger: Loot po ubiciu potwora
-**Cel:** podniesienie L'upu po wykryciu ciaL'a.
+**Bezpieczeństwo:** nie spamuj – sprawdź buff i cooldown; upewnij się, że gracz ma manę.
+# # # 3.4 Trigger: Loot po ubiciu potwora
+**Cel:** podniesienie łupu po wykryciu ciała.
 
 **Szkielet (zarys):**
+```lua
 local function onTileAddThing(tile, thing)
   if not g_game.isOnline() then return end
   if thing:isContainer() and thing:isCorpse() then
-    -- logika lootu; otwarcie kontenera, iteracja zawartoLci, use()
+    -- logika lootu; otwarcie kontenera, iteracja zawartości, use()
   end
 end
 
--- rejestracja na event mapy/tili (zaleLLna od dostepnych hookow Lrodowiska)
+-- rejestracja na event mapy/tili (zależna od dostępnych hooków środowiska)
 ```
 
-**BezpieczeL"stwo:** limit rownolegL'ych otwarc; przerwij, gdy inventory peL'ne; nie blokuj gL'ownej petli.
-## 3.5 Makro: Antia'Idle
-**Cel:** zapobiec disconnectowi przez delikatna interakcje.
+**Bezpieczeństwo:** limit równoległych otwarć; przerwij, gdy inventory pełne; nie blokuj głównej pętli.
+# # # 3.5 Makro: Anti‑Idle
+**Cel:** zapobiec disconnectowi przez delikatną interakcję.
 
 **Szkielet:**
+```lua
 local last = 0
 local function tick()
   if not g_game.isOnline() then return end
@@ -155,98 +163,101 @@ end
 -- macro(1000, tick)
 ```
 
-**BezpieczeL"stwo:** nie wykonuj w trakcie walki; nie przeszkadzaj w recznych akcjach.
+**Bezpieczeństwo:** nie wykonuj w trakcie walki; nie przeszkadzaj w ręcznych akcjach.
 
 ---
-## 4) Heurystyki skanera (detekcja vBot)
-> Celem jest wiarygodne wykrycie "kodu vBot" i jego relacji, bez uruchamiania Lua.
+# # 4) Heurystyki skanera (detekcja vBot)
+> Celem jest wiarygodne wykrycie „kodu vBot” i jego relacji, bez uruchamiania Lua.
 
-- **SygnaL'y makr:** obecnoLc wywoL'aL" `macro(`, wzorce "scheduler/macro loop" (identyfikatory `macro`, `scheduleEvent`, `addEvent` z typowa semantyka okresowa).
-- **SygnaL'y triggeraow:** funkcje o nazwach `onX...` (np. `onTextMessage`) podpinane do znanych sygnaL'ow moduL'ow (np. *text message module*, *map events*).
-- **SL'owa kluczowe domeny:** `say(`, `use(`, `useWith(`, `walkTo(`, `turn(`, `attack(`, identyfikatory zasobow (`ui/a|otui`).
-- **Relacje:** `g_ui.loadUI('a|')` a" `lua_to_otui` (do mapowania UI z logika vBot).
-- **Klasyfikacja plikow:** prefiks `vb_`, lokalizacja w `modules/game_bot/a|` podnosi wage dopasowania.
+- **Sygnały makr:** obecność wywołań `macro(`, wzorce „scheduler/macro loop” (identyfikatory `macro`, `scheduleEvent`, `addEvent` z typową semantyką okresową).
+- **Sygnały trigger’ów:** funkcje o nazwach `onX...` (np. `onTextMessage`) podpinane do znanych sygnałów modułów (np. *text message module*, *map events*).
+- **Słowa kluczowe domeny:** `say(`, `use(`, `useWith(`, `walkTo(`, `turn(`, `attack(`, identyfikatory zasobów (`ui/…otui`).
+- **Relacje:** `g_ui.loadUI('…')` ↔ `lua_to_otui` (do mapowania UI z logiką vBot).
+- **Klasyfikacja plików:** prefiks `vb_`, lokalizacja w `modules/game_bot/…` podnosi wagę dopasowania.
 
-**Emisja do `project-index.json`:** wezeL' `symbols.botSymbols`:
+**Emisja do `project-index.json`:** węzeł `symbols.botSymbols`:
+```json
 {"heal":["modules/game_bot/vb_combat_uh.lua:12"],"antiidle":["modules/game_bot/vb_anti_idle.lua:5"]}
 ```
 
 ---
-## 5) ReguL'y jakoLci (lint vBot)
-> Rozszerzenie lintu Lua/OTUI o reguL'y domenowe vBot (bez autoa'fixu, chyba LLe bezpieczny).
+# # 5) Reguły jakości (lint vBot)
+> Rozszerzenie lintu Lua/OTUI o reguły domenowe vBot (bez auto‑fixu, chyba że bezpieczny).
 
-- **VBOTa'001** - Brak `guard` przed akcja (wymagane `g_game.isOnline()` i brak kolizji z ruchem/walka, jeLli ma znaczenie).
-- **VBOTa'002** - Cooldown < zalecanego minimum dla danej akcji (np. < 1000 ms dla czaru) a' WARN.
-- **VBOTa'003** - Blokujace petle/sleep w makrze (zamiast tego `scheduleEvent`).
-- **VBOTa'004** - Spam `say()`/`use()` bez limitu - brak licznika/okna czasowego.
-- **VBOTa'005** - Globalne symbole w pliku vBot (wymagane `local`).
-- **VBOTa'006** - Brak logowania kontekstowego przy krytycznych akcjach.
-- **VBOTa'007** - Brak anulowania makra po `isDisconnected()`.
-- **VBOTa'008** - ZaleLLnoLc od UI bez sprawdzenia istnienia `widget`.
+- **VBOT‑001** – Brak `guard` przed akcją (wymagane `g_game.isOnline()` i brak kolizji z ruchem/walką, jeśli ma znaczenie).
+- **VBOT‑002** – Cooldown < zalecanego minimum dla danej akcji (np. < 1000 ms dla czaru) → WARN.
+- **VBOT‑003** – Blokujące pętle/sleep w makrze (zamiast tego `scheduleEvent`).
+- **VBOT‑004** – Spam `say()`/`use()` bez limitu – brak licznika/okna czasowego.
+- **VBOT‑005** – Globalne symbole w pliku vBot (wymagane `local`).
+- **VBOT‑006** – Brak logowania kontekstowego przy krytycznych akcjach.
+- **VBOT‑007** – Brak anulowania makra po `isDisconnected()`.
+- **VBOT‑008** – Zależność od UI bez sprawdzenia istnienia `widget`.
 
 **Konfiguracja (JSON):**
+```json
 {"VBOT-001":{"enabled":true,"severity":"ERROR"},"VBOT-002":{"enabled":true,"severity":"WARN","minCooldownMs":1000}}
 ```
 
 ---
-## 6) Logowanie i telemetria (opcjonalnie NDJSON)
+# # 6) Logowanie i telemetria (opcjonalnie NDJSON)
 - Format linii (zalecany): `{ts, level, tag, file, line, msg, meta}`.
 - Tagi: `[heal]`, `[msg]`, `[buff]`, `[loot]`, `[antiidle]`.
 - Logi krytyczne: akcje `say/use` z parametrami i wynikiem.
 - Integracja ze Studio: panel Log Viewer filtruje po `tag/level/file:line`.
 
-**PrzykL'ad:**
+**Przykład:**
+```json
 {"ts":"2025-10-02T12:00:00.000Z","level":"INFO","tag":"heal","file":"modules/game_bot/vb_auto_heal.lua","line":18,"msg":"cast","meta":{"spell":"exura","hp":43}}
 ```
 
 ---
-## 7) BezpieczeL"stwo i zgodnoLc
-- **Idempotencja:** makra nie powinny powodowac skutkow ubocznych przy powtarzaniu (guard+cooldown).
-- **OstroLLnoLc UI:** sprawdzaj istnienie widgetow przed modyfikacja (`if widget then ...`).
-- **Zasoby:** nie uLLywaj nieistniejacych LcieLLek; weryfikuj z `assets-map.json`.
-- **Granice:** makra nie powinny ingerowac w pliki poza katalogiem projektu.
+# # 7) Bezpieczeństwo i zgodność
+- **Idempotencja:** makra nie powinny powodować skutków ubocznych przy powtarzaniu (guard+cooldown).
+- **Ostrożność UI:** sprawdzaj istnienie widgetów przed modyfikacją (`if widget then ...`).
+- **Zasoby:** nie używaj nieistniejących ścieżek; weryfikuj z `assets-map.json`.
+- **Granice:** makra nie powinny ingerować w pliki poza katalogiem projektu.
 
 ---
-## 8) WydajnoLc
-- InterwaL'y: nie schodLs poniLLej 150-250 ms dla ogolnych makr; kosztowne operacje (skany mapy/UI) aA 1000 ms.
-- Unikaj peL'nych skanow co tick - cache wynikow, porownuj zmiany.
-- ULLywaj `scheduleEvent` zamiast petli blokujacych; debounce wejLcia.
+# # 8) Wydajność
+- Interwały: nie schodź poniżej 150–250 ms dla ogólnych makr; kosztowne operacje (skany mapy/UI) ≥ 1000 ms.
+- Unikaj pełnych skanów co tick – cache wyników, porównuj zmiany.
+- Używaj `scheduleEvent` zamiast pętli blokujących; debounce wejścia.
 
 ---
-## 9) Generator vBot (szablony do Studio)
-**WejLcie:** parametry (JSON/OTML) - np. `threshold`, `spell`, `cooldownMs`.
-**WyjLcie:** plik `vb_<nazwa>.lua` + wpis w module (opcjonalny UI konfiguracyjny).
+# # 9) Generator vBot (szablony do Studio)
+**Wejście:** parametry (JSON/OTML) – np. `threshold`, `spell`, `cooldownMs`.
+**Wyjście:** plik `vb_<nazwa>.lua` + wpis w module (opcjonalny UI konfiguracyjny).
 **Checklista generacji:**
-- [ ] Plik w `modules/game_bot/a|`.
+- [ ] Plik w `modules/game_bot/…`.
 - [ ] Nazwy `local`, brak globali.
 - [ ] Guards i cooldown zaimplementowane.
 - [ ] Logi z prefiksem `[vBot]` i tagiem.
-- [ ] Komentarz nagL'owkowy (opis, parametry, interwaL').
+- [ ] Komentarz nagłówkowy (opis, parametry, interwał).
 
 ---
-## 10) Testa'wektory (QA vBot)
-- **HEALa'01:** HP 55% a' oczekiwany 1A- `say('exura')`, brak spam w 1200 ms.
-- **MSGa'01:** Tekst `hi` a' odpowiedLs `hello` tylko 1A- / 3 s na nadawce.
-- **HASTEa'01:** Ruch z brakiem buffa a' `say('utani hur')` nie czeLciej niLL co 6 s.
-- **LOOTa'01:** Pojawia sie `corpse` na tile a' wywoL'anie `use()` na kontenerze (jeLli dostepne API); brak bL'edow przy braku miejsca.
-- **IDLEa'01:** Brak aktywnoLci 60 s a' `turn()`; brak gdy `isAttacking()`.
+# # 10) Test‑wektory (QA vBot)
+- **HEAL‑01:** HP 55% → oczekiwany 1× `say('exura')`, brak spam w 1200 ms.
+- **MSG‑01:** Tekst `hi` → odpowiedź `hello` tylko 1× / 3 s na nadawcę.
+- **HASTE‑01:** Ruch z brakiem buffa → `say('utani hur')` nie częściej niż co 6 s.
+- **LOOT‑01:** Pojawia się `corpse` na tile → wywołanie `use()` na kontenerze (jeśli dostępne API); brak błędów przy braku miejsca.
+- **IDLE‑01:** Brak aktywności 60 s → `turn()`; brak gdy `isAttacking()`.
 
 ---
-## 11) Integracja ze Studio
-- **Skaner:** heurystyki z 4 zasilaja `symbols.botSymbols`.
-- **Lint:** reguL'y z 5 uzupeL'niaja lint Lua (domena vBot).
-- **Generator:** szablony z 9 dostepne w panelu "Nowy a' vBot".
-- **Dokumentacja:** panel "vBot Playbook" linkuje do wzorcow i przykL'adow.
+# # 11) Integracja ze Studio
+- **Skaner:** heurystyki z §4 zasilają `symbols.botSymbols`.
+- **Lint:** reguły z §5 uzupełniają lint Lua (domena vBot).
+- **Generator:** szablony z §9 dostępne w panelu „Nowy → vBot”.
+- **Dokumentacja:** panel „vBot Playbook” linkuje do wzorców i przykładów.
 
 ---
-## 12) Checklisty wdroLLeniowe
-- [ ] KaLLde makro/trigger ma guards i cooldown.
-- [ ] Brak globali; `local` wszedzie.
+# # 12) Checklisty wdrożeniowe
+- [ ] Każde makro/trigger ma guards i cooldown.
+- [ ] Brak globali; `local` wszędzie.
 - [ ] Logi akcji krytycznych.
 - [ ] Parametry wyniesione do konfiguracji.
-- [ ] Testa'wektory przechodza; brak regresji.
+- [ ] Test‑wektory przechodzą; brak regresji.
 
 ---
-## 13) Noty koL"cowe
-- Wzorce sa rozszerzalne; dodajac nowe, zachowaj nazewnictwo i sekcje: *cel a' konfiguracja a' guards a' cooldown a' logi a' testy*.
-- Wszelkie modyfikacje wymagaja aktualizacji generatora i reguL' QA.
+# # 13) Noty końcowe
+- Wzorce są rozszerzalne; dodając nowe, zachowaj nazewnictwo i sekcje: *cel → konfiguracja → guards → cooldown → logi → testy*.
+- Wszelkie modyfikacje wymagają aktualizacji generatora i reguł QA.

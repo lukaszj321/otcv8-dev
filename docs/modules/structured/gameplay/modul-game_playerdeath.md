@@ -1,5 +1,6 @@
-# Modul: `game_playerdeath`
+﻿# ¦ Modul: `game_playerdeath`
 
+```otui
 
 DeathWindow < MainWindow
 
@@ -60,6 +61,7 @@ DeathWindow < MainWindow
 ---
 # playerdeath.lua
 
+```lua
 
 deathWindow = nil
 
@@ -206,6 +208,7 @@ end
 ---
 # playerdeath.otmod
 
+```text
 
 Module
 

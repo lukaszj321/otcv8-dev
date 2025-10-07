@@ -1,5 +1,6 @@
-# Modul: `client_entergame`
+﻿# ¦ Modul: `client_entergame`
 
+```lua
 
 CharacterList = { }
 
@@ -720,6 +721,7 @@ end
 ---
 # characterlist.otui
 
+```otui
 
 CharacterWidget < UIWidget
 
@@ -958,6 +960,7 @@ StaticMainWindow
 ---
 # entergame.lua
 
+```lua
 
 EnterGame = { }
 
@@ -2022,6 +2025,7 @@ end
 ---
 # entergame.otmod
 
+```text
 
 Module
 
@@ -2050,6 +2054,7 @@ Module
 ---
 # entergame.otui
 
+```otui
 
 EnterGameWindow
 
@@ -2378,6 +2383,7 @@ EnterGameWindow
 ---
 # waitinglist.otui
 
+```otui
 
 MainWindow
 

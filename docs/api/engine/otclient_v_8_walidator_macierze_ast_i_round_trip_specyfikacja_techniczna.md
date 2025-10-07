@@ -1,58 +1,61 @@
-# **Pakiet:** `otc_core_v1/engine` A'as **Wersja:** 1.0   
-**Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testA"asAaasw roundA'EAasAAa'Atrip.
+﻿# {% raw %}
+
+**Pakiet:** `otc_core_v1/engine` Â· **Wersja:** 1.0  
+**Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testĂłw roundâ€‘trip.
 
 ---
-## Spis treA"aAa'Lzci
-- [0. Zakres, definicje, zaA"aAa'LoA"aA"Etenia](#ch-0)
-- [1. STRICT OTUI A'EAasA" gramatyka i tokenizacja](#ch-1)
-- [2. Parser A'EAa'A ' AST (TypeScript)](#ch-2)
-- [3. Serializer (AST A'EAa'A ' OTUI STRICT)](#ch-3)
+## Spis treĹ›ci
+- [0. Zakres, definicje, zaĹ‚oĹĽenia](#ch-0)
+- [1. STRICT OTUI â€” gramatyka i tokenizacja](#ch-1)
+- [2. Parser â†’ AST (TypeScript)](#ch-2)
+- [3. Serializer (AST â†’ OTUI STRICT)](#ch-3)
 - [4. Macierze dozwolonych dzieci (global)](#ch-4)
-  - [4.1 Okna (WindowA'EAasAAa'Aclass)](#ch-4-1)
-  - [4.2 Kontenery (ContentA'EAasAAa'Aclass)](#ch-4-2)
+  - [4.1 Okna (Windowâ€‘class)](#ch-4-1)
+  - [4.2 Kontenery (Contentâ€‘class)](#ch-4-2)
   - [4.3 Organizacja/Nawigacja](#ch-4-3)
   - [4.4 Dane/Edycja](#ch-4-4)
-  - [4.5 WskaA"aAaLsniki/Scroll](#ch-4-5)
-- [5. Walidator A'EAasA" reguA"aAa'Ly, kody bA"aAa'LA'"A"EdA"asAaasw/ostrzeA"aA"EteA"a"](#ch-5)
-- [6. AutoA'EAasAAa'Anaprawy deterministyczne](#ch-6)
-- [7. Import/Export i roundA'EAasAAa'Atrip (edytor A'EAa'A " plik A'EAa'A " Lua)](#ch-7)
+  - [4.5 WskaĹşniki/Scroll](#ch-4-5)
+- [5. Walidator â€” reguĹ‚y, kody bĹ‚Ä™dĂłw/ostrzeĹĽeĹ„](#ch-5)
+- [6. Autoâ€‘naprawy deterministyczne](#ch-6)
+- [7. Import/Export i roundâ€‘trip (edytor â†” plik â†” Lua)](#ch-7)
 - [8. API edytora (TS): parse/serialize/validate/autofix](#ch-8)
 - [9. Testy: goldeny i snapshoty](#ch-9)
-- [10. PrzykA"aAa'Lady i edgeA'EAasAAa'Acases](#ch-10)
-- [11. Indeks haseA"aAa'L](#ch-11)
+- [10. PrzykĹ‚ady i edgeâ€‘cases](#ch-10)
+- [11. Indeks haseĹ‚](#ch-11)
 
 ---
 
 <div id="ch-0"></div>
-## 0. Zakres, definicje, zaA"aAa'LoA"aA"Etenia
-**Interaktywny spis:** [0.1 Zakres](#ch-0-1) A'as [0.2 Definicje](#ch-0-2) A'as [0.3 ZaA"aAa'LoA"aA"Etenia projektowe](#ch-0-3)
-## 0.1 Zakres {: #ch-0-1 }
-- Pokrycie: *caA"aAa'Ly pipeline* od tekstu OTUI (STRICT) A'EAa'A " AST (TS) A'EAa'A " walidacja A'EAa'A " autoA'EAasAAa'Anaprawy A'EAa'A " eksport/import.  
-- Zakres UI: komplet taksonomii z czA'"A"EA"aAa'Lzci A'EAasAAaAlSpecyfikacja UIA'EAasAAaA (rozdz. 4) + presety kanoniczne.
-## 0.2 Definicje {: #ch-0-2 }
-- **STRICT OTUI** A'EAasA" format bezkomentarzowy, LF, wciA'"A"Ecia 2 sp., kolejnoA"aAa'LzA'"Aa'E GEOMETRIAA'EAa'A 'STYLA'EAa'A 'ZACHOWANIE.
-- **AST** A'EAasA" drzewo `WidgetNode`, deterministyczne klucze i kolejnoA"aAa'LzA'"Aa'E dzieci.
-- **Macierz** A'EAasA" tablica dozwolonych dzieci dla par (parent, slot).
-## 0.3 ZaA"aAa'LoA"aA"Etenia projektowe {: #ch-0-3 }
-- **DeterministycznoA"aAa'LzA'"Aa'E**: ten sam AST A'EAa'A ' ten sam OTUI (bitA'EAasAAa'Aidentyczny, przy tej samej wersji serializera).  
-- **Idempotencja**: `parse(serialize(ast))` A'EAa'AAa `normalize(ast)`.
-- **Brak magii**: walidator zgA"aAa'Lasza i *tylko* przewidywalnie naprawia.
+## 0. Zakres, definicje, zaĹ‚oĹĽenia
+**Interaktywny spis:** [0.1 Zakres](#ch-0-1) Â· [0.2 Definicje](#ch-0-2) Â· [0.3 ZaĹ‚oĹĽenia projektowe](#ch-0-3)
+## # 0.1 Zakres {#ch-0-1}
+- Pokrycie: *caĹ‚y pipeline* od tekstu OTUI (STRICT) â†” AST (TS) â†” walidacja â†” autoâ€‘naprawy â†” eksport/import.  
+- Zakres UI: komplet taksonomii z czÄ™Ĺ›ci â€žSpecyfikacja UIâ€ť (rozdz. 4) + presety kanoniczne.
+## # 0.2 Definicje {#ch-0-2}
+- **STRICT OTUI** â€” format bezkomentarzowy, LF, wciÄ™cia 2 sp., kolejnoĹ›Ä‡ GEOMETRIAâ†’STYLâ†’ZACHOWANIE.
+- **AST** â€” drzewo `WidgetNode`, deterministyczne klucze i kolejnoĹ›Ä‡ dzieci.
+- **Macierz** â€” tablica dozwolonych dzieci dla par (parent, slot).
+## # 0.3 ZaĹ‚oĹĽenia projektowe {#ch-0-3}
+- **DeterministycznoĹ›Ä‡**: ten sam AST â†’ ten sam OTUI (bitâ€‘identyczny, przy tej samej wersji serializera).  
+- **Idempotencja**: `parse(serialize(ast))` â‰ˇ `normalize(ast)`.
+- **Brak magii**: walidator zgĹ‚asza i *tylko* przewidywalnie naprawia.
 
 ---
 
 <div id="ch-1"></div>
-## 1. STRICT OTUI A'EAasA" gramatyka i tokenizacja
-**Interaktywny spis:** [1.1 Zasady formatowania](#ch-1-1) A'as [1.2 Tokeny](#ch-1-2) A'as [1.3 Szkic EBNF](#ch-1-3)
-## 1.1 Zasady formatowania {: #ch-1-1 }
-- **WciA'"A"Ecia**: 2 spacje na poziom. **Zakaz tabA"asAaasw**.  
-- **KoA"a"ce linii**: LF. **Bez BOM**.  
+## 1. STRICT OTUI â€” gramatyka i tokenizacja
+**Interaktywny spis:** [1.1 Zasady formatowania](#ch-1-1) Â· [1.2 Tokeny](#ch-1-2) Â· [1.3 Szkic EBNF](#ch-1-3)
+## # 1.1 Zasady formatowania {#ch-1-1}
+- **WciÄ™cia**: 2 spacje na poziom. **Zakaz tabĂłw**.  
+- **KoĹ„ce linii**: LF. **Bez BOM**.  
 - **Brak komentarzy** w blokach `.otui`.  
-- **KolejnoA"aAa'LzA'"Aa'E atrybutA"asAaasw** w kaA"aA"Etdym wA'"A"EA"aAaLsle: GEOMETRIA A'EAa'A ' STYL A'EAa'A ' ZACHOWANIE.
-## 1.2 Tokeny {: #ch-1-2 }
-- SA"aAa'Lowa kluczowe typA"asAaasw: `MainWindow`, `StaticMainWindow`, `MiniWindow`, `ContainerWindow`, `DialogWindow`, `UIWidget`, `Panel`, `GroupBox`, `Titlebar`, `Toolbar`, `TabBar`, `TabWidget`, `Splitter`, `HorizontalSeparator`, `StatusOverlay`, `Label`, `Button`, `CheckBox`, `TextEdit`, `PasswordTextEdit`, `MultilineTextEdit`, `ComboBox`, `TextList`, `ProgressBar`, `VerticalScrollBar`, `HorizontalScrollBar`.
+- **KolejnoĹ›Ä‡ atrybutĂłw** w kaĹĽdym wÄ™Ĺşle: GEOMETRIA â†’ STYL â†’ ZACHOWANIE.
+## # 1.2 Tokeny {#ch-1-2}
+- SĹ‚owa kluczowe typĂłw: `MainWindow`, `StaticMainWindow`, `MiniWindow`, `ContainerWindow`, `DialogWindow`, `UIWidget`, `Panel`, `GroupBox`, `Titlebar`, `Toolbar`, `TabBar`, `TabWidget`, `Splitter`, `HorizontalSeparator`, `StatusOverlay`, `Label`, `Button`, `CheckBox`, `TextEdit`, `PasswordTextEdit`, `MultilineTextEdit`, `ComboBox`, `TextList`, `ProgressBar`, `VerticalScrollBar`, `HorizontalScrollBar`.
 - Operator dziedziczenia: `<` (np. `MiniWindow < MainWindow`).
-- Identyfikatory: `id: <slug>`; A"aAa'LaA"a"cuchy w `!text: tr('...')`; liczby caA"aAa'Lkowite; kolory `#AARRGGBB` lub `alpha`.
-## 1.3 Szkic EBNF (pogglA'"Aa'A|dowy) {: #ch-1-3 }
+- Identyfikatory: `id: <slug>`; Ĺ‚aĹ„cuchy w `!text: tr('...')`; liczby caĹ‚kowite; kolory `#AARRGGBB` lub `alpha`.
+## # 1.3 Szkic EBNF (pogglÄ…dowy) {#ch-1-3}
+```
 document     := node*
 node         := header NEWLINE indent block?
 header       := type (WS '<' WS type)? NEWLINE? attributes?
@@ -70,9 +73,10 @@ value        := NUMBER | STRING | COLOR | IDENT | PATH
 ---
 
 <div id="ch-2"></div>
-## 2. Parser A'EAa'A ' AST (TypeScript)
-**Interaktywny spis:** [2.1 KsztaA"aAa'Lt AST](#ch-2-1) A'as [2.2 Normalizacja](#ch-2-2) A'as [2.3 Stabilizacja kolejnoA"aAa'Lzci](#ch-2-3)
-## 2.1 KsztaA"aAa'Lt AST {: #ch-2-1 }
+## 2. Parser â†’ AST (TypeScript)
+**Interaktywny spis:** [2.1 KsztaĹ‚t AST](#ch-2-1) Â· [2.2 Normalizacja](#ch-2-2) Â· [2.3 Stabilizacja kolejnoĹ›ci](#ch-2-3)
+## # 2.1 KsztaĹ‚t AST {#ch-2-1}
+```ts
 export type AnchorRef = string; // np. 'parent.left', 'header.bottom'
 export interface Geometry {
   id: string;
@@ -96,139 +100,140 @@ export interface WidgetNode {
   variant?: string; // np. RoundCheckBox
 }
 ```
-## 2.2 Normalizacja {: #ch-2-2 }
-- UzupeA"aAa'Lnij brakujA'"Aa'A|ce struktury: `children = []`, `style = {}` gdy potrzebne.  
-- ZamieA"a" `style.text` A'EAa'A ' w serializacji na `!text: tr('...')`.  
-- ZastA'"Aa'A|p `size` parA'"Aa'A| `width/height` podczas walidacji kotwic (na potrzeby reguA"aAa'L), ale w serializacji zachowuj wejA"aAa'LzciowA'"Aa'A| postaA'"Aa'E.
-## 2.3 Stabilizacja kolejnoA"aAa'Lzci {: #ch-2-3 }
-- Atrybuty: najpierw **GEOMETRIA**, potem **STYL**, na koA"a"cu **ZACHOWANIE** (events/states).  
-- Dzieci: sortuj stabilnie po `(slotPriority, y, x, id)` jeA"aAa'Lzli edytor posiada grid/snapping; inaczej po kolejnoA"aAa'Lzci wczytania.
+## # 2.2 Normalizacja {#ch-2-2}
+- UzupeĹ‚nij brakujÄ…ce struktury: `children = []`, `style = {}` gdy potrzebne.  
+- ZamieĹ„ `style.text` â†’ w serializacji na `!text: tr('...')`.  
+- ZastÄ…p `size` parÄ… `width/height` podczas walidacji kotwic (na potrzeby reguĹ‚), ale w serializacji zachowuj wejĹ›ciowÄ… postaÄ‡.
+## # 2.3 Stabilizacja kolejnoĹ›ci {#ch-2-3}
+- Atrybuty: najpierw **GEOMETRIA**, potem **STYL**, na koĹ„cu **ZACHOWANIE** (events/states).  
+- Dzieci: sortuj stabilnie po `(slotPriority, y, x, id)` jeĹ›li edytor posiada grid/snapping; inaczej po kolejnoĹ›ci wczytania.
 
 ---
 
 <div id="ch-3"></div>
-## 3. Serializer (AST A'EAa'A ' OTUI STRICT)
-**Interaktywny spis:** [3.1 ReguA"aAa'Ly wypisywania](#ch-3-1) A'as [3.2 Escaping i i18n](#ch-3-2) A'as [3.3 Sanityzacja koA"a"cowa](#ch-3-3)
-## 3.1 ReguA"aAa'Ly wypisywania {: #ch-3-1 }
-- WciA'"A"Ecie: **2 spacje**.  
-- Puste wartoA"aAa'Lzci pomijaj.  
-- Sekcja kolejnoA"aAa'Lzci: GEOMETRIA (`id`, `size`/`width`/`height`, `anchors.*`, `margin-*`, `padding`) A'EAa'A ' STYL A'EAa'A ' ZACHOWANIE (`@on*`, `$state:` bloki).
-## 3.2 Escaping i i18n {: #ch-3-2 }
-- `style.text` A'EAa'A ' `!text: tr('...')`, `'` A'EAa'A ' `\'`.  
+## 3. Serializer (AST â†’ OTUI STRICT)
+**Interaktywny spis:** [3.1 ReguĹ‚y wypisywania](#ch-3-1) Â· [3.2 Escaping i i18n](#ch-3-2) Â· [3.3 Sanityzacja koĹ„cowa](#ch-3-3)
+## # 3.1 ReguĹ‚y wypisywania {#ch-3-1}
+- WciÄ™cie: **2 spacje**.  
+- Puste wartoĹ›ci pomijaj.  
+- Sekcja kolejnoĹ›ci: GEOMETRIA (`id`, `size`/`width`/`height`, `anchors.*`, `margin-*`, `padding`) â†’ STYL â†’ ZACHOWANIE (`@on*`, `$state:` bloki).
+## # 3.2 Escaping i i18n {#ch-3-2}
+- `style.text` â†’ `!text: tr('...')`, `'` â†’ `\'`.  
 - Kolory tylko `#AARRGGBB` lub `alpha`.
-## 3.3 Sanityzacja koA"a"cowa {: #ch-3-3 }
-- UsuA"a" taby, trailing spaces, wymuA"aAa'Lz LF.  
+## # 3.3 Sanityzacja koĹ„cowa {#ch-3-3}
+- UsuĹ„ taby, trailing spaces, wymuĹ› LF.  
 - Brak komentarzy w wynikowym `.otui`.
 
 ---
 
 <div id="ch-4"></div>
 ## 4. Macierze dozwolonych dzieci (global)
-**Interaktywny spis:** [4.1 Okna](#ch-4-1) A'as [4.2 Kontenery](#ch-4-2) A'as [4.3 Organizacja](#ch-4-3) A'as [4.4 Dane/Edycja](#ch-4-4) A'as [4.5 WskaA"aAaLsniki/Scroll](#ch-4-5)
+**Interaktywny spis:** [4.1 Okna](#ch-4-1) Â· [4.2 Kontenery](#ch-4-2) Â· [4.3 Organizacja](#ch-4-3) Â· [4.4 Dane/Edycja](#ch-4-4) Â· [4.5 WskaĹşniki/Scroll](#ch-4-5)
 
-> **Legenda:** A'EAaas" dozwolone A'as A'EAaas- zabronione A'as A'EAaE  warunkowe (patrz uwagi).
-## 4.1 Okna (WindowA'EAasAAa'Aclass) {: #ch-4-1 }
+> **Legenda:** âś“ dozwolone Â· âś– zabronione Â· âš  warunkowe (patrz uwagi).
+## # 4.1 Okna (Windowâ€‘class) {#ch-4-1}
 **MainWindow / StaticMainWindow (root)**
 | Dziecko | Status | Uwagi |
 |---|:---:|---|
-| UIWidget, Panel, GroupBox | A'EAaas" | Elementy panelowe.
-| Label, Button, CheckBox, TextEdit, PasswordTextEdit, MultilineTextEdit, ComboBox | A'EAaas" | Formularze i akcje.
-| TextList | A'EAaas" | Wymaga pary z VerticalScrollBar przy overflow (A'EAaE ).
-| ProgressBar, HorizontalSeparator | A'EAaas" | A'EAasA"
-| TabBar, TabWidget, Splitter | A'EAaas" | Splitter: dokA"aAa'Ladnie 2 dzieci (A'EAaE ).
-| StatusOverlay | A'EAaas" | Warstwa wierzchnia, bez zA"aAa'LoA"aA"Etonych dzieci (A'EAaE ).
-| *Window (Main/Static/Mini/Container/Dialog) | A'EAaas- | Zakaz okienA'EAasAAa'Adzieci.
-| ScrollBar (samotny) | A'EAaas- | Zawsze para z treA"aAa'LzciA'"Aa'A|.
+| UIWidget, Panel, GroupBox | âś“ | Elementy panelowe.
+| Label, Button, CheckBox, TextEdit, PasswordTextEdit, MultilineTextEdit, ComboBox | âś“ | Formularze i akcje.
+| TextList | âś“ | Wymaga pary z VerticalScrollBar przy overflow (âš ).
+| ProgressBar, HorizontalSeparator | âś“ | â€”
+| TabBar, TabWidget, Splitter | âś“ | Splitter: dokĹ‚adnie 2 dzieci (âš ).
+| StatusOverlay | âś“ | Warstwa wierzchnia, bez zĹ‚oĹĽonych dzieci (âš ).
+| *Window (Main/Static/Mini/Container/Dialog) | âś– | Zakaz okienâ€‘dzieci.
+| ScrollBar (samotny) | âś– | Zawsze para z treĹ›ciÄ….
 
 **MiniWindow / ContainerWindow / DialogWindow**
-- Slot `titlebar`: Label, Button, UIWidget(ikona) A'EAaas"; listy/edytory/scroll A'EAaas-.  
-- Slot `content`: elementy panelowe A'EAaas"; oknaA'EAasAAa'Adzieci A'EAaas-.  
-- Slot `footer` (Mini/Dialog): Button/Label/ProgressBar A'EAaas"; listy/edytory/scroll A'EAaas-.
-## 4.2 Kontenery (ContentA'EAasAAa'Aclass) {: #ch-4-2 }
+- Slot `titlebar`: Label, Button, UIWidget(ikona) âś“; listy/edytory/scroll âś–.  
+- Slot `content`: elementy panelowe âś“; oknaâ€‘dzieci âś–.  
+- Slot `footer` (Mini/Dialog): Button/Label/ProgressBar âś“; listy/edytory/scroll âś–.
+## # 4.2 Kontenery (Contentâ€‘class) {#ch-4-2}
 | Parent | Dozwolone dzieci | Niedozwolone/uwagi |
 |---|---|---|
-| UIWidget | Wszystkie panelowe (Label/Button/Inputs/List/Progress/Scroll/Separator/StatusOverlay) | *Window A'EAaas- |
-| Panel | j.w. | *Window A'EAaas- |
-| GroupBox | `header: Label` A'EAaas", `content: panelowe` A'EAaas" | Scroll w header A'EAaas- |
-| TabWidget | TreA"aAa'LzA'"Aa'E aktywnej zakA"aAa'Ladki: panelowe A'EAaas" | *Window A'EAaas-; sam TabBar nie tu |
-| StatusOverlay | Label, ProgressBar, Button(cancel) A'EAaas" | Listy/edytory/okna A'EAaas- |
-## 4.3 Organizacja/Nawigacja {: #ch-4-3 }
+| UIWidget | Wszystkie panelowe (Label/Button/Inputs/List/Progress/Scroll/Separator/StatusOverlay) | *Window âś– |
+| Panel | j.w. | *Window âś– |
+| GroupBox | `header: Label` âś“, `content: panelowe` âś“ | Scroll w header âś– |
+| TabWidget | TreĹ›Ä‡ aktywnej zakĹ‚adki: panelowe âś“ | *Window âś–; sam TabBar nie tu |
+| StatusOverlay | Label, ProgressBar, Button(cancel) âś“ | Listy/edytory/okna âś– |
+## # 4.3 Organizacja/Nawigacja {#ch-4-3}
 | Komponent | Dozwolone dzieci | Niedozwolone/uwagi |
 |---|---|---|
-| Titlebar | Label, Button, UIWidget(ikona) | Scroll/listy/edytory A'EAaas- |
-| Toolbar | Button, HorizontalSeparator | Inne A'EAaas- |
-| TabBar | Button (zakA"aAa'Ladki) | TreA"aAa'LzA'"Aa'E zakA"aAa'Ladek A'EAaas- A'EAasA" trafia do TabWidget |
-| Splitter | **DokA"aAa'Ladnie 2** dzieci: Panel/UIWidget/GroupBox | Okna/Scroll A'EAaas- |
-| HorizontalSeparator | A'EAasA" | **Bez dzieci** |
-## 4.4 Dane/Edycja {: #ch-4-4 }
+| Titlebar | Label, Button, UIWidget(ikona) | Scroll/listy/edytory âś– |
+| Toolbar | Button, HorizontalSeparator | Inne âś– |
+| TabBar | Button (zakĹ‚adki) | TreĹ›Ä‡ zakĹ‚adek âś– â€” trafia do TabWidget |
+| Splitter | **DokĹ‚adnie 2** dzieci: Panel/UIWidget/GroupBox | Okna/Scroll âś– |
+| HorizontalSeparator | â€” | **Bez dzieci** |
+## # 4.4 Dane/Edycja {#ch-4-4}
 | Komponent | Dzieci |
 |---|---|
 | Label, Button, CheckBox, TextEdit, PasswordTextEdit, ComboBox, ProgressBar, ScrollBar | **Brak** |
-| MultilineTextEdit | **Brak**; przewijanie przez sA'"Aa'A|siedni Vertical/HorizontalScrollBar |
-| TextList | **Brak** rA'"A"Ecznych dzieci; wiersze generowane jako `UIWidget` (ListRow) runtime/templatem |
-## 4.5 WskaA"aAaLsniki/Scroll {: #ch-4-5 }
+| MultilineTextEdit | **Brak**; przewijanie przez sÄ…siedni Vertical/HorizontalScrollBar |
+| TextList | **Brak** rÄ™cznych dzieci; wiersze generowane jako `UIWidget` (ListRow) runtime/templatem |
+## # 4.5 WskaĹşniki/Scroll {#ch-4-5}
 | Komponent | Zasady |
 |---|---|
-| VerticalScrollBar | Sibling przewijanej treA"aAa'Lzci; dock **right**; treA"aAa'LzA'"Aa'E kotwiczy `right: scroll.left` |
-| HorizontalScrollBar | Sibling przewijanej treA"aAa'Lzci; dock **bottom**; treA"aAa'LzA'"Aa'E kotwiczy `bottom: hscroll.top` |
+| VerticalScrollBar | Sibling przewijanej treĹ›ci; dock **right**; treĹ›Ä‡ kotwiczy `right: scroll.left` |
+| HorizontalScrollBar | Sibling przewijanej treĹ›ci; dock **bottom**; treĹ›Ä‡ kotwiczy `bottom: hscroll.top` |
 
 ---
 
 <div id="ch-5"></div>
-## 5. Walidator A'EAasA" reguA"aAa'Ly, kody bA"aAa'LA'"A"EdA"asAaasw/ostrzeA"aA"EteA"a"
-**Interaktywny spis:** [5.1 BA"aAa'LA'"A"Edy (E)](#ch-5-1) A'as [5.2 OstrzeA"aA"Etenia (W)](#ch-5-2) A'as [5.3 Raport](#ch-5-3)
-## 5.1 BA"aAa'LA'"A"Edy (E) {: #ch-5-1 }
-- **E001 STRICT/Format** A'EAasA" taby/BOM/komentarze/trailing spaces.  
-- **E010 Anchors/Conflict** A'EAasA" `anchors.fill` + inne kotwice.  
-- **E020 Window/Nesting** A'EAasA" okno (`*Window`) jako dziecko okna.  
-- **E030 Scroll/Orphan** A'EAasA" ScrollBar bez sparowanej treA"aAa'Lzci.  
-- **E031 Scroll/Pairing** A'EAasA" brak kotwicy treA"aAa'Lzci do ScrollBar (`right: scroll.left` lub `bottom: hscroll.top`).  
-- **E040 Text/i18n** A'EAasA" staA"aAa'Ly tekst bez `tr()` (w OTUI).  
-- **E050 Splitter/Arity** A'EAasA" != 2 dzieci.  
-- **E060 Titlebar/Children** A'EAasA" niedozwolone dziecko w `titlebar`.
-## 5.2 OstrzeA"aA"Etenia (W) {: #ch-5-2 }
-- **W101 Width/AutoFit** A'EAasA" okno dokowane z `width` (sugeruj usuniA'"A"Ecie).  
-- **W110 Margins/Odd** A'EAasA" nieparzyste marginesy (snapping 2 px).  
-- **W120 Scroll/StepMismatch** A'EAasA" `step` niezgodny z wielkoA"aAa'LzciA'"Aa'A| wiersza/slotu.  
-- **W130 Keyboard/Hints** A'EAasA" brak `@onEnter/@onEscape` w oknie dialogowym.
-## 5.3 Raport {: #ch-5-3 }
+## 5. Walidator â€” reguĹ‚y, kody bĹ‚Ä™dĂłw/ostrzeĹĽeĹ„
+**Interaktywny spis:** [5.1 BĹ‚Ä™dy (E)](#ch-5-1) Â· [5.2 OstrzeĹĽenia (W)](#ch-5-2) Â· [5.3 Raport](#ch-5-3)
+## # 5.1 BĹ‚Ä™dy (E) {#ch-5-1}
+- **E001 STRICT/Format** â€” taby/BOM/komentarze/trailing spaces.  
+- **E010 Anchors/Conflict** â€” `anchors.fill` + inne kotwice.  
+- **E020 Window/Nesting** â€” okno (`*Window`) jako dziecko okna.  
+- **E030 Scroll/Orphan** â€” ScrollBar bez sparowanej treĹ›ci.  
+- **E031 Scroll/Pairing** â€” brak kotwicy treĹ›ci do ScrollBar (`right: scroll.left` lub `bottom: hscroll.top`).  
+- **E040 Text/i18n** â€” staĹ‚y tekst bez `tr()` (w OTUI).  
+- **E050 Splitter/Arity** â€” != 2 dzieci.  
+- **E060 Titlebar/Children** â€” niedozwolone dziecko w `titlebar`.
+## # 5.2 OstrzeĹĽenia (W) {#ch-5-2}
+- **W101 Width/AutoFit** â€” okno dokowane z `width` (sugeruj usuniÄ™cie).  
+- **W110 Margins/Odd** â€” nieparzyste marginesy (snapping 2 px).  
+- **W120 Scroll/StepMismatch** â€” `step` niezgodny z wielkoĹ›ciÄ… wiersza/slotu.  
+- **W130 Keyboard/Hints** â€” brak `@onEnter/@onEscape` w oknie dialogowym.
+## # 5.3 Raport {#ch-5-3}
 - Struktura: `{code, severity, path, message, fix?}`.  
-- `path` = A"aAa'LzcieA"aA"Etka wA'"A"EzA"aAa'LA"asAaasw (`main/content/items`).
+- `path` = Ĺ›cieĹĽka wÄ™zĹ‚Ăłw (`main/content/items`).
 
 ---
 
 <div id="ch-6"></div>
-## 6. AutoA'EAasAAa'Anaprawy deterministyczne
-**Interaktywny spis:** [6.1 STRICT fixups](#ch-6-1) A'as [6.2 Anchors/Layout](#ch-6-2) A'as [6.3 Scroll pairing](#ch-6-3)
-## 6.1 STRICT fixups {: #ch-6-1 }
-- UsuA"a" taby/BOM/komentarze; przytnij trailing spaces; wymuA"aAa'Lz LF.
-- UporzA'"Aa'A|dkuj kolejnoA"aAa'LzA'"Aa'E atrybutA"asAaasw (GEOMETRIAA'EAa'A 'STYLA'EAa'A 'ZACHOWANIE).
-## 6.2 Anchors/Layout {: #ch-6-2 }
-- JeA"aAa'Lzli sA'"Aa'A| `anchors.left` + `anchors.right` **i** `width` A'EAa'A ' usuA"a" `width` (AutoA'EAasAAa'Afit).  
-- Rozdziel `size` na `width/height` tylko na potrzeby walidacji, nie w serializacji (zachowaj wejA"aAa'Lzciowy idiom).
-## 6.3 Scroll pairing {: #ch-6-3 }
-- Dla `TextList`/`MultilineTextEdit` dodaj brakujA'"Aa'A|cy `VerticalScrollBar` jako sibling (po prawej) i dodaj kotwicA'"A"E treA"aAa'Lzci `right: scroll.left`.
+## 6. Autoâ€‘naprawy deterministyczne
+**Interaktywny spis:** [6.1 STRICT fixups](#ch-6-1) Â· [6.2 Anchors/Layout](#ch-6-2) Â· [6.3 Scroll pairing](#ch-6-3)
+## # 6.1 STRICT fixups {#ch-6-1}
+- UsuĹ„ taby/BOM/komentarze; przytnij trailing spaces; wymuĹ› LF.
+- UporzÄ…dkuj kolejnoĹ›Ä‡ atrybutĂłw (GEOMETRIAâ†’STYLâ†’ZACHOWANIE).
+## # 6.2 Anchors/Layout {#ch-6-2}
+- JeĹ›li sÄ… `anchors.left` + `anchors.right` **i** `width` â†’ usuĹ„ `width` (Autoâ€‘fit).  
+- Rozdziel `size` na `width/height` tylko na potrzeby walidacji, nie w serializacji (zachowaj wejĹ›ciowy idiom).
+## # 6.3 Scroll pairing {#ch-6-3}
+- Dla `TextList`/`MultilineTextEdit` dodaj brakujÄ…cy `VerticalScrollBar` jako sibling (po prawej) i dodaj kotwicÄ™ treĹ›ci `right: scroll.left`.
 
 ---
 
 <div id="ch-7"></div>
-## 7. Import/Export i roundA'EAasAAa'Atrip (edytor A'EAa'A " plik A'EAa'A " Lua)
-**Interaktywny spis:** [7.1 Import z plikA"asAaasw `.otui`](#ch-7-1) A'as [7.2 Import z Lua (blok string)](#ch-7-2) A'as [7.3 Eksport](#ch-7-3)
-## 7.1 Import z plikA"asAaasw `.otui` {: #ch-7-1 }
-- Wczytaj, znormalizuj (STRICT), sparsuj do AST. Zachowaj *oryginalny ukA"aAa'Lad* do porA"asAaaswnaA"a".
-## 7.2 Import z Lua (blok string) {: #ch-7-2 }
-- Wykryj staA"aAa'Le `local <Name>_OTUI = [[...]]`; wytnij treA"aAa'LzA'"Aa'E; sprawdA"aAaLs STRICT; sparsuj.  
-- OstrzeA"aA"Etenie, gdy blok zawiera komentarze A'EAasA" niedozwolone w OTUI (mimo bycia w Lua).
-## 7.3 Eksport {: #ch-7-3 }
+## 7. Import/Export i roundâ€‘trip (edytor â†” plik â†” Lua)
+**Interaktywny spis:** [7.1 Import z plikĂłw `.otui`](#ch-7-1) Â· [7.2 Import z Lua (blok string)](#ch-7-2) Â· [7.3 Eksport](#ch-7-3)
+## # 7.1 Import z plikĂłw `.otui` {#ch-7-1}
+- Wczytaj, znormalizuj (STRICT), sparsuj do AST. Zachowaj *oryginalny ukĹ‚ad* do porĂłwnaĹ„.
+## # 7.2 Import z Lua (blok string) {#ch-7-2}
+- Wykryj staĹ‚e `local <Name>_OTUI = [[...]]`; wytnij treĹ›Ä‡; sprawdĹş STRICT; sparsuj.  
+- OstrzeĹĽenie, gdy blok zawiera komentarze â€” niedozwolone w OTUI (mimo bycia w Lua).
+## # 7.3 Eksport {#ch-7-3}
 - Do pliku `.otui` (kanoniczny cel runtime).  
-- Opcjonalnie: *roundA'EAasAAa'Atrip do Lua* A'EAasA" odA"aAa'LzwieA"aA"Et istniejA'"Aa'A|cy blok `[[...]]` bitA'EAasAAa'Aidentycznie po `ensureStrictOtui()`.
+- Opcjonalnie: *roundâ€‘trip do Lua* â€” odĹ›wieĹĽ istniejÄ…cy blok `[[...]]` bitâ€‘identycznie po `ensureStrictOtui()`.
 
 ---
 
 <div id="ch-8"></div>
 ## 8. API edytora (TS): parse/serialize/validate/autofix
-**Interaktywny spis:** [8.1 Interfejsy](#ch-8-1) A'as [8.2 PrzepA"aAa'Lywy](#ch-8-2)
-## 8.1 Interfejsy {: #ch-8-1 }
+**Interaktywny spis:** [8.1 Interfejsy](#ch-8-1) Â· [8.2 PrzepĹ‚ywy](#ch-8-2)
+## # 8.1 Interfejsy {#ch-8-1}
+```ts
 export function parseOtui(text: string): WidgetNode[];
 export function serializeAst(nodes: WidgetNode[]): string; // STRICT OTUI
 export function ensureStrictOtui(text: string): string;     // tylko format
@@ -236,42 +241,45 @@ export interface ValidationIssue { code: string; severity: 'error'|'warning'; pa
 export function validateAst(nodes: WidgetNode[]): ValidationIssue[];
 export function autofixAst(nodes: WidgetNode[]): { nodes: WidgetNode[]; changes: ValidationIssue[] };
 ```
-## 8.2 PrzepA"aAa'Lywy {: #ch-8-2 }
-- **Projekt A'EAa'A ' Walidacja A'EAa'A ' Serializacja**.  
-- **Import (plik/Lua) A'EAa'A ' Parser A'EAa'A ' Normalizacja A'EAa'A ' Walidacja A'EAa'A ' Edycja A'EAa'A ' Serializacja A'EAa'A ' Eksport (plik/Lua)**.
+## # 8.2 PrzepĹ‚ywy {#ch-8-2}
+- **Projekt â†’ Walidacja â†’ Serializacja**.  
+- **Import (plik/Lua) â†’ Parser â†’ Normalizacja â†’ Walidacja â†’ Edycja â†’ Serializacja â†’ Eksport (plik/Lua)**.
 
 ---
 
 <div id="ch-9"></div>
 ## 9. Testy: goldeny i snapshoty
-**Interaktywny spis:** [9.1 Goldeny roundA'EAasAAa'Atrip](#ch-9-1) A'as [9.2 Snapshoty wizualne](#ch-9-2)
-## 9.1 Goldeny roundA'EAasAAa'Atrip {: #ch-9-1 }
-- Zestaw `X.otui` A'EAa'A ' `parse` A'EAa'A ' `serialize` A'EAa'A ' porA"asAaaswnanie bitA'EAasAAa'ApoA'EAasAAa'Abicie.  
-- DokA"aAa'Ladaj przypadki: okna, scroll pairing, Splitter, TabBar/TabWidget.
-## 9.2 Snapshoty wizualne {: #ch-9-2 }
-- Render testowy po stronie klienta (lub symulacja) i porA"asAaaswnania pikselowe dla kluczowych presetA"asAaasw.
+**Interaktywny spis:** [9.1 Goldeny roundâ€‘trip](#ch-9-1) Â· [9.2 Snapshoty wizualne](#ch-9-2)
+## # 9.1 Goldeny roundâ€‘trip {#ch-9-1}
+- Zestaw `X.otui` â†’ `parse` â†’ `serialize` â†’ porĂłwnanie bitâ€‘poâ€‘bicie.  
+- DokĹ‚adaj przypadki: okna, scroll pairing, Splitter, TabBar/TabWidget.
+## # 9.2 Snapshoty wizualne {#ch-9-2}
+- Render testowy po stronie klienta (lub symulacja) i porĂłwnania pikselowe dla kluczowych presetĂłw.
 
 ---
 
 <div id="ch-10"></div>
-## 10. PrzykA"aAa'Lady i edgeA'EAasAAa'Acases
-**Interaktywny spis:** [10.1 Migracja do STRICT](#ch-10-1) A'as [10.2 Anchors/Fill vs krawA'"A"Edzie](#ch-10-2) A'as [10.3 Splitter/Arity](#ch-10-3)
-## 10.1 Migracja do STRICT {: #ch-10-1 }
-- WejA"aAa'Lzcie dowolne A'EAa'A ' `ensureStrictOtui()` A'EAa'A ' `parse` A'EAa'A ' `autofixAst()` A'EAa'A ' `serializeAst()`.
-## 10.2 Anchors/Fill vs krawA'"A"Edzie {: #ch-10-2 }
-**BA"aA'AA'"A'ADNY OTUI**
+## 10. PrzykĹ‚ady i edgeâ€‘cases
+**Interaktywny spis:** [10.1 Migracja do STRICT](#ch-10-1) Â· [10.2 Anchors/Fill vs krawÄ™dzie](#ch-10-2) Â· [10.3 Splitter/Arity](#ch-10-3)
+## # 10.1 Migracja do STRICT {#ch-10-1}
+- WejĹ›cie dowolne â†’ `ensureStrictOtui()` â†’ `parse` â†’ `autofixAst()` â†’ `serializeAst()`.
+## # 10.2 Anchors/Fill vs krawÄ™dzie {#ch-10-2}
+**BĹÄDNY OTUI**
+```otui
 UIWidget
   id: box
   anchors.fill: parent
   anchors.left: parent.left
 ```
 **PO NAPRAWIE (autofix)**
+```otui
 UIWidget
   id: box
   anchors.fill: parent
 ```
-## 10.3 Splitter/Arity {: #ch-10-3 }
-**BA"aA'AA'"A'ADNY OTUI**
+## # 10.3 Splitter/Arity {#ch-10-3}
+**BĹÄDNY OTUI**
+```otui
 Splitter
   id: split
   size: 300 160
@@ -281,6 +289,7 @@ Splitter
 
 ```
 **PO NAPRAWIE (manualnej)**
+```otui
 Splitter
   id: split
   size: 300 160
@@ -295,5 +304,6 @@ Splitter
 ---
 
 <div id="ch-11"></div>
-## 11. Indeks haseA"aAa'L
-- STRICT A'EAasAAA AST A'EAasAAA Macierz A'EAasAAA Walidator A'EAasAAA AutoA'EAasAAa'Anaprawy A'EAasAAA RoundA'EAasAAa'Atrip A'EAasAAA Splitter A'EAasAAA TabBar/TabWidget A'EAasAAA StatusOverlay A'EAasAAA Scroll pairing
+## 11. Indeks haseĹ‚
+- STRICT â€˘ AST â€˘ Macierz â€˘ Walidator â€˘ Autoâ€‘naprawy â€˘ Roundâ€‘trip â€˘ Splitter â€˘ TabBar/TabWidget â€˘ StatusOverlay â€˘ Scroll pairing
+

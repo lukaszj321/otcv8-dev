@@ -1,5 +1,6 @@
-# Modul: `game_prey`
+﻿# ¦ Modul: `game_prey`
 
+```lua
 
 -- sponsored by kivera-global.com
 
@@ -1008,6 +1009,7 @@ end
 ---
 # prey.otmod
 
+```text
 
 Module
 
@@ -1034,6 +1036,7 @@ Module
 ---
 # prey.otui
 
+```otui
 
 LockedPreyPanel < Panel
 
