@@ -1,5 +1,6 @@
-# Modul: `game_bot`
+﻿# ¦ Modul: `game_bot`
 
+```lua
 
 botWindow = nil
 
@@ -1362,6 +1363,7 @@ end
 ---
 # bot.otmod
 
+```text
 
 Module
 
@@ -1384,6 +1386,7 @@ Module
 ---
 # bot.otui
 
+```otui
 
 BotTabBar < TabBar
 
@@ -1616,14 +1619,16 @@ MiniWindow
 ---
 # configs.png
 
+```text
 
-> ERROR: Nie udalo siae odczytaaa pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
+> ERROR: Nie udalo siae odczytaa‡ pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
 
 ```
 
 ---
 # edit.otui
 
+```otui
 
 MainWindow
 
@@ -2082,6 +2087,7 @@ MainWindow
 ---
 # executor.lua
 
+```lua
 
 function executeBot(config, storage, tabs, msgCallback, saveConfigCallback, reloadCallback, websockets)
 
@@ -2904,8 +2910,9 @@ end
 ---
 # scripts.png
 
+```text
 
-> ERROR: Nie udalo siae odczytaaa pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
+> ERROR: Nie udalo siae odczytaa‡ pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
 
 ```
 

@@ -1,5 +1,6 @@
-# Modul: `game_unjustifiedpoints`
+﻿# ¦ Modul: `game_unjustifiedpoints`
 
+```lua
 
 unjustifiedPointsWindow = nil
 
@@ -244,6 +245,7 @@ end
 ---
 # unjustifiedpoints.otmod
 
+```text
 
 Module
 
@@ -266,6 +268,7 @@ Module
 ---
 # unjustifiedpoints.otui
 
+```otui
 
 SkullProgressBar < ProgressBar
 

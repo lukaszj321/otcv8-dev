@@ -1,5 +1,6 @@
-# Modul: `game_healthinfo`
+﻿# ¦ Modul: `game_healthinfo`
 
+```lua
 
 Icons = {}
 
@@ -534,6 +535,7 @@ end
 ---
 # healthinfo.otmod
 
+```text
 
 Module
 
@@ -558,6 +560,7 @@ Module
 ---
 # healthinfo.otui
 
+```otui
 
 HealthInfoWindow
 

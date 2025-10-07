@@ -1,7 +1,7 @@
-# Modules - structured
+﻿# Modules - structured
 
 *This file was generated automatically.*
-## Contents
+# # Contents
 
 - **client** -> ./core/modul-client.md
 - **client_background** -> ./dev_tools/modul-client_background.md

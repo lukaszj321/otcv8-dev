@@ -1,5 +1,6 @@
-# Modul: `game_market`
+﻿# ¦ Modul: `game_market`
 
+```lua
 
 --[[
 
@@ -2412,6 +2413,7 @@ end
 ---
 # market.otmod
 
+```text
 
 Module
 
@@ -2436,6 +2438,7 @@ Module
 ---
 # market.otui
 
+```otui
 
 MarketWindow < MainWindow
 
@@ -2550,6 +2553,7 @@ MarketWindow < MainWindow
 ---
 # marketoffer.lua
 
+```lua
 
 MarketOffer = {}
 
@@ -2814,6 +2818,7 @@ end
 ---
 # marketprotocol.lua
 
+```lua
 
 MarketProtocol = {}
 
@@ -3288,6 +3293,7 @@ end
 ---
 # offerstatistic.lua
 
+```lua
 
 OfferStatistic = {}
 

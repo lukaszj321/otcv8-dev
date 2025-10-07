@@ -1,5 +1,6 @@
-# Modul: `game_ruleviolation`
+﻿# ¦ Modul: `game_ruleviolation`
 
+```lua
 
 rvreasons = {}
 
@@ -264,6 +265,7 @@ end
 ---
 # ruleviolation.otmod
 
+```text
 
 Module
 
@@ -288,6 +290,7 @@ Module
 ---
 # ruleviolation.otui
 
+```otui
 
 RVListLabel < Label
 

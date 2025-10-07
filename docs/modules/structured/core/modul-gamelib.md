@@ -1,5 +1,6 @@
-# Modul: `gamelib`
+﻿# ¦ Modul: `gamelib`
 
+```lua
 
 -- @docconsts @{
 
@@ -734,6 +735,7 @@ ChannelEvent = {
 ---
 # creature.lua
 
+```lua
 
 -- @docclass Creature
 
@@ -1054,6 +1056,7 @@ end
 ---
 # game.lua
 
+```lua
 
 function g_game.getRsa()
 
@@ -1260,6 +1263,7 @@ end
 ---
 # gamelib.otmod
 
+```text
 
 Module
 
@@ -1306,6 +1310,7 @@ Module
 ---
 # market.lua
 
+```lua
 
 MarketMaxAmount = 2000
 
@@ -1678,6 +1683,7 @@ end
 ---
 # player.lua
 
+```lua
 
 -- @docclass Player
 
@@ -1944,6 +1950,7 @@ end
 ---
 # position.lua
 
+```lua
 
 Position = {}
 
@@ -2010,6 +2017,7 @@ end
 ---
 # protocol.lua
 
+```lua
 
 GameServerOpcodes = {
 
@@ -2410,6 +2418,7 @@ ClientOpcodes = {
 ---
 # protocolgame.lua
 
+```lua
 
 local opcodeCallbacks = {}
 
@@ -2646,6 +2655,7 @@ end
 ---
 # protocollogin.lua
 
+```lua
 
 -- @docclass
 
@@ -3160,6 +3170,7 @@ end
 ---
 # spells.lua
 
+```lua
 
 SpelllistSettings = {
 
@@ -4064,6 +4075,7 @@ end
 ---
 # textmessages.lua
 
+```lua
 
 local messageModeCallbacks = {}
 
@@ -4118,6 +4130,7 @@ end
 ---
 # thing.lua
 
+```lua
 
 ThingCategoryItem = 0
 
@@ -4218,6 +4231,7 @@ SpriteMaskYellow = 4
 ---
 # util.lua
 
+```lua
 
 function postostring(pos)
 

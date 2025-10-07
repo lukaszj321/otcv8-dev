@@ -1,5 +1,6 @@
-# Modul: `client_styles`
+﻿# ¦ Modul: `client_styles`
 
+```lua
 
 function init()
 
@@ -106,6 +107,7 @@ end
 ---
 # styles.otmod
 
+```text
 
 Module
 

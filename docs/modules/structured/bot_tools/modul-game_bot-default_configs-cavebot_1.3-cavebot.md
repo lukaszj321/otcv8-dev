@@ -1,5 +1,6 @@
-# Modul: `game_bot/default_configs/cavebot_1.3/cavebot`
+﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot`
 
+```lua
 
 CaveBot.Actions = {}
 
@@ -466,6 +467,7 @@ end)
 ---
 # cavebot.lua
 
+```lua
 
 local cavebotMacro = nil
 
@@ -872,6 +874,7 @@ end
 ---
 # cavebot.otui
 
+```otui
 
 CaveBotAction < Label
 
@@ -968,6 +971,7 @@ CaveBotPanel < Panel
 ---
 # config.lua
 
+```lua
 
 -- config for bot
 
@@ -1140,6 +1144,7 @@ end
 ---
 # config.otui
 
+```otui
 
 CaveBotConfigPanel < Panel
 
@@ -1238,6 +1243,7 @@ CaveBotConfigBooleanValuePanel < Panel
 ---
 # depositer.lua
 
+```lua
 
 CaveBot.Extensions.Depositer = {}
 
@@ -1286,6 +1292,7 @@ end
 ---
 # editor.lua
 
+```lua
 
 CaveBot.Editor = {}
 
@@ -1614,6 +1621,7 @@ end
 ---
 # editor.otui
 
+```otui
 
 CaveBotEditorButton < Button
 
@@ -1694,6 +1702,7 @@ CaveBotEditorPanel < Panel
 ---
 # example_functions.lua
 
+```lua
 
 CaveBot.Editor.ExampleFunctions = {}
 
@@ -1858,6 +1867,7 @@ return "retry"
 ---
 # extension_template.lua
 
+```lua
 
 -- example cavebot extension (remember to add this file to ../cavebot.lua)
 
@@ -1966,6 +1976,7 @@ end
 ---
 # recorder.lua
 
+```lua
 
 -- auto recording for cavebot
 
@@ -2086,6 +2097,7 @@ end
 ---
 # supply.lua
 
+```lua
 
 CaveBot.Extensions.Supply = {}
 
@@ -2140,6 +2152,7 @@ end
 ---
 # supply.otui
 
+```otui
 
 SupplyItem < Panel
 
@@ -2272,6 +2285,7 @@ SupplyItemList < Panel
 ---
 # walking.lua
 
+```lua
 
 -- walking
 

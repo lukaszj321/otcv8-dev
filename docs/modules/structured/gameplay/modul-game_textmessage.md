@@ -1,5 +1,6 @@
-# Modul: `game_textmessage`
+﻿# ¦ Modul: `game_textmessage`
 
+```lua
 
 MessageSettings = {
 
@@ -228,6 +229,7 @@ end
 ---
 # textmessage.otmod
 
+```text
 
 Module
 
@@ -252,6 +254,7 @@ Module
 ---
 # textmessage.otui
 
+```otui
 
 TextMessageLabel < UILabel
 

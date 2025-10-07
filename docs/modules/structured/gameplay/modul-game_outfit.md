@@ -1,5 +1,6 @@
-# Modul: `game_outfit`
+﻿# ¦ Modul: `game_outfit`
 
+```lua
 
 local window = nil
 
@@ -2232,6 +2233,7 @@ end
 ---
 # outfit.otmod
 
+```text
 
 Module
 
@@ -2256,6 +2258,7 @@ Module
 ---
 # outfitwindow.otui
 
+```otui
 
 FloorTile < UIWidget
 

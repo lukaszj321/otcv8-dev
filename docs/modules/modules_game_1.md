@@ -1,10 +1,10 @@
-# Modules Game 1
+﻿# Modules Game 1
 
 ---
-## game_interface
+# # game_interface
 # Game Interface Module
-## `gameinterface.lua`
-## Funkcje
+# # `gameinterface.lua`
+# # # Funkcje
 
 - `init()`
 - `bindKeys()`
@@ -56,7 +56,7 @@
 - `local addLeftPanel()`
 - `local removeRightPanel()`
 - `local removeLeftPanel()`
-## Eventy / Hooki
+# # # Eventy / Hooki
 
 - `addEvent`
 - `connect`
@@ -82,7 +82,7 @@
 - `onVisibleDimensionChange`
 - `online`
 - `scheduleEvent`
-## Wywoania API
+# # # Wywołania API
 
 - `g_clock`
 - `g_game`
@@ -93,10 +93,10 @@
 - `g_window`
 
 ---
-## game_inventory
+# # game_inventory
 # Game Inventory Module
-## `inventory.lua`
-## Funkcje
+# # `inventory.lua`
+# # # Funkcje
 
 - `init()`
 - `terminate()`
@@ -123,7 +123,7 @@
 - `onSoulChange(localPlayer, soul)`
 - `onFreeCapacityChange(player, freeCapacity)`
 - `onStatesChange(localPlayer, now, old)`
-## Eventy / Hooki
+# # # Eventy / Hooki
 
 - `connect`
 - `onAutoWalk`
@@ -151,17 +151,17 @@
 - `onStatesChange`
 - `onWalk`
 - `online`
-## Wywoania API
+# # # Wywołania API
 
 - `g_game`
 - `g_keyboard`
 - `g_ui`
 
 ---
-## game_console
+# # game_console
 # Game Console Module
-## `console.lua`
-## Funkcje
+# # `console.lua`
+# # # Funkcje
 
 - `init()`
 - `clearSelection(consoleBuffer)`
@@ -240,7 +240,7 @@
 - `online()`
 - `offline()`
 - `onChannelEvent(channelId, name, type)`
-## Eventy / Hooki
+# # # Eventy / Hooki
 
 - `connect`
 - `onChannelEvent`
@@ -272,7 +272,7 @@
 - `onTalk`
 - `online`
 - `scheduleEvent`
-## Wywoania API
+# # # Wywołania API
 
 - `g_game`
 - `g_keyboard`
@@ -281,26 +281,26 @@
 - `g_window`
 
 ---
-## game_things
+# # game_things
 # Game Things Module
-## `things.lua`
-## Funkcje
+# # `things.lua`
+# # # Funkcje
 
 - `setFileName(name)`
 - `isLoaded()`
 - `load()`
-## Eventy / Hooki
+# # # Eventy / Hooki
 
 - `addEvent`
-## Wywoania API
+# # # Wywołania API
 
 - `g_game`
 
 ---
-## game_textmessage
+# # game_textmessage
 # Game Textmessage Module
-## `textmessage.lua`
-## Funkcje
+# # `textmessage.lua`
+# # # Funkcje
 
 - `init()`
 - `terminate()`
@@ -312,28 +312,28 @@
 - `displayGameMessage(text)`
 - `displayBroadcastMessage(text)`
 - `clearMessages()`
-## Eventy / Hooki
+# # # Eventy / Hooki
 
 - `connect`
 - `onAutoWalkFail`
 - `onGameEnd`
 - `scheduleEvent`
-## Wywoania API
+# # # Wywołania API
 
 - `g_game`
 - `g_ui`
 
 ---
-## game_buttons
+# # game_buttons
 # Game Buttons Module
-## `buttons.lua`
-## Funkcje
+# # `buttons.lua`
+# # # Funkcje
 
 - `init()`
 - `terminate()`
 - `takeButtons(buttons)`
 - `takeButton(button, dontUpdateOrder)`
 - `updateOrder()`
-## Wywoania API
+# # # Wywołania API
 
 - `g_ui`

@@ -1,5 +1,6 @@
-# Modul: `game_hotkeys`
+﻿# ¦ Modul: `game_hotkeys`
 
+```lua
 
 extraHotkeys = {}
 
@@ -224,6 +225,7 @@ end
 ---
 # hotkeys_manager.lua
 
+```lua
 
 HOTKEY_MANAGER_USE = nil
 
@@ -1496,6 +1498,7 @@ end
 ---
 # hotkeys_manager.otmod
 
+```text
 
 Module
 
@@ -1520,6 +1523,7 @@ Module
 ---
 # hotkeys_manager.otui
 
+```otui
 
 HotkeyListLabel < UILabel
 

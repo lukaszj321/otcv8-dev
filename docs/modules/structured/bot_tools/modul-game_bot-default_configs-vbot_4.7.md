@@ -1,5 +1,6 @@
-# Modul: `game_bot/default_configs/vBot_4.7`
+﻿# ¦ Modul: `game_bot/default_configs/vBot_4.7`
 
+```lua
 
 -- load all otui files, order doesn't matter
 
