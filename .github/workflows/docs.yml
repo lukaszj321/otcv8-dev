@@ -7,6 +7,7 @@ on:
     paths:
       - 'mkdocs.yml'
       - 'docs/**'
+      - 'scripts/**'
       - '.github/workflows/docs.yml'
   workflow_dispatch:
 
@@ -25,10 +26,12 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
+        with:
+          python-version: '3.11'
 
       - name: Install deps
         run: |
@@ -42,6 +45,10 @@ jobs:
             mkdocs-git-revision-date-localized-plugin \
             mkdocs-redirects \
             pymdown-extensions
+
+      # (opcjonalnie) jeśli chcesz generować mkdocs.yml w CI:
+      # - name: Generate mkdocs.yml
+      #   run: python scripts/generate_mkdocs.py
 
       - name: Build site
         run: mkdocs build --clean -v
