@@ -1,8 +1,8 @@
-# Lua — style guide
+# Lua â€” style guide
 
 - snake_case dla zmiennych i funkcji.
-- ModuA�ąA?€L?y zwracają tabelę publicznego API.
+- ModuAďż˝Ä…A?â‚¬L?y zwracajÄ… tabelÄ™ publicznego API.
 - Brak efektAlw ubocznych w `require`.
 - Pliki < 300 linii, funkcje < 50 linii.
-- ObsA�ąA?€L?uga bA�ąA?€L?ędAlw: `pcall/xpcall` dla krytycznych A�ąA?€LzcieA�ąA��tek.
-- Logowanie warunkowe przez `DEBUG` flagę.
+- ObsAďż˝Ä…A?â‚¬L?uga bAďż˝Ä…A?â‚¬L?Ä™dAlw: `pcall/xpcall` dla krytycznych Aďż˝Ä…A?â‚¬LzcieAďż˝Ä…Aďż˝ďż˝tek.
+- Logowanie warunkowe przez `DEBUG` flagÄ™.
