@@ -1,4 +1,5 @@
-﻿# ¦ Modul: `corelib/ui`
+{% raw %}
+# ¦ Modul: `corelib/ui`
 
 ```lua
 
@@ -6988,3 +6989,5 @@ end
 ```
 
 ---
+
+{% endraw %}

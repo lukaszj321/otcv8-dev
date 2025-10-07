@@ -1,4 +1,5 @@
-﻿# ¦ Modul: `client_textedit`
+{% raw %}
+# ¦ Modul: `client_textedit`
 
 ```lua
 
@@ -453,3 +454,5 @@ MultilineTextEditWindow < TextEditWindow
 ```
 
 ---
+
+{% endraw %}

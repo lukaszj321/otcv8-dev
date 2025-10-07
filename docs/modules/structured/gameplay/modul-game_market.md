@@ -1,4 +1,5 @@
-﻿# ¦ Modul: `game_market`
+{% raw %}
+# ¦ Modul: `game_market`
 
 ```lua
 
@@ -3462,3 +3463,5 @@ end
 ```
 
 ---
+
+{% endraw %}

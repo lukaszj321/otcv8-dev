@@ -1,4 +1,5 @@
-﻿# ¦ Modul: `game_bot/functions`
+{% raw %}
+# ¦ Modul: `game_bot/functions`
 
 ```lua
 
@@ -4429,3 +4430,5 @@ end
 ```
 
 ---
+
+{% endraw %}

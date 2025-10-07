@@ -1,4 +1,5 @@
-﻿# ¦ Modul: `game_bot/default_configs/vBot_4.7/targetbot`
+{% raw %}
+# ¦ Modul: `game_bot/default_configs/vBot_4.7/targetbot`
 
 ```lua
 
@@ -2784,3 +2785,5 @@ end
 ```
 
 ---
+
+{% endraw %}

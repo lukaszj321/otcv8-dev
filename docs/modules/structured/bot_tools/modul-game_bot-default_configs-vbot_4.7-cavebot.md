@@ -1,4 +1,5 @@
-﻿# ¦ Modul: `game_bot/default_configs/vBot_4.7/cavebot`
+{% raw %}
+# ¦ Modul: `game_bot/default_configs/vBot_4.7/cavebot`
 
 ```lua
 
@@ -5990,3 +5991,5 @@ end
 ```
 
 ---
+
+{% endraw %}
