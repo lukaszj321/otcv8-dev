@@ -93,7 +93,7 @@ Handles keyboard and mouse input.
 g_keyboard:getModifiers()          -- Returns a string with active modifiers ("shift", "ctrl", "alt")
 g_keyboard:setRepeatDelay(delay)   -- Sets the key repeat delay
 g_keyboard:setRepeatInterval(interval) -- Sets the key repeat interval
-
+```
 ---
 
 ## # **1. Core Globals & Managers**
@@ -297,6 +297,7 @@ These are not widgets but are used extensively to define widget properties.
 ---
 
 ```
+
 
 
 
