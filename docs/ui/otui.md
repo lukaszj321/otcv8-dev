@@ -1,47 +1,9 @@
-﻿# OTU
-
-I
-
-—
-
-p
-
-o
-
-d
-
-s
-
-t
-
-a
-
-w
-
-y
+﻿# OTUI - podstawy
 
 !!! info
 
     OTUI to deklaratywne layouty interfejsu użytkownika.
-## Przykł
-
-a
-
-d
-
-l
-
-a
-
-y
-
-o
-
-u
-
-t
-
-u
+## Przykład layoutu
 
 ```otui
 Panel
@@ -54,45 +16,11 @@ Label
   anchors.centerIn: parent
 
 ```
-## Zdarzenia
-
-/
-
-w
-
-i
-
-ą
-
-z
-
-a
-
-n
-
-i
-
-a
+## Zdarzenia / wiązania
 
 - Właściwości elementów można powiązać z danymi (np. przez Lua).
 - Aktualizacje push przez eventy modułów.
-## W
-
-s
-
-k
-
-a
-
-z
-
-ó
-
-w
-
-k
-
-i
+## Wskazówki
 
 - Trzymaj layouty w `layouts/*`.
 - Styluj wspólnymi klasami, nie inline.
