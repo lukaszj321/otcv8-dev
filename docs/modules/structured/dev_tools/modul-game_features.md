@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_features`
+# Ĺ Modul: `game_features`
 
 ```lua
 

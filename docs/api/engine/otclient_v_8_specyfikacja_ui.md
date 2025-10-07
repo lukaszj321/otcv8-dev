@@ -1,15 +1,15 @@
-﻿# OTClient v8 — Specyfikacja UI
+# OTClient v8 — Specyfikacja UI
 
 ---
 # # 0. Wprowadzenie i zasady
 - [0.1 Cel i zakres „1:1”](#ch-0-1)
-- [0.2 Terminologia (widget, layout‑owner, area/slot, preset, blueprint, AST)](#ch-0-2)
-- [0.3 Kryteria jakości (deterministyczny round‑trip, zgodność 1:1)](#ch-0-3)
+- [0.2 Terminologia (widget, layout-owner, area/slot, preset, blueprint, AST)](#ch-0-2)
+- [0.3 Kryteria jakości (deterministyczny round-trip, zgodność 1:1)](#ch-0-3)
 - [0.4 Workflow: projekt → walidacja → serializacja → eksport → import](#ch-0-4)
 # # 1. Konwencje formatowania i STRICT OTUI
 - [1.1 Indent 2 sp., LF, bez BOM, bez tabów/komentarzy](#ch-1-1)
 - [1.2 Kolejność atrybutów: GEOMETRIA → STYL → ZACHOWANIE](#ch-1-2)
-- [1.3 Teksty i i18n: `!text: tr('...')`, wrap/auto‑resize/align/offset](#ch-1-3)
+- [1.3 Teksty i i18n: `!text: tr('...')`, wrap/auto-resize/align/offset](#ch-1-3)
 - [1.4 Stany: `$on`, `$!on`, `$focus` (kompletność bloków)](#ch-1-4)
 - [1.5 Zasoby `data/`: fonty, obrazy, kolory (#AARRGGBB/alpha)](#ch-1-5)
 # # 2. Architektura UI
@@ -18,10 +18,10 @@
 - [2.3 Hierarchia i identyfikacja (`id`, `getChildById`) ](#ch-2-3)
 - [2.4 Fokus i nawigacja (bindy, `@onSetup`, FocusReason)](#ch-2-4)
 # # 3. Layout i własność układu
-- [3.1 Zasada „layout‑owner” (parent vs child)](#ch-3-1)
+- [3.1 Zasada „layout-owner” (parent vs child)](#ch-3-1)
 - [3.2 Anchors, size, margins, padding — reguły i kolizje](#ch-3-2)
 - [3.3 Scroll pairing (TextList/Multiline ↔ ScrollBar)](#ch-3-3)
-- [3.4 Auto‑fit width (okna w panelach/kontenerach)](#ch-3-4)
+- [3.4 Auto-fit width (okna w panelach/kontenerach)](#ch-3-4)
 # # 4. Taksonomia komponentów (przegląd)
 - [4.1 Okna: MainWindow, StaticMainWindow, MiniWindow, ContainerWindow, DialogWindow](#ch-4-1)
 - [4.2 Kontenery: Panel, GroupBox, UIWidget, Grid, StatusOverlay](#ch-4-2)
@@ -38,7 +38,7 @@
 - [5.5 Blueprint OTUI (kanoniczny)](#ch-5-5)
 - [5.6 Mapowanie TS ↔ OTUI (serializer)](#ch-5-6)
 - [5.7 Walidator (błędy/ostrzeżenia)](#ch-5-7)
-- [5.8 Przykłady i edge‑cases](#ch-5-8)
+- [5.8 Przykłady i edge-cases](#ch-5-8)
 # # 6. StaticMainWindow
 - [6.1 Struktura i sloty](#ch-6-1)
 - [6.2 Dozwolone dzieci (macierz)](#ch-6-2)
@@ -50,8 +50,8 @@
 - [6.8 Przykłady](#ch-6-8)
 # # 7. MiniWindow
 - [7.1 Struktura (titlebar/content/footer)](#ch-7-1)
-- [7.2 Titlebar: minimize/close, drag‑area](#ch-7-2)
-- [7.3 Auto‑fit width i docking](#ch-7-3)
+- [7.2 Titlebar: minimize/close, drag-area](#ch-7-2)
+- [7.3 Auto-fit width i docking](#ch-7-3)
 - [7.4 Stany i zdarzenia](#ch-7-4)
 - [7.5 Blueprint OTUI](#ch-7-5)
 - [7.6 TS↔OTUI](#ch-7-6)
@@ -76,7 +76,7 @@
 # # 10. Titlebar
 - [10.1 Ikona, tytuł, przyciski](#ch-10-1)
 - [10.2 Slot i dozwolone dzieci](#ch-10-2)
-- [10.3 Drag‑move, fokus](#ch-10-3)
+- [10.3 Drag-move, fokus](#ch-10-3)
 - [10.4 Blueprint/TS/Walidator](#ch-10-4)
 # # 11. Toolbar
 - [11.1 Grupy akcji i separatory](#ch-11-1)
@@ -84,24 +84,24 @@
 - [11.3 Blueprint/TS/Walidator](#ch-11-3)
 # # 12. Panel / GroupBox
 - [12.1 Sloty treści, nagłówki, separatory](#ch-12-1)
-- [12.2 Dozwolone dzieci i auto‑fit](#ch-12-2)
+- [12.2 Dozwolone dzieci i auto-fit](#ch-12-2)
 - [12.3 Blueprint/TS/Walidator](#ch-12-3)
 # # 13. TabBar / TabWidget
 - [13.1 Zakładki i kontener treści](#ch-13-1)
 - [13.2 Zdarzenia i aktywacja](#ch-13-2)
 - [13.3 Blueprint/TS/Walidator](#ch-13-3)
 # # 14. Splitter
-- [14.1 Dwoje dzieci, min‑size, pamięć podziału](#ch-14-1)
+- [14.1 Dwoje dzieci, min-size, pamięć podziału](#ch-14-1)
 - [14.2 Blueprint/TS/Walidator](#ch-14-2)
 # # 15. TextList / ListRow
 - [15.1 Struktura wiersza (focus/select)](#ch-15-1)
 - [15.2 Scroll pairing i kotwice](#ch-15-2)
 - [15.3 Blueprinty row + walidator](#ch-15-3)
 # # 16. Label / UILabel
-- [16.1 Wrap/auto‑resize/font/kolor/offset](#ch-16-1)
+- [16.1 Wrap/auto-resize/font/kolor/offset](#ch-16-1)
 - [16.2 Blueprint/TS/Walidator](#ch-16-2)
 # # 17. Button
-- [17.1 Stany `$on/$!on`, ikonografia, min‑size](#ch-17-1)
+- [17.1 Stany `$on/$!on`, ikonografia, min-size](#ch-17-1)
 - [17.2 Shortcuts i zdarzenia](#ch-17-2)
 - [17.3 Blueprint/TS/Walidator](#ch-17-3)
 # # 18. CheckBox
@@ -119,7 +119,7 @@
 - [21.1 Zakres, style, opis stanu](#ch-21-1)
 - [21.2 Blueprint/TS/Walidator](#ch-21-2)
 # # 22. ScrollBar (Vertical/Horizontal)
-- [22.1 Docking (right/bottom), step, pixels‑scroll](#ch-22-1)
+- [22.1 Docking (right/bottom), step, pixels-scroll](#ch-22-1)
 - [22.2 Pairing rules + walidator](#ch-22-2)
 # # 23. HorizontalSeparator
 - [23.1 Użycie i ograniczenia](#ch-23-1)
@@ -131,17 +131,17 @@
 ---
 # # 25. Macierze dozwolonych dzieci (global)
 - [25.1 Tabele macierzowe per komponent i slot](#ch-25-1)
-- [25.2 Reguły globalne, zakazy, auto‑naprawy](#ch-25-2)
-# # 26. Walidacja i auto‑naprawy (global)
+- [25.2 Reguły globalne, zakazy, auto-naprawy](#ch-25-2)
+# # 26. Walidacja i auto-naprawy (global)
 - [26.1 Błędy blokujące (STRICT, anchors, wymagane elementy)](#ch-26-1)
 - [26.2 Ostrzeżenia (scroll pairing, Enter/Escape, Min/Close)](#ch-26-2)
-- [26.3 Auto‑naprawy deterministyczne (kolejność, sloty, scroll, snapping 2px)](#ch-26-3)
+- [26.3 Auto-naprawy deterministyczne (kolejność, sloty, scroll, snapping 2px)](#ch-26-3)
 # # 27. Parser/Serializer OTUI → AST (TypeScript)
 - [27.1 Specyfikacja tokenów i INDENT/DEDENT](#ch-27-1)
 - [27.2 Kształt AST; API `parseOtui()` i `serializeAst()`](#ch-27-2)
 - [27.3 Normalizacja do STRICT (`ensureStrictOtui()`)](#ch-27-3)
-- [27.4 Testy „round‑trip” (goldeny)](#ch-27-4)
-# # 28. Import/Export i round‑trip (edytor ↔ plik ↔ Lua)
+- [27.4 Testy „round-trip” (goldeny)](#ch-27-4)
+# # 28. Import/Export i round-trip (edytor ↔ plik ↔ Lua)
 - [28.1 Import z `.otui` i z bloków `@OTUI_BEGIN/END`](#ch-28-1)
 - [28.2 Eksport do `.otui` + odświeżenie bloku w Lua](#ch-28-2)
 - [28.3 Generatory stubów Lua (`g_ui.displayUI('...')` + kontrolery)](#ch-28-3)
@@ -163,15 +163,15 @@
 <!-- Puste kotwice (placeholdery), aby linki działały od razu -->
 <div id="ch-0-1"></div>
 # # # 0.1 Cel i zakres „1:1”
-Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/OTML + Lua) oraz wymagania dla Twojego **edytora TypeScript**: jak składać okna i komponenty, aby eksport/import był **deterministyczny i w 100% zgodny** z klientem. Zawiera: reguły formatowania (STRICT OTUI), taksonomię komponentów, macierze dozwolonych dzieci, blueprinty OTUI, glue Lua, walidację, parser/serializer OTUI→AST i round‑trip (edytor ↔ plik `.otui` ↔ Lua).<div id="ch-0-2"></div>
+Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/OTML + Lua) oraz wymagania dla Twojego **edytora TypeScript**: jak składać okna i komponenty, aby eksport/import był **deterministyczny i w 100% zgodny** z klientem. Zawiera: reguły formatowania (STRICT OTUI), taksonomię komponentów, macierze dozwolonych dzieci, blueprinty OTUI, glue Lua, walidację, parser/serializer OTUI→AST i round-trip (edytor ↔ plik `.otui` ↔ Lua).<div id="ch-0-2"></div>
 # # # 0.2 Terminologia
 - **Widget** — jednostka UI (np. Label, Button, TextList).
-- **Layout‑owner** — rodzic odpowiadający za obszary/sloty i dokowanie dzieci.
+- **Layout-owner** — rodzic odpowiadający za obszary/sloty i dokowanie dzieci.
 - **Area/slot** — semantyczna przestrzeń dla dzieci (np. `titlebar`, `content`, `footer`).
 - **Preset/Blueprint** — gotowy wzorzec OTUI danego komponentu/okna.
 - **AST** — abstrakcyjne drzewo składniowe w edytorze (model OTUI w TS).
 - **STRICT OTUI** — ścisły format tekstu `.otui`: LF, 2 spacje, brak tabów/komentarzy, stała kolejność atrybutów.
-- **Round‑trip** — pewny obieg: import → edycja → eksport bez utraty semantyki ani formatowania regułowego.<div id="ch-0-3"></div>
+- **Round-trip** — pewny obieg: import → edycja → eksport bez utraty semantyki ani formatowania regułowego.<div id="ch-0-3"></div>
 # # # 0.3 Kryteria jakości
 - **Zgodność 1:1** z OTClientem (układ, stany, eventy, zasoby).
 - **Deterministyczny eksport** (ta sama treść wej./wyj. po serializacji, przy zachowaniu STRICT).
@@ -185,7 +185,7 @@ Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/
 3) **Serializacja** do `.otui` (kolejność GEOMETRIA→STYL→ZACHOWANIE).  
 4) **Eksport**: zapis `.otui` + generator stubów Lua (`g_ui.displayUI('...')`).  
 5) **Import**: z plików `.otui` lub bloków Lua oznaczonych `@OTUI_BEGIN/END`.  
-6) **Round‑trip**: zmiany w edytorze odzwierciedlone w pliku i opcjonalnym bloku Lua.
+6) **Round-trip**: zmiany w edytorze odzwierciedlone w pliku i opcjonalnym bloku Lua.
 <div id="ch-1-1"></div>
 # # # 1.1 Indent i STRICT
 - **LF**, bez BOM; **spacje** (bez tabów); **brak trailing spaces**.  
@@ -266,13 +266,13 @@ name:setText(tr('Name'))
 - Fokus: `widget:focus()`, powody fokusowania (FocusReason) wpływają na zachowanie.  
 - Listy: `focusNextChild/PreviousChild`, zapewnij `ensureChildVisible` przy przewijaniu.
 <div id="ch-3-1"></div>
-# # # 3.1 Zasada „layout‑owner”
+# # # 3.1 Zasada „layout-owner”
 - **Parent** definiuje sloty i reguły dokowania (anchors, padding, marginesy).  
 - **Child** ustawia swoje `anchors.*` względem parenta/sąsiadów.  
 - ScrollBar należy do parenta (kontenera), ale jest **sparowany** z przewijanym dzieckiem.<div id="ch-3-2"></div>
 # # # 3.2 Anchors, size, margins, kolizje
 - `anchors.fill: parent` **nie** łącz z jednoczesnym `top/bottom/left/right`.  
-- Jeśli okno jest dokowane w panelu: ustaw `anchors.left/right: parent` i usuń `width` (auto‑fit).  
+- Jeśli okno jest dokowane w panelu: ustaw `anchors.left/right: parent` i usuń `width` (auto-fit).  
 - Marginesy `margin-*` i `padding` determinują odstępy — trzymaj parzyste wartości (snapping 2 px).<div id="ch-3-3"></div>
 # # # 3.3 Scroll pairing
 - `TextList`/`MultilineTextEdit` ⇄ **`VerticalScrollBar`** jako **sibling**:  
@@ -280,28 +280,28 @@ name:setText(tr('Name'))
   - Lista/tekst: `anchors.right: scroll.left`.  
 - `HorizontalScrollBar` dokowany na dole; treść: `anchors.bottom: hscroll.top`.  
 - Samotny ScrollBar → błąd walidacji.<div id="ch-3-4"></div>
-# # # 3.4 Auto‑fit width (dokowane okna)
+# # # 3.4 Auto-fit width (dokowane okna)
 - Dla `MiniWindow`/`DialogWindow` w panelach: domyślnie **rozciągaj w poziomie** (`anchors.left/right: parent`) i zarządzaj odstępami przez `margin-*`.  
-- Edytor przy eksporcie **auto‑naprawia**: usuwa `width`, gdy ustawiono `left/right`.
+- Edytor przy eksporcie **auto-naprawia**: usuwa `width`, gdy ustawiono `left/right`.
 <div id="ch-4-1"></div>
-# # # 4.1 Okna (Window‑class)
+# # # 4.1 Okna (Window-class)
 **Cel**: najwyższe elementy kompozycji; zapewniają ramę, titlebar, focus i skróty.
 
 - **MainWindow**  
   *Rola*: główne okno modułu/sceny.  
   *Sloty*: brak nazwanych slotów — treść bezpośrednio w root.  
   *Typowe*: pełnoekran/duże panele, dopuszcza wszystkie „panelowe” dzieci.  
-  *Zakazy*: okna‑dzieci (inne Main/StaticMain) jako potomkowie.
+  *Zakazy*: okna-dzieci (inne Main/StaticMain) jako potomkowie.
 
 - **StaticMainWindow**  
-  *Rola*: jak MainWindow, ale **bez drag‑move** (statyczne tło/ekrany).  
+  *Rola*: jak MainWindow, ale **bez drag-move** (statyczne tło/ekrany).  
   *Użycie*: ekrany logowania, waiting list.
 
 - **MiniWindow**  
   *Rola*: modułowe okno narzędziowe.  
   *Sloty*: `titlebar`, `content`, `footer`.  
   *Przyciski*: **minimize**, **close** (opcjonalnie **back/pin**).  
-  *Auto‑fit*: domyślnie rozciąga się na szerokość rodzica w panelu.
+  *Auto-fit*: domyślnie rozciąga się na szerokość rodzica w panelu.
 
 - **ContainerWindow**  
   *Rola*: przeglądanie zawartości (sloty/items).  
@@ -313,7 +313,7 @@ name:setText(tr('Name'))
   *Rola*: potwierdzenia/prompt.  
   *Skróty*: `@onEnter` (OK), `@onEscape` (Cancel).  
   *Sloty*: typowo tytuł + treść + przyciski OK/Cancel.<div id="ch-4-2"></div>
-# # # 4.2 Kontenery (Content‑class)
+# # # 4.2 Kontenery (Content-class)
 **Cel**: organizacja i grupowanie treści.
 
 - **Panel**  
@@ -334,7 +334,7 @@ name:setText(tr('Name'))
 **Cel**: nawigowanie, przełączanie kontekstu, dzielenie przestrzeni.
 
 - **Titlebar**  
-  Slot nagłówka okna: `Label` (tytuł), przyciski (**min/close/back/pin**), ewentualna ikona. Może stanowić **drag‑area**. Zakaz list, edytorów, scrollbarów.
+  Slot nagłówka okna: `Label` (tytuł), przyciski (**min/close/back/pin**), ewentualna ikona. Może stanowić **drag-area**. Zakaz list, edytorów, scrollbarów.
 
 - **Toolbar**  
   Pasek akcji (grupy `Button`, separatory). Stany toggle, skróty klawiszowe.
@@ -396,7 +396,7 @@ To **nazwa własna** dzieci, nie formalny „slot” klasy — pomaga w edytorze
 |---|---|---|
 | root | `UIWidget`, `Panel`, `Label`, `Button`, `TextEdit`, `PasswordTextEdit`, `MultilineTextEdit`, `TextList`, `ComboBox`, `CheckBox`, `ProgressBar`, `VerticalScrollBar`, `HorizontalSeparator`, `TabBar`, `Splitter` | Inne okna (`MainWindow/StaticMainWindow/MiniWindow/ContainerWindow/DialogWindow`) — ✖ |
 | `header` (jeśli wydzielisz) | `Label`, `Button`, `Toolbar`, `UIWidget` (ikona) | Scroll/edytory/listy — ✖ |
-| `content` | wszystkie elementy „panelowe” (lista powyżej) | okna‑dzieci — ✖ |
+| `content` | wszystkie elementy „panelowe” (lista powyżej) | okna-dzieci — ✖ |
 | `footer` | `Button`, `Label`, `ProgressBar` | listy/edytory — ✖ |
 
 **Scroll pairing:** jeśli w `content` dodasz `TextList`/`MultilineTextEdit`, dockuj **VerticalScrollBar** po prawej i kotwicz treść do `scroll.left`.<div id="ch-5-3"></div>
@@ -408,7 +408,7 @@ To **nazwa własna** dzieci, nie formalny „slot” klasy — pomaga w edytorze
 - **Teksty**: wyłącznie `!text: tr('...')` (STRICT). 
 - **Fonty/obrazy**: tylko z `data/`.
 
-> **Auto‑fit width**: osadzone w panelu `MainWindow` powinno domyślnie rozciągać się na szerokość rodzica (edytor może automatycznie usuwać `width`).<div id="ch-5-4"></div>
+> **Auto-fit width**: osadzone w panelu `MainWindow` powinno domyślnie rozciągać się na szerokość rodzica (edytor może automatycznie usuwać `width`).<div id="ch-5-4"></div>
 # # # 5.4 Stany i zdarzenia
 - **Zdarzenia okienne**: `@onEnter` (OK/Apply), `@onEscape` (Cancel/Close), `@onSetup` (bindy klawiszy). 
 - **Stany**: `MainWindow` z reguły nie używa `$on/$!on` na sobie; stosuj na przyciskach/wierszach listy.
@@ -540,7 +540,7 @@ export function presetMainWindow(): WidgetNode {
 - Brak `@onEnter/@onEscape` przy oknie z przyciskami OK/Cancel.
 - Brak `header`/`footer` przy złożonych układach (zalecenie porządkowe). 
 - Nieparzyste marginesy (odstęp od siatki 2 px).<div id="ch-5-8"></div>
-# # # 5.8 Przykłady i edge‑cases
+# # # 5.8 Przykłady i edge-cases
 - **Fullscreen tło**: zamiast narzucać `size`, użyj `anchors.fill: parent` i obraz tła z `image-fixed-ratio: true` (bez łączenia z ręcznymi kotwicami). 
 - **Lista bez scrolla**: jeśli wiesz, że elementów jest mało — dopuszczalne, ale walidator zasugeruje dodanie scrolla przy overflow. 
 - **Shortcuty**: w `@onSetup` zbinduj strzałki, PageUp/Down do nawigacji po liście; Enter/Escape do akcji. 
@@ -548,7 +548,7 @@ export function presetMainWindow(): WidgetNode {
 - **Nadpisywanie geometrii w stanach**: unikaj modyfikowania `anchors/size` wewnątrz `$on/$!on/$focus` — trzymaj stany stylistyczne (kolor/tekst).
 <div id="ch-6-1"></div>
 # # # 6.1 Struktura i sloty
-**StaticMainWindow** to główne okno **statyczne** (bez drag‑move), stosowane m.in. dla ekranów logowania, komunikatów, list oczekiwania. Nie posiada formalnych slotów jak `titlebar/content/footer`, ale zalecamy logiczny podział na: `header`, `content`, `footer` (jako `UIWidget`).
+**StaticMainWindow** to główne okno **statyczne** (bez drag-move), stosowane m.in. dla ekranów logowania, komunikatów, list oczekiwania. Nie posiada formalnych slotów jak `titlebar/content/footer`, ale zalecamy logiczny podział na: `header`, `content`, `footer` (jako `UIWidget`).
 
 - **header** (opcjonalny): pasek tytułu/toolbar (Label/Buttons).  
 - **content**: główna przestrzeń treści (teksty, listy, formularze, progress).  
@@ -565,7 +565,7 @@ StaticMainWindow nie powinno mieć **innych okien** jako dzieci.<div id="ch-6-2"
 
 **Scroll pairing**: przy `TextList`/`MultilineTextEdit` dodaj **VerticalScrollBar** (dok po prawej), a treść kotwicz do `scroll.left`.<div id="ch-6-3"></div>
 # # # 6.3 Geometria i styl
-- **Rozmiar/pozycja**: `size: W H` lub anchors; w panelach → auto‑fit szerokości (`anchors.left/right: parent`, bez `width`).
+- **Rozmiar/pozycja**: `size: W H` lub anchors; w panelach → auto-fit szerokości (`anchors.left/right: parent`, bez `width`).
 - **Kotwice**: nie łącz `anchors.fill: parent` z ręcznymi `top/bottom/left/right`.
 - **Marginesy/padding**: parzyste wartości (snapping 2 px).
 - **Tło**: `background-color` albo `image-source` (np. ekran powitalny) + `image-smooth/fixed-ratio` w razie potrzeby.
@@ -698,7 +698,7 @@ export function presetStaticMainWindow(): WidgetNode {
 - Brak `@onEnter/@onEscape` w ekranie wymagającym akcji (OK/Cancel).
 - Brak `header`/`footer` przy złożonych układach. 
 - Nieparzyste marginesy (snapping 2 px).<div id="ch-6-8"></div>
-# # # 6.8 Przykłady i edge‑cases
+# # # 6.8 Przykłady i edge-cases
 - **Ekran oczekiwania**: `Label` (wrap) + `ProgressBar`; `Cancel` w `footer`; brak list — ScrollBar opcjonalny.  
 - **MOTD / długi komunikat**: `MultilineTextEdit` + **VerticalScrollBar**; `@onEnter` = Continue, `@onEscape` = Back.  
 - **Tło pełnoekranowe**: `image-source` + `image-fixed-ratio`; zakotwicz `anchors.fill: parent` (bez mieszania z krawędziami).  
@@ -711,14 +711,14 @@ export function presetStaticMainWindow(): WidgetNode {
 - **`footer`** — przyciski akcji (OK/Cancel/Apply) lub status.
 
 **Zakazy**: w `titlebar/footer` nie umieszczaj `ScrollBar`, list ani edytorów; w `content` nie osadzaj innych okien (`*Window`).<div id="ch-7-2"></div>
-# # # 7.2 Titlebar: minimize/close, drag‑area
+# # # 7.2 Titlebar: minimize/close, drag-area
 - **Minimize** zwija/rozwija `content` i `footer` (zmiana widoczności/wysokości); stan może być odzwierciedlany na przycisku (np. `!text: tr('-')`/`!text: tr('+')`).
 - **Close** wywołuje akcję zamknięcia (ukrycie/usunięcie okna przez kontroler Lua).
 - **Back/Pin** (opcjonalnie) — stosowane w wariantach kontenerowych/narzędziowych.
-- **Drag‑area**: `titlebar` może pełnić obszar przeciągania (obsługa po stronie klienta/kontrolera).
+- **Drag-area**: `titlebar` może pełnić obszar przeciągania (obsługa po stronie klienta/kontrolera).
 
 **Dozwolone dzieci `titlebar`**: `Label` (tytuł), `Button` (min/close/back/pin), `UIWidget` (ikona).<div id="ch-7-3"></div>
-# # # 7.3 Auto‑fit width i docking
+# # # 7.3 Auto-fit width i docking
 - Gdy `MiniWindow` jest osadzony w panelu/kontenerze, **domyślnie** rozciąga się na szerokość rodzica: ustaw `anchors.left/right: parent` i usuń `width`.
 - Odstępy od krawędzi zapewnij przez `margin-*` (parzyste wartości — snapping 2 px).
 - Unikaj łączenia `anchors.fill: parent` z ręcznymi kotwicami (`top/bottom/left/right`).<div id="ch-7-4"></div>
@@ -851,12 +851,12 @@ export function presetMiniWindow(): WidgetNode {
 
 **Ostrzeżenia (⚠️):**
 - Brak `@onEnter/@onEscape` dla okna z przyciskami akcji.
-- Brak auto‑fit width (okno dokowane ma `width`).
+- Brak auto-fit width (okno dokowane ma `width`).
 - Nieparzyste marginesy (snapping 2 px).<div id="ch-7-8"></div>
-# # # 7.8 Przykłady i edge‑cases
+# # # 7.8 Przykłady i edge-cases
 - **Lista w content**: wstaw `TextList` i dokołkuj `VerticalScrollBar` jako **sibling** po prawej; ustaw `content.anchors.right: scroll.left`.
 - **Kolaps/rozwin**: `onToggleMinimize()` ukrywa/pokazuje `content` i `footer`; przycisk zmienia label `'-'`/`'+'`.
-- **Dialog‑like**: `MiniWindow` może pełnić rolę prostego dialogu — dodaj `@onEnter/@onEscape` i układ przycisków w `footer`.
+- **Dialog-like**: `MiniWindow` może pełnić rolę prostego dialogu — dodaj `@onEnter/@onEscape` i układ przycisków w `footer`.
 - **Wiele MiniWindow**: każde musi mieć unikalne `id`; edytor powinien zapobiegać kolizjom przy imporcie.
 <div id="ch-8-1"></div>
 # # # 8.1 Struktura (titlebar/content)
@@ -864,12 +864,12 @@ export function presetMiniWindow(): WidgetNode {
 - **`titlebar`** — nagłówek z przyciskami **back/pin/minimize/close** i tytułem,
 - **`content`** — obszar siatki slotów (przewijalny przy overflow). 
 
-**Zakazy**: w `titlebar` brak list/edytorów/scrollbarów; w `content` brak okien‑dzieci (`*Window`).
+**Zakazy**: w `titlebar` brak list/edytorów/scrollbarów; w `content` brak okien-dzieci (`*Window`).
 
-**Auto‑fit width**: po osadzeniu w panelu okno powinno rozciągać się poziomo (`anchors.left/right: parent`), odstępy przez `margin-*`.<div id="ch-8-2"></div>
+**Auto-fit width**: po osadzeniu w panelu okno powinno rozciągać się poziomo (`anchors.left/right: parent`), odstępy przez `margin-*`.<div id="ch-8-2"></div>
 # # # 8.2 Titlebar: back/pin/min/close
 - **Back** — powrót do poprzedniego kontenera (kontroler Lua zarządza stosem/nawigacją).
-- **Pin/Lock** — przypina okno (zachowanie w kontrolerze; może wpływać na z‑order/dokowanie).
+- **Pin/Lock** — przypina okno (zachowanie w kontrolerze; może wpływać na z-order/dokowanie).
 - **Minimize** — zwija `content` (i ukrywa ewentualny `footer` jeśli występuje), stan sygnalizowany na przycisku.
 - **Close** — ukrywa/zamyka okno przez kontroler.
 
@@ -1031,7 +1031,7 @@ export function presetContainerWindow(): WidgetNode {
 - Brak `pin`/`minimize`/`close` w `titlebar` (wymagane zależnie od projektu). 
 - `step` scrolla nie odpowiada wysokości wiersza slotów (nieprzyjemne przewijanie). 
 - Nieparzyste marginesy/spacing (snapping 2 px).<div id="ch-8-8"></div>
-# # # 8.8 Przykłady i edge‑cases
+# # # 8.8 Przykłady i edge-cases
 - **Powrót (back)**: `ContainerController.onBack()` przywraca poprzedni kontener (stack), a `@onEscape` mapuje się na tę samą akcję.
 - **Pin/Lock**: przełącza stan „przypięty” okna; w `$on` przycisku możesz zmienić kolor/ikonę.
 - **Overflow**: przy dodaniu N+1 rzędu slotów → edytor proponuje VerticalScrollBar i kotwice `grid.right: scroll.left`.
@@ -1044,16 +1044,16 @@ export function presetContainerWindow(): WidgetNode {
 - [9.2 Enter/Escape (OK/Cancel)](#ch-9-2)
 - [9.3 Modalność i fokus](#ch-9-3)
 - [9.4 Blueprint OTUI (STRICT)](#ch-9-4)
-- [9.5 Preset TS (serializer‑ready)](#ch-9-5)
+- [9.5 Preset TS (serializer-ready)](#ch-9-5)
 - [9.6 Walidator (błędy/ostrzeżenia)](#ch-9-6)
-- [9.7 Przykłady i edge‑cases](#ch-9-7)
+- [9.7 Przykłady i edge-cases](#ch-9-7)
 
 <div id="ch-9-1"></div>
 # # # 9.1 Struktura
 **DialogWindow** to lekkie okno dialogowe do potwierdzeń, komunikatów i prostych promptów.
 - Obszary: `titlebar`, `content`, `footer` (analogicznie do MiniWindow).
 - Wymagane skróty: **Enter = OK**, **Escape = Cancel**.
-- Zakazy: brak okien‑dzieci (`*Window`) w `content`; brak list/edytorów/scrolla w `titlebar`/`footer`.
+- Zakazy: brak okien-dzieci (`*Window`) w `content`; brak list/edytorów/scrolla w `titlebar`/`footer`.
 
 <div id="ch-9-2"></div>
 # # # 9.2 Enter/Escape (OK/Cancel)
@@ -1148,7 +1148,7 @@ DialogWindow < MainWindow
 ```
 
 <div id="ch-9-5"></div>
-# # # 9.5 Preset TS (serializer‑ready)
+# # # 9.5 Preset TS (serializer-ready)
 ```ts
 export function presetDialogWindow(): WidgetNode {
   return {
@@ -1176,19 +1176,19 @@ export function presetDialogWindow(): WidgetNode {
 # # # 9.6 Walidator (błędy/ostrzeżenia)
 **Blokujące (❌):** brak `@onEnter/@onEscape`; brak przycisków w `footer` lub brak mapowania OK/Escape; dzieci niedozwolone w `titlebar/footer` (listy/edytory/scroll); `*Window` w `content`; sprzeczne kotwice; brak `tr()`; zasoby spoza `data/`.
 
-**Ostrzeżenia (⚠️):** brak auto‑fit w poziomie po dokowaniu; nieparzyste marginesy/spacing.
+**Ostrzeżenia (⚠️):** brak auto-fit w poziomie po dokowaniu; nieparzyste marginesy/spacing.
 
 <div id="ch-9-7"></div>
-# # # 9.7 Przykłady i edge‑cases
+# # # 9.7 Przykłady i edge-cases
 - Prompt z `TextEdit`: pole w `content` + mapowanie Enter/Escape na OK/Cancel.
 - Długi tekst: `MultilineTextEdit` + **VerticalScrollBar** (sibling) i wrapping label z leadem.
-- Dialog‑potwierdzenie otwierany z MiniWindow: fokus od razu na OK; Escape zamyka bez skutków ubocznych.
+- Dialog-potwierdzenie otwierany z MiniWindow: fokus od razu na OK; Escape zamyka bez skutków ubocznych.
 
 ---
 # # 10. Titlebar
 - [10.1 Ikona, tytuł, przyciski](#ch-10-1)
 - [10.2 Slot i dozwolone dzieci](#ch-10-2)
-- [10.3 Drag‑move i fokus](#ch-10-3)
+- [10.3 Drag-move i fokus](#ch-10-3)
 - [10.4 Blueprint OTUI (STRICT)](#ch-10-4)
 - [10.5 Preset TS (warianty back/pin)](#ch-10-5)
 - [10.6 Walidator](#ch-10-6)
@@ -1210,7 +1210,7 @@ export function presetDialogWindow(): WidgetNode {
 - Przyciski powinny mieć jednolite szerokości (16–20 px) i kotwice do prawej krawędzi.
 
 <div id="ch-10-3"></div>
-# # # 10.3 Drag‑move i fokus
+# # # 10.3 Drag-move i fokus
 - Obszar przeciągania może obejmować cały `titlebar` (obsługa po stronie klienta/kontrolera).
 - Klik w tytuł/puste pole nie powinien zabierać fokusu kluczowym elementom w `content`.
 - Skróty dla przycisków można zmapować w `@onSetup`/Lua.
@@ -1320,9 +1320,9 @@ end
 - [11.3 Geometria i styl](#ch-11-3)
 - [11.4 Stany i zdarzenia](#ch-11-4)
 - [11.5 Blueprint OTUI (STRICT)](#ch-11-5)
-- [11.6 Preset TS (serializer‑ready)](#ch-11-6)
+- [11.6 Preset TS (serializer-ready)](#ch-11-6)
 - [11.7 Walidator](#ch-11-7)
-- [11.8 Przykłady i edge‑cases](#ch-11-8)
+- [11.8 Przykłady i edge-cases](#ch-11-8)
 
 <div id="ch-11-1"></div>
 # # # 11.1 Rola i struktura
@@ -1334,7 +1334,7 @@ Dozwolone: `Button` (akcje/toggle), `UIWidget` jako separator lub ikona. Niedozw
 
 <div id="ch-11-3"></div>
 # # # 11.3 Geometria i styl
-Wysokość stała (np. 20–24). Anchors lewo‑prawo do rodzica. Tło półprzezroczyste lub obraz motywu. Jednolite odstępy między grupami.
+Wysokość stała (np. 20–24). Anchors lewo-prawo do rodzica. Tło półprzezroczyste lub obraz motywu. Jednolite odstępy między grupami.
 
 <div id="ch-11-4"></div>
 # # # 11.4 Stany i zdarzenia
@@ -1384,7 +1384,7 @@ ToolbarWidget < UIWidget
 ```
 
 <div id="ch-11-6"></div>
-# # # 11.6 Preset TS (serializer‑ready)
+# # # 11.6 Preset TS (serializer-ready)
 ```ts
 export function presetToolbar(): WidgetNode {
   return {
@@ -1405,7 +1405,7 @@ export function presetToolbar(): WidgetNode {
 ❌ Listy/edytory/scroll w Toolbar. ❌ Brak wysokości. ❌ Nieparzyste marginesy lub nierówne szerokości w grupie. ⚠️ Brak skrótów dla akcji o wysokiej częstotliwości.
 
 <div id="ch-11-8"></div>
-# # # 11.8 Przykłady i edge‑cases
+# # # 11.8 Przykłady i edge-cases
 Lewa grupa akcji + prawa grupa statusów; wariant kompaktowy 16 px wysokości; tryb toggle dla filtrów danych.
 
 ---
@@ -1417,7 +1417,7 @@ Lewa grupa akcji + prawa grupa statusów; wariant kompaktowy 16 px wysokości; t
 - [12.5 Blueprinty OTUI (STRICT)](#ch-12-5)
 - [12.6 Presety TS](#ch-12-6)
 - [12.7 Walidator](#ch-12-7)
-- [12.8 Przykłady i edge‑cases](#ch-12-8)
+- [12.8 Przykłady i edge-cases](#ch-12-8)
 
 <div id="ch-12-1"></div>
 # # # 12.1 Rola i struktura
@@ -1537,10 +1537,10 @@ export function presetGroupBox(): WidgetNode {
 
 <div id="ch-12-7"></div>
 # # # 12.7 Walidator
-❌ Okna (`*Window`) jako dzieci. ❌ Brak obszaru treści w GroupBox. ❌ Sprzeczne kotwice. ❌ Brak `tr()` w nagłówkach. ⚠️ Nieparzyste marginesy/padding. ⚠️ Brak auto‑fit przy dokowaniu.
+❌ Okna (`*Window`) jako dzieci. ❌ Brak obszaru treści w GroupBox. ❌ Sprzeczne kotwice. ❌ Brak `tr()` w nagłówkach. ⚠️ Nieparzyste marginesy/padding. ⚠️ Brak auto-fit przy dokowaniu.
 
 <div id="ch-12-8"></div>
-# # # 12.8 Przykłady i edge‑cases
+# # # 12.8 Przykłady i edge-cases
 Panel z formularzem i przyciskami akcji w dolnym rogu; GroupBox z wieloma polami i czytelnym separatorem; warianty z tłem obrazkowym.
 
 ---
@@ -1552,7 +1552,7 @@ Panel z formularzem i przyciskami akcji w dolnym rogu; GroupBox z wieloma polami
 - [13.5 Blueprinty OTUI (STRICT)](#ch-13-5)
 - [13.6 Presety TS](#ch-13-6)
 - [13.7 Walidator](#ch-13-7)
-- [13.8 Przykłady i edge‑cases](#ch-13-8)
+- [13.8 Przykłady i edge-cases](#ch-13-8)
 
 <div id="ch-13-1"></div>
 # # # 13.1 Rola i struktura
@@ -1642,7 +1642,7 @@ export function presetTabs(): WidgetNode[] {
 ❌ Treść upakowana do TabBar zamiast do dedykowanego kontenera. ❌ Brak aktywnej zakładki. ❌ Sprzeczne kotwice. ❌ Brak `tr()` w etykietach. ⚠️ Brak mechanizmu zmiany zakładki w kontrolerze.
 
 <div id="ch-13-8"></div>
-# # # 13.8 Przykłady i edge‑cases
+# # # 13.8 Przykłady i edge-cases
 Dwie zakładki z różnymi panelami treści; adaptacja do małej szerokości przez skrótowe etykiety; synchronizacja aktywności z kontrolerem i stanem `$on` na przycisku.
 
 ---
@@ -1654,7 +1654,7 @@ Dwie zakładki z różnymi panelami treści; adaptacja do małej szerokości prz
 - [14.5 Blueprinty OTUI (STRICT) – poziomy/pionowy](#ch-14-5)
 - [14.6 Presety TS](#ch-14-6)
 - [14.7 Walidator](#ch-14-7)
-- [14.8 Przykłady i edge‑cases](#ch-14-8)
+- [14.8 Przykłady i edge-cases](#ch-14-8)
 - [14.9 Splitter — grip i persystencja](#ch-14-9)
 
 <div id="ch-14-1"></div>
@@ -1669,7 +1669,7 @@ Dopuszczalne są **dokładnie dwa panele** (np. `UIWidget`/`Panel`). Dodatkowe e
 # # # 14.3 Geometria i styl
 - Wariant **poziomy**: lewy panel kotwiczony do lewej, prawy do prawej; granica pomiędzy panelami.
 - Wariant **pionowy**: górny panel do góry, dolny do dołu.  
-- **Min‑size** paneli: wymagana; zapewnij, by podział nie „zgniatał” dzieci poniżej minimalnych rozmiarów.
+- **Min-size** paneli: wymagana; zapewnij, by podział nie „zgniatał” dzieci poniżej minimalnych rozmiarów.
 - Tło zwykle transparentne; granicę można sygnalizować wąskim paskiem.
 
 <div id="ch-14-4"></div>
@@ -1755,16 +1755,16 @@ export function presetSplitterVertical(): WidgetNode {
 
 <div id="ch-14-7"></div>
 # # # 14.7 Walidator
-❌ ≠2 paneli. ❌ Sprzeczne kotwice (np. oba panele mają sztywne szerokości i jednocześnie rozciągnięcie). ❌ Brak min‑size przy wymaganym „grip” zachowaniu. ⚠️ Brak parzystych marginesów. ⚠️ Brak auto‑fit do rodzica.
+❌ ≠2 paneli. ❌ Sprzeczne kotwice (np. oba panele mają sztywne szerokości i jednocześnie rozciągnięcie). ❌ Brak min-size przy wymaganym „grip” zachowaniu. ⚠️ Brak parzystych marginesów. ⚠️ Brak auto-fit do rodzica.
 
 <div id="ch-14-8"></div>
-# # # 14.8 Przykłady i edge‑cases
+# # # 14.8 Przykłady i edge-cases
 Lewy panel: lista; prawy: szczegóły. Górny: log, dolny: konsola. Zapamiętywanie podziału w ustawieniach modułu (kontroler Lua).
 
 <div id="ch-14-9"></div>
 # # # 14.9 Splitter — grip i persystencja
 - **Grip (hitbox)**: zapewnij obszar chwytu o grubości **6–8 px** na granicy paneli (wizualnie 1–2 px linia, reszta transparentny hitbox).  
-- **Min‑size paneli**: egzekwuj `min-width/min-height` paneli (np. 120 px) — podział nie może ich naruszyć.  
+- **Min-size paneli**: egzekwuj `min-width/min-height` paneli (np. 120 px) — podział nie może ich naruszyć.  
 - **Tryb klawiatury**: `Ctrl+←/→` (poziomy) lub `Ctrl+↑/↓` (pionowy) do krokowej zmiany podziału (np. 16 px).  
 - **Persystencja**: zapisuj **ratio** (0..1) lub **px** w ustawieniach modułu i odtwarzaj przy inicjalizacji.  
 - **Blueprint grip (overlay, STRICT)**:
@@ -1789,7 +1789,7 @@ UIWidget
 - [15.6 Blueprinty OTUI (STRICT)](#ch-15-6)
 - [15.7 Presety TS](#ch-15-7)
 - [15.8 Walidator](#ch-15-8)
-- [15.9 Przykłady i edge‑cases](#ch-15-9)
+- [15.9 Przykłady i edge-cases](#ch-15-9)
 - [15.10 TextList — nawigacja klawiaturą i ensureVisible](#ch-15-10)
 
 <div id="ch-15-1"></div>
@@ -1900,7 +1900,7 @@ export function presetListRow(): WidgetNode {
 ❌ ScrollBar jako dziecko listy. ❌ Lista bez pary scrolla przy overflow lub błędne kotwice pary. ❌ `tr()` pominięte w etykietach. ⚠️ Zbyt mała wysokość wiersza (nieczytelność). ⚠️ Brak bindów klawiatury.
 
 <div id="ch-15-9"></div>
-# # # 15.9 Przykłady i edge‑cases
+# # # 15.9 Przykłady i edge-cases
 Lista postaci (row = imię + poziom), lista logów (row z ikoną i timestampem). „Ensure visible” przy zmianie wyboru. Paging klawiaturą (PageUp/Down).
 
 <div id="ch-15-10"></div>
@@ -1910,7 +1910,7 @@ Lista postaci (row = imię + poziom), lista logów (row z ikoną i timestampem).
 - **Home/End**: pierwszy/ostatni wiersz.  
 - **Enter/Escape**: potwierdzenie/anulowanie zgodnie z logiką okna.  
 - **ensureVisible**: po zmianie wyboru kontroler przewija listę tak, by wybrany wiersz był w pełni widoczny.  
-- **Multi‑select (opcjonalnie)**: `Shift` = zakres, `Ctrl` = pojedyncze przełączanie — tylko jeśli projekt to wymaga; w `.otui` bez zmian, logika w kontrolerze.
+- **Multi-select (opcjonalnie)**: `Shift` = zakres, `Ctrl` = pojedyncze przełączanie — tylko jeśli projekt to wymaga; w `.otui` bez zmian, logika w kontrolerze.
 
 ---
 # # 16. Label / UILabel
@@ -1921,7 +1921,7 @@ Lista postaci (row = imię + poziom), lista logów (row z ikoną i timestampem).
 - [16.5 Blueprinty OTUI (STRICT)](#ch-16-5)
 - [16.6 Presety TS](#ch-16-6)
 - [16.7 Walidator](#ch-16-7)
-- [16.8 Przykłady i edge‑cases](#ch-16-8)
+- [16.8 Przykłady i edge-cases](#ch-16-8)
 - [16.9 Label — pomiar tekstu, elipsyzacja, DPI/scale](#ch-16-9)
 
 <div id="ch-16-1"></div>
@@ -1998,7 +1998,7 @@ export function presetLabelStatus(): WidgetNode {
 ❌ Brak `tr()` w `!text`. ❌ Zasoby fontu spoza `data/`. ⚠️ Nieparzyste marginesy. ⚠️ Nadużywanie `text-auto-resize` przy wąskich układach (ryzyko overflow).
 
 <div id="ch-16-8"></div>
-# # # 16.8 Przykłady i edge‑cases
+# # # 16.8 Przykłady i edge-cases
 Nagłówki w `titlebar` i w treści; statusy z `text-wrap: true`; komunikaty ostrzegawcze kolorem w `$on`.
 
 <div id="ch-16-9"></div>
@@ -2016,7 +2016,7 @@ Nagłówki w `titlebar` i w treści; statusy z `text-wrap: true`; komunikaty ost
 - [17.5 Blueprinty OTUI (STRICT)](#ch-17-5)
 - [17.6 Presety TS](#ch-17-6)
 - [17.7 Walidator](#ch-17-7)
-- [17.8 Przykłady i edge‑cases](#ch-17-8)
+- [17.8 Przykłady i edge-cases](#ch-17-8)
 - [17.9 Button — hover/disabled i dostępność](#ch-17-9)
 
 <div id="ch-17-1"></div>
@@ -2102,7 +2102,7 @@ export function presetToggle(labelOff = 'Off', labelOn = 'On', id = 'toggle', wi
 ❌ Brak `tr()` w etykiecie. ❌ Zbyt mały rozmiar (mniej niż 16×16). ❌ Wewnętrzne dzieci (Label) zamiast `!text`. ⚠️ Niespójne szerokości w grupie. ⚠️ Brak skrótów dla akcji często używanych.
 
 <div id="ch-17-8"></div>
-# # # 17.8 Przykłady i edge‑cases
+# # # 17.8 Przykłady i edge-cases
 Przyciski OK/Cancel w `footer`; ikonowe 16 px w `titlebar`; toggle dla filtrów narzędzi. Zmiana etykiety w `$on/$!on` bez modyfikacji geometrii.
 
 <div id="ch-17-9"></div>
@@ -2136,8 +2136,8 @@ Button
 - [18.5 Blueprinty OTUI (STRICT)](#ch-18-5)
 - [18.6 Presety TS](#ch-18-6)
 - [18.7 Walidator](#ch-18-7)
-- [18.8 Przykłady i edge‑cases](#ch-18-8)
-- [18.9 CheckBox — tri‑state i offset etykiety](#ch-18-9)
+- [18.8 Przykłady i edge-cases](#ch-18-8)
+- [18.9 CheckBox — tri-state i offset etykiety](#ch-18-9)
 
 <div id="ch-18-1"></div>
 # # # 18.1 Rola i struktura
@@ -2228,12 +2228,12 @@ export function presetRoundCheckBox(id = 'rcheck', label = 'Option'): WidgetNode
 ❌ Dzieci wewnątrz CheckBox. ❌ Brak `tr()` w etykiecie. ❌ Zbyt mały rozmiar pola (<16×16). ❌ Niespójne kotwice. ⚠️ Brak kursora „pointer”. ⚠️ Nieparzyste marginesy/offset.
 
 <div id="ch-18-8"></div>
-# # # 18.8 Przykłady i edge‑cases
+# # # 18.8 Przykłady i edge-cases
 Listy opcji w Panel/GroupBox; pierwszy element z mniejszym marginesem górnym (`$first`). Tryb globalnego włączania/wyłączania grupy kontrolek.
 
 <div id="ch-18-9"></div>
-# # # 18.9 CheckBox — tri‑state i offset etykiety
-- **Tri‑state (opcjonalnie)**: jeżeli projekt wymaga stanu „nieokreślony”, zdefiniuj stan logiczny (np. `$indeterminate`) i nadaj mu własną ikonę/tło; przełączanie cykliczne: `unchecked → checked → indeterminate`.  
+# # # 18.9 CheckBox — tri-state i offset etykiety
+- **Tri-state (opcjonalnie)**: jeżeli projekt wymaga stanu „nieokreślony”, zdefiniuj stan logiczny (np. `$indeterminate`) i nadaj mu własną ikonę/tło; przełączanie cykliczne: `unchecked → checked → indeterminate`.  
 - **Offset etykiety**: utrzymuj `text-offset` tak, by tekst nie nachodził na pole (np. ≥18 px przy polu 16×16).
 
 **Przykład (STRICT)**
@@ -2258,13 +2258,13 @@ CheckBox
 - [19.6 Blueprinty OTUI (STRICT)](#ch-19-6)
 - [19.7 Presety TS](#ch-19-7)
 - [19.8 Walidator](#ch-19-8)
-- [19.9 Przykłady i edge‑cases](#ch-19-9)
+- [19.9 Przykłady i edge-cases](#ch-19-9)
 - [19.10 TextEdit/Multiline — IME, paste i filtry wejścia](#ch-19-10)
-- [19.11 Multiline — zaznaczenie, line‑height i pixels‑scroll](#ch-19-11)
+- [19.11 Multiline — zaznaczenie, line-height i pixels-scroll](#ch-19-11)
 
 <div id="ch-19-1"></div>
 # # # 19.1 Rola i struktura
-- **TextEdit** — jedno‑wierszowe pole tekstowe.  
+- **TextEdit** — jedno-wierszowe pole tekstowe.  
 - **PasswordTextEdit** — jak TextEdit, ale treść maskowana.  
 - **MultilineTextEdit** — wielowierszowe z obsługą zawijania i przewijania.
 
@@ -2374,10 +2374,10 @@ export function presetMultilineWithScroll(idText = 'text', idScroll = 'scroll'):
 
 <div id="ch-19-8"></div>
 # # # 19.8 Walidator
-❌ `vertical-scrollbar` wskazuje nieistniejący `id`. ❌ ScrollBar jako dziecko MultilineTextEdit. ❌ Sprzeczne kotwice (fill + krawędzie). ❌ Brak placeholdera tam, gdzie wymagany UX‑owo. ⚠️ Zbyt mała wysokość w Multiline. ⚠️ Brak `pixels-scroll` dla precyzyjnego przewijania.
+❌ `vertical-scrollbar` wskazuje nieistniejący `id`. ❌ ScrollBar jako dziecko MultilineTextEdit. ❌ Sprzeczne kotwice (fill + krawędzie). ❌ Brak placeholdera tam, gdzie wymagany UX-owo. ⚠️ Zbyt mała wysokość w Multiline. ⚠️ Brak `pixels-scroll` dla precyzyjnego przewijania.
 
 <div id="ch-19-9"></div>
-# # # 19.9 Przykłady i edge‑cases
+# # # 19.9 Przykłady i edge-cases
 Pole loginu z placeholderem i Password z maskowaniem; edytor logów z Multiline + scroll i `text-wrap: true`; walidacja Enter/Escape w kontrolerze.
 
 <div id="ch-19-10"></div>
@@ -2387,10 +2387,10 @@ Pole loginu z placeholderem i Password z maskowaniem; edytor logów z Multiline 
 - **Filtry**: waliduj w kontrolerze (regex, max długość) — bez modyfikowania `.otui`.
 
 <div id="ch-19-11"></div>
-# # # 19.11 Multiline — zaznaczenie, line‑height i pixels‑scroll
+# # # 19.11 Multiline — zaznaczenie, line-height i pixels-scroll
 - **Selection**: zapewnij widoczny kolor zaznaczenia zgodny z motywem.  
-- **Line‑height**: dopasuj przewijanie do metryk fontu; `step` scrollbar'a ≈ wysokość linii (np. 16).  
-- **pixels‑scroll**: włącz dla precyzyjnych edytorów (logi/kod) — płynne przewijanie bez „skoków”.
+- **Line-height**: dopasuj przewijanie do metryk fontu; `step` scrollbar'a ≈ wysokość linii (np. 16).  
+- **pixels-scroll**: włącz dla precyzyjnych edytorów (logi/kod) — płynne przewijanie bez „skoków”.
 
 ---
 # # 20. ComboBox
@@ -2401,7 +2401,7 @@ Pole loginu z placeholderem i Password z maskowaniem; edytor logów z Multiline 
 - [20.5 Blueprint OTUI (STRICT)](#ch-20-5)
 - [20.6 Presety TS](#ch-20-6)
 - [20.7 Walidator](#ch-20-7)
-- [20.8 Przykłady i edge‑cases](#ch-20-8)
+- [20.8 Przykłady i edge-cases](#ch-20-8)
 
 <div id="ch-20-1"></div>
 # # # 20.1 Rola i struktura
@@ -2460,7 +2460,7 @@ export function presetComboBox(id = 'combo', placeholder = 'Select'): WidgetNode
 ❌ Dzieci „opcji” dodane ręcznie do ComboBox w `.otui`. ❌ Sprzeczne kotwice (`fill` + krawędzie). ❌ Brak wysokości. ⚠️ `menu-height` zbyt małe dla przewijania. ⚠️ Brak mapowania `onOptionChange` w projekcie.
 
 <div id="ch-20-8"></div>
-# # # 20.8 Przykłady i edge‑cases
+# # # 20.8 Przykłady i edge-cases
 Selektor postaci; filtr w narzędziowym MiniWindow; zmiana dostępności (`$disabled`) przy braku danych; placeholder gdy brak wyboru.
 
 ---
@@ -2471,7 +2471,7 @@ Selektor postaci; filtr w narzędziowym MiniWindow; zmiana dostępności (`$disa
 - [21.4 Blueprint OTUI (STRICT)](#ch-21-4)
 - [21.5 Presety TS](#ch-21-5)
 - [21.6 Walidator](#ch-21-6)
-- [21.7 Przykłady i edge‑cases](#ch-21-7)
+- [21.7 Przykłady i edge-cases](#ch-21-7)
 
 <div id="ch-21-1"></div>
 # # # 21.1 Rola i zakres
@@ -2486,7 +2486,7 @@ Selektor postaci; filtr w narzędziowym MiniWindow; zmiana dostępności (`$disa
 <div id="ch-21-3"></div>
 # # # 21.3 Geometria
 - Kotwicz w poziomie do rodzica; wysokość ~14–18 px.  
-- Parzyste marginesy; zachowaj min‑width dla czytelności.
+- Parzyste marginesy; zachowaj min-width dla czytelności.
 
 <div id="ch-21-4"></div>
 # # # 21.4 Blueprint OTUI (STRICT)
@@ -2518,7 +2518,7 @@ export function presetProgressBar(id = 'progress', min = 0, max = 100, value = 0
 ❌ Dzieci wewnątrz ProgressBar. ❌ `value` poza zakresem `minimum..maximum`. ⚠️ Zbyt mała wysokość. ⚠️ Brak kotwic w poziomie (słaba czytelność).
 
 <div id="ch-21-7"></div>
-# # # 21.7 Przykłady i edge‑cases
+# # # 21.7 Przykłady i edge-cases
 Status w `StaticMainWindow`; pasek ładowania w panelu z etykietą obok (`Label`). Tryb „nieokreślony” w overlay statusu.
 
 ---
@@ -2529,7 +2529,7 @@ Status w `StaticMainWindow`; pasek ładowania w panelu z etykietą obok (`Label`
 - [22.4 Blueprinty OTUI (STRICT)](#ch-22-4)
 - [22.5 Presety TS](#ch-22-5)
 - [22.6 Walidator](#ch-22-6)
-- [22.7 Przykłady i edge‑cases](#ch-22-7)
+- [22.7 Przykłady i edge-cases](#ch-22-7)
 
 <div id="ch-22-1"></div>
 # # # 22.1 Rola i parowanie
@@ -2596,7 +2596,7 @@ export function presetHScroll(id = 'hscroll', step = 16, pixels = true): WidgetN
 ❌ ScrollBar jako dziecko listy/Multiline. ❌ Brak parowania (treść nie kotwiczy się do scrolla). ❌ `step` niedopasowany do rozmiaru wiersza (szarpane przewijanie). ⚠️ Brak `pixels-scroll` przy drobnym tekście.
 
 <div id="ch-22-7"></div>
-# # # 22.7 Przykłady i edge‑cases
+# # # 22.7 Przykłady i edge-cases
 Lista z wierszem 18 px → `step: 18`; edytor tekstu z delikatnym przewijaniem (`pixels-scroll: true`); układ podwójny (V+H) w panelu z danymi tabelarycznymi.
 
 ---
@@ -2606,7 +2606,7 @@ Lista z wierszem 18 px → `step: 18`; edytor tekstu z delikatnym przewijaniem (
 - [23.3 Blueprint OTUI (STRICT)](#ch-23-3)
 - [23.4 Preset TS](#ch-23-4)
 - [23.5 Walidator](#ch-23-5)
-- [23.6 Przykłady i edge‑cases](#ch-23-6)
+- [23.6 Przykłady i edge-cases](#ch-23-6)
 
 <div id="ch-23-1"></div>
 # # # 23.1 Rola i ograniczenia
@@ -2646,7 +2646,7 @@ export function presetHorizontalSeparator(id = 'sep', height = 1): WidgetNode {
 ❌ Dzieci w separatorze. ⚠️ Wysokość > 2 px bez uzasadnienia stylistycznego. ⚠️ Nieparzyste marginesy.
 
 <div id="ch-23-6"></div>
-# # # 23.6 Przykłady i edge‑cases
+# # # 23.6 Przykłady i edge-cases
 Separator pod nagłówkiem GroupBox; cienka linia w Toolbarze między grupami akcji.
 
 ---
@@ -2657,7 +2657,7 @@ Separator pod nagłówkiem GroupBox; cienka linia w Toolbarze między grupami ak
 - [24.4 Blueprint OTUI (STRICT)](#ch-24-4)
 - [24.5 Preset TS](#ch-24-5)
 - [24.6 Walidator](#ch-24-6)
-- [24.7 Przykłady i edge‑cases](#ch-24-7)
+- [24.7 Przykłady i edge-cases](#ch-24-7)
 
 <div id="ch-24-1"></div>
 # # # 24.1 Rola i struktura
@@ -2740,7 +2740,7 @@ export function presetStatusOverlay(label = 'Working...'): WidgetNode {
 ❌ Overlay z nadmiarem dzieci (złożone układy). ❌ Brak `tr()` w komunikacie. ⚠️ Brak kontrastu (czytelność). ⚠️ Panel bez wyśrodkowania.
 
 <div id="ch-24-7"></div>
-# # # 24.7 Przykłady i edge‑cases
+# # # 24.7 Przykłady i edge-cases
 Overlay ładowania zasobów; tryb indeterminate ProgressBar; anulowanie długiej operacji.
 
 ---
@@ -2782,10 +2782,10 @@ Overlay ładowania zasobów; tryb indeterminate ProgressBar; anulowanie długiej
 - Wszystkie napisy przez `tr()`; zasoby tylko z `data/`.
 
 ---
-# # 26. Walidacja i auto‑naprawy (global)
+# # 26. Walidacja i auto-naprawy (global)
 - [26.1 Błędy blokujące](#ch-26-1)
 - [26.2 Ostrzeżenia](#ch-26-2)
-- [26.3 Auto‑naprawy deterministyczne](#ch-26-3)
+- [26.3 Auto-naprawy deterministyczne](#ch-26-3)
 - [26.4 Pipeline walidatora](#ch-26-4)
 
 <div id="ch-26-1"></div>
@@ -2800,24 +2800,24 @@ Overlay ładowania zasobów; tryb indeterminate ProgressBar; anulowanie długiej
 <div id="ch-26-2"></div>
 # # # 26.2 Ostrzeżenia (⚠️)
 - Nieparzyste marginesy/spacing.  
-- Brak auto‑fit width przy dokowaniu okna.  
+- Brak auto-fit width przy dokowaniu okna.  
 - `step` scrolla niepasujący do wysokości wiersza/slotu.  
 - Brak skrótów Enter/Escape/strzałek tam, gdzie UX tego wymaga.
 
 <div id="ch-26-3"></div>
-# # # 26.3 Auto‑naprawy deterministyczne
+# # # 26.3 Auto-naprawy deterministyczne
 1) Normalizacja końców linii na LF, usunięcie BOM/tabów/trailing spaces.  
 2) Wcięcia → 2 sp.  
 3) Porządkowanie atrybutów: **GEOMETRIA → STYL → ZACHOWANIE**.  
 4) Wstawienie brakujących slotów (np. `content/footer` w MiniWindow).  
 5) Parowanie ScrollBar z listą/Multiline (dokowanie + kotwice).  
-6) Usunięcie `width` gdy istnieje `anchors.left/right: parent` (auto‑fit).  
+6) Usunięcie `width` gdy istnieje `anchors.left/right: parent` (auto-fit).  
 7) Snapping marginesów/spacing do wartości parzystych.
 
 <div id="ch-26-4"></div>
 # # # 26.4 Pipeline walidatora
 ```
-parse → normalize(STRICT) → validateStructure(macierze) → validateAnchors → validateI18n → validateResources → validatePairs(scroll) → autofix → re‑serialize → diff
+parse → normalize(STRICT) → validateStructure(macierze) → validateAnchors → validateI18n → validateResources → validatePairs(scroll) → autofix → re-serialize → diff
 ```
 Wynik: `{ errors: [...], warnings: [...], fixes: [...] }` + zaktualizowany dokument.
 
@@ -2828,7 +2828,7 @@ Wynik: `{ errors: [...], warnings: [...], fixes: [...] }` + zaktualizowany dokum
 - [27.3 Algorytm parsowania](#ch-27-3)
 - [27.4 Serializacja i `ensureStrictOtui()`](#ch-27-4)
 - [27.5 Błędy/ostrzeżenia/pozycje](#ch-27-5)
-- [27.6 Testy round‑trip (goldeny)](#ch-27-6)
+- [27.6 Testy round-trip (goldeny)](#ch-27-6)
 
 <div id="ch-27-1"></div>
 # # # 27.1 Tokenizacja i INDENT/DEDENT
@@ -2874,12 +2874,12 @@ export type LintIssue = { kind: 'error'|'warning'; code: string; message: string
 Przykłady: `E_STRICT_TABS`, `E_SLOT_CHILD_FORBIDDEN`, `E_ANCHORS_CONFLICT`, `E_SCROLL_PAIR_MISSING`, `W_MARGIN_ODD`.
 
 <div id="ch-27-6"></div>
-# # # 27.6 Testy round‑trip (goldeny)
+# # # 27.6 Testy round-trip (goldeny)
 - Dla **MiniWindow**, **ContainerWindow**, **Dialog**: `parse → serialize → parse` i porównanie AST (bez strat).  
-- Testy porządkowania atrybutów, stanów i zdarzeń; testy auto‑napraw (deterministyczny diff).
+- Testy porządkowania atrybutów, stanów i zdarzeń; testy auto-napraw (deterministyczny diff).
 
 ---
-# # 28. Import/Export i round‑trip (edytor ↔ plik ↔ Lua)
+# # 28. Import/Export i round-trip (edytor ↔ plik ↔ Lua)
 - [28.1 Import z `.otui`](#ch-28-1)
 - [28.2 Import z bloków w Lua (`@OTUI_BEGIN/END`)](#ch-28-2)
 - [28.3 Eksport do `.otui` + aktualizacja bloku w Lua](#ch-28-3)
@@ -2888,7 +2888,7 @@ Przykłady: `E_STRICT_TABS`, `E_SLOT_CHILD_FORBIDDEN`, `E_ANCHORS_CONFLICT`, `E_
 <div id="ch-28-1"></div>
 # # # 28.1 Import z `.otui`
 - Wczytaj plik, `ensureStrictOtui()`, `parseOtui()` → AST.  
-- Walidacja + auto‑naprawy; prezentacja ostrzeżeń przed edycją.
+- Walidacja + auto-naprawy; prezentacja ostrzeżeń przed edycją.
 
 <div id="ch-28-2"></div>
 # # # 28.2 Import z bloków w Lua (`@OTUI_BEGIN/END`)
@@ -3225,7 +3225,7 @@ Panel
 <div id="ch-29-4"></div>
 # # # 29.4 Rejestr presetów i wersjonowanie
 - **Registry (TS)** trzyma wpisy: `id`, `title`, `base`, `version`, `factory()`.  
-- Stabilne **slug‑i** presetów (np. `mini/minimal`, `container/loot`, `dialog/confirm`).  
+- Stabilne **slug-i** presetów (np. `mini/minimal`, `container/loot`, `dialog/confirm`).  
 - Zmiany łamiące → nowy `version`, poprzedni nadal dostępny.
 
 ```ts
@@ -3239,7 +3239,7 @@ export const PRESETS: PresetEntry[] = [
 
 <div id="ch-29-5"></div>
 # # # 29.5 Zasady rozszerzania
-- Rozszerzaj przez **dziedziczenie** (`X < Y`) lub przez preset TS, nigdy przez ad‑hoc dzieci naruszające macierze.  
+- Rozszerzaj przez **dziedziczenie** (`X < Y`) lub przez preset TS, nigdy przez ad-hoc dzieci naruszające macierze.  
 - Zachowuj STRICT OTUI przy eksporcie; nie duplikuj semantyki okna w stanach.
 
 ---
@@ -3253,7 +3253,7 @@ export const PRESETS: PresetEntry[] = [
 <div id="ch-30-1"></div>
 # # # 30.1 Snapshoty 1:1
 - Generuj obraz referencyjny dla każdego preset/blueprintu po eksporcie `.otui`.  
-- Porównuj piksel‑po‑pikselu z goldenem; rozbijaj różnice na heatmapę.
+- Porównuj piksel-po-pikselu z goldenem; rozbijaj różnice na heatmapę.
 
 <div id="ch-30-2"></div>
 # # # 30.2 DPI / font metrics / skalowanie
@@ -3289,10 +3289,10 @@ Raport: lista różnic, heatmapy, log walidatora (STRUCT/anchors/macierze).
 - **AST** — abstrakcyjne drzewo składniowe reprezentujące OTUI w edytorze.  
 - **Blueprint** — kanoniczny szablon OTUI komponentu/okna.  
 - **Grid (edytorowy)** — siatka pomocnicza w edytorze, nie istnieje w OTUI.  
-- **Layout‑owner** — rodzic definiujący sloty/obszary i reguły dokowania.  
+- **Layout-owner** — rodzic definiujący sloty/obszary i reguły dokowania.  
 - **Macierz dzieci** — tabela dozwolonych dzieci per parent/slot.  
 - **Preset** — gotowy zestaw węzłów przygotowanych do użycia jako wzorzec.  
-- **Round‑trip** — import → edycja → eksport bez utraty semantyki.  
+- **Round-trip** — import → edycja → eksport bez utraty semantyki.  
 - **Scroll pairing** — reguły łączenia treści przewijanej ze ScrollBarem jako rodzeństwem.  
 - **STRICT OTUI** — format: LF, 2 spacje, brak komentarzy/tabów, kolejność atrybutów.
 

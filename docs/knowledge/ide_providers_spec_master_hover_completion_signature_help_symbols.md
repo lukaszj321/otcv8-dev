@@ -1,10 +1,10 @@
-﻿# IDE Providers Spec (MASTER) – **Hover**, **Completion**, **Signature Help**, **Symbols**
+# IDE Providers Spec (MASTER) – **Hover**, **Completion**, **Signature Help**, **Symbols**
 
-> Cel: pełna specyfikacja warstwy IDE dla **OTClient Studio** (Monaco + Electron). Dokument definiuje kontrakty, algorytmy, scoring, trigger‑y, schematy JSON, IPC, test‑wektory i wymagania wydajności. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
+> Cel: pełna specyfikacja warstwy IDE dla **OTClient Studio** (Monaco + Electron). Dokument definiuje kontrakty, algorytmy, scoring, trigger-y, schematy JSON, IPC, test-wektory i wymagania wydajności. **Transfer 1:1** – gotowe do bezpośredniej implementacji.
 
 ---
 # # 0) Założenia i kontekst
-- **Języki:** `lua` (Lua‑Lite) i `otui` (OTUI/OTML).
+- **Języki:** `lua` (Lua-Lite) i `otui` (OTUI/OTML).
 - **Źródła wiedzy:** `resources/api.json` (kuratorowane), `project-index.json` (skan), `docstrings.json` (adnotacje), `otui-rules.json` (lint).
 - **Silnik:** Monaco Editor (providers + Diagnostics).
 - **Cele:** wysoka trafność podpowiedzi, determinizm wyników, niskie opóźnienia (UX 60 FPS).
@@ -12,7 +12,7 @@
 ---
 # # 1) Rejestracja języków i providerów (Monaco)
 # # # 1.1 Identyfikatory
-- `languageId.luastudio = "lua"` (dialekt Lua‑Lite)
+- `languageId.luastudio = "lua"` (dialekt Lua-Lite)
 - `languageId.otuistudio = "otui"`
 # # # 1.2 Rejestracja
 - `monaco.languages.register({ id: languageId.luastudio })`
@@ -27,7 +27,7 @@
 > Dostawcy komunikują się z warstwą analiz przez **IPC** (sekcja §7) i używają lokalnych cache’y (sekcja §6).
 
 ---
-# # 2) Completion (auto‑uzupełnianie)
+# # 2) Completion (auto-uzupełnianie)
 # # # 2.1 Triggery
 - **Lua**: `.` `:` `(` `,` spacja po `function`/`local` oraz po `on` (eventy).
 - **OTUI**: początek linii/po `\n`, po `:` (wartość), w nagłówku deklaracji po `"<"` (typ bazowy), w kluczu (sugestie atrybutów wg kategorii), po `style:` (style zasobów).
@@ -37,7 +37,7 @@
 3) **Docstrings** (`docstrings.json`): parametry i typy – doprecyzowanie sygnatur.
 4) **Heurystyki vBot**: `macro(`, `onTextMessage`, `say(` itp. – boost rank.
 # # # 2.3 Scoring i ranking
-Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `score`, tie‑break: długość nazwy ↑, alfabetycznie.
+Każdy kandydat ma **score** ∈ [0..1]. Końcowa kolejność = malejąco po `score`, tie-break: długość nazwy ↑, alfabetycznie.
 
 **Składniki score:**
 - `s_prefix` – dopasowanie prefiksu (FZF/substring): 0.6–1.0
@@ -207,8 +207,8 @@ function signature(q: SignatureQuery): SignatureResult {
 
 ---
 # # 9) Integracja z lintem i nawigacją
-- **Diagnostics**: provider lintu OTUI/Lua publikuje problemy zgodnie z regułami; IDE może proponować **Quick Fix** (np. OTUI‑001/002).
-- **Go‑to Definition**: użyj `project-index.symbols` + lokalnego AST.
+- **Diagnostics**: provider lintu OTUI/Lua publikuje problemy zgodnie z regułami; IDE może proponować **Quick Fix** (np. OTUI-001/002).
+- **Go-to Definition**: użyj `project-index.symbols` + lokalnego AST.
 - **Peek References**: wyszukiwanie symboli w indeksie; prefiltrowanie po nazwach.
 
 ---
@@ -226,29 +226,29 @@ function signature(q: SignatureQuery): SignatureResult {
 ```
 
 ---
-# # 11) Test‑wektory i QA
-- **COMP‑01 (Lua):** `g_res` + `.` → zawiera `g_resources.readFile` (score > 0.9).
-- **COMP‑02 (OTUI):** w kluczu → lista `GEOMETRY`/`STYLE`/`BEHAVIOR` według reguł; `style:` zwraca style z assets.
-- **HOV‑01:** na `g_modules.reloadModules` → opis z `api.json`.
-- **SIG‑01:** `g_resources.readFile(` → `path: string` w `activeParameter=0`.
-- **SYM‑01:** `Document Symbols` zwraca funkcje i widżety z poprawnymi zakresami.
-- **PERF‑01:** czas odpowiedzi completions (cache warm) < 6 ms, (cold) < 25 ms.
+# # 11) Test-wektory i QA
+- **COMP-01 (Lua):** `g_res` + `.` → zawiera `g_resources.readFile` (score > 0.9).
+- **COMP-02 (OTUI):** w kluczu → lista `GEOMETRY`/`STYLE`/`BEHAVIOR` według reguł; `style:` zwraca style z assets.
+- **HOV-01:** na `g_modules.reloadModules` → opis z `api.json`.
+- **SIG-01:** `g_resources.readFile(` → `path: string` w `activeParameter=0`.
+- **SYM-01:** `Document Symbols` zwraca funkcje i widżety z poprawnymi zakresami.
+- **PERF-01:** czas odpowiedzi completions (cache warm) < 6 ms, (cold) < 25 ms.
 
 ---
 # # 12) Wydajność i telemetria
 - Zbieraj metryki: średni czas odpowiedzi providerów, hit ratio cache, liczba kandydatów po deduplikacji.
-- Ostrzeżenia w logu aplikacji, gdy cold‑path > 50 ms lub liczba kandydatów > 500.
+- Ostrzeżenia w logu aplikacji, gdy cold-path > 50 ms lub liczba kandydatów > 500.
 
 ---
 # # 13) Checklisty wdrożeniowe
 - [ ] Rejestracja providerów dla `lua` i `otui`.
 - [ ] Implementacja kanałów IPC (§7) + schematów zapytań/odpowiedzi.
 - [ ] Agregacja `api.json` + `project-index.json` + `docstrings.json` (rankowanie §2.3).
-- [ ] Snippety i trigger‑y (§2.1, §2.5).
+- [ ] Snippety i trigger-y (§2.1, §2.5).
 - [ ] Hover/Signature z fallbackami (§3, §4).
 - [ ] Document Symbols (MVP), Definition/References (MVP+).
-- [ ] Cache i debounce (§6); budżety czasu i big‑file mode.
-- [ ] Test‑wektory (§11) zielone; telemetria (§12) aktywna.
+- [ ] Cache i debounce (§6); budżety czasu i big-file mode.
+- [ ] Test-wektory (§11) zielone; telemetria (§12) aktywna.
 
 ---
 # # 14) Noty końcowe

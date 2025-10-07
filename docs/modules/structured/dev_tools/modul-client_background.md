@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_background`
+# Ĺ Modul: `client_background`
 
 ```lua
 

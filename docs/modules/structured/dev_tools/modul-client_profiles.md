@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_profiles`
+# Ĺ Modul: `client_profiles`
 
 ```lua
 

@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_stats`
+# Ĺ Modul: `client_stats`
 
 ```lua
 

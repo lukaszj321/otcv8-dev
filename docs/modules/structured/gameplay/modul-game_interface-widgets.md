@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_interface/widgets`
+# Ĺ Modul: `game_interface/widgets`
 
 ```lua
 

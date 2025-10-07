@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `client_terminal`
+# Ĺ Modul: `client_terminal`
 
 ```lua
 

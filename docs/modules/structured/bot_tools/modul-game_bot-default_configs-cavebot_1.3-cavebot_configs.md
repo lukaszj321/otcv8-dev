@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
+# Ĺ Modul: `game_bot/default_configs/cavebot_1.3/cavebot_configs`
 
 ```text
 

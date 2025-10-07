@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_cooldown`
+# Ĺ Modul: `game_cooldown`
 
 ```lua
 

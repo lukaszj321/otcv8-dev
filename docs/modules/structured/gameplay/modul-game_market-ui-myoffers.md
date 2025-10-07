@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_market/ui/myoffers`
+# Ĺ Modul: `game_market/ui/myoffers`
 
 ```otui
 

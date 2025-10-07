@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `corelib/ui`
+# Ĺ Modul: `corelib/ui`
 
 ```lua
 

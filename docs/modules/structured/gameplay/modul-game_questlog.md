@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_questlog`
+# Ĺ Modul: `game_questlog`
 
 ```lua
 
