@@ -1,4 +1,4 @@
-# Architektóra (skrót)
+# Architektura (skrót)
 
 ```mermaid
 graph TD
