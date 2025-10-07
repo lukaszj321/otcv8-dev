@@ -1,7 +1,7 @@
-﻿# Source: luafunctions_client.cpp
+?# Source: luafunctions_client.cpp
 
-This guide covers global objects and functions available in the OTClient Lua environment. It’s intended to help scripters understand and use the client-side Lua API effectively.
-klawisz esc, aby anulować • klawisz enter, aby zapisać
+This guide covers global objects and functions available in the OTClient Lua environment. It's intended to help scripters understand and use the client-side Lua API effectively.
+klawisz esc, aby anulowac . klawisz enter, aby zapisac
 ---
 # # # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
@@ -94,12 +94,12 @@ g_keyboard:getModifiers()          -- Returns a string with active modifiers ("s
 g_keyboard:setRepeatDelay(delay)   -- Sets the key repeat delay
 g_keyboard:setRepeatInterval(interval) -- Sets the key repeat interval
 
-... (Pozostałe wiersze: 124)
-Zwiń
+... (Pozostale wiersze: 124)
+Zwin
 message.txt
 11 KB
 Dildo
- zmienił(-a) tytuł posta: ＯＴＣｌｉｅｎｔ░░Ｖ８░░–░░Ｌｕａ░░ＡＰＩ░░Ｄｏｃｕｍｅｎｔａｔｉｏｎ — 16:26
+ zmienil(-a) tytul posta: OTClient??V8??-??Lua??API??Documentation - 16:26
 
 ---
 # # # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)

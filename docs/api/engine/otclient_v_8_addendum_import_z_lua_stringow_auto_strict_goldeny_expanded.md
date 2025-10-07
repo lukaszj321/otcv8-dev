@@ -1,39 +1,39 @@
-﻿# OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)
+?# OTClient v8 - Addendum: Import z Lua-string�w (AUTO-STRICT) + Goldeny (Expanded)
 
-**Cel:** Dostarczyć kompletne, wdrażalne uzupełnienie do Part 4:  
-A) **Import z Lua‑stringów do AST** (AUTO‑STRICT, aktualizacja *in‑place*),  
-B) **Rozszerzona biblioteka goldenów** (round‑trip 1:1),  
-C) **Runner z obsługą profili** (`game_bot`, `client`, …).
+**Cel:** Dostarczyc kompletne, wdrazalne uzupelnienie do Part 4:  
+A) **Import z Lua-string�w do AST** (AUTO-STRICT, aktualizacja *in-place*),  
+B) **Rozszerzona biblioteka golden�w** (round-trip 1:1),  
+C) **Runner z obsluga profili** (`game_bot`, `client`, .).
 
 ---
-# # Spis treści
-- [A. Import z Lua‑stringów → AST (AUTO‑STRICT)](#a-import)
-  - [A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe](#a-1)
+# # Spis tresci
+- [A. Import z Lua-string�w ? AST (AUTO-STRICT)](#a-import)
+  - [A.1 Wykrywanie blok�w: zmienne i kotwice komentarzowe](#a-1)
   - [A.2 API ekstrakcji i podmiany (TypeScript)](#a-2)
-  - [A.3 Polityka AUTO‑STRICT i błędy importu](#a-3)
-  - [A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)](#a-4)
+  - [A.3 Polityka AUTO-STRICT i bledy importu](#a-3)
+  - [A.4 Przeplyw IDE (import ? edycja ? eksport do Lua/plik)](#a-4)
 - [B. Goldeny (expanded)](#b-goldens)
-  - [B.1 Indeks JSON (nazwy → opis)](#b-1)
+  - [B.1 Indeks JSON (nazwy ? opis)](#b-1)
   - [B.2 Wybrane goldeny (STRICT OTUI)](#b-2)
-- [C. Runner round‑trip + walidacja profili](#c-runner)
+- [C. Runner round-trip + walidacja profili](#c-runner)
 
 ---
 
 <div id="a-import"></div>
-# # A. Import z Lua‑stringów → AST (AUTO‑STRICT)
+# # A. Import z Lua-string�w ? AST (AUTO-STRICT)
 
 <div id="a-1"></div>
-# # # A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe
-**Obsługiwane formy:**
-1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` — preferowana w kodzie źródłowym.  
-2) **Kotwice**: `-- @OTUI_BEGIN name=<name>` … `-- @OTUI_END name=<name>` — czytelny marker w Lua.
+# # # A.1 Wykrywanie blok�w: zmienne i kotwice komentarzowe
+**Obslugiwane formy:**
+1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` - preferowana w kodzie zr�dlowym.  
+2) **Kotwice**: `-- @OTUI_BEGIN name=<name>` . `-- @OTUI_END name=<name>` - czytelny marker w Lua.
 
 **Regexy (TS, `gms`):**
 ```ts
 export const RX_VAR = /(^|\n)\s*local\s+([A-Za-z0-9_]+)_OTUI\s*=\s*\[\[([\s\S]*?)\]\]/gms;
 export const RX_TAG = /(^|\n)\s*--\s*@OTUI_BEGIN\s+name=([A-Za-z0-9_]+)[^\n]*\n([\s\S]*?)\n\s*--\s*@OTUI_END\s+name=\2/gms;
 ```
-> **STRICT OTUI** wewnątrz bloków: brak tabów/komentarzy/BOM; wcięcia 2 sp.; kolejność atrybutów GEOMETRIA→STYL→ZACHOWANIE.
+> **STRICT OTUI** wewnatrz blok�w: brak tab�w/komentarzy/BOM; wciecia 2 sp.; kolejnosc atrybut�w GEOMETRIA?STYL?ZACHOWANIE.
 
 <div id="a-2"></div>
 # # # A.2 API ekstrakcji i podmiany (TypeScript)
@@ -62,19 +62,19 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ```
 
 <div id="a-3"></div>
-# # # A.3 Polityka AUTO‑STRICT i błędy importu
-- **AUTO‑STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeśli zmieni treść → `W:STRICT` (propozycja auto‑zapisania).  
-- **Błędy importu:**
-  - `E:LUA‑DUP` — więcej niż jeden blok o tej samej nazwie w pliku.  
-  - `E:LUA‑NOUPD` — brak bloku do podmiany.  
-  - `E:STRICT` — komentarze/taby/BOM wewnątrz bloku OTUI.  
-  - `E:PARSE` — niepoprawny OTUI po `ensureStrictOtui()`.
+# # # A.3 Polityka AUTO-STRICT i bledy importu
+- **AUTO-STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jesli zmieni tresc ? `W:STRICT` (propozycja auto-zapisania).  
+- **Bledy importu:**
+  - `E:LUA-DUP` - wiecej niz jeden blok o tej samej nazwie w pliku.  
+  - `E:LUA-NOUPD` - brak bloku do podmiany.  
+  - `E:STRICT` - komentarze/taby/BOM wewnatrz bloku OTUI.  
+  - `E:PARSE` - niepoprawny OTUI po `ensureStrictOtui()`.
 
 <div id="a-4"></div>
-# # # A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)
-1. **Import**: odczytaj plik Lua → `extractLuaOtuiBlocks()` → wybór bloku → `ensureStrictOtui()` → `parseOtui()` → edycja w IDE.  
-2. **Eksport**: `serializeAst()` → `ensureStrictOtui()` → `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).  
-3. **Walidacja profilu**: `validateAst(ast, { profile: 'game_bot' })` przed zapisem; blokujące `E:BLK` przerywają zapis.
+# # # A.4 Przeplyw IDE (import ? edycja ? eksport do Lua/plik)
+1. **Import**: odczytaj plik Lua ? `extractLuaOtuiBlocks()` ? wyb�r bloku ? `ensureStrictOtui()` ? `parseOtui()` ? edycja w IDE.  
+2. **Eksport**: `serializeAst()` ? `ensureStrictOtui()` ? `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).  
+3. **Walidacja profilu**: `validateAst(ast, { profile: 'game_bot' })` przed zapisem; blokujace `E:BLK` przerywaja zapis.
 
 ---
 
@@ -82,7 +82,7 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 # # B. Goldeny (expanded)
 
 <div id="b-1"></div>
-# # # B.1 Indeks JSON (nazwy → opis)
+# # # B.1 Indeks JSON (nazwy ? opis)
 ```json
 [
   {"name":"mainwindow_basic","desc":"MainWindow + content (fill)"},
@@ -96,16 +96,16 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
   {"name":"status_overlay_basic","desc":"StatusOverlay (Label+Progress+Cancel)"},
   {"name":"tabbar_tabwidget_pair","desc":"TabBar + TabWidget (para)"},
   {"name":"toolbar_basic","desc":"Toolbar z dwiema akcjami i separatorem"},
-  {"name":"titlebar_buttons_set","desc":"Titlebar z tytułem i przyciskami close/min"},
+  {"name":"titlebar_buttons_set","desc":"Titlebar z tytulem i przyciskami close/min"},
   {"name":"groupbox_form_basic","desc":"GroupBox z headerem i contentem"},
   {"name":"tabbed_miniwindow","desc":"MiniWindow z TabBar + TabWidget"},
-  {"name":"combobox_basic","desc":"ComboBox (szerokość stała)"},
+  {"name":"combobox_basic","desc":"ComboBox (szerokosc stala)"},
   {"name":"checkbox_basic","desc":"CheckBox (wariant podstawowy)"},
   {"name":"progressbar_basic","desc":"ProgressBar (rozmiar minimalny)"},
   {"name":"label_wrap_basic","desc":"Label z text-wrap"},
   {"name":"panel_with_padding","desc":"Panel (anchors.fill + padding)"},
-  {"name":"textlist_with_hscroll","desc":"TextList + HorizontalScrollBar (dok do dołu)"},
-  {"name":"login_screen_basic","desc":"StaticMainWindow – prosty ekran logowania"}
+  {"name":"textlist_with_hscroll","desc":"TextList + HorizontalScrollBar (dok do dolu)"},
+  {"name":"login_screen_basic","desc":"StaticMainWindow - prosty ekran logowania"}
 ]
 ```
 
@@ -253,7 +253,7 @@ UIWidget
     step: 8
 ```
 
-**`login_screen_basic`** (podgląd)
+**`login_screen_basic`** (podglad)
 ```otui
 StaticMainWindow
   id: smw_login
@@ -302,7 +302,7 @@ StaticMainWindow
 ---
 
 <div id="c-runner"></div>
-# # C. Runner round‑trip + walidacja profili
+# # C. Runner round-trip + walidacja profili
 ```ts
 export interface GoldenCase { name: string; otui?: string }
 export interface GoldenIO { read(path: string): string; write(path: string, data: string): void }
@@ -327,4 +327,4 @@ export function runGoldenSuite(cases: GoldenCase[], io: GoldenIO, opts?: { profi
 }
 ```
 
-> **Notatka:** Ten addendum nie zmienia zasad bazowych; integruj gotowe sekcje A–C z Twoim pipeline’em IDE oraz CI.
+> **Notatka:** Ten addendum nie zmienia zasad bazowych; integruj gotowe sekcje A-C z Twoim pipeline'em IDE oraz CI.

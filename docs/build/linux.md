@@ -1,10 +1,10 @@
 # Kompilacja na systemie Linux
 
-Ten przewodnik opisuje, jak skompilować OTCv8 na systemach operacyjnych opartych na Linuksie, takich jak Ubuntu.
+Ten przewodnik opisuje, jak skompilowac OTCv8 na systemach operacyjnych opartych na Linuksie, takich jak Ubuntu.
 
-## Wymagania wstępne
+## Wymagania wstepne
 
-Będziesz potrzebować następujących zależności:
+Bedziesz potrzebowac nastepujacych zaleznosci:
 
 - `git`
 - `cmake`
@@ -19,7 +19,7 @@ Będziesz potrzebować następujących zależności:
     cd otcv8-dev
     ```
 
-2.  **Utwórz folder build:**
+2.  **Utw�rz folder build:**
     ```bash
     mkdir build && cd build
     ```
@@ -30,4 +30,4 @@ Będziesz potrzebować następujących zależności:
     make
     ```
 
-Po pomyślnej kompilacji plik wykonywalny znajdzie się w folderze `build`.
+Po pomyslnej kompilacji plik wykonywalny znajdzie sie w folderze `build`.

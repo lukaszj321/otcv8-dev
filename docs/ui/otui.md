@@ -1,8 +1,8 @@
-﻿# OTU
+?# OTU
 
 I
 
-—
+-
 
 p
 
@@ -22,8 +22,8 @@ y
 
 !!! info
 
-    OTUI to deklaratywne layouty interfejsu użytkownika.
-# # Przykł
+    OTUI to deklaratywne layouty interfejsu uzytkownika.
+# # Przykl
 
 a
 
@@ -62,7 +62,7 @@ w
 
 i
 
-ą
+a
 
 z
 
@@ -74,8 +74,8 @@ i
 
 a
 
-- Właściwości elementów można powiązać z danymi (np. przez Lua).
-- Aktualizacje push przez eventy modułów.
+- Wlasciwosci element�w mozna powiazac z danymi (np. przez Lua).
+- Aktualizacje push przez eventy modul�w.
 # # W
 
 s
@@ -86,7 +86,7 @@ a
 
 z
 
-ó
+�
 
 w
 
@@ -95,4 +95,4 @@ k
 i
 
 - Trzymaj layouty w `layouts/*`.
-- Styluj wspólnymi klasami, nie inline.
+- Styluj wsp�lnymi klasami, nie inline.

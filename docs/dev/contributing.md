@@ -1,4 +1,4 @@
-﻿# Co
+?# Co
 
 n
 
@@ -20,9 +20,9 @@ n
 
 g
 
-1. Fork → branch `feature/…`.
-2. Commity: konwencja `type(scope): msg` (np. `docs(build): …`).
-3. PR z krótkim opisem i screenami.
+1. Fork ? branch `feature/.`.
+2. Commity: konwencja `type(scope): msg` (np. `docs(build): .`).
+3. PR z kr�tkim opisem i screenami.
 4. Review: 1 LGTM + zielone CI.
 # # S
 
@@ -34,8 +34,8 @@ l
 
 e
 
-- Lua: patrz _Lua → Style guide_.
-- C++: clang-format (domyślny styl projektu).
+- Lua: patrz _Lua ? Style guide_.
+- C++: clang-format (domyslny styl projektu).
 # # Commity dok
 
 u
@@ -56,4 +56,4 @@ j
 
 i
 
-- Zmiany w `docs/**` nie uruchamiają CMake (paths-ignore).
+- Zmiany w `docs/**` nie uruchamiaja CMake (paths-ignore).

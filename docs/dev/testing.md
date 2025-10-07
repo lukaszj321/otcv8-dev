@@ -1,4 +1,4 @@
-﻿# T
+?# T
 
 e
 
@@ -8,9 +8,9 @@ t
 
 y
 
-- Lua: testy jednostkowe (busted) — folder `spec/`.
-- C++: GoogleTest (jeśli dostępne).
-- E2E: scenariusze ręczne + checklisty w PR.
+- Lua: testy jednostkowe (busted) - folder `spec/`.
+- C++: GoogleTest (jesli dostepne).
+- E2E: scenariusze reczne + checklisty w PR.
 # # Ra
 
 p
@@ -23,9 +23,9 @@ t
 
 b
 
-ł
+l
 
-ę
+e
 
 d
 

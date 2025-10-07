@@ -1,4 +1,4 @@
-﻿# R
+?# R
 
 e
 
@@ -14,7 +14,7 @@ e
 
 1. Bump wersji (semver) / tag.
 2. Changelog z PR od ostatniego taga.
-3. Build artefaktów (CI).
+3. Build artefakt�w (CI).
 4. Publikacja + checksumy.
 # # Wersjonowanie dok
 
@@ -36,4 +36,4 @@ j
 
 i
 
-- Docsy budują się z gałęzi `master`.
+- Docsy buduja sie z galezi `master`.

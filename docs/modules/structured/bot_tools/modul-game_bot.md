@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_bot`
+?# � Modul: `game_bot`
 
 ```lua
 
@@ -1621,7 +1621,7 @@ MiniWindow
 
 ```text
 
-> ERROR: Nie udalo siae odczytaa‡ pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
+> ERROR: Nie udalo siae odczytaa? pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
 
 ```
 
@@ -2912,7 +2912,7 @@ end
 
 ```text
 
-> ERROR: Nie udalo siae odczytaa‡ pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
+> ERROR: Nie udalo siae odczytaa? pliku ('utf-8' codec can't decode byte 0x89 in position 0: invalid start byte)
 
 ```
 

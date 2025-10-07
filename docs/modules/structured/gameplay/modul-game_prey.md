@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_prey`
+?# � Modul: `game_prey`
 
 ```lua
 
