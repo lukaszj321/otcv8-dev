@@ -1,10 +1,10 @@
-# Moduł: ModuĹ‚: `topbar.lua`
-**Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
+# Moduł: Moduł: `topbar.lua`
+**Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduł i gdzie jest uĹĽywany).*
 
 ## Zakres
 - â€¦
 
-## Punkty wejĹ›cia
+## Punkty wejścia
 - **Lua:** â€¦
 - **C++/IPC:** â€¦
 
@@ -12,8 +12,8 @@
 - Pliki OTUI: â€¦
 - Kluczowe widĹĽety: â€¦
 
-## Integracje i zaleĹĽnoĹ›ci
-- WspĂłĹ‚pracuje z: â€¦
+## Integracje i zaleĹĽności
+- WspĂłłpracuje z: â€¦
 
 ## Scenariusze
 1. â€¦
@@ -27,9 +27,9 @@
 
 > **Uwagi migracyjne**
 >
-> Ten moduĹ‚ pochodzi z: modules/modules_misc.md
+> Ten moduł pochodzi z: modules/modules_misc.md
 
-### Zaimportowana treĹ›Ä‡ (legacy)
+### Zaimportowana treść (legacy)
 #### Funkcje
 
 - `init()`

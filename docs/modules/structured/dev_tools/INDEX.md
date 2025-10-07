@@ -1,5 +1,5 @@
-# Moduł: ModuĹ‚y â€“ indeks
-PoniĹĽej lista moduĹ‚Ăłw w tej kategorii (auto-generated). Edytuj swobodnie â€“ skrypt bÄ™dzie dopisywaĹ‚ nowe pozycje.
+# Moduł: Moduły â€“ indeks
+PoniĹĽej lista modułĂłw w tej kategorii (auto-generated). Edytuj swobodnie â€“ skrypt będzie dopisywał nowe pozycje.
 
 <!-- AUTO-LIST -->
 
