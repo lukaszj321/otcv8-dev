@@ -1,12 +1,9 @@
-# Framework Overview (UI, System, Input)
-
+﻿# Framework Overview (UI, System, Input)
 Poniżej znajduje się przegląd klas i metod z folderu `framework/`, odpowiedzialnych za interfejs graficzny, zarządzanie UI, inputy, zdarzenia i inne aspekty systemowe klienta.
-## framework/global.h
-
+# framework/global.h
 - `fatalError(const char* error, const char* file, int line)`
 - `VALIDATE(expression)`
-## framework/luafunctions.cpp
-
+# framework/luafunctions.cpp
 - `e(exp, std::regex::ECMAScript)`
 - `UIWidgetPtr(new UIWidget)`
 - `UIVerticalLayoutPtr(new UIVerticalLayout(parent))`
@@ -17,8 +14,7 @@ Poniżej znajduje się przegląd klas i metod z folderu `framework/`, odpowiedzi
 - `ProtocolPtr(new Protocol)`
 - `InputMessagePtr(new InputMessage)`
 - `OutputMessagePtr(new OutputMessage)`
-## framework/core/adaptiverenderer.h
-
+# framework/core/adaptiverenderer.h
 class AdaptiveRenderer
 - `newFrame()`
 - `refresh()`
@@ -33,8 +29,7 @@ class AdaptiveRenderer
 - `foregroundUpdateInterval()`
 - `getDebugInfo()`
 - `setForcedLevel(int value)`
-## framework/core/application.cpp
-
+# framework/core/application.cpp
 - `exitSignalHandler(int sig)`
 - `signal(SIGTERM, exitSignalHandler)`
 - `poll()`
@@ -42,8 +37,7 @@ class AdaptiveRenderer
 - `exit()`
 - `c(g_resources.getBinaryName(), boost::process::args(args))`
 - `exit()`
-## framework/core/application.h
-
+# framework/core/application.h
 class Application
 - `Application()`
 - `init(std::vector<std::string>& args)`
@@ -74,11 +68,9 @@ class Application
 - `getStartupOptions()`
 - `isMobile()`
 - `registerLuaFunctions()`
-## framework/core/asyncdispatcher.cpp
-
+# framework/core/asyncdispatcher.cpp
 - `lock(m_mutex)`
-## framework/core/asyncdispatcher.h
-
+# framework/core/asyncdispatcher.h
 class AsyncDispatcher
 class F
 - `init()`
@@ -90,12 +82,10 @@ class F
 - `dispatch(std::function<void()> f)`
 - `lock(m_mutex)`
 - `exec_loop()`
-## framework/core/binarytree.cpp
-
+# framework/core/binarytree.cpp
 - `node(new BinaryTree(m_fin))`
 - `ret((char*)&m_buffer[m_pos], len)`
-## framework/core/binarytree.h
-
+# framework/core/binarytree.h
 class BinaryTree
 class OutputBinaryTree
 - `BinaryTree(const FileStreamPtr& fin)`
@@ -123,8 +113,7 @@ class OutputBinaryTree
 - `startNode(uint8 node)`
 - `endNode()`
 - `write(const uint8* data, size_t size)`
-## framework/core/clock.h
-
+# framework/core/clock.h
 class Clock
 - `Clock()`
 - `update()`
@@ -133,8 +122,7 @@ class Clock
 - `seconds()`
 - `realMicros()`
 - `realMillis()`
-## framework/core/config.h
-
+# framework/core/config.h
 class Config
 - `Config()`
 - `load(const std::string& file)`
@@ -154,13 +142,11 @@ class Config
 - `getFileName()`
 - `isLoaded()`
 - `asConfig()`
-## framework/core/configmanager.cpp
-
+# framework/core/configmanager.cpp
 - `Config())`
 - `Config())`
 - `Config())`
-## framework/core/configmanager.h
-
+# framework/core/configmanager.h
 class ConfigManager
 - `init()`
 - `terminate()`
@@ -171,15 +157,12 @@ class ConfigManager
 - `load(const std::string& file)`
 - `unload(const std::string& file)`
 - `remove(const ConfigPtr config)`
-## framework/core/consoleapplication.cpp
-
+# framework/core/consoleapplication.cpp
 - `poll()`
-## framework/core/consoleapplication.h
-
+# framework/core/consoleapplication.h
 class ConsoleApplication
 - `run()`
-## framework/core/declarations.h
-
+# framework/core/declarations.h
 class ConfigManager
 class ModuleManager
 class ResourceManager
@@ -190,8 +173,7 @@ class ScheduledEvent
 class FileStream
 class BinaryTree
 class OutputBinaryTree
-## framework/core/event.h
-
+# framework/core/event.h
 class Event
 - `Event(const std::string& function, const std::function<void()>& callback, bool botSafe = false)`
 - `execute()`
@@ -199,8 +181,7 @@ class Event
 - `isCanceled()`
 - `isExecuted()`
 - `isBotSafe()`
-## framework/core/eventdispatcher.cpp
-
+# framework/core/eventdispatcher.cpp
 - `s(this == &g_dispatcher ? STATS_MAIN : STATS_RENDER, "PollDispatcher")`
 - `lock(m_mutex)`
 - `s2(STATS_DISPATCHER, scheduledEvent->getFunction())`
@@ -214,8 +195,7 @@ class Event
 - `EventPtr(new Event("", nullptr))`
 - `event(new Event(function, callback, g_app.isOnInputEvent()))`
 - `lock(m_mutex)`
-## framework/core/eventdispatcher.h
-
+# framework/core/eventdispatcher.h
 class EventDispatcher
 - `shutdown()`
 - `poll()`
@@ -223,16 +203,14 @@ class EventDispatcher
 - `scheduleEventEx(const std::string& function, const std::function<void()>& callback, int delay)`
 - `cycleEventEx(const std::string& function, const std::function<void()>& callback, int delay)`
 - `isBotSafe()`
-## framework/core/filestream.cpp
-
+# framework/core/filestream.cpp
 - `PHYSFS_fileLength(m_fileHandle)`
 - `PHYSFS_tell(m_fileHandle)`
 - `PHYSFS_eof(m_fileHandle)`
 - `buffer(len, 0)`
 - `start(getBinaryTree): %d", byte))`
 - `BinaryTreePtr(new BinaryTree(asFileStream()))`
-## framework/core/filestream.h
-
+# framework/core/filestream.h
 class FileStream
 - `FileStream(const std::string& name, PHYSFS_File *fileHandle, bool writeable)`
 - `close()`
@@ -272,8 +250,7 @@ class FileStream
 - `initFromGzip(const std::string& buffer)`
 - `checkWrite()`
 - `throwError(const std::string& message, bool physfsError = false)`
-## framework/core/graphicalapplication.cpp
-
+# framework/core/graphicalapplication.cpp
 - `resize(g_window.getSize())`
 - `poll()`
 - `poll()`
@@ -297,8 +274,7 @@ class FileStream
 - `s(STATS_RENDER, "SwapBuffers")`
 - `scale(m_scaling)`
 - `image(resolution, 4, pixels->data())`
-## framework/core/graphicalapplication.h
-
+# framework/core/graphicalapplication.h
 class GraphicalApplication
 - `init(std::vector<std::string>& args)`
 - `deinit()`
@@ -324,19 +300,16 @@ class GraphicalApplication
 - `doMapScreenshot(std::string fileName)`
 - `resize(const Size& size)`
 - `inputEvent(InputEvent event)`
-## framework/core/inputevent.h
-
+# framework/core/inputevent.h
 - `reset(Fw::InputEventType eventType = Fw::NoInputEvent)`
-## framework/core/logger.cpp
-
+# framework/core/logger.cpp
 - `lock(m_mutex, std::try_to_lock)`
 - `exit(-1)`
 - `lock(m_mutex)`
 - `lock(m_mutex)`
 - `lock(m_mutex)`
 - `fatalError(const char* error, const char* file, int line)`
-## framework/core/logger.h
-
+# framework/core/logger.h
 class Logger
 - `log(Fw::LogLevel level, const std::string& message)`
 - `logFunc(Fw::LogLevel level, const std::string& message, std::string prettyFunction)`
@@ -352,12 +325,10 @@ class Logger
 - `setTestingMode()`
 - `logTraceCounter()`
 - `logTraceFrameCounter()`
-## framework/core/module.cpp
-
+# framework/core/module.cpp
 - `errorHandler(e.what())`
 - `load()`
-## framework/core/module.h
-
+# framework/core/module.h
 class Module
 class ModuleManager
 - `Module(const std::string& name)`
@@ -381,11 +352,9 @@ class ModuleManager
 - `getAutoLoadPriority()`
 - `asModule()`
 - `discover(const OTMLNodePtr& moduleNode)`
-## framework/core/modulemanager.cpp
-
+# framework/core/modulemanager.cpp
 - `Module(name))`
-## framework/core/modulemanager.h
-
+# framework/core/modulemanager.h
 class ModuleManager
 class Module
 - `clear()`
@@ -398,8 +367,7 @@ class Module
 - `getModule(const std::string& moduleName)`
 - `getModules()`
 - `updateModuleLoadOrder(ModulePtr module)`
-## framework/core/resourcemanager.cpp
-
+# framework/core/resourcemanager.cpp
 - `PHYSFS_init(argv0)`
 - `path(std::filesystem::u8path(localDir))`
 - `c(binary.string())`
@@ -431,8 +399,7 @@ class Module
 - `buffer(std::istreambuf_iterator<char>(in_file), {})`
 - `out_file(it, std::ios::binary)`
 - `new_buffer(24 + buffer.size() * 2, '0')`
-## framework/core/resourcemanager.h
-
+# framework/core/resourcemanager.h
 class ResourceManager
 - `init(const char *argv0)`
 - `terminate()`
@@ -484,8 +451,7 @@ class ResourceManager
 - `getLayout()`
 - `mountMemoryData(const std::shared_ptr<std::vector<uint8_t>>& data)`
 - `unmountMemoryData()`
-## framework/core/scheduledevent.h
-
+# framework/core/scheduledevent.h
 class ScheduledEvent
 - `ScheduledEvent(const std::string& function, const std::function<void()>& callback, int delay, int maxCycles, bool botSafe = false)`
 - `execute()`
@@ -496,8 +462,7 @@ class ScheduledEvent
 - `cyclesExecuted()`
 - `maxCycles()`
 - `operator()(const ScheduledEventPtr& a, const ScheduledEventPtr& b)`
-## framework/core/timer.h
-
+# framework/core/timer.h
 class Timer
 - `Timer()`
 - `restart()`
@@ -507,11 +472,9 @@ class Timer
 - `ticksElapsed()`
 - `timeElapsed()`
 - `running()`
-## framework/graphics/animatedtexture.cpp
-
+# framework/graphics/animatedtexture.cpp
 - `Texture(frames[i], buildMipmaps, compress))`
-## framework/graphics/animatedtexture.h
-
+# framework/graphics/animatedtexture.h
 class AnimatedTexture
 - `AnimatedTexture(const Size& size, std::vector<ImagePtr> frames, std::vector<int> framesDelay, bool buildMipmaps = false, bool compress = false)`
 - `replace(const ImagePtr& image)`
@@ -520,8 +483,7 @@ class AnimatedTexture
 - `buildHardwareMipmaps()`
 - `setSmooth(bool smooth)`
 - `setRepeat(bool repeat)`
-## framework/graphics/apngloader.cpp
-
+# framework/graphics/apngloader.cpp
 - `read32(std::istream& f1)`
 - `read16(std::istream& f1)`
 - `readshort(unsigned char * p)`
@@ -560,17 +522,14 @@ class AnimatedTexture
 - `save_png(std::stringstream& f, unsigned int width, unsigned int height, int channels, unsigned char *pixels)`
 - `write_IDATs(f, zbuf2, zstream2.total_out, idat_size)`
 - `free_apng(struct apng_data *apng)`
-## framework/graphics/apngloader.h
-
+# framework/graphics/apngloader.h
 - `load_apng(std::stringstream& file, struct apng_data *apng)`
 - `save_png(std::stringstream& file, unsigned int width, unsigned int height, int channels, unsigned char *pixels)`
 - `free_apng(struct apng_data *apng)`
-## framework/graphics/atlas.cpp
-
+# framework/graphics/atlas.cpp
 - `Point(-1, -1)`
 - `Point(-1, -1)`
-## framework/graphics/atlas.h
-
+# framework/graphics/atlas.h
 class Atlas
 - `init()`
 - `terminate()`
@@ -585,8 +544,7 @@ class Atlas
 - `resetAtlas(int location)`
 - `findSpace(int location, int index)`
 - `calculateIndex(const Size& size)`
-## framework/graphics/bitmapfont.cpp
-
+# framework/graphics/bitmapfont.cpp
 - `offset(0, 0)`
 - `screenCoords(startPos, boxSize)`
 - `glyphScreenCoords(glyphsPositions[i], m_glyphsSize[glyph])`
@@ -594,8 +552,7 @@ class Atlas
 - `lineWidths(1)`
 - `virtualPos(0, m_yOffset)`
 - `updateColors(colors, lastColorSeparator, 1)`
-## framework/graphics/bitmapfont.h
-
+# framework/graphics/bitmapfont.h
 class BitmapFont
 - `BitmapFont(const std::string& name) : m_name(name)`
 - `load(const OTMLNodePtr& fontNode)`
@@ -612,11 +569,9 @@ class BitmapFont
 - `getGlyphSpacing()`
 - `calculateGlyphsWidthsAutomatically(const ImagePtr& image, const Size& glyphSize)`
 - `updateColors(std::vector<std::pair<int, Color>>* colors, int pos, int newTextLen)`
-## framework/graphics/cachedtext.cpp
-
+# framework/graphics/cachedtext.cpp
 - `c(Color::white)`
-## framework/graphics/cachedtext.h
-
+# framework/graphics/cachedtext.h
 class CachedText
 - `CachedText()`
 - `draw(const Rect& rect, const Color& color)`
@@ -631,8 +586,7 @@ class CachedText
 - `getAlign()`
 - `hasText()`
 - `update()`
-## framework/graphics/colorarray.h
-
+# framework/graphics/colorarray.h
 class ColorArray
 - `addColor(float r, float g, float b, float a)`
 - `addColor(const Color& c)`
@@ -640,8 +594,7 @@ class ColorArray
 - `colorCount()`
 - `count()`
 - `size()`
-## framework/graphics/coordsbuffer.cpp
-
+# framework/graphics/coordsbuffer.cpp
 - `addRect(Rect(right - w + 1, top, w, height - w))`
 - `addRect(Rect(left + w, bottom - w + 1, width - w, w))`
 - `addRect(Rect(left, top + w, w, height - w))`
@@ -649,8 +602,7 @@ class ColorArray
 - `partialDest(x, y, src.size())`
 - `partialSrc(src)`
 - `Rect(Point(x1, y1), Point(x2, y2))`
-## framework/graphics/coordsbuffer.h
-
+# framework/graphics/coordsbuffer.h
 class CoordsBuffer
 - `CoordsBuffer()`
 - `clear()`
@@ -667,8 +619,7 @@ class CoordsBuffer
 - `unlock(bool clear = false)`
 - `cache()`
 - `getTextureRect()`
-## framework/graphics/declarations.h
-
+# framework/graphics/declarations.h
 class Texture
 class TextureManager
 class Image
@@ -680,19 +631,16 @@ class FrameBufferManager
 class Shader
 class ShaderProgram
 class PainterShaderProgram
-## framework/graphics/deptharray.h
-
+# framework/graphics/deptharray.h
 class DepthArray
 - `addDepth(float depth)`
 - `clear()`
 - `depthCount()`
 - `count()`
 - `size()`
-## framework/graphics/drawcache.cpp
-
+# framework/graphics/drawcache.cpp
 - `emptyRect(Point(-10, -10), Point(-10, -10))`
-## framework/graphics/drawcache.h
-
+# framework/graphics/drawcache.h
 class DrawCache
 - `draw()`
 - `bind()`
@@ -705,13 +653,11 @@ class DrawCache
 - `addTexturedCoords(CoordsBuffer& coords, const Point& offset, const Color& color)`
 - `addRectRaw(float* dest, const Rect& rect)`
 - `addColorRaw(const Color& color, int count)`
-## framework/graphics/drawqueue.cpp
-
+# framework/graphics/drawqueue.cpp
 - `vertices(1024, 0)`
 - `DrawQueueItemText(screenCoords.topLeft(), font->getTexture(), hash, color, shadow))`
 - `DrawQueueItemTextColored(screenCoords.topLeft(), font->getTexture(), hash, colors, shadow))`
-## framework/graphics/drawqueue.h
-
+# framework/graphics/drawqueue.h
 class DrawQueue
 class DrawQueue
 - `draw()`
@@ -775,14 +721,12 @@ class DrawQueue
 - `correctOutfit(const Rect& dest, int fromPos, bool oldScaling)`
 - `setShader(const std::string& shader)`
 - `getShader()`
-## framework/graphics/fontmanager.cpp
-
+# framework/graphics/fontmanager.cpp
 - `BitmapFont("emptyfont"))`
 - `BitmapFont("emptyfont"))`
 - `font(new BitmapFont(name))`
 - `getDefaultFont()`
-## framework/graphics/fontmanager.h
-
+# framework/graphics/fontmanager.h
 class FontManager
 - `FontManager()`
 - `terminate()`
@@ -792,8 +736,7 @@ class FontManager
 - `getFont(const std::string& fontName)`
 - `getDefaultFont()`
 - `setDefaultFont(const std::string& fontName)`
-## framework/graphics/framebuffer.cpp
-
+# framework/graphics/framebuffer.cpp
 - `internalCreate()`
 - `Texture(size, false, m_smooth, true))`
 - `internalBind()`
@@ -801,8 +744,7 @@ class FontManager
 - `rect(0, 0, getSize())`
 - `ret(width * height * sizeof(GLubyte), 0)`
 - `image(size, 4, pixels->data())`
-## framework/graphics/framebuffer.h
-
+# framework/graphics/framebuffer.h
 class FrameBuffer
 class FrameBufferManager
 - `FrameBuffer(bool withDepth = false)`
@@ -823,38 +765,32 @@ class FrameBufferManager
 - `internalCreate()`
 - `internalBind()`
 - `internalRelease()`
-## framework/graphics/framebuffermanager.cpp
-
+# framework/graphics/framebuffermanager.cpp
 - `FrameBuffer())`
 - `FrameBuffer())`
 - `FrameBuffer(withDepth))`
-## framework/graphics/framebuffermanager.h
-
+# framework/graphics/framebuffermanager.h
 class FrameBufferManager
 - `init()`
 - `terminate()`
 - `clear()`
 - `createFrameBuffer(bool withDepth = false)`
-## framework/graphics/graph.cpp
-
+# framework/graphics/graph.cpp
 - `vertices(MAX_CAPACITY * 2, 0)`
 - `lock(m_mutex)`
 - `lock(m_mutex)`
-## framework/graphics/graph.h
-
+# framework/graphics/graph.h
 class to
 class Graph
 - `Graph(const std::string& name, size_t capacity = 100)`
 - `draw(const Rect& dest)`
 - `clear()`
 - `addValue(int value, bool ignoreSmallValues = false)`
-## framework/graphics/graphics.cpp
-
+# framework/graphics/graphics.cpp
 - `glEnable(GL_BLEND)`
 - `checkDepthSupport()`
 - `Painter()`
-## framework/graphics/graphics.h
-
+# framework/graphics/graphics.h
 class Painter
 class Graphics
 - `Graphics()`
@@ -870,14 +806,12 @@ class Graphics
 - `ok()`
 - `checkForError(const std::string& function, const std::string& file, int line)`
 - `checkDepthSupport()`
-## framework/graphics/hardwarebuffer.h
-
+# framework/graphics/hardwarebuffer.h
 class HardwareBuffer
 - `bind()`
 - `unbind(Type type)`
 - `write(void *data, int count, UsagePattern usage)`
-## framework/graphics/image.cpp
-
+# framework/graphics/image.cpp
 - `Image(Size(apng.width, apng.height), apng.bpp, apng.pdata))`
 - `temp((char*)data, size)`
 - `fin(temp)`
@@ -885,8 +819,7 @@ class HardwareBuffer
 - `newImage(new Image(m_size * 2))`
 - `pixels(ow*oh*4, 0xFF)`
 - `image(new Image(Size(size + border * 2, size + border * 2)))`
-## framework/graphics/image.h
-
+# framework/graphics/image.h
 class Image
 - `Image(const Size& size, int bpp = 4, uint8 *pixels = nullptr)`
 - `load(std::string file)`
@@ -906,8 +839,7 @@ class Image
 - `getHeight()`
 - `getBpp()`
 - `fromQRCode(const std::string& code, int border)`
-## framework/graphics/painter.cpp
-
+# framework/graphics/painter.cpp
 - `setResolution(g_window.getSize())`
 - `resetDepth()`
 - `updateDepthFunc()`
@@ -941,8 +873,7 @@ class Image
 - `glColorMask(1, 1, 1, 0)`
 - `glBindTexture(GL_TEXTURE_2D, activeTexture)`
 - `glBindTexture(GL_TEXTURE_2D, activeTexture)`
-## framework/graphics/painter.h
-
+# framework/graphics/painter.h
 class Painter
 - `bind()`
 - `unbind()`
@@ -1029,11 +960,9 @@ class Painter
 - `updateGlAlphaWriting()`
 - `updateGlViewport()`
 - `updateDepthFunc()`
-## framework/graphics/paintershaderprogram.cpp
-
+# framework/graphics/paintershaderprogram.cpp
 - `setUniformValue(TRANSFORM_MATRIX_UNIFORM, m_transformMatrix)`
-## framework/graphics/paintershaderprogram.h
-
+# framework/graphics/paintershaderprogram.h
 class PainterShaderProgram
 class Painter
 - `setupUniforms()`
@@ -1053,21 +982,18 @@ class Painter
 - `bindMultiTextures()`
 - `clearMultiTextures()`
 - `enableColorMatrix()`
-## framework/graphics/shader.cpp
-
+# framework/graphics/shader.cpp
 - `glShaderSource(m_shaderId, 1, &c_source, NULL)`
 - `compileSourceCode(sourceCode)`
 - `buf(infoLogLength)`
-## framework/graphics/shader.h
-
+# framework/graphics/shader.h
 class Shader
 - `compileSourceCode(const std::string& sourceCode)`
 - `compileSourceFile(const std::string& sourceFile)`
 - `log()`
 - `getShaderId()`
 - `getShaderType()`
-## framework/graphics/shadermanager.h
-
+# framework/graphics/shadermanager.h
 class ShaderManager
 - `init()`
 - `terminate()`
@@ -1076,8 +1002,7 @@ class ShaderManager
 - `createShader(name, vertex, fragment, true)`
 - `addTexture(const std::string& name, const std::string& file)`
 - `getShader(const std::string& name)`
-## framework/graphics/shaderprogram.cpp
-
+# framework/graphics/shaderprogram.cpp
 - `program(new PainterShaderProgram(name))`
 - `shader(new Shader(shaderType))`
 - `addShader(shader)`
@@ -1087,8 +1012,7 @@ class ShaderManager
 - `buf(infoLogLength)`
 - `glGetAttribLocation(m_programId, name)`
 - `glBindAttribLocation(m_programId, location, name)`
-## framework/graphics/shaderprogram.h
-
+# framework/graphics/shaderprogram.h
 class ShaderProgram
 - `ShaderProgram(const std::string& name)`
 - `create(const std::string& name, const std::string& vertexShader, const std::string& fragmentShader, bool colorMatrix = false)`
@@ -1139,12 +1063,10 @@ class ShaderProgram
 - `getProgramId()`
 - `getShaders()`
 - `getName()`
-## framework/graphics/textrender.cpp
-
+# framework/graphics/textrender.cpp
 - `lock(m_mutex[index])`
 - `drawText(pos, hash, Color::white)`
-## framework/graphics/textrender.h
-
+# framework/graphics/textrender.h
 class TextRender
 - `init()`
 - `terminate()`
@@ -1153,8 +1075,7 @@ class TextRender
 - `drawText(const Rect& rect, const std::string& text, BitmapFontPtr font, const Color& color = Color::white, Fw::AlignmentFlag align = Fw::AlignTopLeft, bool shadow = false)`
 - `drawText(const Point& pos, uint64_t hash, const Color& color, bool shadow = false)`
 - `drawColoredText(const Point& pos, uint64_t hash, const std::vector<std::pair<int, Color>>& colors, bool shadow = false)`
-## framework/graphics/texture.h
-
+# framework/graphics/texture.h
 class Texture
 - `Texture(const Size& size, bool depthTexture = false, bool smooth = false, bool upsideDown = false)`
 - `replace(const ImagePtr& image)`
@@ -1182,16 +1103,14 @@ class Texture
 - `setupFilters()`
 - `setupTranformMatrix()`
 - `setupPixels(int level, const Size& size, uchar *pixels, int channels = 4, bool compress = false)`
-## framework/graphics/texturemanager.cpp
-
+# framework/graphics/texturemanager.cpp
 - `imageSize(apng.width, apng.height)`
 - `512x512(they can't be cached)", source, apng.width, apng.height))`
 - `Image(imageSize, apng.bpp, frameData)))`
 - `AnimatedTexture(imageSize, frames, framesDelay)`
 - `Image(imageSize, apng.bpp, apng.pdata))`
 - `Texture(image))`
-## framework/graphics/texturemanager.h
-
+# framework/graphics/texturemanager.h
 class TextureManager
 - `init()`
 - `terminate()`
@@ -1200,8 +1119,7 @@ class TextureManager
 - `preload(const std::string& fileName)`
 - `getTexture(const std::string& fileName)`
 - `loadTexture(std::stringstream& file, const std::string& source)`
-## framework/graphics/vertexarray.h
-
+# framework/graphics/vertexarray.h
 class VertexArray
 - `VertexArray()`
 - `addVertex(float x, float y)`
@@ -1216,8 +1134,7 @@ class VertexArray
 - `cache()`
 - `HardwareBuffer(HardwareBuffer::VertexBuffer)`
 - `isCached()`
-## framework/graphics/shaders/shadersources.h
-
+# framework/graphics/shaders/shadersources.h
 - `calculatePosition()`
 - `main()`
 - `calculatePosition()`
@@ -1228,8 +1145,7 @@ class VertexArray
 - `calculatePixel()`
 - `calculatePixel()`
 - `vec4(0,0,0,0)`
-## framework/http/http.h
-
+# framework/http/http.h
 class WebsocketSession
 class Http
 - `Http() : m_ios(), m_guard(boost::asio::make_work_guard(m_ios))`
@@ -1245,11 +1161,9 @@ class Http
 - `clearDownloads()`
 - `getFile(std::string path)`
 - `setUserAgent(const std::string& userAgent)`
-## framework/http/result.h
-
+# framework/http/result.h
 class HttpSession
-## framework/http/session.cpp
-
+# framework/http/session.cpp
 - `self(shared_from_this())`
 - `self(shared_from_this())`
 - `onError("resolve error", ec.message())`
@@ -1271,8 +1185,7 @@ class HttpSession
 - `m_callback(m_result)`
 - `self(shared_from_this())`
 - `onError("timeout")`
-## framework/http/session.h
-
+# framework/http/session.h
 class HttpSession
 - `start()`
 - `cancel()`
@@ -1284,8 +1197,7 @@ class HttpSession
 - `close()`
 - `onTimeout(const boost::system::error_code& error)`
 - `onError(const std::string& error, const std::string& details = "")`
-## framework/http/websocket.cpp
-
+# framework/http/websocket.cpp
 - `self(shared_from_this())`
 - `self(shared_from_this())`
 - `ec2(static_cast<int>(::ERR_get_error()), boost::asio::error::get_ssl_category())`
@@ -1299,8 +1211,7 @@ class HttpSession
 - `onError("canceled", ec.message())`
 - `onError("read error", ec.message())`
 - `onError("timeout")`
-## framework/http/websocket.h
-
+# framework/http/websocket.h
 class WebsocketSession
 - `start()`
 - `send(std::string data)`
@@ -1312,13 +1223,11 @@ class WebsocketSession
 - `on_read(const boost::system::error_code& ec, size_t bytes_transferred)`
 - `onTimeout(const boost::system::error_code& error)`
 - `onError(const std::string& error, const std::string& details = "")`
-## framework/input/mouse.cpp
-
+# framework/input/mouse.cpp
 - `lock(m_mutex)`
 - `lock(m_mutex)`
 - `lock(m_mutex)`
-## framework/input/mouse.h
-
+# framework/input/mouse.h
 class Mouse
 - `init()`
 - `terminate()`
@@ -1328,12 +1237,10 @@ class Mouse
 - `popCursor(const std::string& name)`
 - `isCursorChanged()`
 - `isPressed(Fw::MouseButton mouseButton)`
-## framework/luaengine/declarations.h
-
+# framework/luaengine/declarations.h
 class LuaInterface
 class LuaObject
-## framework/luaengine/lbitlib.cpp
-
+# framework/luaengine/lbitlib.cpp
 - `lua_pushunsigned(lua_State *L, lua_Unsigned u)`
 - `luaL_checkunsigned(lua_State *L, int arg)`
 - `andaux(lua_State *L)`
@@ -1359,11 +1266,9 @@ class LuaObject
 - `b_extract(lua_State *L)`
 - `b_replace(lua_State *L)`
 - `luaopen_bit32(lua_State *L)`
-## framework/luaengine/lbitlib.h
-
+# framework/luaengine/lbitlib.h
 - `luaopen_bit32(lua_State *L)`
-## framework/luaengine/luabinder.h
-
+# framework/luaengine/luabinder.h
 class FC
 class FC
 - `call(Tuple& tuple, LuaInterface* lua)`
@@ -1387,11 +1292,9 @@ class FC
 - `bind_singleton_mem_fun(Ret (FC::*f)(Args...), C *instance)`
 - `bind_mem_fun(int (C::*f)(LuaInterface*))`
 - `mf(obj, lua)`
-## framework/luaengine/luaexception.cpp
-
+# framework/luaengine/luaexception.cpp
 - `generateLuaErrorMessage(error, traceLevel)`
-## framework/luaengine/luaexception.h
-
+# framework/luaengine/luaexception.h
 class LuaException
 class LuaBadNumberOfArgumentsException
 class LuaBadValueCastException
@@ -1401,8 +1304,7 @@ class LuaBadValueCastException
 - `LuaException()`
 - `LuaBadNumberOfArgumentsException(int expected = -1, int got = -1)`
 - `LuaBadValueCastException(const std::string& luaTypeName, const std::string& cppTypeName)`
-## framework/luaengine/luainterface.cpp
-
+# framework/luaengine/luainterface.cpp
 class table
 class methods
 class fieldmethods
@@ -1486,8 +1388,7 @@ class fieldmethods
 - `lua_tostring(L, index)`
 - `lua_touserdata(L, index)`
 - `lua_gettop(L)`
-## framework/luaengine/luainterface.h
-
+# framework/luaengine/luainterface.h
 class LuaInterface
 class C
 class B
@@ -1675,11 +1576,9 @@ class T
 - `polymorphicPush()`
 - `LuaBadValueCastException(typeName(index), stdext::demangle_type<T>())`
 - `s(STATS_LUA, std::string(global) + ":" + field)`
-## framework/luaengine/luaobject.cpp
-
+# framework/luaengine/luaobject.cpp
 - `ref_count()`
-## framework/luaengine/luaobject.h
-
+# framework/luaengine/luaobject.h
 class LuaObject
 class name
 - `LuaObject()`
@@ -1703,8 +1602,7 @@ class name
 - `connect(const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool pushFront)`
 - `s(STATS_LUA, getClassName() + ":" + field)`
 - `s(STATS_LUA, field)`
-## framework/luaengine/luavaluecasts.cpp
-
+# framework/luaengine/luavaluecasts.cpp
 - `push_luavalue(bool b)`
 - `luavalue_cast(int index, bool& b)`
 - `push_luavalue(int i)`
@@ -1728,8 +1626,7 @@ class name
 - `luavalue_cast(int index, OTMLNodePtr& node)`
 - `VALIDATE(g_lua.isNumber())`
 - `luavalue_cast(int index, LuaObjectPtr& obj)`
-## framework/luaengine/luavaluecasts.h
-
+# framework/luaengine/luavaluecasts.h
 class T
 class T
 class T
@@ -1836,8 +1733,7 @@ class V
 - `call(const Tuple& tuple)`
 - `call(const Tuple& tuple)`
 - `push_luavalue(const std::tuple<Args...>& tuple)`
-## framework/net/connection.cpp
-
+# framework/net/connection.cpp
 - `s(STATS_MAIN, "PollConnection")`
 - `query(host, stdext::unsafe_cast<std::string>(port))`
 - `os(m_outputStream.get())`
@@ -1845,8 +1741,7 @@ class V
 - `option(true)`
 - `handleError(error)`
 - `handleError(error)`
-## framework/net/connection.h
-
+# framework/net/connection.h
 class Connection
 class Server
 - `Connection()`
@@ -1874,8 +1769,7 @@ class Server
 - `onRecv(const boost::system::error_code& error, size_t recvSize)`
 - `onTimeout(const boost::system::error_code& error)`
 - `handleError(const boost::system::error_code& error)`
-## framework/net/declarations.h
-
+# framework/net/declarations.h
 class InputMessage
 class OutputMessage
 class Connection
@@ -1883,8 +1777,7 @@ class Protocol
 class Server
 class PacketPlayer
 class PacketRecorder
-## framework/net/inputmessage.h
-
+# framework/net/inputmessage.h
 class InputMessage
 class Protocol
 - `setBuffer(const std::string& buffer)`
@@ -1920,8 +1813,7 @@ class Protocol
 - `canRead(int bytes)`
 - `checkRead(int bytes)`
 - `checkWrite(int bytes)`
-## framework/net/outputmessage.h
-
+# framework/net/outputmessage.h
 class OutputMessage
 class Protocol
 class PacketPlayer
@@ -1945,27 +1837,23 @@ class PacketPlayer
 - `writeMessageSize(bool bigSize)`
 - `canWrite(int bytes)`
 - `checkWrite(int bytes)`
-## framework/net/packet_player.cpp
-
+# framework/net/packet_player.cpp
 - `f(std::string("records/") + file)`
 - `f(std::filesystem::path("records") / file)`
 - `m_disconnectCallback(boost::asio::error::eof)`
-## framework/net/packet_player.h
-
+# framework/net/packet_player.h
 class PacketPlayer
 - `PacketPlayer(const std::string& file)`
 - `start(std::function<void(std::shared_ptr<std::vector<uint8_t>>)> recvCallback, std::function<void(boost::system::error_code)> disconnectCallback)`
 - `stop()`
 - `onOutputPacket(const OutputMessagePtr& packet)`
 - `process()`
-## framework/net/packet_recorder.h
-
+# framework/net/packet_recorder.h
 class PacketRecorder
 - `PacketRecorder(const std::string& file)`
 - `addInputPacket(const InputMessagePtr& packet)`
 - `addOutputPacket(const OutputMessagePtr& packet)`
-## framework/net/protocol.cpp
-
+# framework/net/protocol.cpp
 - `onConnect()`
 - `onConnect()`
 - `eng(std::time(NULL))`
@@ -1973,8 +1861,7 @@ class PacketRecorder
 - `self(asProtocol())`
 - `self(asProtocol())`
 - `self(asProtocol())`
-## framework/net/protocol.h
-
+# framework/net/protocol.h
 class Protocol
 - `Protocol()`
 - `connect(const std::string& host, uint16 port)`
@@ -2007,35 +1894,30 @@ class Protocol
 - `internalRecvData(uint8* buffer, uint32 size)`
 - `xteaDecrypt(const InputMessagePtr& inputMessage)`
 - `xteaEncrypt(const OutputMessagePtr& outputMessage)`
-## framework/net/server.cpp
-
+# framework/net/server.cpp
 - `Server(port)`
 - `ServerPtr(server)`
 - `ServerPtr()`
-## framework/net/server.h
-
+# framework/net/server.h
 class Server
 - `Server(int port)`
 - `create(int port)`
 - `isOpen()`
 - `close()`
 - `acceptNext()`
-## framework/otml/declarations.h
-
+# framework/otml/declarations.h
 class OTMLNode
 class OTMLDocument
 class OTMLParser
 class OTMLEmitter
-## framework/otml/otmldocument.cpp
-
+# framework/otml/otmldocument.cpp
 - `doc(new OTMLDocument)`
 - `parse(fin, source)`
 - `is(data)`
 - `parse(is, source)`
 - `doc(new OTMLDocument)`
 - `parser(doc, in)`
-## framework/otml/otmldocument.h
-
+# framework/otml/otmldocument.h
 class OTMLDocument
 - `create()`
 - `parse(const std::string& fileName)`
@@ -2044,23 +1926,19 @@ class OTMLDocument
 - `emit()`
 - `save(const std::string& fileName)`
 - `OTMLDocument()`
-## framework/otml/otmlemitter.h
-
+# framework/otml/otmlemitter.h
 class OTMLEmitter
 - `emitNode(const OTMLNodePtr& node, int currentDepth = -1)`
-## framework/otml/otmlexception.h
-
+# framework/otml/otmlexception.h
 class OTMLException
 - `OTMLException(const OTMLNodePtr& node, const std::string& error)`
 - `throw()`
-## framework/otml/otmlnode.cpp
-
+# framework/otml/otmlnode.cpp
 - `node(new OTMLNode)`
 - `node(new OTMLNode)`
 - `OTMLException(asOTMLNode(), stdext::format("child node with tag '%s' not found", childTag))`
 - `myClone(new OTMLNode)`
-## framework/otml/otmlnode.h
-
+# framework/otml/otmlnode.h
 class OTMLNode
 - `create(std::string tag = "", bool unique = false)`
 - `create(std::string tag, std::string value)`
@@ -2099,16 +1977,14 @@ class OTMLNode
 - `asOTMLNode()`
 - `OTMLNode() : m_unique(false), m_null(false)`
 - `OTMLException(asOTMLNode(), stdext::format("failed to cast node value '%s' to type '%s'", m_value, stdext::demangle_type<T>()))`
-## framework/otml/otmlparser.cpp
-
+# framework/otml/otmlparser.cpp
 - `OTMLException(doc, "cannot read from input stream")`
 - `OTMLException(doc, "indentation with tabs are not allowed", currentLine)`
 - `OTMLException(doc, "must indent every 2 spaces", currentLine)`
 - `OTMLException(doc, "invalid indentation depth, are you indenting correctly?", currentLine)`
 - `parseNode(line)`
 - `tokens(tmp)`
-## framework/otml/otmlparser.h
-
+# framework/otml/otmlparser.h
 class OTMLParser
 - `OTMLParser(OTMLDocumentPtr doc, std::istream& in)`
 - `parse()`
@@ -2116,15 +1992,12 @@ class OTMLParser
 - `getLineDepth(const std::string& line, bool multilining = false)`
 - `parseLine(std::string line)`
 - `parseNode(const std::string& data)`
-## framework/platform/androidplatform.cpp
-
+# framework/platform/androidplatform.cpp
 - `getpid()`
-## framework/platform/androidwindow.cpp
-
+# framework/platform/androidwindow.cpp
 - `touchStartPos(0, 0)`
 - `new_size(w, h)`
-## framework/platform/androidwindow.h
-
+# framework/platform/androidwindow.h
 class AndroidWindow
 - `internalInitGL()`
 - `internalDestroyGL()`
@@ -2167,12 +2040,10 @@ class AndroidWindow
 - `openUrl(std::string url)`
 - `internalLoadMouseCursor(const ImagePtr& image, const Point& hotSpot)`
 - `getClazz()`
-## framework/platform/crashhandler.h
-
+# framework/platform/crashhandler.h
 - `installCrashHandler()`
 - `uninstallCrashHandler()`
-## framework/platform/platform.h
-
+# framework/platform/platform.h
 class Platform
 - `processArgs(std::vector<std::string>& args)`
 - `spawnProcess(std::string process, const std::vector<std::string>& args)`
@@ -2197,11 +2068,9 @@ class Platform
 - `getDlls()`
 - `getProcesses()`
 - `getWindows()`
-## framework/platform/platformwindow.cpp
-
+# framework/platform/platformwindow.cpp
 - `internalLoadMouseCursor(image, hotSpot)`
-## framework/platform/platformwindow.h
-
+# framework/platform/platformwindow.h
 class PlatformWindow
 - `displayFatalError(const std::string& message)`
 - `loadMouseCursor(const std::string& file, const Point& hotSpot)`
@@ -2239,8 +2108,7 @@ class PlatformWindow
 - `processKeyUp(Fw::Key keyCode)`
 - `releaseAllKeys()`
 - `fireKeysPress()`
-## framework/platform/sdlwindow.h
-
+# framework/platform/sdlwindow.h
 class SDLWindow
 - `internalInitGL()`
 - `internalDestroyGL()`
@@ -2279,8 +2147,7 @@ class SDLWindow
 - `handleTextInput(std::string text)`
 - `openUrl(std::string url)`
 - `internalLoadMouseCursor(const ImagePtr& image, const Point& hotSpot)`
-## framework/platform/unixcrashhandler.cpp
-
+# framework/platform/unixcrashhandler.cpp
 - `crashHandler(int signum, siginfo_t* info, void* secret)`
 - `fout(fileName.c_str(), std::ios::out | std::ios::app)`
 - `installCrashHandler()`
@@ -2288,14 +2155,12 @@ class SDLWindow
 - `sigaction(SIGFPE, &sa, NULL)`
 - `sigaction(SIGABRT, &sa, NULL)`
 - `uninstallCrashHandler()`
-## framework/platform/unixplatform.cpp
-
+# framework/platform/unixplatform.cpp
 - `getpid()`
 - `in("/proc/cpuinfo")`
 - `in("/proc/meminfo")`
 - `in("/etc/issue")`
-## framework/platform/win32crashhandler.cpp
-
+# framework/platform/win32crashhandler.cpp
 - `Stacktrace(LPEXCEPTION_POINTERS e, std::stringstream& ss)`
 - `strcpy(modname, "Unknown")`
 - `ExceptionHandler(PEXCEPTION_POINTERS e)`
@@ -2306,16 +2171,14 @@ class SDLWindow
 - `exit(0)`
 - `installCrashHandler()`
 - `uninstallCrashHandler()`
-## framework/platform/win32platform.cpp
-
+# framework/platform/win32platform.cpp
 - `GetCurrentProcessId()`
 - `void(WINAPI* PGNSI)(LPSYSTEM_INFO)`
 - `BOOL(WINAPI* PGPI)(DWORD, DWORD, DWORD, DWORD, PDWORD)`
 - `GetSystemInfo(&si)`
 - `EnumWindowsProc(HWND hwnd, LPARAM lParam)`
 - `window_title(title)`
-## framework/platform/win32window.cpp
-
+# framework/platform/win32window.cpp
 - `call(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)`
 - `args(GetCommandLineA())`
 - `context(error: %i, report it)", (int)eglGetError()))`
@@ -2342,8 +2205,7 @@ class SDLWindow
 - `Rect(m_position, m_size)`
 - `Rect(Point(windowRect.left, windowRect.top), Point(windowRect.right, windowRect.bottom))`
 - `adjustWindowRect(getClientRect())`
-## framework/platform/win32window.h
-
+# framework/platform/win32window.h
 class WIN32Window
 - `internalSetupTimerAccuracy()`
 - `internalCreateWindow()`
@@ -2384,8 +2246,7 @@ class WIN32Window
 - `getClientRect()`
 - `getWindowRect()`
 - `adjustWindowRect(const Rect& rect)`
-## framework/platform/x11window.cpp
-
+# framework/platform/x11window.cpp
 - `updateUnmaximizedCoords()`
 - `XMoveWindow(m_display, m_window, m_position.x, m_position.y)`
 - `return(void *)glXGetProcAddressARB((const GLubyte*)ext)`
@@ -2402,8 +2263,7 @@ class WIN32Window
 - `GLint(*glSwapIntervalProc)(GLint)`
 - `iconData(n + 2)`
 - `Size(XDisplayWidth(m_display, m_screen), XDisplayHeight(m_display, m_screen))`
-## framework/platform/x11window.h
-
+# framework/platform/x11window.h
 class X11Window
 - `internalOpenDisplay()`
 - `internalCreateWindow()`
@@ -2440,8 +2300,7 @@ class X11Window
 - `getPlatformType()`
 - `displayFatalError(const std::string& message)`
 - `internalLoadMouseCursor(const ImagePtr& image, const Point& hotSpot)`
-## framework/proxy/proxy.h
-
+# framework/proxy/proxy.h
 class ProxyManager
 - `ProxyManager() : m_io(), m_guard(boost::asio::make_work_guard(m_io))`
 - `init()`
@@ -2457,8 +2316,7 @@ class ProxyManager
 - `getProxies()`
 - `getProxiesDebugInfo()`
 - `getPing()`
-## framework/proxy/proxy_client.cpp
-
+# framework/proxy/proxy_client.cpp
 - `self(shared_from_this())`
 - `self(shared_from_this())`
 - `disconnect()`
@@ -2479,8 +2337,7 @@ class ProxyManager
 - `terminate()`
 - `self(shared_from_this())`
 - `terminate()`
-## framework/proxy/proxy_client.h
-
+# framework/proxy/proxy_client.h
 class Session
 class Proxy
 class Session
@@ -2518,8 +2375,7 @@ class Session
 - `onHeader(const boost::system::error_code& ec, std::size_t bytes_transferred)`
 - `onBody(const boost::system::error_code& ec, std::size_t bytes_transferred)`
 - `onSent(const boost::system::error_code& ec, std::size_t bytes_transferred)`
-## framework/sound/combinedsoundsource.h
-
+# framework/sound/combinedsoundsource.h
 class CombinedSoundSource
 - `CombinedSoundSource()`
 - `addSource(const SoundSourcePtr& source)`
@@ -2537,8 +2393,7 @@ class CombinedSoundSource
 - `setVelocity(const Point& velocity)`
 - `setFading(FadeState state, float fadetime)`
 - `update()`
-## framework/sound/declarations.h
-
+# framework/sound/declarations.h
 class SoundManager
 class SoundSource
 class SoundBuffer
@@ -2547,8 +2402,7 @@ class SoundChannel
 class StreamSoundSource
 class CombinedSoundSource
 class OggSoundFile
-## framework/sound/oggsoundfile.h
-
+# framework/sound/oggsoundfile.h
 class OggSoundFile
 - `OggSoundFile(const FileStreamPtr& fileStream)`
 - `prepareOgg()`
@@ -2558,22 +2412,18 @@ class OggSoundFile
 - `cb_seek(void* source, ogg_int64_t offset, int whence)`
 - `cb_close(void* source)`
 - `cb_tell(void* source)`
-## framework/sound/soundbuffer.cpp
-
+# framework/sound/soundbuffer.cpp
 - `samples(soundFile->getSize())`
 - `fillBuffer(format, samples, samples.size(), soundFile->getRate())`
-## framework/sound/soundbuffer.h
-
+# framework/sound/soundbuffer.h
 class SoundBuffer
 - `SoundBuffer()`
 - `fillBuffer(const SoundFilePtr& soundFile)`
 - `fillBuffer(ALenum sampleFormat, const DataBuffer<char>& data, int size, int rate)`
 - `getBufferId()`
-## framework/sound/soundchannel.cpp
-
+# framework/sound/soundchannel.cpp
 - `g(rd())`
-## framework/sound/soundchannel.h
-
+# framework/sound/soundchannel.h
 class SoundChannel
 class SoundManager
 - `SoundChannel(int id) : m_id(id), m_gain(1)`
@@ -2588,11 +2438,9 @@ class SoundManager
 - `isEnabled()`
 - `getId()`
 - `update()`
-## framework/sound/soundfile.cpp
-
+# framework/sound/soundfile.cpp
 - `OggSoundFile(file))`
-## framework/sound/soundfile.h
-
+# framework/sound/soundfile.h
 class SoundFile
 - `SoundFile(const FileStreamPtr& fileStream)`
 - `loadSoundFile(const std::string& filename)`
@@ -2605,14 +2453,12 @@ class SoundFile
 - `getBps()`
 - `getSize()`
 - `getName()`
-## framework/sound/soundmanager.cpp
-
+# framework/sound/soundmanager.cpp
 - `s(STATS_MAIN, "PollSounds")`
 - `SoundChannel(channel))`
 - `combinedSource(new CombinedSoundSource)`
 - `streamSource(new StreamSoundSource)`
-## framework/sound/soundmanager.h
-
+# framework/sound/soundmanager.h
 class SoundManager
 - `init()`
 - `terminate()`
@@ -2628,8 +2474,7 @@ class SoundManager
 - `resolveSoundFile(std::string file)`
 - `ensureContext()`
 - `createSoundSource(const std::string& filename)`
-## framework/sound/soundsource.h
-
+# framework/sound/soundsource.h
 class SoundSource
 class SoundManager
 class CombinedSoundSource
@@ -2654,12 +2499,10 @@ class CombinedSoundSource
 - `setBuffer(const SoundBufferPtr& buffer)`
 - `setChannel(uchar channel)`
 - `update()`
-## framework/sound/streamsoundsource.cpp
-
+# framework/sound/streamsoundsource.cpp
 - `bufferData(2*STREAM_FRAGMENT_SIZE)`
 - `return(bytesRead >= STREAM_FRAGMENT_SIZE && !m_eof)`
-## framework/sound/streamsoundsource.h
-
+# framework/sound/streamsoundsource.h
 class StreamSoundSource
 - `play()`
 - `stop()`
@@ -2670,15 +2513,13 @@ class StreamSoundSource
 - `queueBuffers()`
 - `unqueueBuffers()`
 - `fillBufferAndQueue(uint buffer)`
-## framework/stdext/any.h
-
+# framework/stdext/any.h
 class any
 - `typeid(T)`
 - `holder(held)`
 - `any(const T& value) : content(new holder<T>(value))`
 - `empty()`
-## framework/stdext/cast.h
-
+# framework/stdext/cast.h
 class cast_exception
 class T
 class R
@@ -2694,19 +2535,16 @@ class R
 - `cast(const bool& in, std::string& out)`
 - `update_what()`
 - `throw()`
-## framework/stdext/demangle.h
-
+# framework/stdext/demangle.h
 class template
 - `demangle_class()`
 - `demangle_name(typeid(T).name())`
 - `demangle_type()`
 - `demangle_name(typeid(T).name())`
-## framework/stdext/dumper.h
-
+# framework/stdext/dumper.h
 class T
 class T
-## framework/stdext/dynamic_storage.h
-
+# framework/stdext/dynamic_storage.h
 class dynamic_storage
 - `set(const Key& k, const T& value)`
 - `remove(const Key& k)`
@@ -2714,18 +2552,15 @@ class dynamic_storage
 - `has(const Key& k)`
 - `size()`
 - `clear()`
-## framework/stdext/exception.h
-
+# framework/stdext/exception.h
 class exception
 - `exception()`
 - `throw()`
 - `throw_exception(const std::string& what)`
 - `exception(what)`
-## framework/stdext/fastrand.h
-
+# framework/stdext/fastrand.h
 - `fastrand()`
-## framework/stdext/format.h
-
+# framework/stdext/format.h
 class T
 class T
 - `print_ostream(std::ostringstream& stream, const T& last)`
@@ -2743,8 +2578,7 @@ class T
 - `format(const std::string& format)`
 - `format(const std::string& format, const Args&... args)`
 - `buffer(n + 1, '\0')`
-## framework/stdext/math.cpp
-
+# framework/stdext/math.cpp
 - `adler32(const uint8_t *buffer, size_t size)`
 - `random_range(long min, long max)`
 - `gen(rd())`
@@ -2753,8 +2587,7 @@ class T
 - `gen(rd())`
 - `dis(0.0, 1.0)`
 - `round(double r)`
-## framework/stdext/math.h
-
+# framework/stdext/math.h
 - `is_power_of_two(size_t v)`
 - `to_power_of_two(size_t v)`
 - `readULE16(const uchar *addr)`
@@ -2773,18 +2606,15 @@ class T
 - `random_range(long min, long max)`
 - `random_range(float min, float max)`
 - `round(double r)`
-## framework/stdext/net.cpp
-
+# framework/stdext/net.cpp
 - `ip_to_string(uint32 ip)`
 - `string_to_ip(const std::string& string)`
 - `listSubnetAddresses(uint32 address, uint8 mask)`
-## framework/stdext/net.h
-
+# framework/stdext/net.h
 - `ip_to_string(uint32 ip)`
 - `string_to_ip(const std::string& string)`
 - `listSubnetAddresses(uint32 address, uint8 mask)`
-## framework/stdext/packed_any.h
-
+# framework/stdext/packed_any.h
 class packed_any
 - `typeid(T)`
 - `holder(held)`
@@ -2792,8 +2622,7 @@ class packed_any
 - `typeid(std::size_t)`
 - `packed_any_cast(const packed_any& operand)`
 - `packed_any_cast(const packed_any& operand)`
-## framework/stdext/packed_storage.h
-
+# framework/stdext/packed_storage.h
 class was
 class packed_storage
 - `packed_storage() : m_values(nullptr), m_size(0)`
@@ -2803,8 +2632,7 @@ class packed_storage
 - `has(Key id)`
 - `clear()`
 - `size()`
-## framework/stdext/shared_object.h
-
+# framework/stdext/shared_object.h
 class T
 class shared_object_ptr
 class shared_object
@@ -2861,8 +2689,7 @@ class T
 - `T(args...))`
 - `operator()(const stdext::shared_object_ptr<T>& p)`
 - `swap(stdext::shared_object_ptr<T>& lhs, stdext::shared_object_ptr<T>& rhs)`
-## framework/stdext/string.cpp
-
+# framework/stdext/string.cpp
 - `resolve_path(const std::string& filePath, std::string sourcePath)`
 - `date_time_string()`
 - `timestamp_to_date(time_t tnow)`
@@ -2889,8 +2716,7 @@ class T
 - `starts_with(const std::string& str, const std::string& test)`
 - `replace_all(std::string& str, const std::string& search, const std::string& replacement)`
 - `split(const std::string& str, const std::string& separators)`
-## framework/stdext/string.h
-
+# framework/stdext/string.h
 - `to_string(const T& t)`
 - `resolve_path(const std::string& filePath, std::string sourcePath)`
 - `date_time_string()`
@@ -2917,15 +2743,13 @@ class T
 - `split(const std::string& str, const std::string& separators = " ")`
 - `split(const std::string& str, const std::string& separators = " ")`
 - `results(splitted.size())`
-## framework/stdext/time.cpp
-
+# framework/stdext/time.cpp
 - `time()`
 - `millis()`
 - `micros()`
 - `millisleep(size_t ms)`
 - `microsleep(size_t us)`
-## framework/stdext/time.h
-
+# framework/stdext/time.h
 - `time()`
 - `millis()`
 - `micros()`
@@ -2936,19 +2760,15 @@ class T
 - `elapsed_millis()`
 - `elapsed_micros()`
 - `restart(int shift = 0)`
-## framework/stdext/traits.h
-
+# framework/stdext/traits.h
 class T
 class T
 class T
-## framework/stdext/uri.cpp
-
+# framework/stdext/uri.cpp
 - `parseURI(const std::string& url)`
-## framework/stdext/uri.h
-
+# framework/stdext/uri.h
 - `parseURI(const std::string& url)`
-## framework/ui/declarations.h
-
+# framework/ui/declarations.h
 class UIManager
 class UIWidget
 class UITextEdit
@@ -2960,13 +2780,11 @@ class UIGridLayout
 class UIAnchor
 class UIAnchorGroup
 class UIAnchorLayout
-## framework/ui/uianchorlayout.cpp
-
+# framework/ui/uianchorlayout.cpp
 - `VALIDATE(false)`
 - `anchor(new UIAnchor(anchoredEdge, hookedWidgetId, hookedEdge))`
 - `update()`
-## framework/ui/uianchorlayout.h
-
+# framework/ui/uianchorlayout.h
 class UIAnchor
 class UIAnchorGroup
 class UIAnchorLayout
@@ -2988,8 +2806,7 @@ class UIAnchorLayout
 - `isUIAnchorLayout()`
 - `internalUpdate()`
 - `updateWidget(const UIWidgetPtr& widget, const UIAnchorGroupPtr& anchorGroup, UIWidgetPtr first = nullptr)`
-## framework/ui/uiboxlayout.h
-
+# framework/ui/uiboxlayout.h
 class UIBoxLayout
 - `UIBoxLayout(UIWidgetPtr parentWidget)`
 - `applyStyle(const OTMLNodePtr& styleNode)`
@@ -2998,8 +2815,7 @@ class UIBoxLayout
 - `setSpacing(int spacing)`
 - `setFitChildren(bool fitParent)`
 - `isUIBoxLayout()`
-## framework/ui/uigridlayout.h
-
+# framework/ui/uigridlayout.h
 class UIGridLayout
 - `UIGridLayout(UIWidgetPtr parentWidget)`
 - `applyStyle(const OTMLNodePtr& styleNode)`
@@ -3020,16 +2836,14 @@ class UIGridLayout
 - `getNumLines()`
 - `isUIGridLayout()`
 - `internalUpdate()`
-## framework/ui/uihorizontallayout.h
-
+# framework/ui/uihorizontallayout.h
 class UIHorizontalLayout
 - `UIHorizontalLayout(UIWidgetPtr parentWidget) : UIBoxLayout(parentWidget)`
 - `applyStyle(const OTMLNodePtr& styleNode)`
 - `setAlignRight(bool aliginRight)`
 - `isUIHorizontalLayout()`
 - `internalUpdate()`
-## framework/ui/uilayout.h
-
+# framework/ui/uilayout.h
 class UILayout
 - `UILayout(UIWidgetPtr parentWidget) : m_parentWidget(parentWidget)`
 - `update()`
@@ -3049,15 +2863,13 @@ class UILayout
 - `isUIVerticalLayout()`
 - `isUIGridLayout()`
 - `internalUpdate()`
-## framework/ui/uimanager.cpp
-
+# framework/ui/uimanager.cpp
 - `updateHoveredWidget(true)`
 - `s(STATS_MAIN, "UIManager::onWidgetDestroy", stdext::format("%s (%s)", widget->getId(), widget->getParent() ? widget->getParent()->getId() : ""))`
 - `backupList(std::move(m_destroyedWidgets))`
 - `OTMLException(styleNode, "not a valid style declaration")`
 - `createWidgetFromOTML(node, parent)`
-## framework/ui/uimanager.h
-
+# framework/ui/uimanager.h
 class UIManager
 class UIWidget
 - `init()`
@@ -3097,8 +2909,7 @@ class UIWidget
 - `onWidgetAppear(const UIWidgetPtr& widget)`
 - `onWidgetDisappear(const UIWidgetPtr& widget)`
 - `onWidgetDestroy(const UIWidgetPtr& widget)`
-## framework/ui/uitextedit.cpp
-
+# framework/ui/uitextedit.cpp
 - `recacheGlyphs()`
 - `virtualRect(m_textVirtualOffset, m_rect.size() - Size(m_padding.left+m_padding.right, 0))`
 - `glyphRect(glyphsPositions[pos], glyphsSize[glyph])`
@@ -3113,8 +2924,7 @@ class UIWidget
 - `moveCursorHorizontally(false)`
 - `setText(keyText)`
 - `appendText(keyText)`
-## framework/ui/uitextedit.h
-
+# framework/ui/uitextedit.h
 class UITextEdit
 - `UITextEdit()`
 - `drawSelf(Fw::DrawPane drawPane)`
@@ -3185,14 +2995,12 @@ class UITextEdit
 - `disableUpdates()`
 - `enableUpdates()`
 - `recacheGlyphs()`
-## framework/ui/uitranslator.h
-
+# framework/ui/uitranslator.h
 - `translateAlignment(std::string aligment)`
 - `translateAnchorEdge(std::string anchorEdge)`
 - `translateState(std::string state)`
 - `translateAutoFocusPolicy(std::string policy)`
-## framework/ui/uiverticallayout.h
-
+# framework/ui/uiverticallayout.h
 class UIVerticalLayout
 - `UIVerticalLayout(UIWidgetPtr parentWidget) : UIBoxLayout(parentWidget)`
 - `applyStyle(const OTMLNodePtr& styleNode)`
@@ -3200,8 +3008,7 @@ class UIVerticalLayout
 - `isAlignBottom()`
 - `isUIVerticalLayout()`
 - `internalUpdate()`
-## framework/ui/uiwidget.cpp
-
+# framework/ui/uiwidget.cpp
 - `UIAnchorLayout(static_self_cast<UIWidget>()))`
 - `UIAnchorLayout(static_self_cast<UIWidget>()))`
 - `VALIDATE(child->getParent() == static_self_cast<UIWidget>())`
@@ -3216,8 +3023,7 @@ class UIVerticalLayout
 - `onKeyDown(keyCode, keyboardModifiers)`
 - `onKeyPress(keyCode, keyboardModifiers, autoRepeatTicks)`
 - `onKeyUp(keyCode, keyboardModifiers)`
-## framework/ui/uiwidget.h
-
+# framework/ui/uiwidget.h
 class UIWidget
 class UIManager
 class UILayout
@@ -3583,8 +3389,7 @@ class UILayout
 - `getTextWrap()`
 - `getFont()`
 - `getTextSize()`
-## framework/ui/uiwidgetbasestyle.cpp
-
+# framework/ui/uiwidgetbasestyle.cpp
 - `OTMLException(node, "border param must have its width followed by its color")`
 - `UIHorizontalLayout(static_self_cast<UIWidget>()))`
 - `UIVerticalLayout(static_self_cast<UIWidget>()))`
@@ -3600,8 +3405,7 @@ class UILayout
 - `borderRect(screenCoords.topRight() - Point(m_borderWidth.right - 1, 0), m_borderWidth.right, screenCoords.height())`
 - `borderRect(screenCoords.bottomLeft() - Point(0, m_borderWidth.bottom - 1), screenCoords.width(), m_borderWidth.bottom)`
 - `borderRect(screenCoords.topLeft(), m_borderWidth.left, screenCoords.height())`
-## framework/ui/uiwidgetimage.cpp
-
+# framework/ui/uiwidgetimage.cpp
 - `textureClipRect(texCoordsOffset, textureClipSize)`
 - `leftBorder(clip.left(), clip.top() + top, left, clip.height() - top - bottom)`
 - `rightBorder(clip.right() - right + 1, clip.top() + top, right, clip.height() - top - bottom)`
@@ -3615,17 +3419,14 @@ class UILayout
 - `bordersSize(leftBorder.width() + rightBorder.width(), topBorder.height() + bottomBorder.height())`
 - `DrawQueueItemImageWithShader(m_imageCoordsBuffer, m_imageTexture, m_imageColor, m_shader)`
 - `Texture(Image::fromQRCode(code, border)))`
-## framework/ui/uiwidgettext.cpp
-
+# framework/ui/uiwidgettext.cpp
 - `c(Color::white)`
-## framework/util/color.cpp
-
+# framework/util/color.cpp
 - `ss(coltext)`
 - `Color(0, 0, 0)`
 - `Color(loc7, loc7, loc7)`
 - `Color(int(red * 255), int(green * 255), int(blue * 255))`
-## framework/util/color.h
-
+# framework/util/color.h
 class Color
 - `Color() : m_r(1.0f), m_g(1.0f), m_b(1.0f), m_a(1.0f)`
 - `a()`
@@ -3658,8 +3459,7 @@ class Color
 - `Color(0, 0, 0)`
 - `Color(r, g, b)`
 - `getOutfitColor(int color)`
-## framework/util/crypt.cpp
-
+# framework/util/crypt.cpp
 - `is_base64(unsigned char c)`
 - `RSA_free(m_rsa)`
 - `_encrypt(std::string(m_machineUUID.begin(), m_machineUUID.end()), false)`
@@ -3668,8 +3468,7 @@ class Color
 - `BN_dec2bn(&m_rsa->p, p.c_str())`
 - `BN_mod(m_rsa->dmp1, m_rsa->d, r1, ctx)`
 - `RSA_size(m_rsa)`
-## framework/util/crypt.h
-
+# framework/util/crypt.h
 class Crypt
 - `Crypt()`
 - `base64Encode(const std::string& decoded_string)`
@@ -3699,8 +3498,7 @@ class Crypt
 - `_encrypt(const std::string& decrypted_string, bool useMachineUUID)`
 - `_decrypt(const std::string& encrypted_string, bool useMachineUUID)`
 - `getCryptKey(bool useMachineUUID)`
-## framework/util/databuffer.h
-
+# framework/util/databuffer.h
 class T
 class DataBuffer
 - `reset()`
@@ -3711,8 +3509,7 @@ class DataBuffer
 - `resize(uint n, T def = T())`
 - `grow(uint n, bool precise = false)`
 - `add(const T& v)`
-## framework/util/extras.h
-
+# framework/util/extras.h
 class Extras
 - `DEFINE_OPTION(option, description)`
 - `Extras()`
@@ -3720,11 +3517,9 @@ class Extras
 - `get(const std::string& key)`
 - `getDescription(const std::string& key)`
 - `getAll()`
-## framework/util/framecounter.h
-
+# framework/util/framecounter.h
 class FrameCounter
-## framework/util/matrix.h
-
+# framework/util/matrix.h
 class Matrix
 - `Matrix()`
 - `Matrix(const std::initializer_list<U>& values)`
@@ -3739,16 +3534,14 @@ class Matrix
 - `c(a)`
 - `c(a)`
 - `c(a)`
-## framework/util/pngunpacker.h
-
+# framework/util/pngunpacker.h
 class FileMetadata
 class PngUnpacker
 - `FileMetadata(const FileStreamPtr& file)`
 - `getOffset()`
 - `getFileSize()`
 - `unpack(const FileStreamPtr& file)`
-## framework/util/point.h
-
+# framework/util/point.h
 class T
 class TSize
 class T
@@ -3761,8 +3554,7 @@ class T
 - `length()`
 - `sqrt((float)(x*x + y*y))`
 - `distanceFrom(const TPoint<T>& other)`
-## framework/util/qrcodegen.h
-
+# framework/util/qrcodegen.h
 - `qrcodegen_isAlphanumeric(const char *text)`
 - `qrcodegen_isNumeric(const char *text)`
 - `qrcodegen_calcSegmentBufferSize(enum qrcodegen_Mode mode, size_t numChars)`
@@ -3772,8 +3564,7 @@ class T
 - `qrcodegen_makeEci(long assignVal, uint8_t buf[])`
 - `qrcodegen_getSize(const uint8_t qrcode[])`
 - `qrcodegen_getModule(const uint8_t qrcode[], int x, int y)`
-## framework/util/rect.h
-
+# framework/util/rect.h
 class T
 class TPoint
 class T
@@ -3851,8 +3642,7 @@ class T
 - `bind(const TRect<T> &r)`
 - `alignIn(const TRect<T> &r, Fw::AlignmentFlag align)`
 - `translated(other)`
-## framework/util/size.h
-
+# framework/util/size.h
 class T
 class TSize
 class T
@@ -3870,8 +3660,7 @@ class T
 - `scale(const TSize<T>& s, Fw::AspectRatioMode mode)`
 - `scale(int w, int h, Fw::AspectRatioMode mode)`
 - `ratio()`
-## framework/util/stats.cpp
-
+# framework/util/stats.cpp
 - `lock(m_mutex)`
 - `lock(m_mutex)`
 - `lock(m_mutex)`
@@ -3880,8 +3669,7 @@ class T
 - `lock(m_mutex)`
 - `collectWidgets(WidgetTreeNode& node)`
 - `printNode(std::stringstream& ret, WidgetTreeNode& node, int depth, int limit, bool pretty)`
-## framework/util/stats.h
-
+# framework/util/stats.h
 class UIWidget
 class Stats
 class AutoStat
@@ -3904,8 +3692,7 @@ class AutoStat
 - `addCreature()`
 - `removeCreature()`
 - `Stat(0, description, extraDescription)), m_timePoint(std::chrono::high_resolution_clock::now())`
-## framework/xml/tinystr.h
-
+# framework/xml/tinystr.h
 class isn
 class TiXmlString
 class TiXmlOutStream
@@ -3934,8 +3721,7 @@ class TiXmlOutStream
 - `init(size_type sz, size_type cap)`
 - `new(sizeof(Rep) + cap))`
 - `quit()`
-## framework/xml/tinyxml.cpp
-
+# framework/xml/tinyxml.cpp
 - `fopen( filename, mode )`
 - `sprintf( buf, "&#x%02X;", (unsigned) ( c & 0xff ) )`
 - `LinkEndChild( node )`
@@ -3977,8 +3763,7 @@ class TiXmlOutStream
 - `TiXmlHandle( 0 )`
 - `TiXmlHandle( child )`
 - `TiXmlHandle( 0 )`
-## framework/xml/tinyxml.h
-
+# framework/xml/tinyxml.h
 class TiXmlDocument
 class TiXmlElement
 class TiXmlComment
@@ -4179,8 +3964,7 @@ class TiXmlPrinter
 - `Size()`
 - `DoIndent()`
 - `DoLineBreak()`
-## framework/xml/tinyxmlparser.cpp
-
+# framework/xml/tinyxmlparser.cpp
 class TiXmlParsingData
 class TiXmlDocument
 - `isalpha( anyByte )`
@@ -4205,3 +3989,4 @@ class TiXmlDocument
 - `endTag("</")`
 - `TiXmlAttribute()`
 - `TiXmlText( "" )`
+

@@ -1,5 +1,4 @@
-# Security
-
+﻿# Security
 - HTTPS/WSS, HSTS, twardy CSP i CORS.
 - Auth: krótkie JWT + refresh, RBAC.
 - WS: origin check, limit bufora, ping.

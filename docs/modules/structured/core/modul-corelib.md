@@ -1,5 +1,4 @@
-# | Modul: `corelib`
-
+﻿# | Modul: `corelib`
 ```lua
 
 --[[
@@ -320,7 +319,6 @@ SOFTWARE.
 
 ---
 # bitwise.lua
-
 ```lua
 
 Bit = {}
@@ -353,7 +351,6 @@ end
 
 ---
 # config.lua
-
 ```lua
 
 -- @docclass
@@ -480,7 +477,6 @@ end
 
 ---
 # const.lua
-
 ```lua
 
 -- @docconsts @{
@@ -1111,7 +1107,6 @@ SoundChannels = {
 
 ---
 # corelib.otmod
-
 ```text
 
 Module
@@ -1176,7 +1171,6 @@ Module
 
 ---
 # globals.lua
-
 ```lua
 
 -- @docvars @{
@@ -1311,7 +1305,6 @@ end
 
 ---
 # http.lua
-
 ```lua
 
 HTTP = {
@@ -1850,7 +1843,6 @@ g_http.setUserAgent(HTTP.agent)
 
 ---
 # inputmessage.lua
-
 ```lua
 
 function InputMessage:getData()
@@ -1953,7 +1945,6 @@ end
 
 ---
 # json.lua
-
 ```lua
 
 --
@@ -2676,7 +2667,6 @@ end
 
 ---
 # keyboard.lua
-
 ```lua
 
 -- @docclass
@@ -3131,7 +3121,6 @@ end
 
 ---
 # math.lua
-
 ```lua
 
 -- @docclass math
@@ -3194,7 +3183,6 @@ end
 
 ---
 # mouse.lua
-
 ```lua
 
 -- @docclass
@@ -3269,7 +3257,6 @@ end
 
 ---
 # net.lua
-
 ```lua
 
 function translateNetworkError(errcode, connecting, errdesc)
@@ -3308,7 +3295,6 @@ end
 
 ---
 # orderedtable.lua
-
 ```lua
 
 function __genOrderedIndex( t )
@@ -3391,7 +3377,6 @@ end
 
 ---
 # outputmessage.lua
-
 ```lua
 
 function OutputMessage:addData(data)
@@ -3522,7 +3507,6 @@ end
 
 ---
 # settings.lua
-
 ```lua
 
 g_settings = makesingleton(g_configs.getSettings())
@@ -3533,7 +3517,6 @@ g_settings = makesingleton(g_configs.getSettings())
 
 ---
 # string.lua
-
 ```lua
 
 -- @docclass string
@@ -3640,7 +3623,6 @@ end
 
 ---
 # struct.lua
-
 ```lua
 
 Struct = {}
@@ -3941,7 +3923,6 @@ end
 
 ---
 # table.lua
-
 ```lua
 
 -- @docclass table
@@ -4468,7 +4449,6 @@ end
 
 ---
 # test.lua
-
 ```lua
 
 Test = {
@@ -4591,7 +4571,6 @@ end
 
 ---
 # util.lua
-
 ```lua
 
 -- @docfuncs @{
@@ -5269,3 +5248,4 @@ end
 ```
 
 ---
+

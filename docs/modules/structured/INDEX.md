@@ -1,8 +1,6 @@
-# Modules - structured
-
+﻿# Modules - structured
 *This file was generated automatically.*
-## Contents
-
+# Contents
 - **client** -> ./core/modul-client.md
 - **client_background** -> ./dev_tools/modul-client_background.md
 - **client_entergame** -> ./dev_tools/modul-client_entergame.md
@@ -83,3 +81,4 @@
 - **game_viplist** -> ./gameplay/modul-game_viplist.md
 - **game_walking** -> ./gameplay/modul-game_walking.md
 - **updater** -> ./dev_tools/modul-updater.md
+

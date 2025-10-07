@@ -1,12 +1,11 @@
-# OTCv8 – Pełne API (auto)
-
+﻿# OTCv8 – Pełne API (auto)
 Wygenerowano: 2025-10-04T13:44:01.553Z
 
 > Ten plik jest generowany automatycznie z kodu. Nie edytuj ręcznie.
 
 ---
-## 1. Lua
-## # 1.1. Zdarzenia (on*)
+# 1. Lua
+# 1.1. Zdarzenia (on*)
 - `onAddItem(...)`
 - `onAddThing(...)`
 - `onAddVip(...)`
@@ -277,11 +276,11 @@ Wygenerowano: 2025-10-04T13:44:01.553Z
 - `onWsMessage(...)`
 - `onWsOpen(...)`
 - `onZoomChange(...)`
-## # 1.2. Kontekst `ctx.*`
+# 1.2. Kontekst `ctx.*`
 _brak_
-## # 1.3. Moduły (eksporty `M.*`)
+# 1.3. Moduły (eksporty `M.*`)
 _brak_
-## # 1.4. Globalne funkcje (heur.)
+# 1.4. Globalne funkcje (heur.)
 - `abort()`
 - `about_graphics()`
 - `about_modules()`
@@ -649,20 +648,20 @@ _brak_
 - `wrap()`
 
 ---
-## 2. OTUI (layouty)
-## # layouts/mobile/styles/10-scrollbars.otui
+# 2. OTUI (layouty)
+# layouts/mobile/styles/10-scrollbars.otui
 - `sliderButton` — **ScrollBarSlider**
 - `valueLabel` — **ScrollBarValueLabel**
 - `decrementButton` — **UIButton**
 - `incrementButton` — **UIButton**
 - `decrementButton` — **UIButton**
 - `incrementButton` — **UIButton**
-## # layouts/mobile/styles/20-smallscrollbar.otui
+# layouts/mobile/styles/20-smallscrollbar.otui
 - `decrementButton` — **UIButton**
 - `incrementButton` — **UIButton**
 - `sliderButton` — **UIButton**
 - `valueLabel` — **Label**
-## # layouts/mobile/styles/30-miniwindow.otui
+# layouts/mobile/styles/30-miniwindow.otui
 - `miniwindowTopBar` — **UIWidget**
 - `closeButton` — **UIButton**
 - `minimizeButton` — **UIButton**
@@ -670,7 +669,7 @@ _brak_
 - `miniwindowScrollBar` — **VerticalScrollBar**
 - `bottomResizeBorder` — **ResizeBorder**
 - `contentsPanel` — **MiniWindowContents**
-## # layouts/mobile/styles/40-console.otui
+# layouts/mobile/styles/40-console.otui
 - `consoleTab` — **ConsoleTabBarPanel**
 - `consoleBuffer` — **ScrollablePanel**
 - `consoleScrollBar` — **VerticalScrollBar**
@@ -685,7 +684,7 @@ _brak_
 - `consoleContentPanel` — **Panel**
 - `sayModeButton` — **TabButton**
 - `consoleTextEdit` — **TextEdit**
-## # layouts/mobile/styles/40-inventory.otui
+# layouts/mobile/styles/40-inventory.otui
 - `slot1` — **HeadSlot**
 - `slot4` — **BodySlot**
 - `slot7` — **LegSlot**
@@ -710,11 +709,11 @@ _brak_
 - `mountButton` — **MountButton**
 - `buttonsPanel` — **Panel**
 - `buttonPvp` — **UIButton**
-## # layouts/retro/styles/20-tabbars.otui
+# layouts/retro/styles/20-tabbars.otui
 - `buttonsPanel` — **TabBar**
 - `buttonsPanel` — **TabBarVertical**
 - `scrollBar` — **VerticalScrollBar**
-## # layouts/retro/styles/20-topmenu.otui
+# layouts/retro/styles/20-topmenu.otui
 - `topMenu` — **TopMenu**
 - `discord` — **UIWidget**
 - `discordLabel` — **Label**
@@ -723,7 +722,7 @@ _brak_
 - `onlineLabel` — **Label**
 - `leftButtonsPanel` — **TopMenuButtonsPanel**
 - `leftGameButtonsPanel` — **TopMenuButtonsPanel**
-## # layouts/retro/styles/30-miniwindow.otui
+# layouts/retro/styles/30-miniwindow.otui
 - `miniwindowTopBar` — **UIWidget**
 - `closeButton` — **UIButton**
 - `minimizeButton` — **UIButton**
@@ -736,7 +735,7 @@ _brak_
 - `closeButton` — **UIButton**
 - `miniwindowScrollBar` — **VerticalScrollBar**
 - `bottomResizeBorder` — **ResizeBorder**
-## # layouts/retro/styles/40-console.otui
+# layouts/retro/styles/40-console.otui
 - `consoleTab` — **ConsoleTabBarPanel**
 - `consoleBuffer` — **ScrollablePanel**
 - `consoleScrollBar` — **VerticalScrollBar**
@@ -752,9 +751,9 @@ _brak_
 - `sayModeButton` — **TabButton**
 - `separator` — **HorizontalSeparator**
 - `consoleTextEdit` — **TextEdit**
-## # layouts/retro/styles/40-gamebuttons.otui
+# layouts/retro/styles/40-gamebuttons.otui
 - `buttons` — **Panel**
-## # layouts/retro/styles/40-healthinfo.otui
+# layouts/retro/styles/40-healthinfo.otui
 - `experienceBar` — **ExperienceBar**
 - `soulLabel` — **SoulLabel**
 - `capLabel` — **CapLabel**
@@ -768,7 +767,7 @@ _brak_
 - `healthBar` — **HealthBar**
 - `manaBar` — **ManaBar**
 - `conditionPanel` — **ExperienceBar**
-## # layouts/retro/styles/40-inventory.otui
+# layouts/retro/styles/40-inventory.otui
 - `slot1` — **HeadSlot**
 - `slot4` — **BodySlot**
 - `slot7` — **LegSlot**
@@ -794,7 +793,7 @@ _brak_
 - `mountButton` — **MountButton**
 - `buttonsPanel` — **Panel**
 - `buttonPvp` — **UIButton**
-## # layouts/retro/styles/40-minimap.otui
+# layouts/retro/styles/40-minimap.otui
 - `floorUpWidget` — **MinimapFloorUpButton**
 - `floorDownWidget` — **MinimapFloorDownButton**
 - `zoomInWidget` — **MinimapZoomInButton**
@@ -825,7 +824,7 @@ _brak_
 - `okButton` — **Button**
 - `cancelButton` — **Button**
 - `minimap` — **Minimap**
-## # layouts/retro/styles/40-outfitwindow.otui
+# layouts/retro/styles/40-outfitwindow.otui
 - `creature` — **UICreature**
 - `title` — **Label**
 - `rename` — **Panel**
@@ -907,8 +906,8 @@ _brak_
 - `separator` — **HorizontalSeparator**
 
 ---
-## 3. WebSocket
-## # 3.1. Typy wiadomości (wykryte)
+# 3. WebSocket
+# 3.1. Typy wiadomości (wykryte)
 - `MIT`
 - `OpenCollective`
 - `array`
@@ -923,12 +922,12 @@ _brak_
 - `string`
 - `time-permitting`
 - `value`
-## # 3.2. Schematy JSON (\$id → plik)
+# 3.2. Schematy JSON (\$id → plik)
 - `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json` → `node_modules/markdownlint/schema/markdownlint-config-schema-strict.json`
 - `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema.json` → `node_modules/markdownlint/schema/markdownlint-config-schema.json`
 
 ---
-## 4. C++ (nagłówki)
+# 4. C++ (nagłówki)
 - **src/framework/global.h**: `extern void fatalError(const char* error, const char* file, int line)`
 - **src/client/walkmatrix.h**: `return clear()`
 - **src/client/uisprite.h**: `void drawSelf(Fw::DrawPane drawPane)`
@@ -1732,6 +1731,7 @@ _brak_
 _… 1520 dalszych_
 
 ---
-## 5. Uwaga
+# 5. Uwaga
 - Jeśli czegoś brakuje: doprecyzuj wzorce w `scripts/extract-api.mjs`.
 - Dodaj JSON Schema do `schemas/ws/*.schema.json`, będą wykryte automatycznie.
+

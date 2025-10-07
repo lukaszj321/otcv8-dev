@@ -1,5 +1,4 @@
-# | Modul: `game_bugreport`
-
+﻿# | Modul: `game_bugreport`
 ```lua
 
 -- TODO: find another hotkey for this. Ctrl+Z will be reserved to undo on textedits.
@@ -62,7 +61,6 @@ end
 
 ---
 # bugreport.otmod
-
 ```text
 
 Module
@@ -87,7 +85,6 @@ Module
 
 ---
 # bugreport.otui
-
 ```otui
 
 BugReportWindow < MainWindow
@@ -163,3 +160,4 @@ BugReportWindow < MainWindow
 ```
 
 ---
+
