@@ -1,5 +1,4 @@
-﻿{% raw %}
-# OTClient v8 â€” Walidator, Macierze, AST i Roundâ€‘Trip (Specyfikacja Techniczna)
+# {% raw %}
 
 **Pakiet:** `otc_core_v1/engine` Â· **Wersja:** 1.0  
 **Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testĂłw roundâ€‘trip.

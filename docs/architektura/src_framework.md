@@ -2,7 +2,6 @@
 
 ## Poniżej znajduje się kompletna dokumentacja techniczna dla repozytorium, src/framework
 
-# 📄 const.h
 
 ## Opis ogólny
 
