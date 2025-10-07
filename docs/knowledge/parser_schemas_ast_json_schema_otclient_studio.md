@@ -1,6 +1,6 @@
-# Parser & Schemas (MASTER): **AST + JSON Schema** dla **OTClient Studio**
+﻿# Parser & Schemas (MASTER): **AST + JSON Schema** dla **OTClient Studio**
 
-> Cel dokumentu: dostarczyć **kompletne, operacyjne** specyfikacje parserów (Lua-Lite, OTUI/OTML) oraz **kontrakty walidacyjne** (JSON Schema) dla artefaktów narzędzia: `api.json`, `project-index.json`, `otui-rules.json`, `templates.json`, `docstrings.json`, `assets-map.json`, `.studio/config.json`, a także **schemat linii logu NDJSON**. Wszystko w formie gotowej do bezpośredniej implementacji (TypeScript/Node) i automatycznej walidacji.
+> Cel dokumentu: dostarczyć **kompletne, operacyjne** specyfikacje parserów (Lua‑Lite, OTUI/OTML) oraz **kontrakty walidacyjne** (JSON Schema) dla artefaktów narzędzia: `api.json`, `project-index.json`, `otui-rules.json`, `templates.json`, `docstrings.json`, `assets-map.json`, `.studio/config.json`, a także **schemat linii logu NDJSON**. Wszystko w formie gotowej do bezpośredniej implementacji (TypeScript/Node) i automatycznej walidacji.
 
 ---
 # # 0) Założenia ogólne
@@ -159,12 +159,12 @@ Szkic wyjścia (skrócony):
 ```
 
 ---
-# # 2) Lua-Lite — AST i zakres parsera
+# # 2) Lua‑Lite — AST i zakres parsera
 > Celem jest lekki AST do potrzeb IDE (symbole, funkcje, wywołania, literały, tabele). Nie jest to pełna interpretacja Lua.
 # # # 2.1 Zakres tokenów/węzłów
 - **Węzły:** `Chunk, LocalStatement, Assignment, FunctionDecl, CallStatement, CallExpr, Identifier, StringLiteral, NumberLiteral, BooleanLiteral, NilLiteral, TableConstructor, TableField, ReturnStatement, IfStatement (nagłówki), DoBlock (prosty)`.
 - **Pomijane:** złożone metatablice, goto/label (oznacz jako `UnknownNode`).
-# # # 2.2 Lua-Lite AST — JSON Schema
+# # # 2.2 Lua‑Lite AST — JSON Schema
 ```json
 {
   "$id": "https://schemas.otc.studio/lua-lite-ast.schema.json",
@@ -398,7 +398,7 @@ Szkic wyjścia (skrócony):
 # # 5) Reguły walidacji i jakości
 - **JSON Schema gates:** każda emisja `*.json` walidowana przed zapisem; błąd = rollback.
 - **Stabilne sortowanie:** listy sortuj po `loc.start.offset` lub alfabetycznie (klucze obiektów alfabetycznie).
-- **Backupy:** przy auto-fix zapisz `*.bak` + diff.
+- **Backupy:** przy auto‑fix zapisz `*.bak` + diff.
 - **Hash indeksu:** `sha1(size+mtime)` dla cache inkrementalnego.
 
 ---
@@ -413,7 +413,7 @@ Window < UIWidget {
 }
 ```
 Oczekiwany AST: zgodny ze schematem §1.2 (sprawdź kategorie: id→BEHAVIOR, width→GEOMETRY, text→STYLE).
-# # # 6.2 Lua-Lite — symbole
+# # # 6.2 Lua‑Lite — symbole
 Wejście `client.lua`:
 ```lua
 local M = {}
@@ -446,7 +446,7 @@ Ziarno z dokumentu MASTER musi przejść `api.schema.json`; nazwy funkcji zgodne
 
 ---
 # # 9) Checklisty wdrożeniowe (dla tej warstwy)
-- [ ] Zaimplementowane parsery (OTUI, Lua-Lite) zgodnie z §1 i §2.
+- [ ] Zaimplementowane parsery (OTUI, Lua‑Lite) zgodnie z §1 i §2.
 - [ ] Emisja AST z `loc`, `errors`, deterministycznym sortem.
 - [ ] JSON Schemy z §3 włączone w walidację przed zapisem.
 - [ ] IPC z §4 – kontrakty pokryte testami kontraktowymi.
@@ -456,4 +456,4 @@ Ziarno z dokumentu MASTER musi przejść `api.schema.json`; nazwy funkcji zgodne
 ---
 # # 10) Noty
 - Reguła `tr()` dla statycznych tekstów w OTUI bywa zależna od bazy – przewidziana jako **opcja** w `otui-rules.json`.
-- Schematy wykorzystują Draft 2020-12; możliwa migracja wstecz do Draft-07 (wymaga drobnych zmian słowników).
+- Schematy wykorzystują Draft 2020‑12; możliwa migracja wstecz do Draft‑07 (wymaga drobnych zmian słowników).

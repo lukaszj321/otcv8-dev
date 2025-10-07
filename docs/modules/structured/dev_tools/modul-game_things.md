@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_things`
+﻿# ¦ Modul: `game_things`
 
 ```lua
 

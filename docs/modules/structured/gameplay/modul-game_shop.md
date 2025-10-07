@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_shop`
+﻿# ¦ Modul: `game_shop`
 
 ```lua
 

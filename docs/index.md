@@ -1,18 +1,18 @@
 # OTCv8 â€” Dokumentacja
 
-Witaj w dokumentacji **OTCv8**. PoniAďż˝Ä…Aďż˝ďż˝tej najwaAďż˝Ä…Aďż˝ďż˝tniejsze dziaAďż˝Ä…A?â‚¬L?y:
+Witaj w dokumentacji **OTCv8**. PoniĂ„Ä…Ă„Ëťej najwaĂ„Ä…Ă„Ëťniejsze dziaĂ„Ä…Ă˘â‚¬Ĺˇy:
 
-- **Architektura** â€“ przeglÄ…d klienta, frameworka i struktury Aďż˝Ä…ďż˝aLsrAldeAďż˝Ä…A?â‚¬L?.
-- **ModuAďż˝Ä…A?â‚¬L?y** â€“ opis moduAďż˝Ä…A?â‚¬L?Alw gry (czÄ™Aďż˝Ä…A?â‚¬LzÄ‡ 1 i 2), rdzeAďż˝Ä…â€ž i dodatki.
-- **API** â€“ funkcje Lua klienta, specyfikacje silnika, presetAlw i walidatora.
+- **Architektura** â€“ przeglÄ…d klienta, frameworka i struktury Ă„Ä…ÄąĹşrĂłdeĂ„Ä…Ă˘â‚¬Ĺˇ.
+- **ModuĂ„Ä…Ă˘â‚¬Ĺˇy** â€“ opis moduĂ„Ä…Ă˘â‚¬ĹˇĂłw gry (czÄ™Ă„Ä…Ă˘â‚¬ĹźÄ‡ 1 i 2), rdzeĂ„Ä…â€ž i dodatki.
+- **API** â€“ funkcje Lua klienta, specyfikacje silnika, presetĂłw i walidatora.
 - **Dane** â€“ przewodnik po strukturach danych.
-- **Przewodniki** â€“ architektura (legacy), wprowadzenie do moduAďż˝Ä…A?â‚¬L?Alw, WebSocket.
+- **Przewodniki** â€“ architektura (legacy), wprowadzenie do moduĂ„Ä…Ă˘â‚¬ĹˇĂłw, WebSocket.
 - **Budowanie** â€“ instrukcje dla Windows, Linux, Android.
 - **Dev** â€“ FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
-- **Wiedza** â€“ materiaAďż˝Ä…A?â‚¬L?y referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
-- **Lua** â€“ API ogAllne i styl pisania.
+- **Wiedza** â€“ materiaĂ„Ä…Ă˘â‚¬Ĺˇy referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
+- **Lua** â€“ API ogĂłlne i styl pisania.
 - **UI** â€“ przewodnik OTUI.
 - **NarzÄ™dzia** â€“ przeglÄ…d narzÄ™dzi.
 
-> JeAďż˝Ä…A?â‚¬Lzli szukasz szybkiego startu, przejdAďż˝Ä…ďż˝aLs do:  
-> **Architektura Ä‚ďż˝?A?â‚¬ A?â‚¬ďż˝? _PrzeglÄ…d klienta_** lub **Budowanie Ä‚ďż˝?A?â‚¬ A?â‚¬ďż˝? _Windows_**.
+> JeĂ„Ä…Ă˘â‚¬Ĺźli szukasz szybkiego startu, przejdĂ„Ä…ÄąĹş do:  
+> **Architektura Ä‚ËĂ˘â‚¬Â Ă˘â‚¬â„˘ _PrzeglÄ…d klienta_** lub **Budowanie Ä‚ËĂ˘â‚¬Â Ă˘â‚¬â„˘ _Windows_**.

@@ -1,4 +1,4 @@
-# Ĺ Modul: `client_textedit`
+﻿# ¦ Modul: `client_textedit`
 
 ```lua
 

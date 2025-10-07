@@ -1,6 +1,6 @@
-# vBot Playbook – **modules/game_bot (MASTER)**
+﻿# vBot Playbook – **modules/game_bot (MASTER)**
 
-> Cel: pełny, operacyjny przewodnik dla implementacji i utrzymania skryptów **vBot** (moduł `modules/game_bot`) w ramach **OTClient Studio**. Dokument zawiera: standardy kodowania, wzorce (makra/trigger’y), snippety, heurystyki skanera, wymagania jakościowe, checklisty, test-wektory i integrację z narzędziem. **Transfer 1:1** – gotowe do wdrożenia.
+> Cel: pełny, operacyjny przewodnik dla implementacji i utrzymania skryptów **vBot** (moduł `modules/game_bot`) w ramach **OTClient Studio**. Dokument zawiera: standardy kodowania, wzorce (makra/trigger’y), snippety, heurystyki skanera, wymagania jakościowe, checklisty, test‑wektory i integrację z narzędziem. **Transfer 1:1** – gotowe do wdrożenia.
 
 ---
 # # 0) Executive Summary
@@ -32,8 +32,8 @@ Każdy komponent powinien być **izolowany** (funkcje `local`, brak globali), te
 
 ---
 # # 3) Wzorce (makra i trigger’y)
-> Poniższe wzorce to gotowe schematy do generatora w Studio. Każdy zawiera: cel, pre-warunki, interfejs konfiguracyjny, guards, cooldown, logowanie oraz sekcję bezpieczeństwa.
-# # # 3.1 Makro: Auto-Heal na progu HP
+> Poniższe wzorce to gotowe schematy do generatora w Studio. Każdy zawiera: cel, pre‑warunki, interfejs konfiguracyjny, guards, cooldown, logowanie oraz sekcję bezpieczeństwa.
+# # # 3.1 Makro: Auto‑Heal na progu HP
 **Cel:** rzucenie czaru/ użycie pota, gdy HP < progu.
 
 **Konfiguracja (OTML/JSON dla Studio):**
@@ -98,7 +98,7 @@ end
 ```
 
 **Bezpieczeństwo:** sanitacja regex (escape), limit odpowiedzi (cooldown per nadawca), nie odpowiadaj na własne linie.
-# # # 3.3 Makro: Auto-Haste (buff w ruchu)
+# # # 3.3 Makro: Auto‑Haste (buff w ruchu)
 **Cel:** utrzymywanie buffa szybkości przy poruszaniu się.
 
 **Konfiguracja:**
@@ -146,7 +146,7 @@ end
 ```
 
 **Bezpieczeństwo:** limit równoległych otwarć; przerwij, gdy inventory pełne; nie blokuj głównej pętli.
-# # # 3.5 Makro: Anti-Idle
+# # # 3.5 Makro: Anti‑Idle
 **Cel:** zapobiec disconnectowi przez delikatną interakcję.
 
 **Szkielet:**
@@ -182,16 +182,16 @@ end
 
 ---
 # # 5) Reguły jakości (lint vBot)
-> Rozszerzenie lintu Lua/OTUI o reguły domenowe vBot (bez auto-fixu, chyba że bezpieczny).
+> Rozszerzenie lintu Lua/OTUI o reguły domenowe vBot (bez auto‑fixu, chyba że bezpieczny).
 
-- **VBOT-001** – Brak `guard` przed akcją (wymagane `g_game.isOnline()` i brak kolizji z ruchem/walką, jeśli ma znaczenie).
-- **VBOT-002** – Cooldown < zalecanego minimum dla danej akcji (np. < 1000 ms dla czaru) → WARN.
-- **VBOT-003** – Blokujące pętle/sleep w makrze (zamiast tego `scheduleEvent`).
-- **VBOT-004** – Spam `say()`/`use()` bez limitu – brak licznika/okna czasowego.
-- **VBOT-005** – Globalne symbole w pliku vBot (wymagane `local`).
-- **VBOT-006** – Brak logowania kontekstowego przy krytycznych akcjach.
-- **VBOT-007** – Brak anulowania makra po `isDisconnected()`.
-- **VBOT-008** – Zależność od UI bez sprawdzenia istnienia `widget`.
+- **VBOT‑001** – Brak `guard` przed akcją (wymagane `g_game.isOnline()` i brak kolizji z ruchem/walką, jeśli ma znaczenie).
+- **VBOT‑002** – Cooldown < zalecanego minimum dla danej akcji (np. < 1000 ms dla czaru) → WARN.
+- **VBOT‑003** – Blokujące pętle/sleep w makrze (zamiast tego `scheduleEvent`).
+- **VBOT‑004** – Spam `say()`/`use()` bez limitu – brak licznika/okna czasowego.
+- **VBOT‑005** – Globalne symbole w pliku vBot (wymagane `local`).
+- **VBOT‑006** – Brak logowania kontekstowego przy krytycznych akcjach.
+- **VBOT‑007** – Brak anulowania makra po `isDisconnected()`.
+- **VBOT‑008** – Zależność od UI bez sprawdzenia istnienia `widget`.
 
 **Konfiguracja (JSON):**
 ```json
@@ -235,12 +235,12 @@ end
 - [ ] Komentarz nagłówkowy (opis, parametry, interwał).
 
 ---
-# # 10) Test-wektory (QA vBot)
-- **HEAL-01:** HP 55% → oczekiwany 1× `say('exura')`, brak spam w 1200 ms.
-- **MSG-01:** Tekst `hi` → odpowiedź `hello` tylko 1× / 3 s na nadawcę.
-- **HASTE-01:** Ruch z brakiem buffa → `say('utani hur')` nie częściej niż co 6 s.
-- **LOOT-01:** Pojawia się `corpse` na tile → wywołanie `use()` na kontenerze (jeśli dostępne API); brak błędów przy braku miejsca.
-- **IDLE-01:** Brak aktywności 60 s → `turn()`; brak gdy `isAttacking()`.
+# # 10) Test‑wektory (QA vBot)
+- **HEAL‑01:** HP 55% → oczekiwany 1× `say('exura')`, brak spam w 1200 ms.
+- **MSG‑01:** Tekst `hi` → odpowiedź `hello` tylko 1× / 3 s na nadawcę.
+- **HASTE‑01:** Ruch z brakiem buffa → `say('utani hur')` nie częściej niż co 6 s.
+- **LOOT‑01:** Pojawia się `corpse` na tile → wywołanie `use()` na kontenerze (jeśli dostępne API); brak błędów przy braku miejsca.
+- **IDLE‑01:** Brak aktywności 60 s → `turn()`; brak gdy `isAttacking()`.
 
 ---
 # # 11) Integracja ze Studio
@@ -255,7 +255,7 @@ end
 - [ ] Brak globali; `local` wszędzie.
 - [ ] Logi akcji krytycznych.
 - [ ] Parametry wyniesione do konfiguracji.
-- [ ] Test-wektory przechodzą; brak regresji.
+- [ ] Test‑wektory przechodzą; brak regresji.
 
 ---
 # # 13) Noty końcowe

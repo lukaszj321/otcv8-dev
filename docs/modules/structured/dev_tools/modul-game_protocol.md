@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_protocol`
+﻿# ¦ Modul: `game_protocol`
 
 ```lua
 

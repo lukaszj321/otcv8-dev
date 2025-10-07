@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_actionbar`
+﻿# ¦ Modul: `game_actionbar`
 
 ```lua
 

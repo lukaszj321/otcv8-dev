@@ -1,12 +1,12 @@
-# Dev Module for Hot-Reload (MASTER) – **OTClient v8**
+﻿# Dev Module for Hot‑Reload (MASTER) – **OTClient v8**
 
-> Cel: dostarczyć **produkcyjny moduł Lua** wspierający hot-reload skryptów OTClient oraz **NDJSON logowanie** do integracji ze Studio. Dokument zawiera: pełną strukturę plików, kompletny kod, konfigurację, protokoły, scenariusze testowe, checklisty i wskazówki operacyjne. **Transfer 1:1** – gotowe do wklejenia.
+> Cel: dostarczyć **produkcyjny moduł Lua** wspierający hot‑reload skryptów OTClient oraz **NDJSON logowanie** do integracji ze Studio. Dokument zawiera: pełną strukturę plików, kompletny kod, konfigurację, protokoły, scenariusze testowe, checklisty i wskazówki operacyjne. **Transfer 1:1** – gotowe do wklejenia.
 
 ---
 # # 0) Założenia i zakres
-- **Hot-reload:** wyzwalane skrótem klawiszowym w kliencie **lub** przez „flag file” (`modules/.dev/reload.flag`).
+- **Hot‑reload:** wyzwalane skrótem klawiszowym w kliencie **lub** przez „flag file” (`modules/.dev/reload.flag`).
 - **Logi NDJSON:** zapisywane do `modules/.dev/log.jsonl` (rotacja rozmiaru).
-- **Bezpieczeństwo:** brak step-debuggera; debug przez logi i komunikaty.
+- **Bezpieczeństwo:** brak step‑debuggera; debug przez logi i komunikaty.
 - **Zależności:** standardowe API OTClient v8 (m.in. `g_modules.reloadModules`, `g_resources.readFile/writeFile`, `addEvent/scheduleEvent`).
 
 ---
@@ -17,10 +17,10 @@ modules/
    ├─ dev.otmod
    ├─ dev.lua
    └─ ui/
-      └─ dev.otui   # (opcjonalne mini-UI)
+      └─ dev.otui   # (opcjonalne mini‑UI)
 # Katalog roboczy dla flag/logów (musi istnieć):
 modules/.dev/
-   ├─ reload.flag   # plik-flaga (pusty lub z treścią)
+   ├─ reload.flag   # plik‑flaga (pusty lub z treścią)
    └─ log.jsonl     # NDJSON (tworzony automatycznie)
 ```
 > Uwaga: Utwórz katalog `modules/.dev/` ręcznie, jeśli nie istnieje.
@@ -253,13 +253,13 @@ return M
 ---
 # # 5) Protokół integracji ze **Studio**
 - **Wyzwalanie reloadu:** Studio zapisuje/"dotyka" `modules/.dev/reload.flag` → moduł wykrywa i woła `g_modules.reloadModules()`.
-- **Logi NDJSON:** Studio tail-uje `modules/.dev/log.jsonl` i filtruje po `level/tag/file:line`.
+- **Logi NDJSON:** Studio tail‑uje `modules/.dev/log.jsonl` i filtruje po `level/tag/file:line`.
 - **Akcje ręczne:** z konsoli: `modules.dev.dev.requestReload('manual')` (jeżeli środowisko wspiera wywołania).
 
 ---
 # # 6) Konfiguracja i warianty
 - `CFG.pollMs` – interwał sprawdzania flagi (zalecane 300–600 ms).
-- `CFG.minReloadIntervalMs` – anty-drganie przy seryjnych zapisach.
+- `CFG.minReloadIntervalMs` – anty‑drganie przy seryjnych zapisach.
 - `CFG.maxLogBytes` – rotacja logu (zapobiega rozrostowi pliku).
 - `CFG.echoToConsole` – mirror logów do konsoli klienta.
 
@@ -269,7 +269,7 @@ return M
 # # 7) Scenariusze testowe (QA)
 1. **Start modułu:** uruchom klienta → w `log.jsonl` linia `startup/dev module ready`.
 2. **Reload przez flagę:** utwórz pusty `modules/.dev/reload.flag` → w logu `reload/requested` i `reload/done`.
-3. **Anty-drganie:** utwórz 3× flagę w < 800 ms → 1 realny reload.
+3. **Anty‑drganie:** utwórz 3× flagę w < 800 ms → 1 realny reload.
 4. **Błąd podczas reloadu (symulacja):** tymczasowo zasymuluj błąd w `g_modules.reloadModules` (jeśli możliwe) → `reload/failed` (ERROR) w logu.
 5. **Rotacja logu:** wygeneruj > `maxLogBytes` → plik przycięty do dozwolonego rozmiaru, bez rozbicia JSON.
 
@@ -279,7 +279,7 @@ return M
 - [ ] Skopiuj `dev.otmod`, `dev.lua`, opcjonalnie `ui/dev.otui` do `modules/dev/`.
 - [ ] Uruchom klienta; sprawdź, czy `log.jsonl` powstał.
 - [ ] Zapisz/"dotknij" `modules/.dev/reload.flag`; obserwuj `log.jsonl`.
-- [ ] Skonfiguruj Studio, by tail-owało `log.jsonl` i zapisywało flagę.
+- [ ] Skonfiguruj Studio, by tail‑owało `log.jsonl` i zapisywało flagę.
 
 ---
 # # 9) Noty operacyjne
@@ -296,7 +296,7 @@ return M
 ---
 # # 11) Definition of Done (DoD)
 - [ ] Moduł ładuje się, loguje `startup` (NDJSON + konsola).
-- [ ] Flaga wyzwala `reload` deterministycznie (z anty-drganiem).
+- [ ] Flaga wyzwala `reload` deterministycznie (z anty‑drganiem).
 - [ ] Rotacja logu działa; plik nie rośnie nieograniczenie.
 - [ ] Studio wykrywa logi i poprawnie je filtruje.
 - [ ] Brak globali; `local` wszędzie; brak użycia `unpack` (tylko `table.unpack`).

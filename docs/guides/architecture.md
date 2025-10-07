@@ -1,4 +1,4 @@
-# Architektura (skrďż˝t)
+# Architektura (skrĂłt)
 
 `$fenceInfo
 graph TD
@@ -11,12 +11,12 @@ graph TD
 
 === "Warstwy"
 
-C++ Core ďż˝ silnik render/UI/IO
+C++ Core â€“ silnik render/UI/IO
 
-Lua ďż˝ logika moduďż˝aâ€šďż˝w (vBot)
+Lua â€“ logika moduĂ„Ä…Ă˘â‚¬ĹˇĂłw (vBot)
 
-OTUI ďż˝ deklaratywne layouty
+OTUI â€“ deklaratywne layouty
 
 === "Kontrakty"
 
-Eventy Lua A?Lsďż˝ UI, IPC/WS, zasoby
+Eventy Lua Ä‚ËÄąĹźÂ· UI, IPC/WS, zasoby

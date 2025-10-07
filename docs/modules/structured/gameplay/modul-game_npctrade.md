@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_npctrade`
+﻿# ¦ Modul: `game_npctrade`
 
 ```lua
 

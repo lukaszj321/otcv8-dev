@@ -1,4 +1,4 @@
-# Ĺ Modul: `game_spelllist`
+﻿# ¦ Modul: `game_spelllist`
 
 ```lua
 
