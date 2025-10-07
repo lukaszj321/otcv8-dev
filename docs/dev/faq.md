@@ -1,8 +1,4 @@
-﻿# F
-
-A
-
-Q
+﻿# FAQ
 
 **Czy mogę używać swoich modułów?** Tak, wrzuć do `modules/<nazwa>` i zarejestruj w konfiguracji.
 
