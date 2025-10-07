@@ -1,11 +1,12 @@
-# Tools
+# Narzędzia i Kluczowe Zasoby
 
-> Cel: placeholder tools
+Ta sekcja zawiera odnośniki do najważniejszych zasobów i narzędzi deweloperskich opisanych w tej dokumentacji.
 
-- **Szybki start**: sekcja _Build_.
-- **Architektura**: diagramy Mermaid + graf moduĂ„Ä…Ă˘â‚¬ĹˇĂłw.
-- **API**: przykĂ„Ä…Ă˘â‚¬Ĺˇady Lua/C++ (do rozszerzenia).
+- **Szybki start**: Aby jak najszybciej rozpocząć, przejdź do sekcji **[Build](build/windows.md)**.
 
-!!! info "Baza wiedzy dla edytora"
+- **Zrozumienie Architektury**: Diagramy w formacie Mermaid oraz grafy modułów znajdziesz w dziale **[Architektura](guides/architecture.md)**.
 
-    TwĂłj edytor moĂ„Ä…Ă„Ëťe konsumowaÄ‡ `search/search_index.json` z tej strony (GitHub Pages) jako indeks wiedzy...
+- **Przykłady Kodu**: Podstawowe przykłady użycia API w Lua i C++ (do dalszego rozszerzenia) znajdują się w dokumentacji **[API](lua/api.md)**.
+
+!!! info "Baza Wiedzy dla Twojego Edytora"
+    Plik `search/search_index.json` generowany dla tej strony (dostępny przez GitHub Pages) może być używany przez zewnętrzne narzędzia (np. wtyczki do VS Code) jako indeks wiedzy, co umożliwia inteligentne wyszukiwanie i podpowiedzi bezpośrednio w Twoim edytorze.
