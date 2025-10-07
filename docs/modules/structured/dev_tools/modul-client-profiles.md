@@ -1,4 +1,4 @@
-﻿# | Modul: `client_profiles`
+# Moduł: | Moduł: `client_profiles`
 ```lua
 
 local settings = {}

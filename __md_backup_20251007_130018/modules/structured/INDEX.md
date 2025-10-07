@@ -1,4 +1,4 @@
-﻿# Modules - structured
+# Modules - structured
 
 *This file was generated automatically.*
 # # Contents

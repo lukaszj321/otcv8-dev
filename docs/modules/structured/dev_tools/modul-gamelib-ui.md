@@ -1,4 +1,4 @@
-﻿# | Modul: `gamelib/ui`
+# Moduł: | Moduł: `gamelib/ui`
 ```lua
 
 -- @docclass

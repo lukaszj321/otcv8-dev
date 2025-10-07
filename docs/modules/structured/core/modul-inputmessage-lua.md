@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: `inputmessage.lua`
-
+# Moduł: ModuĹ‚: `inputmessage.lua`
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

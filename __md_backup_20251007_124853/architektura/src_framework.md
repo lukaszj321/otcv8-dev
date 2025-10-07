@@ -1,4 +1,4 @@
-﻿# src framework
+# src framework
 # # Poniżej znajduje się kompletna dokumentacja techniczna dla repozytorium, src/framework
 # # Opis ogólny
 

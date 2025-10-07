@@ -1,4 +1,4 @@
-﻿# Moduły (vBot) —
+# Moduły (vBot) —
 
 p
 

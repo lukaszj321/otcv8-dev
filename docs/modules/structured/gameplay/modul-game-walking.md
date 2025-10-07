@@ -1,4 +1,4 @@
-﻿# | Modul: `game_walking`
+# Moduł: | Moduł: `game_walking`
 ```lua
 
 smartWalkDirs = {}

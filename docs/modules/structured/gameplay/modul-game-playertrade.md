@@ -1,4 +1,4 @@
-﻿# | Modul: `game_playertrade`
+# Moduł: | Moduł: `game_playertrade`
 ```lua
 
 tradeWindow = nil

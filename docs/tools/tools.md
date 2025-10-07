@@ -1,4 +1,4 @@
-﻿# Tools
+# Tools
 > Cel: placeholder tools
 
 - **Szybki start**: sekcja _Build_.

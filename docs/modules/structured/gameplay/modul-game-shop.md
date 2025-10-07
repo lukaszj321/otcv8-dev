@@ -1,4 +1,4 @@
-﻿# | Modul: `game_shop`
+# Moduł: | Moduł: `game_shop`
 ```lua
 
 -- private variables

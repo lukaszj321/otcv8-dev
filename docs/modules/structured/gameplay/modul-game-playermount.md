@@ -1,4 +1,4 @@
-﻿# | Modul: `game_playermount`
+# Moduł: | Moduł: `game_playermount`
 ```lua
 
 function init()

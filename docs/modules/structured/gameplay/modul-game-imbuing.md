@@ -1,4 +1,4 @@
-﻿# | Modul: `game_imbuing`
+# Moduł: | Moduł: `game_imbuing`
 ```lua
 
 local imbuingWindow

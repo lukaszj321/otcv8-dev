@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: Game Hotkeys Module
-
+# Moduł: ModuĹ‚: Game Hotkeys Module
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

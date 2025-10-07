@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: Client Terminal Module
-
+# Moduł: ModuĹ‚: Client Terminal Module
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

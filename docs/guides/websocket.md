@@ -1,4 +1,4 @@
-﻿# Realtime (websocket)
+# Realtime (websocket)
 ```mermaid
 sequenceDiagram
   participant UI as Dashboard (SPA)

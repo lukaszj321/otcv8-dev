@@ -1,4 +1,4 @@
-﻿# | Modul: `game_bot/panels`
+# Moduł: | Moduł: `game_bot/panels`
 ```text
 
 DONT USE PANELS

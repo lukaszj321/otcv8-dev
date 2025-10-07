@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_unjustifiedpoints`
+# ¦ Modul: `game_unjustifiedpoints`
 
 ```lua
 

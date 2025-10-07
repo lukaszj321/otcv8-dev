@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_outfit`
+# ¦ Modul: `game_outfit`
 
 ```lua
 

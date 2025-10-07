@@ -1,4 +1,4 @@
-﻿# Troub
+# Troub
 
 l
 

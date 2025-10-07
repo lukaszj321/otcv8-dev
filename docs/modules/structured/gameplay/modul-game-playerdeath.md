@@ -1,4 +1,4 @@
-﻿# | Modul: `game_playerdeath`
+# Moduł: | Moduł: `game_playerdeath`
 ```otui
 
 DeathWindow < MainWindow

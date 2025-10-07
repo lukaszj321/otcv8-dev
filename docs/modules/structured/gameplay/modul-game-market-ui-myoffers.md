@@ -1,4 +1,4 @@
-﻿# | Modul: `game_market/ui/myoffers`
+# Moduł: | Moduł: `game_market/ui/myoffers`
 ```otui
 
 OfferTableRow < TableRow

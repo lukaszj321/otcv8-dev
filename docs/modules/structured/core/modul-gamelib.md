@@ -1,4 +1,4 @@
-﻿# | Modul: `gamelib`
+# Moduł: | Moduł: `gamelib`
 ```lua
 
 -- @docconsts @{

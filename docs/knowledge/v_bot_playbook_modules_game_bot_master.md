@@ -1,4 +1,4 @@
-﻿# vBot Playbook – **modules/game_bot (MASTER)**
+# vBot Playbook – **modules/game_bot (MASTER)**
 > Cel: pełny, operacyjny przewodnik dla implementacji i utrzymania skryptów **vBot** (moduł `modules/game_bot`) w ramach **OTClient Studio**. Dokument zawiera: standardy kodowania, wzorce (makra/trigger’y), snippety, heurystyki skanera, wymagania jakościowe, checklisty, test‑wektory i integrację z narzędziem. **Transfer 1:1** – gotowe do wdrożenia.
 
 ---

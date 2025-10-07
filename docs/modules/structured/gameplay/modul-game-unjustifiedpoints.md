@@ -1,4 +1,4 @@
-﻿# | Modul: `game_unjustifiedpoints`
+# Moduł: | Moduł: `game_unjustifiedpoints`
 ```lua
 
 unjustifiedPointsWindow = nil

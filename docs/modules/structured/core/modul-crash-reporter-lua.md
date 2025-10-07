@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: `crash_reporter.lua`
-
+# Moduł: ModuĹ‚: `crash_reporter.lua`
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

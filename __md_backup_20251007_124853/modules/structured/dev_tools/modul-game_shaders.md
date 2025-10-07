@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_shaders`
+# ¦ Modul: `game_shaders`
 
 ```lua
 

@@ -1,4 +1,4 @@
-﻿# | Modul: `client`
+# Moduł: | Moduł: `client`
 ```lua
 
 local musicFilename = "/sounds/startup"

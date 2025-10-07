@@ -1,4 +1,4 @@
-﻿# | Modul: `game_shaders`
+# Moduł: | Moduł: `game_shaders`
 ```lua
 
 function init()

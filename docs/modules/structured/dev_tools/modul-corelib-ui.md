@@ -1,5 +1,5 @@
-﻿{% raw %}
-# | Modul: `corelib/ui`
+{% raw %}
+# Moduł: | Moduł: `corelib/ui`
 ```lua
 
 -- @docclass

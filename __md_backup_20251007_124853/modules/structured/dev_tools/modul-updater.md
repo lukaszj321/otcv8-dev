@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `updater`
+# ¦ Modul: `updater`
 
 ```lua
 

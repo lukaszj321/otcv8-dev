@@ -1,4 +1,4 @@
-﻿# | Modul: `game_npctrade`
+# Moduł: | Moduł: `game_npctrade`
 ```lua
 
 BUY = 1

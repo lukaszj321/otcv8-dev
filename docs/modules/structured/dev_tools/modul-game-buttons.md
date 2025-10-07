@@ -1,4 +1,4 @@
-﻿# | Modul: `game_buttons`
+# Moduł: | Moduł: `game_buttons`
 ```lua
 
 buttonsWindow = nil

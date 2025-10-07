@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: client_stats
-
+# Moduł: ModuĹ‚: client_stats
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

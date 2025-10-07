@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: `inventory.lua`
-
+# Moduł: ModuĹ‚: `inventory.lua`
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: Client Topmenu Module
-
+# Moduł: ModuĹ‚: Client Topmenu Module
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

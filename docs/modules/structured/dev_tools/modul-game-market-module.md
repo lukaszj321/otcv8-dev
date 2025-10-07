@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: Game Market Module
-
+# Moduł: ModuĹ‚: Game Market Module
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

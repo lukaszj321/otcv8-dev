@@ -1,4 +1,4 @@
-﻿# Troubleshoting
+# Troubleshoting
 # Build
 - Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
 # Android

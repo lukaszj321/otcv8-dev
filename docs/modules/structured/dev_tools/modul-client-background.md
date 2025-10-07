@@ -1,4 +1,4 @@
-﻿# | Modul: `client_background`
+# Moduł: | Moduł: `client_background`
 ```lua
 
 -- private variables

@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: `console.lua`
-
+# Moduł: ModuĹ‚: `console.lua`
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres

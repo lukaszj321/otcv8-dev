@@ -1,4 +1,4 @@
-﻿# | Modul: `game_market/ui/general`
+# Moduł: | Moduł: `game_market/ui/general`
 ```otui
 
 AmountWindow < MainWindow

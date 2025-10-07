@@ -1,4 +1,4 @@
-﻿# | Modul: `game_modaldialog`
+# Moduł: | Moduł: `game_modaldialog`
 ```lua
 
 modalDialog = nil

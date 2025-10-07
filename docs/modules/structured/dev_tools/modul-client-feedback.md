@@ -1,4 +1,4 @@
-﻿# | Modul: `client_feedback`
+# Moduł: | Moduł: `client_feedback`
 ```lua
 
 local feedbackWindow

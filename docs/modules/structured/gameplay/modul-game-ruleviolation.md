@@ -1,4 +1,4 @@
-﻿# | Modul: `game_ruleviolation`
+# Moduł: | Moduł: `game_ruleviolation`
 ```lua
 
 rvreasons = {}

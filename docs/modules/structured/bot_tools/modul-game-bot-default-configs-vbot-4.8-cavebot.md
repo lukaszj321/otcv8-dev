@@ -1,5 +1,5 @@
-﻿{% raw %}
-# | Modul: `game_bot/default_configs/vBot_4.8/cavebot`
+{% raw %}
+# Moduł: | Moduł: `game_bot/default_configs/vBot_4.8/cavebot`
 ```lua
 
 CaveBot.Actions = {}

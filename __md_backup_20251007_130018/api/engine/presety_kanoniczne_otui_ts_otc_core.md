@@ -1,4 +1,4 @@
-﻿# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
+# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
 
 **Paleta:** `otc_core_v1` · **Wersja:** 1.0\
 **Cel:** Minimalne, **kanoniczne** presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4 specyfikacji) oraz zasadami **STRICT OTUI**.

@@ -1,5 +1,5 @@
-﻿{% raw %}
-# | Modul: `client_textedit`
+{% raw %}
+# Moduł: | Moduł: `client_textedit`
 ```lua
 
 local activeWindow

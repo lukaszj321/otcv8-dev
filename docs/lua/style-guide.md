@@ -1,4 +1,4 @@
-﻿# Lua — style guide
+# Lua — style guide
 - snake_case dla zmiennych i funkcji.
 - Moduły zwracają tabelę publicznego API.
 - Brak efektów ubocznych w `require`.

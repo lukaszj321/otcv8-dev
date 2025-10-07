@@ -1,4 +1,4 @@
-﻿# | Modul: `client_topmenu`
+# Moduł: | Moduł: `client_topmenu`
 ```lua
 
 -- private variables

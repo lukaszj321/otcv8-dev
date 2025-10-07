@@ -1,5 +1,5 @@
-﻿{% raw %}
-# | Modul: `game_market`
+{% raw %}
+# Moduł: | Moduł: `game_market`
 ```lua
 
 --[[

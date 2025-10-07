@@ -1,5 +1,4 @@
-﻿# ModuĹ‚: client_textedit
-
+# Moduł: ModuĹ‚: client_textedit
 **Rola:** *(krĂłtko â€“ 1â€“3 zdania co robi moduĹ‚ i gdzie jest uĹĽywany).*
 
 ## Zakres
