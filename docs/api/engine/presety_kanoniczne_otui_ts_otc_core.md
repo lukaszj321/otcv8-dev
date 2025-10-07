@@ -1,24 +1,24 @@
-﻿# Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)
+?# Presety Kanoniczne - OTClient v8 Core (OTUI + TypeScript + Lua)
 
-**Paleta:** `otc_core_v1` · **Wersja:** 1.0\
-**Cel:** Minimalne, **kanoniczne** presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4 specyfikacji) oraz zasadami **STRICT OTUI**.
+**Paleta:** `otc_core_v1` � **Wersja:** 1.0\
+**Cel:** Minimalne, **kanoniczne** presety dla kazdego komponentu z palety "OTClient v8 Core", w 100% zgodne z taksonomia (rozdz. 4 specyfikacji) oraz zasadami **STRICT OTUI**.
 
 > **Konwencje**
 >
-> - Wszystkie bloki **OTUI są STRICT**: końce linii LF, **wcięcia = 2 spacje**, **brak komentarzy**.
-> - Serializator emituje atrybuty w kolejności **GEOMETRIA → STYL → ZACHOWANIE** i mapuje `style.text` → `!text: tr('...')`.
-> - Bloki **TypeScript (TS)** zakładają AST w kształcie `WidgetNode` oraz serializer zgodny z powyższymi zasadami.
+> - Wszystkie bloki **OTUI sa STRICT**: konce linii LF, **wciecia = 2 spacje**, **brak komentarzy**.
+> - Serializator emituje atrybuty w kolejnosci **GEOMETRIA ? STYL ? ZACHOWANIE** i mapuje `style.text` ? `!text: tr('...')`.
+> - Bloki **TypeScript (TS)** zakladaja AST w ksztalcie `WidgetNode` oraz serializer zgodny z powyzszymi zasadami.
 
 ---
-# # Spis treści
+# # Spis tresci
 
-- [A. Windows (Okna Główne)](#a-windows-okna-główne)
+- [A. Windows (Okna Gl�wne)](#a-windows-okna-gl�wne)
   - [A.1 MainWindow](#a1-mainwindow)
   - [A.2 StaticMainWindow](#a2-staticmainwindow)
   - [A.3 MiniWindow](#a3-miniwindow)
   - [A.4 ContainerWindow](#a4-containerwindow)
   - [A.5 DialogWindow](#a5-dialogwindow)
-- [B. Layout & Organization (Układ i Organizacja)](#b-layout--organization-układ-i-organizacja)
+- [B. Layout & Organization (Uklad i Organizacja)](#b-layout--organization-uklad-i-organizacja)
   - [B.1 UIWidget (alias: Widget)](#b1-uiwidget-alias-widget)
   - [B.2 Panel](#b2-panel)
   - [B.3 GroupBox](#b3-groupbox)
@@ -29,7 +29,7 @@
   - [B.8 Splitter (2 dzieci)](#b8-splitter-2-dzieci)
   - [B.9 HorizontalSeparator](#b9-horizontalseparator)
   - [B.10 StatusOverlay](#b10-statusoverlay)
-- [C. Input Controls (Kontrolki Wejściowe)](#c-input-controls-kontrolki-wejściowe)
+- [C. Input Controls (Kontrolki Wejsciowe)](#c-input-controls-kontrolki-wejsciowe)
   - [C.1 Button](#c1-button)
   - [C.2 CheckBox](#c2-checkbox)
   - [C.2a RoundCheckBox (wariant CheckBox)](#c2a-roundcheckbox-wariant-checkbox)
@@ -37,23 +37,23 @@
   - [C.4 PasswordTextEdit](#c4-passwordtextedit)
   - [C.5 MultilineTextEdit (+ Scroll)](#c5-multilinetextedit--scroll)
   - [C.6 ComboBox](#c6-combobox)
-- [D. Data Display (Wyświetlanie Danych)](#d-data-display-wyświetlanie-danych)
+- [D. Data Display (Wyswietlanie Danych)](#d-data-display-wyswietlanie-danych)
   - [D.1 Label (alias: UILabel)](#d1-label-alias-uilabel)
   - [D.2 TextList (+ Scroll)](#d2-textlist--scroll)
   - [D.3 ProgressBar](#d3-progressbar)
-- [E. Indicators & Scrolling (Wskaźniki i Przewijanie)](#e-indicators--scrolling-wskaźniki-i-przewijanie)
+- [E. Indicators & Scrolling (Wskazniki i Przewijanie)](#e-indicators--scrolling-wskazniki-i-przewijanie)
   - [E.1 VerticalScrollBar](#e1-verticalscrollbar)
   - [E.2 HorizontalScrollBar](#e2-horizontalscrollbar)
 - [F. Uwagi implementacyjne (Sparky)](#f-uwagi-implementacyjne-sparky)
-- [G. Lua — OTUI jako string + glue (kontrolery)](#g-lua--otui-jako-string--glue-kontrolery)
-  - [G.1 MiniWindow — Lua](#g1-miniwindow--lua)
-  - [G.2 ContainerWindow — Lua](#g2-containerwindow--lua)
-  - [G.3 DialogWindow — Lua](#g3-dialogwindow--lua)
+- [G. Lua - OTUI jako string + glue (kontrolery)](#g-lua--otui-jako-string--glue-kontrolery)
+  - [G.1 MiniWindow - Lua](#g1-miniwindow--lua)
+  - [G.2 ContainerWindow - Lua](#g2-containerwindow--lua)
+  - [G.3 DialogWindow - Lua](#g3-dialogwindow--lua)
   - [G.4 Wrappers: TextList / MultilineTextEdit](#g4-wrappers-textlist--multilinetextedit)
   - [G.5 Wzorzec integracyjny](#g5-wzorzec-integracyjny)
 
 ---
-# # A. Windows (Okna Główne)
+# # A. Windows (Okna Gl�wne)
 # # # A.1 MainWindow
 
 **OTUI**
@@ -355,7 +355,7 @@ export function presetDialogWindow(): WidgetNode {
 ```
 
 ---
-# # B. Layout & Organization (Układ i Organizacja)
+# # B. Layout & Organization (Uklad i Organizacja)
 # # # B.1 UIWidget (alias: Widget)
 
 **OTUI**
@@ -674,7 +674,7 @@ export function presetStatusOverlay(): WidgetNode {
 ```
 
 ---
-# # C. Input Controls (Kontrolki Wejściowe)
+# # C. Input Controls (Kontrolki Wejsciowe)
 # # # C.1 Button
 
 **OTUI**
@@ -818,7 +818,7 @@ export function presetComboBox(): WidgetNode {
 ```
 
 ---
-# # D. Data Display (Wyświetlanie Danych)
+# # D. Data Display (Wyswietlanie Danych)
 # # # D.1 Label (alias: UILabel)
 
 **OTUI**
@@ -894,7 +894,7 @@ export function presetProgressBar(): WidgetNode {
 ```
 
 ---
-# # E. Indicators & Scrolling (Wskaźniki i Przewijanie)
+# # E. Indicators & Scrolling (Wskazniki i Przewijanie)
 # # # E.1 VerticalScrollBar
 
 **OTUI**
@@ -935,21 +935,21 @@ export function presetHorizontalScrollBar(): WidgetNode {
 ---
 # # F. Uwagi implementacyjne (Sparky)
 
-- Presety są **minimalne**: zachowują sloty, parowanie (TextList/Multiline ↔ ScrollBar) i deterministyczną strukturę do serializacji.
-- Gdy wymagana jest para przewijania, używaj **sąsiadujących** (sibling) `VerticalScrollBar`/`HorizontalScrollBar` oraz odpowiednich kotwic `right: scroll.left` / `bottom: hscroll.top`.
-- Presety okien zawierają `titlebar` (Mini/Container/Dialog) oraz minimalne `content`/`footer`.
-- **TypeScript** może wstrzykiwać zdarzenia (`@onEnter/@onEscape/@onClick`) w generatorach, lecz celowo ich tu nie dodano, aby presety pozostały neutralne.
-- Serializer musi zapewnić **STRICT OTUI** oraz konwersję `style.text` → `!text: tr('...')`.
+- Presety sa **minimalne**: zachowuja sloty, parowanie (TextList/Multiline ? ScrollBar) i deterministyczna strukture do serializacji.
+- Gdy wymagana jest para przewijania, uzywaj **sasiadujacych** (sibling) `VerticalScrollBar`/`HorizontalScrollBar` oraz odpowiednich kotwic `right: scroll.left` / `bottom: hscroll.top`.
+- Presety okien zawieraja `titlebar` (Mini/Container/Dialog) oraz minimalne `content`/`footer`.
+- **TypeScript** moze wstrzykiwac zdarzenia (`@onEnter/@onEscape/@onClick`) w generatorach, lecz celowo ich tu nie dodano, aby presety pozostaly neutralne.
+- Serializer musi zapewnic **STRICT OTUI** oraz konwersje `style.text` ? `!text: tr('...')`.
 
 ---
-# # G. Lua — OTUI jako string + glue (kontrolery)
+# # G. Lua - OTUI jako string + glue (kontrolery)
 
-> **Cel:** dodać do presetów trzeci filar — **Lua**, który zawiera: (1) kanoniczny blok **OTUI jako string** (STRICT, bez komentarzy w samym OTUI), (2) minimalistyczny **glue** (kontrolery/wywołania) spójny z presetami.
+> **Cel:** dodac do preset�w trzeci filar - **Lua**, kt�ry zawiera: (1) kanoniczny blok **OTUI jako string** (STRICT, bez komentarzy w samym OTUI), (2) minimalistyczny **glue** (kontrolery/wywolania) sp�jny z presetami.
 >
-> **Ważne:** w runtime używaj **plików** i `g_ui.displayUI('...')`. Bloki OTUI w Lua poniżej służą głównie do **importu/eksportu** w edytorze.
-# # # G.1 MiniWindow — Lua
+> **Wazne:** w runtime uzywaj **plik�w** i `g_ui.displayUI('...')`. Bloki OTUI w Lua ponizej sluza gl�wnie do **importu/eksportu** w edytorze.
+# # # G.1 MiniWindow - Lua
 
-**Lua (OTUI jako string — STRICT)**
+**Lua (OTUI jako string - STRICT)**
 
 ```lua
 local MiniWindow_OTUI = [[
@@ -1004,13 +1004,13 @@ MiniWindow < MainWindow
 ]]
 ```
 
-**Lua (glue — kontroler i standardowe operacje)**
+**Lua (glue - kontroler i standardowe operacje)**
 
 ```lua
 MiniWindowController = MiniWindowController or {}
 
 function MiniWindowController.mountFromFile()
-  local win = g_ui.displayUI('mini') -- w runtime używaj plików .otui
+  local win = g_ui.displayUI('mini') -- w runtime uzywaj plik�w .otui
   MiniWindowController._wire(win)
   return win
 end
@@ -1037,9 +1037,9 @@ function MiniWindowController.onClose(btn)
   if win then win:hide() end
 end
 ```
-# # # G.2 ContainerWindow — Lua
+# # # G.2 ContainerWindow - Lua
 
-**Lua (OTUI jako string — STRICT)**
+**Lua (OTUI jako string - STRICT)**
 
 ```lua
 local ContainerWindow_OTUI = [[
@@ -1101,7 +1101,7 @@ ContainerWindow < MainWindow
 ]]
 ```
 
-**Lua (glue — kontroler i standardowe operacje)**
+**Lua (glue - kontroler i standardowe operacje)**
 
 ```lua
 ContainerController = ContainerController or {}
@@ -1130,7 +1130,7 @@ function ContainerController.onBack(btn)
 end
 
 function ContainerController.onTogglePin(btn)
-  -- docelowo: zmiana stanu przypięcia
+  -- docelowo: zmiana stanu przypiecia
 end
 
 function ContainerController.onToggleMinimize(btn)
@@ -1145,9 +1145,9 @@ function ContainerController.onClose(btn)
   if win then win:hide() end
 end
 ```
-# # # G.3 DialogWindow — Lua
+# # # G.3 DialogWindow - Lua
 
-**Lua (OTUI jako string — STRICT)**
+**Lua (OTUI jako string - STRICT)**
 
 ```lua
 local DialogWindow_OTUI = [[
@@ -1204,7 +1204,7 @@ DialogWindow < MainWindow
 ]]
 ```
 
-**Lua (glue — kontroler i standardowe operacje)**
+**Lua (glue - kontroler i standardowe operacje)**
 
 ```lua
 DialogController = DialogController or {}
@@ -1284,16 +1284,16 @@ UIWidget
 ```
 # # # G.5 Wzorzec integracyjny
 
-**Lua (zalecany runtime‑flow)**
+**Lua (zalecany runtime-flow)**
 
 ```lua
 -- 1) Eksportuj z edytora do pliku .otui w Twoim module (poza runtime).
--- 2) W runtime ładuj z pliku i przewiąż kontroler.
+-- 2) W runtime laduj z pliku i przewiaz kontroler.
 local win = g_ui.displayUI('mini') -- np. modules/yourmod/mini.otui
 MiniWindowController._wire(win)
 ```
 
-**Edytor (round‑trip)**
+**Edytor (round-trip)**
 
-- Import: wykryj w Lua stałe w formie `local <Name>_OTUI = [[...]]` i wczytaj blok jako źródło UI.
-- Eksport: zapisz do `.otui` oraz opcjonalnie zaktualizuj powyższy blok (z zachowaniem STRICT).
+- Import: wykryj w Lua stale w formie `local <Name>_OTUI = [[...]]` i wczytaj blok jako zr�dlo UI.
+- Eksport: zapisz do `.otui` oraz opcjonalnie zaktualizuj powyzszy blok (z zachowaniem STRICT).

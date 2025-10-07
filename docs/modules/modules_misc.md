@@ -1,4 +1,4 @@
-﻿# Modules Misc
+?# Modules Misc
 
 ---
 # # game_shop
@@ -66,7 +66,7 @@
 - `onStorePurchase`
 - `onStoreTransactionHistory`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -200,7 +200,7 @@
 - `onTabChange`
 - `onTotalPriceChange`
 - `onValueChange`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -244,7 +244,7 @@
 - `onMarketDetail`
 - `onMarketEnter`
 - `onMarketLeave`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 # # `offerstatistic.lua`
@@ -286,7 +286,7 @@
 - `onTrackOptionChange`
 - `online`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_clock`
 - `g_game`
@@ -349,7 +349,7 @@
 - `onPositionChange`
 - `onTargeted`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_clock`
 - `g_game`
@@ -384,7 +384,7 @@
 - `onSkullChange`
 - `onUnjustifiedPointsChange`
 - `online`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -415,7 +415,7 @@
 - `onImbuementWindow`
 - `onOptionChange`
 - `onResourceBalance`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -445,7 +445,7 @@
 - `onGameEnd`
 - `onGameOwnTrade`
 - `onOwnTrade`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -470,7 +470,7 @@
 - `onEnter`
 - `onEscape`
 - `onGameEnd`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -494,7 +494,7 @@
 - `onGameEnd`
 - `onGameStart`
 - `online`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_keyboard`
@@ -556,7 +556,7 @@
 - `onResourceBalance`
 - `one`
 - `only`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -581,7 +581,7 @@
 - `onGameEnd`
 - `onPendingGame`
 - `online`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 
@@ -597,7 +597,7 @@
 - `terminate()`
 - `doReport()`
 - `show()`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_keyboard`
@@ -622,7 +622,7 @@
 - `onEscape`
 - `onGameEnd`
 - `onModalDialog`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_clock`
 - `g_game`
@@ -647,7 +647,7 @@
 - `onEscape`
 - `onGameEnd`
 - `onValueChange`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_ui`
 
@@ -715,7 +715,7 @@
 - `onTradeClick`
 - `onTradeTypeChange`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_mouse`
@@ -742,7 +742,7 @@
 - `onFocusChange`
 - `onGMActions`
 - `onSelectReason`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_keyboard`
@@ -775,7 +775,7 @@
 - `onGameEditText`
 - `onGameEnd`
 - `one`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -820,7 +820,7 @@
 - `onWalk`
 - `onWalkFinish`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_clock`
 - `g_game`
@@ -876,7 +876,7 @@
 - `onMouseRelease`
 - `onSkillChange`
 - `onStatesChange`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -1001,7 +1001,7 @@
 - `onWalk`
 - `online`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_clock`
 - `g_game`
@@ -1053,7 +1053,7 @@
 - `onUse`
 - `onUseWith`
 - `onWalk`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_clock`
 - `g_game`
@@ -1097,7 +1097,7 @@
 - `onOverlayGeometryChange`
 - `onSoulChange`
 - `onStatesChange`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -1133,7 +1133,7 @@
 - `onLog`
 - `onOk`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_ui`
 - `g_window`

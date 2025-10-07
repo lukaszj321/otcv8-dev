@@ -1,4 +1,4 @@
-﻿# Modules Game 1
+?# Modules Game 1
 
 ---
 # # game_interface
@@ -82,7 +82,7 @@
 - `onVisibleDimensionChange`
 - `online`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_clock`
 - `g_game`
@@ -151,7 +151,7 @@
 - `onStatesChange`
 - `onWalk`
 - `online`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_keyboard`
@@ -272,7 +272,7 @@
 - `onTalk`
 - `online`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_keyboard`
@@ -292,7 +292,7 @@
 # # # Eventy / Hooki
 
 - `addEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 
@@ -318,7 +318,7 @@
 - `onAutoWalkFail`
 - `onGameEnd`
 - `scheduleEvent`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_game`
 - `g_ui`
@@ -334,6 +334,6 @@
 - `takeButtons(buttons)`
 - `takeButton(button, dontUpdateOrder)`
 - `updateOrder()`
-# # # Wywołania API
+# # # Wywolania API
 
 - `g_ui`

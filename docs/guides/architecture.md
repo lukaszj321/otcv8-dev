@@ -1,32 +1,32 @@
-# Architektura (w skrócie)
+# Architektura (w skr�cie)
 
-Poniższy diagram przedstawia kluczowe komponenty i przepływ danych w architekturze OTCv8.
+Ponizszy diagram przedstawia kluczowe komponenty i przeplyw danych w architekturze OTCv8.
 
 ```mermaid
 graph TD
     CppCore[C++ Core]
     UI[UI System]
-    vBot[Moduły vBot]
+    vBot[Moduly vBot]
     WS[WebSocket / IPC]
 
     subgraph "OTCv8 Client"
-        CppCore -->|Udostępnia API| LuaEngine[Silnik Lua]
-        LuaEngine -->|Wykonuje logikę| vBot
+        CppCore -->|Udostepnia API| LuaEngine[Silnik Lua]
+        LuaEngine -->|Wykonuje logike| vBot
         CppCore -->|Renderuje| UI
         LuaEngine -->|Steruje| UI
     end
 
-    WS -->|Komunikacja zewnętrzna| CppCore
+    WS -->|Komunikacja zewnetrzna| CppCore
 ```
 
 ### Opis Warstw
 
 === "Warstwy"
 
-- **C++ Core** – Niskopoziomowy silnik odpowiedzialny za renderowanie, obsługę sieci, dźwięku i operacje na plikach.
-- **Lua** – Warstwa skryptowa, w której działa cała logika gry, moduły i interfejs (np. vBot).
-- **OTUI** – Deklaratywny system oparty na składni `yaml`, używany do szybkiego budowania i stylowania interfejsu użytkownika.
+- **C++ Core** - Niskopoziomowy silnik odpowiedzialny za renderowanie, obsluge sieci, dzwieku i operacje na plikach.
+- **Lua** - Warstwa skryptowa, w kt�rej dziala cala logika gry, moduly i interfejs (np. vBot).
+- **OTUI** - Deklaratywny system oparty na skladni `yaml`, uzywany do szybkiego budowania i stylowania interfejsu uzytkownika.
 
 === "Kontrakty"
 
-- **Eventy Lua → UI, IPC/WS, Zasoby** – Logika pisana w Lua reaguje na zdarzenia i komunikuje się z resztą aplikacji, sterując interfejsem, obsługując komunikację i zarządzając zasobami.
+- **Eventy Lua ? UI, IPC/WS, Zasoby** - Logika pisana w Lua reaguje na zdarzenia i komunikuje sie z reszta aplikacji, sterujac interfejsem, obslugujac komunikacje i zarzadzajac zasobami.

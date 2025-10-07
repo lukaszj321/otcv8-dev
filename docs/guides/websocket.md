@@ -1,4 +1,4 @@
-﻿# Realtime (
+?# Realtime (
 
 W
 
@@ -46,8 +46,8 @@ y
 
 - **WSS** + origin allowlist + rate-limit.
 - Autoryzacja w handshake (JWT / session).
-- Walidacja schematów wiadomości.
-# # Przykład (Node +
+- Walidacja schemat�w wiadomosci.
+# # Przyklad (Node +
 
 s
 

@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_bugreport`
+?# � Modul: `game_bugreport`
 
 ```lua
 

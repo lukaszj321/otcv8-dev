@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_textwindow`
+?# � Modul: `game_textwindow`
 
 ```lua
 

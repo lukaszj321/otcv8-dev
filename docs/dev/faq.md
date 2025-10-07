@@ -1,9 +1,9 @@
-﻿# F
+?# F
 
 A
 
 Q
 
-**Czy mogę używać swoich modułów?** Tak, wrzuć do `modules/<nazwa>` i zarejestruj w konfiguracji.
+**Czy moge uzywac swoich modul�w?** Tak, wrzuc do `modules/<nazwa>` i zarejestruj w konfiguracji.
 
-**Czy działa na Linux/Windows?** Tak — patrz sekcja _Build_.
+**Czy dziala na Linux/Windows?** Tak - patrz sekcja _Build_.

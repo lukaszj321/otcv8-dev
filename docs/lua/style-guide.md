@@ -1,21 +1,21 @@
 # Przewodnik po stylu kodowania Lua
 
-Poniższe zasady mają na celu zapewnienie spójności i wysokiej czytelności kodu Lua w całym projekcie OTCv8.
+Ponizsze zasady maja na celu zapewnienie sp�jnosci i wysokiej czytelnosci kodu Lua w calym projekcie OTCv8.
 
 ### 1. Nazewnictwo
 
-- **Zmienne i funkcje**: Używaj `snake_case`. Nazwy powinny być opisowe i w języku angielskim.
+- **Zmienne i funkcje**: Uzywaj `snake_case`. Nazwy powinny byc opisowe i w jezyku angielskim.
   ```lua
   local player_name = "Gandalf"
   function get_player_items(player)
     -- ...
   end
   ```
-- **Stałe**: Używaj `UPPER_SNAKE_CASE` dla wartości, które nie powinny się zmieniać.
+- **Stale**: Uzywaj `UPPER_SNAKE_CASE` dla wartosci, kt�re nie powinny sie zmieniac.
   ```lua
   local MAX_CONNECTIONS = 10
   ```
-- **Zmienne "prywatne"**: Poprzedzaj nazwę podkreślnikiem (`_`), jeśli zmienna lub funkcja nie powinna być używana poza modułem.
+- **Zmienne "prywatne"**: Poprzedzaj nazwe podkreslnikiem (`_`), jesli zmienna lub funkcja nie powinna byc uzywana poza modulem.
   ```lua
   local function _private_helper()
     -- ...
@@ -24,7 +24,7 @@ Poniższe zasady mają na celu zapewnienie spójności i wysokiej czytelności k
 
 ### 2. Struktura Kodu
 
-- **Struktura modułu**: Każdy plik powinien działać jak moduł. Zwracaj tabelę z publicznym API na końcu pliku.
+- **Struktura modulu**: Kazdy plik powinien dzialac jak modul. Zwracaj tabele z publicznym API na koncu pliku.
   ```lua
   local M = {} -- 'M' od 'Module'
 
@@ -34,27 +34,27 @@ Poniższe zasady mają na celu zapewnienie spójności i wysokiej czytelności k
 
   return M
   ```
-- **Czystość `require`**: Wywołanie `require` powinno być wolne od efektów ubocznych. Powinno jedynie załadować i zwrócić moduł, a nie modyfikować globalny stan.
+- **Czystosc `require`**: Wywolanie `require` powinno byc wolne od efekt�w ubocznych. Powinno jedynie zaladowac i zwr�cic modul, a nie modyfikowac globalny stan.
 
 - **Rozmiar**:
-  - **Pliki**: Staraj się, aby pliki nie przekraczały 300 linii.
-  - **Funkcje**: Dąż do tego, by funkcje miały maksymalnie 50 linii. Dłuższe funkcje należy dzielić na mniejsze, pomocnicze.
+  - **Pliki**: Staraj sie, aby pliki nie przekraczaly 300 linii.
+  - **Funkcje**: Daz do tego, by funkcje mialy maksymalnie 50 linii. Dluzsze funkcje nalezy dzielic na mniejsze, pomocnicze.
 
-### 3. Obsługa Błędów i Logowanie
+### 3. Obsluga Bled�w i Logowanie
 
-- **Krytyczne ścieżki**: Używaj `pcall()` lub `xpcall()` do obsługi operacji, które mogą zakończyć się błędem (np. odczyt plików, zapytania sieciowe).
+- **Krytyczne sciezki**: Uzywaj `pcall()` lub `xpcall()` do obslugi operacji, kt�re moga zakonczyc sie bledem (np. odczyt plik�w, zapytania sieciowe).
   ```lua
   local status, result = pcall(function()
     return risky_operation()
   end)
 
   if not status then
-    log_error("Operacja nie powiodła się: " .. tostring(result))
+    log_error("Operacja nie powiodla sie: " .. tostring(result))
   end
   ```
-- **Logowanie**: Implementuj logowanie warunkowe, kontrolowane przez globalną flagę `DEBUG`, aby uniknąć zaśmiecania konsoli w wersji produkcyjnej.
+- **Logowanie**: Implementuj logowanie warunkowe, kontrolowane przez globalna flage `DEBUG`, aby uniknac zasmiecania konsoli w wersji produkcyjnej.
   ```lua
   if DEBUG then
-    print("Wartość x:", x)
+    print("Wartosc x:", x)
   end
   ```

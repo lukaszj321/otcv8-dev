@@ -1,4 +1,4 @@
-﻿# R
+?# R
 
 o
 
@@ -12,7 +12,7 @@ a
 
 p
 
-- [ ] Pełna referencja API Lua (LDoc).
-- [ ] Generowanie Doxygen dla C++ i wpięcie do docs.
-- [ ] Więcej przykładów OTUI.
+- [ ] Pelna referencja API Lua (LDoc).
+- [ ] Generowanie Doxygen dla C++ i wpiecie do docs.
+- [ ] Wiecej przyklad�w OTUI.
 - [ ] Testy E2E dashboardu.

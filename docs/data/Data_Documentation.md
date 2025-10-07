@@ -1,16 +1,16 @@
-﻿# 📘 Dokumentacja Zasobów: Katalog `data/`
+?# ?? Dokumentacja Zasob�w: Katalog `data/`
 
-> NOTE: Wszystkie pliki w repozytorium są objęte licencją MIT (2010–2017 OTClient, autor Edubart).
+> NOTE: Wszystkie pliki w repozytorium sa objete licencja MIT (2010-2017 OTClient, autor Edubart).
 
-Ten dokument zawiera strukturę oraz zawartość zasobów klienta OTClient:
+Ten dokument zawiera strukture oraz zawartosc zasob�w klienta OTClient:
 - kursory,
 - czcionki,
-- pliki stylów (`.otml`),
+- pliki styl�w (`.otml`),
 - inne zasoby graficzne.
 
 ---
-# 📁 Folder `data/cursors`
-# # 📄 cursors.otml
+# ?? Folder `data/cursors`
+# # ?? cursors.otml
 
 ```otml
 Cursors
@@ -30,25 +30,25 @@ Cursors
     image: pointer
     hot-spot: 5 0
 ```
-# # 📄 horizontalcursor.png
+# # ?? horizontalcursor.png
 
-> 🖼️ Plik graficzny (obrazek): `horizontalcursor.png` – nieprzetwarzany tekstowo
-# # 📄 pointer.png
+> ??? Plik graficzny (obrazek): `horizontalcursor.png` - nieprzetwarzany tekstowo
+# # ?? pointer.png
 
-> 🖼️ Plik graficzny (obrazek): `pointer.png` – nieprzetwarzany tekstowo
-# # 📄 targetcursor.png
+> ??? Plik graficzny (obrazek): `pointer.png` - nieprzetwarzany tekstowo
+# # ?? targetcursor.png
 
-> 🖼️ Plik graficzny (obrazek): `targetcursor.png` – nieprzetwarzany tekstowo
-# # 📄 textcursor.png
+> ??? Plik graficzny (obrazek): `targetcursor.png` - nieprzetwarzany tekstowo
+# # ?? textcursor.png
 
-> 🖼️ Plik graficzny (obrazek): `textcursor.png` – nieprzetwarzany tekstowo
-# # 📄 verticalcursor.png
+> ??? Plik graficzny (obrazek): `textcursor.png` - nieprzetwarzany tekstowo
+# # ?? verticalcursor.png
 
-> 🖼️ Plik graficzny (obrazek): `verticalcursor.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `verticalcursor.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/fonts`
-# # 📄 cipsoftFont.otfont
+# ?? Folder `data/fonts`
+# # ?? cipsoftFont.otfont
 
 ```text
 Font
@@ -58,10 +58,10 @@ Font
   glyph-size: 8 8
   space-width: 2
 ```
-# # 📄 cipsoftFont.png
+# # ?? cipsoftFont.png
 
-> 🖼️ Plik graficzny (obrazek): `cipsoftFont.png` – nieprzetwarzany tekstowo
-# # 📄 sans-bold-16px.otfont
+> ??? Plik graficzny (obrazek): `cipsoftFont.png` - nieprzetwarzany tekstowo
+# # ?? sans-bold-16px.otfont
 
 ```text
 Font
@@ -71,10 +71,10 @@ Font
   glyph-size: 24 24
   space-width: 3
 ```
-# # 📄 sans-bold-16px_cp1252.png
+# # ?? sans-bold-16px_cp1252.png
 
-> 🖼️ Plik graficzny (obrazek): `sans-bold-16px_cp1252.png` – nieprzetwarzany tekstowo
-# # 📄 small-9px.otfont
+> ??? Plik graficzny (obrazek): `sans-bold-16px_cp1252.png` - nieprzetwarzany tekstowo
+# # ?? small-9px.otfont
 
 ```text
 Font
@@ -85,10 +85,10 @@ Font
   space-width: 3
   spacing: 1 0
 ```
-# # 📄 small-9px.png
+# # ?? small-9px.png
 
-> 🖼️ Plik graficzny (obrazek): `small-9px.png` – nieprzetwarzany tekstowo
-# # 📄 terminus-10px.otfont
+> ??? Plik graficzny (obrazek): `small-9px.png` - nieprzetwarzany tekstowo
+# # ?? terminus-10px.otfont
 
 ```text
 Font
@@ -100,10 +100,10 @@ Font
   fixed-glyph-width: 6
   space-width: 6
 ```
-# # 📄 terminus-10px.png
+# # ?? terminus-10px.png
 
-> 🖼️ Plik graficzny (obrazek): `terminus-10px.png` – nieprzetwarzany tekstowo
-# # 📄 terminus-14px-bold.otfont
+> ??? Plik graficzny (obrazek): `terminus-10px.png` - nieprzetwarzany tekstowo
+# # ?? terminus-14px-bold.otfont
 
 ```text
 Font
@@ -115,10 +115,10 @@ Font
   fixed-glyph-width: 8
   space-width: 8
 ```
-# # 📄 terminus-14px-bold.png
+# # ?? terminus-14px-bold.png
 
-> 🖼️ Plik graficzny (obrazek): `terminus-14px-bold.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-11px-antialised.otfont
+> ??? Plik graficzny (obrazek): `terminus-14px-bold.png` - nieprzetwarzany tekstowo
+# # ?? verdana-11px-antialised.otfont
 
 ```text
 Font
@@ -129,13 +129,13 @@ Font
   space-width: 4
   default: true
 ```
-# # 📄 verdana-11px-antialised_cp1250.png
+# # ?? verdana-11px-antialised_cp1250.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-11px-antialised_cp1250.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-11px-antialised_cp1252.png
+> ??? Plik graficzny (obrazek): `verdana-11px-antialised_cp1250.png` - nieprzetwarzany tekstowo
+# # ?? verdana-11px-antialised_cp1252.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-11px-antialised_cp1252.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-11px-monochrome.otfont
+> ??? Plik graficzny (obrazek): `verdana-11px-antialised_cp1252.png` - nieprzetwarzany tekstowo
+# # ?? verdana-11px-monochrome.otfont
 
 ```text
 Font
@@ -145,13 +145,13 @@ Font
   glyph-size: 16 16
   space-width: 3
 ```
-# # 📄 verdana-11px-monochrome_cp1250.png
+# # ?? verdana-11px-monochrome_cp1250.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-11px-monochrome_cp1250.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-11px-monochrome_cp1252.png
+> ??? Plik graficzny (obrazek): `verdana-11px-monochrome_cp1250.png` - nieprzetwarzany tekstowo
+# # ?? verdana-11px-monochrome_cp1252.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-11px-monochrome_cp1252.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-11px-rounded.otfont
+> ??? Plik graficzny (obrazek): `verdana-11px-monochrome_cp1252.png` - nieprzetwarzany tekstowo
+# # ?? verdana-11px-rounded.otfont
 
 ```text
 Font
@@ -163,13 +163,13 @@ Font
   spacing: -1 -3
   space-width: 4
 ```
-# # 📄 verdana-11px-rounded_cp1250.png
+# # ?? verdana-11px-rounded_cp1250.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-11px-rounded_cp1250.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-11px-rounded_cp1252.png
+> ??? Plik graficzny (obrazek): `verdana-11px-rounded_cp1250.png` - nieprzetwarzany tekstowo
+# # ?? verdana-11px-rounded_cp1252.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-11px-rounded_cp1252.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-9px-bold.otfont
+> ??? Plik graficzny (obrazek): `verdana-11px-rounded_cp1252.png` - nieprzetwarzany tekstowo
+# # ?? verdana-9px-bold.otfont
 
 ```text
 Font
@@ -180,10 +180,10 @@ Font
   space-width: 4
   spacing: 0 0
 ```
-# # 📄 verdana-9px-bold.png
+# # ?? verdana-9px-bold.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-9px-bold.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-9px-italic.otfont
+> ??? Plik graficzny (obrazek): `verdana-9px-bold.png` - nieprzetwarzany tekstowo
+# # ?? verdana-9px-italic.otfont
 
 ```text
 Font
@@ -193,10 +193,10 @@ Font
   glyph-size: 13 13
   space-width: 3
 ```
-# # 📄 verdana-9px-italic.png
+# # ?? verdana-9px-italic.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-9px-italic.png` – nieprzetwarzany tekstowo
-# # 📄 verdana-9px.otfont
+> ??? Plik graficzny (obrazek): `verdana-9px-italic.png` - nieprzetwarzany tekstowo
+# # ?? verdana-9px.otfont
 
 ```text
 Font
@@ -207,987 +207,987 @@ Font
   space-width: 3
   spacing: 0 -4
 ```
-# # 📄 verdana-9px.png
+# # ?? verdana-9px.png
 
-> 🖼️ Plik graficzny (obrazek): `verdana-9px.png` – nieprzetwarzany tekstowo
-
----
-# 📁 Folder `data/images`
-# # 📄 background.png
-
-> 🖼️ Plik graficzny (obrazek): `background.png` – nieprzetwarzany tekstowo
-# # 📄 clienticon.png
-
-> 🖼️ Plik graficzny (obrazek): `clienticon.png` – nieprzetwarzany tekstowo
-# # 📄 loading.png
-
-> 🖼️ Plik graficzny (obrazek): `loading.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `verdana-9px.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/bars`
-# # 📄 health1.png
+# ?? Folder `data/images`
+# # ?? background.png
 
-> 🖼️ Plik graficzny (obrazek): `health1.png` – nieprzetwarzany tekstowo
-# # 📄 mana1.png
+> ??? Plik graficzny (obrazek): `background.png` - nieprzetwarzany tekstowo
+# # ?? clienticon.png
 
-> 🖼️ Plik graficzny (obrazek): `mana1.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `clienticon.png` - nieprzetwarzany tekstowo
+# # ?? loading.png
 
----
-# 📁 Folder `data/images/crosshair`
-# # 📄 default.png
-
-> 🖼️ Plik graficzny (obrazek): `default.png` – nieprzetwarzany tekstowo
-# # 📄 full.png
-
-> 🖼️ Plik graficzny (obrazek): `full.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `loading.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/flags`
-# # 📄 de.png
+# ?? Folder `data/images/bars`
+# # ?? health1.png
 
-> 🖼️ Plik graficzny (obrazek): `de.png` – nieprzetwarzany tekstowo
-# # 📄 en.png
+> ??? Plik graficzny (obrazek): `health1.png` - nieprzetwarzany tekstowo
+# # ?? mana1.png
 
-> 🖼️ Plik graficzny (obrazek): `en.png` – nieprzetwarzany tekstowo
-# # 📄 es.png
-
-> 🖼️ Plik graficzny (obrazek): `es.png` – nieprzetwarzany tekstowo
-# # 📄 pl.png
-
-> 🖼️ Plik graficzny (obrazek): `pl.png` – nieprzetwarzany tekstowo
-# # 📄 pt.png
-
-> 🖼️ Plik graficzny (obrazek): `pt.png` – nieprzetwarzany tekstowo
-# # 📄 sv.png
-
-> 🖼️ Plik graficzny (obrazek): `sv.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `mana1.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game`
-# # 📄 actionbarslot.png
+# ?? Folder `data/images/crosshair`
+# # ?? default.png
 
-> 🖼️ Plik graficzny (obrazek): `actionbarslot.png` – nieprzetwarzany tekstowo
-# # 📄 dangerous.png
+> ??? Plik graficzny (obrazek): `default.png` - nieprzetwarzany tekstowo
+# # ?? full.png
 
-> 🖼️ Plik graficzny (obrazek): `dangerous.png` – nieprzetwarzany tekstowo
-# # 📄 floor.png
-
-> 🖼️ Plik graficzny (obrazek): `floor.png` – nieprzetwarzany tekstowo
-# # 📄 skull_socket.png
-
-> 🖼️ Plik graficzny (obrazek): `skull_socket.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `full.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/actionbar`
-# # 📄 actionbarslot.png
+# ?? Folder `data/images/flags`
+# # ?? de.png
 
-> 🖼️ Plik graficzny (obrazek): `actionbarslot.png` – nieprzetwarzany tekstowo
-# # 📄 arrow-disabled.png
+> ??? Plik graficzny (obrazek): `de.png` - nieprzetwarzany tekstowo
+# # ?? en.png
 
-> 🖼️ Plik graficzny (obrazek): `arrow-disabled.png` – nieprzetwarzany tekstowo
-# # 📄 arrow-skip-disabled.png
+> ??? Plik graficzny (obrazek): `en.png` - nieprzetwarzany tekstowo
+# # ?? es.png
 
-> 🖼️ Plik graficzny (obrazek): `arrow-skip-disabled.png` – nieprzetwarzany tekstowo
-# # 📄 arrow-skip.png
+> ??? Plik graficzny (obrazek): `es.png` - nieprzetwarzany tekstowo
+# # ?? pl.png
 
-> 🖼️ Plik graficzny (obrazek): `arrow-skip.png` – nieprzetwarzany tekstowo
-# # 📄 arrow.png
+> ??? Plik graficzny (obrazek): `pl.png` - nieprzetwarzany tekstowo
+# # ?? pt.png
 
-> 🖼️ Plik graficzny (obrazek): `arrow.png` – nieprzetwarzany tekstowo
-# # 📄 locked.png
+> ??? Plik graficzny (obrazek): `pt.png` - nieprzetwarzany tekstowo
+# # ?? sv.png
 
-> 🖼️ Plik graficzny (obrazek): `locked.png` – nieprzetwarzany tekstowo
-# # 📄 unlocked.png
-
-> 🖼️ Plik graficzny (obrazek): `unlocked.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `sv.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/battle`
-# # 📄 battle_monsters.png
+# ?? Folder `data/images/game`
+# # ?? actionbarslot.png
 
-> 🖼️ Plik graficzny (obrazek): `battle_monsters.png` – nieprzetwarzany tekstowo
-# # 📄 battle_npcs.png
+> ??? Plik graficzny (obrazek): `actionbarslot.png` - nieprzetwarzany tekstowo
+# # ?? dangerous.png
 
-> 🖼️ Plik graficzny (obrazek): `battle_npcs.png` – nieprzetwarzany tekstowo
-# # 📄 battle_party.png
+> ??? Plik graficzny (obrazek): `dangerous.png` - nieprzetwarzany tekstowo
+# # ?? floor.png
 
-> 🖼️ Plik graficzny (obrazek): `battle_party.png` – nieprzetwarzany tekstowo
-# # 📄 battle_players.png
+> ??? Plik graficzny (obrazek): `floor.png` - nieprzetwarzany tekstowo
+# # ?? skull_socket.png
 
-> 🖼️ Plik graficzny (obrazek): `battle_players.png` – nieprzetwarzany tekstowo
-# # 📄 battle_skulls.png
-
-> 🖼️ Plik graficzny (obrazek): `battle_skulls.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `skull_socket.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/circle`
-# # 📄 left_empty.png
+# ?? Folder `data/images/game/actionbar`
+# # ?? actionbarslot.png
 
-> 🖼️ Plik graficzny (obrazek): `left_empty.png` – nieprzetwarzany tekstowo
-# # 📄 left_full.png
+> ??? Plik graficzny (obrazek): `actionbarslot.png` - nieprzetwarzany tekstowo
+# # ?? arrow-disabled.png
 
-> 🖼️ Plik graficzny (obrazek): `left_full.png` – nieprzetwarzany tekstowo
-# # 📄 right_empty.png
+> ??? Plik graficzny (obrazek): `arrow-disabled.png` - nieprzetwarzany tekstowo
+# # ?? arrow-skip-disabled.png
 
-> 🖼️ Plik graficzny (obrazek): `right_empty.png` – nieprzetwarzany tekstowo
-# # 📄 right_full.png
+> ??? Plik graficzny (obrazek): `arrow-skip-disabled.png` - nieprzetwarzany tekstowo
+# # ?? arrow-skip.png
 
-> 🖼️ Plik graficzny (obrazek): `right_full.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `arrow-skip.png` - nieprzetwarzany tekstowo
+# # ?? arrow.png
 
----
-# 📁 Folder `data/images/game/combatmodes`
-# # 📄 chasemode.png
+> ??? Plik graficzny (obrazek): `arrow.png` - nieprzetwarzany tekstowo
+# # ?? locked.png
 
-> 🖼️ Plik graficzny (obrazek): `chasemode.png` – nieprzetwarzany tekstowo
-# # 📄 fightbalanced.png
+> ??? Plik graficzny (obrazek): `locked.png` - nieprzetwarzany tekstowo
+# # ?? unlocked.png
 
-> 🖼️ Plik graficzny (obrazek): `fightbalanced.png` – nieprzetwarzany tekstowo
-# # 📄 fightdefensive.png
-
-> 🖼️ Plik graficzny (obrazek): `fightdefensive.png` – nieprzetwarzany tekstowo
-# # 📄 fightoffensive.png
-
-> 🖼️ Plik graficzny (obrazek): `fightoffensive.png` – nieprzetwarzany tekstowo
-# # 📄 mount.png
-
-> 🖼️ Plik graficzny (obrazek): `mount.png` – nieprzetwarzany tekstowo
-# # 📄 pvp.png
-
-> 🖼️ Plik graficzny (obrazek): `pvp.png` – nieprzetwarzany tekstowo
-# # 📄 redfistmode.png
-
-> 🖼️ Plik graficzny (obrazek): `redfistmode.png` – nieprzetwarzany tekstowo
-# # 📄 safefight.png
-
-> 🖼️ Plik graficzny (obrazek): `safefight.png` – nieprzetwarzany tekstowo
-# # 📄 whitedovemode.png
-
-> 🖼️ Plik graficzny (obrazek): `whitedovemode.png` – nieprzetwarzany tekstowo
-# # 📄 whitehandmode.png
-
-> 🖼️ Plik graficzny (obrazek): `whitehandmode.png` – nieprzetwarzany tekstowo
-# # 📄 yellowhandmode.png
-
-> 🖼️ Plik graficzny (obrazek): `yellowhandmode.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `unlocked.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/console`
-# # 📄 channels.png
+# ?? Folder `data/images/game/battle`
+# # ?? battle_monsters.png
 
-> 🖼️ Plik graficzny (obrazek): `channels.png` – nieprzetwarzany tekstowo
-# # 📄 clearchannel.png
+> ??? Plik graficzny (obrazek): `battle_monsters.png` - nieprzetwarzany tekstowo
+# # ?? battle_npcs.png
 
-> 🖼️ Plik graficzny (obrazek): `clearchannel.png` – nieprzetwarzany tekstowo
-# # 📄 closechannel.png
+> ??? Plik graficzny (obrazek): `battle_npcs.png` - nieprzetwarzany tekstowo
+# # ?? battle_party.png
 
-> 🖼️ Plik graficzny (obrazek): `closechannel.png` – nieprzetwarzany tekstowo
-# # 📄 downarrow.png
+> ??? Plik graficzny (obrazek): `battle_party.png` - nieprzetwarzany tekstowo
+# # ?? battle_players.png
 
-> 🖼️ Plik graficzny (obrazek): `downarrow.png` – nieprzetwarzany tekstowo
-# # 📄 ignore.png
+> ??? Plik graficzny (obrazek): `battle_players.png` - nieprzetwarzany tekstowo
+# # ?? battle_skulls.png
 
-> 🖼️ Plik graficzny (obrazek): `ignore.png` – nieprzetwarzany tekstowo
-# # 📄 leftarrow.png
-
-> 🖼️ Plik graficzny (obrazek): `leftarrow.png` – nieprzetwarzany tekstowo
-# # 📄 rightarrow.png
-
-> 🖼️ Plik graficzny (obrazek): `rightarrow.png` – nieprzetwarzany tekstowo
-# # 📄 say.png
-
-> 🖼️ Plik graficzny (obrazek): `say.png` – nieprzetwarzany tekstowo
-# # 📄 uparrow.png
-
-> 🖼️ Plik graficzny (obrazek): `uparrow.png` – nieprzetwarzany tekstowo
-# # 📄 whisper.png
-
-> 🖼️ Plik graficzny (obrazek): `whisper.png` – nieprzetwarzany tekstowo
-# # 📄 yell.png
-
-> 🖼️ Plik graficzny (obrazek): `yell.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `battle_skulls.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/creaturetype`
-# # 📄 summon_other.png
+# ?? Folder `data/images/game/circle`
+# # ?? left_empty.png
 
-> 🖼️ Plik graficzny (obrazek): `summon_other.png` – nieprzetwarzany tekstowo
-# # 📄 summon_own.png
+> ??? Plik graficzny (obrazek): `left_empty.png` - nieprzetwarzany tekstowo
+# # ?? left_full.png
 
-> 🖼️ Plik graficzny (obrazek): `summon_own.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `left_full.png` - nieprzetwarzany tekstowo
+# # ?? right_empty.png
 
----
-# 📁 Folder `data/images/game/emblems`
-# # 📄 emblem_blue.png
+> ??? Plik graficzny (obrazek): `right_empty.png` - nieprzetwarzany tekstowo
+# # ?? right_full.png
 
-> 🖼️ Plik graficzny (obrazek): `emblem_blue.png` – nieprzetwarzany tekstowo
-# # 📄 emblem_green.png
-
-> 🖼️ Plik graficzny (obrazek): `emblem_green.png` – nieprzetwarzany tekstowo
-# # 📄 emblem_member.png
-
-> 🖼️ Plik graficzny (obrazek): `emblem_member.png` – nieprzetwarzany tekstowo
-# # 📄 emblem_other.png
-
-> 🖼️ Plik graficzny (obrazek): `emblem_other.png` – nieprzetwarzany tekstowo
-# # 📄 emblem_red.png
-
-> 🖼️ Plik graficzny (obrazek): `emblem_red.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `right_full.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/imbuing`
-# # 📄 100percent.png
+# ?? Folder `data/images/game/combatmodes`
+# # ?? chasemode.png
 
-> 🖼️ Plik graficzny (obrazek): `100percent.png` – nieprzetwarzany tekstowo
-# # 📄 clear.png
+> ??? Plik graficzny (obrazek): `chasemode.png` - nieprzetwarzany tekstowo
+# # ?? fightbalanced.png
 
-> 🖼️ Plik graficzny (obrazek): `clear.png` – nieprzetwarzany tekstowo
-# # 📄 imbue_empty.png
+> ??? Plik graficzny (obrazek): `fightbalanced.png` - nieprzetwarzany tekstowo
+# # ?? fightdefensive.png
 
-> 🖼️ Plik graficzny (obrazek): `imbue_empty.png` – nieprzetwarzany tekstowo
-# # 📄 imbue_green.png
+> ??? Plik graficzny (obrazek): `fightdefensive.png` - nieprzetwarzany tekstowo
+# # ?? fightoffensive.png
 
-> 🖼️ Plik graficzny (obrazek): `imbue_green.png` – nieprzetwarzany tekstowo
-# # 📄 slot.png
+> ??? Plik graficzny (obrazek): `fightoffensive.png` - nieprzetwarzany tekstowo
+# # ?? mount.png
 
-> 🖼️ Plik graficzny (obrazek): `slot.png` – nieprzetwarzany tekstowo
-# # 📄 slot_disabled.png
+> ??? Plik graficzny (obrazek): `mount.png` - nieprzetwarzany tekstowo
+# # ?? pvp.png
 
-> 🖼️ Plik graficzny (obrazek): `slot_disabled.png` – nieprzetwarzany tekstowo
-# # 📄 slot_inactive.png
+> ??? Plik graficzny (obrazek): `pvp.png` - nieprzetwarzany tekstowo
+# # ?? redfistmode.png
 
-> 🖼️ Plik graficzny (obrazek): `slot_inactive.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `redfistmode.png` - nieprzetwarzany tekstowo
+# # ?? safefight.png
 
----
-# 📁 Folder `data/images/game/minimap`
-# # 📄 cross.png
+> ??? Plik graficzny (obrazek): `safefight.png` - nieprzetwarzany tekstowo
+# # ?? whitedovemode.png
 
-> 🖼️ Plik graficzny (obrazek): `cross.png` – nieprzetwarzany tekstowo
-# # 📄 flag0.png
+> ??? Plik graficzny (obrazek): `whitedovemode.png` - nieprzetwarzany tekstowo
+# # ?? whitehandmode.png
 
-> 🖼️ Plik graficzny (obrazek): `flag0.png` – nieprzetwarzany tekstowo
-# # 📄 flag1.png
+> ??? Plik graficzny (obrazek): `whitehandmode.png` - nieprzetwarzany tekstowo
+# # ?? yellowhandmode.png
 
-> 🖼️ Plik graficzny (obrazek): `flag1.png` – nieprzetwarzany tekstowo
-# # 📄 flag10.png
-
-> 🖼️ Plik graficzny (obrazek): `flag10.png` – nieprzetwarzany tekstowo
-# # 📄 flag11.png
-
-> 🖼️ Plik graficzny (obrazek): `flag11.png` – nieprzetwarzany tekstowo
-# # 📄 flag12.png
-
-> 🖼️ Plik graficzny (obrazek): `flag12.png` – nieprzetwarzany tekstowo
-# # 📄 flag13.png
-
-> 🖼️ Plik graficzny (obrazek): `flag13.png` – nieprzetwarzany tekstowo
-# # 📄 flag14.png
-
-> 🖼️ Plik graficzny (obrazek): `flag14.png` – nieprzetwarzany tekstowo
-# # 📄 flag15.png
-
-> 🖼️ Plik graficzny (obrazek): `flag15.png` – nieprzetwarzany tekstowo
-# # 📄 flag16.png
-
-> 🖼️ Plik graficzny (obrazek): `flag16.png` – nieprzetwarzany tekstowo
-# # 📄 flag17.png
-
-> 🖼️ Plik graficzny (obrazek): `flag17.png` – nieprzetwarzany tekstowo
-# # 📄 flag18.png
-
-> 🖼️ Plik graficzny (obrazek): `flag18.png` – nieprzetwarzany tekstowo
-# # 📄 flag19.png
-
-> 🖼️ Plik graficzny (obrazek): `flag19.png` – nieprzetwarzany tekstowo
-# # 📄 flag2.png
-
-> 🖼️ Plik graficzny (obrazek): `flag2.png` – nieprzetwarzany tekstowo
-# # 📄 flag3.png
-
-> 🖼️ Plik graficzny (obrazek): `flag3.png` – nieprzetwarzany tekstowo
-# # 📄 flag4.png
-
-> 🖼️ Plik graficzny (obrazek): `flag4.png` – nieprzetwarzany tekstowo
-# # 📄 flag5.png
-
-> 🖼️ Plik graficzny (obrazek): `flag5.png` – nieprzetwarzany tekstowo
-# # 📄 flag6.png
-
-> 🖼️ Plik graficzny (obrazek): `flag6.png` – nieprzetwarzany tekstowo
-# # 📄 flag7.png
-
-> 🖼️ Plik graficzny (obrazek): `flag7.png` – nieprzetwarzany tekstowo
-# # 📄 flag8.png
-
-> 🖼️ Plik graficzny (obrazek): `flag8.png` – nieprzetwarzany tekstowo
-# # 📄 flag9.png
-
-> 🖼️ Plik graficzny (obrazek): `flag9.png` – nieprzetwarzany tekstowo
-# # 📄 flagcheckbox.png
-
-> 🖼️ Plik graficzny (obrazek): `flagcheckbox.png` – nieprzetwarzany tekstowo
-# # 📄 floor_down.png
-
-> 🖼️ Plik graficzny (obrazek): `floor_down.png` – nieprzetwarzany tekstowo
-# # 📄 floor_up.png
-
-> 🖼️ Plik graficzny (obrazek): `floor_up.png` – nieprzetwarzany tekstowo
-# # 📄 zoom_in.png
-
-> 🖼️ Plik graficzny (obrazek): `zoom_in.png` – nieprzetwarzany tekstowo
-# # 📄 zoom_out.png
-
-> 🖼️ Plik graficzny (obrazek): `zoom_out.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `yellowhandmode.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/mobile`
-# # 📄 attack.png
+# ?? Folder `data/images/game/console`
+# # ?? channels.png
 
-> 🖼️ Plik graficzny (obrazek): `attack.png` – nieprzetwarzany tekstowo
-# # 📄 chat.png
+> ??? Plik graficzny (obrazek): `channels.png` - nieprzetwarzany tekstowo
+# # ?? clearchannel.png
 
-> 🖼️ Plik graficzny (obrazek): `chat.png` – nieprzetwarzany tekstowo
-# # 📄 follow.png
+> ??? Plik graficzny (obrazek): `clearchannel.png` - nieprzetwarzany tekstowo
+# # ?? closechannel.png
 
-> 🖼️ Plik graficzny (obrazek): `follow.png` – nieprzetwarzany tekstowo
-# # 📄 keypad.png
+> ??? Plik graficzny (obrazek): `closechannel.png` - nieprzetwarzany tekstowo
+# # ?? downarrow.png
 
-> 🖼️ Plik graficzny (obrazek): `keypad.png` – nieprzetwarzany tekstowo
-# # 📄 keypad_pointer.png
+> ??? Plik graficzny (obrazek): `downarrow.png` - nieprzetwarzany tekstowo
+# # ?? ignore.png
 
-> 🖼️ Plik graficzny (obrazek): `keypad_pointer.png` – nieprzetwarzany tekstowo
-# # 📄 look.png
+> ??? Plik graficzny (obrazek): `ignore.png` - nieprzetwarzany tekstowo
+# # ?? leftarrow.png
 
-> 🖼️ Plik graficzny (obrazek): `look.png` – nieprzetwarzany tekstowo
-# # 📄 use.png
+> ??? Plik graficzny (obrazek): `leftarrow.png` - nieprzetwarzany tekstowo
+# # ?? rightarrow.png
 
-> 🖼️ Plik graficzny (obrazek): `use.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `rightarrow.png` - nieprzetwarzany tekstowo
+# # ?? say.png
 
----
-# 📁 Folder `data/images/game/npcicons`
-# # 📄 icon_chat.png
+> ??? Plik graficzny (obrazek): `say.png` - nieprzetwarzany tekstowo
+# # ?? uparrow.png
 
-> 🖼️ Plik graficzny (obrazek): `icon_chat.png` – nieprzetwarzany tekstowo
-# # 📄 icon_quest.png
+> ??? Plik graficzny (obrazek): `uparrow.png` - nieprzetwarzany tekstowo
+# # ?? whisper.png
 
-> 🖼️ Plik graficzny (obrazek): `icon_quest.png` – nieprzetwarzany tekstowo
-# # 📄 icon_trade.png
+> ??? Plik graficzny (obrazek): `whisper.png` - nieprzetwarzany tekstowo
+# # ?? yell.png
 
-> 🖼️ Plik graficzny (obrazek): `icon_trade.png` – nieprzetwarzany tekstowo
-# # 📄 icon_tradequest.png
-
-> 🖼️ Plik graficzny (obrazek): `icon_tradequest.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `yell.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/prey`
-# # 📄 prey_bigdamage.png
+# ?? Folder `data/images/game/creaturetype`
+# # ?? summon_other.png
 
-> 🖼️ Plik graficzny (obrazek): `prey_bigdamage.png` – nieprzetwarzany tekstowo
-# # 📄 prey_bigdefense.png
+> ??? Plik graficzny (obrazek): `summon_other.png` - nieprzetwarzany tekstowo
+# # ?? summon_own.png
 
-> 🖼️ Plik graficzny (obrazek): `prey_bigdefense.png` – nieprzetwarzany tekstowo
-# # 📄 prey_biginactive.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_biginactive.png` – nieprzetwarzany tekstowo
-# # 📄 prey_bigloot.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_bigloot.png` – nieprzetwarzany tekstowo
-# # 📄 prey_bignobonus.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_bignobonus.png` – nieprzetwarzany tekstowo
-# # 📄 prey_bigxp.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_bigxp.png` – nieprzetwarzany tekstowo
-# # 📄 prey_bonus_reroll.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_bonus_reroll.png` – nieprzetwarzany tekstowo
-# # 📄 prey_choose.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_choose.png` – nieprzetwarzany tekstowo
-# # 📄 prey_damage.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_damage.png` – nieprzetwarzany tekstowo
-# # 📄 prey_defense.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_defense.png` – nieprzetwarzany tekstowo
-# # 📄 prey_gold.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_gold.png` – nieprzetwarzany tekstowo
-# # 📄 prey_inactive.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_inactive.png` – nieprzetwarzany tekstowo
-# # 📄 prey_loot.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_loot.png` – nieprzetwarzany tekstowo
-# # 📄 prey_no_bonus.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_no_bonus.png` – nieprzetwarzany tekstowo
-# # 📄 prey_nostar.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_nostar.png` – nieprzetwarzany tekstowo
-# # 📄 prey_perm.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_perm.png` – nieprzetwarzany tekstowo
-# # 📄 prey_perm_test.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_perm_test.png` – nieprzetwarzany tekstowo
-# # 📄 prey_reroll.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_reroll.png` – nieprzetwarzany tekstowo
-# # 📄 prey_reroll_blocked.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_reroll_blocked.png` – nieprzetwarzany tekstowo
-# # 📄 prey_select.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_select.png` – nieprzetwarzany tekstowo
-# # 📄 prey_select_blocked.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_select_blocked.png` – nieprzetwarzany tekstowo
-# # 📄 prey_smallstore.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_smallstore.png` – nieprzetwarzany tekstowo
-# # 📄 prey_star.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_star.png` – nieprzetwarzany tekstowo
-# # 📄 prey_temp.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_temp.png` – nieprzetwarzany tekstowo
-# # 📄 prey_temp_test.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_temp_test.png` – nieprzetwarzany tekstowo
-# # 📄 prey_wildcard.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_wildcard.png` – nieprzetwarzany tekstowo
-# # 📄 prey_xp.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_xp.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `summon_own.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/shields`
-# # 📄 shield_blue.png
+# ?? Folder `data/images/game/emblems`
+# # ?? emblem_blue.png
 
-> 🖼️ Plik graficzny (obrazek): `shield_blue.png` – nieprzetwarzany tekstowo
-# # 📄 shield_blue_not_shared.png
+> ??? Plik graficzny (obrazek): `emblem_blue.png` - nieprzetwarzany tekstowo
+# # ?? emblem_green.png
 
-> 🖼️ Plik graficzny (obrazek): `shield_blue_not_shared.png` – nieprzetwarzany tekstowo
-# # 📄 shield_blue_shared.png
+> ??? Plik graficzny (obrazek): `emblem_green.png` - nieprzetwarzany tekstowo
+# # ?? emblem_member.png
 
-> 🖼️ Plik graficzny (obrazek): `shield_blue_shared.png` – nieprzetwarzany tekstowo
-# # 📄 shield_blue_white.png
+> ??? Plik graficzny (obrazek): `emblem_member.png` - nieprzetwarzany tekstowo
+# # ?? emblem_other.png
 
-> 🖼️ Plik graficzny (obrazek): `shield_blue_white.png` – nieprzetwarzany tekstowo
-# # 📄 shield_gray.png
+> ??? Plik graficzny (obrazek): `emblem_other.png` - nieprzetwarzany tekstowo
+# # ?? emblem_red.png
 
-> 🖼️ Plik graficzny (obrazek): `shield_gray.png` – nieprzetwarzany tekstowo
-# # 📄 shield_yellow.png
-
-> 🖼️ Plik graficzny (obrazek): `shield_yellow.png` – nieprzetwarzany tekstowo
-# # 📄 shield_yellow_not_shared.png
-
-> 🖼️ Plik graficzny (obrazek): `shield_yellow_not_shared.png` – nieprzetwarzany tekstowo
-# # 📄 shield_yellow_shared.png
-
-> 🖼️ Plik graficzny (obrazek): `shield_yellow_shared.png` – nieprzetwarzany tekstowo
-# # 📄 shield_yellow_white.png
-
-> 🖼️ Plik graficzny (obrazek): `shield_yellow_white.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `emblem_red.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/skulls`
-# # 📄 skull_black.png
+# ?? Folder `data/images/game/imbuing`
+# # ?? 100percent.png
 
-> 🖼️ Plik graficzny (obrazek): `skull_black.png` – nieprzetwarzany tekstowo
-# # 📄 skull_green.png
+> ??? Plik graficzny (obrazek): `100percent.png` - nieprzetwarzany tekstowo
+# # ?? clear.png
 
-> 🖼️ Plik graficzny (obrazek): `skull_green.png` – nieprzetwarzany tekstowo
-# # 📄 skull_orange.png
+> ??? Plik graficzny (obrazek): `clear.png` - nieprzetwarzany tekstowo
+# # ?? imbue_empty.png
 
-> 🖼️ Plik graficzny (obrazek): `skull_orange.png` – nieprzetwarzany tekstowo
-# # 📄 skull_red.png
+> ??? Plik graficzny (obrazek): `imbue_empty.png` - nieprzetwarzany tekstowo
+# # ?? imbue_green.png
 
-> 🖼️ Plik graficzny (obrazek): `skull_red.png` – nieprzetwarzany tekstowo
-# # 📄 skull_white.png
+> ??? Plik graficzny (obrazek): `imbue_green.png` - nieprzetwarzany tekstowo
+# # ?? slot.png
 
-> 🖼️ Plik graficzny (obrazek): `skull_white.png` – nieprzetwarzany tekstowo
-# # 📄 skull_yellow.png
+> ??? Plik graficzny (obrazek): `slot.png` - nieprzetwarzany tekstowo
+# # ?? slot_disabled.png
 
-> 🖼️ Plik graficzny (obrazek): `skull_yellow.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `slot_disabled.png` - nieprzetwarzany tekstowo
+# # ?? slot_inactive.png
 
----
-# 📁 Folder `data/images/game/slots`
-# # 📄 ammo-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `ammo-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 ammo.png
-
-> 🖼️ Plik graficzny (obrazek): `ammo.png` – nieprzetwarzany tekstowo
-# # 📄 back-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `back-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 back.png
-
-> 🖼️ Plik graficzny (obrazek): `back.png` – nieprzetwarzany tekstowo
-# # 📄 body-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `body-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 body.png
-
-> 🖼️ Plik graficzny (obrazek): `body.png` – nieprzetwarzany tekstowo
-# # 📄 coins.png
-
-> 🖼️ Plik graficzny (obrazek): `coins.png` – nieprzetwarzany tekstowo
-# # 📄 feet-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `feet-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 feet.png
-
-> 🖼️ Plik graficzny (obrazek): `feet.png` – nieprzetwarzany tekstowo
-# # 📄 finger-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `finger-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 finger.png
-
-> 🖼️ Plik graficzny (obrazek): `finger.png` – nieprzetwarzany tekstowo
-# # 📄 head-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `head-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 head.png
-
-> 🖼️ Plik graficzny (obrazek): `head.png` – nieprzetwarzany tekstowo
-# # 📄 left-hand-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `left-hand-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 left-hand.png
-
-> 🖼️ Plik graficzny (obrazek): `left-hand.png` – nieprzetwarzany tekstowo
-# # 📄 legs-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `legs-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 legs.png
-
-> 🖼️ Plik graficzny (obrazek): `legs.png` – nieprzetwarzany tekstowo
-# # 📄 neck-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `neck-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 neck.png
-
-> 🖼️ Plik graficzny (obrazek): `neck.png` – nieprzetwarzany tekstowo
-# # 📄 purse.png
-
-> 🖼️ Plik graficzny (obrazek): `purse.png` – nieprzetwarzany tekstowo
-# # 📄 right-hand-blessed.png
-
-> 🖼️ Plik graficzny (obrazek): `right-hand-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 right-hand.png
-
-> 🖼️ Plik graficzny (obrazek): `right-hand.png` – nieprzetwarzany tekstowo
-# # 📄 soulcap.png
-
-> 🖼️ Plik graficzny (obrazek): `soulcap.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `slot_inactive.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/game/spells`
-# # 📄 cooldowns.png
+# ?? Folder `data/images/game/minimap`
+# # ?? cross.png
 
-> 🖼️ Plik graficzny (obrazek): `cooldowns.png` – nieprzetwarzany tekstowo
-# # 📄 defaultspells.png
+> ??? Plik graficzny (obrazek): `cross.png` - nieprzetwarzany tekstowo
+# # ?? flag0.png
 
-> 🖼️ Plik graficzny (obrazek): `defaultspells.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `flag0.png` - nieprzetwarzany tekstowo
+# # ?? flag1.png
 
----
-# 📁 Folder `data/images/game/states`
-# # 📄 bleeding.png
+> ??? Plik graficzny (obrazek): `flag1.png` - nieprzetwarzany tekstowo
+# # ?? flag10.png
 
-> 🖼️ Plik graficzny (obrazek): `bleeding.png` – nieprzetwarzany tekstowo
-# # 📄 burning.png
+> ??? Plik graficzny (obrazek): `flag10.png` - nieprzetwarzany tekstowo
+# # ?? flag11.png
 
-> 🖼️ Plik graficzny (obrazek): `burning.png` – nieprzetwarzany tekstowo
-# # 📄 cursed.png
+> ??? Plik graficzny (obrazek): `flag11.png` - nieprzetwarzany tekstowo
+# # ?? flag12.png
 
-> 🖼️ Plik graficzny (obrazek): `cursed.png` – nieprzetwarzany tekstowo
-# # 📄 dazzled.png
+> ??? Plik graficzny (obrazek): `flag12.png` - nieprzetwarzany tekstowo
+# # ?? flag13.png
 
-> 🖼️ Plik graficzny (obrazek): `dazzled.png` – nieprzetwarzany tekstowo
-# # 📄 drowning.png
+> ??? Plik graficzny (obrazek): `flag13.png` - nieprzetwarzany tekstowo
+# # ?? flag14.png
 
-> 🖼️ Plik graficzny (obrazek): `drowning.png` – nieprzetwarzany tekstowo
-# # 📄 drunk.png
+> ??? Plik graficzny (obrazek): `flag14.png` - nieprzetwarzany tekstowo
+# # ?? flag15.png
 
-> 🖼️ Plik graficzny (obrazek): `drunk.png` – nieprzetwarzany tekstowo
-# # 📄 electrified.png
+> ??? Plik graficzny (obrazek): `flag15.png` - nieprzetwarzany tekstowo
+# # ?? flag16.png
 
-> 🖼️ Plik graficzny (obrazek): `electrified.png` – nieprzetwarzany tekstowo
-# # 📄 freezing.png
+> ??? Plik graficzny (obrazek): `flag16.png` - nieprzetwarzany tekstowo
+# # ?? flag17.png
 
-> 🖼️ Plik graficzny (obrazek): `freezing.png` – nieprzetwarzany tekstowo
-# # 📄 haste.png
+> ??? Plik graficzny (obrazek): `flag17.png` - nieprzetwarzany tekstowo
+# # ?? flag18.png
 
-> 🖼️ Plik graficzny (obrazek): `haste.png` – nieprzetwarzany tekstowo
-# # 📄 hungry.png
+> ??? Plik graficzny (obrazek): `flag18.png` - nieprzetwarzany tekstowo
+# # ?? flag19.png
 
-> 🖼️ Plik graficzny (obrazek): `hungry.png` – nieprzetwarzany tekstowo
-# # 📄 logout_block.png
+> ??? Plik graficzny (obrazek): `flag19.png` - nieprzetwarzany tekstowo
+# # ?? flag2.png
 
-> 🖼️ Plik graficzny (obrazek): `logout_block.png` – nieprzetwarzany tekstowo
-# # 📄 magic_shield.png
+> ??? Plik graficzny (obrazek): `flag2.png` - nieprzetwarzany tekstowo
+# # ?? flag3.png
 
-> 🖼️ Plik graficzny (obrazek): `magic_shield.png` – nieprzetwarzany tekstowo
-# # 📄 poisoned.png
+> ??? Plik graficzny (obrazek): `flag3.png` - nieprzetwarzany tekstowo
+# # ?? flag4.png
 
-> 🖼️ Plik graficzny (obrazek): `poisoned.png` – nieprzetwarzany tekstowo
-# # 📄 protection_zone.png
+> ??? Plik graficzny (obrazek): `flag4.png` - nieprzetwarzany tekstowo
+# # ?? flag5.png
 
-> 🖼️ Plik graficzny (obrazek): `protection_zone.png` – nieprzetwarzany tekstowo
-# # 📄 protection_zone_block.png
+> ??? Plik graficzny (obrazek): `flag5.png` - nieprzetwarzany tekstowo
+# # ?? flag6.png
 
-> 🖼️ Plik graficzny (obrazek): `protection_zone_block.png` – nieprzetwarzany tekstowo
-# # 📄 slowed.png
+> ??? Plik graficzny (obrazek): `flag6.png` - nieprzetwarzany tekstowo
+# # ?? flag7.png
 
-> 🖼️ Plik graficzny (obrazek): `slowed.png` – nieprzetwarzany tekstowo
-# # 📄 strengthened.png
+> ??? Plik graficzny (obrazek): `flag7.png` - nieprzetwarzany tekstowo
+# # ?? flag8.png
 
-> 🖼️ Plik graficzny (obrazek): `strengthened.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `flag8.png` - nieprzetwarzany tekstowo
+# # ?? flag9.png
 
----
-# 📁 Folder `data/images/game/topbar`
-# # 📄 boost.png
+> ??? Plik graficzny (obrazek): `flag9.png` - nieprzetwarzany tekstowo
+# # ?? flagcheckbox.png
 
-> 🖼️ Plik graficzny (obrazek): `boost.png` – nieprzetwarzany tekstowo
-# # 📄 icons.png
+> ??? Plik graficzny (obrazek): `flagcheckbox.png` - nieprzetwarzany tekstowo
+# # ?? floor_down.png
 
-> 🖼️ Plik graficzny (obrazek): `icons.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `floor_down.png` - nieprzetwarzany tekstowo
+# # ?? floor_up.png
 
----
-# 📁 Folder `data/images/game/viplist`
-# # 📄 icons.png
+> ??? Plik graficzny (obrazek): `floor_up.png` - nieprzetwarzany tekstowo
+# # ?? zoom_in.png
 
-> 🖼️ Plik graficzny (obrazek): `icons.png` – nieprzetwarzany tekstowo
-# # 📄 vipcheckbox.png
+> ??? Plik graficzny (obrazek): `zoom_in.png` - nieprzetwarzany tekstowo
+# # ?? zoom_out.png
 
-> 🖼️ Plik graficzny (obrazek): `vipcheckbox.png` – nieprzetwarzany tekstowo
-
----
-# 📁 Folder `data/images/optionstab`
-# # 📄 audio.png
-
-> 🖼️ Plik graficzny (obrazek): `audio.png` – nieprzetwarzany tekstowo
-# # 📄 console.png
-
-> 🖼️ Plik graficzny (obrazek): `console.png` – nieprzetwarzany tekstowo
-# # 📄 extras.png
-
-> 🖼️ Plik graficzny (obrazek): `extras.png` – nieprzetwarzany tekstowo
-# # 📄 features.png
-
-> 🖼️ Plik graficzny (obrazek): `features.png` – nieprzetwarzany tekstowo
-# # 📄 game.png
-
-> 🖼️ Plik graficzny (obrazek): `game.png` – nieprzetwarzany tekstowo
-# # 📄 graphics.png
-
-> 🖼️ Plik graficzny (obrazek): `graphics.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `zoom_out.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/shaders`
-# # 📄 brazil.png
+# ?? Folder `data/images/game/mobile`
+# # ?? attack.png
 
-> 🖼️ Plik graficzny (obrazek): `brazil.png` – nieprzetwarzany tekstowo
-# # 📄 gold.png
+> ??? Plik graficzny (obrazek): `attack.png` - nieprzetwarzany tekstowo
+# # ?? chat.png
 
-> 🖼️ Plik graficzny (obrazek): `gold.png` – nieprzetwarzany tekstowo
-# # 📄 rainbow.png
+> ??? Plik graficzny (obrazek): `chat.png` - nieprzetwarzany tekstowo
+# # ?? follow.png
 
-> 🖼️ Plik graficzny (obrazek): `rainbow.png` – nieprzetwarzany tekstowo
-# # 📄 stars.png
+> ??? Plik graficzny (obrazek): `follow.png` - nieprzetwarzany tekstowo
+# # ?? keypad.png
 
-> 🖼️ Plik graficzny (obrazek): `stars.png` – nieprzetwarzany tekstowo
-# # 📄 sweden.png
+> ??? Plik graficzny (obrazek): `keypad.png` - nieprzetwarzany tekstowo
+# # ?? keypad_pointer.png
 
-> 🖼️ Plik graficzny (obrazek): `sweden.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `keypad_pointer.png` - nieprzetwarzany tekstowo
+# # ?? look.png
 
----
-# 📁 Folder `data/images/topbuttons`
-# # 📄 analyzers.png
+> ??? Plik graficzny (obrazek): `look.png` - nieprzetwarzany tekstowo
+# # ?? use.png
 
-> 🖼️ Plik graficzny (obrazek): `analyzers.png` – nieprzetwarzany tekstowo
-# # 📄 audio.png
-
-> 🖼️ Plik graficzny (obrazek): `audio.png` – nieprzetwarzany tekstowo
-# # 📄 audio_mute.png
-
-> 🖼️ Plik graficzny (obrazek): `audio_mute.png` – nieprzetwarzany tekstowo
-# # 📄 battle.png
-
-> 🖼️ Plik graficzny (obrazek): `battle.png` – nieprzetwarzany tekstowo
-# # 📄 bot.png
-
-> 🖼️ Plik graficzny (obrazek): `bot.png` – nieprzetwarzany tekstowo
-# # 📄 buttons.png
-
-> 🖼️ Plik graficzny (obrazek): `buttons.png` – nieprzetwarzany tekstowo
-# # 📄 combatcontrols.png
-
-> 🖼️ Plik graficzny (obrazek): `combatcontrols.png` – nieprzetwarzany tekstowo
-# # 📄 cooldowns.png
-
-> 🖼️ Plik graficzny (obrazek): `cooldowns.png` – nieprzetwarzany tekstowo
-# # 📄 debug.png
-
-> 🖼️ Plik graficzny (obrazek): `debug.png` – nieprzetwarzany tekstowo
-# # 📄 healthinfo.png
-
-> 🖼️ Plik graficzny (obrazek): `healthinfo.png` – nieprzetwarzany tekstowo
-# # 📄 hotkeys.png
-
-> 🖼️ Plik graficzny (obrazek): `hotkeys.png` – nieprzetwarzany tekstowo
-# # 📄 inventory.png
-
-> 🖼️ Plik graficzny (obrazek): `inventory.png` – nieprzetwarzany tekstowo
-# # 📄 keypad.png
-
-> 🖼️ Plik graficzny (obrazek): `keypad.png` – nieprzetwarzany tekstowo
-# # 📄 login.png
-
-> 🖼️ Plik graficzny (obrazek): `login.png` – nieprzetwarzany tekstowo
-# # 📄 logout.png
-
-> 🖼️ Plik graficzny (obrazek): `logout.png` – nieprzetwarzany tekstowo
-# # 📄 minimap.png
-
-> 🖼️ Plik graficzny (obrazek): `minimap.png` – nieprzetwarzany tekstowo
-# # 📄 modulemanager.png
-
-> 🖼️ Plik graficzny (obrazek): `modulemanager.png` – nieprzetwarzany tekstowo
-# # 📄 motd.png
-
-> 🖼️ Plik graficzny (obrazek): `motd.png` – nieprzetwarzany tekstowo
-# # 📄 options.png
-
-> 🖼️ Plik graficzny (obrazek): `options.png` – nieprzetwarzany tekstowo
-# # 📄 particles.png
-
-> 🖼️ Plik graficzny (obrazek): `particles.png` – nieprzetwarzany tekstowo
-# # 📄 prey.png
-
-> 🖼️ Plik graficzny (obrazek): `prey.png` – nieprzetwarzany tekstowo
-# # 📄 prey_window.png
-
-> 🖼️ Plik graficzny (obrazek): `prey_window.png` – nieprzetwarzany tekstowo
-# # 📄 quest_tracker.png
-
-> 🖼️ Plik graficzny (obrazek): `quest_tracker.png` – nieprzetwarzany tekstowo
-# # 📄 questlog.png
-
-> 🖼️ Plik graficzny (obrazek): `questlog.png` – nieprzetwarzany tekstowo
-# # 📄 shop.png
-
-> 🖼️ Plik graficzny (obrazek): `shop.png` – nieprzetwarzany tekstowo
-# # 📄 skills.png
-
-> 🖼️ Plik graficzny (obrazek): `skills.png` – nieprzetwarzany tekstowo
-# # 📄 spelllist.png
-
-> 🖼️ Plik graficzny (obrazek): `spelllist.png` – nieprzetwarzany tekstowo
-# # 📄 terminal.png
-
-> 🖼️ Plik graficzny (obrazek): `terminal.png` – nieprzetwarzany tekstowo
-# # 📄 unjustifiedpoints.png
-
-> 🖼️ Plik graficzny (obrazek): `unjustifiedpoints.png` – nieprzetwarzany tekstowo
-# # 📄 viplist.png
-
-> 🖼️ Plik graficzny (obrazek): `viplist.png` – nieprzetwarzany tekstowo
-# # 📄 zoomin.png
-
-> 🖼️ Plik graficzny (obrazek): `zoomin.png` – nieprzetwarzany tekstowo
-# # 📄 zoomout.png
-
-> 🖼️ Plik graficzny (obrazek): `zoomout.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `use.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/images/ui`
-# # 📄 actionbar_background.png
+# ?? Folder `data/images/game/npcicons`
+# # ?? icon_chat.png
 
-> 🖼️ Plik graficzny (obrazek): `actionbar_background.png` – nieprzetwarzany tekstowo
-# # 📄 android.png
+> ??? Plik graficzny (obrazek): `icon_chat.png` - nieprzetwarzany tekstowo
+# # ?? icon_quest.png
 
-> 🖼️ Plik graficzny (obrazek): `android.png` – nieprzetwarzany tekstowo
-# # 📄 arrow_horizontal.png
+> ??? Plik graficzny (obrazek): `icon_quest.png` - nieprzetwarzany tekstowo
+# # ?? icon_trade.png
 
-> 🖼️ Plik graficzny (obrazek): `arrow_horizontal.png` – nieprzetwarzany tekstowo
-# # 📄 arrow_vertical.png
+> ??? Plik graficzny (obrazek): `icon_trade.png` - nieprzetwarzany tekstowo
+# # ?? icon_tradequest.png
 
-> 🖼️ Plik graficzny (obrazek): `arrow_vertical.png` – nieprzetwarzany tekstowo
-# # 📄 button.png
+> ??? Plik graficzny (obrazek): `icon_tradequest.png` - nieprzetwarzany tekstowo
 
-> 🖼️ Plik graficzny (obrazek): `button.png` – nieprzetwarzany tekstowo
-# # 📄 button_popupmenu.png
+---
+# ?? Folder `data/images/game/prey`
+# # ?? prey_bigdamage.png
 
-> 🖼️ Plik graficzny (obrazek): `button_popupmenu.png` – nieprzetwarzany tekstowo
-# # 📄 button_rounded.png
+> ??? Plik graficzny (obrazek): `prey_bigdamage.png` - nieprzetwarzany tekstowo
+# # ?? prey_bigdefense.png
 
-> 🖼️ Plik graficzny (obrazek): `button_rounded.png` – nieprzetwarzany tekstowo
-# # 📄 button_square.png
+> ??? Plik graficzny (obrazek): `prey_bigdefense.png` - nieprzetwarzany tekstowo
+# # ?? prey_biginactive.png
 
-> 🖼️ Plik graficzny (obrazek): `button_square.png` – nieprzetwarzany tekstowo
-# # 📄 button_top.png
+> ??? Plik graficzny (obrazek): `prey_biginactive.png` - nieprzetwarzany tekstowo
+# # ?? prey_bigloot.png
 
-> 🖼️ Plik graficzny (obrazek): `button_top.png` – nieprzetwarzany tekstowo
-# # 📄 button_top_blink.png
+> ??? Plik graficzny (obrazek): `prey_bigloot.png` - nieprzetwarzany tekstowo
+# # ?? prey_bignobonus.png
 
-> 🖼️ Plik graficzny (obrazek): `button_top_blink.png` – nieprzetwarzany tekstowo
-# # 📄 button_topgame.png
+> ??? Plik graficzny (obrazek): `prey_bignobonus.png` - nieprzetwarzany tekstowo
+# # ?? prey_bigxp.png
 
-> 🖼️ Plik graficzny (obrazek): `button_topgame.png` – nieprzetwarzany tekstowo
-# # 📄 checkbox.png
+> ??? Plik graficzny (obrazek): `prey_bigxp.png` - nieprzetwarzany tekstowo
+# # ?? prey_bonus_reroll.png
 
-> 🖼️ Plik graficzny (obrazek): `checkbox.png` – nieprzetwarzany tekstowo
-# # 📄 checkbox_round.png
+> ??? Plik graficzny (obrazek): `prey_bonus_reroll.png` - nieprzetwarzany tekstowo
+# # ?? prey_choose.png
 
-> 🖼️ Plik graficzny (obrazek): `checkbox_round.png` – nieprzetwarzany tekstowo
-# # 📄 colorbox.png
+> ??? Plik graficzny (obrazek): `prey_choose.png` - nieprzetwarzany tekstowo
+# # ?? prey_damage.png
 
-> 🖼️ Plik graficzny (obrazek): `colorbox.png` – nieprzetwarzany tekstowo
-# # 📄 combobox.png
+> ??? Plik graficzny (obrazek): `prey_damage.png` - nieprzetwarzany tekstowo
+# # ?? prey_defense.png
 
-> 🖼️ Plik graficzny (obrazek): `combobox.png` – nieprzetwarzany tekstowo
-# # 📄 combobox_rounded.png
+> ??? Plik graficzny (obrazek): `prey_defense.png` - nieprzetwarzany tekstowo
+# # ?? prey_gold.png
 
-> 🖼️ Plik graficzny (obrazek): `combobox_rounded.png` – nieprzetwarzany tekstowo
-# # 📄 combobox_square.png
+> ??? Plik graficzny (obrazek): `prey_gold.png` - nieprzetwarzany tekstowo
+# # ?? prey_inactive.png
 
-> 🖼️ Plik graficzny (obrazek): `combobox_square.png` – nieprzetwarzany tekstowo
-# # 📄 dark_background.png
+> ??? Plik graficzny (obrazek): `prey_inactive.png` - nieprzetwarzany tekstowo
+# # ?? prey_loot.png
 
-> 🖼️ Plik graficzny (obrazek): `dark_background.png` – nieprzetwarzany tekstowo
-# # 📄 discord.png
+> ??? Plik graficzny (obrazek): `prey_loot.png` - nieprzetwarzany tekstowo
+# # ?? prey_no_bonus.png
 
-> 🖼️ Plik graficzny (obrazek): `discord.png` – nieprzetwarzany tekstowo
-# # 📄 graph_background.png
+> ??? Plik graficzny (obrazek): `prey_no_bonus.png` - nieprzetwarzany tekstowo
+# # ?? prey_nostar.png
 
-> 🖼️ Plik graficzny (obrazek): `graph_background.png` – nieprzetwarzany tekstowo
-# # 📄 icon_add.png
+> ??? Plik graficzny (obrazek): `prey_nostar.png` - nieprzetwarzany tekstowo
+# # ?? prey_perm.png
 
-> 🖼️ Plik graficzny (obrazek): `icon_add.png` – nieprzetwarzany tekstowo
-# # 📄 ios.png
+> ??? Plik graficzny (obrazek): `prey_perm.png` - nieprzetwarzany tekstowo
+# # ?? prey_perm_test.png
 
-> 🖼️ Plik graficzny (obrazek): `ios.png` – nieprzetwarzany tekstowo
-# # 📄 item-blessed.png
+> ??? Plik graficzny (obrazek): `prey_perm_test.png` - nieprzetwarzany tekstowo
+# # ?? prey_reroll.png
 
-> 🖼️ Plik graficzny (obrazek): `item-blessed.png` – nieprzetwarzany tekstowo
-# # 📄 item.png
+> ??? Plik graficzny (obrazek): `prey_reroll.png` - nieprzetwarzany tekstowo
+# # ?? prey_reroll_blocked.png
 
-> 🖼️ Plik graficzny (obrazek): `item.png` – nieprzetwarzany tekstowo
-# # 📄 menubox.png
+> ??? Plik graficzny (obrazek): `prey_reroll_blocked.png` - nieprzetwarzany tekstowo
+# # ?? prey_select.png
 
-> 🖼️ Plik graficzny (obrazek): `menubox.png` – nieprzetwarzany tekstowo
-# # 📄 minipanel.png
+> ??? Plik graficzny (obrazek): `prey_select.png` - nieprzetwarzany tekstowo
+# # ?? prey_select_blocked.png
 
-> 🖼️ Plik graficzny (obrazek): `minipanel.png` – nieprzetwarzany tekstowo
-# # 📄 miniwindow.png
+> ??? Plik graficzny (obrazek): `prey_select_blocked.png` - nieprzetwarzany tekstowo
+# # ?? prey_smallstore.png
 
-> 🖼️ Plik graficzny (obrazek): `miniwindow.png` – nieprzetwarzany tekstowo
-# # 📄 miniwindow_buttons.png
+> ??? Plik graficzny (obrazek): `prey_smallstore.png` - nieprzetwarzany tekstowo
+# # ?? prey_star.png
 
-> 🖼️ Plik graficzny (obrazek): `miniwindow_buttons.png` – nieprzetwarzany tekstowo
-# # 📄 otcicon.rc
+> ??? Plik graficzny (obrazek): `prey_star.png` - nieprzetwarzany tekstowo
+# # ?? prey_temp.png
+
+> ??? Plik graficzny (obrazek): `prey_temp.png` - nieprzetwarzany tekstowo
+# # ?? prey_temp_test.png
+
+> ??? Plik graficzny (obrazek): `prey_temp_test.png` - nieprzetwarzany tekstowo
+# # ?? prey_wildcard.png
+
+> ??? Plik graficzny (obrazek): `prey_wildcard.png` - nieprzetwarzany tekstowo
+# # ?? prey_xp.png
+
+> ??? Plik graficzny (obrazek): `prey_xp.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/game/shields`
+# # ?? shield_blue.png
+
+> ??? Plik graficzny (obrazek): `shield_blue.png` - nieprzetwarzany tekstowo
+# # ?? shield_blue_not_shared.png
+
+> ??? Plik graficzny (obrazek): `shield_blue_not_shared.png` - nieprzetwarzany tekstowo
+# # ?? shield_blue_shared.png
+
+> ??? Plik graficzny (obrazek): `shield_blue_shared.png` - nieprzetwarzany tekstowo
+# # ?? shield_blue_white.png
+
+> ??? Plik graficzny (obrazek): `shield_blue_white.png` - nieprzetwarzany tekstowo
+# # ?? shield_gray.png
+
+> ??? Plik graficzny (obrazek): `shield_gray.png` - nieprzetwarzany tekstowo
+# # ?? shield_yellow.png
+
+> ??? Plik graficzny (obrazek): `shield_yellow.png` - nieprzetwarzany tekstowo
+# # ?? shield_yellow_not_shared.png
+
+> ??? Plik graficzny (obrazek): `shield_yellow_not_shared.png` - nieprzetwarzany tekstowo
+# # ?? shield_yellow_shared.png
+
+> ??? Plik graficzny (obrazek): `shield_yellow_shared.png` - nieprzetwarzany tekstowo
+# # ?? shield_yellow_white.png
+
+> ??? Plik graficzny (obrazek): `shield_yellow_white.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/game/skulls`
+# # ?? skull_black.png
+
+> ??? Plik graficzny (obrazek): `skull_black.png` - nieprzetwarzany tekstowo
+# # ?? skull_green.png
+
+> ??? Plik graficzny (obrazek): `skull_green.png` - nieprzetwarzany tekstowo
+# # ?? skull_orange.png
+
+> ??? Plik graficzny (obrazek): `skull_orange.png` - nieprzetwarzany tekstowo
+# # ?? skull_red.png
+
+> ??? Plik graficzny (obrazek): `skull_red.png` - nieprzetwarzany tekstowo
+# # ?? skull_white.png
+
+> ??? Plik graficzny (obrazek): `skull_white.png` - nieprzetwarzany tekstowo
+# # ?? skull_yellow.png
+
+> ??? Plik graficzny (obrazek): `skull_yellow.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/game/slots`
+# # ?? ammo-blessed.png
+
+> ??? Plik graficzny (obrazek): `ammo-blessed.png` - nieprzetwarzany tekstowo
+# # ?? ammo.png
+
+> ??? Plik graficzny (obrazek): `ammo.png` - nieprzetwarzany tekstowo
+# # ?? back-blessed.png
+
+> ??? Plik graficzny (obrazek): `back-blessed.png` - nieprzetwarzany tekstowo
+# # ?? back.png
+
+> ??? Plik graficzny (obrazek): `back.png` - nieprzetwarzany tekstowo
+# # ?? body-blessed.png
+
+> ??? Plik graficzny (obrazek): `body-blessed.png` - nieprzetwarzany tekstowo
+# # ?? body.png
+
+> ??? Plik graficzny (obrazek): `body.png` - nieprzetwarzany tekstowo
+# # ?? coins.png
+
+> ??? Plik graficzny (obrazek): `coins.png` - nieprzetwarzany tekstowo
+# # ?? feet-blessed.png
+
+> ??? Plik graficzny (obrazek): `feet-blessed.png` - nieprzetwarzany tekstowo
+# # ?? feet.png
+
+> ??? Plik graficzny (obrazek): `feet.png` - nieprzetwarzany tekstowo
+# # ?? finger-blessed.png
+
+> ??? Plik graficzny (obrazek): `finger-blessed.png` - nieprzetwarzany tekstowo
+# # ?? finger.png
+
+> ??? Plik graficzny (obrazek): `finger.png` - nieprzetwarzany tekstowo
+# # ?? head-blessed.png
+
+> ??? Plik graficzny (obrazek): `head-blessed.png` - nieprzetwarzany tekstowo
+# # ?? head.png
+
+> ??? Plik graficzny (obrazek): `head.png` - nieprzetwarzany tekstowo
+# # ?? left-hand-blessed.png
+
+> ??? Plik graficzny (obrazek): `left-hand-blessed.png` - nieprzetwarzany tekstowo
+# # ?? left-hand.png
+
+> ??? Plik graficzny (obrazek): `left-hand.png` - nieprzetwarzany tekstowo
+# # ?? legs-blessed.png
+
+> ??? Plik graficzny (obrazek): `legs-blessed.png` - nieprzetwarzany tekstowo
+# # ?? legs.png
+
+> ??? Plik graficzny (obrazek): `legs.png` - nieprzetwarzany tekstowo
+# # ?? neck-blessed.png
+
+> ??? Plik graficzny (obrazek): `neck-blessed.png` - nieprzetwarzany tekstowo
+# # ?? neck.png
+
+> ??? Plik graficzny (obrazek): `neck.png` - nieprzetwarzany tekstowo
+# # ?? purse.png
+
+> ??? Plik graficzny (obrazek): `purse.png` - nieprzetwarzany tekstowo
+# # ?? right-hand-blessed.png
+
+> ??? Plik graficzny (obrazek): `right-hand-blessed.png` - nieprzetwarzany tekstowo
+# # ?? right-hand.png
+
+> ??? Plik graficzny (obrazek): `right-hand.png` - nieprzetwarzany tekstowo
+# # ?? soulcap.png
+
+> ??? Plik graficzny (obrazek): `soulcap.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/game/spells`
+# # ?? cooldowns.png
+
+> ??? Plik graficzny (obrazek): `cooldowns.png` - nieprzetwarzany tekstowo
+# # ?? defaultspells.png
+
+> ??? Plik graficzny (obrazek): `defaultspells.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/game/states`
+# # ?? bleeding.png
+
+> ??? Plik graficzny (obrazek): `bleeding.png` - nieprzetwarzany tekstowo
+# # ?? burning.png
+
+> ??? Plik graficzny (obrazek): `burning.png` - nieprzetwarzany tekstowo
+# # ?? cursed.png
+
+> ??? Plik graficzny (obrazek): `cursed.png` - nieprzetwarzany tekstowo
+# # ?? dazzled.png
+
+> ??? Plik graficzny (obrazek): `dazzled.png` - nieprzetwarzany tekstowo
+# # ?? drowning.png
+
+> ??? Plik graficzny (obrazek): `drowning.png` - nieprzetwarzany tekstowo
+# # ?? drunk.png
+
+> ??? Plik graficzny (obrazek): `drunk.png` - nieprzetwarzany tekstowo
+# # ?? electrified.png
+
+> ??? Plik graficzny (obrazek): `electrified.png` - nieprzetwarzany tekstowo
+# # ?? freezing.png
+
+> ??? Plik graficzny (obrazek): `freezing.png` - nieprzetwarzany tekstowo
+# # ?? haste.png
+
+> ??? Plik graficzny (obrazek): `haste.png` - nieprzetwarzany tekstowo
+# # ?? hungry.png
+
+> ??? Plik graficzny (obrazek): `hungry.png` - nieprzetwarzany tekstowo
+# # ?? logout_block.png
+
+> ??? Plik graficzny (obrazek): `logout_block.png` - nieprzetwarzany tekstowo
+# # ?? magic_shield.png
+
+> ??? Plik graficzny (obrazek): `magic_shield.png` - nieprzetwarzany tekstowo
+# # ?? poisoned.png
+
+> ??? Plik graficzny (obrazek): `poisoned.png` - nieprzetwarzany tekstowo
+# # ?? protection_zone.png
+
+> ??? Plik graficzny (obrazek): `protection_zone.png` - nieprzetwarzany tekstowo
+# # ?? protection_zone_block.png
+
+> ??? Plik graficzny (obrazek): `protection_zone_block.png` - nieprzetwarzany tekstowo
+# # ?? slowed.png
+
+> ??? Plik graficzny (obrazek): `slowed.png` - nieprzetwarzany tekstowo
+# # ?? strengthened.png
+
+> ??? Plik graficzny (obrazek): `strengthened.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/game/topbar`
+# # ?? boost.png
+
+> ??? Plik graficzny (obrazek): `boost.png` - nieprzetwarzany tekstowo
+# # ?? icons.png
+
+> ??? Plik graficzny (obrazek): `icons.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/game/viplist`
+# # ?? icons.png
+
+> ??? Plik graficzny (obrazek): `icons.png` - nieprzetwarzany tekstowo
+# # ?? vipcheckbox.png
+
+> ??? Plik graficzny (obrazek): `vipcheckbox.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/optionstab`
+# # ?? audio.png
+
+> ??? Plik graficzny (obrazek): `audio.png` - nieprzetwarzany tekstowo
+# # ?? console.png
+
+> ??? Plik graficzny (obrazek): `console.png` - nieprzetwarzany tekstowo
+# # ?? extras.png
+
+> ??? Plik graficzny (obrazek): `extras.png` - nieprzetwarzany tekstowo
+# # ?? features.png
+
+> ??? Plik graficzny (obrazek): `features.png` - nieprzetwarzany tekstowo
+# # ?? game.png
+
+> ??? Plik graficzny (obrazek): `game.png` - nieprzetwarzany tekstowo
+# # ?? graphics.png
+
+> ??? Plik graficzny (obrazek): `graphics.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/shaders`
+# # ?? brazil.png
+
+> ??? Plik graficzny (obrazek): `brazil.png` - nieprzetwarzany tekstowo
+# # ?? gold.png
+
+> ??? Plik graficzny (obrazek): `gold.png` - nieprzetwarzany tekstowo
+# # ?? rainbow.png
+
+> ??? Plik graficzny (obrazek): `rainbow.png` - nieprzetwarzany tekstowo
+# # ?? stars.png
+
+> ??? Plik graficzny (obrazek): `stars.png` - nieprzetwarzany tekstowo
+# # ?? sweden.png
+
+> ??? Plik graficzny (obrazek): `sweden.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/topbuttons`
+# # ?? analyzers.png
+
+> ??? Plik graficzny (obrazek): `analyzers.png` - nieprzetwarzany tekstowo
+# # ?? audio.png
+
+> ??? Plik graficzny (obrazek): `audio.png` - nieprzetwarzany tekstowo
+# # ?? audio_mute.png
+
+> ??? Plik graficzny (obrazek): `audio_mute.png` - nieprzetwarzany tekstowo
+# # ?? battle.png
+
+> ??? Plik graficzny (obrazek): `battle.png` - nieprzetwarzany tekstowo
+# # ?? bot.png
+
+> ??? Plik graficzny (obrazek): `bot.png` - nieprzetwarzany tekstowo
+# # ?? buttons.png
+
+> ??? Plik graficzny (obrazek): `buttons.png` - nieprzetwarzany tekstowo
+# # ?? combatcontrols.png
+
+> ??? Plik graficzny (obrazek): `combatcontrols.png` - nieprzetwarzany tekstowo
+# # ?? cooldowns.png
+
+> ??? Plik graficzny (obrazek): `cooldowns.png` - nieprzetwarzany tekstowo
+# # ?? debug.png
+
+> ??? Plik graficzny (obrazek): `debug.png` - nieprzetwarzany tekstowo
+# # ?? healthinfo.png
+
+> ??? Plik graficzny (obrazek): `healthinfo.png` - nieprzetwarzany tekstowo
+# # ?? hotkeys.png
+
+> ??? Plik graficzny (obrazek): `hotkeys.png` - nieprzetwarzany tekstowo
+# # ?? inventory.png
+
+> ??? Plik graficzny (obrazek): `inventory.png` - nieprzetwarzany tekstowo
+# # ?? keypad.png
+
+> ??? Plik graficzny (obrazek): `keypad.png` - nieprzetwarzany tekstowo
+# # ?? login.png
+
+> ??? Plik graficzny (obrazek): `login.png` - nieprzetwarzany tekstowo
+# # ?? logout.png
+
+> ??? Plik graficzny (obrazek): `logout.png` - nieprzetwarzany tekstowo
+# # ?? minimap.png
+
+> ??? Plik graficzny (obrazek): `minimap.png` - nieprzetwarzany tekstowo
+# # ?? modulemanager.png
+
+> ??? Plik graficzny (obrazek): `modulemanager.png` - nieprzetwarzany tekstowo
+# # ?? motd.png
+
+> ??? Plik graficzny (obrazek): `motd.png` - nieprzetwarzany tekstowo
+# # ?? options.png
+
+> ??? Plik graficzny (obrazek): `options.png` - nieprzetwarzany tekstowo
+# # ?? particles.png
+
+> ??? Plik graficzny (obrazek): `particles.png` - nieprzetwarzany tekstowo
+# # ?? prey.png
+
+> ??? Plik graficzny (obrazek): `prey.png` - nieprzetwarzany tekstowo
+# # ?? prey_window.png
+
+> ??? Plik graficzny (obrazek): `prey_window.png` - nieprzetwarzany tekstowo
+# # ?? quest_tracker.png
+
+> ??? Plik graficzny (obrazek): `quest_tracker.png` - nieprzetwarzany tekstowo
+# # ?? questlog.png
+
+> ??? Plik graficzny (obrazek): `questlog.png` - nieprzetwarzany tekstowo
+# # ?? shop.png
+
+> ??? Plik graficzny (obrazek): `shop.png` - nieprzetwarzany tekstowo
+# # ?? skills.png
+
+> ??? Plik graficzny (obrazek): `skills.png` - nieprzetwarzany tekstowo
+# # ?? spelllist.png
+
+> ??? Plik graficzny (obrazek): `spelllist.png` - nieprzetwarzany tekstowo
+# # ?? terminal.png
+
+> ??? Plik graficzny (obrazek): `terminal.png` - nieprzetwarzany tekstowo
+# # ?? unjustifiedpoints.png
+
+> ??? Plik graficzny (obrazek): `unjustifiedpoints.png` - nieprzetwarzany tekstowo
+# # ?? viplist.png
+
+> ??? Plik graficzny (obrazek): `viplist.png` - nieprzetwarzany tekstowo
+# # ?? zoomin.png
+
+> ??? Plik graficzny (obrazek): `zoomin.png` - nieprzetwarzany tekstowo
+# # ?? zoomout.png
+
+> ??? Plik graficzny (obrazek): `zoomout.png` - nieprzetwarzany tekstowo
+
+---
+# ?? Folder `data/images/ui`
+# # ?? actionbar_background.png
+
+> ??? Plik graficzny (obrazek): `actionbar_background.png` - nieprzetwarzany tekstowo
+# # ?? android.png
+
+> ??? Plik graficzny (obrazek): `android.png` - nieprzetwarzany tekstowo
+# # ?? arrow_horizontal.png
+
+> ??? Plik graficzny (obrazek): `arrow_horizontal.png` - nieprzetwarzany tekstowo
+# # ?? arrow_vertical.png
+
+> ??? Plik graficzny (obrazek): `arrow_vertical.png` - nieprzetwarzany tekstowo
+# # ?? button.png
+
+> ??? Plik graficzny (obrazek): `button.png` - nieprzetwarzany tekstowo
+# # ?? button_popupmenu.png
+
+> ??? Plik graficzny (obrazek): `button_popupmenu.png` - nieprzetwarzany tekstowo
+# # ?? button_rounded.png
+
+> ??? Plik graficzny (obrazek): `button_rounded.png` - nieprzetwarzany tekstowo
+# # ?? button_square.png
+
+> ??? Plik graficzny (obrazek): `button_square.png` - nieprzetwarzany tekstowo
+# # ?? button_top.png
+
+> ??? Plik graficzny (obrazek): `button_top.png` - nieprzetwarzany tekstowo
+# # ?? button_top_blink.png
+
+> ??? Plik graficzny (obrazek): `button_top_blink.png` - nieprzetwarzany tekstowo
+# # ?? button_topgame.png
+
+> ??? Plik graficzny (obrazek): `button_topgame.png` - nieprzetwarzany tekstowo
+# # ?? checkbox.png
+
+> ??? Plik graficzny (obrazek): `checkbox.png` - nieprzetwarzany tekstowo
+# # ?? checkbox_round.png
+
+> ??? Plik graficzny (obrazek): `checkbox_round.png` - nieprzetwarzany tekstowo
+# # ?? colorbox.png
+
+> ??? Plik graficzny (obrazek): `colorbox.png` - nieprzetwarzany tekstowo
+# # ?? combobox.png
+
+> ??? Plik graficzny (obrazek): `combobox.png` - nieprzetwarzany tekstowo
+# # ?? combobox_rounded.png
+
+> ??? Plik graficzny (obrazek): `combobox_rounded.png` - nieprzetwarzany tekstowo
+# # ?? combobox_square.png
+
+> ??? Plik graficzny (obrazek): `combobox_square.png` - nieprzetwarzany tekstowo
+# # ?? dark_background.png
+
+> ??? Plik graficzny (obrazek): `dark_background.png` - nieprzetwarzany tekstowo
+# # ?? discord.png
+
+> ??? Plik graficzny (obrazek): `discord.png` - nieprzetwarzany tekstowo
+# # ?? graph_background.png
+
+> ??? Plik graficzny (obrazek): `graph_background.png` - nieprzetwarzany tekstowo
+# # ?? icon_add.png
+
+> ??? Plik graficzny (obrazek): `icon_add.png` - nieprzetwarzany tekstowo
+# # ?? ios.png
+
+> ??? Plik graficzny (obrazek): `ios.png` - nieprzetwarzany tekstowo
+# # ?? item-blessed.png
+
+> ??? Plik graficzny (obrazek): `item-blessed.png` - nieprzetwarzany tekstowo
+# # ?? item.png
+
+> ??? Plik graficzny (obrazek): `item.png` - nieprzetwarzany tekstowo
+# # ?? menubox.png
+
+> ??? Plik graficzny (obrazek): `menubox.png` - nieprzetwarzany tekstowo
+# # ?? minipanel.png
+
+> ??? Plik graficzny (obrazek): `minipanel.png` - nieprzetwarzany tekstowo
+# # ?? miniwindow.png
+
+> ??? Plik graficzny (obrazek): `miniwindow.png` - nieprzetwarzany tekstowo
+# # ?? miniwindow_buttons.png
+
+> ??? Plik graficzny (obrazek): `miniwindow_buttons.png` - nieprzetwarzany tekstowo
+# # ?? otcicon.rc
 
 ```text
 IDI_ICON1    ICON  DISCARDABLE    "otcicon.ico"
 ```
-# # 📄 panel_bottom.png
+# # ?? panel_bottom.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_bottom.png` – nieprzetwarzany tekstowo
-# # 📄 panel_bottom2.png
+> ??? Plik graficzny (obrazek): `panel_bottom.png` - nieprzetwarzany tekstowo
+# # ?? panel_bottom2.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_bottom2.png` – nieprzetwarzany tekstowo
-# # 📄 panel_container.png
+> ??? Plik graficzny (obrazek): `panel_bottom2.png` - nieprzetwarzany tekstowo
+# # ?? panel_container.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_container.png` – nieprzetwarzany tekstowo
-# # 📄 panel_content.png
+> ??? Plik graficzny (obrazek): `panel_container.png` - nieprzetwarzany tekstowo
+# # ?? panel_content.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_content.png` – nieprzetwarzany tekstowo
-# # 📄 panel_flat.png
+> ??? Plik graficzny (obrazek): `panel_content.png` - nieprzetwarzany tekstowo
+# # ?? panel_flat.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_flat.png` – nieprzetwarzany tekstowo
-# # 📄 panel_lightflat.png
+> ??? Plik graficzny (obrazek): `panel_flat.png` - nieprzetwarzany tekstowo
+# # ?? panel_lightflat.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_lightflat.png` – nieprzetwarzany tekstowo
-# # 📄 panel_map.png
+> ??? Plik graficzny (obrazek): `panel_lightflat.png` - nieprzetwarzany tekstowo
+# # ?? panel_map.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_map.png` – nieprzetwarzany tekstowo
-# # 📄 panel_side.png
+> ??? Plik graficzny (obrazek): `panel_map.png` - nieprzetwarzany tekstowo
+# # ?? panel_side.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_side.png` – nieprzetwarzany tekstowo
-# # 📄 panel_top.png
+> ??? Plik graficzny (obrazek): `panel_side.png` - nieprzetwarzany tekstowo
+# # ?? panel_top.png
 
-> 🖼️ Plik graficzny (obrazek): `panel_top.png` – nieprzetwarzany tekstowo
-# # 📄 progressbar.png
+> ??? Plik graficzny (obrazek): `panel_top.png` - nieprzetwarzany tekstowo
+# # ?? progressbar.png
 
-> 🖼️ Plik graficzny (obrazek): `progressbar.png` – nieprzetwarzany tekstowo
-# # 📄 qauth.png
+> ??? Plik graficzny (obrazek): `progressbar.png` - nieprzetwarzany tekstowo
+# # ?? qauth.png
 
-> 🖼️ Plik graficzny (obrazek): `qauth.png` – nieprzetwarzany tekstowo
-# # 📄 rarity_blue.png
+> ??? Plik graficzny (obrazek): `qauth.png` - nieprzetwarzany tekstowo
+# # ?? rarity_blue.png
 
-> 🖼️ Plik graficzny (obrazek): `rarity_blue.png` – nieprzetwarzany tekstowo
-# # 📄 rarity_frames.png
+> ??? Plik graficzny (obrazek): `rarity_blue.png` - nieprzetwarzany tekstowo
+# # ?? rarity_frames.png
 
-> 🖼️ Plik graficzny (obrazek): `rarity_frames.png` – nieprzetwarzany tekstowo
-# # 📄 rarity_gold.png
+> ??? Plik graficzny (obrazek): `rarity_frames.png` - nieprzetwarzany tekstowo
+# # ?? rarity_gold.png
 
-> 🖼️ Plik graficzny (obrazek): `rarity_gold.png` – nieprzetwarzany tekstowo
-# # 📄 rarity_green.png
+> ??? Plik graficzny (obrazek): `rarity_gold.png` - nieprzetwarzany tekstowo
+# # ?? rarity_green.png
 
-> 🖼️ Plik graficzny (obrazek): `rarity_green.png` – nieprzetwarzany tekstowo
-# # 📄 rarity_purple.png
+> ??? Plik graficzny (obrazek): `rarity_green.png` - nieprzetwarzany tekstowo
+# # ?? rarity_purple.png
 
-> 🖼️ Plik graficzny (obrazek): `rarity_purple.png` – nieprzetwarzany tekstowo
-# # 📄 rarity_white.png
+> ??? Plik graficzny (obrazek): `rarity_purple.png` - nieprzetwarzany tekstowo
+# # ?? rarity_white.png
 
-> 🖼️ Plik graficzny (obrazek): `rarity_white.png` – nieprzetwarzany tekstowo
-# # 📄 rotate_button.png
+> ??? Plik graficzny (obrazek): `rarity_white.png` - nieprzetwarzany tekstowo
+# # ?? rotate_button.png
 
-> 🖼️ Plik graficzny (obrazek): `rotate_button.png` – nieprzetwarzany tekstowo
-# # 📄 scrollbar.png
+> ??? Plik graficzny (obrazek): `rotate_button.png` - nieprzetwarzany tekstowo
+# # ?? scrollbar.png
 
-> 🖼️ Plik graficzny (obrazek): `scrollbar.png` – nieprzetwarzany tekstowo
-# # 📄 separator_horizontal.png
+> ??? Plik graficzny (obrazek): `scrollbar.png` - nieprzetwarzany tekstowo
+# # ?? separator_horizontal.png
 
-> 🖼️ Plik graficzny (obrazek): `separator_horizontal.png` – nieprzetwarzany tekstowo
-# # 📄 separator_vertical.png
+> ??? Plik graficzny (obrazek): `separator_horizontal.png` - nieprzetwarzany tekstowo
+# # ?? separator_vertical.png
 
-> 🖼️ Plik graficzny (obrazek): `separator_vertical.png` – nieprzetwarzany tekstowo
-# # 📄 spinbox.png
+> ??? Plik graficzny (obrazek): `separator_vertical.png` - nieprzetwarzany tekstowo
+# # ?? spinbox.png
 
-> 🖼️ Plik graficzny (obrazek): `spinbox.png` – nieprzetwarzany tekstowo
-# # 📄 spinbox_down.png
+> ??? Plik graficzny (obrazek): `spinbox.png` - nieprzetwarzany tekstowo
+# # ?? spinbox_down.png
 
-> 🖼️ Plik graficzny (obrazek): `spinbox_down.png` – nieprzetwarzany tekstowo
-# # 📄 spinbox_up.png
+> ??? Plik graficzny (obrazek): `spinbox_down.png` - nieprzetwarzany tekstowo
+# # ?? spinbox_up.png
 
-> 🖼️ Plik graficzny (obrazek): `spinbox_up.png` – nieprzetwarzany tekstowo
-# # 📄 tabbutton_rounded.png
+> ??? Plik graficzny (obrazek): `spinbox_up.png` - nieprzetwarzany tekstowo
+# # ?? tabbutton_rounded.png
 
-> 🖼️ Plik graficzny (obrazek): `tabbutton_rounded.png` – nieprzetwarzany tekstowo
-# # 📄 tabbutton_square.png
+> ??? Plik graficzny (obrazek): `tabbutton_rounded.png` - nieprzetwarzany tekstowo
+# # ?? tabbutton_square.png
 
-> 🖼️ Plik graficzny (obrazek): `tabbutton_square.png` – nieprzetwarzany tekstowo
-# # 📄 textedit.png
+> ??? Plik graficzny (obrazek): `tabbutton_square.png` - nieprzetwarzany tekstowo
+# # ?? textedit.png
 
-> 🖼️ Plik graficzny (obrazek): `textedit.png` – nieprzetwarzany tekstowo
-# # 📄 window.png
+> ??? Plik graficzny (obrazek): `textedit.png` - nieprzetwarzany tekstowo
+# # ?? window.png
 
-> 🖼️ Plik graficzny (obrazek): `window.png` – nieprzetwarzany tekstowo
-# # 📄 window_headless.png
+> ??? Plik graficzny (obrazek): `window.png` - nieprzetwarzany tekstowo
+# # ?? window_headless.png
 
-> 🖼️ Plik graficzny (obrazek): `window_headless.png` – nieprzetwarzany tekstowo
+> ??? Plik graficzny (obrazek): `window_headless.png` - nieprzetwarzany tekstowo
 
 ---
-# 📁 Folder `data/locales`
-# # 📄 de.lua
+# ?? Folder `data/locales`
+# # ?? de.lua
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xfc in position 1144: invalid start byte
-# # 📄 en.lua
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xfc in position 1144: invalid start byte
+# # ?? en.lua
 
 ```text
 locale = {
@@ -1205,10 +1205,10 @@ locale = {
 
 modules.client_locales.installLocale(locale)
 ```
-# # 📄 es.lua
+# # ?? es.lua
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xf1 in position 337: invalid continuation byte
-# # 📄 pl.lua
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xf1 in position 337: invalid continuation byte
+# # ?? pl.lua
 
 ```text
 locale = {
@@ -1631,16 +1631,16 @@ locale = {
 
 modules.client_locales.installLocale(locale)
 ```
-# # 📄 pt.lua
+# # ?? pt.lua
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xea in position 73: invalid continuation byte
-# # 📄 sv.lua
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xea in position 73: invalid continuation byte
+# # ?? sv.lua
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xf6 in position 619: invalid start byte
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xf6 in position 619: invalid start byte
 
 ---
-# 📁 Folder `data/shaders`
-# # 📄 map_default_fragment.frag
+# ?? Folder `data/shaders`
+# # ?? map_default_fragment.frag
 
 ```text
 varying vec2 v_TexCoord;
@@ -1654,7 +1654,7 @@ void main()
         discard;
 }
 ```
-# # 📄 map_default_vertex.frag
+# # ?? map_default_vertex.frag
 
 ```text
 attribute vec2 a_Vertex;
@@ -1671,7 +1671,7 @@ void main()
     v_TexCoord = (u_TextureMatrix * vec3(a_TexCoord,1.0)).xy;
 }
 ```
-# # 📄 map_rainbow_fragment.frag
+# # ?? map_rainbow_fragment.frag
 
 ```text
 varying vec2 v_TexCoord;
@@ -1689,7 +1689,7 @@ void main()
         discard;
 }
 ```
-# # 📄 map_rainbow_vertex.frag
+# # ?? map_rainbow_vertex.frag
 
 ```text
 attribute vec2 a_TexCoord;
@@ -1725,7 +1725,7 @@ void main()
     v_TexCoord2 = ((a_Vertex + direction * u_Time * speed) / effectTextureSize);
 }
 ```
-# # 📄 outfit_default_fragment.frag
+# # ?? outfit_default_fragment.frag
 
 ```text
 uniform mat4 u_Color;
@@ -1746,7 +1746,7 @@ void main()
     if(gl_FragColor.a < 0.01) discard;
 }
 ```
-# # 📄 outfit_default_vertex.frag
+# # ?? outfit_default_vertex.frag
 
 ```text
 attribute vec2 a_Vertex;
@@ -1765,7 +1765,7 @@ void main()
     v_TexCoord2 = (u_TextureMatrix * vec3(a_TexCoord + u_Offset,1.0)).xy;
 }
 ```
-# # 📄 outfit_rainbow_fragment.frag
+# # ?? outfit_rainbow_fragment.frag
 
 ```text
 uniform mat4 u_Color;
@@ -1785,7 +1785,7 @@ void main()
     if(gl_FragColor.a < 0.01) discard;
 }
 ```
-# # 📄 outfit_rainbow_vertex.frag
+# # ?? outfit_rainbow_vertex.frag
 
 ```text
 attribute vec2 a_TexCoord;
@@ -1837,35 +1837,35 @@ void main()
 ```
 
 ---
-# 📁 Folder `data/sounds`
-# # 📄 Creature_Detected.ogg
+# ?? Folder `data/sounds`
+# # ?? Creature_Detected.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode bytes in position 14-15: invalid continuation byte
-# # 📄 Low_Health.ogg
+> ? Blad odczytu pliku: 'utf-8' codec can't decode bytes in position 14-15: invalid continuation byte
+# # ?? Low_Health.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xa5 in position 14: invalid start byte
-# # 📄 Low_Mana.ogg
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xa5 in position 14: invalid start byte
+# # ?? Low_Mana.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode bytes in position 14-15: invalid continuation byte
-# # 📄 Player_Attack.ogg
+> ? Blad odczytu pliku: 'utf-8' codec can't decode bytes in position 14-15: invalid continuation byte
+# # ?? Player_Attack.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xf8 in position 15: invalid start byte
-# # 📄 Player_Detected.ogg
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xf8 in position 15: invalid start byte
+# # ?? Player_Detected.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xa5 in position 14: invalid start byte
-# # 📄 Private_Message.ogg
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xa5 in position 14: invalid start byte
+# # ?? Private_Message.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0x8a in position 14: invalid start byte
-# # 📄 alarm.ogg
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0x8a in position 14: invalid start byte
+# # ?? alarm.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xbc in position 17: invalid start byte
-# # 📄 magnum.ogg
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xbc in position 17: invalid start byte
+# # ?? magnum.ogg
 
-> ❌ Błąd odczytu pliku: 'utf-8' codec can't decode byte 0xfd in position 22: invalid start byte
+> ? Blad odczytu pliku: 'utf-8' codec can't decode byte 0xfd in position 22: invalid start byte
 
 ---
-# 📁 Folder `data/styles`
-# # 📄 10-buttons.otui
+# ?? Folder `data/styles`
+# # ?? 10-buttons.otui
 
 ```text
 Button < UIButton
@@ -1975,7 +1975,7 @@ AddButton < UIButton
     image-color: #dfdfdf55
     change-cursor-image: false
 ```
-# # 📄 10-checkboxes.otui
+# # ?? 10-checkboxes.otui
 
 ```text
 CheckBox < UICheckBox
@@ -2049,7 +2049,7 @@ ButtonBox < UICheckBox
 ButtonBoxRounded < ButtonBox
   image-source: /images/ui/button_rounded
 ```
-# # 📄 10-comboboxes.otui
+# # ?? 10-comboboxes.otui
 
 ```text
 ComboBoxPopupScrollMenuButton < UIButton
@@ -2159,7 +2159,7 @@ ComboBoxRounded < ComboBox
   image-source: /images/ui/combobox_rounded
   image-border: 3
 ```
-# # 📄 10-creaturebuttons.otui
+# # ?? 10-creaturebuttons.otui
 
 ```text
 CreatureButton < UICreatureButton
@@ -2213,7 +2213,7 @@ CreatureButton < UICreatureButton
     margin-top: 2
     phantom: true
 ```
-# # 📄 10-creatures.otui
+# # ?? 10-creatures.otui
 
 ```text
 Creature < UICreature
@@ -2227,7 +2227,7 @@ Creature < UICreature
   $checked:
     border-color: white
 ```
-# # 📄 10-items.otui
+# # ?? 10-items.otui
 
 ```text
 Item < UIItem
@@ -2241,7 +2241,7 @@ Item < UIItem
   $disabled:
     color: #646464
 ```
-# # 📄 10-labels.otui
+# # ?? 10-labels.otui
 
 ```text
 Label < UILabel
@@ -2268,7 +2268,7 @@ GameLabel < UILabel
   font: verdana-11px-antialised
   color: #dfdfdf
 ```
-# # 📄 10-listboxes.otui
+# # ?? 10-listboxes.otui
 
 ```text
 TextList < UIScrollArea
@@ -2291,7 +2291,7 @@ VerticalList < UIScrollArea
   border-color: #272727
   background-color: #636363
 ```
-# # 📄 10-panels.otui
+# # ?? 10-panels.otui
 
 ```text
 Panel < UIWidget
@@ -2314,7 +2314,7 @@ LightFlatPanel < Panel
   image-source: /images/ui/panel_lightflat
   image-border: 1
 ```
-# # 📄 10-progressbars.otui
+# # ?? 10-progressbars.otui
 
 ```text
 ProgressBar < UIProgressBar
@@ -2355,7 +2355,7 @@ HealthBar < ProgressBar
 ManaBar < ProgressBar
   background-color: #4444ff
 ```
-# # 📄 10-scrollbars.otui
+# # ?? 10-scrollbars.otui
 
 ```text
 ScrollBarSlider < UIButton
@@ -2467,7 +2467,7 @@ HorizontalScrollBar < UIScrollBar
 
   ScrollBarValueLabel
 ```
-# # 📄 10-separators.otui
+# # ?? 10-separators.otui
 
 ```text
 HorizontalSeparator < UIWidget
@@ -2484,7 +2484,7 @@ VerticalSeparator < UIWidget
   phantom: true
   focusable: false
 ```
-# # 📄 10-splitters.otui
+# # ?? 10-splitters.otui
 
 ```text
 Splitter < UISplitter
@@ -2497,7 +2497,7 @@ ResizeBorder < UIResizeBorder
   opacity: 0
   background: #ffffff44
 ```
-# # 📄 10-textedits.otui
+# # ?? 10-textedits.otui
 
 ```text
 TextEdit < UITextEdit
@@ -2523,7 +2523,7 @@ PasswordTextEdit < TextEdit
 MultilineTextEdit < TextEdit
   multiline: true
 ```
-# # 📄 10-windows.otui
+# # ?? 10-windows.otui
 
 ```text
 Window < UIWindow
@@ -2561,7 +2561,7 @@ StaticWindow < Window
 StaticMainWindow < StaticWindow
   anchors.centerIn: parent
 ```
-# # 📄 20-imageview.otui
+# # ?? 20-imageview.otui
 
 ```text
 ImageView < UIImageView
@@ -2571,7 +2571,7 @@ ImageView < UIImageView
   border-width: 2
   border-color: #000000
 ```
-# # 📄 20-popupmenus.otui
+# # ?? 20-popupmenus.otui
 
 ```text
 PopupMenuButton < UIButton
@@ -2658,7 +2658,7 @@ PopupScrollMenu < UIPopupScrollMenu
   image-border: 3
   padding: 3
 ```
-# # 📄 20-smallscrollbar.otui
+# # ?? 20-smallscrollbar.otui
 
 ```text
 SmallScrollBar < UIScrollBar
@@ -2722,7 +2722,7 @@ SmallScrollBar < UIScrollBar
     color: white
     text-align: center
 ```
-# # 📄 20-spinboxes.otui
+# # ?? 20-spinboxes.otui
 
 ```text
 SpinBox < TextEdit
@@ -2760,7 +2760,7 @@ SpinBox < TextEdit
     $pressed:
       image-clip: 0 20 10 10
 ```
-# # 📄 20-tabbars.otui
+# # ?? 20-tabbars.otui
 
 ```text
 MoveableTabBar < UIMoveableTabBar
@@ -2895,7 +2895,7 @@ TabBarVerticalButton < UIButton
   $on !checked:
     color: #F55E5E
 ```
-# # 📄 20-tables.otui
+# # ?? 20-tables.otui
 
 ```text
 Table < UITable
@@ -2961,7 +2961,7 @@ SortableTableHeaderColumn < TableHeaderColumn
   enabled: true
   focusable: true
 ```
-# # 📄 20-topmenu.otui
+# # ?? 20-topmenu.otui
 
 ```text
 TopButton < UIButton
@@ -3081,7 +3081,7 @@ TopMenu < TopMenuPanel
     anchors.right: prev.left
     visible: false
 ```
-# # 📄 30-inputboxes.otui
+# # ?? 30-inputboxes.otui
 
 ```text
 InputBoxLabel < Label
@@ -3115,7 +3115,7 @@ InputBoxWindow < MainWindow
     fit-children: true
     spacing: 2
 ```
-# # 📄 30-messageboxes.otui
+# # ?? 30-messageboxes.otui
 
 ```text
 MessageBoxLabel < Label
@@ -3134,7 +3134,7 @@ MessageBoxButton < Button
   margin-left: 10
   width: 80
 ```
-# # 📄 30-miniwindow.otui
+# # ?? 30-miniwindow.otui
 
 ```text
 MiniWindow < UIMiniWindow
@@ -3266,7 +3266,7 @@ MiniWindowContents < ScrollablePanel
 
 HeadlessMiniWindow < MiniWindow
 ```
-# # 📄 40-console.otui
+# # ?? 40-console.otui
 
 ```text
 ConsoleLabel < UITextEdit
@@ -3456,7 +3456,7 @@ ConsolePanel < Panel
     max-length: 255
     text-auto-submit: true
 ```
-# # 📄 40-container.otui
+# # ?? 40-container.otui
 
 ```text
 PageButton < Button
@@ -3533,20 +3533,20 @@ ContainerWindow < MiniWindow
       cell-size: 34 34
       flow: true
 ```
-# # 📄 40-entergame.otui
+# # ?? 40-entergame.otui
 
 ```text
 EnterGameWindow < StaticMainWindow
   !text: tr('Enter Game')
   size: 260 354
 ```
-# # 📄 40-gamebuttons.otui
+# # ?? 40-gamebuttons.otui
 
 ```text
 GameButtonsWindow < MiniWindow
   height: 26
 ```
-# # 📄 40-healthinfo.otui
+# # ?? 40-healthinfo.otui
 
 ```text
 ExperienceBar < ProgressBar
@@ -3696,7 +3696,7 @@ HealthInfoWindow < MiniWindow
     SoulLabel
     CapLabel
 ```
-# # 📄 40-inventory.otui
+# # ?? 40-inventory.otui
 
 ```text
 InventoryItem < Item
@@ -3998,7 +3998,7 @@ InventoryWindow < MiniWindow
           !text: tr('Logout')
           @onClick: modules.game_interface.tryLogout()
 ```
-# # 📄 40-minimap.otui
+# # ?? 40-minimap.otui
 
 ```text
 MinimapFlag < UIWidget
@@ -4268,7 +4268,7 @@ MinimapWindow < MiniWindow
     anchors.bottom: parent.bottom
     enabled: true
 ```
-# # 📄 40-outfitwindow.otui
+# # ?? 40-outfitwindow.otui
 
 ```text
 MiniPanel < Panel
@@ -5017,7 +5017,7 @@ OutfitWindow < MainWindow
     margin-right: 5
     @onClick: modules.game_outfit.accept()
 ```
-# # 📄 40-tilewidget.otui
+# # ?? 40-tilewidget.otui
 
 ```text
 TileWidget < UIWidget

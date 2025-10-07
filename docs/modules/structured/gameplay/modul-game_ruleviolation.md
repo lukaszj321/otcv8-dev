@@ -1,4 +1,4 @@
-﻿# ¦ Modul: `game_ruleviolation`
+?# � Modul: `game_ruleviolation`
 
 ```lua
 

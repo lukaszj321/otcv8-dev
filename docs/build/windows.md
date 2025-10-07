@@ -1,16 +1,16 @@
 # Kompilacja w systemie Windows
 
-Ten przewodnik pomoże Ci skompilować OTCv8 przy użyciu Visual Studio w systemie Windows.
+Ten przewodnik pomoze Ci skompilowac OTCv8 przy uzyciu Visual Studio w systemie Windows.
 
-## Wymagania wstępne
+## Wymagania wstepne
 
-- **Visual Studio 2019 lub nowsze**: Upewnij się, że masz zainstalowany komponent "Programowanie aplikacji klasycznych w języku C++".
+- **Visual Studio 2019 lub nowsze**: Upewnij sie, ze masz zainstalowany komponent "Programowanie aplikacji klasycznych w jezyku C++".
 - **Git**: Do klonowania repozytorium.
-- **vcpkg**: Menedżer pakietów C++ dla Windows, do zarządzania zależnościami.
+- **vcpkg**: Menedzer pakiet�w C++ dla Windows, do zarzadzania zaleznosciami.
 
-## Instalacja zależności przez vcpkg
+## Instalacja zaleznosci przez vcpkg
 
-Po zainstalowaniu vcpkg, użyj następujących poleceń, aby pobrać i zainstalować wymagane biblioteki:
+Po zainstalowaniu vcpkg, uzyj nastepujacych polecen, aby pobrac i zainstalowac wymagane biblioteki:
 
 ```bash
 vcpkg install physfs zlib glew boost-iostreams boost-asio boost-system boost-filesystem boost-variant protobuf luajit curl openal-soft```
@@ -22,8 +22,8 @@ vcpkg install physfs zlib glew boost-iostreams boost-asio boost-system boost-fil
     git clone https://github.com/lukaszj321/otcv8-dev.git
     ```
 
-2.  **Skonfiguruj projekt za pomocą CMake:**
-    Uruchom CMake-GUI, wskaż folder źródłowy i folder, w którym chcesz zbudować projekt. Kliknij "Configure" i wybierz swoją wersję Visual Studio. Będziesz musiał wskazać plik `vcpkg.cmake` w ustawieniach CMake, aby połączyć zależności.
+2.  **Skonfiguruj projekt za pomoca CMake:**
+    Uruchom CMake-GUI, wskaz folder zr�dlowy i folder, w kt�rym chcesz zbudowac projekt. Kliknij "Configure" i wybierz swoja wersje Visual Studio. Bedziesz musial wskazac plik `vcpkg.cmake` w ustawieniach CMake, aby polaczyc zaleznosci.
 
-3.  **Otwórz i skompiluj w Visual Studio:**
-    Po pomyślnej konfiguracji, kliknij "Generate", a następnie "Open Project". Visual Studio otworzy wygenerowane rozwiązanie. Teraz możesz skompilować projekt, klikając `Build > Build Solution`.
+3.  **Otw�rz i skompiluj w Visual Studio:**
+    Po pomyslnej konfiguracji, kliknij "Generate", a nastepnie "Open Project". Visual Studio otworzy wygenerowane rozwiazanie. Teraz mozesz skompilowac projekt, klikajac `Build > Build Solution`.

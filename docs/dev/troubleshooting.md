@@ -1,4 +1,4 @@
-﻿# Troub
+?# Troub
 
 l
 
@@ -29,7 +29,7 @@ l
 
 d
 
-- Brak zależności vcpkg → zainstaluj pakiety i przebuduj cache.
+- Brak zaleznosci vcpkg ? zainstaluj pakiety i przebuduj cache.
 # # A
 
 n
@@ -44,9 +44,9 @@ i
 
 d
 
-- Błąd NDK: sprawdź wersję i ścieżki SDK/NDK.
+- Blad NDK: sprawdz wersje i sciezki SDK/NDK.
 # # W
 
 S
 
-- Rozłączenia: sprawdź pingTimeout/pingInterval oraz proxy.
+- Rozlaczenia: sprawdz pingTimeout/pingInterval oraz proxy.
