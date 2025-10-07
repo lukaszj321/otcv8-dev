@@ -1,7 +1,7 @@
 ﻿# Source: luafunctions_client.cpp
 
 This guide covers global objects and functions available in the OTClient Lua environment. It’s intended to help scripters understand and use the client-side Lua API effectively.
-klawisz esc, aby anulować • klawisz enter, aby zapisać
+
 ---
 ## # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
@@ -95,11 +95,7 @@ g_keyboard:setRepeatDelay(delay)   -- Sets the key repeat delay
 g_keyboard:setRepeatInterval(interval) -- Sets the key repeat interval
 
 ---
-## # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
-This document provides a detailed overview of the core Lua functions, classes, and global managers registered in `luafunctions_client.cpp`. These functions are fundamental for controlling the client's behavior, managing the user interface, and handling events.
-
----
 ## # **1. Core Globals & Managers**
 
 These singleton objects provide access to the main components of the client application.
@@ -301,6 +297,7 @@ These are not widgets but are used extensively to define widget properties.
 ---
 
 ```
+
 
 
 
