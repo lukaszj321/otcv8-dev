@@ -1,23 +1,9 @@
-?# S
-
-e
-
-c
-
-u
-
-r
-
-i
-
-t
-
-y
+﻿# Security
 
 - HTTPS/WSS, HSTS, twardy CSP i CORS.
-- Auth: kr�tkie JWT + refresh, RBAC.
+- Auth: krótkie JWT + refresh, RBAC.
 - WS: origin check, limit bufora, ping.
-- Walidacja payload�w (Zod/JSON Schema).
+- Walidacja payloadów (Zod/JSON Schema).
 - Sekrety nigdy w repo (env w CI).
 
-Zgloszenia luk: <security@twojadomena.example>
+Zgłoszenia luk: <security@twojadomena.example>

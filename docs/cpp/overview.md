@@ -1,5 +1,5 @@
-# C+ - przeglad
+# C+ - przegląd
 
-- Struktura katalog�w
+- Struktura katalogów
 - Kluczowe klasy/entrypoints
-- Jak rozszerzac (hooki, interfejsy)
+- Jak rozszerzać (hooki, interfejsy)

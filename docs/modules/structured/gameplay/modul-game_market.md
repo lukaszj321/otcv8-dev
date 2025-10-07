@@ -1,4 +1,4 @@
-?# � Modul: `game_market`
+﻿# ¦ Modul: `game_market`
 
 ```lua
 

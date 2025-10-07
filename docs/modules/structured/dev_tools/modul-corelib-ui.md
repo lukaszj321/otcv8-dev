@@ -1,4 +1,4 @@
-?# � Modul: `corelib/ui`
+﻿# ¦ Modul: `corelib/ui`
 
 ```lua
 
@@ -1122,7 +1122,6 @@ end
 ---
 # uimessagebox.lua
 
-{% raw %}
 ```lua
 
 if not UIWindow then dofile 'uiwindow' end
@@ -1280,7 +1279,6 @@ function UIMessageBox:cancel()
 end
 
 ```
-{% endraw %}
 
 ---
 # uiminiwindow.lua

@@ -1,4 +1,4 @@
-?# � Modul: `client_locales`
+﻿# ¦ Modul: `client_locales`
 
 ```lua
 
