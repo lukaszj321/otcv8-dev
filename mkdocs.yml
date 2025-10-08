@@ -8,6 +8,7 @@ theme:
   favicon: _assets/img/favicon.png
   features:
     - navigation.instant
+    - navigation.tracking
     - navigation.tabs
     - navigation.top
   font:
@@ -15,10 +16,15 @@ theme:
     code: Fira Code
   icon:
     repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
 
 repo_url: https://github.com/lukaszj321/otcv8-dev
 repo_name: lukaszj321/otcv8-dev
 edit_uri: edit/master/docs/
+
 use_directory_urls: true
 
 extra_css:
@@ -33,19 +39,36 @@ plugins:
   - redirects
   - exclude:
       glob:
-        # WYTNĘLIŚMY wszystko poza modułami + index, żeby build był szybki
-        - api/**
-        - build/**
-        - cpp/**
-        - data/**
-        - dev/**
-        - guides/**
-        - knowledge/**
-        - lua/**
-        - tools/**
-        - ui/**
-        - modules/**/__md_backup_*/**
-        - modules/__md_backup_*/**
+        # === TNIEMY WSZYSTKO, CO JEST ciężkie albo zbędne w buildzie ===
+        - '**/__pycache__/**'
+        - '**/.DS_Store'
+        - '**/*.zip'
+        - '**/*.7z'
+        - '**/*.tar'
+        - '**/*.tar.gz'
+        - '**/*.tgz'
+        - '**/*.rar'
+        - '**/downloads/**'
+        - 'downloads/**'
+        - '**/download/**'
+        - '**/backup/**'
+        - '**/__old__/**'
+        - '**/archive/**'
+        - 'docs/modules/**/__md_backup_*.md'
+        - 'docs/modules/**/__md_backup_*/**'
+        - 'docs/modules/__md_backup_*/**'
+        # Jeśli te działy nie są Ci teraz potrzebne w menu, wytnij je z budowania (przyspiesza):
+        - 'docs/build/**'
+        - 'docs/cpp/**'
+        - 'docs/data/**'
+        - 'docs/dev/**'
+        - 'docs/guides/**'
+        - 'docs/knowledge/**'
+        - 'docs/lua/**'
+        - 'docs/tools/**'
+        - 'docs/ui/**'
+        # jeśli chcesz – możesz też tymczasowo wyłączyć ciężkie API:
+        # - 'docs/api/**'
 
 markdown_extensions:
   - toc:
@@ -64,11 +87,11 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.tilde
   - pymdownx.emoji:
-      # FIX: nowe przestrzenie nazw, zero ostrzeżeń
+      # FIX emoji – nowa przestrzeń nazw, bez „materialx.emoji”
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-# Minimalna, jasna nawigacja tylko do modułów
+# Mała, bezpieczna nawigacja — szybka i pewna
 nav:
   - Start: index.md
   - Modules:
