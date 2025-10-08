@@ -5,10 +5,18 @@ on:
     branches: [ master ]
   workflow_dispatch:
 
+# NIE anuluje trwającego runa gdy zrobisz kolejny push (eliminuje SIGTERM/143)
+concurrency:
+  group: mkdocs-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45  # <<< PODNIESIONY LIMIT CZASU
+    timeout-minutes: 60  # cały job może trwać do 60 min
 
     steps:
       - name: Checkout
@@ -18,48 +26,38 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
 
       - name: Install MkDocs + plugins
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install \
+            mkdocs \
             mkdocs-material \
             mkdocs-glightbox \
             mkdocs-macros-plugin \
             mkdocs-git-revision-date-localized-plugin \
             mkdocs-redirects
 
-      - name: Build MkDocs (with keep-alive)
+      - name: Build site
+        timeout-minutes: 55  # sam krok build ma długi limit
         run: |
-          set -o pipefail
-          # keep-alive co 30s
-          ( while true; do echo "[keep-alive] $(date -u +%H:%M:%S)"; sleep 30; done ) &
-          KEEPALIVE_PID=$!
-          # posprzątanie gdy runner wyśle SIGTERM
-          trap 'kill $KEEPALIVE_PID 2>/dev/null || true; echo "Got SIGTERM"; exit 143' TERM
+          mkdocs build --clean -v
 
-          mkdocs build --clean -v 2>&1 | tee build.log || STATUS=$?
-
-          kill $KEEPALIVE_PID 2>/dev/null || true
-
-          if [ -n "${STATUS:-}" ]; then
-            echo "::group::Last 200 lines of build.log"
-            tail -n 200 build.log || true
-            echo "::endgroup::"
-            exit $STATUS
-          fi
-
-      - name: Upload build log (always)
+      - name: Upload build log and site (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mkdocs-build-log
-          path: build.log
+          name: mkdocs-site
+          path: |
+            site
+            build.log
+          if-no-files-found: ignore
 
-      # (opcjonalnie) deploy na gh-pages, jeśli chcesz
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
+          # publish_branch: gh-pages  # odkomentuj, jeśli masz inną nazwę niż domyślna
