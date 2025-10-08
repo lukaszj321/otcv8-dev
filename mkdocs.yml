@@ -1,11 +1,13 @@
-site_name: OTCv8 Dev — Dokumentacja
-site_url: https://lukaszj321.github.io/otcv8-dev/
+site_name: "OTCv8 Dev — Dokumentacja"
+site_url: "https://lukaszj321.github.io/otcv8-dev/"
+
+repo_url: "https://github.com/lukaszj321/otcv8-dev"
+repo_name: "lukaszj321/otcv8-dev"
+edit_uri: "edit/master/docs/"
 
 theme:
   name: material
   language: pl
-  logo: _assets/img/logo.svg
-  favicon: _assets/img/favicon.png
   features:
     - navigation.instant
     - navigation.tracking
@@ -14,51 +16,31 @@ theme:
   font:
     text: Roboto
     code: Fira Code
-  icon:
-    repo: fontawesome/brands/github
+  logo: "_assets/img/logo.svg"
+  favicon: "_assets/img/favicon.png"
   palette:
     - scheme: default
       primary: blue
       accent: indigo
 
-repo_url: https://github.com/lukaszj321/otcv8-dev
-repo_name: lukaszj321/otcv8-dev
-edit_uri: edit/master/docs/
-use_directory_urls: true
+nav:
+  - Start: index.md
+  - Modules:
+    - INDEX: modules/structured/INDEX.md
+    - Core:
+      - INDEX: modules/structured/core/INDEX.md
+    - Gameplay:
+      - INDEX: modules/structured/gameplay/INDEX.md
+    - Dev tools:
+      - INDEX: modules/structured/dev_tools/INDEX.md
 
 extra_css:
-  - _assets/css/title-fix.css
-
-plugins:
-  - search
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago
-      fallback_to_build_date: true
-  - redirects
-  - exclude:
-      glob:
-        # wytnij śmieci/archiwa — MATERIAŁY MERYTORYCZNE zostają
-        - '**/downloads/**'
-        - '**/download/**'
-        - '**/backup/**'
-        - '**/__old__/**'
-        - '**/archive/**'
-        - '**/__pycache__/**'
-        - '**/.DS_Store'
-        - '**/*.zip'
-        - '**/*.7z'
-        - '**/*.tar'
-        - '**/*.tar.gz'
-        - '**/*.tgz'
-        - '**/*.rar'
-        - 'modules/**/__md_backup_*'
-        - 'modules/__md_backup_*'
+  - "_assets/css/title-fix.css"
 
 markdown_extensions:
   - toc:
       permalink: true
-      separator: '-'
+      separator: "-"
   - tables
   - fenced_code
   - admonition
@@ -72,26 +54,22 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.tilde
   - pymdownx.emoji:
+      # naprawa deprecated materialx.emoji.*
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-# Minimalne menu – reszta stron buduje się i jest dostępna po URL-ach,
-# ale nie zaśmieca nawigacji. Modules mają swoje indeksy.
-nav:
-  - Start: index.md
-  - Modules:
-      - INDEX: modules/structured/INDEX.md
-      - Core:
-          - INDEX: modules/structured/core/INDEX.md
-      - Gameplay:
-          - INDEX: modules/structured/gameplay/INDEX.md
-      - Dev tools:
-          - INDEX: modules/structured/dev_tools/INDEX.md
+plugins:
+  - material/search
+  - redirects
+  - exclude
+  # ten plugin będzie DOMYŚLNIE WYŁĄCZONY na CI, żeby build był szybszy i bez ostrzeżeń;
+  # chcesz daty commitów? ustaw w workflow ENV: ENABLE_GIT_DATES=1
+  - git-revision-date-localized:
+      enabled: !ENV [ENABLE_GIT_DATES, false]
 
-validation:
-  nav: { omitted_files: warn, not_found: warn, absolute_links: warn }
-  links: { not_found: warn, absolute_links: warn, unrecognized_links: warn, anchors: warn }
+extra:
+  search:
+    exclude:
+      - "modules/**/__md_backup_*.md"
 
-# Domyślnie:
-docs_dir: docs
-site_dir: site
+strict: false
