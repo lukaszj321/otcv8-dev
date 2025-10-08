@@ -1,13 +1,12 @@
 # OTCv8 – Dokumentacja
 
-Wybierz sekcję z nawigacji poniżej.
+Krótka nawigacja po projekcie. Lewy panel pokazuje spis treści generowany z poniższych toctree.
 
 ```{toctree}
 :caption: Start
-:maxdepth: 1
+:maxdepth: 2
 
-README
-cpp/overview
+cpp/overview.md
 ```
 
 ```{toctree}
@@ -19,17 +18,20 @@ api/**/*.md
 ```
 
 ```{toctree}
-:caption: Dane
-:maxdepth: 1
-:glob:
-
-data/**/*.md
-```
-
-```{toctree}
 :caption: Moduły (structured)
 :maxdepth: 2
 :glob:
 
 modules/structured/**/*.md
 ```
+
+```{toctree}
+:caption: Pozostałe
+:maxdepth: 2
+:glob:
+
+modules/**/*.md
+```
+
+> Uwaga: w linkach w treści używaj odniesień do plików `.md` (np. `api/index.md`),
+> wtedy Sphinx poprawnie zamieni je na `.html` lub katalogi (dla buildera `dirhtml`).
