@@ -53,7 +53,14 @@ plugins:
 # Wycisza gigantyczną listę “omitted_files” w logach
 validation:
   nav:
-    omitted_files: 0
+    omitted_files: ignore
+    not_found: warn
+    absolute_links: warn
+  links:
+    not_found: warn
+    absolute_links: warn
+    unrecognized_links: warn
+    anchors: warn
 
 nav:
   - Start: index.md
