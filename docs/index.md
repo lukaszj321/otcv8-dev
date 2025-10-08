@@ -1,37 +1,80 @@
-# OTCv8 — Dokumentacja główna
+# OTCv8 – Dokumentacja
 
-Poniższy spis treści jest generowany automatycznie z całego katalogu `docs/` (backupy i _build są pomijane w `conf.py`). Linki działają w trybie **dirhtml** (adresy kończą się na `/`).
+Poniżej **kategorie** i pełny spis treści generowany automatycznie. Wszystkie strony muszą być włączone do jednego z poniższych bloków `{toctree}` – wtedy pojawią się w bocznej nawigacji i w wyszukiwarce.
 
-> Jeśli po buildzie czegoś brakuje, sprawdź czy plik **nie zaczyna/kończy się** samotną linią `---` oraz czy ma nagłówek `# Tytuł`.
+> **Uwaga (dirhtml):** Linkuj bez `.html` (np. `/api/`, `/modules/structured/core/`).
+
+---
 
 ```{toctree}
+:caption: Wprowadzenie
 :maxdepth: 2
+
+cpp/overview
+README
+```
+
+```{toctree}
 :caption: API
+:maxdepth: 2
 :glob:
 
-api/**
+api/*
+api/**/*
 ```
 
 ```{toctree}
+:caption: Dane / Specyfikacje
 :maxdepth: 2
-:caption: Dane
 :glob:
 
-data/**
+data/*
 ```
 
 ```{toctree}
+:caption: Moduły – Bot Tools
 :maxdepth: 2
-:caption: Moduły
 :glob:
 
-modules/**
+modules/structured/bot_tools/*
 ```
 
 ```{toctree}
+:caption: Moduły – Core
 :maxdepth: 2
-:caption: C++
 :glob:
 
-cpp/**
+modules/structured/core/*
+```
+
+```{toctree}
+:caption: Moduły – Dev Tools
+:maxdepth: 2
+:glob:
+
+modules/structured/dev_tools/*
+```
+
+```{toctree}
+:caption: Moduły – Gameplay
+:maxdepth: 2
+:glob:
+
+modules/structured/gameplay/*
+```
+
+```{toctree}
+:caption: Pozostałe moduły (nie-structured)
+:maxdepth: 2
+:glob:
+
+modules/*
+```
+
+```{toctree}
+:caption: Załączniki / Inne
+:maxdepth: 1
+:glob:
+
+*/*
 ```
