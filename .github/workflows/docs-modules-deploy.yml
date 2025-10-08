@@ -4,9 +4,10 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'docs/modules/**'
       - 'mkdocs.modules.yml'
-      - '.github/workflows/docs-modules-deploy.yml'
+      - 'scripts/mkdocs_modules_hook.py'
+      - 'docs/modules/**'
+      - '.github/workflows/modules.yml'
   workflow_dispatch:
 
 permissions:
@@ -15,13 +16,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: docs-pages-modules
+  group: pages-modules
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,45 +31,28 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: pip-modules-only-${{ runner.os }}-${{ hashFiles('mkdocs.modules.yml') }}
-          restore-keys: |
-            pip-modules-only-${{ runner.os }}-
-
-      - name: Install deps (minimal)
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install \
-            "mkdocs==1.6.1" \
-            "mkdocs-material==9.5.49" \
+            mkdocs==1.6.1 \
+            mkdocs-material==9.5.49 \
+            "mkdocs-material[imaging]" \
             mkdocs-glightbox \
             mkdocs-macros-plugin \
             mkdocs-git-revision-date-localized-plugin \
             pymdown-extensions
 
-      - name: Show versions
-        run: |
-          python --version
-          mkdocs --version
-          python - << 'PY'
-          import pkgutil, sys
-          wanted = ["mkdocs", "mkdocs_material", "mkdocs_glightbox",
-                    "mkdocs_macros_plugin",
-                    "mkdocs_git_revision_date_localized_plugin",
-                    "pymdown_extensions"]
-          for w in wanted:
-              print(w, "=>", pkgutil.find_loader(w) is not None)
-          PY
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
-      - name: Build site (modules only)
+      - name: Build (modules only)
         run: |
           set -euo pipefail
+          mkdocs --version
           mkdocs build --clean -f mkdocs.modules.yml -v
 
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
