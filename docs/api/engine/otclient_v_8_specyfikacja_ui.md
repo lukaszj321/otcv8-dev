@@ -161,8 +161,12 @@
 
 <!-- Puste kotwice (placeholdery), aby linki działały od razu -->
 <div id="ch-0-1"></div>
+
 # 0.1 Cel i zakres „1:1”
-Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/OTML + Lua) oraz wymagania dla Twojego **edytora TypeScript**: jak składać okna i komponenty, aby eksport/import był **deterministyczny i w 100% zgodny** z klientem. Zawiera: reguły formatowania (STRICT OTUI), taksonomię komponentów, macierze dozwolonych dzieci, blueprinty OTUI, glue Lua, walidację, parser/serializer OTUI→AST i round‑trip (edytor ↔ plik `.otui` ↔ Lua).<div id="ch-0-2"></div>
+
+Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/OTML + Lua) oraz wymagania dla Twojego **edytora TypeScript**: jak składać okna i komponenty, aby eksport/import był **deterministyczny i w 100% zgodny** z klientem. Zawiera: reguły formatowania (STRICT OTUI), taksonomię komponentów, macierze dozwolonych dzieci, blueprinty OTUI, glue Lua, walidację, parser/serializer OTUI→AST i round‑trip (edytor ↔ plik `.otui` ↔ Lua).
+<div id="ch-0-2"></div>
+
 # 0.2 Terminologia
 - **Widget** — jednostka UI (np. Label, Button, TextList).
 - **Layout‑owner** — rodzic odpowiadający za obszary/sloty i dokowanie dzieci.
@@ -171,6 +175,7 @@ Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/
 - **AST** — abstrakcyjne drzewo składniowe w edytorze (model OTUI w TS).
 - **STRICT OTUI** — ścisły format tekstu `.otui`: LF, 2 spacje, brak tabów/komentarzy, stała kolejność atrybutów.
 - **Round‑trip** — pewny obieg: import → edycja → eksport bez utraty semantyki ani formatowania regułowego.<div id="ch-0-3"></div>
+
 # 0.3 Kryteria jakości
 - **Zgodność 1:1** z OTClientem (układ, stany, eventy, zasoby).
 - **Deterministyczny eksport** (ta sama treść wej./wyj. po serializacji, przy zachowaniu STRICT).
@@ -178,6 +183,7 @@ Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/
 - **Lokalizacja**: wszystkie stałe teksty przechodzą przez `tr()`.
 - **Zasoby**: tylko z `data/` (fonty/obrazy), kolory #AARRGGBB/`alpha`.
 - **Brak „magii”** w stanach: stany nadpisują styl, nie geometrię.<div id="ch-0-4"></div>
+
 # 0.4 Workflow
 1) **Projekt** w edytorze (drag&drop presetów; macierze pilnują dozwolonych dzieci).
 2) **Walidacja** (STRICT, anchors, wymagane elementy).
@@ -186,6 +192,7 @@ Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/
 5) **Import**: z plików `.otui` lub bloków Lua oznaczonych `@OTUI_BEGIN/END`.
 6) **Round‑trip**: zmiany w edytorze odzwierciedlone w pliku i opcjonalnym bloku Lua.
 <div id="ch-1-1"></div>
+
 # 1.1 Indent i STRICT
 - **LF**, bez BOM; **spacje** (bez tabów); **brak trailing spaces**.
 - **Wcięcia = 2 spacje** (mnożniki).
@@ -209,12 +216,15 @@ Label
 **STYL**: `background-color`, `font`, `color`, `image-*`, `text-*` (`align`, `wrap`, `auto-resize`, `offset`), `!text: tr('...')`.
 **ZACHOWANIE**: `&metaFn`, `@on...` (Enter/Escape/Click/Setup/...), stany `$on/$!on/$focus`.
 
-> Serializator **musi** zawsze emitować w tej kolejności.<div id="ch-1-3"></div>
+> Serializator **musi** zawsze emitować w tej kolejności.
+<div id="ch-1-3"></div>
 # 1.3 Teksty i i18n
 - Każdy stały tekst: `!text: tr('...')`.
 - Escaping `'` → `\'` wewnątrz `tr('...')`.
 - `text-wrap`/`text-auto-resize`/`text-align`/`text-offset` sterują renderem.
-- Nie umieszczaj surowych napisów poza `!text` (również w stanach).<div id="ch-1-4"></div>
+- Nie umieszczaj surowych napisów poza `!text` (również w stanach).
+<div id="ch-1-4"></div>
+
 # 1.4 Stany
 - `$on` / `$!on` — przełączane `widget:setOn(true/false)`.
 - `$focus` — aktywne przy fokusie klawiatury.
