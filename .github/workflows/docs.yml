@@ -1,4 +1,4 @@
-name: Build & Deploy Docs (via GitHub Actions)
+name: Build & Deploy Docs
 
 on:
   push:
@@ -10,34 +10,33 @@ permissions:
   pages: write
   id-token: write
 
+# NIE anuluje trwającego builda przy kolejnym pushu
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0   # pełna historia dla dat commitów (gdy włączysz)
 
-      # 1) Najpierw utwórz plik z zależnościami
-      - name: Write requirements
+      - name: Write requirements (for cache)
         run: |
           mkdir -p .github
           cat > .github/mkdocs-requirements.txt <<'EOF'
           mkdocs==1.6.1
           mkdocs-material==9.5.34
-          mkdocs-exclude
           mkdocs-redirects
+          mkdocs-exclude
           mkdocs-git-revision-date-localized-plugin
           EOF
 
-      # 2) Dopiero teraz setup Pythona z cache, bo plik już istnieje
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -48,24 +47,13 @@ jobs:
       - name: Install deps
         run: pip install -r .github/mkdocs-requirements.txt
 
-      - name: Build FULL (mkdocs.yml)
+      - name: Build site (mkdocs.yml)
         env:
-          GITHUB_PAGES: true
+          GITHUB_PAGES: "true"
+          ENABLE_GIT_DATES: "0"   # ustaw na "1" jeśli chcesz pokazywać daty commitów na stronach
         run: |
           mkdocs --version
-          mkdocs build --clean -v
-
-      - name: Build MODULES (mkdocs.modules.yml) if present
-        if: ${{ hashFiles('mkdocs.modules.yml') != '' }}
-        run: |
-          mkdocs build --clean -f mkdocs.modules.yml -v --site-dir site-modules
-          mkdir -p site/modules-preview
-          rsync -a site-modules/ site/modules-preview/
-
-      - name: Prepare Pages artifact
-        run: |
-          touch site/.nojekyll
-          [ -f site/index.html ] || echo "<meta http-equiv='refresh' content='0; url=./'>" > site/index.html
+          time mkdocs build --clean -v
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
