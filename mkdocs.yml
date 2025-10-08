@@ -48,9 +48,13 @@ extra:
     exclude:
       - "api/otcv8-full-api.md"
       - "modules/**/__md_backup_*.md"
+      - "knowledge/**"
+      - "modules/structured/bot_tools/**"
 
 plugins:
-  - search
+  - material/search:
+      lang: pl
+      prebuild_index: false
   - glightbox
   - macros
   - git-revision-date-localized:
