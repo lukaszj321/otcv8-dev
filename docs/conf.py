@@ -1,9 +1,15 @@
-# -- Project ---------------------------------------------------------------
+# -- Podstawy ---------------------------------------------------------------
 project = "OTCv8"
-author = "OTCv8 Dev Team"
+author = "OTCv8 Dev"
 language = "pl"
 
-# -- General ---------------------------------------------------------------
+# Od Sphinx 7 używamy root_doc zamiast master_doc
+root_doc = "index"
+
+# Wymuś traktowanie .md jako MyST Markdown
+source_suffix = {".rst": "restructuredtext", ".md": "markdown"}
+
+# -- Rozszerzenia -----------------------------------------------------------
 extensions = [
     "myst_parser",
     "sphinx_copybutton",
@@ -17,34 +23,47 @@ extensions = [
 ]
 
 myst_enable_extensions = ["colon_fence", "linkify", "attrs_block", "deflist", "tasklist"]
-myst_heading_anchors = 3  # automatyczne anchor-y do H1..H3
+# kotwice do nagłówków H1–H3 (czytelne #anchor w linkach)
+myst_heading_anchors = 3
+myst_url_schemes = ("http", "https", "mailto")
 
-templates_path = ["_templates"]
-exclude_patterns = ["**/__md_backup_*/*", "_build"]
-
-# -- HTML ------------------------------------------------------------------
+# -- Motyw / HTML -----------------------------------------------------------
 html_theme = "furo"
+html_title = "OTCv8 – Dokumentacja"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
-pygments_style = "friendly"
-pygments_dark_style = "native"
 
 html_theme_options = {
     "sidebar_hide_name": True,
-    "light_logo": "img/logo-light.svg",  # opcjonalnie, jeśli masz
-    "dark_logo": "img/logo-dark.svg",    # opcjonalnie, jeśli masz
+    "navigation_with_keys": True,
     "announcement": "📣 Dev build dokumentacji (auto z CI).",
 }
 
-# Ważne dla sitemap / kanonicznych
+# Absolutna baza dla linków kanonicznych / sitemap (GH Pages)
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
 
-# OpenGraph (ładne karty w socialach) – ustaw jeśli masz grafikę
+# OpenGraph
 ogp_site_url = html_baseurl
-ogp_image = html_baseurl + "_static/cover.png"
+# (opcjonalnie) ogp_image = html_baseurl + "_static/cover.png"
 
-# Favikony (wrzuć plik do docs/_static/)
+# Favikony (wrzuć plik do docs/_static lub usuń poniższą linijkę)
 favicons = [{"rel": "icon", "href": "favicon.svg"}]
 
-# Jeśli używasz buildera 'dirhtml' w CI (rekomendowane na GH Pages):
-sitemap_url_scheme = "{link}/"
+# -- Sitemap ----------------------------------------------------------------
+sitemap_url_scheme = "{link}"
+
+# -- Inne -------------------------------------------------------------------
+exclude_patterns = [
+    "_build", "Thumbs.db", ".DS_Store",
+    "**/__md_backup*/*", "**/__md_backup*",
+]
+
+# copybutton – usuwa prompt z kopiowanych bloków
+copybutton_prompt_is_regexp = True
+copybutton_prompt_text = r">>> |\$ "
+
+# Mermaid (wersja zgodna z wtyczką)
+mermaid_version = "10.9.1"
+
+# codeautolink – niech składa długie bloki
+codeautolink_concat_default = True
