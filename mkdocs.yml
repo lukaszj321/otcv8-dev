@@ -75,7 +75,7 @@ markdown_extensions:
 nav:
   - Start: index.md
   - Architektura:
-      - Przegląd wysokopoziomowy: guides/architecture.md
+      # USUNIĘTO: - Przegląd wysokopoziomowy: guides/architecture.md
       - Przegląd klienta (C++): architektura/client_overview.md
       - Framework (C++): architektura/framework_overview.md
       - Struktura źródeł (client): architektura/src_client.md
@@ -319,7 +319,7 @@ nav:
       - 'Moduł: Game Unjustifiedpoints Module': modules/structured/dev_tools/modul-game-unjustifiedpoints-module.md
       - 'Moduł: game_walking': modules/structured/dev_tools/modul-game-walking.md
       - 'Moduł: Game Walking Module': modules/structured/dev_tools/modul-game-walking-module.md
-      - 'Moduł: `game_bugreport`': modules/structured/dev_tools/modul-game_bugreport.md
+      - 'Moduł: `game_bugreport`': modules/structured/dev_tools/modul-game-bugreport.md
       - 'Moduł: `game_protocol`': modules/structured/dev_tools/modul-game_protocol.md
       - 'Moduł: `gamelib/ui`': modules/structured/dev_tools/modul-gamelib-ui.md
       - 'Moduł: `healthinfo.lua`': modules/structured/dev_tools/modul-healthinfo-lua.md
