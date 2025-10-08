@@ -1,47 +1,67 @@
----
+# OTCv8 Dev — Dokumentacja
 
-## title: OTCv8 — Dokumentacja
-
-# OTCv8 — Dokumentacja
-
-Wszystkie rozdziały i API zebrane w spisie treści poniżej.
-
-## API
+Poniżej pełny **spis treści** podzielony na działy. Linki generowane są automatycznie (Sphinx + MyST).
 
 ```{toctree}
+:caption: API
 :maxdepth: 2
 :titlesonly:
-:glob:
 
-api/**
+api/*.md
+api/*/*.md
 ```
 
-## Moduły (structured)
-
 ```{toctree}
+:caption: Dane (Data)
 :maxdepth: 2
 :titlesonly:
-:glob:
 
-modules/structured/**
+data/*.md
 ```
 
-## Dane
-
 ```{toctree}
+:caption: Moduły — Bot Tools
 :maxdepth: 2
 :titlesonly:
-:glob:
 
-data/**
+modules/structured/bot_tools/*.md
 ```
 
-## C++
+```{toctree}
+:caption: Moduły — Core
+:maxdepth: 2
+:titlesonly:
+
+modules/structured/core/*.md
+```
 
 ```{toctree}
+:caption: Moduły — Gameplay
+:maxdepth: 2
+:titlesonly:
+
+modules/structured/gameplay/*.md
+```
+
+```{toctree}
+:caption: Moduły — Narzędzia deweloperskie
+:maxdepth: 2
+:titlesonly:
+
+modules/structured/dev_tools/*.md
+```
+
+```{toctree}
+:caption: C++
 :maxdepth: 1
 :titlesonly:
-:glob:
 
-cpp/**
+cpp/*.md
+```
+
+```{toctree}
+:hidden:
+
+search
+genindex
 ```
