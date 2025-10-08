@@ -1,66 +1,69 @@
-# -- Project info -----------------------------------------------------
-project = "OTCv8 — Dokumentacja"
-author = "OTCv8 contributors"
+# -- Podstawy ---------------------------------------------------------------
+project = "OTCv8"
+author = "OTCv8 Dev"
+language = "pl"
 
-# -- General config ----------------------------------------------------
+# Od Sphinx 7 używamy root_doc zamiast master_doc
+root_doc = "index"
+
+# Wymuś traktowanie .md jako MyST Markdown
+source_suffix = {".rst": "restructuredtext", ".md": "markdown"}
+
+# -- Rozszerzenia -----------------------------------------------------------
 extensions = [
     "myst_parser",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.todo",
-    "sphinx.ext.duration",
-    "sphinx.ext.intersphinx",
+    "sphinx_copybutton",
+    "sphinx_design",
+    "sphinx_sitemap",
+    "sphinxext.opengraph",
+    "sphinx_favicon",
     "sphinxcontrib.mermaid",
+    "sphinx_codeautolink",
+    "hoverxref.extension",
 ]
 
-source_suffix = {
-    ".md": "myst",
-    ".rst": "restructuredtext",
-}
+myst_enable_extensions = ["colon_fence", "linkify", "attrs_block", "deflist", "tasklist"]
+# kotwice do nagłówków H1–H3 (czytelne #anchor w linkach)
+myst_heading_anchors = 3
+myst_url_schemes = ("http", "https", "mailto")
 
-# MyST config: allow extended Markdown features
-myst_enable_extensions = [
-    "attrs_block",
-    "attrs_inline",
-    "deflist",
-    "html_admonition",
-    "html_image",
-    "linkify",
-    "substitution",
-    "colon_fence",
-    "tasklist",
-    "smartquotes",
-]
-
-# Create anchors for all headings so you can link like (#some-heading)
-myst_heading_anchors = 6
-
-# Let fenced ```mermaid blocks render as diagrams (no content changes needed)
-myst_fence_as_directive = {
-    "mermaid": "mermaid",
-}
-
-# Optional: automatically create :ref: labels for section titles
-autosectionlabel_prefix_document = True
-
-# TEMP: keep CI logs cleaner while we migrate anchors/labels
-suppress_warnings = [
-    "myst.xref_missing",
-]
-
-# -- HTML theme --------------------------------------------------------
+# -- Motyw / HTML -----------------------------------------------------------
 html_theme = "furo"
+html_title = "OTCv8 – Dokumentacja"
 html_static_path = ["_static"]
+html_css_files = ["custom.css"]
 
-# -- Pygments/lexers ---------------------------------------------------
-# Map custom fences to existing lexers so '```otui' and '```otml' don't warn.
-def setup(app):
-    try:
-        from pygments.lexers.data import IniLexer, YamlLexer
-        from pygments.lexers.special import TextLexer
-        app.add_lexer("otui", IniLexer())
-        app.add_lexer("otml", YamlLexer())
-        # Fallback if someone uses ```mermaid without the extension picking it up
-        app.add_lexer("mermaid", TextLexer())
-    except Exception as e:
-        # Never fail the build because of missing lexers in CI
-        print(f"[conf.py] lexer setup skipped: {e}")
+html_theme_options = {
+    "sidebar_hide_name": True,
+    "navigation_with_keys": True,
+    "announcement": "📣 Dev build dokumentacji (auto z CI).",
+}
+
+# Absolutna baza dla linków kanonicznych / sitemap (GH Pages)
+html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
+
+# OpenGraph
+ogp_site_url = html_baseurl
+# (opcjonalnie) ogp_image = html_baseurl + "_static/cover.png"
+
+# Favikony (wrzuć plik do docs/_static lub usuń poniższą linijkę)
+favicons = [{"rel": "icon", "href": "favicon.svg"}]
+
+# -- Sitemap ----------------------------------------------------------------
+sitemap_url_scheme = "{link}"
+
+# -- Inne -------------------------------------------------------------------
+exclude_patterns = [
+    "_build", "Thumbs.db", ".DS_Store",
+    "**/__md_backup*/*", "**/__md_backup*",
+]
+
+# copybutton – usuwa prompt z kopiowanych bloków
+copybutton_prompt_is_regexp = True
+copybutton_prompt_text = r">>> |\$ "
+
+# Mermaid (wersja zgodna z wtyczką)
+mermaid_version = "10.9.1"
+
+# codeautolink – niech składa długie bloki
+codeautolink_concat_default = True
