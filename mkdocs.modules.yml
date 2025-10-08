@@ -1,4 +1,3 @@
-# mkdocs.modules.yml
 site_name: "OTCv8 Dev — Modules only"
 site_url: "https://lukaszj321.github.io/otcv8-dev/"
 
@@ -9,7 +8,7 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.sections
-  favicon: assets/images/favicon.png
+  # favicon: _assets/img/favicon.png   # <- jeśli ten plik istnieje, możesz odkomentować
 
 nav:
   - "Start (Modules)": "modules/structured/INDEX.md"
@@ -21,7 +20,9 @@ nav:
       - "INDEX": "modules/structured/dev_tools/INDEX.md"
 
 markdown_extensions:
-  - toc
+  - toc:
+      permalink: true
+      separator: "-"
   - tables
   - fenced_code
   - admonition
@@ -34,15 +35,9 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.critic
   - pymdownx.tilde
-  - pymdownx.emoji
-
-mdx_configs:
-  toc:
-    permalink: true
-    separator: "-"
-  pymdownx.emoji:
-    emoji_index: !!python/name:pymdownx.emoji.twemoji
-    emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
 
 plugins:
   - material/search
