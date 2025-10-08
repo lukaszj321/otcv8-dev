@@ -1,48 +1,31 @@
-# OTCv8 — Dokumentacja (pełny spis treści)
+# OTCv8 — Dokumentacja główna
 
-Pełny, **automatyczny spis treści** całej dokumentacji z folderu `docs/`.
-Jeśli jakiejś strony nie widać: sprawdź, czy plik ma nagłówek `# Tytuł` oraz czy nie zaczyna/kończy się samą linią `---`.
+Poniższy spis treści jest generowany automatycznie z całego katalogu `docs/` (backupy i _build są pomijane w `conf.py`). Linki działają w trybie **dirhtml** (adresy kończą się na `/`).
 
-> W menu poniżej sekcje rozwijają się do poziomu 2–3; kliknięcie w dział otwiera listę wszystkich podstron.
-
----
+> Jeśli po buildzie czegoś brakuje, sprawdź czy plik **nie zaczyna/kończy się** samotną linią `---` oraz czy ma nagłówek `# Tytuł`.
 
 ```{toctree}
 :maxdepth: 2
-:caption: Start
-
-README
-modules/structured/README
-```
-
-```{toctree}
-:maxdepth: 3
 :caption: API
 :glob:
 
-api/*.md
-api/*/*.md
-api/*/*/*.md
-```
-
-```{toctree}
-:maxdepth: 3
-:caption: Dane / Specyfikacje
-:glob:
-
-data/*.md
-data/*/*.md
+api/**
 ```
 
 ```{toctree}
 :maxdepth: 2
-:caption: Moduły (wszystkie)
+:caption: Dane
 :glob:
 
-modules/*.md
-modules/*/*.md
-modules/structured/*.md
-modules/structured/*/*.md
+data/**
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Moduły
+:glob:
+
+modules/**
 ```
 
 ```{toctree}
@@ -50,13 +33,5 @@ modules/structured/*/*.md
 :caption: C++
 :glob:
 
-cpp/*.md
-```
-
-```{toctree}
-:maxdepth: 1
-:caption: Pozostałe
-:glob:
-
-*.md
+cpp/**
 ```
