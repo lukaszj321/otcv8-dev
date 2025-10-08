@@ -1,7 +1,6 @@
+# mkdocs.modules.yml
 site_name: "OTCv8 Dev — Modules only"
 site_url: "https://lukaszj321.github.io/otcv8-dev/"
-use_directory_urls: true
-strict: false
 
 theme:
   name: material
@@ -10,22 +9,19 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.sections
-  # minimalnie, bez logo/favicon (nie szukamy assetów spoza modules)
+  favicon: assets/images/favicon.png
 
-plugins:
-  - search:
-      lang: en  # en = na pewno wspierane i lekkie
-  - glightbox
-  - macros
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago
-      fallback_to_build_date: true
+nav:
+  - "Start (Modules)": "modules/structured/INDEX.md"
+  - "Core":
+      - "INDEX": "modules/structured/core/INDEX.md"
+  - "Gameplay":
+      - "INDEX": "modules/structured/gameplay/INDEX.md"
+  - "Dev tools":
+      - "INDEX": "modules/structured/dev_tools/INDEX.md"
 
 markdown_extensions:
-  - toc:
-      permalink: true
-      separator: "-"
+  - toc
   - tables
   - fenced_code
   - admonition
@@ -38,35 +34,21 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.critic
   - pymdownx.tilde
-  # emoji działające z MkDocs 1.6 + pymdown-extensions 10.x
-  - pymdownx.emoji:
-      emoji_index: !!python/name:pymdownx.emoji.twemoji
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.emoji
 
-# NAV tylko po modules/** — minimum, by było szybkie.
-# Dodaj/usuń linie w zależności od tego, które pliki rzeczywiście masz.
-nav:
-  - "Start (Modules)": "modules/structured/INDEX.md"
-  - "Core":
-      - "INDEX": "modules/structured/core/INDEX.md"
-  - "Gameplay":
-      - "INDEX": "modules/structured/gameplay/INDEX.md"
-  - "Dev tools":
-      - "INDEX": "modules/structured/dev_tools/INDEX.md"
+mdx_configs:
+  toc:
+    permalink: true
+    separator: "-"
+  pymdownx.emoji:
+    emoji_index: !!python/name:pymdownx.emoji.twemoji
+    emoji_generator: !!python/name:pymdownx.emoji.to_svg
 
-# MkDocs i tak przeczyta wszystkie pliki w docs/, więc dodatkowo
-# obetniemy wejścia builda do samego modules/**, przenosząc docs_dir.
-# Dzięki temu NIE skanuje api/, knowledge/, itd.
-docs_dir: docs
+plugins:
+  - material/search
+  - glightbox
+  - macros
+  - git-revision-date-localized
 
-# Twardo odfiltrujemy wszystko poza modules/**:
 hooks:
-  # Lekki hook – ustawia dynamiczną listę plików wyłącznie z modules/**
-  - |
-    def on_files(files, config):
-        keep = []
-        for f in files:
-            if f.src_uri.startswith("modules/"):
-                keep.append(f)
-        files._files = keep
-        return files
+  - scripts/mkdocs_modules_hook.py
