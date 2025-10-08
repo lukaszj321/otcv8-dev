@@ -68,7 +68,6 @@ markdown_extensions:
 nav:
   - "Start": "index.md"
   - "Architektura":
-      - "Przegląd wysokopoziomowy": "guides/architecture.md"
       - "Przegląd klienta (C++)": "architektura/client_overview.md"
       - "Framework (C++)": "architektura/framework_overview.md"
       - "Struktura źródeł (client)": "architektura/src_client.md"
@@ -235,8 +234,6 @@ nav:
           - "Moduł: `hotkeys_manager.lua`": "modules/structured/gameplay/modul-hotkeys-manager-lua.md"
           - "Moduł: `inventory.lua`": "modules/structured/gameplay/modul-inventory-lua.md"
           - "Moduł: `minimap.lua`": "modules/structured/gameplay/modul-minimap-lua.md"
-          - "Moduł: Modules Game 1": "modules/structured/gameplay/modul-modules-game-1.md"
-          - "Moduł: Modules Game 2": "modules/structured/gameplay/modul-modules-game-2.md"
           - "Moduł: `outfit.lua`": "modules/structured/gameplay/modul-outfit-lua.md"
           - "Moduł: `shaders.lua`": "modules/structured/gameplay/modul-shaders-lua.md"
           - "Moduł: `skills.lua`": "modules/structured/gameplay/modul-skills-lua.md"
