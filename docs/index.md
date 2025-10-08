@@ -1,42 +1,35 @@
 # OTCv8 – Dokumentacja
 
-Poniżej znajdziesz spis treści automatycznie budowany z katalogów projektu.
+Wybierz sekcję z nawigacji poniżej.
 
 ```{toctree}
-:maxdepth: 2
-:caption: Przegląd
-:titlesonly:
+:caption: Start
+:maxdepth: 1
 
+README
 cpp/overview
 ```
 
 ```{toctree}
-:maxdepth: 2
-:caption: Dane
-:titlesonly:
-:glob:
-
-data/*
-```
-
-```{toctree}
-:maxdepth: 2
 :caption: API
-:titlesonly:
+:maxdepth: 2
 :glob:
 
-api/*
-api/*/*
-api/*/*/*
+api/**/*.md
 ```
 
 ```{toctree}
-:maxdepth: 2
-:caption: Moduły (structured)
-:titlesonly:
+:caption: Dane
+:maxdepth: 1
 :glob:
 
-modules/structured/*
-modules/structured/*/*
-modules/structured/*/*/*
+data/**/*.md
+```
+
+```{toctree}
+:caption: Moduły (structured)
+:maxdepth: 2
+:glob:
+
+modules/structured/**/*.md
 ```
