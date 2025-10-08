@@ -1,69 +1,76 @@
-# -- Project information -----------------------------------------------------
+# conf.py
+import os
+import sys
+from datetime import datetime
+
+# -- Podstawy projektu ---------------------------------------------------------
 project = "OTCv8 — Dokumentacja"
 author = "OTCv8"
+copyright = f"{datetime.now():%Y}, {author}"
+
 language = "pl"
 
-# Plik startowy (masz index.md)
-root_doc = "index"
-
-# -- General configuration ---------------------------------------------------
+# -- Rozszerzenia --------------------------------------------------------------
 extensions = [
     "myst_parser",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
+    "sphinx_copybutton",
+    "sphinx_design",
+    "sphinx_sitemap",
 ]
 
-# autosectionlabel: unikalne etykiety z prefiksem ścieżki pliku
+# anchor-y do nagłówków Markdown, rozszerzenia MyST
+myst_enable_extensions = [
+    "colon_fence",
+    "deflist",
+    "fieldlist",
+    "attrs_block",
+    "attrs_inline",
+    "linkify",
+    "substitution",
+    "tasklist",
+]
+myst_heading_anchors = 4
+
+# autosectionlabel: prefiksuj ścieżką pliku, żeby uniknąć duplikatów
 autosectionlabel_prefix_document = True
-autosectionlabel_maxdepth = 10
+
+# -- Wejście / wykluczenia ----------------------------------------------------
+source_suffix = {".rst": "restructuredtext", ".md": "markdown"}
 
 templates_path = ["_templates"]
-
-# Wyklucz śmieci/backupy z budowania (w tym __md_backup_YYYYMMDD_HHMMSS)
 exclude_patterns = [
     "_build",
     "Thumbs.db",
     ".DS_Store",
-    "**/.ipynb_checkpoints",
-    "**/__md_backup_*",
+    # kopie zapasowe /md_backup/ — powodowały duplikaty etykiet
     "**/__md_backup_*/*",
+    "docs/**/__md_backup_*/*",
 ]
 
-# Obsługa .md i .rst
-source_suffix = {
-    ".md": "markdown",
-    ".rst": "restructuredtext",
+# -- Motyw i HTML --------------------------------------------------------------
+html_theme = "furo"
+html_title = project
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]  # opcjonalnie, jeśli masz
+
+# Ustaw baseurl (wymagane m.in. dla sitemap)
+html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
+
+html_theme_options = {
+    "navigation_with_keys": True,
+    # możesz dodać kolory / logotyp później
 }
 
-# MyST: przydatne dodatki i kotwice H1–H6
-myst_enable_extensions = [
-    "attrs",
-    "colon_fence",
-    "deflist",
-    "fieldlist",
-    "linkify",
-    "smartquotes",
-    "substitution",
-    "tasklist",
-    "replacements",
-]
-myst_heading_anchors = 6
+# -- Sitemap -------------------------------------------------------------------
+sitemap_url_scheme = "{link}"
 
-# Ucisz niekrytyczne ostrzeżenia (masz ich dużo w zewn. plikach)
-suppress_warnings = [
-    "myst.xref_missing",       # brakujące odnośniki/kotwice
-    "misc.highlighting_failure",  # problemy z Pygments (np. strzałka → w kodzie)
-    "autosectionlabel.*",      # duplikaty etykiet "Funkcje"/"Opis" itd.
-]
+# -- Ostrzeżenia do przytłumienia (opcjonalnie) --------------------------------
+# Jeżeli wciąż łapiesz duplikaty odniesień z legacy-linków:
+# suppress_warnings = ["ref.ref"]
 
-# Fallback lexery, żeby nie warczało na nieznane języki bloków kodu
-from sphinx.highlighting import lexers
-from pygments.lexers.special import TextLexer
-lexers["otui"] = TextLexer()
-lexers["otml"] = TextLexer()
-lexers["mermaid"] = TextLexer()
-
-# -- HTML --------------------------------------------------------------------
-html_theme = "alabaster"  # wbudowany, bez zależności
-html_static_path = ["_static"]
-html_title = "OTCv8 — Dokumentacja"
+# -- Drobiazgi -----------------------------------------------------------------
+# Jeśli chcesz ładniejsze kopie kodu bez promptów:
+copybutton_prompt_text = r">>> |\\$ |In \\[\\d\\]: |\\.\\.\\. "
+copybutton_prompt_is_regexp = True
