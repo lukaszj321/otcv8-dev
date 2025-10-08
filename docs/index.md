@@ -1,138 +1,46 @@
-# OTCv8 — Dokumentacja
+# OTCv8 — dokumentacja
 
-Witaj w dokumentacji **OTCv8**. Poniżej najważniejsze działy:
-
-* **Architektura** – przegląd klienta, frameworka i struktury źródeł.
-* **Moduły** – opis modułów gry (część 1 i 2), rdzeń i dodatki.
-* **API** – funkcje Lua klienta, specyfikacje silnika, presetów i walidatora.
-* **Dane** – przewodnik po strukturach danych.
-* **Przewodniki** – architektura (legacy), wprowadzenie do modułów, WebSocket.
-* **Budowanie** – instrukcje dla Windows, Linux, Android.
-* **Dev** – FAQ, contributing, glosariusz, wydania, security, testy, troubleshooting.
-* **Wiedza** – materiały referencyjne (IDE, lint, AST/JSON schema, QA, Studio, V-Bot).
-* **Lua** – API ogólne i styl pisania.
-* **UI** – przewodnik OTUI.
-* **Narzędzia** – przegląd narzędzi.
-
-> Jeśli szukasz szybkiego startu, przejdź do:
-> **Architektura → *Przegląd klienta*** lub **Budowanie → *Windows***.
+Witaj! Poniżej szybkie skróty do głównych obszarów. Pełny spis treści znajdziesz w panelu po lewej.
 
 ```{toctree}
-:caption: Moduły
-:maxdepth: 2
-:titlesonly:
 :hidden:
+:maxdepth: 2
+:caption: Dokumentacja
 
-modules/structured/INDEX
-modules/structured/core/INDEX
-modules/structured/gameplay/INDEX
-modules/structured/dev_tools/INDEX
+api/index
+data/index
+modules/structured/index
+cpp/index
 ```
 
-```{toctree}
-:caption: Architektura
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
+:::{grid} 2
+:gutter: 2
 
-architektura/*
-```
+:::{card}
+:link: api/index
+:header: API / Engine
+Szczegóły interfejsów, specyfikacje i UI klienta.
+:::
 
-```{toctree}
-:caption: API – Engine
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
+:::{card}
+:link: data/index
+:header: Dane
+Struktury danych, opisy pól i konwencje.
+:::
 
-api/engine/*
-```
+:::{card}
+:link: modules/structured/index
+:header: Moduły
+Core, gameplay, dev‑tools, bot‑tools — dokumentacja modułowa.
+:::
 
-```{toctree}
-:caption: API – Lua
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
+:::{card}
+:link: cpp/index
+:header: C++ / Overview
+Przegląd części C++ oraz przewodniki.
+:::
+:::
 
-api/lua/*
-api/otcv8-full-api
-```
-
-```{toctree}
-:caption: Dane
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-data/Data_Documentation
-```
-
-```{toctree}
-:caption: Przewodniki
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
-
-guides/*
-```
-
-```{toctree}
-:caption: Budowanie
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
-
-build/*
-```
-
-```{toctree}
-:caption: Dev
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
-
-dev/*
-```
-
-```{toctree}
-:caption: Wiedza
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
-
-knowledge/*
-```
-
-```{toctree}
-:caption: Lua
-:maxdepth: 2
-:titlesonly:
-:hidden:
-:glob:
-
-lua/*
-```
-
-```{toctree}
-:caption: UI
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-ui/otui
-```
-
-```{toctree}
-:caption: Narzędzia
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-tools/tools
+```{admonition} Wskazówka
+Użyj pola wyszukiwania (góra po prawej), aby szybko znaleźć klasę, funkcję lub moduł.
 ```
