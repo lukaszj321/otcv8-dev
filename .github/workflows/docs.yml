@@ -6,7 +6,6 @@ on:
     paths:
       - 'mkdocs.yml'
       - 'docs/**'
-      - 'scripts/**'
       - '.github/workflows/docs.yml'
   workflow_dispatch:
 
@@ -36,7 +35,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ runner.os }}-${{ hashFiles('**/requirements*.txt', 'mkdocs.yml') }}
+          key: pip-${{ runner.os }}-${{ hashFiles('mkdocs.yml') }}
           restore-keys: |
             pip-${{ runner.os }}-
 
@@ -51,6 +50,7 @@ jobs:
             mkdocs-macros-plugin \
             mkdocs-git-revision-date-localized-plugin \
             mkdocs-redirects \
+            mkdocs-exclude \
             "pymdown-extensions==10.8.1"
 
       - name: Configure GitHub Pages
@@ -58,6 +58,8 @@ jobs:
 
       - name: Build site (keep-alive + log)
         shell: bash
+        env:
+          GITHUB_PAGES: true
         run: |
           ( while true; do echo "[keep-alive] $(date -u +%H:%M:%S)"; sleep 30; done ) &
           KEEPALIVE_PID=$!
