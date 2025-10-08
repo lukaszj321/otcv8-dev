@@ -8,7 +8,6 @@ theme:
   favicon: _assets/img/favicon.png
   features:
     - navigation.instant
-    - navigation.tracking
     - navigation.tabs
     - navigation.top
   font:
@@ -16,10 +15,6 @@ theme:
     code: Fira Code
   icon:
     repo: fontawesome/brands/github
-  palette:
-    - scheme: default
-      primary: blue
-      accent: indigo
 
 repo_url: https://github.com/lukaszj321/otcv8-dev
 repo_name: lukaszj321/otcv8-dev
@@ -31,8 +26,6 @@ extra_css:
 
 plugins:
   - search
-  - glightbox
-  - macros
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
@@ -40,6 +33,17 @@ plugins:
   - redirects
   - exclude:
       glob:
+        # WYTNĘLIŚMY wszystko poza modułami + index, żeby build był szybki
+        - api/**
+        - build/**
+        - cpp/**
+        - data/**
+        - dev/**
+        - guides/**
+        - knowledge/**
+        - lua/**
+        - tools/**
+        - ui/**
         - modules/**/__md_backup_*/**
         - modules/__md_backup_*/**
 
@@ -60,13 +64,21 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.tilde
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      # FIX: nowe przestrzenie nazw, zero ostrzeżeń
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-extra:
-  search:
-    exclude:
-      - modules/**/__md_backup_*.md
+# Minimalna, jasna nawigacja tylko do modułów
+nav:
+  - Start: index.md
+  - Modules:
+      - INDEX: modules/structured/INDEX.md
+      - Core:
+          - INDEX: modules/structured/core/INDEX.md
+      - Gameplay:
+          - INDEX: modules/structured/gameplay/INDEX.md
+      - Dev tools:
+          - INDEX: modules/structured/dev_tools/INDEX.md
 
 validation:
   nav:
@@ -78,5 +90,3 @@ validation:
     absolute_links: warn
     unrecognized_links: warn
     anchors: warn
-
-# UWAGA: brak sekcji "nav" – MkDocs sam wygeneruje menu na podstawie /docs
