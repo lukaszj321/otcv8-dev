@@ -312,7 +312,9 @@ extra_css:
 extra_javascript: []
 
 markdown_extensions:
-  - toc
+  - toc:
+      permalink: true
+      separator: '-'
   - tables
   - fenced_code
   - admonition
@@ -326,10 +328,6 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.tilde
   - pymdownx.emoji
-mdx_configs:
-  toc:
-    permalink: true
-    separator: "-"
 
 strict: false
 
