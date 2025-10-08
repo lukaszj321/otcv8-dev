@@ -1,63 +1,89 @@
-name: Build & Deploy MkDocs
+# .github/workflows/docs.yml
+name: Build & Deploy docs
 
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'mkdocs.yml'
+      - 'docs/**'
+      - 'scripts/**'
+      - '.github/workflows/docs.yml'
   workflow_dispatch:
 
-# NIE anuluje trwającego runa gdy zrobisz kolejny push (eliminuje SIGTERM/143)
-concurrency:
-  group: mkdocs-${{ github.ref }}
-  cancel-in-progress: false
-
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: docs-pages
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # cały job może trwać do 60 min
-
+    timeout-minutes: 45
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
         with:
-          python-version: "3.11"
-          cache: "pip"
+          fetch-depth: 0
 
-      - name: Install MkDocs + plugins
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install \
-            mkdocs \
-            mkdocs-material \
+            mkdocs==1.6.1 \
+            mkdocs-material==9.5.49 \
+            "mkdocs-material[imaging]" \
             mkdocs-glightbox \
             mkdocs-macros-plugin \
             mkdocs-git-revision-date-localized-plugin \
-            mkdocs-redirects
+            mkdocs-redirects \
+            pymdown-extensions
 
-      - name: Build site
-        timeout-minutes: 55  # sam krok build ma długi limit
+      # - name: Generate mkdocs.yml
+      #   run: python scripts/generate_mkdocs.py
+
+      - name: Build site (keep-alive + log)
+        shell: bash
         run: |
-          mkdocs build --clean -v
+          # utrzymuj aktywność, żeby Actions nie ubił kroku za "ciszę"
+          ( while true; do echo "[keep-alive] $(date -u +%H:%M:%S)"; sleep 30; done ) &
+          KEEPALIVE_PID=$!
+          set -o pipefail
+          mkdocs build --clean -v 2>&1 | tee build.log || STATUS=$?
+          kill $KEEPALIVE_PID || true
+          if [ -n "$STATUS" ]; then
+            echo "::group::Last 200 lines of build.log"
+            tail -n 200 build.log || true
+            echo "::endgroup::"
+            exit $STATUS
+          fi
 
-      - name: Upload build log and site (always)
-        if: always()
+      - name: Upload build log (on failure)
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: mkdocs-site
-          path: |
-            site
-            build.log
-          if-no-files-found: ignore
+          name: mkdocs-build-log
+          path: build.log
 
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          # publish_branch: gh-pages  # odkomentuj, jeśli masz inną nazwę niż domyślna
+          path: ./site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
