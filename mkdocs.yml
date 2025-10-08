@@ -43,18 +43,13 @@ theme:
 extra_css:
   - "_assets/css/title-fix.css"
 
-extra:
-  search:
-    exclude:
-      - "api/otcv8-full-api.md"
-      - "modules/**/__md_backup_*.md"
-      - "knowledge/**"
-      - "modules/structured/bot_tools/**"
-
 plugins:
-  - material/search:
-      lang: pl
-      prebuild_index: false
+  # Wbudowana wyszukiwarka (stabilniej RAM)
+  - search:
+      # lunr nie ma "pl" w Twojej wersji – zostaw en, inaczej i tak spadnie do en
+      lang: en
+      separator: '[\s\-]+'
+
   - glightbox
   - macros
   - git-revision-date-localized:
@@ -68,6 +63,21 @@ plugins:
         modules/modules_game_1.md: modules/structured/gameplay/INDEX.md
         modules/modules_game_2.md: modules/structured/gameplay/INDEX.md
         modules/modules_misc.md: modules/structured/dev_tools/INDEX.md
+
+  # >>> Klucz: fizycznie NIE buduj ciężkich / pomocniczych plików
+  - exclude:
+      glob:
+        - "api/otcv8-full-api.md"                 # gigant – był w logu na starcie
+        - "modules/**/__md_backup_*/*"            # backupy
+        - "modules/__md_backup_*/*"               # backupy
+        - "knowledge/**"                          # duże notatki
+        - "modules/structured/bot_tools/**"       # dużo plików
+        - "build/**"
+        - "data/**"
+        - "tools/tools.md"
+        - "modules/structured/INDEX.md"
+        - "modules/structured/README.md"
+        - "lua/api.md"
 
 markdown_extensions:
   - toc:
@@ -114,7 +124,7 @@ nav:
       - "Lua":
           - "Style guide": "lua/style-guide.md"
           - "Referencja klienta": "api/lua/luafunctions_client.md"
-          - "Zbiorcze": "api/otcv8-full-api.md"
+          - "Zbiorcze": "api/otcv8-full-api.md"   # UWAGA: w nav zostawione, ale exclude plugin i tak go nie zbuduje
   - "Moduły":
       - "Core":
           - "INDEX": "modules/structured/core/INDEX.md"
@@ -197,85 +207,85 @@ nav:
           - "Moduł: `thing.lua`": "modules/structured/core/modul-thing-lua.md"
           - "Moduł: `topmenu.lua`": "modules/structured/core/modul-topmenu-lua.md"
           - "Moduł: `util.lua`": "modules/structured/core/modul-util-lua.md"
-      - "Gameplay":
-          - "INDEX": "modules/structured/gameplay/INDEX.md"
-          - "Moduł: `actionbar.lua`": "modules/structured/gameplay/modul-actionbar-lua.md"
-          - "Moduł: `buttons.lua`": "modules/structured/gameplay/modul-buttons-lua.md"
-          - "Moduł: `console.lua`": "modules/structured/gameplay/modul-console-lua.md"
-          - "Moduł: `cooldown.lua`": "modules/structured/gameplay/modul-cooldown-lua.md"
-          - "Moduł: `features.lua`": "modules/structured/gameplay/modul-features-lua.md"
-          - "Moduł: Game Actionbar Module": "modules/structured/gameplay/modul-game-actionbar-module.md"
-          - "Moduł: game_actionbar": "modules/structured/gameplay/modul-game-actionbar.md"
-          - "Moduł: | Moduł: `game_battle`": "modules/structured/gameplay/modul-game-battle.md"
-          - "Moduł: Game Buttons Module": "modules/structured/gameplay/modul-game-buttons-module.md"
-          - "Moduł: game_buttons": "modules/structured/gameplay/modul-game-buttons.md"
-          - "Moduł: Game Console Module": "modules/structured/gameplay/modul-game-console-module.md"
-          - "Moduł: game_console": "modules/structured/gameplay/modul-game-console.md"
-          - "Moduł: | Moduł: `game_containers`": "modules/structured/gameplay/modul-game-containers.md"
-          - "Moduł: Game Cooldown Module": "modules/structured/gameplay/modul-game-cooldown-module.md"
-          - "Moduł: game_cooldown": "modules/structured/gameplay/modul-game-cooldown.md"
-          - "Moduł: Game Features Module": "modules/structured/gameplay/modul-game-features-module.md"
-          - "Moduł: game_features": "modules/structured/gameplay/modul-game-features.md"
-          - "Moduł: | Moduł: `game_healthinfo`": "modules/structured/gameplay/modul-game-healthinfo.md"
-          - "Moduł: Game Hotkeys Module": "modules/structured/gameplay/modul-game-hotkeys-module.md"
-          - "Moduł: game_hotkeys": "modules/structured/gameplay/modul-game-hotkeys.md"
-          - "Moduł: | Moduł: `game_imbuing`": "modules/structured/gameplay/modul-game-imbuing.md"
-          - "Moduł: Game Interface Module": "modules/structured/gameplay/modul-game-interface-module.md"
-          - "Moduł: | Moduł: `game_interface/styles`": "modules/structured/gameplay/modul-game-interface-styles.md"
-          - "Moduł: | Moduł: `game_interface/widgets`": "modules/structured/gameplay/modul-game-interface-widgets.md"
-          - "Moduł: game_interface": "modules/structured/gameplay/modul-game-interface.md"
-          - "Moduł: Game Inventory Module": "modules/structured/gameplay/modul-game-inventory-module.md"
-          - "Moduł: game_inventory": "modules/structured/gameplay/modul-game-inventory.md"
-          - "Moduł: | Moduł: `game_itemselector`": "modules/structured/gameplay/modul-game-itemselector.md"
-          - "Moduł: | Moduł: `game_market/ui/general`": "modules/structured/gameplay/modul-game-market-ui-general.md"
-          - "Moduł: | Moduł: `game_market/ui/marketoffers`": "modules/structured/gameplay/modul-game-market-ui-marketoffers.md"
-          - "Moduł: | Moduł: `game_market/ui/myoffers`": "modules/structured/gameplay/modul-game-market-ui-myoffers.md"
-          - "Moduł: | Moduł: `game_market/ui`": "modules/structured/gameplay/modul-game-market-ui.md"
-          - "Moduł: | Moduł: `game_market`": "modules/structured/gameplay/modul-game-market.md"
-          - "Moduł: Game Minimap Module": "modules/structured/gameplay/modul-game-minimap-module.md"
-          - "Moduł: game_minimap": "modules/structured/gameplay/modul-game-minimap.md"
-          - "Moduł: | Moduł: `game_modaldialog`": "modules/structured/gameplay/modul-game-modaldialog.md"
-          - "Moduł: | Moduł: `game_npctrade`": "modules/structured/gameplay/modul-game-npctrade.md"
-          - "Moduł: Game Outfit Module": "modules/structured/gameplay/modul-game-outfit-module.md"
-          - "Moduł: game_outfit": "modules/structured/gameplay/modul-game-outfit.md"
-          - "Moduł: | Moduł: `game_playerdeath`": "modules/structured/gameplay/modul-game-playerdeath.md"
-          - "Moduł: | Moduł: `game_playermount`": "modules/structured/gameplay/modul-game-playermount.md"
-          - "Moduł: | Moduł: `game_playertrade`": "modules/structured/gameplay/modul-game-playertrade.md"
-          - "Moduł: | Moduł: `game_prey`": "modules/structured/gameplay/modul-game-prey.md"
-          - "Moduł: | Moduł: `game_questlog`": "modules/structured/gameplay/modul-game-questlog.md"
-          - "Moduł: | Moduł: `game_ruleviolation`": "modules/structured/gameplay/modul-game-ruleviolation.md"
-          - "Moduł: Game Shaders Module": "modules/structured/gameplay/modul-game-shaders-module.md"
-          - "Moduł: game_shaders": "modules/structured/gameplay/modul-game-shaders.md"
-          - "Moduł: | Moduł: `game_shop`": "modules/structured/gameplay/modul-game-shop.md"
-          - "Moduł: Game Skills Module": "modules/structured/gameplay/modul-game-skills-module.md"
-          - "Moduł: game_skills": "modules/structured/gameplay/modul-game-skills.md"
-          - "Moduł: Game Spelllist Module": "modules/structured/gameplay/modul-game-spelllist-module.md"
-          - "Moduł: game_spelllist": "modules/structured/gameplay/modul-game-spelllist.md"
-          - "Moduł: Game Stats Module": "modules/structured/gameplay/modul-game-stats-module.md"
-          - "Moduł: game_stats": "modules/structured/gameplay/modul-game-stats.md"
-          - "Moduł: Game Textmessage Module": "modules/structured/gameplay/modul-game-textmessage-module.md"
-          - "Moduł: game_textmessage": "modules/structured/gameplay/modul-game-textmessage.md"
-          - "Moduł: | Moduł: `game_textwindow`": "modules/structured/gameplay/modul-game-textwindow.md"
-          - "Moduł: Game Things Module": "modules/structured/gameplay/modul-game-things-module.md"
-          - "Moduł: game_things": "modules/structured/gameplay/modul-game-things.md"
-          - "Moduł: | Moduł: `game_topbar`": "modules/structured/gameplay/modul-game-topbar.md"
-          - "Moduł: | Moduł: `game_unjustifiedpoints`": "modules/structured/gameplay/modul-game-unjustifiedpoints.md"
-          - "Moduł: Game Viplist Module": "modules/structured/gameplay/modul-game-viplist-module.md"
-          - "Moduł: game_viplist": "modules/structured/gameplay/modul-game-viplist.md"
-          - "Moduł: | Moduł: `game_walking`": "modules/structured/gameplay/modul-game-walking.md"
-          - "Moduł: `gameinterface.lua`": "modules/structured/gameplay/modul-gameinterface-lua.md"
-          - "Moduł: `hotkeys_extra.lua`": "modules/structured/gameplay/modul-hotkeys-extra-lua.md"
-          - "Moduł: `hotkeys_manager.lua`": "modules/structured/gameplay/modul-hotkeys-manager-lua.md"
-          - "Moduł: `inventory.lua`": "modules/structured/gameplay/modul-inventory-lua.md"
-          - "Moduł: `minimap.lua`": "modules/structured/gameplay/modul-minimap-lua.md"
-          - "Moduł: `outfit.lua`": "modules/structured/gameplay/modul-outfit-lua.md"
-          - "Moduł: `shaders.lua`": "modules/structured/gameplay/modul-shaders-lua.md"
-          - "Moduł: `skills.lua`": "modules/structured/gameplay/modul-skills-lua.md"
-          - "Moduł: `spelllist.lua`": "modules/structured/gameplay/modul-spelllist-lua.md"
-          - "Moduł: `stats.lua`": "modules/structured/gameplay/modul-stats-lua.md"
-          - "Moduł: `textmessage.lua`": "modules/structured/gameplay/modul-textmessage-lua.md"
-          - "Moduł: `things.lua`": "modules/structured/gameplay/modul-things-lua.md"
-          - "Moduł: `viplist.lua`": "modules/structured/gameplay/modul-viplist-lua.md"
+  - "Gameplay":
+      - "INDEX": "modules/structured/gameplay/INDEX.md"
+      - "Moduł: `actionbar.lua`": "modules/structured/gameplay/modul-actionbar-lua.md"
+      - "Moduł: `buttons.lua`": "modules/structured/gameplay/modul-buttons-lua.md"
+      - "Moduł: `console.lua`": "modules/structured/gameplay/modul-console-lua.md"
+      - "Moduł: `cooldown.lua`": "modules/structured/gameplay/modul-cooldown-lua.md"
+      - "Moduł: `features.lua`": "modules/structured/gameplay/modul-features-lua.md"
+      - "Moduł: Game Actionbar Module": "modules/structured/gameplay/modul-game-actionbar-module.md"
+      - "Moduł: game_actionbar": "modules/structured/gameplay/modul-game-actionbar.md"
+      - "Moduł: | Moduł: `game_battle`": "modules/structured/gameplay/modul-game-battle.md"
+      - "Moduł: Game Buttons Module": "modules/structured/gameplay/modul-game-buttons-module.md"
+      - "Moduł: game_buttons": "modules/structured/gameplay/modul-game-buttons.md"
+      - "Moduł: Game Console Module": "modules/structured/gameplay/modul-game-console-module.md"
+      - "Moduł: game_console": "modules/structured/gameplay/modul-game-console.md"
+      - "Moduł: | Moduł: `game_containers`": "modules/structured/gameplay/modul-game-containers.md"
+      - "Moduł: Game Cooldown Module": "modules/structured/gameplay/modul-game-cooldown-module.md"
+      - "Moduł: game_cooldown": "modules/structured/gameplay/modul-game-cooldown.md"
+      - "Moduł: Game Features Module": "modules/structured/gameplay/modul-game-features-module.md"
+      - "Moduł: game_features": "modules/structured/gameplay/modul-game-features.md"
+      - "Moduł: | Moduł: `game_healthinfo`": "modules/structured/gameplay/modul-game-healthinfo.md"
+      - "Moduł: Game Hotkeys Module": "modules/structured/gameplay/modul-game-hotkeys-module.md"
+      - "Moduł: game_hotkeys": "modules/structured/gameplay/modul-game-hotkeys.md"
+      - "Moduł: | Moduł: `game_imbuing`": "modules/structured/gameplay/modul-game-imbuing.md"
+      - "Moduł: Game Interface Module": "modules/structured/gameplay/modul-game-interface-module.md"
+      - "Moduł: | Moduł: `game_interface/styles`": "modules/structured/gameplay/modul-game-interface-styles.md"
+      - "Moduł: | Moduł: `game_interface/widgets`": "modules/structured/gameplay/modul-game-interface-widgets.md"
+      - "Moduł: game_interface": "modules/structured/gameplay/modul-game-interface.md"
+      - "Moduł: Game Inventory Module": "modules/structured/gameplay/modul-game-inventory-module.md"
+      - "Moduł: game_inventory": "modules/structured/gameplay/modul-game-inventory.md"
+      - "Moduł: | Moduł: `game_itemselector`": "modules/structured/gameplay/modul-game-itemselector.md"
+      - "Moduł: | Moduł: `game_market/ui/general`": "modules/structured/gameplay/modul-game-market-ui-general.md"
+      - "Moduł: | Moduł: `game_market/ui/marketoffers`": "modules/structured/gameplay/modul-game-market-ui-marketoffers.md"
+      - "Moduł: | Moduł: `game_market/ui/myoffers`": "modules/structured/gameplay/modul-game-market-ui-myoffers.md"
+      - "Moduł: | Moduł: `game_market/ui`": "modules/structured/gameplay/modul-game-market-ui.md"
+      - "Moduł: | Moduł: `game_market`": "modules/structured/gameplay/modul-game-market.md"
+      - "Moduł: Game Minimap Module": "modules/structured/gameplay/modul-game-minimap-module.md"
+      - "Moduł: game_minimap": "modules/structured/gameplay/modul-game-minimap.md"
+      - "Moduł: | Moduł: `game_modaldialog`": "modules/structured/gameplay/modul-game-modaldialog.md"
+      - "Moduł: | Moduł: `game_npctrade`": "modules/structured/gameplay/modul-game-npctrade.md"
+      - "Moduł: Game Outfit Module": "modules/structured/gameplay/modul-game-outfit-module.md"
+      - "Moduł: game_outfit": "modules/structured/gameplay/modul-game-outfit.md"
+      - "Moduł: | Moduł: `game_playerdeath`": "modules/structured/gameplay/modul-game-playerdeath.md"
+      - "Moduł: | Moduł: `game_playermount`": "modules/structured/gameplay/modul-game-playermount.md"
+      - "Moduł: | Moduł: `game_playertrade`": "modules/structured/gameplay/modul-game-playertrade.md"
+      - "Moduł: | Moduł: `game_prey`": "modules/structured/gameplay/modul-game-prey.md"
+      - "Moduł: | Moduł: `game_questlog`": "modules/structured/gameplay/modul-game-questlog.md"
+      - "Moduł: | Moduł: `game_ruleviolation`": "modules/structured/gameplay/modul-game-ruleviolation.md"
+      - "Moduł: Game Shaders Module": "modules/structured/gameplay/modul-game-shaders-module.md"
+      - "Moduł: game_shaders": "modules/structured/gameplay/modul-game-shaders.md"
+      - "Moduł: | Moduł: `game_shop`": "modules/structured/gameplay/modul-game-shop.md"
+      - "Moduł: Game Skills Module": "modules/structured/gameplay/modul-game-skills-module.md"
+      - "Moduł: game_skills": "modules/structured/gameplay/modul-game-skills.md"
+      - "Moduł: Game Spelllist Module": "modules/structured/gameplay/modul-game-spelllist-module.md"
+      - "Moduł: game_spelllist": "modules/structured/gameplay/modul-game-spelllist.md"
+      - "Moduł: Game Stats Module": "modules/structured/gameplay/modul-game-stats-module.md"
+      - "Moduł: game_stats": "modules/structured/gameplay/modul-game-stats.md"
+      - "Moduł: Game Textmessage Module": "modules/structured/gameplay/modul-game-textmessage-module.md"
+      - "Moduł: game_textmessage": "modules/structured/gameplay/modul-game-textmessage.md"
+      - "Moduł: | Moduł: `game_textwindow`": "modules/structured/gameplay/modul-game-textwindow.md"
+      - "Moduł: Game Things Module": "modules/structured/gameplay/modul-game-things-module.md"
+      - "Moduł: game_things": "modules/structured/gameplay/modul-game-things.md"
+      - "Moduł: | Moduł: `game_topbar`": "modules/structured/gameplay/modul-game-topbar.md"
+      - "Moduł: | Moduł: `game_unjustifiedpoints`": "modules/structured/gameplay/modul-game-unjustifiedpoints.md"
+      - "Moduł: Game Viplist Module": "modules/structured/gameplay/modul-game-viplist-module.md"
+      - "Moduł: game_viplist": "modules/structured/gameplay/modul-game-viplist.md"
+      - "Moduł: | Moduł: `game_walking`": "modules/structured/gameplay/modul-game-walking.md"
+      - "Moduł: `gameinterface.lua`": "modules/structured/gameplay/modul-gameinterface-lua.md"
+      - "Moduł: `hotkeys_extra.lua`": "modules/structured/gameplay/modul-hotkeys-extra-lua.md"
+      - "Moduł: `hotkeys_manager.lua`": "modules/structured/gameplay/modul-hotkeys-manager-lua.md"
+      - "Moduł: `inventory.lua`": "modules/structured/gameplay/modul-inventory-lua.md"
+      - "Moduł: `minimap.lua`": "modules/structured/gameplay/modul-minimap-lua.md"
+      - "Moduł: `outfit.lua`": "modules/structured/gameplay/modul-outfit-lua.md"
+      - "Moduł: `shaders.lua`": "modules/structured/gameplay/modul-shaders-lua.md"
+      - "Moduł: `skills.lua`": "modules/structured/gameplay/modul-skills-lua.md"
+      - "Moduł: `spelllist.lua`": "modules/structured/gameplay/modul-spelllist-lua.md"
+      - "Moduł: `stats.lua`": "modules/structured/gameplay/modul-stats-lua.md"
+      - "Moduł: `textmessage.lua`": "modules/structured/gameplay/modul-textmessage-lua.md"
+      - "Moduł: `things.lua`": "modules/structured/gameplay/modul-things-lua.md"
+      - "Moduł: `viplist.lua`": "modules/structured/gameplay/modul-viplist-lua.md"
   - "Dev tools":
       - "INDEX": "modules/structured/dev_tools/INDEX.md"
       - "Moduł: `battle.lua`": "modules/structured/dev_tools/modul-battle-lua.md"
