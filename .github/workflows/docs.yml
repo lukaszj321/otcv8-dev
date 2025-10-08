@@ -10,7 +10,7 @@ permissions:
   pages: write
   id-token: write
 
-# NIE anuluje trwającego builda przy kolejnym pushu
+# nie ubijamy poprzedniego builda przy kolejnym pushu
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: false
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # pełna historia dla dat commitów (gdy włączysz)
+          fetch-depth: 0
 
       - name: Write requirements (for cache)
         run: |
@@ -50,7 +50,7 @@ jobs:
       - name: Build site (mkdocs.yml)
         env:
           GITHUB_PAGES: "true"
-          ENABLE_GIT_DATES: "0"   # ustaw na "1" jeśli chcesz pokazywać daty commitów na stronach
+          ENABLE_GIT_DATES: "0"   # zmień na "1" jeśli chcesz daty commitów
         run: |
           mkdocs --version
           time mkdocs build --clean -v
