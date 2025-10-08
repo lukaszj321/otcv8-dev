@@ -21,7 +21,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,15 +37,12 @@ jobs:
           pip install \
             mkdocs==1.6.1 \
             mkdocs-material==9.5.49 \
-            "mkdocs-material[imaging]" \
-            mkdocs-glightbox \
-            mkdocs-macros-plugin \
             mkdocs-git-revision-date-localized-plugin \
             mkdocs-redirects \
             mkdocs-exclude \
             pymdown-extensions
 
-      - name: Build site (default mkdocs.yml)
+      - name: Build site
         env:
           GITHUB_PAGES: true
         run: |
