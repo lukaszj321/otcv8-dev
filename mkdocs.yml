@@ -24,7 +24,6 @@ theme:
 repo_url: https://github.com/lukaszj321/otcv8-dev
 repo_name: lukaszj321/otcv8-dev
 edit_uri: edit/master/docs/
-
 use_directory_urls: true
 
 extra_css:
@@ -39,7 +38,12 @@ plugins:
   - redirects
   - exclude:
       glob:
-        # === TNIEMY WSZYSTKO, CO JEST ciężkie albo zbędne w buildzie ===
+        # wytnij śmieci/archiwa — MATERIAŁY MERYTORYCZNE zostają
+        - '**/downloads/**'
+        - '**/download/**'
+        - '**/backup/**'
+        - '**/__old__/**'
+        - '**/archive/**'
         - '**/__pycache__/**'
         - '**/.DS_Store'
         - '**/*.zip'
@@ -48,27 +52,8 @@ plugins:
         - '**/*.tar.gz'
         - '**/*.tgz'
         - '**/*.rar'
-        - '**/downloads/**'
-        - 'downloads/**'
-        - '**/download/**'
-        - '**/backup/**'
-        - '**/__old__/**'
-        - '**/archive/**'
-        - 'docs/modules/**/__md_backup_*.md'
-        - 'docs/modules/**/__md_backup_*/**'
-        - 'docs/modules/__md_backup_*/**'
-        # Jeśli te działy nie są Ci teraz potrzebne w menu, wytnij je z budowania (przyspiesza):
-        - 'docs/build/**'
-        - 'docs/cpp/**'
-        - 'docs/data/**'
-        - 'docs/dev/**'
-        - 'docs/guides/**'
-        - 'docs/knowledge/**'
-        - 'docs/lua/**'
-        - 'docs/tools/**'
-        - 'docs/ui/**'
-        # jeśli chcesz – możesz też tymczasowo wyłączyć ciężkie API:
-        # - 'docs/api/**'
+        - 'modules/**/__md_backup_*'
+        - 'modules/__md_backup_*'
 
 markdown_extensions:
   - toc:
@@ -87,11 +72,11 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.tilde
   - pymdownx.emoji:
-      # FIX emoji – nowa przestrzeń nazw, bez „materialx.emoji”
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-# Mała, bezpieczna nawigacja — szybka i pewna
+# Minimalne menu – reszta stron buduje się i jest dostępna po URL-ach,
+# ale nie zaśmieca nawigacji. Modules mają swoje indeksy.
 nav:
   - Start: index.md
   - Modules:
@@ -104,12 +89,9 @@ nav:
           - INDEX: modules/structured/dev_tools/INDEX.md
 
 validation:
-  nav:
-    omitted_files: warn
-    not_found: warn
-    absolute_links: warn
-  links:
-    not_found: warn
-    absolute_links: warn
-    unrecognized_links: warn
-    anchors: warn
+  nav: { omitted_files: warn, not_found: warn, absolute_links: warn }
+  links: { not_found: warn, absolute_links: warn, unrecognized_links: warn, anchors: warn }
+
+# Domyślnie:
+docs_dir: docs
+site_dir: site
