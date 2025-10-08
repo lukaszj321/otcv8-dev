@@ -45,14 +45,13 @@ jobs:
             mkdocs-exclude \
             pymdown-extensions
 
-      - name: Build site (mkdocs.yml)
-        shell: bash
+      - name: Build site (default mkdocs.yml)
         env:
           GITHUB_PAGES: true
         run: |
           set -euo pipefail
           mkdocs --version
-          mkdocs build --clean -v 2>&1 | tee build.log
+          mkdocs build --clean -v
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
