@@ -31,7 +31,7 @@ jobs:
           pip install -r docs/requirements.txt
 
       - name: Build Sphinx HTML
-        run: sphinx-build -b html docs _site
+        run: sphinx-build -b dirhtml docs docs/_build/html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
