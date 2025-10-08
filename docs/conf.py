@@ -1,13 +1,11 @@
 # -- Podstawy ---------------------------------------------------------------
 project = "OTCv8"
-author = "OTCv8 Dev"
+author = "OTCv8"
 language = "pl"
 
-# Od Sphinx 7 używamy root_doc zamiast master_doc
+# Sphinx 7+: jawnie ustaw root
 root_doc = "index"
-
-# Wymuś traktowanie .md jako MyST Markdown
-source_suffix = {".rst": "restructuredtext", ".md": "markdown"}
+source_suffix = {".md": "markdown", ".rst": "restructuredtext"}
 
 # -- Rozszerzenia -----------------------------------------------------------
 extensions = [
@@ -22,48 +20,48 @@ extensions = [
     "hoverxref.extension",
 ]
 
-myst_enable_extensions = ["colon_fence", "linkify", "attrs_block", "deflist", "tasklist"]
-# kotwice do nagłówków H1–H3 (czytelne #anchor w linkach)
-myst_heading_anchors = 3
-myst_url_schemes = ("http", "https", "mailto")
+# MyST + front matter (naprawia 'Document may not begin/end with a transition')
+myst_enable_extensions = [
+    "front_matter",
+    "colon_fence",
+    "linkify",
+    "attrs_block",
+    "deflist",
+    "tasklist",
+]
+myst_heading_anchors = 3  # automatyczne anchor linki H1-H3
 
-# -- Motyw / HTML -----------------------------------------------------------
+# Wytnij backupy i buildy (usuwa duplikaty labeli)
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "**/__md_backup_*",
+]
+
+# -- HTML / Furo ------------------------------------------------------------
 html_theme = "furo"
-html_title = "OTCv8 – Dokumentacja"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
+pygments_style = "friendly"
+pygments_dark_style = "native"
 
 html_theme_options = {
     "sidebar_hide_name": True,
-    "navigation_with_keys": True,
-    "announcement": "📣 Dev build dokumentacji (auto z CI).",
+    "light_logo": "img/logo-light.svg",  # jeśli nie masz – usuń te dwie linie
+    "dark_logo": "img/logo-dark.svg",
+    "announcement": "📣 Dev build dokumentacji (CI).",
 }
 
-# Absolutna baza dla linków kanonicznych / sitemap (GH Pages)
+# -- Linki / sitemap / OG ---------------------------------------------------
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
+sitemap_url_scheme = "{link}"  # poprawne URL-e dla dirhtml
 
-# OpenGraph
 ogp_site_url = html_baseurl
-# (opcjonalnie) ogp_image = html_baseurl + "_static/cover.png"
+ogp_image = html_baseurl + "_static/cover.png"
 
-# Favikony (wrzuć plik do docs/_static lub usuń poniższą linijkę)
+# favicon (wrzuć plik do docs/_static/)
 favicons = [{"rel": "icon", "href": "favicon.svg"}]
 
-# -- Sitemap ----------------------------------------------------------------
-sitemap_url_scheme = "{link}"
-
-# -- Inne -------------------------------------------------------------------
-exclude_patterns = [
-    "_build", "Thumbs.db", ".DS_Store",
-    "**/__md_backup*/*", "**/__md_backup*",
-]
-
-# copybutton – usuwa prompt z kopiowanych bloków
-copybutton_prompt_is_regexp = True
-copybutton_prompt_text = r">>> |\$ "
-
-# Mermaid (wersja zgodna z wtyczką)
+# -- Mermaid ---------------------------------------------------------------
 mermaid_version = "10.9.1"
-
-# codeautolink – niech składa długie bloki
-codeautolink_concat_default = True
