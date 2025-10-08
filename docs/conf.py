@@ -1,66 +1,68 @@
-# -- Project info -----------------------------------------------------
+# -- Project information -----------------------------------------------------
 project = "OTCv8 — Dokumentacja"
-author = "OTCv8 contributors"
+author = "OTCv8"
+language = "pl"
 
-# -- General config ----------------------------------------------------
+# Sphinx 7+: root dokumentu
+root_doc = "index"
+
+# -- General configuration ---------------------------------------------------
 extensions = [
     "myst_parser",
     "sphinx.ext.autosectionlabel",
-    "sphinx.ext.todo",
-    "sphinx.ext.duration",
-    "sphinx.ext.intersphinx",
-    "sphinxcontrib.mermaid",
+    "sphinx.ext.githubpages",
 ]
 
+# autosectionlabel: unikalne etykiety poprzedzone ścieżką pliku
+autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 10
+
+templates_path = ["_templates"]
+
+# WYKLUCZ backupy i śmieci z budowania
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "**/.ipynb_checkpoints",
+    "**/__md_backup_*",
+    "**/__md_backup_*/*",
+]
+
+# Obsługa .md i .rst
 source_suffix = {
-    ".md": "myst",
+    ".md": "markdown",
     ".rst": "restructuredtext",
 }
 
-# MyST config: allow extended Markdown features
+# MyST – przydatne rozszerzenia i kotwice do nagłówków
 myst_enable_extensions = [
-    "attrs_block",
-    "attrs_inline",
-    "deflist",
-    "html_admonition",
-    "html_image",
-    "linkify",
-    "substitution",
+    "attrs",
     "colon_fence",
-    "tasklist",
+    "deflist",
+    "fieldlist",
+    "linkify",
     "smartquotes",
+    "substitution",
+    "tasklist",
+    "replacements",
 ]
-
-# Create anchors for all headings so you can link like (#some-heading)
 myst_heading_anchors = 6
 
-# Let fenced ```mermaid blocks render as diagrams (no content changes needed)
-myst_fence_as_directive = {
-    "mermaid": "mermaid",
-}
-
-# Optional: automatically create :ref: labels for section titles
-autosectionlabel_prefix_document = True
-
-# TEMP: keep CI logs cleaner while we migrate anchors/labels
+# Wycisz głośne, „niekrytyczne” warningi
 suppress_warnings = [
-    "myst.xref_missing",
+    "myst.xref_missing",   # brakujące #kotwice (masz ich dużo w zewn. treściach)
+    "autosectionlabel.*",  # duplikaty etykiet przy powtarzających się nagłówkach
 ]
 
-# -- HTML theme --------------------------------------------------------
-html_theme = "furo"
-html_static_path = ["_static"]
+# Zarejestruj fallback lexery, żeby nie krzyczało, że nie zna 'otui'/'otml'/'mermaid'
+from sphinx.highlighting import lexers
+from pygments.lexers.special import TextLexer
+lexers["otui"] = TextLexer()
+lexers["otml"] = TextLexer()
+lexers["mermaid"] = TextLexer()
 
-# -- Pygments/lexers ---------------------------------------------------
-# Map custom fences to existing lexers so '```otui' and '```otml' don't warn.
-def setup(app):
-    try:
-        from pygments.lexers.data import IniLexer, YamlLexer
-        from pygments.lexers.special import TextLexer
-        app.add_lexer("otui", IniLexer())
-        app.add_lexer("otml", YamlLexer())
-        # Fallback if someone uses ```mermaid without the extension picking it up
-        app.add_lexer("mermaid", TextLexer())
-    except Exception as e:
-        # Never fail the build because of missing lexers in CI
-        print(f"[conf.py] lexer setup skipped: {e}")
+# -- Options for HTML output -------------------------------------------------
+html_theme = "alabaster"  # bezpieczny, dostępny out-of-the-box
+html_static_path = ["_static"]
+html_title = "OTCv8 — Dokumentacja"
