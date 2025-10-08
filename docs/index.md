@@ -1,46 +1,37 @@
-# OTCv8 — dokumentacja
+# OTCv8 – Dokumentacja
 
-Witaj! Poniżej szybkie skróty do głównych obszarów. Pełny spis treści znajdziesz w panelu po lewej.
+Krótka nawigacja po projekcie. Lewy panel pokazuje spis treści generowany z poniższych toctree.
 
 ```{toctree}
-:hidden:
+:caption: Start
 :maxdepth: 2
-:caption: Dokumentacja
 
-api/index
-data/index
-modules/structured/index
-cpp/index
+cpp/overview.md
 ```
 
-:::{grid} 2
-:gutter: 2
+```{toctree}
+:caption: API
+:maxdepth: 2
+:glob:
 
-:::{card}
-:link: api/index
-:header: API / Engine
-Szczegóły interfejsów, specyfikacje i UI klienta.
-:::
-
-:::{card}
-:link: data/index
-:header: Dane
-Struktury danych, opisy pól i konwencje.
-:::
-
-:::{card}
-:link: modules/structured/index
-:header: Moduły
-Core, gameplay, dev‑tools, bot‑tools — dokumentacja modułowa.
-:::
-
-:::{card}
-:link: cpp/index
-:header: C++ / Overview
-Przegląd części C++ oraz przewodniki.
-:::
-:::
-
-```{admonition} Wskazówka
-Użyj pola wyszukiwania (góra po prawej), aby szybko znaleźć klasę, funkcję lub moduł.
+api/**/*.md
 ```
+
+```{toctree}
+:caption: Moduły (structured)
+:maxdepth: 2
+:glob:
+
+modules/structured/**/*.md
+```
+
+```{toctree}
+:caption: Pozostałe
+:maxdepth: 2
+:glob:
+
+modules/**/*.md
+```
+
+> Uwaga: w linkach w treści używaj odniesień do plików `.md` (np. `api/index.md`),
+> wtedy Sphinx poprawnie zamieni je na `.html` lub katalogi (dla buildera `dirhtml`).
