@@ -54,22 +54,17 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.tilde
   - pymdownx.emoji:
-      # naprawa deprecated materialx.emoji.*
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
-  - material/search
-  - redirects
-  - exclude
-  # ten plugin będzie DOMYŚLNIE WYŁĄCZONY na CI, żeby build był szybszy i bez ostrzeżeń;
-  # chcesz daty commitów? ustaw w workflow ENV: ENABLE_GIT_DATES=1
+  - search
+  - exclude:
+      # WYTNIE WSZYSTKO oprócz index.md i katalogu modules/**
+      regex:
+        - '^(?!index\.md$)(?!modules/).*'
+  # Jak będziesz chciał daty commitów, ustaw ENABLE_GIT_DATES=1 w workflow
   - git-revision-date-localized:
       enabled: !ENV [ENABLE_GIT_DATES, false]
-
-extra:
-  search:
-    exclude:
-      - "modules/**/__md_backup_*.md"
 
 strict: false
