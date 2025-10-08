@@ -24,7 +24,6 @@ theme:
 repo_url: https://github.com/lukaszj321/otcv8-dev
 repo_name: lukaszj321/otcv8-dev
 edit_uri: edit/master/docs/
-
 use_directory_urls: true
 
 extra_css:
