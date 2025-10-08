@@ -1,88 +1,62 @@
-# OTCv8 – dokumentacja
+# OTCv8 — Dokumentacja (pełny spis treści)
 
-Poniżej kompletny spis treści. Zbudowany na **Sphinx + Furo + MyST**, z podziałem na główne działy. Wszystkie pliki zostaną automatycznie zaciągnięte dzięki `:glob:`.
+Pełny, **automatyczny spis treści** całej dokumentacji z folderu `docs/`.
+Jeśli jakiejś strony nie widać: sprawdź, czy plik ma nagłówek `# Tytuł` oraz czy nie zaczyna/kończy się samą linią `---`.
 
-> Jeśli któryś dział jest zbyt obszerny, możesz w każdej chwili zmniejszyć `:maxdepth:`.
+> W menu poniżej sekcje rozwijają się do poziomu 2–3; kliknięcie w dział otwiera listę wszystkich podstron.
 
 ---
 
-## API
-
 ```{toctree}
 :maxdepth: 2
+:caption: Start
+
+README
+modules/structured/README
+```
+
+```{toctree}
+:maxdepth: 3
 :caption: API
 :glob:
 
-api/**/*.md
+api/*.md
+api/*/*.md
+api/*/*/*.md
 ```
 
-## Dane / Specyfikacje
+```{toctree}
+:maxdepth: 3
+:caption: Dane / Specyfikacje
+:glob:
+
+data/*.md
+data/*/*.md
+```
 
 ```{toctree}
 :maxdepth: 2
-:caption: Dane
+:caption: Moduły (wszystkie)
 :glob:
 
-data/**/*.md
+modules/*.md
+modules/*/*.md
+modules/structured/*.md
+modules/structured/*/*.md
 ```
-
-## Moduły (Structured)
-
-### Core
-
-```{toctree}
-:maxdepth: 2
-:caption: Moduły • Core
-:glob:
-
-modules/structured/core/**/*.md
-```
-
-### Dev Tools
-
-```{toctree}
-:maxdepth: 2
-:caption: Moduły • Dev Tools
-:glob:
-
-modules/structured/dev_tools/**/*.md
-```
-
-### Gameplay
-
-```{toctree}
-:maxdepth: 2
-:caption: Moduły • Gameplay
-:glob:
-
-modules/structured/gameplay/**/*.md
-```
-
-### Bot Tools
-
-```{toctree}
-:maxdepth: 2
-:caption: Moduły • Bot Tools
-:glob:
-
-modules/structured/bot_tools/**/*.md
-```
-
-## C++
 
 ```{toctree}
 :maxdepth: 2
 :caption: C++
 :glob:
 
-cpp/**/*.md
+cpp/*.md
 ```
 
----
+```{toctree}
+:maxdepth: 1
+:caption: Pozostałe
+:glob:
 
-## Szukasz czegoś konkretnego?
-
-* ✅ Użyj pola **Wyszukiwanie** w nagłówku (pełnotekstowe, działa po włączeniu JS w przeglądarce).
-* ✅ **Indeks alfabetyczny**: `genindex.html`.
-
-> **Uwaga**: Kopie zapasowe i szkice w folderach typu `__md_backup*` są celowo pominięte (nie będą w nawigacji).
+*.md
+```
