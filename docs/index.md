@@ -1,67 +1,88 @@
-# OTCv8 Dev — Dokumentacja
+# OTCv8 – dokumentacja
 
-Poniżej pełny **spis treści** podzielony na działy. Linki generowane są automatycznie (Sphinx + MyST).
+Poniżej kompletny spis treści. Zbudowany na **Sphinx + Furo + MyST**, z podziałem na główne działy. Wszystkie pliki zostaną automatycznie zaciągnięte dzięki `:glob:`.
+
+> Jeśli któryś dział jest zbyt obszerny, możesz w każdej chwili zmniejszyć `:maxdepth:`.
+
+---
+
+## API
 
 ```{toctree}
+:maxdepth: 2
 :caption: API
-:maxdepth: 2
-:titlesonly:
+:glob:
 
-api/*.md
-api/*/*.md
+api/**/*.md
 ```
 
-```{toctree}
-:caption: Dane (Data)
-:maxdepth: 2
-:titlesonly:
+## Dane / Specyfikacje
 
-data/*.md
+```{toctree}
+:maxdepth: 2
+:caption: Dane
+:glob:
+
+data/**/*.md
 ```
 
-```{toctree}
-:caption: Moduły — Bot Tools
-:maxdepth: 2
-:titlesonly:
+## Moduły (Structured)
 
-modules/structured/bot_tools/*.md
+### Core
+
+```{toctree}
+:maxdepth: 2
+:caption: Moduły • Core
+:glob:
+
+modules/structured/core/**/*.md
 ```
 
-```{toctree}
-:caption: Moduły — Core
-:maxdepth: 2
-:titlesonly:
+### Dev Tools
 
-modules/structured/core/*.md
+```{toctree}
+:maxdepth: 2
+:caption: Moduły • Dev Tools
+:glob:
+
+modules/structured/dev_tools/**/*.md
 ```
 
-```{toctree}
-:caption: Moduły — Gameplay
-:maxdepth: 2
-:titlesonly:
+### Gameplay
 
-modules/structured/gameplay/*.md
+```{toctree}
+:maxdepth: 2
+:caption: Moduły • Gameplay
+:glob:
+
+modules/structured/gameplay/**/*.md
 ```
 
-```{toctree}
-:caption: Moduły — Narzędzia deweloperskie
-:maxdepth: 2
-:titlesonly:
+### Bot Tools
 
-modules/structured/dev_tools/*.md
+```{toctree}
+:maxdepth: 2
+:caption: Moduły • Bot Tools
+:glob:
+
+modules/structured/bot_tools/**/*.md
 ```
 
+## C++
+
 ```{toctree}
+:maxdepth: 2
 :caption: C++
-:maxdepth: 1
-:titlesonly:
+:glob:
 
-cpp/*.md
+cpp/**/*.md
 ```
 
-```{toctree}
-:hidden:
+---
 
-search
-genindex
-```
+## Szukasz czegoś konkretnego?
+
+* ✅ Użyj pola **Wyszukiwanie** w nagłówku (pełnotekstowe, działa po włączeniu JS w przeglądarce).
+* ✅ **Indeks alfabetyczny**: `genindex.html`.
+
+> **Uwaga**: Kopie zapasowe i szkice w folderach typu `__md_backup*` są celowo pominięte (nie będą w nawigacji).
