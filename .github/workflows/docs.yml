@@ -23,15 +23,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # ważne dla git-revision-date-localized
+          fetch-depth: 0
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "pip"
-          cache-dependency-path: .github/mkdocs-requirements.txt
-
+      # 1) Najpierw utwórz plik z zależnościami
       - name: Write requirements
         run: |
           mkdir -p .github
@@ -42,6 +36,14 @@ jobs:
           mkdocs-redirects
           mkdocs-git-revision-date-localized-plugin
           EOF
+
+      # 2) Dopiero teraz setup Pythona z cache, bo plik już istnieje
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: .github/mkdocs-requirements.txt
 
       - name: Install deps
         run: pip install -r .github/mkdocs-requirements.txt
@@ -78,5 +80,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
