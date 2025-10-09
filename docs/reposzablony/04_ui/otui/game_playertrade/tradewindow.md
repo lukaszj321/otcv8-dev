@@ -1,8 +1,8 @@
 ---
 doc_id: "otui-ui-3b3a2f7d5218"
 source_path: "game_playertrade/tradewindow.otui"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:29:07Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:14Z"
 doc_class: "ui"
 language: "pl"
 title: "UI: tradewindow.otui"

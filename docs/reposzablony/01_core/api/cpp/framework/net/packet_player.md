@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-b3ae73a63415"
 source_path: "framework/net/packet_player.h"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:40Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:28:07Z"
 doc_class: "api"
 language: "pl"
 title: "API: packet_player.h"

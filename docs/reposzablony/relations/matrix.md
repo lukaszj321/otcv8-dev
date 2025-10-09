@@ -6,13 +6,13 @@ Macierz powiązań między elementami systemu.
 |-----------|---|---|---|---|
 | api | - | - | - | - |
 | event | - | - | - | - |
-| lua | 3489 | 619 | - | 266 |
+| lua | 3905 | 725 | - | 334 |
 | ui | - | - | - | - |
 
 ## Summary
 
-Total relations: 4374
+Total relations: 4964
 
 By type:
-- **calls**: 3489
-- **handles**: 885
+- **calls**: 3905
+- **handles**: 1059

@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-98ab6a57aa10"
 source_path: "corelib/ui/uiminiwindow.lua"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:57Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:05Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: uiminiwindow.lua"

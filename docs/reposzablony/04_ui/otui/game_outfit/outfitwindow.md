@@ -1,8 +1,8 @@
 ---
 doc_id: "otui-ui-5b29d59e30fc"
 source_path: "game_outfit/outfitwindow.otui"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:29:07Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:14Z"
 doc_class: "ui"
 language: "pl"
 title: "UI: outfitwindow.otui"

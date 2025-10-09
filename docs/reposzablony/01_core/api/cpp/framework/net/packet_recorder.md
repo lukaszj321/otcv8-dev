@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-87c163ef0f6a"
 source_path: "framework/net/packet_recorder.h"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:40Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:28:07Z"
 doc_class: "api"
 language: "pl"
 title: "API: packet_recorder.h"

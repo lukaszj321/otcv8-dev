@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-c80af26ca9b4"
 source_path: "game_playermount/playermount.lua"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:58Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:06Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: playermount.lua"

@@ -1,0 +1,255 @@
+name: build-native
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-native-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # wspólne
+  CMAKE_BUILD_PARALLEL_LEVEL: 4
+
+jobs:
+  linux:
+    name: Desktop (Linux x64)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+      # zip przyda się do assets na Android i do spakowania data/
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y zip pkg-config ninja-build
+
+      - name: Bootstrap vcpkg @ 761c81d4
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git --depth 1 vcpkg
+          pushd vcpkg
+          git fetch --depth 1 origin 761c81d43335a5d5ccc2ec8ad90bd7e2cbba734e
+          git checkout 761c81d43335a5d5ccc2ec8ad90bd7e2cbba734e
+          ./bootstrap-vcpkg.sh
+          popd
+          echo "VCPKG_ROOT=$GITHUB_WORKSPACE/vcpkg" >> $GITHUB_ENV
+
+      - name: Install deps (vcpkg, linux)
+        run: |
+          $VCPKG_ROOT/vcpkg install \
+            sdl2 \
+            openal-soft \
+            physfs \
+            libpng \
+            zlib \
+            brotli \
+            lz4 \
+            openssl \
+            freetype
+
+      - name: Configure (Linux, Release)
+        run: |
+          cmake -S . -B build \
+            -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Package artifacts (bin + data/)
+        run: |
+          mkdir -p out/linux
+          cp -r build/* out/linux/ || true
+          if [ -d data ]; then
+            zip -r out/linux/data.zip data
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-x64
+          path: out/linux
+
+  macos:
+    name: Desktop (macOS ${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: arm64
+            runner: macos-14
+          - arch: x64
+            runner: macos-13
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bootstrap vcpkg (latest ok on mac)
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git --depth 1 vcpkg
+          ./vcpkg/bootstrap-vcpkg.sh
+          echo "VCPKG_ROOT=$GITHUB_WORKSPACE/vcpkg" >> $GITHUB_ENV
+
+      - name: Install deps (vcpkg, macOS)
+        run: |
+          $VCPKG_ROOT/vcpkg install \
+            sdl2 \
+            openal-soft \
+            physfs \
+            libpng \
+            zlib \
+            brotli \
+            lz4 \
+            openssl \
+            freetype
+
+      - name: Configure (macOS, Release)
+        run: |
+          cmake -S . -B build \
+            -G "Unix Makefiles" \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_OSX_ARCHITECTURES=${{ matrix.arch }} \
+            -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake
+
+      - name: Build
+        run: cmake --build build --config Release -- -j3
+
+      - name: Package artifacts (bin + data/)
+        run: |
+          mkdir -p out/macos-${{ matrix.arch }}
+          cp -r build/* out/macos-${{ matrix.arch }}/ || true
+          if [ -d data ]; then
+            cd data && zip -r ../out/macos-${{ matrix.arch }}/data.zip . && cd ..
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-${{ matrix.arch }}
+          path: out/macos-${{ matrix.arch }}
+
+  windows:
+    name: Desktop (Windows x86 static)
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+        # Uwaga: jeśli nie poprawisz nazwy pliku z kropką na końcu, checkout tu padnie.
+
+      - name: MSVC dev cmd (x86, VS2022 toolset v142 compat)
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x86
+          toolset: 14.2
+
+      - name: Bootstrap vcpkg @ 3b3bd424
+        shell: pwsh
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git -q
+          Set-Location vcpkg
+          git fetch origin 3b3bd424827a1f7f4813216f6b32b6c61e386b2e --depth 1
+          git checkout 3b3bd424827a1f7f4813216f6b32b6c61e386b2e
+          .\bootstrap-vcpkg.bat
+          echo "VCPKG_ROOT=$PWD" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          echo "VCPKG_DEFAULT_TRIPLET=x86-windows-static" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Install deps (exact list, x86-windows-static)
+        shell: pwsh
+        run: |
+          $pkgs = @(
+            "boost-iostreams","boost-asio","boost-beast","boost-system","boost-variant",
+            "boost-lockfree","boost-process","boost-program-options","luajit","glew",
+            "boost-filesystem","boost-uuid","physfs","openal-soft","libogg","libvorbis",
+            "zlib","libzip","openssl"
+          )
+          foreach ($p in $pkgs) {
+            & $env:VCPKG_ROOT\vcpkg.exe install "$p:x86-windows-static"
+          }
+
+      - name: Configure (Win32, Release)
+        shell: pwsh
+        run: |
+          cmake -S . -B build `
+            -G "Visual Studio 17 2022" -A Win32 `
+            -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake" `
+            -DVCPKG_TARGET_TRIPLET=x86-windows-static `
+            -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        shell: pwsh
+        run: cmake --build build --config Release -- /m
+
+      - name: Package artifacts (bin + data/)
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path out\windows
+          Copy-Item -Recurse -Force build\* out\windows\
+          if (Test-Path data) {
+            Compress-Archive -Path data\* -DestinationPath out\windows\data.zip -Force
+          }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-x86-static
+          path: out/windows
+
+  android:
+    name: Android (CMake + assets)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Android SDK + NDK
+        uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: 12266719
+          accept-android-sdk-licenses: true
+          log-accepted-android-sdk-licenses: true
+          packages: |
+            platforms;android-25
+            build-tools;34.0.0
+            ndk;21.4.7075529
+            cmake;3.22.1
+
+      - name: Export ANDROID env
+        run: |
+          echo "ANDROID_SDK_ROOT=$ANDROID_HOME" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.4.7075529" >> $GITHUB_ENV
+          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
+
+      - name: Re-accept licenses (defensive)
+        run: yes | sdkmanager --licenses
+
+      - name: Install helpers
+        run: sudo apt-get update && sudo apt-get install -y zip ninja-build
+
+      - name: Prepare Android assets (pack data/)
+        run: |
+          mkdir -p android/otclientv8/assets
+          if [ -d data ]; then
+            (cd data && zip -r ../android/otclientv8/assets/data.zip .)
+          else
+            echo "No data/ dir found; creating empty assets/data.zip"
+            (cd android/otclientv8/assets && zip -r data.zip __empty__ && rm -f __empty__ || true)
+          fi
+
+      - name: Configure (NDK CMake, armeabi-v7a)
+        run: |
+          cmake -S . -B build-android \
+            -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DANDROID_ABI=armeabi-v7a \
+            -DANDROID_PLATFORM=android-25 \
+            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake
+
+      - name: Build
+        run: cmake --build build-android -- -j3
+
+      - name: Upload Android artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-armeabi-v7a
+          path: |
+            build-android/**
+            android/otclientv8/assets/data.zip
