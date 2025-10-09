@@ -37,7 +37,7 @@ jobs:
       - name: Narzędzia systemowe
         run: |
           sudo apt-get update
-          sudo apt-get install -y ninja-build p7zip-full
+          sudo apt-get install -y ninja-build p7zip-full build-essential curl
 
       - name: Ustaw ścieżki NDK
         run: |
@@ -55,12 +55,10 @@ jobs:
           echo "== Zawartość android/android_libs =="
           find android/android_libs -maxdepth 2 -type d -print | sed 's/^/  /'
 
-      - name: Ustal ścieżki android_libs (INC/LIB)
+      - name: Ustal ścieżki INC/LIB
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
-
-          # domyślne + fallback (niektóre paczki nie mają podkatalogów arch)
           INC="$ROOT/arm64-v8a/include"; [ -d "$INC" ] || INC="$ROOT/include"
           LIB="$ROOT/arm64-v8a/lib";     [ -d "$LIB" ] || LIB="$ROOT/lib"
 
@@ -68,24 +66,58 @@ jobs:
           echo "LIB=$LIB"          | tee -a $GITHUB_ENV
           echo "BOOST_LIBDIR=$LIB" | tee -a $GITHUB_ENV
 
-          # LuaJIT nagłówki bywają w luajit-2.0/
           LUAJIT_INC="$INC"; [ -d "$INC/luajit-2.0" ] && LUAJIT_INC="$INC/luajit-2.0"
           echo "LUAJIT_INC=$LUAJIT_INC" | tee -a $GITHUB_ENV
           echo "LUAJIT_LIB=$LIB"        | tee -a $GITHUB_ENV
 
-          echo "== sanity-check =="
-          test -d "$INC/boost"          || (echo "::error::Brak nagłówków Boost w $INC/boost" && exit 1)
-          test -f "$LIB/libzip.a"       || (echo "::error::Brak $LIB/libzip.a" && exit 1)
-          test -f "$LIB/libbz2.a"       || (echo "::error::Brak $LIB/libbz2.a" && exit 1)
-          test -f "$LIB/libluajit.a"    || (echo "::error::Brak $LIB/libluajit.a" && exit 1)
-          test -f "$INC/zipconf.h"      || (echo "::error::Brak $INC/zipconf.h" && exit 1)
+      - name: Zbuduj BZip2 (arm64) jeśli brak
+        run: |
+          set -e
+          if [ -f "$LIB/libbz2.a" ]; then
+            echo "libbz2.a już istnieje w $LIB — pomijam kompilację."
+            exit 0
+          fi
+
+          echo "Buduję bzip2-1.0.8 dla arm64-v8a…"
+          cd /tmp
+          curl -L -o bzip2-1.0.8.tar.gz https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
+          tar xf bzip2-1.0.8.tar.gz
+          cd bzip2-1.0.8
+
+          API=24
+          TOOLCHAIN="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64"
+          TARGET_HOST=aarch64-linux-android
+          export CC="$TOOLCHAIN/bin/${TARGET_HOST}${API}-clang"
+          export AR="$TOOLCHAIN/bin/llvm-ar"
+          export RANLIB="$TOOLCHAIN/bin/llvm-ranlib"
+
+          make clean
+          make -j2 CC="$CC" AR="$AR" RANLIB="$RANLIB" CFLAGS="-fPIC -O2" libbz2.a
+
+          mkdir -p "$LIB" "$INC"
+          cp -v libbz2.a "$LIB/"
+          cp -v bzlib.h "$INC/"
+
+          ls -l "$LIB/libbz2.a"
+          echo "BZip2 gotowe."
+
+      - name: Sanity-check bibliotek
+        run: |
+          set -e
+          echo "INC=$INC"
+          echo "LIB=$LIB"
+          test -d "$INC/boost"       || (echo "::error::Brak nagłówków Boost w $INC/boost" && exit 1)
+          test -f "$LIB/libzip.a"    || (echo "::error::Brak $LIB/libzip.a" && exit 1)
+          test -f "$LIB/libbz2.a"    || (echo "::error::Brak $LIB/libbz2.a" && exit 1)
+          test -f "$LIB/libluajit.a" || (echo "::error::Brak $LIB/libluajit.a" && exit 1)
+          test -f "$INC/zipconf.h"   || (echo "::error::Brak $INC/zipconf.h" && exit 1)
 
       - name: Configure (arm64-v8a)
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
 
-          # Ścieżki do GLESv2/EGL z NDK (Android używa OpenGL ES + EGL, nie GL/GLX)
+          # OpenGL ES + EGL z NDK
           GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
           GLLIBDIR="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android"
           GLESV2="$GLLIBDIR/libGLESv2.so"
