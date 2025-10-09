@@ -1,16 +1,16 @@
 {
-  "total_files": 517,
+  "total_files": 615,
   "total_docs": {
     "api": 195,
-    "lua": 189,
+    "lua": 287,
     "ui": 133
   },
-  "total_chunks": 9809,
+  "total_chunks": 12934,
   "total_links": 272,
   "broken_links": 0,
-  "in_datasets": 516,
+  "in_datasets": 614,
   "diagrams": 270,
-  "datasets_bytes": 8446980,
+  "datasets_bytes": 10544388,
   "events_count": 1506,
-  "generated_at": "2025-10-09T05:45:13.705300+00:00"
+  "generated_at": "2025-10-09T07:30:37.521819+00:00"
 }
