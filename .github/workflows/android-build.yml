@@ -1,4 +1,4 @@
-name: Android build (CMake, arm64)
+name: Android build (CMake)
 
 on:
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
 jobs:
   android:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout (with LFS)
         uses: actions/checkout@v4
@@ -18,115 +19,93 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Android cmdline-tools + licencje
+      - name: Android cmdline-tools
         uses: android-actions/setup-android@v3
         with:
           cmdline-tools-version: 12266719
           accept-android-sdk-licenses: true
           log-accepted-android-sdk-licenses: true
 
-      - name: Zainstaluj pakiety SDK/NDK/CMake
+      - name: Install SDK/NDK/CMake
         run: |
           yes | sdkmanager --licenses
-          sdkmanager --install \
-            "platforms;android-25" \
-            "build-tools;34.0.0" \
-            "ndk;21.4.7075529" \
-            "cmake;3.22.1"
+          sdkmanager --install "platforms;android-25" "build-tools;34.0.0" "ndk;21.4.7075529" "cmake;3.22.1"
 
-      - name: Narzędzia do builda
+      - name: Extra build tools
         run: |
           sudo apt-get update
           sudo apt-get install -y ninja-build p7zip-full
 
-      - name: Ustaw ścieżki NDK
+      - name: Set NDK env
         run: |
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
 
-      # --- PREBUILT LIBS ---
-      - name: Rozpakuj android_libs.7z
+      - name: Unpack android_libs.7z
         run: |
           set -e
           if [ ! -f "android/android_libs.7z" ]; then
-            echo "::error::Brakuje pliku android/android_libs.7z w repo (wrzuć go do katalogu android/)."
+            echo "::error::Brakuje android/android_libs.7z w repo. Wrzuć plik i uruchom ponownie."
             exit 1
           fi
           7z x android/android_libs.7z -oandroid/android_libs
 
-          ROOT="android/android_libs"
-
-          # jeśli w archiwum jest dodatkowy katalog u góry – spłaszcz
-          TOPDIRS=$(find "$ROOT" -mindepth 1 -maxdepth 1 -type d | wc -l)
-          if [ "$TOPDIRS" = "1" ] && [ ! -d "$ROOT/arm64-v8a" ]; then
-            ONEDIR=$(find "$ROOT" -mindepth 1 -maxdepth 1 -type d | head -n1)
-            shopt -s dotglob
-            mv "$ONEDIR"/* "$ROOT"/
-            rmdir "$ONEDIR"
-          fi
-
-          echo "== DEBUG katalogi =="
-          find "$ROOT" -maxdepth 2 -type d -print
-
-      - name: Weryfikacja wymaganych plików (arm64-v8a)
+      - name: Detect include/lib (arm64-v8a)
         run: |
           set -e
-          PREFIX="$GITHUB_WORKSPACE/android/android_libs/arm64-v8a"
+          ROOT="$GITHUB_WORKSPACE/android/android_libs"
 
-          test -d "$PREFIX/include" || (echo "::error::Brak $PREFIX/include" && exit 1)
-          test -f "$PREFIX/lib/libzip.a" || (echo "::error::Brak $PREFIX/lib/libzip.a" && exit 1)
-          test -f "$PREFIX/lib/libbz2.a" || (echo "::error::Brak $PREFIX/lib/libbz2.a" && exit 1)
-          test -f "$PREFIX/lib/libluajit.a" || (echo "::error::Brak $PREFIX/lib/libluajit.a" && exit 1)
+          # domyślne + fallback
+          INC="$ROOT/arm64-v8a/include"; [ -d "$INC" ] || INC="$ROOT/include"
+          LIB="$ROOT/arm64-v8a/lib";     [ -d "$LIB" ] || LIB="$ROOT/lib"
 
-          # zipconf.h powinien być w include/
-          test -f "$PREFIX/include/zipconf.h" || (echo "::error::Brak $PREFIX/include/zipconf.h" && exit 1)
+          echo "INC=$INC" | tee -a $GITHUB_ENV
+          echo "LIB=$LIB" | tee -a $GITHUB_ENV
 
-          # wykryj ścieżkę do nagłówków LuaJIT
-          LUAJIT_INC="$PREFIX/include"
-          if [ -d "$PREFIX/include/luajit-2.0" ]; then LUAJIT_INC="$PREFIX/include/luajit-2.0"; fi
-          echo "LUAJIT_INC=$LUAJIT_INC" >> $GITHUB_ENV
+          echo "== DEBUG (katalogi android_libs) =="
+          find "$ROOT" -maxdepth 2 -type d -print | sed 's/^/  /'
 
-          # boost: wymagane nagłówki + dowolna lib na próbę
-          test -d "$PREFIX/include/boost" || (echo "::error::Brak nagłówków Boost w $PREFIX/include/boost" && exit 1)
-          ls "$PREFIX/lib"/libboost_*.a >/dev/null 2>&1 || (echo "::error::Brak bibliotek Boost w $PREFIX/lib" && exit 1)
+          # wymagane rzeczy
+          test -d "$INC" || (echo "::error::Brak katalogu include ($INC)" && exit 1)
+          test -d "$LIB" || (echo "::error::Brak katalogu lib ($LIB)" && exit 1)
+          test -d "$INC/boost" || (echo "::error::Brak nagłówków Boost w $INC/boost" && exit 1)
+          test -f "$LIB/libzip.a" || (echo "::error::Brak $LIB/libzip.a" && exit 1)
+          test -f "$LIB/libbz2.a" || (echo "::error::Brak $LIB/libbz2.a" && exit 1)
+          test -f "$LIB/libluajit.a" || (echo "::error::Brak $LIB/libluajit.a" && exit 1)
+          test -f "$INC/zipconf.h" || (echo "::error::Brak $INC/zipconf.h" && exit 1)
 
-      # --- CMAKE CONFIG ---
+          # LuaJIT nagłówki czasem są w podkatalogu
+          LUAJIT_INC="$INC"; [ -d "$INC/luajit-2.0" ] && LUAJIT_INC="$INC/luajit-2.0"
+          echo "LUAJIT_INC=$LUAJIT_INC" | tee -a $GITHUB_ENV
+
       - name: Configure (arm64-v8a)
         run: |
-          PREFIX="$GITHUB_WORKSPACE/android/android_libs/arm64-v8a"
+          ROOT="$GITHUB_WORKSPACE/android/android_libs"
           cmake -S . -B build-android-arm64 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
             -DANDROID_ABI=arm64-v8a \
             -DANDROID_PLATFORM=android-25 \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
-            -DBOOST_ROOT="$PREFIX" \
-            -DBOOST_INCLUDEDIR="$PREFIX/include" \
-            -DBOOST_LIBRARYDIR="$PREFIX/lib" \
-            -DBZIP2_INCLUDE_DIR="$PREFIX/include" \
-            -DBZIP2_LIBRARIES="$PREFIX/lib/libbz2.a" \
-            -DLIBZIP_INCLUDE_DIR_ZIP="$PREFIX/include" \
-            -DLIBZIP_INCLUDE_DIR_ZIPCONF="$PREFIX/include" \
-            -DLIBZIP_LIBRARY="$PREFIX/lib/libzip.a" \
+            -DBOOST_ROOT="$ROOT" \
+            -DBOOST_INCLUDEDIR="$INC" \
+            -DBOOST_LIBRARYDIR="$LIB" \
+            -DBZIP2_INCLUDE_DIR="$INC" \
+            -DBZIP2_LIBRARIES="$LIB/libbz2.a" \
+            -DLIBZIP_INCLUDE_DIR_ZIP="$INC" \
+            -DLIBZIP_INCLUDE_DIR_ZIPCONF="$INC" \
+            -DLIBZIP_LIBRARY="$LIB/libzip.a" \
             -DLUAJIT_INCLUDE_DIR="$LUAJIT_INC" \
-            -DLUAJIT_LIBRARY="$PREFIX/lib/libluajit.a" \
-            -DCMAKE_FIND_ROOT_PATH="$PREFIX" \
-            -DCMAKE_PREFIX_PATH="$PREFIX"
+            -DLUAJIT_LIBRARY="$LIB/libluajit.a" \
+            -DCMAKE_FIND_ROOT_PATH="$ROOT" \
+            -DCMAKE_PREFIX_PATH="$ROOT"
 
-      - name: Build
-        run: cmake --build build-android-arm64 -j 4
+      - name: Build (arm64-v8a)
+        run: cmake --build build-android-arm64 -j4
 
-      - name: Zbierz artefakty
-        if: always()
-        run: |
-          mkdir -p out
-          cp -R build-android-arm64/**/*.apk out/ 2>/dev/null || true
-          cp -R build-android-arm64/**/*.so  out/ 2>/dev/null || true
-          cp -R build-android-arm64/**/otclient* out/ 2>/dev/null || true
-
-      - name: Upload artefaktów
-        if: always()
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: android-arm64-build
-          path: out
+          path: build-android-arm64/**
+          if-no-files-found: warn
