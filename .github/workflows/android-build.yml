@@ -35,48 +35,55 @@ jobs:
       - name: Narzędzia do builda
         run: |
           sudo apt-get update
-          sudo apt-get install -y ninja-build
+          sudo apt-get install -y ninja-build p7zip-full
 
       - name: Ustaw ścieżki NDK
         run: |
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
 
+      # === NOWE: rozpakowanie android_libs.7z ===
+      - name: Rozpakuj prebuilt android_libs.7z
+        run: |
+          set -e
+          if [ ! -f "android/android_libs.7z" ]; then
+            echo "::error::Brakuje pliku android/android_libs.7z w repo (prekompilowane biblioteki na Androida). Dodaj go i uruchom ponownie."
+            exit 1
+          fi
+          7z x android/android_libs.7z -oandroid/android_libs
+          # Oczekiwany układ:
+          # android/android_libs/
+          #   arm64-v8a/{include,lib}
+          #   armeabi-v7a/{include,lib}
+
+      # === ARM64 ===
       - name: Configure (arm64-v8a)
         run: |
+          PREFIX=$GITHUB_WORKSPACE/android/android_libs/arm64-v8a
           cmake -S . -B build-android-arm64 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
             -DANDROID_ABI=arm64-v8a \
             -DANDROID_PLATFORM=android-25 \
             -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+            -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            -DBOOST_ROOT="$PREFIX" \
+            -DBOOST_INCLUDEDIR="$PREFIX/include" \
+            -DBOOST_LIBRARYDIR="$PREFIX/lib" \
+            -DBZIP2_INCLUDE_DIR="$PREFIX/include" \
+            -DBZIP2_LIBRARIES="$PREFIX/lib/libbz2.a" \
+            -DLIBZIP_INCLUDE_DIR_ZIP="$PREFIX/include" \
+            -DLIBZIP_INCLUDE_DIR_ZIPCONF="$PREFIX/include" \
+            -DLIBZIP_LIBRARY="$PREFIX/lib/libzip.a" \
+            -DCMAKE_FIND_ROOT_PATH="$PREFIX" \
+            -DCMAKE_PREFIX_PATH="$PREFIX"
 
       - name: Build (arm64-v8a)
         run: cmake --build build-android-arm64 -j 4
 
+      # === ARMv7 ===
       - name: Configure (armeabi-v7a)
         run: |
+          PREFIX=$GITHUB_WORKSPACE/android/android_libs/armeabi-v7a
           cmake -S . -B build-android-armv7 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
-            -DANDROID_ABI=armeabi-v7a \
-            -DANDROID_PLATFORM=android-25 \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-
-      - name: Build (armeabi-v7a)
-        run: cmake --build build-android-armv7 -j 4
-
-      - name: (Opcjonalnie) dołącz assets/data.zip
-        if: ${{ hashFiles('android/otclientv8/assets/data.zip') != '' }}
-        run: |
-          mkdir -p artifacts/assets
-          cp android/otclientv8/assets/data.zip artifacts/assets/
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-build
-          path: |
-            build-android-arm64/**
-            build-android-armv7/**
-            artifacts/**
+            -DANDROID_ABI_
