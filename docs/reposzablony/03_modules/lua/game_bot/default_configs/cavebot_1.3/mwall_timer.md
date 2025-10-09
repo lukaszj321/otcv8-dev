@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-1f7f0f8e4c5a"
 source_path: "game_bot/default_configs/cavebot_1.3/mwall_timer.lua"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:39:45Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:57Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: mwall_timer.lua"

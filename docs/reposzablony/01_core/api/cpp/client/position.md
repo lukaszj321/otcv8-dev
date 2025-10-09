@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-ef7b25633406"
 source_path: "client/position.h"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:38:04Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:39Z"
 doc_class: "api"
 language: "pl"
 title: "API: position.h"

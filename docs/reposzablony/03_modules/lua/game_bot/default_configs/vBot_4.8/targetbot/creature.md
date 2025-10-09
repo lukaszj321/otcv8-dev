@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-1fab86d041ca"
 source_path: "game_bot/default_configs/vBot_4.8/targetbot/creature.lua"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:39:46Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:58Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: creature.lua"

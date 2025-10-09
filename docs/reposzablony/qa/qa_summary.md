@@ -4,11 +4,11 @@
 
 ❌ **Status:** FAIL - Multiple issues found
 
-**Total Issues:** 439
+**Total Issues:** 441
 
 ## Categories
 
-- **Frontmatter:** 10 issues
+- **Frontmatter:** 12 issues
 - **Chunking:** 27 issues
 - **Links:** 402 broken links
 - **Datasets:** 0 issues

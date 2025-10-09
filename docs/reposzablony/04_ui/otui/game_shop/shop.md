@@ -1,8 +1,8 @@
 ---
 doc_id: "otui-ui-b060d7eb844d"
 source_path: "game_shop/shop.otui"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:40:51Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:29:07Z"
 doc_class: "ui"
 language: "pl"
 title: "UI: shop.otui"

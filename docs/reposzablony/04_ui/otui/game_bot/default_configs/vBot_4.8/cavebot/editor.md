@@ -1,8 +1,8 @@
 ---
 doc_id: "otui-ui-68601562e6f5"
 source_path: "game_bot/default_configs/vBot_4.8/cavebot/editor.otui"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:40:51Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:29:07Z"
 doc_class: "ui"
 language: "pl"
 title: "UI: editor.otui"
