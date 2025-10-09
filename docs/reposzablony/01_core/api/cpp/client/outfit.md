@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-8458944b6b2a"
 source_path: "client/outfit.h"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:38:04Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:39Z"
 doc_class: "api"
 language: "pl"
 title: "API: outfit.h"

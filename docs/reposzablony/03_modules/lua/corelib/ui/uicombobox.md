@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-ed1e1a539ba5"
 source_path: "corelib/ui/uicombobox.lua"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:39:45Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:57Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: uicombobox.lua"

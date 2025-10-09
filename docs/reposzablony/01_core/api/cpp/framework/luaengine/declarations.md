@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-e69ee2de6715"
 source_path: "framework/luaengine/declarations.h"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:38:05Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:40Z"
 doc_class: "api"
 language: "pl"
 title: "API: declarations.h"

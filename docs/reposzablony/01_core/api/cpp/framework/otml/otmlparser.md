@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-a9b71c952c27"
 source_path: "framework/otml/otmlparser.h"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:38:05Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:40Z"
 doc_class: "api"
 language: "pl"
 title: "API: otmlparser.h"

@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-01b4e923d081"
 source_path: "game_bot/default_configs/vBot_4.7/cavebot/buy_supplies.lua"
-source_sha: "05ca843"
-last_sync_iso: "2025-10-09T05:39:45Z"
+source_sha: "b411fa2"
+last_sync_iso: "2025-10-09T07:28:57Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: buy_supplies.lua"
