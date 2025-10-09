@@ -117,8 +117,7 @@ jobs:
           set -e
           GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
 
-          # Szukaj w typowych miejscach + fallback
-          API=24  # android-25 to alias do 24
+          API=24
           CANDIDATES=()
           CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib")
           CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib64")
@@ -142,7 +141,6 @@ jobs:
 
           if [ -z "$GLESV2" ] || [ -z "$EGL" ]; then
             echo "::error::Nie znalazłem libGLESv2.so / libEGL.so w NDK r21."
-            printf 'Przeszukane:\n  %s\n' "${CANDIDATES[@]}"
             exit 1
           fi
 
@@ -154,6 +152,28 @@ jobs:
           echo "GLESv2: $GLESV2"
           echo "EGL   : $EGL"
           echo "Include: $GLINC"
+
+      - name: (Android/GLES) Utwórz atrapę GLEW
+        run: |
+          set -e
+          STUB="$GITHUB_WORKSPACE/android/glew_stub"
+          mkdir -p "$STUB/include/GL" "$STUB/lib"
+          # minimalny nagłówek, nie będzie użyty w kodzie dla GLES, ale CMake przestanie marudzić
+          cat > "$STUB/include/GL/glew.h" <<'EOF'
+          #pragma once
+          /* GLEW stub for Android GLES builds */
+          EOF
+          # mały obiekt żeby biblioteka nie była pusta
+          echo "int __glew_stub = 0;" > "$STUB/stub.c"
+          gcc -c -o "$STUB/stub.o" "$STUB/stub.c"
+          ar rcs "$STUB/lib/libGLEW.a" "$STUB/stub.o"
+          rm -f "$STUB/stub.c" "$STUB/stub.o"
+
+          echo "GLEW_INC=$STUB/include" | tee -a $GITHUB_ENV
+          echo "GLEW_LIB=$STUB/lib/libGLEW.a" | tee -a $GITHUB_ENV
+
+          ls -l "$GLEW_LIB"
+          echo "GLEW stub gotowy."
 
       - name: Configure (arm64-v8a)
         run: |
@@ -189,7 +209,10 @@ jobs:
             -DOPENGL_INCLUDE_DIR="$GLINC" \
             -DOPENGL_opengl_LIBRARY="$GLESV2" \
             -DOPENGL_glx_LIBRARY="$EGL" \
-            -DOPENGL_egl_LIBRARY="$EGL"
+            -DOPENGL_egl_LIBRARY="$EGL" \
+            \
+            -DGLEW_INCLUDE_DIR="$GLEW_INC" \
+            -DGLEW_LIBRARY="$GLEW_LIB"
 
       - name: Build (arm64-v8a)
         run: cmake --build build-android-arm64 -j 4
