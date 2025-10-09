@@ -27,6 +27,11 @@ if [[ -n "${LUAJIT_LIB}" ]]; then
   EXTRA_ARGS+=(-DLUAJIT_LIBRARY="$LUAJIT_LIB" -DLUAJIT_INCLUDE_DIR="$LUAJIT_INC")
 fi
 
+# Dodaj przekazanie stubów GLEW
+GLEW_INCLUDE="${GITHUB_WORKSPACE:-$PWD}/android/glew_stub/include"
+GLEW_LIB="${GITHUB_WORKSPACE:-$PWD}/android/glew_stub/lib/libGLEW.a"
+EXTRA_ARGS+=(-DGLEW_INCLUDE_DIR="$GLEW_INCLUDE" -DGLEW_LIBRARY="$GLEW_LIB")
+
 cmake -S . -B build-android-arm64 -G Ninja \
   -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
   -DANDROID_ABI=arm64-v8a \
