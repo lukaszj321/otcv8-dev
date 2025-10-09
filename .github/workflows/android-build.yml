@@ -45,32 +45,22 @@ jobs:
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
 
-      # USUNIĘTO krok rozpakowania android_libs.7z!
-
       - name: Ustal INC/LIB (auto-detekcja) + sanity-check
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
-
-          # include
           INC="$ROOT/include"
           [ -d "$INC" ] || { echo "::error::Brak katalogu include ($INC)"; exit 1; }
-
-          # lib (lib albo lib64)
           if   [ -d "$ROOT/lib" ];   then LIB="$ROOT/lib"
           elif [ -d "$ROOT/lib64" ]; then LIB="$ROOT/lib64"
           else echo "::error::Brak katalogu lib/lib64 w $ROOT"; exit 1
           fi
-
           echo "INC=$INC"          | tee -a $GITHUB_ENV
           echo "LIB=$LIB"          | tee -a $GITHUB_ENV
           echo "BOOST_LIBDIR=$LIB" | tee -a $GITHUB_ENV
-
-          # LuaJIT nagłówki czasem są w podkatalogu
           LUAJIT_INC="$INC"; [ -d "$INC/luajit-2.0" ] && LUAJIT_INC="$INC/luajit-2.0"
           echo "LUAJIT_INC=$LUAJIT_INC" | tee -a $GITHUB_ENV
           echo "LUAJIT_LIB=$LIB"        | tee -a $GITHUB_ENV
-
           echo "== sanity-check =="
           test -d "$INC/boost"       || (echo "::error::Brak nagłówków Boost w $INC/boost" && exit 1)
           test -f "$LIB/libzip.a"    || (echo "::error::Brak $LIB/libzip.a" && exit 1)
@@ -92,23 +82,22 @@ jobs:
           cc -c -o "$STUB/stub.o" "$STUB/stub.c"
           ar rcs "$STUB/lib/libGLEW.a" "$STUB/stub.o"
           rm -f "$STUB/stub.c" "$STUB/stub.o"
-          echo "GLEW_INCLUDE_DIR=$STUB/include"   >> $GITHUB_ENV
-          echo "GLEW_INCLUDE_DIRS=$STUB/include"  >> $GITHUB_ENV
+          echo "GLEW_INCLUDE_DIR=$STUB/include" >> $GITHUB_ENV
           echo "GLEW_LIBRARY=$STUB/lib/libGLEW.a" >> $GITHUB_ENV
-          echo "GLEW_LIBRARIES=$STUB/lib/libGLEW.a" >> $GITHUB_ENV
-          ls -l "$STUB/lib/libGLEW.a"
+
+      - name: Debug GLEW stub
+        run: |
+          ls -l $GLEW_INCLUDE_DIR/GL/glew.h
+          ls -l $GLEW_LIBRARY
 
       - name: Configure (arm64-v8a)
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
-
-          # Ścieżki do GLES/EGL z NDK r21d (platforms/android-24/arch-arm64)
           GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
           GLESV2="$ANDROID_NDK_ROOT/platforms/android-24/arch-arm64/usr/lib/libGLESv2.so"
           EGL="$ANDROID_NDK_ROOT/platforms/android-24/arch-arm64/usr/lib/libEGL.so"
           ls -l "$GLESV2" "$EGL" "$GLINC"
-
           cmake -S . -B build-android-arm64 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
             -DANDROID_ABI=arm64-v8a \
@@ -141,9 +130,7 @@ jobs:
             -DOPENGL_egl_LIBRARY="$EGL" \
             \
             -DGLEW_INCLUDE_DIR="$GLEW_INCLUDE_DIR" \
-            -DGLEW_INCLUDE_DIRS="$GLEW_INCLUDE_DIRS" \
-            -DGLEW_LIBRARY="$GLEW_LIBRARY" \
-            -DGLEW_LIBRARIES="$GLEW_LIBRARIES"
+            -DGLEW_LIBRARY="$GLEW_LIBRARY"
 
       - name: Build (arm64-v8a)
         run: cmake --build build-android-arm64 -j 4
