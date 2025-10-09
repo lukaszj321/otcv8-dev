@@ -112,50 +112,55 @@ jobs:
           test -f "$LIB/libluajit.a" || (echo "::error::Brak $LIB/libluajit.a" && exit 1)
           test -f "$INC/zipconf.h"   || (echo "::error::Brak $INC/zipconf.h" && exit 1)
 
-      - name: Configure (arm64-v8a) — autodetekcja GLES/EGL
+      - name: Znajdź GLES/EGL w NDK (r21)
         run: |
           set -e
-          ROOT="$GITHUB_WORKSPACE/android/android_libs"
-
-          # Headers mamy w sysroot:
           GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
 
-          # NDK r21: biblioteki stub zwykle w platforms/android-<API>/arch-arm64/usr/lib
-          API=24  # android-25 alias do 24
+          # Najpierw standardowe miejsca (r21 ma stuby w 'platforms/')
+          API=24  # android-25 to alias do 24
           CANDIDATES=()
           CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib")
           CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib64")
           CANDIDATES+=("$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android")
           CANDIDATES+=("$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/$API")
 
-          GLLIBDIR=""
+          GLESV2=""
+          EGL=""
           for d in "${CANDIDATES[@]}"; do
             if [ -f "$d/libGLESv2.so" ] && [ -f "$d/libEGL.so" ]; then
-              GLLIBDIR="$d"; break
+              GLESV2="$d/libGLESv2.so"
+              EGL="$d/libEGL.so"
+              break
             fi
           done
 
-          if [ -z "$GLLIBDIR" ]; then
-            echo "Szukam libGLESv2.so / libEGL.so w całym NDK (to potrwa sekundę)…"
+          # Fallback — globalny find (wolniejszy, ale pewny)
+          if [ -z "$GLESV2" ] || [ -z "$EGL" ]; then
             GLESV2="$(find "$ANDROID_NDK_ROOT" -type f -name 'libGLESv2.so' | head -n1 || true)"
             EGL="$(find "$ANDROID_NDK_ROOT" -type f -name 'libEGL.so' | head -n1 || true)"
-            if [ -n "$GLESV2" ] && [ -n "$EGL" ]; then
-              GLLIBDIR="$(dirname "$GLESV2")"
-            fi
           fi
 
-          if [ -z "$GLLIBDIR" ]; then
-            echo "::error::Nie znalazłem libGLESv2.so / libEGL.so w NDK r21. Sprawdź instalację NDK."
+          if [ -z "$GLESV2" ] || [ -z "$EGL" ]; then
+            echo "::error::Nie znalazłem libGLESv2.so / libEGL.so w NDK r21."
+            echo "Przeszukane katalogi:"
+            printf '  %s\n' "${CANDIDATES[@]}"
             exit 1
           fi
 
-          GLESV2="$GLLIBDIR/libGLESv2.so"
-          EGL="$GLLIBDIR/libEGL.so"
+          echo "GLINC=$GLINC"   | tee -a $GITHUB_ENV
+          echo "GLESV2=$GLESV2" | tee -a $GITHUB_ENV
+          echo "EGL=$EGL"       | tee -a $GITHUB_ENV
 
-          echo "== Używam GLES/EGL =="
+          echo "== Wybrane =="
           echo "GLESv2: $GLESV2"
           echo "EGL   : $EGL"
           echo "Include: $GLINC"
+
+      - name: Configure (arm64-v8a)
+        run: |
+          set -e
+          ROOT="$GITHUB_WORKSPACE/android/android_libs"
 
           cmake -S . -B build-android-arm64 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
