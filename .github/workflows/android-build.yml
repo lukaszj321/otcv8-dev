@@ -75,7 +75,6 @@ jobs:
           mkdir -p "$STUB/include/GL" "$STUB/lib"
           cat > "$STUB/include/GL/glew.h" <<'EOF'
           #pragma once
-          /* Minimalny stub GLEW dla buildu na Android/GLES */
           static inline int __glew_dummy(void){return 0;}
           EOF
           printf "int __glew_stub = 0;\n" > "$STUB/stub.c"
