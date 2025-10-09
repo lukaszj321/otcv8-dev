@@ -1,3 +1,14 @@
+﻿---
+doc_id: "chapter:_tools"
+doc_class: "guide"
+language: "pl"
+title: "README.md"
+summary: "Rozdzia  szkic do uzupenienia."
+source_path: "_tools/README.md"
+source_sha: "pending"
+last_sync_iso: "2025-10-09T08:23:16Z"
+tags: ["chapter","guide"]
+---
 # Documentation Generation Tools
 
 This directory contains tools for generating OTClient v8 documentation and RAG datasets.
@@ -232,3 +243,4 @@ tags: ["tag1", "tag2"]
 ## License
 
 Same as OTClient v8
+
