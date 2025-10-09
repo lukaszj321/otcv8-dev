@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout (with LFS)
+      - name: Checkout (z LFS)
         uses: actions/checkout@v4
         with:
           lfs: true
@@ -17,177 +17,118 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: '17'
 
-      - name: Android cmdline-tools
+      - name: Android cmdline-tools + pakiety
         uses: android-actions/setup-android@v3
         with:
           cmdline-tools-version: 12266719
           accept-android-sdk-licenses: true
           log-accepted-android-sdk-licenses: true
 
-      - name: Install SDK/NDK/CMake
+      - name: Zainstaluj pakiety SDK/NDK/CMake
         run: |
           yes | sdkmanager --licenses
-          sdkmanager --install "platforms;android-25" "build-tools;34.0.0" "ndk;21.4.7075529" "cmake;3.22.1"
+          sdkmanager --install "platforms;android-25"
+          sdkmanager --install "build-tools;34.0.0"
+          sdkmanager --install "ndk;21.4.7075529"
+          sdkmanager --install "cmake;3.22.1"
 
-      - name: Extra build tools
+      - name: Narzędzia systemowe
         run: |
           sudo apt-get update
-          sudo apt-get install -y ninja-build p7zip-full curl
+          sudo apt-get install -y ninja-build p7zip-full
 
-      - name: Set NDK env
+      - name: Ustaw ścieżki NDK
         run: |
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
 
-      - name: Unpack android_libs.7z
+      - name: Rozpakuj prebuilt android_libs.7z
         run: |
           set -e
           if [ ! -f "android/android_libs.7z" ]; then
-            echo "::error::Brakuje android/android_libs.7z w repo. Wrzuć plik i uruchom ponownie."
+            echo "::error::Brakuje pliku android/android_libs.7z w repo (prekompilowane biblioteki na Androida)."
             exit 1
           fi
           7z x android/android_libs.7z -oandroid/android_libs
+          echo "== Zawartość android/android_libs =="
+          find android/android_libs -maxdepth 2 -type d -print | sed 's/^/  /'
 
-      # === Build missing libs (arm64) -> libbz2.a, libzip.a ===
-      - name: Build libbz2 + libzip if missing (arm64)
-        run: |
-          set -e
-          ROOT="$GITHUB_WORKSPACE/android/android_libs"
-          INC="$ROOT/include"
-          LIB="$ROOT/lib"
-          mkdir -p "$INC" "$LIB"
-
-          # NDK toolchain (arm64, API 24 ~ alias 25)
-          NDK="$ANDROID_NDK_ROOT"
-          TC="$NDK/toolchains/llvm/prebuilt/linux-x86_64"
-          API=24
-          TARGET=aarch64-linux-android
-          export CC="$TC/bin/${TARGET}${API}-clang"
-          export CXX="$TC/bin/${TARGET}${API}-clang++"
-          export AR="$TC/bin/llvm-ar"
-          export RANLIB="$TC/bin/llvm-ranlib"
-          export STRIP="$TC/bin/llvm-strip"
-
-          # === bzip2 (libbz2.a) ===
-          if [ ! -f "$LIB/libbz2.a" ]; then
-            echo ">> Building bzip2 (static)"
-            curl -L -o /tmp/bzip2.tar.gz https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
-            tar -xf /tmp/bzip2.tar.gz -C /tmp
-            pushd /tmp/bzip2-1.0.8
-            make clean || true
-            make -j4 CC="$CC" AR="$AR" RANLIB="$RANLIB" CFLAGS="-fPIC" libbz2.a
-            cp libbz2.a "$LIB/"
-            cp bzlib.h "$INC/"
-            popd
-          else
-            echo ">> libbz2.a already present"
-          fi
-
-          # === libzip (libzip.a + zipconf.h) ===
-          if [ ! -f "$LIB/libzip.a" ] || [ ! -f "$INC/zipconf.h" ]; then
-            echo ">> Building libzip (static)"
-            curl -L -o /tmp/libzip.tar.gz https://libzip.org/download/libzip-1.10.1.tar.gz
-            mkdir -p /tmp/libzip && tar -xf /tmp/libzip.tar.gz -C /tmp/libzip --strip-components=1
-            cmake -S /tmp/libzip -B /tmp/build-libzip \
-              -G Ninja \
-              -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
-              -DANDROID_ABI=arm64-v8a \
-              -DANDROID_PLATFORM=android-24 \
-              -DCMAKE_BUILD_TYPE=Release \
-              -DBUILD_SHARED_LIBS=OFF \
-              -DZLIB_LIBRARY="$TC/sysroot/usr/lib/$TARGET/libz.a" \
-              -DZLIB_INCLUDE_DIR="$TC/sysroot/usr/include" \
-              -DBZIP2_INCLUDE_DIR="$INC" \
-              -DBZIP2_LIBRARIES="$LIB/libbz2.a" \
-              -DENABLE_BZIP2=ON \
-              -DCMAKE_INSTALL_PREFIX=/tmp/libzip-install
-            cmake --build /tmp/build-libzip -j4
-            cmake --install /tmp/build-libzip
-            cp /tmp/libzip-install/lib/libzip.a "$LIB/"
-            cp /tmp/libzip-install/include/zip.h "$INC/"
-            cp /tmp/libzip-install/include/zipconf.h "$INC/"
-          else
-            echo ">> libzip already present"
-          fi
-
-      # === Detect/include/lib (arm64) + wybór LIB dla Boost/LuaJIT ===
-      - name: Detect include/lib (arm64-v8a)
+      - name: Ustal ścieżki android_libs (INC/LIB)
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
 
-          # include preferowane
+          # domyślne + fallback (niektóre paczki nie mają podkatalogów arch)
           INC="$ROOT/arm64-v8a/include"; [ -d "$INC" ] || INC="$ROOT/include"
-
-          # bibloteki: preferuj lib, ale jeśli Boost wyłącznie w lib64 – użyj lib64 dla BOOST
           LIB="$ROOT/arm64-v8a/lib";     [ -d "$LIB" ] || LIB="$ROOT/lib"
-          LIB64="$ROOT/lib64"
 
-          echo "== DEBUG (drzewo android_libs) =="
-          find "$ROOT" -maxdepth 2 -type d -print | sed 's/^/  /'
+          echo "INC=$INC"          | tee -a $GITHUB_ENV
+          echo "LIB=$LIB"          | tee -a $GITHUB_ENV
+          echo "BOOST_LIBDIR=$LIB" | tee -a $GITHUB_ENV
 
-          # sprawdź Boost headers i wybierz dir dla boost *.a
-          test -d "$INC/boost" || (echo "::error::Brak nagłówków Boost w $INC/boost" && exit 1)
-          BOOST_LIBDIR="$LIB"
-          ls "$BOOST_LIBDIR"/libboost_*.a >/dev/null 2>&1 || {
-            if ls "$LIB64"/libboost_*.a >/dev/null 2>&1; then
-              BOOST_LIBDIR="$LIB64"
-            else
-              echo "::error::Brak bibliotek Boost (libboost_*.a) w $LIB ani $LIB64"
-              exit 1
-            fi
-          }
-
-          # LuaJIT
+          # LuaJIT nagłówki bywają w luajit-2.0/
           LUAJIT_INC="$INC"; [ -d "$INC/luajit-2.0" ] && LUAJIT_INC="$INC/luajit-2.0"
-          LUAJIT_LIB="$LIB"
-          [ -f "$LUAJIT_LIB/libluajit.a" ] || { [ -f "$LIB64/libluajit.a" ] && LUAJIT_LIB="$LIB64"; }
-          [ -f "$LUAJIT_LIB/libluajit.a" ] || (echo "::error::Brak libluajit.a w $LIB ani $LIB64" && exit 1)
+          echo "LUAJIT_INC=$LUAJIT_INC" | tee -a $GITHUB_ENV
+          echo "LUAJIT_LIB=$LIB"        | tee -a $GITHUB_ENV
 
-          # libzip + zipconf + bzip2
-          [ -f "$LIB/libzip.a" ] || (echo "::error::Brak $LIB/libzip.a (po kroku build powinno być)" && exit 1)
-          [ -f "$INC/zipconf.h" ] || (echo "::error::Brak $INC/zipconf.h (po kroku build powinno być)" && exit 1)
-          [ -f "$LIB/libbz2.a" ] || (echo "::error::Brak $LIB/libbz2.a (po kroku build powinno być)" && exit 1)
-
-          # export
-          {
-            echo "INC=$INC"
-            echo "LIB=$LIB"
-            echo "BOOST_LIBDIR=$BOOST_LIBDIR"
-            echo "LUAJIT_INC=$LUAJIT_INC"
-            echo "LUAJIT_LIB=$LUAJIT_LIB"
-          } | tee -a $GITHUB_ENV
+          echo "== sanity-check =="
+          test -d "$INC/boost"          || (echo "::error::Brak nagłówków Boost w $INC/boost" && exit 1)
+          test -f "$LIB/libzip.a"       || (echo "::error::Brak $LIB/libzip.a" && exit 1)
+          test -f "$LIB/libbz2.a"       || (echo "::error::Brak $LIB/libbz2.a" && exit 1)
+          test -f "$LIB/libluajit.a"    || (echo "::error::Brak $LIB/libluajit.a" && exit 1)
+          test -f "$INC/zipconf.h"      || (echo "::error::Brak $INC/zipconf.h" && exit 1)
 
       - name: Configure (arm64-v8a)
         run: |
+          set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
+
+          # Ścieżki do GLESv2/EGL z NDK (Android używa OpenGL ES + EGL, nie GL/GLX)
+          GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
+          GLLIBDIR="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android"
+          GLESV2="$GLLIBDIR/libGLESv2.so"
+          EGL="$GLLIBDIR/libEGL.so"
+
+          ls -l "$GLESV2" "$EGL" "$GLINC" || { echo "::error::Brak GLES/EGL w NDK"; exit 1; }
+
           cmake -S . -B build-android-arm64 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
             -DANDROID_ABI=arm64-v8a \
             -DANDROID_PLATFORM=android-25 \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            \
             -DBOOST_ROOT="$ROOT" \
             -DBOOST_INCLUDEDIR="$INC" \
             -DBOOST_LIBRARYDIR="$BOOST_LIBDIR" \
+            \
             -DBZIP2_INCLUDE_DIR="$INC" \
             -DBZIP2_LIBRARIES="$LIB/libbz2.a" \
+            \
             -DLIBZIP_INCLUDE_DIR_ZIP="$INC" \
             -DLIBZIP_INCLUDE_DIR_ZIPCONF="$INC" \
             -DLIBZIP_LIBRARY="$LIB/libzip.a" \
+            \
             -DLUAJIT_INCLUDE_DIR="$LUAJIT_INC" \
             -DLUAJIT_LIBRARY="$LUAJIT_LIB/libluajit.a" \
+            \
             -DCMAKE_FIND_ROOT_PATH="$ROOT" \
-            -DCMAKE_PREFIX_PATH="$ROOT"
+            -DCMAKE_PREFIX_PATH="$ROOT" \
+            \
+            -DUSE_OPENGL_ES=ON \
+            -DOPENGL_ES=ON \
+            -DOPENGL_INCLUDE_DIR="$GLINC" \
+            -DOPENGL_opengl_LIBRARY="$GLESV2" \
+            -DOPENGL_glx_LIBRARY="$EGL" \
+            -DOPENGL_egl_LIBRARY="$EGL"
 
       - name: Build (arm64-v8a)
-        run: cmake --build build-android-arm64 -j4
+        run: cmake --build build-android-arm64 -j 4
 
-      - name: Upload build artifacts
+      - name: Upload artefakt (build-android-arm64)
         uses: actions/upload-artifact@v4
         with:
-          name: android-arm64-build
+          name: build-android-arm64
           path: build-android-arm64/**
-          if-no-files-found: warn
