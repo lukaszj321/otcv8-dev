@@ -74,7 +74,7 @@ jobs:
         run: |
           set -e
           if [ -f "$LIB/libbz2.a" ]; then
-            echo "libbz2.a już istnieje w $LIB — pomijam kompilację."
+            echo "libbz2.a już jest — pomijam."
             exit 0
           fi
 
@@ -117,7 +117,7 @@ jobs:
           set -e
           GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
 
-          # Najpierw standardowe miejsca (r21 ma stuby w 'platforms/')
+          # Szukaj w typowych miejscach + fallback
           API=24  # android-25 to alias do 24
           CANDIDATES=()
           CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib")
@@ -135,7 +135,6 @@ jobs:
             fi
           done
 
-          # Fallback — globalny find (wolniejszy, ale pewny)
           if [ -z "$GLESV2" ] || [ -z "$EGL" ]; then
             GLESV2="$(find "$ANDROID_NDK_ROOT" -type f -name 'libGLESv2.so' | head -n1 || true)"
             EGL="$(find "$ANDROID_NDK_ROOT" -type f -name 'libEGL.so' | head -n1 || true)"
@@ -143,8 +142,7 @@ jobs:
 
           if [ -z "$GLESV2" ] || [ -z "$EGL" ]; then
             echo "::error::Nie znalazłem libGLESv2.so / libEGL.so w NDK r21."
-            echo "Przeszukane katalogi:"
-            printf '  %s\n' "${CANDIDATES[@]}"
+            printf 'Przeszukane:\n  %s\n' "${CANDIDATES[@]}"
             exit 1
           fi
 
