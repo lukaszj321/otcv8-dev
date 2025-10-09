@@ -1,11 +1,15 @@
 # OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)
+
 **Cel:** Dostarczyć kompletne, wdrażalne uzupełnienie do Part 4:
+
 A) **Import z Lua‑stringów do AST** (AUTO‑STRICT, aktualizacja *in‑place*),
 B) **Rozszerzona biblioteka goldenów** (round‑trip 1:1),
 C) **Runner z obsługą profili** (`game_bot`, `client`, …).
 
 ---
+
 # Spis treści
+
 - [A. Import z Lua‑stringów → AST (AUTO‑STRICT)](#a-import)
   - [A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe](#a-1)
   - [A.2 API ekstrakcji i podmiany (TypeScript)](#a-2)
@@ -19,22 +23,31 @@ C) **Runner z obsługą profili** (`game_bot`, `client`, …).
 ---
 
 <div id="a-import"></div>
+
 # A. Import z Lua‑stringów → AST (AUTO‑STRICT)
+
 <div id="a-1"></div>
+
 # A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe
+
 **Obsługiwane formy:**
+
 1) **Zmienna**: `local <Name>_OTUI = [[ ... ]]` — preferowana w kodzie źródłowym.
 2) **Kotwice**: `-- @OTUI_BEGIN name=<name>` … `-- @OTUI_END name=<name>` — czytelny marker w Lua.
 
 **Regexy (TS, `gms`):**
+
 ```ts
 export const RX_VAR = /(^|\n)\s*local\s+([A-Za-z0-9_]+)_OTUI\s*=\s*\[\[([\s\S]*?)\]\]/gms;
 export const RX_TAG = /(^|\n)\s*--\s*@OTUI_BEGIN\s+name=([A-Za-z0-9_]+)[^\n]*\n([\s\S]*?)\n\s*--\s*@OTUI_END\s+name=\2/gms;
 ```
+
 > **STRICT OTUI** wewnątrz bloków: brak tabów/komentarzy/BOM; wcięcia 2 sp.; kolejność atrybutów GEOMETRIA→STYL→ZACHOWANIE.
 
 <div id="a-2"></div>
+
 # A.2 API ekstrakcji i podmiany (TypeScript)
+
 ```ts
 export interface LuaOtuiBlock { name: string; otui: string; start: number; end: number; kind: 'var'|'tag' }
 
@@ -60,7 +73,9 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ```
 
 <div id="a-3"></div>
+
 # A.3 Polityka AUTO‑STRICT i błędy importu
+
 - **AUTO‑STRICT:** `ensureStrictOtui(text)` przed `parseOtui()`; jeśli zmieni treść → `W:STRICT` (propozycja auto‑zapisania).
 - **Błędy importu:**
   - `E:LUA‑DUP` — więcej niż jeden blok o tej samej nazwie w pliku.
@@ -69,6 +84,7 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
   - `E:PARSE` — niepoprawny OTUI po `ensureStrictOtui()`.
 
 <div id="a-4"></div>
+
 # A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)
 1. **Import**: odczytaj plik Lua → `extractLuaOtuiBlocks()` → wybór bloku → `ensureStrictOtui()` → `parseOtui()` → edycja w IDE.
 2. **Eksport**: `serializeAst()` → `ensureStrictOtui()` → `replaceLuaOtuiBlock()` (Lua) **oraz** zapis do `.otui` (kanoniczny runtime).
@@ -77,9 +93,13 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ---
 
 <div id="b-goldens"></div>
+
 # B. Goldeny (expanded)
+
 <div id="b-1"></div>
+
 # B.1 Indeks JSON (nazwy → opis)
+
 ```json
 [
   {"name":"mainwindow_basic","desc":"MainWindow + content (fill)"},
@@ -107,8 +127,11 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 ```
 
 <div id="b-2"></div>
+
 # B.2 Wybrane goldeny (STRICT OTUI)
+
 **`toolbar_basic`**
+
 ```otui
 Toolbar
   id: tools
@@ -130,6 +153,7 @@ Toolbar
 ```
 
 **`titlebar_buttons_set`**
+
 ```otui
 Titlebar
   id: tb
@@ -152,6 +176,7 @@ Titlebar
 ```
 
 **`groupbox_form_basic`**
+
 ```otui
 GroupBox
   id: group
@@ -182,6 +207,7 @@ GroupBox
 ```
 
 **`tabbed_miniwindow`**
+
 ```otui
 MiniWindow < MainWindow
   id: mini
@@ -230,6 +256,7 @@ MiniWindow < MainWindow
 ```
 
 **`textlist_with_hscroll`**
+
 ```otui
 UIWidget
   id: wrap
@@ -251,6 +278,7 @@ UIWidget
 ```
 
 **`login_screen_basic`** (podgląd)
+
 ```otui
 StaticMainWindow
   id: smw_login
@@ -299,7 +327,9 @@ StaticMainWindow
 ---
 
 <div id="c-runner"></div>
+
 # C. Runner round‑trip + walidacja profili
+
 ```ts
 export interface GoldenCase { name: string; otui?: string }
 export interface GoldenIO { read(path: string): string; write(path: string, data: string): void }

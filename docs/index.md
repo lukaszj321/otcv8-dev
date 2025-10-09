@@ -1,12 +1,17 @@
 # OTCv8 – Dokumentacja
 
-Krótka nawigacja po projekcie. Lewy panel pokazuje spis treści generowany z poniższych toctree.
+Poniżej **kategorie** i pełny spis treści generowany automatycznie. Wszystkie strony muszą być włączone do jednego z poniższych bloków `{toctree}` – wtedy pojawią się w bocznej nawigacji i w wyszukiwarce.
+
+> **Uwaga (dirhtml):** Linkuj bez `.html` (np. `/api/`, `/modules/structured/core/`).
+
+---
 
 ```{toctree}
-:caption: Start
+:caption: Wprowadzenie
 :maxdepth: 2
 
-cpp/overview.md
+cpp/overview
+README
 ```
 
 ```{toctree}
@@ -14,24 +19,62 @@ cpp/overview.md
 :maxdepth: 2
 :glob:
 
-api/**/*.md
+api/*
+api/**/*
 ```
 
 ```{toctree}
-:caption: Moduły (structured)
+:caption: Dane / Specyfikacje
 :maxdepth: 2
 :glob:
 
-modules/structured/**/*.md
+data/*
 ```
 
 ```{toctree}
-:caption: Pozostałe
+:caption: Moduły – Bot Tools
 :maxdepth: 2
 :glob:
 
-modules/**/*.md
+modules/structured/bot_tools/*
 ```
 
-> Uwaga: w linkach w treści używaj odniesień do plików `.md` (np. `api/index.md`),
-> wtedy Sphinx poprawnie zamieni je na `.html` lub katalogi (dla buildera `dirhtml`).
+```{toctree}
+:caption: Moduły – Core
+:maxdepth: 2
+:glob:
+
+modules/structured/core/*
+```
+
+```{toctree}
+:caption: Moduły – Dev Tools
+:maxdepth: 2
+:glob:
+
+modules/structured/dev_tools/*
+```
+
+```{toctree}
+:caption: Moduły – Gameplay
+:maxdepth: 2
+:glob:
+
+modules/structured/gameplay/*
+```
+
+```{toctree}
+:caption: Pozostałe moduły (nie-structured)
+:maxdepth: 2
+:glob:
+
+modules/*
+```
+
+```{toctree}
+:caption: Załączniki / Inne
+:maxdepth: 1
+:glob:
+
+*/*
+```
