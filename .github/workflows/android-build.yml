@@ -55,7 +55,7 @@ jobs:
           echo "== Zawartość android/android_libs =="
           find android/android_libs -maxdepth 2 -type d -print | sed 's/^/  /'
 
-      - name: Ustal ścieżki INC/LIB
+      - name: Ustal ścieżki INC/LIB (boost, luajit, libzip)
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
@@ -112,18 +112,50 @@ jobs:
           test -f "$LIB/libluajit.a" || (echo "::error::Brak $LIB/libluajit.a" && exit 1)
           test -f "$INC/zipconf.h"   || (echo "::error::Brak $INC/zipconf.h" && exit 1)
 
-      - name: Configure (arm64-v8a)
+      - name: Configure (arm64-v8a) — autodetekcja GLES/EGL
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
 
-          # OpenGL ES + EGL z NDK
+          # Headers mamy w sysroot:
           GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
-          GLLIBDIR="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android"
+
+          # NDK r21: biblioteki stub zwykle w platforms/android-<API>/arch-arm64/usr/lib
+          API=24  # android-25 alias do 24
+          CANDIDATES=()
+          CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib")
+          CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib64")
+          CANDIDATES+=("$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android")
+          CANDIDATES+=("$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/$API")
+
+          GLLIBDIR=""
+          for d in "${CANDIDATES[@]}"; do
+            if [ -f "$d/libGLESv2.so" ] && [ -f "$d/libEGL.so" ]; then
+              GLLIBDIR="$d"; break
+            fi
+          done
+
+          if [ -z "$GLLIBDIR" ]; then
+            echo "Szukam libGLESv2.so / libEGL.so w całym NDK (to potrwa sekundę)…"
+            GLESV2="$(find "$ANDROID_NDK_ROOT" -type f -name 'libGLESv2.so' | head -n1 || true)"
+            EGL="$(find "$ANDROID_NDK_ROOT" -type f -name 'libEGL.so' | head -n1 || true)"
+            if [ -n "$GLESV2" ] && [ -n "$EGL" ]; then
+              GLLIBDIR="$(dirname "$GLESV2")"
+            fi
+          fi
+
+          if [ -z "$GLLIBDIR" ]; then
+            echo "::error::Nie znalazłem libGLESv2.so / libEGL.so w NDK r21. Sprawdź instalację NDK."
+            exit 1
+          fi
+
           GLESV2="$GLLIBDIR/libGLESv2.so"
           EGL="$GLLIBDIR/libEGL.so"
 
-          ls -l "$GLESV2" "$EGL" "$GLINC" || { echo "::error::Brak GLES/EGL w NDK"; exit 1; }
+          echo "== Używam GLES/EGL =="
+          echo "GLESv2: $GLESV2"
+          echo "EGL   : $EGL"
+          echo "Include: $GLINC"
 
           cmake -S . -B build-android-arm64 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
