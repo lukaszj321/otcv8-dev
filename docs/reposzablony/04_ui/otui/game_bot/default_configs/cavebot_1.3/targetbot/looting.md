@@ -1,8 +1,8 @@
 ---
 doc_id: "otui-ui-0ed9c0b378a0"
 source_path: "game_bot/default_configs/cavebot_1.3/targetbot/looting.otui"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:29:07Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:14Z"
 doc_class: "ui"
 language: "pl"
 title: "UI: looting.otui"

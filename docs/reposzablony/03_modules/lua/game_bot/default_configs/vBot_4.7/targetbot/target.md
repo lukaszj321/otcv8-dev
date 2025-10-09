@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-a8d5b487e594"
 source_path: "game_bot/default_configs/vBot_4.7/targetbot/target.lua"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:57Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:05Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: target.lua"

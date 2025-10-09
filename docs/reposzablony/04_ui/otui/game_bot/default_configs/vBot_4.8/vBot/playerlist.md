@@ -1,8 +1,8 @@
 ---
 doc_id: "otui-ui-5c2fc605d393"
 source_path: "game_bot/default_configs/vBot_4.8/vBot/playerlist.otui"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:29:07Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:14Z"
 doc_class: "ui"
 language: "pl"
 title: "UI: playerlist.otui"

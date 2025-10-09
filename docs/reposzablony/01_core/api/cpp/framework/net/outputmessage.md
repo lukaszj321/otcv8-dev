@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-e1dc74da055a"
 source_path: "framework/net/outputmessage.h"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:40Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:28:07Z"
 doc_class: "api"
 language: "pl"
 title: "API: outputmessage.h"

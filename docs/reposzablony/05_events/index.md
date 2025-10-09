@@ -2,7 +2,7 @@
 doc_id: "events-index-main"
 source_path: "events/detection"
 source_sha: "generated"
-last_sync_iso: "2025-10-09T07:29:16Z"
+last_sync_iso: "2025-10-09T10:29:24Z"
 doc_class: "spec"
 language: "pl"
 title: "Indeks Zdarzeń"

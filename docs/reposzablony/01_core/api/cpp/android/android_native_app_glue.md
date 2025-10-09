@@ -1,8 +1,8 @@
 ---
 doc_id: "cpp-api-2a3e45b2b8c8"
 source_path: "android/android_native_app_glue.h"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:39Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:28:07Z"
 doc_class: "api"
 language: "pl"
 title: "API: android_native_app_glue.h"

@@ -1,8 +1,8 @@
 ---
 doc_id: "lua-spec-e3576419ab6d"
 source_path: "game_bot/default_configs/vBot_4.8/vBot/configs.lua"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:28:58Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:05Z"
 doc_class: "spec"
 language: "pl"
 title: "Moduł Lua: configs.lua"
