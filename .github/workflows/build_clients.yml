@@ -131,4 +131,134 @@ jobs:
         shell: bash
         run: |
           set -e
-          cmake --install build --pref
+          cmake --install build --prefix dist || true
+          if [ ! -d dist ]; then
+            mkdir -p dist/bin
+            if [ "${{ runner.os }}" = "Windows" ]; then
+              shopt -s nullglob || true
+              cp -f build/*.exe dist/bin/ 2>/dev/null || true
+              cp -f build/*.dll dist/bin/ 2>/dev/null || true
+              cp -f build/*.pdb dist/bin/ 2>/dev/null || true
+            else
+              cp -f build/* dist/bin/ 2>/dev/null || true
+              cp -f build/*/*.dylib dist/bin/ 2>/dev/null || true
+              cp -f build/*/*.so    dist/bin/ 2>/dev/null || true
+            fi
+          fi
+
+      - name: Bundle runtime assets
+        shell: bash
+        run: |
+          mkdir -p dist/assets
+          for d in data modules mods things otui; do
+            if [ -d "$d" ]; then
+              mkdir -p "dist/assets/$d"
+              cp -R "$d/." "dist/assets/$d/" 2>/dev/null || true
+            fi
+          done
+          echo "Assets bundled:"
+          find dist/assets -maxdepth 2 -type d -print || true
+
+      - name: Archive
+        shell: bash
+        run: |
+          PKG="otclient-${{ matrix.arch }}-${{ runner.os }}.zip"
+          (cd dist && zip -r "../$PKG" .)
+          echo "PACKAGE_NAME=$PKG" >> $GITHUB_ENV
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PACKAGE_NAME }}
+          path: ${{ env.PACKAGE_NAME }}
+          if-no-files-found: error
+          retention-days: 14
+
+  android:
+    name: Android (Gradle or NDK)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Android SDK/NDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platforms;android-34
+            build-tools;34.0.0
+            ndk;26.1.10909125
+            cmake;3.22.1
+
+      - name: Detect Gradle project
+        id: detect
+        shell: bash
+        run: |
+          if [ -f "android/app/build.gradle" ] || [ -f "android/app/build.gradle.kts" ]; then
+            echo "has_gradle=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_gradle=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build (Gradle)
+        if: steps.detect.outputs.has_gradle == 'true'
+        working-directory: android
+        env:
+          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
+        run: |
+          ./gradlew --version
+          ./gradlew assembleRelease
+          ls -R app/build/outputs || true
+
+      - name: Upload APK/AAB
+        if: steps.detect.outputs.has_gradle == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-gradle-artifacts
+          path: |
+            android/app/build/outputs/**/*.apk
+            android/app/build/outputs/**/*.aab
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Build (CMake+NDK fallback)
+        if: steps.detect.outputs.has_gradle == 'false'
+        env:
+          ANDROID_NDK: ${{ env.ANDROID_NDK_HOME }}
+        run: |
+          cmake -S . -B build-android -G Ninja \
+            -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+            -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK/build/cmake/android.toolchain.cmake" \
+            -DANDROID_ABI=arm64-v8a \
+            -DANDROID_PLATFORM=24 \
+            -DANDROID_STL=c++_static
+          cmake --build build-android --config RelWithDebInfo -j 2
+          mkdir -p dist-android/lib
+          cp -rf build-android/* dist-android/lib/ || true
+          mkdir -p dist-android/assets
+          for d in data modules mods things otui; do
+            if [ -d "$d" ]; then
+              mkdir -p "dist-android/assets/$d"
+              cp -R "$d/." "dist-android/assets/$d/" 2>/dev/null || true
+            fi
+          done
+          (cd dist-android && zip -r ../otclient-android-ndk.zip .)
+
+      - name: Upload NDK artifacts
+        if: steps.detect.outputs.has_gradle == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: otclient-android-ndk.zip
+          path: otclient-android-ndk.zip
+          if-no-files-found: error
+          retention-days: 14
