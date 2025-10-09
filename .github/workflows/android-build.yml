@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
 
       - name: Android cmdline-tools + pakiety
         uses: android-actions/setup-android@v3
@@ -26,162 +26,102 @@ jobs:
           accept-android-sdk-licenses: true
           log-accepted-android-sdk-licenses: true
 
-      - name: Zainstaluj pakiety SDK/NDK/CMake
+      - name: Zainstaluj SDK/NDK/CMake
         run: |
-          set -e
           yes | sdkmanager --licenses
-          sdkmanager --install "platforms;android-25"
-          sdkmanager --install "build-tools;34.0.0"
-          sdkmanager --install "ndk;21.4.7075529"
-          sdkmanager --install "cmake;3.22.1"
+          sdkmanager --install \
+            "platforms;android-25" \
+            "build-tools;34.0.0" \
+            "ndk;21.4.7075529" \
+            "cmake;3.22.1"
 
       - name: Narzędzia systemowe
         run: |
-          set -e
           sudo apt-get update
-          sudo apt-get install -y ninja-build p7zip-full build-essential curl
+          sudo apt-get install -y ninja-build p7zip-full
 
       - name: Ustaw ścieżki NDK
         run: |
           echo "ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> $GITHUB_ENV
 
-      - name: Rozpakuj prebuilt android_libs.7z
+      - name: Rozpakuj android_libs.7z
         run: |
           set -e
-          if [ ! -f "android/android_libs.7z" ]; then
-            echo "::error::Brakuje pliku android/android_libs.7z w repo (prekompilowane biblioteki na Androida)."
+          if [ ! -f "android/android_libs.7z" ] && [ ! -f "android_libs.7z" ]; then
+            echo "::error::Brak android/android_libs.7z (lub android_libs.7z) w repo."
             exit 1
           fi
-          7z x android/android_libs.7z -oandroid/android_libs
+          mkdir -p android/android_libs
+          if [ -f "android/android_libs.7z" ]; then
+            7z x android/android_libs.7z -oandroid/android_libs
+          else
+            7z x android_libs.7z -oandroid/android_libs
+          fi
           echo "== Zawartość android/android_libs =="
           find android/android_libs -maxdepth 2 -type d -print | sed 's/^/  /'
 
-      - name: Ustal ścieżki INC/LIB (boost, luajit, libzip)
+      - name: Ustal INC/LIB (auto-detekcja) + sanity-check
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
-          INC="$ROOT/arm64-v8a/include"; [ -d "$INC" ] || INC="$ROOT/include"
-          LIB="$ROOT/arm64-v8a/lib";     [ -d "$LIB" ] || LIB="$ROOT/lib"
+
+          # include
+          INC="$ROOT/include"
+          [ -d "$INC" ] || { echo "::error::Brak katalogu include ($INC)"; exit 1; }
+
+          # lib (lib albo lib64)
+          if   [ -d "$ROOT/lib" ];   then LIB="$ROOT/lib"
+          elif [ -d "$ROOT/lib64" ]; then LIB="$ROOT/lib64"
+          else echo "::error::Brak katalogu lib/lib64 w $ROOT"; exit 1
+          fi
 
           echo "INC=$INC"          | tee -a $GITHUB_ENV
           echo "LIB=$LIB"          | tee -a $GITHUB_ENV
           echo "BOOST_LIBDIR=$LIB" | tee -a $GITHUB_ENV
 
+          # LuaJIT nagłówki czasem są w podkatalogu
           LUAJIT_INC="$INC"; [ -d "$INC/luajit-2.0" ] && LUAJIT_INC="$INC/luajit-2.0"
           echo "LUAJIT_INC=$LUAJIT_INC" | tee -a $GITHUB_ENV
           echo "LUAJIT_LIB=$LIB"        | tee -a $GITHUB_ENV
 
-      - name: Zbuduj BZip2 (arm64) jeśli brak
-        run: |
-          set -e
-          if [ -f "$LIB/libbz2.a" ]; then
-            echo "libbz2.a już jest — pomijam."
-            exit 0
-          fi
-
-          echo "Buduję bzip2-1.0.8 dla arm64-v8a…"
-          cd /tmp
-          curl -L -o bzip2-1.0.8.tar.gz https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
-          tar xf bzip2-1.0.8.tar.gz
-          cd bzip2-1.0.8
-
-          API=24
-          TOOLCHAIN="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64"
-          TARGET_HOST=aarch64-linux-android
-          export CC="$TOOLCHAIN/bin/${TARGET_HOST}${API}-clang"
-          export AR="$TOOLCHAIN/bin/llvm-ar"
-          export RANLIB="$TOOLCHAIN/bin/llvm-ranlib"
-
-          make clean
-          make -j2 CC="$CC" AR="$AR" RANLIB="$RANLIB" CFLAGS="-fPIC -O2" libbz2.a
-
-          mkdir -p "$LIB" "$INC"
-          cp -v libbz2.a "$LIB/"
-          cp -v bzlib.h "$INC/"
-
-          ls -l "$LIB/libbz2.a"
-          echo "BZip2 gotowe."
-
-      - name: Sanity-check bibliotek
-        run: |
-          set -e
-          echo "INC=$INC"
-          echo "LIB=$LIB"
+          echo "== sanity-check =="
           test -d "$INC/boost"       || (echo "::error::Brak nagłówków Boost w $INC/boost" && exit 1)
           test -f "$LIB/libzip.a"    || (echo "::error::Brak $LIB/libzip.a" && exit 1)
           test -f "$LIB/libbz2.a"    || (echo "::error::Brak $LIB/libbz2.a" && exit 1)
           test -f "$LIB/libluajit.a" || (echo "::error::Brak $LIB/libluajit.a" && exit 1)
           test -f "$INC/zipconf.h"   || (echo "::error::Brak $INC/zipconf.h" && exit 1)
 
-      - name: Znajdź GLES/EGL w NDK (r21)
-        run: |
-          set -e
-          GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
-
-          API=24
-          CANDIDATES=()
-          CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib")
-          CANDIDATES+=("$ANDROID_NDK_ROOT/platforms/android-$API/arch-arm64/usr/lib64")
-          CANDIDATES+=("$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android")
-          CANDIDATES+=("$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/$API")
-
-          GLESV2=""
-          EGL=""
-          for d in "${CANDIDATES[@]}"; do
-            if [ -f "$d/libGLESv2.so" ] && [ -f "$d/libEGL.so" ]; then
-              GLESV2="$d/libGLESv2.so"
-              EGL="$d/libEGL.so"
-              break
-            fi
-          done
-
-          if [ -z "$GLESV2" ] || [ -z "$EGL" ]; then
-            GLESV2="$(find "$ANDROID_NDK_ROOT" -type f -name 'libGLESv2.so' | head -n1 || true)"
-            EGL="$(find "$ANDROID_NDK_ROOT" -type f -name 'libEGL.so' | head -n1 || true)"
-          fi
-
-          if [ -z "$GLESV2" ] || [ -z "$EGL" ]; then
-            echo "::error::Nie znalazłem libGLESv2.so / libEGL.so w NDK r21."
-            exit 1
-          fi
-
-          echo "GLINC=$GLINC"   | tee -a $GITHUB_ENV
-          echo "GLESV2=$GLESV2" | tee -a $GITHUB_ENV
-          echo "EGL=$EGL"       | tee -a $GITHUB_ENV
-
-          echo "== Wybrane =="
-          echo "GLESv2: $GLESV2"
-          echo "EGL   : $EGL"
-          echo "Include: $GLINC"
-
-      - name: (Android/GLES) Utwórz atrapę GLEW
+      - name: (Android/GLES) Atrapowy GLEW (header + lib)
         run: |
           set -e
           STUB="$GITHUB_WORKSPACE/android/glew_stub"
           mkdir -p "$STUB/include/GL" "$STUB/lib"
           cat > "$STUB/include/GL/glew.h" <<'EOF'
           #pragma once
-          /* GLEW stub for Android GLES builds */
+          /* Minimalny stub GLEW dla buildu na Android/GLES */
+          static inline int __glew_dummy(void){return 0;}
           EOF
-          echo "int __glew_stub = 0;" > "$STUB/stub.c"
-          gcc -c -o "$STUB/stub.o" "$STUB/stub.c"
+          printf "int __glew_stub = 0;\n" > "$STUB/stub.c"
+          cc -c -o "$STUB/stub.o" "$STUB/stub.c"
           ar rcs "$STUB/lib/libGLEW.a" "$STUB/stub.o"
           rm -f "$STUB/stub.c" "$STUB/stub.o"
-
-          echo "GLEW_INC=$STUB/include"          | tee -a $GITHUB_ENV
-          echo "GLEW_LIB=$STUB/lib/libGLEW.a"    | tee -a $GITHUB_ENV
-          echo "GLEW_LIBRARIES=$STUB/lib/libGLEW.a" | tee -a $GITHUB_ENV
-          echo "GLEW_INCLUDE_DIRS=$STUB/include" | tee -a $GITHUB_ENV
-          echo "GLEW_INCLUDE_DIR=$STUB/include"  | tee -a $GITHUB_ENV
-
+          echo "GLEW_INCLUDE_DIR=$STUB/include"   >> $GITHUB_ENV
+          echo "GLEW_INCLUDE_DIRS=$STUB/include"  >> $GITHUB_ENV
+          echo "GLEW_LIBRARY=$STUB/lib/libGLEW.a" >> $GITHUB_ENV
+          echo "GLEW_LIBRARIES=$STUB/lib/libGLEW.a" >> $GITHUB_ENV
           ls -l "$STUB/lib/libGLEW.a"
-          echo "GLEW stub gotowy."
 
       - name: Configure (arm64-v8a)
         run: |
           set -e
           ROOT="$GITHUB_WORKSPACE/android/android_libs"
+
+          # Ścieżki do GLES/EGL z NDK r21d (platforms/android-24/arch-arm64)
+          GLINC="$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include"
+          GLESV2="$ANDROID_NDK_ROOT/platforms/android-24/arch-arm64/usr/lib/libGLESv2.so"
+          EGL="$ANDROID_NDK_ROOT/platforms/android-24/arch-arm64/usr/lib/libEGL.so"
+          ls -l "$GLESV2" "$EGL" "$GLINC"
 
           cmake -S . -B build-android-arm64 -G Ninja \
             -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain.cmake" \
@@ -216,14 +156,18 @@ jobs:
             \
             -DGLEW_INCLUDE_DIR="$GLEW_INCLUDE_DIR" \
             -DGLEW_INCLUDE_DIRS="$GLEW_INCLUDE_DIRS" \
-            -DGLEW_LIBRARY="$GLEW_LIB" \
+            -DGLEW_LIBRARY="$GLEW_LIBRARY" \
             -DGLEW_LIBRARIES="$GLEW_LIBRARIES"
 
       - name: Build (arm64-v8a)
         run: cmake --build build-android-arm64 -j 4
 
-      - name: Upload artefakt (build-android-arm64)
+      - name: Upload artefaktów (wyniki buildu)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-android-arm64
-          path: build-android-arm64/**
+          path: |
+            build-android-arm64/**
+            !**/*.obj
+            !**/*.o
