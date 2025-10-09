@@ -1,8 +1,8 @@
 ---
 doc_id: "otui-ui-07c63b464933"
 source_path: "game_bot/default_configs/vBot_4.7/vBot/depositer_config.otui"
-source_sha: "b411fa2"
-last_sync_iso: "2025-10-09T07:29:07Z"
+source_sha: "3ead5ec"
+last_sync_iso: "2025-10-09T10:29:14Z"
 doc_class: "ui"
 language: "pl"
 title: "UI: depositer_config.otui"
