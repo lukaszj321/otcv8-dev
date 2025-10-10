@@ -1,6 +1,7 @@
 # Diagramy (Mermaid)
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 (diagram-overview)=
 ## Przegląd architektury
 
@@ -25,6 +26,8 @@ flowchart TD
   style D fill:#bbf,stroke:#333,stroke-width:2px
   style E fill:#bfb,stroke:#333,stroke-width:2px
 =======
+=======
+>>>>>>> Stashed changes
 Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
 
 ```mermaid
@@ -33,6 +36,9 @@ flowchart TB
   B -- Tak --> C[Wykonaj akcję]
   B -- Nie --> D[Zakończ]
   C --> D
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 ```
 

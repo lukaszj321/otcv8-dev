@@ -1,4 +1,5 @@
 # OTClient v8 — Dokumentacja projektu
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 (intro)=
@@ -49,9 +50,22 @@ Dokumentacja techniczna i referencje API:
 
 * [Dane i assety](datasets/index.md) - obrazy, fonty, dźwięki
 * [Przykłady CSV](examples/csv.md) - integracja danych tabelarycznych
+=======
+>>>>>>> Stashed changes
 
-:::{toctree}
+Ta dokumentacja łączy opis architektury, wytyczne dla deweloperów oraz referencję modułów i zdarzeń. Korzysta z **PyData Sphinx Theme**, **MyST** (Markdown w Sphinx), oraz rozszerzeń do diagramów i podświetlania kodu.
+
+## Jak czytać tę dokumentację
+
+- Lewy panel to **nawigacja globalna** (rozdziały, dodatki).
+- Na górze każdej strony jest **lokalny spis treści** (H2–H4).
+- Bloki kodu mają przycisk **copy**; znaczniki `mermaid` renderują diagramy.
+
+---
+
+```{{toctree}}
 :maxdepth: 2
+<<<<<<< Updated upstream
 :caption: Wprowadzenie
 :hidden:
 
@@ -94,6 +108,16 @@ Specyfikacja studia (React/Electron) <chapters/chapter_01_specyfikacja_implement
 =======
 :caption: Część II — Silnik, zdarzenia, moduły, UI
 >>>>>>> Stashed changes
+=======
+:caption: Część I — Wprowadzenie i założenia
+
+Specyfikacja studia (React/Electron) <chapters/chapter_01_specyfikacja_implementacji_studio_react_electron_dla_skryptow_otclient_v_8_v_bot>
+```
+
+```{{toctree}}
+:maxdepth: 2
+:caption: Część II — Silnik, zdarzenia, moduły, UI
+>>>>>>> Stashed changes
 
 Zdarzenia (Events) <chapters/chapter_02_events_docs_export_kit_authoring_agent_ready>
 Moduły (Modules) <chapters/chapter_03_modules_docs_export_kit_authoring_agent_ready>
@@ -109,8 +133,12 @@ Runtime gry <chapters/chapter_10_game_runtime_docs_export_kit_authoring_agent_re
 ```{{toctree}}
 :maxdepth: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 :caption: Przykłady / Wzorce
 :hidden:
+=======
+:caption: Część III — Datasets, przykłady i dodatki
+>>>>>>> Stashed changes
 =======
 :caption: Część III — Datasets, przykłady i dodatki
 >>>>>>> Stashed changes
@@ -121,10 +149,14 @@ CSV / Tabele / Snippety <examples/csv>
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 :::{toctree}
 :maxdepth: 1
 :caption: Dane i zasoby
 :hidden:
+=======
+---
+>>>>>>> Stashed changes
 =======
 ---
 >>>>>>> Stashed changes
