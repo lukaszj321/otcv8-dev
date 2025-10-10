@@ -1,10 +1,11 @@
-/* lepsze zawijanie linii w kodzie */
-div.highlight pre, code {
-  white-space: pre-wrap;
-  word-break: break-word;
+/* Drobne poprawki pod pydata-sphinx-theme */
+.bd-article-container .highlight pre {
+  border-radius: 10px;
 }
-
-/* nieco szersza treść */
-.bd-content {
-  max-width: 1100px;
+.bd-sidebar-primary .sidebar-primary-items {
+  font-size: 0.95rem;
+}
+/* tryb dark: delikatniejszy kontrast obrazków og */
+html[data-theme="dark"] img[src*="images/og/"] {
+  filter: brightness(0.95) contrast(1.05);
 }

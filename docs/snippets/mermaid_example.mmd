@@ -1,0 +1,7 @@
+flowchart LR
+  User -->|events| EventBus
+  EventBus --> Modules
+  Modules --> UI
+  Modules --> Network
+  Modules --> SettingsCrypto
+  UI -->|actions| EventBus

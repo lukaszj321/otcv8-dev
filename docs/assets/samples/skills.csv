@@ -1,0 +1,6 @@
+skill,category,level,notes
+'auto-heal','combat','advanced','używa najtańszego zasobu'
+'combo-uh','combat','pro','priorytet: party member'
+'walker','movement','basic','wyzwalany co 250 ms'
+'loot','inventory','advanced','filtr na rzadkie przedmioty'
+'anti-paralyze','defense','basic','działa tylko powyżej 60 mana'
