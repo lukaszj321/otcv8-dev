@@ -1,5 +1,6 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Referencje API
 
 (reference-overview)=
@@ -134,6 +135,13 @@ W tej sekcji umieszczaj szczegółowe API modułów, klas i funkcji.
 Możesz dzielić pliki na mniejsze jednostki — ten folder jest wciągany via glob.
 >>>>>>> Stashed changes
 
+=======
+# Referencje / API
+
+W tej sekcji umieszczaj szczegółowe API modułów, klas i funkcji.
+Możesz dzielić pliki na mniejsze jednostki — ten folder jest wciągany via glob.
+
+>>>>>>> Stashed changes
 =======
 # Referencje / API
 
