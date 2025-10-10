@@ -3,6 +3,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Przykłady: CSV → tabele
 
 (csv-overview)=
@@ -37,6 +38,10 @@ Dokumentacja OTClientV8 wspiera bezpośrednią integrację plików CSV, które s
 # CSV / Tabele / Snippety
 
 >>>>>>> Stashed changes
+=======
+# CSV / Tabele / Snippety
+
+>>>>>>> Stashed changes
 Przykładowa tabela w czystym Markdown:
 
 | Klucz          | Wartość         | Opis                           |
@@ -55,6 +60,9 @@ id,name,enabled,cooldown_ms
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
