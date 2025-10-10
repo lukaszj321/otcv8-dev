@@ -1,26 +1,20 @@
-# API — przegląd modułów
+# API (surowe i zewnętrzne)
 
-**Cel:** zebrać nawigację po _surowym API_ w jednym miejscu. Poniższe sekcje mogą wykorzystywać automatycznie wygenerowane indeksy (`glob`) wskazujące na Twoje istniejące foldery (np. `01_core/api`, `03_modules`, `04_ui`).
+:::{admonition} Skąd pochodzą pliki?
+Te pliki są **kopiowane** z repo (`api/otcv8-full-api.md`, `api/lua/luafunctions_client.md`) przez job CI (patrz fragment w ISSUE).
+:::
 
-## Jak czytać
-- H2/H3/H4 odwzorowują hierarchię: **moduł → klasa → metoda/funkcja → parametry → snippet**.
-- Każda funkcja powinna mieć **kompletny snippet użycia**, nie tylko nagłówek.
-
-```{{toctree}}
-:caption: Surowe API (z repo)
-:maxdepth: 2
-:glob:
-
-../01_core/api/**
-../03_modules/**
-../04_ui/**
+```{toctree}
+:maxdepth: 1
+:caption: API
+external/otcv8-full-api
+external/lua/luafunctions_client
 ```
 
-## Konwencja snippetów (placeholder)
-```cpp
-// Nazwa: Module::Function
-// Parametry: x:int, y:string, options?:Config
-// Zwraca: Result<T>
-auto out = Module::Function(42, "abc", {{/* ...options... */}});
-// assert(out.ok());
+## Snippety
+
+```lua
+-- przykład użycia funkcji:
+local res = otclient.doSomething{ param = 123 }
+print(res)
 ```

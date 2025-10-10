@@ -1,0 +1,6 @@
+Nazwa,Opis,Status
+Core,"Funkcje podstawowe klienta",stable
+Modules,"System modułów i pluginów",beta
+UI,"Warstwa interfejsu + motywy",work-in-progress
+Network,"Połączenie, protokół, retry",stable
+Audio,"Odtwarzanie SFX/BGM, miks",beta

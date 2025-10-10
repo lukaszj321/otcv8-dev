@@ -1,16 +1,22 @@
-# RAG Hub — źródła wiedzy i kontekst
+# RAG – wyszukiwanie semantyczne
 
-## Zakres (H2)
-- **Źródła**: pliki z `docs/` + `data/` + wybrane foldery repo.
-- **Aktualizacja**: strategia reindeksacji (po merge / po tagu).
+Ten rozdział opisuje **indeksowanie** i **zapytania**.
 
-### Struktura indeksu (H3)
-- Klucze: ścieżka, tytuł H1, nagłówki H2/H3/H4, code blocks, metadane.
+## Instalacja (opcjonalny zestaw)
+```bash
+pip install -r requirements-rag.txt
+```
 
-#### Przykład polityki (H4)
-- `full-reindex`: co release.
-- `partial-reindex`: zmienione pliki wg git diff.
+## Budowa indeksu
+```bash
+python tools/rag_index.py --paths docs api --out rag_index.faiss --meta rag_meta.json
+```
 
-## Integracja (placeholder)
-- Export CSV/JSON z metadanymi nagłówków i linków kotwiczących.
-- Runner do generowania _site map_ dla RAG.
+## Zapytanie
+```bash
+python tools/rag_query.py --index rag_index.faiss --meta rag_meta.json --q "jak wywołać hook X?"
+```
+
+:::{note}
+To działa **poza Sphinxem**. Wyniki możesz wkleić do dokumentacji lub zintegrować jako statyczną stronę Q&A.
+:::

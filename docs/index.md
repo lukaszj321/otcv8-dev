@@ -1,91 +1,60 @@
-# OTCv8 — dokumentacja i dashboard
+---
+title: OTClientV8 – Dokumentacja
+---
 
-:::{note}
-To **wersja robocza** dashboardu. Sekcje oznaczone jako _placeholder_ będą uzupełniane sukcesywnie.
-:::
+# OTClientV8 – Dokumentacja
 
-<div class="otc-hero">
-
-## Szybki start
-
-- **API (surowe)**: przegląd modułów, emiterów, zdarzeń i interfejsów → [API Overview](api/index.md)
-- **Opisowa dokumentacja**: architektura, zasady, UX i przykłady → [UI & Modules](../04_ui/index.md)
-- **RAG / context**: dane źródłowe i jak je trenować/odpytywać → [RAG Hub](rag/index.md)
-
-</div>
-
-## Dashboard
-
-:::{grid} 1 2 2 3
-:gutter: 2
-
-:::{grid-item-card} 📚 Dokumentacja opisowa
-:link: 04_ui/index.md
-:link-type: doc
-**Architektura UI, moduły i przepływy**. Wytyczne H2/H3/H4, style kodu i wzorce.
-:::
-
-:::{grid-item-card} 🧩 API (Core)
-:link: api/index.md
-:link-type: doc
-Zebrane **nagłówki, funkcje, parametry** i przykłady użycia.
-:::
-
-:::{grid-item-card} 🧠 RAG / Knowledge
-:link: rag/index.md
-:link-type: doc
-Źródła prawdy, embeddingi, aktualizacja indeksów i polityki cache.
-:::
-
-:::{grid-item-card} 🗂️ Datasets / `data/`
-:link: datasets/index.md
-:link-type: doc
-Obrazy, fonty, binaria. Publikacja w witrynie i sposób linkowania.
-:::
-
-:::{grid-item-card} 🧭 Diagramy i grafy
-:link: diagrams/index.md
-:link-type: doc
-Mermaid/Graphviz i wytyczne dla light/dark mode.
-:::
-
-:::{grid-item-card} 📊 Tabele i raporty
-:link: tables/index.md
-:link-type: doc
-Struktury CSV/TSV, formatowanie i warianty responsywne.
-:::
-
-:::{grid-item-card} 📓 Notatniki / wykresy
-:link: notebooks/index.md
-:link-type: doc
-Integracja z Jupyter (opcjonalnie `myst-nb`) i matplotlib/plotly.
-:::
-
-:::{grid-item-card} 🛣️ Roadmapa
-:link: roadmap/index.md
-:link-type: doc
-Plan rozbudowy dokumentacji i feature’ów dashboardu.
-:::
-
-:::{grid-item-card} 🗒️ Changelogs
-:link: changelogs/index.md
-:link-type: doc
-Historia zmian w API i dokumentacji (semver + daty).
-:::
-
-:::
-
-```{{toctree}}
+```{toctree}
 :hidden:
 :maxdepth: 2
 :caption: Spis treści
 
+overview/getting_started
+dashboard/index
 api/index
 rag/index
-datasets/index
-diagrams/index
-tables/index
-notebooks/index
-roadmap/index
-changelogs/index
+```
+
+:::{admonition} Co to jest?
+:class: tip
+OTClientV8 to nowoczesny klient i framework skryptowy (Lua/C++) z bogatym zestawem modułów, API i narzędzi.
+:::
+
+:::{grid} 2
+:gutter: 2
+
+:::{grid-item}
+:columns: 8
+
+## Start
+
+- **Szybki start** → {doc}`overview/getting_started`
+- **API (surowe)** → {doc}`api/index`
+- **RAG / wyszukiwarka semantyczna** → {doc}`rag/index`
+- **Dashboard** → {doc}`dashboard/index`
+
+:::
+
+:::{grid-item}
+:columns: 4
+
+## Podgląd
+
+<div class="simple-slider" data-interval="4000">
+  <div class="slide"><img src="https://placehold.co/600x360?text=UI+Mock" alt="UI preview"></div>
+  <div class="slide"><img src="https://placehold.co/600x360?text=Modules" alt="Modules"></div>
+  <div class="slide"><img src="https://placehold.co/600x360?text=API+Docs" alt="API"></div>
+</div>
+
+:::
+:::
+
+## Przykładowy katalog danych
+
+Poniżej przykładowa tabela (CSV) wczytywana podczas builda:
+
+```{csv-table} Moduły i status
+:header: "Nazwa", "Opis", "Status"
+:file: _data/modules.csv
+:widths: 20, 60, 20
 ```

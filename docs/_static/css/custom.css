@@ -1,4 +1,13 @@
-
-:root {{ --pst-font-size-base: 16px; }}
-.otc-hero {{ padding: 2.5rem 1.2rem; border-radius: 16px; background: var(--pst-color-surface); box-shadow: 0 1px 3px rgba(0,0,0,.08); }}
-.otc-cards .sd-card {{ border-radius: 14px; }}
+/* Custom tweaks for PyData theme + dark/light */
+:root { --brand-primary: var(--pst-color-primary, #2a6ebb); }
+.simple-slider { position: relative; overflow: hidden; border-radius: 0.5rem; }
+.simple-slider .slide { display: none; }
+.simple-slider .slide.active { display: block; }
+.simple-slider img { width: 100%; height: auto; display:block; }
+/* Mermaid dark mode arrows/lines */
+[data-mode="dark"] .mermaid svg { color: #e6e6e6; }
+.mermaid svg { background: transparent !important; }
+/* Tables */
+table.docutils thead th { white-space: nowrap; }
+/* Two-column tweaks */
+.sd-col { min-width: 0; }
