@@ -15,6 +15,8 @@ Ten dokument zawiera kluczowe diagramy ilustrujące architekturę i przepływy w
 (diagram-main-architecture)=
 ## Główna architektura systemu
 
+=======
+>>>>>>> Stashed changes
 Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
 
 ```mermaid
@@ -23,6 +25,7 @@ flowchart TB
   B -- Tak --> C[Wykonaj akcję]
   B -- Nie --> D[Zakończ]
   C --> D
+<<<<<<< Updated upstream
 ```
 ```{mermaid}
 flowchart TD
@@ -191,6 +194,8 @@ flowchart TD
     style A fill:#ffeb3b
     style K fill:#4caf50
     style L fill:#2196f3
+=======
+>>>>>>> Stashed changes
 ```
 
 :::tip

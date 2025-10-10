@@ -6,6 +6,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 (intro)=
@@ -77,6 +78,9 @@ Dokumentacja techniczna i referencje API:
 =======
 
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
 Ta dokumentacja łączy opis architektury, wytyczne dla deweloperów oraz referencję modułów i zdarzeń. Korzysta z **PyData Sphinx Theme**, **MyST** (Markdown w Sphinx), oraz rozszerzeń do diagramów i podświetlania kodu.
 
 ## Jak czytać tę dokumentację
@@ -89,6 +93,7 @@ Ta dokumentacja łączy opis architektury, wytyczne dla deweloperów oraz refere
 
 ```{{toctree}}
 :maxdepth: 2
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream

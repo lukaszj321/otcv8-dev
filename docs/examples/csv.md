@@ -31,6 +31,8 @@ Aby dodać tabelę CSV do dokumentacji, użyj dyrektywy `csv-table`:
 :widths: 50, 50
 :file: ../assets/samples/your_file.csv
 :delim: ,
+=======
+>>>>>>> Stashed changes
 ```
 ````
 
