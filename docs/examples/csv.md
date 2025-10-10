@@ -14,6 +14,7 @@ Przykładowy fragment CSV (do analizy poza dokumentacją):
 id,name,enabled,cooldown_ms
 1,skills.combo,true,250
 2,skills.heal,false,0
+<<<<<<< Updated upstream
 ```
 
 :::note
