@@ -1,64 +1,74 @@
-project = "OTClientV8 Dev Docs"
-author = "OTCV8 Team"
-version = "0.1"
-release = "0.1.0"
-language = "pl"
+# -- Podstawowa konfiguracja Sphinx ------------------------------------------
+import os, sys
 
+project = "OTClient v8"
+author = "OTCv8 Team"
+copyright = "2024, OTCv8"
+release = "0.1"
+
+# -- Rozszerzenia -------------------------------------------------------------
 extensions = [
     "myst_parser",
-    "sphinx_design",
-    "sphinxcontrib.mermaid",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.intersphinx",
-    "sphinx.ext.todo",
-    "sphinx.ext.autodoc",
-    "sphinx.ext.viewcode",
     "sphinx_copybutton",
+    "sphinx_design",
+    "sphinx_sitemap",
+    "sphinxext.opengraph",
+    "sphinx_favicon",
+    "sphinxcontrib.mermaid",
+    "sphinx_codeautolink",
+    "hoverxref.extension",
 ]
 
+# MyST (Markdown w Sphinx)
 myst_enable_extensions = [
-    "colon_fence",
-    "deflist",
-    "linkify",
-    "attrs",
-    "substitution",
-    "tasklist",
-    "fieldlist",
+    "attrs_block", "attrs_inline", "colon_fence", "deflist",
+    "fieldlist", "linkify", "smartquotes", "substitution", "tasklist",
 ]
-myst_heading_anchors = 3
+myst_heading_anchors = 4  # generuj linki do nagłówków H1..H4
 
-intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", {}),
-    "sphinx": ("https://www.sphinx-doc.org/en/master", {}),
-}
+# Bazowy URL (wymagany przez sitemap)
+html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
 
-templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
-
+# -- Motyw i wygląd -----------------------------------------------------------
 html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
-html_css_files = ["css/custom.css"]
-html_logo = "_static/only-light/logo-light.svg"
-html_favicon = "_static/only-light/logo-light.svg"
+templates_path = ["_templates"]
+exclude_patterns = ["_build"]
 
 html_theme_options = {
-    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    "navigation_depth": 3,
+    "show_nav_level": 2,
+    "collapse_navigation": False,
     "icon_links": [
         {
             "name": "GitHub",
             "url": "https://github.com/lukaszj321/otcv8-dev",
             "icon": "fab fa-github",
-            "type": "fontawesome",
         },
     ],
-    "show_prev_next": True,
-    "header_links_before_dropdown": 8,
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
 }
 
-def setup(app):
-    app.add_css_file("css/custom.css")
+# Copybutton (usuń prompt z kopiowanego kodu)
+copybutton_prompt_text = r">>> |\$ |\(venv\)\$ "
+copybutton_prompt_is_regexp = True
 
-autosectionlabel_prefix_document = True
-nitpicky = False
-suppress_warnings = ["ref.ref", "myst.xref_missing"]
+# Mermaid
+mermaid_version = "10.9.0"
+
+# HoverXRef (podpowiedzi po najechaniu)
+hoverxref_auto_ref = True
+hoverxref_intersphinx = []  # można dodać mapowania, jeśli będzie potrzeba
+
+# OpenGraph
+ogp_site_url = html_baseurl
+ogp_image = "https://raw.githubusercontent.com/lukaszj321/otcv8-dev/master/docs/_static/og-image.png"
+
+# Favicons — jeśli dodasz pliki do docs/_static, odkomentuj
+# html_favicon = "_static/favicon.ico"
+# favicons = [
+#     {"rel": "icon", "href": "favicon.ico"},
+# ]
+
+# Sitemap
+sitemap_url_scheme = "{link}"

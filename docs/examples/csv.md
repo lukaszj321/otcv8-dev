@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Przykłady: CSV → tabele
 
 (csv-overview)=
@@ -13,6 +14,24 @@ Dokumentacja OTClientV8 wspiera bezpośrednią integrację plików CSV, które s
 :widths: 30, 70
 :file: ../assets/samples/deps.csv
 :delim: ,
+=======
+# CSV / Tabele / Snippety
+
+Przykładowa tabela w czystym Markdown:
+
+| Klucz          | Wartość         | Opis                           |
+|----------------|-----------------|--------------------------------|
+| `module.id`    | `skills.combo`  | Identyfikator modułu           |
+| `enabled`      | `true/false`    | Flaga włączenia                |
+| `cooldown_ms`  | `250`           | Czas odnowienia w milisekundach|
+
+Przykładowy fragment CSV (do analizy poza dokumentacją):
+
+```csv
+id,name,enabled,cooldown_ms
+1,skills.combo,true,250
+2,skills.heal,false,0
+>>>>>>> Stashed changes
 ```
 
 (csv-events-stats)=

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Referencje API
 
 (reference-overview)=
@@ -125,11 +126,15 @@ Wszystkie przykłady są testowalne i mogą być użyte bezpośrednio w projekci
 :::{toctree}
 :maxdepth: 2
 :caption: Sekcje referencyjne
+=======
+# Referencje / API
 
-api
-events
-modules
-ui
+W tej sekcji umieszczaj szczegółowe API modułów, klas i funkcji.
+Możesz dzielić pliki na mniejsze jednostki — ten folder jest wciągany via glob.
+>>>>>>> Stashed changes
+
+:::tip
+Używaj nagłówków **H2/H3/H4**, aby Sphinx poprawnie zbudował lokalny spis treści.
 :::
 
 (reference-see-also)=
