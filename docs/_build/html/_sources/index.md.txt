@@ -29,7 +29,8 @@ Użyj wyszukiwarki (Ctrl+K lub ikona lupy) aby szybko znaleźć interesujące Ci
 
 Jeśli dopiero zaczynasz pracę z OTClientV8, polecamy przeczytać w kolejności:
 
-1. [Specyfikacja i architektura](chapters/01_specyfikacja.md) - przegląd struktury projektu
+1. [Core Architecture](chapters/01_core.md) - architektura rdzenia
+2. [Specyfikacja Runtime](chapters/01_specyfikacja.md) - środowisko uruchomieniowe
 2. [System modułów](chapters/03_modules.md) - jak działają moduły
 3. [Interfejs użytkownika](chapters/04_ui.md) - podstawy OTUI
 4. [Przykłady diagramów](examples/diagrams.md) - wizualizacje architektury
@@ -53,6 +54,7 @@ Dokumentacja techniczna i referencje API:
 :caption: Wprowadzenie
 :hidden:
 
+chapters/01_core
 chapters/01_specyfikacja
 chapters/02_events
 chapters/03_modules
