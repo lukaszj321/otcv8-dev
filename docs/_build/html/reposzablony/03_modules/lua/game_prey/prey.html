@@ -1,0 +1,899 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_prey/prey.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_prey/prey';</script>
+    <link rel="icon" href="../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_prey/prey.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-prey-prey-lua">
+<h1>game_prey/prey.lua<a class="headerlink" href="#game-prey-prey-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla prey.</p>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="bonusdescription-bonustype-bonusvalue-bonusgrade">
+<h3><code class="docutils literal notranslate"><span class="pre">bonusDescription(bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade)</span></code><a class="headerlink" href="#bonusdescription-bonustype-bonusvalue-bonusgrade" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusValue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusGrade</span></code></p></li>
+</ul>
+</section>
+<section id="timelefttranslation-timeleft-forpreytimeleft">
+<h3><code class="docutils literal notranslate"><span class="pre">timeleftTranslation(timeleft,</span> <span class="pre">forPreyTimeleft)</span></code><a class="headerlink" href="#timelefttranslation-timeleft-forpreytimeleft" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">timeleft</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">forPreyTimeleft</span></code></p></li>
+</ul>
+</section>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init()</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+</section>
+<section id="onhover-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">onHover(widget)</span></code><a class="headerlink" href="#onhover-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate()</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+</section>
+<section id="setunsupportedsettings">
+<h3><code class="docutils literal notranslate"><span class="pre">setUnsupportedSettings()</span></code><a class="headerlink" href="#setunsupportedsettings" title="Link to this heading">#</a></h3>
+</section>
+<section id="check">
+<h3><code class="docutils literal notranslate"><span class="pre">check()</span></code><a class="headerlink" href="#check" title="Link to this heading">#</a></h3>
+</section>
+<section id="toggletracker">
+<h3><code class="docutils literal notranslate"><span class="pre">toggleTracker()</span></code><a class="headerlink" href="#toggletracker" title="Link to this heading">#</a></h3>
+</section>
+<section id="hide">
+<h3><code class="docutils literal notranslate"><span class="pre">hide()</span></code><a class="headerlink" href="#hide" title="Link to this heading">#</a></h3>
+</section>
+<section id="show">
+<h3><code class="docutils literal notranslate"><span class="pre">show()</span></code><a class="headerlink" href="#show" title="Link to this heading">#</a></h3>
+</section>
+<section id="toggle">
+<h3><code class="docutils literal notranslate"><span class="pre">toggle()</span></code><a class="headerlink" href="#toggle" title="Link to this heading">#</a></h3>
+</section>
+<section id="onpreyfreerolls-slot-timeleft">
+<h3><code class="docutils literal notranslate"><span class="pre">onPreyFreeRolls(slot,</span> <span class="pre">timeleft)</span></code><a class="headerlink" href="#onpreyfreerolls-slot-timeleft" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeleft</span></code></p></li>
+</ul>
+</section>
+<section id="onpreytimeleft-slot-timeleft">
+<h3><code class="docutils literal notranslate"><span class="pre">onPreyTimeLeft(slot,</span> <span class="pre">timeLeft)</span></code><a class="headerlink" href="#onpreytimeleft-slot-timeleft" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeLeft</span></code></p></li>
+</ul>
+</section>
+<section id="element-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code><a class="headerlink" href="#element-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="onpreyprice-price">
+<h3><code class="docutils literal notranslate"><span class="pre">onPreyPrice(price)</span></code><a class="headerlink" href="#onpreyprice-price" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code></p></li>
+</ul>
+</section>
+<section id="settimeuntilfreereroll-slot-timeuntilfreereroll">
+<h3><code class="docutils literal notranslate"><span class="pre">setTimeUntilFreeReroll(slot,</span> <span class="pre">timeUntilFreeReroll)</span></code><a class="headerlink" href="#settimeuntilfreereroll-slot-timeuntilfreereroll" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeUntilFreeReroll</span></code></p></li>
+</ul>
+</section>
+<section id="onpreylocked-slot-unlockstate-timeuntilfreereroll">
+<h3><code class="docutils literal notranslate"><span class="pre">onPreyLocked(slot,</span> <span class="pre">unlockState,</span> <span class="pre">timeUntilFreeReroll)</span></code><a class="headerlink" href="#onpreylocked-slot-unlockstate-timeuntilfreereroll" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unlockState</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeUntilFreeReroll</span></code></p></li>
+</ul>
+</section>
+<section id="onpreyinactive-slot-timeuntilfreereroll">
+<h3><code class="docutils literal notranslate"><span class="pre">onPreyInactive(slot,</span> <span class="pre">timeUntilFreeReroll)</span></code><a class="headerlink" href="#onpreyinactive-slot-timeuntilfreereroll" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeUntilFreeReroll</span></code></p></li>
+</ul>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+<section id="rerollbutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">rerollButton.onClick()</span></code><a class="headerlink" href="#rerollbutton-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="setbonusgradestars-slot-grade">
+<h3><code class="docutils literal notranslate"><span class="pre">setBonusGradeStars(slot,</span> <span class="pre">grade)</span></code><a class="headerlink" href="#setbonusgradestars-slot-grade" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grade</span></code></p></li>
+</ul>
+</section>
+<section id="widget-onhoverchange-widget-hovered">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.onHoverChange(widget,hovered)</span></code><a class="headerlink" href="#widget-onhoverchange-widget-hovered" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hovered</span></code></p></li>
+</ul>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.onHoverChange(widget,hovered)</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hovered</span></code></p></li>
+</ul>
+</section>
+<section id="getbigiconpath-bonustype">
+<h3><code class="docutils literal notranslate"><span class="pre">getBigIconPath(bonusType)</span></code><a class="headerlink" href="#getbigiconpath-bonustype" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusType</span></code></p></li>
+</ul>
+</section>
+<section id="getsmalliconpath-bonustype">
+<h3><code class="docutils literal notranslate"><span class="pre">getSmallIconPath(bonusType)</span></code><a class="headerlink" href="#getsmalliconpath-bonustype" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusType</span></code></p></li>
+</ul>
+</section>
+<section id="getbonusdescription-bonustype">
+<h3><code class="docutils literal notranslate"><span class="pre">getBonusDescription(bonusType)</span></code><a class="headerlink" href="#getbonusdescription-bonustype" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusType</span></code></p></li>
+</ul>
+</section>
+<section id="gettooltipbonusdescription-bonustype-bonusvalue">
+<h3><code class="docutils literal notranslate"><span class="pre">getTooltipBonusDescription(bonusType,</span> <span class="pre">bonusValue)</span></code><a class="headerlink" href="#gettooltipbonusdescription-bonustype-bonusvalue" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusValue</span></code></p></li>
+</ul>
+</section>
+<section id="capitalformatstr-str">
+<h3><code class="docutils literal notranslate"><span class="pre">capitalFormatStr(str)</span></code><a class="headerlink" href="#capitalformatstr-str" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+</ul>
+</section>
+<section id="onitemboxchecked-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">onItemBoxChecked(widget)</span></code><a class="headerlink" href="#onitemboxchecked-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="onpreyactive-slot-currentholdername-currentholderoutfit-bonustype-bonusvalue-bonusgrade-timeleft-timeuntilfreereroll-locktype">
+<h3><code class="docutils literal notranslate"><span class="pre">onPreyActive(slot,</span> <span class="pre">currentHolderName,</span> <span class="pre">currentHolderOutfit,</span> <span class="pre">bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade,</span> <span class="pre">timeLeft,</span> <span class="pre">timeUntilFreeReroll,</span> <span class="pre">lockType)</span></code><a class="headerlink" href="#onpreyactive-slot-currentholdername-currentholderoutfit-bonustype-bonusvalue-bonusgrade-timeleft-timeuntilfreereroll-locktype" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">currentHolderName</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">currentHolderOutfit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusValue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusGrade</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeLeft</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeUntilFreeReroll</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lockType</span></code></p></li>
+</ul>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+</section>
+<section id="creatureandbonus-bonus-icon-onhoverchange-widget-hovered">
+<h3><code class="docutils literal notranslate"><span class="pre">creatureAndBonus.bonus.icon.onHoverChange(widget,</span> <span class="pre">hovered)</span></code><a class="headerlink" href="#creatureandbonus-bonus-icon-onhoverchange-widget-hovered" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hovered</span></code></p></li>
+</ul>
+</section>
+<section id="prey-active-choose-selectprey-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">prey.active.choose.selectPrey.onClick()</span></code><a class="headerlink" href="#prey-active-choose-selectprey-onclick" title="Link to this heading">#</a></h3>
+<p>bonus reroll</p>
+</section>
+<section id="prey-active-reroll-button-rerollbutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">prey.active.reroll.button.rerollButton.onClick()</span></code><a class="headerlink" href="#prey-active-reroll-button-rerollbutton-onclick" title="Link to this heading">#</a></h3>
+<p>creature reroll</p>
+</section>
+<section id="onpreyselection-slot-bonustype-bonusvalue-bonusgrade-names-outfits-timeuntilfreereroll">
+<h3><code class="docutils literal notranslate"><span class="pre">onPreySelection(slot,</span> <span class="pre">bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade,</span> <span class="pre">names,</span> <span class="pre">outfits,</span> <span class="pre">timeUntilFreeReroll)</span></code><a class="headerlink" href="#onpreyselection-slot-bonustype-bonusvalue-bonusgrade-names-outfits-timeuntilfreereroll" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusValue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bonusGrade</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">names</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outfits</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeUntilFreeReroll</span></code></p></li>
+</ul>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">rerollButton.onClick()</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+</section>
+<section id="prey-inactive-choose-choosepreybutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">prey.inactive.choose.choosePreyButton.onClick()</span></code><a class="headerlink" href="#prey-inactive-choose-choosepreybutton-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="onresourcebalance-type-balance">
+<h3><code class="docutils literal notranslate"><span class="pre">onResourceBalance(type,</span> <span class="pre">balance)</span></code><a class="headerlink" href="#onresourcebalance-type-balance" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">balance</span></code></p></li>
+</ul>
+</section>
+<section id="showmessage-title-message">
+<h3><code class="docutils literal notranslate"><span class="pre">showMessage(title,</span> <span class="pre">message)</span></code><a class="headerlink" href="#showmessage-title-message" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="usdescription">
+<h3><code class="docutils literal notranslate"><span class="pre">usDescription</span></code><a class="headerlink" href="#usdescription" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">bonusDescription(bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade)</span></code></p>
+</section>
+<section id="us">
+<h3><code class="docutils literal notranslate"><span class="pre">us</span></code><a class="headerlink" href="#us" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;Damage</span> <span class="pre">bonus</span> <span class="pre">(&quot;</span> <span class="pre">..</span> <span class="pre">bonusGrade</span> <span class="pre">..</span> <span class="pre">&quot;/10)&quot;</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">us</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;Damage</span> <span class="pre">reduction</span> <span class="pre">bonus</span> <span class="pre">(&quot;</span> <span class="pre">..</span> <span class="pre">bonusGrade</span> <span class="pre">..</span> <span class="pre">&quot;/10)&quot;</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">us</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;XP</span> <span class="pre">bonus</span> <span class="pre">(&quot;</span> <span class="pre">..</span> <span class="pre">bonusGrade</span> <span class="pre">..</span> <span class="pre">&quot;/10)&quot;</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">us</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;Loot</span> <span class="pre">bonus</span> <span class="pre">(&quot;</span> <span class="pre">..</span> <span class="pre">bonusGrade</span> <span class="pre">..</span> <span class="pre">&quot;/10)&quot;</span></code></p>
+</section>
+<section id="g-game">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#g-game" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="displayui">
+<h3><code class="docutils literal notranslate"><span class="pre">displayUI</span></code><a class="headerlink" href="#displayui" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">preyWindow</span> <span class="pre">=</span> <span class="pre">g_ui.displayUI('prey')</span></code></p>
+</section>
+<section id="createwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#createwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">preyTracker</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('PreyTracker',</span> <span class="pre">modules.game_interface.getRightPanel())</span></code></p>
+</section>
+<section id="tentmaximumheight">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code><a class="headerlink" href="#tentmaximumheight" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">preyTracker:setContentMaximumHeight(100)</span></code></p>
+</section>
+<section id="tentminimumheight">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMinimumHeight</span></code><a class="headerlink" href="#tentminimumheight" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">preyTracker:setContentMinimumHeight(47)</span></code></p>
+</section>
+<section id="hover">
+<h3><code class="docutils literal notranslate"><span class="pre">Hover</span></code><a class="headerlink" href="#hover" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onHover(widget)</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="preyfreerolls">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyFreeRolls</span></code><a class="headerlink" href="#preyfreerolls" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onPreyFreeRolls(slot,</span> <span class="pre">timeleft)</span></code></p>
+</section>
+<section id="preytimeleft">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyTimeLeft</span></code><a class="headerlink" href="#preytimeleft" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onPreyTimeLeft(slot,</span> <span class="pre">timeLeft)</span></code></p>
+</section>
+<section id="preyprice">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyPrice</span></code><a class="headerlink" href="#preyprice" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onPreyPrice(price)</span></code></p>
+</section>
+<section id="preylocked">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyLocked</span></code><a class="headerlink" href="#preylocked" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onPreyLocked(slot,</span> <span class="pre">unlockState,</span> <span class="pre">timeUntilFreeReroll)</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">preyTracker:setContentMaximumHeight(preyTracker:getHeight()-20)</span></code></p>
+</section>
+<section id="preyinactive">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyInactive</span></code><a class="headerlink" href="#preyinactive" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onPreyInactive(slot,</span> <span class="pre">timeUntilFreeReroll)</span></code></p>
+</section>
+<section id="usgradestars">
+<h3><code class="docutils literal notranslate"><span class="pre">usGradeStars</span></code><a class="headerlink" href="#usgradestars" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">setBonusGradeStars(slot,</span> <span class="pre">grade)</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">widget</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget(&quot;Star&quot;,</span> <span class="pre">gradePanel)</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">Hover</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onHover(slot)</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">widget</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget(&quot;NoStar&quot;,</span> <span class="pre">gradePanel)</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">Hover</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onHover(slot)</span></code></p>
+</section>
+<section id="path">
+<h3><code class="docutils literal notranslate"><span class="pre">Path</span></code><a class="headerlink" href="#path" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getBigIconPath(bonusType)</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">Path</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getSmallIconPath(bonusType)</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">usDescription</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getBonusDescription(bonusType)</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">usDescription</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getTooltipBonusDescription(bonusType,</span> <span class="pre">bonusValue)</span></code></p>
+</section>
+<section id="itemboxchecked">
+<h3><code class="docutils literal notranslate"><span class="pre">ItemBoxChecked</span></code><a class="headerlink" href="#itemboxchecked" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onItemBoxChecked(widget)</span></code></p>
+</section>
+<section id="preyactive">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyActive</span></code><a class="headerlink" href="#preyactive" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onPreyActive(slot,</span> <span class="pre">currentHolderName,</span> <span class="pre">currentHolderOutfit,</span> <span class="pre">bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade,</span> <span class="pre">timeLeft,</span> <span class="pre">timeUntilFreeReroll,</span> <span class="pre">lockType)</span> <span class="pre">--</span> <span class="pre">locktype</span> <span class="pre">always</span> <span class="pre">0</span> <span class="pre">for</span> <span class="pre">protocols</span> <span class="pre">&lt;12</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">Path</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">tracker.preyType:setImageSource(getSmallIconPath(bonusType))</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">usDescription</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">preyDescription[slot].two</span> <span class="pre">=</span> <span class="pre">&quot;\nValue:</span> <span class="pre">&quot;</span> <span class="pre">..bonusGrade..&quot;/10&quot;..&quot;\nType:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">getBonusDescription(bonusType)</span> <span class="pre">..</span>&#160; <span class="pre">&quot;\n&quot;..getTooltipBonusDescription(bonusType,bonusValue)..&quot;\n\nClick</span> <span class="pre">in</span> <span class="pre">this</span> <span class="pre">window</span> <span class="pre">to</span> <span class="pre">open</span> <span class="pre">the</span> <span class="pre">prey</span> <span class="pre">dialog.&quot;</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">Path</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">creatureAndBonus.bonus.icon:setImageSource(getBigIconPath(bonusType))</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">Hover</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onHover(slot)</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">usGradeStars</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">setBonusGradeStars(slot,</span> <span class="pre">bonusGrade)</span></code></p>
+</section>
+<section id="preyselection">
+<h3><code class="docutils literal notranslate"><span class="pre">PreySelection</span></code><a class="headerlink" href="#preyselection" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onPreySelection(slot,</span> <span class="pre">bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade,</span> <span class="pre">names,</span> <span class="pre">outfits,</span> <span class="pre">timeUntilFreeReroll)</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">box</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget(&quot;PreyCreatureBox&quot;,</span> <span class="pre">list)</span></code></p>
+</section>
+<section id="resourcebalance">
+<h3><code class="docutils literal notranslate"><span class="pre">ResourceBalance</span></code><a class="headerlink" href="#resourcebalance" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onResourceBalance(type,</span> <span class="pre">balance)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonusdescription-bonustype-bonusvalue-bonusgrade"><code class="docutils literal notranslate"><span class="pre">bonusDescription(bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timelefttranslation-timeleft-forpreytimeleft"><code class="docutils literal notranslate"><span class="pre">timeleftTranslation(timeleft,</span> <span class="pre">forPreyTimeleft)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onhover-widget"><code class="docutils literal notranslate"><span class="pre">onHover(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setunsupportedsettings"><code class="docutils literal notranslate"><span class="pre">setUnsupportedSettings()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggletracker"><code class="docutils literal notranslate"><span class="pre">toggleTracker()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hide"><code class="docutils literal notranslate"><span class="pre">hide()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show"><code class="docutils literal notranslate"><span class="pre">show()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggle"><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpreyfreerolls-slot-timeleft"><code class="docutils literal notranslate"><span class="pre">onPreyFreeRolls(slot,</span> <span class="pre">timeleft)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpreytimeleft-slot-timeleft"><code class="docutils literal notranslate"><span class="pre">onPreyTimeLeft(slot,</span> <span class="pre">timeLeft)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#element-onclick"><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpreyprice-price"><code class="docutils literal notranslate"><span class="pre">onPreyPrice(price)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settimeuntilfreereroll-slot-timeuntilfreereroll"><code class="docutils literal notranslate"><span class="pre">setTimeUntilFreeReroll(slot,</span> <span class="pre">timeUntilFreeReroll)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpreylocked-slot-unlockstate-timeuntilfreereroll"><code class="docutils literal notranslate"><span class="pre">onPreyLocked(slot,</span> <span class="pre">unlockState,</span> <span class="pre">timeUntilFreeReroll)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpreyinactive-slot-timeuntilfreereroll"><code class="docutils literal notranslate"><span class="pre">onPreyInactive(slot,</span> <span class="pre">timeUntilFreeReroll)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rerollbutton-onclick"><code class="docutils literal notranslate"><span class="pre">rerollButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setbonusgradestars-slot-grade"><code class="docutils literal notranslate"><span class="pre">setBonusGradeStars(slot,</span> <span class="pre">grade)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-onhoverchange-widget-hovered"><code class="docutils literal notranslate"><span class="pre">widget.onHoverChange(widget,hovered)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">widget.onHoverChange(widget,hovered)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getbigiconpath-bonustype"><code class="docutils literal notranslate"><span class="pre">getBigIconPath(bonusType)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsmalliconpath-bonustype"><code class="docutils literal notranslate"><span class="pre">getSmallIconPath(bonusType)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getbonusdescription-bonustype"><code class="docutils literal notranslate"><span class="pre">getBonusDescription(bonusType)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettooltipbonusdescription-bonustype-bonusvalue"><code class="docutils literal notranslate"><span class="pre">getTooltipBonusDescription(bonusType,</span> <span class="pre">bonusValue)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capitalformatstr-str"><code class="docutils literal notranslate"><span class="pre">capitalFormatStr(str)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onitemboxchecked-widget"><code class="docutils literal notranslate"><span class="pre">onItemBoxChecked(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpreyactive-slot-currentholdername-currentholderoutfit-bonustype-bonusvalue-bonusgrade-timeleft-timeuntilfreereroll-locktype"><code class="docutils literal notranslate"><span class="pre">onPreyActive(slot,</span> <span class="pre">currentHolderName,</span> <span class="pre">currentHolderOutfit,</span> <span class="pre">bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade,</span> <span class="pre">timeLeft,</span> <span class="pre">timeUntilFreeReroll,</span> <span class="pre">lockType)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creatureandbonus-bonus-icon-onhoverchange-widget-hovered"><code class="docutils literal notranslate"><span class="pre">creatureAndBonus.bonus.icon.onHoverChange(widget,</span> <span class="pre">hovered)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prey-active-choose-selectprey-onclick"><code class="docutils literal notranslate"><span class="pre">prey.active.choose.selectPrey.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prey-active-reroll-button-rerollbutton-onclick"><code class="docutils literal notranslate"><span class="pre">prey.active.reroll.button.rerollButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpreyselection-slot-bonustype-bonusvalue-bonusgrade-names-outfits-timeuntilfreereroll"><code class="docutils literal notranslate"><span class="pre">onPreySelection(slot,</span> <span class="pre">bonusType,</span> <span class="pre">bonusValue,</span> <span class="pre">bonusGrade,</span> <span class="pre">names,</span> <span class="pre">outfits,</span> <span class="pre">timeUntilFreeReroll)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">element.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">rerollButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prey-inactive-choose-choosepreybutton-onclick"><code class="docutils literal notranslate"><span class="pre">prey.inactive.choose.choosePreyButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onresourcebalance-type-balance"><code class="docutils literal notranslate"><span class="pre">onResourceBalance(type,</span> <span class="pre">balance)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#showmessage-title-message"><code class="docutils literal notranslate"><span class="pre">showMessage(title,</span> <span class="pre">message)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usdescription"><code class="docutils literal notranslate"><span class="pre">usDescription</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#us"><code class="docutils literal notranslate"><span class="pre">us</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">us</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">us</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">us</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-game"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displayui"><code class="docutils literal notranslate"><span class="pre">displayUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createwidget"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tentmaximumheight"><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tentminimumheight"><code class="docutils literal notranslate"><span class="pre">tentMinimumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hover"><code class="docutils literal notranslate"><span class="pre">Hover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyfreerolls"><code class="docutils literal notranslate"><span class="pre">PreyFreeRolls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preytimeleft"><code class="docutils literal notranslate"><span class="pre">PreyTimeLeft</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyprice"><code class="docutils literal notranslate"><span class="pre">PreyPrice</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preylocked"><code class="docutils literal notranslate"><span class="pre">PreyLocked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyinactive"><code class="docutils literal notranslate"><span class="pre">PreyInactive</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usgradestars"><code class="docutils literal notranslate"><span class="pre">usGradeStars</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">Hover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">Hover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#path"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">usDescription</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">usDescription</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itemboxchecked"><code class="docutils literal notranslate"><span class="pre">ItemBoxChecked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyactive"><code class="docutils literal notranslate"><span class="pre">PreyActive</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">usDescription</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">Hover</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">usGradeStars</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyselection"><code class="docutils literal notranslate"><span class="pre">PreySelection</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resourcebalance"><code class="docutils literal notranslate"><span class="pre">ResourceBalance</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/game_prey/prey.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

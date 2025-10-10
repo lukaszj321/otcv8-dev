@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_inventory/inventory.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_inventory/inventory';</script>
+    <link rel="icon" href="../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_inventory/inventory.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-inventory-inventory-lua">
+<h1>game_inventory/inventory.lua<a class="headerlink" href="#game-inventory-inventory-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla inventory.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="icons">
+<h3><code class="docutils literal notranslate"><span class="pre">Icons</span></code><a class="headerlink" href="#icons" title="Link to this heading">#</a></h3>
+</section>
+<section id="lastcombatcontrols">
+<h3><code class="docutils literal notranslate"><span class="pre">lastCombatControls</span></code><a class="headerlink" href="#lastcombatcontrols" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init()</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+</section>
+<section id="pursebutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">purseButton.onClick()</span></code><a class="headerlink" href="#pursebutton-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate()</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+</section>
+<section id="toggleadventurerstyle-hasblessing">
+<h3><code class="docutils literal notranslate"><span class="pre">toggleAdventurerStyle(hasBlessing)</span></code><a class="headerlink" href="#toggleadventurerstyle-hasblessing" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hasBlessing</span></code></p></li>
+</ul>
+</section>
+<section id="refresh">
+<h3><code class="docutils literal notranslate"><span class="pre">refresh()</span></code><a class="headerlink" href="#refresh" title="Link to this heading">#</a></h3>
+</section>
+<section id="toggle">
+<h3><code class="docutils literal notranslate"><span class="pre">toggle()</span></code><a class="headerlink" href="#toggle" title="Link to this heading">#</a></h3>
+</section>
+<section id="onminiwindowclose">
+<h3><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code><a class="headerlink" href="#onminiwindowclose" title="Link to this heading">#</a></h3>
+</section>
+<section id="oninventorychange-player-slot-item-olditem">
+<h3><code class="docutils literal notranslate"><span class="pre">onInventoryChange(player,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code><a class="headerlink" href="#oninventorychange-player-slot-item-olditem" title="Link to this heading">#</a></h3>
+<p>hooked events</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">player</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">item</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oldItem</span></code></p></li>
+</ul>
+</section>
+<section id="onblessingschange-player-blessings-oldblessings">
+<h3><code class="docutils literal notranslate"><span class="pre">onBlessingsChange(player,</span> <span class="pre">blessings,</span> <span class="pre">oldBlessings)</span></code><a class="headerlink" href="#onblessingschange-player-blessings-oldblessings" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">player</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blessings</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oldBlessings</span></code></p></li>
+</ul>
+</section>
+<section id="update">
+<h3><code class="docutils literal notranslate"><span class="pre">update()</span></code><a class="headerlink" href="#update" title="Link to this heading">#</a></h3>
+<p>controls</p>
+</section>
+<section id="check">
+<h3><code class="docutils literal notranslate"><span class="pre">check()</span></code><a class="headerlink" href="#check" title="Link to this heading">#</a></h3>
+</section>
+<section id="online">
+<h3><code class="docutils literal notranslate"><span class="pre">online()</span></code><a class="headerlink" href="#online" title="Link to this heading">#</a></h3>
+</section>
+<section id="offline">
+<h3><code class="docutils literal notranslate"><span class="pre">offline()</span></code><a class="headerlink" href="#offline" title="Link to this heading">#</a></h3>
+</section>
+<section id="onsetfightmode-self-selectedfightbutton">
+<h3><code class="docutils literal notranslate"><span class="pre">onSetFightMode(self,</span> <span class="pre">selectedFightButton)</span></code><a class="headerlink" href="#onsetfightmode-self-selectedfightbutton" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selectedFightButton</span></code></p></li>
+</ul>
+</section>
+<section id="onsetchasemode-self-checked">
+<h3><code class="docutils literal notranslate"><span class="pre">onSetChaseMode(self,</span> <span class="pre">checked)</span></code><a class="headerlink" href="#onsetchasemode-self-checked" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checked</span></code></p></li>
+</ul>
+</section>
+<section id="onsetsafefight-self-checked">
+<h3><code class="docutils literal notranslate"><span class="pre">onSetSafeFight(self,</span> <span class="pre">checked)</span></code><a class="headerlink" href="#onsetsafefight-self-checked" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checked</span></code></p></li>
+</ul>
+</section>
+<section id="onsetsafefight2-self">
+<h3><code class="docutils literal notranslate"><span class="pre">onSetSafeFight2(self)</span></code><a class="headerlink" href="#onsetsafefight2-self" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+</ul>
+</section>
+<section id="onsetpvpmode-self-selectedpvpbutton">
+<h3><code class="docutils literal notranslate"><span class="pre">onSetPVPMode(self,</span> <span class="pre">selectedPVPButton)</span></code><a class="headerlink" href="#onsetpvpmode-self-selectedpvpbutton" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selectedPVPButton</span></code></p></li>
+</ul>
+</section>
+<section id="onmountbuttonclick-self-mousepos">
+<h3><code class="docutils literal notranslate"><span class="pre">onMountButtonClick(self,</span> <span class="pre">mousePos)</span></code><a class="headerlink" href="#onmountbuttonclick-self-mousepos" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mousePos</span></code></p></li>
+</ul>
+</section>
+<section id="onoutfitchange-localplayer-outfit-oldoutfit">
+<h3><code class="docutils literal notranslate"><span class="pre">onOutfitChange(localPlayer,</span> <span class="pre">outfit,</span> <span class="pre">oldOutfit)</span></code><a class="headerlink" href="#onoutfitchange-localplayer-outfit-oldoutfit" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outfit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oldOutfit</span></code></p></li>
+</ul>
+</section>
+<section id="getpvpboxbymode-mode">
+<h3><code class="docutils literal notranslate"><span class="pre">getPVPBoxByMode(mode)</span></code><a class="headerlink" href="#getpvpboxbymode-mode" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code></p></li>
+</ul>
+</section>
+<section id="toggleicon-bitchanged">
+<h3><code class="docutils literal notranslate"><span class="pre">toggleIcon(bitChanged)</span></code><a class="headerlink" href="#toggleicon-bitchanged" title="Link to this heading">#</a></h3>
+<p>status</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bitChanged</span></code></p></li>
+</ul>
+</section>
+<section id="loadicon-bitchanged">
+<h3><code class="docutils literal notranslate"><span class="pre">loadIcon(bitChanged)</span></code><a class="headerlink" href="#loadicon-bitchanged" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bitChanged</span></code></p></li>
+</ul>
+</section>
+<section id="onsoulchange-localplayer-soul">
+<h3><code class="docutils literal notranslate"><span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code><a class="headerlink" href="#onsoulchange-localplayer-soul" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">soul</span></code></p></li>
+</ul>
+</section>
+<section id="onfreecapacitychange-player-freecapacity">
+<h3><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(player,</span> <span class="pre">freeCapacity)</span></code><a class="headerlink" href="#onfreecapacitychange-player-freecapacity" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">player</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">freeCapacity</span></code></p></li>
+</ul>
+</section>
+<section id="onstateschange-localplayer-now-old">
+<h3><code class="docutils literal notranslate"><span class="pre">onStatesChange(localPlayer,</span> <span class="pre">now,</span> <span class="pre">old)</span></code><a class="headerlink" href="#onstateschange-localplayer-now-old" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">now</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">old</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="localplayer">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#localplayer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(LocalPlayer,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="g-game">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#g-game" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameStart</span> <span class="pre">=</span> <span class="pre">refresh</span> <span class="pre">})</span></code></p>
+</section>
+<section id="loadui">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#loadui" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">inventoryWindow</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('inventory',</span> <span class="pre">modules.game_interface.getRightPanel())</span></code></p>
+</section>
+<section id="fightmoderadiogroup">
+<h3><code class="docutils literal notranslate"><span class="pre">fightModeRadioGroup</span></code><a class="headerlink" href="#fightmoderadiogroup" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(fightModeRadioGroup,</span> <span class="pre">{</span> <span class="pre">onSelectionChange</span> <span class="pre">=</span> <span class="pre">onSetFightMode</span> <span class="pre">})</span></code></p>
+</section>
+<section id="chasemodebutton">
+<h3><code class="docutils literal notranslate"><span class="pre">chaseModeButton</span></code><a class="headerlink" href="#chasemodebutton" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(chaseModeButton,</span> <span class="pre">{</span> <span class="pre">onCheckChange</span> <span class="pre">=</span> <span class="pre">onSetChaseMode</span> <span class="pre">})</span></code></p>
+</section>
+<section id="safefightbutton">
+<h3><code class="docutils literal notranslate"><span class="pre">safeFightButton</span></code><a class="headerlink" href="#safefightbutton" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(safeFightButton,</span> <span class="pre">{</span> <span class="pre">onCheckChange</span> <span class="pre">=</span> <span class="pre">onSetSafeFight</span> <span class="pre">})</span></code></p>
+</section>
+<section id="buttonpvp">
+<h3><code class="docutils literal notranslate"><span class="pre">buttonPvp</span></code><a class="headerlink" href="#buttonpvp" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(buttonPvp,</span> <span class="pre">{</span> <span class="pre">onClick</span> <span class="pre">=</span> <span class="pre">onSetSafeFight2</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(LocalPlayer,</span> <span class="pre">{</span> <span class="pre">onOutfitChange</span> <span class="pre">=</span> <span class="pre">onOutfitChange</span> <span class="pre">})</span></code></p>
+</section>
+<section id="line">
+<h3><code class="docutils literal notranslate"><span class="pre">line</span></code><a class="headerlink" href="#line" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">online()</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(LocalPlayer,</span> <span class="pre">{</span> <span class="pre">onStatesChange</span> <span class="pre">=</span> <span class="pre">onStatesChange,</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(LocalPlayer,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameStart</span> <span class="pre">=</span> <span class="pre">refresh</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(LocalPlayer,</span> <span class="pre">{</span> <span class="pre">onOutfitChange</span> <span class="pre">=</span> <span class="pre">onOutfitChange</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>controls end status</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(LocalPlayer,</span> <span class="pre">{</span> <span class="pre">onStatesChange</span> <span class="pre">=</span> <span class="pre">onStatesChange,</span></code></p>
+</section>
+<section id="inventorychange">
+<h3><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code><a class="headerlink" href="#inventorychange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onInventoryChange(player,</span> <span class="pre">i,</span> <span class="pre">player:getInventoryItem(i))</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onInventoryChange(player,</span> <span class="pre">i,</span> <span class="pre">nil)</span></code></p>
+</section>
+<section id="soulchange">
+<h3><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code><a class="headerlink" href="#soulchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSoulChange(player,</span> <span class="pre">player:getSoul())</span></code></p>
+</section>
+<section id="freecapacitychange">
+<h3><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code><a class="headerlink" href="#freecapacitychange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(player,</span> <span class="pre">player:getFreeCapacity())</span></code></p>
+</section>
+<section id="stateschange">
+<h3><code class="docutils literal notranslate"><span class="pre">StatesChange</span></code><a class="headerlink" href="#stateschange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onStatesChange(player,</span> <span class="pre">player:getStates(),</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="miniwindowclose">
+<h3><code class="docutils literal notranslate"><span class="pre">MiniWindowClose</span></code><a class="headerlink" href="#miniwindowclose" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onMiniWindowClose()</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>hooked events</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onInventoryChange(player,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p>
+</section>
+<section id="blessingschange">
+<h3><code class="docutils literal notranslate"><span class="pre">BlessingsChange</span></code><a class="headerlink" href="#blessingschange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onBlessingsChange(player,</span> <span class="pre">blessings,</span> <span class="pre">oldBlessings)</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">line</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">online()</span></code></p>
+</section>
+<section id="setfightmode">
+<h3><code class="docutils literal notranslate"><span class="pre">SetFightMode</span></code><a class="headerlink" href="#setfightmode" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSetFightMode(self,</span> <span class="pre">selectedFightButton)</span></code></p>
+</section>
+<section id="setchasemode">
+<h3><code class="docutils literal notranslate"><span class="pre">SetChaseMode</span></code><a class="headerlink" href="#setchasemode" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSetChaseMode(self,</span> <span class="pre">checked)</span></code></p>
+</section>
+<section id="setsafefight">
+<h3><code class="docutils literal notranslate"><span class="pre">SetSafeFight</span></code><a class="headerlink" href="#setsafefight" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSetSafeFight(self,</span> <span class="pre">checked)</span></code></p>
+</section>
+<section id="setsafefight2">
+<h3><code class="docutils literal notranslate"><span class="pre">SetSafeFight2</span></code><a class="headerlink" href="#setsafefight2" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSetSafeFight2(self)</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">SetSafeFight</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSetSafeFight(self,</span> <span class="pre">not</span> <span class="pre">safeFightButton:isChecked())</span></code></p>
+</section>
+<section id="setpvpmode">
+<h3><code class="docutils literal notranslate"><span class="pre">SetPVPMode</span></code><a class="headerlink" href="#setpvpmode" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSetPVPMode(self,</span> <span class="pre">selectedPVPButton)</span></code></p>
+</section>
+<section id="mountbuttonclick">
+<h3><code class="docutils literal notranslate"><span class="pre">MountButtonClick</span></code><a class="headerlink" href="#mountbuttonclick" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onMountButtonClick(self,</span> <span class="pre">mousePos)</span></code></p>
+</section>
+<section id="outfitchange">
+<h3><code class="docutils literal notranslate"><span class="pre">OutfitChange</span></code><a class="headerlink" href="#outfitchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onOutfitChange(localPlayer,</span> <span class="pre">outfit,</span> <span class="pre">oldOutfit)</span></code></p>
+</section>
+<section id="createwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#createwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">icon</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('ConditionWidget',</span> <span class="pre">conditionPanel)</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onFreeCapacityChange(player,</span> <span class="pre">freeCapacity)</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">StatesChange</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onStatesChange(localPlayer,</span> <span class="pre">now,</span> <span class="pre">old)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#icons"><code class="docutils literal notranslate"><span class="pre">Icons</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lastcombatcontrols"><code class="docutils literal notranslate"><span class="pre">lastCombatControls</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pursebutton-onclick"><code class="docutils literal notranslate"><span class="pre">purseButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggleadventurerstyle-hasblessing"><code class="docutils literal notranslate"><span class="pre">toggleAdventurerStyle(hasBlessing)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refresh"><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggle"><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onminiwindowclose"><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oninventorychange-player-slot-item-olditem"><code class="docutils literal notranslate"><span class="pre">onInventoryChange(player,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onblessingschange-player-blessings-oldblessings"><code class="docutils literal notranslate"><span class="pre">onBlessingsChange(player,</span> <span class="pre">blessings,</span> <span class="pre">oldBlessings)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#online"><code class="docutils literal notranslate"><span class="pre">online()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline"><code class="docutils literal notranslate"><span class="pre">offline()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsetfightmode-self-selectedfightbutton"><code class="docutils literal notranslate"><span class="pre">onSetFightMode(self,</span> <span class="pre">selectedFightButton)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsetchasemode-self-checked"><code class="docutils literal notranslate"><span class="pre">onSetChaseMode(self,</span> <span class="pre">checked)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsetsafefight-self-checked"><code class="docutils literal notranslate"><span class="pre">onSetSafeFight(self,</span> <span class="pre">checked)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsetsafefight2-self"><code class="docutils literal notranslate"><span class="pre">onSetSafeFight2(self)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsetpvpmode-self-selectedpvpbutton"><code class="docutils literal notranslate"><span class="pre">onSetPVPMode(self,</span> <span class="pre">selectedPVPButton)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onmountbuttonclick-self-mousepos"><code class="docutils literal notranslate"><span class="pre">onMountButtonClick(self,</span> <span class="pre">mousePos)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onoutfitchange-localplayer-outfit-oldoutfit"><code class="docutils literal notranslate"><span class="pre">onOutfitChange(localPlayer,</span> <span class="pre">outfit,</span> <span class="pre">oldOutfit)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getpvpboxbymode-mode"><code class="docutils literal notranslate"><span class="pre">getPVPBoxByMode(mode)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggleicon-bitchanged"><code class="docutils literal notranslate"><span class="pre">toggleIcon(bitChanged)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadicon-bitchanged"><code class="docutils literal notranslate"><span class="pre">loadIcon(bitChanged)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsoulchange-localplayer-soul"><code class="docutils literal notranslate"><span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onfreecapacitychange-player-freecapacity"><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(player,</span> <span class="pre">freeCapacity)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onstateschange-localplayer-now-old"><code class="docutils literal notranslate"><span class="pre">onStatesChange(localPlayer,</span> <span class="pre">now,</span> <span class="pre">old)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#localplayer"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-game"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadui"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fightmoderadiogroup"><code class="docutils literal notranslate"><span class="pre">fightModeRadioGroup</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chasemodebutton"><code class="docutils literal notranslate"><span class="pre">chaseModeButton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#safefightbutton"><code class="docutils literal notranslate"><span class="pre">safeFightButton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buttonpvp"><code class="docutils literal notranslate"><span class="pre">buttonPvp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line"><code class="docutils literal notranslate"><span class="pre">line</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inventorychange"><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soulchange"><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#freecapacitychange"><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stateschange"><code class="docutils literal notranslate"><span class="pre">StatesChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#miniwindowclose"><code class="docutils literal notranslate"><span class="pre">MiniWindowClose</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blessingschange"><code class="docutils literal notranslate"><span class="pre">BlessingsChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">line</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setfightmode"><code class="docutils literal notranslate"><span class="pre">SetFightMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setchasemode"><code class="docutils literal notranslate"><span class="pre">SetChaseMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setsafefight"><code class="docutils literal notranslate"><span class="pre">SetSafeFight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setsafefight2"><code class="docutils literal notranslate"><span class="pre">SetSafeFight2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">SetSafeFight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setpvpmode"><code class="docutils literal notranslate"><span class="pre">SetPVPMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mountbuttonclick"><code class="docutils literal notranslate"><span class="pre">MountButtonClick</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outfitchange"><code class="docutils literal notranslate"><span class="pre">OutfitChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createwidget"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">StatesChange</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/game_inventory/inventory.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

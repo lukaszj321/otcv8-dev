@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_skills/skills.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_skills/skills';</script>
+    <link rel="icon" href="../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_skills/skills.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-skills-skills-lua">
+<h1>game_skills/skills.lua<a class="headerlink" href="#game-skills-skills-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla skills.</p>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init()</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate()</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+</section>
+<section id="expforlevel-level">
+<h3><code class="docutils literal notranslate"><span class="pre">expForLevel(level)</span></code><a class="headerlink" href="#expforlevel-level" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">level</span></code></p></li>
+</ul>
+</section>
+<section id="exptoadvance-currentlevel-currentexp">
+<h3><code class="docutils literal notranslate"><span class="pre">expToAdvance(currentLevel,</span> <span class="pre">currentExp)</span></code><a class="headerlink" href="#exptoadvance-currentlevel-currentexp" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">currentLevel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">currentExp</span></code></p></li>
+</ul>
+</section>
+<section id="resetskillcolor-id">
+<h3><code class="docutils literal notranslate"><span class="pre">resetSkillColor(id)</span></code><a class="headerlink" href="#resetskillcolor-id" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+</section>
+<section id="toggleskill-id-state">
+<h3><code class="docutils literal notranslate"><span class="pre">toggleSkill(id,</span> <span class="pre">state)</span></code><a class="headerlink" href="#toggleskill-id-state" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">state</span></code></p></li>
+</ul>
+</section>
+<section id="setskillbase-id-value-basevalue">
+<h3><code class="docutils literal notranslate"><span class="pre">setSkillBase(id,</span> <span class="pre">value,</span> <span class="pre">baseValue)</span></code><a class="headerlink" href="#setskillbase-id-value-basevalue" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baseValue</span></code></p></li>
+</ul>
+</section>
+<section id="setskillvalue-id-value">
+<h3><code class="docutils literal notranslate"><span class="pre">setSkillValue(id,</span> <span class="pre">value)</span></code><a class="headerlink" href="#setskillvalue-id-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="setskillcolor-id-value">
+<h3><code class="docutils literal notranslate"><span class="pre">setSkillColor(id,</span> <span class="pre">value)</span></code><a class="headerlink" href="#setskillcolor-id-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="setskilltooltip-id-value">
+<h3><code class="docutils literal notranslate"><span class="pre">setSkillTooltip(id,</span> <span class="pre">value)</span></code><a class="headerlink" href="#setskilltooltip-id-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="setskillpercent-id-percent-tooltip-color">
+<h3><code class="docutils literal notranslate"><span class="pre">setSkillPercent(id,</span> <span class="pre">percent,</span> <span class="pre">tooltip,</span> <span class="pre">color)</span></code><a class="headerlink" href="#setskillpercent-id-percent-tooltip-color" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tooltip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code></p></li>
+</ul>
+</section>
+<section id="checkalert-id-value-maxvalue-threshold-greaterthan">
+<h3><code class="docutils literal notranslate"><span class="pre">checkAlert(id,</span> <span class="pre">value,</span> <span class="pre">maxValue,</span> <span class="pre">threshold,</span> <span class="pre">greaterThan)</span></code><a class="headerlink" href="#checkalert-id-value-maxvalue-threshold-greaterthan" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxValue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">greaterThan</span></code></p></li>
+</ul>
+</section>
+<section id="update">
+<h3><code class="docutils literal notranslate"><span class="pre">update()</span></code><a class="headerlink" href="#update" title="Link to this heading">#</a></h3>
+</section>
+<section id="refresh">
+<h3><code class="docutils literal notranslate"><span class="pre">refresh()</span></code><a class="headerlink" href="#refresh" title="Link to this heading">#</a></h3>
+</section>
+<section id="offline">
+<h3><code class="docutils literal notranslate"><span class="pre">offline()</span></code><a class="headerlink" href="#offline" title="Link to this heading">#</a></h3>
+</section>
+<section id="toggle">
+<h3><code class="docutils literal notranslate"><span class="pre">toggle()</span></code><a class="headerlink" href="#toggle" title="Link to this heading">#</a></h3>
+</section>
+<section id="checkexpspeed">
+<h3><code class="docutils literal notranslate"><span class="pre">checkExpSpeed()</span></code><a class="headerlink" href="#checkexpspeed" title="Link to this heading">#</a></h3>
+</section>
+<section id="onminiwindowclose">
+<h3><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code><a class="headerlink" href="#onminiwindowclose" title="Link to this heading">#</a></h3>
+</section>
+<section id="onskillbuttonclick-button">
+<h3><code class="docutils literal notranslate"><span class="pre">onSkillButtonClick(button)</span></code><a class="headerlink" href="#onskillbuttonclick-button" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">button</span></code></p></li>
+</ul>
+</section>
+<section id="onexperiencechange-localplayer-value">
+<h3><code class="docutils literal notranslate"><span class="pre">onExperienceChange(localPlayer,</span> <span class="pre">value)</span></code><a class="headerlink" href="#onexperiencechange-localplayer-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="onlevelchange-localplayer-value-percent">
+<h3><code class="docutils literal notranslate"><span class="pre">onLevelChange(localPlayer,</span> <span class="pre">value,</span> <span class="pre">percent)</span></code><a class="headerlink" href="#onlevelchange-localplayer-value-percent" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code></p></li>
+</ul>
+</section>
+<section id="onhealthchange-localplayer-health-maxhealth">
+<h3><code class="docutils literal notranslate"><span class="pre">onHealthChange(localPlayer,</span> <span class="pre">health,</span> <span class="pre">maxHealth)</span></code><a class="headerlink" href="#onhealthchange-localplayer-health-maxhealth" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">health</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxHealth</span></code></p></li>
+</ul>
+</section>
+<section id="onmanachange-localplayer-mana-maxmana">
+<h3><code class="docutils literal notranslate"><span class="pre">onManaChange(localPlayer,</span> <span class="pre">mana,</span> <span class="pre">maxMana)</span></code><a class="headerlink" href="#onmanachange-localplayer-mana-maxmana" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mana</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxMana</span></code></p></li>
+</ul>
+</section>
+<section id="onsoulchange-localplayer-soul">
+<h3><code class="docutils literal notranslate"><span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code><a class="headerlink" href="#onsoulchange-localplayer-soul" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">soul</span></code></p></li>
+</ul>
+</section>
+<section id="onfreecapacitychange-localplayer-freecapacity">
+<h3><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(localPlayer,</span> <span class="pre">freeCapacity)</span></code><a class="headerlink" href="#onfreecapacitychange-localplayer-freecapacity" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">freeCapacity</span></code></p></li>
+</ul>
+</section>
+<section id="ontotalcapacitychange-localplayer-totalcapacity">
+<h3><code class="docutils literal notranslate"><span class="pre">onTotalCapacityChange(localPlayer,</span> <span class="pre">totalCapacity)</span></code><a class="headerlink" href="#ontotalcapacitychange-localplayer-totalcapacity" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">totalCapacity</span></code></p></li>
+</ul>
+</section>
+<section id="onstaminachange-localplayer-stamina">
+<h3><code class="docutils literal notranslate"><span class="pre">onStaminaChange(localPlayer,</span> <span class="pre">stamina)</span></code><a class="headerlink" href="#onstaminachange-localplayer-stamina" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stamina</span></code></p></li>
+</ul>
+</section>
+<section id="onofflinetrainingchange-localplayer-offlinetrainingtime">
+<h3><code class="docutils literal notranslate"><span class="pre">onOfflineTrainingChange(localPlayer,</span> <span class="pre">offlineTrainingTime)</span></code><a class="headerlink" href="#onofflinetrainingchange-localplayer-offlinetrainingtime" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offlineTrainingTime</span></code></p></li>
+</ul>
+</section>
+<section id="onregenerationchange-localplayer-regenerationtime">
+<h3><code class="docutils literal notranslate"><span class="pre">onRegenerationChange(localPlayer,</span> <span class="pre">regenerationTime)</span></code><a class="headerlink" href="#onregenerationchange-localplayer-regenerationtime" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regenerationTime</span></code></p></li>
+</ul>
+</section>
+<section id="onspeedchange-localplayer-speed">
+<h3><code class="docutils literal notranslate"><span class="pre">onSpeedChange(localPlayer,</span> <span class="pre">speed)</span></code><a class="headerlink" href="#onspeedchange-localplayer-speed" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speed</span></code></p></li>
+</ul>
+</section>
+<section id="onbasespeedchange-localplayer-basespeed">
+<h3><code class="docutils literal notranslate"><span class="pre">onBaseSpeedChange(localPlayer,</span> <span class="pre">baseSpeed)</span></code><a class="headerlink" href="#onbasespeedchange-localplayer-basespeed" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baseSpeed</span></code></p></li>
+</ul>
+</section>
+<section id="onmagiclevelchange-localplayer-magiclevel-percent">
+<h3><code class="docutils literal notranslate"><span class="pre">onMagicLevelChange(localPlayer,</span> <span class="pre">magiclevel,</span> <span class="pre">percent)</span></code><a class="headerlink" href="#onmagiclevelchange-localplayer-magiclevel-percent" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">magiclevel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code></p></li>
+</ul>
+</section>
+<section id="onbasemagiclevelchange-localplayer-basemagiclevel">
+<h3><code class="docutils literal notranslate"><span class="pre">onBaseMagicLevelChange(localPlayer,</span> <span class="pre">baseMagicLevel)</span></code><a class="headerlink" href="#onbasemagiclevelchange-localplayer-basemagiclevel" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baseMagicLevel</span></code></p></li>
+</ul>
+</section>
+<section id="onskillchange-localplayer-id-level-percent">
+<h3><code class="docutils literal notranslate"><span class="pre">onSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">level,</span> <span class="pre">percent)</span></code><a class="headerlink" href="#onskillchange-localplayer-id-level-percent" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">level</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code></p></li>
+</ul>
+</section>
+<section id="onbaseskillchange-localplayer-id-baselevel">
+<h3><code class="docutils literal notranslate"><span class="pre">onBaseSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">baseLevel)</span></code><a class="headerlink" href="#onbaseskillchange-localplayer-id-baselevel" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baseLevel</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="localplayer">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#localplayer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(LocalPlayer,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="g-game">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#g-game" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="loadui">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#loadui" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">skillsWindow</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('skills',</span> <span class="pre">modules.game_interface.getRightPanel())</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(LocalPlayer,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="experiencechange">
+<h3><code class="docutils literal notranslate"><span class="pre">ExperienceChange</span></code><a class="headerlink" href="#experiencechange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onExperienceChange(player,</span> <span class="pre">player:getExperience())</span></code></p>
+</section>
+<section id="levelchange">
+<h3><code class="docutils literal notranslate"><span class="pre">LevelChange</span></code><a class="headerlink" href="#levelchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onLevelChange(player,</span> <span class="pre">player:getLevel(),</span> <span class="pre">player:getLevelPercent())</span></code></p>
+</section>
+<section id="healthchange">
+<h3><code class="docutils literal notranslate"><span class="pre">HealthChange</span></code><a class="headerlink" href="#healthchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onHealthChange(player,</span> <span class="pre">player:getHealth(),</span> <span class="pre">player:getMaxHealth())</span></code></p>
+</section>
+<section id="manachange">
+<h3><code class="docutils literal notranslate"><span class="pre">ManaChange</span></code><a class="headerlink" href="#manachange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onManaChange(player,</span> <span class="pre">player:getMana(),</span> <span class="pre">player:getMaxMana())</span></code></p>
+</section>
+<section id="soulchange">
+<h3><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code><a class="headerlink" href="#soulchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSoulChange(player,</span> <span class="pre">player:getSoul())</span></code></p>
+</section>
+<section id="freecapacitychange">
+<h3><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code><a class="headerlink" href="#freecapacitychange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(player,</span> <span class="pre">player:getFreeCapacity())</span></code></p>
+</section>
+<section id="staminachange">
+<h3><code class="docutils literal notranslate"><span class="pre">StaminaChange</span></code><a class="headerlink" href="#staminachange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onStaminaChange(player,</span> <span class="pre">player:getStamina())</span></code></p>
+</section>
+<section id="magiclevelchange">
+<h3><code class="docutils literal notranslate"><span class="pre">MagicLevelChange</span></code><a class="headerlink" href="#magiclevelchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onMagicLevelChange(player,</span> <span class="pre">player:getMagicLevel(),</span> <span class="pre">player:getMagicLevelPercent())</span></code></p>
+</section>
+<section id="offlinetrainingchange">
+<h3><code class="docutils literal notranslate"><span class="pre">OfflineTrainingChange</span></code><a class="headerlink" href="#offlinetrainingchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onOfflineTrainingChange(player,</span> <span class="pre">player:getOfflineTrainingTime())</span></code></p>
+</section>
+<section id="regenerationchange">
+<h3><code class="docutils literal notranslate"><span class="pre">RegenerationChange</span></code><a class="headerlink" href="#regenerationchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onRegenerationChange(player,</span> <span class="pre">player:getRegenerationTime())</span></code></p>
+</section>
+<section id="speedchange">
+<h3><code class="docutils literal notranslate"><span class="pre">SpeedChange</span></code><a class="headerlink" href="#speedchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSpeedChange(player,</span> <span class="pre">player:getSpeed())</span></code></p>
+</section>
+<section id="skillchange">
+<h3><code class="docutils literal notranslate"><span class="pre">SkillChange</span></code><a class="headerlink" href="#skillchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSkillChange(player,</span> <span class="pre">i,</span> <span class="pre">player:getSkillLevel(i),</span> <span class="pre">player:getSkillLevelPercent(i))</span></code></p>
+</section>
+<section id="baseskillchange">
+<h3><code class="docutils literal notranslate"><span class="pre">BaseSkillChange</span></code><a class="headerlink" href="#baseskillchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onBaseSkillChange(player,</span> <span class="pre">i,</span> <span class="pre">player:getSkillBaseLevel(i))</span></code></p>
+</section>
+<section id="tentminimumheight">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMinimumHeight</span></code><a class="headerlink" href="#tentminimumheight" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">skillsWindow:setContentMinimumHeight(44)</span></code></p>
+</section>
+<section id="tentmaximumheight">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code><a class="headerlink" href="#tentmaximumheight" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">skillsWindow:setContentMaximumHeight(480)</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">skillsWindow:setContentMaximumHeight(390)</span></code></p>
+</section>
+<section id="ds">
+<h3><code class="docutils literal notranslate"><span class="pre">ds</span></code><a class="headerlink" href="#ds" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">currentTime</span> <span class="pre">=</span> <span class="pre">g_clock.seconds()</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">LevelChange</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onLevelChange(player,</span> <span class="pre">player:getLevel(),</span> <span class="pre">player:getLevelPercent())</span></code></p>
+</section>
+<section id="miniwindowclose">
+<h3><code class="docutils literal notranslate"><span class="pre">MiniWindowClose</span></code><a class="headerlink" href="#miniwindowclose" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onMiniWindowClose()</span></code></p>
+</section>
+<section id="skillbuttonclick">
+<h3><code class="docutils literal notranslate"><span class="pre">SkillButtonClick</span></code><a class="headerlink" href="#skillbuttonclick" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSkillButtonClick(button)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">ExperienceChange</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onExperienceChange(localPlayer,</span> <span class="pre">value)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">LevelChange</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onLevelChange(localPlayer,</span> <span class="pre">value,</span> <span class="pre">percent)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">HealthChange</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onHealthChange(localPlayer,</span> <span class="pre">health,</span> <span class="pre">maxHealth)</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">ManaChange</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onManaChange(localPlayer,</span> <span class="pre">mana,</span> <span class="pre">maxMana)</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onFreeCapacityChange(localPlayer,</span> <span class="pre">freeCapacity)</span></code></p>
+</section>
+<section id="totalcapacitychange">
+<h3><code class="docutils literal notranslate"><span class="pre">TotalCapacityChange</span></code><a class="headerlink" href="#totalcapacitychange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onTotalCapacityChange(localPlayer,</span> <span class="pre">totalCapacity)</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">StaminaChange</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onStaminaChange(localPlayer,</span> <span class="pre">stamina)</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">OfflineTrainingChange</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onOfflineTrainingChange(localPlayer,</span> <span class="pre">offlineTrainingTime)</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">RegenerationChange</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onRegenerationChange(localPlayer,</span> <span class="pre">regenerationTime)</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">SpeedChange</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSpeedChange(localPlayer,</span> <span class="pre">speed)</span></code></p>
+</section>
+<section id="basespeedchange">
+<h3><code class="docutils literal notranslate"><span class="pre">BaseSpeedChange</span></code><a class="headerlink" href="#basespeedchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onBaseSpeedChange(localPlayer,</span> <span class="pre">localPlayer:getBaseSpeed())</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">BaseSpeedChange</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onBaseSpeedChange(localPlayer,</span> <span class="pre">baseSpeed)</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">MagicLevelChange</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onMagicLevelChange(localPlayer,</span> <span class="pre">magiclevel,</span> <span class="pre">percent)</span></code></p>
+</section>
+<section id="basemagiclevelchange">
+<h3><code class="docutils literal notranslate"><span class="pre">BaseMagicLevelChange</span></code><a class="headerlink" href="#basemagiclevelchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onBaseMagicLevelChange(localPlayer,</span> <span class="pre">localPlayer:getBaseMagicLevel())</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">BaseMagicLevelChange</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onBaseMagicLevelChange(localPlayer,</span> <span class="pre">baseMagicLevel)</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">SkillChange</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">level,</span> <span class="pre">percent)</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">BaseSkillChange</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onBaseSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">localPlayer:getSkillBaseLevel(id))</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">BaseSkillChange</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onBaseSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">baseLevel)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expforlevel-level"><code class="docutils literal notranslate"><span class="pre">expForLevel(level)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exptoadvance-currentlevel-currentexp"><code class="docutils literal notranslate"><span class="pre">expToAdvance(currentLevel,</span> <span class="pre">currentExp)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetskillcolor-id"><code class="docutils literal notranslate"><span class="pre">resetSkillColor(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggleskill-id-state"><code class="docutils literal notranslate"><span class="pre">toggleSkill(id,</span> <span class="pre">state)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setskillbase-id-value-basevalue"><code class="docutils literal notranslate"><span class="pre">setSkillBase(id,</span> <span class="pre">value,</span> <span class="pre">baseValue)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setskillvalue-id-value"><code class="docutils literal notranslate"><span class="pre">setSkillValue(id,</span> <span class="pre">value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setskillcolor-id-value"><code class="docutils literal notranslate"><span class="pre">setSkillColor(id,</span> <span class="pre">value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setskilltooltip-id-value"><code class="docutils literal notranslate"><span class="pre">setSkillTooltip(id,</span> <span class="pre">value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setskillpercent-id-percent-tooltip-color"><code class="docutils literal notranslate"><span class="pre">setSkillPercent(id,</span> <span class="pre">percent,</span> <span class="pre">tooltip,</span> <span class="pre">color)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkalert-id-value-maxvalue-threshold-greaterthan"><code class="docutils literal notranslate"><span class="pre">checkAlert(id,</span> <span class="pre">value,</span> <span class="pre">maxValue,</span> <span class="pre">threshold,</span> <span class="pre">greaterThan)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refresh"><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline"><code class="docutils literal notranslate"><span class="pre">offline()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggle"><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkexpspeed"><code class="docutils literal notranslate"><span class="pre">checkExpSpeed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onminiwindowclose"><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onskillbuttonclick-button"><code class="docutils literal notranslate"><span class="pre">onSkillButtonClick(button)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onexperiencechange-localplayer-value"><code class="docutils literal notranslate"><span class="pre">onExperienceChange(localPlayer,</span> <span class="pre">value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onlevelchange-localplayer-value-percent"><code class="docutils literal notranslate"><span class="pre">onLevelChange(localPlayer,</span> <span class="pre">value,</span> <span class="pre">percent)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onhealthchange-localplayer-health-maxhealth"><code class="docutils literal notranslate"><span class="pre">onHealthChange(localPlayer,</span> <span class="pre">health,</span> <span class="pre">maxHealth)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onmanachange-localplayer-mana-maxmana"><code class="docutils literal notranslate"><span class="pre">onManaChange(localPlayer,</span> <span class="pre">mana,</span> <span class="pre">maxMana)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsoulchange-localplayer-soul"><code class="docutils literal notranslate"><span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onfreecapacitychange-localplayer-freecapacity"><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(localPlayer,</span> <span class="pre">freeCapacity)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontotalcapacitychange-localplayer-totalcapacity"><code class="docutils literal notranslate"><span class="pre">onTotalCapacityChange(localPlayer,</span> <span class="pre">totalCapacity)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onstaminachange-localplayer-stamina"><code class="docutils literal notranslate"><span class="pre">onStaminaChange(localPlayer,</span> <span class="pre">stamina)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onofflinetrainingchange-localplayer-offlinetrainingtime"><code class="docutils literal notranslate"><span class="pre">onOfflineTrainingChange(localPlayer,</span> <span class="pre">offlineTrainingTime)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onregenerationchange-localplayer-regenerationtime"><code class="docutils literal notranslate"><span class="pre">onRegenerationChange(localPlayer,</span> <span class="pre">regenerationTime)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onspeedchange-localplayer-speed"><code class="docutils literal notranslate"><span class="pre">onSpeedChange(localPlayer,</span> <span class="pre">speed)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onbasespeedchange-localplayer-basespeed"><code class="docutils literal notranslate"><span class="pre">onBaseSpeedChange(localPlayer,</span> <span class="pre">baseSpeed)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onmagiclevelchange-localplayer-magiclevel-percent"><code class="docutils literal notranslate"><span class="pre">onMagicLevelChange(localPlayer,</span> <span class="pre">magiclevel,</span> <span class="pre">percent)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onbasemagiclevelchange-localplayer-basemagiclevel"><code class="docutils literal notranslate"><span class="pre">onBaseMagicLevelChange(localPlayer,</span> <span class="pre">baseMagicLevel)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onskillchange-localplayer-id-level-percent"><code class="docutils literal notranslate"><span class="pre">onSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">level,</span> <span class="pre">percent)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onbaseskillchange-localplayer-id-baselevel"><code class="docutils literal notranslate"><span class="pre">onBaseSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">baseLevel)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#localplayer"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-game"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadui"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experiencechange"><code class="docutils literal notranslate"><span class="pre">ExperienceChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#levelchange"><code class="docutils literal notranslate"><span class="pre">LevelChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#healthchange"><code class="docutils literal notranslate"><span class="pre">HealthChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manachange"><code class="docutils literal notranslate"><span class="pre">ManaChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soulchange"><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#freecapacitychange"><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staminachange"><code class="docutils literal notranslate"><span class="pre">StaminaChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magiclevelchange"><code class="docutils literal notranslate"><span class="pre">MagicLevelChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offlinetrainingchange"><code class="docutils literal notranslate"><span class="pre">OfflineTrainingChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regenerationchange"><code class="docutils literal notranslate"><span class="pre">RegenerationChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speedchange"><code class="docutils literal notranslate"><span class="pre">SpeedChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skillchange"><code class="docutils literal notranslate"><span class="pre">SkillChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#baseskillchange"><code class="docutils literal notranslate"><span class="pre">BaseSkillChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tentminimumheight"><code class="docutils literal notranslate"><span class="pre">tentMinimumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tentmaximumheight"><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ds"><code class="docutils literal notranslate"><span class="pre">ds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">LevelChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#miniwindowclose"><code class="docutils literal notranslate"><span class="pre">MiniWindowClose</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skillbuttonclick"><code class="docutils literal notranslate"><span class="pre">SkillButtonClick</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">ExperienceChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">LevelChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">HealthChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">ManaChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">SoulChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">FreeCapacityChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#totalcapacitychange"><code class="docutils literal notranslate"><span class="pre">TotalCapacityChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">StaminaChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">OfflineTrainingChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">RegenerationChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">SpeedChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basespeedchange"><code class="docutils literal notranslate"><span class="pre">BaseSpeedChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">BaseSpeedChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">MagicLevelChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basemagiclevelchange"><code class="docutils literal notranslate"><span class="pre">BaseMagicLevelChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">BaseMagicLevelChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">SkillChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">BaseSkillChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">BaseSkillChange</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/game_skills/skills.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

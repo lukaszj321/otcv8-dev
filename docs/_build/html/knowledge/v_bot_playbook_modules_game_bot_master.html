@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>vBot Playbook – modules/game_bot (MASTER) &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/v_bot_playbook_modules_game_bot_master';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">vBot Playbook – <strong>modules/game_bot (MASTER)</strong></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="vbot-playbook-modules-game-bot-master">
+<h1>vBot Playbook – <strong>modules/game_bot (MASTER)</strong><a class="headerlink" href="#vbot-playbook-modules-game-bot-master" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Cel: pełny, operacyjny przewodnik dla implementacji i utrzymania skryptów <strong>vBot</strong> (moduł <code class="docutils literal notranslate"><span class="pre">modules/game_bot</span></code>) w ramach <strong>OTClient Studio</strong>. Dokument zawiera: standardy kodowania, wzorce (makra/trigger’y), snippety, heurystyki skanera, wymagania jakościowe, checklisty, test‑wektory i integrację z narzędziem. <strong>Transfer 1:1</strong> – gotowe do wdrożenia.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="executive-summary">
+<h1>0) Executive Summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Co obejmuje:</strong> makra okresowe, trigger’y eventowe, interakcje z UI/światem gry, wzorce bezpieczeństwa, logowanie, diagnostykę i performance.</p></li>
+<li><p><strong>Jak używać:</strong> jako <em>źródło prawdy</em> dla generatorów w Studio (szablony vBot), lint vBot (reguły domenowe) oraz heurystyk skanera (detekcja symboli vBot w kodzie).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="slownik-i-konwencje">
+<h1>1) Słownik i konwencje<a class="headerlink" href="#slownik-i-konwencje" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Makro</strong> – blok wykonywany cyklicznie (interwał ms) lub sterowany warunkiem.</p></li>
+<li><p><strong>Trigger</strong> – blok reagujący na zdarzenie (np. wiadomość, zmiana HP, wejście na tile).</p></li>
+<li><p><strong>Guard</strong> – warunek bezpieczeństwa (np. <code class="docutils literal notranslate"><span class="pre">isConnected()</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">isBusy()</span></code>), który musi być spełniony przed akcją.</p></li>
+<li><p><strong>Cooldown</strong> – minimalny czas między kolejnymi akcjami (zapobiega spamowi).</p></li>
+<li><p><strong>State</strong> – lokalny stan makra (zapamiętanie poprzedniej decyzji/targetu).</p></li>
+</ul>
+<p>Konwencje nazewnictwa (zalecane):</p>
+<ul class="simple">
+<li><p>Pliki: <code class="docutils literal notranslate"><span class="pre">vb_&lt;obszar&gt;_&lt;cel&gt;.lua</span></code> np. <code class="docutils literal notranslate"><span class="pre">vb_combat_uh.lua</span></code>.</p></li>
+<li><p>Funkcje lokalne: <code class="docutils literal notranslate"><span class="pre">vb_&lt;obszar&gt;_&lt;akcja&gt;()</span></code> np. <code class="docutils literal notranslate"><span class="pre">vb_heal_cast()</span></code>.</p></li>
+<li><p>Zmienne stanu: <code class="docutils literal notranslate"><span class="pre">state_&lt;nazwa&gt;</span></code>.</p></li>
+<li><p>Logi: prefiks <code class="docutils literal notranslate"><span class="pre">&quot;[vBot]&quot;</span></code> i tagi (<code class="docutils literal notranslate"><span class="pre">[heal]</span></code>, <code class="docutils literal notranslate"><span class="pre">[loot]</span></code>).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="architektura-vbot-w-ujeciu-skryptowym">
+<h1>2) Architektura vBot (w ujęciu skryptowym)<a class="headerlink" href="#architektura-vbot-w-ujeciu-skryptowym" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Warstwa zdarzeń gry</strong> → callbacki (np. text message, damage, map change).</p></li>
+<li><p><strong>Warstwa makr</strong> → pętle interwałowe i warunki.</p></li>
+<li><p><strong>Warstwa akcji</strong> → użycia czarów/przedmiotów, ruch, interakcja z UI.</p></li>
+<li><p><strong>Warstwa narzędzi</strong> → helpers (cooldown, debouncing, retry), logowanie NDJSON (opcjonalnie).</p></li>
+</ul>
+<p>Każdy komponent powinien być <strong>izolowany</strong> (funkcje <code class="docutils literal notranslate"><span class="pre">local</span></code>, brak globali), testowalny oraz posiadać jasne <strong>guards</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="wzorce-makra-i-triggery">
+<h1>3) Wzorce (makra i trigger’y)<a class="headerlink" href="#wzorce-makra-i-triggery" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Poniższe wzorce to gotowe schematy do generatora w Studio. Każdy zawiera: cel, pre‑warunki, interfejs konfiguracyjny, guards, cooldown, logowanie oraz sekcję bezpieczeństwa.</p>
+</div></blockquote>
+</section>
+<section id="makro-autoheal-na-progu-hp">
+<h1>3.1 Makro: Auto‑Heal na progu HP<a class="headerlink" href="#makro-autoheal-na-progu-hp" title="Link to this heading">#</a></h1>
+<p><strong>Cel:</strong> rzucenie czaru/ użycie pota, gdy HP &lt; progu.</p>
+<p><strong>Konfiguracja (OTML/JSON dla Studio):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;vb_auto_heal&quot;</span><span class="p">,</span><span class="nt">&quot;threshold&quot;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span><span class="nt">&quot;spell&quot;</span><span class="p">:</span><span class="s2">&quot;exura&quot;</span><span class="p">,</span><span class="nt">&quot;cooldownMs&quot;</span><span class="p">:</span><span class="mi">1200</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Szkielet (Lua):</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- vb_auto_heal.lua</span>
+<span class="kd">local</span> <span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mi">60</span>      <span class="c1">-- procent</span>
+<span class="kd">local</span> <span class="n">SPELL</span> <span class="o">=</span> <span class="s1">&#39;exura&#39;</span>
+<span class="kd">local</span> <span class="n">COOLDOWN</span> <span class="o">=</span> <span class="mi">1200</span>     <span class="c1">-- ms</span>
+
+<span class="kd">local</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">can</span><span class="p">()</span>
+  <span class="kr">return</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isAttacking</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isWalking</span><span class="p">()</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">now</span><span class="p">()</span> <span class="kr">return</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span> <span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">tick</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">can</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+  <span class="kd">local</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getLocalPlayer</span><span class="p">()</span> <span class="ow">and</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getLocalPlayer</span><span class="p">():</span><span class="n">getHealthPercent</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">100</span>
+  <span class="kr">if</span> <span class="n">hp</span> <span class="o">&lt;</span> <span class="n">THRESHOLD</span> <span class="ow">and</span> <span class="p">(</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">last</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">COOLDOWN</span> <span class="kr">then</span>
+    <span class="n">say</span><span class="p">(</span><span class="n">SPELL</span><span class="p">)</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[vBot][heal] cast&#39;</span><span class="p">,</span> <span class="n">SPELL</span><span class="p">,</span> <span class="s1">&#39;hp&#39;</span><span class="p">,</span> <span class="n">hp</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- rejestracja makra w schedulerze (implementacja zależna od środowiska vBot)</span>
+<span class="c1">-- macro(200, tick) -- jeśli środowisko udostępnia</span>
+<span class="c1">-- w OTC Studio: dodaj do pętli narzędzia lub harmonogramu modułu</span>
+</pre></div>
+</div>
+<p><strong>Bezpieczeństwo:</strong> sprawdź <code class="docutils literal notranslate"><span class="pre">g_game.isOnline()</span></code>, wstrzymaj w czasie <code class="docutils literal notranslate"><span class="pre">isWalking()</span></code>; cooldown ≥ GCD klienta, sprawdź manę przed <code class="docutils literal notranslate"><span class="pre">say()</span></code>.</p>
+</section>
+<section id="trigger-reakcja-na-wiadomosc-tekstowa">
+<h1>3.2 Trigger: Reakcja na wiadomość tekstową<a class="headerlink" href="#trigger-reakcja-na-wiadomosc-tekstowa" title="Link to this heading">#</a></h1>
+<p><strong>Cel:</strong> wykrycie frazy i akcja (np. odpowiedź, log, zapis zdarzenia).</p>
+<p><strong>Konfiguracja:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;vb_msg_react&quot;</span><span class="p">,</span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="s2">&quot;^hi$&quot;</span><span class="p">,</span><span class="nt">&quot;reply&quot;</span><span class="p">:</span><span class="s2">&quot;hello&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Szkielet (Lua):</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- vb_msg_react.lua</span>
+<span class="kd">local</span> <span class="n">PATTERN</span> <span class="o">=</span> <span class="s1">&#39;^hi$&#39;</span>
+<span class="kd">local</span> <span class="n">REPLY</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onTextMessage</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">text</span><span class="p">:</span><span class="n">lower</span><span class="p">():</span><span class="n">match</span><span class="p">(</span><span class="n">PATTERN</span><span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[vBot][msg] match:&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">say</span><span class="p">(</span><span class="n">REPLY</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- rejestracja: attach do zdarzenia tekstowego w środowisku vBot/OTClient</span>
+<span class="c1">-- modules.game_textmessage.onTextMessage:connect(onTextMessage) -- przykład; dostosuj do dostępnych hooków</span>
+</pre></div>
+</div>
+<p><strong>Bezpieczeństwo:</strong> sanitacja regex (escape), limit odpowiedzi (cooldown per nadawca), nie odpowiadaj na własne linie.</p>
+</section>
+<section id="makro-autohaste-buff-w-ruchu">
+<h1>3.3 Makro: Auto‑Haste (buff w ruchu)<a class="headerlink" href="#makro-autohaste-buff-w-ruchu" title="Link to this heading">#</a></h1>
+<p><strong>Cel:</strong> utrzymywanie buffa szybkości przy poruszaniu się.</p>
+<p><strong>Konfiguracja:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;vb_auto_haste&quot;</span><span class="p">,</span><span class="nt">&quot;spell&quot;</span><span class="p">:</span><span class="s2">&quot;utani hur&quot;</span><span class="p">,</span><span class="nt">&quot;cooldownMs&quot;</span><span class="p">:</span><span class="mi">6000</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Szkielet:</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">SPELL</span> <span class="o">=</span> <span class="s1">&#39;utani hur&#39;</span>
+<span class="kd">local</span> <span class="n">COOLDOWN</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="kd">local</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">hasHaste</span><span class="p">()</span>
+  <span class="c1">-- sprawdź ikony buffów na UI lub stan gracza (jeśli dostępny)</span>
+  <span class="kr">return</span> <span class="kc">false</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">tick</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isWalking</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">hasHaste</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span><span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">last</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">COOLDOWN</span> <span class="kr">then</span>
+    <span class="n">say</span><span class="p">(</span><span class="n">SPELL</span><span class="p">)</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[vBot][buff] haste cast&#39;</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- macro(300, tick)</span>
+</pre></div>
+</div>
+<p><strong>Bezpieczeństwo:</strong> nie spamuj – sprawdź buff i cooldown; upewnij się, że gracz ma manę.</p>
+</section>
+<section id="trigger-loot-po-ubiciu-potwora">
+<h1>3.4 Trigger: Loot po ubiciu potwora<a class="headerlink" href="#trigger-loot-po-ubiciu-potwora" title="Link to this heading">#</a></h1>
+<p><strong>Cel:</strong> podniesienie łupu po wykryciu ciała.</p>
+<p><strong>Szkielet (zarys):</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onTileAddThing</span><span class="p">(</span><span class="n">tile</span><span class="p">,</span> <span class="n">thing</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">thing</span><span class="p">:</span><span class="n">isContainer</span><span class="p">()</span> <span class="ow">and</span> <span class="n">thing</span><span class="p">:</span><span class="n">isCorpse</span><span class="p">()</span> <span class="kr">then</span>
+    <span class="c1">-- logika lootu; otwarcie kontenera, iteracja zawartości, use()</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- rejestracja na event mapy/tili (zależna od dostępnych hooków środowiska)</span>
+</pre></div>
+</div>
+<p><strong>Bezpieczeństwo:</strong> limit równoległych otwarć; przerwij, gdy inventory pełne; nie blokuj głównej pętli.</p>
+</section>
+<section id="makro-antiidle">
+<h1>3.5 Makro: Anti‑Idle<a class="headerlink" href="#makro-antiidle" title="Link to this heading">#</a></h1>
+<p><strong>Cel:</strong> zapobiec disconnectowi przez delikatną interakcję.</p>
+<p><strong>Szkielet:</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">tick</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">last</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="o">*</span><span class="mi">1000</span> <span class="kr">then</span>
+    <span class="n">turn</span><span class="p">(</span><span class="nb">math.random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[vBot][antiidle] turn&#39;</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="c1">-- macro(1000, tick)</span>
+</pre></div>
+</div>
+<p><strong>Bezpieczeństwo:</strong> nie wykonuj w trakcie walki; nie przeszkadzaj w ręcznych akcjach.</p>
+</section>
+<hr class="docutils" />
+<section id="heurystyki-skanera-detekcja-vbot">
+<h1>4) Heurystyki skanera (detekcja vBot)<a class="headerlink" href="#heurystyki-skanera-detekcja-vbot" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Celem jest wiarygodne wykrycie „kodu vBot” i jego relacji, bez uruchamiania Lua.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Sygnały makr:</strong> obecność wywołań <code class="docutils literal notranslate"><span class="pre">macro(</span></code>, wzorce „scheduler/macro loop” (identyfikatory <code class="docutils literal notranslate"><span class="pre">macro</span></code>, <code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code>, <code class="docutils literal notranslate"><span class="pre">addEvent</span></code> z typową semantyką okresową).</p></li>
+<li><p><strong>Sygnały trigger’ów:</strong> funkcje o nazwach <code class="docutils literal notranslate"><span class="pre">onX...</span></code> (np. <code class="docutils literal notranslate"><span class="pre">onTextMessage</span></code>) podpinane do znanych sygnałów modułów (np. <em>text message module</em>, <em>map events</em>).</p></li>
+<li><p><strong>Słowa kluczowe domeny:</strong> <code class="docutils literal notranslate"><span class="pre">say(</span></code>, <code class="docutils literal notranslate"><span class="pre">use(</span></code>, <code class="docutils literal notranslate"><span class="pre">useWith(</span></code>, <code class="docutils literal notranslate"><span class="pre">walkTo(</span></code>, <code class="docutils literal notranslate"><span class="pre">turn(</span></code>, <code class="docutils literal notranslate"><span class="pre">attack(</span></code>, identyfikatory zasobów (<code class="docutils literal notranslate"><span class="pre">ui/…otui</span></code>).</p></li>
+<li><p><strong>Relacje:</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI('…')</span></code> ↔ <code class="docutils literal notranslate"><span class="pre">lua_to_otui</span></code> (do mapowania UI z logiką vBot).</p></li>
+<li><p><strong>Klasyfikacja plików:</strong> prefiks <code class="docutils literal notranslate"><span class="pre">vb_</span></code>, lokalizacja w <code class="docutils literal notranslate"><span class="pre">modules/game_bot/…</span></code> podnosi wagę dopasowania.</p></li>
+</ul>
+<p><strong>Emisja do <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code>:</strong> węzeł <code class="docutils literal notranslate"><span class="pre">symbols.botSymbols</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;heal&quot;</span><span class="p">:[</span><span class="s2">&quot;modules/game_bot/vb_combat_uh.lua:12&quot;</span><span class="p">],</span><span class="nt">&quot;antiidle&quot;</span><span class="p">:[</span><span class="s2">&quot;modules/game_bot/vb_anti_idle.lua:5&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="reguly-jakosci-lint-vbot">
+<h1>5) Reguły jakości (lint vBot)<a class="headerlink" href="#reguly-jakosci-lint-vbot" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Rozszerzenie lintu Lua/OTUI o reguły domenowe vBot (bez auto‑fixu, chyba że bezpieczny).</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>VBOT‑001</strong> – Brak <code class="docutils literal notranslate"><span class="pre">guard</span></code> przed akcją (wymagane <code class="docutils literal notranslate"><span class="pre">g_game.isOnline()</span></code> i brak kolizji z ruchem/walką, jeśli ma znaczenie).</p></li>
+<li><p><strong>VBOT‑002</strong> – Cooldown &lt; zalecanego minimum dla danej akcji (np. &lt; 1000 ms dla czaru) → WARN.</p></li>
+<li><p><strong>VBOT‑003</strong> – Blokujące pętle/sleep w makrze (zamiast tego <code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code>).</p></li>
+<li><p><strong>VBOT‑004</strong> – Spam <code class="docutils literal notranslate"><span class="pre">say()</span></code>/<code class="docutils literal notranslate"><span class="pre">use()</span></code> bez limitu – brak licznika/okna czasowego.</p></li>
+<li><p><strong>VBOT‑005</strong> – Globalne symbole w pliku vBot (wymagane <code class="docutils literal notranslate"><span class="pre">local</span></code>).</p></li>
+<li><p><strong>VBOT‑006</strong> – Brak logowania kontekstowego przy krytycznych akcjach.</p></li>
+<li><p><strong>VBOT‑007</strong> – Brak anulowania makra po <code class="docutils literal notranslate"><span class="pre">isDisconnected()</span></code>.</p></li>
+<li><p><strong>VBOT‑008</strong> – Zależność od UI bez sprawdzenia istnienia <code class="docutils literal notranslate"><span class="pre">widget</span></code>.</p></li>
+</ul>
+<p><strong>Konfiguracja (JSON):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;VBOT-001&quot;</span><span class="p">:{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="s2">&quot;ERROR&quot;</span><span class="p">},</span><span class="nt">&quot;VBOT-002&quot;</span><span class="p">:{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="nt">&quot;minCooldownMs&quot;</span><span class="p">:</span><span class="mi">1000</span><span class="p">}}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="logowanie-i-telemetria-opcjonalnie-ndjson">
+<h1>6) Logowanie i telemetria (opcjonalnie NDJSON)<a class="headerlink" href="#logowanie-i-telemetria-opcjonalnie-ndjson" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Format linii (zalecany): <code class="docutils literal notranslate"><span class="pre">{ts,</span> <span class="pre">level,</span> <span class="pre">tag,</span> <span class="pre">file,</span> <span class="pre">line,</span> <span class="pre">msg,</span> <span class="pre">meta}</span></code>.</p></li>
+<li><p>Tagi: <code class="docutils literal notranslate"><span class="pre">[heal]</span></code>, <code class="docutils literal notranslate"><span class="pre">[msg]</span></code>, <code class="docutils literal notranslate"><span class="pre">[buff]</span></code>, <code class="docutils literal notranslate"><span class="pre">[loot]</span></code>, <code class="docutils literal notranslate"><span class="pre">[antiidle]</span></code>.</p></li>
+<li><p>Logi krytyczne: akcje <code class="docutils literal notranslate"><span class="pre">say/use</span></code> z parametrami i wynikiem.</p></li>
+<li><p>Integracja ze Studio: panel Log Viewer filtruje po <code class="docutils literal notranslate"><span class="pre">tag/level/file:line</span></code>.</p></li>
+</ul>
+<p><strong>Przykład:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;2025-10-02T12:00:00.000Z&quot;</span><span class="p">,</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="s2">&quot;heal&quot;</span><span class="p">,</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;modules/game_bot/vb_auto_heal.lua&quot;</span><span class="p">,</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="s2">&quot;cast&quot;</span><span class="p">,</span><span class="nt">&quot;meta&quot;</span><span class="p">:{</span><span class="nt">&quot;spell&quot;</span><span class="p">:</span><span class="s2">&quot;exura&quot;</span><span class="p">,</span><span class="nt">&quot;hp&quot;</span><span class="p">:</span><span class="mi">43</span><span class="p">}}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="bezpieczenstwo-i-zgodnosc">
+<h1>7) Bezpieczeństwo i zgodność<a class="headerlink" href="#bezpieczenstwo-i-zgodnosc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Idempotencja:</strong> makra nie powinny powodować skutków ubocznych przy powtarzaniu (guard+cooldown).</p></li>
+<li><p><strong>Ostrożność UI:</strong> sprawdzaj istnienie widgetów przed modyfikacją (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">widget</span> <span class="pre">then</span> <span class="pre">...</span></code>).</p></li>
+<li><p><strong>Zasoby:</strong> nie używaj nieistniejących ścieżek; weryfikuj z <code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code>.</p></li>
+<li><p><strong>Granice:</strong> makra nie powinny ingerować w pliki poza katalogiem projektu.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="wydajnosc">
+<h1>8) Wydajność<a class="headerlink" href="#wydajnosc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Interwały: nie schodź poniżej 150–250 ms dla ogólnych makr; kosztowne operacje (skany mapy/UI) ≥ 1000 ms.</p></li>
+<li><p>Unikaj pełnych skanów co tick – cache wyników, porównuj zmiany.</p></li>
+<li><p>Używaj <code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code> zamiast pętli blokujących; debounce wejścia.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="generator-vbot-szablony-do-studio">
+<h1>9) Generator vBot (szablony do Studio)<a class="headerlink" href="#generator-vbot-szablony-do-studio" title="Link to this heading">#</a></h1>
+<p><strong>Wejście:</strong> parametry (JSON/OTML) – np. <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">spell</span></code>, <code class="docutils literal notranslate"><span class="pre">cooldownMs</span></code>.
+<strong>Wyjście:</strong> plik <code class="docutils literal notranslate"><span class="pre">vb_&lt;nazwa&gt;.lua</span></code> + wpis w module (opcjonalny UI konfiguracyjny).
+<strong>Checklista generacji:</strong></p>
+<ul class="simple">
+<li><p>[ ] Plik w <code class="docutils literal notranslate"><span class="pre">modules/game_bot/…</span></code>.</p></li>
+<li><p>[ ] Nazwy <code class="docutils literal notranslate"><span class="pre">local</span></code>, brak globali.</p></li>
+<li><p>[ ] Guards i cooldown zaimplementowane.</p></li>
+<li><p>[ ] Logi z prefiksem <code class="docutils literal notranslate"><span class="pre">[vBot]</span></code> i tagiem.</p></li>
+<li><p>[ ] Komentarz nagłówkowy (opis, parametry, interwał).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="testwektory-qa-vbot">
+<h1>10) Test‑wektory (QA vBot)<a class="headerlink" href="#testwektory-qa-vbot" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>HEAL‑01:</strong> HP 55% → oczekiwany 1× <code class="docutils literal notranslate"><span class="pre">say('exura')</span></code>, brak spam w 1200 ms.</p></li>
+<li><p><strong>MSG‑01:</strong> Tekst <code class="docutils literal notranslate"><span class="pre">hi</span></code> → odpowiedź <code class="docutils literal notranslate"><span class="pre">hello</span></code> tylko 1× / 3 s na nadawcę.</p></li>
+<li><p><strong>HASTE‑01:</strong> Ruch z brakiem buffa → <code class="docutils literal notranslate"><span class="pre">say('utani</span> <span class="pre">hur')</span></code> nie częściej niż co 6 s.</p></li>
+<li><p><strong>LOOT‑01:</strong> Pojawia się <code class="docutils literal notranslate"><span class="pre">corpse</span></code> na tile → wywołanie <code class="docutils literal notranslate"><span class="pre">use()</span></code> na kontenerze (jeśli dostępne API); brak błędów przy braku miejsca.</p></li>
+<li><p><strong>IDLE‑01:</strong> Brak aktywności 60 s → <code class="docutils literal notranslate"><span class="pre">turn()</span></code>; brak gdy <code class="docutils literal notranslate"><span class="pre">isAttacking()</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="integracja-ze-studio">
+<h1>11) Integracja ze Studio<a class="headerlink" href="#integracja-ze-studio" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Skaner:</strong> heurystyki z §4 zasilają <code class="docutils literal notranslate"><span class="pre">symbols.botSymbols</span></code>.</p></li>
+<li><p><strong>Lint:</strong> reguły z §5 uzupełniają lint Lua (domena vBot).</p></li>
+<li><p><strong>Generator:</strong> szablony z §9 dostępne w panelu „Nowy → vBot”.</p></li>
+<li><p><strong>Dokumentacja:</strong> panel „vBot Playbook” linkuje do wzorców i przykładów.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="checklisty-wdrozeniowe">
+<h1>12) Checklisty wdrożeniowe<a class="headerlink" href="#checklisty-wdrozeniowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>[ ] Każde makro/trigger ma guards i cooldown.</p></li>
+<li><p>[ ] Brak globali; <code class="docutils literal notranslate"><span class="pre">local</span></code> wszędzie.</p></li>
+<li><p>[ ] Logi akcji krytycznych.</p></li>
+<li><p>[ ] Parametry wyniesione do konfiguracji.</p></li>
+<li><p>[ ] Test‑wektory przechodzą; brak regresji.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="noty-koncowe">
+<h1>13) Noty końcowe<a class="headerlink" href="#noty-koncowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Wzorce są rozszerzalne; dodając nowe, zachowaj nazewnictwo i sekcje: <em>cel → konfiguracja → guards → cooldown → logi → testy</em>.</p></li>
+<li><p>Wszelkie modyfikacje wymagają aktualizacji generatora i reguł QA.</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">vBot Playbook – <strong>modules/game_bot (MASTER)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">0) Executive Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slownik-i-konwencje">1) Słownik i konwencje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#architektura-vbot-w-ujeciu-skryptowym">2) Architektura vBot (w ujęciu skryptowym)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wzorce-makra-i-triggery">3) Wzorce (makra i trigger’y)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#makro-autoheal-na-progu-hp">3.1 Makro: Auto‑Heal na progu HP</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#trigger-reakcja-na-wiadomosc-tekstowa">3.2 Trigger: Reakcja na wiadomość tekstową</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#makro-autohaste-buff-w-ruchu">3.3 Makro: Auto‑Haste (buff w ruchu)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#trigger-loot-po-ubiciu-potwora">3.4 Trigger: Loot po ubiciu potwora</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#makro-antiidle">3.5 Makro: Anti‑Idle</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#heurystyki-skanera-detekcja-vbot">4) Heurystyki skanera (detekcja vBot)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reguly-jakosci-lint-vbot">5) Reguły jakości (lint vBot)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logowanie-i-telemetria-opcjonalnie-ndjson">6) Logowanie i telemetria (opcjonalnie NDJSON)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bezpieczenstwo-i-zgodnosc">7) Bezpieczeństwo i zgodność</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wydajnosc">8) Wydajność</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-vbot-szablony-do-studio">9) Generator vBot (szablony do Studio)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testwektory-qa-vbot">10) Test‑wektory (QA vBot)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#integracja-ze-studio">11) Integracja ze Studio</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-wdrozeniowe">12) Checklisty wdrożeniowe</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-koncowe">13) Noty końcowe</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/knowledge/v_bot_playbook_modules_game_bot_master.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

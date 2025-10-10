@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>framework/graphics/painter.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/graphics/painter';</script>
+    <link rel="icon" href="../../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/graphics/painter.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-graphics-painter-h">
+<h1>framework/graphics/painter.h<a class="headerlink" href="#framework-graphics-painter-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu painter.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-painter">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">Painter</span></code><a class="headerlink" href="#klasa-painter" title="Link to this heading">#</a></h3>
+</section>
+<section id="struktura-painterstate">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">PainterState</span></code><a class="headerlink" href="#struktura-painterstate" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Link to this heading">#</a></h2>
+<section id="blendequation">
+<h3><code class="docutils literal notranslate"><span class="pre">BlendEquation</span></code><a class="headerlink" href="#blendequation" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BlendEquation_Add</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlendEquation_Max</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlendEquation_Subtract</span></code></p></li>
+</ul>
+</section>
+<section id="compositionmode">
+<h3><code class="docutils literal notranslate"><span class="pre">CompositionMode</span></code><a class="headerlink" href="#compositionmode" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_Normal</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_Multiply</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_Add</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_Replace</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_DestBlending</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_Light</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_AlphaZeroing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_AlphaRestoring</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompositionMode_ZeroAlphaOverrite</span></code></p></li>
+</ul>
+</section>
+<section id="depthfunc">
+<h3><code class="docutils literal notranslate"><span class="pre">DepthFunc</span></code><a class="headerlink" href="#depthfunc" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_LESS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_LESS_READ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_LEQUAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_LEQUAL_READ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_EQUAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_ALWAYS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DepthFunc_ALWAYS_READ</span></code></p></li>
+</ul>
+</section>
+<section id="drawmode">
+<h3><code class="docutils literal notranslate"><span class="pre">DrawMode</span></code><a class="headerlink" href="#drawmode" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Triangles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TriangleStrip</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="bind">
+<h3><code class="docutils literal notranslate"><span class="pre">bind</span></code><a class="headerlink" href="#bind" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">bind()</span></code></p>
+</section>
+<section id="unbind">
+<h3><code class="docutils literal notranslate"><span class="pre">unbind</span></code><a class="headerlink" href="#unbind" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">unbind()</span></code></p>
+</section>
+<section id="resetstate">
+<h3><code class="docutils literal notranslate"><span class="pre">resetState</span></code><a class="headerlink" href="#resetstate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetState()</span></code></p>
+</section>
+<section id="refreshstate">
+<h3><code class="docutils literal notranslate"><span class="pre">refreshState</span></code><a class="headerlink" href="#refreshstate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">refreshState()</span></code></p>
+</section>
+<section id="savestate">
+<h3><code class="docutils literal notranslate"><span class="pre">saveState</span></code><a class="headerlink" href="#savestate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">saveState()</span></code></p>
+</section>
+<section id="saveandresetstate">
+<h3><code class="docutils literal notranslate"><span class="pre">saveAndResetState</span></code><a class="headerlink" href="#saveandresetstate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">saveAndResetState()</span></code></p>
+</section>
+<section id="restoresavedstate">
+<h3><code class="docutils literal notranslate"><span class="pre">restoreSavedState</span></code><a class="headerlink" href="#restoresavedstate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">restoreSavedState()</span></code></p>
+</section>
+<section id="clear">
+<h3><code class="docutils literal notranslate"><span class="pre">clear</span></code><a class="headerlink" href="#clear" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clear(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span></code></p>
+</section>
+<section id="clearrect">
+<h3><code class="docutils literal notranslate"><span class="pre">clearRect</span></code><a class="headerlink" href="#clearrect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clearRect(const</span> <span class="pre">Color&amp;</span> <span class="pre">color,</span> <span class="pre">const</span> <span class="pre">Rect&amp;</span> <span class="pre">rect)</span></code></p>
+</section>
+<section id="settransformmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">setTransformMatrix</span></code><a class="headerlink" href="#settransformmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTransformMatrix(const</span> <span class="pre">Matrix3&amp;</span> <span class="pre">transformMatrix)</span> <span class="pre">{</span> <span class="pre">m_transformMatrix</span> <span class="pre">=</span> <span class="pre">transformMatrix;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setprojectionmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">setProjectionMatrix</span></code><a class="headerlink" href="#setprojectionmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setProjectionMatrix(const</span> <span class="pre">Matrix3&amp;</span> <span class="pre">projectionMatrix)</span> <span class="pre">{</span> <span class="pre">m_projectionMatrix</span> <span class="pre">=</span> <span class="pre">projectionMatrix;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="settexturematrix">
+<h3><code class="docutils literal notranslate"><span class="pre">setTextureMatrix</span></code><a class="headerlink" href="#settexturematrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTextureMatrix(const</span> <span class="pre">Matrix3&amp;</span> <span class="pre">textureMatrix)</span> <span class="pre">{</span> <span class="pre">m_textureMatrix</span> <span class="pre">=</span> <span class="pre">textureMatrix;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setcompositionmode">
+<h3><code class="docutils literal notranslate"><span class="pre">setCompositionMode</span></code><a class="headerlink" href="#setcompositionmode" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCompositionMode(CompositionMode</span> <span class="pre">compositionMode)</span></code></p>
+</section>
+<section id="setblendequation">
+<h3><code class="docutils literal notranslate"><span class="pre">setBlendEquation</span></code><a class="headerlink" href="#setblendequation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setBlendEquation(BlendEquation</span> <span class="pre">blendEquation)</span></code></p>
+</section>
+<section id="setdepthfunc">
+<h3><code class="docutils literal notranslate"><span class="pre">setDepthFunc</span></code><a class="headerlink" href="#setdepthfunc" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDepthFunc(DepthFunc</span> <span class="pre">func)</span></code></p>
+</section>
+<section id="setcliprect">
+<h3><code class="docutils literal notranslate"><span class="pre">setClipRect</span></code><a class="headerlink" href="#setcliprect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setClipRect(const</span> <span class="pre">Rect&amp;</span> <span class="pre">clipRect)</span></code></p>
+</section>
+<section id="setshaderprogram">
+<h3><code class="docutils literal notranslate"><span class="pre">setShaderProgram</span></code><a class="headerlink" href="#setshaderprogram" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShaderProgram(PainterShaderProgram*</span> <span class="pre">shaderProgram)</span> <span class="pre">{</span> <span class="pre">m_shaderProgram</span> <span class="pre">=</span> <span class="pre">shaderProgram;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="settexture">
+<h3><code class="docutils literal notranslate"><span class="pre">setTexture</span></code><a class="headerlink" href="#settexture" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTexture(const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture)</span></code></p>
+</section>
+<section id="setalphawriting">
+<h3><code class="docutils literal notranslate"><span class="pre">setAlphaWriting</span></code><a class="headerlink" href="#setalphawriting" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAlphaWriting(bool</span> <span class="pre">enable)</span></code></p>
+</section>
+<section id="setresolution">
+<h3><code class="docutils literal notranslate"><span class="pre">setResolution</span></code><a class="headerlink" href="#setresolution" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setResolution(const</span> <span class="pre">Size&amp;</span> <span class="pre">resolution)</span></code></p>
+</section>
+<section id="scale">
+<h3><code class="docutils literal notranslate"><span class="pre">scale</span></code><a class="headerlink" href="#scale" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">scale(float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y)</span></code></p>
+</section>
+<section id="translate">
+<h3><code class="docutils literal notranslate"><span class="pre">translate</span></code><a class="headerlink" href="#translate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">translate(float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y)</span></code></p>
+</section>
+<section id="rotate">
+<h3><code class="docutils literal notranslate"><span class="pre">rotate</span></code><a class="headerlink" href="#rotate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">rotate(float</span> <span class="pre">angle)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">rotate</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">rotate(float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y,</span> <span class="pre">float</span> <span class="pre">angle)</span></code></p>
+</section>
+<section id="pushtransformmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">pushTransformMatrix</span></code><a class="headerlink" href="#pushtransformmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">pushTransformMatrix()</span></code></p>
+</section>
+<section id="poptransformmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">popTransformMatrix</span></code><a class="headerlink" href="#poptransformmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">popTransformMatrix()</span></code></p>
+</section>
+<section id="gettransformmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">getTransformMatrix</span></code><a class="headerlink" href="#gettransformmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Matrix3</span> <span class="pre">getTransformMatrix()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_transformMatrix;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getprojectionmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">getProjectionMatrix</span></code><a class="headerlink" href="#getprojectionmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Matrix3</span> <span class="pre">getProjectionMatrix()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_projectionMatrix;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gettexturematrix">
+<h3><code class="docutils literal notranslate"><span class="pre">getTextureMatrix</span></code><a class="headerlink" href="#gettexturematrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Matrix3</span> <span class="pre">getTextureMatrix()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textureMatrix;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getblendequation">
+<h3><code class="docutils literal notranslate"><span class="pre">getBlendEquation</span></code><a class="headerlink" href="#getblendequation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">BlendEquation</span> <span class="pre">getBlendEquation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_blendEquation;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getalphawriting">
+<h3><code class="docutils literal notranslate"><span class="pre">getAlphaWriting</span></code><a class="headerlink" href="#getalphawriting" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">getAlphaWriting()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_alphaWriting;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetblendequation">
+<h3><code class="docutils literal notranslate"><span class="pre">resetBlendEquation</span></code><a class="headerlink" href="#resetblendequation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetBlendEquation()</span> <span class="pre">{</span> <span class="pre">setBlendEquation(BlendEquation_Add);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resettexture">
+<h3><code class="docutils literal notranslate"><span class="pre">resetTexture</span></code><a class="headerlink" href="#resettexture" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetTexture()</span> <span class="pre">{</span> <span class="pre">setTexture(nullptr);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetalphawriting">
+<h3><code class="docutils literal notranslate"><span class="pre">resetAlphaWriting</span></code><a class="headerlink" href="#resetalphawriting" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetAlphaWriting()</span> <span class="pre">{</span> <span class="pre">setAlphaWriting(true);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resettransformmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">resetTransformMatrix</span></code><a class="headerlink" href="#resettransformmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetTransformMatrix()</span> <span class="pre">{</span> <span class="pre">setTransformMatrix(Matrix3());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="drawcoords">
+<h3><code class="docutils literal notranslate"><span class="pre">drawCoords</span></code><a class="headerlink" href="#drawcoords" title="Link to this heading">#</a></h3>
+<p>org</p>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawCoords(CoordsBuffer&amp;</span> <span class="pre">coordsBuffer,</span> <span class="pre">DrawMode</span> <span class="pre">drawMode</span> <span class="pre">=</span> <span class="pre">Triangles,</span> <span class="pre">ColorArray*</span> <span class="pre">colorBuffer</span> <span class="pre">=</span> <span class="pre">nullptr,</span> <span class="pre">const</span> <span class="pre">std::vector&lt;std::pair&lt;int,</span> <span class="pre">Color&gt;&gt;*</span> <span class="pre">colors</span> <span class="pre">=</span> <span class="pre">nullptr)</span></code></p>
+</section>
+<section id="drawfillcoords">
+<h3><code class="docutils literal notranslate"><span class="pre">drawFillCoords</span></code><a class="headerlink" href="#drawfillcoords" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawFillCoords(CoordsBuffer&amp;</span> <span class="pre">coordsBuffer)</span></code></p>
+</section>
+<section id="drawtexturecoords">
+<h3><code class="docutils literal notranslate"><span class="pre">drawTextureCoords</span></code><a class="headerlink" href="#drawtexturecoords" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawTextureCoords(CoordsBuffer&amp;</span> <span class="pre">coordsBuffer,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture,</span> <span class="pre">const</span> <span class="pre">std::vector&lt;std::pair&lt;int,</span> <span class="pre">Color&gt;&gt;*</span> <span class="pre">colors</span> <span class="pre">=</span> <span class="pre">nullptr)</span></code></p>
+</section>
+<section id="drawtexturedrect">
+<h3><code class="docutils literal notranslate"><span class="pre">drawTexturedRect</span></code><a class="headerlink" href="#drawtexturedrect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawTexturedRect(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture,</span> <span class="pre">const</span> <span class="pre">Rect&amp;</span> <span class="pre">src)</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">drawTexturedRect</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">drawTexturedRect(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture)</span> <span class="pre">{</span> <span class="pre">drawTexturedRect(dest,</span> <span class="pre">texture,</span> <span class="pre">Rect(Point(0,</span> <span class="pre">0),</span> <span class="pre">texture-&gt;getSize()));</span> <span class="pre">}</span></code></p>
+</section>
+<section id="drawcolorontexturedrect">
+<h3><code class="docutils literal notranslate"><span class="pre">drawColorOnTexturedRect</span></code><a class="headerlink" href="#drawcolorontexturedrect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawColorOnTexturedRect(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture,</span> <span class="pre">const</span> <span class="pre">Rect&amp;</span> <span class="pre">src)</span></code></p>
+</section>
+<section id="drawupsidedowntexturedrect">
+<h3><code class="docutils literal notranslate"><span class="pre">drawUpsideDownTexturedRect</span></code><a class="headerlink" href="#drawupsidedowntexturedrect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawUpsideDownTexturedRect(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture,</span> <span class="pre">const</span> <span class="pre">Rect&amp;</span> <span class="pre">src)</span></code></p>
+</section>
+<section id="drawrepeatedtexturedrect">
+<h3><code class="docutils literal notranslate"><span class="pre">drawRepeatedTexturedRect</span></code><a class="headerlink" href="#drawrepeatedtexturedrect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawRepeatedTexturedRect(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture,</span> <span class="pre">const</span> <span class="pre">Rect&amp;</span> <span class="pre">src)</span></code></p>
+</section>
+<section id="drawfilledrect">
+<h3><code class="docutils literal notranslate"><span class="pre">drawFilledRect</span></code><a class="headerlink" href="#drawfilledrect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawFilledRect(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest)</span></code></p>
+</section>
+<section id="setdrawprogram">
+<h3><code class="docutils literal notranslate"><span class="pre">setDrawProgram</span></code><a class="headerlink" href="#setdrawprogram" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDrawProgram(PainterShaderProgram*</span> <span class="pre">drawProgram)</span> <span class="pre">{</span> <span class="pre">m_drawProgram</span> <span class="pre">=</span> <span class="pre">drawProgram;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="hasshaders">
+<h3><code class="docutils literal notranslate"><span class="pre">hasShaders</span></code><a class="headerlink" href="#hasshaders" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasShaders()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">true;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="drawtext">
+<h3><code class="docutils literal notranslate"><span class="pre">drawText</span></code><a class="headerlink" href="#drawtext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawText(const</span> <span class="pre">Point&amp;</span> <span class="pre">pos,</span> <span class="pre">CoordsBuffer&amp;</span> <span class="pre">coordsBuffer,</span> <span class="pre">const</span> <span class="pre">Color&amp;</span> <span class="pre">color,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture)</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">drawText</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawText(const</span> <span class="pre">Point&amp;</span> <span class="pre">pos,</span> <span class="pre">CoordsBuffer&amp;</span> <span class="pre">coordsBuffer,</span> <span class="pre">const</span> <span class="pre">std::vector&lt;std::pair&lt;int,</span> <span class="pre">Color&gt;&gt;&amp;</span> <span class="pre">colors,</span> <span class="pre">const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture)</span></code></p>
+</section>
+<section id="drawline">
+<h3><code class="docutils literal notranslate"><span class="pre">drawLine</span></code><a class="headerlink" href="#drawline" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawLine(const</span> <span class="pre">std::vector&lt;float&gt;&amp;</span> <span class="pre">vertex,</span> <span class="pre">int</span> <span class="pre">size,</span> <span class="pre">int</span> <span class="pre">width</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+</section>
+<section id="setsecondtexture">
+<h3><code class="docutils literal notranslate"><span class="pre">setSecondTexture</span></code><a class="headerlink" href="#setsecondtexture" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSecondTexture(const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">texture)</span></code></p>
+</section>
+<section id="setoffset">
+<h3><code class="docutils literal notranslate"><span class="pre">setOffset</span></code><a class="headerlink" href="#setoffset" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setOffset(const</span> <span class="pre">Point&amp;</span> <span class="pre">offset)</span></code></p>
+</section>
+<section id="setatlastextures">
+<h3><code class="docutils literal notranslate"><span class="pre">setAtlasTextures</span></code><a class="headerlink" href="#setatlastextures" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAtlasTextures(const</span> <span class="pre">TexturePtr&amp;</span> <span class="pre">atlas)</span></code></p>
+</section>
+<section id="drawcache">
+<h3><code class="docutils literal notranslate"><span class="pre">drawCache</span></code><a class="headerlink" href="#drawcache" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawCache(const</span> <span class="pre">std::vector&lt;float&gt;&amp;</span> <span class="pre">vertex,</span> <span class="pre">const</span> <span class="pre">std::vector&lt;float&gt;&amp;</span> <span class="pre">texture,</span> <span class="pre">const</span> <span class="pre">std::vector&lt;float&gt;&amp;</span> <span class="pre">color,</span> <span class="pre">int</span> <span class="pre">size)</span></code></p>
+</section>
+<section id="setcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">setColor</span></code><a class="headerlink" href="#setcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">m_color</span> <span class="pre">=</span> <span class="pre">color;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">setShaderProgram</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShaderProgram(const</span> <span class="pre">PainterShaderProgramPtr&amp;</span> <span class="pre">shaderProgram)</span> <span class="pre">{</span> <span class="pre">setShaderProgram(shaderProgram.get());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">scale</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">scale(float</span> <span class="pre">factor)</span> <span class="pre">{</span> <span class="pre">scale(factor,</span> <span class="pre">factor);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">translate</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">translate(const</span> <span class="pre">Point&amp;</span> <span class="pre">p)</span> <span class="pre">{</span> <span class="pre">translate(p.x,</span> <span class="pre">p.y);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">rotate</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">rotate(const</span> <span class="pre">Point&amp;</span> <span class="pre">p,</span> <span class="pre">float</span> <span class="pre">angle)</span> <span class="pre">{</span> <span class="pre">rotate(p.x,</span> <span class="pre">p.y,</span> <span class="pre">angle);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setdepth">
+<h3><code class="docutils literal notranslate"><span class="pre">setDepth</span></code><a class="headerlink" href="#setdepth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDepth(float</span> <span class="pre">depth)</span> <span class="pre">{</span> <span class="pre">m_depth</span> <span class="pre">=</span> <span class="pre">depth;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getdepth">
+<h3><code class="docutils literal notranslate"><span class="pre">getDepth</span></code><a class="headerlink" href="#getdepth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">getDepth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_depth;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getdepthfunc">
+<h3><code class="docutils literal notranslate"><span class="pre">getDepthFunc</span></code><a class="headerlink" href="#getdepthfunc" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">DepthFunc</span> <span class="pre">getDepthFunc()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_depthFunc;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetdepth">
+<h3><code class="docutils literal notranslate"><span class="pre">resetDepth</span></code><a class="headerlink" href="#resetdepth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetDepth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">setDepth(0.0f);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetdepthfunc">
+<h3><code class="docutils literal notranslate"><span class="pre">resetDepthFunc</span></code><a class="headerlink" href="#resetdepthfunc" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetDepthFunc()</span> <span class="pre">{</span> <span class="pre">setDepthFunc(DepthFunc_None);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getresolution">
+<h3><code class="docutils literal notranslate"><span class="pre">getResolution</span></code><a class="headerlink" href="#getresolution" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getResolution()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_resolution;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">getColor</span></code><a class="headerlink" href="#getcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">getColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_color;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getcliprect">
+<h3><code class="docutils literal notranslate"><span class="pre">getClipRect</span></code><a class="headerlink" href="#getcliprect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Rect</span> <span class="pre">getClipRect()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_clipRect;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getcompositionmode">
+<h3><code class="docutils literal notranslate"><span class="pre">getCompositionMode</span></code><a class="headerlink" href="#getcompositionmode" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">CompositionMode</span> <span class="pre">getCompositionMode()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_compositionMode;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetcliprect">
+<h3><code class="docutils literal notranslate"><span class="pre">resetClipRect</span></code><a class="headerlink" href="#resetcliprect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetClipRect()</span> <span class="pre">{</span> <span class="pre">setClipRect(Rect());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetcompositionmode">
+<h3><code class="docutils literal notranslate"><span class="pre">resetCompositionMode</span></code><a class="headerlink" href="#resetcompositionmode" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetCompositionMode()</span> <span class="pre">{</span> <span class="pre">setCompositionMode(CompositionMode_Normal);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">resetColor</span></code><a class="headerlink" href="#resetcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetColor()</span> <span class="pre">{</span> <span class="pre">setColor(Color::white);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetshaderprogram">
+<h3><code class="docutils literal notranslate"><span class="pre">resetShaderProgram</span></code><a class="headerlink" href="#resetshaderprogram" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetShaderProgram()</span> <span class="pre">{</span> <span class="pre">setShaderProgram(nullptr);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="draws">
+<h3><code class="docutils literal notranslate"><span class="pre">draws</span></code><a class="headerlink" href="#draws" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">draws()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_draws;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="calls">
+<h3><code class="docutils literal notranslate"><span class="pre">calls</span></code><a class="headerlink" href="#calls" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">calls()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_calls;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="resetdraws">
+<h3><code class="docutils literal notranslate"><span class="pre">resetDraws</span></code><a class="headerlink" href="#resetdraws" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetDraws()</span> <span class="pre">{</span> <span class="pre">m_draws</span> <span class="pre">=</span> <span class="pre">m_calls</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setdrawcolorontextureshaderprogram">
+<h3><code class="docutils literal notranslate"><span class="pre">setDrawColorOnTextureShaderProgram</span></code><a class="headerlink" href="#setdrawcolorontextureshaderprogram" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDrawColorOnTextureShaderProgram()</span></code></p>
+</section>
+<section id="setmatrixcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">setMatrixColor</span></code><a class="headerlink" href="#setmatrixcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMatrixColor(const</span> <span class="pre">Matrix4&amp;</span> <span class="pre">mat4)</span></code></p>
+</section>
+<section id="setdrawoutfitlayersprogram">
+<h3><code class="docutils literal notranslate"><span class="pre">setDrawOutfitLayersProgram</span></code><a class="headerlink" href="#setdrawoutfitlayersprogram" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDrawOutfitLayersProgram()</span></code></p>
+</section>
+<section id="updategltexture">
+<h3><code class="docutils literal notranslate"><span class="pre">updateGlTexture</span></code><a class="headerlink" href="#updategltexture" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateGlTexture()</span></code></p>
+</section>
+<section id="updateglcompositionmode">
+<h3><code class="docutils literal notranslate"><span class="pre">updateGlCompositionMode</span></code><a class="headerlink" href="#updateglcompositionmode" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateGlCompositionMode()</span></code></p>
+</section>
+<section id="updateglblendequation">
+<h3><code class="docutils literal notranslate"><span class="pre">updateGlBlendEquation</span></code><a class="headerlink" href="#updateglblendequation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateGlBlendEquation()</span></code></p>
+</section>
+<section id="updateglcliprect">
+<h3><code class="docutils literal notranslate"><span class="pre">updateGlClipRect</span></code><a class="headerlink" href="#updateglcliprect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateGlClipRect()</span></code></p>
+</section>
+<section id="updateglalphawriting">
+<h3><code class="docutils literal notranslate"><span class="pre">updateGlAlphaWriting</span></code><a class="headerlink" href="#updateglalphawriting" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateGlAlphaWriting()</span></code></p>
+</section>
+<section id="updateglviewport">
+<h3><code class="docutils literal notranslate"><span class="pre">updateGlViewport</span></code><a class="headerlink" href="#updateglviewport" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateGlViewport()</span></code></p>
+</section>
+<section id="updatedepthfunc">
+<h3><code class="docutils literal notranslate"><span class="pre">updateDepthFunc</span></code><a class="headerlink" href="#updatedepthfunc" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateDepthFunc()</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/painter.mmd"><span class="xref myst">../diagrams/painter.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-painter">Klasa: <code class="docutils literal notranslate"><span class="pre">Painter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-painterstate">Struktura: <code class="docutils literal notranslate"><span class="pre">PainterState</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enums">Enums</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blendequation"><code class="docutils literal notranslate"><span class="pre">BlendEquation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compositionmode"><code class="docutils literal notranslate"><span class="pre">CompositionMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depthfunc"><code class="docutils literal notranslate"><span class="pre">DepthFunc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawmode"><code class="docutils literal notranslate"><span class="pre">DrawMode</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind"><code class="docutils literal notranslate"><span class="pre">bind</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unbind"><code class="docutils literal notranslate"><span class="pre">unbind</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetstate"><code class="docutils literal notranslate"><span class="pre">resetState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refreshstate"><code class="docutils literal notranslate"><span class="pre">refreshState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#savestate"><code class="docutils literal notranslate"><span class="pre">saveState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saveandresetstate"><code class="docutils literal notranslate"><span class="pre">saveAndResetState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restoresavedstate"><code class="docutils literal notranslate"><span class="pre">restoreSavedState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear"><code class="docutils literal notranslate"><span class="pre">clear</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearrect"><code class="docutils literal notranslate"><span class="pre">clearRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settransformmatrix"><code class="docutils literal notranslate"><span class="pre">setTransformMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setprojectionmatrix"><code class="docutils literal notranslate"><span class="pre">setProjectionMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settexturematrix"><code class="docutils literal notranslate"><span class="pre">setTextureMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcompositionmode"><code class="docutils literal notranslate"><span class="pre">setCompositionMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setblendequation"><code class="docutils literal notranslate"><span class="pre">setBlendEquation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdepthfunc"><code class="docutils literal notranslate"><span class="pre">setDepthFunc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcliprect"><code class="docutils literal notranslate"><span class="pre">setClipRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setshaderprogram"><code class="docutils literal notranslate"><span class="pre">setShaderProgram</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settexture"><code class="docutils literal notranslate"><span class="pre">setTexture</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setalphawriting"><code class="docutils literal notranslate"><span class="pre">setAlphaWriting</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setresolution"><code class="docutils literal notranslate"><span class="pre">setResolution</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale"><code class="docutils literal notranslate"><span class="pre">scale</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate"><code class="docutils literal notranslate"><span class="pre">translate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotate"><code class="docutils literal notranslate"><span class="pre">rotate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">rotate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pushtransformmatrix"><code class="docutils literal notranslate"><span class="pre">pushTransformMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poptransformmatrix"><code class="docutils literal notranslate"><span class="pre">popTransformMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettransformmatrix"><code class="docutils literal notranslate"><span class="pre">getTransformMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getprojectionmatrix"><code class="docutils literal notranslate"><span class="pre">getProjectionMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettexturematrix"><code class="docutils literal notranslate"><span class="pre">getTextureMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getblendequation"><code class="docutils literal notranslate"><span class="pre">getBlendEquation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getalphawriting"><code class="docutils literal notranslate"><span class="pre">getAlphaWriting</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetblendequation"><code class="docutils literal notranslate"><span class="pre">resetBlendEquation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resettexture"><code class="docutils literal notranslate"><span class="pre">resetTexture</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetalphawriting"><code class="docutils literal notranslate"><span class="pre">resetAlphaWriting</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resettransformmatrix"><code class="docutils literal notranslate"><span class="pre">resetTransformMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawcoords"><code class="docutils literal notranslate"><span class="pre">drawCoords</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawfillcoords"><code class="docutils literal notranslate"><span class="pre">drawFillCoords</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawtexturecoords"><code class="docutils literal notranslate"><span class="pre">drawTextureCoords</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawtexturedrect"><code class="docutils literal notranslate"><span class="pre">drawTexturedRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">drawTexturedRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawcolorontexturedrect"><code class="docutils literal notranslate"><span class="pre">drawColorOnTexturedRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawupsidedowntexturedrect"><code class="docutils literal notranslate"><span class="pre">drawUpsideDownTexturedRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawrepeatedtexturedrect"><code class="docutils literal notranslate"><span class="pre">drawRepeatedTexturedRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawfilledrect"><code class="docutils literal notranslate"><span class="pre">drawFilledRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdrawprogram"><code class="docutils literal notranslate"><span class="pre">setDrawProgram</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasshaders"><code class="docutils literal notranslate"><span class="pre">hasShaders</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawtext"><code class="docutils literal notranslate"><span class="pre">drawText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">drawText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawline"><code class="docutils literal notranslate"><span class="pre">drawLine</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setsecondtexture"><code class="docutils literal notranslate"><span class="pre">setSecondTexture</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setoffset"><code class="docutils literal notranslate"><span class="pre">setOffset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setatlastextures"><code class="docutils literal notranslate"><span class="pre">setAtlasTextures</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawcache"><code class="docutils literal notranslate"><span class="pre">drawCache</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcolor"><code class="docutils literal notranslate"><span class="pre">setColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">setShaderProgram</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">scale</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">translate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">rotate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdepth"><code class="docutils literal notranslate"><span class="pre">setDepth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdepth"><code class="docutils literal notranslate"><span class="pre">getDepth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdepthfunc"><code class="docutils literal notranslate"><span class="pre">getDepthFunc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetdepth"><code class="docutils literal notranslate"><span class="pre">resetDepth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetdepthfunc"><code class="docutils literal notranslate"><span class="pre">resetDepthFunc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getresolution"><code class="docutils literal notranslate"><span class="pre">getResolution</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcolor"><code class="docutils literal notranslate"><span class="pre">getColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcliprect"><code class="docutils literal notranslate"><span class="pre">getClipRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcompositionmode"><code class="docutils literal notranslate"><span class="pre">getCompositionMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetcliprect"><code class="docutils literal notranslate"><span class="pre">resetClipRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetcompositionmode"><code class="docutils literal notranslate"><span class="pre">resetCompositionMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetcolor"><code class="docutils literal notranslate"><span class="pre">resetColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetshaderprogram"><code class="docutils literal notranslate"><span class="pre">resetShaderProgram</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draws"><code class="docutils literal notranslate"><span class="pre">draws</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calls"><code class="docutils literal notranslate"><span class="pre">calls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetdraws"><code class="docutils literal notranslate"><span class="pre">resetDraws</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdrawcolorontextureshaderprogram"><code class="docutils literal notranslate"><span class="pre">setDrawColorOnTextureShaderProgram</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setmatrixcolor"><code class="docutils literal notranslate"><span class="pre">setMatrixColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdrawoutfitlayersprogram"><code class="docutils literal notranslate"><span class="pre">setDrawOutfitLayersProgram</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updategltexture"><code class="docutils literal notranslate"><span class="pre">updateGlTexture</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateglcompositionmode"><code class="docutils literal notranslate"><span class="pre">updateGlCompositionMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateglblendequation"><code class="docutils literal notranslate"><span class="pre">updateGlBlendEquation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateglcliprect"><code class="docutils literal notranslate"><span class="pre">updateGlClipRect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateglalphawriting"><code class="docutils literal notranslate"><span class="pre">updateGlAlphaWriting</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateglviewport"><code class="docutils literal notranslate"><span class="pre">updateGlViewport</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatedepthfunc"><code class="docutils literal notranslate"><span class="pre">updateDepthFunc</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/graphics/painter.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

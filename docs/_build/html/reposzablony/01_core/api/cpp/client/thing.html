@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>client/thing.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/client/thing';</script>
+    <link rel="icon" href="../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">client/thing.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="client-thing-h">
+<h1>client/thing.h<a class="headerlink" href="#client-thing-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu thing.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-thing">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">Thing</span></code><a class="headerlink" href="#klasa-thing" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Brief</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">draw</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">draw(const</span> <span class="pre">Point&amp;</span> <span class="pre">dest,</span> <span class="pre">bool</span> <span class="pre">animate</span> <span class="pre">=</span> <span class="pre">true,</span> <span class="pre">LightView*</span> <span class="pre">lightView</span> <span class="pre">=</span> <span class="pre">nullptr)</span> <span class="pre">{</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">setId(uint32</span> <span class="pre">id)</span> <span class="pre">{</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">position)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">uint32</span> <span class="pre">getId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">0;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getPosition()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_position;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getStackPriority</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getStackPriority()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getParentContainer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ContainerPtr</span> <span class="pre">getParentContainer()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getStackPos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getStackPos()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setMarked</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMarked(const</span> <span class="pre">std::string&amp;</span> <span class="pre">color)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">updatedMarkedColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">updatedMarkedColor()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isItem()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isEffect</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isEffect()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isMissile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isMissile()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isCreature</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isCreature()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isNpc</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isNpc()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isMonster</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isMonster()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isPlayer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isPlayer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isLocalPlayer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isLocalPlayer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isAnimatedText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isAnimatedText()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isStaticText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">isStaticText()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSize</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getSize();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getWidth</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getWidth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getWidth();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getHeight</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getHeight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getHeight();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDisplacement</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">Point</span> <span class="pre">getDisplacement()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getDisplacement();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getDisplacementX</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">int</span> <span class="pre">getDisplacementX()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getDisplacementX();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDisplacementY</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">int</span> <span class="pre">getDisplacementY()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getDisplacementY();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getExactSize</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">int</span> <span class="pre">getExactSize(int</span> <span class="pre">layer,</span> <span class="pre">int</span> <span class="pre">xPattern,</span> <span class="pre">int</span> <span class="pre">yPattern,</span> <span class="pre">int</span> <span class="pre">zPattern,</span> <span class="pre">int</span> <span class="pre">animationPhase)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getExactSize(layer,</span> <span class="pre">xPat</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getLayers</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getLayers()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getLayers();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getNumPatternX</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getNumPatternX()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getNumPatternX();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getNumPatternY</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getNumPatternY()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getNumPatternY();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getNumPatternZ</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getNumPatternZ()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getNumPatternZ();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getAnimationPhases</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getAnimationPhases()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getAnimationPhases();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getAnimator</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnimatorPtr</span> <span class="pre">getAnimator()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getAnimator();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getIdleAnimator</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnimatorPtr</span> <span class="pre">getIdleAnimator()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getIdleAnimator();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getGroundSpeed</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getGroundSpeed()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getGroundSpeed();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getMaxTextLength</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getMaxTextLength()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getMaxTextLength();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getLight</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Light</span> <span class="pre">getLight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getLight();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getMinimapColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getMinimapColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getMinimapColor();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getLensHelp</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getLensHelp()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getLensHelp();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getClothSlot</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getClothSlot()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getClothSlot();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getElevation</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getElevation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getElevation();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isGround</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isGround()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isGround();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isGroundBorder</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isGroundBorder()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isGroundBorder();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isOnBottom</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isOnBottom()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isOnBottom();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isOnTop</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isOnTop()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isOnTop();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isContainer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isContainer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isContainer();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isStackable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isStackable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isStackable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isForceUse</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isForceUse()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isForceUse();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isMultiUse</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMultiUse()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isMultiUse();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isWritable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWritable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isWritable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isChargeable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isChargeable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isChargeable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isWritableOnce</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWritableOnce()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isWritableOnce();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isFluidContainer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFluidContainer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isFluidContainer();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isSplash</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isSplash()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isSplash();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isNotWalkable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isNotWalkable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isNotWalkable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isNotMoveable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isNotMoveable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isNotMoveable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">blockProjectile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">blockProjectile()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;blockProjectile();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isNotPathable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isNotPathable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isNotPathable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isPickupable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPickupable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isPickupable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isHangable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHangable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isHangable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isHookSouth</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHookSouth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isHookSouth();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isHookEast</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHookEast()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isHookEast();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isRotateable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isRotateable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isRotateable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hasLight</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasLight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasLight();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isDontHide</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isDontHide()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isDontHide();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isTranslucent</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTranslucent()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isTranslucent();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hasDisplacement</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasDisplacement()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasDisplacement();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hasElevation</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasElevation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasElevation();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isLyingCorpse</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLyingCorpse()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isLyingCorpse();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isAnimateAlways</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAnimateAlways()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isAnimateAlways();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hasMiniMapColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasMiniMapColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasMiniMapColor();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hasLensHelp</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasLensHelp()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasLensHelp();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isFullGround</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFullGround()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isFullGround();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isIgnoreLook</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isIgnoreLook()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isIgnoreLook();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isCloth</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCloth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isCloth();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isMarketable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMarketable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isMarketable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isUsable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isUsable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isUsable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isWrapable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWrapable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isWrapable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isUnwrapable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isUnwrapable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isUnwrapable();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isTopEffect</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTopEffect()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isTopEffect();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getMarketData</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MarketData</span> <span class="pre">getMarketData()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getMarketData();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hide</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">hide()</span> <span class="pre">{</span> <span class="pre">m_hidden</span> <span class="pre">=</span> <span class="pre">true;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">show</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">show()</span> <span class="pre">{</span> <span class="pre">m_hidden</span> <span class="pre">=</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setHidden</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHidden(bool</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">m_hidden</span> <span class="pre">=</span> <span class="pre">value;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isHidden</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHidden()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_hidden;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onPositionChange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">onPositionChange(const</span> <span class="pre">Position&amp;</span> <span class="pre">newPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">oldPos)</span> <span class="pre">{</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onAppear</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">onAppear()</span> <span class="pre">{</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onDisappear</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">onDisappear()</span> <span class="pre">{</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">m_position</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">m_position</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">m_datId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">m_datId</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">m_marked</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">m_marked</span> <span class="pre">=</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">m_hidden</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">m_hidden</span> <span class="pre">=</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">m_markedColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">m_markedColor</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="setposition">
+<h3><code class="docutils literal notranslate"><span class="pre">setPosition</span></code><a class="headerlink" href="#setposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">position)</span></code></p>
+</section>
+<section id="getposition">
+<h3><code class="docutils literal notranslate"><span class="pre">getPosition</span></code><a class="headerlink" href="#getposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getPosition()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_position;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getstackpriority">
+<h3><code class="docutils literal notranslate"><span class="pre">getStackPriority</span></code><a class="headerlink" href="#getstackpriority" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getStackPriority()</span></code></p>
+</section>
+<section id="getparentcontainer">
+<h3><code class="docutils literal notranslate"><span class="pre">getParentContainer</span></code><a class="headerlink" href="#getparentcontainer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ContainerPtr</span> <span class="pre">getParentContainer()</span></code></p>
+</section>
+<section id="getstackpos">
+<h3><code class="docutils literal notranslate"><span class="pre">getStackPos</span></code><a class="headerlink" href="#getstackpos" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getStackPos()</span></code></p>
+</section>
+<section id="setmarked">
+<h3><code class="docutils literal notranslate"><span class="pre">setMarked</span></code><a class="headerlink" href="#setmarked" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMarked(const</span> <span class="pre">std::string&amp;</span> <span class="pre">color)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="updatedmarkedcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">updatedMarkedColor</span></code><a class="headerlink" href="#updatedmarkedcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">updatedMarkedColor()</span></code></p>
+</section>
+<section id="getsize">
+<h3><code class="docutils literal notranslate"><span class="pre">getSize</span></code><a class="headerlink" href="#getsize" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getSize();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getwidth">
+<h3><code class="docutils literal notranslate"><span class="pre">getWidth</span></code><a class="headerlink" href="#getwidth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getWidth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getWidth();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getheight">
+<h3><code class="docutils literal notranslate"><span class="pre">getHeight</span></code><a class="headerlink" href="#getheight" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getHeight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getHeight();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getlayers">
+<h3><code class="docutils literal notranslate"><span class="pre">getLayers</span></code><a class="headerlink" href="#getlayers" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getLayers()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getLayers();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getnumpatternx">
+<h3><code class="docutils literal notranslate"><span class="pre">getNumPatternX</span></code><a class="headerlink" href="#getnumpatternx" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getNumPatternX()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getNumPatternX();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getnumpatterny">
+<h3><code class="docutils literal notranslate"><span class="pre">getNumPatternY</span></code><a class="headerlink" href="#getnumpatterny" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getNumPatternY()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getNumPatternY();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getnumpatternz">
+<h3><code class="docutils literal notranslate"><span class="pre">getNumPatternZ</span></code><a class="headerlink" href="#getnumpatternz" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getNumPatternZ()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getNumPatternZ();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getanimationphases">
+<h3><code class="docutils literal notranslate"><span class="pre">getAnimationPhases</span></code><a class="headerlink" href="#getanimationphases" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getAnimationPhases()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getAnimationPhases();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getanimator">
+<h3><code class="docutils literal notranslate"><span class="pre">getAnimator</span></code><a class="headerlink" href="#getanimator" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">AnimatorPtr</span> <span class="pre">getAnimator()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getAnimator();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getidleanimator">
+<h3><code class="docutils literal notranslate"><span class="pre">getIdleAnimator</span></code><a class="headerlink" href="#getidleanimator" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">AnimatorPtr</span> <span class="pre">getIdleAnimator()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getIdleAnimator();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getgroundspeed">
+<h3><code class="docutils literal notranslate"><span class="pre">getGroundSpeed</span></code><a class="headerlink" href="#getgroundspeed" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getGroundSpeed()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getGroundSpeed();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmaxtextlength">
+<h3><code class="docutils literal notranslate"><span class="pre">getMaxTextLength</span></code><a class="headerlink" href="#getmaxtextlength" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getMaxTextLength()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getMaxTextLength();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getlight">
+<h3><code class="docutils literal notranslate"><span class="pre">getLight</span></code><a class="headerlink" href="#getlight" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Light</span> <span class="pre">getLight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getLight();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getminimapcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">getMinimapColor</span></code><a class="headerlink" href="#getminimapcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getMinimapColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getMinimapColor();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getlenshelp">
+<h3><code class="docutils literal notranslate"><span class="pre">getLensHelp</span></code><a class="headerlink" href="#getlenshelp" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getLensHelp()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getLensHelp();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getclothslot">
+<h3><code class="docutils literal notranslate"><span class="pre">getClothSlot</span></code><a class="headerlink" href="#getclothslot" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getClothSlot()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getClothSlot();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getelevation">
+<h3><code class="docutils literal notranslate"><span class="pre">getElevation</span></code><a class="headerlink" href="#getelevation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getElevation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getElevation();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isground">
+<h3><code class="docutils literal notranslate"><span class="pre">isGround</span></code><a class="headerlink" href="#isground" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isGround()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isGround();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isgroundborder">
+<h3><code class="docutils literal notranslate"><span class="pre">isGroundBorder</span></code><a class="headerlink" href="#isgroundborder" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isGroundBorder()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isGroundBorder();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isonbottom">
+<h3><code class="docutils literal notranslate"><span class="pre">isOnBottom</span></code><a class="headerlink" href="#isonbottom" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isOnBottom()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isOnBottom();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isontop">
+<h3><code class="docutils literal notranslate"><span class="pre">isOnTop</span></code><a class="headerlink" href="#isontop" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isOnTop()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isOnTop();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iscontainer">
+<h3><code class="docutils literal notranslate"><span class="pre">isContainer</span></code><a class="headerlink" href="#iscontainer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isContainer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isContainer();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isstackable">
+<h3><code class="docutils literal notranslate"><span class="pre">isStackable</span></code><a class="headerlink" href="#isstackable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isStackable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isStackable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isforceuse">
+<h3><code class="docutils literal notranslate"><span class="pre">isForceUse</span></code><a class="headerlink" href="#isforceuse" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isForceUse()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isForceUse();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ismultiuse">
+<h3><code class="docutils literal notranslate"><span class="pre">isMultiUse</span></code><a class="headerlink" href="#ismultiuse" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMultiUse()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isMultiUse();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iswritable">
+<h3><code class="docutils literal notranslate"><span class="pre">isWritable</span></code><a class="headerlink" href="#iswritable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWritable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isWritable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ischargeable">
+<h3><code class="docutils literal notranslate"><span class="pre">isChargeable</span></code><a class="headerlink" href="#ischargeable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isChargeable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isChargeable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iswritableonce">
+<h3><code class="docutils literal notranslate"><span class="pre">isWritableOnce</span></code><a class="headerlink" href="#iswritableonce" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWritableOnce()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isWritableOnce();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isfluidcontainer">
+<h3><code class="docutils literal notranslate"><span class="pre">isFluidContainer</span></code><a class="headerlink" href="#isfluidcontainer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFluidContainer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isFluidContainer();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="issplash">
+<h3><code class="docutils literal notranslate"><span class="pre">isSplash</span></code><a class="headerlink" href="#issplash" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isSplash()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isSplash();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isnotwalkable">
+<h3><code class="docutils literal notranslate"><span class="pre">isNotWalkable</span></code><a class="headerlink" href="#isnotwalkable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isNotWalkable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isNotWalkable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isnotmoveable">
+<h3><code class="docutils literal notranslate"><span class="pre">isNotMoveable</span></code><a class="headerlink" href="#isnotmoveable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isNotMoveable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isNotMoveable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="blockprojectile">
+<h3><code class="docutils literal notranslate"><span class="pre">blockProjectile</span></code><a class="headerlink" href="#blockprojectile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">blockProjectile()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;blockProjectile();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isnotpathable">
+<h3><code class="docutils literal notranslate"><span class="pre">isNotPathable</span></code><a class="headerlink" href="#isnotpathable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isNotPathable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isNotPathable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ispickupable">
+<h3><code class="docutils literal notranslate"><span class="pre">isPickupable</span></code><a class="headerlink" href="#ispickupable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPickupable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isPickupable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ishangable">
+<h3><code class="docutils literal notranslate"><span class="pre">isHangable</span></code><a class="headerlink" href="#ishangable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHangable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isHangable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ishooksouth">
+<h3><code class="docutils literal notranslate"><span class="pre">isHookSouth</span></code><a class="headerlink" href="#ishooksouth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHookSouth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isHookSouth();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ishookeast">
+<h3><code class="docutils literal notranslate"><span class="pre">isHookEast</span></code><a class="headerlink" href="#ishookeast" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHookEast()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isHookEast();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isrotateable">
+<h3><code class="docutils literal notranslate"><span class="pre">isRotateable</span></code><a class="headerlink" href="#isrotateable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isRotateable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isRotateable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="haslight">
+<h3><code class="docutils literal notranslate"><span class="pre">hasLight</span></code><a class="headerlink" href="#haslight" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasLight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasLight();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isdonthide">
+<h3><code class="docutils literal notranslate"><span class="pre">isDontHide</span></code><a class="headerlink" href="#isdonthide" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isDontHide()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isDontHide();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="istranslucent">
+<h3><code class="docutils literal notranslate"><span class="pre">isTranslucent</span></code><a class="headerlink" href="#istranslucent" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTranslucent()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isTranslucent();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="hasdisplacement">
+<h3><code class="docutils literal notranslate"><span class="pre">hasDisplacement</span></code><a class="headerlink" href="#hasdisplacement" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasDisplacement()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasDisplacement();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="haselevation">
+<h3><code class="docutils literal notranslate"><span class="pre">hasElevation</span></code><a class="headerlink" href="#haselevation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasElevation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasElevation();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="islyingcorpse">
+<h3><code class="docutils literal notranslate"><span class="pre">isLyingCorpse</span></code><a class="headerlink" href="#islyingcorpse" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLyingCorpse()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isLyingCorpse();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isanimatealways">
+<h3><code class="docutils literal notranslate"><span class="pre">isAnimateAlways</span></code><a class="headerlink" href="#isanimatealways" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAnimateAlways()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isAnimateAlways();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="hasminimapcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">hasMiniMapColor</span></code><a class="headerlink" href="#hasminimapcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasMiniMapColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasMiniMapColor();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="haslenshelp">
+<h3><code class="docutils literal notranslate"><span class="pre">hasLensHelp</span></code><a class="headerlink" href="#haslenshelp" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasLensHelp()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;hasLensHelp();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isfullground">
+<h3><code class="docutils literal notranslate"><span class="pre">isFullGround</span></code><a class="headerlink" href="#isfullground" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFullGround()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isFullGround();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isignorelook">
+<h3><code class="docutils literal notranslate"><span class="pre">isIgnoreLook</span></code><a class="headerlink" href="#isignorelook" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isIgnoreLook()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isIgnoreLook();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iscloth">
+<h3><code class="docutils literal notranslate"><span class="pre">isCloth</span></code><a class="headerlink" href="#iscloth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCloth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isCloth();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ismarketable">
+<h3><code class="docutils literal notranslate"><span class="pre">isMarketable</span></code><a class="headerlink" href="#ismarketable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMarketable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isMarketable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isusable">
+<h3><code class="docutils literal notranslate"><span class="pre">isUsable</span></code><a class="headerlink" href="#isusable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isUsable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isUsable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iswrapable">
+<h3><code class="docutils literal notranslate"><span class="pre">isWrapable</span></code><a class="headerlink" href="#iswrapable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWrapable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isWrapable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isunwrapable">
+<h3><code class="docutils literal notranslate"><span class="pre">isUnwrapable</span></code><a class="headerlink" href="#isunwrapable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isUnwrapable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isUnwrapable();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="istopeffect">
+<h3><code class="docutils literal notranslate"><span class="pre">isTopEffect</span></code><a class="headerlink" href="#istopeffect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTopEffect()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;isTopEffect();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmarketdata">
+<h3><code class="docutils literal notranslate"><span class="pre">getMarketData</span></code><a class="headerlink" href="#getmarketdata" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">MarketData</span> <span class="pre">getMarketData()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">rawGetThingType()-&gt;getMarketData();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="hide">
+<h3><code class="docutils literal notranslate"><span class="pre">hide</span></code><a class="headerlink" href="#hide" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">hide()</span> <span class="pre">{</span> <span class="pre">m_hidden</span> <span class="pre">=</span> <span class="pre">true;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="show">
+<h3><code class="docutils literal notranslate"><span class="pre">show</span></code><a class="headerlink" href="#show" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">show()</span> <span class="pre">{</span> <span class="pre">m_hidden</span> <span class="pre">=</span> <span class="pre">false;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="sethidden">
+<h3><code class="docutils literal notranslate"><span class="pre">setHidden</span></code><a class="headerlink" href="#sethidden" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHidden(bool</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">m_hidden</span> <span class="pre">=</span> <span class="pre">value;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ishidden">
+<h3><code class="docutils literal notranslate"><span class="pre">isHidden</span></code><a class="headerlink" href="#ishidden" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHidden()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_hidden;</span> <span class="pre">}</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference download internal" download="" href="../../../../../_downloads/39441c85b755837af2a929f2e2880df9/thing.mmd"><span class="xref download myst">../diagrams/thing.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-thing">Klasa: <code class="docutils literal notranslate"><span class="pre">Thing</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setposition"><code class="docutils literal notranslate"><span class="pre">setPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getposition"><code class="docutils literal notranslate"><span class="pre">getPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getstackpriority"><code class="docutils literal notranslate"><span class="pre">getStackPriority</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getparentcontainer"><code class="docutils literal notranslate"><span class="pre">getParentContainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getstackpos"><code class="docutils literal notranslate"><span class="pre">getStackPos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setmarked"><code class="docutils literal notranslate"><span class="pre">setMarked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatedmarkedcolor"><code class="docutils literal notranslate"><span class="pre">updatedMarkedColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsize"><code class="docutils literal notranslate"><span class="pre">getSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getwidth"><code class="docutils literal notranslate"><span class="pre">getWidth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getheight"><code class="docutils literal notranslate"><span class="pre">getHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlayers"><code class="docutils literal notranslate"><span class="pre">getLayers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getnumpatternx"><code class="docutils literal notranslate"><span class="pre">getNumPatternX</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getnumpatterny"><code class="docutils literal notranslate"><span class="pre">getNumPatternY</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getnumpatternz"><code class="docutils literal notranslate"><span class="pre">getNumPatternZ</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getanimationphases"><code class="docutils literal notranslate"><span class="pre">getAnimationPhases</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getanimator"><code class="docutils literal notranslate"><span class="pre">getAnimator</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getidleanimator"><code class="docutils literal notranslate"><span class="pre">getIdleAnimator</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getgroundspeed"><code class="docutils literal notranslate"><span class="pre">getGroundSpeed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmaxtextlength"><code class="docutils literal notranslate"><span class="pre">getMaxTextLength</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlight"><code class="docutils literal notranslate"><span class="pre">getLight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getminimapcolor"><code class="docutils literal notranslate"><span class="pre">getMinimapColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlenshelp"><code class="docutils literal notranslate"><span class="pre">getLensHelp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getclothslot"><code class="docutils literal notranslate"><span class="pre">getClothSlot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getelevation"><code class="docutils literal notranslate"><span class="pre">getElevation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isground"><code class="docutils literal notranslate"><span class="pre">isGround</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isgroundborder"><code class="docutils literal notranslate"><span class="pre">isGroundBorder</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isonbottom"><code class="docutils literal notranslate"><span class="pre">isOnBottom</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isontop"><code class="docutils literal notranslate"><span class="pre">isOnTop</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iscontainer"><code class="docutils literal notranslate"><span class="pre">isContainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isstackable"><code class="docutils literal notranslate"><span class="pre">isStackable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isforceuse"><code class="docutils literal notranslate"><span class="pre">isForceUse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ismultiuse"><code class="docutils literal notranslate"><span class="pre">isMultiUse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iswritable"><code class="docutils literal notranslate"><span class="pre">isWritable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ischargeable"><code class="docutils literal notranslate"><span class="pre">isChargeable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iswritableonce"><code class="docutils literal notranslate"><span class="pre">isWritableOnce</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isfluidcontainer"><code class="docutils literal notranslate"><span class="pre">isFluidContainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issplash"><code class="docutils literal notranslate"><span class="pre">isSplash</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isnotwalkable"><code class="docutils literal notranslate"><span class="pre">isNotWalkable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isnotmoveable"><code class="docutils literal notranslate"><span class="pre">isNotMoveable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockprojectile"><code class="docutils literal notranslate"><span class="pre">blockProjectile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isnotpathable"><code class="docutils literal notranslate"><span class="pre">isNotPathable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ispickupable"><code class="docutils literal notranslate"><span class="pre">isPickupable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ishangable"><code class="docutils literal notranslate"><span class="pre">isHangable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ishooksouth"><code class="docutils literal notranslate"><span class="pre">isHookSouth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ishookeast"><code class="docutils literal notranslate"><span class="pre">isHookEast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isrotateable"><code class="docutils literal notranslate"><span class="pre">isRotateable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haslight"><code class="docutils literal notranslate"><span class="pre">hasLight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isdonthide"><code class="docutils literal notranslate"><span class="pre">isDontHide</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istranslucent"><code class="docutils literal notranslate"><span class="pre">isTranslucent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasdisplacement"><code class="docutils literal notranslate"><span class="pre">hasDisplacement</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haselevation"><code class="docutils literal notranslate"><span class="pre">hasElevation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#islyingcorpse"><code class="docutils literal notranslate"><span class="pre">isLyingCorpse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isanimatealways"><code class="docutils literal notranslate"><span class="pre">isAnimateAlways</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasminimapcolor"><code class="docutils literal notranslate"><span class="pre">hasMiniMapColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haslenshelp"><code class="docutils literal notranslate"><span class="pre">hasLensHelp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isfullground"><code class="docutils literal notranslate"><span class="pre">isFullGround</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isignorelook"><code class="docutils literal notranslate"><span class="pre">isIgnoreLook</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iscloth"><code class="docutils literal notranslate"><span class="pre">isCloth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ismarketable"><code class="docutils literal notranslate"><span class="pre">isMarketable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isusable"><code class="docutils literal notranslate"><span class="pre">isUsable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iswrapable"><code class="docutils literal notranslate"><span class="pre">isWrapable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isunwrapable"><code class="docutils literal notranslate"><span class="pre">isUnwrapable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istopeffect"><code class="docutils literal notranslate"><span class="pre">isTopEffect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmarketdata"><code class="docutils literal notranslate"><span class="pre">getMarketData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hide"><code class="docutils literal notranslate"><span class="pre">hide</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show"><code class="docutils literal notranslate"><span class="pre">show</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sethidden"><code class="docutils literal notranslate"><span class="pre">setHidden</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ishidden"><code class="docutils literal notranslate"><span class="pre">isHidden</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/reposzablony/01_core/api/cpp/client/thing.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

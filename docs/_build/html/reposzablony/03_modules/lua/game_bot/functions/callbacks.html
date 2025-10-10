@@ -1,0 +1,914 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_bot/functions/callbacks.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_bot/functions/callbacks';</script>
+    <link rel="icon" href="../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_bot/functions/callbacks.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-bot-functions-callbacks-lua">
+<h1>game_bot/functions/callbacks.lua<a class="headerlink" href="#game-bot-functions-callbacks-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla callbacks.</p>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="context-callback-callbacktype-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.callback(callbackType,</span> <span class="pre">callback)</span></code><a class="headerlink" href="#context-callback-callbacktype-callback" title="Link to this heading">#</a></h3>
+<p>callback(callbackType, callback)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callbackType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="remove">
+<h3><code class="docutils literal notranslate"><span class="pre">remove()</span></code><a class="headerlink" href="#remove" title="Link to this heading">#</a></h3>
+</section>
+<section id="context-onkeydown-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onKeyDown(callback)</span></code><a class="headerlink" href="#context-onkeydown-callback" title="Link to this heading">#</a></h3>
+<p>onKeyDown(callback) – callback = function(keys)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onkeypress-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onKeyPress(callback)</span></code><a class="headerlink" href="#context-onkeypress-callback" title="Link to this heading">#</a></h3>
+<p>onKeyPress(callback) – callback = function(keys)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onkeyup-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onKeyUp(callback)</span></code><a class="headerlink" href="#context-onkeyup-callback" title="Link to this heading">#</a></h3>
+<p>onKeyUp(callback) – callback = function(keys)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-ontalk-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onTalk(callback)</span></code><a class="headerlink" href="#context-ontalk-callback" title="Link to this heading">#</a></h3>
+<p>onTalk(callback) – callback = function(name, level, mode, text, channelId, pos)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-ontextmessage-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onTextMessage(callback)</span></code><a class="headerlink" href="#context-ontextmessage-callback" title="Link to this heading">#</a></h3>
+<p>onTextMessage(callback) – callback = function(mode, text)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onloginadvice-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onLoginAdvice(callback)</span></code><a class="headerlink" href="#context-onloginadvice-callback" title="Link to this heading">#</a></h3>
+<p>onLoginAdvice(callback) – callback = function(message)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onaddthing-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onAddThing(callback)</span></code><a class="headerlink" href="#context-onaddthing-callback" title="Link to this heading">#</a></h3>
+<p>onAddThing(callback) – callback = function(tile, thing)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onremovething-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onRemoveThing(callback)</span></code><a class="headerlink" href="#context-onremovething-callback" title="Link to this heading">#</a></h3>
+<p>onRemoveThing(callback) – callback = function(tile, thing)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oncreatureappear-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onCreatureAppear(callback)</span></code><a class="headerlink" href="#context-oncreatureappear-callback" title="Link to this heading">#</a></h3>
+<p>onCreatureAppear(callback) – callback = function(creature)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oncreaturedisappear-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onCreatureDisappear(callback)</span></code><a class="headerlink" href="#context-oncreaturedisappear-callback" title="Link to this heading">#</a></h3>
+<p>onCreatureDisappear(callback) – callback = function(creature)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oncreaturepositionchange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onCreaturePositionChange(callback)</span></code><a class="headerlink" href="#context-oncreaturepositionchange-callback" title="Link to this heading">#</a></h3>
+<p>onCreaturePositionChange(callback) – callback = function(creature, newPos, oldPos)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oncreaturehealthpercentchange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onCreatureHealthPercentChange(callback)</span></code><a class="headerlink" href="#context-oncreaturehealthpercentchange-callback" title="Link to this heading">#</a></h3>
+<p>onCreatureHealthPercentChange(callback) – callback = function(creature, healthPercent)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onuse-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onUse(callback)</span></code><a class="headerlink" href="#context-onuse-callback" title="Link to this heading">#</a></h3>
+<p>onUse(callback) – callback = function(pos, itemId, stackPos, subType)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onusewith-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onUseWith(callback)</span></code><a class="headerlink" href="#context-onusewith-callback" title="Link to this heading">#</a></h3>
+<p>onUseWith(callback) – callback = function(pos, itemId, target, subType)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oncontaineropen-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onContainerOpen(callback)</span></code><a class="headerlink" href="#context-oncontaineropen-callback" title="Link to this heading">#</a></h3>
+<p>onContainerOpen – callback = function(container, previousContainer)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oncontainerclose-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onContainerClose(callback)</span></code><a class="headerlink" href="#context-oncontainerclose-callback" title="Link to this heading">#</a></h3>
+<p>onContainerClose – callback = function(container)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oncontainerupdateitem-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onContainerUpdateItem(callback)</span></code><a class="headerlink" href="#context-oncontainerupdateitem-callback" title="Link to this heading">#</a></h3>
+<p>onContainerUpdateItem – callback = function(container, slot, item, oldItem)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onmissle-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onMissle(callback)</span></code><a class="headerlink" href="#context-onmissle-callback" title="Link to this heading">#</a></h3>
+<p>onMissle – callback = function(missle)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onanimatedtext-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onAnimatedText(callback)</span></code><a class="headerlink" href="#context-onanimatedtext-callback" title="Link to this heading">#</a></h3>
+<p>onAnimatedText – callback = function(thing, text)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onstatictext-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onStaticText(callback)</span></code><a class="headerlink" href="#context-onstatictext-callback" title="Link to this heading">#</a></h3>
+<p>onStaticText – callback = function(thing, text)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onchannellist-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onChannelList(callback)</span></code><a class="headerlink" href="#context-onchannellist-callback" title="Link to this heading">#</a></h3>
+<p>onChannelList – callback = function(channels)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onopenchannel-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onOpenChannel(callback)</span></code><a class="headerlink" href="#context-onopenchannel-callback" title="Link to this heading">#</a></h3>
+<p>onOpenChannel – callback = function(channelId, name)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onclosechannel-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onCloseChannel(callback)</span></code><a class="headerlink" href="#context-onclosechannel-callback" title="Link to this heading">#</a></h3>
+<p>onCloseChannel – callback = function(channelId)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onchannelevent-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onChannelEvent(callback)</span></code><a class="headerlink" href="#context-onchannelevent-callback" title="Link to this heading">#</a></h3>
+<p>onChannelEvent – callback = function(channelId, name, event)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onturn-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onTurn(callback)</span></code><a class="headerlink" href="#context-onturn-callback" title="Link to this heading">#</a></h3>
+<p>onTurn – callback = function(creature, direction)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onwalk-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onWalk(callback)</span></code><a class="headerlink" href="#context-onwalk-callback" title="Link to this heading">#</a></h3>
+<p>onWalk – callback = function(creature, oldPos, newPos)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onimbuementwindow-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onImbuementWindow(callback)</span></code><a class="headerlink" href="#context-onimbuementwindow-callback" title="Link to this heading">#</a></h3>
+<p>onImbuementWindow – callback = function(itemId, slots, activeSlots, imbuements, needItems)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onmodaldialog-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onModalDialog(callback)</span></code><a class="headerlink" href="#context-onmodaldialog-callback" title="Link to this heading">#</a></h3>
+<p>onModalDialog – callback = function(id, title, message, buttons, enterButton, escapeButton, choices, priority) – priority is unused, ignore it</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onattackingcreaturechange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onAttackingCreatureChange(callback)</span></code><a class="headerlink" href="#context-onattackingcreaturechange-callback" title="Link to this heading">#</a></h3>
+<p>onAttackingCreatureChange – callback = function(creature, oldCreature)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onmanachange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onManaChange(callback)</span></code><a class="headerlink" href="#context-onmanachange-callback" title="Link to this heading">#</a></h3>
+<p>onManaChange – callback = function(player, mana, maxMana, oldMana, oldMaxMana)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onadditem-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onAddItem(callback)</span></code><a class="headerlink" href="#context-onadditem-callback" title="Link to this heading">#</a></h3>
+<p>onAddItem - callback = function(container, slot, item, oldItem)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onremoveitem-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onRemoveItem(callback)</span></code><a class="headerlink" href="#context-onremoveitem-callback" title="Link to this heading">#</a></h3>
+<p>onRemoveItem - callback = function(container, slot, item)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onstateschange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onStatesChange(callback)</span></code><a class="headerlink" href="#context-onstateschange-callback" title="Link to this heading">#</a></h3>
+<p>onStatesChange - callback = function(player, states, oldStates)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-ongameedittext-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onGameEditText(callback)</span></code><a class="headerlink" href="#context-ongameedittext-callback" title="Link to this heading">#</a></h3>
+<p>onGameEditText - callback = function(id, itemId, maxLength, text, writer, time)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onspellcooldown-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onSpellCooldown(callback)</span></code><a class="headerlink" href="#context-onspellcooldown-callback" title="Link to this heading">#</a></h3>
+<p>onSpellCooldown - callback = function(iconId, duration)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-ongroupspellcooldown-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onGroupSpellCooldown(callback)</span></code><a class="headerlink" href="#context-ongroupspellcooldown-callback" title="Link to this heading">#</a></h3>
+<p>onGroupSpellCooldown - callback = function(iconId, duration)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-oninventorychange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onInventoryChange(callback)</span></code><a class="headerlink" href="#context-oninventorychange-callback" title="Link to this heading">#</a></h3>
+<p>onInventoryChange - callback = function(player, slot, item, oldItem)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-listen-name-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.listen(name,</span> <span class="pre">callback)</span></code><a class="headerlink" href="#context-listen-name-callback" title="Link to this heading">#</a></h3>
+<p>CUSTOM CALLBACKS listen(name, callback) – callback = function(text, channelId, pos)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onplayerpositionchange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onPlayerPositionChange(callback)</span></code><a class="headerlink" href="#context-onplayerpositionchange-callback" title="Link to this heading">#</a></h3>
+<p>onPlayerPositionChange(callback) – callback = function(newPos, oldPos)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onplayerhealthchange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onPlayerHealthChange(callback)</span></code><a class="headerlink" href="#context-onplayerhealthchange-callback" title="Link to this heading">#</a></h3>
+<p>onPlayerHealthChange(callback) – callback = function(healthPercent)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+<section id="context-onplayerinventorychange-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">context.onPlayerInventoryChange(callback)</span></code><a class="headerlink" href="#context-onplayerinventorychange-callback" title="Link to this heading">#</a></h3>
+<p>onPlayerInventoryChange – callback = function(slot, item, oldItem)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="keydown">
+<h3><code class="docutils literal notranslate"><span class="pre">KeyDown</span></code><a class="headerlink" href="#keydown" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onKeyDown(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(keys)</span></code></p>
+</section>
+<section id="keypress">
+<h3><code class="docutils literal notranslate"><span class="pre">KeyPress</span></code><a class="headerlink" href="#keypress" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onKeyPress(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(keys)</span></code></p>
+</section>
+<section id="keyup">
+<h3><code class="docutils literal notranslate"><span class="pre">KeyUp</span></code><a class="headerlink" href="#keyup" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onKeyUp(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(keys)</span></code></p>
+</section>
+<section id="talk">
+<h3><code class="docutils literal notranslate"><span class="pre">Talk</span></code><a class="headerlink" href="#talk" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onTalk(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(name,</span> <span class="pre">level,</span> <span class="pre">mode,</span> <span class="pre">text,</span> <span class="pre">channelId,</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="textmessage">
+<h3><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code><a class="headerlink" href="#textmessage" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onTextMessage(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(mode,</span> <span class="pre">text)</span></code></p>
+</section>
+<section id="loginadvice">
+<h3><code class="docutils literal notranslate"><span class="pre">LoginAdvice</span></code><a class="headerlink" href="#loginadvice" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onLoginAdvice(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(message)</span></code></p>
+</section>
+<section id="addthing">
+<h3><code class="docutils literal notranslate"><span class="pre">AddThing</span></code><a class="headerlink" href="#addthing" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onAddThing(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(tile,</span> <span class="pre">thing)</span></code></p>
+</section>
+<section id="removething">
+<h3><code class="docutils literal notranslate"><span class="pre">RemoveThing</span></code><a class="headerlink" href="#removething" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onRemoveThing(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(tile,</span> <span class="pre">thing)</span></code></p>
+</section>
+<section id="creatureappear">
+<h3><code class="docutils literal notranslate"><span class="pre">CreatureAppear</span></code><a class="headerlink" href="#creatureappear" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onCreatureAppear(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(creature)</span></code></p>
+</section>
+<section id="creaturedisappear">
+<h3><code class="docutils literal notranslate"><span class="pre">CreatureDisappear</span></code><a class="headerlink" href="#creaturedisappear" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onCreatureDisappear(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(creature)</span></code></p>
+</section>
+<section id="creaturepositionchange">
+<h3><code class="docutils literal notranslate"><span class="pre">CreaturePositionChange</span></code><a class="headerlink" href="#creaturepositionchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onCreaturePositionChange(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(creature,</span> <span class="pre">newPos,</span> <span class="pre">oldPos)</span></code></p>
+</section>
+<section id="creaturehealthpercentchange">
+<h3><code class="docutils literal notranslate"><span class="pre">CreatureHealthPercentChange</span></code><a class="headerlink" href="#creaturehealthpercentchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onCreatureHealthPercentChange(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(creature,</span> <span class="pre">healthPercent)</span></code></p>
+</section>
+<section id="use">
+<h3><code class="docutils literal notranslate"><span class="pre">Use</span></code><a class="headerlink" href="#use" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onUse(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(pos,</span> <span class="pre">itemId,</span> <span class="pre">stackPos,</span> <span class="pre">subType)</span></code></p>
+</section>
+<section id="usewith">
+<h3><code class="docutils literal notranslate"><span class="pre">UseWith</span></code><a class="headerlink" href="#usewith" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onUseWith(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(pos,</span> <span class="pre">itemId,</span> <span class="pre">target,</span> <span class="pre">subType)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">Talk</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">context.onTalk(function(name2,</span> <span class="pre">level,</span> <span class="pre">mode,</span> <span class="pre">text,</span> <span class="pre">channelId,</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="playerpositionchange">
+<h3><code class="docutils literal notranslate"><span class="pre">PlayerPositionChange</span></code><a class="headerlink" href="#playerpositionchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onPlayerPositionChange(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(newPos,</span> <span class="pre">oldPos)</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">CreaturePositionChange</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">context.onCreaturePositionChange(function(creature,</span> <span class="pre">newPos,</span> <span class="pre">oldPos)</span></code></p>
+</section>
+<section id="playerhealthchange">
+<h3><code class="docutils literal notranslate"><span class="pre">PlayerHealthChange</span></code><a class="headerlink" href="#playerhealthchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">onPlayerHealthChange(callback)</span> <span class="pre">--</span> <span class="pre">callback</span> <span class="pre">=</span> <span class="pre">function(healthPercent)</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">CreatureHealthPercentChange</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">context.onCreatureHealthPercentChange(function(creature,</span> <span class="pre">healthPercent)</span></code></p>
+</section>
+<section id="inventorychange">
+<h3><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code><a class="headerlink" href="#inventorychange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">context.onInventoryChange(function(player,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-callback-callbacktype-callback"><code class="docutils literal notranslate"><span class="pre">context.callback(callbackType,</span> <span class="pre">callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onkeydown-callback"><code class="docutils literal notranslate"><span class="pre">context.onKeyDown(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onkeypress-callback"><code class="docutils literal notranslate"><span class="pre">context.onKeyPress(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onkeyup-callback"><code class="docutils literal notranslate"><span class="pre">context.onKeyUp(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-ontalk-callback"><code class="docutils literal notranslate"><span class="pre">context.onTalk(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-ontextmessage-callback"><code class="docutils literal notranslate"><span class="pre">context.onTextMessage(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onloginadvice-callback"><code class="docutils literal notranslate"><span class="pre">context.onLoginAdvice(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onaddthing-callback"><code class="docutils literal notranslate"><span class="pre">context.onAddThing(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onremovething-callback"><code class="docutils literal notranslate"><span class="pre">context.onRemoveThing(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oncreatureappear-callback"><code class="docutils literal notranslate"><span class="pre">context.onCreatureAppear(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oncreaturedisappear-callback"><code class="docutils literal notranslate"><span class="pre">context.onCreatureDisappear(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oncreaturepositionchange-callback"><code class="docutils literal notranslate"><span class="pre">context.onCreaturePositionChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oncreaturehealthpercentchange-callback"><code class="docutils literal notranslate"><span class="pre">context.onCreatureHealthPercentChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onuse-callback"><code class="docutils literal notranslate"><span class="pre">context.onUse(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onusewith-callback"><code class="docutils literal notranslate"><span class="pre">context.onUseWith(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oncontaineropen-callback"><code class="docutils literal notranslate"><span class="pre">context.onContainerOpen(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oncontainerclose-callback"><code class="docutils literal notranslate"><span class="pre">context.onContainerClose(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oncontainerupdateitem-callback"><code class="docutils literal notranslate"><span class="pre">context.onContainerUpdateItem(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onmissle-callback"><code class="docutils literal notranslate"><span class="pre">context.onMissle(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onanimatedtext-callback"><code class="docutils literal notranslate"><span class="pre">context.onAnimatedText(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onstatictext-callback"><code class="docutils literal notranslate"><span class="pre">context.onStaticText(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onchannellist-callback"><code class="docutils literal notranslate"><span class="pre">context.onChannelList(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onopenchannel-callback"><code class="docutils literal notranslate"><span class="pre">context.onOpenChannel(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onclosechannel-callback"><code class="docutils literal notranslate"><span class="pre">context.onCloseChannel(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onchannelevent-callback"><code class="docutils literal notranslate"><span class="pre">context.onChannelEvent(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onturn-callback"><code class="docutils literal notranslate"><span class="pre">context.onTurn(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onwalk-callback"><code class="docutils literal notranslate"><span class="pre">context.onWalk(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onimbuementwindow-callback"><code class="docutils literal notranslate"><span class="pre">context.onImbuementWindow(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onmodaldialog-callback"><code class="docutils literal notranslate"><span class="pre">context.onModalDialog(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onattackingcreaturechange-callback"><code class="docutils literal notranslate"><span class="pre">context.onAttackingCreatureChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onmanachange-callback"><code class="docutils literal notranslate"><span class="pre">context.onManaChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onadditem-callback"><code class="docutils literal notranslate"><span class="pre">context.onAddItem(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onremoveitem-callback"><code class="docutils literal notranslate"><span class="pre">context.onRemoveItem(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onstateschange-callback"><code class="docutils literal notranslate"><span class="pre">context.onStatesChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-ongameedittext-callback"><code class="docutils literal notranslate"><span class="pre">context.onGameEditText(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onspellcooldown-callback"><code class="docutils literal notranslate"><span class="pre">context.onSpellCooldown(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-ongroupspellcooldown-callback"><code class="docutils literal notranslate"><span class="pre">context.onGroupSpellCooldown(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-oninventorychange-callback"><code class="docutils literal notranslate"><span class="pre">context.onInventoryChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-listen-name-callback"><code class="docutils literal notranslate"><span class="pre">context.listen(name,</span> <span class="pre">callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onplayerpositionchange-callback"><code class="docutils literal notranslate"><span class="pre">context.onPlayerPositionChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onplayerhealthchange-callback"><code class="docutils literal notranslate"><span class="pre">context.onPlayerHealthChange(callback)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-onplayerinventorychange-callback"><code class="docutils literal notranslate"><span class="pre">context.onPlayerInventoryChange(callback)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keydown"><code class="docutils literal notranslate"><span class="pre">KeyDown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keypress"><code class="docutils literal notranslate"><span class="pre">KeyPress</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyup"><code class="docutils literal notranslate"><span class="pre">KeyUp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#talk"><code class="docutils literal notranslate"><span class="pre">Talk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textmessage"><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loginadvice"><code class="docutils literal notranslate"><span class="pre">LoginAdvice</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addthing"><code class="docutils literal notranslate"><span class="pre">AddThing</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removething"><code class="docutils literal notranslate"><span class="pre">RemoveThing</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creatureappear"><code class="docutils literal notranslate"><span class="pre">CreatureAppear</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creaturedisappear"><code class="docutils literal notranslate"><span class="pre">CreatureDisappear</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creaturepositionchange"><code class="docutils literal notranslate"><span class="pre">CreaturePositionChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creaturehealthpercentchange"><code class="docutils literal notranslate"><span class="pre">CreatureHealthPercentChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use"><code class="docutils literal notranslate"><span class="pre">Use</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usewith"><code class="docutils literal notranslate"><span class="pre">UseWith</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">Talk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#playerpositionchange"><code class="docutils literal notranslate"><span class="pre">PlayerPositionChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">CreaturePositionChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#playerhealthchange"><code class="docutils literal notranslate"><span class="pre">PlayerHealthChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">CreatureHealthPercentChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inventorychange"><code class="docutils literal notranslate"><span class="pre">InventoryChange</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/reposzablony/03_modules/lua/game_bot/functions/callbacks.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

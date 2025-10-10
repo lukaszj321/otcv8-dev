@@ -1,0 +1,1517 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Moduł: | Moduł: game_topbar &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/gameplay/modul-game-topbar';</script>
+    <link rel="icon" href="../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_topbar</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-game-topbar">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_topbar</span></code><a class="headerlink" href="#modul-modul-game-topbar" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">Icons</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Poison</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are poisoned&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/poisoned&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_poisoned&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Burn</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are burning&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/burning&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_burning&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Energy</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are electrified&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/electrified&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_electrified&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Drunk</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are drunk&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/drunk&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_drunk&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">ManaShield</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are protected by a magic shield&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/magic_shield&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_magic_shield&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Paralyze</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are paralysed&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/slowed&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_slowed&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Haste</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are hasted&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/haste&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_haste&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Swords</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You may not logout during a fight&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/logout_block&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_logout_block&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Drowning</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are drowning&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/drowning&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_drowning&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Freezing</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are freezing&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/freezing&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_freezing&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Dazzled</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are dazzled&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/dazzled&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_dazzled&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Cursed</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are cursed&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/cursed&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_cursed&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">PartyBuff</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are strengthened&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/strengthened&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_strengthened&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">PzBlock</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You may not logout or enter a protection zone&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/protection_zone_block&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_protection_zone_block&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Pz</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are within a protection zone&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/protection_zone&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_protection_zone&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Bleeding</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are bleeding&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/bleeding&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_bleeding&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">Icons</span><span class="p">[</span><span class="n">PlayerStates</span><span class="p">.</span><span class="n">Hungry</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You are hungry&#39;</span><span class="p">),</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/images/game/states/hungry&#39;</span><span class="p">,</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;condition_hungry&#39;</span>
+
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">iconsTable</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="p">[</span><span class="s2">&quot;Experience&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Magic&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Axe&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Club&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Distance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Fist&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Shielding&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Sword&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+
+    <span class="p">[</span><span class="s2">&quot;Fishing&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">healthBar</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="kd">local</span> <span class="n">manaBar</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="kd">local</span> <span class="n">topBar</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="kd">local</span> <span class="n">states</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="kd">local</span> <span class="n">experienceTooltip</span> <span class="o">=</span> <span class="s1">&#39;You have %d%% to advance to level %d.&#39;</span>
+
+<span class="kd">local</span> <span class="n">settings</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kr">function</span> <span class="nf">init</span><span class="p">()</span>
+
+    <span class="n">connect</span><span class="p">(</span><span class="n">LocalPlayer</span><span class="p">,</span> <span class="p">{</span>
+
+        <span class="n">onHealthChange</span> <span class="o">=</span> <span class="n">onHealthChange</span><span class="p">,</span>
+
+        <span class="n">onManaChange</span> <span class="o">=</span> <span class="n">onManaChange</span><span class="p">,</span>
+
+        <span class="n">onLevelChange</span> <span class="o">=</span> <span class="n">onLevelChange</span><span class="p">,</span>
+
+        <span class="n">onStatesChange</span> <span class="o">=</span> <span class="n">onStatesChange</span><span class="p">,</span>
+
+        <span class="n">onMagicLevelChange</span> <span class="o">=</span> <span class="n">onMagicLevelChange</span><span class="p">,</span>
+
+        <span class="n">onBaseMagicLevelChange</span> <span class="o">=</span> <span class="n">onBaseMagicLevelChange</span><span class="p">,</span>
+
+        <span class="n">onSkillChange</span> <span class="o">=</span> <span class="n">onSkillChange</span><span class="p">,</span>
+
+        <span class="n">onBaseSkillChange</span> <span class="o">=</span> <span class="n">onBaseSkillChange</span>
+
+<span class="p">})</span>
+
+    <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span><span class="n">onGameStart</span> <span class="o">=</span> <span class="n">refresh</span><span class="p">,</span> <span class="n">onGameEnd</span> <span class="o">=</span> <span class="n">offline</span><span class="p">})</span>
+
+    <span class="c1">-- load condition icons</span>
+
+    <span class="kr">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Icons</span><span class="p">)</span> <span class="kr">do</span> <span class="n">g_textures</span><span class="p">.</span><span class="n">preload</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">path</span><span class="p">)</span> <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span> <span class="n">refresh</span><span class="p">()</span> <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">terminate</span><span class="p">()</span>
+
+    <span class="n">disconnect</span><span class="p">(</span><span class="n">LocalPlayer</span><span class="p">,</span> <span class="p">{</span>
+
+        <span class="n">onHealthChange</span> <span class="o">=</span> <span class="n">onHealthChange</span><span class="p">,</span>
+
+        <span class="n">onManaChange</span> <span class="o">=</span> <span class="n">onManaChange</span><span class="p">,</span>
+
+        <span class="n">onLevelChange</span> <span class="o">=</span> <span class="n">onLevelChange</span><span class="p">,</span>
+
+        <span class="n">onStatesChange</span> <span class="o">=</span> <span class="n">onStatesChange</span><span class="p">,</span>
+
+        <span class="n">onMagicLevelChange</span> <span class="o">=</span> <span class="n">onMagicLevelChange</span><span class="p">,</span>
+
+        <span class="n">onBaseMagicLevelChange</span> <span class="o">=</span> <span class="n">onBaseMagicLevelChange</span><span class="p">,</span>
+
+        <span class="n">onSkillChange</span> <span class="o">=</span> <span class="n">onSkillChange</span><span class="p">,</span>
+
+        <span class="n">onBaseSkillChange</span> <span class="o">=</span> <span class="n">onBaseSkillChange</span>
+
+<span class="p">})</span>
+
+    <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span><span class="n">onGameStart</span> <span class="o">=</span> <span class="n">refresh</span><span class="p">,</span> <span class="n">onGameEnd</span> <span class="o">=</span> <span class="n">offline</span><span class="p">})</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setupTopBar</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">topPanel</span> <span class="o">=</span> <span class="n">modules</span><span class="p">.</span><span class="n">game_interface</span><span class="p">.</span><span class="n">getTopBar</span><span class="p">()</span>
+
+    <span class="n">topBar</span> <span class="o">=</span> <span class="n">topBar</span> <span class="ow">or</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">loadUI</span><span class="p">(</span><span class="s1">&#39;topbar&#39;</span><span class="p">,</span> <span class="n">topPanel</span><span class="p">)</span>
+
+    <span class="n">manaBar</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">stats</span><span class="p">.</span><span class="n">mana</span>
+
+    <span class="n">healthBar</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">stats</span><span class="p">.</span><span class="n">health</span>
+
+    <span class="n">states</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">stats</span><span class="p">.</span><span class="n">states</span><span class="p">.</span><span class="n">box</span>
+
+    <span class="n">topBar</span><span class="p">.</span><span class="n">onMouseRelease</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">mousePos</span><span class="p">,</span> <span class="n">mouseButton</span><span class="p">)</span>
+
+        <span class="n">menu</span><span class="p">(</span><span class="n">mouseButton</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">refresh</span><span class="p">(</span><span class="n">profileChange</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getLocalPlayer</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">player</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">setupTopBar</span><span class="p">()</span>
+
+    <span class="nb">load</span><span class="p">()</span>
+
+    <span class="n">setupSkills</span><span class="p">()</span>
+
+    <span class="n">show</span><span class="p">()</span>
+
+    <span class="n">refreshVisibleBars</span><span class="p">()</span>
+
+    <span class="n">onLevelChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getLevel</span><span class="p">(),</span> <span class="n">player</span><span class="p">:</span><span class="n">getLevelPercent</span><span class="p">())</span>
+
+    <span class="n">onHealthChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getHealth</span><span class="p">(),</span> <span class="n">player</span><span class="p">:</span><span class="n">getMaxHealth</span><span class="p">())</span>
+
+    <span class="n">onManaChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getMana</span><span class="p">(),</span> <span class="n">player</span><span class="p">:</span><span class="n">getMaxMana</span><span class="p">())</span>
+
+    <span class="n">onMagicLevelChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getMagicLevel</span><span class="p">(),</span> <span class="n">player</span><span class="p">:</span><span class="n">getMagicLevelPercent</span><span class="p">())</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">profileChange</span> <span class="kr">then</span>
+
+        <span class="n">onStatesChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getStates</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">onHealthChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getHealth</span><span class="p">(),</span> <span class="n">player</span><span class="p">:</span><span class="n">getMaxHealth</span><span class="p">())</span>
+
+    <span class="n">onManaChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getMana</span><span class="p">(),</span> <span class="n">player</span><span class="p">:</span><span class="n">getMaxMana</span><span class="p">())</span>
+
+    <span class="n">onLevelChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getLevel</span><span class="p">(),</span> <span class="n">player</span><span class="p">:</span><span class="n">getLevelPercent</span><span class="p">())</span>
+
+    <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">Skill</span><span class="p">.</span><span class="n">Fist</span><span class="p">,</span> <span class="n">Skill</span><span class="p">.</span><span class="n">ManaLeechAmount</span> <span class="kr">do</span>
+
+        <span class="n">onSkillChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getSkillLevel</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">player</span><span class="p">:</span><span class="n">getSkillLevelPercent</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+        <span class="n">onBaseSkillChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getSkillBaseLevel</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">.</span><span class="n">onGeometryChange</span> <span class="o">=</span> <span class="n">setSkillsLayout</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">refreshVisibleBars</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">ids</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Experience&quot;</span><span class="p">,</span> <span class="s2">&quot;Magic&quot;</span><span class="p">,</span> <span class="s2">&quot;Axe&quot;</span><span class="p">,</span> <span class="s2">&quot;Club&quot;</span><span class="p">,</span> <span class="s2">&quot;Distance&quot;</span><span class="p">,</span> <span class="s2">&quot;Fist&quot;</span><span class="p">,</span> <span class="s2">&quot;Shielding&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;Sword&quot;</span><span class="p">,</span> <span class="s2">&quot;Fishing&quot;</span><span class="p">}</span>
+
+    <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">id</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="kd">local</span> <span class="n">panel</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="ow">or</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">]</span>
+
+        <span class="kr">if</span> <span class="n">panel</span> <span class="kr">then</span>
+
+            <span class="c1">-- experience is exeption</span>
+
+            <span class="kr">if</span> <span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;Experience&quot;</span> <span class="kr">then</span>
+
+                <span class="kr">if</span> <span class="ow">not</span> <span class="n">settings</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="kr">then</span>
+
+                    <span class="n">panel</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+                <span class="kr">end</span>
+
+            <span class="kr">else</span>
+
+                <span class="n">panel</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">false</span><span class="p">)</span>
+
+            <span class="kr">end</span>
+
+        <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setSkillsLayout</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">visible</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="kd">local</span> <span class="n">skills</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span>
+
+    <span class="kd">local</span> <span class="n">width</span> <span class="o">=</span> <span class="n">skills</span><span class="p">:</span><span class="n">getWidth</span><span class="p">()</span>
+
+    <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">skills</span><span class="p">:</span><span class="n">getChildren</span><span class="p">())</span> <span class="kr">do</span>
+
+        <span class="n">visible</span> <span class="o">=</span> <span class="n">child</span><span class="p">:</span><span class="n">isVisible</span><span class="p">()</span> <span class="ow">and</span> <span class="n">visible</span> <span class="o">+</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">visible</span>
+
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">many</span> <span class="o">=</span> <span class="n">visible</span> <span class="o">&gt;</span> <span class="mi">1</span>
+
+    <span class="n">width</span> <span class="o">=</span> <span class="n">many</span> <span class="ow">and</span> <span class="p">(</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="n">width</span>
+
+    <span class="n">skills</span><span class="p">:</span><span class="n">getLayout</span><span class="p">():</span><span class="n">setCellSize</span><span class="p">({</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">19</span><span class="p">})</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">offline</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getLocalPlayer</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">player</span> <span class="kr">then</span> <span class="n">onStatesChange</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getStates</span><span class="p">())</span> <span class="kr">end</span>
+
+    <span class="n">save</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">toggleIcon</span><span class="p">(</span><span class="n">bitChanged</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">content</span> <span class="o">=</span> <span class="n">states</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">content</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">icon</span> <span class="o">=</span> <span class="n">content</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="n">Icons</span><span class="p">[</span><span class="n">bitChanged</span><span class="p">].</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">icon</span> <span class="kr">then</span>
+
+        <span class="n">icon</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="kr">else</span>
+
+        <span class="n">icon</span> <span class="o">=</span> <span class="n">loadIcon</span><span class="p">(</span><span class="n">bitChanged</span><span class="p">)</span>
+
+        <span class="n">icon</span><span class="p">:</span><span class="n">setParent</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">loadIcon</span><span class="p">(</span><span class="n">bitChanged</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">icon</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">createWidget</span><span class="p">(</span><span class="s1">&#39;ConditionWidget&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+
+    <span class="n">icon</span><span class="p">:</span><span class="n">setId</span><span class="p">(</span><span class="n">Icons</span><span class="p">[</span><span class="n">bitChanged</span><span class="p">].</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="n">icon</span><span class="p">:</span><span class="n">setImageSource</span><span class="p">(</span><span class="n">Icons</span><span class="p">[</span><span class="n">bitChanged</span><span class="p">].</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="n">icon</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="n">Icons</span><span class="p">[</span><span class="n">bitChanged</span><span class="p">].</span><span class="n">tooltip</span><span class="p">)</span>
+
+    <span class="kr">return</span> <span class="n">icon</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onHealthChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">healthBar</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">health</span> <span class="o">&gt;</span> <span class="n">maxHealth</span> <span class="kr">then</span> <span class="n">maxHealth</span> <span class="o">=</span> <span class="n">health</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">healthPercent</span> <span class="o">=</span> <span class="p">(</span><span class="n">health</span> <span class="o">/</span> <span class="n">maxHealth</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+    <span class="n">healthBar</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">comma_value</span><span class="p">(</span><span class="n">health</span><span class="p">)</span> <span class="o">..</span> <span class="s1">&#39; / &#39;</span> <span class="o">..</span> <span class="n">comma_value</span><span class="p">(</span><span class="n">maxHealth</span><span class="p">))</span>
+
+    <span class="n">healthBar</span><span class="p">:</span><span class="n">setValue</span><span class="p">(</span><span class="n">health</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">)</span>
+
+    <span class="n">healthBar</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="n">healthPercent</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">healthPercent</span> <span class="o">&gt;</span> <span class="mi">92</span> <span class="kr">then</span>
+
+        <span class="n">healthBar</span><span class="p">:</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#00BC00FF&quot;</span><span class="p">)</span>
+
+    <span class="kr">elseif</span> <span class="n">healthPercent</span> <span class="o">&gt;</span> <span class="mi">60</span> <span class="kr">then</span>
+
+        <span class="n">healthBar</span><span class="p">:</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#50A150FF&quot;</span><span class="p">)</span>
+
+    <span class="kr">elseif</span> <span class="n">healthPercent</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="kr">then</span>
+
+        <span class="n">healthBar</span><span class="p">:</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#A1A100FF&quot;</span><span class="p">)</span>
+
+    <span class="kr">elseif</span> <span class="n">healthPercent</span> <span class="o">&gt;</span> <span class="mi">8</span> <span class="kr">then</span>
+
+        <span class="n">healthBar</span><span class="p">:</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#BF0A0AFF&quot;</span><span class="p">)</span>
+
+    <span class="kr">elseif</span> <span class="n">healthPercent</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="kr">then</span>
+
+        <span class="n">healthBar</span><span class="p">:</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#910F0FFF&quot;</span><span class="p">)</span>
+
+    <span class="kr">else</span>
+
+        <span class="n">healthBar</span><span class="p">:</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="s2">&quot;#850C0CFF&quot;</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onManaChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">mana</span><span class="p">,</span> <span class="n">maxMana</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">manaBar</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">mana</span> <span class="o">&gt;</span> <span class="n">maxMana</span> <span class="kr">then</span> <span class="n">maxMana</span> <span class="o">=</span> <span class="n">mana</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">manaPercent</span> <span class="o">=</span> <span class="p">(</span><span class="n">mana</span> <span class="o">/</span> <span class="n">maxMana</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+    <span class="kr">if</span> <span class="n">manaPercent</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">manaBar</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">comma_value</span><span class="p">(</span><span class="n">mana</span><span class="p">)</span> <span class="o">..</span> <span class="s1">&#39; / &#39;</span> <span class="o">..</span> <span class="n">comma_value</span><span class="p">(</span><span class="n">maxMana</span><span class="p">))</span>
+
+    <span class="n">manaBar</span><span class="p">:</span><span class="n">setValue</span><span class="p">(</span><span class="n">mana</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxMana</span><span class="p">)</span>
+
+    <span class="n">manaBar</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="n">manaPercent</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onLevelChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">percent</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">topBar</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">experienceBar</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">Experience</span><span class="p">.</span><span class="n">progress</span>
+
+    <span class="kd">local</span> <span class="n">levelLabel</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">Experience</span><span class="p">.</span><span class="n">level</span>
+
+    <span class="n">experienceBar</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="n">experienceTooltip</span><span class="p">,</span> <span class="mi">100</span><span class="o">-</span><span class="n">percent</span><span class="p">,</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">experienceBar</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="n">percent</span><span class="p">)</span>
+
+    <span class="n">levelLabel</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">levelLabel</span><span class="p">:</span><span class="n">setTextAutoResize</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onStatesChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">now</span><span class="p">,</span> <span class="n">old</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">now</span> <span class="o">==</span> <span class="n">old</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">bitsChanged</span> <span class="o">=</span> <span class="nb">bit32.bxor</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">old</span><span class="p">)</span>
+
+    <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span> <span class="kr">do</span>
+
+        <span class="kd">local</span> <span class="n">pow</span> <span class="o">=</span> <span class="nb">math.pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="kr">if</span> <span class="n">pow</span> <span class="o">&gt;</span> <span class="n">bitsChanged</span> <span class="kr">then</span> <span class="kr">break</span> <span class="kr">end</span>
+
+        <span class="kd">local</span> <span class="n">bitChanged</span> <span class="o">=</span> <span class="nb">bit32.band</span><span class="p">(</span><span class="n">bitsChanged</span><span class="p">,</span> <span class="n">pow</span><span class="p">)</span>
+
+        <span class="kr">if</span> <span class="n">bitChanged</span> <span class="o">~=</span> <span class="mi">0</span> <span class="kr">then</span> <span class="n">toggleIcon</span><span class="p">(</span><span class="n">bitChanged</span><span class="p">)</span> <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">show</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">topBar</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="n">g_settings</span><span class="p">.</span><span class="n">getBoolean</span><span class="p">(</span><span class="s2">&quot;topBar&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">))</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setupSkillPanel</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">experience</span><span class="p">,</span> <span class="n">defaultOff</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">widget</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">createWidget</span><span class="p">(</span><span class="s1">&#39;SkillPanel&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">:</span><span class="n">setId</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">level</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">icon</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">icon</span><span class="p">:</span><span class="n">setImageClip</span><span class="p">({</span><span class="n">x</span> <span class="o">=</span> <span class="n">iconsTable</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">9</span><span class="p">})</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">experience</span> <span class="kr">then</span>
+
+        <span class="n">widget</span><span class="p">.</span><span class="n">progress</span><span class="p">:</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="s1">&#39;#00c000&#39;</span><span class="p">)</span>
+
+        <span class="n">widget</span><span class="p">.</span><span class="n">shop</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+        <span class="n">widget</span><span class="p">.</span><span class="n">shop</span><span class="p">:</span><span class="n">disable</span><span class="p">()</span>
+
+        <span class="n">widget</span><span class="p">.</span><span class="n">shop</span><span class="p">:</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">widget</span><span class="p">.</span><span class="n">progress</span><span class="p">:</span><span class="n">setMarginRight</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">settings</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="n">settings</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="ow">or</span> <span class="n">defaultOff</span>
+
+    <span class="kr">if</span> <span class="n">settings</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">==</span> <span class="kc">false</span> <span class="kr">then</span> <span class="n">widget</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="kr">end</span>
+
+    <span class="c1">-- breakers</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">onGeometryChange</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+        <span class="kd">local</span> <span class="n">margin</span> <span class="o">=</span> <span class="n">widget</span><span class="p">.</span><span class="n">progress</span><span class="p">:</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">4</span>
+
+        <span class="kd">local</span> <span class="n">left</span> <span class="o">=</span> <span class="n">widget</span><span class="p">.</span><span class="n">left</span>
+
+        <span class="kd">local</span> <span class="n">right</span> <span class="o">=</span> <span class="n">widget</span><span class="p">.</span><span class="n">right</span>
+
+        <span class="n">left</span><span class="p">:</span><span class="n">setMarginRight</span><span class="p">(</span><span class="n">margin</span><span class="p">)</span>
+
+        <span class="n">right</span><span class="p">:</span><span class="n">setMarginRight</span><span class="p">(</span><span class="n">margin</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">menu</span><span class="p">(</span><span class="n">mouseButton</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">mouseButton</span> <span class="o">~=</span> <span class="mi">2</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">menu</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">createWidget</span><span class="p">(</span><span class="s1">&#39;PopupMenu&#39;</span><span class="p">)</span>
+
+    <span class="n">menu</span><span class="p">:</span><span class="n">setId</span><span class="p">(</span><span class="s2">&quot;topBarMenu&quot;</span><span class="p">)</span>
+
+    <span class="n">menu</span><span class="p">:</span><span class="n">setGameMenu</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">expPanel</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">Experience</span>
+
+    <span class="kd">local</span> <span class="n">start</span> <span class="o">=</span> <span class="n">expPanel</span><span class="p">:</span><span class="n">isVisible</span><span class="p">()</span> <span class="ow">and</span> <span class="s2">&quot;Hide&quot;</span> <span class="ow">or</span> <span class="s2">&quot;Show&quot;</span>
+
+    <span class="n">menu</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">start</span> <span class="o">..</span> <span class="s2">&quot; Experience Level&quot;</span><span class="p">,</span>
+
+                   <span class="kr">function</span><span class="p">()</span> <span class="n">toggleSkillPanel</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+
+    <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">:</span><span class="n">getChildren</span><span class="p">())</span> <span class="kr">do</span>
+
+        <span class="kd">local</span> <span class="n">id</span> <span class="o">=</span> <span class="n">child</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span>
+
+        <span class="kr">if</span> <span class="n">id</span> <span class="o">~=</span> <span class="s2">&quot;stats&quot;</span> <span class="kr">then</span>
+
+            <span class="kd">local</span> <span class="n">start</span> <span class="o">=</span> <span class="n">child</span><span class="p">:</span><span class="n">isVisible</span><span class="p">()</span> <span class="ow">and</span> <span class="s2">&quot;Hide&quot;</span> <span class="ow">or</span> <span class="s2">&quot;Show&quot;</span>
+
+            <span class="n">menu</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">start</span> <span class="o">..</span> <span class="s2">&quot; &quot;</span> <span class="o">..</span> <span class="n">id</span> <span class="o">..</span> <span class="s2">&quot; Level&quot;</span><span class="p">,</span>
+
+                           <span class="kr">function</span><span class="p">()</span> <span class="n">toggleSkillPanel</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+
+        <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">menu</span><span class="p">:</span><span class="n">display</span><span class="p">(</span><span class="n">mousePos</span><span class="p">)</span>
+
+    <span class="kr">return</span> <span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setupSkills</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span>
+
+        <span class="s2">&quot;Experience&quot;</span><span class="p">,</span> <span class="s2">&quot;Magic&quot;</span><span class="p">,</span> <span class="s2">&quot;Axe&quot;</span><span class="p">,</span> <span class="s2">&quot;Club&quot;</span><span class="p">,</span> <span class="s2">&quot;Distance&quot;</span><span class="p">,</span> <span class="s2">&quot;Fist&quot;</span><span class="p">,</span> <span class="s2">&quot;Shielding&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;Sword&quot;</span><span class="p">,</span> <span class="s2">&quot;Fishing&quot;</span>
+
+<span class="p">}</span>
+
+    <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">id</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="kr">if</span> <span class="ow">not</span> <span class="n">topBar</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="kr">then</span>
+
+            <span class="n">setupSkillPanel</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">topBar</span> <span class="ow">or</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">,</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span>
+
+                            <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">child</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">Experience</span>
+
+    <span class="n">topBar</span><span class="p">:</span><span class="n">moveChildToIndex</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">toggleSkillPanel</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">topBar</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">panel</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">]</span>
+
+    <span class="n">panel</span> <span class="o">=</span> <span class="n">panel</span> <span class="ow">or</span> <span class="n">topBar</span><span class="p">.</span><span class="n">Experience</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">panel</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">panel</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="ow">not</span> <span class="n">panel</span><span class="p">:</span><span class="n">isVisible</span><span class="p">())</span>
+
+    <span class="n">settings</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">panel</span><span class="p">:</span><span class="n">isVisible</span><span class="p">()</span>
+
+    <span class="n">setSkillsLayout</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setSkillValue</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">topBar</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">panel</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">panel</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">panel</span><span class="p">.</span><span class="n">level</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">panel</span><span class="p">.</span><span class="n">level</span><span class="p">:</span><span class="n">setTextAutoResize</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setSkillPercent</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">percent</span><span class="p">,</span> <span class="n">tooltip</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">topBar</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">panel</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">panel</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">panel</span><span class="p">.</span><span class="n">progress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="nb">math.floor</span><span class="p">(</span><span class="n">percent</span><span class="p">))</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setSkillBase</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">baseValue</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">topBar</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">panel</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">panel</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">progress</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">].</span><span class="n">progress</span>
+
+    <span class="kd">local</span> <span class="n">progressDesc</span> <span class="o">=</span> <span class="s2">&quot;You have &quot;</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">-</span> <span class="nb">math.floor</span><span class="p">(</span><span class="n">progress</span><span class="p">:</span><span class="n">getPercent</span><span class="p">())</span> <span class="o">..</span> <span class="s2">&quot; percent to go&quot;</span>
+
+    <span class="kd">local</span> <span class="n">level</span> <span class="o">=</span> <span class="n">topBar</span><span class="p">.</span><span class="n">skills</span><span class="p">[</span><span class="n">id</span><span class="p">].</span><span class="n">level</span>
+
+    <span class="kr">if</span> <span class="n">baseValue</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">baseValue</span> <span class="kr">then</span>
+
+        <span class="n">level</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s1">&#39;#008b00&#39;</span><span class="p">)</span> <span class="c1">-- green</span>
+
+        <span class="n">progress</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="n">value</span> <span class="o">..</span> <span class="s2">&quot; = &quot;</span> <span class="o">..</span> <span class="n">baseValue</span> <span class="o">..</span> <span class="s1">&#39; + &#39;</span> <span class="o">..</span>
+
+                                <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">baseValue</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">..</span> <span class="n">progressDesc</span><span class="p">)</span>
+
+    <span class="kr">elseif</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">baseValue</span> <span class="kr">then</span>
+
+        <span class="n">level</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s1">&#39;#b22222&#39;</span><span class="p">)</span> <span class="c1">-- red</span>
+
+        <span class="n">progress</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="n">baseValue</span> <span class="o">..</span> <span class="s1">&#39; &#39;</span> <span class="o">..</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">baseValue</span><span class="p">))</span>
+
+    <span class="kr">else</span>
+
+        <span class="n">level</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s1">&#39;#bbbbbb&#39;</span><span class="p">)</span> <span class="c1">-- default</span>
+
+        <span class="n">progress</span><span class="p">:</span><span class="n">removeTooltip</span><span class="p">()</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onMagicLevelChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">magiclevel</span><span class="p">,</span> <span class="n">percent</span><span class="p">)</span>
+
+    <span class="n">setSkillValue</span><span class="p">(</span><span class="s1">&#39;Magic&#39;</span><span class="p">,</span> <span class="n">magiclevel</span><span class="p">)</span>
+
+    <span class="n">setSkillPercent</span><span class="p">(</span><span class="s1">&#39;Magic&#39;</span><span class="p">,</span> <span class="n">percent</span><span class="p">)</span>
+
+    <span class="n">onBaseMagicLevelChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">getBaseMagicLevel</span><span class="p">())</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onBaseMagicLevelChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">baseMagicLevel</span><span class="p">)</span>
+
+    <span class="n">setSkillBase</span><span class="p">(</span><span class="s1">&#39;Magic&#39;</span><span class="p">,</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">getMagicLevel</span><span class="p">(),</span> <span class="n">baseMagicLevel</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onSkillChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">percent</span><span class="p">)</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="n">id</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span>
+
+        <span class="s2">&quot;Fist&quot;</span><span class="p">,</span> <span class="s2">&quot;Club&quot;</span><span class="p">,</span> <span class="s2">&quot;Sword&quot;</span><span class="p">,</span> <span class="s2">&quot;Axe&quot;</span><span class="p">,</span> <span class="s2">&quot;Distance&quot;</span><span class="p">,</span> <span class="s2">&quot;Shielding&quot;</span><span class="p">,</span> <span class="s2">&quot;Fishing&quot;</span>
+
+<span class="p">}</span>
+
+    <span class="c1">-- imbues, ignore</span>
+
+    <span class="kr">if</span> <span class="n">id</span> <span class="o">&gt;</span> <span class="o">#</span><span class="n">t</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">setSkillValue</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">id</span><span class="p">],</span> <span class="n">level</span><span class="p">)</span>
+
+    <span class="n">setSkillPercent</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">id</span><span class="p">],</span> <span class="n">percent</span><span class="p">)</span>
+
+    <span class="n">setSkillBase</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">id</span><span class="p">],</span> <span class="n">level</span><span class="p">,</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">getSkillBaseLevel</span><span class="p">(</span><span class="n">id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onBaseSkillChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">baseLevel</span><span class="p">)</span>
+
+    <span class="n">id</span> <span class="o">=</span> <span class="n">id</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{</span>
+
+        <span class="s2">&quot;Fist&quot;</span><span class="p">,</span> <span class="s2">&quot;Club&quot;</span><span class="p">,</span> <span class="s2">&quot;Sword&quot;</span><span class="p">,</span> <span class="s2">&quot;Axe&quot;</span><span class="p">,</span> <span class="s2">&quot;Distance&quot;</span><span class="p">,</span> <span class="s2">&quot;Shielding&quot;</span><span class="p">,</span> <span class="s2">&quot;Fishing&quot;</span>
+
+<span class="p">}</span>
+
+    <span class="c1">-- imbues, ignore</span>
+
+    <span class="kr">if</span> <span class="n">id</span> <span class="o">&gt;</span> <span class="o">#</span><span class="n">t</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+    <span class="n">setSkillBase</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">getSkillLevel</span><span class="p">(</span><span class="n">id</span><span class="p">),</span> <span class="n">baseLevel</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">save</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">settingsFile</span> <span class="o">=</span> <span class="n">modules</span><span class="p">.</span><span class="n">client_profiles</span><span class="p">.</span><span class="n">getSettingsFilePath</span><span class="p">(</span><span class="s2">&quot;topbar.json&quot;</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">status</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">return</span> <span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">status</span> <span class="kr">then</span>
+
+        <span class="kr">return</span> <span class="n">onError</span><span class="p">(</span>
+
+                   <span class="s2">&quot;Error while saving top bar settings. Data won&#39;t be saved. Details: &quot;</span> <span class="o">..</span>
+
+                       <span class="n">result</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">result</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="kr">then</span>
+
+        <span class="kr">return</span> <span class="n">onError</span><span class="p">(</span>
+
+                   <span class="s2">&quot;Something went wrong, file is above 100MB, won&#39;t be saved&quot;</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">g_resources</span><span class="p">.</span><span class="n">writeFileContents</span><span class="p">(</span><span class="n">settingsFile</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">load</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">settingsFile</span> <span class="o">=</span> <span class="n">modules</span><span class="p">.</span><span class="n">client_profiles</span><span class="p">.</span><span class="n">getSettingsFilePath</span><span class="p">(</span><span class="s2">&quot;topbar.json&quot;</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">fileExists</span><span class="p">(</span><span class="n">settingsFile</span><span class="p">)</span> <span class="kr">then</span>
+
+        <span class="kd">local</span> <span class="n">status</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+            <span class="kr">return</span> <span class="n">json</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">g_resources</span><span class="p">.</span><span class="n">readFileContents</span><span class="p">(</span><span class="n">settingsFile</span><span class="p">))</span>
+
+        <span class="kr">end</span><span class="p">)</span>
+
+        <span class="kr">if</span> <span class="ow">not</span> <span class="n">status</span> <span class="kr">then</span>
+
+            <span class="kr">return</span> <span class="n">onError</span><span class="p">(</span>
+
+                       <span class="s2">&quot;Error while reading top bar settings file. To fix this problem you can delete storage.json. Details: &quot;</span> <span class="o">..</span>
+
+                           <span class="n">result</span><span class="p">)</span>
+
+        <span class="kr">end</span>
+
+        <span class="n">settings</span> <span class="o">=</span> <span class="n">result</span>
+
+    <span class="kr">else</span>
+
+        <span class="n">settings</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="kr">end</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="topbar-otmod">
+<h1>topbar.otmod<a class="headerlink" href="#topbar-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: game_topbar
+
+  description: Customizable Top Bar from Cipsoft&#39;s Tibia 12 Client
+
+  author: Vithrax
+
+  website: discord_Vithrax#5814
+
+  sandboxed: true
+
+  autoload: true
+
+  scripts: [ topbar ]
+
+  @onLoad: init()
+
+  @onUnload: terminate()
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="topbar-otui">
+<h1>topbar.otui<a class="headerlink" href="#topbar-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+StatsPanel &lt; Panel
+
+  height: 19
+
+  ProgressBar
+
+    id: health
+
+    anchors.left: parent.left
+
+    anchors.right: states.left
+
+    anchors.top: states.top
+
+    anchors.bottom: states.bottom
+
+    margin-right: 7
+
+  ProgressBar
+
+    id: mana
+
+    anchors.left: states.right
+
+    anchors.right: parent.right
+
+    anchors.top: states.top
+
+    anchors.bottom: states.bottom
+
+    margin-left: 7
+
+    background-color: #0060d5
+
+  FlatPanel
+
+    id: states
+
+    padding: 1
+
+    size: 150 18
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    anchors.top: parent.top
+
+    Panel
+
+      id: box
+
+      image-source: /images/ui/dark_background
+
+      anchors.fill: parent
+
+      layout:
+
+        type: horizontalBox
+
+SkillPanel &lt; Panel
+
+  height: 19
+
+  UIWidget
+
+    id: level
+
+    anchors.left: parent.left
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    text: 999
+
+    font: verdana-11px-rounded
+
+    text-align: center
+
+    margin-left: 7
+
+  UIWidget
+
+    id: icon
+
+    anchors.left: prev.right
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    image-source: /images/game/topbar/icons
+
+    size: 9 9
+
+    image-clip: 0 0 9 9
+
+    margin-left: 7
+
+  ProgressBar
+
+    id: progress
+
+    anchors.left: prev.right
+
+    margin-left: 7
+
+    anchors.right: next.left
+
+    margin-right: 7
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    background-color: #c00000
+
+    height: 6
+
+    border: 1 black
+
+  UIWidget
+
+    id: shop
+
+    anchors.right: parent.right
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    image-source: /images/game/topbar/boost
+
+    size: 76 14
+
+    @onClick: modules.game_shop.show()
+
+    image-clip: 0 0 76 14
+
+    $pressed:
+
+      image-clip: 0 14 76 14
+
+  VerticalSeparator
+
+    id: left
+
+    anchors.top: progress.top
+
+    margin-top: -2
+
+    anchors.bottom: progress.bottom
+
+    margin-bottom: -2
+
+    anchors.right: progress.horizontalCenter
+
+  VerticalSeparator
+
+    id: middle
+
+    anchors.top: progress.top
+
+    margin-top: -2
+
+    anchors.bottom: progress.bottom
+
+    margin-bottom: -2
+
+    anchors.right: progress.horizontalCenter
+
+  VerticalSeparator
+
+    id: right
+
+    anchors.top: progress.top
+
+    margin-top: -2
+
+    anchors.bottom: progress.bottom
+
+    margin-bottom: -2
+
+    anchors.right: progress.right
+
+Panel
+
+  id: topbar
+
+  focusable: false
+
+  padding-top: 4
+
+  padding-left: 7
+
+  padding-right: 7
+
+  layout:
+
+    type: verticalBox
+
+    fit-children: true
+
+  StatsPanel
+
+    id: stats
+
+  Panel
+
+    id: skills
+
+    layout:
+
+      type: grid
+
+      num-columns: 2
+
+      fit-children: true
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_topbar</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#topbar-otmod">topbar.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#topbar-otui">topbar.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/gameplay/modul-game-topbar.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

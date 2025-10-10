@@ -157,3 +157,9 @@ pip-wheel-metadata/
 .vscode/
 .idea/
 node_modules
+
+#################
+## Sphinx / Docs
+#################
+docs/_build/
+docs/_static/data/

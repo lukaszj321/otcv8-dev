@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>framework/ui/uitextedit.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/ui/uitextedit';</script>
+    <link rel="icon" href="../../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/ui/uitextedit.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-ui-uitextedit-h">
+<h1>framework/ui/uitextedit.h<a class="headerlink" href="#framework-ui-uitextedit-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu uitextedit.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-uitextedit">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">UITextEdit</span></code><a class="headerlink" href="#klasa-uitextedit" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Brief</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">drawSelf</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawSelf(Fw::DrawPane</span> <span class="pre">drawPane)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setCursorPos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCursorPos(int</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setSelection</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelection(int</span> <span class="pre">start,</span> <span class="pre">int</span> <span class="pre">end)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setCursorVisible</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCursorVisible(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_cursorVisible</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setTextHidden</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTextHidden(bool</span> <span class="pre">hidden)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setValidCharacters</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setValidCharacters(const</span> <span class="pre">std::string</span> <span class="pre">validCharacters)</span> <span class="pre">{</span> <span class="pre">m_validCharacters</span> <span class="pre">=</span> <span class="pre">validCharacters;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setShiftNavigation</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShiftNavigation(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_shiftNavigation</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setMultiline</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMultiline(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_multiline</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setMaxLength</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMaxLength(uint</span> <span class="pre">maxLength)</span> <span class="pre">{</span> <span class="pre">m_maxLength</span> <span class="pre">=</span> <span class="pre">maxLength;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setTextVirtualOffset</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTextVirtualOffset(const</span> <span class="pre">Point&amp;</span> <span class="pre">offset)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setEditable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setEditable(bool</span> <span class="pre">editable)</span> <span class="pre">{</span> <span class="pre">m_editable</span> <span class="pre">=</span> <span class="pre">editable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setSelectable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelectable(bool</span> <span class="pre">selectable)</span> <span class="pre">{</span> <span class="pre">m_selectable</span> <span class="pre">=</span> <span class="pre">selectable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setSelectionColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelectionColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">m_selectionColor</span> <span class="pre">=</span> <span class="pre">color;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setSelectionBackgroundColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelectionBackgroundColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">m_selectionBackgroundColor</span> <span class="pre">=</span> <span class="pre">color;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setAutoScroll</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAutoScroll(bool</span> <span class="pre">autoScroll)</span> <span class="pre">{</span> <span class="pre">m_autoScroll</span> <span class="pre">=</span> <span class="pre">autoScroll;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setAutoSubmit</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAutoSubmit(bool</span> <span class="pre">autoSubmit)</span> <span class="pre">{</span> <span class="pre">m_autoSubmit</span> <span class="pre">=</span> <span class="pre">autoSubmit;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setPlaceholder</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholder(std::string</span> <span class="pre">placeholder)</span> <span class="pre">{</span> <span class="pre">m_placeholder</span> <span class="pre">=</span> <span class="pre">placeholder;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setPlaceholderColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholderColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">m_placeholderColor</span> <span class="pre">=</span> <span class="pre">color;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setPlaceholderAlign</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholderAlign(Fw::AlignmentFlag</span> <span class="pre">align)</span> <span class="pre">{</span> <span class="pre">m_placeholderAlign</span> <span class="pre">=</span> <span class="pre">align;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setPlaceholderFont</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholderFont(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fontName)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">moveCursorHorizontally</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">moveCursorHorizontally(bool</span> <span class="pre">right)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">moveCursorVertically</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">moveCursorVertically(bool</span> <span class="pre">up)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">appendText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">appendText(std::string</span> <span class="pre">text)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">appendCharacter</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">appendCharacter(char</span> <span class="pre">c)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">removeCharacter</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeCharacter(bool</span> <span class="pre">right)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">blinkCursor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">blinkCursor()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">del</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">del(bool</span> <span class="pre">right</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">paste</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">paste(const</span> <span class="pre">std::string&amp;</span> <span class="pre">text)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">copy</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">copy()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cut</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">cut()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">selectAll</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">selectAll()</span> <span class="pre">{</span> <span class="pre">setSelection(0,</span> <span class="pre">m_text.length());</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clearSelection</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clearSelection()</span> <span class="pre">{</span> <span class="pre">setSelection(0,</span> <span class="pre">0);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wrapText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">wrapText()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDisplayedText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getDisplayedText()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSelection</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getSelection()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getTextPos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getTextPos(Point</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getCursorPos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getCursorPos()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_cursorPos;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getTextVirtualOffset</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">getTextVirtualOffset()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textVirtualOffset;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getTextVirtualSize</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getTextVirtualSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textVirtualSize;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getTextTotalSize</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getTextTotalSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textTotalSize;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getMaxLength</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint</span> <span class="pre">getMaxLength()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_maxLength;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSelectionStart</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSelectionStart()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionStart;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSelectionEnd</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSelectionEnd()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionEnd;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSelectionColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">getSelectionColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionColor;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSelectionBackgroundColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">getSelectionBackgroundColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionBackgroundColor;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hasSelection</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasSelection()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionEnd</span> <span class="pre">-</span> <span class="pre">m_selectionStart</span> <span class="pre">&gt;</span> <span class="pre">0;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isCursorVisible</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCursorVisible()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_cursorVisible;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isTextHidden</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTextHidden()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textHidden;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isShiftNavigation</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isShiftNavigation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_shiftNavigation;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isMultiline</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMultiline()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_multiline;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isEditable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isEditable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_editable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isSelectable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isSelectable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isAutoScrolling</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAutoScrolling()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_autoScroll;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">updateText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateText()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onStyleApply</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">onStyleApply(const</span> <span class="pre">std::string&amp;</span> <span class="pre">styleName,</span> <span class="pre">const</span> <span class="pre">OTMLNodePtr&amp;</span> <span class="pre">styleNode)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onGeometryChange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">onGeometryChange(const</span> <span class="pre">Rect&amp;</span> <span class="pre">oldRect,</span> <span class="pre">const</span> <span class="pre">Rect&amp;</span> <span class="pre">newRect)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onFocusChange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">onFocusChange(bool</span> <span class="pre">focused,</span> <span class="pre">Fw::FocusReason</span> <span class="pre">reason)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onKeyText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">onKeyText(const</span> <span class="pre">std::string&amp;</span> <span class="pre">keyText)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onKeyPress</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">onKeyPress(uchar</span> <span class="pre">keyCode,</span> <span class="pre">int</span> <span class="pre">keyboardModifiers,</span> <span class="pre">int</span> <span class="pre">autoRepeatTicks)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onMousePress</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">onMousePress(const</span> <span class="pre">Point&amp;</span> <span class="pre">mousePos,</span> <span class="pre">Fw::MouseButton</span> <span class="pre">button)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onMouseRelease</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">onMouseRelease(const</span> <span class="pre">Point&amp;</span> <span class="pre">mousePos,</span> <span class="pre">Fw::MouseButton</span> <span class="pre">button)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onMouseMove</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">onMouseMove(const</span> <span class="pre">Point&amp;</span> <span class="pre">mousePos,</span> <span class="pre">const</span> <span class="pre">Point&amp;</span> <span class="pre">mouseMoved)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onDoubleClick</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">bool</span> <span class="pre">onDoubleClick(const</span> <span class="pre">Point&amp;</span> <span class="pre">mousePos)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onTextAreaUpdate</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">void</span> <span class="pre">onTextAreaUpdate(const</span> <span class="pre">Point&amp;</span> <span class="pre">vitualOffset,</span> <span class="pre">const</span> <span class="pre">Size&amp;</span> <span class="pre">virtualSize,</span> <span class="pre">const</span> <span class="pre">Size&amp;</span> <span class="pre">totalSize)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="drawself">
+<h3><code class="docutils literal notranslate"><span class="pre">drawSelf</span></code><a class="headerlink" href="#drawself" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">drawSelf(Fw::DrawPane</span> <span class="pre">drawPane)</span></code></p>
+</section>
+<section id="update">
+<h3><code class="docutils literal notranslate"><span class="pre">update</span></code><a class="headerlink" href="#update" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">update(bool</span> <span class="pre">focusCursor</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="setcursorpos">
+<h3><code class="docutils literal notranslate"><span class="pre">setCursorPos</span></code><a class="headerlink" href="#setcursorpos" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCursorPos(int</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="setselection">
+<h3><code class="docutils literal notranslate"><span class="pre">setSelection</span></code><a class="headerlink" href="#setselection" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelection(int</span> <span class="pre">start,</span> <span class="pre">int</span> <span class="pre">end)</span></code></p>
+</section>
+<section id="setcursorvisible">
+<h3><code class="docutils literal notranslate"><span class="pre">setCursorVisible</span></code><a class="headerlink" href="#setcursorvisible" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCursorVisible(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_cursorVisible</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="settexthidden">
+<h3><code class="docutils literal notranslate"><span class="pre">setTextHidden</span></code><a class="headerlink" href="#settexthidden" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTextHidden(bool</span> <span class="pre">hidden)</span></code></p>
+</section>
+<section id="setvalidcharacters">
+<h3><code class="docutils literal notranslate"><span class="pre">setValidCharacters</span></code><a class="headerlink" href="#setvalidcharacters" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setValidCharacters(const</span> <span class="pre">std::string</span> <span class="pre">validCharacters)</span> <span class="pre">{</span> <span class="pre">m_validCharacters</span> <span class="pre">=</span> <span class="pre">validCharacters;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setshiftnavigation">
+<h3><code class="docutils literal notranslate"><span class="pre">setShiftNavigation</span></code><a class="headerlink" href="#setshiftnavigation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShiftNavigation(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_shiftNavigation</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setmultiline">
+<h3><code class="docutils literal notranslate"><span class="pre">setMultiline</span></code><a class="headerlink" href="#setmultiline" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMultiline(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_multiline</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setmaxlength">
+<h3><code class="docutils literal notranslate"><span class="pre">setMaxLength</span></code><a class="headerlink" href="#setmaxlength" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMaxLength(uint</span> <span class="pre">maxLength)</span> <span class="pre">{</span> <span class="pre">m_maxLength</span> <span class="pre">=</span> <span class="pre">maxLength;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="settextvirtualoffset">
+<h3><code class="docutils literal notranslate"><span class="pre">setTextVirtualOffset</span></code><a class="headerlink" href="#settextvirtualoffset" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTextVirtualOffset(const</span> <span class="pre">Point&amp;</span> <span class="pre">offset)</span></code></p>
+</section>
+<section id="seteditable">
+<h3><code class="docutils literal notranslate"><span class="pre">setEditable</span></code><a class="headerlink" href="#seteditable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setEditable(bool</span> <span class="pre">editable)</span> <span class="pre">{</span> <span class="pre">m_editable</span> <span class="pre">=</span> <span class="pre">editable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setselectable">
+<h3><code class="docutils literal notranslate"><span class="pre">setSelectable</span></code><a class="headerlink" href="#setselectable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelectable(bool</span> <span class="pre">selectable)</span> <span class="pre">{</span> <span class="pre">m_selectable</span> <span class="pre">=</span> <span class="pre">selectable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setselectioncolor">
+<h3><code class="docutils literal notranslate"><span class="pre">setSelectionColor</span></code><a class="headerlink" href="#setselectioncolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelectionColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">m_selectionColor</span> <span class="pre">=</span> <span class="pre">color;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setselectionbackgroundcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">setSelectionBackgroundColor</span></code><a class="headerlink" href="#setselectionbackgroundcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSelectionBackgroundColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">m_selectionBackgroundColor</span> <span class="pre">=</span> <span class="pre">color;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setautoscroll">
+<h3><code class="docutils literal notranslate"><span class="pre">setAutoScroll</span></code><a class="headerlink" href="#setautoscroll" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAutoScroll(bool</span> <span class="pre">autoScroll)</span> <span class="pre">{</span> <span class="pre">m_autoScroll</span> <span class="pre">=</span> <span class="pre">autoScroll;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setautosubmit">
+<h3><code class="docutils literal notranslate"><span class="pre">setAutoSubmit</span></code><a class="headerlink" href="#setautosubmit" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAutoSubmit(bool</span> <span class="pre">autoSubmit)</span> <span class="pre">{</span> <span class="pre">m_autoSubmit</span> <span class="pre">=</span> <span class="pre">autoSubmit;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setplaceholder">
+<h3><code class="docutils literal notranslate"><span class="pre">setPlaceholder</span></code><a class="headerlink" href="#setplaceholder" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholder(std::string</span> <span class="pre">placeholder)</span> <span class="pre">{</span> <span class="pre">m_placeholder</span> <span class="pre">=</span> <span class="pre">placeholder;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setplaceholdercolor">
+<h3><code class="docutils literal notranslate"><span class="pre">setPlaceholderColor</span></code><a class="headerlink" href="#setplaceholdercolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholderColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">m_placeholderColor</span> <span class="pre">=</span> <span class="pre">color;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setplaceholderalign">
+<h3><code class="docutils literal notranslate"><span class="pre">setPlaceholderAlign</span></code><a class="headerlink" href="#setplaceholderalign" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholderAlign(Fw::AlignmentFlag</span> <span class="pre">align)</span> <span class="pre">{</span> <span class="pre">m_placeholderAlign</span> <span class="pre">=</span> <span class="pre">align;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setplaceholderfont">
+<h3><code class="docutils literal notranslate"><span class="pre">setPlaceholderFont</span></code><a class="headerlink" href="#setplaceholderfont" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPlaceholderFont(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fontName)</span></code></p>
+</section>
+<section id="movecursorhorizontally">
+<h3><code class="docutils literal notranslate"><span class="pre">moveCursorHorizontally</span></code><a class="headerlink" href="#movecursorhorizontally" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">moveCursorHorizontally(bool</span> <span class="pre">right)</span></code></p>
+</section>
+<section id="movecursorvertically">
+<h3><code class="docutils literal notranslate"><span class="pre">moveCursorVertically</span></code><a class="headerlink" href="#movecursorvertically" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">moveCursorVertically(bool</span> <span class="pre">up)</span></code></p>
+</section>
+<section id="appendtext">
+<h3><code class="docutils literal notranslate"><span class="pre">appendText</span></code><a class="headerlink" href="#appendtext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">appendText(std::string</span> <span class="pre">text)</span></code></p>
+</section>
+<section id="appendcharacter">
+<h3><code class="docutils literal notranslate"><span class="pre">appendCharacter</span></code><a class="headerlink" href="#appendcharacter" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">appendCharacter(char</span> <span class="pre">c)</span></code></p>
+</section>
+<section id="removecharacter">
+<h3><code class="docutils literal notranslate"><span class="pre">removeCharacter</span></code><a class="headerlink" href="#removecharacter" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeCharacter(bool</span> <span class="pre">right)</span></code></p>
+</section>
+<section id="blinkcursor">
+<h3><code class="docutils literal notranslate"><span class="pre">blinkCursor</span></code><a class="headerlink" href="#blinkcursor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">blinkCursor()</span></code></p>
+</section>
+<section id="del">
+<h3><code class="docutils literal notranslate"><span class="pre">del</span></code><a class="headerlink" href="#del" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">del(bool</span> <span class="pre">right</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="paste">
+<h3><code class="docutils literal notranslate"><span class="pre">paste</span></code><a class="headerlink" href="#paste" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">paste(const</span> <span class="pre">std::string&amp;</span> <span class="pre">text)</span></code></p>
+</section>
+<section id="copy">
+<h3><code class="docutils literal notranslate"><span class="pre">copy</span></code><a class="headerlink" href="#copy" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">copy()</span></code></p>
+</section>
+<section id="cut">
+<h3><code class="docutils literal notranslate"><span class="pre">cut</span></code><a class="headerlink" href="#cut" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">cut()</span></code></p>
+</section>
+<section id="selectall">
+<h3><code class="docutils literal notranslate"><span class="pre">selectAll</span></code><a class="headerlink" href="#selectall" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">selectAll()</span> <span class="pre">{</span> <span class="pre">setSelection(0,</span> <span class="pre">m_text.length());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="clearselection">
+<h3><code class="docutils literal notranslate"><span class="pre">clearSelection</span></code><a class="headerlink" href="#clearselection" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clearSelection()</span> <span class="pre">{</span> <span class="pre">setSelection(0,</span> <span class="pre">0);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="wraptext">
+<h3><code class="docutils literal notranslate"><span class="pre">wrapText</span></code><a class="headerlink" href="#wraptext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">wrapText()</span></code></p>
+</section>
+<section id="getdisplayedtext">
+<h3><code class="docutils literal notranslate"><span class="pre">getDisplayedText</span></code><a class="headerlink" href="#getdisplayedtext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getDisplayedText()</span></code></p>
+</section>
+<section id="getselection">
+<h3><code class="docutils literal notranslate"><span class="pre">getSelection</span></code><a class="headerlink" href="#getselection" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getSelection()</span></code></p>
+</section>
+<section id="gettextpos">
+<h3><code class="docutils literal notranslate"><span class="pre">getTextPos</span></code><a class="headerlink" href="#gettextpos" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getTextPos(Point</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="getcursorpos">
+<h3><code class="docutils literal notranslate"><span class="pre">getCursorPos</span></code><a class="headerlink" href="#getcursorpos" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getCursorPos()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_cursorPos;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gettextvirtualoffset">
+<h3><code class="docutils literal notranslate"><span class="pre">getTextVirtualOffset</span></code><a class="headerlink" href="#gettextvirtualoffset" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">getTextVirtualOffset()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textVirtualOffset;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gettextvirtualsize">
+<h3><code class="docutils literal notranslate"><span class="pre">getTextVirtualSize</span></code><a class="headerlink" href="#gettextvirtualsize" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getTextVirtualSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textVirtualSize;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gettexttotalsize">
+<h3><code class="docutils literal notranslate"><span class="pre">getTextTotalSize</span></code><a class="headerlink" href="#gettexttotalsize" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getTextTotalSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textTotalSize;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmaxlength">
+<h3><code class="docutils literal notranslate"><span class="pre">getMaxLength</span></code><a class="headerlink" href="#getmaxlength" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint</span> <span class="pre">getMaxLength()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_maxLength;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getselectionstart">
+<h3><code class="docutils literal notranslate"><span class="pre">getSelectionStart</span></code><a class="headerlink" href="#getselectionstart" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSelectionStart()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionStart;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getselectionend">
+<h3><code class="docutils literal notranslate"><span class="pre">getSelectionEnd</span></code><a class="headerlink" href="#getselectionend" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSelectionEnd()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionEnd;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getselectioncolor">
+<h3><code class="docutils literal notranslate"><span class="pre">getSelectionColor</span></code><a class="headerlink" href="#getselectioncolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">getSelectionColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionColor;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getselectionbackgroundcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">getSelectionBackgroundColor</span></code><a class="headerlink" href="#getselectionbackgroundcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">getSelectionBackgroundColor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionBackgroundColor;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="hasselection">
+<h3><code class="docutils literal notranslate"><span class="pre">hasSelection</span></code><a class="headerlink" href="#hasselection" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasSelection()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectionEnd</span> <span class="pre">-</span> <span class="pre">m_selectionStart</span> <span class="pre">&gt;</span> <span class="pre">0;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iscursorvisible">
+<h3><code class="docutils literal notranslate"><span class="pre">isCursorVisible</span></code><a class="headerlink" href="#iscursorvisible" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCursorVisible()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_cursorVisible;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="istexthidden">
+<h3><code class="docutils literal notranslate"><span class="pre">isTextHidden</span></code><a class="headerlink" href="#istexthidden" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTextHidden()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_textHidden;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isshiftnavigation">
+<h3><code class="docutils literal notranslate"><span class="pre">isShiftNavigation</span></code><a class="headerlink" href="#isshiftnavigation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isShiftNavigation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_shiftNavigation;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ismultiline">
+<h3><code class="docutils literal notranslate"><span class="pre">isMultiline</span></code><a class="headerlink" href="#ismultiline" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMultiline()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_multiline;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iseditable">
+<h3><code class="docutils literal notranslate"><span class="pre">isEditable</span></code><a class="headerlink" href="#iseditable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isEditable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_editable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isselectable">
+<h3><code class="docutils literal notranslate"><span class="pre">isSelectable</span></code><a class="headerlink" href="#isselectable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isSelectable()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_selectable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isautoscrolling">
+<h3><code class="docutils literal notranslate"><span class="pre">isAutoScrolling</span></code><a class="headerlink" href="#isautoscrolling" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAutoScrolling()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_autoScroll;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="updatetext">
+<h3><code class="docutils literal notranslate"><span class="pre">updateText</span></code><a class="headerlink" href="#updatetext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateText()</span></code></p>
+</section>
+<section id="disableupdates">
+<h3><code class="docutils literal notranslate"><span class="pre">disableUpdates</span></code><a class="headerlink" href="#disableupdates" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">disableUpdates()</span> <span class="pre">{</span> <span class="pre">m_updatesEnabled</span> <span class="pre">=</span> <span class="pre">false;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="enableupdates">
+<h3><code class="docutils literal notranslate"><span class="pre">enableUpdates</span></code><a class="headerlink" href="#enableupdates" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">enableUpdates()</span> <span class="pre">{</span> <span class="pre">m_updatesEnabled</span> <span class="pre">=</span> <span class="pre">true;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="recacheglyphs">
+<h3><code class="docutils literal notranslate"><span class="pre">recacheGlyphs</span></code><a class="headerlink" href="#recacheglyphs" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">recacheGlyphs()</span> <span class="pre">{</span> <span class="pre">m_glyphsMustRecache</span> <span class="pre">=</span> <span class="pre">true;</span> <span class="pre">}</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/uitextedit.mmd"><span class="xref myst">../diagrams/uitextedit.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-uitextedit">Klasa: <code class="docutils literal notranslate"><span class="pre">UITextEdit</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawself"><code class="docutils literal notranslate"><span class="pre">drawSelf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update"><code class="docutils literal notranslate"><span class="pre">update</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcursorpos"><code class="docutils literal notranslate"><span class="pre">setCursorPos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setselection"><code class="docutils literal notranslate"><span class="pre">setSelection</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcursorvisible"><code class="docutils literal notranslate"><span class="pre">setCursorVisible</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settexthidden"><code class="docutils literal notranslate"><span class="pre">setTextHidden</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setvalidcharacters"><code class="docutils literal notranslate"><span class="pre">setValidCharacters</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setshiftnavigation"><code class="docutils literal notranslate"><span class="pre">setShiftNavigation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setmultiline"><code class="docutils literal notranslate"><span class="pre">setMultiline</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setmaxlength"><code class="docutils literal notranslate"><span class="pre">setMaxLength</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settextvirtualoffset"><code class="docutils literal notranslate"><span class="pre">setTextVirtualOffset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seteditable"><code class="docutils literal notranslate"><span class="pre">setEditable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setselectable"><code class="docutils literal notranslate"><span class="pre">setSelectable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setselectioncolor"><code class="docutils literal notranslate"><span class="pre">setSelectionColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setselectionbackgroundcolor"><code class="docutils literal notranslate"><span class="pre">setSelectionBackgroundColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setautoscroll"><code class="docutils literal notranslate"><span class="pre">setAutoScroll</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setautosubmit"><code class="docutils literal notranslate"><span class="pre">setAutoSubmit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setplaceholder"><code class="docutils literal notranslate"><span class="pre">setPlaceholder</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setplaceholdercolor"><code class="docutils literal notranslate"><span class="pre">setPlaceholderColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setplaceholderalign"><code class="docutils literal notranslate"><span class="pre">setPlaceholderAlign</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setplaceholderfont"><code class="docutils literal notranslate"><span class="pre">setPlaceholderFont</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#movecursorhorizontally"><code class="docutils literal notranslate"><span class="pre">moveCursorHorizontally</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#movecursorvertically"><code class="docutils literal notranslate"><span class="pre">moveCursorVertically</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appendtext"><code class="docutils literal notranslate"><span class="pre">appendText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appendcharacter"><code class="docutils literal notranslate"><span class="pre">appendCharacter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removecharacter"><code class="docutils literal notranslate"><span class="pre">removeCharacter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blinkcursor"><code class="docutils literal notranslate"><span class="pre">blinkCursor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#del"><code class="docutils literal notranslate"><span class="pre">del</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paste"><code class="docutils literal notranslate"><span class="pre">paste</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy"><code class="docutils literal notranslate"><span class="pre">copy</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cut"><code class="docutils literal notranslate"><span class="pre">cut</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectall"><code class="docutils literal notranslate"><span class="pre">selectAll</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearselection"><code class="docutils literal notranslate"><span class="pre">clearSelection</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wraptext"><code class="docutils literal notranslate"><span class="pre">wrapText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdisplayedtext"><code class="docutils literal notranslate"><span class="pre">getDisplayedText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getselection"><code class="docutils literal notranslate"><span class="pre">getSelection</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettextpos"><code class="docutils literal notranslate"><span class="pre">getTextPos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcursorpos"><code class="docutils literal notranslate"><span class="pre">getCursorPos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettextvirtualoffset"><code class="docutils literal notranslate"><span class="pre">getTextVirtualOffset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettextvirtualsize"><code class="docutils literal notranslate"><span class="pre">getTextVirtualSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettexttotalsize"><code class="docutils literal notranslate"><span class="pre">getTextTotalSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmaxlength"><code class="docutils literal notranslate"><span class="pre">getMaxLength</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getselectionstart"><code class="docutils literal notranslate"><span class="pre">getSelectionStart</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getselectionend"><code class="docutils literal notranslate"><span class="pre">getSelectionEnd</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getselectioncolor"><code class="docutils literal notranslate"><span class="pre">getSelectionColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getselectionbackgroundcolor"><code class="docutils literal notranslate"><span class="pre">getSelectionBackgroundColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasselection"><code class="docutils literal notranslate"><span class="pre">hasSelection</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iscursorvisible"><code class="docutils literal notranslate"><span class="pre">isCursorVisible</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#istexthidden"><code class="docutils literal notranslate"><span class="pre">isTextHidden</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isshiftnavigation"><code class="docutils literal notranslate"><span class="pre">isShiftNavigation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ismultiline"><code class="docutils literal notranslate"><span class="pre">isMultiline</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iseditable"><code class="docutils literal notranslate"><span class="pre">isEditable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isselectable"><code class="docutils literal notranslate"><span class="pre">isSelectable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isautoscrolling"><code class="docutils literal notranslate"><span class="pre">isAutoScrolling</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatetext"><code class="docutils literal notranslate"><span class="pre">updateText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disableupdates"><code class="docutils literal notranslate"><span class="pre">disableUpdates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enableupdates"><code class="docutils literal notranslate"><span class="pre">enableUpdates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recacheglyphs"><code class="docutils literal notranslate"><span class="pre">recacheGlyphs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/ui/uitextedit.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

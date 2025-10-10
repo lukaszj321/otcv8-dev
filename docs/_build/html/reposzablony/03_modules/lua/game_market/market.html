@@ -1,0 +1,1230 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_market/market.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_market/market';</script>
+    <link rel="icon" href="../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_market/market.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-market-market-lua">
+<h1>game_market/market.lua<a class="headerlink" href="#game-market-market-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla market.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="market">
+<h3><code class="docutils literal notranslate"><span class="pre">Market</span></code><a class="headerlink" href="#market" title="Link to this heading">#</a></h3>
+</section>
+<section id="selectedoffer">
+<h3><code class="docutils literal notranslate"><span class="pre">selectedOffer</span></code><a class="headerlink" href="#selectedoffer" title="Link to this heading">#</a></h3>
+</section>
+<section id="selectedmyoffer">
+<h3><code class="docutils literal notranslate"><span class="pre">selectedMyOffer</span></code><a class="headerlink" href="#selectedmyoffer" title="Link to this heading">#</a></h3>
+</section>
+<section id="filterbuttons">
+<h3><code class="docutils literal notranslate"><span class="pre">filterButtons</span></code><a class="headerlink" href="#filterbuttons" title="Link to this heading">#</a></h3>
+</section>
+<section id="offerexhaust">
+<h3><code class="docutils literal notranslate"><span class="pre">offerExhaust</span></code><a class="headerlink" href="#offerexhaust" title="Link to this heading">#</a></h3>
+</section>
+<section id="marketoffers">
+<h3><code class="docutils literal notranslate"><span class="pre">marketOffers</span></code><a class="headerlink" href="#marketoffers" title="Link to this heading">#</a></h3>
+</section>
+<section id="marketitems">
+<h3><code class="docutils literal notranslate"><span class="pre">marketItems</span></code><a class="headerlink" href="#marketitems" title="Link to this heading">#</a></h3>
+</section>
+<section id="marketitemnames">
+<h3><code class="docutils literal notranslate"><span class="pre">marketItemNames</span></code><a class="headerlink" href="#marketitemnames" title="Link to this heading">#</a></h3>
+</section>
+<section id="information">
+<h3><code class="docutils literal notranslate"><span class="pre">information</span></code><a class="headerlink" href="#information" title="Link to this heading">#</a></h3>
+</section>
+<section id="currentitems">
+<h3><code class="docutils literal notranslate"><span class="pre">currentItems</span></code><a class="headerlink" href="#currentitems" title="Link to this heading">#</a></h3>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">currentItems</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">marketItemNames</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="isitemvalid-item-category-searchfilter">
+<h3><code class="docutils literal notranslate"><span class="pre">isItemValid(item,</span> <span class="pre">category,</span> <span class="pre">searchFilter)</span></code><a class="headerlink" href="#isitemvalid-item-category-searchfilter" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">item</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">category</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">searchFilter</span></code></p></li>
+</ul>
+</section>
+<section id="clearitems">
+<h3><code class="docutils literal notranslate"><span class="pre">clearItems()</span></code><a class="headerlink" href="#clearitems" title="Link to this heading">#</a></h3>
+</section>
+<section id="clearoffers">
+<h3><code class="docutils literal notranslate"><span class="pre">clearOffers()</span></code><a class="headerlink" href="#clearoffers" title="Link to this heading">#</a></h3>
+</section>
+<section id="clearmyoffers">
+<h3><code class="docutils literal notranslate"><span class="pre">clearMyOffers()</span></code><a class="headerlink" href="#clearmyoffers" title="Link to this heading">#</a></h3>
+</section>
+<section id="clearfilters">
+<h3><code class="docutils literal notranslate"><span class="pre">clearFilters()</span></code><a class="headerlink" href="#clearfilters" title="Link to this heading">#</a></h3>
+</section>
+<section id="clearfee">
+<h3><code class="docutils literal notranslate"><span class="pre">clearFee()</span></code><a class="headerlink" href="#clearfee" title="Link to this heading">#</a></h3>
+</section>
+<section id="refreshtypelist">
+<h3><code class="docutils literal notranslate"><span class="pre">refreshTypeList()</span></code><a class="headerlink" href="#refreshtypelist" title="Link to this heading">#</a></h3>
+</section>
+<section id="addoffer-offer-offertype">
+<h3><code class="docutils literal notranslate"><span class="pre">addOffer(offer,</span> <span class="pre">offerType)</span></code><a class="headerlink" href="#addoffer-offer-offertype" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">offer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offerType</span></code></p></li>
+</ul>
+</section>
+<section id="mergeoffer-offer">
+<h3><code class="docutils literal notranslate"><span class="pre">mergeOffer(offer)</span></code><a class="headerlink" href="#mergeoffer-offer" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">offer</span></code></p></li>
+</ul>
+</section>
+<section id="updateoffers-offers">
+<h3><code class="docutils literal notranslate"><span class="pre">updateOffers(offers)</span></code><a class="headerlink" href="#updateoffers-offers" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">offers</span></code></p></li>
+</ul>
+</section>
+<section id="updatehistoryoffers-offers">
+<h3><code class="docutils literal notranslate"><span class="pre">updateHistoryOffers(offers)</span></code><a class="headerlink" href="#updatehistoryoffers-offers" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">offers</span></code></p></li>
+</ul>
+</section>
+<section id="updatedetails-itemid-descriptions-purchasestats-salestats">
+<h3><code class="docutils literal notranslate"><span class="pre">updateDetails(itemId,</span> <span class="pre">descriptions,</span> <span class="pre">purchaseStats,</span> <span class="pre">saleStats)</span></code><a class="headerlink" href="#updatedetails-itemid-descriptions-purchasestats-salestats" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">itemId</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">descriptions</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">purchaseStats</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saleStats</span></code></p></li>
+</ul>
+</section>
+<section id="updateselecteditem-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">updateSelectedItem(widget)</span></code><a class="headerlink" href="#updateselecteditem-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="updatebalance-balance">
+<h3><code class="docutils literal notranslate"><span class="pre">updateBalance(balance)</span></code><a class="headerlink" href="#updatebalance-balance" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">balance</span></code></p></li>
+</ul>
+</section>
+<section id="updatefee-price-amount">
+<h3><code class="docutils literal notranslate"><span class="pre">updateFee(price,</span> <span class="pre">amount)</span></code><a class="headerlink" href="#updatefee-price-amount" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount</span></code></p></li>
+</ul>
+</section>
+<section id="destroyamountwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">destroyAmountWindow()</span></code><a class="headerlink" href="#destroyamountwindow" title="Link to this heading">#</a></h3>
+</section>
+<section id="cancelmyoffer-actiontype">
+<h3><code class="docutils literal notranslate"><span class="pre">cancelMyOffer(actionType)</span></code><a class="headerlink" href="#cancelmyoffer-actiontype" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">actionType</span></code></p></li>
+</ul>
+</section>
+<section id="openamountwindow-callback-actiontype-actiontext">
+<h3><code class="docutils literal notranslate"><span class="pre">openAmountWindow(callback,</span> <span class="pre">actionType,</span> <span class="pre">actionText)</span></code><a class="headerlink" href="#openamountwindow-callback-actiontype-actiontext" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actionType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actionText</span></code></p></li>
+</ul>
+</section>
+<section id="scrollbar-onvaluechange-widget-value">
+<h3><code class="docutils literal notranslate"><span class="pre">scrollbar.onValueChange(widget,</span> <span class="pre">value)</span></code><a class="headerlink" href="#scrollbar-onvaluechange-widget-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="onselectselloffer-table-selectedrow-previousselectedrow">
+<h3><code class="docutils literal notranslate"><span class="pre">onSelectSellOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code><a class="headerlink" href="#onselectselloffer-table-selectedrow-previousselectedrow" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selectedRow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">previousSelectedRow</span></code></p></li>
+</ul>
+</section>
+<section id="onselectbuyoffer-table-selectedrow-previousselectedrow">
+<h3><code class="docutils literal notranslate"><span class="pre">onSelectBuyOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code><a class="headerlink" href="#onselectbuyoffer-table-selectedrow-previousselectedrow" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selectedRow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">previousSelectedRow</span></code></p></li>
+</ul>
+</section>
+<section id="onselectmybuyoffer-table-selectedrow-previousselectedrow">
+<h3><code class="docutils literal notranslate"><span class="pre">onSelectMyBuyOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code><a class="headerlink" href="#onselectmybuyoffer-table-selectedrow-previousselectedrow" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selectedRow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">previousSelectedRow</span></code></p></li>
+</ul>
+</section>
+<section id="onselectmyselloffer-table-selectedrow-previousselectedrow">
+<h3><code class="docutils literal notranslate"><span class="pre">onSelectMySellOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code><a class="headerlink" href="#onselectmyselloffer-table-selectedrow-previousselectedrow" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selectedRow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">previousSelectedRow</span></code></p></li>
+</ul>
+</section>
+<section id="onchangecategory-combobox-option">
+<h3><code class="docutils literal notranslate"><span class="pre">onChangeCategory(combobox,</span> <span class="pre">option)</span></code><a class="headerlink" href="#onchangecategory-combobox-option" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">combobox</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">option</span></code></p></li>
+</ul>
+</section>
+<section id="onchangesubcategory-combobox-option">
+<h3><code class="docutils literal notranslate"><span class="pre">onChangeSubCategory(combobox,</span> <span class="pre">option)</span></code><a class="headerlink" href="#onchangesubcategory-combobox-option" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">combobox</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">option</span></code></p></li>
+</ul>
+</section>
+<section id="onchangeslotfilter-combobox-option">
+<h3><code class="docutils literal notranslate"><span class="pre">onChangeSlotFilter(combobox,</span> <span class="pre">option)</span></code><a class="headerlink" href="#onchangeslotfilter-combobox-option" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">combobox</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">option</span></code></p></li>
+</ul>
+</section>
+<section id="onchangeoffertype-combobox-option">
+<h3><code class="docutils literal notranslate"><span class="pre">onChangeOfferType(combobox,</span> <span class="pre">option)</span></code><a class="headerlink" href="#onchangeoffertype-combobox-option" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">combobox</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">option</span></code></p></li>
+</ul>
+</section>
+<section id="ontotalpricechange">
+<h3><code class="docutils literal notranslate"><span class="pre">onTotalPriceChange()</span></code><a class="headerlink" href="#ontotalpricechange" title="Link to this heading">#</a></h3>
+</section>
+<section id="onpiecepricechange">
+<h3><code class="docutils literal notranslate"><span class="pre">onPiecePriceChange()</span></code><a class="headerlink" href="#onpiecepricechange" title="Link to this heading">#</a></h3>
+</section>
+<section id="onamountchange">
+<h3><code class="docutils literal notranslate"><span class="pre">onAmountChange()</span></code><a class="headerlink" href="#onamountchange" title="Link to this heading">#</a></h3>
+</section>
+<section id="onmarketmessage-messagemode-message">
+<h3><code class="docutils literal notranslate"><span class="pre">onMarketMessage(messageMode,</span> <span class="pre">message)</span></code><a class="headerlink" href="#onmarketmessage-messagemode-message" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">messageMode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></li>
+</ul>
+</section>
+<section id="initmarketitems-items">
+<h3><code class="docutils literal notranslate"><span class="pre">initMarketItems(items)</span></code><a class="headerlink" href="#initmarketitems-items" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">items</span></code></p></li>
+</ul>
+</section>
+<section id="initinterface">
+<h3><code class="docutils literal notranslate"><span class="pre">initInterface()</span></code><a class="headerlink" href="#initinterface" title="Link to this heading">#</a></h3>
+</section>
+<section id="maintabbar-ontabchange-widget-tab">
+<h3><code class="docutils literal notranslate"><span class="pre">mainTabBar.onTabChange(widget,</span> <span class="pre">tab)</span></code><a class="headerlink" href="#maintabbar-ontabchange-widget-tab" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tab</span></code></p></li>
+</ul>
+</section>
+<section id="offerstabbar-ontabchange-widget-tab">
+<h3><code class="docutils literal notranslate"><span class="pre">offersTabBar.onTabChange(widget,</span> <span class="pre">tab)</span></code><a class="headerlink" href="#offerstabbar-ontabchange-widget-tab" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tab</span></code></p></li>
+</ul>
+</section>
+<section id="buybutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">buyButton.onClick()</span></code><a class="headerlink" href="#buybutton-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="sellbutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">sellButton.onClick()</span></code><a class="headerlink" href="#sellbutton-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="buycancelbutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">buyCancelButton.onClick()</span></code><a class="headerlink" href="#buycancelbutton-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="sellcancelbutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">sellCancelButton.onClick()</span></code><a class="headerlink" href="#sellcancelbutton-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init()</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate()</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-reset">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.reset()</span></code><a class="headerlink" href="#market-reset" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-updatecategories">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.updateCategories()</span></code><a class="headerlink" href="#market-updatecategories" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-displaymessage-message">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.displayMessage(message)</span></code><a class="headerlink" href="#market-displaymessage-message" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></li>
+</ul>
+</section>
+<section id="market-clearselecteditem">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.clearSelectedItem()</span></code><a class="headerlink" href="#market-clearselecteditem" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-isitemselected">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.isItemSelected()</span></code><a class="headerlink" href="#market-isitemselected" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-isofferselected-type">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.isOfferSelected(type)</span></code><a class="headerlink" href="#market-isofferselected-type" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></li>
+</ul>
+</section>
+<section id="market-getdepotcount-itemid">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.getDepotCount(itemId)</span></code><a class="headerlink" href="#market-getdepotcount-itemid" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">itemId</span></code></p></li>
+</ul>
+</section>
+<section id="market-enablecreateoffer-enable">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.enableCreateOffer(enable)</span></code><a class="headerlink" href="#market-enablecreateoffer-enable" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code></p></li>
+</ul>
+</section>
+<section id="market-close-notify">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.close(notify)</span></code><a class="headerlink" href="#market-close-notify" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">notify</span></code></p></li>
+</ul>
+</section>
+<section id="market-incrementamount">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.incrementAmount()</span></code><a class="headerlink" href="#market-incrementamount" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-decrementamount">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.decrementAmount()</span></code><a class="headerlink" href="#market-decrementamount" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-updatecurrentitems">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.updateCurrentItems()</span></code><a class="headerlink" href="#market-updatecurrentitems" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-resetcreateoffer-resetfee">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.resetCreateOffer(resetFee)</span></code><a class="headerlink" href="#market-resetcreateoffer-resetfee" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">resetFee</span></code></p></li>
+</ul>
+</section>
+<section id="market-refreshitemswidget-selectitem">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.refreshItemsWidget(selectItem)</span></code><a class="headerlink" href="#market-refreshitemswidget-selectitem" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">selectItem</span></code></p></li>
+</ul>
+</section>
+<section id="market-refreshoffers">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.refreshOffers()</span></code><a class="headerlink" href="#market-refreshoffers" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-refreshmyoffers">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.refreshMyOffers()</span></code><a class="headerlink" href="#market-refreshmyoffers" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-refreshmyoffershistory">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.refreshMyOffersHistory()</span></code><a class="headerlink" href="#market-refreshmyoffershistory" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-loadmarketitems-category">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.loadMarketItems(category)</span></code><a class="headerlink" href="#market-loadmarketitems-category" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">category</span></code></p></li>
+</ul>
+</section>
+<section id="market-createnewoffer">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.createNewOffer()</span></code><a class="headerlink" href="#market-createnewoffer" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-acceptmarketoffer-amount-timestamp-counter">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.acceptMarketOffer(amount,</span> <span class="pre">timestamp,</span> <span class="pre">counter)</span></code><a class="headerlink" href="#market-acceptmarketoffer-amount-timestamp-counter" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">amount</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">counter</span></code></p></li>
+</ul>
+</section>
+<section id="market-onitemboxchecked-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.onItemBoxChecked(widget)</span></code><a class="headerlink" href="#market-onitemboxchecked-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="market-onmarketenter-depotitems-offers-balance-vocation-items">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.onMarketEnter(depotItems,</span> <span class="pre">offers,</span> <span class="pre">balance,</span> <span class="pre">vocation,</span> <span class="pre">items)</span></code><a class="headerlink" href="#market-onmarketenter-depotitems-offers-balance-vocation-items" title="Link to this heading">#</a></h3>
+<p>protocol callback functions</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">depotItems</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">balance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vocation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">items</span></code></p></li>
+</ul>
+</section>
+<section id="market-onmarketleave">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.onMarketLeave()</span></code><a class="headerlink" href="#market-onmarketleave" title="Link to this heading">#</a></h3>
+</section>
+<section id="market-onmarketdetail-itemid-descriptions-purchasestats-salestats">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.onMarketDetail(itemId,</span> <span class="pre">descriptions,</span> <span class="pre">purchaseStats,</span> <span class="pre">saleStats)</span></code><a class="headerlink" href="#market-onmarketdetail-itemid-descriptions-purchasestats-salestats" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">itemId</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">descriptions</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">purchaseStats</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saleStats</span></code></p></li>
+</ul>
+</section>
+<section id="market-onmarketbrowse-offers-offerstype">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.onMarketBrowse(offers,</span> <span class="pre">offersType)</span></code><a class="headerlink" href="#market-onmarketbrowse-offers-offerstype" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">offers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offersType</span></code></p></li>
+</ul>
+</section>
+<section id="market-oncoinbalance-coins-transferablecoins">
+<h3><code class="docutils literal notranslate"><span class="pre">Market.onCoinBalance(coins,</span> <span class="pre">transferableCoins)</span></code><a class="headerlink" href="#market-oncoinbalance-coins-transferablecoins" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coins</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transferableCoins</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="s">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#s" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">offerTypeList:clearOptions()</span></code></p>
+</section>
+<section id="name">
+<h3><code class="docutils literal notranslate"><span class="pre">Name</span></code><a class="headerlink" href="#name" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">{text</span> <span class="pre">=</span> <span class="pre">getMarketDescriptionName(desc[1])..':'},</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">transactions</span> <span class="pre">=</span> <span class="pre">transactions</span> <span class="pre">+</span> <span class="pre">stat:getTransactions()</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">transactions</span> <span class="pre">=</span> <span class="pre">transactions</span> <span class="pre">+</span> <span class="pre">stat:getTransactions()</span></code></p>
+</section>
+<section id="umber">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#umber" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">balance</span> <span class="pre">=</span> <span class="pre">tonumber(balance)</span></code></p>
+</section>
+<section id="createwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#createwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">amountWindow</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('AmountWindow',</span> <span class="pre">rootWidget)</span></code></p>
+</section>
+<section id="selectselloffer">
+<h3><code class="docutils literal notranslate"><span class="pre">SelectSellOffer</span></code><a class="headerlink" href="#selectselloffer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onSelectSellOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></p>
+</section>
+<section id="selectbuyoffer">
+<h3><code class="docutils literal notranslate"><span class="pre">SelectBuyOffer</span></code><a class="headerlink" href="#selectbuyoffer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onSelectBuyOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></p>
+</section>
+<section id="selectmybuyoffer">
+<h3><code class="docutils literal notranslate"><span class="pre">SelectMyBuyOffer</span></code><a class="headerlink" href="#selectmybuyoffer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onSelectMyBuyOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></p>
+</section>
+<section id="selectmyselloffer">
+<h3><code class="docutils literal notranslate"><span class="pre">SelectMySellOffer</span></code><a class="headerlink" href="#selectmyselloffer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onSelectMySellOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></p>
+</section>
+<section id="changecategory">
+<h3><code class="docutils literal notranslate"><span class="pre">ChangeCategory</span></code><a class="headerlink" href="#changecategory" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onChangeCategory(combobox,</span> <span class="pre">option)</span></code></p>
+</section>
+<section id="changesubcategory">
+<h3><code class="docutils literal notranslate"><span class="pre">ChangeSubCategory</span></code><a class="headerlink" href="#changesubcategory" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onChangeSubCategory(combobox,</span> <span class="pre">option)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">slotFilterList:clearOptions()</span></code></p>
+</section>
+<section id="changeslotfilter">
+<h3><code class="docutils literal notranslate"><span class="pre">ChangeSlotFilter</span></code><a class="headerlink" href="#changeslotfilter" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onChangeSlotFilter(combobox,</span> <span class="pre">option)</span></code></p>
+</section>
+<section id="changeoffertype">
+<h3><code class="docutils literal notranslate"><span class="pre">ChangeOfferType</span></code><a class="headerlink" href="#changeoffertype" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onChangeOfferType(combobox,</span> <span class="pre">option)</span></code></p>
+</section>
+<section id="totalpricechange">
+<h3><code class="docutils literal notranslate"><span class="pre">TotalPriceChange</span></code><a class="headerlink" href="#totalpricechange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onTotalPriceChange()</span></code></p>
+</section>
+<section id="piecepricechange">
+<h3><code class="docutils literal notranslate"><span class="pre">PiecePriceChange</span></code><a class="headerlink" href="#piecepricechange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onPiecePriceChange()</span></code></p>
+</section>
+<section id="amountchange">
+<h3><code class="docutils literal notranslate"><span class="pre">AmountChange</span></code><a class="headerlink" href="#amountchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onAmountChange()</span></code></p>
+</section>
+<section id="marketmessage">
+<h3><code class="docutils literal notranslate"><span class="pre">MarketMessage</span></code><a class="headerlink" href="#marketmessage" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onMarketMessage(messageMode,</span> <span class="pre">message)</span></code></p>
+</section>
+<section id="tentwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code><a class="headerlink" href="#tentwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">mainTabBar:setContentWidget(marketWindow:getChildById('mainTabContent'))</span></code></p>
+</section>
+<section id="loadui">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#loadui" title="Link to this heading">#</a></h3>
+<p>setup «Market Offer» section tabs</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">marketOffersPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/marketoffers')</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">selectionTabBar:setContentWidget(marketOffersPanel:getChildById('leftTabContent'))</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">browsePanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/marketoffers/browse')</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Currently not used „Reserved for more functionality later”</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--overviewPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/marketoffers/overview')</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">displaysTabBar:setContentWidget(marketOffersPanel:getChildById('rightTabContent'))</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">itemStatsPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/marketoffers/itemstats')</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">itemDetailsPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/marketoffers/itemdetails')</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">itemOffersPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/marketoffers/itemoffers')</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>setup «My Offer» section tabs</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">myOffersPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/myoffers')</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">offersTabBar:setContentWidget(myOffersPanel:getChildById('offersTabContent'))</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">currentOffersPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/myoffers/currentoffers')</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">offerHistoryPanel</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('ui/myoffers/offerhistory')</span></code></p>
+</section>
+<section id="importstyle">
+<h3><code class="docutils literal notranslate"><span class="pre">importStyle</span></code><a class="headerlink" href="#importstyle" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.importStyle('market')</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">importStyle</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.importStyle('ui/general/markettabs')</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">importStyle</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.importStyle('ui/general/marketbuttons')</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">importStyle</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.importStyle('ui/general/marketcombobox')</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">importStyle</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.importStyle('ui/general/amountwindow')</span></code></p>
+</section>
+<section id="g-game">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#g-game" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameEnd</span> <span class="pre">=</span> <span class="pre">Market.reset</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameEnd</span> <span class="pre">=</span> <span class="pre">Market.close</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameStart</span> <span class="pre">=</span> <span class="pre">Market.updateCategories</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span> <span class="pre">onCoinBalance</span> <span class="pre">=</span> <span class="pre">Market.onCoinBalance</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id24">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">marketWindow</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('MarketWindow',</span> <span class="pre">rootWidget)</span></code></p>
+</section>
+<section id="id25">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameEnd</span> <span class="pre">=</span> <span class="pre">Market.reset</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id26">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameEnd</span> <span class="pre">=</span> <span class="pre">Market.close</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id27">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span> <span class="pre">onGameStart</span> <span class="pre">=</span> <span class="pre">Market.updateCategories</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id28">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span> <span class="pre">onCoinBalance</span> <span class="pre">=</span> <span class="pre">Market.onCoinBalance</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id29">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">categoryList:clearOptions()</span></code></p>
+</section>
+<section id="id30">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">subCategoryList:clearOptions()</span></code></p>
+</section>
+<section id="id31">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">offerTypeList:clearOptions()</span></code></p>
+</section>
+<section id="id32">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">itemBox</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('MarketItemBox',</span> <span class="pre">itemsPanel)</span></code></p>
+</section>
+<section id="itemboxchecked">
+<h3><code class="docutils literal notranslate"><span class="pre">ItemBoxChecked</span></code><a class="headerlink" href="#itemboxchecked" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">Market.onItemBoxChecked(selectedItem.ref)</span></code></p>
+</section>
+<section id="id33">
+<h3><code class="docutils literal notranslate"><span class="pre">ItemBoxChecked</span></code><a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">Market.onItemBoxChecked(widget)</span></code></p>
+</section>
+<section id="marketenter">
+<h3><code class="docutils literal notranslate"><span class="pre">MarketEnter</span></code><a class="headerlink" href="#marketenter" title="Link to this heading">#</a></h3>
+<p>protocol callback functions</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">Market.onMarketEnter(depotItems,</span> <span class="pre">offers,</span> <span class="pre">balance,</span> <span class="pre">vocation,</span> <span class="pre">items)</span></code></p>
+</section>
+<section id="marketleave">
+<h3><code class="docutils literal notranslate"><span class="pre">MarketLeave</span></code><a class="headerlink" href="#marketleave" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">Market.onMarketLeave()</span></code></p>
+</section>
+<section id="marketdetail">
+<h3><code class="docutils literal notranslate"><span class="pre">MarketDetail</span></code><a class="headerlink" href="#marketdetail" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">Market.onMarketDetail(itemId,</span> <span class="pre">descriptions,</span> <span class="pre">purchaseStats,</span> <span class="pre">saleStats)</span></code></p>
+</section>
+<section id="marketbrowse">
+<h3><code class="docutils literal notranslate"><span class="pre">MarketBrowse</span></code><a class="headerlink" href="#marketbrowse" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">Market.onMarketBrowse(offers,</span> <span class="pre">offersType)</span></code></p>
+</section>
+<section id="coinbalance">
+<h3><code class="docutils literal notranslate"><span class="pre">CoinBalance</span></code><a class="headerlink" href="#coinbalance" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">Market.onCoinBalance(coins,</span> <span class="pre">transferableCoins)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market"><code class="docutils literal notranslate"><span class="pre">Market</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectedoffer"><code class="docutils literal notranslate"><span class="pre">selectedOffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectedmyoffer"><code class="docutils literal notranslate"><span class="pre">selectedMyOffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filterbuttons"><code class="docutils literal notranslate"><span class="pre">filterButtons</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offerexhaust"><code class="docutils literal notranslate"><span class="pre">offerExhaust</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketoffers"><code class="docutils literal notranslate"><span class="pre">marketOffers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketitems"><code class="docutils literal notranslate"><span class="pre">marketItems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketitemnames"><code class="docutils literal notranslate"><span class="pre">marketItemNames</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#information"><code class="docutils literal notranslate"><span class="pre">information</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#currentitems"><code class="docutils literal notranslate"><span class="pre">currentItems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">currentItems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">marketItemNames</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isitemvalid-item-category-searchfilter"><code class="docutils literal notranslate"><span class="pre">isItemValid(item,</span> <span class="pre">category,</span> <span class="pre">searchFilter)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearitems"><code class="docutils literal notranslate"><span class="pre">clearItems()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearoffers"><code class="docutils literal notranslate"><span class="pre">clearOffers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearmyoffers"><code class="docutils literal notranslate"><span class="pre">clearMyOffers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearfilters"><code class="docutils literal notranslate"><span class="pre">clearFilters()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearfee"><code class="docutils literal notranslate"><span class="pre">clearFee()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refreshtypelist"><code class="docutils literal notranslate"><span class="pre">refreshTypeList()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addoffer-offer-offertype"><code class="docutils literal notranslate"><span class="pre">addOffer(offer,</span> <span class="pre">offerType)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mergeoffer-offer"><code class="docutils literal notranslate"><span class="pre">mergeOffer(offer)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateoffers-offers"><code class="docutils literal notranslate"><span class="pre">updateOffers(offers)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatehistoryoffers-offers"><code class="docutils literal notranslate"><span class="pre">updateHistoryOffers(offers)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatedetails-itemid-descriptions-purchasestats-salestats"><code class="docutils literal notranslate"><span class="pre">updateDetails(itemId,</span> <span class="pre">descriptions,</span> <span class="pre">purchaseStats,</span> <span class="pre">saleStats)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateselecteditem-widget"><code class="docutils literal notranslate"><span class="pre">updateSelectedItem(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatebalance-balance"><code class="docutils literal notranslate"><span class="pre">updateBalance(balance)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatefee-price-amount"><code class="docutils literal notranslate"><span class="pre">updateFee(price,</span> <span class="pre">amount)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#destroyamountwindow"><code class="docutils literal notranslate"><span class="pre">destroyAmountWindow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cancelmyoffer-actiontype"><code class="docutils literal notranslate"><span class="pre">cancelMyOffer(actionType)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openamountwindow-callback-actiontype-actiontext"><code class="docutils literal notranslate"><span class="pre">openAmountWindow(callback,</span> <span class="pre">actionType,</span> <span class="pre">actionText)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scrollbar-onvaluechange-widget-value"><code class="docutils literal notranslate"><span class="pre">scrollbar.onValueChange(widget,</span> <span class="pre">value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onselectselloffer-table-selectedrow-previousselectedrow"><code class="docutils literal notranslate"><span class="pre">onSelectSellOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onselectbuyoffer-table-selectedrow-previousselectedrow"><code class="docutils literal notranslate"><span class="pre">onSelectBuyOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onselectmybuyoffer-table-selectedrow-previousselectedrow"><code class="docutils literal notranslate"><span class="pre">onSelectMyBuyOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onselectmyselloffer-table-selectedrow-previousselectedrow"><code class="docutils literal notranslate"><span class="pre">onSelectMySellOffer(table,</span> <span class="pre">selectedRow,</span> <span class="pre">previousSelectedRow)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onchangecategory-combobox-option"><code class="docutils literal notranslate"><span class="pre">onChangeCategory(combobox,</span> <span class="pre">option)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onchangesubcategory-combobox-option"><code class="docutils literal notranslate"><span class="pre">onChangeSubCategory(combobox,</span> <span class="pre">option)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onchangeslotfilter-combobox-option"><code class="docutils literal notranslate"><span class="pre">onChangeSlotFilter(combobox,</span> <span class="pre">option)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onchangeoffertype-combobox-option"><code class="docutils literal notranslate"><span class="pre">onChangeOfferType(combobox,</span> <span class="pre">option)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontotalpricechange"><code class="docutils literal notranslate"><span class="pre">onTotalPriceChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpiecepricechange"><code class="docutils literal notranslate"><span class="pre">onPiecePriceChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onamountchange"><code class="docutils literal notranslate"><span class="pre">onAmountChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onmarketmessage-messagemode-message"><code class="docutils literal notranslate"><span class="pre">onMarketMessage(messageMode,</span> <span class="pre">message)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initmarketitems-items"><code class="docutils literal notranslate"><span class="pre">initMarketItems(items)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initinterface"><code class="docutils literal notranslate"><span class="pre">initInterface()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maintabbar-ontabchange-widget-tab"><code class="docutils literal notranslate"><span class="pre">mainTabBar.onTabChange(widget,</span> <span class="pre">tab)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offerstabbar-ontabchange-widget-tab"><code class="docutils literal notranslate"><span class="pre">offersTabBar.onTabChange(widget,</span> <span class="pre">tab)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buybutton-onclick"><code class="docutils literal notranslate"><span class="pre">buyButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sellbutton-onclick"><code class="docutils literal notranslate"><span class="pre">sellButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buycancelbutton-onclick"><code class="docutils literal notranslate"><span class="pre">buyCancelButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sellcancelbutton-onclick"><code class="docutils literal notranslate"><span class="pre">sellCancelButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-reset"><code class="docutils literal notranslate"><span class="pre">Market.reset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-updatecategories"><code class="docutils literal notranslate"><span class="pre">Market.updateCategories()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-displaymessage-message"><code class="docutils literal notranslate"><span class="pre">Market.displayMessage(message)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-clearselecteditem"><code class="docutils literal notranslate"><span class="pre">Market.clearSelectedItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-isitemselected"><code class="docutils literal notranslate"><span class="pre">Market.isItemSelected()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-isofferselected-type"><code class="docutils literal notranslate"><span class="pre">Market.isOfferSelected(type)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-getdepotcount-itemid"><code class="docutils literal notranslate"><span class="pre">Market.getDepotCount(itemId)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-enablecreateoffer-enable"><code class="docutils literal notranslate"><span class="pre">Market.enableCreateOffer(enable)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-close-notify"><code class="docutils literal notranslate"><span class="pre">Market.close(notify)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-incrementamount"><code class="docutils literal notranslate"><span class="pre">Market.incrementAmount()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-decrementamount"><code class="docutils literal notranslate"><span class="pre">Market.decrementAmount()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-updatecurrentitems"><code class="docutils literal notranslate"><span class="pre">Market.updateCurrentItems()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-resetcreateoffer-resetfee"><code class="docutils literal notranslate"><span class="pre">Market.resetCreateOffer(resetFee)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-refreshitemswidget-selectitem"><code class="docutils literal notranslate"><span class="pre">Market.refreshItemsWidget(selectItem)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-refreshoffers"><code class="docutils literal notranslate"><span class="pre">Market.refreshOffers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-refreshmyoffers"><code class="docutils literal notranslate"><span class="pre">Market.refreshMyOffers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-refreshmyoffershistory"><code class="docutils literal notranslate"><span class="pre">Market.refreshMyOffersHistory()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-loadmarketitems-category"><code class="docutils literal notranslate"><span class="pre">Market.loadMarketItems(category)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-createnewoffer"><code class="docutils literal notranslate"><span class="pre">Market.createNewOffer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-acceptmarketoffer-amount-timestamp-counter"><code class="docutils literal notranslate"><span class="pre">Market.acceptMarketOffer(amount,</span> <span class="pre">timestamp,</span> <span class="pre">counter)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-onitemboxchecked-widget"><code class="docutils literal notranslate"><span class="pre">Market.onItemBoxChecked(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-onmarketenter-depotitems-offers-balance-vocation-items"><code class="docutils literal notranslate"><span class="pre">Market.onMarketEnter(depotItems,</span> <span class="pre">offers,</span> <span class="pre">balance,</span> <span class="pre">vocation,</span> <span class="pre">items)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-onmarketleave"><code class="docutils literal notranslate"><span class="pre">Market.onMarketLeave()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-onmarketdetail-itemid-descriptions-purchasestats-salestats"><code class="docutils literal notranslate"><span class="pre">Market.onMarketDetail(itemId,</span> <span class="pre">descriptions,</span> <span class="pre">purchaseStats,</span> <span class="pre">saleStats)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-onmarketbrowse-offers-offerstype"><code class="docutils literal notranslate"><span class="pre">Market.onMarketBrowse(offers,</span> <span class="pre">offersType)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-oncoinbalance-coins-transferablecoins"><code class="docutils literal notranslate"><span class="pre">Market.onCoinBalance(coins,</span> <span class="pre">transferableCoins)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name"><code class="docutils literal notranslate"><span class="pre">Name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umber"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createwidget"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectselloffer"><code class="docutils literal notranslate"><span class="pre">SelectSellOffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectbuyoffer"><code class="docutils literal notranslate"><span class="pre">SelectBuyOffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectmybuyoffer"><code class="docutils literal notranslate"><span class="pre">SelectMyBuyOffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectmyselloffer"><code class="docutils literal notranslate"><span class="pre">SelectMySellOffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changecategory"><code class="docutils literal notranslate"><span class="pre">ChangeCategory</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changesubcategory"><code class="docutils literal notranslate"><span class="pre">ChangeSubCategory</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changeslotfilter"><code class="docutils literal notranslate"><span class="pre">ChangeSlotFilter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changeoffertype"><code class="docutils literal notranslate"><span class="pre">ChangeOfferType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#totalpricechange"><code class="docutils literal notranslate"><span class="pre">TotalPriceChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#piecepricechange"><code class="docutils literal notranslate"><span class="pre">PiecePriceChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amountchange"><code class="docutils literal notranslate"><span class="pre">AmountChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketmessage"><code class="docutils literal notranslate"><span class="pre">MarketMessage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tentwidget"><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadui"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">tentWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importstyle"><code class="docutils literal notranslate"><span class="pre">importStyle</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">importStyle</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">importStyle</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">importStyle</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">importStyle</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-game"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itemboxchecked"><code class="docutils literal notranslate"><span class="pre">ItemBoxChecked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33"><code class="docutils literal notranslate"><span class="pre">ItemBoxChecked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketenter"><code class="docutils literal notranslate"><span class="pre">MarketEnter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketleave"><code class="docutils literal notranslate"><span class="pre">MarketLeave</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketdetail"><code class="docutils literal notranslate"><span class="pre">MarketDetail</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketbrowse"><code class="docutils literal notranslate"><span class="pre">MarketBrowse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coinbalance"><code class="docutils literal notranslate"><span class="pre">CoinBalance</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/game_market/market.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

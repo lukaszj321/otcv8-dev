@@ -1,0 +1,2879 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Moduł: | Moduł: client_entergame &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/dev_tools/modul-client-entergame';</script>
+    <link rel="icon" href="../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_entergame</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-client-entergame">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_entergame</span></code><a class="headerlink" href="#modul-modul-client-entergame" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">CharacterList</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="c1">-- private variables</span>
+
+<span class="kd">local</span> <span class="n">charactersWindow</span>
+
+<span class="kd">local</span> <span class="n">loadBox</span>
+
+<span class="kd">local</span> <span class="n">characterList</span>
+
+<span class="kd">local</span> <span class="n">errorBox</span>
+
+<span class="kd">local</span> <span class="n">waitingWindow</span>
+
+<span class="kd">local</span> <span class="n">autoReconnectButton</span>
+
+<span class="kd">local</span> <span class="n">updateWaitEvent</span>
+
+<span class="kd">local</span> <span class="n">resendWaitEvent</span>
+
+<span class="kd">local</span> <span class="n">loginEvent</span>
+
+<span class="kd">local</span> <span class="n">autoReconnectEvent</span>
+
+<span class="kd">local</span> <span class="n">lastLogout</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">-- private functions</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">tryLogin</span><span class="p">(</span><span class="n">charInfo</span><span class="p">,</span> <span class="n">tries</span><span class="p">)</span>
+
+  <span class="n">tries</span> <span class="o">=</span> <span class="n">tries</span> <span class="ow">or</span> <span class="mi">1</span>
+
+  <span class="kr">if</span> <span class="n">tries</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="kr">then</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">if</span> <span class="n">tries</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span>
+
+      <span class="n">g_game</span><span class="p">.</span><span class="n">safeLogout</span><span class="p">()</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">loginEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="n">tryLogin</span><span class="p">(</span><span class="n">charInfo</span><span class="p">,</span> <span class="n">tries</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="kr">end</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">hide</span><span class="p">()</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">loginWorld</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">account</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">password</span><span class="p">,</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">worldName</span><span class="p">,</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">worldHost</span><span class="p">,</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">worldPort</span><span class="p">,</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">characterName</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">authenticatorToken</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">sessionKey</span><span class="p">)</span>
+
+  <span class="n">g_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Login to &quot;</span> <span class="o">..</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">worldHost</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">worldPort</span><span class="p">)</span>
+
+  <span class="n">loadBox</span> <span class="o">=</span> <span class="n">displayCancelBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Please wait&#39;</span><span class="p">),</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Connecting to game server...&#39;</span><span class="p">))</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">loadBox</span><span class="p">,</span> <span class="p">{</span> <span class="n">onCancel</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+                                  <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+                                  <span class="n">g_game</span><span class="p">.</span><span class="n">cancelLogin</span><span class="p">()</span>
+
+                                  <span class="n">CharacterList</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+                                <span class="kr">end</span> <span class="p">})</span>
+
+  <span class="c1">-- save last used character</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;last-used-character&#39;</span><span class="p">,</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">characterName</span><span class="p">)</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;last-used-world&#39;</span><span class="p">,</span> <span class="n">charInfo</span><span class="p">.</span><span class="n">worldName</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">updateWait</span><span class="p">(</span><span class="n">timeStart</span><span class="p">,</span> <span class="n">timeEnd</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">waitingWindow</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">time</span> <span class="o">=</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">seconds</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="n">timeEnd</span> <span class="kr">then</span>
+
+      <span class="kd">local</span> <span class="n">percent</span> <span class="o">=</span> <span class="p">((</span><span class="n">time</span> <span class="o">-</span> <span class="n">timeStart</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">timeEnd</span> <span class="o">-</span> <span class="n">timeStart</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+      <span class="kd">local</span> <span class="n">timeStr</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%.0f&quot;</span><span class="p">,</span> <span class="n">timeEnd</span> <span class="o">-</span> <span class="n">time</span><span class="p">)</span>
+
+      <span class="kd">local</span> <span class="n">progressBar</span> <span class="o">=</span> <span class="n">waitingWindow</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;progressBar&#39;</span><span class="p">)</span>
+
+      <span class="n">progressBar</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="n">percent</span><span class="p">)</span>
+
+      <span class="kd">local</span> <span class="n">label</span> <span class="o">=</span> <span class="n">waitingWindow</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;timeLabel&#39;</span><span class="p">)</span>
+
+      <span class="n">label</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Trying to reconnect in %s seconds.&#39;</span><span class="p">,</span> <span class="n">timeStr</span><span class="p">))</span>
+
+      <span class="n">updateWaitEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="n">updateWait</span><span class="p">(</span><span class="n">timeStart</span><span class="p">,</span> <span class="n">timeEnd</span><span class="p">)</span> <span class="kr">end</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">progressBar</span><span class="p">:</span><span class="n">getPercentPixels</span><span class="p">()</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">timeEnd</span> <span class="o">-</span> <span class="n">timeStart</span><span class="p">))</span>
+
+      <span class="kr">return</span> <span class="kc">true</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">updateWaitEvent</span> <span class="kr">then</span>
+
+    <span class="n">updateWaitEvent</span><span class="p">:</span><span class="n">cancel</span><span class="p">()</span>
+
+    <span class="n">updateWaitEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">resendWait</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">waitingWindow</span> <span class="kr">then</span>
+
+    <span class="n">waitingWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">waitingWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="kr">if</span> <span class="n">updateWaitEvent</span> <span class="kr">then</span>
+
+      <span class="n">updateWaitEvent</span><span class="p">:</span><span class="n">cancel</span><span class="p">()</span>
+
+      <span class="n">updateWaitEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">charactersWindow</span> <span class="kr">then</span>
+
+      <span class="kd">local</span> <span class="n">selected</span> <span class="o">=</span> <span class="n">characterList</span><span class="p">:</span><span class="n">getFocusedChild</span><span class="p">()</span>
+
+      <span class="kr">if</span> <span class="n">selected</span> <span class="kr">then</span>
+
+        <span class="kd">local</span> <span class="n">charInfo</span> <span class="o">=</span> <span class="p">{</span> <span class="n">worldHost</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">worldHost</span><span class="p">,</span>
+
+                           <span class="n">worldPort</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">worldPort</span><span class="p">,</span>
+
+                           <span class="n">worldName</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">worldName</span><span class="p">,</span>
+
+                           <span class="n">characterName</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">characterName</span> <span class="p">}</span>
+
+        <span class="n">tryLogin</span><span class="p">(</span><span class="n">charInfo</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onLoginWait</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span><span class="p">()</span>
+
+  <span class="n">waitingWindow</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">displayUI</span><span class="p">(</span><span class="s1">&#39;waitinglist&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">label</span> <span class="o">=</span> <span class="n">waitingWindow</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;infoLabel&#39;</span><span class="p">)</span>
+
+  <span class="n">label</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+  <span class="n">updateWaitEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="n">updateWait</span><span class="p">(</span><span class="n">g_clock</span><span class="p">.</span><span class="n">seconds</span><span class="p">(),</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">seconds</span><span class="p">()</span> <span class="o">+</span> <span class="n">time</span><span class="p">)</span> <span class="kr">end</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">resendWaitEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="n">resendWait</span><span class="p">,</span> <span class="n">time</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onGameLoginError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span><span class="p">()</span>
+
+  <span class="n">errorBox</span> <span class="o">=</span> <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Login Error&quot;</span><span class="p">),</span> <span class="n">message</span><span class="p">)</span>
+
+  <span class="n">errorBox</span><span class="p">.</span><span class="n">onOk</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">errorBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">CharacterList</span><span class="p">.</span><span class="n">showAgain</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">scheduleAutoReconnect</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onGameLoginToken</span><span class="p">(</span><span class="n">unknown</span><span class="p">)</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span><span class="p">()</span>
+
+  <span class="c1">-- TODO: make it possible to enter a new token here / prompt token</span>
+
+  <span class="n">errorBox</span> <span class="o">=</span> <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Two-Factor Authentification&quot;</span><span class="p">),</span> <span class="s1">&#39;A new authentification token is required.</span><span class="se">\n</span><span class="s1">Please login again.&#39;</span><span class="p">)</span>
+
+  <span class="n">errorBox</span><span class="p">.</span><span class="n">onOk</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">errorBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onGameConnectionError</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="ow">or</span> <span class="n">code</span> <span class="o">~=</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">errorBox</span> <span class="kr">then</span> <span class="c1">-- code 2 is normal disconnect, end of file</span>
+
+    <span class="kd">local</span> <span class="n">text</span> <span class="o">=</span> <span class="n">translateNetworkError</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getProtocolGame</span><span class="p">()</span> <span class="ow">and</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getProtocolGame</span><span class="p">():</span><span class="n">isConnecting</span><span class="p">(),</span> <span class="n">message</span><span class="p">)</span>
+
+    <span class="n">errorBox</span> <span class="o">=</span> <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Connection Error&quot;</span><span class="p">),</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="n">errorBox</span><span class="p">.</span><span class="n">onOk</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">errorBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+      <span class="n">CharacterList</span><span class="p">.</span><span class="n">showAgain</span><span class="p">()</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">scheduleAutoReconnect</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onGameUpdateNeeded</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span><span class="p">()</span>
+
+  <span class="n">errorBox</span> <span class="o">=</span> <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Update needed&quot;</span><span class="p">),</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Enter with your account again to update your client.&#39;</span><span class="p">))</span>
+
+  <span class="n">errorBox</span><span class="p">.</span><span class="n">onOk</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">errorBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">CharacterList</span><span class="p">.</span><span class="n">showAgain</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onGameEnd</span><span class="p">()</span>
+
+  <span class="n">scheduleAutoReconnect</span><span class="p">()</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">showAgain</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onLogout</span><span class="p">()</span>
+
+  <span class="n">lastLogout</span> <span class="o">=</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">scheduleAutoReconnect</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">lastLogout</span> <span class="o">+</span> <span class="mi">2000</span> <span class="o">&gt;</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">autoReconnectEvent</span> <span class="kr">then</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">autoReconnectEvent</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">autoReconnectEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="n">executeAutoReconnect</span><span class="p">,</span> <span class="mi">2500</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">executeAutoReconnect</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">autoReconnectButton</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">autoReconnectButton</span><span class="p">:</span><span class="n">isOn</span><span class="p">()</span> <span class="ow">or</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">errorBox</span> <span class="kr">then</span>
+
+    <span class="n">errorBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">errorBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">doLogin</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- public functions</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">init</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">USE_NEW_ENERGAME</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLoginError</span> <span class="o">=</span> <span class="n">onGameLoginError</span> <span class="p">})</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLoginToken</span> <span class="o">=</span> <span class="n">onGameLoginToken</span> <span class="p">})</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onUpdateNeeded</span> <span class="o">=</span> <span class="n">onGameUpdateNeeded</span> <span class="p">})</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onConnectionError</span> <span class="o">=</span> <span class="n">onGameConnectionError</span> <span class="p">})</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameStart</span> <span class="o">=</span> <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span> <span class="p">})</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLoginWait</span> <span class="o">=</span> <span class="n">onLoginWait</span> <span class="p">})</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameEnd</span> <span class="o">=</span> <span class="n">onGameEnd</span> <span class="p">})</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLogout</span> <span class="o">=</span> <span class="n">onLogout</span> <span class="p">})</span>
+
+  <span class="kr">if</span> <span class="n">G</span><span class="p">.</span><span class="n">characters</span> <span class="kr">then</span>
+
+    <span class="n">CharacterList</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">characters</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">characterAccount</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">terminate</span><span class="p">()</span>
+
+ <span class="kr">if</span> <span class="n">USE_NEW_ENERGAME</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLoginError</span> <span class="o">=</span> <span class="n">onGameLoginError</span> <span class="p">})</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLoginToken</span> <span class="o">=</span> <span class="n">onGameLoginToken</span> <span class="p">})</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onUpdateNeeded</span> <span class="o">=</span> <span class="n">onGameUpdateNeeded</span> <span class="p">})</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onConnectionError</span> <span class="o">=</span> <span class="n">onGameConnectionError</span> <span class="p">})</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameStart</span> <span class="o">=</span> <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span> <span class="p">})</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLoginWait</span> <span class="o">=</span> <span class="n">onLoginWait</span> <span class="p">})</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameEnd</span> <span class="o">=</span> <span class="n">onGameEnd</span> <span class="p">})</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLogout</span> <span class="o">=</span> <span class="n">onLogout</span> <span class="p">})</span>
+
+  <span class="kr">if</span> <span class="n">charactersWindow</span> <span class="kr">then</span>
+
+    <span class="n">characterList</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">charactersWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">charactersWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">loadBox</span> <span class="kr">then</span>
+
+    <span class="n">g_game</span><span class="p">.</span><span class="n">cancelLogin</span><span class="p">()</span>
+
+    <span class="n">loadBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">waitingWindow</span> <span class="kr">then</span>
+
+    <span class="n">waitingWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">waitingWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">updateWaitEvent</span> <span class="kr">then</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">updateWaitEvent</span><span class="p">)</span>
+
+    <span class="n">updateWaitEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">resendWaitEvent</span> <span class="kr">then</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">resendWaitEvent</span><span class="p">)</span>
+
+    <span class="n">resendWaitEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">loginEvent</span> <span class="kr">then</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">loginEvent</span><span class="p">)</span>
+
+    <span class="n">loginEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">CharacterList</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">characters</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">otui</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">otui</span> <span class="kr">then</span> <span class="n">otui</span> <span class="o">=</span> <span class="s1">&#39;characterlist&#39;</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">charactersWindow</span> <span class="kr">then</span>
+
+    <span class="n">charactersWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">charactersWindow</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">displayUI</span><span class="p">(</span><span class="n">otui</span><span class="p">)</span>
+
+  <span class="n">characterList</span> <span class="o">=</span> <span class="n">charactersWindow</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;characters&#39;</span><span class="p">)</span>
+
+  <span class="n">autoReconnectButton</span> <span class="o">=</span> <span class="n">charactersWindow</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;autoReconnect&#39;</span><span class="p">)</span>
+
+  <span class="c1">-- characters</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">characters</span> <span class="o">=</span> <span class="n">characters</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">characterAccount</span> <span class="o">=</span> <span class="n">account</span>
+
+  <span class="n">characterList</span><span class="p">:</span><span class="n">destroyChildren</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">accountStatusLabel</span> <span class="o">=</span> <span class="n">charactersWindow</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountStatusLabel&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">focusLabel</span>
+
+  <span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">characterInfo</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kd">local</span> <span class="n">widget</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">createWidget</span><span class="p">(</span><span class="s1">&#39;CharacterWidget&#39;</span><span class="p">,</span> <span class="n">characterList</span><span class="p">)</span>
+
+    <span class="kr">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">characterInfo</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="kd">local</span> <span class="n">subWidget</span> <span class="o">=</span> <span class="n">widget</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+      <span class="kr">if</span> <span class="n">subWidget</span> <span class="kr">then</span>
+
+        <span class="kr">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;outfit&#39;</span> <span class="kr">then</span> <span class="c1">-- it&#39;s an exception</span>
+
+          <span class="n">subWidget</span><span class="p">:</span><span class="n">setOutfit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="kr">else</span>
+
+          <span class="kd">local</span> <span class="n">text</span> <span class="o">=</span> <span class="n">value</span>
+
+          <span class="kr">if</span> <span class="n">subWidget</span><span class="p">.</span><span class="n">baseText</span> <span class="ow">and</span> <span class="n">subWidget</span><span class="p">.</span><span class="n">baseTranslate</span> <span class="kr">then</span>
+
+            <span class="n">text</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="n">subWidget</span><span class="p">.</span><span class="n">baseText</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+          <span class="kr">elseif</span> <span class="n">subWidget</span><span class="p">.</span><span class="n">baseText</span> <span class="kr">then</span>
+
+            <span class="n">text</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="n">subWidget</span><span class="p">.</span><span class="n">baseText</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="n">subWidget</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="c1">-- these are used by login</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">characterName</span> <span class="o">=</span> <span class="n">characterInfo</span><span class="p">.</span><span class="n">name</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">worldName</span> <span class="o">=</span> <span class="n">characterInfo</span><span class="p">.</span><span class="n">worldName</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">worldHost</span> <span class="o">=</span> <span class="n">characterInfo</span><span class="p">.</span><span class="n">worldIp</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">worldPort</span> <span class="o">=</span> <span class="n">characterInfo</span><span class="p">.</span><span class="n">worldPort</span>
+
+    <span class="n">connect</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="p">{</span> <span class="n">onDoubleClick</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">()</span> <span class="n">CharacterList</span><span class="p">.</span><span class="n">doLogin</span><span class="p">()</span> <span class="kr">return</span> <span class="kc">true</span> <span class="kr">end</span> <span class="p">}</span> <span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="p">(</span><span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last-used-character&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">widget</span><span class="p">.</span><span class="n">characterName</span> <span class="ow">and</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last-used-world&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">widget</span><span class="p">.</span><span class="n">worldName</span><span class="p">)</span> <span class="kr">then</span>
+
+      <span class="n">focusLabel</span> <span class="o">=</span> <span class="n">widget</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">focusLabel</span> <span class="kr">then</span>
+
+    <span class="n">characterList</span><span class="p">:</span><span class="n">focusChild</span><span class="p">(</span><span class="n">focusLabel</span><span class="p">,</span> <span class="n">KeyboardFocusReason</span><span class="p">)</span>
+
+    <span class="n">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="n">characterList</span><span class="p">:</span><span class="n">ensureChildVisible</span><span class="p">(</span><span class="n">focusLabel</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">characterList</span><span class="p">.</span><span class="n">onChildFocusChange</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">autoReconnectEvent</span><span class="p">)</span>
+
+    <span class="n">autoReconnectEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- account</span>
+
+  <span class="kd">local</span> <span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+  <span class="kr">if</span> <span class="n">account</span><span class="p">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">AccountStatus</span><span class="p">.</span><span class="n">Frozen</span> <span class="kr">then</span>
+
+    <span class="n">status</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39; (Frozen)&#39;</span><span class="p">)</span>
+
+  <span class="kr">elseif</span> <span class="n">account</span><span class="p">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">AccountStatus</span><span class="p">.</span><span class="n">Suspended</span> <span class="kr">then</span>
+
+    <span class="n">status</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39; (Suspended)&#39;</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">account</span><span class="p">.</span><span class="n">subStatus</span> <span class="o">==</span> <span class="n">SubscriptionStatus</span><span class="p">.</span><span class="n">Free</span> <span class="ow">and</span> <span class="n">account</span><span class="p">.</span><span class="n">premDays</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="kr">then</span>
+
+    <span class="n">accountStatusLabel</span><span class="p">:</span><span class="n">setText</span><span class="p">((</span><span class="s1">&#39;%s%s&#39;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Free Account&#39;</span><span class="p">),</span> <span class="n">status</span><span class="p">))</span>
+
+  <span class="kr">else</span>
+
+    <span class="kr">if</span> <span class="n">account</span><span class="p">.</span><span class="n">premDays</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">account</span><span class="p">.</span><span class="n">premDays</span> <span class="o">==</span> <span class="mi">65535</span> <span class="kr">then</span>
+
+      <span class="n">accountStatusLabel</span><span class="p">:</span><span class="n">setText</span><span class="p">((</span><span class="s1">&#39;%s%s&#39;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Gratis Premium Account&#39;</span><span class="p">),</span> <span class="n">status</span><span class="p">))</span>
+
+    <span class="kr">else</span>
+
+      <span class="n">accountStatusLabel</span><span class="p">:</span><span class="n">setText</span><span class="p">((</span><span class="s1">&#39;%s%s&#39;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Premium Account (%s) days left&#39;</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">premDays</span><span class="p">),</span> <span class="n">status</span><span class="p">))</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">account</span><span class="p">.</span><span class="n">premDays</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">account</span><span class="p">.</span><span class="n">premDays</span> <span class="o">&lt;=</span> <span class="mi">7</span> <span class="kr">then</span>
+
+    <span class="n">accountStatusLabel</span><span class="p">:</span><span class="n">setOn</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">accountStatusLabel</span><span class="p">:</span><span class="n">setOn</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">autoReconnectButton</span><span class="p">.</span><span class="n">onClick</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">autoReconnect</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">getBoolean</span><span class="p">(</span><span class="s1">&#39;autoReconnect&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+    <span class="n">autoReconnectButton</span><span class="p">:</span><span class="n">setOn</span><span class="p">(</span><span class="n">autoReconnect</span><span class="p">)</span>
+
+    <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;autoReconnect&#39;</span><span class="p">,</span> <span class="n">autoReconnect</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">destroy</span><span class="p">()</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">hide</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">charactersWindow</span> <span class="kr">then</span>
+
+    <span class="n">characterList</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">charactersWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">charactersWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">loadBox</span> <span class="ow">or</span> <span class="n">errorBox</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">charactersWindow</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">charactersWindow</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="n">charactersWindow</span><span class="p">:</span><span class="n">raise</span><span class="p">()</span>
+
+  <span class="n">charactersWindow</span><span class="p">:</span><span class="n">focus</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">autoReconnect</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">getBoolean</span><span class="p">(</span><span class="s1">&#39;autoReconnect&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+  <span class="n">autoReconnectButton</span><span class="p">:</span><span class="n">setOn</span><span class="p">(</span><span class="n">autoReconnect</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">hide</span><span class="p">(</span><span class="n">showLogin</span><span class="p">)</span>
+
+  <span class="n">removeEvent</span><span class="p">(</span><span class="n">autoReconnectEvent</span><span class="p">)</span>
+
+  <span class="n">autoReconnectEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="n">showLogin</span> <span class="o">=</span> <span class="n">showLogin</span> <span class="ow">or</span> <span class="kc">false</span>
+
+  <span class="n">charactersWindow</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">showLogin</span> <span class="ow">and</span> <span class="n">EnterGame</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">showAgain</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">characterList</span> <span class="ow">and</span> <span class="n">characterList</span><span class="p">:</span><span class="n">hasChildren</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">CharacterList</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">isVisible</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">charactersWindow</span> <span class="ow">and</span> <span class="n">charactersWindow</span><span class="p">:</span><span class="n">isVisible</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="kc">true</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="kc">false</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">doLogin</span><span class="p">()</span>
+
+  <span class="n">removeEvent</span><span class="p">(</span><span class="n">autoReconnectEvent</span><span class="p">)</span>
+
+  <span class="n">autoReconnectEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kd">local</span> <span class="n">selected</span> <span class="o">=</span> <span class="n">characterList</span><span class="p">:</span><span class="n">getFocusedChild</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">selected</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">charInfo</span> <span class="o">=</span> <span class="p">{</span> <span class="n">worldHost</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">worldHost</span><span class="p">,</span>
+
+                       <span class="n">worldPort</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">worldPort</span><span class="p">,</span>
+
+                       <span class="n">worldName</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">worldName</span><span class="p">,</span>
+
+                       <span class="n">characterName</span> <span class="o">=</span> <span class="n">selected</span><span class="p">.</span><span class="n">characterName</span> <span class="p">}</span>
+
+    <span class="n">charactersWindow</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">loginEvent</span> <span class="kr">then</span>
+
+      <span class="n">removeEvent</span><span class="p">(</span><span class="n">loginEvent</span><span class="p">)</span>
+
+      <span class="n">loginEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">tryLogin</span><span class="p">(</span><span class="n">charInfo</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">),</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;You must select a character to login!&#39;</span><span class="p">))</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">destroyLoadBox</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">loadBox</span> <span class="kr">then</span>
+
+    <span class="n">loadBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">CharacterList</span><span class="p">.</span><span class="nf">cancelWait</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">waitingWindow</span> <span class="kr">then</span>
+
+    <span class="n">waitingWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">waitingWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">updateWaitEvent</span> <span class="kr">then</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">updateWaitEvent</span><span class="p">)</span>
+
+    <span class="n">updateWaitEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">resendWaitEvent</span> <span class="kr">then</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">resendWaitEvent</span><span class="p">)</span>
+
+    <span class="n">resendWaitEvent</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">destroyLoadBox</span><span class="p">()</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">showAgain</span><span class="p">()</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="characterlist-otui">
+<h1>characterlist.otui<a class="headerlink" href="#characterlist-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+CharacterWidget &lt; UIWidget
+
+  height: 14
+
+  background-color: alpha
+
+  &amp;updateOnStates: |
+
+    function(self)
+
+      local children = self:getChildren()
+
+      for i=1,#children do
+
+        children[i]:setOn(self:isFocused())
+
+      end
+
+    end
+
+  @onFocusChange: self:updateOnStates()
+
+  @onSetup: self:updateOnStates()
+
+  $focus:
+
+    background-color: #ffffff22
+
+  Label
+
+    id: name
+
+    color: #bbbbbb
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    font: verdana-11px-monochrome
+
+    text-auto-resize: true
+
+    background-color: alpha
+
+    text-offset: 2 0
+
+    $on:
+
+      color: #ffffff
+
+  Label
+
+    id: worldName
+
+    color: #bbbbbb
+
+    anchors.top: parent.top
+
+    anchors.right: parent.right
+
+    margin-right: 5
+
+    font: verdana-11px-monochrome
+
+    text-auto-resize: true
+
+    background-color: alpha
+
+    &amp;baseText: &#39;(%s)&#39;
+
+    $on:
+
+      color: #ffffff
+
+StaticMainWindow
+
+  id: charactersWindow
+
+  !text: tr(&#39;Character List&#39;)
+
+  visible: false
+
+  size: 350 400
+
+  $mobile:
+
+    size: 350 280
+
+  @onEnter: CharacterList.doLogin()
+
+  @onEscape: CharacterList.hide(true)
+
+  @onSetup: |
+
+    g_keyboard.bindKeyPress(&#39;Up&#39;, function() self:getChildById(&#39;characters&#39;):focusPreviousChild(KeyboardFocusReason) end, self)
+
+    g_keyboard.bindKeyPress(&#39;Down&#39;, function() self:getChildById(&#39;characters&#39;):focusNextChild(KeyboardFocusReason) end, self)
+
+  TextList
+
+    id: characters
+
+    background-color: #565656
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.right: characterListScrollBar.left
+
+    anchors.bottom: accountStatusCaption.top
+
+    margin-bottom: 5
+
+    padding: 1
+
+    focusable: false
+
+    vertical-scrollbar: characterListScrollBar
+
+    auto-focus: first
+
+  VerticalScrollBar
+
+    id: characterListScrollBar
+
+    anchors.top: parent.top
+
+    anchors.bottom: accountStatusCaption.top
+
+    anchors.right: parent.right
+
+    margin-bottom: 5
+
+    step: 14
+
+    pixels-scroll: true
+
+  Label
+
+    id: accountStatusCaption
+
+    !text: tr(&#39;Account Status&#39;) .. &#39;:&#39;
+
+    anchors.left: parent.left
+
+    anchors.bottom: separator.top
+
+    margin-bottom: 5
+
+  Label
+
+    id: accountStatusLabel
+
+    !text: tr(&#39;Free Account&#39;)
+
+    anchors.right: parent.right
+
+    anchors.bottom: separator.top
+
+    margin-bottom: 5
+
+    text-auto-resize: true
+
+    $on:
+
+      color: #FF0000
+
+  HorizontalSeparator
+
+    id: separator
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.bottom: next.top
+
+    margin-bottom: 10
+
+  Button
+
+    id: autoReconnect
+
+    width: 140
+
+    anchors.left: parent.left
+
+    anchors.bottom: parent.bottom
+
+    $!on:
+
+      image-color: red
+
+      !text: tr(&#39;Auto reconnect: Off&#39;)
+
+    $on:
+
+      !text: tr(&#39;Auto reconnect: On&#39;)
+
+      image-color: green
+
+  Button
+
+    id: buttonOk
+
+    !text: tr(&#39;Ok&#39;)
+
+    width: 64
+
+    anchors.right: next.left
+
+    anchors.bottom: parent.bottom
+
+    margin-right: 10
+
+    @onClick: CharacterList.doLogin()
+
+  Button
+
+    id: buttonCancel
+
+    !text: tr(&#39;Cancel&#39;)
+
+    width: 64
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+    @onClick: CharacterList.hide(true)
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="entergame-lua">
+<h1>entergame.lua<a class="headerlink" href="#entergame-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">EnterGame</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="c1">-- private variables</span>
+
+<span class="kd">local</span> <span class="n">loadBox</span>
+
+<span class="kd">local</span> <span class="n">enterGame</span>
+
+<span class="kd">local</span> <span class="n">enterGameButton</span>
+
+<span class="kd">local</span> <span class="n">clientBox</span>
+
+<span class="kd">local</span> <span class="n">protocolLogin</span>
+
+<span class="kd">local</span> <span class="n">server</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="kd">local</span> <span class="n">versionsFound</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="kd">local</span> <span class="n">customServerSelectorPanel</span>
+
+<span class="kd">local</span> <span class="n">serverSelectorPanel</span>
+
+<span class="kd">local</span> <span class="n">serverSelector</span>
+
+<span class="kd">local</span> <span class="n">clientVersionSelector</span>
+
+<span class="kd">local</span> <span class="n">serverHostTextEdit</span>
+
+<span class="kd">local</span> <span class="n">rememberPasswordBox</span>
+
+<span class="kd">local</span> <span class="n">protos</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;740&quot;</span><span class="p">,</span> <span class="s2">&quot;760&quot;</span><span class="p">,</span> <span class="s2">&quot;772&quot;</span><span class="p">,</span> <span class="s2">&quot;792&quot;</span><span class="p">,</span> <span class="s2">&quot;800&quot;</span><span class="p">,</span> <span class="s2">&quot;810&quot;</span><span class="p">,</span> <span class="s2">&quot;854&quot;</span><span class="p">,</span> <span class="s2">&quot;860&quot;</span><span class="p">,</span> <span class="s2">&quot;870&quot;</span><span class="p">,</span> <span class="s2">&quot;910&quot;</span><span class="p">,</span> <span class="s2">&quot;961&quot;</span><span class="p">,</span> <span class="s2">&quot;1000&quot;</span><span class="p">,</span> <span class="s2">&quot;1077&quot;</span><span class="p">,</span> <span class="s2">&quot;1090&quot;</span><span class="p">,</span> <span class="s2">&quot;1096&quot;</span><span class="p">,</span> <span class="s2">&quot;1098&quot;</span><span class="p">,</span> <span class="s2">&quot;1099&quot;</span><span class="p">,</span> <span class="s2">&quot;1100&quot;</span><span class="p">,</span> <span class="s2">&quot;1200&quot;</span><span class="p">,</span> <span class="s2">&quot;1220&quot;</span><span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">checkedByUpdater</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kd">local</span> <span class="n">waitingForHttpResults</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">-- private functions</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onProtocolError</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">errorCode</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">errorCode</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onLoginError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onSessionKey</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">sessionKey</span><span class="p">)</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">sessionKey</span> <span class="o">=</span> <span class="n">sessionKey</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onCharacterList</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">characters</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">otui</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">rememberPasswordBox</span><span class="p">:</span><span class="n">isChecked</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">account</span> <span class="o">=</span> <span class="n">g_crypt</span><span class="p">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">account</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">password</span> <span class="o">=</span> <span class="n">g_crypt</span><span class="p">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">password</span><span class="p">)</span>
+
+    <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;account&#39;</span><span class="p">,</span> <span class="n">account</span><span class="p">)</span>
+
+    <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">EnterGame</span><span class="p">.</span><span class="n">clearAccountFields</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">characterInfo</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kr">if</span> <span class="n">characterInfo</span><span class="p">.</span><span class="n">previewState</span> <span class="ow">and</span> <span class="n">characterInfo</span><span class="p">.</span><span class="n">previewState</span> <span class="o">~=</span> <span class="n">PreviewState</span><span class="p">.</span><span class="n">Default</span> <span class="kr">then</span>
+
+      <span class="n">characterInfo</span><span class="p">.</span><span class="n">worldName</span> <span class="o">=</span> <span class="n">characterInfo</span><span class="p">.</span><span class="n">worldName</span> <span class="o">..</span> <span class="s1">&#39;, Preview&#39;</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">loadBox</span> <span class="kr">then</span>
+
+    <span class="n">loadBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">characters</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">otui</span><span class="p">)</span>
+
+  <span class="n">CharacterList</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUpdateNeeded</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">signature</span><span class="p">)</span>
+
+  <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Your client needs updating, try redownloading it.&#39;</span><span class="p">))</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onProxyList</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">proxies</span><span class="p">)</span>
+
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">proxy</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">proxies</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="n">g_proxy</span><span class="p">.</span><span class="n">addProxy</span><span class="p">(</span><span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">],</span> <span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">])</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">parseFeatures</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+
+  <span class="kr">for</span> <span class="n">feature_id</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">features</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="kr">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">==</span> <span class="kc">true</span> <span class="kr">then</span>
+
+        <span class="n">g_game</span><span class="p">.</span><span class="n">enableFeature</span><span class="p">(</span><span class="n">feature_id</span><span class="p">)</span>
+
+      <span class="kr">else</span>
+
+        <span class="n">g_game</span><span class="p">.</span><span class="n">disableFeature</span><span class="p">(</span><span class="n">feature_id</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">validateThings</span><span class="p">(</span><span class="n">things</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">incorrectThings</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+  <span class="kd">local</span> <span class="n">missingFiles</span> <span class="o">=</span> <span class="kc">false</span>
+
+  <span class="kd">local</span> <span class="n">versionForMissingFiles</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="kr">if</span> <span class="n">things</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">thingsNode</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="kr">for</span> <span class="n">thingtype</span><span class="p">,</span> <span class="n">thingdata</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">things</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="n">thingsNode</span><span class="p">[</span><span class="n">thingtype</span><span class="p">]</span> <span class="o">=</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="ow">not</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">fileExists</span><span class="p">(</span><span class="s2">&quot;/things/&quot;</span> <span class="o">..</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="kr">then</span>
+
+        <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">incorrectThings</span> <span class="o">..</span> <span class="s2">&quot;Missing file: &quot;</span> <span class="o">..</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">missingFiles</span> <span class="o">=</span> <span class="kc">true</span>
+
+        <span class="n">versionForMissingFiles</span> <span class="o">=</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+      <span class="kr">else</span>
+
+        <span class="kd">local</span> <span class="n">localChecksum</span> <span class="o">=</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">fileChecksum</span><span class="p">(</span><span class="s2">&quot;/things/&quot;</span> <span class="o">..</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="kr">if</span> <span class="n">localChecksum</span> <span class="o">~=</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="n">lower</span><span class="p">()</span> <span class="ow">and</span> <span class="o">#</span><span class="n">thingdata</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="kr">then</span>
+
+          <span class="kr">if</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">isLoadedFromArchive</span><span class="p">()</span> <span class="kr">then</span> <span class="c1">-- ignore checksum if it&#39;s test/debug version</span>
+
+            <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">incorrectThings</span> <span class="o">..</span> <span class="s2">&quot;Invalid checksum of file: &quot;</span> <span class="o">..</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot; (is &quot;</span> <span class="o">..</span> <span class="n">localChecksum</span> <span class="o">..</span> <span class="s2">&quot;, should be &quot;</span> <span class="o">..</span> <span class="n">thingdata</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="n">lower</span><span class="p">()</span> <span class="o">..</span> <span class="s2">&quot;)</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+          <span class="kr">end</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">g_settings</span><span class="p">.</span><span class="n">setNode</span><span class="p">(</span><span class="s2">&quot;things&quot;</span><span class="p">,</span> <span class="n">thingsNode</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">g_settings</span><span class="p">.</span><span class="n">setNode</span><span class="p">(</span><span class="s2">&quot;things&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">missingFiles</span> <span class="kr">then</span>
+
+    <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">incorrectThings</span> <span class="o">..</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">You should open data/things and create directory &quot;</span> <span class="o">..</span> <span class="n">versionForMissingFiles</span> <span class="o">..</span>
+
+    <span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">In this directory (data/things/&quot;</span> <span class="o">..</span> <span class="n">versionForMissingFiles</span> <span class="o">..</span> <span class="s2">&quot;) you should put missing</span><span class="se">\n</span><span class="s2">files (Tibia.dat and Tibia.spr/Tibia.cwm) &quot;</span> <span class="o">..</span>
+
+    <span class="s2">&quot;from correct Tibia version.&quot;</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">incorrectThings</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onTibia12HTTPResult</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">playdata</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">characters</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="kd">local</span> <span class="n">worlds</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="kd">local</span> <span class="n">account</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+
+    <span class="n">subStatus</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+
+    <span class="n">premDays</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="p">}</span>
+
+  <span class="kr">if</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">~=</span> <span class="s2">&quot;active&quot;</span> <span class="kr">then</span>
+
+    <span class="n">account</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">1</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;ispremium&quot;</span><span class="p">]</span> <span class="kr">then</span>
+
+    <span class="n">account</span><span class="p">.</span><span class="n">subStatus</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">-- premium</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;premiumuntil&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">seconds</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">account</span><span class="p">.</span><span class="n">subStatus</span> <span class="o">=</span> <span class="nb">math.floor</span><span class="p">((</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;premiumuntil&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">seconds</span><span class="p">())</span> <span class="o">/</span> <span class="mi">86400</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">things</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+    <span class="n">sprites</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.cwm&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+<span class="p">}</span>
+
+  <span class="kd">local</span> <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">validateThings</span><span class="p">(</span><span class="n">things</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">incorrectThings</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">things</span> <span class="o">=</span> <span class="p">{</span>
+
+      <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+      <span class="n">sprites</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.spr&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+<span class="p">}</span>
+
+    <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">validateThings</span><span class="p">(</span><span class="n">things</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">incorrectThings</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">g_logger</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">incorrectThings</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">Updater</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">checkedByUpdater</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">]</span> <span class="kr">then</span>
+
+      <span class="n">checkedByUpdater</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+
+      <span class="kr">return</span> <span class="n">Updater</span><span class="p">.</span><span class="n">check</span><span class="p">({</span>
+
+        <span class="n">version</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">,</span>
+
+        <span class="n">host</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span>
+
+<span class="p">})</span>
+
+    <span class="kr">else</span>
+
+      <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="n">incorrectThings</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">onSessionKey</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;sessionkey&quot;</span><span class="p">])</span>
+
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">world</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">playdata</span><span class="p">[</span><span class="s2">&quot;worlds&quot;</span><span class="p">])</span> <span class="kr">do</span>
+
+    <span class="n">worlds</span><span class="p">[</span><span class="n">world</span><span class="p">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+      <span class="n">name</span> <span class="o">=</span> <span class="n">world</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+
+      <span class="n">port</span> <span class="o">=</span> <span class="n">world</span><span class="p">.</span><span class="n">externalportunprotected</span> <span class="ow">or</span> <span class="n">world</span><span class="p">.</span><span class="n">externalportprotected</span> <span class="ow">or</span> <span class="n">world</span><span class="p">.</span><span class="n">externaladdress</span><span class="p">,</span>
+
+      <span class="n">address</span> <span class="o">=</span> <span class="n">world</span><span class="p">.</span><span class="n">externaladdressunprotected</span> <span class="ow">or</span> <span class="n">world</span><span class="p">.</span><span class="n">externaladdressprotected</span> <span class="ow">or</span> <span class="n">world</span><span class="p">.</span><span class="n">externalport</span>
+
+<span class="p">}</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">character</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">playdata</span><span class="p">[</span><span class="s2">&quot;characters&quot;</span><span class="p">])</span> <span class="kr">do</span>
+
+    <span class="kd">local</span> <span class="n">world</span> <span class="o">=</span> <span class="n">worlds</span><span class="p">[</span><span class="n">character</span><span class="p">.</span><span class="n">worldid</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="n">world</span> <span class="kr">then</span>
+
+      <span class="nb">table.insert</span><span class="p">(</span><span class="n">characters</span><span class="p">,</span> <span class="p">{</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">character</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+
+        <span class="n">worldName</span> <span class="o">=</span> <span class="n">world</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+
+        <span class="n">worldIp</span> <span class="o">=</span> <span class="n">world</span><span class="p">.</span><span class="n">address</span><span class="p">,</span>
+
+        <span class="n">worldPort</span> <span class="o">=</span> <span class="n">world</span><span class="p">.</span><span class="n">port</span>
+
+<span class="p">})</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- proxies</span>
+
+  <span class="kr">if</span> <span class="n">g_proxy</span> <span class="kr">then</span>
+
+    <span class="n">g_proxy</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">playdata</span><span class="p">[</span><span class="s2">&quot;proxies&quot;</span><span class="p">]</span> <span class="kr">then</span>
+
+      <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">proxy</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">playdata</span><span class="p">[</span><span class="s2">&quot;proxies&quot;</span><span class="p">])</span> <span class="kr">do</span>
+
+        <span class="n">g_proxy</span><span class="p">.</span><span class="n">addProxy</span><span class="p">(</span><span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">]))</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomProtocolVersion</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">chooseRsa</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">)</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setClientVersion</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">)</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setProtocolVersion</span><span class="p">(</span><span class="n">g_game</span><span class="p">.</span><span class="n">getClientProtocolVersion</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">))</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomOs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">-- disable</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getFeature</span><span class="p">(</span><span class="n">GameExtendedOpcode</span><span class="p">)</span> <span class="kr">then</span>
+
+    <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomOs</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">-- set os to windows if opcodes are disabled</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">onCharacterList</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">characters</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onHTTPResult</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">waitingForHttpResults</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">waitingForHttpResults</span> <span class="o">=</span> <span class="n">waitingForHttpResults</span> <span class="o">-</span> <span class="mi">1</span>
+
+  <span class="kr">if</span> <span class="n">err</span> <span class="ow">and</span> <span class="n">waitingForHttpResults</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="c1">-- ignore, wait for other requests</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">err</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">waitingForHttpResults</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="kr">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onLoginError</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
+
+  <span class="kr">elseif</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;errorMessage&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;errorMessage&#39;</span><span class="p">]:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onLoginError</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;errorMessage&#39;</span><span class="p">])</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;session&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;playdata&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">onTibia12HTTPResult</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;session&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;playdata&quot;</span><span class="p">])</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">characters</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;characters&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">account</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;account&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">session</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;session&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">version</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">things</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;things&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">customProtocol</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;customProtocol&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;settings&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">rsa</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;rsa&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">proxies</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;proxies&quot;</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">validateThings</span><span class="p">(</span><span class="n">things</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">incorrectThings</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">g_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">incorrectThings</span><span class="p">)</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="n">incorrectThings</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- custom protocol</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomProtocolVersion</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">customProtocol</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="n">customProtocol</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">customProtocol</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">customProtocol</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="n">customProtocol</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+      <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomProtocolVersion</span><span class="p">(</span><span class="n">customProtocol</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- force player settings</span>
+
+  <span class="kr">if</span> <span class="n">settings</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="kr">for</span> <span class="n">option</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="n">modules</span><span class="p">.</span><span class="n">client_options</span><span class="p">.</span><span class="n">setOption</span><span class="p">(</span><span class="n">option</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- version</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">=</span> <span class="n">version</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setClientVersion</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setProtocolVersion</span><span class="p">(</span><span class="n">g_game</span><span class="p">.</span><span class="n">getClientProtocolVersion</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomOs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">-- disable</span>
+
+  <span class="kr">if</span> <span class="n">rsa</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="n">g_game</span><span class="p">.</span><span class="n">setRsa</span><span class="p">(</span><span class="n">rsa</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">features</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="n">parseFeatures</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">session</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="n">session</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">onSessionKey</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">session</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- proxies</span>
+
+  <span class="kr">if</span> <span class="n">g_proxy</span> <span class="kr">then</span>
+
+    <span class="n">g_proxy</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">proxies</span> <span class="kr">then</span>
+
+      <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">proxy</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">proxies</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="n">g_proxy</span><span class="p">.</span><span class="n">addProxy</span><span class="p">(</span><span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">proxy</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">]))</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">onCharacterList</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">characters</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- public functions</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">init</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">USE_NEW_ENERGAME</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">enterGame</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">displayUI</span><span class="p">(</span><span class="s1">&#39;entergame&#39;</span><span class="p">)</span>
+
+  <span class="n">serverSelectorPanel</span> <span class="o">=</span> <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;serverSelectorPanel&#39;</span><span class="p">)</span>
+
+  <span class="n">customServerSelectorPanel</span> <span class="o">=</span> <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;customServerSelectorPanel&#39;</span><span class="p">)</span>
+
+  <span class="n">serverSelector</span> <span class="o">=</span> <span class="n">serverSelectorPanel</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;serverSelector&#39;</span><span class="p">)</span>
+
+  <span class="n">rememberPasswordBox</span> <span class="o">=</span> <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;rememberPasswordBox&#39;</span><span class="p">)</span>
+
+  <span class="n">serverHostTextEdit</span> <span class="o">=</span> <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;serverHostTextEdit&#39;</span><span class="p">)</span>
+
+  <span class="n">clientVersionSelector</span> <span class="o">=</span> <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;clientVersionSelector&#39;</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">Servers</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="kr">for</span> <span class="n">name</span><span class="p">,</span><span class="n">server</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Servers</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="n">serverSelector</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">serverSelector</span><span class="p">:</span><span class="n">getOptionsCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">ALLOW_CUSTOM_SERVERS</span> <span class="kr">then</span>
+
+    <span class="n">serverSelector</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Another&quot;</span><span class="p">))</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">proto</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">protos</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="n">clientVersionSelector</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">proto</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">serverSelector</span><span class="p">:</span><span class="n">getOptionsCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span>
+
+    <span class="n">enterGame</span><span class="p">:</span><span class="n">setHeight</span><span class="p">(</span><span class="n">enterGame</span><span class="p">:</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">serverSelectorPanel</span><span class="p">:</span><span class="n">getHeight</span><span class="p">())</span>
+
+    <span class="n">serverSelectorPanel</span><span class="p">:</span><span class="n">setOn</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">account</span> <span class="o">=</span> <span class="n">g_crypt</span><span class="p">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;account&#39;</span><span class="p">))</span>
+
+  <span class="kd">local</span> <span class="n">password</span> <span class="o">=</span> <span class="n">g_crypt</span><span class="p">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">))</span>
+
+  <span class="kd">local</span> <span class="n">server</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">host</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">clientVersion</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;client-version&#39;</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">serverSelector</span><span class="p">:</span><span class="n">isOption</span><span class="p">(</span><span class="n">server</span><span class="p">)</span> <span class="kr">then</span>
+
+    <span class="n">serverSelector</span><span class="p">:</span><span class="n">setCurrentOption</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">Servers</span> <span class="o">==</span> <span class="kc">nil</span> <span class="ow">or</span> <span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+      <span class="n">serverHostTextEdit</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">clientVersionSelector</span><span class="p">:</span><span class="n">setOption</span><span class="p">(</span><span class="n">clientVersion</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountPasswordTextEdit&#39;</span><span class="p">):</span><span class="n">setText</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountNameTextEdit&#39;</span><span class="p">):</span><span class="n">setText</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
+
+  <span class="n">rememberPasswordBox</span><span class="p">:</span><span class="n">setChecked</span><span class="p">(</span><span class="o">#</span><span class="n">account</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">g_keyboard</span><span class="p">.</span><span class="n">bindKeyDown</span><span class="p">(</span><span class="s1">&#39;Ctrl+G&#39;</span><span class="p">,</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">openWindow</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">hide</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="kr">end</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">terminate</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">enterGame</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">g_keyboard</span><span class="p">.</span><span class="n">unbindKeyDown</span><span class="p">(</span><span class="s1">&#39;Ctrl+G&#39;</span><span class="p">)</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">loadBox</span> <span class="kr">then</span>
+
+    <span class="n">loadBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">protocolLogin</span> <span class="kr">then</span>
+
+    <span class="n">protocolLogin</span><span class="p">:</span><span class="n">cancelLogin</span><span class="p">()</span>
+
+    <span class="n">protocolLogin</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">EnterGame</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">enterGame</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">raise</span><span class="p">()</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">focus</span><span class="p">()</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountNameTextEdit&#39;</span><span class="p">):</span><span class="n">focus</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">hide</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">enterGame</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">openWindow</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">CharacterList</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="kr">elseif</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isLogging</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">CharacterList</span><span class="p">.</span><span class="n">isVisible</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">clearAccountFields</span><span class="p">()</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountNameTextEdit&#39;</span><span class="p">):</span><span class="n">clearText</span><span class="p">()</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountPasswordTextEdit&#39;</span><span class="p">):</span><span class="n">clearText</span><span class="p">()</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountTokenTextEdit&#39;</span><span class="p">):</span><span class="n">clearText</span><span class="p">()</span>
+
+  <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountNameTextEdit&#39;</span><span class="p">):</span><span class="n">focus</span><span class="p">()</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;account&#39;</span><span class="p">)</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">onServerChange</span><span class="p">()</span>
+
+  <span class="n">server</span> <span class="o">=</span> <span class="n">serverSelector</span><span class="p">:</span><span class="n">getText</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">server</span> <span class="o">==</span> <span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Another&quot;</span><span class="p">)</span> <span class="kr">then</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">isOn</span><span class="p">()</span> <span class="kr">then</span>
+
+      <span class="n">serverHostTextEdit</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+      <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">setOn</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+      <span class="n">enterGame</span><span class="p">:</span><span class="n">setHeight</span><span class="p">(</span><span class="n">enterGame</span><span class="p">:</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">+</span> <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">getHeight</span><span class="p">())</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">elseif</span> <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">isOn</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">enterGame</span><span class="p">:</span><span class="n">setHeight</span><span class="p">(</span><span class="n">enterGame</span><span class="p">:</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">getHeight</span><span class="p">())</span>
+
+    <span class="n">customServerSelectorPanel</span><span class="p">:</span><span class="n">setOn</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">Servers</span> <span class="ow">and</span> <span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+      <span class="n">serverHostTextEdit</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="kr">else</span>
+
+      <span class="n">serverHostTextEdit</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">])</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">doLogin</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">isOnline</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">errorBox</span> <span class="o">=</span> <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Login Error&#39;</span><span class="p">),</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Cannot login while already in game.&#39;</span><span class="p">))</span>
+
+    <span class="n">connect</span><span class="p">(</span><span class="n">errorBox</span><span class="p">,</span> <span class="p">{</span> <span class="n">onOk</span> <span class="o">=</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span> <span class="p">})</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">account</span> <span class="o">=</span> <span class="n">account</span> <span class="ow">or</span> <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountNameTextEdit&#39;</span><span class="p">):</span><span class="n">getText</span><span class="p">()</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span> <span class="ow">or</span> <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountPasswordTextEdit&#39;</span><span class="p">):</span><span class="n">getText</span><span class="p">()</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">authenticatorToken</span> <span class="o">=</span> <span class="n">token</span> <span class="ow">or</span> <span class="n">enterGame</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;accountTokenTextEdit&#39;</span><span class="p">):</span><span class="n">getText</span><span class="p">()</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">stayLogged</span> <span class="o">=</span> <span class="kc">true</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">serverSelector</span><span class="p">:</span><span class="n">getText</span><span class="p">():</span><span class="n">trim</span><span class="p">()</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span> <span class="ow">or</span> <span class="n">serverHostTextEdit</span><span class="p">:</span><span class="n">getText</span><span class="p">()</span>
+
+  <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">clientVersionSelector</span><span class="p">:</span><span class="n">getText</span><span class="p">())</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">rememberPasswordBox</span><span class="p">:</span><span class="n">isChecked</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;account&#39;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">account</span><span class="p">)</span>
+
+    <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">password</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">)</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">server</span><span class="p">)</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;client-version&#39;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">)</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">server_params</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">:</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">:</span><span class="n">lower</span><span class="p">():</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="kr">if</span> <span class="o">#</span><span class="n">server_params</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="kr">then</span>
+
+      <span class="n">G</span><span class="p">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">server_params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">server_params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">server_params</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+      <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">server_params</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+
+    <span class="kr">elseif</span> <span class="o">#</span><span class="n">server_params</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="kr">then</span>
+
+      <span class="kr">if</span> <span class="nb">tostring</span><span class="p">(</span><span class="nb">tonumber</span><span class="p">(</span><span class="n">server_params</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span> <span class="o">==</span> <span class="n">server_params</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="kr">then</span>
+
+        <span class="n">G</span><span class="p">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">server_params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">server_params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">server_params</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">doLoginHttp</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">server_ip</span> <span class="o">=</span> <span class="n">server_params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">server_port</span> <span class="o">=</span> <span class="mi">7171</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">server_params</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="kr">then</span>
+
+    <span class="n">server_port</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">server_params</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">server_params</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="kr">then</span>
+
+    <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">server_params</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">server_ip</span><span class="p">)</span> <span class="o">~=</span> <span class="s1">&#39;string&#39;</span> <span class="ow">or</span> <span class="n">server_ip</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">server_port</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="s2">&quot;Invalid server, it should be in format IP:PORT or it should be http url to login script&quot;</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">things</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+    <span class="n">sprites</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.cwm&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+<span class="p">}</span>
+
+  <span class="kd">local</span> <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">validateThings</span><span class="p">(</span><span class="n">things</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">incorrectThings</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">things</span> <span class="o">=</span> <span class="p">{</span>
+
+      <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+      <span class="n">sprites</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">..</span> <span class="s2">&quot;/Tibia.spr&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+
+<span class="p">}</span>
+
+    <span class="n">incorrectThings</span> <span class="o">=</span> <span class="n">validateThings</span><span class="p">(</span><span class="n">things</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">incorrectThings</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">g_logger</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">incorrectThings</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">Updater</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">checkedByUpdater</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">]</span> <span class="kr">then</span>
+
+      <span class="n">checkedByUpdater</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+
+      <span class="kr">return</span> <span class="n">Updater</span><span class="p">.</span><span class="n">check</span><span class="p">({</span>
+
+        <span class="n">version</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">,</span>
+
+        <span class="n">host</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span>
+
+<span class="p">})</span>
+
+    <span class="kr">else</span>
+
+      <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="n">incorrectThings</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">protocolLogin</span> <span class="o">=</span> <span class="n">ProtocolLogin</span><span class="p">.</span><span class="n">create</span><span class="p">()</span>
+
+  <span class="n">protocolLogin</span><span class="p">.</span><span class="n">onLoginError</span> <span class="o">=</span> <span class="n">onProtocolError</span>
+
+  <span class="n">protocolLogin</span><span class="p">.</span><span class="n">onSessionKey</span> <span class="o">=</span> <span class="n">onSessionKey</span>
+
+  <span class="n">protocolLogin</span><span class="p">.</span><span class="n">onCharacterList</span> <span class="o">=</span> <span class="n">onCharacterList</span>
+
+  <span class="n">protocolLogin</span><span class="p">.</span><span class="n">onUpdateNeeded</span> <span class="o">=</span> <span class="n">onUpdateNeeded</span>
+
+  <span class="n">protocolLogin</span><span class="p">.</span><span class="n">onProxyList</span> <span class="o">=</span> <span class="n">onProxyList</span>
+
+  <span class="n">EnterGame</span><span class="p">.</span><span class="n">hide</span><span class="p">()</span>
+
+  <span class="n">loadBox</span> <span class="o">=</span> <span class="n">displayCancelBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Please wait&#39;</span><span class="p">),</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Connecting to login server...&#39;</span><span class="p">))</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">loadBox</span><span class="p">,</span> <span class="p">{</span> <span class="n">onCancel</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">msgbox</span><span class="p">)</span>
+
+                                  <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+                                  <span class="n">protocolLogin</span><span class="p">:</span><span class="n">cancelLogin</span><span class="p">()</span>
+
+                                  <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+                                <span class="kr">end</span> <span class="p">})</span>
+
+  <span class="kr">if</span> <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">==</span> <span class="mi">1000</span> <span class="kr">then</span> <span class="c1">-- some people don&#39;t understand that tibia 10 uses 1100 protocol</span>
+
+    <span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span> <span class="o">=</span> <span class="mi">1100</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- if you have custom rsa or protocol edit it here</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setClientVersion</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">)</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setProtocolVersion</span><span class="p">(</span><span class="n">g_game</span><span class="p">.</span><span class="n">getClientProtocolVersion</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">clientVersion</span><span class="p">))</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomProtocolVersion</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomOs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">-- disable</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">chooseRsa</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">server_params</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getFeature</span><span class="p">(</span><span class="n">GameExtendedOpcode</span><span class="p">)</span> <span class="kr">then</span>
+
+    <span class="n">g_game</span><span class="p">.</span><span class="n">setCustomOs</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">-- set os to windows if opcodes are disabled</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- extra features from init.lua</span>
+
+  <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="o">#</span><span class="n">server_params</span> <span class="kr">do</span>
+
+    <span class="n">g_game</span><span class="p">.</span><span class="n">enableFeature</span><span class="p">(</span><span class="nb">tonumber</span><span class="p">(</span><span class="n">server_params</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- proxies</span>
+
+  <span class="kr">if</span> <span class="n">g_proxy</span> <span class="kr">then</span>
+
+    <span class="n">g_proxy</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">modules</span><span class="p">.</span><span class="n">game_things</span><span class="p">.</span><span class="n">isLoaded</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">g_logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connecting to: &quot;</span> <span class="o">..</span> <span class="n">server_ip</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">server_port</span><span class="p">)</span>
+
+    <span class="n">protocolLogin</span><span class="p">:</span><span class="n">login</span><span class="p">(</span><span class="n">server_ip</span><span class="p">,</span> <span class="n">server_port</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">account</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">password</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">authenticatorToken</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">stayLogged</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">loadBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">doLoginHttp</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span> <span class="o">==</span> <span class="kc">nil</span> <span class="ow">or</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">onError</span><span class="p">(</span><span class="s2">&quot;Invalid server url: &quot;</span> <span class="o">..</span> <span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">loadBox</span> <span class="o">=</span> <span class="n">displayCancelBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Please wait&#39;</span><span class="p">),</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Connecting to login server...&#39;</span><span class="p">))</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">loadBox</span><span class="p">,</span> <span class="p">{</span> <span class="n">onCancel</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">msgbox</span><span class="p">)</span>
+
+                                  <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+                                  <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+                                <span class="kr">end</span> <span class="p">})</span>
+
+  <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;login&quot;</span><span class="p">,</span>
+
+    <span class="n">account</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">account</span><span class="p">,</span>
+
+    <span class="n">accountname</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">account</span><span class="p">,</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">account</span><span class="p">,</span>
+
+    <span class="n">password</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">password</span><span class="p">,</span>
+
+    <span class="n">accountpassword</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">password</span><span class="p">,</span>
+
+    <span class="n">token</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">authenticatorToken</span><span class="p">,</span>
+
+    <span class="n">version</span> <span class="o">=</span> <span class="n">APP_VERSION</span><span class="p">,</span>
+
+    <span class="n">uid</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">UUID</span><span class="p">,</span>
+
+    <span class="n">stayloggedin</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="p">}</span>
+
+  <span class="kd">local</span> <span class="n">server</span> <span class="o">=</span> <span class="n">serverSelector</span><span class="p">:</span><span class="n">getText</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">Servers</span> <span class="ow">and</span> <span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+      <span class="kd">local</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">Servers</span><span class="p">[</span><span class="n">server</span><span class="p">]</span>
+
+      <span class="n">waitingForHttpResults</span> <span class="o">=</span> <span class="o">#</span><span class="n">urls</span>
+
+      <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">url</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="n">HTTP</span><span class="p">.</span><span class="n">postJSON</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">onHTTPResult</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">else</span>
+
+      <span class="n">waitingForHttpResults</span> <span class="o">=</span> <span class="mi">1</span>
+
+      <span class="n">HTTP</span><span class="p">.</span><span class="n">postJSON</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">host</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">onHTTPResult</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">EnterGame</span><span class="p">.</span><span class="n">hide</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">onError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">loadBox</span> <span class="kr">then</span>
+
+    <span class="n">loadBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">errorBox</span> <span class="o">=</span> <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Login Error&#39;</span><span class="p">),</span> <span class="n">err</span><span class="p">)</span>
+
+  <span class="n">errorBox</span><span class="p">.</span><span class="n">onOk</span> <span class="o">=</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">EnterGame</span><span class="p">.</span><span class="nf">onLoginError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">loadBox</span> <span class="kr">then</span>
+
+    <span class="n">loadBox</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">loadBox</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">errorBox</span> <span class="o">=</span> <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Login Error&#39;</span><span class="p">),</span> <span class="n">err</span><span class="p">)</span>
+
+  <span class="n">errorBox</span><span class="p">.</span><span class="n">onOk</span> <span class="o">=</span> <span class="n">EnterGame</span><span class="p">.</span><span class="n">show</span>
+
+  <span class="kr">if</span> <span class="n">err</span><span class="p">:</span><span class="n">lower</span><span class="p">():</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;invalid&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">err</span><span class="p">:</span><span class="n">lower</span><span class="p">():</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;not correct&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">err</span><span class="p">:</span><span class="n">lower</span><span class="p">():</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;or password&quot;</span><span class="p">)</span> <span class="kr">then</span>
+
+    <span class="n">EnterGame</span><span class="p">.</span><span class="n">clearAccountFields</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="entergame-otmod">
+<h1>entergame.otmod<a class="headerlink" href="#entergame-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: client_entergame
+
+  description: Manages enter game and character list windows
+
+  author: edubart &amp; otclient.ovh
+
+  website: https://github.com/edubart/otclient
+
+  scripts: [ entergame, characterlist ]
+
+  @onLoad: EnterGame.init() CharacterList.init()
+
+  @onUnload: EnterGame.terminate() CharacterList.terminate()
+
+  load-later:
+
+    - game_things
+
+    - game_features
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="entergame-otui">
+<h1>entergame.otui<a class="headerlink" href="#entergame-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+EnterGameWindow
+
+  id: enterGame
+
+  @onEnter: EnterGame.doLogin()
+
+  MenuLabel
+
+    !text: tr(&#39;Account name&#39;)
+
+    anchors.left: parent.left
+
+    anchors.top: parent.top
+
+    text-auto-resize: true
+
+  TextEdit
+
+    id: accountNameTextEdit
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 2
+
+  MenuLabel
+
+    !text: tr(&#39;Password&#39;)
+
+    anchors.left: prev.left
+
+    anchors.top: prev.bottom
+
+    margin-top: 8
+
+    text-auto-resize: true
+
+  PasswordTextEdit
+
+    id: accountPasswordTextEdit
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 2
+
+  MenuLabel
+
+    !text: tr(&#39;Token&#39;)
+
+    anchors.left: prev.left
+
+    anchors.top: prev.bottom
+
+    text-auto-resize: true
+
+    margin-top: 8
+
+  TextEdit
+
+    id: accountTokenTextEdit
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 2
+
+  Panel
+
+    id: serverSelectorPanel
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    height: 52
+
+    on: true
+
+    focusable: false
+
+    $on:
+
+      visible: true
+
+      margin-top: 0
+
+    $!on:
+
+      visible: false
+
+      margin-top: -52
+
+    HorizontalSeparator
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      anchors.top: parent.top
+
+      margin-top: 10
+
+    MenuLabel
+
+      id: serverLabel
+
+      !text: tr(&#39;Server&#39;)
+
+      anchors.left: parent.left
+
+      anchors.top: prev.bottom
+
+      text-auto-resize: true
+
+      margin-top: 5
+
+    ComboBox
+
+      id: serverSelector
+
+      anchors.left: prev.left
+
+      anchors.right: parent.right
+
+      anchors.top: serverLabel.bottom
+
+      margin-top: 2
+
+      margin-right: 3
+
+      menu-scroll: true
+
+      menu-height: 125
+
+      menu-scroll-step: 25
+
+      text-offset: 5 2
+
+      @onOptionChange: EnterGame.onServerChange()
+
+  Panel
+
+    id: customServerSelectorPanel
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    height: 52
+
+    on: true
+
+    focusable: true
+
+    $on:
+
+      visible: true
+
+      margin-top: 0
+
+    $!on:
+
+      visible: false
+
+      margin-top: -52
+
+    HorizontalSeparator
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      anchors.top: parent.top
+
+      margin-top: 8
+
+    MenuLabel
+
+      id: serverLabel
+
+      !text: tr(&#39;IP:PORT or URL&#39;)
+
+      anchors.left: prev.left
+
+      anchors.top: prev.bottom
+
+      margin-top: 8
+
+      text-auto-resize: true
+
+    TextEdit
+
+      id: serverHostTextEdit
+
+      !tooltip: tr(&#39;Make sure that your client uses\nthe correct game client version&#39;)
+
+      anchors.left: parent.left
+
+      anchors.top: serverLabel.bottom
+
+      margin-top: 2
+
+      width: 150
+
+    MenuLabel
+
+      id: clientLabel
+
+      !text: tr(&#39;Version&#39;)
+
+      anchors.left: serverHostTextEdit.right
+
+      anchors.top: serverLabel.top
+
+      text-auto-resize: true
+
+      margin-left: 10
+
+    ComboBox
+
+      id: clientVersionSelector
+
+      anchors.top: serverHostTextEdit.top
+
+      anchors.bottom: serverHostTextEdit.bottom
+
+      anchors.left: prev.left
+
+      anchors.right: parent.right
+
+      menu-scroll: true
+
+      menu-height: 125
+
+      menu-scroll-step: 25
+
+      margin-right: 3
+
+  HorizontalSeparator
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 10
+
+  CheckBox
+
+    id: rememberPasswordBox
+
+    !text: tr(&#39;Remember password&#39;)
+
+    !tooltip: tr(&#39;Remember account and password when starts client&#39;)
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 9
+
+  HorizontalSeparator
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 9
+
+  Button
+
+    !text: tr(&#39;Login&#39;)
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 10
+
+    margin-left: 50
+
+    margin-right: 50
+
+    @onClick: EnterGame.doLogin()
+
+  Label
+
+    id: serverInfoLabel
+
+    font: verdana-11px-rounded
+
+    anchors.top: prev.top
+
+    anchors.left: parent.left
+
+    margin-top: 5
+
+    color: green
+
+    text-auto-resize: true
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="waitinglist-otui">
+<h1>waitinglist.otui<a class="headerlink" href="#waitinglist-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+MainWindow
+
+  id: waitingWindow
+
+  !text: tr(&#39;Waiting List&#39;)
+
+  size: 260 180
+
+  @onEscape: CharacterList.cancelWait()
+
+  Label
+
+    id: infoLabel
+
+    anchors.top: parent.top
+
+    anchors.bottom: progressBar.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    text-wrap: true
+
+  ProgressBar
+
+    id: progressBar
+
+    height: 15
+
+    background-color: #4444ff
+
+    anchors.bottom: timeLabel.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    margin-bottom: 10
+
+  Label
+
+    id: timeLabel
+
+    anchors.bottom: separator.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    margin-bottom: 10
+
+  HorizontalSeparator
+
+    id: separator
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.bottom: next.top
+
+    margin-bottom: 10
+
+  Button
+
+    id: buttonCancel
+
+    !text: tr(&#39;Cancel&#39;)
+
+    width: 64
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+    @onClick: CharacterList.cancelWait()
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_entergame</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#characterlist-otui">characterlist.otui</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-lua">entergame.lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-otmod">entergame.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-otui">entergame.otui</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#waitinglist-otui">waitinglist.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/dev_tools/modul-client-entergame.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

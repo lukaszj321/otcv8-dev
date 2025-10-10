@@ -1,0 +1,1041 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Moduł: | Moduł: updater &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/dev_tools/modul-updater';</script>
+    <link rel="icon" href="../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">updater</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-updater">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">updater</span></code><a class="headerlink" href="#modul-modul-updater" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">Updater</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="n">Updater</span><span class="p">.</span><span class="n">maxRetries</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="cm">--[[</span>
+
+<span class="cm">]]</span><span class="c1">--</span>
+
+<span class="kd">local</span> <span class="n">updaterWindow</span>
+
+<span class="kd">local</span> <span class="n">loadModulesFunction</span>
+
+<span class="kd">local</span> <span class="n">scheduledEvent</span>
+
+<span class="kd">local</span> <span class="n">httpOperationId</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onLog</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">level</span> <span class="o">==</span> <span class="n">LogError</span> <span class="kr">then</span>
+
+    <span class="n">Updater</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+    <span class="n">g_logger</span><span class="p">.</span><span class="n">setOnLog</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">initAppWindow</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">getLayout</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;mobile&quot;</span> <span class="kr">then</span>
+
+    <span class="n">g_window</span><span class="p">.</span><span class="n">setMinimumSize</span><span class="p">({</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">360</span> <span class="p">})</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">g_window</span><span class="p">.</span><span class="n">setMinimumSize</span><span class="p">({</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">640</span> <span class="p">})</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- window size</span>
+
+  <span class="kd">local</span> <span class="n">size</span> <span class="o">=</span> <span class="p">{</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">600</span> <span class="p">}</span>
+
+  <span class="n">size</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">getSize</span><span class="p">(</span><span class="s1">&#39;window-size&#39;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+  <span class="n">g_window</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+  <span class="c1">-- window position, default is the screen center</span>
+
+  <span class="kd">local</span> <span class="n">displaySize</span> <span class="o">=</span> <span class="n">g_window</span><span class="p">.</span><span class="n">getDisplaySize</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">defaultPos</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">displaySize</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+
+                       <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">displaySize</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="p">}</span>
+
+  <span class="kd">local</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">getPoint</span><span class="p">(</span><span class="s1">&#39;window-pos&#39;</span><span class="p">,</span> <span class="n">defaultPos</span><span class="p">)</span>
+
+  <span class="n">pos</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">math.max</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">pos</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="nb">math.max</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">g_window</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+
+  <span class="c1">-- window maximized?</span>
+
+  <span class="kd">local</span> <span class="n">maximized</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">getBoolean</span><span class="p">(</span><span class="s1">&#39;window-maximized&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">maximized</span> <span class="kr">then</span> <span class="n">g_window</span><span class="p">.</span><span class="n">maximize</span><span class="p">()</span> <span class="kr">end</span>
+
+  <span class="n">g_window</span><span class="p">.</span><span class="n">setTitle</span><span class="p">(</span><span class="n">g_app</span><span class="p">.</span><span class="n">getName</span><span class="p">())</span>
+
+  <span class="n">g_window</span><span class="p">.</span><span class="n">setIcon</span><span class="p">(</span><span class="s1">&#39;/images/clienticon&#39;</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">g_app</span><span class="p">.</span><span class="n">isMobile</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">g_app</span><span class="p">.</span><span class="n">scale</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+
+    <span class="kr">end</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">loadModules</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">loadModulesFunction</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">tmpLoadFunc</span> <span class="o">=</span> <span class="n">loadModulesFunction</span>
+
+    <span class="n">loadModulesFunction</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">tmpLoadFunc</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">downloadFiles</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">retries</span><span class="p">,</span> <span class="n">doneCallback</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">updaterWindow</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">entry</span> <span class="kr">then</span> <span class="c1">-- finished</span>
+
+    <span class="kr">return</span> <span class="n">doneCallback</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">file</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+  <span class="kd">local</span> <span class="n">file_checksum</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+  <span class="kr">if</span> <span class="n">retries</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadStatus</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Downloading (%i retry):</span><span class="se">\n</span><span class="s2">%s&quot;</span><span class="p">,</span> <span class="n">retries</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadStatus</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Downloading:</span><span class="se">\n</span><span class="s2">%s&quot;</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">mainProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="nb">math.floor</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">index</span> <span class="o">/</span> <span class="o">#</span><span class="n">files</span><span class="p">))</span>
+
+  <span class="n">httpOperationId</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span> <span class="o">..</span> <span class="n">file</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span>
+
+    <span class="kr">function</span> <span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">checksum</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+
+      <span class="kr">if</span> <span class="ow">not</span> <span class="n">err</span> <span class="ow">and</span> <span class="n">checksum</span> <span class="o">~=</span> <span class="n">file_checksum</span> <span class="kr">then</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Invalid checksum of: &quot;</span> <span class="o">..</span> <span class="n">file</span> <span class="o">..</span> <span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">Should be &quot;</span> <span class="o">..</span> <span class="n">file_checksum</span> <span class="o">..</span> <span class="s2">&quot;, is: &quot;</span> <span class="o">..</span> <span class="n">checksum</span>
+
+      <span class="kr">end</span>
+
+      <span class="kr">if</span> <span class="n">err</span> <span class="kr">then</span>
+
+        <span class="kr">if</span> <span class="n">retries</span> <span class="o">&gt;=</span> <span class="n">Updater</span><span class="p">.</span><span class="n">maxRetries</span> <span class="kr">then</span>
+
+          <span class="n">Updater</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Can&#39;t download file: &quot;</span> <span class="o">..</span> <span class="n">file</span> <span class="o">..</span> <span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">Error: &quot;</span> <span class="o">..</span> <span class="n">err</span><span class="p">)</span>
+
+        <span class="kr">else</span>
+
+          <span class="n">scheduledEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+            <span class="n">downloadFiles</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">retries</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">doneCallback</span><span class="p">)</span>
+
+          <span class="kr">end</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+
+        <span class="kr">end</span>
+
+        <span class="kr">return</span>
+
+      <span class="kr">end</span>
+
+      <span class="n">downloadFiles</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">doneCallback</span><span class="p">)</span>
+
+    <span class="kr">end</span><span class="p">,</span>
+
+    <span class="kr">function</span> <span class="p">(</span><span class="n">progress</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+
+      <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+
+      <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadProgress</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">speed</span> <span class="o">..</span> <span class="s2">&quot; kbps&quot;</span><span class="p">)</span>
+
+    <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">updateFiles</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keepCurrentFiles</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">updaterWindow</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">Updater</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Invalid data from updater api (not table)&quot;</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;string&#39;</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">Updater</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">])</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;files&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">])</span> <span class="o">~=</span> <span class="s1">&#39;string&#39;</span> <span class="ow">or</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]:</span><span class="n">len</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">Updater</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Invalid data from updater api: &quot;</span> <span class="o">..</span> <span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;keepFiles&quot;</span><span class="p">]</span> <span class="kr">then</span>
+
+    <span class="n">keepCurrentFiles</span> <span class="o">=</span> <span class="kc">true</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">newFiles</span> <span class="o">=</span> <span class="kc">false</span>
+
+  <span class="kd">local</span> <span class="n">finalFiles</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="kd">local</span> <span class="n">localFiles</span> <span class="o">=</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">filesChecksums</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">toUpdate</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="c1">-- keep all files or files from data/things</span>
+
+  <span class="kr">for</span> <span class="n">file</span><span class="p">,</span> <span class="n">checksum</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">localFiles</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kr">if</span> <span class="n">keepCurrentFiles</span> <span class="ow">or</span> <span class="nb">string.find</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;data/things&quot;</span><span class="p">)</span> <span class="kr">then</span>
+
+      <span class="nb">table.insert</span><span class="p">(</span><span class="n">finalFiles</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- update files</span>
+
+  <span class="kr">for</span> <span class="n">file</span><span class="p">,</span> <span class="n">checksum</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;files&quot;</span><span class="p">])</span> <span class="kr">do</span>
+
+    <span class="nb">table.insert</span><span class="p">(</span><span class="n">finalFiles</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">localFiles</span><span class="p">[</span><span class="n">file</span><span class="p">]</span> <span class="ow">or</span> <span class="n">localFiles</span><span class="p">[</span><span class="n">file</span><span class="p">]</span> <span class="o">~=</span> <span class="n">checksum</span> <span class="kr">then</span>
+
+      <span class="nb">table.insert</span><span class="p">(</span><span class="n">toUpdate</span><span class="p">,</span> <span class="p">{</span><span class="n">file</span><span class="p">,</span> <span class="n">checksum</span><span class="p">})</span>
+
+      <span class="n">newFiles</span> <span class="o">=</span> <span class="kc">true</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- update binary</span>
+
+  <span class="kd">local</span> <span class="n">binary</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;file&quot;</span><span class="p">]:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">selfChecksum</span> <span class="o">=</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">selfChecksum</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">selfChecksum</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">selfChecksum</span> <span class="o">~=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;checksum&quot;</span><span class="p">]</span> <span class="kr">then</span>
+
+      <span class="n">binary</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;file&quot;</span><span class="p">]</span>
+
+      <span class="nb">table.insert</span><span class="p">(</span><span class="n">toUpdate</span><span class="p">,</span> <span class="p">{</span><span class="n">binary</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;checksum&quot;</span><span class="p">]})</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="o">#</span><span class="n">toUpdate</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="c1">-- nothing to update</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">mainProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">scheduledEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="n">Updater</span><span class="p">.</span><span class="n">abort</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- update of some files require full client restart</span>
+
+  <span class="kd">local</span> <span class="n">forceRestart</span> <span class="o">=</span> <span class="kc">false</span>
+
+  <span class="kd">local</span> <span class="n">reloadModules</span> <span class="o">=</span> <span class="kc">false</span>
+
+  <span class="kd">local</span> <span class="n">forceRestartPattern</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;init.lua&quot;</span><span class="p">,</span> <span class="s2">&quot;corelib&quot;</span><span class="p">,</span> <span class="s2">&quot;updater&quot;</span><span class="p">,</span> <span class="s2">&quot;otmod&quot;</span><span class="p">}</span>
+
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">file</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">toUpdate</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kr">for</span> <span class="n">__</span><span class="p">,</span> <span class="n">pattern</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">forceRestartPattern</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="kr">if</span> <span class="nb">string.find</span><span class="p">(</span><span class="n">file</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pattern</span><span class="p">)</span> <span class="kr">then</span>
+
+        <span class="n">forceRestart</span> <span class="o">=</span> <span class="kc">true</span>
+
+      <span class="kr">end</span>
+
+      <span class="kr">if</span> <span class="ow">not</span> <span class="nb">string.find</span><span class="p">(</span><span class="n">file</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;data/things&quot;</span><span class="p">)</span> <span class="kr">then</span>
+
+        <span class="n">reloadModules</span> <span class="o">=</span> <span class="kc">true</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">status</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Updating %i files&quot;</span><span class="p">,</span> <span class="o">#</span><span class="n">toUpdate</span><span class="p">))</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">mainProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadProgress</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadStatus</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="n">updaterWindow</span><span class="p">.</span><span class="n">changeUrlButton</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+  <span class="n">downloadFiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span> <span class="n">toUpdate</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">status</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Updating client (may take few seconds)&quot;</span><span class="p">))</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">mainProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadProgress</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">downloadStatus</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+    <span class="n">scheduledEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+      <span class="kd">local</span> <span class="n">restart</span> <span class="o">=</span> <span class="n">binary</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">loadModulesFunction</span> <span class="ow">and</span> <span class="n">reloadModules</span><span class="p">)</span> <span class="ow">or</span> <span class="n">forceRestart</span>
+
+      <span class="kr">if</span> <span class="n">newFiles</span> <span class="kr">then</span>
+
+        <span class="n">g_resources</span><span class="p">.</span><span class="n">updateData</span><span class="p">(</span><span class="n">finalFiles</span><span class="p">,</span> <span class="ow">not</span> <span class="n">restart</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+      <span class="kr">if</span> <span class="n">binary</span> <span class="kr">then</span>
+
+        <span class="n">g_resources</span><span class="p">.</span><span class="n">updateExecutable</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+      <span class="kr">if</span> <span class="n">restart</span> <span class="kr">then</span>
+
+        <span class="n">g_app</span><span class="p">.</span><span class="n">restart</span><span class="p">()</span>
+
+      <span class="kr">else</span>
+
+        <span class="kr">if</span> <span class="n">reloadModules</span> <span class="kr">then</span>
+
+          <span class="n">g_modules</span><span class="p">.</span><span class="n">reloadModules</span><span class="p">()</span>
+
+        <span class="kr">end</span>
+
+        <span class="n">Updater</span><span class="p">.</span><span class="n">abort</span><span class="p">()</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- public functions</span>
+
+<span class="kr">function</span> <span class="nc">Updater</span><span class="p">.</span><span class="nf">init</span><span class="p">(</span><span class="n">loadModulesFunc</span><span class="p">)</span>
+
+  <span class="n">g_logger</span><span class="p">.</span><span class="n">setOnLog</span><span class="p">(</span><span class="n">onLog</span><span class="p">)</span>
+
+  <span class="n">loadModulesFunction</span> <span class="o">=</span> <span class="n">loadModulesFunc</span>
+
+  <span class="n">initAppWindow</span><span class="p">()</span>
+
+  <span class="n">Updater</span><span class="p">.</span><span class="n">check</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">Updater</span><span class="p">.</span><span class="nf">terminate</span><span class="p">()</span>
+
+  <span class="n">loadModulesFunction</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="n">Updater</span><span class="p">.</span><span class="n">abort</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">Updater</span><span class="p">.</span><span class="nf">abort</span><span class="p">()</span>
+
+  <span class="n">HTTP</span><span class="p">.</span><span class="n">cancel</span><span class="p">(</span><span class="n">httpOperationId</span><span class="p">)</span>
+
+  <span class="n">removeEvent</span><span class="p">(</span><span class="n">scheduledEvent</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">updaterWindow</span> <span class="kr">then</span>
+
+    <span class="n">updaterWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">updaterWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">loadModules</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">Updater</span><span class="p">.</span><span class="nf">check</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">updaterWindow</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">updaterWindow</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">displayUI</span><span class="p">(</span><span class="s1">&#39;updater&#39;</span><span class="p">)</span>
+
+  <span class="n">updaterWindow</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="n">updaterWindow</span><span class="p">:</span><span class="n">focus</span><span class="p">()</span>
+
+  <span class="n">updaterWindow</span><span class="p">:</span><span class="n">raise</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">updateData</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kd">local</span> <span class="kr">function</span> <span class="nf">progressUpdater</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">removeEvent</span><span class="p">(</span><span class="n">scheduledEvent</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">100</span> <span class="kr">then</span>
+
+      <span class="kr">return</span> <span class="n">Updater</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Timeout&quot;</span><span class="p">))</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">updateData</span> <span class="ow">and</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">60</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">g_app</span><span class="p">.</span><span class="n">isMobile</span><span class="p">()</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">ALLOW_CUSTOM_SERVERS</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">loadModulesFunc</span><span class="p">))</span> <span class="kr">then</span> <span class="c1">-- gives 3s to set custom updater for mobile version</span>
+
+      <span class="kr">return</span> <span class="n">updateFiles</span><span class="p">(</span><span class="n">updateData</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">scheduledEvent</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="n">progressUpdater</span><span class="p">(</span><span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="kr">end</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+    <span class="n">updaterWindow</span><span class="p">.</span><span class="n">mainProgress</span><span class="p">:</span><span class="n">setPercent</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">progressUpdater</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">httpOperationId</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">.</span><span class="n">postJSON</span><span class="p">(</span><span class="n">Services</span><span class="p">.</span><span class="n">updater</span><span class="p">,</span> <span class="p">{</span>
+
+    <span class="n">version</span> <span class="o">=</span> <span class="n">APP_VERSION</span><span class="p">,</span>
+
+    <span class="n">build</span> <span class="o">=</span> <span class="n">g_app</span><span class="p">.</span><span class="n">getVersion</span><span class="p">(),</span>
+
+    <span class="n">os</span> <span class="o">=</span> <span class="n">g_app</span><span class="p">.</span><span class="n">getOs</span><span class="p">(),</span>
+
+    <span class="n">platform</span> <span class="o">=</span> <span class="n">g_window</span><span class="p">.</span><span class="n">getPlatformType</span><span class="p">(),</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">args</span> <span class="ow">or</span> <span class="p">{}</span>
+
+  <span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">err</span> <span class="kr">then</span>
+
+      <span class="kr">return</span> <span class="n">Updater</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">updateData</span> <span class="o">=</span> <span class="n">data</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+  <span class="n">removeEvent</span><span class="p">(</span><span class="n">scheduledEvent</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">updaterWindow</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="n">displayErrorBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Updater Error&quot;</span><span class="p">),</span> <span class="n">message</span><span class="p">).</span><span class="n">onOk</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">Updater</span><span class="p">.</span><span class="n">abort</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nc">Updater</span><span class="p">.</span><span class="nf">changeUrl</span><span class="p">()</span>
+
+  <span class="n">removeEvent</span><span class="p">(</span><span class="n">scheduledEvent</span><span class="p">)</span>
+
+  <span class="n">modules</span><span class="p">.</span><span class="n">client_textedit</span><span class="p">.</span><span class="n">edit</span><span class="p">(</span><span class="n">Services</span><span class="p">.</span><span class="n">updater</span><span class="p">,</span> <span class="p">{</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Enter updater url&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">newUrl</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">updaterWindow</span> <span class="ow">and</span> <span class="n">newUrl</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">4</span> <span class="kr">then</span>
+
+      <span class="n">Services</span><span class="p">.</span><span class="n">updater</span> <span class="o">=</span> <span class="n">newUrl</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">updaterWindow</span> <span class="kr">then</span>
+
+      <span class="n">updaterWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+      <span class="n">updaterWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">Updater</span><span class="p">.</span><span class="n">check</span><span class="p">()</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="updater-otmod">
+<h1>updater.otmod<a class="headerlink" href="#updater-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: updater
+
+  description: Updates client
+
+  author: otclient@otclient.ovh
+
+  website: otclient.ovh
+
+  reloadable: false
+
+  scripts: [ updater ]
+
+  dependencies: [ client_locales, client_styles, client_textedit ]
+
+  @onUnload: Updater.terminate()
+
+  load-later:
+
+    - client_background
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="updater-otui">
+<h1>updater.otui<a class="headerlink" href="#updater-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+StaticMainWindow
+
+  id: updaterWindow
+
+  !text: tr(&#39;Updater&#39;)
+
+  width: 350
+
+  layout:
+
+    type: verticalBox
+
+    fit-children: true
+
+  Label
+
+    id: status
+
+    !text: tr(&#39;Checking for updates&#39;)
+
+    text-align: center
+
+  ProgressBar
+
+    id: mainProgress
+
+    height: 15
+
+    background-color: #4444ff
+
+    margin-bottom: 5
+
+    margin-top: 5
+
+  Label
+
+    id: downloadStatus
+
+    text-align: center
+
+    text-auto-resize: true
+
+    text-wrap: true
+
+    visible: false
+
+  ProgressBar
+
+    id: downloadProgress
+
+    height: 15
+
+    background-color: #4444ff
+
+    margin-bottom: 5
+
+    margin-top: 5
+
+    visible: false
+
+  Button
+
+    id: changeUrlButton
+
+    margin-left: 50
+
+    margin-right: 50
+
+    margin-top: 5
+
+    margin-bottom: 10
+
+    !text: tr(&#39;Change updater URL&#39;)
+
+    @onClick: Updater.changeUrl()
+
+    $!mobile:
+
+      visible: false
+
+  Button
+
+    margin-left: 90
+
+    margin-right: 90
+
+    !text: tr(&#39;Cancel&#39;)
+
+    @onClick: Updater.abort()
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">updater</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#updater-otmod">updater.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#updater-otui">updater.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/dev_tools/modul-updater.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

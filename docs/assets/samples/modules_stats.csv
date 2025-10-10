@@ -1,0 +1,6 @@
+Module Type,Count,Percentage,Description
+Core,5,10%,Core system modules
+Game,15,30%,Game mechanics modules
+UI,20,40%,User interface modules
+Bot,8,16%,Bot and automation modules
+Utility,2,4%,Utility and helper modules

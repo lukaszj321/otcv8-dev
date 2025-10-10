@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib';</script>
+    <link rel="icon" href="../../../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-bot-default-configs-vbot-4-8-vbot-new-cavebot-lib-lua">
+<h1>game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua<a class="headerlink" href="#game-bot-default-configs-vbot-4-8-vbot-new-cavebot-lib-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla new_cavebot_lib.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="cavebot">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot</span></code><a class="headerlink" href="#cavebot" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="cavebotconfigparse">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBotConfigParse()</span></code><a class="headerlink" href="#cavebotconfigparse" title="Link to this heading">#</a></h3>
+</section>
+<section id="getneartiles-pos">
+<h3><code class="docutils literal notranslate"><span class="pre">getNearTiles(pos)</span></code><a class="headerlink" href="#getneartiles-pos" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></li>
+</ul>
+</section>
+<section id="cavebot-getlootitems">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.GetLootItems()</span></code><a class="headerlink" href="#cavebot-getlootitems" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Parses config and extracts loot list. &#64;return table</p></li>
+</ul>
+<p><strong>Zwraca:</strong> table</p>
+</section>
+<section id="cavebot-haslootitems">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.HasLootItems()</span></code><a class="headerlink" href="#cavebot-haslootitems" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Checks whether player has any visible items to be stashed &#64;return boolean</p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="cavebot-getlootcontainers">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.GetLootContainers()</span></code><a class="headerlink" href="#cavebot-getlootcontainers" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Parses config and extracts loot containers. &#64;return table</p></li>
+</ul>
+<p><strong>Zwraca:</strong> table</p>
+</section>
+<section id="cavebot-getopenedlootcontainers-containertable">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.GetOpenedLootContainers(containerTable)</span></code><a class="headerlink" href="#cavebot-getopenedlootcontainers-containertable" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Information about open containers. &#64;param amount is boolean &#64;return table or integer</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">containerTable</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> table or integer</p>
+</section>
+<section id="cavebot-pingdelay-multiplayer">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.PingDelay(multiplayer)</span></code><a class="headerlink" href="#cavebot-pingdelay-multiplayer" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Some actions needs to be additionally slowed down in case of high ping. Maximum at 2000ms in case of lag spike. &#64;param multiplayer is integer &#64;return void</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">multiplayer</span></code>: is integer</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void</p>
+</section>
+<section id="cavebot-closelootcontainer">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.CloseLootContainer()</span></code><a class="headerlink" href="#cavebot-closelootcontainer" title="Link to this heading">#</a></h3>
+<p>##################### – [[ Container class ]] – ##################### – - Closes any loot container that is open. &#64;return void or boolean</p>
+<p><strong>Zwraca:</strong> void or boolean</p>
+</section>
+<section id="cavebot-closealllootcontainers">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.CloseAllLootContainers()</span></code><a class="headerlink" href="#cavebot-closealllootcontainers" title="Link to this heading">#</a></h3>
+</section>
+<section id="cavebot-openlootcontainer">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenLootContainer()</span></code><a class="headerlink" href="#cavebot-openlootcontainer" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opens any loot container that isn’t already opened. &#64;return void or boolean</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void or boolean</p>
+</section>
+<section id="cavebot-matchposition-position-distance">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.MatchPosition(position,</span> <span class="pre">distance)</span></code><a class="headerlink" href="#cavebot-matchposition-position-distance" title="Link to this heading">#</a></h3>
+<p>##################### – [[[ Position class ]] – ##################### – - Compares distance between player position and given pos. &#64;param position is table &#64;param distance is integer &#64;return boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: is table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance</span></code>: is integer</p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="cavebot-goto-position-precision">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.GoTo(position,</span> <span class="pre">precision)</span></code><a class="headerlink" href="#cavebot-goto-position-precision" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Stripped down to take less space. Use only to safe position, like pz movement or reaching npc. Needs to be called between 200-500ms to achieve fluid movement. &#64;param position is table &#64;param distance is integer &#64;return void</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: is table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precision</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> void</p>
+</section>
+<section id="cavebot-reachnpc-name">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachNPC(name)</span></code><a class="headerlink" href="#cavebot-reachnpc-name" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Finds position of npc by name and reaches its position. &#64;return void(acion) or boolean</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> void(acion) or boolean</p>
+</section>
+<section id="cavebot-reachdepot">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachDepot()</span></code><a class="headerlink" href="#cavebot-reachdepot" title="Link to this heading">#</a></h3>
+</section>
+<section id="cavebot-openlocker">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenLocker()</span></code><a class="headerlink" href="#cavebot-openlocker" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opens locker item. &#64;return void(acion) or boolean</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void(acion) or boolean</p>
+</section>
+<section id="cavebot-opendepotchest">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenDepotChest()</span></code><a class="headerlink" href="#cavebot-opendepotchest" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opens depot chest. &#64;return void(acion) or boolean</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void(acion) or boolean</p>
+</section>
+<section id="cavebot-openinbox">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenInbox()</span></code><a class="headerlink" href="#cavebot-openinbox" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opens inbox inside locker. &#64;return void(acion) or boolean</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void(acion) or boolean</p>
+</section>
+<section id="cavebot-opendepotbox-index">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenDepotBox(index)</span></code><a class="headerlink" href="#cavebot-opendepotbox-index" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opens depot box of given number. &#64;param index is integer &#64;return void or boolean</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: is integer</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void or boolean</p>
+</section>
+<section id="cavebot-reachandopendepot">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachAndOpenDepot()</span></code><a class="headerlink" href="#cavebot-reachandopendepot" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Reaches and opens depot. Combined for shorthand usage. &#64;return boolean whether succeed to reach and open depot</p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean whether succeed to reach and open depot</p>
+</section>
+<section id="cavebot-reachandopeninbox">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachAndOpenInbox()</span></code><a class="headerlink" href="#cavebot-reachandopeninbox" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Reaches and opens imbox. Combined for shorthand usage. &#64;return boolean whether succeed to reach and open depot</p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean whether succeed to reach and open depot</p>
+</section>
+<section id="cavebot-stashitem-item-index-destination">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.StashItem(item,</span> <span class="pre">index,</span> <span class="pre">destination)</span></code><a class="headerlink" href="#cavebot-stashitem-item-index-destination" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Stripped down function to stash item. &#64;param item is object &#64;param index is integer &#64;param destination is object &#64;return void</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">item</span></code>: is object</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: is integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">destination</span></code>: is object</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void</p>
+</section>
+<section id="cavebot-withdrawitem-id-amount-fromdepot-destination">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.WithdrawItem(id,</span> <span class="pre">amount,</span> <span class="pre">fromDepot,</span> <span class="pre">destination)</span></code><a class="headerlink" href="#cavebot-withdrawitem-id-amount-fromdepot-destination" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Withdraws item from depot chest or mail inbox. main function for depositer/withdrawer &#64;param id is integer &#64;param amount is integer &#64;param fromDepot is boolean or integer &#64;param destination is object &#64;return void</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: is integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount</span></code>: is integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fromDepot</span></code>: is boolean or integer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">destination</span></code>: is object</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void</p>
+</section>
+<section id="cavebot-conversation">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.Conversation(...)</span></code><a class="headerlink" href="#cavebot-conversation" title="Link to this heading">#</a></h3>
+<p>##################### – [[[[[ Talk class ]]]] – ##################### – - Controlled by event caller. Simple way to build npc conversations instead of multiline overcopied code. &#64;return void</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">...</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> void</p>
+</section>
+<section id="cavebot-opennpctrade">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenNpcTrade()</span></code><a class="headerlink" href="#cavebot-opennpctrade" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Says hi trade to NPC. Used as shorthand to open NPC trade window. &#64;return void</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void</p>
+</section>
+<section id="cavebot-travel-destination">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBot.Travel(destination)</span></code><a class="headerlink" href="#cavebot-travel-destination" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Says hi destination yes to NPC. Used as shorthand to travel. &#64;param destination is string &#64;return void</p></li>
+</ul>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">destination</span></code>: is string</p></li>
+</ul>
+<p><strong>Zwraca:</strong> void</p>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="figparse">
+<h3><code class="docutils literal notranslate"><span class="pre">figParse</span></code><a class="headerlink" href="#figparse" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">CaveBotConfigParse()</span></code></p>
+</section>
+<section id="tents">
+<h3><code class="docutils literal notranslate"><span class="pre">tents</span></code><a class="headerlink" href="#tents" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">data</span> <span class="pre">=</span> <span class="pre">g_resources.readFileContents(file)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">figParse</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">t</span> <span class="pre">=</span> <span class="pre">CaveBotConfigParse()</span> <span class="pre">and</span> <span class="pre">CaveBotConfigParse()[&quot;items&quot;]</span> <span class="pre">or</span> <span class="pre">nil</span></code></p>
+</section>
+<section id="tainers">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#tainers" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">_,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Parses config and extracts loot containers. &#64;return table</p></li>
+</ul>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">CaveBot.GetLootContainers()</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">figParse</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">t</span> <span class="pre">=</span> <span class="pre">CaveBotConfigParse()</span> <span class="pre">and</span> <span class="pre">CaveBotConfigParse()[&quot;containers&quot;]</span> <span class="pre">or</span> <span class="pre">nil</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Information about open containers. &#64;param amount is boolean &#64;return table or integer</p></li>
+</ul>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">CaveBot.GetOpenedLootContainers(containerTable)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containers</span> <span class="pre">=</span> <span class="pre">CaveBot.GetLootContainers()</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="taineritem">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code><a class="headerlink" href="#taineritem" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containerId</span> <span class="pre">=</span> <span class="pre">container:getContainerItem():getId()</span></code></p>
+</section>
+<section id="tainer">
+<h3><code class="docutils literal notranslate"><span class="pre">tainer</span></code><a class="headerlink" href="#tainer" title="Link to this heading">#</a></h3>
+<p>##################### – [[ Container class ]] – ##################### – - Closes any loot container that is open. &#64;return void or boolean</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">CaveBot.CloseLootContainer()</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containers</span> <span class="pre">=</span> <span class="pre">CaveBot.GetLootContainers()</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containerId</span> <span class="pre">=</span> <span class="pre">container:getContainerItem():getId()</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">CaveBot.CloseAllLootContainers()</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containers</span> <span class="pre">=</span> <span class="pre">CaveBot.GetLootContainers()</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containerId</span> <span class="pre">=</span> <span class="pre">container:getContainerItem():getId()</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">tainer</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opens any loot container that isn’t already opened. &#64;return void or boolean</p></li>
+</ul>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">CaveBot.OpenLootContainer()</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containers</span> <span class="pre">=</span> <span class="pre">CaveBot.GetLootContainers()</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containerId</span> <span class="pre">=</span> <span class="pre">container:getContainerItem():getId()</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">_,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="tainerbyname">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#tainerbyname" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">locker</span> <span class="pre">=</span> <span class="pre">getContainerByName(&quot;Locker&quot;)</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">depot</span> <span class="pre">=</span> <span class="pre">getContainerByName(&quot;Depot</span> <span class="pre">chest&quot;)</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">locker</span> <span class="pre">=</span> <span class="pre">getContainerByName(&quot;Locker&quot;)</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">inbox</span> <span class="pre">=</span> <span class="pre">getContainerByName(&quot;Your</span> <span class="pre">inbox&quot;)</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">locker</span> <span class="pre">=</span> <span class="pre">getContainerByName(&quot;Locker&quot;)</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">depot</span> <span class="pre">=</span> <span class="pre">getContainerByName(&quot;Depot</span> <span class="pre">chest&quot;)</span></code></p>
+</section>
+<section id="id24">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id25">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">destination</span> <span class="pre">=</span> <span class="pre">destination</span> <span class="pre">or</span> <span class="pre">getContainerByName(&quot;Depot</span> <span class="pre">chest&quot;)</span></code></p>
+</section>
+<section id="id26">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">destination</span> <span class="pre">=</span> <span class="pre">getContainerByName(destination)</span></code></p>
+</section>
+<section id="id27">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id28">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="versation">
+<h3><code class="docutils literal notranslate"><span class="pre">versation</span></code><a class="headerlink" href="#versation" title="Link to this heading">#</a></h3>
+<p>##################### – [[[[[ Talk class ]]]] – ##################### – - Controlled by event caller. Simple way to build npc conversations instead of multiline overcopied code. &#64;return void</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">CaveBot.Conversation(...)</span></code></p>
+</section>
+<section id="event">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#event" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(talkDelay,</span> <span class="pre">function()</span> <span class="pre">NPC.say(expr)</span> <span class="pre">end)</span></code></p>
+</section>
+<section id="id29">
+<h3><code class="docutils literal notranslate"><span class="pre">versation</span></code><a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">CaveBot.Conversation(&quot;hi&quot;,</span> <span class="pre">&quot;trade&quot;)</span></code></p>
+</section>
+<section id="id30">
+<h3><code class="docutils literal notranslate"><span class="pre">versation</span></code><a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">CaveBot.Conversation(&quot;hi&quot;,</span> <span class="pre">destination,</span> <span class="pre">&quot;yes&quot;)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot"><code class="docutils literal notranslate"><span class="pre">CaveBot</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebotconfigparse"><code class="docutils literal notranslate"><span class="pre">CaveBotConfigParse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getneartiles-pos"><code class="docutils literal notranslate"><span class="pre">getNearTiles(pos)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-getlootitems"><code class="docutils literal notranslate"><span class="pre">CaveBot.GetLootItems()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-haslootitems"><code class="docutils literal notranslate"><span class="pre">CaveBot.HasLootItems()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-getlootcontainers"><code class="docutils literal notranslate"><span class="pre">CaveBot.GetLootContainers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-getopenedlootcontainers-containertable"><code class="docutils literal notranslate"><span class="pre">CaveBot.GetOpenedLootContainers(containerTable)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-pingdelay-multiplayer"><code class="docutils literal notranslate"><span class="pre">CaveBot.PingDelay(multiplayer)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-closelootcontainer"><code class="docutils literal notranslate"><span class="pre">CaveBot.CloseLootContainer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-closealllootcontainers"><code class="docutils literal notranslate"><span class="pre">CaveBot.CloseAllLootContainers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-openlootcontainer"><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenLootContainer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-matchposition-position-distance"><code class="docutils literal notranslate"><span class="pre">CaveBot.MatchPosition(position,</span> <span class="pre">distance)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-goto-position-precision"><code class="docutils literal notranslate"><span class="pre">CaveBot.GoTo(position,</span> <span class="pre">precision)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-reachnpc-name"><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachNPC(name)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-reachdepot"><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachDepot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-openlocker"><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenLocker()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-opendepotchest"><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenDepotChest()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-openinbox"><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenInbox()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-opendepotbox-index"><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenDepotBox(index)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-reachandopendepot"><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachAndOpenDepot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-reachandopeninbox"><code class="docutils literal notranslate"><span class="pre">CaveBot.ReachAndOpenInbox()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-stashitem-item-index-destination"><code class="docutils literal notranslate"><span class="pre">CaveBot.StashItem(item,</span> <span class="pre">index,</span> <span class="pre">destination)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-withdrawitem-id-amount-fromdepot-destination"><code class="docutils literal notranslate"><span class="pre">CaveBot.WithdrawItem(id,</span> <span class="pre">amount,</span> <span class="pre">fromDepot,</span> <span class="pre">destination)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-conversation"><code class="docutils literal notranslate"><span class="pre">CaveBot.Conversation(...)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-opennpctrade"><code class="docutils literal notranslate"><span class="pre">CaveBot.OpenNpcTrade()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebot-travel-destination"><code class="docutils literal notranslate"><span class="pre">CaveBot.Travel(destination)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figparse"><code class="docutils literal notranslate"><span class="pre">figParse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tents"><code class="docutils literal notranslate"><span class="pre">tents</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">figParse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainers"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">figParse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taineritem"><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainer"><code class="docutils literal notranslate"><span class="pre">tainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">tainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainerbyname"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#versation"><code class="docutils literal notranslate"><span class="pre">versation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29"><code class="docutils literal notranslate"><span class="pre">versation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30"><code class="docutils literal notranslate"><span class="pre">versation</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../../_sources/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1271 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>client/map.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/client/map';</script>
+    <link rel="icon" href="../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">client/map.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="client-map-h">
+<h1>client/map.h<a class="headerlink" href="#client-map-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu map.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-tileblock">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">TileBlock</span></code><a class="headerlink" href="#klasa-tileblock" title="Link to this heading">#</a></h3>
+</section>
+<section id="struktura-awarerange">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">AwareRange</span></code><a class="headerlink" href="#struktura-awarerange" title="Link to this heading">#</a></h3>
+</section>
+<section id="struktura-pathfindresult">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">PathFindResult</span></code><a class="headerlink" href="#struktura-pathfindresult" title="Link to this heading">#</a></h3>
+</section>
+<section id="struktura-node">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">Node</span></code><a class="headerlink" href="#struktura-node" title="Link to this heading">#</a></h3>
+</section>
+<section id="klasa-map">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">Map</span></code><a class="headerlink" href="#klasa-map" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Brief</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">init</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">init()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">terminate</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">terminate()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">addMapView</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addMapView(const</span> <span class="pre">MapViewPtr&amp;</span> <span class="pre">mapView)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">removeMapView</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeMapView(const</span> <span class="pre">MapViewPtr&amp;</span> <span class="pre">mapView)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">notificateTileUpdate</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">notificateTileUpdate(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">updateMinimap</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">requestVisibleTilesCacheUpdate</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">requestVisibleTilesCacheUpdate()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">loadOtcm</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">loadOtcm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">saveOtcm</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">saveOtcm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">loadOtbm</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">loadOtbm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">saveOtbm</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">saveOtbm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setHouseFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHouseFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">file)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_HOUSE_FILE,</span> <span class="pre">file);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setSpawnFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSpawnFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">file)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_SPAWN_FILE,</span> <span class="pre">file);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setDescription</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDescription(const</span> <span class="pre">std::string&amp;</span> <span class="pre">desc)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_DESCRIPTION,</span> <span class="pre">desc);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clearDescriptions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clearDescriptions()</span> <span class="pre">{</span> <span class="pre">m_attribs.remove(OTBM_ATTR_DESCRIPTION);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setWidth</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setWidth(uint16</span> <span class="pre">w)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_WIDTH,</span> <span class="pre">w);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setHeight</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHeight(uint16</span> <span class="pre">h)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_HEIGHT,</span> <span class="pre">h);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getHouseFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getHouseFile()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(OTBM_ATTR_HOUSE_FILE);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSpawnFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getSpawnFile()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(OTBM_ATTR_SPAWN_FILE);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSize</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">Size(m_attribs.get&lt;uint16&gt;(OTBM_ATTR_WIDTH),</span> <span class="pre">m_attribs.get&lt;uint16&gt;(OTBM_ATTR_HEIGHT));</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDescriptions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;std::string&gt;</span> <span class="pre">getDescriptions()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">stdext::split(m_attribs.get&lt;std::string&gt;(OTBM_ATTR_DESCRIPTION),</span> <span class="pre">&quot;\n&quot;);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">clean</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clean()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cleanDynamicThings</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cleanDynamicThings()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cleanTexts</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cleanTexts()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">addThing</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addThing(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">stackPos</span> <span class="pre">=</span> <span class="pre">-1)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setTileSpeed</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTileSpeed(const</span> <span class="pre">Position</span> <span class="pre">&amp;</span> <span class="pre">pos,</span> <span class="pre">uint16_t</span> <span class="pre">speed,</span> <span class="pre">uint8_t</span> <span class="pre">blocking)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getThing</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ThingPtr</span> <span class="pre">getThing(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">stackPos)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">removeThing</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">removeThing(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">removeThingByPos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">removeThingByPos(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">stackPos)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">colorizeThing</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">colorizeThing(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing,</span> <span class="pre">const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">removeThingColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeThingColor(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getStaticText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">StaticTextPtr</span> <span class="pre">getStaticText(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cleanTile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cleanTile(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setShowZone</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShowZone(tileflags_t</span> <span class="pre">zone,</span> <span class="pre">bool</span> <span class="pre">show)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setShowZones</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShowZones(bool</span> <span class="pre">show)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setZoneColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setZoneColor(tileflags_t</span> <span class="pre">flag,</span> <span class="pre">const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setZoneOpacity</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setZoneOpacity(float</span> <span class="pre">opacity)</span> <span class="pre">{</span> <span class="pre">m_zoneOpacity</span> <span class="pre">=</span> <span class="pre">opacity;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getZoneOpacity</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">getZoneOpacity()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_zoneOpacity;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getZoneColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">getZoneColor(tileflags_t</span> <span class="pre">flag)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getZoneFlags</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tileflags_t</span> <span class="pre">getZoneFlags()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(tileflags_t)m_zoneFlags;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">showZones</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">showZones()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_zoneFlags</span> <span class="pre">!=</span> <span class="pre">0;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">showZone</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">showZone(tileflags_t</span> <span class="pre">zone)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(m_zoneFlags</span> <span class="pre">&amp;</span> <span class="pre">zone)</span> <span class="pre">==</span> <span class="pre">zone;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setForceShowAnimations</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setForceShowAnimations(bool</span> <span class="pre">force)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isForcingAnimations</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isForcingAnimations()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isShowingAnimations</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isShowingAnimations()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setShowAnimations</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShowAnimations(bool</span> <span class="pre">show)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">findItemsById</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::map&lt;Position,</span> <span class="pre">ItemPtr&gt;</span> <span class="pre">findItemsById(uint16</span> <span class="pre">clientId,</span> <span class="pre">uint32</span> <span class="pre">max)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">addCreature</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addCreature(const</span> <span class="pre">CreaturePtr&amp;</span> <span class="pre">creature)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getCreatureById</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CreaturePtr</span> <span class="pre">getCreatureById(uint32</span> <span class="pre">id)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">removeCreatureById</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeCreatureById(uint32</span> <span class="pre">id)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSightSpectators</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSightSpectators(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSpectators</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectators(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSpectatorsInRange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectatorsInRange(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor,</span> <span class="pre">int</span> <span class="pre">xRange,</span> <span class="pre">int</span> <span class="pre">yRange)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSpectatorsInRangeEx</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectatorsInRangeEx(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor,</span> <span class="pre">int</span> <span class="pre">minXRange,</span> <span class="pre">int</span> <span class="pre">maxXRange,</span> <span class="pre">int</span> <span class="pre">minYRange,</span> <span class="pre">int</span> <span class="pre">maxYRange</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSpectatorsByPattern</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectatorsByPattern(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">pattern,</span> <span class="pre">Otc::Direction</span> <span class="pre">direction)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setLight</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setLight(const</span> <span class="pre">Light&amp;</span> <span class="pre">light)</span> <span class="pre">{</span> <span class="pre">m_light</span> <span class="pre">=</span> <span class="pre">light;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setCentralPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCentralPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">centralPosition)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isLookPossible</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLookPossible(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isCovered</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCovered(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">firstFloor</span> <span class="pre">=</span> <span class="pre">0)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isCompletelyCovered</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCompletelyCovered(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">firstFloor</span> <span class="pre">=</span> <span class="pre">0)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isAwareOfPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAwareOfPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">extended</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isAwareOfPositionForClean</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAwareOfPositionForClean(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">extended</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setAwareRange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAwareRange(const</span> <span class="pre">AwareRange&amp;</span> <span class="pre">range)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">resetAwareRange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetAwareRange()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getAwareRange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AwareRange</span> <span class="pre">getAwareRange()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_awareRange;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getAwareRangeAsSize</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getAwareRangeAsSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">Size(m_awareRange.horizontal(),</span> <span class="pre">m_awareRange.vertical());</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getLight</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Light</span> <span class="pre">getLight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_light;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getCentralPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getCentralPosition()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_centralPosition;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getFirstAwareFloor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getFirstAwareFloor()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getLastAwareFloor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getLastAwareFloor()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getAnimatedTexts</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;AnimatedTextPtr&gt;</span> <span class="pre">getAnimatedTexts()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_animatedTexts;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getStaticTexts</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;StaticTextPtr&gt;</span> <span class="pre">getStaticTexts()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_staticTexts;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">newFindPath</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PathFindResult_ptr</span> <span class="pre">newFindPath(const</span> <span class="pre">Position&amp;</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">goal,</span> <span class="pre">std::shared_ptr&lt;std::list&lt;Node*&gt;&gt;</span> <span class="pre">visibleNodes)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">findPathAsync</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">findPathAsync(const</span> <span class="pre">Position</span> <span class="pre">&amp;</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">Position</span> <span class="pre">&amp;</span> <span class="pre">goal,</span> <span class="pre">std::function&lt;void(PathFindResult_ptr)&gt;</span> <span class="pre">callback)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getMinimapColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getMinimapColor(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isPatchable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPatchable(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isWalkable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWalkable(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">ignoreCreatures)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isSightClear</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isSightClear(const</span> <span class="pre">Position&amp;</span> <span class="pre">fromPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">toPos)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">checkSightLine</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">checkSightLine(const</span> <span class="pre">Position&amp;</span> <span class="pre">fromPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">toPos)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Link to this heading">#</a></h2>
+<section id="otbm-itemattr">
+<h3><code class="docutils literal notranslate"><span class="pre">OTBM_ItemAttr</span></code><a class="headerlink" href="#otbm-itemattr" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_DESCRIPTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_EXT_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_TILE_FLAGS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_ACTION_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_UNIQUE_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_TEXT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_DESC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_TELE_DEST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_ITEM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_DEPOT_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_SPAWN_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_RUNE_CHARGES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_HOUSE_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_HOUSEDOORID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_COUNT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_DURATION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_DECAYING_STATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_WRITTENDATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_WRITTENBY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_SLEEPERGUID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_SLEEPSTART</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_CHARGES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_CONTAINER_ITEMS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_ATTRIBUTE_MAP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_WIDTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ATTR_HEIGHT</span></code></p></li>
+</ul>
+</section>
+<section id="otbm-nodetypes-t">
+<h3><code class="docutils literal notranslate"><span class="pre">OTBM_NodeTypes_t</span></code><a class="headerlink" href="#otbm-nodetypes-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ROOTV2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_MAP_DATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ITEM_DEF</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_TILE_AREA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_TILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_ITEM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_TILE_SQUARE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_TILE_REF</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_SPAWNS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_SPAWN_AREA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_MONSTER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_TOWNS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_TOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_HOUSETILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_WAYPOINTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTBM_WAYPOINT</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="remove">
+<h3><code class="docutils literal notranslate"><span class="pre">remove</span></code><a class="headerlink" href="#remove" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">remove(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">{</span> <span class="pre">m_tiles[getTileIndex(pos)]</span> <span class="pre">=</span> <span class="pre">nullptr;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gettileindex">
+<h3><code class="docutils literal notranslate"><span class="pre">getTileIndex</span></code><a class="headerlink" href="#gettileindex" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint</span> <span class="pre">getTileIndex(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">((pos.y</span> <span class="pre">%</span> <span class="pre">BLOCK_SIZE)</span> <span class="pre">*</span> <span class="pre">BLOCK_SIZE)</span> <span class="pre">+</span> <span class="pre">(pos.x</span> <span class="pre">%</span> <span class="pre">BLOCK_SIZE);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="horizontal">
+<h3><code class="docutils literal notranslate"><span class="pre">horizontal</span></code><a class="headerlink" href="#horizontal" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">horizontal()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">left</span> <span class="pre">+</span> <span class="pre">right</span> <span class="pre">+</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="vertical">
+<h3><code class="docutils literal notranslate"><span class="pre">vertical</span></code><a class="headerlink" href="#vertical" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">vertical()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">top</span> <span class="pre">+</span> <span class="pre">bottom</span> <span class="pre">+</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">init()</span></code></p>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">terminate()</span></code></p>
+</section>
+<section id="addmapview">
+<h3><code class="docutils literal notranslate"><span class="pre">addMapView</span></code><a class="headerlink" href="#addmapview" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addMapView(const</span> <span class="pre">MapViewPtr&amp;</span> <span class="pre">mapView)</span></code></p>
+</section>
+<section id="removemapview">
+<h3><code class="docutils literal notranslate"><span class="pre">removeMapView</span></code><a class="headerlink" href="#removemapview" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeMapView(const</span> <span class="pre">MapViewPtr&amp;</span> <span class="pre">mapView)</span></code></p>
+</section>
+<section id="notificatetileupdate">
+<h3><code class="docutils literal notranslate"><span class="pre">notificateTileUpdate</span></code><a class="headerlink" href="#notificatetileupdate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">notificateTileUpdate(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">updateMinimap</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="requestvisibletilescacheupdate">
+<h3><code class="docutils literal notranslate"><span class="pre">requestVisibleTilesCacheUpdate</span></code><a class="headerlink" href="#requestvisibletilescacheupdate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">requestVisibleTilesCacheUpdate()</span></code></p>
+</section>
+<section id="loadotcm">
+<h3><code class="docutils literal notranslate"><span class="pre">loadOtcm</span></code><a class="headerlink" href="#loadotcm" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">loadOtcm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="saveotcm">
+<h3><code class="docutils literal notranslate"><span class="pre">saveOtcm</span></code><a class="headerlink" href="#saveotcm" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">saveOtcm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="loadotbm">
+<h3><code class="docutils literal notranslate"><span class="pre">loadOtbm</span></code><a class="headerlink" href="#loadotbm" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">loadOtbm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="saveotbm">
+<h3><code class="docutils literal notranslate"><span class="pre">saveOtbm</span></code><a class="headerlink" href="#saveotbm" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">saveOtbm(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="sethousefile">
+<h3><code class="docutils literal notranslate"><span class="pre">setHouseFile</span></code><a class="headerlink" href="#sethousefile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHouseFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">file)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_HOUSE_FILE,</span> <span class="pre">file);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setspawnfile">
+<h3><code class="docutils literal notranslate"><span class="pre">setSpawnFile</span></code><a class="headerlink" href="#setspawnfile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSpawnFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">file)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_SPAWN_FILE,</span> <span class="pre">file);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setdescription">
+<h3><code class="docutils literal notranslate"><span class="pre">setDescription</span></code><a class="headerlink" href="#setdescription" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDescription(const</span> <span class="pre">std::string&amp;</span> <span class="pre">desc)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_DESCRIPTION,</span> <span class="pre">desc);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="cleardescriptions">
+<h3><code class="docutils literal notranslate"><span class="pre">clearDescriptions</span></code><a class="headerlink" href="#cleardescriptions" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clearDescriptions()</span> <span class="pre">{</span> <span class="pre">m_attribs.remove(OTBM_ATTR_DESCRIPTION);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setwidth">
+<h3><code class="docutils literal notranslate"><span class="pre">setWidth</span></code><a class="headerlink" href="#setwidth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setWidth(uint16</span> <span class="pre">w)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_WIDTH,</span> <span class="pre">w);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setheight">
+<h3><code class="docutils literal notranslate"><span class="pre">setHeight</span></code><a class="headerlink" href="#setheight" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHeight(uint16</span> <span class="pre">h)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(OTBM_ATTR_HEIGHT,</span> <span class="pre">h);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gethousefile">
+<h3><code class="docutils literal notranslate"><span class="pre">getHouseFile</span></code><a class="headerlink" href="#gethousefile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getHouseFile()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(OTBM_ATTR_HOUSE_FILE);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getspawnfile">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpawnFile</span></code><a class="headerlink" href="#getspawnfile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getSpawnFile()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(OTBM_ATTR_SPAWN_FILE);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getsize">
+<h3><code class="docutils literal notranslate"><span class="pre">getSize</span></code><a class="headerlink" href="#getsize" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">Size(m_attribs.get&lt;uint16&gt;(OTBM_ATTR_WIDTH),</span> <span class="pre">m_attribs.get&lt;uint16&gt;(OTBM_ATTR_HEIGHT));</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getdescriptions">
+<h3><code class="docutils literal notranslate"><span class="pre">getDescriptions</span></code><a class="headerlink" href="#getdescriptions" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;std::string&gt;</span> <span class="pre">getDescriptions()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">stdext::split(m_attribs.get&lt;std::string&gt;(OTBM_ATTR_DESCRIPTION),</span> <span class="pre">&quot;\n&quot;);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="clean">
+<h3><code class="docutils literal notranslate"><span class="pre">clean</span></code><a class="headerlink" href="#clean" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clean()</span></code></p>
+</section>
+<section id="cleandynamicthings">
+<h3><code class="docutils literal notranslate"><span class="pre">cleanDynamicThings</span></code><a class="headerlink" href="#cleandynamicthings" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cleanDynamicThings()</span></code></p>
+</section>
+<section id="cleantexts">
+<h3><code class="docutils literal notranslate"><span class="pre">cleanTexts</span></code><a class="headerlink" href="#cleantexts" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cleanTexts()</span></code></p>
+</section>
+<section id="addthing">
+<h3><code class="docutils literal notranslate"><span class="pre">addThing</span></code><a class="headerlink" href="#addthing" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addThing(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">stackPos</span> <span class="pre">=</span> <span class="pre">-1)</span></code></p>
+</section>
+<section id="settilespeed">
+<h3><code class="docutils literal notranslate"><span class="pre">setTileSpeed</span></code><a class="headerlink" href="#settilespeed" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTileSpeed(const</span> <span class="pre">Position</span> <span class="pre">&amp;</span> <span class="pre">pos,</span> <span class="pre">uint16_t</span> <span class="pre">speed,</span> <span class="pre">uint8_t</span> <span class="pre">blocking)</span></code></p>
+</section>
+<section id="getthing">
+<h3><code class="docutils literal notranslate"><span class="pre">getThing</span></code><a class="headerlink" href="#getthing" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ThingPtr</span> <span class="pre">getThing(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">stackPos)</span></code></p>
+</section>
+<section id="removething">
+<h3><code class="docutils literal notranslate"><span class="pre">removeThing</span></code><a class="headerlink" href="#removething" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">removeThing(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing)</span></code></p>
+</section>
+<section id="removethingbypos">
+<h3><code class="docutils literal notranslate"><span class="pre">removeThingByPos</span></code><a class="headerlink" href="#removethingbypos" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">removeThingByPos(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">stackPos)</span></code></p>
+</section>
+<section id="colorizething">
+<h3><code class="docutils literal notranslate"><span class="pre">colorizeThing</span></code><a class="headerlink" href="#colorizething" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">colorizeThing(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing,</span> <span class="pre">const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span></code></p>
+</section>
+<section id="removethingcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">removeThingColor</span></code><a class="headerlink" href="#removethingcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeThingColor(const</span> <span class="pre">ThingPtr&amp;</span> <span class="pre">thing)</span></code></p>
+</section>
+<section id="getstatictext">
+<h3><code class="docutils literal notranslate"><span class="pre">getStaticText</span></code><a class="headerlink" href="#getstatictext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">StaticTextPtr</span> <span class="pre">getStaticText(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="cleantile">
+<h3><code class="docutils literal notranslate"><span class="pre">cleanTile</span></code><a class="headerlink" href="#cleantile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cleanTile(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="setshowzone">
+<h3><code class="docutils literal notranslate"><span class="pre">setShowZone</span></code><a class="headerlink" href="#setshowzone" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShowZone(tileflags_t</span> <span class="pre">zone,</span> <span class="pre">bool</span> <span class="pre">show)</span></code></p>
+</section>
+<section id="setshowzones">
+<h3><code class="docutils literal notranslate"><span class="pre">setShowZones</span></code><a class="headerlink" href="#setshowzones" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShowZones(bool</span> <span class="pre">show)</span></code></p>
+</section>
+<section id="setzonecolor">
+<h3><code class="docutils literal notranslate"><span class="pre">setZoneColor</span></code><a class="headerlink" href="#setzonecolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setZoneColor(tileflags_t</span> <span class="pre">flag,</span> <span class="pre">const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span></code></p>
+</section>
+<section id="setzoneopacity">
+<h3><code class="docutils literal notranslate"><span class="pre">setZoneOpacity</span></code><a class="headerlink" href="#setzoneopacity" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setZoneOpacity(float</span> <span class="pre">opacity)</span> <span class="pre">{</span> <span class="pre">m_zoneOpacity</span> <span class="pre">=</span> <span class="pre">opacity;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getzoneopacity">
+<h3><code class="docutils literal notranslate"><span class="pre">getZoneOpacity</span></code><a class="headerlink" href="#getzoneopacity" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">getZoneOpacity()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_zoneOpacity;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getzonecolor">
+<h3><code class="docutils literal notranslate"><span class="pre">getZoneColor</span></code><a class="headerlink" href="#getzonecolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Color</span> <span class="pre">getZoneColor(tileflags_t</span> <span class="pre">flag)</span></code></p>
+</section>
+<section id="getzoneflags">
+<h3><code class="docutils literal notranslate"><span class="pre">getZoneFlags</span></code><a class="headerlink" href="#getzoneflags" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">tileflags_t</span> <span class="pre">getZoneFlags()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(tileflags_t)m_zoneFlags;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="showzones">
+<h3><code class="docutils literal notranslate"><span class="pre">showZones</span></code><a class="headerlink" href="#showzones" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">showZones()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_zoneFlags</span> <span class="pre">!=</span> <span class="pre">0;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="showzone">
+<h3><code class="docutils literal notranslate"><span class="pre">showZone</span></code><a class="headerlink" href="#showzone" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">showZone(tileflags_t</span> <span class="pre">zone)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(m_zoneFlags</span> <span class="pre">&amp;</span> <span class="pre">zone)</span> <span class="pre">==</span> <span class="pre">zone;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setforceshowanimations">
+<h3><code class="docutils literal notranslate"><span class="pre">setForceShowAnimations</span></code><a class="headerlink" href="#setforceshowanimations" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setForceShowAnimations(bool</span> <span class="pre">force)</span></code></p>
+</section>
+<section id="isforcinganimations">
+<h3><code class="docutils literal notranslate"><span class="pre">isForcingAnimations</span></code><a class="headerlink" href="#isforcinganimations" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isForcingAnimations()</span></code></p>
+</section>
+<section id="isshowinganimations">
+<h3><code class="docutils literal notranslate"><span class="pre">isShowingAnimations</span></code><a class="headerlink" href="#isshowinganimations" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isShowingAnimations()</span></code></p>
+</section>
+<section id="setshowanimations">
+<h3><code class="docutils literal notranslate"><span class="pre">setShowAnimations</span></code><a class="headerlink" href="#setshowanimations" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShowAnimations(bool</span> <span class="pre">show)</span></code></p>
+</section>
+<section id="finditemsbyid">
+<h3><code class="docutils literal notranslate"><span class="pre">findItemsById</span></code><a class="headerlink" href="#finditemsbyid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::map&lt;Position,</span> <span class="pre">ItemPtr&gt;</span> <span class="pre">findItemsById(uint16</span> <span class="pre">clientId,</span> <span class="pre">uint32</span> <span class="pre">max)</span></code></p>
+</section>
+<section id="addcreature">
+<h3><code class="docutils literal notranslate"><span class="pre">addCreature</span></code><a class="headerlink" href="#addcreature" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addCreature(const</span> <span class="pre">CreaturePtr&amp;</span> <span class="pre">creature)</span></code></p>
+</section>
+<section id="getcreaturebyid">
+<h3><code class="docutils literal notranslate"><span class="pre">getCreatureById</span></code><a class="headerlink" href="#getcreaturebyid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">CreaturePtr</span> <span class="pre">getCreatureById(uint32</span> <span class="pre">id)</span></code></p>
+</section>
+<section id="removecreaturebyid">
+<h3><code class="docutils literal notranslate"><span class="pre">removeCreatureById</span></code><a class="headerlink" href="#removecreaturebyid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeCreatureById(uint32</span> <span class="pre">id)</span></code></p>
+</section>
+<section id="getsightspectators">
+<h3><code class="docutils literal notranslate"><span class="pre">getSightSpectators</span></code><a class="headerlink" href="#getsightspectators" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSightSpectators(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor)</span></code></p>
+</section>
+<section id="getspectators">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpectators</span></code><a class="headerlink" href="#getspectators" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectators(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor)</span></code></p>
+</section>
+<section id="getspectatorsinrange">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpectatorsInRange</span></code><a class="headerlink" href="#getspectatorsinrange" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectatorsInRange(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor,</span> <span class="pre">int</span> <span class="pre">xRange,</span> <span class="pre">int</span> <span class="pre">yRange)</span></code></p>
+</section>
+<section id="getspectatorsinrangeex">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpectatorsInRangeEx</span></code><a class="headerlink" href="#getspectatorsinrangeex" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectatorsInRangeEx(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">bool</span> <span class="pre">multiFloor,</span> <span class="pre">int</span> <span class="pre">minXRange,</span> <span class="pre">int</span> <span class="pre">maxXRange,</span> <span class="pre">int</span> <span class="pre">minYRange,</span> <span class="pre">int</span> <span class="pre">maxYRange)</span></code></p>
+</section>
+<section id="getspectatorsbypattern">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpectatorsByPattern</span></code><a class="headerlink" href="#getspectatorsbypattern" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;CreaturePtr&gt;</span> <span class="pre">getSpectatorsByPattern(const</span> <span class="pre">Position&amp;</span> <span class="pre">centerPos,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">pattern,</span> <span class="pre">Otc::Direction</span> <span class="pre">direction)</span></code></p>
+</section>
+<section id="setlight">
+<h3><code class="docutils literal notranslate"><span class="pre">setLight</span></code><a class="headerlink" href="#setlight" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setLight(const</span> <span class="pre">Light&amp;</span> <span class="pre">light)</span> <span class="pre">{</span> <span class="pre">m_light</span> <span class="pre">=</span> <span class="pre">light;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setcentralposition">
+<h3><code class="docutils literal notranslate"><span class="pre">setCentralPosition</span></code><a class="headerlink" href="#setcentralposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCentralPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">centralPosition)</span></code></p>
+</section>
+<section id="islookpossible">
+<h3><code class="docutils literal notranslate"><span class="pre">isLookPossible</span></code><a class="headerlink" href="#islookpossible" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLookPossible(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="iscovered">
+<h3><code class="docutils literal notranslate"><span class="pre">isCovered</span></code><a class="headerlink" href="#iscovered" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCovered(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">firstFloor</span> <span class="pre">=</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="iscompletelycovered">
+<h3><code class="docutils literal notranslate"><span class="pre">isCompletelyCovered</span></code><a class="headerlink" href="#iscompletelycovered" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isCompletelyCovered(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">firstFloor</span> <span class="pre">=</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="isawareofposition">
+<h3><code class="docutils literal notranslate"><span class="pre">isAwareOfPosition</span></code><a class="headerlink" href="#isawareofposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAwareOfPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">extended</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="isawareofpositionforclean">
+<h3><code class="docutils literal notranslate"><span class="pre">isAwareOfPositionForClean</span></code><a class="headerlink" href="#isawareofpositionforclean" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAwareOfPositionForClean(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">extended</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="setawarerange">
+<h3><code class="docutils literal notranslate"><span class="pre">setAwareRange</span></code><a class="headerlink" href="#setawarerange" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAwareRange(const</span> <span class="pre">AwareRange&amp;</span> <span class="pre">range)</span></code></p>
+</section>
+<section id="resetawarerange">
+<h3><code class="docutils literal notranslate"><span class="pre">resetAwareRange</span></code><a class="headerlink" href="#resetawarerange" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">resetAwareRange()</span></code></p>
+</section>
+<section id="getawarerange">
+<h3><code class="docutils literal notranslate"><span class="pre">getAwareRange</span></code><a class="headerlink" href="#getawarerange" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">AwareRange</span> <span class="pre">getAwareRange()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_awareRange;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getawarerangeassize">
+<h3><code class="docutils literal notranslate"><span class="pre">getAwareRangeAsSize</span></code><a class="headerlink" href="#getawarerangeassize" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Size</span> <span class="pre">getAwareRangeAsSize()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">Size(m_awareRange.horizontal(),</span> <span class="pre">m_awareRange.vertical());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getlight">
+<h3><code class="docutils literal notranslate"><span class="pre">getLight</span></code><a class="headerlink" href="#getlight" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Light</span> <span class="pre">getLight()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_light;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getcentralposition">
+<h3><code class="docutils literal notranslate"><span class="pre">getCentralPosition</span></code><a class="headerlink" href="#getcentralposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getCentralPosition()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_centralPosition;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getfirstawarefloor">
+<h3><code class="docutils literal notranslate"><span class="pre">getFirstAwareFloor</span></code><a class="headerlink" href="#getfirstawarefloor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getFirstAwareFloor()</span></code></p>
+</section>
+<section id="getlastawarefloor">
+<h3><code class="docutils literal notranslate"><span class="pre">getLastAwareFloor</span></code><a class="headerlink" href="#getlastawarefloor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getLastAwareFloor()</span></code></p>
+</section>
+<section id="getanimatedtexts">
+<h3><code class="docutils literal notranslate"><span class="pre">getAnimatedTexts</span></code><a class="headerlink" href="#getanimatedtexts" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;AnimatedTextPtr&gt;</span> <span class="pre">getAnimatedTexts()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_animatedTexts;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getstatictexts">
+<h3><code class="docutils literal notranslate"><span class="pre">getStaticTexts</span></code><a class="headerlink" href="#getstatictexts" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;StaticTextPtr&gt;</span> <span class="pre">getStaticTexts()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_staticTexts;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="newfindpath">
+<h3><code class="docutils literal notranslate"><span class="pre">newFindPath</span></code><a class="headerlink" href="#newfindpath" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">PathFindResult_ptr</span> <span class="pre">newFindPath(const</span> <span class="pre">Position&amp;</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">goal,</span> <span class="pre">std::shared_ptr&lt;std::list&lt;Node*&gt;&gt;</span> <span class="pre">visibleNodes)</span></code></p>
+</section>
+<section id="findpathasync">
+<h3><code class="docutils literal notranslate"><span class="pre">findPathAsync</span></code><a class="headerlink" href="#findpathasync" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">findPathAsync(const</span> <span class="pre">Position</span> <span class="pre">&amp;</span> <span class="pre">start,</span> <span class="pre">const</span> <span class="pre">Position</span> <span class="pre">&amp;</span> <span class="pre">goal,</span> <span class="pre">std::function&lt;void(PathFindResult_ptr)&gt;</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="getminimapcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">getMinimapColor</span></code><a class="headerlink" href="#getminimapcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getMinimapColor(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="ispatchable">
+<h3><code class="docutils literal notranslate"><span class="pre">isPatchable</span></code><a class="headerlink" href="#ispatchable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPatchable(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="iswalkable">
+<h3><code class="docutils literal notranslate"><span class="pre">isWalkable</span></code><a class="headerlink" href="#iswalkable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWalkable(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">bool</span> <span class="pre">ignoreCreatures)</span></code></p>
+</section>
+<section id="issightclear">
+<h3><code class="docutils literal notranslate"><span class="pre">isSightClear</span></code><a class="headerlink" href="#issightclear" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isSightClear(const</span> <span class="pre">Position&amp;</span> <span class="pre">fromPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">toPos)</span></code></p>
+</section>
+<section id="checksightline">
+<h3><code class="docutils literal notranslate"><span class="pre">checkSightLine</span></code><a class="headerlink" href="#checksightline" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">checkSightLine(const</span> <span class="pre">Position&amp;</span> <span class="pre">fromPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">toPos)</span></code></p>
+</section>
+<section id="removeunawarethings">
+<h3><code class="docutils literal notranslate"><span class="pre">removeUnawareThings</span></code><a class="headerlink" href="#removeunawarethings" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeUnawareThings()</span></code></p>
+</section>
+<section id="getblockindex">
+<h3><code class="docutils literal notranslate"><span class="pre">getBlockIndex</span></code><a class="headerlink" href="#getblockindex" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint</span> <span class="pre">getBlockIndex(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">((pos.y</span> <span class="pre">/</span> <span class="pre">BLOCK_SIZE)</span> <span class="pre">*</span> <span class="pre">(65536</span> <span class="pre">/</span> <span class="pre">BLOCK_SIZE))</span> <span class="pre">+</span> <span class="pre">(pos.x</span> <span class="pre">/</span> <span class="pre">BLOCK_SIZE);</span> <span class="pre">}</span></code></p>
+</section>
+</section>
+<section id="types-aliases">
+<h2>Types/Aliases<a class="headerlink" href="#types-aliases" title="Link to this heading">#</a></h2>
+<section id="pathfindresult-ptr">
+<h3><code class="docutils literal notranslate"><span class="pre">PathFindResult_ptr</span></code><a class="headerlink" href="#pathfindresult-ptr" title="Link to this heading">#</a></h3>
+<p><strong>Using:</strong> <code class="docutils literal notranslate"><span class="pre">std::shared_ptr&lt;PathFindResult&gt;</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference download internal" download="" href="../../../../../_downloads/9ba1d60440413431123f98283485fea7/map.mmd"><span class="xref download myst">../diagrams/map.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-tileblock">Klasa: <code class="docutils literal notranslate"><span class="pre">TileBlock</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-awarerange">Struktura: <code class="docutils literal notranslate"><span class="pre">AwareRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-pathfindresult">Struktura: <code class="docutils literal notranslate"><span class="pre">PathFindResult</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-node">Struktura: <code class="docutils literal notranslate"><span class="pre">Node</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-map">Klasa: <code class="docutils literal notranslate"><span class="pre">Map</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enums">Enums</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otbm-itemattr"><code class="docutils literal notranslate"><span class="pre">OTBM_ItemAttr</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otbm-nodetypes-t"><code class="docutils literal notranslate"><span class="pre">OTBM_NodeTypes_t</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove"><code class="docutils literal notranslate"><span class="pre">remove</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettileindex"><code class="docutils literal notranslate"><span class="pre">getTileIndex</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal"><code class="docutils literal notranslate"><span class="pre">horizontal</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical"><code class="docutils literal notranslate"><span class="pre">vertical</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addmapview"><code class="docutils literal notranslate"><span class="pre">addMapView</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removemapview"><code class="docutils literal notranslate"><span class="pre">removeMapView</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notificatetileupdate"><code class="docutils literal notranslate"><span class="pre">notificateTileUpdate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requestvisibletilescacheupdate"><code class="docutils literal notranslate"><span class="pre">requestVisibleTilesCacheUpdate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadotcm"><code class="docutils literal notranslate"><span class="pre">loadOtcm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saveotcm"><code class="docutils literal notranslate"><span class="pre">saveOtcm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadotbm"><code class="docutils literal notranslate"><span class="pre">loadOtbm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saveotbm"><code class="docutils literal notranslate"><span class="pre">saveOtbm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sethousefile"><code class="docutils literal notranslate"><span class="pre">setHouseFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setspawnfile"><code class="docutils literal notranslate"><span class="pre">setSpawnFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdescription"><code class="docutils literal notranslate"><span class="pre">setDescription</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleardescriptions"><code class="docutils literal notranslate"><span class="pre">clearDescriptions</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setwidth"><code class="docutils literal notranslate"><span class="pre">setWidth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setheight"><code class="docutils literal notranslate"><span class="pre">setHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gethousefile"><code class="docutils literal notranslate"><span class="pre">getHouseFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspawnfile"><code class="docutils literal notranslate"><span class="pre">getSpawnFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsize"><code class="docutils literal notranslate"><span class="pre">getSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdescriptions"><code class="docutils literal notranslate"><span class="pre">getDescriptions</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleandynamicthings"><code class="docutils literal notranslate"><span class="pre">cleanDynamicThings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleantexts"><code class="docutils literal notranslate"><span class="pre">cleanTexts</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addthing"><code class="docutils literal notranslate"><span class="pre">addThing</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settilespeed"><code class="docutils literal notranslate"><span class="pre">setTileSpeed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getthing"><code class="docutils literal notranslate"><span class="pre">getThing</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removething"><code class="docutils literal notranslate"><span class="pre">removeThing</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removethingbypos"><code class="docutils literal notranslate"><span class="pre">removeThingByPos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colorizething"><code class="docutils literal notranslate"><span class="pre">colorizeThing</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removethingcolor"><code class="docutils literal notranslate"><span class="pre">removeThingColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getstatictext"><code class="docutils literal notranslate"><span class="pre">getStaticText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleantile"><code class="docutils literal notranslate"><span class="pre">cleanTile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setshowzone"><code class="docutils literal notranslate"><span class="pre">setShowZone</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setshowzones"><code class="docutils literal notranslate"><span class="pre">setShowZones</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setzonecolor"><code class="docutils literal notranslate"><span class="pre">setZoneColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setzoneopacity"><code class="docutils literal notranslate"><span class="pre">setZoneOpacity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getzoneopacity"><code class="docutils literal notranslate"><span class="pre">getZoneOpacity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getzonecolor"><code class="docutils literal notranslate"><span class="pre">getZoneColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getzoneflags"><code class="docutils literal notranslate"><span class="pre">getZoneFlags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#showzones"><code class="docutils literal notranslate"><span class="pre">showZones</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#showzone"><code class="docutils literal notranslate"><span class="pre">showZone</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setforceshowanimations"><code class="docutils literal notranslate"><span class="pre">setForceShowAnimations</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isforcinganimations"><code class="docutils literal notranslate"><span class="pre">isForcingAnimations</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isshowinganimations"><code class="docutils literal notranslate"><span class="pre">isShowingAnimations</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setshowanimations"><code class="docutils literal notranslate"><span class="pre">setShowAnimations</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finditemsbyid"><code class="docutils literal notranslate"><span class="pre">findItemsById</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addcreature"><code class="docutils literal notranslate"><span class="pre">addCreature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcreaturebyid"><code class="docutils literal notranslate"><span class="pre">getCreatureById</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removecreaturebyid"><code class="docutils literal notranslate"><span class="pre">removeCreatureById</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsightspectators"><code class="docutils literal notranslate"><span class="pre">getSightSpectators</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspectators"><code class="docutils literal notranslate"><span class="pre">getSpectators</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspectatorsinrange"><code class="docutils literal notranslate"><span class="pre">getSpectatorsInRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspectatorsinrangeex"><code class="docutils literal notranslate"><span class="pre">getSpectatorsInRangeEx</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspectatorsbypattern"><code class="docutils literal notranslate"><span class="pre">getSpectatorsByPattern</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setlight"><code class="docutils literal notranslate"><span class="pre">setLight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcentralposition"><code class="docutils literal notranslate"><span class="pre">setCentralPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#islookpossible"><code class="docutils literal notranslate"><span class="pre">isLookPossible</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iscovered"><code class="docutils literal notranslate"><span class="pre">isCovered</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iscompletelycovered"><code class="docutils literal notranslate"><span class="pre">isCompletelyCovered</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isawareofposition"><code class="docutils literal notranslate"><span class="pre">isAwareOfPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isawareofpositionforclean"><code class="docutils literal notranslate"><span class="pre">isAwareOfPositionForClean</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setawarerange"><code class="docutils literal notranslate"><span class="pre">setAwareRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetawarerange"><code class="docutils literal notranslate"><span class="pre">resetAwareRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getawarerange"><code class="docutils literal notranslate"><span class="pre">getAwareRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getawarerangeassize"><code class="docutils literal notranslate"><span class="pre">getAwareRangeAsSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlight"><code class="docutils literal notranslate"><span class="pre">getLight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcentralposition"><code class="docutils literal notranslate"><span class="pre">getCentralPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getfirstawarefloor"><code class="docutils literal notranslate"><span class="pre">getFirstAwareFloor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlastawarefloor"><code class="docutils literal notranslate"><span class="pre">getLastAwareFloor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getanimatedtexts"><code class="docutils literal notranslate"><span class="pre">getAnimatedTexts</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getstatictexts"><code class="docutils literal notranslate"><span class="pre">getStaticTexts</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newfindpath"><code class="docutils literal notranslate"><span class="pre">newFindPath</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#findpathasync"><code class="docutils literal notranslate"><span class="pre">findPathAsync</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getminimapcolor"><code class="docutils literal notranslate"><span class="pre">getMinimapColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ispatchable"><code class="docutils literal notranslate"><span class="pre">isPatchable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iswalkable"><code class="docutils literal notranslate"><span class="pre">isWalkable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issightclear"><code class="docutils literal notranslate"><span class="pre">isSightClear</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checksightline"><code class="docutils literal notranslate"><span class="pre">checkSightLine</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removeunawarethings"><code class="docutils literal notranslate"><span class="pre">removeUnawareThings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getblockindex"><code class="docutils literal notranslate"><span class="pre">getBlockIndex</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-aliases">Types/Aliases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pathfindresult-ptr"><code class="docutils literal notranslate"><span class="pre">PathFindResult_ptr</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/reposzablony/01_core/api/cpp/client/map.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

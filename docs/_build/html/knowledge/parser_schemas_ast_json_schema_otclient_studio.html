@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Parser &amp; Schemas (MASTER): AST + JSON Schema dla OTClient Studio &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/parser_schemas_ast_json_schema_otclient_studio';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Parser &amp; Schemas (MASTER): <strong>AST + JSON Schema</strong> dla <strong>OTClient Studio</strong></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="parser-schemas-master-ast-json-schema-dla-otclient-studio">
+<h1>Parser &amp; Schemas (MASTER): <strong>AST + JSON Schema</strong> dla <strong>OTClient Studio</strong><a class="headerlink" href="#parser-schemas-master-ast-json-schema-dla-otclient-studio" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Cel dokumentu: dostarczyć <strong>kompletne, operacyjne</strong> specyfikacje parserów (Lua‑Lite, OTUI/OTML) oraz <strong>kontrakty walidacyjne</strong> (JSON Schema) dla artefaktów narzędzia: <code class="docutils literal notranslate"><span class="pre">api.json</span></code>, <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code>, <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code>, <code class="docutils literal notranslate"><span class="pre">templates.json</span></code>, <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code>, <code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code>, <code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code>, a także <strong>schemat linii logu NDJSON</strong>. Wszystko w formie gotowej do bezpośredniej implementacji (TypeScript/Node) i automatycznej walidacji.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="zalozenia-ogolne">
+<h1>0) Założenia ogólne<a class="headerlink" href="#zalozenia-ogolne" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Deterministyczność:</strong> Emisja AST/indeksów musi być deterministyczna (stabilne sortowanie kluczy, list po <code class="docutils literal notranslate"><span class="pre">loc.start.offset</span></code>).</p></li>
+<li><p><strong>Lokalizacja (<code class="docutils literal notranslate"><span class="pre">loc</span></code>):</strong> Każdy węzeł ma <code class="docutils literal notranslate"><span class="pre">loc</span></code>:</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;/abs/path.lua&quot;</span><span class="p">,</span><span class="nt">&quot;start&quot;</span><span class="p">:{</span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="nt">&quot;end&quot;</span><span class="p">:{</span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="mi">27</span><span class="p">}}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Identyfikator węzła (<code class="docutils literal notranslate"><span class="pre">id</span></code>)</strong>: opcjonalny, <code class="docutils literal notranslate"><span class="pre">sha1(file</span> <span class="pre">+</span> <span class="pre">start.offset</span> <span class="pre">+</span> <span class="pre">type)</span></code>.</p></li>
+<li><p><strong>Tolerant parsing:</strong> Parser nie przerywa na pierwszy błąd; emituje <code class="docutils literal notranslate"><span class="pre">errors[]</span></code> i możliwie pełne AST.</p></li>
+<li><p><strong>Kody błędów:</strong> prefiksowane domeną (<code class="docutils literal notranslate"><span class="pre">LUA_</span></code>, <code class="docutils literal notranslate"><span class="pre">OTUI_</span></code>, <code class="docutils literal notranslate"><span class="pre">OTMOD_</span></code>, <code class="docutils literal notranslate"><span class="pre">GEN_</span></code>). Sekcja 7.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="otui-otml-gramatyka-i-ast">
+<h1>1) OTUI/OTML — Gramatyka i AST<a class="headerlink" href="#otui-otml-gramatyka-i-ast" title="Link to this heading">#</a></h1>
+</section>
+<section id="gramatyka-ebnf-praktyczna">
+<h1>1.1 Gramatyka (EBNF – praktyczna)<a class="headerlink" href="#gramatyka-ebnf-praktyczna" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>File        := (Decl | Comment)*
+Decl        := Type (&quot;&lt;&quot; Base &quot;&gt;&quot;)? Spacing? &quot;{&quot; Body &quot;}&quot;
+Body        := (KV | Decl | Comment)*
+KV          := Key Spacing? &quot;:&quot; Spacing? Value
+Type        := Ident
+Base        := Ident
+Key         := Ident
+Value       := String | Number | Bool | Ident | Array | Object
+Array       := &quot;[&quot; (Value (&quot;,&quot; Value)*)? &quot;]&quot;
+Object      := &quot;{&quot; (KV (&quot;,&quot; KV)*)? &quot;}&quot;
+Comment     := /#.*$/
+Ident       := /[A-Za-z_][A-Za-z0-9_\-]*/
+String      := &#39;&quot;&#39; (\\.|[^&quot;\\])* &#39;&quot;&#39; | &#39;\&#39;&#39; (\\.|[^&#39;\\])* &#39;\&#39;&#39;
+Number      := /[-+]?[0-9]+(\.[0-9]+)?/
+Bool        := &quot;true&quot; | &quot;false&quot;
+</pre></div>
+</div>
+</section>
+<section id="ast-otui-json-schema">
+<h1>1.2 AST OTUI — JSON Schema<a class="headerlink" href="#ast-otui-json-schema" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/otui-ast.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTUI AST&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;body&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTUIFile&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/ParseError&quot;</span><span class="p">}},</span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Node&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">,</span><span class="s2">&quot;start&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Pos&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Pos&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Pos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;offset&quot;</span><span class="p">,</span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="s2">&quot;column&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ParseError&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">,</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Node&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;oneOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Decl&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/KV&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Decl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">,</span><span class="s2">&quot;body&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Decl&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;base&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">]},</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">]},</span>
+<span class="w">        </span><span class="nt">&quot;loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Node&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;KV&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;key&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;KV&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Value&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GEOMETRY&quot;</span><span class="p">,</span><span class="s2">&quot;STYLE&quot;</span><span class="p">,</span><span class="s2">&quot;BEHAVIOR&quot;</span><span class="p">,</span><span class="kc">null</span><span class="p">]},</span>
+<span class="w">        </span><span class="nt">&quot;loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;oneOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/StringLiteral&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/NumberLiteral&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/BooleanLiteral&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Identifier&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/ArrayLiteral&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/ObjectLiteral&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;StringLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;StringLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;NumberLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;NumberLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;BooleanLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;BooleanLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;Identifier&quot;</span><span class="p">},</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;ArrayLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;elements&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;ArrayLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;elements&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Value&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;ObjectLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;properties&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;ObjectLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/KV&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="kategoryzacja-atrybutow-lint">
+<h1>1.3 Kategoryzacja atrybutów (lint)<a class="headerlink" href="#kategoryzacja-atrybutow-lint" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>GEOMETRY:</strong> <code class="docutils literal notranslate"><span class="pre">x,y,width,height,anchors,margin,padding,min-width,max-width,min-height,max-height</span></code></p></li>
+<li><p><strong>STYLE:</strong> <code class="docutils literal notranslate"><span class="pre">font,color,image,style,opacity,icon,background,spacing</span></code></p></li>
+<li><p><strong>BEHAVIOR:</strong> <code class="docutils literal notranslate"><span class="pre">id,focusable,draggable,enabled,visible,onClick,onText,tooltip</span></code></p></li>
+</ul>
+<blockquote>
+<div><p>Lista jest rozszerzalna per projekt (<code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code>).</p>
+</div></blockquote>
+</section>
+<section id="przyklad-ast-otui">
+<h1>1.4 Przykład AST (OTUI)<a class="headerlink" href="#przyklad-ast-otui" title="Link to this heading">#</a></h1>
+<p>Wejście:</p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>MainWindow &lt; UIWidget {
+  id: main
+  width: 300
+  text: &quot;Hello&quot;
+}
+</pre></div>
+</div>
+<p>Szkic wyjścia (skrócony):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;OTUIFile&quot;</span><span class="p">,</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;/p/ui/main.otui&quot;</span><span class="p">,</span><span class="nt">&quot;start&quot;</span><span class="p">:{</span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span><span class="nt">&quot;end&quot;</span><span class="p">:{</span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:[],</span>
+<span class="w">  </span><span class="nt">&quot;body&quot;</span><span class="p">:[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Decl&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MainWindow&quot;</span><span class="p">,</span><span class="nt">&quot;base&quot;</span><span class="p">:</span><span class="s2">&quot;UIWidget&quot;</span><span class="p">,</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">},</span><span class="nt">&quot;body&quot;</span><span class="p">:[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;KV&quot;</span><span class="p">,</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;BEHAVIOR&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Identifier&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;main&quot;</span><span class="p">,</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;KV&quot;</span><span class="p">,</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;width&quot;</span><span class="p">,</span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;GEOMETRY&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;NumberLiteral&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;KV&quot;</span><span class="p">,</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;STYLE&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;StringLiteral&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}}</span>
+<span class="p">]}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="lualite-ast-i-zakres-parsera">
+<h1>2) Lua‑Lite — AST i zakres parsera<a class="headerlink" href="#lualite-ast-i-zakres-parsera" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Celem jest lekki AST do potrzeb IDE (symbole, funkcje, wywołania, literały, tabele). Nie jest to pełna interpretacja Lua.</p>
+</div></blockquote>
+</section>
+<section id="zakres-tokenow-wezlow">
+<h1>2.1 Zakres tokenów/węzłów<a class="headerlink" href="#zakres-tokenow-wezlow" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Węzły:</strong> <code class="docutils literal notranslate"><span class="pre">Chunk,</span> <span class="pre">LocalStatement,</span> <span class="pre">Assignment,</span> <span class="pre">FunctionDecl,</span> <span class="pre">CallStatement,</span> <span class="pre">CallExpr,</span> <span class="pre">Identifier,</span> <span class="pre">StringLiteral,</span> <span class="pre">NumberLiteral,</span> <span class="pre">BooleanLiteral,</span> <span class="pre">NilLiteral,</span> <span class="pre">TableConstructor,</span> <span class="pre">TableField,</span> <span class="pre">ReturnStatement,</span> <span class="pre">IfStatement</span> <span class="pre">(nagłówki),</span> <span class="pre">DoBlock</span> <span class="pre">(prosty)</span></code>.</p></li>
+<li><p><strong>Pomijane:</strong> złożone metatablice, goto/label (oznacz jako <code class="docutils literal notranslate"><span class="pre">UnknownNode</span></code>).</p></li>
+</ul>
+</section>
+<section id="lualite-ast-json-schema">
+<h1>2.2 Lua‑Lite AST — JSON Schema<a class="headerlink" href="#lualite-ast-json-schema" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/lua-lite-ast.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lua-Lite AST&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">,</span><span class="s2">&quot;body&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chunk&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/ParseError&quot;</span><span class="p">}},</span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Stmt&quot;</span><span class="p">}}</span>
+<span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;file&quot;</span><span class="p">,</span><span class="s2">&quot;start&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;file&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;start&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Pos&quot;</span><span class="p">},</span><span class="nt">&quot;end&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Pos&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;Pos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;offset&quot;</span><span class="p">,</span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="s2">&quot;column&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;offset&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">},</span><span class="nt">&quot;line&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span><span class="nt">&quot;column&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;ParseError&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;code&quot;</span><span class="p">,</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;code&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;message&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+
+<span class="w">    </span><span class="nt">&quot;Stmt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;oneOf&quot;</span><span class="p">:[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/LocalStatement&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Assignment&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/FunctionDecl&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/CallStatement&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/ReturnStatement&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/IfStatement&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/DoBlock&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">]},</span>
+
+<span class="w">    </span><span class="nt">&quot;Expr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;oneOf&quot;</span><span class="p">:[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Identifier&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/StringLiteral&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/NumberLiteral&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/BooleanLiteral&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/NilLiteral&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/CallExpr&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/TableConstructor&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">]},</span>
+
+<span class="w">    </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;Identifier&quot;</span><span class="p">},</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;StringLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;StringLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;NumberLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;NumberLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;BooleanLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;BooleanLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;NilLiteral&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;NilLiteral&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+
+<span class="w">    </span><span class="nt">&quot;LocalStatement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;names&quot;</span><span class="p">,</span><span class="s2">&quot;values&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;LocalStatement&quot;</span><span class="p">},</span><span class="nt">&quot;names&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Identifier&quot;</span><span class="p">}},</span><span class="nt">&quot;values&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;Assignment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;targets&quot;</span><span class="p">,</span><span class="s2">&quot;values&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;Assignment&quot;</span><span class="p">},</span><span class="nt">&quot;targets&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">}},</span><span class="nt">&quot;values&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;FunctionDecl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">,</span><span class="s2">&quot;body&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;FunctionDecl&quot;</span><span class="p">},</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">},</span><span class="nt">&quot;params&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Identifier&quot;</span><span class="p">}},</span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Stmt&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;CallStatement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;expression&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;CallStatement&quot;</span><span class="p">},</span><span class="nt">&quot;expression&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/CallExpr&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;CallExpr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;callee&quot;</span><span class="p">,</span><span class="s2">&quot;args&quot;</span><span class="p">,</span><span class="s2">&quot;method&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;CallExpr&quot;</span><span class="p">},</span><span class="nt">&quot;callee&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">},</span><span class="nt">&quot;args&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">}},</span><span class="nt">&quot;method&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">]},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;TableConstructor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;fields&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;TableConstructor&quot;</span><span class="p">},</span><span class="nt">&quot;fields&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/TableField&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;TableField&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;key&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;TableField&quot;</span><span class="p">},</span><span class="nt">&quot;key&quot;</span><span class="p">:{</span><span class="nt">&quot;oneOf&quot;</span><span class="p">:[{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Identifier&quot;</span><span class="p">},{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/StringLiteral&quot;</span><span class="p">},{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/NumberLiteral&quot;</span><span class="p">},{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;null&quot;</span><span class="p">}]},</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;ReturnStatement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;arguments&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;ReturnStatement&quot;</span><span class="p">},</span><span class="nt">&quot;arguments&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;IfStatement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;clauses&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;IfStatement&quot;</span><span class="p">},</span><span class="nt">&quot;clauses&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/IfClause&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;IfClause&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="s2">&quot;consequent&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;IfClause&quot;</span><span class="p">},</span><span class="nt">&quot;test&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Expr&quot;</span><span class="p">},</span><span class="nt">&quot;consequent&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Stmt&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}},</span>
+<span class="w">    </span><span class="nt">&quot;DoBlock&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;body&quot;</span><span class="p">,</span><span class="s2">&quot;loc&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;DoBlock&quot;</span><span class="p">},</span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Stmt&quot;</span><span class="p">}},</span><span class="nt">&quot;loc&quot;</span><span class="p">:{</span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="s2">&quot;#/definitions/Loc&quot;</span><span class="p">}}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="mapowanie-zdarzen-symboli-istotnych-dla-otclient-vbot">
+<h1>2.3 Mapowanie zdarzeń/symboli istotnych dla OTClient/vBot<a class="headerlink" href="#mapowanie-zdarzen-symboli-istotnych-dla-otclient-vbot" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Wykrywanie <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI(&quot;…&quot;)</span></code> → relacja <code class="docutils literal notranslate"><span class="pre">lua_to_otui</span></code>.</p></li>
+<li><p>Wykrywanie <code class="docutils literal notranslate"><span class="pre">dofile(&quot;…&quot;)</span></code>/<code class="docutils literal notranslate"><span class="pre">require(&quot;…&quot;)</span></code> → relacja <code class="docutils literal notranslate"><span class="pre">includes</span></code>.</p></li>
+<li><p>Heurystyki vBot: identyfikuj wywołania <code class="docutils literal notranslate"><span class="pre">macro(</span></code>, callbacki <code class="docutils literal notranslate"><span class="pre">onTextMessage</span></code>, <code class="docutils literal notranslate"><span class="pre">onCreatureHealth</span></code>, itp. → taguj w indeksie jako <code class="docutils literal notranslate"><span class="pre">botSymbols</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="kontrakty-walidacji-artefaktow-json-schema">
+<h1>3) Kontrakty walidacji artefaktów (JSON Schema)<a class="headerlink" href="#kontrakty-walidacji-artefaktow-json-schema" title="Link to this heading">#</a></h1>
+</section>
+<section id="resources-api-json">
+<h1>3.1 <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code><a class="headerlink" href="#resources-api-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/api.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;API Catalogue&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$schemaVersion&quot;</span><span class="p">,</span><span class="s2">&quot;functions&quot;</span><span class="p">,</span><span class="s2">&quot;events&quot;</span><span class="p">,</span><span class="s2">&quot;objects&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;generatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;date-time&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;functions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;uniqueItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;module&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">,</span><span class="s2">&quot;returns&quot;</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="s2">&quot;^[A-Za-z_][A-Za-z0-9_\.:]*$&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;type&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;optional&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">}}}},</span>
+<span class="w">          </span><span class="nt">&quot;returns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;examples&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}},</span>
+<span class="w">          </span><span class="nt">&quot;since&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;deprecated&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;target&quot;</span><span class="p">,</span><span class="s2">&quot;payload&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;target&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;payload&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;type&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span><span class="nt">&quot;description&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span>
+<span class="w">    </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;members&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;oneOf&quot;</span><span class="p">:[{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">}]}},</span><span class="nt">&quot;description&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="project-index-json">
+<h1>3.2 <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code><a class="headerlink" href="#project-index-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/project-index.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Project Index&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$schemaVersion&quot;</span><span class="p">,</span><span class="s2">&quot;root&quot;</span><span class="p">,</span><span class="s2">&quot;files&quot;</span><span class="p">,</span><span class="s2">&quot;symbols&quot;</span><span class="p">,</span><span class="s2">&quot;relations&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;root&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;lua&quot;</span><span class="p">,</span><span class="s2">&quot;otui&quot;</span><span class="p">,</span><span class="s2">&quot;otmod&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;lua&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}},</span><span class="nt">&quot;otui&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}},</span><span class="nt">&quot;otmod&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span>
+<span class="w">    </span><span class="nt">&quot;symbols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;functions&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}},</span><span class="nt">&quot;widgets&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}},</span><span class="nt">&quot;botSymbols&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}}},</span>
+<span class="w">    </span><span class="nt">&quot;relations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;lua_to_otui&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;lua&quot;</span><span class="p">,</span><span class="s2">&quot;otui&quot;</span><span class="p">,</span><span class="s2">&quot;via&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;lua&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;otui&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;via&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span><span class="nt">&quot;includes&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;from&quot;</span><span class="p">,</span><span class="s2">&quot;to&quot;</span><span class="p">,</span><span class="s2">&quot;via&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;from&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;to&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;via&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}}}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="otui-rules-json">
+<h1>3.3 <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code><a class="headerlink" href="#otui-rules-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/otui-rules.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTUI Lint Rules&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$schemaVersion&quot;</span><span class="p">,</span><span class="s2">&quot;rules&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">,</span><span class="s2">&quot;fixable&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;id&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;description&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;fixable&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">}}}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="templates-json">
+<h1>3.4 <code class="docutils literal notranslate"><span class="pre">templates.json</span></code><a class="headerlink" href="#templates-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/templates.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generator Templates&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$schemaVersion&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+<span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span><span class="s2">&quot;files&quot;</span><span class="p">,</span><span class="s2">&quot;checklist&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span><span class="s2">&quot;contents&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;path&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;contents&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span>
+<span class="w">      </span><span class="nt">&quot;checklist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="docstrings-json">
+<h1>3.5 <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code><a class="headerlink" href="#docstrings-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/docstrings.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Docstrings Index&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$schemaVersion&quot;</span><span class="p">,</span><span class="s2">&quot;entries&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;entries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;file&quot;</span><span class="p">,</span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="s2">&quot;symbol&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;file&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;line&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span><span class="nt">&quot;symbol&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;params&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;type&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;name&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span><span class="nt">&quot;returns&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}},</span><span class="nt">&quot;comment&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="assets-map-json">
+<h1>3.6 <code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code><a class="headerlink" href="#assets-map-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/assets-map.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Assets Map&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$schemaVersion&quot;</span><span class="p">,</span><span class="s2">&quot;assets&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;assets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="nt">&quot;properties&quot;</span><span class="p">:{</span><span class="nt">&quot;images&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}},</span><span class="nt">&quot;fonts&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}},</span><span class="nt">&quot;styles&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="studio-config-json">
+<h1>3.7 <code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code><a class="headerlink" href="#studio-config-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/studio-config.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Studio Config&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$schemaVersion&quot;</span><span class="p">,</span><span class="s2">&quot;projectRoot&quot;</span><span class="p">,</span><span class="s2">&quot;apiPath&quot;</span><span class="p">,</span><span class="s2">&quot;otuiRulesPath&quot;</span><span class="p">,</span><span class="s2">&quot;templatesPath&quot;</span><span class="p">,</span><span class="s2">&quot;logPath&quot;</span><span class="p">,</span><span class="s2">&quot;ignore&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;projectRoot&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;apiPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;otuiRulesPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;templatesPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;logPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ignore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="ndjson-schemat-pojedynczej-linii-logu">
+<h1>3.8 <code class="docutils literal notranslate"><span class="pre">ndjson</span></code> (schemat pojedynczej linii logu)<a class="headerlink" href="#ndjson-schemat-pojedynczej-linii-logu" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schemas.otc.studio/log-line.schema.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Log Line (NDJSON)&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span><span class="s2">&quot;level&quot;</span><span class="p">,</span><span class="s2">&quot;msg&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;date-time&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;enum&quot;</span><span class="p">:[</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="s2">&quot;ERROR&quot;</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:[</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">],</span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:[</span><span class="s2">&quot;object&quot;</span><span class="p">,</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="s2">&quot;number&quot;</span><span class="p">,</span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span><span class="s2">&quot;null&quot;</span><span class="p">]}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="kontrakty-ipc-parser-service">
+<h1>4) Kontrakty IPC (Parser Service)<a class="headerlink" href="#kontrakty-ipc-parser-service" title="Link to this heading">#</a></h1>
+<p><strong>Kanały:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">parser:otui:parse</span></code> → req: <code class="docutils literal notranslate"><span class="pre">{path</span> <span class="pre">|</span> <span class="pre">content}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">OTUIFile</span></code> (AST) + <code class="docutils literal notranslate"><span class="pre">errors[]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parser:lua:parse</span></code> → req: <code class="docutils literal notranslate"><span class="pre">{path</span> <span class="pre">|</span> <span class="pre">content}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">Chunk</span></code> (AST) + <code class="docutils literal notranslate"><span class="pre">errors[]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parser:scan:index</span></code> → req: <code class="docutils literal notranslate"><span class="pre">{root}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parser:docstrings</span></code> → req: <code class="docutils literal notranslate"><span class="pre">{files[]}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code>.</p></li>
+</ul>
+<p><strong>Błędy:</strong> <code class="docutils literal notranslate"><span class="pre">{code,msg,loc?}</span></code>; kody wg §7.</p>
+</section>
+<hr class="docutils" />
+<section id="reguly-walidacji-i-jakosci">
+<h1>5) Reguły walidacji i jakości<a class="headerlink" href="#reguly-walidacji-i-jakosci" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>JSON Schema gates:</strong> każda emisja <code class="docutils literal notranslate"><span class="pre">*.json</span></code> walidowana przed zapisem; błąd = rollback.</p></li>
+<li><p><strong>Stabilne sortowanie:</strong> listy sortuj po <code class="docutils literal notranslate"><span class="pre">loc.start.offset</span></code> lub alfabetycznie (klucze obiektów alfabetycznie).</p></li>
+<li><p><strong>Backupy:</strong> przy auto‑fix zapisz <code class="docutils literal notranslate"><span class="pre">*.bak</span></code> + diff.</p></li>
+<li><p><strong>Hash indeksu:</strong> <code class="docutils literal notranslate"><span class="pre">sha1(size+mtime)</span></code> dla cache inkrementalnego.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="test-vectors-probki-wejscia-wyjscia">
+<h1>6) Test vectors (próbki wejścia/wyjścia)<a class="headerlink" href="#test-vectors-probki-wejscia-wyjscia" title="Link to this heading">#</a></h1>
+</section>
+<section id="otui-proste">
+<h1>6.1 OTUI proste<a class="headerlink" href="#otui-proste" title="Link to this heading">#</a></h1>
+<p>Wejście <code class="docutils literal notranslate"><span class="pre">main.otui</span></code>:</p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Window &lt; UIWidget {
+  id: root
+  width: 320
+  text: &quot;Title&quot;
+}
+</pre></div>
+</div>
+<p>Oczekiwany AST: zgodny ze schematem §1.2 (sprawdź kategorie: id→BEHAVIOR, width→GEOMETRY, text→STYLE).</p>
+</section>
+<section id="lualite-symbole">
+<h1>6.2 Lua‑Lite — symbole<a class="headerlink" href="#lualite-symbole" title="Link to this heading">#</a></h1>
+<p>Wejście <code class="docutils literal notranslate"><span class="pre">client.lua</span></code>:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">M</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kr">function</span> <span class="nc">M</span><span class="p">.</span><span class="nf">reload</span><span class="p">()</span>
+  <span class="n">g_modules</span><span class="p">.</span><span class="n">reloadModules</span><span class="p">()</span>
+<span class="kr">end</span>
+<span class="n">M</span><span class="p">.</span><span class="n">init</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+  <span class="n">g_ui</span><span class="p">.</span><span class="n">loadUI</span><span class="p">(</span><span class="s1">&#39;ui/main.otui&#39;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="kr">return</span> <span class="n">M</span>
+</pre></div>
+</div>
+<p>Oczekiwane relacje: <code class="docutils literal notranslate"><span class="pre">lua_to_otui[0].otui</span> <span class="pre">==</span> <span class="pre">'ui/main.otui'</span></code>; wykryta funkcja <code class="docutils literal notranslate"><span class="pre">M.reload</span></code> + wywołanie <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code>.</p>
+</section>
+<section id="api-json-walidacja">
+<h1>6.3 <code class="docutils literal notranslate"><span class="pre">api.json</span></code> – walidacja<a class="headerlink" href="#api-json-walidacja" title="Link to this heading">#</a></h1>
+<p>Ziarno z dokumentu MASTER musi przejść <code class="docutils literal notranslate"><span class="pre">api.schema.json</span></code>; nazwy funkcji zgodne z regex.</p>
+</section>
+<hr class="docutils" />
+<section id="kody-bledow-i-odzyskiwanie">
+<h1>7) Kody błędów i odzyskiwanie<a class="headerlink" href="#kody-bledow-i-odzyskiwanie" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>LUA_001</strong>: nieoczekiwany token → pomiń do <code class="docutils literal notranslate"><span class="pre">;</span></code>/końca linii/bloku.</p></li>
+<li><p><strong>LUA_101</strong>: niezamknięta lista argumentów → zamknij heurystycznie przy <code class="docutils literal notranslate"><span class="pre">)</span></code> najbliższym.</p></li>
+<li><p><strong>OTUI_001</strong>: niezamknięty blok <code class="docutils literal notranslate"><span class="pre">{</span></code> → domknij na końcu pliku, dodaj ParseError.</p></li>
+<li><p><strong>OTUI_101</strong>: niepoprawny literał → potraktuj jako <code class="docutils literal notranslate"><span class="pre">Identifier</span></code> i zarejestruj błąd.</p></li>
+<li><p><strong>OTMOD_001</strong>: brak <code class="docutils literal notranslate"><span class="pre">name</span></code> → błąd twardy (blokuj generator).</p></li>
+<li><p><strong>GEN_500</strong>: błąd I/O → spróbuj ponownie raz, potem fail.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="wydajnosc-i-limity">
+<h1>8) Wydajność i limity<a class="headerlink" href="#wydajnosc-i-limity" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>AST do 2 MB pliku w &lt; 200 ms (cel); duże pliki: tryb „big-file” (bez części analiz).</p></li>
+<li><p>Indeks projektu 5k plików: &lt; 5 s z cache, &lt; 30 s zimny start.</p></li>
+<li><p>Zużycie pamięci: &lt; 500 MB dla indeksu 5k plików.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="checklisty-wdrozeniowe-dla-tej-warstwy">
+<h1>9) Checklisty wdrożeniowe (dla tej warstwy)<a class="headerlink" href="#checklisty-wdrozeniowe-dla-tej-warstwy" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>[ ] Zaimplementowane parsery (OTUI, Lua‑Lite) zgodnie z §1 i §2.</p></li>
+<li><p>[ ] Emisja AST z <code class="docutils literal notranslate"><span class="pre">loc</span></code>, <code class="docutils literal notranslate"><span class="pre">errors</span></code>, deterministycznym sortem.</p></li>
+<li><p>[ ] JSON Schemy z §3 włączone w walidację przed zapisem.</p></li>
+<li><p>[ ] IPC z §4 – kontrakty pokryte testami kontraktowymi.</p></li>
+<li><p>[ ] Test vectors z §6 – zielone snapshoty AST i indeksów.</p></li>
+<li><p>[ ] Pomiar czasu/zużycia pamięci – w normie §8.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="noty">
+<h1>10) Noty<a class="headerlink" href="#noty" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Reguła <code class="docutils literal notranslate"><span class="pre">tr()</span></code> dla statycznych tekstów w OTUI bywa zależna od bazy – przewidziana jako <strong>opcja</strong> w <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code>.</p></li>
+<li><p>Schematy wykorzystują Draft 2020‑12; możliwa migracja wstecz do Draft‑07 (wymaga drobnych zmian słowników).</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Parser &amp; Schemas (MASTER): <strong>AST + JSON Schema</strong> dla <strong>OTClient Studio</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zalozenia-ogolne">0) Założenia ogólne</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui-otml-gramatyka-i-ast">1) OTUI/OTML — Gramatyka i AST</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gramatyka-ebnf-praktyczna">1.1 Gramatyka (EBNF – praktyczna)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ast-otui-json-schema">1.2 AST OTUI — JSON Schema</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kategoryzacja-atrybutow-lint">1.3 Kategoryzacja atrybutów (lint)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-ast-otui">1.4 Przykład AST (OTUI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lualite-ast-i-zakres-parsera">2) Lua‑Lite — AST i zakres parsera</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zakres-tokenow-wezlow">2.1 Zakres tokenów/węzłów</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lualite-ast-json-schema">2.2 Lua‑Lite AST — JSON Schema</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mapowanie-zdarzen-symboli-istotnych-dla-otclient-vbot">2.3 Mapowanie zdarzeń/symboli istotnych dla OTClient/vBot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kontrakty-walidacji-artefaktow-json-schema">3) Kontrakty walidacji artefaktów (JSON Schema)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-api-json">3.1 <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#project-index-json">3.2 <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui-rules-json">3.3 <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#templates-json">3.4 <code class="docutils literal notranslate"><span class="pre">templates.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-json">3.5 <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-map-json">3.6 <code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#studio-config-json">3.7 <code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ndjson-schemat-pojedynczej-linii-logu">3.8 <code class="docutils literal notranslate"><span class="pre">ndjson</span></code> (schemat pojedynczej linii logu)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kontrakty-ipc-parser-service">4) Kontrakty IPC (Parser Service)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reguly-walidacji-i-jakosci">5) Reguły walidacji i jakości</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-vectors-probki-wejscia-wyjscia">6) Test vectors (próbki wejścia/wyjścia)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui-proste">6.1 OTUI proste</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lualite-symbole">6.2 Lua‑Lite — symbole</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#api-json-walidacja">6.3 <code class="docutils literal notranslate"><span class="pre">api.json</span></code> – walidacja</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kody-bledow-i-odzyskiwanie">7) Kody błędów i odzyskiwanie</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wydajnosc-i-limity">8) Wydajność i limity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-wdrozeniowe-dla-tej-warstwy">9) Checklisty wdrożeniowe (dla tej warstwy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty">10) Noty</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/knowledge/parser_schemas_ast_json_schema_otclient_studio.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

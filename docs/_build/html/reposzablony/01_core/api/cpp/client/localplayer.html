@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>client/localplayer.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/client/localplayer';</script>
+    <link rel="icon" href="../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">client/localplayer.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="client-localplayer-h">
+<h1>client/localplayer.h<a class="headerlink" href="#client-localplayer-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu localplayer.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-localplayer">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code><a class="headerlink" href="#klasa-localplayer" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Brief</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">draw</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">draw(const</span> <span class="pre">Point&amp;</span> <span class="pre">dest,</span> <span class="pre">bool</span> <span class="pre">animate</span> <span class="pre">=</span> <span class="pre">true,</span> <span class="pre">LightView*</span> <span class="pre">lightView</span> <span class="pre">=</span> <span class="pre">nullptr)</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unlockWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">unlockWalk()</span> <span class="pre">{</span> <span class="pre">m_walkLockExpiration</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lockWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">lockWalk(int</span> <span class="pre">millis</span> <span class="pre">=</span> <span class="pre">200)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stopAutoWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">stopAutoWalk()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">autoWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">autoWalk(Position</span> <span class="pre">destination,</span> <span class="pre">bool</span> <span class="pre">retry</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">canWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">canWalk(Otc::Direction</span> <span class="pre">direction,</span> <span class="pre">bool</span> <span class="pre">ignoreLock</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isWalkLocked</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWalkLocked()</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">turn</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">turn(Otc::Direction)</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setStates</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setStates(int</span> <span class="pre">states)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setSkill</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSkill(uint8_t</span> <span class="pre">skill,</span> <span class="pre">int</span> <span class="pre">level,</span> <span class="pre">int</span> <span class="pre">levelPercent)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setBaseSkill</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setBaseSkill(uint8_t</span> <span class="pre">skill,</span> <span class="pre">int</span> <span class="pre">baseLevel)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setHealth</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHealth(double</span> <span class="pre">health,</span> <span class="pre">double</span> <span class="pre">maxHealth)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setFreeCapacity</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setFreeCapacity(double</span> <span class="pre">freeCapacity)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setTotalCapacity</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTotalCapacity(double</span> <span class="pre">totalCapacity)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setExperience</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setExperience(double</span> <span class="pre">experience)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setLevel(double</span> <span class="pre">level,</span> <span class="pre">double</span> <span class="pre">levelPercent)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setMana</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMana(double</span> <span class="pre">mana,</span> <span class="pre">double</span> <span class="pre">maxMana)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setMagicLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMagicLevel(double</span> <span class="pre">magicLevel,</span> <span class="pre">double</span> <span class="pre">magicLevelPercent)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setBaseMagicLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setBaseMagicLevel(double</span> <span class="pre">baseMagicLevel)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setSoul</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSoul(double</span> <span class="pre">soul)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setStamina</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setStamina(double</span> <span class="pre">stamina)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setKnown</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setKnown(bool</span> <span class="pre">known)</span> <span class="pre">{</span> <span class="pre">m_known</span> <span class="pre">=</span> <span class="pre">known;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setPendingGame</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPendingGame(bool</span> <span class="pre">pending)</span> <span class="pre">{</span> <span class="pre">m_pending</span> <span class="pre">=</span> <span class="pre">pending;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setInventoryItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setInventoryItem(Otc::InventorySlot</span> <span class="pre">inventory,</span> <span class="pre">const</span> <span class="pre">ItemPtr&amp;</span> <span class="pre">item)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setVocation</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setVocation(int</span> <span class="pre">vocation)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setPremium</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPremium(bool</span> <span class="pre">premium)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setRegenerationTime</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setRegenerationTime(double</span> <span class="pre">regenerationTime)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setOfflineTrainingTime</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setOfflineTrainingTime(double</span> <span class="pre">offlineTrainingTime)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setSpells</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSpells(const</span> <span class="pre">std::vector&lt;int&gt;&amp;</span> <span class="pre">spells)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setBlessings</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setBlessings(int</span> <span class="pre">blessings)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getStates</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getStates()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_states;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSkillLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSkillLevel(uint8_t</span> <span class="pre">skill)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">skill</span> <span class="pre">&lt;</span> <span class="pre">m_skillsLevel.size()</span> <span class="pre">?</span> <span class="pre">m_skillsLevel[skill]</span> <span class="pre">:</span> <span class="pre">0;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSkillBaseLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSkillBaseLevel(uint8_t</span> <span class="pre">skill)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">skill</span> <span class="pre">&lt;</span> <span class="pre">m_skillsBaseLevel.size()</span> <span class="pre">?</span> <span class="pre">m_skillsBaseLevel[skill]</span> <span class="pre">:</span> <span class="pre">0;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSkillLevelPercent</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSkillLevelPercent(uint8_t</span> <span class="pre">skill)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">skill</span> <span class="pre">&lt;</span> <span class="pre">m_skillsLevelPercent.size()</span> <span class="pre">?</span> <span class="pre">m_skillsLevelPercent[skill]</span> <span class="pre">:</span> <span class="pre">0;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getVocation</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getVocation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_vocation;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getHealth</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getHealth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_health;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getMaxHealth</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMaxHealth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_maxHealth;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getFreeCapacity</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getFreeCapacity()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_freeCapacity;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getTotalCapacity</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getTotalCapacity()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_totalCapacity;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getExperience</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getExperience()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_experience;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getLevel()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_level;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getLevelPercent</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getLevelPercent()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_levelPercent;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getMana</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMana()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_mana;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getMaxMana</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMaxMana()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">std::max&lt;double&gt;(m_mana,</span> <span class="pre">m_maxMana);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getMagicLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMagicLevel()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_magicLevel;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getMagicLevelPercent</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMagicLevelPercent()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_magicLevelPercent;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getBaseMagicLevel</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getBaseMagicLevel()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_baseMagicLevel;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSoul</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getSoul()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_soul;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getStamina</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getStamina()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_stamina;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getRegenerationTime</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getRegenerationTime()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_regenerationTime;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getOfflineTrainingTime</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getOfflineTrainingTime()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_offlineTrainingTime;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getSpells</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;int&gt;</span> <span class="pre">getSpells()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_spells;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getInventoryItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">getInventoryItem(Otc::InventorySlot</span> <span class="pre">inventory)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_inventoryItems[inventory];</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getBlessings</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getBlessings()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_blessings;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hasSight</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasSight(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isKnown</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isKnown()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_known;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isAutoWalking</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAutoWalking()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_autoWalkDestination.isValid();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isServerWalking</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isServerWalking()</span> <span class="pre">override</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_serverWalking;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isPremium</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPremium()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_premium;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isPendingGame</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPendingGame()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_pending;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">asLocalPlayer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LocalPlayerPtr</span> <span class="pre">asLocalPlayer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">static_self_cast&lt;LocalPlayer&gt;();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isLocalPlayer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLocalPlayer()</span> <span class="pre">override</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">true;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onAppear</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">onAppear()</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onPositionChange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">onPositionChange(const</span> <span class="pre">Position&amp;</span> <span class="pre">newPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">oldPos)</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">preWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">preWalk(Otc::Direction</span> <span class="pre">direction)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isPreWalking</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPreWalking()</span> <span class="pre">override</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">!m_preWalking.empty();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getPrewalkingPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getPrewalkingPosition(bool</span> <span class="pre">beforePrewalk</span> <span class="pre">=</span> <span class="pre">false)</span> <span class="pre">override</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">m_position</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">m_position</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span> <span class="pre">(!beforePrewalk</span> <span class="pre">&amp;&amp;</span> <span class="pre">m_preWalking.size()</span> <span class="pre">==</span> <span class="pre">1)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">m_position</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">m_position</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ret</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">auto</span> <span class="pre">ret</span> <span class="pre">=</span> <span class="pre">m_preWalking.rbegin()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getWalkPrediction</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32_t</span> <span class="pre">getWalkPrediction(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dumpWalkMatrix</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">dumpWalkMatrix()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">startServerWalking</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">startServerWalking()</span> <span class="pre">{</span> <span class="pre">m_serverWalking</span> <span class="pre">=</span> <span class="pre">true;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">finishServerWalking</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">finishServerWalking()</span> <span class="pre">{</span> <span class="pre">m_serverWalking</span> <span class="pre">=</span> <span class="pre">false;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">walk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">walk(const</span> <span class="pre">Position&amp;</span> <span class="pre">oldPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">newPos)</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cancelWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cancelWalk(Otc::Direction</span> <span class="pre">direction</span> <span class="pre">=</span> <span class="pre">Otc::InvalidDirection)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cancelNewWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cancelNewWalk(Otc::Direction</span> <span class="pre">dir)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">predictiveCancelWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">predictiveCancelWalk(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">uint32_t</span> <span class="pre">predictionId,</span> <span class="pre">Otc::Direction</span> <span class="pre">dir)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">retryAutoWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">retryAutoWalk()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stopWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">stopWalk()</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">updateWalkOffset</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateWalkOffset(uint8</span> <span class="pre">totalPixelsWalked,</span> <span class="pre">bool</span> <span class="pre">inNextFrame</span> <span class="pre">=</span> <span class="pre">false)</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">updateWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateWalk()</span> <span class="pre">override</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">terminateWalk</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">terminateWalk()</span> <span class="pre">override</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="draw">
+<h3><code class="docutils literal notranslate"><span class="pre">draw</span></code><a class="headerlink" href="#draw" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">draw(const</span> <span class="pre">Point&amp;</span> <span class="pre">dest,</span> <span class="pre">bool</span> <span class="pre">animate</span> <span class="pre">=</span> <span class="pre">true,</span> <span class="pre">LightView*</span> <span class="pre">lightView</span> <span class="pre">=</span> <span class="pre">nullptr)</span> <span class="pre">override</span></code></p>
+</section>
+<section id="unlockwalk">
+<h3><code class="docutils literal notranslate"><span class="pre">unlockWalk</span></code><a class="headerlink" href="#unlockwalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">unlockWalk()</span> <span class="pre">{</span> <span class="pre">m_walkLockExpiration</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="lockwalk">
+<h3><code class="docutils literal notranslate"><span class="pre">lockWalk</span></code><a class="headerlink" href="#lockwalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">lockWalk(int</span> <span class="pre">millis</span> <span class="pre">=</span> <span class="pre">200)</span></code></p>
+</section>
+<section id="stopautowalk">
+<h3><code class="docutils literal notranslate"><span class="pre">stopAutoWalk</span></code><a class="headerlink" href="#stopautowalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">stopAutoWalk()</span></code></p>
+</section>
+<section id="autowalk">
+<h3><code class="docutils literal notranslate"><span class="pre">autoWalk</span></code><a class="headerlink" href="#autowalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">autoWalk(Position</span> <span class="pre">destination,</span> <span class="pre">bool</span> <span class="pre">retry</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="canwalk">
+<h3><code class="docutils literal notranslate"><span class="pre">canWalk</span></code><a class="headerlink" href="#canwalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">canWalk(Otc::Direction</span> <span class="pre">direction,</span> <span class="pre">bool</span> <span class="pre">ignoreLock</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="iswalklocked">
+<h3><code class="docutils literal notranslate"><span class="pre">isWalkLocked</span></code><a class="headerlink" href="#iswalklocked" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isWalkLocked()</span> <span class="pre">{</span></code></p>
+</section>
+<section id="turn">
+<h3><code class="docutils literal notranslate"><span class="pre">turn</span></code><a class="headerlink" href="#turn" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">turn(Otc::Direction)</span> <span class="pre">override</span></code></p>
+</section>
+<section id="setstates">
+<h3><code class="docutils literal notranslate"><span class="pre">setStates</span></code><a class="headerlink" href="#setstates" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setStates(int</span> <span class="pre">states)</span></code></p>
+</section>
+<section id="setskill">
+<h3><code class="docutils literal notranslate"><span class="pre">setSkill</span></code><a class="headerlink" href="#setskill" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSkill(uint8_t</span> <span class="pre">skill,</span> <span class="pre">int</span> <span class="pre">level,</span> <span class="pre">int</span> <span class="pre">levelPercent)</span></code></p>
+</section>
+<section id="setbaseskill">
+<h3><code class="docutils literal notranslate"><span class="pre">setBaseSkill</span></code><a class="headerlink" href="#setbaseskill" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setBaseSkill(uint8_t</span> <span class="pre">skill,</span> <span class="pre">int</span> <span class="pre">baseLevel)</span></code></p>
+</section>
+<section id="sethealth">
+<h3><code class="docutils literal notranslate"><span class="pre">setHealth</span></code><a class="headerlink" href="#sethealth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setHealth(double</span> <span class="pre">health,</span> <span class="pre">double</span> <span class="pre">maxHealth)</span></code></p>
+</section>
+<section id="setfreecapacity">
+<h3><code class="docutils literal notranslate"><span class="pre">setFreeCapacity</span></code><a class="headerlink" href="#setfreecapacity" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setFreeCapacity(double</span> <span class="pre">freeCapacity)</span></code></p>
+</section>
+<section id="settotalcapacity">
+<h3><code class="docutils literal notranslate"><span class="pre">setTotalCapacity</span></code><a class="headerlink" href="#settotalcapacity" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTotalCapacity(double</span> <span class="pre">totalCapacity)</span></code></p>
+</section>
+<section id="setexperience">
+<h3><code class="docutils literal notranslate"><span class="pre">setExperience</span></code><a class="headerlink" href="#setexperience" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setExperience(double</span> <span class="pre">experience)</span></code></p>
+</section>
+<section id="setlevel">
+<h3><code class="docutils literal notranslate"><span class="pre">setLevel</span></code><a class="headerlink" href="#setlevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setLevel(double</span> <span class="pre">level,</span> <span class="pre">double</span> <span class="pre">levelPercent)</span></code></p>
+</section>
+<section id="setmana">
+<h3><code class="docutils literal notranslate"><span class="pre">setMana</span></code><a class="headerlink" href="#setmana" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMana(double</span> <span class="pre">mana,</span> <span class="pre">double</span> <span class="pre">maxMana)</span></code></p>
+</section>
+<section id="setmagiclevel">
+<h3><code class="docutils literal notranslate"><span class="pre">setMagicLevel</span></code><a class="headerlink" href="#setmagiclevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setMagicLevel(double</span> <span class="pre">magicLevel,</span> <span class="pre">double</span> <span class="pre">magicLevelPercent)</span></code></p>
+</section>
+<section id="setbasemagiclevel">
+<h3><code class="docutils literal notranslate"><span class="pre">setBaseMagicLevel</span></code><a class="headerlink" href="#setbasemagiclevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setBaseMagicLevel(double</span> <span class="pre">baseMagicLevel)</span></code></p>
+</section>
+<section id="setsoul">
+<h3><code class="docutils literal notranslate"><span class="pre">setSoul</span></code><a class="headerlink" href="#setsoul" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSoul(double</span> <span class="pre">soul)</span></code></p>
+</section>
+<section id="setstamina">
+<h3><code class="docutils literal notranslate"><span class="pre">setStamina</span></code><a class="headerlink" href="#setstamina" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setStamina(double</span> <span class="pre">stamina)</span></code></p>
+</section>
+<section id="setknown">
+<h3><code class="docutils literal notranslate"><span class="pre">setKnown</span></code><a class="headerlink" href="#setknown" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setKnown(bool</span> <span class="pre">known)</span> <span class="pre">{</span> <span class="pre">m_known</span> <span class="pre">=</span> <span class="pre">known;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setpendinggame">
+<h3><code class="docutils literal notranslate"><span class="pre">setPendingGame</span></code><a class="headerlink" href="#setpendinggame" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPendingGame(bool</span> <span class="pre">pending)</span> <span class="pre">{</span> <span class="pre">m_pending</span> <span class="pre">=</span> <span class="pre">pending;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setinventoryitem">
+<h3><code class="docutils literal notranslate"><span class="pre">setInventoryItem</span></code><a class="headerlink" href="#setinventoryitem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setInventoryItem(Otc::InventorySlot</span> <span class="pre">inventory,</span> <span class="pre">const</span> <span class="pre">ItemPtr&amp;</span> <span class="pre">item)</span></code></p>
+</section>
+<section id="setvocation">
+<h3><code class="docutils literal notranslate"><span class="pre">setVocation</span></code><a class="headerlink" href="#setvocation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setVocation(int</span> <span class="pre">vocation)</span></code></p>
+</section>
+<section id="setpremium">
+<h3><code class="docutils literal notranslate"><span class="pre">setPremium</span></code><a class="headerlink" href="#setpremium" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setPremium(bool</span> <span class="pre">premium)</span></code></p>
+</section>
+<section id="setregenerationtime">
+<h3><code class="docutils literal notranslate"><span class="pre">setRegenerationTime</span></code><a class="headerlink" href="#setregenerationtime" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setRegenerationTime(double</span> <span class="pre">regenerationTime)</span></code></p>
+</section>
+<section id="setofflinetrainingtime">
+<h3><code class="docutils literal notranslate"><span class="pre">setOfflineTrainingTime</span></code><a class="headerlink" href="#setofflinetrainingtime" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setOfflineTrainingTime(double</span> <span class="pre">offlineTrainingTime)</span></code></p>
+</section>
+<section id="setspells">
+<h3><code class="docutils literal notranslate"><span class="pre">setSpells</span></code><a class="headerlink" href="#setspells" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSpells(const</span> <span class="pre">std::vector&lt;int&gt;&amp;</span> <span class="pre">spells)</span></code></p>
+</section>
+<section id="setblessings">
+<h3><code class="docutils literal notranslate"><span class="pre">setBlessings</span></code><a class="headerlink" href="#setblessings" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setBlessings(int</span> <span class="pre">blessings)</span></code></p>
+</section>
+<section id="getstates">
+<h3><code class="docutils literal notranslate"><span class="pre">getStates</span></code><a class="headerlink" href="#getstates" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getStates()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_states;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getskilllevel">
+<h3><code class="docutils literal notranslate"><span class="pre">getSkillLevel</span></code><a class="headerlink" href="#getskilllevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSkillLevel(uint8_t</span> <span class="pre">skill)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">skill</span> <span class="pre">&lt;</span> <span class="pre">m_skillsLevel.size()</span> <span class="pre">?</span> <span class="pre">m_skillsLevel[skill]</span> <span class="pre">:</span> <span class="pre">0;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getskillbaselevel">
+<h3><code class="docutils literal notranslate"><span class="pre">getSkillBaseLevel</span></code><a class="headerlink" href="#getskillbaselevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSkillBaseLevel(uint8_t</span> <span class="pre">skill)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">skill</span> <span class="pre">&lt;</span> <span class="pre">m_skillsBaseLevel.size()</span> <span class="pre">?</span> <span class="pre">m_skillsBaseLevel[skill]</span> <span class="pre">:</span> <span class="pre">0;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getskilllevelpercent">
+<h3><code class="docutils literal notranslate"><span class="pre">getSkillLevelPercent</span></code><a class="headerlink" href="#getskilllevelpercent" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSkillLevelPercent(uint8_t</span> <span class="pre">skill)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">skill</span> <span class="pre">&lt;</span> <span class="pre">m_skillsLevelPercent.size()</span> <span class="pre">?</span> <span class="pre">m_skillsLevelPercent[skill]</span> <span class="pre">:</span> <span class="pre">0;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getvocation">
+<h3><code class="docutils literal notranslate"><span class="pre">getVocation</span></code><a class="headerlink" href="#getvocation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getVocation()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_vocation;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gethealth">
+<h3><code class="docutils literal notranslate"><span class="pre">getHealth</span></code><a class="headerlink" href="#gethealth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getHealth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_health;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmaxhealth">
+<h3><code class="docutils literal notranslate"><span class="pre">getMaxHealth</span></code><a class="headerlink" href="#getmaxhealth" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMaxHealth()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_maxHealth;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getfreecapacity">
+<h3><code class="docutils literal notranslate"><span class="pre">getFreeCapacity</span></code><a class="headerlink" href="#getfreecapacity" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getFreeCapacity()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_freeCapacity;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gettotalcapacity">
+<h3><code class="docutils literal notranslate"><span class="pre">getTotalCapacity</span></code><a class="headerlink" href="#gettotalcapacity" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getTotalCapacity()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_totalCapacity;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getexperience">
+<h3><code class="docutils literal notranslate"><span class="pre">getExperience</span></code><a class="headerlink" href="#getexperience" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getExperience()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_experience;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getlevel">
+<h3><code class="docutils literal notranslate"><span class="pre">getLevel</span></code><a class="headerlink" href="#getlevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getLevel()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_level;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getlevelpercent">
+<h3><code class="docutils literal notranslate"><span class="pre">getLevelPercent</span></code><a class="headerlink" href="#getlevelpercent" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getLevelPercent()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_levelPercent;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmana">
+<h3><code class="docutils literal notranslate"><span class="pre">getMana</span></code><a class="headerlink" href="#getmana" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMana()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_mana;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmaxmana">
+<h3><code class="docutils literal notranslate"><span class="pre">getMaxMana</span></code><a class="headerlink" href="#getmaxmana" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMaxMana()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">std::max&lt;double&gt;(m_mana,</span> <span class="pre">m_maxMana);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmagiclevel">
+<h3><code class="docutils literal notranslate"><span class="pre">getMagicLevel</span></code><a class="headerlink" href="#getmagiclevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMagicLevel()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_magicLevel;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getmagiclevelpercent">
+<h3><code class="docutils literal notranslate"><span class="pre">getMagicLevelPercent</span></code><a class="headerlink" href="#getmagiclevelpercent" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getMagicLevelPercent()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_magicLevelPercent;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getbasemagiclevel">
+<h3><code class="docutils literal notranslate"><span class="pre">getBaseMagicLevel</span></code><a class="headerlink" href="#getbasemagiclevel" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getBaseMagicLevel()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_baseMagicLevel;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getsoul">
+<h3><code class="docutils literal notranslate"><span class="pre">getSoul</span></code><a class="headerlink" href="#getsoul" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getSoul()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_soul;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getstamina">
+<h3><code class="docutils literal notranslate"><span class="pre">getStamina</span></code><a class="headerlink" href="#getstamina" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getStamina()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_stamina;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getregenerationtime">
+<h3><code class="docutils literal notranslate"><span class="pre">getRegenerationTime</span></code><a class="headerlink" href="#getregenerationtime" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getRegenerationTime()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_regenerationTime;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getofflinetrainingtime">
+<h3><code class="docutils literal notranslate"><span class="pre">getOfflineTrainingTime</span></code><a class="headerlink" href="#getofflinetrainingtime" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getOfflineTrainingTime()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_offlineTrainingTime;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getspells">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpells</span></code><a class="headerlink" href="#getspells" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;int&gt;</span> <span class="pre">getSpells()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_spells;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getinventoryitem">
+<h3><code class="docutils literal notranslate"><span class="pre">getInventoryItem</span></code><a class="headerlink" href="#getinventoryitem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">getInventoryItem(Otc::InventorySlot</span> <span class="pre">inventory)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_inventoryItems[inventory];</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getblessings">
+<h3><code class="docutils literal notranslate"><span class="pre">getBlessings</span></code><a class="headerlink" href="#getblessings" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getBlessings()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_blessings;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="hassight">
+<h3><code class="docutils literal notranslate"><span class="pre">hasSight</span></code><a class="headerlink" href="#hassight" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">hasSight(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="isknown">
+<h3><code class="docutils literal notranslate"><span class="pre">isKnown</span></code><a class="headerlink" href="#isknown" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isKnown()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_known;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isautowalking">
+<h3><code class="docutils literal notranslate"><span class="pre">isAutoWalking</span></code><a class="headerlink" href="#isautowalking" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isAutoWalking()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_autoWalkDestination.isValid();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isserverwalking">
+<h3><code class="docutils literal notranslate"><span class="pre">isServerWalking</span></code><a class="headerlink" href="#isserverwalking" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isServerWalking()</span> <span class="pre">override</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_serverWalking;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ispremium">
+<h3><code class="docutils literal notranslate"><span class="pre">isPremium</span></code><a class="headerlink" href="#ispremium" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPremium()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_premium;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ispendinggame">
+<h3><code class="docutils literal notranslate"><span class="pre">isPendingGame</span></code><a class="headerlink" href="#ispendinggame" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPendingGame()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_pending;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="aslocalplayer">
+<h3><code class="docutils literal notranslate"><span class="pre">asLocalPlayer</span></code><a class="headerlink" href="#aslocalplayer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LocalPlayerPtr</span> <span class="pre">asLocalPlayer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">static_self_cast&lt;LocalPlayer&gt;();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="islocalplayer">
+<h3><code class="docutils literal notranslate"><span class="pre">isLocalPlayer</span></code><a class="headerlink" href="#islocalplayer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLocalPlayer()</span> <span class="pre">override</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">true;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="onappear">
+<h3><code class="docutils literal notranslate"><span class="pre">onAppear</span></code><a class="headerlink" href="#onappear" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">onAppear()</span> <span class="pre">override</span></code></p>
+</section>
+<section id="onpositionchange">
+<h3><code class="docutils literal notranslate"><span class="pre">onPositionChange</span></code><a class="headerlink" href="#onpositionchange" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">onPositionChange(const</span> <span class="pre">Position&amp;</span> <span class="pre">newPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">oldPos)</span> <span class="pre">override</span></code></p>
+</section>
+<section id="prewalk">
+<h3><code class="docutils literal notranslate"><span class="pre">preWalk</span></code><a class="headerlink" href="#prewalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">preWalk(Otc::Direction</span> <span class="pre">direction)</span></code></p>
+</section>
+<section id="isprewalking">
+<h3><code class="docutils literal notranslate"><span class="pre">isPreWalking</span></code><a class="headerlink" href="#isprewalking" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isPreWalking()</span> <span class="pre">override</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">!m_preWalking.empty();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getprewalkingposition">
+<h3><code class="docutils literal notranslate"><span class="pre">getPrewalkingPosition</span></code><a class="headerlink" href="#getprewalkingposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getPrewalkingPosition(bool</span> <span class="pre">beforePrewalk</span> <span class="pre">=</span> <span class="pre">false)</span> <span class="pre">override</span> <span class="pre">{</span></code></p>
+</section>
+<section id="if">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#if" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span> <span class="pre">(!beforePrewalk</span> <span class="pre">&amp;&amp;</span> <span class="pre">m_preWalking.size()</span> <span class="pre">==</span> <span class="pre">1)</span></code></p>
+</section>
+<section id="getwalkprediction">
+<h3><code class="docutils literal notranslate"><span class="pre">getWalkPrediction</span></code><a class="headerlink" href="#getwalkprediction" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint32_t</span> <span class="pre">getWalkPrediction(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="dumpwalkmatrix">
+<h3><code class="docutils literal notranslate"><span class="pre">dumpWalkMatrix</span></code><a class="headerlink" href="#dumpwalkmatrix" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">dumpWalkMatrix()</span></code></p>
+</section>
+<section id="startserverwalking">
+<h3><code class="docutils literal notranslate"><span class="pre">startServerWalking</span></code><a class="headerlink" href="#startserverwalking" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">startServerWalking()</span> <span class="pre">{</span> <span class="pre">m_serverWalking</span> <span class="pre">=</span> <span class="pre">true;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="finishserverwalking">
+<h3><code class="docutils literal notranslate"><span class="pre">finishServerWalking</span></code><a class="headerlink" href="#finishserverwalking" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">finishServerWalking()</span> <span class="pre">{</span> <span class="pre">m_serverWalking</span> <span class="pre">=</span> <span class="pre">false;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="walk">
+<h3><code class="docutils literal notranslate"><span class="pre">walk</span></code><a class="headerlink" href="#walk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">walk(const</span> <span class="pre">Position&amp;</span> <span class="pre">oldPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">newPos)</span> <span class="pre">override</span></code></p>
+</section>
+<section id="cancelwalk">
+<h3><code class="docutils literal notranslate"><span class="pre">cancelWalk</span></code><a class="headerlink" href="#cancelwalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cancelWalk(Otc::Direction</span> <span class="pre">direction</span> <span class="pre">=</span> <span class="pre">Otc::InvalidDirection)</span></code></p>
+</section>
+<section id="cancelnewwalk">
+<h3><code class="docutils literal notranslate"><span class="pre">cancelNewWalk</span></code><a class="headerlink" href="#cancelnewwalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">cancelNewWalk(Otc::Direction</span> <span class="pre">dir)</span></code></p>
+</section>
+<section id="predictivecancelwalk">
+<h3><code class="docutils literal notranslate"><span class="pre">predictiveCancelWalk</span></code><a class="headerlink" href="#predictivecancelwalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">predictiveCancelWalk(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">uint32_t</span> <span class="pre">predictionId,</span> <span class="pre">Otc::Direction</span> <span class="pre">dir)</span></code></p>
+</section>
+<section id="retryautowalk">
+<h3><code class="docutils literal notranslate"><span class="pre">retryAutoWalk</span></code><a class="headerlink" href="#retryautowalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">retryAutoWalk()</span></code></p>
+</section>
+<section id="stopwalk">
+<h3><code class="docutils literal notranslate"><span class="pre">stopWalk</span></code><a class="headerlink" href="#stopwalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">stopWalk()</span> <span class="pre">override</span></code></p>
+</section>
+<section id="updatewalkoffset">
+<h3><code class="docutils literal notranslate"><span class="pre">updateWalkOffset</span></code><a class="headerlink" href="#updatewalkoffset" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateWalkOffset(uint8</span> <span class="pre">totalPixelsWalked,</span> <span class="pre">bool</span> <span class="pre">inNextFrame</span> <span class="pre">=</span> <span class="pre">false)</span> <span class="pre">override</span></code></p>
+</section>
+<section id="updatewalk">
+<h3><code class="docutils literal notranslate"><span class="pre">updateWalk</span></code><a class="headerlink" href="#updatewalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateWalk()</span> <span class="pre">override</span></code></p>
+</section>
+<section id="terminatewalk">
+<h3><code class="docutils literal notranslate"><span class="pre">terminateWalk</span></code><a class="headerlink" href="#terminatewalk" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">terminateWalk()</span> <span class="pre">override</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference download internal" download="" href="../../../../../_downloads/d3a2e84fad1b3bfa84eb48644dc1797f/localplayer.mmd"><span class="xref download myst">../diagrams/localplayer.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-localplayer">Klasa: <code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw"><code class="docutils literal notranslate"><span class="pre">draw</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unlockwalk"><code class="docutils literal notranslate"><span class="pre">unlockWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lockwalk"><code class="docutils literal notranslate"><span class="pre">lockWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopautowalk"><code class="docutils literal notranslate"><span class="pre">stopAutoWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autowalk"><code class="docutils literal notranslate"><span class="pre">autoWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#canwalk"><code class="docutils literal notranslate"><span class="pre">canWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iswalklocked"><code class="docutils literal notranslate"><span class="pre">isWalkLocked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn"><code class="docutils literal notranslate"><span class="pre">turn</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setstates"><code class="docutils literal notranslate"><span class="pre">setStates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setskill"><code class="docutils literal notranslate"><span class="pre">setSkill</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setbaseskill"><code class="docutils literal notranslate"><span class="pre">setBaseSkill</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sethealth"><code class="docutils literal notranslate"><span class="pre">setHealth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setfreecapacity"><code class="docutils literal notranslate"><span class="pre">setFreeCapacity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settotalcapacity"><code class="docutils literal notranslate"><span class="pre">setTotalCapacity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setexperience"><code class="docutils literal notranslate"><span class="pre">setExperience</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setlevel"><code class="docutils literal notranslate"><span class="pre">setLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setmana"><code class="docutils literal notranslate"><span class="pre">setMana</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setmagiclevel"><code class="docutils literal notranslate"><span class="pre">setMagicLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setbasemagiclevel"><code class="docutils literal notranslate"><span class="pre">setBaseMagicLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setsoul"><code class="docutils literal notranslate"><span class="pre">setSoul</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setstamina"><code class="docutils literal notranslate"><span class="pre">setStamina</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setknown"><code class="docutils literal notranslate"><span class="pre">setKnown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setpendinggame"><code class="docutils literal notranslate"><span class="pre">setPendingGame</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setinventoryitem"><code class="docutils literal notranslate"><span class="pre">setInventoryItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setvocation"><code class="docutils literal notranslate"><span class="pre">setVocation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setpremium"><code class="docutils literal notranslate"><span class="pre">setPremium</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setregenerationtime"><code class="docutils literal notranslate"><span class="pre">setRegenerationTime</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setofflinetrainingtime"><code class="docutils literal notranslate"><span class="pre">setOfflineTrainingTime</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setspells"><code class="docutils literal notranslate"><span class="pre">setSpells</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setblessings"><code class="docutils literal notranslate"><span class="pre">setBlessings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getstates"><code class="docutils literal notranslate"><span class="pre">getStates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getskilllevel"><code class="docutils literal notranslate"><span class="pre">getSkillLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getskillbaselevel"><code class="docutils literal notranslate"><span class="pre">getSkillBaseLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getskilllevelpercent"><code class="docutils literal notranslate"><span class="pre">getSkillLevelPercent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getvocation"><code class="docutils literal notranslate"><span class="pre">getVocation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gethealth"><code class="docutils literal notranslate"><span class="pre">getHealth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmaxhealth"><code class="docutils literal notranslate"><span class="pre">getMaxHealth</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getfreecapacity"><code class="docutils literal notranslate"><span class="pre">getFreeCapacity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettotalcapacity"><code class="docutils literal notranslate"><span class="pre">getTotalCapacity</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getexperience"><code class="docutils literal notranslate"><span class="pre">getExperience</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlevel"><code class="docutils literal notranslate"><span class="pre">getLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlevelpercent"><code class="docutils literal notranslate"><span class="pre">getLevelPercent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmana"><code class="docutils literal notranslate"><span class="pre">getMana</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmaxmana"><code class="docutils literal notranslate"><span class="pre">getMaxMana</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmagiclevel"><code class="docutils literal notranslate"><span class="pre">getMagicLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmagiclevelpercent"><code class="docutils literal notranslate"><span class="pre">getMagicLevelPercent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getbasemagiclevel"><code class="docutils literal notranslate"><span class="pre">getBaseMagicLevel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsoul"><code class="docutils literal notranslate"><span class="pre">getSoul</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getstamina"><code class="docutils literal notranslate"><span class="pre">getStamina</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getregenerationtime"><code class="docutils literal notranslate"><span class="pre">getRegenerationTime</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getofflinetrainingtime"><code class="docutils literal notranslate"><span class="pre">getOfflineTrainingTime</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspells"><code class="docutils literal notranslate"><span class="pre">getSpells</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getinventoryitem"><code class="docutils literal notranslate"><span class="pre">getInventoryItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getblessings"><code class="docutils literal notranslate"><span class="pre">getBlessings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hassight"><code class="docutils literal notranslate"><span class="pre">hasSight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isknown"><code class="docutils literal notranslate"><span class="pre">isKnown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isautowalking"><code class="docutils literal notranslate"><span class="pre">isAutoWalking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isserverwalking"><code class="docutils literal notranslate"><span class="pre">isServerWalking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ispremium"><code class="docutils literal notranslate"><span class="pre">isPremium</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ispendinggame"><code class="docutils literal notranslate"><span class="pre">isPendingGame</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aslocalplayer"><code class="docutils literal notranslate"><span class="pre">asLocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#islocalplayer"><code class="docutils literal notranslate"><span class="pre">isLocalPlayer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onappear"><code class="docutils literal notranslate"><span class="pre">onAppear</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onpositionchange"><code class="docutils literal notranslate"><span class="pre">onPositionChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prewalk"><code class="docutils literal notranslate"><span class="pre">preWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isprewalking"><code class="docutils literal notranslate"><span class="pre">isPreWalking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getprewalkingposition"><code class="docutils literal notranslate"><span class="pre">getPrewalkingPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getwalkprediction"><code class="docutils literal notranslate"><span class="pre">getWalkPrediction</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dumpwalkmatrix"><code class="docutils literal notranslate"><span class="pre">dumpWalkMatrix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#startserverwalking"><code class="docutils literal notranslate"><span class="pre">startServerWalking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finishserverwalking"><code class="docutils literal notranslate"><span class="pre">finishServerWalking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walk"><code class="docutils literal notranslate"><span class="pre">walk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cancelwalk"><code class="docutils literal notranslate"><span class="pre">cancelWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cancelnewwalk"><code class="docutils literal notranslate"><span class="pre">cancelNewWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictivecancelwalk"><code class="docutils literal notranslate"><span class="pre">predictiveCancelWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retryautowalk"><code class="docutils literal notranslate"><span class="pre">retryAutoWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwalk"><code class="docutils literal notranslate"><span class="pre">stopWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatewalkoffset"><code class="docutils literal notranslate"><span class="pre">updateWalkOffset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatewalk"><code class="docutils literal notranslate"><span class="pre">updateWalk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminatewalk"><code class="docutils literal notranslate"><span class="pre">terminateWalk</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/reposzablony/01_core/api/cpp/client/localplayer.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

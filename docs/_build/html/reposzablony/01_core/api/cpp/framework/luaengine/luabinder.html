@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>framework/luaengine/luabinder.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/luaengine/luabinder';</script>
+    <link rel="icon" href="../../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/luaengine/luabinder.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-luaengine-luabinder-h">
+<h1>framework/luaengine/luabinder.h<a class="headerlink" href="#framework-luaengine-luabinder-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu luabinder.</p>
+</section>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Link to this heading">#</a></h2>
+<section id="luabinder">
+<h3><code class="docutils literal notranslate"><span class="pre">luabinder</span></code><a class="headerlink" href="#luabinder" title="Link to this heading">#</a></h3>
+<p>This namespace contains some dirty metaprogamming that uses a lot of C++0x features The purpose here is to create templates that can bind any function from C++ and expose in lua environment. This is done combining variadic templates, lambdas, tuples and some type traits features from the new C++0x standard to create templates that can detect functions’s arguments and then generate lambdas. These lambdas pops arguments from lua stack, call the bound C++ function and then pushes the result to lua.</p>
+</section>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="struktura-pack-values-into-tuple">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">pack_values_into_tuple</span></code><a class="headerlink" href="#struktura-pack-values-into-tuple" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;int</span> <span class="pre">N&gt;</span></code></p>
+<p>Pack arguments from lua stack into a tuple recursively</p>
+</section>
+<section id="id1">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">pack_values_into_tuple</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;&gt;</span></code></p>
+</section>
+<section id="struktura-expand-fun-arguments">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">expand_fun_arguments</span></code><a class="headerlink" href="#struktura-expand-fun-arguments" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;int</span> <span class="pre">N,</span> <span class="pre">typename</span> <span class="pre">Ret&gt;</span></code></p>
+<p>Expand arguments from tuple for later calling the C++ function</p>
+</section>
+<section id="id2">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">expand_fun_arguments</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">Ret&gt;</span></code></p>
+</section>
+<section id="struktura-bind-lambda-fun">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">bind_lambda_fun</span></code><a class="headerlink" href="#struktura-bind-lambda-fun" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">F&gt;</span></code></p>
+<p>Specialization for lambdas</p>
+</section>
+<section id="id3">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">bind_lambda_fun</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">Lambda,</span> <span class="pre">typename</span> <span class="pre">Ret,</span> <span class="pre">typename...</span> <span class="pre">Args&gt;</span></code></p>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="call">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#call" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">call(Tuple&amp;</span> <span class="pre">tuple,</span> <span class="pre">LuaInterface*</span> <span class="pre">lua)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">call(Tuple&amp;</span> <span class="pre">tuple,</span> <span class="pre">LuaInterface*</span> <span class="pre">lua)</span> <span class="pre">{</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">call(const</span> <span class="pre">Tuple&amp;</span> <span class="pre">tuple,</span> <span class="pre">const</span> <span class="pre">F&amp;</span> <span class="pre">f,</span> <span class="pre">LuaInterface*</span> <span class="pre">lua,</span> <span class="pre">const</span> <span class="pre">Args&amp;...</span> <span class="pre">args)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">int</span> <span class="pre">call(const</span> <span class="pre">Tuple&amp;</span> <span class="pre">tuple,</span> <span class="pre">const</span> <span class="pre">F&amp;</span> <span class="pre">f,</span> <span class="pre">LuaInterface*</span> <span class="pre">lua,</span> <span class="pre">const</span> <span class="pre">Args&amp;...</span> <span class="pre">args)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="bind-fun-specializer">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_fun_specializer</span></code><a class="headerlink" href="#bind-fun-specializer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LuaCppFunction</span> <span class="pre">bind_fun_specializer(const</span> <span class="pre">F&amp;</span> <span class="pre">f)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="bind-fun">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code><a class="headerlink" href="#bind-fun" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LuaCppFunction</span> <span class="pre">bind_fun(const</span> <span class="pre">std::function&lt;int(LuaInterface*)&gt;&amp;</span> <span class="pre">f)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LuaCppFunction</span> <span class="pre">bind_fun(const</span> <span class="pre">std::function&lt;Ret(Args...)&gt;&amp;</span> <span class="pre">f)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">LuaCppFunction</span> <span class="pre">call(const</span> <span class="pre">Lambda&amp;</span> <span class="pre">f)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="decltype">
+<h3><code class="docutils literal notranslate"><span class="pre">decltype</span></code><a class="headerlink" href="#decltype" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">decltype(&amp;Lambda::operator())</span> <span class="pre">F</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LuaCppFunction</span> <span class="pre">bind_fun(Ret</span> <span class="pre">(*f)(Args...))</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">bind_fun(std::function&lt;Ret(Args...)&gt;(f))</span></code></p>
+</section>
+<section id="luaexception">
+<h3><code class="docutils literal notranslate"><span class="pre">LuaException</span></code><a class="headerlink" href="#luaexception" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">throw</span> <span class="pre">LuaException(&quot;failed</span> <span class="pre">to</span> <span class="pre">call</span> <span class="pre">a</span> <span class="pre">member</span> <span class="pre">function</span> <span class="pre">because</span> <span class="pre">the</span> <span class="pre">passed</span> <span class="pre">object</span> <span class="pre">is</span> <span class="pre">nil&quot;)</span></code></p>
+</section>
+<section id="mf">
+<h3><code class="docutils literal notranslate"><span class="pre">mf</span></code><a class="headerlink" href="#mf" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">mf(obj.get(),</span> <span class="pre">args...)</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">LuaException</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">throw</span> <span class="pre">LuaException(&quot;failed</span> <span class="pre">to</span> <span class="pre">call</span> <span class="pre">a</span> <span class="pre">member</span> <span class="pre">function</span> <span class="pre">because</span> <span class="pre">the</span> <span class="pre">passed</span> <span class="pre">object</span> <span class="pre">is</span> <span class="pre">nil&quot;)</span></code></p>
+</section>
+<section id="make-mem-func-singleton">
+<h3><code class="docutils literal notranslate"><span class="pre">make_mem_func_singleton</span></code><a class="headerlink" href="#make-mem-func-singleton" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::function&lt;Ret(const</span> <span class="pre">Args&amp;...)&gt;</span> <span class="pre">make_mem_func_singleton(Ret</span> <span class="pre">(C::*</span> <span class="pre">f)(Args...),</span> <span class="pre">C*</span> <span class="pre">instance)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">make_mem_func_singleton</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::function&lt;void(const</span> <span class="pre">Args&amp;...)&gt;</span> <span class="pre">make_mem_func_singleton(void</span> <span class="pre">(C::*</span> <span class="pre">f)(Args...),</span> <span class="pre">C*</span> <span class="pre">instance)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="bind-mem-fun">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_mem_fun</span></code><a class="headerlink" href="#bind-mem-fun" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LuaCppFunction</span> <span class="pre">bind_mem_fun(Ret</span> <span class="pre">(FC::*</span> <span class="pre">f)(Args...))</span> <span class="pre">{</span></code></p>
+</section>
+<section id="bind-singleton-mem-fun">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_singleton_mem_fun</span></code><a class="headerlink" href="#bind-singleton-mem-fun" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LuaCppFunction</span> <span class="pre">bind_singleton_mem_fun(Ret</span> <span class="pre">(FC::*f)(Args...),</span> <span class="pre">C</span> <span class="pre">*instance)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">bind_mem_fun</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">LuaCppFunction</span> <span class="pre">bind_mem_fun(int</span> <span class="pre">(C::*f)(LuaInterface*))</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">mf</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">mf(obj,</span> <span class="pre">lua)</span></code></p>
+</section>
+</section>
+<section id="types-aliases">
+<h2>Types/Aliases<a class="headerlink" href="#types-aliases" title="Link to this heading">#</a></h2>
+<section id="valuetype">
+<h3><code class="docutils literal notranslate"><span class="pre">ValueType</span></code><a class="headerlink" href="#valuetype" title="Link to this heading">#</a></h3>
+<p><strong>Typedef:</strong> <code class="docutils literal notranslate"><span class="pre">typename</span> <span class="pre">std::tuple_element&lt;N-1,</span> <span class="pre">Tuple&gt;::type</span></code></p>
+</section>
+<section id="tuple">
+<h3><code class="docutils literal notranslate"><span class="pre">Tuple</span></code><a class="headerlink" href="#tuple" title="Link to this heading">#</a></h3>
+<p><strong>Typedef:</strong> <code class="docutils literal notranslate"><span class="pre">typename</span> <span class="pre">std::tuple&lt;typename</span> <span class="pre">stdext::remove_const_ref&lt;Args&gt;::type...&gt;</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">Tuple</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Typedef:</strong> <code class="docutils literal notranslate"><span class="pre">typename</span> <span class="pre">std::tuple&lt;typename</span> <span class="pre">stdext::remove_const_ref&lt;Args&gt;::type...&gt;</span></code></p>
+</section>
+<section id="f">
+<h3><code class="docutils literal notranslate"><span class="pre">F</span></code><a class="headerlink" href="#f" title="Link to this heading">#</a></h3>
+<p><strong>Typedef:</strong> <code class="docutils literal notranslate"><span class="pre">decltype(&amp;Lambda::operator())</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">Tuple</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Typedef:</strong> <code class="docutils literal notranslate"><span class="pre">typename</span> <span class="pre">std::tuple&lt;stdext::shared_object_ptr&lt;FC&gt;,</span> <span class="pre">typename</span> <span class="pre">stdext::remove_const_ref&lt;Args&gt;::type...&gt;</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">Tuple</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Typedef:</strong> <code class="docutils literal notranslate"><span class="pre">typename</span> <span class="pre">std::tuple&lt;typename</span> <span class="pre">stdext::remove_const_ref&lt;Args&gt;::type...&gt;</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/luabinder.mmd"><span class="xref myst">../diagrams/luabinder.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luabinder"><code class="docutils literal notranslate"><span class="pre">luabinder</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-pack-values-into-tuple">Struktura: <code class="docutils literal notranslate"><span class="pre">pack_values_into_tuple</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Struktura: <code class="docutils literal notranslate"><span class="pre">pack_values_into_tuple</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-expand-fun-arguments">Struktura: <code class="docutils literal notranslate"><span class="pre">expand_fun_arguments</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Struktura: <code class="docutils literal notranslate"><span class="pre">expand_fun_arguments</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-bind-lambda-fun">Struktura: <code class="docutils literal notranslate"><span class="pre">bind_lambda_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Struktura: <code class="docutils literal notranslate"><span class="pre">bind_lambda_fun</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind-fun-specializer"><code class="docutils literal notranslate"><span class="pre">bind_fun_specializer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind-fun"><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decltype"><code class="docutils literal notranslate"><span class="pre">decltype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">bind_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luaexception"><code class="docutils literal notranslate"><span class="pre">LuaException</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mf"><code class="docutils literal notranslate"><span class="pre">mf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">LuaException</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-mem-func-singleton"><code class="docutils literal notranslate"><span class="pre">make_mem_func_singleton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">make_mem_func_singleton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind-mem-fun"><code class="docutils literal notranslate"><span class="pre">bind_mem_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind-singleton-mem-fun"><code class="docutils literal notranslate"><span class="pre">bind_singleton_mem_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">bind_mem_fun</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">mf</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-aliases">Types/Aliases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valuetype"><code class="docutils literal notranslate"><span class="pre">ValueType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple"><code class="docutils literal notranslate"><span class="pre">Tuple</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">Tuple</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f"><code class="docutils literal notranslate"><span class="pre">F</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">Tuple</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">Tuple</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/luaengine/luabinder.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

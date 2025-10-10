@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>QA &amp; Bench Suite (MASTER) – OTClient Studio &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/qa_bench_suite_master_otclient_studio';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">QA &amp; Bench Suite (MASTER) – <strong>OTClient Studio</strong></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="qa-bench-suite-master-otclient-studio">
+<h1>QA &amp; Bench Suite (MASTER) – <strong>OTClient Studio</strong><a class="headerlink" href="#qa-bench-suite-master-otclient-studio" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Cel: kompletna, wykonywalna specyfikacja testów jakości i benchmarków dla <strong>Studio React/Electron</strong> tworzącego skrypty <strong>OTClient v8 + vBot</strong>. Dokument opisuje: matrycę testową, wektory testów, E2E (Playwright), benchmarki (perf/mem), stabilność/awarie, bezpieczeństwo, CI/CD, metryki oraz kryteria akceptacji. <strong>Transfer 1:1</strong> – gotowe do bezpośredniej implementacji.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="zakres-i-zalozenia">
+<h1>0) Zakres i założenia<a class="headerlink" href="#zakres-i-zalozenia" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Zakres QA:</strong> parsery (Lua‑Lite/OTUI/OTML), lint (OTUI/Lua), generator szablonów, IDE providers (hover/completion/signature/symbols), integracja z OTClient (hot‑reload + logi NDJSON), UI/UX, FS/konfiguracja, i18n/A11y, bezpieczeństwo, wydajność i stabilność.</p></li>
+<li><p><strong>Profil działania:</strong> offline‑first, deterministyczne wyniki, brak uruchamiania Lua.</p></li>
+<li><p><strong>Źródła kontraktów:</strong></p>
+<ul>
+<li><p>Schematy AST i JSON: <em>Parser &amp; Schemas (MASTER)</em>.</p></li>
+<li><p>Spec MASTER implementacji: <em>Specyfikacja implementacji (MASTER)</em>.</p></li>
+<li><p>Lint: <em>OTUI Lint Rules (MASTER)</em>.</p></li>
+<li><p>vBot: <em>vBot Playbook (MASTER)</em>.</p></li>
+<li><p>IDE: <em>IDE Providers Spec (MASTER)</em>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="matryca-testowa-obszary-kategorie">
+<h1>1) Matryca testowa (obszary × kategorie)<a class="headerlink" href="#matryca-testowa-obszary-kategorie" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Obszar</p></th>
+<th class="head"><p>Kategorie testów</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Parsery</strong></p></td>
+<td><p>poprawność AST vs schema, tolerance (ParseError), relacje (<code class="docutils literal notranslate"><span class="pre">dofile</span></code>, <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI</span></code>), edge‑cases (komentarze/unicode)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Lint</strong></p></td>
+<td><p>wykrywalność, auto‑fix, idempotencja, kolizje reguł, konfiguracja <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Generator</strong></p></td>
+<td><p>tworzenie modułów/szablonów, integralność ścieżek, zgodność z lintem/AST</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>IDE Providers</strong></p></td>
+<td><p>completion ranking, hover agregacja, signature mapping, symbols, definition/references (MVP+)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Integracja OTClient</strong></p></td>
+<td><p>hot‑reload (skrót/flag), log NDJSON (format/rotacja), odporność na brak katalogu</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Log Viewer</strong></p></td>
+<td><p>tail duży/żywy plik, filtry, eksport, stabilność &gt;1h</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>FS/Config</strong></p></td>
+<td><p>ścieżki, atomowe zapisy, migracje configu, ignorowane foldery</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>UI/UX</strong></p></td>
+<td><p>nawigacja, edycja, quick‑fix, podgląd diff, motywy, skróty</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>i18n/A11y</strong></p></td>
+<td><p>tłumaczenia, <code class="docutils literal notranslate"><span class="pre">tr()</span></code> enforce, ARIA/kontrast</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Bezpieczeństwo</strong></p></td>
+<td><p>sandbox IPC, brak sieci, ścieżki poza projektem, path traversal, wstrzykiwanie w log</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Wydajność</strong></p></td>
+<td><p>skan 5k plików (zimny/ciepły), lint throughput, provider latency, tail throughput</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Stabilność</strong></p></td>
+<td><p>crash recovery, przerwane I/O, uszkodzony cache/config, długi czas działania</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="konwencje-nazw-i-identyfikatorow-testow">
+<h1>2) Konwencje nazw i identyfikatorów testów<a class="headerlink" href="#konwencje-nazw-i-identyfikatorow-testow" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Prefixy <strong>obszarowe</strong>: <code class="docutils literal notranslate"><span class="pre">PAR-</span></code> (Parser), <code class="docutils literal notranslate"><span class="pre">LNT-</span></code> (Lint), <code class="docutils literal notranslate"><span class="pre">GEN-</span></code>, <code class="docutils literal notranslate"><span class="pre">IDE-</span></code>, <code class="docutils literal notranslate"><span class="pre">INT-</span></code> (Integracja), <code class="docutils literal notranslate"><span class="pre">LOG-</span></code>, <code class="docutils literal notranslate"><span class="pre">FS-</span></code>, <code class="docutils literal notranslate"><span class="pre">CFG-</span></code>, <code class="docutils literal notranslate"><span class="pre">UIX-</span></code>, <code class="docutils literal notranslate"><span class="pre">I18N-</span></code>, <code class="docutils literal notranslate"><span class="pre">A11Y-</span></code>, <code class="docutils literal notranslate"><span class="pre">SEC-</span></code>, <code class="docutils literal notranslate"><span class="pre">PERF-</span></code>, <code class="docutils literal notranslate"><span class="pre">RES-</span></code> (Resilience).</p></li>
+<li><p>Format ID: <code class="docutils literal notranslate"><span class="pre">XXX-###</span></code> (np. <code class="docutils literal notranslate"><span class="pre">PAR-011</span></code>).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="zasoby-testowe-fixtures-struktura">
+<h1>3) Zasoby testowe (fixtures) – struktura<a class="headerlink" href="#zasoby-testowe-fixtures-struktura" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>qa/
+├─ fixtures/
+│  ├─ sample-project-small/
+│  │  ├─ modules/client/client.otmod
+│  │  ├─ modules/client/client.lua
+│  │  ├─ modules/client/ui/main.otui
+│  │  └─ images/button.png
+│  ├─ sample-project-large/         # generator wygeneruje 5k plików
+│  ├─ otui/
+│  │  ├─ valid/
+│  │  └─ invalid/
+│  ├─ lua/
+│  │  ├─ valid/
+│  │  └─ invalid/
+│  └─ templates/
+├─ expected/
+│  ├─ ast/
+│  ├─ lint/
+│  ├─ generator/
+│  └─ ide/
+└─ manifests/
+   ├─ tests.json        # definicje przypadków
+   └─ perf.json         # scenariusze benchmarków
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="parsery-przypadki-i-kryteria">
+<h1>4) Parsery – przypadki i kryteria<a class="headerlink" href="#parsery-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
+<p><strong>PAR‑001 (OTUI proste):</strong> plik <code class="docutils literal notranslate"><span class="pre">main.otui</span></code> → AST zgodny ze schema <code class="docutils literal notranslate"><span class="pre">otui-ast.schema.json</span></code>; kategorie <code class="docutils literal notranslate"><span class="pre">id→BEHAVIOR</span></code>, <code class="docutils literal notranslate"><span class="pre">width→GEOMETRY</span></code>, <code class="docutils literal notranslate"><span class="pre">text→STYLE</span></code>.
+<strong>PAR‑002 (OTUI zagnieżdżenia):</strong> wielopoziomowe <code class="docutils literal notranslate"><span class="pre">Decl</span></code> + dziedziczenie; brak cykli.
+<strong>PAR‑003 (OTUI błędy):</strong> niezamknięty blok → <code class="docutils literal notranslate"><span class="pre">ParseError</span></code> z kodem <code class="docutils literal notranslate"><span class="pre">OTUI_001</span></code>, tolerant parsing zwraca resztę AST.
+<strong>PAR‑010 (Lua funkcje/metody):</strong> deklaracje <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">M.a()</span></code> i <code class="docutils literal notranslate"><span class="pre">obj:method()</span></code> → poprawne węzły <code class="docutils literal notranslate"><span class="pre">FunctionDecl</span></code> i <code class="docutils literal notranslate"><span class="pre">CallExpr.method</span></code>.
+<strong>PAR‑011 (Lua relacje):</strong> <code class="docutils literal notranslate"><span class="pre">dofile('x.lua')</span></code>, <code class="docutils literal notranslate"><span class="pre">require('y')</span></code> → <code class="docutils literal notranslate"><span class="pre">relations.includes</span></code>.
+<strong>PAR‑012 (Lua→OTUI):</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI('ui/main.otui')</span></code> → <code class="docutils literal notranslate"><span class="pre">relations.lua_to_otui</span></code>.
+<strong>PAR‑020 (Docstrings):</strong> <code class="docutils literal notranslate"><span class="pre">---&#64;param</span> <span class="pre">/</span> <span class="pre">&#64;return</span></code> → <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code>.
+<strong>Kryteria:</strong> walidacja JSON Schema (brak błędów), deterministyczne <code class="docutils literal notranslate"><span class="pre">loc</span></code>, brak crash.</p>
+</section>
+<hr class="docutils" />
+<section id="lint-przypadki-i-kryteria">
+<h1>5) Lint – przypadki i kryteria<a class="headerlink" href="#lint-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
+<p><strong>LNT‑001 (kolejność pól):</strong> wymuś <code class="docutils literal notranslate"><span class="pre">GEOMETRY→STYLE→BEHAVIOR</span></code>, auto‑fix generuje spójny diff, idempotentny (drugie uruchomienie: 0 zmian).
+<strong>LNT‑002 (<code class="docutils literal notranslate"><span class="pre">tr()</span></code>):</strong> wrap stałych stringów w <code class="docutils literal notranslate"><span class="pre">text:</span></code>; ignoruj <code class="docutils literal notranslate"><span class="pre">id</span></code>.
+<strong>LNT‑003 (anchors/margins):</strong> wykryj sprzeczności, brak auto‑fix (sugestie).
+<strong>LNT‑004 (assets):</strong> brakujący obraz/font/style – ERROR z propozycjami (fuzzy).
+<strong>LNT‑005 (duplikaty id):</strong> wykryj powtórzenia.
+<strong>LNT‑010 (Lua locals):</strong> ostrzeż o globalach; auto‑fix <code class="docutils literal notranslate"><span class="pre">local</span></code> gdy bez kolizji.
+<strong>LNT‑011 (<code class="docutils literal notranslate"><span class="pre">unpack</span></code>):</strong> zamień na <code class="docutils literal notranslate"><span class="pre">table.unpack</span></code>.
+<strong>Kryteria:</strong> 100% wykrywalności dla zestawu wzorcowego; brak false‑positive dla plików poprawnych.</p>
+</section>
+<hr class="docutils" />
+<section id="generator-przypadki-i-kryteria">
+<h1>6) Generator – przypadki i kryteria<a class="headerlink" href="#generator-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
+<p><strong>GEN‑001 (moduł default):</strong> wygeneruj <code class="docutils literal notranslate"><span class="pre">.otmod</span></code> + <code class="docutils literal notranslate"><span class="pre">hello.lua</span></code> + <code class="docutils literal notranslate"><span class="pre">ui/hello.otui</span></code>; skaner wykrywa pliki; lint OK.
+<strong>GEN‑002 (vBot macro):</strong> wygeneruj plik <code class="docutils literal notranslate"><span class="pre">vb_auto_heal.lua</span></code>; zawiera guards + cooldown + log; przechodzi lint Lua‑lite.
+<strong>GEN‑010 (konflikt ścieżek):</strong> próba nadpisania istniejących plików → błąd z sugestią <code class="docutils literal notranslate"><span class="pre">--force</span></code> lub zmiany nazwy.
+<strong>Kryteria:</strong> pliki powstają atomowo (temp→rename), zawartość zgodna z template, lint = 0 ERROR.</p>
+</section>
+<hr class="docutils" />
+<section id="ide-providers-przypadki-i-kryteria">
+<h1>7) IDE Providers – przypadki i kryteria<a class="headerlink" href="#ide-providers-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
+<p><strong>IDE‑COMP‑01 (Lua, API):</strong> prefiks <code class="docutils literal notranslate"><span class="pre">g_res</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code> → <code class="docutils literal notranslate"><span class="pre">g_resources.readFile</span></code> (score ≥ 0.9).
+<strong>IDE‑COMP‑02 (OTUI, klucze):</strong> w kontekście klucza lista atrybutów wg kategorii i typów.
+<strong>IDE‑COMP‑03 (style):</strong> <code class="docutils literal notranslate"><span class="pre">style:</span></code> → style z <code class="docutils literal notranslate"><span class="pre">assets-map.json.styles</span></code>.
+<strong>IDE‑HOV‑01:</strong> hover na <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code> → opis z <code class="docutils literal notranslate"><span class="pre">api.json</span></code>.
+<strong>IDE‑SIG‑01:</strong> <code class="docutils literal notranslate"><span class="pre">g_resources.readFile(</span></code> → <code class="docutils literal notranslate"><span class="pre">path:</span> <span class="pre">string</span></code> jako aktywny parametr.
+<strong>IDE‑SYM‑01:</strong> symbole dokumentu (Lua/OTUI) – poprawne zakresy.
+<strong>Kryteria:</strong> czasy odpowiedzi zgodne z budżetem (§10), deterministyczny ranking.</p>
+</section>
+<hr class="docutils" />
+<section id="integracja-z-otclient-przypadki-i-kryteria">
+<h1>8) Integracja z OTClient – przypadki i kryteria<a class="headerlink" href="#integracja-z-otclient-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
+<p><strong>INT‑001 (flaga reload):</strong> utwórz <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> → <code class="docutils literal notranslate"><span class="pre">reload</span> <span class="pre">requested/done</span></code> w NDJSON.
+<strong>INT‑002 (anty‑drganie):</strong> 3× flaga &lt; 800 ms → 1 reload.
+<strong>INT‑003 (rotacja logu):</strong> po przekroczeniu <code class="docutils literal notranslate"><span class="pre">maxLogBytes</span></code> plik nie rośnie, odcina pełne linie.
+<strong>INT‑010 (brak katalogu .dev):</strong> moduł loguje do konsoli; brak crash.
+<strong>Kryteria:</strong> brak wyjątków, log zgodny ze schematem <code class="docutils literal notranslate"><span class="pre">log-line.schema.json</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="log-viewer-przypadki-i-kryteria">
+<h1>9) Log Viewer – przypadki i kryteria<a class="headerlink" href="#log-viewer-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
+<p><strong>LOG‑001:</strong> tail żywego pliku (1000 linii/min) bez utraty wpisów.
+<strong>LOG‑002:</strong> filtry <code class="docutils literal notranslate"><span class="pre">level/tag/file:line</span></code> działają i zwracają podzbiór deterministycznie.
+<strong>LOG‑003:</strong> eksport do <code class="docutils literal notranslate"><span class="pre">.ndjson</span></code> i <code class="docutils literal notranslate"><span class="pre">.txt</span></code> – zawartość zgodna z filtrem.
+<strong>Kryteria:</strong> stabilna praca &gt; 1h, zużycie RAM &lt; 200 MB.</p>
+</section>
+<hr class="docutils" />
+<section id="benchmarki-wydajnosc-budzety-i-scenariusze">
+<h1>10) Benchmarki (wydajność) – budżety i scenariusze<a class="headerlink" href="#benchmarki-wydajnosc-budzety-i-scenariusze" title="Link to this heading">#</a></h1>
+<p><strong>BUDŻETY</strong> (zgodne z MASTER):</p>
+<ul class="simple">
+<li><p><strong>Skan 5k plików:</strong> ciepły &lt; <strong>5 s</strong>, zimny &lt; <strong>30 s</strong>.</p></li>
+<li><p><strong>Lint pliku OTUI:</strong> &lt; <strong>50 ms</strong> (średnio, na warm cache).</p></li>
+<li><p><strong>Completion:</strong> warm &lt; <strong>6 ms</strong>, cold &lt; <strong>25 ms</strong>.</p></li>
+<li><p><strong>Tail logu:</strong> ≥ <strong>1000 linii/min</strong> bez backlogu; CPU &lt; <strong>15%</strong> na 4C/8T.</p></li>
+<li><p><strong>RAM indeksu 5k:</strong> &lt; <strong>500 MB</strong>.</p></li>
+</ul>
+<p><strong>Scenariusze benchmarków:</strong></p>
+<ul class="simple">
+<li><p><strong>PERF‑SCAN‑01:</strong> sample-project-large (5k) – zimny start, pomiar czasu i RAM.</p></li>
+<li><p><strong>PERF‑SCAN‑02:</strong> powtórka (ciepły cache) – czas &lt; 5 s.</p></li>
+<li><p><strong>PERF‑LINT‑01:</strong> batch 100 plików OTUI – czas całkowity &lt; 2 s.</p></li>
+<li><p><strong>PERF‑COMP‑01:</strong> 100 zapytań completion (warm) – P95 &lt; 6 ms.</p></li>
+<li><p><strong>PERF‑LOG‑01:</strong> tail logu 30 min – brak wzrostu RAM.</p></li>
+</ul>
+<p><strong>Format wyników (NDJSON):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;bench&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-SCAN-01&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;timeMs&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="nt">&quot;meta&quot;</span><span class="p">:{</span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="mi">5000</span><span class="p">}}</span>
+<span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;bench&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-COMP-01&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;p95Ms&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mf">5.7</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="stabilnosc-i-odpornosc-resilience">
+<h1>11) Stabilność i odporność (Resilience)<a class="headerlink" href="#stabilnosc-i-odpornosc-resilience" title="Link to this heading">#</a></h1>
+<p><strong>RES‑001 (przerwane I/O):</strong> zapis atomowy (temp→rename); wymuś przerwanie → brak korupcji pliku docelowego.
+<strong>RES‑002 (uszkodzony cache):</strong> <code class="docutils literal notranslate"><span class="pre">.studio-cache/*</span></code> nieczytelne → auto‑regeneracja bez crash.
+<strong>RES‑003 (uszkodzony config):</strong> <code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code> – błąd schema → komunikat i wczytanie domyślnego.
+<strong>RES‑004 (duże pliki):</strong> &gt; 2 MB → „big‑file mode” (ograniczone funkcje) bez crash.
+<strong>RES‑005 (długi runtime):</strong> 8h działania, brak wycieków (&gt; +10% RAM).</p>
+</section>
+<hr class="docutils" />
+<section id="bezpieczenstwo">
+<h1>12) Bezpieczeństwo<a class="headerlink" href="#bezpieczenstwo" title="Link to this heading">#</a></h1>
+<p><strong>SEC‑001 (sandbox IPC):</strong> tylko whitelista kanałów; próby nieznanych kanałów → odrzucone + log.
+<strong>SEC‑002 (path traversal):</strong> wejścia z <code class="docutils literal notranslate"><span class="pre">..</span></code> → normalizacja i odrzucenie spoza <code class="docutils literal notranslate"><span class="pre">projectRoot</span></code>.
+<strong>SEC‑003 (no network):</strong> brak wychodzących połączeń; monitoruj próby i loguj ostrzeżenie.
+<strong>SEC‑004 (log injection):</strong> znaki sterujące w <code class="docutils literal notranslate"><span class="pre">msg</span></code> → escapowane; NDJSON zawsze poprawny JSON.
+<strong>SEC‑005 (arb. exec):</strong> brak wykonywania Lua; walidacje w generatorze (bez eval).</p>
+</section>
+<hr class="docutils" />
+<section id="e2e-playwright-scenariusze">
+<h1>13) E2E (Playwright) – scenariusze<a class="headerlink" href="#e2e-playwright-scenariusze" title="Link to this heading">#</a></h1>
+<p><strong>E2E‑01 – Open → Edit → Lint → Generate → Reload → Logs</strong></p>
+<ol class="arabic simple">
+<li><p>Uruchom Studio (Electron, headless jeśli możliwe).</p></li>
+<li><p>Wskaż <code class="docutils literal notranslate"><span class="pre">sample-project-small</span></code>.</p></li>
+<li><p>Otwórz <code class="docutils literal notranslate"><span class="pre">ui/main.otui</span></code>; wstaw błąd kolejności; sprawdź diagnostykę.</p></li>
+<li><p>Uruchom Quick Fix (OTUI‑001); potwierdź diff; zapis.</p></li>
+<li><p>Generator: „Moduł default” → utwórz <code class="docutils literal notranslate"><span class="pre">modules/hello/*</span></code>.</p></li>
+<li><p>Utwórz <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> → potwierdź wpisy w Log Viewer.</p></li>
+<li><p>Filtruj log po <code class="docutils literal notranslate"><span class="pre">tag=reload</span></code>; eksport do <code class="docutils literal notranslate"><span class="pre">.ndjson</span></code>.
+<strong>Kryteria:</strong> brak błędów; czasy kroków &lt; 2 s każdy.</p></li>
+</ol>
+<p><strong>E2E‑02 – IntelliSense flow</strong></p>
+<ol class="arabic simple">
+<li><p>Otwórz <code class="docutils literal notranslate"><span class="pre">client.lua</span></code>; wpisz <code class="docutils literal notranslate"><span class="pre">g_res</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p></li>
+<li><p>Sprawdź, że lista zawiera <code class="docutils literal notranslate"><span class="pre">g_resources.readFile</span></code> z wysokim score.</p></li>
+<li><p>Hover na <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code> → opis.</p></li>
+<li><p>Wpisz <code class="docutils literal notranslate"><span class="pre">g_resources.readFile(</span></code> → signature <code class="docutils literal notranslate"><span class="pre">path:</span> <span class="pre">string</span></code>.
+<strong>Kryteria:</strong> odpowiedzi &lt; budżetów, poprawna zawartość.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="ci-cd-pipeline-i-artefakty">
+<h1>14) CI/CD – pipeline i artefakty<a class="headerlink" href="#ci-cd-pipeline-i-artefakty" title="Link to this heading">#</a></h1>
+<p><strong>Narzędzia:</strong> pnpm/yarn, Vitest/Jest, Playwright, <code class="docutils literal notranslate"><span class="pre">electron-builder</span></code> (dry‑run), validator JSON Schema.</p>
+<p><strong>Skrypty:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pnpm</span> <span class="n">test</span><span class="p">:</span><span class="n">unit</span>       <span class="c1"># parsery, lint, generator, providers (mock IPC)</span>
+<span class="n">pnpm</span> <span class="n">test</span><span class="p">:</span><span class="n">contract</span>   <span class="c1"># walidacja JSON vs schematy</span>
+<span class="n">pnpm</span> <span class="n">test</span><span class="p">:</span><span class="n">e2e</span>        <span class="c1"># Playwright (Electron)</span>
+<span class="n">pnpm</span> <span class="n">bench</span>           <span class="c1"># benchmarki (perf.json)</span>
+<span class="n">pnpm</span> <span class="n">build</span><span class="p">:</span><span class="n">dry</span>       <span class="c1"># test buildów installerów bez publikacji</span>
+</pre></div>
+</div>
+<p><strong>Artefakty CI:</strong></p>
+<ul class="simple">
+<li><p>Raporty testów JUnit/HTML, logi NDJSON bench, zrzuty ekranów E2E, paczki <code class="docutils literal notranslate"><span class="pre">*.zip</span></code> z fixtures/expected.</p></li>
+</ul>
+<p><strong>Progi jakości (fail the build):</strong></p>
+<ul class="simple">
+<li><p>Testy unit/contract/E2E – 100% zielone.</p></li>
+<li><p>Bench – żadna metryka &gt; budżet (P95), w przeciwnym razie <strong>UNSTABLE</strong>; dwie kolejne iteracje <strong>FAIL</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="metryki-i-obserwowalnosc-qa">
+<h1>15) Metryki i obserwowalność QA<a class="headerlink" href="#metryki-i-obserwowalnosc-qa" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Metryki czasowe:</strong> <code class="docutils literal notranslate"><span class="pre">timeMs</span></code>, <code class="docutils literal notranslate"><span class="pre">p50/p95/p99</span></code> dla providers/scan/lint.</p></li>
+<li><p><strong>Metryki pamięci:</strong> <code class="docutils literal notranslate"><span class="pre">rssMB</span></code>, <code class="docutils literal notranslate"><span class="pre">heapMB</span></code> podczas skanu/long‑run.</p></li>
+<li><p><strong>Jakość lintu:</strong> wykrywalność (%) i false‑positive (%).</p></li>
+<li><p><strong>Stabilność:</strong> liczba błędów parsera/IO na godzinę.</p></li>
+<li><p><strong>Trendy:</strong> porównania względem poprzedniego builda (delta%).</p></li>
+</ul>
+<p><strong>Format metryk (NDJSON):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;suite&quot;</span><span class="p">:</span><span class="s2">&quot;bench&quot;</span><span class="p">,</span><span class="nt">&quot;case&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-SCAN-01&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;timeMs&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">12345</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;suite&quot;</span><span class="p">:</span><span class="s2">&quot;qa&quot;</span><span class="p">,</span><span class="nt">&quot;case&quot;</span><span class="p">:</span><span class="s2">&quot;LNT-001&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;fixedIssues&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="manifest-testow-i-benchmarkow">
+<h1>16) Manifest testów i benchmarków<a class="headerlink" href="#manifest-testow-i-benchmarkow" title="Link to this heading">#</a></h1>
+<p><strong>tests.json (przykład):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;PAR-001&quot;</span><span class="p">,</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;qa/fixtures/otui/valid/main.otui&quot;</span><span class="p">,</span><span class="nt">&quot;expect&quot;</span><span class="p">:</span><span class="s2">&quot;qa/expected/ast/main.json&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;LNT-001&quot;</span><span class="p">,</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;qa/fixtures/otui/invalid/order.otui&quot;</span><span class="p">,</span><span class="nt">&quot;expect&quot;</span><span class="p">:</span><span class="s2">&quot;qa/expected/lint/order.fixed.otui&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;GEN-001&quot;</span><span class="p">,</span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="s2">&quot;module.default&quot;</span><span class="p">,</span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="s2">&quot;qa/tmp/out1&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>perf.json (przykład):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;benches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-SCAN-01&quot;</span><span class="p">,</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="s2">&quot;qa/fixtures/sample-project-large&quot;</span><span class="p">,</span><span class="nt">&quot;metrics&quot;</span><span class="p">:[</span><span class="s2">&quot;timeMs&quot;</span><span class="p">,</span><span class="s2">&quot;rssMB&quot;</span><span class="p">]},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-COMP-01&quot;</span><span class="p">,</span><span class="nt">&quot;queries&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;metrics&quot;</span><span class="p">:[</span><span class="s2">&quot;p95Ms&quot;</span><span class="p">]}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="checklisty-i-dod">
+<h1>17) Checklisty i DoD<a class="headerlink" href="#checklisty-i-dod" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>[ ] Zasoby testowe zbudowane (small/large, valid/invalid, expected/*).</p></li>
+<li><p>[ ] Unit/contract/IDE tests zielone na CI.</p></li>
+<li><p>[ ] E2E scenariusze wykonane (zrzuty ekranów zapisane).</p></li>
+<li><p>[ ] Bench w granicach budżetów; brak regresji.</p></li>
+<li><p>[ ] Raporty i artefakty opublikowane; trendy zaktualizowane.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="noty-koncowe">
+<h1>18) Noty końcowe<a class="headerlink" href="#noty-koncowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Benchmarki uruchamiaj na stabilnym środowisku (stały CPU/Gov, wyłączone inne obciążenia).</p></li>
+<li><p>Wszystkie schematy i kontrakty muszą być wersjonowane (<code class="docutils literal notranslate"><span class="pre">$schemaVersion</span></code>) i walidowane przed zapisami.</p></li>
+<li><p>Zmiany w budżetach wydajności wymagają przeglądu architektonicznego (ADR) i aktualizacji tego dokumentu.</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">QA &amp; Bench Suite (MASTER) – <strong>OTClient Studio</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zakres-i-zalozenia">0) Zakres i założenia</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matryca-testowa-obszary-kategorie">1) Matryca testowa (obszary × kategorie)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konwencje-nazw-i-identyfikatorow-testow">2) Konwencje nazw i identyfikatorów testów</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zasoby-testowe-fixtures-struktura">3) Zasoby testowe (fixtures) – struktura</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parsery-przypadki-i-kryteria">4) Parsery – przypadki i kryteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-przypadki-i-kryteria">5) Lint – przypadki i kryteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-przypadki-i-kryteria">6) Generator – przypadki i kryteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ide-providers-przypadki-i-kryteria">7) IDE Providers – przypadki i kryteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#integracja-z-otclient-przypadki-i-kryteria">8) Integracja z OTClient – przypadki i kryteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#log-viewer-przypadki-i-kryteria">9) Log Viewer – przypadki i kryteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarki-wydajnosc-budzety-i-scenariusze">10) Benchmarki (wydajność) – budżety i scenariusze</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilnosc-i-odpornosc-resilience">11) Stabilność i odporność (Resilience)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bezpieczenstwo">12) Bezpieczeństwo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e2e-playwright-scenariusze">13) E2E (Playwright) – scenariusze</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-cd-pipeline-i-artefakty">14) CI/CD – pipeline i artefakty</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metryki-i-obserwowalnosc-qa">15) Metryki i obserwowalność QA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest-testow-i-benchmarkow">16) Manifest testów i benchmarków</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-i-dod">17) Checklisty i DoD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-koncowe">18) Noty końcowe</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/knowledge/qa_bench_suite_master_otclient_studio.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

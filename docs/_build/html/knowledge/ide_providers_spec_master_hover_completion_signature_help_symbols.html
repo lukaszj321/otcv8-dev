@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>IDE Providers Spec (MASTER) – Hover, Completion, Signature Help, Symbols &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/ide_providers_spec_master_hover_completion_signature_help_symbols';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">IDE Providers Spec (MASTER) – <strong>Hover</strong>, <strong>Completion</strong>, <strong>Signature Help</strong>, <strong>Symbols</strong></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ide-providers-spec-master-hover-completion-signature-help-symbols">
+<h1>IDE Providers Spec (MASTER) – <strong>Hover</strong>, <strong>Completion</strong>, <strong>Signature Help</strong>, <strong>Symbols</strong><a class="headerlink" href="#ide-providers-spec-master-hover-completion-signature-help-symbols" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Cel: pełna specyfikacja warstwy IDE dla <strong>OTClient Studio</strong> (Monaco + Electron). Dokument definiuje kontrakty, algorytmy, scoring, trigger‑y, schematy JSON, IPC, test‑wektory i wymagania wydajności. <strong>Transfer 1:1</strong> – gotowe do bezpośredniej implementacji.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="zalozenia-i-kontekst">
+<h1>0) Założenia i kontekst<a class="headerlink" href="#zalozenia-i-kontekst" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Języki:</strong> <code class="docutils literal notranslate"><span class="pre">lua</span></code> (Lua‑Lite) i <code class="docutils literal notranslate"><span class="pre">otui</span></code> (OTUI/OTML).</p></li>
+<li><p><strong>Źródła wiedzy:</strong> <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code> (kuratorowane), <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code> (skan), <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code> (adnotacje), <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code> (lint).</p></li>
+<li><p><strong>Silnik:</strong> Monaco Editor (providers + Diagnostics).</p></li>
+<li><p><strong>Cele:</strong> wysoka trafność podpowiedzi, determinizm wyników, niskie opóźnienia (UX 60 FPS).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="rejestracja-jezykow-i-providerow-monaco">
+<h1>1) Rejestracja języków i providerów (Monaco)<a class="headerlink" href="#rejestracja-jezykow-i-providerow-monaco" title="Link to this heading">#</a></h1>
+</section>
+<section id="identyfikatory">
+<h1>1.1 Identyfikatory<a class="headerlink" href="#identyfikatory" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">languageId.luastudio</span> <span class="pre">=</span> <span class="pre">&quot;lua&quot;</span></code> (dialekt Lua‑Lite)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">languageId.otuistudio</span> <span class="pre">=</span> <span class="pre">&quot;otui&quot;</span></code></p></li>
+</ul>
+</section>
+<section id="rejestracja">
+<h1>1.2 Rejestracja<a class="headerlink" href="#rejestracja" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">monaco.languages.register({</span> <span class="pre">id:</span> <span class="pre">languageId.luastudio</span> <span class="pre">})</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">monaco.languages.register({</span> <span class="pre">id:</span> <span class="pre">languageId.otuistudio</span> <span class="pre">})</span></code></p></li>
+</ul>
+</section>
+<section id="providerzy-interfejsy-monaco">
+<h1>1.3 Providerzy (interfejsy Monaco)<a class="headerlink" href="#providerzy-interfejsy-monaco" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Completion</strong>: <code class="docutils literal notranslate"><span class="pre">registerCompletionItemProvider(id,</span> <span class="pre">provider)</span></code></p></li>
+<li><p><strong>Hover</strong>: <code class="docutils literal notranslate"><span class="pre">registerHoverProvider(id,</span> <span class="pre">provider)</span></code></p></li>
+<li><p><strong>Signature Help</strong>: <code class="docutils literal notranslate"><span class="pre">registerSignatureHelpProvider(id,</span> <span class="pre">provider)</span></code></p></li>
+<li><p><strong>Document Symbols</strong>: <code class="docutils literal notranslate"><span class="pre">registerDocumentSymbolProvider(id,</span> <span class="pre">provider)</span></code></p></li>
+<li><p><strong>Definition/References</strong>: (opcjonalnie MVP+) <code class="docutils literal notranslate"><span class="pre">registerDefinitionProvider</span></code>, <code class="docutils literal notranslate"><span class="pre">registerReferenceProvider</span></code></p></li>
+</ul>
+<blockquote>
+<div><p>Dostawcy komunikują się z warstwą analiz przez <strong>IPC</strong> (sekcja §7) i używają lokalnych cache’y (sekcja §6).</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="completion-autouzupelnianie">
+<h1>2) Completion (auto‑uzupełnianie)<a class="headerlink" href="#completion-autouzupelnianie" title="Link to this heading">#</a></h1>
+</section>
+<section id="triggery">
+<h1>2.1 Triggery<a class="headerlink" href="#triggery" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lua</strong>: <code class="docutils literal notranslate"><span class="pre">.</span></code> <code class="docutils literal notranslate"><span class="pre">:</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">,</span></code> spacja po <code class="docutils literal notranslate"><span class="pre">function</span></code>/<code class="docutils literal notranslate"><span class="pre">local</span></code> oraz po <code class="docutils literal notranslate"><span class="pre">on</span></code> (eventy).</p></li>
+<li><p><strong>OTUI</strong>: początek linii/po <code class="docutils literal notranslate"><span class="pre">\n</span></code>, po <code class="docutils literal notranslate"><span class="pre">:</span></code> (wartość), w nagłówku deklaracji po <code class="docutils literal notranslate"><span class="pre">&quot;&lt;&quot;</span></code> (typ bazowy), w kluczu (sugestie atrybutów wg kategorii), po <code class="docutils literal notranslate"><span class="pre">style:</span></code> (style zasobów).</p></li>
+</ul>
+</section>
+<section id="zrodla-sugestii">
+<h1>2.2 Źródła sugestii<a class="headerlink" href="#zrodla-sugestii" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>API globalne</strong> (<code class="docutils literal notranslate"><span class="pre">api.json</span></code>): <code class="docutils literal notranslate"><span class="pre">g_*</span></code> managery, funkcje, eventy.</p></li>
+<li><p><strong>Symbole projektu</strong> (<code class="docutils literal notranslate"><span class="pre">project-index.json</span></code>): funkcje zdefiniowane lokalnie, widżety OTUI, pliki/ścieżki.</p></li>
+<li><p><strong>Docstrings</strong> (<code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code>): parametry i typy – doprecyzowanie sygnatur.</p></li>
+<li><p><strong>Heurystyki vBot</strong>: <code class="docutils literal notranslate"><span class="pre">macro(</span></code>, <code class="docutils literal notranslate"><span class="pre">onTextMessage</span></code>, <code class="docutils literal notranslate"><span class="pre">say(</span></code> itp. – boost rank.</p></li>
+</ol>
+</section>
+<section id="scoring-i-ranking">
+<h1>2.3 Scoring i ranking<a class="headerlink" href="#scoring-i-ranking" title="Link to this heading">#</a></h1>
+<p>Każdy kandydat ma <strong>score</strong> ∈ [0..1]. Końcowa kolejność = malejąco po <code class="docutils literal notranslate"><span class="pre">score</span></code>, tie‑break: długość nazwy ↑, alfabetycznie.</p>
+<p><strong>Składniki score:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">s_prefix</span></code> – dopasowanie prefiksu (FZF/substring): 0.6–1.0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s_source</span></code> – priorytet źródła: API=1.0, projekt=0.9, docstring=0.85, heurystyka=0.8</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s_context</span></code> – trafność kontekstu (np. po <code class="docutils literal notranslate"><span class="pre">.</span></code> proponuj członków obiektu; po <code class="docutils literal notranslate"><span class="pre">:</span></code> metody; w OTUI klucze): 0.0–0.3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s_recent</span></code> – pamięć ostatnio użytych: +0.05 (TTL)</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">score</span> <span class="pre">=</span> <span class="pre">0.7*s_prefix</span> <span class="pre">+</span> <span class="pre">0.2*s_source</span> <span class="pre">+</span> <span class="pre">0.1*s_context</span> <span class="pre">+</span> <span class="pre">s_recent</span></code></p>
+</section>
+<section id="typy-pozycji-monaco-completionitemkind">
+<h1>2.4 Typy pozycji (Monaco CompletionItemKind)<a class="headerlink" href="#typy-pozycji-monaco-completionitemkind" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Function</span></code>, <code class="docutils literal notranslate"><span class="pre">Method</span></code>, <code class="docutils literal notranslate"><span class="pre">Property</span></code>, <code class="docutils literal notranslate"><span class="pre">Variable</span></code>, <code class="docutils literal notranslate"><span class="pre">Class</span></code> (OTUI typy), <code class="docutils literal notranslate"><span class="pre">Keyword</span></code>, <code class="docutils literal notranslate"><span class="pre">Snippet</span></code>, <code class="docutils literal notranslate"><span class="pre">File</span></code>, <code class="docutils literal notranslate"><span class="pre">Folder</span></code>.</p></li>
+</ul>
+</section>
+<section id="snippety-i-inserttext">
+<h1>2.5 Snippety i InsertText<a class="headerlink" href="#snippety-i-inserttext" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lua – funkcja lokalna:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">${1:name}</span> <span class="pre">=</span> <span class="pre">function(${2:args})\n</span>&#160; <span class="pre">${0}\nend</span></code></p></li>
+<li><p><strong>Lua – moduł skeleton:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">M</span> <span class="pre">=</span> <span class="pre">{}\nfunction</span> <span class="pre">M.${1:fn}(${2})\n</span>&#160; <span class="pre">${0}\nend\nreturn</span> <span class="pre">M</span></code></p></li>
+<li><p><strong>OTUI – widżet:</strong> <code class="docutils literal notranslate"><span class="pre">${1:Widget}</span> <span class="pre">&lt;</span> <span class="pre">${2:UIWidget}</span> <span class="pre">{\n</span>&#160; <span class="pre">id:</span> <span class="pre">${3:id}\n</span>&#160; <span class="pre">width:</span> <span class="pre">${4:100}\n</span>&#160; <span class="pre">text:</span> <span class="pre">tr(&quot;${5:Text}&quot;)\n}</span></code></p></li>
+</ul>
+</section>
+<section id="kontekstowe-listy">
+<h1>2.6 Kontekstowe listy<a class="headerlink" href="#kontekstowe-listy" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lua <code class="docutils literal notranslate"><span class="pre">.</span></code>/<code class="docutils literal notranslate"><span class="pre">:</span></code></strong> → członkowie obiektu (<code class="docutils literal notranslate"><span class="pre">api.json.objects[].members</span></code>) + symbole znalezione w projekcie.</p></li>
+<li><p><strong>OTUI klucz</strong> → lista atrybutów dozwolonych przez typ (kategoria + reguły <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code>).</p></li>
+<li><p><strong>OTUI wartość <code class="docutils literal notranslate"><span class="pre">style:</span></code></strong> → style z <code class="docutils literal notranslate"><span class="pre">assets-map.json.styles</span></code>.</p></li>
+</ul>
+</section>
+<section id="przyklad-odpowiedzi-ipc-fe">
+<h1>2.7 Przykład odpowiedzi (IPC → FE)<a class="headerlink" href="#przyklad-odpowiedzi-ipc-fe" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;g_modules.reloadModules&quot;</span><span class="p">,</span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;Function&quot;</span><span class="p">,</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="s2">&quot;OTClient v8&quot;</span><span class="p">,</span><span class="nt">&quot;insertText&quot;</span><span class="p">:</span><span class="s2">&quot;g_modules.reloadModules()&quot;</span><span class="p">,</span><span class="nt">&quot;range&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">},</span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="mf">0.98</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;g_resources.readFile&quot;</span><span class="p">,</span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;Method&quot;</span><span class="p">,</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="s2">&quot;string readFile(path)&quot;</span><span class="p">,</span><span class="nt">&quot;insertText&quot;</span><span class="p">:</span><span class="s2">&quot;g_resources.readFile(${1:path})&quot;</span><span class="p">,</span><span class="nt">&quot;insertTextRules&quot;</span><span class="p">:</span><span class="s2">&quot;snippet&quot;</span><span class="p">,</span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="mf">0.93</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;isIncomplete&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ttlMs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="hover-podglad-dokumentacji">
+<h1>3) Hover (podgląd dokumentacji)<a class="headerlink" href="#hover-podglad-dokumentacji" title="Link to this heading">#</a></h1>
+</section>
+<section id="zasady-agregacji">
+<h1>3.1 Zasady agregacji<a class="headerlink" href="#zasady-agregacji" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Preferuj opis z <strong><code class="docutils literal notranslate"><span class="pre">api.json</span></code></strong>; jeżeli brak → <strong><code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code></strong>; następnie heurystyki (np. typ identyfikatora z kontekstu).</p></li>
+<li><p>Dodaj <strong>sygnaturę</strong>, <strong>opis</strong>, <strong>odsyłacze</strong> (plik:linia) i przykład.</p></li>
+</ul>
+</section>
+<section id="format-tresci-markdown">
+<h1>3.2 Format treści (Markdown)<a class="headerlink" href="#format-tresci-markdown" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Nagłówek: <strong>Nazwa</strong> i sygnatura, typ zwracany.</p></li>
+<li><p>Sekcje: <code class="docutils literal notranslate"><span class="pre">Opis</span></code>, <code class="docutils literal notranslate"><span class="pre">Parametry</span></code>, <code class="docutils literal notranslate"><span class="pre">Zwraca</span></code>, <code class="docutils literal notranslate"><span class="pre">Przykład</span></code>, <code class="docutils literal notranslate"><span class="pre">Źródło</span></code>.</p></li>
+</ul>
+</section>
+<section id="przyklad-odpowiedzi">
+<h1>3.3 Przykład odpowiedzi<a class="headerlink" href="#przyklad-odpowiedzi" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;**g_modules.reloadModules()**→ *void*\n\nPrzeładowuje moduły i skrypty w OTClient.\n\n**Źródło:** api.json (v8)&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;isTrusted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;range&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">124</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;ttlMs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="signature-help-podpowiedz-parametrow">
+<h1>4) Signature Help (podpowiedź parametrów)<a class="headerlink" href="#signature-help-podpowiedz-parametrow" title="Link to this heading">#</a></h1>
+</section>
+<section id="id1">
+<h1>4.1 Triggery<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lua:</strong> po wpisaniu <code class="docutils literal notranslate"><span class="pre">(</span></code> oraz po <code class="docutils literal notranslate"><span class="pre">,</span></code> w kontekście wywołania.</p></li>
+<li><p><strong>OTUI:</strong> (opcjonalnie) dla funkcji/event handlerów w wartościach <code class="docutils literal notranslate"><span class="pre">on...</span></code> (jeżeli projekt dopuszcza).</p></li>
+</ul>
+</section>
+<section id="agregacja-sygnatur">
+<h1>4.2 Agregacja sygnatur<a class="headerlink" href="#agregacja-sygnatur" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Priorytet:</strong> <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code> (najbardziej szczegółowe typy) → <code class="docutils literal notranslate"><span class="pre">api.json</span></code> → heurystyka (typ <code class="docutils literal notranslate"><span class="pre">any</span></code>).</p></li>
+</ul>
+</section>
+<section id="model-danych">
+<h1>4.3 Model danych<a class="headerlink" href="#model-danych" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;signatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_resources.readFile(path: string): string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path: string&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;documentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ścieżka do pliku&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+<span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;activeSignature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;activeParameter&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ttlMs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="document-symbols-definition-references-mvp">
+<h1>5) Document Symbols / Definition / References (MVP+)<a class="headerlink" href="#document-symbols-definition-references-mvp" title="Link to this heading">#</a></h1>
+</section>
+<section id="document-symbols-w-pliku">
+<h1>5.1 Document Symbols (w pliku)<a class="headerlink" href="#document-symbols-w-pliku" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lua:</strong> <code class="docutils literal notranslate"><span class="pre">FunctionDecl</span></code>, <code class="docutils literal notranslate"><span class="pre">LocalStatement</span> <span class="pre">(function)</span></code>, <code class="docutils literal notranslate"><span class="pre">TableConstructor</span> <span class="pre">(klucze</span> <span class="pre">funkcji)</span></code>.</p></li>
+<li><p><strong>OTUI:</strong> <code class="docutils literal notranslate"><span class="pre">Decl</span></code> (nazwa widżetu + <code class="docutils literal notranslate"><span class="pre">id</span></code>), klucze <code class="docutils literal notranslate"><span class="pre">KV</span></code> jako <em>children</em>.</p></li>
+</ul>
+<p><strong>Output (przykład):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;symbols&quot;</span><span class="p">:[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;M.reload&quot;</span><span class="p">,</span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;Function&quot;</span><span class="p">,</span><span class="nt">&quot;range&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">},</span><span class="nt">&quot;selectionRange&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}}]}</span>
+</pre></div>
+</div>
+</section>
+<section id="definition">
+<h1>5.2 Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lua:</strong> nazwa funkcji/identyfikatora → lokalizacja deklaracji w bieżącym pliku lub w <code class="docutils literal notranslate"><span class="pre">project-index.json.symbols</span></code>.</p></li>
+<li><p><strong>OTUI:</strong> <code class="docutils literal notranslate"><span class="pre">WidgetName</span></code>/<code class="docutils literal notranslate"><span class="pre">id</span></code> → definicja <code class="docutils literal notranslate"><span class="pre">Decl</span></code> w pliku.</p></li>
+</ul>
+</section>
+<section id="references">
+<h1>5.3 References<a class="headerlink" href="#references" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Przeszukanie <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code> i lekkie skanowanie tokenów (prefiltrowanie po hashach plików).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="cache-debounce-i-wydajnosc">
+<h1>6) Cache, debounce i wydajność<a class="headerlink" href="#cache-debounce-i-wydajnosc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Cache L1 (process):</strong> rezultaty zapytań na 3–10 s (<code class="docutils literal notranslate"><span class="pre">ttlMs</span></code> w odpowiedzi). Inwalidacja na zapis/zmianę pliku.</p></li>
+<li><p><strong>Cache L2 (disk):</strong> indeksy <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code> i <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code> w <code class="docutils literal notranslate"><span class="pre">.studio-cache/</span></code>.</p></li>
+<li><p><strong>Debounce:</strong> 120–180 ms na zapytania providerów (per dokument).</p></li>
+<li><p><strong>Budżet czasu:</strong> cel &lt; 6 ms na rundę completions (po cache), &lt; 25 ms cold.</p></li>
+<li><p><strong>Big file mode:</strong> &gt; 2 MB: ogranicz liczbę kandydatów (np. top 50).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ipc-i-kontrakty-uslug-backend-parsers-service">
+<h1>7) IPC i kontrakty usług (backend parsers/service)<a class="headerlink" href="#ipc-i-kontrakty-uslug-backend-parsers-service" title="Link to this heading">#</a></h1>
+</section>
+<section id="kanaly">
+<h1>7.1 Kanały<a class="headerlink" href="#kanaly" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ide:completion</span></code> → req: <code class="docutils literal notranslate"><span class="pre">CompletionQuery</span></code> → res: <code class="docutils literal notranslate"><span class="pre">CompletionResult</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ide:hover</span></code> → req: <code class="docutils literal notranslate"><span class="pre">HoverQuery</span></code> → res: <code class="docutils literal notranslate"><span class="pre">HoverResult</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ide:signature</span></code> → req: <code class="docutils literal notranslate"><span class="pre">SignatureQuery</span></code> → res: <code class="docutils literal notranslate"><span class="pre">SignatureResult</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ide:symbols</span></code> → req: <code class="docutils literal notranslate"><span class="pre">{uri}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">DocumentSymbols</span></code></p></li>
+<li><p>(MVP+) <code class="docutils literal notranslate"><span class="pre">ide:definition</span></code>, <code class="docutils literal notranslate"><span class="pre">ide:references</span></code></p></li>
+</ul>
+</section>
+<section id="modele-zapytan-odpowiedzi">
+<h1>7.2 Modele zapytań/odpowiedzi<a class="headerlink" href="#modele-zapytan-odpowiedzi" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;CompletionQuery&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="s2">&quot;file:///...&quot;</span><span class="p">,</span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="s2">&quot;lua|otui&quot;</span><span class="p">,</span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="nt">&quot;prefix&quot;</span><span class="p">:</span><span class="s2">&quot;g_res&quot;</span><span class="p">,</span><span class="nt">&quot;context&quot;</span><span class="p">:{</span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="s2">&quot;expr|key|value&quot;</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">&quot;CompletionResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;items&quot;</span><span class="p">:[],</span><span class="nt">&quot;isIncomplete&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;ttlMs&quot;</span><span class="p">:</span><span class="mi">3000</span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;HoverQuery&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="s2">&quot;file:///...&quot;</span><span class="p">,</span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="s2">&quot;lua|otui&quot;</span><span class="p">,</span><span class="nt">&quot;range&quot;</span><span class="p">:{</span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="mi">124</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">&quot;HoverResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;contents&quot;</span><span class="p">:[{</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;...md...&quot;</span><span class="p">,</span><span class="nt">&quot;isTrusted&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">}],</span><span class="nt">&quot;range&quot;</span><span class="p">:{</span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="mi">124</span><span class="p">},</span><span class="nt">&quot;ttlMs&quot;</span><span class="p">:</span><span class="mi">10000</span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;SignatureQuery&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="s2">&quot;file:///...&quot;</span><span class="p">,</span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="s2">&quot;lua|otui&quot;</span><span class="p">,</span><span class="nt">&quot;callPos&quot;</span><span class="p">:</span><span class="mi">130</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;SignatureResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;signatures&quot;</span><span class="p">:[],</span><span class="nt">&quot;activeSignature&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;activeParameter&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;ttlMs&quot;</span><span class="p">:</span><span class="mi">5000</span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;DocumentSymbols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;symbols&quot;</span><span class="p">:[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;Function&quot;</span><span class="p">,</span><span class="nt">&quot;range&quot;</span><span class="p">:{}}]}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="bledy">
+<h1>7.3 Błędy<a class="headerlink" href="#bledy" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Formaty: <code class="docutils literal notranslate"><span class="pre">{code,msg,details?}</span></code>; kody: <code class="docutils literal notranslate"><span class="pre">IDE_Q_BAD_REQ</span></code>, <code class="docutils literal notranslate"><span class="pre">IDE_S_TIMEOUT</span></code>, <code class="docutils literal notranslate"><span class="pre">IDE_D_SCHEMA</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="algorytmy-agregacji-pseudokod-ts">
+<h1>8) Algorytmy agregacji (pseudokod TS)<a class="headerlink" href="#algorytmy-agregacji-pseudokod-ts" title="Link to this heading">#</a></h1>
+</section>
+<section id="completion-lua">
+<h1>8.1 Completion (Lua)<a class="headerlink" href="#completion-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">completeLua</span><span class="p">(</span><span class="nx">q</span><span class="o">:</span><span class="w"> </span><span class="kt">CompletionQuery</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">CompletionResult</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">analyzeContextLua</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">apiCatalog</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">object</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">memberPrefix</span><span class="p">);</span><span class="w"> </span><span class="c1">// api.json</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">projectIndex</span><span class="p">.</span><span class="nx">members</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">object</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">memberPrefix</span><span class="p">);</span><span class="w"> </span><span class="c1">// project-index</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">docstrings</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">memberPrefix</span><span class="p">);</span><span class="w"> </span><span class="c1">// docstrings</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">heur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">heuristicsVBot</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mergeDedup</span><span class="p">([</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">proj</span><span class="p">,</span><span class="w"> </span><span class="nx">docs</span><span class="p">,</span><span class="w"> </span><span class="nx">heur</span><span class="p">]);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">scored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cand</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({...</span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="nx">score</span><span class="o">:</span><span class="w"> </span><span class="kt">score</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="nx">q</span><span class="p">)}));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">finalize</span><span class="p">(</span><span class="nx">scored</span><span class="p">,</span><span class="w"> </span><span class="nx">q</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="completion-otui">
+<h1>8.2 Completion (OTUI)<a class="headerlink" href="#completion-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">completeOTUI</span><span class="p">(</span><span class="nx">q</span><span class="o">:</span><span class="w"> </span><span class="kt">CompletionQuery</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">CompletionResult</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">scope</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">keysForWidget</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span><span class="w"> </span><span class="c1">// kategorie + rules</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">scope</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;value&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">q</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;style&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">stylesFromAssets</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">scope</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;typeBase&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">widgetBaseTypes</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">genericOtuiSnippets</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="hover">
+<h1>8.3 Hover<a class="headerlink" href="#hover" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">hover</span><span class="p">(</span><span class="nx">q</span><span class="o">:</span><span class="w"> </span><span class="kt">HoverQuery</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">HoverResult</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sym</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resolveSymbolAt</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">uri</span><span class="p">,</span><span class="w"> </span><span class="nx">q</span><span class="p">.</span><span class="nx">range</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">jsonSym</span><span class="p">(</span><span class="nx">sym</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">docstrings</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="nx">sym</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mergeDocs</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">d</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">renderMarkdown</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="signature-help">
+<h1>8.4 Signature Help<a class="headerlink" href="#signature-help" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">signature</span><span class="p">(</span><span class="nx">q</span><span class="o">:</span><span class="w"> </span><span class="kt">SignatureQuery</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">SignatureResult</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">findCallAt</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">callPos</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fromDocs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">docstrings</span><span class="p">.</span><span class="nx">signature</span><span class="p">(</span><span class="nx">call</span><span class="p">.</span><span class="nx">callee</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">signature</span><span class="p">(</span><span class="nx">call</span><span class="p">.</span><span class="nx">callee</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">anySignature</span><span class="p">(</span><span class="nx">call</span><span class="p">.</span><span class="nx">args</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">toSignatureResult</span><span class="p">(</span><span class="nx">fromDocs</span><span class="p">,</span><span class="w"> </span><span class="nx">call</span><span class="p">.</span><span class="nx">argIndex</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="integracja-z-lintem-i-nawigacja">
+<h1>9) Integracja z lintem i nawigacją<a class="headerlink" href="#integracja-z-lintem-i-nawigacja" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Diagnostics</strong>: provider lintu OTUI/Lua publikuje problemy zgodnie z regułami; IDE może proponować <strong>Quick Fix</strong> (np. OTUI‑001/002).</p></li>
+<li><p><strong>Go‑to Definition</strong>: użyj <code class="docutils literal notranslate"><span class="pre">project-index.symbols</span></code> + lokalnego AST.</p></li>
+<li><p><strong>Peek References</strong>: wyszukiwanie symboli w indeksie; prefiltrowanie po nazwach.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="konfiguracja-ustawienia-uzytkownika">
+<h1>10) Konfiguracja (Ustawienia użytkownika)<a class="headerlink" href="#konfiguracja-ustawienia-uzytkownika" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;completion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;maxItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;fuzzy&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;boostVBot&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;hover&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;markdown&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;symbols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;ranking&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;wPrefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;wSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;wContext&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;performance&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;debounceMs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bigFileLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000000</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="testwektory-i-qa">
+<h1>11) Test‑wektory i QA<a class="headerlink" href="#testwektory-i-qa" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>COMP‑01 (Lua):</strong> <code class="docutils literal notranslate"><span class="pre">g_res</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code> → zawiera <code class="docutils literal notranslate"><span class="pre">g_resources.readFile</span></code> (score &gt; 0.9).</p></li>
+<li><p><strong>COMP‑02 (OTUI):</strong> w kluczu → lista <code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code>/<code class="docutils literal notranslate"><span class="pre">STYLE</span></code>/<code class="docutils literal notranslate"><span class="pre">BEHAVIOR</span></code> według reguł; <code class="docutils literal notranslate"><span class="pre">style:</span></code> zwraca style z assets.</p></li>
+<li><p><strong>HOV‑01:</strong> na <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code> → opis z <code class="docutils literal notranslate"><span class="pre">api.json</span></code>.</p></li>
+<li><p><strong>SIG‑01:</strong> <code class="docutils literal notranslate"><span class="pre">g_resources.readFile(</span></code> → <code class="docutils literal notranslate"><span class="pre">path:</span> <span class="pre">string</span></code> w <code class="docutils literal notranslate"><span class="pre">activeParameter=0</span></code>.</p></li>
+<li><p><strong>SYM‑01:</strong> <code class="docutils literal notranslate"><span class="pre">Document</span> <span class="pre">Symbols</span></code> zwraca funkcje i widżety z poprawnymi zakresami.</p></li>
+<li><p><strong>PERF‑01:</strong> czas odpowiedzi completions (cache warm) &lt; 6 ms, (cold) &lt; 25 ms.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="wydajnosc-i-telemetria">
+<h1>12) Wydajność i telemetria<a class="headerlink" href="#wydajnosc-i-telemetria" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Zbieraj metryki: średni czas odpowiedzi providerów, hit ratio cache, liczba kandydatów po deduplikacji.</p></li>
+<li><p>Ostrzeżenia w logu aplikacji, gdy cold‑path &gt; 50 ms lub liczba kandydatów &gt; 500.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="checklisty-wdrozeniowe">
+<h1>13) Checklisty wdrożeniowe<a class="headerlink" href="#checklisty-wdrozeniowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>[ ] Rejestracja providerów dla <code class="docutils literal notranslate"><span class="pre">lua</span></code> i <code class="docutils literal notranslate"><span class="pre">otui</span></code>.</p></li>
+<li><p>[ ] Implementacja kanałów IPC (§7) + schematów zapytań/odpowiedzi.</p></li>
+<li><p>[ ] Agregacja <code class="docutils literal notranslate"><span class="pre">api.json</span></code> + <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code> + <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code> (rankowanie §2.3).</p></li>
+<li><p>[ ] Snippety i trigger‑y (§2.1, §2.5).</p></li>
+<li><p>[ ] Hover/Signature z fallbackami (§3, §4).</p></li>
+<li><p>[ ] Document Symbols (MVP), Definition/References (MVP+).</p></li>
+<li><p>[ ] Cache i debounce (§6); budżety czasu i big‑file mode.</p></li>
+<li><p>[ ] Test‑wektory (§11) zielone; telemetria (§12) aktywna.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="noty-koncowe">
+<h1>14) Noty końcowe<a class="headerlink" href="#noty-koncowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Wyniki providerów muszą być <strong>stabilne</strong> między uruchomieniami (deterministyczne sortowanie); różnice jedynie przy zmianie kontekstu lub danych.</p></li>
+<li><p>Wszelkie rozszerzenia muszą zachować kontrakty IPC i schematy JSON (wersjonowanie <code class="docutils literal notranslate"><span class="pre">$schemaVersion</span></code>).</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">IDE Providers Spec (MASTER) – <strong>Hover</strong>, <strong>Completion</strong>, <strong>Signature Help</strong>, <strong>Symbols</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zalozenia-i-kontekst">0) Założenia i kontekst</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rejestracja-jezykow-i-providerow-monaco">1) Rejestracja języków i providerów (Monaco)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#identyfikatory">1.1 Identyfikatory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rejestracja">1.2 Rejestracja</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#providerzy-interfejsy-monaco">1.3 Providerzy (interfejsy Monaco)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#completion-autouzupelnianie">2) Completion (auto‑uzupełnianie)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#triggery">2.1 Triggery</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zrodla-sugestii">2.2 Źródła sugestii</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring-i-ranking">2.3 Scoring i ranking</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-pozycji-monaco-completionitemkind">2.4 Typy pozycji (Monaco CompletionItemKind)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#snippety-i-inserttext">2.5 Snippety i InsertText</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kontekstowe-listy">2.6 Kontekstowe listy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-odpowiedzi-ipc-fe">2.7 Przykład odpowiedzi (IPC → FE)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hover-podglad-dokumentacji">3) Hover (podgląd dokumentacji)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zasady-agregacji">3.1 Zasady agregacji</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#format-tresci-markdown">3.2 Format treści (Markdown)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-odpowiedzi">3.3 Przykład odpowiedzi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#signature-help-podpowiedz-parametrow">4) Signature Help (podpowiedź parametrów)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1 Triggery</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacja-sygnatur">4.2 Agregacja sygnatur</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-danych">4.3 Model danych</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#document-symbols-definition-references-mvp">5) Document Symbols / Definition / References (MVP+)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#document-symbols-w-pliku">5.1 Document Symbols (w pliku)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">5.2 Definition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">5.3 References</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cache-debounce-i-wydajnosc">6) Cache, debounce i wydajność</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ipc-i-kontrakty-uslug-backend-parsers-service">7) IPC i kontrakty usług (backend parsers/service)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kanaly">7.1 Kanały</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-zapytan-odpowiedzi">7.2 Modele zapytań/odpowiedzi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bledy">7.3 Błędy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytmy-agregacji-pseudokod-ts">8) Algorytmy agregacji (pseudokod TS)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#completion-lua">8.1 Completion (Lua)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#completion-otui">8.2 Completion (OTUI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hover">8.3 Hover</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#signature-help">8.4 Signature Help</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#integracja-z-lintem-i-nawigacja">9) Integracja z lintem i nawigacją</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konfiguracja-ustawienia-uzytkownika">10) Konfiguracja (Ustawienia użytkownika)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testwektory-i-qa">11) Test‑wektory i QA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wydajnosc-i-telemetria">12) Wydajność i telemetria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-wdrozeniowe">13) Checklisty wdrożeniowe</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-koncowe">14) Noty końcowe</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/knowledge/ide_providers_spec_master_hover_completion_signature_help_symbols.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1617 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Moduł: | Moduł: game_imbuing &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/gameplay/modul-game-imbuing';</script>
+    <link rel="icon" href="../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_imbuing</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-game-imbuing">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_imbuing</span></code><a class="headerlink" href="#modul-modul-game-imbuing" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">imbuingWindow</span>
+
+<span class="kd">local</span> <span class="n">bankGold</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="kd">local</span> <span class="n">inventoryGold</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="kd">local</span> <span class="n">itemImbuements</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kd">local</span> <span class="n">emptyImbue</span>
+
+<span class="kd">local</span> <span class="n">groupsCombo</span>
+
+<span class="kd">local</span> <span class="n">imbueLevelsCombo</span>
+
+<span class="kd">local</span> <span class="n">protectionBtn</span>
+
+<span class="kd">local</span> <span class="n">clearImbue</span>
+
+<span class="kd">local</span> <span class="n">selectedImbue</span>
+
+<span class="kd">local</span> <span class="n">imbueItems</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kd">local</span> <span class="n">protection</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="kd">local</span> <span class="n">clearConfirmWindow</span>
+
+<span class="kd">local</span> <span class="n">imbueConfirmWindow</span>
+
+<span class="kr">function</span> <span class="nf">init</span><span class="p">()</span>
+
+  <span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span>
+
+    <span class="n">onGameEnd</span> <span class="o">=</span> <span class="n">hide</span><span class="p">,</span>
+
+    <span class="n">onResourceBalance</span> <span class="o">=</span> <span class="n">onResourceBalance</span><span class="p">,</span>
+
+    <span class="n">onImbuementWindow</span> <span class="o">=</span> <span class="n">onImbuementWindow</span><span class="p">,</span>
+
+    <span class="n">onCloseImbuementWindow</span> <span class="o">=</span> <span class="n">onCloseImbuementWindow</span>
+
+<span class="p">})</span>
+
+  <span class="n">imbuingWindow</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">displayUI</span><span class="p">(</span><span class="s1">&#39;imbuing&#39;</span><span class="p">)</span>
+
+  <span class="n">emptyImbue</span> <span class="o">=</span> <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">emptyImbue</span>
+
+  <span class="n">groupsCombo</span> <span class="o">=</span> <span class="n">emptyImbue</span><span class="p">.</span><span class="n">groups</span>
+
+  <span class="n">imbueLevelsCombo</span> <span class="o">=</span> <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbuement</span>
+
+  <span class="n">protectionBtn</span> <span class="o">=</span> <span class="n">emptyImbue</span><span class="p">.</span><span class="n">protection</span>
+
+  <span class="n">clearImbue</span> <span class="o">=</span> <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">clearImbue</span>
+
+  <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+  <span class="n">groupsCombo</span><span class="p">.</span><span class="n">onOptionChange</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+    <span class="n">imbueLevelsCombo</span><span class="p">:</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">itemImbuements</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+      <span class="kd">local</span> <span class="n">selectedGroup</span> <span class="o">=</span> <span class="n">groupsCombo</span><span class="p">:</span><span class="n">getCurrentOption</span><span class="p">().</span><span class="n">text</span>
+
+      <span class="kr">for</span> <span class="n">_</span><span class="p">,</span><span class="n">imbuement</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">itemImbuements</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="kr">if</span> <span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">selectedGroup</span> <span class="kr">then</span>
+
+          <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbuement</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+      <span class="n">imbueLevelsCombo</span><span class="p">.</span><span class="n">onOptionChange</span><span class="p">(</span><span class="n">imbueLevelsCombo</span><span class="p">)</span> <span class="c1">-- update options</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">imbueLevelsCombo</span><span class="p">.</span><span class="n">onOptionChange</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+    <span class="n">setProtection</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">selectedGroup</span> <span class="o">=</span> <span class="n">groupsCombo</span><span class="p">:</span><span class="n">getCurrentOption</span><span class="p">().</span><span class="n">text</span>
+
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span><span class="n">imbuement</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">itemImbuements</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="kr">if</span> <span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">selectedGroup</span> <span class="kr">then</span>
+
+        <span class="kr">if</span> <span class="o">#</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;sources&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">widget</span><span class="p">.</span><span class="n">currentIndex</span> <span class="kr">then</span>
+
+          <span class="n">selectedImbue</span> <span class="o">=</span> <span class="n">imbuement</span>
+
+          <span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">source</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;sources&quot;</span><span class="p">])</span> <span class="kr">do</span>
+
+            <span class="kr">for</span> <span class="n">_</span><span class="p">,</span><span class="n">item</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">imbueItems</span><span class="p">)</span> <span class="kr">do</span>
+
+              <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">source</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]:</span><span class="n">getId</span><span class="p">()</span> <span class="kr">then</span>
+
+                <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">source</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]:</span><span class="n">getCount</span><span class="p">()</span> <span class="kr">then</span>
+
+                  <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/imbuing/imbue_green&quot;</span><span class="p">)</span>
+
+                  <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+                  <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">count</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+                <span class="kr">end</span>
+
+                <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">source</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]:</span><span class="n">getCount</span><span class="p">()</span> <span class="kr">then</span>
+
+                  <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+                  <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/imbuing/imbue_empty&quot;</span><span class="p">)</span>
+
+                  <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">count</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+                <span class="kr">end</span>
+
+                <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">count</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">()</span> <span class="o">..</span> <span class="s2">&quot;/&quot;</span> <span class="o">..</span> <span class="n">source</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]:</span><span class="n">getCount</span><span class="p">())</span>
+
+              <span class="kr">end</span>
+
+            <span class="kr">end</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">item</span><span class="p">:</span><span class="n">setItemId</span><span class="p">(</span><span class="n">source</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]:</span><span class="n">getId</span><span class="p">())</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">item</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="s2">&quot;The imbuement requires &quot;</span> <span class="o">..</span> <span class="n">source</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">widget</span><span class="p">.</span><span class="n">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="kr">do</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">count</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">item</span><span class="p">:</span><span class="n">setItemId</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">requiredItems</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">item</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="n">emptyImbue</span><span class="p">.</span><span class="n">protectionCost</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;protectionCost&quot;</span><span class="p">])</span>
+
+          <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">])</span>
+
+          <span class="kr">if</span> <span class="ow">not</span> <span class="n">protection</span> <span class="ow">and</span> <span class="p">(</span><span class="n">bankGold</span> <span class="o">+</span> <span class="n">inventoryGold</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">]</span> <span class="kr">then</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/imbuing/imbue_empty&quot;</span><span class="p">)</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="kr">if</span> <span class="ow">not</span> <span class="n">protection</span> <span class="ow">and</span> <span class="p">(</span><span class="n">bankGold</span> <span class="o">+</span> <span class="n">inventoryGold</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">]</span> <span class="kr">then</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="kr">if</span> <span class="n">protection</span> <span class="ow">and</span> <span class="p">(</span><span class="n">bankGold</span> <span class="o">+</span> <span class="n">inventoryGold</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;protectionCost&quot;</span><span class="p">])</span> <span class="kr">then</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">:</span><span class="n">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/imbuing/imbue_empty&quot;</span><span class="p">)</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="kr">if</span> <span class="n">protection</span> <span class="ow">and</span> <span class="p">(</span><span class="n">bankGold</span> <span class="o">+</span> <span class="n">inventoryGold</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;protectionCost&quot;</span><span class="p">])</span> <span class="kr">then</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;successRate&quot;</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span>
+
+          <span class="kr">if</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;successRate&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="kr">then</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+          <span class="kr">else</span>
+
+            <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+          <span class="kr">end</span>
+
+          <span class="n">emptyImbue</span><span class="p">.</span><span class="n">description</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">])</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">protectionBtn</span><span class="p">.</span><span class="n">onClick</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="n">setProtection</span><span class="p">(</span><span class="ow">not</span> <span class="n">protection</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setProtection</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+  <span class="n">protection</span> <span class="o">=</span> <span class="n">value</span>
+
+  <span class="kr">if</span> <span class="n">protection</span> <span class="kr">then</span>
+
+    <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;protectionCost&quot;</span><span class="p">])</span>
+
+    <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span>
+
+    <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+
+    <span class="n">protectionBtn</span><span class="p">:</span><span class="n">setImageClip</span><span class="p">(</span><span class="n">torect</span><span class="p">(</span><span class="s2">&quot;66 0 66 66&quot;</span><span class="p">))</span>
+
+  <span class="kr">else</span>
+
+    <span class="kr">if</span> <span class="n">selectedImbue</span> <span class="kr">then</span>
+
+      <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">])</span>
+
+      <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;successRate&quot;</span><span class="p">]</span> <span class="o">..</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span>
+
+      <span class="kr">if</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;successRate&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="kr">then</span>
+
+        <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+      <span class="kr">else</span>
+
+        <span class="n">emptyImbue</span><span class="p">.</span><span class="n">successRate</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">protectionBtn</span><span class="p">:</span><span class="n">setImageClip</span><span class="p">(</span><span class="n">torect</span><span class="p">(</span><span class="s2">&quot;0 0 66 66&quot;</span><span class="p">))</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">terminate</span><span class="p">()</span>
+
+  <span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span>
+
+    <span class="n">onGameEnd</span> <span class="o">=</span> <span class="n">hide</span><span class="p">,</span>
+
+    <span class="n">onResourceBalance</span> <span class="o">=</span> <span class="n">onResourceBalance</span><span class="p">,</span>
+
+    <span class="n">onImbuementWindow</span> <span class="o">=</span> <span class="n">onImbuementWindow</span><span class="p">,</span>
+
+    <span class="n">onCloseImbuementWindow</span> <span class="o">=</span> <span class="n">onCloseImbuementWindow</span>
+
+<span class="p">})</span>
+
+  <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">resetSlots</span><span class="p">()</span>
+
+  <span class="n">emptyImbue</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+  <span class="n">clearImbue</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span> <span class="kr">do</span>
+
+    <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">itemInfo</span><span class="p">.</span><span class="n">slots</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">):</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Slot &quot;</span> <span class="o">..</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">itemInfo</span><span class="p">.</span><span class="n">slots</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">):</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+    <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">itemInfo</span><span class="p">.</span><span class="n">slots</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">):</span><span class="n">setTooltip</span><span class="p">(</span><span class="s2">&quot;Items can have up to three imbuements slots. This slot is not available for this item.&quot;</span><span class="p">)</span>
+
+    <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">itemInfo</span><span class="p">.</span><span class="n">slots</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">onClick</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">selectSlot</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">slotId</span><span class="p">,</span> <span class="n">activeSlot</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">activeSlot</span> <span class="kr">then</span>
+
+    <span class="n">emptyImbue</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">activeSlot</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">title</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Clear Imbuement &quot;&#39;</span> <span class="o">..</span> <span class="n">activeSlot</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">..</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">groups</span><span class="p">:</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">groups</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">activeSlot</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;group&quot;</span><span class="p">])</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">imbuement</span><span class="p">:</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">imbuement</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">activeSlot</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">description</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">activeSlot</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">])</span>
+
+    <span class="n">hours</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%02.f&quot;</span><span class="p">,</span> <span class="nb">math.floor</span><span class="p">(</span><span class="n">activeSlot</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="mi">3600</span><span class="p">))</span>
+
+    <span class="n">mins</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%02.f&quot;</span><span class="p">,</span> <span class="nb">math.floor</span><span class="p">(</span><span class="n">activeSlot</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="mi">60</span> <span class="o">-</span> <span class="p">(</span><span class="n">hours</span><span class="o">*</span><span class="mi">60</span><span class="p">)))</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">time</span><span class="p">.</span><span class="n">timeRemaining</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">hours</span><span class="o">..</span><span class="s2">&quot;:&quot;</span><span class="o">..</span><span class="n">mins</span><span class="o">..</span><span class="s2">&quot;h&quot;</span><span class="p">)</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">activeSlot</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+    <span class="kr">if</span> <span class="p">(</span><span class="n">bankGold</span> <span class="o">+</span> <span class="n">inventoryGold</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">activeSlot</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="kr">then</span>
+
+      <span class="n">emptyImbue</span><span class="p">.</span><span class="n">clear</span><span class="p">:</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+      <span class="n">emptyImbue</span><span class="p">.</span><span class="n">clear</span><span class="p">:</span><span class="n">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/imbuing/imbue_empty&quot;</span><span class="p">)</span>
+
+      <span class="n">emptyImbue</span><span class="p">.</span><span class="n">cost</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">yesCallback</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">g_game</span><span class="p">.</span><span class="n">clearImbuement</span><span class="p">(</span><span class="n">slotId</span><span class="p">)</span>
+
+      <span class="n">widget</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Slot &quot;</span> <span class="o">..</span> <span class="p">(</span><span class="n">slotId</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+      <span class="kr">if</span> <span class="n">clearConfirmWindow</span> <span class="kr">then</span>
+
+        <span class="n">clearConfirmWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+        <span class="n">clearConfirmWindow</span><span class="o">=</span><span class="kc">nil</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">noCallback</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+      <span class="kr">if</span> <span class="n">clearConfirmWindow</span> <span class="kr">then</span>
+
+        <span class="n">clearConfirmWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+        <span class="n">clearConfirmWindow</span><span class="o">=</span><span class="kc">nil</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">clearImbue</span><span class="p">.</span><span class="n">clear</span><span class="p">.</span><span class="n">onClick</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+      <span class="n">clearConfirmWindow</span> <span class="o">=</span> <span class="n">displayGeneralBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Confirm Clearing&#39;</span><span class="p">),</span> <span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Do you wish to spend &#39;</span> <span class="o">..</span> <span class="n">activeSlot</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">..</span> <span class="s1">&#39; gold coins to clear the imbuement &quot;&#39;</span> <span class="o">..</span> <span class="n">activeSlot</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">..</span> <span class="s1">&#39;&quot; from your item?&#39;</span><span class="p">),</span> <span class="p">{</span>
+
+        <span class="p">{</span> <span class="n">text</span><span class="o">=</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="n">yesCallback</span> <span class="p">},</span>
+
+        <span class="p">{</span> <span class="n">text</span><span class="o">=</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;No&#39;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="n">noCallback</span> <span class="p">},</span>
+
+        <span class="n">anchor</span><span class="o">=</span><span class="n">AnchorHorizontalCenter</span><span class="p">},</span> <span class="n">yesCallback</span><span class="p">,</span> <span class="n">noCallback</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">clearImbue</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">emptyImbue</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+    <span class="n">clearImbue</span><span class="p">:</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+    <span class="kd">local</span> <span class="n">yesCallback</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">g_game</span><span class="p">.</span><span class="n">applyImbuement</span><span class="p">(</span><span class="n">slotId</span><span class="p">,</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">protection</span><span class="p">)</span>
+
+      <span class="kr">if</span> <span class="n">clearConfirmWindow</span> <span class="kr">then</span>
+
+        <span class="n">clearConfirmWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+        <span class="n">clearConfirmWindow</span><span class="o">=</span><span class="kc">nil</span>
+
+      <span class="kr">end</span>
+
+      <span class="n">widget</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+
+      <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="kr">end</span>
+
+    <span class="kd">local</span> <span class="n">noCallback</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+      <span class="kr">if</span> <span class="n">clearConfirmWindow</span> <span class="kr">then</span>
+
+        <span class="n">clearConfirmWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+        <span class="n">clearConfirmWindow</span><span class="o">=</span><span class="kc">nil</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">emptyImbue</span><span class="p">.</span><span class="n">imbue</span><span class="p">.</span><span class="n">onClick</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+
+      <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+      <span class="kd">local</span> <span class="n">cost</span> <span class="o">=</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;cost&quot;</span><span class="p">]</span>
+
+      <span class="kd">local</span> <span class="n">successRate</span> <span class="o">=</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;successRate&quot;</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="n">protection</span> <span class="kr">then</span>
+
+        <span class="n">cost</span> <span class="o">=</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;protectionCost&quot;</span><span class="p">]</span>
+
+        <span class="n">successRate</span> <span class="o">=</span> <span class="s2">&quot;100&quot;</span>
+
+      <span class="kr">end</span>
+
+      <span class="n">clearConfirmWindow</span> <span class="o">=</span> <span class="n">displayGeneralBox</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Confirm Imbuing Attempt&#39;</span><span class="p">),</span> <span class="s1">&#39;You are about to imbue your item with &quot;&#39;</span> <span class="o">..</span> <span class="n">selectedImbue</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">..</span> <span class="s1">&#39;&quot;.</span><span class="se">\n</span><span class="s1">Your chance to succeed is &#39;</span> <span class="o">..</span> <span class="n">successRate</span> <span class="o">..</span> <span class="s1">&#39;%. It will consume the required astral sources and &#39;</span><span class="o">..</span> <span class="n">cost</span> <span class="o">..</span><span class="s1">&#39; gold coins.</span><span class="se">\n</span><span class="s1">Do you wish to proceed?&#39;</span><span class="p">,</span> <span class="p">{</span>
+
+        <span class="p">{</span> <span class="n">text</span><span class="o">=</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;Yes&#39;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="n">yesCallback</span> <span class="p">},</span>
+
+        <span class="p">{</span> <span class="n">text</span><span class="o">=</span><span class="n">tr</span><span class="p">(</span><span class="s1">&#39;No&#39;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="n">noCallback</span> <span class="p">},</span>
+
+        <span class="n">anchor</span><span class="o">=</span><span class="n">AnchorHorizontalCenter</span><span class="p">},</span> <span class="n">yesCallback</span><span class="p">,</span> <span class="n">noCallback</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onImbuementWindow</span><span class="p">(</span><span class="n">itemId</span><span class="p">,</span> <span class="n">slots</span><span class="p">,</span> <span class="n">activeSlots</span><span class="p">,</span> <span class="n">imbuements</span><span class="p">,</span> <span class="n">needItems</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">itemId</span> <span class="kr">then</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">resetSlots</span><span class="p">()</span>
+
+  <span class="n">imbueItems</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">needItems</span><span class="p">)</span>
+
+  <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">itemInfo</span><span class="p">.</span><span class="n">item</span><span class="p">:</span><span class="n">setItemId</span><span class="p">(</span><span class="n">itemId</span><span class="p">)</span>
+
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">slots</span> <span class="kr">do</span>
+
+    <span class="kd">local</span> <span class="n">slot</span> <span class="o">=</span> <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">itemInfo</span><span class="p">.</span><span class="n">slots</span><span class="p">:</span><span class="n">getChildByIndex</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="n">slot</span><span class="p">.</span><span class="n">onClick</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+      <span class="n">selectSlot</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="n">slot</span><span class="p">:</span><span class="n">setTooltip</span><span class="p">(</span><span class="s2">&quot;Use this slot to imbue your item. Depending on the item you can have up to three different imbuements.&quot;</span><span class="p">)</span>
+
+    <span class="n">slot</span><span class="p">:</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">slot</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;slot0&quot;</span> <span class="kr">then</span>
+
+      <span class="n">selectSlot</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slot</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">activeSlots</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kd">local</span> <span class="n">activeSlotBtn</span> <span class="o">=</span> <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">itemInfo</span><span class="p">.</span><span class="n">slots</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s2">&quot;slot&quot;</span> <span class="o">..</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="n">activeSlotBtn</span><span class="p">.</span><span class="n">onClick</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+      <span class="n">selectSlot</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">slot</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="n">activeSlotBtn</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;slot0&quot;</span> <span class="kr">then</span>
+
+      <span class="n">selectSlot</span><span class="p">(</span><span class="n">activeSlotBtn</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">slot</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">imbuements</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+    <span class="n">groupsCombo</span><span class="p">:</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">imbueLevelsCombo</span><span class="p">:</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">itemImbuements</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">imbuements</span><span class="p">)</span>
+
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span><span class="n">imbuement</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">itemImbuements</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="kr">if</span> <span class="ow">not</span> <span class="n">groupsCombo</span><span class="p">:</span><span class="n">isOption</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">])</span> <span class="kr">then</span>
+
+        <span class="n">groupsCombo</span><span class="p">:</span><span class="n">addOption</span><span class="p">(</span><span class="n">imbuement</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">])</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">show</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onResourceBalance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">bankGold</span> <span class="o">=</span> <span class="n">balance</span>
+
+  <span class="kr">elseif</span> <span class="nb">type</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span>
+
+    <span class="n">inventoryGold</span> <span class="o">=</span> <span class="n">balance</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">type</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span>
+
+    <span class="n">imbuingWindow</span><span class="p">.</span><span class="n">balance</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s2">&quot;Balance&quot;</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">..</span> <span class="p">(</span><span class="n">bankGold</span> <span class="o">+</span> <span class="n">inventoryGold</span><span class="p">))</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">onCloseImbuementWindow</span><span class="p">()</span>
+
+  <span class="n">resetSlots</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">hide</span><span class="p">()</span>
+
+  <span class="n">g_game</span><span class="p">.</span><span class="n">closeImbuingWindow</span><span class="p">()</span>
+
+  <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">hide</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">show</span><span class="p">()</span>
+
+  <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">raise</span><span class="p">()</span>
+
+  <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">focus</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">toggle</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">imbuingWindow</span><span class="p">:</span><span class="n">isVisible</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">return</span> <span class="n">hide</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">show</span><span class="p">()</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="imbuing-otmod">
+<h1>imbuing.otmod<a class="headerlink" href="#imbuing-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: game_imbuing
+
+  description: imbuing
+
+  author: Vincent#1766 on discord
+
+  website: http://otclient.ovh
+
+  sandboxed: true
+
+  scripts: [ imbuing ]
+
+  @onLoad: init()
+
+  @onUnload: terminate()
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="imbuing-otui">
+<h1>imbuing.otui<a class="headerlink" href="#imbuing-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+Slot &lt; Button
+
+  width: 70
+
+  height: 66
+
+  anchors.verticalCenter: parent.verticalCenter
+
+  enabled: false
+
+  text-wrap: true
+
+  !tooltip: tr(&#39;Items can have up to three imbuements slots. This slot is not available for this item.&#39;)
+
+RequiredItem &lt; Panel
+
+  width: 66
+
+  height: 90
+
+  UIItem
+
+    id: item
+
+    height: 66
+
+    width: 66
+
+    anchors.left: parent.left
+
+    anchors.top: parent.top
+
+  FlatLabel
+
+    id: count
+
+    margin-top: 5
+
+    text-align: center
+
+    anchors.left: prev.left
+
+    anchors.right: prev.right
+
+    anchors.top: prev.bottom
+
+ItemInformation &lt; Panel
+
+  height: 100
+
+  border: 1 black
+
+  padding: 5
+
+  Label
+
+    id: title
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    text-align: center
+
+    !text: tr(&quot;Item Information&quot;)
+
+  UIItem
+
+    id: item
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.VerticalCenter: parent.VerticalCenter
+
+    margin-left: 10
+
+    margin-top: 5
+
+    height: 64
+
+    width: 64
+
+  Panel
+
+    id: slots
+
+    width: 240
+
+    height: 66
+
+    margin-top: 5
+
+    anchors.VerticalCenter: parent.VerticalCenter
+
+    anchors.top: prev.top
+
+    anchors.right: parent.right
+
+    Slot
+
+      id: slot0
+
+      !text: tr(&quot;Slot 1&quot;)
+
+      text-align: center
+
+      anchors.left: parent.left
+
+    Slot
+
+      id: slot1
+
+      !text: tr(&quot;Slot 2&quot;)
+
+      text-align: center
+
+      margin-left: 10
+
+      anchors.left: prev.right
+
+    Slot
+
+      id: slot2
+
+      !text: tr(&quot;Slot 3&quot;)
+
+      text-align: center
+
+      margin-left: 10
+
+      anchors.left: prev.right
+
+  Label
+
+    id: selectSlot
+
+    margin-right: 15
+
+    anchors.right: slots.left
+
+    anchors.VerticalCenter: parent.VerticalCenter
+
+    !text: tr(&quot;Select Slot:&quot;)
+
+EmptyImbue &lt; Panel
+
+  height: 240
+
+  border: 1 black
+
+  padding: 5
+
+  Label
+
+    id: title
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    text-align: center
+
+    !text: tr(&quot;Imbue Empty Slot&quot;)
+
+  ComboBox
+
+    id: groups
+
+    anchors.top: title.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.HorizontalCenter
+
+    margin-right: 3
+
+    margin-top: 5
+
+    isdisabled: true
+
+  ComboBox
+
+    id: imbuement
+
+    anchors.top: prev.top
+
+    anchors.left: groups.right
+
+    anchors.right: parent.right
+
+    margin-left: 3
+
+  Label
+
+    id: description
+
+    anchors.top: prev.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    margin-top: 10
+
+    height: 85
+
+  Label
+
+    id: info
+
+    anchors.bottom: prev.bottom
+
+    anchors.left: parent.left
+
+    !text: tr(&#39;Requires the following astral sources:&#39;)
+
+  Label
+
+    id: successRate
+
+    anchors.top: info.top
+
+    anchors.right: parent.right
+
+    width: 35
+
+    text-align: right
+
+  Label
+
+    id: successRateTitle
+
+    anchors.top: info.top
+
+    anchors.right: successRate.left
+
+    margin-right: 15
+
+    !text: tr(&#39;Success Rate:&#39;)
+
+  Panel
+
+    id: requiredItems
+
+    width: 210
+
+    height: 90
+
+    anchors.left: parent.left
+
+    anchors.bottom: parent.bottom
+
+    RequiredItem
+
+      id: item1
+
+      anchors.left: parent.left
+
+    RequiredItem
+
+      id: item2
+
+      margin-left: 10
+
+      anchors.left: prev.right
+
+    RequiredItem
+
+      id: item3
+
+      margin-left: 10
+
+      anchors.left: prev.right
+
+  UIButton
+
+    id: protection
+
+    width: 66
+
+    height: 66
+
+    anchors.top: prev.top
+
+    anchors.left: prev.right
+
+    image-source: /images/game/imbuing/100percent
+
+    image-clip: 0 0 66 66
+
+    margin-left: 15
+
+    !tooltip: (&quot;Bribe the fates! Click here to raise your chance to 100%. For guaranteed success use gold.&quot;)
+
+  FlatLabel
+
+    id: protectionCost
+
+    margin-top: 5
+
+    text-align: center
+
+    anchors.left: prev.left
+
+    anchors.right: prev.right
+
+    anchors.top: prev.bottom
+
+  UIWidget
+
+    id: horizontalArrow
+
+    anchors.left: prev.right
+
+    anchors.verticalCenter: requiredItems.verticalCenter
+
+    margin-left: 45
+
+    width: 12
+
+    height: 21
+
+    image-source: /images/ui/arrow_horizontal
+
+    image-rect: 0 0 12 21
+
+    image-clip: 12 0 12 21
+
+    phantom: false
+
+  UIButton
+
+    id: imbue
+
+    width: 128
+
+    height: 66
+
+    anchors.top: requiredItems.top
+
+    anchors.right: parent.right
+
+    image-source: /images/game/imbuing/imbue_empty
+
+    image-clip: 0 0 128 66
+
+    margin-left: 15
+
+    !tooltip: tr(&quot;Click here to carry out the selected imbuement. This will consume the required astral sources and gold.&quot;)
+
+    $pressed:
+
+      image-clip: 0 66 128 66
+
+  FlatLabel
+
+    id: cost
+
+    margin-top: 5
+
+    text-align: center
+
+    anchors.left: prev.left
+
+    anchors.right: prev.right
+
+    anchors.top: prev.bottom
+
+ClearImbue &lt; Panel
+
+  height: 240
+
+  border: 1 black
+
+  padding: 5
+
+  Label
+
+    id: title
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    text-align: center
+
+    !text: tr(&quot;Clear Imbuement&quot;)
+
+  ComboBox
+
+    id: groups
+
+    anchors.top: title.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.HorizontalCenter
+
+    margin-right: 3
+
+    margin-top: 5
+
+    enabled: false
+
+  ComboBox
+
+    id: imbuement
+
+    anchors.top: prev.top
+
+    anchors.left: groups.right
+
+    anchors.right: parent.right
+
+    margin-left: 3
+
+    enabled: false
+
+  Label
+
+    id: description
+
+    anchors.top: prev.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    margin-top: 10
+
+    height: 85
+
+  Label
+
+    id: info
+
+    anchors.bottom: prev.bottom
+
+    anchors.left: parent.left
+
+    !text: tr(&#39;Time remaining:&#39;)
+
+  Label
+
+    id: clearImbuementTitle
+
+    anchors.top: info.top
+
+    anchors.right: parent.right
+
+    !text: tr(&#39;Clear imbuement:&#39;)
+
+  Panel
+
+    id: time
+
+    width: 210
+
+    height: 90
+
+    anchors.left: parent.left
+
+    anchors.bottom: parent.bottom
+
+    FlatLabel
+
+      id: timeRemaining
+
+      size: 86 25
+
+      margin-bottom: 20
+
+      text-align: center
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      anchors.verticalCenter: parent.verticalCenter
+
+  UIButton
+
+    id: clear
+
+    width: 128
+
+    height: 66
+
+    anchors.top: time.top
+
+    anchors.right: parent.right
+
+    image-source: /images/game/imbuing/clear
+
+    image-clip: 0 0 128 66
+
+    margin-left: 15
+
+    !tooltip: tr(&quot;Your needs have changed? Click here to clear the imbuement from your item for a fee.&quot;)
+
+    $pressed:
+
+      image-clip: 0 66 128 66
+
+  FlatLabel
+
+    id: cost
+
+    margin-top: 5
+
+    text-align: center
+
+    anchors.left: prev.left
+
+    anchors.right: prev.right
+
+    anchors.top: prev.bottom
+
+MainWindow
+
+  id: imbuingWindow
+
+  !text: tr(&#39;Imbue Item&#39;)
+
+  size: 550 430
+
+  background-color: #AAAAAA
+
+  @onEscape: modules.game_imbuing.hide()
+
+  ItemInformation
+
+    id: itemInfo
+
+    anchors.left: parent.left
+
+    anchors.top: parent.top
+
+    anchors.right: parent.right
+
+  EmptyImbue
+
+    id: emptyImbue
+
+    anchors.left: parent.left
+
+    anchors.top: prev.bottom
+
+    anchors.right: parent.right
+
+    margin-top: 5
+
+  ClearImbue
+
+    id: clearImbue
+
+    anchors.left: parent.left
+
+    anchors.top: emptyImbue.top
+
+    anchors.right: parent.right
+
+  Button
+
+    id: close
+
+    !text: tr(&#39;Close&#39;)
+
+    width: 50
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+    @onClick: modules.game_imbuing.hide()
+
+  Label
+
+    id: balance
+
+    height: 25
+
+    anchors.right: prev.left
+
+    anchors.left: parent.left
+
+    anchors.bottom: parent.bottom
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_imbuing</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imbuing-otmod">imbuing.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imbuing-otui">imbuing.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/gameplay/modul-game-imbuing.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

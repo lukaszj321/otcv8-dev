@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>framework/stdext/math.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/stdext/math';</script>
+    <link rel="icon" href="../../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/stdext/math.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-stdext-math-h">
+<h1>framework/stdext/math.h<a class="headerlink" href="#framework-stdext-math-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu math.</p>
+</section>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Link to this heading">#</a></h2>
+<section id="stdext">
+<h3><code class="docutils literal notranslate"><span class="pre">stdext</span></code><a class="headerlink" href="#stdext" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="is-power-of-two">
+<h3><code class="docutils literal notranslate"><span class="pre">is_power_of_two</span></code><a class="headerlink" href="#is-power-of-two" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">is_power_of_two(size_t</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">((v</span> <span class="pre">!=</span> <span class="pre">0)</span> <span class="pre">&amp;&amp;</span> <span class="pre">!(v</span> <span class="pre">&amp;</span> <span class="pre">(v</span> <span class="pre">-</span> <span class="pre">1)));</span> <span class="pre">}</span></code></p>
+</section>
+<section id="to-power-of-two">
+<h3><code class="docutils literal notranslate"><span class="pre">to_power_of_two</span></code><a class="headerlink" href="#to-power-of-two" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">size_t</span> <span class="pre">to_power_of_two(size_t</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">if(v</span> <span class="pre">==</span> <span class="pre">0)</span> <span class="pre">return</span> <span class="pre">0;</span> <span class="pre">size_t</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">1;</span> <span class="pre">while(r</span> <span class="pre">&lt;</span> <span class="pre">v</span> <span class="pre">&amp;&amp;</span> <span class="pre">r</span> <span class="pre">!=</span> <span class="pre">0xffffffff)</span> <span class="pre">r</span> <span class="pre">&lt;&lt;=</span> <span class="pre">1;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="readule16">
+<h3><code class="docutils literal notranslate"><span class="pre">readULE16</span></code><a class="headerlink" href="#readule16" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">uint16_t</span> <span class="pre">readULE16(const</span> <span class="pre">uchar</span> <span class="pre">*addr)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(uint16_t)addr[1]</span> <span class="pre">&lt;&lt;</span> <span class="pre">8</span> <span class="pre">|</span> <span class="pre">addr[0];</span> <span class="pre">}</span></code></p>
+</section>
+<section id="readule32">
+<h3><code class="docutils literal notranslate"><span class="pre">readULE32</span></code><a class="headerlink" href="#readule32" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">uint32_t</span> <span class="pre">readULE32(const</span> <span class="pre">uchar</span> <span class="pre">*addr)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(uint32_t)readULE16(addr</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">&lt;&lt;</span> <span class="pre">16</span> <span class="pre">|</span> <span class="pre">readULE16(addr);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="readule64">
+<h3><code class="docutils literal notranslate"><span class="pre">readULE64</span></code><a class="headerlink" href="#readule64" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">uint64_t</span> <span class="pre">readULE64(const</span> <span class="pre">uchar</span> <span class="pre">*addr)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(uint64_t)readULE32(addr</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">&lt;&lt;</span> <span class="pre">32</span> <span class="pre">|</span> <span class="pre">readULE32(addr);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="writeule16">
+<h3><code class="docutils literal notranslate"><span class="pre">writeULE16</span></code><a class="headerlink" href="#writeule16" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">writeULE16(uchar</span> <span class="pre">*addr,</span> <span class="pre">uint16_t</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">addr[1]</span> <span class="pre">=</span> <span class="pre">value</span> <span class="pre">&gt;&gt;</span> <span class="pre">8;</span> <span class="pre">addr[0]</span> <span class="pre">=</span> <span class="pre">(uint8_t)value;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="writeule32">
+<h3><code class="docutils literal notranslate"><span class="pre">writeULE32</span></code><a class="headerlink" href="#writeule32" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">writeULE32(uchar</span> <span class="pre">*addr,</span> <span class="pre">uint32_t</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">writeULE16(addr</span> <span class="pre">+</span> <span class="pre">2,</span> <span class="pre">value</span> <span class="pre">&gt;&gt;</span> <span class="pre">16);</span> <span class="pre">writeULE16(addr,</span> <span class="pre">(uint16_t)value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="writeule64">
+<h3><code class="docutils literal notranslate"><span class="pre">writeULE64</span></code><a class="headerlink" href="#writeule64" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">writeULE64(uchar</span> <span class="pre">*addr,</span> <span class="pre">uint64_t</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">writeULE32(addr</span> <span class="pre">+</span> <span class="pre">4,</span> <span class="pre">value</span> <span class="pre">&gt;&gt;</span> <span class="pre">32);</span> <span class="pre">writeULE32(addr,</span> <span class="pre">(uint32_t)value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="readsle16">
+<h3><code class="docutils literal notranslate"><span class="pre">readSLE16</span></code><a class="headerlink" href="#readsle16" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int16_t</span> <span class="pre">readSLE16(const</span> <span class="pre">uchar</span> <span class="pre">*addr)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(int16_t)addr[1]</span> <span class="pre">&lt;&lt;</span> <span class="pre">8</span> <span class="pre">|</span> <span class="pre">addr[0];</span> <span class="pre">}</span></code></p>
+</section>
+<section id="readsle32">
+<h3><code class="docutils literal notranslate"><span class="pre">readSLE32</span></code><a class="headerlink" href="#readsle32" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int32_t</span> <span class="pre">readSLE32(const</span> <span class="pre">uchar</span> <span class="pre">*addr)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(int32_t)readSLE16(addr</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">&lt;&lt;</span> <span class="pre">16</span> <span class="pre">|</span> <span class="pre">readSLE16(addr);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="readsle64">
+<h3><code class="docutils literal notranslate"><span class="pre">readSLE64</span></code><a class="headerlink" href="#readsle64" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int64_t</span> <span class="pre">readSLE64(const</span> <span class="pre">uchar</span> <span class="pre">*addr)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(int64_t)readSLE32(addr</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">&lt;&lt;</span> <span class="pre">32</span> <span class="pre">|</span> <span class="pre">readSLE32(addr);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="writesle16">
+<h3><code class="docutils literal notranslate"><span class="pre">writeSLE16</span></code><a class="headerlink" href="#writesle16" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">writeSLE16(uchar</span> <span class="pre">*addr,</span> <span class="pre">int16_t</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">addr[1]</span> <span class="pre">=</span> <span class="pre">value</span> <span class="pre">&gt;&gt;</span> <span class="pre">8;</span> <span class="pre">addr[0]</span> <span class="pre">=</span> <span class="pre">(int8_t)value;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="writesle32">
+<h3><code class="docutils literal notranslate"><span class="pre">writeSLE32</span></code><a class="headerlink" href="#writesle32" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">writeSLE32(uchar</span> <span class="pre">*addr,</span> <span class="pre">int32_t</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">writeSLE16(addr</span> <span class="pre">+</span> <span class="pre">2,</span> <span class="pre">value</span> <span class="pre">&gt;&gt;</span> <span class="pre">16);</span> <span class="pre">writeSLE16(addr,</span> <span class="pre">(int16_t)value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="writesle64">
+<h3><code class="docutils literal notranslate"><span class="pre">writeSLE64</span></code><a class="headerlink" href="#writesle64" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">writeSLE64(uchar</span> <span class="pre">*addr,</span> <span class="pre">int64_t</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">writeSLE32(addr</span> <span class="pre">+</span> <span class="pre">4,</span> <span class="pre">value</span> <span class="pre">&gt;&gt;</span> <span class="pre">32);</span> <span class="pre">writeSLE32(addr,</span> <span class="pre">(int32_t)value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="adler32">
+<h3><code class="docutils literal notranslate"><span class="pre">adler32</span></code><a class="headerlink" href="#adler32" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint32_t</span> <span class="pre">adler32(const</span> <span class="pre">uint8_t</span> <span class="pre">*buffer,</span> <span class="pre">size_t</span> <span class="pre">size)</span></code></p>
+</section>
+<section id="random-range">
+<h3><code class="docutils literal notranslate"><span class="pre">random_range</span></code><a class="headerlink" href="#random-range" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">random_range(long</span> <span class="pre">min,</span> <span class="pre">long</span> <span class="pre">max)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">random_range</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">random_range(float</span> <span class="pre">min,</span> <span class="pre">float</span> <span class="pre">max)</span></code></p>
+</section>
+<section id="round">
+<h3><code class="docutils literal notranslate"><span class="pre">round</span></code><a class="headerlink" href="#round" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">round(double</span> <span class="pre">r)</span></code></p>
+</section>
+<section id="clamp">
+<h3><code class="docutils literal notranslate"><span class="pre">clamp</span></code><a class="headerlink" href="#clamp" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">clamp(T</span> <span class="pre">x,</span> <span class="pre">T</span> <span class="pre">min,</span> <span class="pre">T</span> <span class="pre">max)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">std::max&lt;T&gt;(min,</span> <span class="pre">std::min&lt;T&gt;(x,</span> <span class="pre">max));</span> <span class="pre">}</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stdext"><code class="docutils literal notranslate"><span class="pre">stdext</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-power-of-two"><code class="docutils literal notranslate"><span class="pre">is_power_of_two</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#to-power-of-two"><code class="docutils literal notranslate"><span class="pre">to_power_of_two</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readule16"><code class="docutils literal notranslate"><span class="pre">readULE16</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readule32"><code class="docutils literal notranslate"><span class="pre">readULE32</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readule64"><code class="docutils literal notranslate"><span class="pre">readULE64</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writeule16"><code class="docutils literal notranslate"><span class="pre">writeULE16</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writeule32"><code class="docutils literal notranslate"><span class="pre">writeULE32</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writeule64"><code class="docutils literal notranslate"><span class="pre">writeULE64</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readsle16"><code class="docutils literal notranslate"><span class="pre">readSLE16</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readsle32"><code class="docutils literal notranslate"><span class="pre">readSLE32</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readsle64"><code class="docutils literal notranslate"><span class="pre">readSLE64</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writesle16"><code class="docutils literal notranslate"><span class="pre">writeSLE16</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writesle32"><code class="docutils literal notranslate"><span class="pre">writeSLE32</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writesle64"><code class="docutils literal notranslate"><span class="pre">writeSLE64</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adler32"><code class="docutils literal notranslate"><span class="pre">adler32</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-range"><code class="docutils literal notranslate"><span class="pre">random_range</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">random_range</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round"><code class="docutils literal notranslate"><span class="pre">round</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clamp"><code class="docutils literal notranslate"><span class="pre">clamp</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/stdext/math.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

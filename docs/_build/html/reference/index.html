@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Referencje API &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/index';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Referencje API</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="referencje-api">
+<h1>Referencje API<a class="headerlink" href="#referencje-api" title="Link to this heading">#</a></h1>
+<section id="przeglad">
+<span id="reference-overview"></span><h2>Przegląd<a class="headerlink" href="#przeglad" title="Link to this heading">#</a></h2>
+<p>Ta sekcja zawiera kompletną dokumentację referencyjną API OTClientV8, obejmującą:</p>
+<ul class="simple">
+<li><p><strong>C++ API</strong> - klasy silnika, typy, funkcje</p></li>
+<li><p><strong>Events System</strong> - zdarzenia i sygnały</p></li>
+<li><p><strong>Modules</strong> - system modułów Lua</p></li>
+<li><p><strong>UI Components</strong> - widgety i OTUI</p></li>
+</ul>
+</section>
+<section id="szybkie-odnosniki">
+<span id="reference-quick-links"></span><h2>Szybkie odnośniki<a class="headerlink" href="#szybkie-odnosniki" title="Link to this heading">#</a></h2>
+<section id="dla-programistow-c">
+<h3>Dla programistów C++<a class="headerlink" href="#dla-programistow-c" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#api-creature"><span class="std std-ref">Creature API</span></a> - zarządzanie stworzeniami</p></li>
+<li><p><a class="reference internal" href="api.html#api-player"><span class="std std-ref">Player API</span></a> - API gracza</p></li>
+<li><p><a class="reference internal" href="api.html#api-map"><span class="std std-ref">Map API</span></a> - operacje na mapie</p></li>
+<li><p><a class="reference internal" href="api.html#api-protocol"><span class="std std-ref">Network API</span></a> - protokół sieciowy</p></li>
+</ul>
+</section>
+<section id="dla-skrypterow-lua">
+<h3>Dla skrypterów Lua<a class="headerlink" href="#dla-skrypterow-lua" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="modules.html#module-corelib"><span class="std std-ref">Global Functions</span></a> - funkcje globalne</p></li>
+<li><p><a class="reference internal" href="events.html#events-connection"><span class="std std-ref">Event Handlers</span></a> - obsługa zdarzeń</p></li>
+<li><p><a class="reference internal" href="modules.html#modules-loading"><span class="std std-ref">Module System</span></a> - ładowanie modułów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-lua-api"><span class="std std-ref">UI Manipulation</span></a> - tworzenie i manipulacja UI</p></li>
+</ul>
+</section>
+<section id="dla-designerow-ui">
+<h3>Dla designerów UI<a class="headerlink" href="#dla-designerow-ui" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="ui.html#ui-otui-syntax"><span class="std std-ref">OTUI Syntax</span></a> - składnia OTUI</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-index"><span class="std std-ref">Widget Types</span></a> - typy widgetów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-styling"><span class="std std-ref">Styling</span></a> - stylowanie komponentów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-layouts"><span class="std std-ref">Layouts</span></a> - systemy układów</p></li>
+</ul>
+</section>
+</section>
+<section id="index-symboli-a-z">
+<span id="reference-symbol-index"></span><h2>Index symboli (A-Z)<a class="headerlink" href="#index-symboli-a-z" title="Link to this heading">#</a></h2>
+<section id="a">
+<h3>A<a class="headerlink" href="#a" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addEvent()</span></code> - <a class="reference internal" href="modules.html#func-addEvent"><span class="std std-ref">Modules: addEvent</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anchors</span></code> - <a class="reference internal" href="ui.html#ui-anchors"><span class="std std-ref">UI: Anchors</span></a></p></li>
+</ul>
+</section>
+<section id="c">
+<h3>C<a class="headerlink" href="#c" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect()</span></code> - <a class="reference internal" href="events.html#events-connection"><span class="std std-ref">Events: Connection</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Creature</span></code> - <a class="reference internal" href="api.html#api-creature"><span class="std std-ref">API: Creature</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cycleEvent()</span></code> - <a class="reference internal" href="modules.html#func-cycleEvent"><span class="std std-ref">Modules: cycleEvent</span></a></p></li>
+</ul>
+</section>
+<section id="d">
+<h3>D<a class="headerlink" href="#d" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">disconnect()</span></code> - <a class="reference internal" href="events.html#events-connection"><span class="std std-ref">Events: Disconnection</span></a></p></li>
+</ul>
+</section>
+<section id="g">
+<h3>G<a class="headerlink" href="#g" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code> - <a class="reference internal" href="api.html#api-game"><span class="std std-ref">API: Game</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_map</span></code> - <a class="reference internal" href="api.html#api-map"><span class="std std-ref">API: Map</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_modules</span></code> - <a class="reference internal" href="modules.html#modules-loading"><span class="std std-ref">Modules: Loading</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code> - <a class="reference internal" href="ui.html#ui-lua-api"><span class="std std-ref">UI: Lua API</span></a></p></li>
+</ul>
+</section>
+<section id="l">
+<h3>L<a class="headerlink" href="#l" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code> - <a class="reference internal" href="api.html#api-player"><span class="std std-ref">API: Player</span></a></p></li>
+</ul>
+</section>
+<section id="o">
+<h3>O<a class="headerlink" href="#o" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">onCreatureAppear</span></code> - <a class="reference internal" href="events.html#event-onCreatureAppear"><span class="std std-ref">Events: onCreatureAppear</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code> - <a class="reference internal" href="events.html#event-onGameStart"><span class="std std-ref">Events: onGameStart</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHealthChange</span></code> - <a class="reference internal" href="events.html#event-onHealthChange"><span class="std std-ref">Events: onHealthChange</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onLogin</span></code> - <a class="reference internal" href="events.html#event-onLogin"><span class="std std-ref">Events: onLogin</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTextMessage</span></code> - <a class="reference internal" href="events.html#event-onTextMessage"><span class="std std-ref">Events: onTextMessage</span></a></p></li>
+</ul>
+</section>
+<section id="p">
+<h3>P<a class="headerlink" href="#p" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Player</span></code> - <a class="reference internal" href="api.html#api-player"><span class="std std-ref">API: Player</span></a></p></li>
+</ul>
+</section>
+<section id="s">
+<h3>S<a class="headerlink" href="#s" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent()</span></code> - <a class="reference internal" href="modules.html#func-scheduleEvent"><span class="std std-ref">Modules: scheduleEvent</span></a></p></li>
+</ul>
+</section>
+<section id="u">
+<h3>U<a class="headerlink" href="#u" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UIButton</span></code> - <a class="reference internal" href="ui.html#ui-button"><span class="std std-ref">UI: Button</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UIWidget</span></code> - <a class="reference internal" href="ui.html#ui-widget"><span class="std std-ref">UI: Widget</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UIWindow</span></code> - <a class="reference internal" href="ui.html#ui-window"><span class="std std-ref">UI: Window</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="symbole-wedlug-kategorii">
+<span id="reference-by-category"></span><h2>Symbole według kategorii<a class="headerlink" href="#symbole-wedlug-kategorii" title="Link to this heading">#</a></h2>
+<section id="core-system">
+<h3>Core System<a class="headerlink" href="#core-system" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="events.html"><span class="std std-doc">Event System</span></a> - asynchroniczna komunikacja</p></li>
+<li><p><a class="reference internal" href="modules.html#modules-loading"><span class="std std-ref">Module Loader</span></a> - ładowanie modułów</p></li>
+<li><p><a class="reference internal" href="modules.html#func-scheduleEvent"><span class="std std-ref">Scheduler</span></a> - planowanie zadań</p></li>
+</ul>
+</section>
+<section id="game-logic">
+<h3>Game Logic<a class="headerlink" href="#game-logic" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#api-creature"><span class="std std-ref">Creature Management</span></a> - stworzenia</p></li>
+<li><p><a class="reference internal" href="api.html#api-player"><span class="std std-ref">Player Control</span></a> - sterowanie graczem</p></li>
+<li><p><a class="reference internal" href="api.html#api-map"><span class="std std-ref">Map Operations</span></a> - operacje na mapie</p></li>
+<li><p><a class="reference internal" href="api.html#api-item"><span class="std std-ref">Item Handling</span></a> - zarządzanie przedmiotami</p></li>
+</ul>
+</section>
+<section id="ui-framework">
+<h3>UI Framework<a class="headerlink" href="#ui-framework" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="ui.html#ui-widget-hierarchy"><span class="std std-ref">Widget System</span></a> - hierarchia widgetów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-layouts"><span class="std std-ref">Layout Management</span></a> - układy</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-lua-api"><span class="std std-ref">Event Handling</span></a> - eventy UI</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-styling"><span class="std std-ref">Styling</span></a> - stylowanie</p></li>
+</ul>
+</section>
+<section id="network">
+<h3>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#api-protocol"><span class="std std-ref">Protocol</span></a> - protokół komunikacji</p></li>
+<li><p><a class="reference internal" href="api.html#api-connection"><span class="std std-ref">Connection Management</span></a> - zarządzanie połączeniem</p></li>
+</ul>
+</section>
+</section>
+<section id="konwencje-dokumentacji">
+<span id="reference-conventions"></span><h2>Konwencje dokumentacji<a class="headerlink" href="#konwencje-dokumentacji" title="Link to this heading">#</a></h2>
+<section id="typy-parametrow">
+<h3>Typy parametrów<a class="headerlink" href="#typy-parametrow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> - ciąg znaków</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code> - liczba (int lub float)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code> - wartość logiczna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code> - tabela Lua</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> - funkcja/callback</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userdata</span></code> - obiekt C++ (np. Creature, Player)</p></li>
+</ul>
+</section>
+<section id="opcjonalnosc">
+<h3>Opcjonalność<a class="headerlink" href="#opcjonalnosc" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span></code> - parametr wymagany</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span> <span class="pre">(optional)</span></code> - parametr opcjonalny</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span> <span class="pre">=</span> <span class="pre">default</span></code> - parametr z wartością domyślną</p></li>
+</ul>
+</section>
+<section id="przyklady-kodu">
+<h3>Przykłady kodu<a class="headerlink" href="#przyklady-kodu" title="Link to this heading">#</a></h3>
+<p>Wszystkie przykłady są testowalne i mogą być użyte bezpośrednio w projekcie.</p>
+</section>
+</section>
+<section id="nawigacja">
+<span id="reference-navigation"></span><h2>Nawigacja<a class="headerlink" href="#nawigacja" title="Link to this heading">#</a></h2>
+<p>:::{toctree}
+:maxdepth: 2
+:caption: Sekcje referencyjne</p>
+<p>api
+events
+modules
+ui
+:::</p>
+</section>
+<section id="zobacz-tez">
+<span id="reference-see-also"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../chapters/01_specyfikacja.html"><span class="std std-doc">Chapters</span></a> - dokumentacja opisowa</p></li>
+<li><p><a class="reference internal" href="../examples/diagrams.html"><span class="std std-doc">Examples</span></a> - przykłady i diagramy</p></li>
+<li><p><a class="reference internal" href="../datasets/index.html"><span class="std std-doc">Datasets</span></a> - dane i zasoby</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeglad">Przegląd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#szybkie-odnosniki">Szybkie odnośniki</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-programistow-c">Dla programistów C++</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-skrypterow-lua">Dla skrypterów Lua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-designerow-ui">Dla designerów UI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-symboli-a-z">Index symboli (A-Z)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a">A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g">G</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l">L</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o">O</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p">P</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">S</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#u">U</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbole-wedlug-kategorii">Symbole według kategorii</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-system">Core System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-logic">Game Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-framework">UI Framework</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konwencje-dokumentacji">Konwencje dokumentacji</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-parametrow">Typy parametrów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcjonalnosc">Opcjonalność</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-kodu">Przykłady kodu</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nawigacja">Nawigacja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/index.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

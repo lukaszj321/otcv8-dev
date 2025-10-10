@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>framework/util/qrcodegen.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/util/qrcodegen';</script>
+    <link rel="icon" href="../../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/util/qrcodegen.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-util-qrcodegen-h">
+<h1>framework/util/qrcodegen.h<a class="headerlink" href="#framework-util-qrcodegen-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu qrcodegen.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="struktura-qrcodegen-segment">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code><a class="headerlink" href="#struktura-qrcodegen-segment" title="Link to this heading">#</a></h3>
+<p>A segment of character/binary/control data in a QR Code symbol. * The mid-level way to create a segment is to take the payload data * and call a factory function such as qrcodegen_makeNumeric(). * The low-level way to create a segment is to custom-make the bit buffer * and initialize a qrcodegen_Segment struct with appropriate values. * Even in the most favorable conditions, a QR Code can only hold 7089 characters of data. * Any segment longer than this is meaningless for the purpose of generating QR Codes. * Moreover, the maximum allowed bit length is 32767 because * the largest QR Code (version 40) has 31329 modules.</p>
+</section>
+<section id="id1">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Returns a segment representing the given binary data encoded in * byte mode. All input byte arrays are acceptable. Any text string * can be converted to UTF-8 bytes and encoded as a byte mode segment.</p>
+</section>
+<section id="id2">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Returns a segment representing the given string of decimal digits encoded in numeric mode.</p>
+</section>
+<section id="id3">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Returns a segment representing the given text string encoded in alphanumeric mode. * The characters allowed are: 0 to 9, A to Z (uppercase only), space, * dollar, percent, asterisk, plus, hyphen, period, slash, colon.</p>
+</section>
+<section id="id4">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Returns a segment representing an Extended Channel Interpretation * (ECI) designator with the given assignment value.</p>
+</section>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Link to this heading">#</a></h2>
+<section id="qrcodegen-ecc">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code><a class="headerlink" href="#qrcodegen-ecc" title="Link to this heading">#</a></h3>
+<p>The error correction level in a QR Code symbol.</p>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc_LOW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc_MEDIUM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc_QUARTILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc_HIGH</span></code></p></li>
+</ul>
+</section>
+<section id="qrcodegen-mask">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask</span></code><a class="headerlink" href="#qrcodegen-mask" title="Link to this heading">#</a></h3>
+<p>The mask pattern used in a QR Code symbol.</p>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_AUTO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask_7</span></code></p></li>
+</ul>
+</section>
+<section id="qrcodegen-mode">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode</span></code><a class="headerlink" href="#qrcodegen-mode" title="Link to this heading">#</a></h3>
+<p>Describes how a segment’s data bits are interpreted.</p>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode_NUMERIC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode_ALPHANUMERIC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode_BYTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode_KANJI</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode_ECI</span></code></p></li>
+</ul>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uint8_t</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enum</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enum</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+</ul>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enum</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+</ul>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="qrcodegen-isalphanumeric">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_isAlphanumeric</span></code><a class="headerlink" href="#qrcodegen-isalphanumeric" title="Link to this heading">#</a></h3>
+<p>Tests whether the given string can be encoded as a segment in alphanumeric mode. * A string is encodable iff each character is in the following set: 0 to 9, A to Z * (uppercase only), space, dollar, percent, asterisk, plus, hyphen, period, slash, colon.</p>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">qrcodegen_isAlphanumeric(const</span> <span class="pre">char</span> <span class="pre">*text)</span></code></p>
+</section>
+<section id="qrcodegen-isnumeric">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_isNumeric</span></code><a class="headerlink" href="#qrcodegen-isnumeric" title="Link to this heading">#</a></h3>
+<p>Tests whether the given string can be encoded as a segment in numeric mode. * A string is encodable iff each character is in the range 0 to 9.</p>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">qrcodegen_isNumeric(const</span> <span class="pre">char</span> <span class="pre">*text)</span></code></p>
+</section>
+<section id="qrcodegen-calcsegmentbuffersize">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_calcSegmentBufferSize</span></code><a class="headerlink" href="#qrcodegen-calcsegmentbuffersize" title="Link to this heading">#</a></h3>
+<p>Returns the number of bytes (uint8_t) needed for the data buffer of a segment * containing the given number of characters using the given mode. Notes: * - Returns SIZE_MAX on failure, i.e. numChars &gt; INT16_MAX or *   the number of needed bits exceeds INT16_MAX (i.e. 32767). * - Otherwise, all valid results are in the range [0, ceil(INT16_MAX / 8)], i.e. at most 4096. * - It is okay for the user to allocate more bytes for the buffer than needed. * - For byte mode, numChars measures the number of bytes, not Unicode code points. * - For ECI mode, numChars must be 0, and the worst-case number of bytes is returned. *   An actual ECI segment can have shorter data. For non-ECI modes, the result is exact.</p>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">qrcodegen_calcSegmentBufferSize(enum</span> <span class="pre">qrcodegen_Mode</span> <span class="pre">mode,</span> <span class="pre">size_t</span> <span class="pre">numChars)</span></code></p>
+</section>
+<section id="qrcodegen-getsize">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_getSize</span></code><a class="headerlink" href="#qrcodegen-getsize" title="Link to this heading">#</a></h3>
+<p>Returns the side length of the given QR Code, assuming that encoding succeeded. * The result is in the range [21, 177]. Note that the length of the array buffer * is related to the side length - every «uint8_t qrcode[]» must have length at least * qrcodegen_BUFFER_LEN_FOR_VERSION(version), which equals ceil(size^2 / 8 + 1).</p>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">qrcodegen_getSize(const</span> <span class="pre">uint8_t</span> <span class="pre">qrcode[])</span></code></p>
+</section>
+<section id="qrcodegen-getmodule">
+<h3><code class="docutils literal notranslate"><span class="pre">qrcodegen_getModule</span></code><a class="headerlink" href="#qrcodegen-getmodule" title="Link to this heading">#</a></h3>
+<p>Returns the color of the module (pixel) at the given coordinates, which is false * for white or true for black. The top left corner has the coordinates (x=0, y=0). * If the given coordinates are out of bounds, then false (white) is returned.</p>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">qrcodegen_getModule(const</span> <span class="pre">uint8_t</span> <span class="pre">qrcode[],</span> <span class="pre">int</span> <span class="pre">x,</span> <span class="pre">int</span> <span class="pre">y)</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/qrcodegen.mmd"><span class="xref myst">../diagrams/qrcodegen.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-qrcodegen-segment">Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Struktura: <code class="docutils literal notranslate"><span class="pre">qrcodegen_Segment</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enums">Enums</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-ecc"><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-mask"><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-mode"><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">qrcodegen_Mode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">qrcodegen_Ecc</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-isalphanumeric"><code class="docutils literal notranslate"><span class="pre">qrcodegen_isAlphanumeric</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-isnumeric"><code class="docutils literal notranslate"><span class="pre">qrcodegen_isNumeric</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-calcsegmentbuffersize"><code class="docutils literal notranslate"><span class="pre">qrcodegen_calcSegmentBufferSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-getsize"><code class="docutils literal notranslate"><span class="pre">qrcodegen_getSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qrcodegen-getmodule"><code class="docutils literal notranslate"><span class="pre">qrcodegen_getModule</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/util/qrcodegen.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

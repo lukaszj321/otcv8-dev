@@ -1,0 +1,998 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Spis treści &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/engine/otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna';</script>
+    <link rel="icon" href="../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Spis treści</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p>?# {% raw %}</p>
+<p><strong>Pakiet:</strong> <code class="docutils literal notranslate"><span class="pre">otc_core_v1/engine</span></code> · <strong>Wersja:</strong> 1.0</p>
+<p><strong>Cel:</strong> Jednolita, operacyjna specyfikacja <strong>parsera/serializera OTUI (STRICT)</strong>, <strong>walidatora</strong> i <strong>macierzy dozwolonych dzieci</strong>. Dokument jest fundamentem dla edytora TS (Sparky) oraz testów round‑trip.</p>
+<hr class="docutils" />
+<section id="spis-tresci">
+<h1>Spis treści<a class="headerlink" href="#spis-tresci" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ch-0"><span class="xref myst">0. Zakres, definicje, założenia</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-1"><span class="xref myst">1. STRICT OTUI — gramatyka i tokenizacja</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-2"><span class="xref myst">2. Parser → AST (TypeScript)</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-3"><span class="xref myst">3. Serializer (AST → OTUI STRICT)</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-4"><span class="xref myst">4. Macierze dozwolonych dzieci (global)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#ch-4-1"><span class="xref myst">4.1 Okna (Window‑class)</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-4-2"><span class="xref myst">4.2 Kontenery (Content‑class)</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-4-3"><span class="xref myst">4.3 Organizacja/Nawigacja</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-4-4"><span class="xref myst">4.4 Dane/Edycja</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-4-5"><span class="xref myst">4.5 Wskaźniki/Scroll</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ch-5"><span class="xref myst">5. Walidator — reguły, kody błędów/ostrzeżeń</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-6"><span class="xref myst">6. Auto‑naprawy deterministyczne</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-7"><span class="xref myst">7. Import/Export i round‑trip (edytor ↔ plik ↔ Lua)</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-8"><span class="xref myst">8. API edytora (TS): parse/serialize/validate/autofix</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-9"><span class="xref myst">9. Testy: goldeny i snapshoty</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-10"><span class="xref myst">10. Przykłady i edge‑cases</span></a></p></li>
+<li><p><a class="reference internal" href="#ch-11"><span class="xref myst">11. Indeks haseł</span></a></p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-0"></div>
+</section>
+<section id="zakres-definicje-zalozenia">
+<h1>0. Zakres, definicje, założenia<a class="headerlink" href="#zakres-definicje-zalozenia" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-0-1"><span class="xref myst">0.1 Zakres</span></a> · <a class="reference internal" href="#ch-0-2"><span class="xref myst">0.2 Definicje</span></a> · <a class="reference internal" href="#ch-0-3"><span class="xref myst">0.3 Założenia projektowe</span></a></p>
+</section>
+<section id="zakres-ch-0-1">
+<h1>0.1 Zakres {#ch-0-1}<a class="headerlink" href="#zakres-ch-0-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Pokrycie: <em>cały pipeline</em> od tekstu OTUI (STRICT) ↔ AST (TS) ↔ walidacja ↔ auto‑naprawy ↔ eksport/import.</p></li>
+<li><p>Zakres UI: komplet taksonomii z części „Specyfikacja UI” (rozdz. 4) + presety kanoniczne.</p></li>
+<li></li>
+</ul>
+</section>
+<section id="definicje-ch-0-2">
+<h1>0.2 Definicje {#ch-0-2}<a class="headerlink" href="#definicje-ch-0-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>STRICT OTUI</strong> — format bezkomentarzowy, LF, wcięcia 2 sp., kolejność GEOMETRIA→STYL→ZACHOWANIE.</p></li>
+<li><p><strong>AST</strong> — drzewo <code class="docutils literal notranslate"><span class="pre">WidgetNode</span></code>, deterministyczne klucze i kolejność dzieci.</p></li>
+<li><p><strong>Macierz</strong> — tablica dozwolonych dzieci dla par (parent, slot).</p></li>
+<li></li>
+</ul>
+</section>
+<section id="zalozenia-projektowe-ch-0-3">
+<h1>0.3 Założenia projektowe {#ch-0-3}<a class="headerlink" href="#zalozenia-projektowe-ch-0-3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Deterministyczność</strong>: ten sam AST → ten sam OTUI (bit‑identyczny, przy tej samej wersji serializera).</p></li>
+<li><p><strong>Idempotencja</strong>: <code class="docutils literal notranslate"><span class="pre">parse(serialize(ast))</span></code> ≡ <code class="docutils literal notranslate"><span class="pre">normalize(ast)</span></code>.</p></li>
+<li><p><strong>Brak magii</strong>: walidator zgłasza i <em>tylko</em> przewidywalnie naprawia.</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-1"></div>
+</section>
+<section id="strict-otui-gramatyka-i-tokenizacja">
+<h1>1. STRICT OTUI — gramatyka i tokenizacja<a class="headerlink" href="#strict-otui-gramatyka-i-tokenizacja" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-1-1"><span class="xref myst">1.1 Zasady formatowania</span></a> · <a class="reference internal" href="#ch-1-2"><span class="xref myst">1.2 Tokeny</span></a> · <a class="reference internal" href="#ch-1-3"><span class="xref myst">1.3 Szkic EBNF</span></a></p>
+</section>
+<section id="zasady-formatowania-ch-1-1">
+<h1>1.1 Zasady formatowania {#ch-1-1}<a class="headerlink" href="#zasady-formatowania-ch-1-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Wcięcia</strong>: 2 spacje na poziom. <strong>Zakaz tabów</strong>.</p></li>
+<li><p><strong>Końce linii</strong>: LF. <strong>Bez BOM</strong>.</p></li>
+<li><p><strong>Brak komentarzy</strong> w blokach <code class="docutils literal notranslate"><span class="pre">.otui</span></code>.</p></li>
+<li><p><strong>Kolejność atrybutów</strong> w każdym węźle: GEOMETRIA → STYL → ZACHOWANIE.</p></li>
+</ul>
+</section>
+<section id="tokeny-ch-1-2">
+<h1>1.2 Tokeny {#ch-1-2}<a class="headerlink" href="#tokeny-ch-1-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Słowa kluczowe typów: <code class="docutils literal notranslate"><span class="pre">MainWindow</span></code>, <code class="docutils literal notranslate"><span class="pre">StaticMainWindow</span></code>, <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code>, <code class="docutils literal notranslate"><span class="pre">ContainerWindow</span></code>, <code class="docutils literal notranslate"><span class="pre">DialogWindow</span></code>, <code class="docutils literal notranslate"><span class="pre">UIWidget</span></code>, <code class="docutils literal notranslate"><span class="pre">Panel</span></code>, <code class="docutils literal notranslate"><span class="pre">GroupBox</span></code>, <code class="docutils literal notranslate"><span class="pre">Titlebar</span></code>, <code class="docutils literal notranslate"><span class="pre">Toolbar</span></code>, <code class="docutils literal notranslate"><span class="pre">TabBar</span></code>, <code class="docutils literal notranslate"><span class="pre">TabWidget</span></code>, <code class="docutils literal notranslate"><span class="pre">Splitter</span></code>, <code class="docutils literal notranslate"><span class="pre">HorizontalSeparator</span></code>, <code class="docutils literal notranslate"><span class="pre">StatusOverlay</span></code>, <code class="docutils literal notranslate"><span class="pre">Label</span></code>, <code class="docutils literal notranslate"><span class="pre">Button</span></code>, <code class="docutils literal notranslate"><span class="pre">CheckBox</span></code>, <code class="docutils literal notranslate"><span class="pre">TextEdit</span></code>, <code class="docutils literal notranslate"><span class="pre">PasswordTextEdit</span></code>, <code class="docutils literal notranslate"><span class="pre">MultilineTextEdit</span></code>, <code class="docutils literal notranslate"><span class="pre">ComboBox</span></code>, <code class="docutils literal notranslate"><span class="pre">TextList</span></code>, <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code>, <code class="docutils literal notranslate"><span class="pre">VerticalScrollBar</span></code>, <code class="docutils literal notranslate"><span class="pre">HorizontalScrollBar</span></code>.</p></li>
+<li><p>Operator dziedziczenia: <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> (np. <code class="docutils literal notranslate"><span class="pre">MiniWindow</span> <span class="pre">&lt;</span> <span class="pre">MainWindow</span></code>).</p></li>
+<li><p>Identyfikatory: <code class="docutils literal notranslate"><span class="pre">id:</span> <span class="pre">&lt;slug&gt;</span></code>; łańcuchy w <code class="docutils literal notranslate"><span class="pre">!text:</span> <span class="pre">tr('...')</span></code>; liczby całkowite; kolory <code class="docutils literal notranslate"><span class="pre">#AARRGGBB</span></code> lub <code class="docutils literal notranslate"><span class="pre">alpha</span></code>.</p></li>
+</ul>
+</section>
+<section id="szkic-ebnf-poggladowy-ch-1-3">
+<h1>1.3 Szkic EBNF (pogglądowy) {#ch-1-3}<a class="headerlink" href="#szkic-ebnf-poggladowy-ch-1-3" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>document     := node*
+node         := header NEWLINE indent block?
+header       := type (WS &#39;&lt;&#39; WS type)? NEWLINE? attributes?
+type         := IDENT
+attributes   := (INDENT attr+ DEDENT)?
+attr         := key &#39;:&#39; value NEWLINE | stateBlock | event | meta
+stateBlock   := &#39;$&#39; IDENT &#39;:&#39; NEWLINE INDENT attr+ DEDENT
+event        := &#39;@&#39; IDENT &#39;:&#39; VALUE NEWLINE
+meta         := &#39;&amp;&#39; IDENT NEWLINE
+block        := INDENT (node | attr)+ DEDENT
+key          := IDENT (&#39;.&#39; IDENT)*
+value        := NUMBER | STRING | COLOR | IDENT | PATH
+</pre></div>
+</div>
+<hr class="docutils" />
+<div id="ch-2"></div>
+</section>
+<section id="parser-ast-typescript">
+<h1>2. Parser → AST (TypeScript)<a class="headerlink" href="#parser-ast-typescript" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-2-1"><span class="xref myst">2.1 Kształt AST</span></a> · <a class="reference internal" href="#ch-2-2"><span class="xref myst">2.2 Normalizacja</span></a> · <a class="reference internal" href="#ch-2-3"><span class="xref myst">2.3 Stabilizacja kolejności</span></a></p>
+</section>
+<section id="ksztalt-ast-ch-2-1">
+<h1>2.1 Kształt AST {#ch-2-1}<a class="headerlink" href="#ksztalt-ast-ch-2-1" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">AnchorRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="c1">// np. &#39;parent.left&#39;, &#39;header.bottom&#39;</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Geometry</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">size</span><span class="o">?:</span><span class="w"> </span><span class="p">[</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">];</span>
+<span class="w">  </span><span class="nx">width?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">height?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">anchors?</span><span class="o">:</span><span class="w"> </span><span class="kt">Partial</span><span class="o">&lt;</span><span class="nx">Record</span><span class="o">&lt;</span><span class="s1">&#39;fill&#39;</span><span class="o">|</span><span class="s1">&#39;left&#39;</span><span class="o">|</span><span class="s1">&#39;right&#39;</span><span class="o">|</span><span class="s1">&#39;top&#39;</span><span class="o">|</span><span class="s1">&#39;bottom&#39;</span><span class="o">|</span><span class="s1">&#39;verticalCenter&#39;</span><span class="o">|</span><span class="s1">&#39;horizontalCenter&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">AnchorRef</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">padding?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">marginLeft?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">marginRight?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">marginTop?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">marginBottom?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Style</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">backgroundColor?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">imageSource?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">imageSmooth?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"> </span><span class="nx">imageFixedRatio?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">font?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">color?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">text?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">textWrap?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"> </span><span class="nx">textAutoResize?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"> </span><span class="nx">textAlign?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">textOffset</span><span class="o">?:</span><span class="w"> </span><span class="p">[</span><span class="kt">number</span><span class="p">,</span><span class="kt">number</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Behavior</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">events?</span><span class="o">:</span><span class="w"> </span><span class="kt">Partial</span><span class="o">&lt;</span><span class="nx">Record</span><span class="o">&lt;</span><span class="s1">&#39;onEnter&#39;</span><span class="o">|</span><span class="s1">&#39;onEscape&#39;</span><span class="o">|</span><span class="s1">&#39;onClick&#39;</span><span class="o">|</span><span class="s1">&#39;onSetup&#39;</span><span class="o">|</span><span class="s1">&#39;onOptionChange&#39;</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"> </span><span class="nx">states?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">Style</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="c1">// typ OTUI</span>
+<span class="w">  </span><span class="nx">extends?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="c1">// dla np. MiniWindow &lt; MainWindow</span>
+<span class="w">  </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="kt">Geometry</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">style?</span><span class="o">:</span><span class="w"> </span><span class="kt">Style</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">behavior?</span><span class="o">:</span><span class="w"> </span><span class="kt">Behavior</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">children?</span><span class="o">:</span><span class="w"> </span><span class="kt">WidgetNode</span><span class="p">[];</span>
+<span class="w">  </span><span class="nx">variant?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="c1">// np. RoundCheckBox</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="normalizacja-ch-2-2">
+<h1>2.2 Normalizacja {#ch-2-2}<a class="headerlink" href="#normalizacja-ch-2-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Uzupełnij brakujące struktury: <code class="docutils literal notranslate"><span class="pre">children</span> <span class="pre">=</span> <span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">style</span> <span class="pre">=</span> <span class="pre">{}</span></code> gdy potrzebne.</p></li>
+<li><p>Zamień <code class="docutils literal notranslate"><span class="pre">style.text</span></code> → w serializacji na <code class="docutils literal notranslate"><span class="pre">!text:</span> <span class="pre">tr('...')</span></code>.</p></li>
+<li><p>Zastąp <code class="docutils literal notranslate"><span class="pre">size</span></code> parą <code class="docutils literal notranslate"><span class="pre">width/height</span></code> podczas walidacji kotwic (na potrzeby reguł), ale w serializacji zachowuj wejściową postać.</p></li>
+<li></li>
+</ul>
+</section>
+<section id="stabilizacja-kolejnosci-ch-2-3">
+<h1>2.3 Stabilizacja kolejności {#ch-2-3}<a class="headerlink" href="#stabilizacja-kolejnosci-ch-2-3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Atrybuty: najpierw <strong>GEOMETRIA</strong>, potem <strong>STYL</strong>, na końcu <strong>ZACHOWANIE</strong> (events/states).</p></li>
+<li><p>Dzieci: sortuj stabilnie po <code class="docutils literal notranslate"><span class="pre">(slotPriority,</span> <span class="pre">y,</span> <span class="pre">x,</span> <span class="pre">id)</span></code> jeśli edytor posiada grid/snapping; inaczej po kolejności wczytania.</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-3"></div>
+</section>
+<section id="serializer-ast-otui-strict">
+<h1>3. Serializer (AST → OTUI STRICT)<a class="headerlink" href="#serializer-ast-otui-strict" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-3-1"><span class="xref myst">3.1 Reguły wypisywania</span></a> · <a class="reference internal" href="#ch-3-2"><span class="xref myst">3.2 Escaping i i18n</span></a> · <a class="reference internal" href="#ch-3-3"><span class="xref myst">3.3 Sanityzacja końcowa</span></a></p>
+</section>
+<section id="reguly-wypisywania-ch-3-1">
+<h1>3.1 Reguły wypisywania {#ch-3-1}<a class="headerlink" href="#reguly-wypisywania-ch-3-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Wcięcie: <strong>2 spacje</strong>.</p></li>
+<li><p>Puste wartości pomijaj.</p></li>
+<li><p>Sekcja kolejności: GEOMETRIA (<code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>/<code class="docutils literal notranslate"><span class="pre">width</span></code>/<code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">anchors.*</span></code>, <code class="docutils literal notranslate"><span class="pre">margin-*</span></code>, <code class="docutils literal notranslate"><span class="pre">padding</span></code>) → STYL → ZACHOWANIE (<code class="docutils literal notranslate"><span class="pre">&#64;on*</span></code>, <code class="docutils literal notranslate"><span class="pre">$state:</span></code> bloki).</p></li>
+<li></li>
+</ul>
+</section>
+<section id="escaping-i-i18n-ch-3-2">
+<h1>3.2 Escaping i i18n {#ch-3-2}<a class="headerlink" href="#escaping-i-i18n-ch-3-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">style.text</span></code> → <code class="docutils literal notranslate"><span class="pre">!text:</span> <span class="pre">tr('...')</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span></code> → <code class="docutils literal notranslate"><span class="pre">\'</span></code>.</p></li>
+<li><p>Kolory tylko <code class="docutils literal notranslate"><span class="pre">#AARRGGBB</span></code> lub <code class="docutils literal notranslate"><span class="pre">alpha</span></code>.</p></li>
+</ul>
+</section>
+<section id="sanityzacja-koncowa-ch-3-3">
+<h1>3.3 Sanityzacja końcowa {#ch-3-3}<a class="headerlink" href="#sanityzacja-koncowa-ch-3-3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Usuń taby, trailing spaces, wymuś LF.</p></li>
+<li><p>Brak komentarzy w wynikowym <code class="docutils literal notranslate"><span class="pre">.otui</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-4"></div>
+</section>
+<section id="macierze-dozwolonych-dzieci-global">
+<h1>4. Macierze dozwolonych dzieci (global)<a class="headerlink" href="#macierze-dozwolonych-dzieci-global" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-4-1"><span class="xref myst">4.1 Okna</span></a> · <a class="reference internal" href="#ch-4-2"><span class="xref myst">4.2 Kontenery</span></a> · <a class="reference internal" href="#ch-4-3"><span class="xref myst">4.3 Organizacja</span></a> · <a class="reference internal" href="#ch-4-4"><span class="xref myst">4.4 Dane/Edycja</span></a> · <a class="reference internal" href="#ch-4-5"><span class="xref myst">4.5 Wskaźniki/Scroll</span></a></p>
+<blockquote>
+<div><p><strong>Legenda:</strong> ✓ dozwolone · ✖ zabronione · �  warunkowe (patrz uwagi).</p>
+</div></blockquote>
+</section>
+<section id="okna-windowclass-ch-4-1">
+<h1>4.1 Okna (Window‑class) {#ch-4-1}<a class="headerlink" href="#okna-windowclass-ch-4-1" title="Link to this heading">#</a></h1>
+<p><strong>MainWindow / StaticMainWindow (root)</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dziecko</p></th>
+<th class="head text-center"><p>Status</p></th>
+<th class="head"><p>Uwagi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UIWidget, Panel, GroupBox</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Elementy panelowe.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Label, Button, CheckBox, TextEdit, PasswordTextEdit, MultilineTextEdit, ComboBox</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Formularze i akcje.</p></td>
+</tr>
+<tr class="row-even"><td><p>TextList</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Wymaga pary z VerticalScrollBar przy overflow (� ).</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProgressBar, HorizontalSeparator</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>TabBar, TabWidget, Splitter</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Splitter: dokładnie 2 dzieci (� ).</p></td>
+</tr>
+<tr class="row-odd"><td><p>StatusOverlay</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Warstwa wierzchnia, bez złożonych dzieci (� ).</p></td>
+</tr>
+<tr class="row-even"><td><p>*Window (Main/Static/Mini/Container/Dialog)</p></td>
+<td class="text-center"><p>✖</p></td>
+<td><p>Zakaz okien‑dzieci.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ScrollBar (samotny)</p></td>
+<td class="text-center"><p>✖</p></td>
+<td><p>Zawsze para z treścią.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>MiniWindow / ContainerWindow / DialogWindow</strong></p>
+<ul class="simple">
+<li><p>Slot <code class="docutils literal notranslate"><span class="pre">titlebar</span></code>: Label, Button, UIWidget(ikona) ✓; listy/edytory/scroll ✖.</p></li>
+<li><p>Slot <code class="docutils literal notranslate"><span class="pre">content</span></code>: elementy panelowe ✓; okna‑dzieci ✖.</p></li>
+<li><p>Slot <code class="docutils literal notranslate"><span class="pre">footer</span></code> (Mini/Dialog): Button/Label/ProgressBar ✓; listy/edytory/scroll ✖.</p></li>
+</ul>
+</section>
+<section id="kontenery-contentclass-ch-4-2">
+<h1>4.2 Kontenery (Content‑class) {#ch-4-2}<a class="headerlink" href="#kontenery-contentclass-ch-4-2" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parent</p></th>
+<th class="head"><p>Dozwolone dzieci</p></th>
+<th class="head"><p>Niedozwolone/uwagi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UIWidget</p></td>
+<td><p>Wszystkie panelowe (Label/Button/Inputs/List/Progress/Scroll/Separator/StatusOverlay)</p></td>
+<td><p>*Window ✖</p></td>
+</tr>
+<tr class="row-odd"><td><p>Panel</p></td>
+<td><p>j.w.</p></td>
+<td><p>*Window ✖</p></td>
+</tr>
+<tr class="row-even"><td><p>GroupBox</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">header:</span> <span class="pre">Label</span></code> ✓, <code class="docutils literal notranslate"><span class="pre">content:</span> <span class="pre">panelowe</span></code> ✓</p></td>
+<td><p>Scroll w header ✖</p></td>
+</tr>
+<tr class="row-odd"><td><p>TabWidget</p></td>
+<td><p>Treść aktywnej zakładki: panelowe ✓</p></td>
+<td><p>*Window ✖; sam TabBar nie tu</p></td>
+</tr>
+<tr class="row-even"><td><p>StatusOverlay</p></td>
+<td><p>Label, ProgressBar, Button(cancel) ✓</p></td>
+<td><p>Listy/edytory/okna ✖</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="organizacja-nawigacja-ch-4-3">
+<h1>4.3 Organizacja/Nawigacja {#ch-4-3}<a class="headerlink" href="#organizacja-nawigacja-ch-4-3" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponent</p></th>
+<th class="head"><p>Dozwolone dzieci</p></th>
+<th class="head"><p>Niedozwolone/uwagi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Titlebar</p></td>
+<td><p>Label, Button, UIWidget(ikona)</p></td>
+<td><p>Scroll/listy/edytory ✖</p></td>
+</tr>
+<tr class="row-odd"><td><p>Toolbar</p></td>
+<td><p>Button, HorizontalSeparator</p></td>
+<td><p>Inne ✖</p></td>
+</tr>
+<tr class="row-even"><td><p>TabBar</p></td>
+<td><p>Button (zakładki)</p></td>
+<td><p>Treść zakładek ✖ — trafia do TabWidget</p></td>
+</tr>
+<tr class="row-odd"><td><p>Splitter</p></td>
+<td><p><strong>Dokładnie 2</strong> dzieci: Panel/UIWidget/GroupBox</p></td>
+<td><p>Okna/Scroll ✖</p></td>
+</tr>
+<tr class="row-even"><td><p>HorizontalSeparator</p></td>
+<td><p>—</p></td>
+<td><p><strong>Bez dzieci</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dane-edycja-ch-4-4">
+<h1>4.4 Dane/Edycja {#ch-4-4}<a class="headerlink" href="#dane-edycja-ch-4-4" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponent</p></th>
+<th class="head"><p>Dzieci</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Label, Button, CheckBox, TextEdit, PasswordTextEdit, ComboBox, ProgressBar, ScrollBar</p></td>
+<td><p><strong>Brak</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>MultilineTextEdit</p></td>
+<td><p><strong>Brak</strong>; przewijanie przez sąsiedni Vertical/HorizontalScrollBar</p></td>
+</tr>
+<tr class="row-even"><td><p>TextList</p></td>
+<td><p><strong>Brak</strong> ręcznych dzieci; wiersze generowane jako <code class="docutils literal notranslate"><span class="pre">UIWidget</span></code> (ListRow) runtime/templatem</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="wskazniki-scroll-ch-4-5">
+<h1>4.5 Wskaźniki/Scroll {#ch-4-5}<a class="headerlink" href="#wskazniki-scroll-ch-4-5" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponent</p></th>
+<th class="head"><p>Zasady</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VerticalScrollBar</p></td>
+<td><p>Sibling przewijanej treści; dock <strong>right</strong>; treść kotwiczy <code class="docutils literal notranslate"><span class="pre">right:</span> <span class="pre">scroll.left</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>HorizontalScrollBar</p></td>
+<td><p>Sibling przewijanej treści; dock <strong>bottom</strong>; treść kotwiczy <code class="docutils literal notranslate"><span class="pre">bottom:</span> <span class="pre">hscroll.top</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div id="ch-5"></div>
+</section>
+<section id="walidator-reguly-kody-bledow-ostrzezen">
+<h1>5. Walidator — reguły, kody błędów/ostrzeżeń<a class="headerlink" href="#walidator-reguly-kody-bledow-ostrzezen" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-5-1"><span class="xref myst">5.1 Błędy (E)</span></a> · <a class="reference internal" href="#ch-5-2"><span class="xref myst">5.2 Ostrzeżenia (W)</span></a> · <a class="reference internal" href="#ch-5-3"><span class="xref myst">5.3 Raport</span></a></p>
+</section>
+<section id="bledy-e-ch-5-1">
+<h1>5.1 Błędy (E) {#ch-5-1}<a class="headerlink" href="#bledy-e-ch-5-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>E001 STRICT/Format</strong> — taby/BOM/komentarze/trailing spaces.</p></li>
+<li><p><strong>E010 Anchors/Conflict</strong> — <code class="docutils literal notranslate"><span class="pre">anchors.fill</span></code> + inne kotwice.</p></li>
+<li><p><strong>E020 Window/Nesting</strong> — okno (<code class="docutils literal notranslate"><span class="pre">*Window</span></code>) jako dziecko okna.</p></li>
+<li><p><strong>E030 Scroll/Orphan</strong> — ScrollBar bez sparowanej treści.</p></li>
+<li><p><strong>E031 Scroll/Pairing</strong> — brak kotwicy treści do ScrollBar (<code class="docutils literal notranslate"><span class="pre">right:</span> <span class="pre">scroll.left</span></code> lub <code class="docutils literal notranslate"><span class="pre">bottom:</span> <span class="pre">hscroll.top</span></code>).</p></li>
+<li><p><strong>E040 Text/i18n</strong> — stały tekst bez <code class="docutils literal notranslate"><span class="pre">tr()</span></code> (w OTUI).</p></li>
+<li><p><strong>E050 Splitter/Arity</strong> — != 2 dzieci.</p></li>
+<li><p><strong>E060 Titlebar/Children</strong> — niedozwolone dziecko w <code class="docutils literal notranslate"><span class="pre">titlebar</span></code>.</p></li>
+</ul>
+</section>
+<section id="ostrzezenia-w-ch-5-2">
+<h1>5.2 Ostrzeżenia (W) {#ch-5-2}<a class="headerlink" href="#ostrzezenia-w-ch-5-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>W101 Width/AutoFit</strong> — okno dokowane z <code class="docutils literal notranslate"><span class="pre">width</span></code> (sugeruj usunięcie).</p></li>
+<li><p><strong>W110 Margins/Odd</strong> — nieparzyste marginesy (snapping 2 px).</p></li>
+<li><p><strong>W120 Scroll/StepMismatch</strong> — <code class="docutils literal notranslate"><span class="pre">step</span></code> niezgodny z wielkością wiersza/slotu.</p></li>
+<li><p><strong>W130 Keyboard/Hints</strong> — brak <code class="docutils literal notranslate"><span class="pre">&#64;onEnter/&#64;onEscape</span></code> w oknie dialogowym.</p></li>
+</ul>
+</section>
+<section id="raport-ch-5-3">
+<h1>5.3 Raport {#ch-5-3}<a class="headerlink" href="#raport-ch-5-3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Struktura: <code class="docutils literal notranslate"><span class="pre">{code,</span> <span class="pre">severity,</span> <span class="pre">path,</span> <span class="pre">message,</span> <span class="pre">fix?}</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code> = ścieżka węzłów (<code class="docutils literal notranslate"><span class="pre">main/content/items</span></code>).</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-6"></div>
+</section>
+<section id="autonaprawy-deterministyczne">
+<h1>6. Auto‑naprawy deterministyczne<a class="headerlink" href="#autonaprawy-deterministyczne" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-6-1"><span class="xref myst">6.1 STRICT fixups</span></a> · <a class="reference internal" href="#ch-6-2"><span class="xref myst">6.2 Anchors/Layout</span></a> · <a class="reference internal" href="#ch-6-3"><span class="xref myst">6.3 Scroll pairing</span></a></p>
+</section>
+<section id="strict-fixups-ch-6-1">
+<h1>6.1 STRICT fixups {#ch-6-1}<a class="headerlink" href="#strict-fixups-ch-6-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Usuń taby/BOM/komentarze; przytnij trailing spaces; wymuś LF.</p></li>
+<li><p>Uporządkuj kolejność atrybutów (GEOMETRIA→STYL→ZACHOWANIE).</p></li>
+</ul>
+</section>
+<section id="anchors-layout-ch-6-2">
+<h1>6.2 Anchors/Layout {#ch-6-2}<a class="headerlink" href="#anchors-layout-ch-6-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Jeśli są <code class="docutils literal notranslate"><span class="pre">anchors.left</span></code> + <code class="docutils literal notranslate"><span class="pre">anchors.right</span></code> <strong>i</strong> <code class="docutils literal notranslate"><span class="pre">width</span></code> → usuń <code class="docutils literal notranslate"><span class="pre">width</span></code> (Auto‑fit).</p></li>
+<li><p>Rozdziel <code class="docutils literal notranslate"><span class="pre">size</span></code> na <code class="docutils literal notranslate"><span class="pre">width/height</span></code> tylko na potrzeby walidacji, nie w serializacji (zachowaj wejściowy idiom).</p></li>
+</ul>
+</section>
+<section id="scroll-pairing-ch-6-3">
+<h1>6.3 Scroll pairing {#ch-6-3}<a class="headerlink" href="#scroll-pairing-ch-6-3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Dla <code class="docutils literal notranslate"><span class="pre">TextList</span></code>/<code class="docutils literal notranslate"><span class="pre">MultilineTextEdit</span></code> dodaj brakujący <code class="docutils literal notranslate"><span class="pre">VerticalScrollBar</span></code> jako sibling (po prawej) i dodaj kotwicę treści <code class="docutils literal notranslate"><span class="pre">right:</span> <span class="pre">scroll.left</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-7"></div>
+</section>
+<section id="import-export-i-roundtrip-edytor-plik-lua">
+<h1>7. Import/Export i round‑trip (edytor ↔ plik ↔ Lua)<a class="headerlink" href="#import-export-i-roundtrip-edytor-plik-lua" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-7-1"><span class="xref myst">7.1 Import z plików <code class="docutils literal notranslate"><span class="pre">.otui</span></code></span></a> · <a class="reference internal" href="#ch-7-2"><span class="xref myst">7.2 Import z Lua (blok string)</span></a> · <a class="reference internal" href="#ch-7-3"><span class="xref myst">7.3 Eksport</span></a></p>
+</section>
+<section id="import-z-plikow-otui-ch-7-1">
+<h1>7.1 Import z plików <code class="docutils literal notranslate"><span class="pre">.otui</span></code> {#ch-7-1}<a class="headerlink" href="#import-z-plikow-otui-ch-7-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Wczytaj, znormalizuj (STRICT), sparsuj do AST. Zachowaj <em>oryginalny układ</em> do porównań.</p></li>
+</ul>
+</section>
+<section id="import-z-lua-blok-string-ch-7-2">
+<h1>7.2 Import z Lua (blok string) {#ch-7-2}<a class="headerlink" href="#import-z-lua-blok-string-ch-7-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Wykryj stałe <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">&lt;Name&gt;_OTUI</span> <span class="pre">=</span> <span class="pre">[[...]]</span></code>; wytnij treść; sprawdź STRICT; sparsuj.</p></li>
+<li><p>Ostrzeżenie, gdy blok zawiera komentarze — niedozwolone w OTUI (mimo bycia w Lua).</p></li>
+</ul>
+</section>
+<section id="eksport-ch-7-3">
+<h1>7.3 Eksport {#ch-7-3}<a class="headerlink" href="#eksport-ch-7-3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Do pliku <code class="docutils literal notranslate"><span class="pre">.otui</span></code> (kanoniczny cel runtime).</p></li>
+<li><p>Opcjonalnie: <em>round‑trip do Lua</em> — odśwież istniejący blok <code class="docutils literal notranslate"><span class="pre">[[...]]</span></code> bit‑identycznie po <code class="docutils literal notranslate"><span class="pre">ensureStrictOtui()</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-8"></div>
+</section>
+<section id="api-edytora-ts-parse-serialize-validate-autofix">
+<h1>8. API edytora (TS): parse/serialize/validate/autofix<a class="headerlink" href="#api-edytora-ts-parse-serialize-validate-autofix" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-8-1"><span class="xref myst">8.1 Interfejsy</span></a> · <a class="reference internal" href="#ch-8-2"><span class="xref myst">8.2 Przepływy</span></a></p>
+</section>
+<section id="interfejsy-ch-8-1">
+<h1>8.1 Interfejsy {#ch-8-1}<a class="headerlink" href="#interfejsy-ch-8-1" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">parseOtui</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="p">[];</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">serializeAst</span><span class="p">(</span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="kt">WidgetNode</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="c1">// STRICT OTUI</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">ensureStrictOtui</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w">     </span><span class="c1">// tylko format</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">ValidationIssue</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">severity</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;error&#39;</span><span class="o">|</span><span class="s1">&#39;warning&#39;</span><span class="p">;</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">fix?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">validateAst</span><span class="p">(</span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="kt">WidgetNode</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="nx">ValidationIssue</span><span class="p">[];</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">autofixAst</span><span class="p">(</span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="kt">WidgetNode</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="kt">WidgetNode</span><span class="p">[];</span><span class="w"> </span><span class="nx">changes</span><span class="o">:</span><span class="w"> </span><span class="kt">ValidationIssue</span><span class="p">[]</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="przeplywy-ch-8-2">
+<h1>8.2 Przepływy {#ch-8-2}<a class="headerlink" href="#przeplywy-ch-8-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Projekt → Walidacja → Serializacja</strong>.</p></li>
+<li><p><strong>Import (plik/Lua) → Parser → Normalizacja → Walidacja → Edycja → Serializacja → Eksport (plik/Lua)</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-9"></div>
+</section>
+<section id="testy-goldeny-i-snapshoty">
+<h1>9. Testy: goldeny i snapshoty<a class="headerlink" href="#testy-goldeny-i-snapshoty" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-9-1"><span class="xref myst">9.1 Goldeny round‑trip</span></a> · <a class="reference internal" href="#ch-9-2"><span class="xref myst">9.2 Snapshoty wizualne</span></a></p>
+</section>
+<section id="goldeny-roundtrip-ch-9-1">
+<h1>9.1 Goldeny round‑trip {#ch-9-1}<a class="headerlink" href="#goldeny-roundtrip-ch-9-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Zestaw <code class="docutils literal notranslate"><span class="pre">X.otui</span></code> → <code class="docutils literal notranslate"><span class="pre">parse</span></code> → <code class="docutils literal notranslate"><span class="pre">serialize</span></code> → porównanie bit‑po‑bicie.</p></li>
+<li><p>Dokładaj przypadki: okna, scroll pairing, Splitter, TabBar/TabWidget.</p></li>
+</ul>
+</section>
+<section id="snapshoty-wizualne-ch-9-2">
+<h1>9.2 Snapshoty wizualne {#ch-9-2}<a class="headerlink" href="#snapshoty-wizualne-ch-9-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Render testowy po stronie klienta (lub symulacja) i porównania pikselowe dla kluczowych presetów.</p></li>
+</ul>
+<hr class="docutils" />
+<div id="ch-10"></div>
+</section>
+<section id="przyklady-i-edgecases">
+<h1>10. Przykłady i edge‑cases<a class="headerlink" href="#przyklady-i-edgecases" title="Link to this heading">#</a></h1>
+<p><strong>Interaktywny spis:</strong> <a class="reference internal" href="#ch-10-1"><span class="xref myst">10.1 Migracja do STRICT</span></a> · <a class="reference internal" href="#ch-10-2"><span class="xref myst">10.2 Anchors/Fill vs krawędzie</span></a> · <a class="reference internal" href="#ch-10-3"><span class="xref myst">10.3 Splitter/Arity</span></a></p>
+</section>
+<section id="migracja-do-strict-ch-10-1">
+<h1>10.1 Migracja do STRICT {#ch-10-1}<a class="headerlink" href="#migracja-do-strict-ch-10-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Wejście dowolne → <code class="docutils literal notranslate"><span class="pre">ensureStrictOtui()</span></code> → <code class="docutils literal notranslate"><span class="pre">parse</span></code> → <code class="docutils literal notranslate"><span class="pre">autofixAst()</span></code> → <code class="docutils literal notranslate"><span class="pre">serializeAst()</span></code>.</p></li>
+</ul>
+</section>
+<section id="anchors-fill-vs-krawedzie-ch-10-2">
+<h1>10.2 Anchors/Fill vs krawędzie {#ch-10-2}<a class="headerlink" href="#anchors-fill-vs-krawedzie-ch-10-2" title="Link to this heading">#</a></h1>
+<p><strong>BŁĘDNY OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>UIWidget
+  id: box
+  anchors.fill: parent
+  anchors.left: parent.left
+</pre></div>
+</div>
+<p><strong>PO NAPRAWIE (autofix)</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>UIWidget
+  id: box
+  anchors.fill: parent
+</pre></div>
+</div>
+</section>
+<section id="splitter-arity-ch-10-3">
+<h1>10.3 Splitter/Arity {#ch-10-3}<a class="headerlink" href="#splitter-arity-ch-10-3" title="Link to this heading">#</a></h1>
+<p><strong>BŁĘDNY OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Splitter
+  id: split
+  size: 300 160
+
+  Panel
+    id: left
+
+</pre></div>
+</div>
+<p><strong>PO NAPRAWIE (manualnej)</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Splitter
+  id: split
+  size: 300 160
+
+  Panel
+    id: left
+
+  Panel
+    id: right
+</pre></div>
+</div>
+<hr class="docutils" />
+<div id="ch-11"></div>
+</section>
+<section id="indeks-hasel">
+<h1>11. Indeks haseł<a class="headerlink" href="#indeks-hasel" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>STRICT • AST • Macierz • Walidator • Auto‑naprawy • Round‑trip • Splitter • TabBar/TabWidget • StatusOverlay • Scroll pairing</p></li>
+</ul>
+<p>{% endraw %}</p>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Spis treści</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zakres-definicje-zalozenia">0. Zakres, definicje, założenia</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zakres-ch-0-1">0.1 Zakres {#ch-0-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definicje-ch-0-2">0.2 Definicje {#ch-0-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zalozenia-projektowe-ch-0-3">0.3 Założenia projektowe {#ch-0-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#strict-otui-gramatyka-i-tokenizacja">1. STRICT OTUI — gramatyka i tokenizacja</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zasady-formatowania-ch-1-1">1.1 Zasady formatowania {#ch-1-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tokeny-ch-1-2">1.2 Tokeny {#ch-1-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#szkic-ebnf-poggladowy-ch-1-3">1.3 Szkic EBNF (pogglądowy) {#ch-1-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parser-ast-typescript">2. Parser → AST (TypeScript)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ksztalt-ast-ch-2-1">2.1 Kształt AST {#ch-2-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizacja-ch-2-2">2.2 Normalizacja {#ch-2-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilizacja-kolejnosci-ch-2-3">2.3 Stabilizacja kolejności {#ch-2-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#serializer-ast-otui-strict">3. Serializer (AST → OTUI STRICT)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reguly-wypisywania-ch-3-1">3.1 Reguły wypisywania {#ch-3-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#escaping-i-i18n-ch-3-2">3.2 Escaping i i18n {#ch-3-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sanityzacja-koncowa-ch-3-3">3.3 Sanityzacja końcowa {#ch-3-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#macierze-dozwolonych-dzieci-global">4. Macierze dozwolonych dzieci (global)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#okna-windowclass-ch-4-1">4.1 Okna (Window‑class) {#ch-4-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kontenery-contentclass-ch-4-2">4.2 Kontenery (Content‑class) {#ch-4-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#organizacja-nawigacja-ch-4-3">4.3 Organizacja/Nawigacja {#ch-4-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dane-edycja-ch-4-4">4.4 Dane/Edycja {#ch-4-4}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wskazniki-scroll-ch-4-5">4.5 Wskaźniki/Scroll {#ch-4-5}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#walidator-reguly-kody-bledow-ostrzezen">5. Walidator — reguły, kody błędów/ostrzeżeń</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bledy-e-ch-5-1">5.1 Błędy (E) {#ch-5-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ostrzezenia-w-ch-5-2">5.2 Ostrzeżenia (W) {#ch-5-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#raport-ch-5-3">5.3 Raport {#ch-5-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#autonaprawy-deterministyczne">6. Auto‑naprawy deterministyczne</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#strict-fixups-ch-6-1">6.1 STRICT fixups {#ch-6-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anchors-layout-ch-6-2">6.2 Anchors/Layout {#ch-6-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scroll-pairing-ch-6-3">6.3 Scroll pairing {#ch-6-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-export-i-roundtrip-edytor-plik-lua">7. Import/Export i round‑trip (edytor ↔ plik ↔ Lua)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-z-plikow-otui-ch-7-1">7.1 Import z plików <code class="docutils literal notranslate"><span class="pre">.otui</span></code> {#ch-7-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-z-lua-blok-string-ch-7-2">7.2 Import z Lua (blok string) {#ch-7-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksport-ch-7-3">7.3 Eksport {#ch-7-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#api-edytora-ts-parse-serialize-validate-autofix">8. API edytora (TS): parse/serialize/validate/autofix</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interfejsy-ch-8-1">8.1 Interfejsy {#ch-8-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#przeplywy-ch-8-2">8.2 Przepływy {#ch-8-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-goldeny-i-snapshoty">9. Testy: goldeny i snapshoty</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#goldeny-roundtrip-ch-9-1">9.1 Goldeny round‑trip {#ch-9-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#snapshoty-wizualne-ch-9-2">9.2 Snapshoty wizualne {#ch-9-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-i-edgecases">10. Przykłady i edge‑cases</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migracja-do-strict-ch-10-1">10.1 Migracja do STRICT {#ch-10-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anchors-fill-vs-krawedzie-ch-10-2">10.2 Anchors/Fill vs krawędzie {#ch-10-2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#splitter-arity-ch-10-3">10.3 Splitter/Arity {#ch-10-3}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indeks-hasel">11. Indeks haseł</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api/engine/otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
