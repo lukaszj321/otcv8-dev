@@ -26,7 +26,7 @@ flowchart TD
   G --> H[Audio System]
   H --> I[Logging Framework]
   I --> J[Game Runtime Loop]
-  
+
   style A fill:#f9f,stroke:#333,stroke-width:4px
   style D fill:#bbf,stroke:#333,stroke-width:2px
   style E fill:#bfb,stroke:#333,stroke-width:2px
@@ -85,7 +85,7 @@ stateDiagram-v2
     Loaded --> Unloading: terminate()
     Unloading --> Unloaded: cleanup()
     Unloaded --> [*]
-    
+
     Loading --> Error: Fail
     Error --> Unloaded: cleanup()
 ```
@@ -100,7 +100,7 @@ sequenceDiagram
     participant Module1 as Module A
     participant Module2 as Module B
     participant UI as UI Layer
-    
+
     Game->>EventSys: emit(onLogin)
     EventSys->>Module1: notify(onLogin)
     Module1->>Module1: processLogin()
@@ -119,17 +119,17 @@ flowchart LR
         B --> C[Packet Queue]
         C --> D[Socket Layer]
     end
-    
+
     subgraph Network
         D <--> E[TCP/IP]
     end
-    
+
     subgraph Server
         E <--> F[Server Socket]
         F --> G[Protocol Parser]
         G --> H[Game Logic]
     end
-    
+
     style Client fill:#e1f5ff
     style Network fill:#fff3e0
     style Server fill:#f3e5f5
@@ -142,17 +142,17 @@ flowchart LR
 graph TD
     Root[Root Widget] --> MainWindow[Main Window]
     Root --> TopMenu[Top Menu Bar]
-    
+
     MainWindow --> GameInterface[Game Interface]
     MainWindow --> Console[Console Panel]
-    
+
     GameInterface --> GameMap[Game Map Viewport]
     GameInterface --> Sidebar[Right Sidebar]
-    
+
     Sidebar --> Inventory[Inventory]
     Sidebar --> Skills[Skills Panel]
     Sidebar --> VipList[VIP List]
-    
+
     style Root fill:#ff9800
     style MainWindow fill:#4caf50
     style GameInterface fill:#2196f3
@@ -168,17 +168,17 @@ flowchart TD
     B -->|Audio| D[Sound Loader]
     B -->|Font| E[Font Loader]
     B -->|Data| F[Data Parser]
-    
+
     C --> G[Texture Cache]
     D --> H[Audio Buffer]
     E --> I[Font Cache]
     F --> J[Memory]
-    
+
     G --> K[Renderer]
     H --> L[Audio Mixer]
     I --> K
     J --> M[Game Logic]
-    
+
     style A fill:#ffeb3b
     style K fill:#4caf50
     style L fill:#2196f3
