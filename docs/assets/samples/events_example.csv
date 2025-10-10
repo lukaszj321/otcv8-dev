@@ -1,0 +1,11 @@
+Event Name,Description,Frequency,Priority
+onGameStart,Fired when game session starts,Once per session,High
+onGameEnd,Fired when game session ends,Once per session,High
+onLogin,Fired when player successfully logs in,Once per login,High
+onLogout,Fired when player logs out,Once per logout,Medium
+onTextMessage,Fired when text message received,Multiple per second,Low
+onCreatureAppear,Fired when creature enters viewport,Frequent,Medium
+onCreatureDisappear,Fired when creature leaves viewport,Frequent,Medium
+onHealthChange,Fired when player health changes,Variable,High
+onManaChange,Fired when player mana changes,Variable,High
+onPositionChange,Fired when player position changes,Frequent,Medium
