@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Chapter 08 - Audio" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/chapters/chapter_08_audio_docs_export_kit_authoring_agent_ready.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Professional Pro Template - Agent-Ready - OTClient v8: Cel: ten rozdzial zbiera stan warstwy audio (kanaly, odtwarzanie, glosnosci, mute) oraz tworzy znormal..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Professional Pro Template - Agent-Ready - OTClient v8: Cel: ten rozdzial zbiera stan warstwy audio (kanaly, odtwarzanie, glosnosci, mute) oraz tworzy znormal..." />
+
+    <title>Chapter 08 - Audio &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter_08_audio_docs_export_kit_authoring_agent_ready';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/chapters/chapter_08_audio_docs_export_kit_authoring_agent_ready.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 08 - Audio</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="chapter-08-audio">
+<h1>Chapter 08 - Audio<a class="headerlink" href="#chapter-08-audio" title="Link to this heading">#</a></h1>
+<section id="professional-pro-template-agent-ready-otclient-v8">
+<h2>Professional Pro Template - Agent-Ready - OTClient v8<a class="headerlink" href="#professional-pro-template-agent-ready-otclient-v8" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Cel: ten rozdzial zbiera stan warstwy audio (kanaly, odtwarzanie, glosnosci, mute) oraz tworzy znormalizowane rekordy. Dane sluza do audytu konfiguracji, korelacji z wydajnoscia i eventami oraz wsparcia dla Studio (Electron/React). Styl elastyczny i konkretny. Calosc ASCII-only, UTF-8 bez BOM.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="executive-summary">
+<h2>0) Executive summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Co: snapshot(y) konfiguracji i stanu audio: masterVolume, per-channel volume, muted, lista grajacych zrodel (jesli API na to pozwala). Best-effort z runtime; fallback do statycznych list kanalow z config.</p></li>
+<li><p>Dla kogo: inzynierowie klienta, QA, narzedzia AI/RAG i Studio.</p></li>
+<li><p>Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), narracja (sekcje merytoryczne), diagram (Mermaid).</p></li>
+<li><p>Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="struktura-folderu-i-linkowanie">
+<h2>1) Struktura folderu i linkowanie<a class="headerlink" href="#struktura-folderu-i-linkowanie" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>08_audio/
+<span class="w">  </span>README.md<span class="w">                      </span><span class="c1"># narracja + TOC + nawigacja (ten plik)</span>
+<span class="w">  </span>meta.json<span class="w">                      </span><span class="c1"># mapa plikow + zadania + tags (machine-readable)</span>
+<span class="w">  </span>audio.schema.json<span class="w">              </span><span class="c1"># walidacja rekordow NDJSON (audio snapshot per channel)</span>
+<span class="w">  </span>sections/
+<span class="w">    </span>00_audio_basics.md<span class="w">           </span><span class="c1"># podstawy audio w kliencie (dla nowych dev)</span>
+<span class="w">    </span>01_introduction.md<span class="w">           </span><span class="c1"># po co zbierac stan audio</span>
+<span class="w">    </span>02_audio_model.md<span class="w">            </span><span class="c1"># slownik pol i przyklady</span>
+<span class="w">    </span>03_collection_methods.md<span class="w">     </span><span class="c1"># jak zbieramy (runtime API, fallback config)</span>
+<span class="w">    </span>04_quality_and_limits.md<span class="w">     </span><span class="c1"># jakosc, ograniczenia, SLO</span>
+<span class="w">    </span>05_how_to_read_stats.md<span class="w">      </span><span class="c1"># jak czytac statystyki i korelowac</span>
+<span class="w">  </span>datasets/
+<span class="w">    </span>audio.dataset.jsonl<span class="w">          </span><span class="c1"># NDJSON (append-only; po jednym rekordzie na kanal)</span>
+<span class="w">    </span>audio.dataset.csv<span class="w">            </span><span class="c1"># CSV (naglowek staly)</span>
+<span class="w">    </span>chunks/
+<span class="w">      </span>README.md<span class="w">                  </span><span class="c1"># polityka dzielenia</span>
+<span class="w">  </span>stats/
+<span class="w">    </span>stats.json<span class="w">                   </span><span class="c1"># metryki zbiorcze (mute, rozklady glosnosci)</span>
+<span class="w">    </span>stats.md<span class="w">                     </span><span class="c1"># raport czytelny dla ludzi</span>
+<span class="w">  </span>analysis/
+<span class="w">    </span>findings.md<span class="w">                  </span><span class="c1"># wnioski z danych + linki do rekordow</span>
+<span class="w">    </span>correlations.md<span class="w">              </span><span class="c1"># korelacje: audio vs events/runtime</span>
+<span class="w">    </span>figures/<span class="w">                     </span><span class="c1"># wykresy i tabele eksportowane</span>
+<span class="w">  </span>extractors/
+<span class="w">    </span>audio_snapshot.lua<span class="w">           </span><span class="c1"># snapshot z runtime -&gt; NDJSON/CSV</span>
+<span class="w">    </span>audio_stats.lua<span class="w">              </span><span class="c1"># agregacje -&gt; stats.json + stats.md</span>
+<span class="w">  </span>config/
+<span class="w">    </span>audio.channels.txt<span class="w">           </span><span class="c1"># lista kanalow fallback (po jednej nazwie w linii)</span>
+<span class="w">  </span>diagrams/
+<span class="w">    </span>audio_flow.mmd<span class="w">               </span><span class="c1"># Mermaid: przeplyw danych audio</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: IO setup w README ponizej. Zawsze ASCII-only, UTF-8 bez BOM, LF konce linii.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="readme-nawigacja-i-instrukcje-agent-friendly">
+<h2>2) README - nawigacja i instrukcje (Agent-friendly)<a class="headerlink" href="#readme-nawigacja-i-instrukcje-agent-friendly" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: chapter:audio
+title: Audio - Runtime State and Channels
+authors: [&quot;docs-export&quot;]
+version: 1.0
+last_updated: 2025-10-08
+status: draft
+tags: [&quot;audio&quot;,&quot;channels&quot;,&quot;volume&quot;,&quot;mute&quot;,&quot;otclient&quot;,&quot;agent&quot;]
+related:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../01_runtime/README.md
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../02_events/README.md
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../05_assets/README.md
+outputs:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/audio.dataset.jsonl
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/audio.dataset.csv
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.json
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.md
+<span class="gu">encoding: UTF-8 (no BOM)</span>
+<span class="gu">---</span>
+Short: rozdzial zbiera stan audio (kanaly, odtwarzanie, glosnosci, mute). Jesli API nie dostepne, korzysta z fallbacku (lista kanalow).
+
+Table of contents
+<span class="k">-</span><span class="w"> </span>[<span class="nt">0. Audio basics</span>](<span class="na">./sections/00_audio_basics.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">1. Wprowadzenie</span>](<span class="na">./sections/01_introduction.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">2. Model audio (slownik)</span>](<span class="na">./sections/02_audio_model.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">3. Zbieranie (runtime API, fallback)</span>](<span class="na">./sections/03_collection_methods.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">4. Jakosc i ograniczenia</span>](<span class="na">./sections/04_quality_and_limits.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">5. Jak czytac statystyki</span>](<span class="na">./sections/05_how_to_read_stats.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Statystyki</span>](<span class="na">./stats/stats.md</span>) - [<span class="nt">Datasety</span>](<span class="na">./datasets/</span>) - [<span class="nt">Analizy</span>](<span class="na">./analysis/findings.md</span>)
+
+Quick links
+<span class="k">-</span><span class="w"> </span>Schema: [<span class="nt">audio.schema.json</span>](<span class="na">./audio.schema.json</span>)
+<span class="k">-</span><span class="w"> </span>NDJSON: [<span class="nt">datasets/audio.dataset.jsonl</span>](<span class="na">./datasets/audio.dataset.jsonl</span>)
+<span class="k">-</span><span class="w"> </span>CSV: [<span class="nt">datasets/audio.dataset.csv</span>](<span class="na">./datasets/audio.dataset.csv</span>)
+<span class="k">-</span><span class="w"> </span>Diagrams: [<span class="nt">diagrams/audio_flow.mmd</span>](<span class="na">./diagrams/audio_flow.mmd</span>)
+
+Crosslinks
+<span class="k">-</span><span class="w"> </span>Runtime: ../01_runtime/README.md
+<span class="k">-</span><span class="w"> </span>Events: ../02_events/README.md
+<span class="k">-</span><span class="w"> </span>Assets: ../05_assets/README.md
+
+CSV header (audio.dataset.csv)
+</pre></div>
+</div>
+<p>id,ts,channel,playing,masterVolume,channelVolume,muted,state_json</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>Header jest staly - narzedzia BI moga cachowac schemat.
+
+IO setup
+<span class="k">-</span><span class="w"> </span>Default: dofile(&#39;../../_shared/lua/docio.lua&#39;)
+<span class="k">-</span><span class="w"> </span>Isolated: copy to 08_audio/_local/docio.lua and use dofile(&#39;../_local/docio.lua&#39;)
+
+Skad do _shared
+| Start location | Path to _shared |
+|---|---|
+| 08_audio/extractors | ../../_shared/lua/docio.lua |
+| 08_audio | ../_shared/lua/docio.lua |
+
+Chunks aggregation
+<span class="k">-</span><span class="w"> </span>Aggregator czyta glowny plik oraz opcjonalny indeks: docs/08_audio/datasets/chunks/index.json (JSON array nazw chunkow).
+
+Studio hooks (Electron) - skrot
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:audio.snapshot.run&#39; -&gt; uruchamia audio_snapshot.lua
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:aggregate.audio&#39; -&gt; uruchamia audio_stats.lua
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:open.audio&#39; {type: &#39;jsonl&#39;|&#39;csv&#39;} -&gt; otwiera dataset w Studio
+<span class="k">-</span><span class="w"> </span>Preload: contextIsolation: true; nodeIntegration: false; eksponuj bezpieczne API
+<span class="k">-</span><span class="w"> </span>Sandbox: wszystkie zapisy ida przez docio.lua pod 08_audio
+<span class="k">-</span><span class="w"> </span>View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="mapa-plikow-i-odpowiedzialnosci-reference-for-agents">
+<h2>3) Mapa plikow i odpowiedzialnosci (reference for Agents)<a class="headerlink" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plik / Katalog</p></th>
+<th class="head"><p>Rola</p></th>
+<th class="head"><p>Kto uzupelnia</p></th>
+<th class="head"><p>Uwagi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>audio.schema.json</p></td>
+<td><p>walidacja rekordow audio</p></td>
+<td><p>Agent/CI</p></td>
+<td><p>waliduj linie po linii</p></td>
+</tr>
+<tr class="row-odd"><td><p>datasets/*.jsonl</p></td>
+<td><p>pelne rekordy (append)</p></td>
+<td><p>snapshot</p></td>
+<td><p>rotacja w chunks/</p></td>
+</tr>
+<tr class="row-even"><td><p>datasets/*.csv</p></td>
+<td><p>widok splaszczony</p></td>
+<td><p>snapshot</p></td>
+<td><p>tylko skalary; state_json jako string</p></td>
+</tr>
+<tr class="row-odd"><td><p>stats/*.json|md</p></td>
+<td><p>metryki zbiorcze</p></td>
+<td><p>aggregator</p></td>
+<td><p>rozklad mute, volume bins</p></td>
+</tr>
+<tr class="row-even"><td><p>sections/*.md</p></td>
+<td><p>narracja i wyjasnienia</p></td>
+<td><p>Agent/Autor</p></td>
+<td><p>AGENT:INSERT punkty</p></td>
+</tr>
+<tr class="row-odd"><td><p>analysis/*</p></td>
+<td><p>wnioski i korelacje</p></td>
+<td><p>Agent/Analityk</p></td>
+<td><p>linkuj id rekordow</p></td>
+</tr>
+<tr class="row-even"><td><p>extractors/*.lua</p></td>
+<td><p>zrzut i agregacja</p></td>
+<td><p>system</p></td>
+<td><p>nie zmieniaj API zapisu</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+</section>
+<section id="slownik-audio-data-dictionary">
+<h2>4) Slownik audio (data dictionary)<a class="headerlink" href="#slownik-audio-data-dictionary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pole</p></th>
+<th class="head"><p>Typ</p></th>
+<th class="head"><p>Przyklad</p></th>
+<th class="head"><p>Znaczenie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>string</p></td>
+<td><p>audio:master&#64;2025-10-08T12:00:00Z</p></td>
+<td><p>Unikat: audio:<code class="docutils literal notranslate"><span class="pre">&lt;channel&gt;</span></code>&#64;<code class="docutils literal notranslate"><span class="pre">&lt;ISO&gt;</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>string</p></td>
+<td><p>audio</p></td>
+<td><p>Stala wartosc: audio.</p></td>
+</tr>
+<tr class="row-even"><td><p>ts</p></td>
+<td><p>string</p></td>
+<td><p>2025-10-08T12:00:00Z</p></td>
+<td><p>Czas snapshotu (UTC).</p></td>
+</tr>
+<tr class="row-odd"><td><p>channel</p></td>
+<td><p>string</p></td>
+<td><p>master</p></td>
+<td><p>Nazwa kanalu (master, music, sfx, ui, voice itp.).</p></td>
+</tr>
+<tr class="row-even"><td><p>playing</p></td>
+<td><p>boolean</p></td>
+<td><p>true</p></td>
+<td><p>Czy gra cokolwiek na kanale (jesli API dostepne).</p></td>
+</tr>
+<tr class="row-odd"><td><p>masterVolume</p></td>
+<td><p>number</p></td>
+<td><p>0.80</p></td>
+<td><p>Poziom master (0..1 lub 0..100, ujednolicone do 0..1).</p></td>
+</tr>
+<tr class="row-even"><td><p>channelVolume</p></td>
+<td><p>number</p></td>
+<td><p>0.70</p></td>
+<td><p>Poziom kanalu (0..1).</p></td>
+</tr>
+<tr class="row-odd"><td><p>muted</p></td>
+<td><p>boolean</p></td>
+<td><p>false</p></td>
+<td><p>Czy kanal wyciszony.</p></td>
+</tr>
+<tr class="row-even"><td><p>state</p></td>
+<td><p>object</p></td>
+<td><p>{“sources”:2}</p></td>
+<td><p>Surowe pola zwrocone przez runtime (opcjonalnie).</p></td>
+</tr>
+<tr class="row-odd"><td><p>links[]</p></td>
+<td><p>string[]</p></td>
+<td><p>res:…, evt:…, runtime:…</p></td>
+<td><p>Powiazania z innymi rozdzialami.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Agent tip: w sections/02_audio_model.md wstaw 3-5 realnych przykladow z NDJSON i krotki komentarz skad pochodza (runtime vs fallback).</p>
+<hr class="docutils" />
+</section>
+<section id="pipeline-danych-odczyt-zapis-analiza">
+<h2>5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)<a class="headerlink" href="#pipeline-danych-odczyt-zapis-analiza" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Snapshot proboje pobrac stan z runtime (pcall); jesli brak danych, tworzy rekordy dla kanalow z config/audio.channels.txt z polami przyblizonymi (np. playing=false, volume=nil).</p></li>
+<li><p>Aggregator liczy rozklady mute i glosnosci oraz zapisuje stats.*.</p></li>
+<li><p>Narracja: sekcje opisowe z przykladami i zrodlami.</p></li>
+<li><p>Analizy: findings i korelacje (np. mute/volume vs eventy lub spadki FPS).</p></li>
+<li><p>Publikacja: sprawdz checklist DoD i oznacz rozdzial jako ready.</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="sekcje-merytoryczne-szablony-i-wprowadzenie-do-audio">
+<h2>6) Sekcje merytoryczne - szablony i wprowadzenie do Audio<a class="headerlink" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-audio" title="Link to this heading">#</a></h2>
+<p>sections/00_audio_basics.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Audio basics - dla nowych dev</span>
+Warstwa audio jest odpowiedzialna za odtwarzanie efektow i muzyki. Czesci systemu moga korzystac z roznych kanalow (master/music/sfx/ui). API bywa roznorodne w forkach; dlatego snapshot dziala best-effort.
+
+Pojecia
+<span class="k">-</span><span class="w"> </span>master volume vs channel volume.
+<span class="k">-</span><span class="w"> </span>mute na poziomie master lub kanalu.
+<span class="k">-</span><span class="w"> </span>playing: heurystyka (ilosc zrodel grajacych na kanale) jesli API to wspiera.
+</pre></div>
+</div>
+<p>sections/01_introduction.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Wprowadzenie - po co zbierac stan audio</span>
+Aby zrozumiec konfiguracje i sprawdzic wplyw audio na wydajnosc oraz UX (np. glosnosc UI). Dane przydaja sie do testow A/B i audytow.
+
+Kiedy uzywac
+<span class="k">-</span><span class="w"> </span>audyt builda,
+<span class="k">-</span><span class="w"> </span>sledzenie regresji po zmianach audio,
+<span class="k">-</span><span class="w"> </span>wsparcie dla generatora konfiguracji.
+</pre></div>
+</div>
+<p>sections/02_audio_model.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Model audio - definicje i przyklady</span>
+Zobacz slownik w README. Wstaw przyklady z NDJSON oraz komentarz o pochodzeniu pol (runtime vs fallback).
+
+&lt;!-- AGENT:INSERT:AUDIO-EXAMPLES --&gt;
+</pre></div>
+</div>
+<p>sections/03_collection_methods.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Zbieranie (runtime API, fallback)</span>
+<span class="k">-</span><span class="w"> </span>Najpierw runtime: pcall na kandydatach (g_audio, g<span class="ge">_sounds, g_</span>sound, g_music) oraz metodach (getMasterVolume, getChannelVolume, isMuted, isAnyPlaying, listPlayingSources...).
+<span class="k">-</span><span class="w"> </span>Jesli runtime nie zwroci danych, wczytaj kanaly z config/audio.channels.txt i wypelnij minimalny rekord.
+<span class="k">-</span><span class="w"> </span>Studio: uruchamiaj snapshot przez IPC (patrz README Studio hooks).
+</pre></div>
+</div>
+<p>sections/04_quality_and_limits.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jakosc i ograniczenia</span>
+<span class="k">-</span><span class="w"> </span>API audio moze sie roznic w forkach; snapshot jest best-effort z pcall.
+<span class="k">-</span><span class="w"> </span>Volume normalizujemy do 0..1; jesli API zwraca 0..100, dziel przez 100.
+<span class="k">-</span><span class="w"> </span>playing jest heurystyka; bez API ustaw na false i odnotuj w state.sources=0.
+</pre></div>
+</div>
+<p>sections/05_how_to_read_stats.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jak czytac statystyki</span>
+<span class="k">-</span><span class="w"> </span>Sprawdz mute i skrajne glosnosci na master oraz popularnych kanalach (music, sfx, ui).
+<span class="k">-</span><span class="w"> </span>Koreluj z eventami i runtime (np. spikes przy duzej liczbie zrodel).
+
+&lt;!-- AGENT:INSERT:READING-GUIDE --&gt;
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="polityka-dzielenia-danych-datasets-chunks-readme-md">
+<h2>7) Polityka dzielenia danych - datasets/chunks/README.md<a class="headerlink" href="#polityka-dzielenia-danych-datasets-chunks-readme-md" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Chunks - polityka</span>
+<span class="k">-</span><span class="w"> </span>Utrzymuj glowne pliki do ok. 50 MB.
+<span class="k">-</span><span class="w"> </span>Starsze dane przenos do audio.dataset.&lt;YYYYMMDD-HHMM&gt;.jsonl oraz .csv.
+<span class="k">-</span><span class="w"> </span>Po przeniesieniu chunkow traktuj je jako read-only.
+<span class="k">-</span><span class="w"> </span>Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni sie nazwa katalogu.
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="schema-audio-schema-json">
+<h2>8) Schema - audio.schema.json<a class="headerlink" href="#schema-audio-schema-json" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audio.record&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span><span class="s2">&quot;playing&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="s2">&quot;^audio:[A-Za-z0-9_.-]+@[0-9TZ:-]+$&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;audio&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;date-time&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;playing&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;masterVolume&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;channelVolume&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;muted&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="extractors-lua-gotowe-pliki">
+<h2>9) Extractors (Lua) - gotowe pliki<a class="headerlink" href="#extractors-lua-gotowe-pliki" title="Link to this heading">#</a></h2>
+<p>extractors/audio_snapshot.lua</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 08_audio/extractors/audio_snapshot.lua</span>
+<span class="c1">-- Snapshot stanu audio -&gt; JSONL + CSV (splaszczone pola)</span>
+<span class="c1">-- ASCII-only; UTF-8 bez BOM; LF</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">docio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;ts&#39;</span><span class="p">,</span><span class="s1">&#39;channel&#39;</span><span class="p">,</span><span class="s1">&#39;playing&#39;</span><span class="p">,</span><span class="s1">&#39;masterVolume&#39;</span><span class="p">,</span><span class="s1">&#39;channelVolume&#39;</span><span class="p">,</span><span class="s1">&#39;muted&#39;</span><span class="p">,</span><span class="s1">&#39;state_json&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">nowIso</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">os.date</span><span class="p">(</span><span class="s1">&#39;!*t&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;%04d-%02d-%02dT%02d:%02d:%02dZ&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">year</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">month</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">day</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">hour</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">min</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">sec</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">trymethod</span><span class="p">(</span><span class="nv">obj</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">obj</span><span class="p">[</span><span class="nv">name</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;function&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">obj</span><span class="p">[</span><span class="nv">name</span><span class="p">](</span><span class="nv">obj</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">trim</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">&#39;^%s+&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">):</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">&#39;%s+$&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">sanitizeToken</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">s</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z0-9_.-]&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">normalize01</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">v</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">listChannels</span><span class="p">()</span>
+<span class="w">  </span><span class="c1">-- Fallback: z config/audio.channels.txt</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/config/audio.channels.txt&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">txt</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">txt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">txt</span><span class="p">:</span><span class="nf">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">trim</span><span class="p">(</span><span class="nv">line</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">p</span><span class="p">:</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^#&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">list</span><span class="p">[</span><span class="o">#</span><span class="nv">list</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="o">#</span><span class="nv">list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;master&#39;</span><span class="p">,</span><span class="s1">&#39;music&#39;</span><span class="p">,</span><span class="s1">&#39;sfx&#39;</span><span class="p">,</span><span class="s1">&#39;ui&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">list</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">snapshotChannel</span><span class="p">(</span><span class="nv">ch</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nowIso</span><span class="p">()</span>
+<span class="w">  </span><span class="c1">-- Proby przez znane obiekty: g_audio, g_sounds, g_sound, g_music</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">masterVol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">normalize01</span><span class="p">(</span><span class="nf">trymethod</span><span class="p">(</span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_audio</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_sounds</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;getMasterVolume&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">chanVol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">normalize01</span><span class="p">(</span><span class="nf">trymethod</span><span class="p">(</span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_audio</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_sounds</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;getChannelVolume&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">muted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">trymethod</span><span class="p">(</span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_audio</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_sounds</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;isMuted&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">sources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">trymethod</span><span class="p">(</span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_audio</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">_G</span><span class="p">.</span><span class="nv">g_sounds</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;listPlayingSources&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">sources</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">sources</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="c1">-- Jesli API wspiera per-channel, mozna nadpisac &#39;chanVol&#39;, &#39;muted&#39;, &#39;playing&#39; dla ch</span>
+<span class="w">  </span><span class="c1">-- W wielu forkach nie ma per-channel API; pozostawiamy best-effort.</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;audio:%s@%s&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sanitizeToken</span><span class="p">(</span><span class="nv">ch</span><span class="p">),</span><span class="w"> </span><span class="nv">ts</span><span class="p">),</span>
+<span class="w">    </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;audio&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ts</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ch</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">playing</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">masterVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">masterVol</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">channelVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">chanVol</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">muted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">muted</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">sources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nv">sources</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">sources</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">listChannels</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">ch</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">channels</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">snapshotChannel</span><span class="p">(</span><span class="nv">ch</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">docio</span><span class="p">.</span><span class="nf">appendJsonl</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/datasets/audio.dataset.jsonl&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">rec</span><span class="p">,</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeCsvHeader</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/datasets/audio.dataset.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">id</span><span class="p">,</span><span class="w"> </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">ts</span><span class="p">,</span><span class="w"> </span><span class="nv">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">channel</span><span class="p">,</span><span class="w"> </span><span class="nv">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">playing</span><span class="p">,</span>
+<span class="w">      </span><span class="nv">masterVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">masterVolume</span><span class="p">,</span><span class="w"> </span><span class="nv">channelVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">channelVolume</span><span class="p">,</span>
+<span class="w">      </span><span class="nv">muted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">muted</span><span class="p">,</span><span class="w"> </span><span class="nv">state_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="nv">rec</span><span class="p">.</span><span class="py">state</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nv">docio</span><span class="p">.</span><span class="nf">appendCsvRow</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/datasets/audio.dataset.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="p">,</span><span class="w"> </span><span class="nv">row</span><span class="p">,</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="nf">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>extractors/audio_stats.lua</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 08_audio/extractors/audio_stats.lua</span>
+<span class="c1">-- Agregacja -&gt; stats.json + stats.md (deterministyczny output; sort kluczy)</span>
+<span class="c1">-- ASCII-only; UTF-8 bez BOM; LF</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">docio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">#</span><span class="nv">text</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">text</span><span class="p">:</span><span class="nf">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">line</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">obj</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">out</span><span class="p">[</span><span class="o">#</span><span class="nv">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loadAllRecords</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">recs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/datasets/audio.dataset.jsonl&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">headList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">head</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">headList</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">recs</span><span class="p">[</span><span class="o">#</span><span class="nv">recs</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">headList</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">indexText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/datasets/chunks/index.json&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">indexText</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">indexText</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">indexText</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">list</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">fname</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">list</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">fname</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">fname</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^docs/&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;docs/08_audio/datasets/chunks/&#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">fname</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">more</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">recs</span><span class="p">[</span><span class="o">#</span><span class="nv">recs</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">more</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">      </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">recs</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">#</span><span class="nv">recs</span><span class="p">,</span><span class="w"> </span><span class="nv">byChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="nv">muted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="kc">true</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="kc">false</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="nv">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="kc">true</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="kc">false</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="nv">volumeBins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">mid</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">high</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">r</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="nv">s</span><span class="p">.</span><span class="py">byChannel</span><span class="p">[</span><span class="nv">r</span><span class="p">.</span><span class="py">channel</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">byChannel</span><span class="p">[</span><span class="nv">r</span><span class="p">.</span><span class="py">channel</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">r</span><span class="p">.</span><span class="py">muted</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">muted</span><span class="p">.</span><span class="py">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">muted</span><span class="p">.</span><span class="py">true</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">muted</span><span class="p">.</span><span class="py">false</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">muted</span><span class="p">.</span><span class="py">false</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">r</span><span class="p">.</span><span class="py">playing</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">playing</span><span class="p">.</span><span class="py">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">playing</span><span class="p">.</span><span class="py">true</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">playing</span><span class="p">.</span><span class="py">false</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">playing</span><span class="p">.</span><span class="py">false</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">mv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tonumber</span><span class="p">(</span><span class="nv">r</span><span class="p">.</span><span class="py">masterVolume</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">mv</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.34</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">volumeBins</span><span class="p">.</span><span class="py">low</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">volumeBins</span><span class="p">.</span><span class="py">low</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">mv</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.67</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">volumeBins</span><span class="p">.</span><span class="py">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">volumeBins</span><span class="p">.</span><span class="py">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kr">else</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">volumeBins</span><span class="p">.</span><span class="py">high</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">volumeBins</span><span class="p">.</span><span class="py">high</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">s</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">writeSection</span><span class="p">(</span><span class="nv">title</span><span class="p">,</span><span class="w"> </span><span class="nv">map</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">lines</span><span class="p">,</span><span class="w"> </span><span class="nv">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="nv">_</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">map</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">keys</span><span class="p">[</span><span class="o">#</span><span class="nv">keys</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nb">table.sort</span><span class="p">(</span><span class="nv">keys</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">lines</span><span class="p">[</span><span class="o">#</span><span class="nv">lines</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">title</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">k</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">keys</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">lines</span><span class="p">[</span><span class="o">#</span><span class="nv">lines</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- %s: %d&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="w"> </span><span class="nv">map</span><span class="p">[</span><span class="nv">k</span><span class="p">])</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">lines</span><span class="p">[</span><span class="o">#</span><span class="nv">lines</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">(</span><span class="nv">lines</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">writeMD</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">md</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;# Audio - Statystyki</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- Rekordy: %d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">count</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- Muted: true=%d, false=%d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">muted</span><span class="p">.</span><span class="py">true</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">muted</span><span class="p">.</span><span class="py">false</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- Playing: true=%d, false=%d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">playing</span><span class="p">.</span><span class="py">true</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">playing</span><span class="p">.</span><span class="py">false</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">writeSection</span><span class="p">(</span><span class="s1">&#39;## By channel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">byChannel</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">writeSection</span><span class="p">(</span><span class="s1">&#39;## Volume bins (master)&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">volumeBins</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hint: sprawdz bin high przy regresjach glosnosci oraz koreluj playing z FPS.</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">(</span><span class="nv">md</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">recs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">loadAllRecords</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeAll</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/stats/stats.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="nv">s</span><span class="p">))</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeAll</span><span class="p">(</span><span class="s1">&#39;docs/08_audio/stats/stats.md&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">writeMD</span><span class="p">(</span><span class="nv">s</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="nf">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="diagram-mermaid">
+<h2>10) Diagram (Mermaid)<a class="headerlink" href="#diagram-mermaid" title="Link to this heading">#</a></h2>
+<p>diagrams/audio_flow.mmd</p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph TD
+  Studio[Electron Studio] --&gt;|IPC snapshot| Snapshot
+  Snapshot --&gt; NDJSON[(audio.dataset.jsonl)]
+  Snapshot --&gt; CSV[(audio.dataset.csv)]
+  NDJSON --&gt; Stats[stats.json and stats.md]
+  CSV --&gt; Stats
+  Stats --&gt; Studio
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="encoding-i-formatowanie-utf-8-safe">
+<h2>11) Encoding i formatowanie (UTF-8 safe)<a class="headerlink" href="#encoding-i-formatowanie-utf-8-safe" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska ‘-’, cudzyslow “, apostrof ‘).</p></li>
+<li><p>Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.</p></li>
+<li><p>Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="jakosc-slo-i-bezpieczenstwo-krotko">
+<h2>12) Jakosc, SLO i bezpieczenstwo (krotko)<a class="headerlink" href="#jakosc-slo-i-bezpieczenstwo-krotko" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>NDJSON append-only; przy duzych wolumenach uzyj chunks.</p></li>
+<li><p>Nie zapisujemy surowych strumieni audio; tylko metadane stanu.</p></li>
+<li><p>Per-channel API moze nie istniec; zachowaj best-effort z pcall i fallback.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="dod-checklist-agent-clickable">
+<h2>13) DoD Checklist - Agent clickable<a class="headerlink" href="#dod-checklist-agent-clickable" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Zapis do docs/08_audio/datasets/audio.dataset.jsonl i audio.dataset.csv dziala (&gt;= 1 snapshot; &gt;= 3 kanaly).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Uzupelniono sekcje: 00_audio_basics.md, 01_introduction.md, 02_audio_model.md (z przykladami), 03_collection_methods.md.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> W analysis/correlations.md dodano min. 1 korelacje audio -&gt; runtime/events.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Diagram audio_flow.mmd istnieje i jest logiczny.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../05_assets.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Walidacja probki 10 linii NDJSON przeciw audio.schema.json zakonczona bez bledow.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="meta-json-wzorzec-z-tagami-i-linkowaniem">
+<h2>14) meta.json - wzorzec z tagami i linkowaniem<a class="headerlink" href="#meta-json-wzorzec-z-tagami-i-linkowaniem" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;chapterId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chapter:audio&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Audio - Runtime State and Channels&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;owners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;docs-export&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;audio&quot;</span><span class="p">,</span><span class="s2">&quot;channels&quot;</span><span class="p">,</span><span class="s2">&quot;volume&quot;</span><span class="p">,</span><span class="s2">&quot;mute&quot;</span><span class="p">,</span><span class="s2">&quot;otclient&quot;</span><span class="p">,</span><span class="s2">&quot;agent&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;fileMap&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;readme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./README.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./audio.schema.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./sections/00_audio_basics.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/01_introduction.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/02_audio_model.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/03_collection_methods.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/04_quality_and_limits.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/05_how_to_read_stats.md&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;datasets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/audio.dataset.jsonl&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;csv&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/audio.dataset.csv&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chunksDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/chunks&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;md&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.md&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/findings.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;correlations&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/correlations.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;figuresDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/figures&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;extractors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/audio_snapshot.lua&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/audio_stats.lua&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;diagrams&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./diagrams/audio_flow.mmd&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./config/audio.channels.txt&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;linking&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;recordIdPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audio:&lt;channel&gt;@&lt;ISO8601&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;crossChapter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../01_runtime/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../02_events/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;assets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../05_assets/README.md&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;snapshot&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Snapshot stanu audio do JSONL/CSV&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;datasets.jsonl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;datasets.csv&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agregacja do stats.json/stats.md&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;stats.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;stats.md&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;author&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uzupelnienie sekcji i korelacji + wstrzykniecia danych&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sections/*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;analysis/*&quot;</span><span class="p">]}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;insertPoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;sections/02_audio_model.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:AUDIO-EXAMPLES&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;sections/05_how_to_read_stats.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:READING-GUIDE&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/findings.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:FINDINGS&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/correlations.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:CORRELATIONS&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#professional-pro-template-agent-ready-otclient-v8">Professional Pro Template - Agent-Ready - OTClient v8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">0) Executive summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-folderu-i-linkowanie">1) Struktura folderu i linkowanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-nawigacja-i-instrukcje-agent-friendly">2) README - nawigacja i instrukcje (Agent-friendly)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents">3) Mapa plikow i odpowiedzialnosci (reference for Agents)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slownik-audio-data-dictionary">4) Slownik audio (data dictionary)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-danych-odczyt-zapis-analiza">5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-audio">6) Sekcje merytoryczne - szablony i wprowadzenie do Audio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polityka-dzielenia-danych-datasets-chunks-readme-md">7) Polityka dzielenia danych - datasets/chunks/README.md</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-audio-schema-json">8) Schema - audio.schema.json</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extractors-lua-gotowe-pliki">9) Extractors (Lua) - gotowe pliki</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-mermaid">10) Diagram (Mermaid)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-i-formatowanie-utf-8-safe">11) Encoding i formatowanie (UTF-8 safe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-slo-i-bezpieczenstwo-krotko">12) Jakosc, SLO i bezpieczenstwo (krotko)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dod-checklist-agent-clickable">13) DoD Checklist - Agent clickable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-json-wzorzec-z-tagami-i-linkowaniem">14) meta.json - wzorzec z tagami i linkowaniem</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/chapters/chapter_08_audio_docs_export_kit_authoring_agent_ready.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

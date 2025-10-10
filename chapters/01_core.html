@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Chapter 01 - Core Architecture" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://lukaszj321.github.io/otcv8-dev/chapters/01_core.html" property="og:url"/>
+<meta content="OTClient v8" property="og:site_name"/>
+<meta content="Przegląd: Architektura rdzenia OTClientV8 opiera się na modularnym silniku C++ z bindingami Lua. System składa się z warstw: Core Engine, Framework, Client L..." property="og:description"/>
+<meta content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" property="og:image"/>
+<meta content="OTClient v8" property="og:image:alt"/>
+<meta content="Przegląd: Architektura rdzenia OTClientV8 opiera się na modularnym silniku C++ z bindingami Lua. System składa się z warstw: Core Engine, Framework, Client L..." name="description"/>
+<title>Chapter 01 - Core Architecture — OTClient v8 0.1 documentation</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+<noscript>
+<style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+</noscript>
+<!-- Loaded before other Sphinx assets -->
+<link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../_static/pygments.css?v=8f2a1f02" rel="stylesheet" type="text/css"/>
+<link href="../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../_static/sphinx-codeautolink.css?v=b2176991" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster.custom.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster.bundle.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-shadow.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-punk.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-noir.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-light.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-borderless.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/micromodal.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<!-- So that users can add custom icons -->
+<script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<link as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<script src="../_static/jquery.js?v=5d32c60e"></script>
+<script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+<script src="../_static/documentation_options.js?v=2709fde1"></script>
+<script src="../_static/doctools.js?v=9a2dae69"></script>
+<script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../_static/copybutton.js?v=a46eff05"></script>
+<script src="../_static/js/hoverxref.js"></script>
+<script src="../_static/js/tooltipster.bundle.min.js"></script>
+<script src="../_static/js/micromodal.min.js"></script>
+<script src="../_static/design-tabs.js?v=f930bc37"></script>
+<script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs" type="module"></script>
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'chapters/01_core';</script>
+<link href="https://lukaszj321.github.io/otcv8-dev/chapters/01_core.html" rel="canonical"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+<meta content="" name="docsearch:version"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<dialog id="pst-search-dialog">
+<form action="../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search the docs ..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" name="q" placeholder="Search the docs ..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</dialog>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+<button aria-label="Site navigation" class="pst-navbar-icon sidebar-toggle primary-toggle">
+<span class="fa-solid fa-bars"></span>
+</button>
+<div class="col-lg-3 navbar-header-items__start">
+<div class="navbar-item">
+<a class="navbar-brand logo" href="../index.html">
+<p class="title logo__title">OTClient v8 0.1 documentation</p>
+</a></div>
+</div>
+<div class="col-lg-9 navbar-header-items">
+<div class="me-auto navbar-header-items__center">
+<div class="navbar-item">
+<nav>
+<ul class="bd-navbar-elements navbar-nav">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+</ul>
+</nav></div>
+</div>
+<div class="navbar-header-items__end">
+<div class="navbar-item navbar-persistent--container">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+</div>
+<div class="navbar-item">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+</button></div>
+</div>
+</div>
+<div class="navbar-persistent--mobile">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+</div>
+<button aria-label="On this page" class="pst-navbar-icon sidebar-toggle secondary-toggle">
+<span class="fa-solid fa-outdent"></span>
+</button>
+</div>
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<dialog id="pst-primary-sidebar-modal"></dialog>
+<div class="bd-sidebar-primary bd-sidebar hide-on-wide" id="pst-primary-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+<div class="sidebar-header-items__center">
+<div class="navbar-item">
+<nav>
+<ul class="bd-navbar-elements navbar-nav">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+</ul>
+</nav></div>
+</div>
+<div class="sidebar-header-items__end">
+<div class="navbar-item">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+</button></div>
+</div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+<div class="sidebar-primary-item">
+<div class="flat" data-ea-manual="true" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" id="ethical-ad-placement">
+</div></div>
+</div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item">
+<nav aria-label="Breadcrumb" class="d-print-none">
+<ul class="bd-breadcrumbs">
+<li class="breadcrumb-item breadcrumb-home">
+<a aria-label="Home" class="nav-link" href="../index.html">
+<i class="fa-solid fa-home"></i>
+</a>
+</li>
+<li aria-current="page" class="breadcrumb-item active"><span class="ellipsis">Chapter 01 - Core Architecture</span></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section id="chapter-01-core-architecture">
+<h1>Chapter 01 - Core Architecture<a class="headerlink" href="#chapter-01-core-architecture" title="Link to this heading">#</a></h1>
+<section id="przeglad">
+<span id="core-overview"></span><h2>Przegląd<a class="headerlink" href="#przeglad" title="Link to this heading">#</a></h2>
+<p>Architektura rdzenia OTClientV8 opiera się na modularnym silniku C++ z bindingami Lua. System składa się z warstw: Core Engine, Framework, Client Layer i Modules.</p>
+<div class="note docutils">
+<p>Ten rozdział opisuje fundamentalną architekturę projektu. Dla szczegółów implementacyjnych patrz <a class="reference internal" href="../reference/api.html"><span class="std std-doc">API Reference</span></a>.</p>
+</div>
+</section>
+<section id="warstwy-architektury">
+<span id="core-layers"></span><h2>Warstwy architektury<a class="headerlink" href="#warstwy-architektury" title="Link to this heading">#</a></h2>
+<section id="warstwa-1-core-engine-c">
+<h3>Warstwa 1: Core Engine (C++)<a class="headerlink" href="#warstwa-1-core-engine-c" title="Link to this heading">#</a></h3>
+<p>Niskopoziomowy silnik napisany w C++, odpowiedzialny za:</p>
+<ul class="simple">
+<li><p>Rendering grafiki (OpenGL/DirectX)</p></li>
+<li><p>Zarządzanie zasobami (tekstury, dźwięk, fonty)</p></li>
+<li><p>System zdarzeń</p></li>
+<li><p>Network stack</p></li>
+<li><p>Zarządzanie pamięcią</p></li>
+</ul>
+</section>
+<section id="warstwa-2-framework">
+<h3>Warstwa 2: Framework<a class="headerlink" href="#warstwa-2-framework" title="Link to this heading">#</a></h3>
+<p>Framework dostarcza abstrakcji wysokiego poziomu:</p>
+<ul class="simple">
+<li><p>UI System (OTUI)</p></li>
+<li><p>Module Loader</p></li>
+<li><p>Resource Manager</p></li>
+<li><p>Platform Abstraction Layer</p></li>
+<li><p>Lua Bindings</p></li>
+</ul>
+</section>
+<section id="warstwa-3-client-layer">
+<h3>Warstwa 3: Client Layer<a class="headerlink" href="#warstwa-3-client-layer" title="Link to this heading">#</a></h3>
+<p>Implementacja logiki specyficznej dla gry:</p>
+<ul class="simple">
+<li><p>Game Protocol</p></li>
+<li><p>Creature Management</p></li>
+<li><p>Map Rendering</p></li>
+<li><p>Inventory System</p></li>
+<li><p>Chat System</p></li>
+</ul>
+</section>
+<section id="warstwa-4-modules-lua">
+<h3>Warstwa 4: Modules (Lua)<a class="headerlink" href="#warstwa-4-modules-lua" title="Link to this heading">#</a></h3>
+<p>Moduły napisane w Lua:</p>
+<ul class="simple">
+<li><p>Game Interface</p></li>
+<li><p>Bot Framework</p></li>
+<li><p>Custom UI Panels</p></li>
+<li><p>Extensions</p></li>
+</ul>
+</section>
+</section>
+<section id="diagram-architektury">
+<span id="core-architecture-diagram"></span><h2>Diagram architektury<a class="headerlink" href="#diagram-architektury" title="Link to this heading">#</a></h2>
+<pre class="mermaid">
+        graph TB
+    subgraph Lua Layer
+        M1[Modules Lua]
+        M2[Scripts]
+        M3[UI Definitions OTUI]
+    end
+    
+    subgraph Client Layer
+        C1[Game Protocol]
+        C2[Creature Manager]
+        C3[Map Renderer]
+        C4[UI Manager]
+    end
+    
+    subgraph Framework
+        F1[Module Loader]
+        F2[Event System]
+        F3[Resource Manager]
+        F4[Lua Bindings]
+    end
+    
+    subgraph Core Engine
+        E1[Graphics OpenGL/DX]
+        E2[Audio System]
+        E3[Network TCP/UDP]
+        E4[Memory Manager]
+    end
+    
+    M1 --&gt; F4
+    M2 --&gt; F4
+    M3 --&gt; C4
+    
+    C1 --&gt; F2
+    C2 --&gt; F3
+    C3 --&gt; E1
+    C4 --&gt; F1
+    
+    F1 --&gt; E4
+    F2 --&gt; E4
+    F3 --&gt; E2
+    F4 --&gt; C1
+    
+    style Lua Layer fill:#e1f5ff
+    style Client Layer fill:#fff3e0
+    style Framework fill:#f3e5f5
+    style Core Engine fill:#c8e6c9
+    </pre></section>
+<section id="struktura-katalogow">
+<span id="core-directories"></span><h2>Struktura katalogów<a class="headerlink" href="#struktura-katalogow" title="Link to this heading">#</a></h2>
+<section id="src-framework">
+<h3>src/framework/<a class="headerlink" href="#src-framework" title="Link to this heading">#</a></h3>
+<p>Framework zawiera podstawowe komponenty:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>src/framework/
+├── core/          # Podstawowe typy i narzędzia
+├── graphics/      # System renderingu
+├── net/           # Warstwa sieciowa
+├── sound/         # System audio
+├── ui/            # System UI (OTUI)
+└── xml/           # Parser XML
+</pre></div>
+</div>
+</section>
+<section id="src-client">
+<h3>src/client/<a class="headerlink" href="#src-client" title="Link to this heading">#</a></h3>
+<p>Kod specyficzny dla klienta gry:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>src/client/
+├── animatedtext.cpp/h    # Animowane teksty
+├── creature.cpp/h         # Stworzenia
+├── game.cpp/h             # Główna logika gry
+├── localplayer.cpp/h      # Lokalny gracz
+├── map.cpp/h              # Mapa świata
+├── mapview.cpp/h          # Widok mapy
+├── protocolgame.cpp/h     # Protokół gry
+└── uimap.cpp/h            # Widget mapy
+</pre></div>
+</div>
+</section>
+<section id="modules">
+<h3>modules/<a class="headerlink" href="#modules" title="Link to this heading">#</a></h3>
+<p>Moduły Lua:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>modules/
+├── corelib/           # Biblioteki core Lua
+├── client/            # Główny moduł klienta
+├── game_*/            # Moduły gry (interface, battle, etc.)
+└── gamelib/           # Biblioteki pomocnicze
+</pre></div>
+</div>
+</section>
+</section>
+<section id="inicjalizacja-systemu">
+<span id="core-initialization"></span><h2>Inicjalizacja systemu<a class="headerlink" href="#inicjalizacja-systemu" title="Link to this heading">#</a></h2>
+<section id="sekwencja-uruchomienia">
+<h3>Sekwencja uruchomienia<a class="headerlink" href="#sekwencja-uruchomienia" title="Link to this heading">#</a></h3>
+<pre class="mermaid">
+        sequenceDiagram
+    participant Main as main()
+    participant App as Application
+    participant ModLoader as Module Loader
+    participant Game as Game Engine
+    participant UI as UI System
+    
+    Main-&gt;&gt;App: initialize()
+    App-&gt;&gt;ModLoader: loadModules()
+    ModLoader-&gt;&gt;ModLoader: discoverModules()
+    ModLoader-&gt;&gt;ModLoader: resolveDependencies()
+    
+    loop For each module
+        ModLoader-&gt;&gt;Module: init.lua
+        Module--&gt;&gt;ModLoader: ok
+    end
+    
+    App-&gt;&gt;Game: init()
+    App-&gt;&gt;UI: loadUI()
+    UI--&gt;&gt;App: ready
+    App-&gt;&gt;Main: run()
+    Main-&gt;&gt;App: mainLoop()
+    </pre></section>
+<section id="kod-inicjalizacji">
+<h3>Kod inicjalizacji<a class="headerlink" href="#kod-inicjalizacji" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- init.lua (główny plik inicjalizacyjny)</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">-- Inicjalizacja core libraries</span>
+<span class="w">    </span><span class="nb">dofile</span><span class="p">(</span><span class="s1">'modules/corelib/corelib.otmod'</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">-- Załadowanie modułów</span>
+<span class="w">    </span><span class="nv">g_modules</span><span class="p">.</span><span class="nf">discoverModules</span><span class="p">()</span>
+<span class="w">    </span><span class="nv">g_modules</span><span class="p">.</span><span class="nf">ensureModuleLoaded</span><span class="p">(</span><span class="s1">'client'</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">g_modules</span><span class="p">.</span><span class="nf">autoLoadModules</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Priority ≥ 100</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">-- Inicjalizacja UI</span>
+<span class="w">    </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">setTitle</span><span class="p">(</span><span class="s1">'OTClient'</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">setIcon</span><span class="p">(</span><span class="s1">'/images/clienticon.png'</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">-- Event handlers</span>
+<span class="w">    </span><span class="nf">connect</span><span class="p">(</span><span class="nv">g_app</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">onRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onApplicationRun</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">onExit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onApplicationExit</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="glowna-petla">
+<span id="core-main-loop"></span><h2>Główna pętla<a class="headerlink" href="#glowna-petla" title="Link to this heading">#</a></h2>
+<section id="tick-system">
+<h3>Tick System<a class="headerlink" href="#tick-system" title="Link to this heading">#</a></h3>
+<p>OTClientV8 używa systemu ticków do aktualizacji stanu:</p>
+<ul class="simple">
+<li><p><strong>FPS (Frames Per Second)</strong> - częstotliwość renderowania (max 60 FPS)</p></li>
+<li><p><strong>UPS (Updates Per Second)</strong> - częstotliwość aktualizacji logiki (max 100 UPS)</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Uproszczona główna pętla (C++)</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">running</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Update logic</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">shouldUpdateLogic</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">updateLogic</span><span class="p">(</span><span class="n">elapsedTime</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ups</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Render frame</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">shouldRenderFrame</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">renderFrame</span><span class="p">();</span>
+<span class="w">        </span><span class="n">fps</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Handle events</span>
+<span class="w">    </span><span class="n">pollEvents</span><span class="p">();</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// Sleep if needed</span>
+<span class="w">    </span><span class="n">sleepIfNeeded</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="zarzadzanie-pamiecia">
+<span id="core-memory-management"></span><h2>Zarządzanie pamięcią<a class="headerlink" href="#zarzadzanie-pamiecia" title="Link to this heading">#</a></h2>
+<section id="smart-pointers">
+<h3>Smart Pointers<a class="headerlink" href="#smart-pointers" title="Link to this heading">#</a></h3>
+<p>System używa smart pointerów dla bezpieczeństwa:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Przykłady typów wskaźników</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Creature</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreaturePtr</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Creature</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreatureWeakPtr</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PlayerPtr</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ItemPtr</span><span class="p">;</span>
+
+<span class="c1">// Użycie</span>
+<span class="n">CreaturePtr</span><span class="w"> </span><span class="n">creature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreaturePtr</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Creature</span><span class="p">);</span>
+<span class="n">creature</span><span class="o">-&gt;</span><span class="n">setName</span><span class="p">(</span><span class="s">"Dragon"</span><span class="p">);</span>
+
+<span class="c1">// Automatyczne czyszczenie gdy nie ma referencji</span>
+</pre></div>
+</div>
+</section>
+<section id="resource-caching">
+<h3>Resource Caching<a class="headerlink" href="#resource-caching" title="Link to this heading">#</a></h3>
+<p>Zasoby są cache’owane dla wydajności:</p>
+<ul class="simple">
+<li><p><strong>Tekstury</strong> - cache po path</p></li>
+<li><p><strong>Fonty</strong> - cache po name i size</p></li>
+<li><p><strong>Dźwięki</strong> - pre-load do bufora</p></li>
+<li><p><strong>Sprites</strong> - cache w pamięci</p></li>
+</ul>
+</section>
+</section>
+<section id="model-watkow">
+<span id="core-threading"></span><h2>Model wątków<a class="headerlink" href="#model-watkow" title="Link to this heading">#</a></h2>
+<p>OTClientV8 używa głównie jednego wątku dla logiki gry:</p>
+<ul class="simple">
+<li><p><strong>Main Thread</strong> - logika gry, UI, rendering</p></li>
+<li><p><strong>Network Thread</strong> - odbiór/wysyłanie pakietów (opcjonalnie)</p></li>
+<li><p><strong>Resource Loader Thread</strong> - ładowanie zasobów w tle</p></li>
+</ul>
+<div class="warning docutils">
+<p>Większość API nie jest thread-safe. Unikaj współdzielenia stanu między wątkami.</p>
+</div>
+</section>
+<section id="system-budowania">
+<span id="core-build-system"></span><h2>System budowania<a class="headerlink" href="#system-budowania" title="Link to this heading">#</a></h2>
+<section id="cmake">
+<h3>CMake<a class="headerlink" href="#cmake" title="Link to this heading">#</a></h3>
+<p>Projekt używa CMake jako systemu budowania:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Konfiguracja</span>
+cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+
+<span class="c1"># Kompilacja</span>
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--config<span class="w"> </span>Release
+
+<span class="c1"># Instalacja</span>
+cmake<span class="w"> </span>--install<span class="w"> </span>build
+</pre></div>
+</div>
+</section>
+<section id="build-targets">
+<h3>Build Targets<a class="headerlink" href="#build-targets" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">otclient</span></code> - główny executable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">otclient-bot</span></code> - wersja z dodatkowymi funkcjami bota</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">otclient-dx</span></code> - wersja z DirectX zamiast OpenGL</p></li>
+</ul>
+</section>
+</section>
+<section id="konfiguracja">
+<span id="core-configuration"></span><h2>Konfiguracja<a class="headerlink" href="#konfiguracja" title="Link to this heading">#</a></h2>
+<section id="config-otml">
+<h3>config.otml<a class="headerlink" href="#config-otml" title="Link to this heading">#</a></h3>
+<p>Plik konfiguracyjny w formacie OTML:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">GameName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OTClient</span>
+<span class="nt">GameVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">860</span>
+<span class="nt">GameProtocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">860</span>
+
+<span class="nt">UIScale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+<span class="nt">ShowFPS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">MaxFPS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
+<span class="nt">MaxUPS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="nt">SavedCharacterList</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">BackgroundFrameRate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="nt">CreatureInformationScale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+<span class="nt">StaticTextScale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="przyklady-kodu">
+<span id="core-example-snippets"></span><h2>Przykłady kodu<a class="headerlink" href="#przyklady-kodu" title="Link to this heading">#</a></h2>
+<section id="tworzenie-i-konfiguracja-gracza">
+<h3>Tworzenie i konfiguracja gracza<a class="headerlink" href="#tworzenie-i-konfiguracja-gracza" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">src/client/player.h</span></code> - Player class interface</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cm">/*</span>
+<span class="linenos"> 2</span><span class="cm"> * Copyright (c) 2010-2017 OTClient &lt;https://github.com/edubart/otclient&gt;</span>
+<span class="linenos"> 3</span><span class="cm"> *</span>
+<span class="linenos"> 4</span><span class="cm"> * Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="linenos"> 5</span><span class="cm"> * of this software and associated documentation files (the "Software"), to deal</span>
+<span class="linenos"> 6</span><span class="cm"> * in the Software without restriction, including without limitation the rights</span>
+<span class="linenos"> 7</span><span class="cm"> * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="linenos"> 8</span><span class="cm"> * copies of the Software, and to permit persons to whom the Software is</span>
+<span class="linenos"> 9</span><span class="cm"> * furnished to do so, subject to the following conditions:</span>
+<span class="linenos">10</span><span class="cm"> *</span>
+<span class="linenos">11</span><span class="cm"> * The above copyright notice and this permission notice shall be included in</span>
+<span class="linenos">12</span><span class="cm"> * all copies or substantial portions of the Software.</span>
+<span class="linenos">13</span><span class="cm"> *</span>
+<span class="linenos">14</span><span class="cm"> * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="linenos">15</span><span class="cm"> * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="linenos">16</span><span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="linenos">17</span><span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="linenos">18</span><span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="linenos">19</span><span class="cm"> * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<span class="linenos">20</span><span class="cm"> * THE SOFTWARE.</span>
+<span class="linenos">21</span><span class="cm"> */</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="cp">#ifndef PLAYER_H</span>
+<span class="linenos">24</span><span class="cp">#define PLAYER_H</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"creature.h"</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="c1">// @bindclass</span>
+<span class="linenos">29</span><span class="k">class</span><span class="w"> </span><span class="nc">Player</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Creature</span>
+<span class="linenos">30</span><span class="p">{</span>
+<span class="linenos">31</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">Player</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Player</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">    </span><span class="n">PlayerPtr</span><span class="w"> </span><span class="n">asPlayer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">static_self_cast</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">36</span><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isPlayer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">37</span><span class="p">};</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="zarzadzanie-eventami-w-lua">
+<h3>Zarządzanie eventami w Lua<a class="headerlink" href="#zarzadzanie-eventami-w-lua" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Przykład modułu z event handlingiem</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">myModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">myModule</span><span class="p">.</span><span class="nf">init</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">-- Inicjalizacja</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Module initialized"</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">-- Podłączenie do zdarzeń</span>
+<span class="w">    </span><span class="nf">connect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">myModule</span><span class="p">.</span><span class="py">onGameStart</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">myModule</span><span class="p">.</span><span class="py">onGameEnd</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">myModule</span><span class="p">.</span><span class="nf">terminate</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">-- Cleanup</span>
+<span class="w">    </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">myModule</span><span class="p">.</span><span class="py">onGameStart</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">myModule</span><span class="p">.</span><span class="py">onGameEnd</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Module terminated"</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">myModule</span><span class="p">.</span><span class="nf">onGameStart</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Game started!"</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">myModule</span><span class="p">.</span><span class="nf">onGameEnd</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Game ended!"</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span><span class="w"> </span><span class="nv">myModule</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="wydajnosc">
+<span id="core-performance"></span><h2>Wydajność<a class="headerlink" href="#wydajnosc" title="Link to this heading">#</a></h2>
+<section id="metryki-kluczowe">
+<h3>Metryki kluczowe<a class="headerlink" href="#metryki-kluczowe" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>FPS ≥ 60</strong> - płynne renderowanie</p></li>
+<li><p><strong>UPS ≥ 100</strong> - responsywna logika</p></li>
+<li><p><strong>Memory &lt; 500MB</strong> - rozsądne zużycie pamięci</p></li>
+<li><p><strong>Latency &lt; 100ms</strong> - akceptowalne opóźnienie sieci</p></li>
+</ul>
+</section>
+<section id="narzedzia-profilowania">
+<h3>Narzędzia profilowania<a class="headerlink" href="#narzedzia-profilowania" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Włączenie statystyk FPS/UPS</span>
+<span class="nv">g_app</span><span class="p">.</span><span class="nf">setShowFps</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="c1">-- Pomiar czasu wykonania</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span>
+<span class="c1">-- ... kod do zmierzenia ...</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">elapsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">startTime</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Execution time:"</span><span class="p">,</span><span class="w"> </span><span class="nv">elapsed</span><span class="p">,</span><span class="w"> </span><span class="s2">"ms"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dobre-praktyki">
+<span id="core-best-practices"></span><h2>Dobre praktyki<a class="headerlink" href="#dobre-praktyki" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Modularność</strong> - dziel kod na niezależne moduły</p></li>
+<li><p><strong>RAII</strong> - używaj smart pointerów dla zarządzania zasobami</p></li>
+<li><p><strong>Event-driven</strong> - preferuj eventy nad polling</p></li>
+<li><p><strong>Cachowanie</strong> - cache’uj często używane zasoby</p></li>
+<li><p><strong>Profiling</strong> - mierz przed optymalizacją</p></li>
+<li><p><strong>Documentation</strong> - dokumentuj publiczne API</p></li>
+</ol>
+</section>
+<section id="zobacz-tez">
+<span id="core-see-also"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../reference/api.html"><span class="std std-doc">API Reference</span></a> - szczegóły implementacji</p></li>
+<li><p><a class="reference internal" href="02_events.html"><span class="std std-doc">Events System</span></a> - system zdarzeń</p></li>
+<li><p><a class="reference internal" href="03_modules.html"><span class="std std-doc">Modules</span></a> - system modułów</p></li>
+<li><p><a class="reference internal" href="../examples/diagrams.html"><span class="std std-doc">Architecture Diagrams</span></a> - dodatkowe diagramy</p></li>
+</ul>
+</section>
+</section>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+</div>
+</footer>
+</div>
+<dialog id="pst-secondary-sidebar-modal"></dialog>
+<div class="bd-sidebar-secondary bd-toc" id="pst-secondary-sidebar"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage" id="pst-page-navigation-heading-2">
+<i class="fa-solid fa-list"></i> On this page
+  </div>
+<nav aria-labelledby="pst-page-navigation-heading-2" class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeglad">Przegląd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warstwy-architektury">Warstwy architektury</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warstwa-1-core-engine-c">Warstwa 1: Core Engine (C++)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warstwa-2-framework">Warstwa 2: Framework</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warstwa-3-client-layer">Warstwa 3: Client Layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warstwa-4-modules-lua">Warstwa 4: Modules (Lua)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-architektury">Diagram architektury</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-katalogow">Struktura katalogów</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src-framework">src/framework/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src-client">src/client/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">modules/</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inicjalizacja-systemu">Inicjalizacja systemu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sekwencja-uruchomienia">Sekwencja uruchomienia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kod-inicjalizacji">Kod inicjalizacji</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glowna-petla">Główna pętla</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tick-system">Tick System</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zarzadzanie-pamiecia">Zarządzanie pamięcią</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-pointers">Smart Pointers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-caching">Resource Caching</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-watkow">Model wątków</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-budowania">System budowania</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmake">CMake</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-targets">Build Targets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konfiguracja">Konfiguracja</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config-otml">config.otml</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-kodu">Przykłady kodu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-i-konfiguracja-gracza">Tworzenie i konfiguracja gracza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zarzadzanie-eventami-w-lua">Zarządzanie eventami w Lua</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wydajnosc">Wydajność</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metryki-kluczowe">Metryki kluczowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#narzedzia-profilowania">Narzędzia profilowania</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dobre-praktyki">Dobre praktyki</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+</nav></div>
+<div class="sidebar-secondary-item">
+<div aria-label="source link" role="note">
+<h3>This Page</h3>
+<ul class="this-page-menu">
+<li><a href="../_sources/chapters/01_core.md.txt" rel="nofollow">Show Source</a></li>
+</ul>
+</div></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script defer="" src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer="" src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+<footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+<div class="footer-items__start">
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+</p>
+</div>
+<div class="footer-item">
+<p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+</p>
+</div>
+</div>
+<div class="footer-items__end">
+<div class="footer-item">
+<p class="theme-version">
+<!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Chapter 05 - Assets" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/chapters/05_assets.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Professional Pro Template - Agent-Ready - OTClient v8: Cel: ten rozdzial inwentaryzuje zasoby klienta (assets) w katalogu data/ i modulach (obrazy, audio, cz..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Professional Pro Template - Agent-Ready - OTClient v8: Cel: ten rozdzial inwentaryzuje zasoby klienta (assets) w katalogu data/ i modulach (obrazy, audio, cz..." />
+
+    <title>Chapter 05 - Assets &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/05_assets';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/chapters/05_assets.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 05 - Assets</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="chapter-05-assets">
+<h1>Chapter 05 - Assets<a class="headerlink" href="#chapter-05-assets" title="Link to this heading">#</a></h1>
+<section id="professional-pro-template-agent-ready-otclient-v8">
+<h2>Professional Pro Template - Agent-Ready - OTClient v8<a class="headerlink" href="#professional-pro-template-agent-ready-otclient-v8" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Cel: ten rozdzial inwentaryzuje zasoby klienta (assets) w katalogu data/ i modulach (obrazy, audio, czcionki, OTUI/OTML, Lua, JSON, itp.). Generuje rekordy w NDJSON i CSV oraz dodatkowe metadane (rozmiar, ext, kategoria, checksum). Styl elastyczny i konkretny. Calosc ASCII-only, UTF-8 bez BOM.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="executive-summary">
+<h2>0) Executive summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Co: indeks zasobow i ich stan (istnieje/nie), rozmiar, checksum, przypisana kategoria, relacje do modulow i UI.</p></li>
+<li><p>Dla kogo: inzynierowie, maintainerzy builda, narzedzia AI/RAG i Studio (Electron/React).</p></li>
+<li><p>Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, gaps), diagramy (Mermaid), narracja (sekcje merytoryczne).</p></li>
+<li><p>Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="struktura-folderu-i-linkowanie">
+<h2>1) Struktura folderu i linkowanie<a class="headerlink" href="#struktura-folderu-i-linkowanie" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>05_assets/
+<span class="w">  </span>README.md<span class="w">                         </span><span class="c1"># narracja + TOC + nawigacja (ten plik)</span>
+<span class="w">  </span>meta.json<span class="w">                         </span><span class="c1"># mapa plikow + zadania + tags (machine-readable)</span>
+<span class="w">  </span>assets.schema.json<span class="w">                </span><span class="c1"># walidacja rekordow NDJSON (asset)</span>
+<span class="w">  </span>sections/
+<span class="w">    </span>00_assets_basics.md<span class="w">             </span><span class="c1"># podstawy zasobow w OTClient</span>
+<span class="w">    </span>01_introduction.md<span class="w">              </span><span class="c1"># po co inwentaryzowac assets (kontekst)</span>
+<span class="w">    </span>02_asset_model.md<span class="w">               </span><span class="c1"># slownik pol + przyklady + pulapki</span>
+<span class="w">    </span>03_collection_methods.md<span class="w">        </span><span class="c1"># jak zbieramy (targets, listy plikow)</span>
+<span class="w">    </span>04_quality_and_limits.md<span class="w">        </span><span class="c1"># jakosc, ograniczenia, SLO</span>
+<span class="w">    </span>05_how_to_read_stats.md<span class="w">         </span><span class="c1"># jak czytac statystyki i mapowac braki</span>
+<span class="w">  </span>datasets/
+<span class="w">    </span>assets.dataset.jsonl<span class="w">            </span><span class="c1"># NDJSON (append-only)</span>
+<span class="w">    </span>assets.dataset.csv<span class="w">              </span><span class="c1"># CSV (naglowek staly)</span>
+<span class="w">    </span>chunks/
+<span class="w">      </span>README.md<span class="w">                     </span><span class="c1"># polityka dzielenia</span>
+<span class="w">  </span>stats/
+<span class="w">    </span>stats.json<span class="w">                      </span><span class="c1"># metryki zbiorcze (kategorie, braki)</span>
+<span class="w">    </span>stats.md<span class="w">                        </span><span class="c1"># raport czytelny dla ludzi</span>
+<span class="w">  </span>analysis/
+<span class="w">    </span>findings.md<span class="w">                     </span><span class="c1"># wnioski z danych + linki do rekordow</span>
+<span class="w">    </span>gaps.md<span class="w">                         </span><span class="c1"># lista brakow (nieistniejace sciezki)</span>
+<span class="w">    </span>figures/<span class="w">                        </span><span class="c1"># wykresy i tabele eksportowane</span>
+<span class="w">  </span>extractors/
+<span class="w">    </span>assets_inventory.lua<span class="w">            </span><span class="c1"># skan wskazanych plikow -&gt; NDJSON+CSV</span>
+<span class="w">    </span>assets_stats.lua<span class="w">                </span><span class="c1"># agregacje -&gt; stats.json + stats.md</span>
+<span class="w">  </span>config/
+<span class="w">    </span>assets.targets.txt<span class="w">              </span><span class="c1"># lista celow: pliki i/lub aliasy list</span>
+<span class="w">    </span>assets.files.txt<span class="w">                </span><span class="c1"># opcjonalna lista pelnych sciezek plikow</span>
+<span class="w">  </span>diagrams/
+<span class="w">    </span>assets_flow.mmd<span class="w">                 </span><span class="c1"># Mermaid: przeplyw inwentaryzacji</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: IO setup w README ponizej. Zawsze ASCII-only, UTF-8 bez BOM, LF konce linii.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="readme-nawigacja-i-instrukcje-agent-friendly">
+<h2>2) README - nawigacja i instrukcje (Agent-friendly)<a class="headerlink" href="#readme-nawigacja-i-instrukcje-agent-friendly" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: chapter:assets
+title: Assets - Inventory and Integrity
+authors: [&quot;docs-export&quot;]
+version: 1.0
+last_updated: 2025-10-08
+status: draft
+tags: [&quot;assets&quot;,&quot;inventory&quot;,&quot;integrity&quot;,&quot;otclient&quot;,&quot;agent&quot;]
+related:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../03_modules/README.md
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../04_ui/README.md
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../01_runtime/README.md
+outputs:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/assets.dataset.jsonl
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/assets.dataset.csv
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.json
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.md
+encoding: UTF-8 (no BOM)
+
+---
+
+Short: rozdzial inwentaryzuje zasoby (assets) i podaje ich stan, rozmiar, checksum i kategorie. Wyniki sa pod BI, RAG i kontrola spojnosc builda.
+
+Table of contents
+<span class="k">-</span><span class="w"> </span>[<span class="nt">0. Assets basics</span>](<span class="na">./sections/00_assets_basics.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">1. Wprowadzenie</span>](<span class="na">./sections/01_introduction.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">2. Model assetu (slownik)</span>](<span class="na">./sections/02_asset_model.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">3. Zbieranie (targets, listy plikow)</span>](<span class="na">./sections/03_collection_methods.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">4. Jakosc i ograniczenia</span>](<span class="na">./sections/04_quality_and_limits.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">5. Jak czytac statystyki</span>](<span class="na">./sections/05_how_to_read_stats.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Statystyki</span>](<span class="na">./stats/stats.md</span>) - [<span class="nt">Datasety</span>](<span class="na">./datasets/</span>) - [<span class="nt">Analizy</span>](<span class="na">./analysis/findings.md</span>)
+
+Quick links
+<span class="k">-</span><span class="w"> </span>Schema: [<span class="nt">assets.schema.json</span>](<span class="na">./assets.schema.json</span>)
+<span class="k">-</span><span class="w"> </span>NDJSON: [<span class="nt">datasets/assets.dataset.jsonl</span>](<span class="na">./datasets/assets.dataset.jsonl</span>)
+<span class="k">-</span><span class="w"> </span>CSV: [<span class="nt">datasets/assets.dataset.csv</span>](<span class="na">./datasets/assets.dataset.csv</span>)
+<span class="k">-</span><span class="w"> </span>Diagrams: [<span class="nt">diagrams/assets_flow.mmd</span>](<span class="na">./diagrams/assets_flow.mmd</span>)
+
+Crosslinks
+<span class="k">-</span><span class="w"> </span>Modules: ../03_modules/README.md
+<span class="k">-</span><span class="w"> </span>UI: ../04_ui/README.md
+<span class="k">-</span><span class="w"> </span>Runtime: ../01_runtime/README.md
+
+CSV header (assets.dataset.csv)
+
+id,path,exists,checksum,sizeBytes,ext,category
+
+Header jest staly - narzedzia BI moga cachowac schemat.
+
+<span class="sb">`IO setup`</span>
+<span class="k">-</span><span class="w"> </span>Default: dofile(&#39;../../_shared/lua/docio.lua&#39;)
+<span class="k">-</span><span class="w"> </span>Isolated: copy to 05_assets/_local/docio.lua and use dofile(&#39;../_local/docio.lua&#39;)
+
+<span class="sb">`Skad do _shared`</span>
+| Start location | Path to _shared |
+|---|---|
+| 05_assets/extractors | ../../_shared/lua/docio.lua |
+| 05_assets | ../_shared/lua/docio.lua |
+
+<span class="sb">`Chunks aggregation`</span>
+<span class="k">-</span><span class="w"> </span>Aggregator czyta glowny plik oraz opcjonalny indeks: docs/05_assets/datasets/chunks/index.json (JSON array nazw chunkow).
+
+<span class="sb">`Studio hooks (Electron) - skrot`</span>
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:assets.inventory.scan&#39; -&gt; uruchamia assets_inventory.lua
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:aggregate.assets&#39; -&gt; uruchamia assets_stats.lua
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:open.assets&#39; {type: &#39;jsonl&#39;|&#39;csv&#39;} -&gt; otwiera dataset w Studio
+<span class="k">-</span><span class="w"> </span>Preload: contextIsolation: true; nodeIntegration: false; eksponuj bezpieczne API
+<span class="k">-</span><span class="w"> </span>Sandbox: wszystkie zapisy ida przez docio.lua pod 05_assets
+<span class="k">-</span><span class="w"> </span>View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="mapa-plikow-i-odpowiedzialnosci-reference-for-agents">
+<h2>3) Mapa plikow i odpowiedzialnosci (reference for Agents)<a class="headerlink" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plik / Katalog</p></th>
+<th class="head"><p>Rola</p></th>
+<th class="head"><p>Kto uzupelnia</p></th>
+<th class="head"><p>Uwagi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>assets.schema.json</p></td>
+<td><p>walidacja rekordow assets</p></td>
+<td><p>Agent/CI</p></td>
+<td><p>waliduj linie po linii</p></td>
+</tr>
+<tr class="row-odd"><td><p>datasets/*.jsonl</p></td>
+<td><p>pelne rekordy (append)</p></td>
+<td><p>inventory</p></td>
+<td><p>rotacja w chunks/</p></td>
+</tr>
+<tr class="row-even"><td><p>datasets/*.csv</p></td>
+<td><p>widok splaszczony</p></td>
+<td><p>inventory</p></td>
+<td><p>tylko skalary</p></td>
+</tr>
+<tr class="row-odd"><td><p>stats/*.json|md</p></td>
+<td><p>metryki zbiorcze</p></td>
+<td><p>aggregator</p></td>
+<td><p>kategorie, braki</p></td>
+</tr>
+<tr class="row-even"><td><p>sections/*.md</p></td>
+<td><p>narracja i wyjasnienia</p></td>
+<td><p>Agent/Autor</p></td>
+<td><p>AGENT:INSERT punkty</p></td>
+</tr>
+<tr class="row-odd"><td><p>analysis/*</p></td>
+<td><p>wnioski i braki</p></td>
+<td><p>Agent/Analityk</p></td>
+<td><p>linkuj id rekordow</p></td>
+</tr>
+<tr class="row-even"><td><p>extractors/*.lua</p></td>
+<td><p>zrzut i agregacja</p></td>
+<td><p>system</p></td>
+<td><p>nie zmieniaj API zapisu</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+</section>
+<section id="slownik-assetu-data-dictionary">
+<h2>4) Slownik assetu (data dictionary)<a class="headerlink" href="#slownik-assetu-data-dictionary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pole</p></th>
+<th class="head"><p>Typ</p></th>
+<th class="head"><p>Przyklad</p></th>
+<th class="head"><p>Znaczenie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>string</p></td>
+<td><p>res:/data/images/ui/login.png</p></td>
+<td><p>Unikat: <code class="docutils literal notranslate"><span class="pre">res:&lt;sciezka&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>path</p></td>
+<td><p>string</p></td>
+<td><p>/data/images/ui/login.png</p></td>
+<td><p>Sciezka w zasobach.</p></td>
+</tr>
+<tr class="row-even"><td><p>exists</p></td>
+<td><p>boolean</p></td>
+<td><p>true</p></td>
+<td><p>Czy plik istnieje wg g_resources.</p></td>
+</tr>
+<tr class="row-odd"><td><p>checksum</p></td>
+<td><p>string</p></td>
+<td><p>fnv1a32:ab12cd34</p></td>
+<td><p>Kontrola integralnosci (FNV-1a 32-bit).</p></td>
+</tr>
+<tr class="row-even"><td><p>sizeBytes</p></td>
+<td><p>number</p></td>
+<td><p>45678</p></td>
+<td><p>Rozmiar pliku w bajtach.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ext</p></td>
+<td><p>string</p></td>
+<td><p>png</p></td>
+<td><p>Rozszerzenie.</p></td>
+</tr>
+<tr class="row-even"><td><p>category</p></td>
+<td><p>string</p></td>
+<td><p>image</p></td>
+<td><p>Kategoria (image,audio,font,otui,otml,lua,json,otmod,other).</p></td>
+</tr>
+<tr class="row-odd"><td><p>links[]</p></td>
+<td><p>string[]</p></td>
+<td><p>mod:…, ui:…</p></td>
+<td><p>Powiazania z modulami i UI.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Agent tip: w sections/02_asset_model.md wstaw 5-8 realnych rekordow z NDJSON i krotki komentarz do kazdego.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="pipeline-danych-odczyt-zapis-analiza">
+<h2>5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)<a class="headerlink" href="#pipeline-danych-odczyt-zapis-analiza" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Inventory pobiera cele z config/assets.targets.txt oraz/lub assets.files.txt i dopisuje rekordy do NDJSON + CSV.</p></li>
+<li><p>Aggregator liczy rozklady kategorii i braki, zapisuje stats.*.</p></li>
+<li><p>Narracja: sekcje opisowe z przykladami i odwolaniami do id assets.</p></li>
+<li><p>Analizy: findings i gaps (np. brakujace pliki vs referencje w OTUI/modulach).</p></li>
+<li><p>Publikacja: sprawdz checklist DoD i oznacz rozdzial jako ready.</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="sekcje-merytoryczne-szablony-i-wprowadzenie-do-assets">
+<h2>6) Sekcje merytoryczne - szablony i wprowadzenie do assets<a class="headerlink" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-assets" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sections/00_assets_basics.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Assets - podstawy dla nowych dev</span>
+Assets to pliki zasobow: grafiki, dzwieki, czcionki, definicje UI (OTUI/OTML), skrypty (Lua), itp. Klient laduje je przez system zasobow.
+
+Pojecia
+<span class="k">-</span><span class="w"> </span>g<span class="ge">_resources.fileExists(path), g_</span>resources.readFileContents(path), g_resources.writeFileContents(path).
+<span class="k">-</span><span class="w"> </span>Zrodla zasobow: folder data/ i zasoby modulow.
+<span class="k">-</span><span class="w"> </span>Wartosciowe atrybuty: rozmiar, rozszerzenie, checksum i kategoria.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/01_introduction.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Wprowadzenie - po co inwentaryzowac assets</span>
+Inventory assets wykrywa braki, spiecia wersji i niespojnosci. Daje baze pod optymalizacje i kontrola integralnosci builda.
+
+Kiedy uzywac
+<span class="k">-</span><span class="w"> </span>audyt builda przed wydaniem,
+<span class="k">-</span><span class="w"> </span>sledzenie zmian zasobow,
+<span class="k">-</span><span class="w"> </span>walidacja referencji z UI i modulow.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/02_asset_model.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Model assetu - definicje i przyklady</span>
+Zobacz slownik w README. Wstaw przyklady z NDJSON i krotkie komentarze.
+
+&lt;!-- AGENT:INSERT:ASSET-EXAMPLES --&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/03_collection_methods.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Zbieranie (targets, listy plikow)</span>
+<span class="k">-</span><span class="w"> </span>assets_inventory.lua: czyta config/assets.targets.txt (lista celow). Linie moga wskazywac pliki lub alias <span class="ni">@filelist</span>.
+<span class="k">-</span><span class="w"> </span>Optional: assets.files.txt zawiera pelne sciezki plikow (po jednej w linii).
+<span class="k">-</span><span class="w"> </span>Jesli docelowo dodasz wsparcie dla skanowania katalogow, dopisz do config i dokumentacji.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/04_quality_and_limits.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jakosc i ograniczenia</span>
+<span class="k">-</span><span class="w"> </span>Brak pelnego skanowania katalogow bez wsparcia w API - korzystamy z list docelowych.
+<span class="k">-</span><span class="w"> </span>Checksum to FNV-1a 32-bit obliczany po bajtach; wystarczy do diffa i kontroli zmian.
+<span class="k">-</span><span class="w"> </span>Roznice forkow: opisz w analysis/findings.md.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/05_how_to_read_stats.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jak czytac statystyki</span>
+<span class="k">-</span><span class="w"> </span>Rozklad kategorii pokazuje profil zasobow w projekcie.
+<span class="k">-</span><span class="w"> </span>Lista brakow (exists=false) wskazuje problemy referencji.
+
+&lt;!-- AGENT:INSERT:READING-GUIDE --&gt;
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="polityka-dzielenia-danych-datasets-chunks-readme-md">
+<h2>7) Polityka dzielenia danych - datasets/chunks/README.md<a class="headerlink" href="#polityka-dzielenia-danych-datasets-chunks-readme-md" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Chunks - polityka</span>
+<span class="k">-</span><span class="w"> </span>Utrzymuj glowne pliki do ok. 50 MB.
+<span class="k">-</span><span class="w"> </span>Starsze dane przenos do assets.dataset.&lt;YYYYMMDD-HHMM&gt;.jsonl oraz .csv.
+<span class="k">-</span><span class="w"> </span>Po przeniesieniu chunkow traktuj je jako read-only.
+<span class="k">-</span><span class="w"> </span>Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni sie nazwa katalogu.
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="schema-assets-schema-json">
+<h2>8) Schema - assets.schema.json<a class="headerlink" href="#schema-assets-schema-json" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;asset.record&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="s2">&quot;path&quot;</span><span class="p">,</span><span class="s2">&quot;exists&quot;</span><span class="p">,</span><span class="s2">&quot;checksum&quot;</span><span class="p">,</span><span class="s2">&quot;sizeBytes&quot;</span><span class="p">,</span><span class="s2">&quot;ext&quot;</span><span class="p">,</span><span class="s2">&quot;category&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="s2">&quot;^res:\/.+&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;exists&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;checksum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;sizeBytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ext&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="extractors-lua-gotowe-pliki">
+<h2>9) Extractors (Lua) - gotowe pliki<a class="headerlink" href="#extractors-lua-gotowe-pliki" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">extractors/assets_inventory.lua</span></code></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 05_assets/extractors/assets_inventory.lua</span>
+<span class="c1">-- Inwentaryzacja assets -&gt; JSONL + CSV (splaszczone kluczowe pola)</span>
+<span class="c1">-- ASCII-only; UTF-8 bez BOM; LF</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">docio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;path&#39;</span><span class="p">,</span><span class="s1">&#39;exists&#39;</span><span class="p">,</span><span class="s1">&#39;checksum&#39;</span><span class="p">,</span><span class="s1">&#39;sizeBytes&#39;</span><span class="p">,</span><span class="s1">&#39;ext&#39;</span><span class="p">,</span><span class="s1">&#39;category&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">fnv1a32</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">bitlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">rawget</span><span class="p">(</span><span class="nb">_G</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit32&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">rawget</span><span class="p">(</span><span class="nb">_G</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">band</span><span class="p">,</span><span class="w"> </span><span class="nv">bxor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">assert</span><span class="p">(</span><span class="nv">bitlib</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">bitlib</span><span class="p">.</span><span class="py">band</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit/bit32 required&#39;</span><span class="p">),</span><span class="w"> </span><span class="nb">assert</span><span class="p">(</span><span class="nv">bitlib</span><span class="p">.</span><span class="py">bxor</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit/bit32 required&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2166136261</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="nv">s</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">bxor</span><span class="p">(</span><span class="nv">hash</span><span class="p">,</span><span class="w"> </span><span class="nb">string.byte</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span><span class="p">))</span>
+<span class="w">    </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">band</span><span class="p">((</span><span class="nv">hash</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">16777619</span><span class="p">),</span><span class="w"> </span><span class="mh">0xFFFFFFFF</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;fnv1a32:%08x&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">hash</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">extOf</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">path</span><span class="p">:</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;%.([A-Za-z0-9]+)$&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.lower</span><span class="p">(</span><span class="nv">ext</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">categoryOf</span><span class="p">(</span><span class="nv">ext</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;png&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;jpg&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;jpeg&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;bmp&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;gif&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;image&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;otui&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;otui&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;otml&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;otml&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;lua&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;lua&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;json&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;json&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;otmod&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;otmod&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;ogg&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;mp3&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;wav&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;audio&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;ttf&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;otf&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;woff&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;font&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;other&#39;</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">addAsset</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_resources</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="py">fileExists</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">fileExists</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">exists</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">readFileContents</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">content</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">extOf</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;res:&#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">path</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">path</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">exists</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">checksum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nf">fnv1a32</span><span class="p">(</span><span class="nv">content</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">sizeBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">size</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ext</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">categoryOf</span><span class="p">(</span><span class="nv">ext</span><span class="p">),</span>
+<span class="w">    </span><span class="nv">links</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">appendJsonl</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/datasets/assets.dataset.jsonl&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">rec</span><span class="p">,</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeCsvHeader</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/datasets/assets.dataset.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">id</span><span class="p">,</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">path</span><span class="p">,</span><span class="w"> </span><span class="nv">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">exists</span><span class="p">,</span><span class="w"> </span><span class="nv">checksum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">checksum</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">sizeBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">sizeBytes</span><span class="p">,</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">ext</span><span class="p">,</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">category</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">appendCsvRow</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/datasets/assets.dataset.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="p">,</span><span class="w"> </span><span class="nv">row</span><span class="p">,</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">readLines</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">#</span><span class="nv">t</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">t</span><span class="p">:</span><span class="nf">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">   </span><span class="kd">local</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">line</span><span class="p">:</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^%s*(.-)%s*$&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">p</span><span class="p">:</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^#&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">out</span><span class="p">[</span><span class="o">#</span><span class="nv">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loadTargets</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">readLines</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/config/assets.targets.txt&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">entry</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">entry</span><span class="p">:</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^@filelist$&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">fl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">readLines</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/config/assets.files.txt&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">fl</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">targets</span><span class="p">[</span><span class="o">#</span><span class="nv">targets</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">fl</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">else</span>
+<span class="w">      </span><span class="nv">targets</span><span class="p">[</span><span class="o">#</span><span class="nv">targets</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">entry</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">targets</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">loadTargets</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">p</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">targets</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nf">addAsset</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="nf">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">extractors/assets_stats.lua</span></code></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 05_assets/extractors/assets_stats.lua</span>
+<span class="c1">-- Agregacja assets -&gt; stats.json + stats.md (deterministyczny output)</span>
+<span class="c1">-- ASCII-only; UTF-8 bez BOM; LF</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">docio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">#</span><span class="nv">text</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">text</span><span class="p">:</span><span class="nf">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">line</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">obj</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">out</span><span class="p">[</span><span class="o">#</span><span class="nv">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loadAllRecords</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">recs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/datasets/assets.dataset.jsonl&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">headList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">head</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">headList</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">recs</span><span class="p">[</span><span class="o">#</span><span class="nv">recs</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">headList</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">indexText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/datasets/chunks/index.json&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">indexText</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">indexText</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">indexText</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">list</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">fname</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">list</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">fname</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">fname</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^docs/&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;docs/05_assets/datasets/chunks/&#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">fname</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">more</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">recs</span><span class="p">[</span><span class="o">#</span><span class="nv">recs</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">more</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">      </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">recs</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">#</span><span class="nv">recs</span><span class="p">,</span><span class="w"> </span><span class="nv">byCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="nv">missing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">byExt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">r</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">r</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">r</span><span class="p">.</span><span class="py">category</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span>
+<span class="w">    </span><span class="nv">s</span><span class="p">.</span><span class="py">byCategory</span><span class="p">[</span><span class="nv">cat</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">byCategory</span><span class="p">[</span><span class="nv">cat</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">r</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">r</span><span class="p">.</span><span class="py">ext</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">    </span><span class="nv">s</span><span class="p">.</span><span class="py">byExt</span><span class="p">[</span><span class="nv">ext</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">byExt</span><span class="p">[</span><span class="nv">ext</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="p">(</span><span class="nv">r</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">r</span><span class="p">.</span><span class="py">exists</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">missing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">missing</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">s</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">writeMD</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">md</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;# Assets - Statystyki</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- Rekordy: %d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">count</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- Braki (exists=false): %d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">missing</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">## By category</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="nv">_</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">byCategory</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">cats</span><span class="p">[</span><span class="o">#</span><span class="nv">cats</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nb">table.sort</span><span class="p">(</span><span class="nv">cats</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">k</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">cats</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- %s: %d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">byCategory</span><span class="p">[</span><span class="nv">k</span><span class="p">])</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">## By extension</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">exts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="nv">_</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">byExt</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">exts</span><span class="p">[</span><span class="o">#</span><span class="nv">exts</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nb">table.sort</span><span class="p">(</span><span class="nv">exts</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">k</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">exts</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- %s: %d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">byExt</span><span class="p">[</span><span class="nv">k</span><span class="p">])</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Hint: sprawdz kategorie z najwiekszym udzialem brakow i zestaw je z referencjami w UI/modulach.</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">(</span><span class="nv">md</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">recs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">loadAllRecords</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeAll</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/stats/stats.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="nv">s</span><span class="p">))</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeAll</span><span class="p">(</span><span class="s1">&#39;docs/05_assets/stats/stats.md&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">writeMD</span><span class="p">(</span><span class="nv">s</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="nf">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="diagram-mermaid">
+<h2>10) Diagram (Mermaid)<a class="headerlink" href="#diagram-mermaid" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">diagrams/assets_flow.mmd</span></code></p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph TD
+  Studio[Electron Studio] --&gt;|IPC scan| Inventory
+  Inventory --&gt; NDJSON[(assets.dataset.jsonl)]
+  Inventory --&gt; CSV[(assets.dataset.csv)]
+  NDJSON --&gt; Stats[stats.json and stats.md]
+  CSV --&gt; Stats
+  Stats --&gt; Studio
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="encoding-i-formatowanie-utf-8-safe">
+<h2>11) Encoding i formatowanie (UTF-8 safe)<a class="headerlink" href="#encoding-i-formatowanie-utf-8-safe" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska ‘-’, cudzyslow “, apostrof ‘).</p></li>
+<li><p>Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.</p></li>
+<li><p>Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="jakosc-slo-i-bezpieczenstwo-krotko">
+<h2>12) Jakosc, SLO i bezpieczenstwo (krotko)<a class="headerlink" href="#jakosc-slo-i-bezpieczenstwo-krotko" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>NDJSON append-only; przy duzych wolumenach uzyj chunks.</p></li>
+<li><p>CSV zawiera tylko skalary; pelne zaleznosci w links[].</p></li>
+<li><p>Nie zapisuj tresci plikow; tylko checksum i metadane.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="dod-checklist-agent-clickable">
+<h2>13) DoD Checklist - Agent clickable<a class="headerlink" href="#dod-checklist-agent-clickable" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Zapis do docs/05_assets/datasets/assets.dataset.jsonl i assets.dataset.csv dziala (&gt;= 100 rekordow lub zgodnie z targets).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Uzupelniono sekcje: 00_assets_basics.md, 01_introduction.md, 02_asset_model.md (z przykladami), 03_collection_methods.md.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> W analysis/gaps.md dodano min. 1 liste brakow z linkami do miejsc uzycia (jesli znane).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Diagram assets_flow.mmd istnieje i jest logiczny.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> meta.json ma poprawne crosslinks: ../03_modules, ../04_ui, ../01_runtime.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Walidacja probki 20 linii NDJSON przeciw assets.schema.json zakonczona bez bledow.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="meta-json-wzorzec-z-tagami-i-linkowaniem">
+<h2>14) meta.json - wzorzec z tagami i linkowaniem<a class="headerlink" href="#meta-json-wzorzec-z-tagami-i-linkowaniem" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;chapterId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chapter:assets&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Assets - Inventory and Integrity&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;owners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;docs-export&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;assets&quot;</span><span class="p">,</span><span class="s2">&quot;inventory&quot;</span><span class="p">,</span><span class="s2">&quot;integrity&quot;</span><span class="p">,</span><span class="s2">&quot;otclient&quot;</span><span class="p">,</span><span class="s2">&quot;agent&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;fileMap&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;readme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./README.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./assets.schema.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./sections/00_assets_basics.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/01_introduction.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/02_asset_model.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/03_collection_methods.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/04_quality_and_limits.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/05_how_to_read_stats.md&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;datasets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/assets.dataset.jsonl&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;csv&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/assets.dataset.csv&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chunksDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/chunks&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;md&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.md&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/findings.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;gaps&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/gaps.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;figuresDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/figures&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;extractors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/assets_inventory.lua&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/assets_stats.lua&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;diagrams&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./diagrams/assets_flow.mmd&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./config/assets.targets.txt&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./config/assets.files.txt&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;linking&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;recordIdPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;res:&lt;path&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;crossChapter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../03_modules/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ui&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../04_ui/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../01_runtime/README.md&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inventory&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Skan assets do JSONL/CSV&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;datasets.jsonl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;datasets.csv&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agregacja do stats.json/stats.md&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;stats.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;stats.md&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;author&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uzupelnienie sekcji i gaps + wstrzykniecia danych&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sections/*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;analysis/*&quot;</span><span class="p">]}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;insertPoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;sections/02_asset_model.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:ASSET-EXAMPLES&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;sections/05_how_to_read_stats.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:READING-GUIDE&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/findings.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:FINDINGS&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/gaps.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:GAPS&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#professional-pro-template-agent-ready-otclient-v8">Professional Pro Template - Agent-Ready - OTClient v8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">0) Executive summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-folderu-i-linkowanie">1) Struktura folderu i linkowanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-nawigacja-i-instrukcje-agent-friendly">2) README - nawigacja i instrukcje (Agent-friendly)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents">3) Mapa plikow i odpowiedzialnosci (reference for Agents)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slownik-assetu-data-dictionary">4) Slownik assetu (data dictionary)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-danych-odczyt-zapis-analiza">5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-assets">6) Sekcje merytoryczne - szablony i wprowadzenie do assets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polityka-dzielenia-danych-datasets-chunks-readme-md">7) Polityka dzielenia danych - datasets/chunks/README.md</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-assets-schema-json">8) Schema - assets.schema.json</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extractors-lua-gotowe-pliki">9) Extractors (Lua) - gotowe pliki</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-mermaid">10) Diagram (Mermaid)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-i-formatowanie-utf-8-safe">11) Encoding i formatowanie (UTF-8 safe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-slo-i-bezpieczenstwo-krotko">12) Jakosc, SLO i bezpieczenstwo (krotko)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dod-checklist-agent-clickable">13) DoD Checklist - Agent clickable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-json-wzorzec-z-tagami-i-linkowaniem">14) meta.json - wzorzec z tagami i linkowaniem</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/chapters/05_assets.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

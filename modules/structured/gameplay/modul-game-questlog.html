@@ -1,0 +1,1307 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Moduł: | Moduł: game_questlog" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/modules/structured/gameplay/modul-game-questlog.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="questlog.otmod: questlogwindow.otui:" />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="questlog.otmod: questlogwindow.otui:" />
+
+    <title>Moduł: | Moduł: game_questlog &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/gameplay/modul-game-questlog';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/modules/structured/gameplay/modul-game-questlog.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_questlog</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-game-questlog">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_questlog</span></code><a class="headerlink" href="#modul-modul-game-questlog" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nv">questLogButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="nv">questTrackerButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="nv">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="nv">trackerWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">callDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="c1">-- each call delay is also increased by random values (0-callDelay/2)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">dispatcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">importStyle</span><span class="p">(</span><span class="s1">&#39;questlogwindow&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;QuestLogWindow&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">rootWidget</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">window</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">trackerWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;QuestTracker&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_interface</span><span class="p">.</span><span class="nf">getRightPanel</span><span class="p">())</span>
+
+<span class="w">  </span><span class="nv">trackerWindow</span><span class="p">:</span><span class="nf">setup</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">trackerWindow</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">isMobile</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">questLogButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_topmenu</span><span class="p">.</span><span class="nf">addLeftGameButton</span><span class="p">(</span><span class="s1">&#39;questLogButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">tr</span><span class="p">(</span><span class="s1">&#39;Quest Log&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;/images/topbuttons/questlog&#39;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">requestQuestLog</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">questTrackerButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_topmenu</span><span class="p">.</span><span class="nf">addLeftGameButton</span><span class="p">(</span><span class="s1">&#39;questTrackerButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">tr</span><span class="p">(</span><span class="s1">&#39;Quest Tracker&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;/images/topbuttons/quest_tracker&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">toggle</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">onQuestLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onGameQuestLog</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="nv">onQuestLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onGameQuestLine</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">offline</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">online</span><span class="p">})</span>
+
+<span class="w">  </span><span class="nf">online</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">terminate</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">onQuestLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onGameQuestLog</span><span class="p">,</span>
+
+<span class="w">                       </span><span class="nv">onQuestLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onGameQuestLine</span><span class="p">,</span>
+
+<span class="w">                       </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">offline</span><span class="p">,</span>
+
+<span class="w">                       </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">online</span><span class="p">})</span>
+
+<span class="w">  </span><span class="nf">offline</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">questLogButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">questLogButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">questTrackerButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">questTrackerButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">toggle</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">trackerWindow</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">trackerWindow</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">trackerWindow</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">offline</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">window</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">trackerWindow</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">trackerWindow</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">save</span><span class="p">()</span>
+
+<span class="w">  </span><span class="c1">-- reset tracker</span>
+
+<span class="w">  </span><span class="nv">trackerWindow</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">.</span><span class="py">list</span><span class="p">:</span><span class="nf">destroyChildren</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">trackerWindow</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">.</span><span class="py">list</span><span class="p">:</span><span class="nf">setHeight</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">online</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">playerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getCharacterName</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">playerName</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span><span class="w"> </span><span class="c1">-- just to be sure</span>
+
+<span class="w">  </span><span class="nb">load</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">refreshQuests</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">refreshTrackerWidgets</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">playerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getCharacterName</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">settings</span><span class="p">[</span><span class="nv">playerName</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="nv">playerName</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="nv">playerName</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">missionList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">missionList</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">track</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">track</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">missionDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">missionDescription</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">missionList</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onChildFocusChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">self</span><span class="p">,</span><span class="w"> </span><span class="nv">focusedChild</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">focusedChild</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">        </span><span class="nv">missionDescription</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">focusedChild</span><span class="p">.</span><span class="py">description</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">focusedChild</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">          </span><span class="nv">track</span><span class="p">:</span><span class="nf">setEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kr">end</span>
+
+<span class="w">        </span><span class="nv">track</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="nv">settings</span><span class="p">[</span><span class="nv">focusedChild</span><span class="p">.</span><span class="py">trackData</span><span class="p">])</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="p">}</span>
+
+<span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="nv">questlog</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">questlog</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">:</span><span class="nf">focus</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">currentQuest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="c1">-- reset current quest</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">questlog</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">closeButton</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s1">&#39;Close&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">showButton</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">track</span><span class="p">:</span><span class="nf">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">track</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">missionDescription</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">questlog</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">closeButton</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s1">&#39;Back&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">window</span><span class="p">.</span><span class="py">showButton</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">back</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">window</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">questlog</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">window</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">else</span>
+
+<span class="w">      </span><span class="nf">show</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">showQuestLine</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">questList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">questlog</span><span class="p">.</span><span class="py">questList</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">questList</span><span class="p">:</span><span class="nf">getFocusedChild</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">requestQuestLine</span><span class="p">(</span><span class="nv">child</span><span class="p">.</span><span class="py">questId</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">questName</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">child</span><span class="p">.</span><span class="py">questName</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">currentQuest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">child</span><span class="p">.</span><span class="py">questId</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onGameQuestLog</span><span class="p">(</span><span class="nv">quests</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">show</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">questList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">questlog</span><span class="p">.</span><span class="py">questList</span>
+
+<span class="w">  </span><span class="nv">questList</span><span class="p">:</span><span class="nf">destroyChildren</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="nv">questEntry</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">quests</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">id</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="p">,</span><span class="w"> </span><span class="nv">completed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">unpack</span><span class="p">(</span><span class="nv">questEntry</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">questLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;QuestLabel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">questList</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">questLabel</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">questLabel</span><span class="p">.</span><span class="py">questId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="c1">-- for quest tracker</span>
+
+<span class="w">    </span><span class="nv">questLabel</span><span class="p">.</span><span class="py">questName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">name</span>
+
+<span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">completed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">name</span><span class="o">..</span><span class="s2">&quot; (completed)&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">name</span>
+
+<span class="w">    </span><span class="nv">questLabel</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">name</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">questLabel</span><span class="p">.</span><span class="py">onDoubleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">currentQuest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">id</span>
+
+<span class="w">      </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">requestQuestLine</span><span class="p">(</span><span class="nv">id</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">questName</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">questLabel</span><span class="p">.</span><span class="py">questName</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">questList</span><span class="p">:</span><span class="nf">focusChild</span><span class="p">(</span><span class="nv">questList</span><span class="p">:</span><span class="nf">getFirstChild</span><span class="p">())</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onGameQuestLine</span><span class="p">(</span><span class="nv">questId</span><span class="p">,</span><span class="w"> </span><span class="nv">questMissions</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">show</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">missionList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">missionList</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">questId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">currentQuest</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">missionList</span><span class="p">:</span><span class="nf">destroyChildren</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="nv">questMission</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">questMissions</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">name</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">unpack</span><span class="p">(</span><span class="nv">questMission</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">--questlog</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">missionLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;QuestLabel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">missionList</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">widgetId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">questId</span><span class="o">..</span><span class="s1">&#39;.&#39;</span><span class="o">..</span><span class="nv">i</span>
+
+<span class="w">    </span><span class="nv">missionLabel</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">missionLabel</span><span class="p">:</span><span class="nf">setId</span><span class="p">(</span><span class="nv">widgetId</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">missionLabel</span><span class="p">.</span><span class="py">questId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">questId</span>
+
+<span class="w">    </span><span class="nv">missionLabel</span><span class="p">.</span><span class="py">trackData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">widgetId</span>
+
+<span class="w">    </span><span class="nv">missionLabel</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">name</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">missionLabel</span><span class="p">.</span><span class="py">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">description</span>
+
+<span class="w">    </span><span class="nv">missionLabel</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="nv">questId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">currentQuest</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">--tracker</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">trackerLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">trackerWindow</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">.</span><span class="py">list</span><span class="p">[</span><span class="nv">widgetId</span><span class="p">]</span>
+
+<span class="w">    </span><span class="nv">trackerLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">trackerLabel</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;QuestTrackerLabel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">trackerWindow</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">.</span><span class="py">list</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">trackerLabel</span><span class="p">:</span><span class="nf">setId</span><span class="p">(</span><span class="nv">widgetId</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">trackerLabel</span><span class="p">.</span><span class="py">description</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">description</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getCharacterName</span><span class="p">()]</span>
+
+<span class="w">    </span><span class="nv">trackerLabel</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="nv">description</span><span class="p">:</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="nv">widgetId</span><span class="p">])</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">focusTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">missionList</span><span class="p">:</span><span class="nf">getFirstChild</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">focusTarget</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">focusTarget</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">missionList</span><span class="p">:</span><span class="nf">focusChild</span><span class="p">(</span><span class="nv">focusTarget</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onTrackOptionChange</span><span class="p">(</span><span class="nv">checkbox</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">newStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">checkbox</span><span class="p">:</span><span class="nf">isChecked</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">checkbox</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="nv">newStatus</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">missionList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">window</span><span class="p">.</span><span class="py">missionlog</span><span class="p">.</span><span class="py">missionList</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">focused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">missionList</span><span class="p">:</span><span class="nf">getFocusedChild</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">focused</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getCharacterName</span><span class="p">()]</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">trackdata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">focused</span><span class="p">.</span><span class="py">trackData</span>
+
+<span class="w">  </span><span class="c1">-- settings</span>
+
+<span class="w">  </span><span class="nv">settings</span><span class="p">[</span><span class="nv">trackdata</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">newStatus</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">trackerWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">trackerWindow</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">.</span><span class="py">list</span><span class="p">[</span><span class="nv">trackdata</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">trackerWidget</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">trackerWidget</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="nv">newStatus</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">refreshQuests</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">save</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">refreshQuests</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">isOnline</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getCharacterName</span><span class="p">()]</span>
+
+<span class="w">  </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="c1">-- do not execute when questlost is in use</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">window</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">questData</span><span class="p">,</span><span class="w"> </span><span class="nv">track</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">data</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="nv">questData</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">track</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">dispatcher</span><span class="p">[</span><span class="nv">questData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="c1">-- remove from dispatcher if no longer tracked</span>
+
+<span class="w">      </span><span class="kr">else</span>
+
+<span class="w">        </span><span class="nv">dispatcher</span><span class="p">[</span><span class="nv">questData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">dispatcher</span><span class="p">[</span><span class="nv">questData</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">dispatcher</span><span class="p">[</span><span class="nv">questData</span><span class="p">]</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">dispatcher</span><span class="p">[</span><span class="nv">questData</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">callDelay</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">math.random</span><span class="p">(</span><span class="nv">callDelay</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">dispatcher</span><span class="p">[</span><span class="nv">questData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">          </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">requestQuestLine</span><span class="p">(</span><span class="nv">id</span><span class="p">)</span><span class="w"> </span><span class="c1">-- request update</span>
+
+<span class="w">        </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="nb">math.random</span><span class="p">(</span><span class="nv">callDelay</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="nv">refreshQuests</span><span class="p">,</span><span class="w"> </span><span class="nv">callDelay</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">refreshTrackerWidgets</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">isOnline</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getCharacterName</span><span class="p">()]</span>
+
+<span class="w">  </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">questData</span><span class="p">,</span><span class="w"> </span><span class="nv">enabled</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">data</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="nv">questData</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tonumber</span><span class="p">(</span><span class="nv">data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">trackerWindow</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">.</span><span class="py">list</span><span class="p">[</span><span class="nv">questData</span><span class="p">]</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">requestQuestLine</span><span class="p">(</span><span class="nv">id</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- json handlers</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">load</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/settings/questlog.json&quot;</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">fileExists</span><span class="p">(</span><span class="nv">file</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">status</span><span class="p">,</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">readFileContents</span><span class="p">(</span><span class="nv">file</span><span class="p">))</span>
+
+<span class="w">    </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">status</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">g_logger</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span>
+
+<span class="w">                   </span><span class="s2">&quot;Error while reading profiles file. To fix this problem you can delete storage.json. Details: &quot;</span><span class="w"> </span><span class="o">..</span>
+
+<span class="w">                       </span><span class="nv">result</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">result</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">save</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/settings/questlog.json&quot;</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">status</span><span class="p">,</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="nv">settings</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">status</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nv">g_logger</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span>
+
+<span class="w">                 </span><span class="s2">&quot;Error while saving profile settings. Data won&#39;t be saved. Details: &quot;</span><span class="w"> </span><span class="o">..</span>
+
+<span class="w">                     </span><span class="nv">result</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">result</span><span class="p">:</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nv">g_logger</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span>
+
+<span class="w">                 </span><span class="s2">&quot;Something went wrong, file is above 100MB, won&#39;t be saved&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">writeFileContents</span><span class="p">(</span><span class="nv">file</span><span class="p">,</span><span class="w"> </span><span class="nv">result</span><span class="p">)</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="questlog-otmod">
+<h1>questlog.otmod<a class="headerlink" href="#questlog-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: game_questlog
+
+  description: Quest status preview and tracking
+
+  author: Vithrax
+
+  website: https://github.com/Vithrax
+
+  sandboxed: true
+
+  scripts: [ questlog ]
+
+  @onLoad: init()
+
+  @onUnload: terminate()
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="questlogwindow-otui">
+<h1>questlogwindow.otui<a class="headerlink" href="#questlogwindow-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+QuestTrackerLabel &lt; Panel
+
+  height: 20
+
+  layout:
+
+    type: verticalBox
+
+    fit-children: true
+
+  $!first:
+
+    margin-top: 3
+
+  Label
+
+    id: description
+
+    text-align: center
+
+    text-wrap: true
+
+    text-auto-resize: true
+
+  HorizontalSeparator
+
+    margin-top: 3
+
+QuestLabel &lt; Label
+
+  font: verdana-11px-monochrome
+
+  height: 18
+
+  text-offset: 2 1
+
+  focusable: true
+
+  color: #aaaaaa
+
+  background-color: #484848
+
+  $checked:
+
+    background-color: #414141
+
+  $focus:
+
+    background-color: #ffffff22
+
+QuestLog &lt; Panel
+
+  TextList
+
+    id: questList
+
+    anchors.fill: parent
+
+    margin-bottom: 20
+
+    focusable: false
+
+    background-color: #484848
+
+    vertical-scrollbar: questListScrollBar
+
+  VerticalScrollBar
+
+    id: questListScrollBar
+
+    anchors.top: questList.top
+
+    anchors.bottom: questList.bottom
+
+    anchors.right: questList.right
+
+    step: 14
+
+    pixels-scroll: true
+
+MissionLog &lt; Panel
+
+  Label
+
+    id: questName
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    text-align: left
+
+    text: questline name
+
+  TextList
+
+    id: missionList
+
+    anchors.top: prev.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    margin-top: 3
+
+    height: 133
+
+    padding: 1
+
+    focusable: false
+
+    vertical-scrollbar: missionListScrollBar
+
+    background-color: #484848
+
+  VerticalScrollBar
+
+    id: missionListScrollBar
+
+    anchors.top: missionList.top
+
+    anchors.right: missionList.right
+
+    anchors.bottom: missionList.bottom
+
+    step: 14
+
+    pixels-scroll: true
+
+  CheckBox
+
+    id: track
+
+    anchors.bottom: parent.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    margin-bottom: 25
+
+    !text: tr(&#39;Show in quest tracker&#39;)
+
+    @onClick: modules.game_questlog.onTrackOptionChange(self)
+
+    enabled: false
+
+  FlatLabel
+
+    id: missionDescription
+
+    anchors.top: missionList.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: missionListScrollBar.right
+
+    anchors.bottom: prev.top
+
+    background-color: #363636
+
+    margin-bottom: 10
+
+    margin-top: 10
+
+    text-wrap: true
+
+QuestLogWindow &lt; MainWindow
+
+  id: questLogWindow
+
+  !text: tr(&#39;Quest Log&#39;)
+
+  size: 330 405
+
+  @onEscape: modules.game_questlog.back()
+
+  $mobile:
+
+    size: 330 350
+
+  QuestLog
+
+    id: questlog
+
+    anchors.top: parent.top
+
+    anchors.bottom: bottomSep.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    visible: false
+
+  MissionLog
+
+    id: missionlog
+
+    anchors.fill: prev
+
+  HorizontalSeparator
+
+    id: bottomSep
+
+    anchors.right: parent.right
+
+    anchors.left: parent.left
+
+    anchors.bottom: closeButton.top
+
+    margin-bottom: 8
+
+  Button
+
+    id: closeButton
+
+    !text: tr(&#39;Close&#39;)
+
+    font: cipsoftFont
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+    color: #ffffff
+
+    size: 45 21
+
+    @onClick: modules.game_questlog.back()
+
+  Button
+
+    id: showButton
+
+    anchors.verticalCenter: prev.verticalCenter
+
+    anchors.right: prev.left
+
+    margin-right: 3
+
+    color: #ffffff
+
+    size: 45 21
+
+    !text: tr(&#39;Show&#39;)
+
+    font: cipsoftFont
+
+    @onClick: modules.game_questlog.showQuestLine()
+
+  Button
+
+    id: trackerButton
+
+    anchors.verticalCenter: prev.verticalCenter
+
+    anchors.left: parent.left
+
+    margin-right: 3
+
+    color: #ffffff
+
+    size: 80 21
+
+    text-align: center
+
+    !text: tr(&#39;Quest Tracker&#39;)
+
+    font: cipsoftFont
+
+    @onClick: modules.game_questlog.toggle()
+
+QuestTracker &lt; MiniWindow
+
+  id: questTracker
+
+  !text: tr(&#39;Quest Tracker&#39;)
+
+  height: 60
+
+  icon: /images/topbuttons/quest_tracker
+
+  MiniWindowContents
+
+    padding-left: 5
+
+    padding-right: 5
+
+    padding-top: 5
+
+    layout: verticalBox
+
+    Panel
+
+      id: list
+
+      layout:
+
+        type: verticalBox
+
+        fit-children: true
+
+    Panel
+
+      height: 20
+
+      margin-top: 5
+
+      Button
+
+        !text: tr(&#39;Add Tracked Quest&#39;)
+
+        anchors.fill: parent
+
+        margin-left: 30
+
+        margin-right: 30
+
+        font: cipsoftFont
+
+        color: #FFFFFF
+
+        @onClick: g_game.requestQuestLog()
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_questlog</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questlog-otmod">questlog.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questlogwindow-otui">questlogwindow.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/gameplay/modul-game-questlog.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1177 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="game_bot/default_configs/vBot_4.8/vBot/analyzer.lua" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/analyzer.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Moduł Lua zawierający funkcje i logikę dla analyzer. Globals/Exports: time: refillTime: trackedLoot: trackedBoss: outfits: customPrices: time: refi..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Moduł Lua zawierający funkcje i logikę dla analyzer. Globals/Exports: time: refillTime: trackedLoot: trackedBoss: outfits: customPrices: time: refi..." />
+
+    <title>game_bot/default_configs/vBot_4.8/vBot/analyzer.lua &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/analyzer';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/analyzer.html" />
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_bot/default_configs/vBot_4.8/vBot/analyzer.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-bot-default-configs-vbot-4-8-vbot-analyzer-lua">
+<h1>game_bot/default_configs/vBot_4.8/vBot/analyzer.lua<a class="headerlink" href="#game-bot-default-configs-vbot-4-8-vbot-analyzer-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla analyzer.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="time">
+<h3><code class="docutils literal notranslate"><span class="pre">time</span></code><a class="headerlink" href="#time" title="Link to this heading">#</a></h3>
+</section>
+<section id="refilltime">
+<h3><code class="docutils literal notranslate"><span class="pre">refillTime</span></code><a class="headerlink" href="#refilltime" title="Link to this heading">#</a></h3>
+</section>
+<section id="trackedloot">
+<h3><code class="docutils literal notranslate"><span class="pre">trackedLoot</span></code><a class="headerlink" href="#trackedloot" title="Link to this heading">#</a></h3>
+</section>
+<section id="trackedboss">
+<h3><code class="docutils literal notranslate"><span class="pre">trackedBoss</span></code><a class="headerlink" href="#trackedboss" title="Link to this heading">#</a></h3>
+</section>
+<section id="outfits">
+<h3><code class="docutils literal notranslate"><span class="pre">outfits</span></code><a class="headerlink" href="#outfits" title="Link to this heading">#</a></h3>
+</section>
+<section id="customprices">
+<h3><code class="docutils literal notranslate"><span class="pre">customPrices</span></code><a class="headerlink" href="#customprices" title="Link to this heading">#</a></h3>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">time</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">refillTime</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</section>
+<section id="dmgtable">
+<h3><code class="docutils literal notranslate"><span class="pre">dmgTable</span></code><a class="headerlink" href="#dmgtable" title="Link to this heading">#</a></h3>
+</section>
+<section id="healtable">
+<h3><code class="docutils literal notranslate"><span class="pre">healTable</span></code><a class="headerlink" href="#healtable" title="Link to this heading">#</a></h3>
+</section>
+<section id="exptable">
+<h3><code class="docutils literal notranslate"><span class="pre">expTable</span></code><a class="headerlink" href="#exptable" title="Link to this heading">#</a></h3>
+</section>
+<section id="dmgdistribution">
+<h3><code class="docutils literal notranslate"><span class="pre">dmgDistribution</span></code><a class="headerlink" href="#dmgdistribution" title="Link to this heading">#</a></h3>
+</section>
+<section id="looteditems">
+<h3><code class="docutils literal notranslate"><span class="pre">lootedItems</span></code><a class="headerlink" href="#looteditems" title="Link to this heading">#</a></h3>
+</section>
+<section id="usedata">
+<h3><code class="docutils literal notranslate"><span class="pre">useData</span></code><a class="headerlink" href="#usedata" title="Link to this heading">#</a></h3>
+</section>
+<section id="useditems">
+<h3><code class="docutils literal notranslate"><span class="pre">usedItems</span></code><a class="headerlink" href="#useditems" title="Link to this heading">#</a></h3>
+</section>
+<section id="killlist">
+<h3><code class="docutils literal notranslate"><span class="pre">killList</span></code><a class="headerlink" href="#killlist" title="Link to this heading">#</a></h3>
+</section>
+<section id="analyzer">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer</span></code><a class="headerlink" href="#analyzer" title="Link to this heading">#</a></h3>
+<p>public functions global namespace</p>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="getsumstats">
+<h3><code class="docutils literal notranslate"><span class="pre">getSumStats()</span></code><a class="headerlink" href="#getsumstats" title="Link to this heading">#</a></h3>
+</section>
+<section id="clipboarddata">
+<h3><code class="docutils literal notranslate"><span class="pre">clipboardData()</span></code><a class="headerlink" href="#clipboarddata" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-huntinganalyzer-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.HuntingAnalyzer.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-huntinganalyzer-onclick" title="Link to this heading">#</a></h3>
+<p>toggles window</p>
+</section>
+<section id="mainwindow-onclose">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.onClose()</span></code><a class="headerlink" href="#mainwindow-onclose" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-lootanalyzer-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.LootAnalyzer.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-lootanalyzer-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-supplyanalyzer-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.SupplyAnalyzer.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-supplyanalyzer-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-impactanalyzer-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.ImpactAnalyzer.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-impactanalyzer-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-xpanalyzer-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.XPAnalyzer.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-xpanalyzer-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-partyhunt-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.PartyHunt.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-partyhunt-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-droptracker-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.DropTracker.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-droptracker-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-stats-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.Stats.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-stats-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-bosstracker-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.BossTracker.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-bosstracker-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="bosswindow-contentspanel-search-ontextchange-widget-newtext">
+<h3><code class="docutils literal notranslate"><span class="pre">bossWindow.contentsPanel.search.onTextChange(widget,</span> <span class="pre">newText)</span></code><a class="headerlink" href="#bosswindow-contentspanel-search-ontextchange-widget-newtext" title="Link to this heading">#</a></h3>
+<p>boss tracker</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">newText</span></code></p></li>
+</ul>
+</section>
+<section id="newtimeformat-v">
+<h3><code class="docutils literal notranslate"><span class="pre">newTimeFormat(v)</span></code><a class="headerlink" href="#newtimeformat-v" title="Link to this heading">#</a></h3>
+<p>on login</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+</ul>
+</section>
+<section id="createbosspanel-bossname-duetime">
+<h3><code class="docutils literal notranslate"><span class="pre">createBossPanel(bossName,</span> <span class="pre">dueTime)</span></code><a class="headerlink" href="#createbosspanel-bossname-duetime" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bossName</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dueTime</span></code></p></li>
+</ul>
+</section>
+<section id="maintaindroptable">
+<h3><code class="docutils literal notranslate"><span class="pre">maintainDropTable()</span></code><a class="headerlink" href="#maintaindroptable" title="Link to this heading">#</a></h3>
+</section>
+<section id="createtrackeditems">
+<h3><code class="docutils literal notranslate"><span class="pre">createTrackedItems()</span></code><a class="headerlink" href="#createtrackeditems" title="Link to this heading">#</a></h3>
+</section>
+<section id="droploot-ondoubleclick">
+<h3><code class="docutils literal notranslate"><span class="pre">dropLoot.onDoubleClick()</span></code><a class="headerlink" href="#droploot-ondoubleclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="item-onitemchange-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">item.onItemChange(widget)</span></code><a class="headerlink" href="#item-onitemchange-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">dropLoot.onDoubleClick()</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">item.onItemChange(widget)</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="getcolor-v">
+<h3><code class="docutils literal notranslate"><span class="pre">getColor(v)</span></code><a class="headerlink" href="#getcolor-v" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+</ul>
+</section>
+<section id="formatstr-str">
+<h3><code class="docutils literal notranslate"><span class="pre">formatStr(str)</span></code><a class="headerlink" href="#formatstr-str" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+</ul>
+</section>
+<section id="getprice-name">
+<h3><code class="docutils literal notranslate"><span class="pre">getPrice(name)</span></code><a class="headerlink" href="#getprice-name" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+</section>
+<section id="format-thousand-v-comma">
+<h3><code class="docutils literal notranslate"><span class="pre">format_thousand(v,</span> <span class="pre">comma)</span></code><a class="headerlink" href="#format-thousand-v-comma" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comma</span></code></p></li>
+</ul>
+</section>
+<section id="nicetimeformat-v-seconds">
+<h3><code class="docutils literal notranslate"><span class="pre">niceTimeFormat(v,</span> <span class="pre">seconds)</span></code><a class="headerlink" href="#nicetimeformat-v-seconds" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seconds</span></code></p></li>
+</ul>
+</section>
+<section id="sessiontime">
+<h3><code class="docutils literal notranslate"><span class="pre">sessionTime()</span></code><a class="headerlink" href="#sessiontime" title="Link to this heading">#</a></h3>
+</section>
+<section id="add-t-text-color-last">
+<h3><code class="docutils literal notranslate"><span class="pre">add(t,</span> <span class="pre">text,</span> <span class="pre">color,</span> <span class="pre">last)</span></code><a class="headerlink" href="#add-t-text-color-last" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last</span></code></p></li>
+</ul>
+</section>
+<section id="senddata">
+<h3><code class="docutils literal notranslate"><span class="pre">sendData()</span></code><a class="headerlink" href="#senddata" title="Link to this heading">#</a></h3>
+<p>Bot Server</p>
+</section>
+<section id="widget-ondoubleclick">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.onDoubleClick()</span></code><a class="headerlink" href="#widget-ondoubleclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="hightlighttext-widget-color-duration">
+<h3><code class="docutils literal notranslate"><span class="pre">hightlightText(widget,</span> <span class="pre">color,</span> <span class="pre">duration)</span></code><a class="headerlink" href="#hightlighttext-widget-color-duration" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></li>
+</ul>
+</section>
+<section id="niceformat-v">
+<h3><code class="docutils literal notranslate"><span class="pre">niceFormat(v)</span></code><a class="headerlink" href="#niceformat-v" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+</ul>
+</section>
+<section id="resetanalyzersessiondata">
+<h3><code class="docutils literal notranslate"><span class="pre">resetAnalyzerSessionData()</span></code><a class="headerlink" href="#resetanalyzersessiondata" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-resetsession-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.ResetSession.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-resetsession-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="mainwindow-contentspanel-settings-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.Settings.onClick()</span></code><a class="headerlink" href="#mainwindow-contentspanel-settings-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="settingswindow-closebutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsWindow.closeButton.onClick()</span></code><a class="headerlink" href="#settingswindow-closebutton-onclick" title="Link to this heading">#</a></h3>
+<p>extras window</p>
+</section>
+<section id="getframe-v">
+<h3><code class="docutils literal notranslate"><span class="pre">getFrame(v)</span></code><a class="headerlink" href="#getframe-v" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+</ul>
+</section>
+<section id="displaycondition-menuposition-lookthing-usething-creaturething">
+<h3><code class="docutils literal notranslate"><span class="pre">displayCondition(menuPosition,</span> <span class="pre">lookThing,</span> <span class="pre">useThing,</span> <span class="pre">creatureThing)</span></code><a class="headerlink" href="#displaycondition-menuposition-lookthing-usething-creaturething" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">menuPosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lookThing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">useThing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">creatureThing</span></code></p></li>
+</ul>
+</section>
+<section id="setframes">
+<h3><code class="docutils literal notranslate"><span class="pre">setFrames()</span></code><a class="headerlink" href="#setframes" title="Link to this heading">#</a></h3>
+</section>
+<section id="child-onhoverchange-widget-hovered">
+<h3><code class="docutils literal notranslate"><span class="pre">child.onHoverChange(widget,</span> <span class="pre">hovered)</span></code><a class="headerlink" href="#child-onhoverchange-widget-hovered" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hovered</span></code></p></li>
+</ul>
+</section>
+<section id="smallnumbers-n">
+<h3><code class="docutils literal notranslate"><span class="pre">smallNumbers(n)</span></code><a class="headerlink" href="#smallnumbers-n" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
+</ul>
+</section>
+<section id="refreshlist">
+<h3><code class="docutils literal notranslate"><span class="pre">refreshList()</span></code><a class="headerlink" href="#refreshlist" title="Link to this heading">#</a></h3>
+</section>
+<section id="label-remove-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">label.remove.onClick()</span></code><a class="headerlink" href="#label-remove-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="settingswindow-additem-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsWindow.addItem.onClick()</span></code><a class="headerlink" href="#settingswindow-additem-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="settingswindow-lootchannel-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsWindow.LootChannel.onClick(widget)</span></code><a class="headerlink" href="#settingswindow-lootchannel-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingswindow-rarityframes-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsWindow.RarityFrames.onClick(widget)</span></code><a class="headerlink" href="#settingswindow-rarityframes-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="capitalfistletter-str">
+<h3><code class="docutils literal notranslate"><span class="pre">capitalFistLetter(str)</span></code><a class="headerlink" href="#capitalfistletter-str" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+</ul>
+</section>
+<section id="getpanelheight-panel">
+<h3><code class="docutils literal notranslate"><span class="pre">getPanelHeight(panel)</span></code><a class="headerlink" href="#getpanelheight-panel" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">panel</span></code></p></li>
+</ul>
+</section>
+<section id="refreshloot">
+<h3><code class="docutils literal notranslate"><span class="pre">refreshLoot()</span></code><a class="headerlink" href="#refreshloot" title="Link to this heading">#</a></h3>
+</section>
+<section id="refreshkills">
+<h3><code class="docutils literal notranslate"><span class="pre">refreshKills()</span></code><a class="headerlink" href="#refreshkills" title="Link to this heading">#</a></h3>
+</section>
+<section id="refreshwaste">
+<h3><code class="docutils literal notranslate"><span class="pre">refreshWaste()</span></code><a class="headerlink" href="#refreshwaste" title="Link to this heading">#</a></h3>
+</section>
+<section id="hourval-v">
+<h3><code class="docutils literal notranslate"><span class="pre">hourVal(v)</span></code><a class="headerlink" href="#hourval-v" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></li>
+</ul>
+</section>
+<section id="bottingstats">
+<h3><code class="docutils literal notranslate"><span class="pre">bottingStats()</span></code><a class="headerlink" href="#bottingstats" title="Link to this heading">#</a></h3>
+</section>
+<section id="bottinglabels-lootworth-wasteworth-balance">
+<h3><code class="docutils literal notranslate"><span class="pre">bottingLabels(lootWorth,</span> <span class="pre">wasteWorth,</span> <span class="pre">balance)</span></code><a class="headerlink" href="#bottinglabels-lootworth-wasteworth-balance" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lootWorth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wasteWorth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">balance</span></code></p></li>
+</ul>
+</section>
+<section id="reportstats">
+<h3><code class="docutils literal notranslate"><span class="pre">reportStats()</span></code><a class="headerlink" href="#reportstats" title="Link to this heading">#</a></h3>
+</section>
+<section id="damagehour">
+<h3><code class="docutils literal notranslate"><span class="pre">damageHour()</span></code><a class="headerlink" href="#damagehour" title="Link to this heading">#</a></h3>
+</section>
+<section id="healhour">
+<h3><code class="docutils literal notranslate"><span class="pre">healHour()</span></code><a class="headerlink" href="#healhour" title="Link to this heading">#</a></h3>
+</section>
+<section id="wastehour">
+<h3><code class="docutils literal notranslate"><span class="pre">wasteHour()</span></code><a class="headerlink" href="#wastehour" title="Link to this heading">#</a></h3>
+</section>
+<section id="loothour">
+<h3><code class="docutils literal notranslate"><span class="pre">lootHour()</span></code><a class="headerlink" href="#loothour" title="Link to this heading">#</a></h3>
+</section>
+<section id="gethuntingdata">
+<h3><code class="docutils literal notranslate"><span class="pre">getHuntingData()</span></code><a class="headerlink" href="#gethuntingdata" title="Link to this heading">#</a></h3>
+</section>
+<section id="avgtable-t">
+<h3><code class="docutils literal notranslate"><span class="pre">avgTable(t)</span></code><a class="headerlink" href="#avgtable-t" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
+</ul>
+</section>
+<section id="analyzer-getkillsamount-name">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getKillsAmount(name)</span></code><a class="headerlink" href="#analyzer-getkillsamount-name" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+</section>
+<section id="analyzer-getlootedamount-nameorid">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getLootedAmount(nameOrId)</span></code><a class="headerlink" href="#analyzer-getlootedamount-nameorid" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nameOrId</span></code></p></li>
+</ul>
+</section>
+<section id="analyzer-gettotalprofit">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getTotalProfit()</span></code><a class="headerlink" href="#analyzer-gettotalprofit" title="Link to this heading">#</a></h3>
+</section>
+<section id="analyzer-gettotalwaste">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getTotalWaste()</span></code><a class="headerlink" href="#analyzer-gettotalwaste" title="Link to this heading">#</a></h3>
+</section>
+<section id="analyzer-getbalance">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getBalance()</span></code><a class="headerlink" href="#analyzer-getbalance" title="Link to this heading">#</a></h3>
+</section>
+<section id="analyzer-getxpgained">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getXpGained()</span></code><a class="headerlink" href="#analyzer-getxpgained" title="Link to this heading">#</a></h3>
+</section>
+<section id="analyzer-getxphour">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getXpHour()</span></code><a class="headerlink" href="#analyzer-getxphour" title="Link to this heading">#</a></h3>
+</section>
+<section id="analyzer-gettimetonextlevel">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getTimeToNextLevel()</span></code><a class="headerlink" href="#analyzer-gettimetonextlevel" title="Link to this heading">#</a></h3>
+</section>
+<section id="analyzer-getcavebotstats">
+<h3><code class="docutils literal notranslate"><span class="pre">Analyzer.getCaveBotStats()</span></code><a class="headerlink" href="#analyzer-getcavebotstats" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="getrootwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">getRootWidget</span></code><a class="headerlink" href="#getrootwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">element</span> <span class="pre">=</span> <span class="pre">g_ui.getRootWidget():recursiveGetChildById(window)</span></code></p>
+</section>
+<section id="tentmaximumheight">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code><a class="headerlink" href="#tentmaximumheight" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">mainWindow:setContentMaximumHeight(267)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">impactWindow:setContentMaximumHeight(615)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">xpWindow:setContentMaximumHeight(230)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">Time</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">second</span> <span class="pre">=</span> <span class="pre">&quot;Session:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">sessionTime()</span></code></p>
+</section>
+<section id="talk">
+<h3><code class="docutils literal notranslate"><span class="pre">Talk</span></code><a class="headerlink" href="#talk" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTalk(function(name,</span> <span class="pre">level,</span> <span class="pre">mode,</span> <span class="pre">text,</span> <span class="pre">channelId,</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="umber">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#umber" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">=</span> <span class="pre">tonumber(cd)</span> <span class="pre">*</span> <span class="pre">60</span> <span class="pre">*</span> <span class="pre">60</span> <span class="pre">--</span> <span class="pre">cd</span> <span class="pre">in</span> <span class="pre">seconds</span></code></p>
+</section>
+<section id="attackingcreaturechange">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackingCreatureChange</span></code><a class="headerlink" href="#attackingcreaturechange" title="Link to this heading">#</a></h3>
+<p>save outfits</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onAttackingCreatureChange(function(newCreature,</span> <span class="pre">oldCreature)</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">id</span> <span class="pre">=</span> <span class="pre">tonumber(k)</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">tonumber(widget:getParent():getId())</span> <span class="pre">then</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>only amount have changed, ignore</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">tonumber(widget:getParent():getId())</span> <span class="pre">==</span> <span class="pre">id</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">tonumber(widget:getParent():getId())</span> <span class="pre">then</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>only amount have changed, ignore</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">tonumber(widget:getParent():getId())</span> <span class="pre">==</span> <span class="pre">id</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">Time</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">sessionTime()</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">Time</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">sessionTime()</span></code></p>
+</section>
+<section id="data">
+<h3><code class="docutils literal notranslate"><span class="pre">Data</span></code><a class="headerlink" href="#data" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">resetAnalyzerSessionData()</span></code></p>
+</section>
+<section id="event">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#event" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(10*1000,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(i</span> <span class="pre">*</span> <span class="pre">250,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="textmessage">
+<h3><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code><a class="headerlink" href="#textmessage" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTextMessage(function(mode,</span> <span class="pre">text)</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(3000,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(math.max(#text</span> <span class="pre">*</span> <span class="pre">50,</span> <span class="pre">2000),</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">Data</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">resetAnalyzerSessionData()</span></code></p>
+</section>
+<section id="tainers">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#tainers" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">_,</span> <span class="pre">container</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="containeropen">
+<h3><code class="docutils literal notranslate"><span class="pre">ContainerOpen</span></code><a class="headerlink" href="#containeropen" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onContainerOpen(function(container,</span> <span class="pre">previousContainer)</span></code></p>
+</section>
+<section id="additem">
+<h3><code class="docutils literal notranslate"><span class="pre">AddItem</span></code><a class="headerlink" href="#additem" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onAddItem(function(container,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p>
+</section>
+<section id="removeitem">
+<h3><code class="docutils literal notranslate"><span class="pre">RemoveItem</span></code><a class="headerlink" href="#removeitem" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onRemoveItem(function(container,</span> <span class="pre">slot,</span> <span class="pre">item)</span></code></p>
+</section>
+<section id="containerupdateitem">
+<h3><code class="docutils literal notranslate"><span class="pre">ContainerUpdateItem</span></code><a class="headerlink" href="#containerupdateitem" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onContainerUpdateItem(function(container,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(5,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">newPrice</span> <span class="pre">=</span> <span class="pre">tonumber(settingsWindow.NewPrice:getText())</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(5,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTextMessage(function(mode,</span> <span class="pre">text)</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">table.insert(labelTable,</span> <span class="pre">{m=k,</span> <span class="pre">d=tonumber(v)})</span></code></p>
+</section>
+<section id="id24">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p>loot analyzer adding</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">containers</span> <span class="pre">=</span> <span class="pre">CaveBot.GetLootContainers()</span></code></p>
+</section>
+<section id="id25">
+<h3><code class="docutils literal notranslate"><span class="pre">AddItem</span></code><a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onAddItem(function(container,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p>
+</section>
+<section id="taineritem">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code><a class="headerlink" href="#taineritem" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">table.find(containers,</span> <span class="pre">container:getContainerItem():getId())</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id26">
+<h3><code class="docutils literal notranslate"><span class="pre">ContainerUpdateItem</span></code><a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onContainerUpdateItem(function(container,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p>
+</section>
+<section id="id27">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code><a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">table.find(containers,</span> <span class="pre">container:getContainerItem():getId())</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id28">
+<h3><code class="docutils literal notranslate"><span class="pre">ContainerUpdateItem</span></code><a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onContainerUpdateItem(function(container,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p>
+</section>
+<section id="id29">
+<h3><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code><a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTextMessage(function(mode,</span> <span class="pre">text)</span></code></p>
+</section>
+<section id="id30">
+<h3><code class="docutils literal notranslate"><span class="pre">Time</span></code><a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;Session</span> <span class="pre">Time:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">sessionTime()</span> <span class="pre">..</span> <span class="pre">&quot;,</span> <span class="pre">Exp</span> <span class="pre">Gained:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">format_thousand(expGained())</span> <span class="pre">..</span> <span class="pre">&quot;,</span> <span class="pre">Exp/h:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">expPerHour()</span></code></p>
+</section>
+<section id="ds">
+<h3><code class="docutils literal notranslate"><span class="pre">ds</span></code><a class="headerlink" href="#ds" title="Link to this heading">#</a></h3>
+<p>hps and dps</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">curHPS</span> <span class="pre">=</span> <span class="pre">valueInSeconds(healTable)</span></code></p>
+</section>
+<section id="id31">
+<h3><code class="docutils literal notranslate"><span class="pre">ds</span></code><a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">curDPS</span> <span class="pre">=</span> <span class="pre">valueInSeconds(dmgTable)</span></code></p>
+</section>
+<section id="id32">
+<h3><code class="docutils literal notranslate"><span class="pre">Time</span></code><a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<p>hunt window</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">sessionTimeLabel:setText(sessionTime())</span></code></p>
+</section>
+<section id="id33">
+<h3><code class="docutils literal notranslate"><span class="pre">ds</span></code><a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">drawGraph(dmgGraph,</span> <span class="pre">valueInSeconds(dmgTable)</span> <span class="pre">or</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="id34">
+<h3><code class="docutils literal notranslate"><span class="pre">ds</span></code><a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">drawGraph(healGraph,</span> <span class="pre">valueInSeconds(healTable)</span> <span class="pre">or</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="id35">
+<h3><code class="docutils literal notranslate"><span class="pre">Time</span></code><a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">partySessionTimeLabel:setText(sessionTime())</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time"><code class="docutils literal notranslate"><span class="pre">time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refilltime"><code class="docutils literal notranslate"><span class="pre">refillTime</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trackedloot"><code class="docutils literal notranslate"><span class="pre">trackedLoot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trackedboss"><code class="docutils literal notranslate"><span class="pre">trackedBoss</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outfits"><code class="docutils literal notranslate"><span class="pre">outfits</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customprices"><code class="docutils literal notranslate"><span class="pre">customPrices</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">refillTime</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dmgtable"><code class="docutils literal notranslate"><span class="pre">dmgTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#healtable"><code class="docutils literal notranslate"><span class="pre">healTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exptable"><code class="docutils literal notranslate"><span class="pre">expTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dmgdistribution"><code class="docutils literal notranslate"><span class="pre">dmgDistribution</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looteditems"><code class="docutils literal notranslate"><span class="pre">lootedItems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usedata"><code class="docutils literal notranslate"><span class="pre">useData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useditems"><code class="docutils literal notranslate"><span class="pre">usedItems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#killlist"><code class="docutils literal notranslate"><span class="pre">killList</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer"><code class="docutils literal notranslate"><span class="pre">Analyzer</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsumstats"><code class="docutils literal notranslate"><span class="pre">getSumStats()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clipboarddata"><code class="docutils literal notranslate"><span class="pre">clipboardData()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-huntinganalyzer-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.HuntingAnalyzer.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-onclose"><code class="docutils literal notranslate"><span class="pre">mainWindow.onClose()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-lootanalyzer-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.LootAnalyzer.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-supplyanalyzer-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.SupplyAnalyzer.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-impactanalyzer-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.ImpactAnalyzer.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-xpanalyzer-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.XPAnalyzer.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-partyhunt-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.PartyHunt.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-droptracker-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.DropTracker.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-stats-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.Stats.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-bosstracker-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.BossTracker.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bosswindow-contentspanel-search-ontextchange-widget-newtext"><code class="docutils literal notranslate"><span class="pre">bossWindow.contentsPanel.search.onTextChange(widget,</span> <span class="pre">newText)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newtimeformat-v"><code class="docutils literal notranslate"><span class="pre">newTimeFormat(v)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createbosspanel-bossname-duetime"><code class="docutils literal notranslate"><span class="pre">createBossPanel(bossName,</span> <span class="pre">dueTime)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maintaindroptable"><code class="docutils literal notranslate"><span class="pre">maintainDropTable()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createtrackeditems"><code class="docutils literal notranslate"><span class="pre">createTrackedItems()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#droploot-ondoubleclick"><code class="docutils literal notranslate"><span class="pre">dropLoot.onDoubleClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#item-onitemchange-widget"><code class="docutils literal notranslate"><span class="pre">item.onItemChange(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">dropLoot.onDoubleClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">item.onItemChange(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcolor-v"><code class="docutils literal notranslate"><span class="pre">getColor(v)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatstr-str"><code class="docutils literal notranslate"><span class="pre">formatStr(str)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getprice-name"><code class="docutils literal notranslate"><span class="pre">getPrice(name)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-thousand-v-comma"><code class="docutils literal notranslate"><span class="pre">format_thousand(v,</span> <span class="pre">comma)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nicetimeformat-v-seconds"><code class="docutils literal notranslate"><span class="pre">niceTimeFormat(v,</span> <span class="pre">seconds)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessiontime"><code class="docutils literal notranslate"><span class="pre">sessionTime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-t-text-color-last"><code class="docutils literal notranslate"><span class="pre">add(t,</span> <span class="pre">text,</span> <span class="pre">color,</span> <span class="pre">last)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#senddata"><code class="docutils literal notranslate"><span class="pre">sendData()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-ondoubleclick"><code class="docutils literal notranslate"><span class="pre">widget.onDoubleClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hightlighttext-widget-color-duration"><code class="docutils literal notranslate"><span class="pre">hightlightText(widget,</span> <span class="pre">color,</span> <span class="pre">duration)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#niceformat-v"><code class="docutils literal notranslate"><span class="pre">niceFormat(v)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetanalyzersessiondata"><code class="docutils literal notranslate"><span class="pre">resetAnalyzerSessionData()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-resetsession-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.ResetSession.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-contentspanel-settings-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.contentsPanel.Settings.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingswindow-closebutton-onclick"><code class="docutils literal notranslate"><span class="pre">settingsWindow.closeButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getframe-v"><code class="docutils literal notranslate"><span class="pre">getFrame(v)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displaycondition-menuposition-lookthing-usething-creaturething"><code class="docutils literal notranslate"><span class="pre">displayCondition(menuPosition,</span> <span class="pre">lookThing,</span> <span class="pre">useThing,</span> <span class="pre">creatureThing)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setframes"><code class="docutils literal notranslate"><span class="pre">setFrames()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#child-onhoverchange-widget-hovered"><code class="docutils literal notranslate"><span class="pre">child.onHoverChange(widget,</span> <span class="pre">hovered)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smallnumbers-n"><code class="docutils literal notranslate"><span class="pre">smallNumbers(n)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refreshlist"><code class="docutils literal notranslate"><span class="pre">refreshList()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#label-remove-onclick"><code class="docutils literal notranslate"><span class="pre">label.remove.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingswindow-additem-onclick"><code class="docutils literal notranslate"><span class="pre">settingsWindow.addItem.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingswindow-lootchannel-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsWindow.LootChannel.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingswindow-rarityframes-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsWindow.RarityFrames.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capitalfistletter-str"><code class="docutils literal notranslate"><span class="pre">capitalFistLetter(str)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getpanelheight-panel"><code class="docutils literal notranslate"><span class="pre">getPanelHeight(panel)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refreshloot"><code class="docutils literal notranslate"><span class="pre">refreshLoot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refreshkills"><code class="docutils literal notranslate"><span class="pre">refreshKills()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refreshwaste"><code class="docutils literal notranslate"><span class="pre">refreshWaste()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hourval-v"><code class="docutils literal notranslate"><span class="pre">hourVal(v)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bottingstats"><code class="docutils literal notranslate"><span class="pre">bottingStats()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bottinglabels-lootworth-wasteworth-balance"><code class="docutils literal notranslate"><span class="pre">bottingLabels(lootWorth,</span> <span class="pre">wasteWorth,</span> <span class="pre">balance)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reportstats"><code class="docutils literal notranslate"><span class="pre">reportStats()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#damagehour"><code class="docutils literal notranslate"><span class="pre">damageHour()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#healhour"><code class="docutils literal notranslate"><span class="pre">healHour()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wastehour"><code class="docutils literal notranslate"><span class="pre">wasteHour()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loothour"><code class="docutils literal notranslate"><span class="pre">lootHour()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gethuntingdata"><code class="docutils literal notranslate"><span class="pre">getHuntingData()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgtable-t"><code class="docutils literal notranslate"><span class="pre">avgTable(t)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-getkillsamount-name"><code class="docutils literal notranslate"><span class="pre">Analyzer.getKillsAmount(name)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-getlootedamount-nameorid"><code class="docutils literal notranslate"><span class="pre">Analyzer.getLootedAmount(nameOrId)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-gettotalprofit"><code class="docutils literal notranslate"><span class="pre">Analyzer.getTotalProfit()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-gettotalwaste"><code class="docutils literal notranslate"><span class="pre">Analyzer.getTotalWaste()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-getbalance"><code class="docutils literal notranslate"><span class="pre">Analyzer.getBalance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-getxpgained"><code class="docutils literal notranslate"><span class="pre">Analyzer.getXpGained()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-getxphour"><code class="docutils literal notranslate"><span class="pre">Analyzer.getXpHour()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-gettimetonextlevel"><code class="docutils literal notranslate"><span class="pre">Analyzer.getTimeToNextLevel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzer-getcavebotstats"><code class="docutils literal notranslate"><span class="pre">Analyzer.getCaveBotStats()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getrootwidget"><code class="docutils literal notranslate"><span class="pre">getRootWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tentmaximumheight"><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">tentMaximumHeight</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">Time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#talk"><code class="docutils literal notranslate"><span class="pre">Talk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umber"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackingcreaturechange"><code class="docutils literal notranslate"><span class="pre">AttackingCreatureChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">Time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">Time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textmessage"><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainers"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#containeropen"><code class="docutils literal notranslate"><span class="pre">ContainerOpen</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additem"><code class="docutils literal notranslate"><span class="pre">AddItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removeitem"><code class="docutils literal notranslate"><span class="pre">RemoveItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#containerupdateitem"><code class="docutils literal notranslate"><span class="pre">ContainerUpdateItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25"><code class="docutils literal notranslate"><span class="pre">AddItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taineritem"><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26"><code class="docutils literal notranslate"><span class="pre">ContainerUpdateItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27"><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28"><code class="docutils literal notranslate"><span class="pre">ContainerUpdateItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29"><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30"><code class="docutils literal notranslate"><span class="pre">Time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ds"><code class="docutils literal notranslate"><span class="pre">ds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31"><code class="docutils literal notranslate"><span class="pre">ds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32"><code class="docutils literal notranslate"><span class="pre">Time</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33"><code class="docutils literal notranslate"><span class="pre">ds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34"><code class="docutils literal notranslate"><span class="pre">ds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35"><code class="docutils literal notranslate"><span class="pre">Time</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../../_sources/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/analyzer.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

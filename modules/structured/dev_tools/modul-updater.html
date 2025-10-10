@@ -1,0 +1,1073 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Moduł: | Moduł: updater" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-updater.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="updater.otmod: updater.otui:" />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="updater.otmod: updater.otui:" />
+
+    <title>Moduł: | Moduł: updater &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/dev_tools/modul-updater';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-updater.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">updater</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-updater">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">updater</span></code><a class="headerlink" href="#modul-modul-updater" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nv">Updater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+
+<span class="nv">Updater</span><span class="p">.</span><span class="py">maxRetries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+
+<span class="cm">--[[</span>
+
+<span class="cm">]]</span><span class="c1">--</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">updaterWindow</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">loadModulesFunction</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">scheduledEvent</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">httpOperationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">onLog</span><span class="p">(</span><span class="nv">level</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">time</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">level</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">LogError</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="nv">message</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">g_logger</span><span class="p">.</span><span class="nf">setOnLog</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">initAppWindow</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">getLayout</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;mobile&quot;</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">setMinimumSize</span><span class="p">({</span><span class="w"> </span><span class="nv">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="nv">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">360</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">setMinimumSize</span><span class="p">({</span><span class="w"> </span><span class="nv">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="nv">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">640</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- window size</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="nv">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_settings</span><span class="p">.</span><span class="nf">getSize</span><span class="p">(</span><span class="s1">&#39;window-size&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">resize</span><span class="p">(</span><span class="nv">size</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">-- window position, default is the screen center</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">displaySize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">getDisplaySize</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">defaultPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">displaySize</span><span class="p">.</span><span class="py">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">size</span><span class="p">.</span><span class="py">width</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+
+<span class="w">                       </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">displaySize</span><span class="p">.</span><span class="py">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">size</span><span class="p">.</span><span class="py">height</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_settings</span><span class="p">.</span><span class="nf">getPoint</span><span class="p">(</span><span class="s1">&#39;window-pos&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">defaultPos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">move</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">-- window maximized?</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">maximized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_settings</span><span class="p">.</span><span class="nf">getBoolean</span><span class="p">(</span><span class="s1">&#39;window-maximized&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">maximized</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">maximize</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">setTitle</span><span class="p">(</span><span class="nv">g_app</span><span class="p">.</span><span class="nf">getName</span><span class="p">())</span>
+
+<span class="w">  </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">setIcon</span><span class="p">(</span><span class="s1">&#39;/images/clienticon&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">isMobile</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">scale</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loadModules</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">loadModulesFunction</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">tmpLoadFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">loadModulesFunction</span>
+
+<span class="w">    </span><span class="nv">loadModulesFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">    </span><span class="nf">tmpLoadFunc</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">downloadFiles</span><span class="p">(</span><span class="nv">url</span><span class="p">,</span><span class="w"> </span><span class="nv">files</span><span class="p">,</span><span class="w"> </span><span class="nv">index</span><span class="p">,</span><span class="w"> </span><span class="nv">retries</span><span class="p">,</span><span class="w"> </span><span class="nv">doneCallback</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">files</span><span class="p">[</span><span class="nv">index</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">entry</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- finished</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">doneCallback</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">file_checksum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">retries</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadStatus</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Downloading (%i retry):</span><span class="se">\n</span><span class="s2">%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">retries</span><span class="p">,</span><span class="w"> </span><span class="nv">file</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadStatus</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Downloading:</span><span class="se">\n</span><span class="s2">%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">file</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">mainProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nb">math.floor</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">index</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">#</span><span class="nv">files</span><span class="p">))</span>
+
+<span class="w">  </span><span class="nv">httpOperationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">HTTP</span><span class="p">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">url</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">file</span><span class="p">,</span><span class="w"> </span><span class="nv">file</span><span class="p">,</span>
+
+<span class="w">    </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">file</span><span class="p">,</span><span class="w"> </span><span class="nv">checksum</span><span class="p">,</span><span class="w"> </span><span class="nv">err</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">err</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">checksum</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">file_checksum</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Invalid checksum of: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">Should be &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">file_checksum</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;, is: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">checksum</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">err</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">retries</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nv">Updater</span><span class="p">.</span><span class="py">maxRetries</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">          </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="s2">&quot;Can&#39;t download file: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">Error: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">err</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kr">else</span>
+
+<span class="w">          </span><span class="nv">scheduledEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">            </span><span class="nf">downloadFiles</span><span class="p">(</span><span class="nv">url</span><span class="p">,</span><span class="w"> </span><span class="nv">files</span><span class="p">,</span><span class="w"> </span><span class="nv">index</span><span class="p">,</span><span class="w"> </span><span class="nv">retries</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">doneCallback</span><span class="p">)</span>
+
+<span class="w">          </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kr">end</span>
+
+<span class="w">        </span><span class="kr">return</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="nf">downloadFiles</span><span class="p">(</span><span class="nv">url</span><span class="p">,</span><span class="w"> </span><span class="nv">files</span><span class="p">,</span><span class="w"> </span><span class="nv">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">doneCallback</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span>
+
+<span class="w">    </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">progress</span><span class="p">,</span><span class="w"> </span><span class="nv">speed</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">progress</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadProgress</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">speed</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; kbps&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">updateFiles</span><span class="p">(</span><span class="nv">data</span><span class="p">,</span><span class="w"> </span><span class="nv">keepCurrentFiles</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">data</span><span class="p">)</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s2">&quot;table&quot;</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="s2">&quot;Invalid data from updater api (not table)&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]:</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">])</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;files&quot;</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">])</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]:</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="s2">&quot;Invalid data from updater api: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="nv">data</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;keepFiles&quot;</span><span class="p">]</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">keepCurrentFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">newFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">finalFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">localFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">filesChecksums</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">toUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="c1">-- keep all files or files from data/things</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">file</span><span class="p">,</span><span class="w"> </span><span class="nv">checksum</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">localFiles</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">keepCurrentFiles</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">string.find</span><span class="p">(</span><span class="nv">file</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;data/things&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">finalFiles</span><span class="p">,</span><span class="w"> </span><span class="nv">file</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- update files</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">file</span><span class="p">,</span><span class="w"> </span><span class="nv">checksum</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;files&quot;</span><span class="p">])</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">finalFiles</span><span class="p">,</span><span class="w"> </span><span class="nv">file</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">localFiles</span><span class="p">[</span><span class="nv">file</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">localFiles</span><span class="p">[</span><span class="nv">file</span><span class="p">]</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">checksum</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">toUpdate</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">file</span><span class="p">,</span><span class="w"> </span><span class="nv">checksum</span><span class="p">})</span>
+
+<span class="w">      </span><span class="nv">newFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- update binary</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;table&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;file&quot;</span><span class="p">]:</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">selfChecksum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">selfChecksum</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">selfChecksum</span><span class="p">:</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">selfChecksum</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;checksum&quot;</span><span class="p">]</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;file&quot;</span><span class="p">]</span>
+
+<span class="w">      </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">toUpdate</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">binary</span><span class="p">,</span><span class="w"> </span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;binary&quot;</span><span class="p">][</span><span class="s2">&quot;checksum&quot;</span><span class="p">]})</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="o">#</span><span class="nv">toUpdate</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- nothing to update</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">mainProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">scheduledEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="nv">Updater</span><span class="p">.</span><span class="py">abort</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- update of some files require full client restart</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">forceRestart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">reloadModules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">forceRestartPattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;init.lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;corelib&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;updater&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;otmod&quot;</span><span class="p">}</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">toUpdate</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">__</span><span class="p">,</span><span class="w"> </span><span class="nv">pattern</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">forceRestartPattern</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nb">string.find</span><span class="p">(</span><span class="nv">file</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nv">pattern</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">forceRestart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nb">string.find</span><span class="p">(</span><span class="nv">file</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;data/things&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">reloadModules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">status</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Updating %i files&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="nv">toUpdate</span><span class="p">))</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">mainProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadProgress</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadStatus</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">changeUrlButton</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">downloadFiles</span><span class="p">(</span><span class="nv">data</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span><span class="w"> </span><span class="nv">toUpdate</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">status</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Updating client (may take few seconds)&quot;</span><span class="p">))</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">mainProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadProgress</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">downloadStatus</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">scheduledEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">restart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">binary</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="nv">loadModulesFunction</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">reloadModules</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">forceRestart</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">newFiles</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">updateData</span><span class="p">(</span><span class="nv">finalFiles</span><span class="p">,</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">restart</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">binary</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">updateExecutable</span><span class="p">(</span><span class="nv">binary</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">restart</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">restart</span><span class="p">()</span>
+
+<span class="w">      </span><span class="kr">else</span>
+
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">reloadModules</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">          </span><span class="nv">g_modules</span><span class="p">.</span><span class="nf">reloadModules</span><span class="p">()</span>
+
+<span class="w">        </span><span class="kr">end</span>
+
+<span class="w">        </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">abort</span><span class="p">()</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- public functions</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">Updater</span><span class="p">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">loadModulesFunc</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">g_logger</span><span class="p">.</span><span class="nf">setOnLog</span><span class="p">(</span><span class="nv">onLog</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">loadModulesFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">loadModulesFunc</span>
+
+<span class="w">  </span><span class="nf">initAppWindow</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">check</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">Updater</span><span class="p">.</span><span class="nf">terminate</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">loadModulesFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">abort</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">Updater</span><span class="p">.</span><span class="nf">abort</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">HTTP</span><span class="p">.</span><span class="nf">cancel</span><span class="p">(</span><span class="nv">httpOperationId</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">scheduledEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">loadModules</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">Updater</span><span class="p">.</span><span class="nf">check</span><span class="p">(</span><span class="nv">args</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">displayUI</span><span class="p">(</span><span class="s1">&#39;updater&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">:</span><span class="nf">focus</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">updaterWindow</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">updateData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">progressUpdater</span><span class="p">(</span><span class="nv">value</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">scheduledEvent</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Timeout&quot;</span><span class="p">))</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">updateData</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="nv">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">isMobile</span><span class="p">()</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">ALLOW_CUSTOM_SERVERS</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">loadModulesFunc</span><span class="p">))</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- gives 3s to set custom updater for mobile version</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nf">updateFiles</span><span class="p">(</span><span class="nv">updateData</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">scheduledEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nf">progressUpdater</span><span class="p">(</span><span class="nv">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">updaterWindow</span><span class="p">.</span><span class="py">mainProgress</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">value</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">progressUpdater</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">httpOperationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">HTTP</span><span class="p">.</span><span class="nf">postJSON</span><span class="p">(</span><span class="nv">Services</span><span class="p">.</span><span class="py">updater</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">APP_VERSION</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">getVersion</span><span class="p">(),</span>
+
+<span class="w">    </span><span class="nv">os</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">getOs</span><span class="p">(),</span>
+
+<span class="w">    </span><span class="nv">platform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_window</span><span class="p">.</span><span class="nf">getPlatformType</span><span class="p">(),</span>
+
+<span class="w">    </span><span class="nv">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">args</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">data</span><span class="p">,</span><span class="w"> </span><span class="nv">err</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">err</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="nv">err</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">updateData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">data</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">Updater</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="nv">message</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">scheduledEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">displayErrorBox</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Updater Error&quot;</span><span class="p">),</span><span class="w"> </span><span class="nv">message</span><span class="p">).</span><span class="nv">onOk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">abort</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">Updater</span><span class="p">.</span><span class="nf">changeUrl</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">scheduledEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_textedit</span><span class="p">.</span><span class="nf">edit</span><span class="p">(</span><span class="nv">Services</span><span class="p">.</span><span class="py">updater</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">title</span><span class="o">=</span><span class="s2">&quot;Enter updater url&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">width</span><span class="o">=</span><span class="mi">300</span><span class="p">},</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">newUrl</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">newUrl</span><span class="p">:</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">Services</span><span class="p">.</span><span class="py">updater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">newUrl</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">updaterWindow</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">updaterWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">Updater</span><span class="p">.</span><span class="nf">check</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="updater-otmod">
+<h1>updater.otmod<a class="headerlink" href="#updater-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: updater
+
+  description: Updates client
+
+  author: otclient@otclient.ovh
+
+  website: otclient.ovh
+
+  reloadable: false
+
+  scripts: [ updater ]
+
+  dependencies: [ client_locales, client_styles, client_textedit ]
+
+  @onUnload: Updater.terminate()
+
+  load-later:
+
+    - client_background
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="updater-otui">
+<h1>updater.otui<a class="headerlink" href="#updater-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+StaticMainWindow
+
+  id: updaterWindow
+
+  !text: tr(&#39;Updater&#39;)
+
+  width: 350
+
+  layout:
+
+    type: verticalBox
+
+    fit-children: true
+
+  Label
+
+    id: status
+
+    !text: tr(&#39;Checking for updates&#39;)
+
+    text-align: center
+
+  ProgressBar
+
+    id: mainProgress
+
+    height: 15
+
+    background-color: #4444ff
+
+    margin-bottom: 5
+
+    margin-top: 5
+
+  Label
+
+    id: downloadStatus
+
+    text-align: center
+
+    text-auto-resize: true
+
+    text-wrap: true
+
+    visible: false
+
+  ProgressBar
+
+    id: downloadProgress
+
+    height: 15
+
+    background-color: #4444ff
+
+    margin-bottom: 5
+
+    margin-top: 5
+
+    visible: false
+
+  Button
+
+    id: changeUrlButton
+
+    margin-left: 50
+
+    margin-right: 50
+
+    margin-top: 5
+
+    margin-bottom: 10
+
+    !text: tr(&#39;Change updater URL&#39;)
+
+    @onClick: Updater.changeUrl()
+
+    $!mobile:
+
+      visible: false
+
+  Button
+
+    margin-left: 90
+
+    margin-right: 90
+
+    !text: tr(&#39;Cancel&#39;)
+
+    @onClick: Updater.abort()
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">updater</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#updater-otmod">updater.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#updater-otui">updater.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/dev_tools/modul-updater.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Dev Module for Hot‑Reload (MASTER) – OTClient v8" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://lukaszj321.github.io/otcv8-dev/knowledge/dev_module_for_hot_reload_master_otclient_v_8.html" property="og:url"/>
+<meta content="OTClient v8" property="og:site_name"/>
+<meta content="Cel: dostarczyć produkcyjny moduł Lua wspierający hot‑reload skryptów OTClient oraz NDJSON logowanie do integracji ze Studio. Dokument zawiera: pełną struktu..." property="og:description"/>
+<meta content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" property="og:image"/>
+<meta content="OTClient v8" property="og:image:alt"/>
+<meta content="Cel: dostarczyć produkcyjny moduł Lua wspierający hot‑reload skryptów OTClient oraz NDJSON logowanie do integracji ze Studio. Dokument zawiera: pełną struktu..." name="description"/>
+<title>Dev Module for Hot‑Reload (MASTER) – OTClient v8 — OTClient v8 0.1 documentation</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+<noscript>
+<style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+</noscript>
+<!-- Loaded before other Sphinx assets -->
+<link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../_static/pygments.css?v=8f2a1f02" rel="stylesheet" type="text/css"/>
+<link href="../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../_static/sphinx-codeautolink.css?v=b2176991" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster.custom.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster.bundle.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-shadow.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-punk.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-noir.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-light.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-borderless.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/micromodal.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<!-- So that users can add custom icons -->
+<script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<link as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<script src="../_static/jquery.js?v=5d32c60e"></script>
+<script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+<script src="../_static/documentation_options.js?v=2709fde1"></script>
+<script src="../_static/doctools.js?v=9a2dae69"></script>
+<script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../_static/copybutton.js?v=a46eff05"></script>
+<script src="../_static/js/hoverxref.js"></script>
+<script src="../_static/js/tooltipster.bundle.min.js"></script>
+<script src="../_static/js/micromodal.min.js"></script>
+<script src="../_static/design-tabs.js?v=f930bc37"></script>
+<script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/dev_module_for_hot_reload_master_otclient_v_8';</script>
+<link href="https://lukaszj321.github.io/otcv8-dev/knowledge/dev_module_for_hot_reload_master_otclient_v_8.html" rel="canonical"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+<meta content="" name="docsearch:version"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<dialog id="pst-search-dialog">
+<form action="../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search the docs ..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" name="q" placeholder="Search the docs ..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</dialog>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+<button aria-label="Site navigation" class="pst-navbar-icon sidebar-toggle primary-toggle">
+<span class="fa-solid fa-bars"></span>
+</button>
+<div class="col-lg-3 navbar-header-items__start">
+<div class="navbar-item">
+<a class="navbar-brand logo" href="../index.html">
+<p class="title logo__title">OTClient v8 0.1 documentation</p>
+</a></div>
+</div>
+<div class="col-lg-9 navbar-header-items">
+<div class="me-auto navbar-header-items__center">
+<div class="navbar-item">
+<nav>
+<ul class="bd-navbar-elements navbar-nav">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+</ul>
+</nav></div>
+</div>
+<div class="navbar-header-items__end">
+<div class="navbar-item navbar-persistent--container">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+</div>
+<div class="navbar-item">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+</button></div>
+</div>
+</div>
+<div class="navbar-persistent--mobile">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+</div>
+<button aria-label="On this page" class="pst-navbar-icon sidebar-toggle secondary-toggle">
+<span class="fa-solid fa-outdent"></span>
+</button>
+</div>
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<dialog id="pst-primary-sidebar-modal"></dialog>
+<div class="bd-sidebar-primary bd-sidebar hide-on-wide" id="pst-primary-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+<div class="sidebar-header-items__center">
+<div class="navbar-item">
+<nav>
+<ul class="bd-navbar-elements navbar-nav">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+</ul>
+</nav></div>
+</div>
+<div class="sidebar-header-items__end">
+<div class="navbar-item">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+</button></div>
+</div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+<div class="sidebar-primary-item">
+<div class="flat" data-ea-manual="true" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" id="ethical-ad-placement">
+</div></div>
+</div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item">
+<nav aria-label="Breadcrumb" class="d-print-none">
+<ul class="bd-breadcrumbs">
+<li class="breadcrumb-item breadcrumb-home">
+<a aria-label="Home" class="nav-link" href="../index.html">
+<i class="fa-solid fa-home"></i>
+</a>
+</li>
+<li aria-current="page" class="breadcrumb-item active"><span class="ellipsis">Dev Module for Hot‑Reload (MASTER) – <strong>OTClient v8</strong></span></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section id="dev-module-for-hotreload-master-otclient-v8">
+<h1>Dev Module for Hot‑Reload (MASTER) – <strong>OTClient v8</strong><a class="headerlink" href="#dev-module-for-hotreload-master-otclient-v8" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Cel: dostarczyć <strong>produkcyjny moduł Lua</strong> wspierający hot‑reload skryptów OTClient oraz <strong>NDJSON logowanie</strong> do integracji ze Studio. Dokument zawiera: pełną strukturę plików, kompletny kod, konfigurację, protokoły, scenariusze testowe, checklisty i wskazówki operacyjne. <strong>Transfer 1:1</strong> – gotowe do wklejenia.</p>
+</div></blockquote>
+</section>
+<hr class="docutils"/>
+<section id="zalozenia-i-zakres">
+<h1>0) Założenia i zakres<a class="headerlink" href="#zalozenia-i-zakres" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Hot‑reload:</strong> wyzwalane skrótem klawiszowym w kliencie <strong>lub</strong> przez „flag file” (<code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code>).</p></li>
+<li><p><strong>Logi NDJSON:</strong> zapisywane do <code class="docutils literal notranslate"><span class="pre">modules/.dev/log.jsonl</span></code> (rotacja rozmiaru).</p></li>
+<li><p><strong>Bezpieczeństwo:</strong> brak step‑debuggera; debug przez logi i komunikaty.</p></li>
+<li><p><strong>Zależności:</strong> standardowe API OTClient v8 (<a class="reference external" href="http://m.in">m.in</a>. <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code>, <code class="docutils literal notranslate"><span class="pre">g_resources.readFile/writeFile</span></code>, <code class="docutils literal notranslate"><span class="pre">addEvent/scheduleEvent</span></code>).</p></li>
+</ul>
+</section>
+<hr class="docutils"/>
+<section id="struktura-plikow-modulu">
+<h1>1) Struktura plików modułu<a class="headerlink" href="#struktura-plikow-modulu" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>modules/
+└─ dev/
+   ├─ dev.otmod
+   ├─ dev.lua
+   └─ ui/
+      └─ dev.otui   # (opcjonalne mini‑UI)
+# Katalog roboczy dla flag/logów (musi istnieć):
+modules/.dev/
+   ├─ reload.flag   # plik‑flaga (pusty lub z treścią)
+   └─ log.jsonl     # NDJSON (tworzony automatycznie)
+</pre></div>
+</div>
+<blockquote>
+<div><p>Uwaga: Utwórz katalog <code class="docutils literal notranslate"><span class="pre">modules/.dev/</span></code> ręcznie, jeśli nie istnieje.</p>
+</div></blockquote>
+</section>
+<hr class="docutils"/>
+<section id="dev-otmod-pelny-plik">
+<h1>2) <code class="docutils literal notranslate"><span class="pre">dev.otmod</span></code> (pełny plik)<a class="headerlink" href="#dev-otmod-pelny-plik" title="Link to this heading">#</a></h1>
+<div class="highlight-otml notranslate"><div class="highlight"><pre><span></span>name: dev
+description: Development tools (hot-reload + NDJSON log)
+# Moduł ładuje dev.lua przy starcie klienta
+# (dodatkowe pola otmod według konwencji projektu)
+</pre></div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="ui-dev-otui-opcjonalny-szkielet-ui">
+<h1>3) <code class="docutils literal notranslate"><span class="pre">ui/dev.otui</span></code> (opcjonalny szkielet UI)<a class="headerlink" href="#ui-dev-otui-opcjonalny-szkielet-ui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>DevWindow &lt; UIWidget {
+  id: devWindow
+  width: 260
+  height: 120
+  text: tr("Dev Tools")
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>OTUI: wcięcia 2 spacje; kolejność pól: GEOMETRIA → STYL → ZACHOWANIE.</p>
+</div></blockquote>
+</section>
+<hr class="docutils"/>
+<section id="dev-lua-pelny-produkcyjny-kod-modulu">
+<h1>4) <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code> (pełny, produkcyjny kod modułu)<a class="headerlink" href="#dev-lua-pelny-produkcyjny-kod-modulu" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- modules/dev/dev.lua</span>
+<span class="c1">-- Dev tools: hot-reload via flag file + NDJSON logging</span>
+<span class="c1">-- Wymaga katalogu: modules/.dev/</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="c1">-- === Konfiguracja ===</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">CFG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">flagPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'modules/.dev/reload.flag'</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">logPath</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">'modules/.dev/log.jsonl'</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">pollMs</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">      </span><span class="c1">-- interwał sprawdzania flagi</span>
+<span class="w">  </span><span class="nv">minReloadIntervalMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="c1">-- anty-drd</span>
+<span class="w">  </span><span class="nv">maxLogBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 512 KB rotacji</span>
+<span class="w">  </span><span class="nv">echoToConsole</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">-- === Stan modułu ===</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">lastReloadAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">reloading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">loopStarted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">-- === Utils ===</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">nowMs</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_clock</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="py">millis</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="c1">-- fallback (sekundy → ms)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nb">os.time</span><span class="p">()</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">jsonEscape</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">s</span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'</span><span class="se">\\</span><span class="s1">'</span><span class="p">,</span><span class="w"> </span><span class="s1">'</span><span class="se">\\\\</span><span class="s1">'</span><span class="p">)</span>
+<span class="w">       </span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'</span><span class="se">\"</span><span class="s1">'</span><span class="p">,</span><span class="w"> </span><span class="s1">'</span><span class="se">\\</span><span class="s1">"'</span><span class="p">)</span>
+<span class="w">       </span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span><span class="w"> </span><span class="s1">'</span><span class="se">\\</span><span class="s1">n'</span><span class="p">)</span>
+<span class="w">       </span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'</span><span class="se">\r</span><span class="s1">'</span><span class="p">,</span><span class="w"> </span><span class="s1">'</span><span class="se">\\</span><span class="s1">r'</span><span class="p">)</span>
+<span class="w">       </span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="w"> </span><span class="s1">'</span><span class="se">\\</span><span class="s1">t'</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">s</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">isArrayTable</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">t</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">encodeJSON</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'nil'</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">'null'</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'boolean'</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s1">'true'</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">'false'</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'number'</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">tv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'string'</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nf">jsonEscape</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'table'</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nf">isArrayTable</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="nv">v</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">out</span><span class="p">[</span><span class="o">#</span><span class="nv">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">encodeJSON</span><span class="p">(</span><span class="nv">v</span><span class="p">[</span><span class="nv">i</span><span class="p">])</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="s1">'['</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">(</span><span class="nv">out</span><span class="p">,</span><span class="w"> </span><span class="s1">','</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">']'</span>
+<span class="w">    </span><span class="kr">else</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="w"> </span><span class="nv">val</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="nv">out</span><span class="p">[</span><span class="o">#</span><span class="nv">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nf">jsonEscape</span><span class="p">(</span><span class="nv">k</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">'":'</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nf">encodeJSON</span><span class="p">(</span><span class="nv">val</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">end</span>
+<span class="w">      </span><span class="nb">table.sort</span><span class="p">(</span><span class="nv">out</span><span class="p">)</span><span class="w"> </span><span class="c1">-- stabilna kolejność kluczy</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="s1">'{'</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">(</span><span class="nv">out</span><span class="p">,</span><span class="w"> </span><span class="s1">','</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">'}'</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="s1">'null'</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">readFile</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">readFile</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">data</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">writeFile</span><span class="p">(</span><span class="nv">path</span><span class="p">,</span><span class="w"> </span><span class="nv">data</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">writeFile</span><span class="p">(</span><span class="nv">path</span><span class="p">,</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">''</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">ensureLogSize</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="o">#</span><span class="nv">s</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">CFG</span><span class="p">.</span><span class="py">maxLogBytes</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="c1">-- rotacja: obetnij do ostatnich maxLogBytes (od granicy \n jeśli możliwe)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.sub</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nv">CFG</span><span class="p">.</span><span class="py">maxLogBytes</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cut</span><span class="p">:</span><span class="nf">find</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">cut</span><span class="p">:</span><span class="nf">sub</span><span class="p">(</span><span class="nv">p</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">cut</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">appendLine</span><span class="p">(</span><span class="nv">path</span><span class="p">,</span><span class="w"> </span><span class="nv">line</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">readFile</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">newContent</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">prev</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">prev</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">prev</span><span class="p">:</span><span class="nf">sub</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prev</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="nv">newContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prev</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+<span class="w">  </span><span class="kr">else</span>
+<span class="w">    </span><span class="nv">newContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">newContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ensureLogSize</span><span class="p">(</span><span class="nv">newContent</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">writeFile</span><span class="p">(</span><span class="nv">path</span><span class="p">,</span><span class="w"> </span><span class="nv">newContent</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">isoTs</span><span class="p">()</span>
+<span class="w">  </span><span class="c1">-- ISO8601 (sekundy + opcjonalne ms)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">os.date</span><span class="p">(</span><span class="s1">'!*t'</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">'%04d-%02d-%02dT%02d:%02d:%02d'</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">year</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">month</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">day</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">hour</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">min</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">sec</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_clock</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="py">millis</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nowMs</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">'%s.%03dZ'</span><span class="p">,</span><span class="w"> </span><span class="nv">base</span><span class="p">,</span><span class="w"> </span><span class="nv">ms</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="nv">level</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">meta</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">CFG</span><span class="p">.</span><span class="py">echoToConsole</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s1">'[dev][%s][%s] %s'</span><span class="p">,</span><span class="w"> </span><span class="nv">level</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">'-'</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">''</span><span class="p">))</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">isoTs</span><span class="p">(),</span>
+<span class="w">    </span><span class="nv">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">level</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">'INFO'</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">'dev'</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'modules/dev/dev.lua'</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">msg</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">''</span><span class="p">),</span>
+<span class="w">    </span><span class="nv">meta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">meta</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+<span class="w">  </span><span class="nf">appendLine</span><span class="p">(</span><span class="nv">CFG</span><span class="p">.</span><span class="py">logPath</span><span class="p">,</span><span class="w"> </span><span class="nf">encodeJSON</span><span class="p">(</span><span class="nv">obj</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="c1">-- === Log helpers ===</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">meta</span><span class="p">)</span><span class="w">  </span><span class="nf">log</span><span class="p">(</span><span class="s1">'INFO'</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">meta</span><span class="p">)</span><span class="w">  </span><span class="kr">end</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">warn</span><span class="p">(</span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">meta</span><span class="p">)</span><span class="w">  </span><span class="nf">log</span><span class="p">(</span><span class="s1">'WARN'</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">meta</span><span class="p">)</span><span class="w">  </span><span class="kr">end</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">errorLog</span><span class="p">(</span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">meta</span><span class="p">)</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="s1">'ERROR'</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">meta</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="c1">-- === Hot-reload core ===</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">flagExists</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">readFile</span><span class="p">(</span><span class="nv">CFG</span><span class="p">.</span><span class="py">flagPath</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="kc">nil</span><span class="w">  </span><span class="c1">-- istnienie pliku (nawet pustego)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">clearFlag</span><span class="p">()</span>
+<span class="w">  </span><span class="nf">writeFile</span><span class="p">(</span><span class="nv">CFG</span><span class="p">.</span><span class="py">flagPath</span><span class="p">,</span><span class="w"> </span><span class="s1">''</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">canReload</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nowMs</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">reloading</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">lastReloadAt</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">CFG</span><span class="p">.</span><span class="py">minReloadIntervalMs</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">doReload</span><span class="p">(</span><span class="nv">reason</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nf">canReload</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">state</span><span class="p">.</span><span class="py">reloading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nf">info</span><span class="p">(</span><span class="s1">'reload'</span><span class="p">,</span><span class="w"> </span><span class="s1">'requested'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">reason</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">'flag'</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="nv">g_modules</span><span class="p">.</span><span class="nf">reloadModules</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="nv">state</span><span class="p">.</span><span class="py">lastReloadAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nowMs</span><span class="p">()</span>
+<span class="w">    </span><span class="nf">info</span><span class="p">(</span><span class="s1">'reload'</span><span class="p">,</span><span class="w"> </span><span class="s1">'done'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">lastReloadAt</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="kr">else</span>
+<span class="w">    </span><span class="nf">errorLog</span><span class="p">(</span><span class="s1">'reload'</span><span class="p">,</span><span class="w"> </span><span class="s1">'failed'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">err</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">state</span><span class="p">.</span><span class="py">reloading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">ok</span>
+<span class="kr">end</span>
+
+<span class="c1">-- public API do ręcznego wywołania z konsoli</span>
+<span class="kr">function</span><span class="w"> </span><span class="nc">M</span><span class="p">.</span><span class="nf">requestReload</span><span class="p">(</span><span class="nv">reason</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nf">doReload</span><span class="p">(</span><span class="nv">reason</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">'manual'</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nf">flagExists</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="nf">clearFlag</span><span class="p">()</span>
+<span class="w">    </span><span class="nf">doReload</span><span class="p">(</span><span class="s1">'flag'</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="nv">loop</span><span class="p">,</span><span class="w"> </span><span class="nv">CFG</span><span class="p">.</span><span class="py">pollMs</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">loopStarted</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">state</span><span class="p">.</span><span class="py">loopStarted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nf">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="nf">info</span><span class="p">(</span><span class="s1">'startup'</span><span class="p">,</span><span class="w"> </span><span class="s1">'dev module ready'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">pollMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">CFG</span><span class="p">.</span><span class="py">pollMs</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="nf">loop</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- start modułu</span>
+<span class="nf">start</span><span class="p">()</span>
+
+<span class="kr">return</span><span class="w"> </span><span class="nv">M</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="protokol-integracji-ze-studio">
+<h1>5) Protokół integracji ze <strong>Studio</strong><a class="headerlink" href="#protokol-integracji-ze-studio" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Wyzwalanie reloadu:</strong> Studio zapisuje/”dotyka” <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> → moduł wykrywa i woła <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules()</span></code>.</p></li>
+<li><p><strong>Logi NDJSON:</strong> Studio tail‑uje <code class="docutils literal notranslate"><span class="pre">modules/.dev/log.jsonl</span></code> i filtruje po <code class="docutils literal notranslate"><span class="pre">level/tag/file:line</span></code>.</p></li>
+<li><p><strong>Akcje ręczne:</strong> z konsoli: <code class="docutils literal notranslate"><span class="pre">modules.dev.dev.requestReload('manual')</span></code> (jeżeli środowisko wspiera wywołania).</p></li>
+</ul>
+</section>
+<hr class="docutils"/>
+<section id="konfiguracja-i-warianty">
+<h1>6) Konfiguracja i warianty<a class="headerlink" href="#konfiguracja-i-warianty" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.pollMs</span></code> – interwał sprawdzania flagi (zalecane 300–600 ms).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.minReloadIntervalMs</span></code> – anty‑drganie przy seryjnych zapisach.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.maxLogBytes</span></code> – rotacja logu (zapobiega rozrostowi pliku).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.echoToConsole</span></code> – mirror logów do konsoli klienta.</p></li>
+</ul>
+<blockquote>
+<div><p>Zmiany konfiguracji wprowadzaj w <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code> i przeładuj moduły.</p>
+</div></blockquote>
+</section>
+<hr class="docutils"/>
+<section id="scenariusze-testowe-qa">
+<h1>7) Scenariusze testowe (QA)<a class="headerlink" href="#scenariusze-testowe-qa" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Start modułu:</strong> uruchom klienta → w <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code> linia <code class="docutils literal notranslate"><span class="pre">startup/dev</span> <span class="pre">module</span> <span class="pre">ready</span></code>.</p></li>
+<li><p><strong>Reload przez flagę:</strong> utwórz pusty <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> → w logu <code class="docutils literal notranslate"><span class="pre">reload/requested</span></code> i <code class="docutils literal notranslate"><span class="pre">reload/done</span></code>.</p></li>
+<li><p><strong>Anty‑drganie:</strong> utwórz 3× flagę w &lt; 800 ms → 1 realny reload.</p></li>
+<li><p><strong>Błąd podczas reloadu (symulacja):</strong> tymczasowo zasymuluj błąd w <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code> (jeśli możliwe) → <code class="docutils literal notranslate"><span class="pre">reload/failed</span></code> (ERROR) w logu.</p></li>
+<li><p><strong>Rotacja logu:</strong> wygeneruj &gt; <code class="docutils literal notranslate"><span class="pre">maxLogBytes</span></code> → plik przycięty do dozwolonego rozmiaru, bez rozbicia JSON.</p></li>
+</ol>
+</section>
+<hr class="docutils"/>
+<section id="checklisty-wdrozeniowe">
+<h1>8) Checklisty wdrożeniowe<a class="headerlink" href="#checklisty-wdrozeniowe" title="Link to this heading">#</a></h1>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Utwórz <code class="docutils literal notranslate"><span class="pre">modules/.dev/</span></code> (zapisywalny katalog).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Skopiuj <code class="docutils literal notranslate"><span class="pre">dev.otmod</span></code>, <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code>, opcjonalnie <code class="docutils literal notranslate"><span class="pre">ui/dev.otui</span></code> do <code class="docutils literal notranslate"><span class="pre">modules/dev/</span></code>.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Uruchom klienta; sprawdź, czy <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code> powstał.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Zapisz/”dotknij” <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code>; obserwuj <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code>.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Skonfiguruj Studio, by tail‑owało <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code> i zapisywało flagę.</p></li>
+</ul>
+</section>
+<hr class="docutils"/>
+<section id="noty-operacyjne">
+<h1>9) Noty operacyjne<a class="headerlink" href="#noty-operacyjne" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Jeśli <code class="docutils literal notranslate"><span class="pre">modules/.dev/</span></code> nie istnieje lub brak uprawnień zapisu, <strong>logi trafią tylko na konsolę</strong> (zależnie od <code class="docutils literal notranslate"><span class="pre">echoToConsole</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">writeFile</span></code> nadpisuje – dlatego <strong>append</strong> realizujemy przez odczyt→doklejenie→zapis + rotację.</p></li>
+<li><p>Wydziel logowanie ciężkie (duże <code class="docutils literal notranslate"><span class="pre">meta</span></code>) – może spowolnić zapis; zalecane krótkie pola.</p></li>
+</ul>
+</section>
+<hr class="docutils"/>
+<section id="rozszerzenia-opcjonalne">
+<h1>10) Rozszerzenia (opcjonalne)<a class="headerlink" href="#rozszerzenia-opcjonalne" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Keybind reloadu:</strong> dodać skrót klawiszowy wiążący <code class="docutils literal notranslate"><span class="pre">M.requestReload()</span></code> (jeśli środowisko udostępnia mapowanie klawiszy).</p></li>
+<li><p><strong>UI DevWindow:</strong> przyciski <em>Request Reload</em>, <em>Open Log</em>, licznik reloadów.</p></li>
+<li><p><strong>Heartbeat:</strong> wpis NDJSON co X sekund potwierdzający żywotność modułu.</p></li>
+</ul>
+</section>
+<hr class="docutils"/>
+<section id="definition-of-done-dod">
+<h1>11) Definition of Done (DoD)<a class="headerlink" href="#definition-of-done-dod" title="Link to this heading">#</a></h1>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Moduł ładuje się, loguje <code class="docutils literal notranslate"><span class="pre">startup</span></code> (NDJSON + konsola).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Flaga wyzwala <code class="docutils literal notranslate"><span class="pre">reload</span></code> deterministycznie (z anty‑drganiem).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Rotacja logu działa; plik nie rośnie nieograniczenie.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Studio wykrywa logi i poprawnie je filtruje.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Brak globali; <code class="docutils literal notranslate"><span class="pre">local</span></code> wszędzie; brak użycia <code class="docutils literal notranslate"><span class="pre">unpack</span></code> (tylko <code class="docutils literal notranslate"><span class="pre">table.unpack</span></code>).</p></li>
+</ul>
+</section>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+</div>
+</footer>
+</div>
+<dialog id="pst-secondary-sidebar-modal"></dialog>
+<div class="bd-sidebar-secondary bd-toc" id="pst-secondary-sidebar"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage" id="pst-page-navigation-heading-2">
+<i class="fa-solid fa-list"></i> On this page
+  </div>
+<nav aria-labelledby="pst-page-navigation-heading-2" class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dev Module for Hot‑Reload (MASTER) – <strong>OTClient v8</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zalozenia-i-zakres">0) Założenia i zakres</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-plikow-modulu">1) Struktura plików modułu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-otmod-pelny-plik">2) <code class="docutils literal notranslate"><span class="pre">dev.otmod</span></code> (pełny plik)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-dev-otui-opcjonalny-szkielet-ui">3) <code class="docutils literal notranslate"><span class="pre">ui/dev.otui</span></code> (opcjonalny szkielet UI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-lua-pelny-produkcyjny-kod-modulu">4) <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code> (pełny, produkcyjny kod modułu)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#protokol-integracji-ze-studio">5) Protokół integracji ze <strong>Studio</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konfiguracja-i-warianty">6) Konfiguracja i warianty</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scenariusze-testowe-qa">7) Scenariusze testowe (QA)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-wdrozeniowe">8) Checklisty wdrożeniowe</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-operacyjne">9) Noty operacyjne</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rozszerzenia-opcjonalne">10) Rozszerzenia (opcjonalne)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-done-dod">11) Definition of Done (DoD)</a></li>
+</ul>
+</nav></div>
+<div class="sidebar-secondary-item">
+<div aria-label="source link" role="note">
+<h3>This Page</h3>
+<ul class="this-page-menu">
+<li><a href="../_sources/knowledge/dev_module_for_hot_reload_master_otclient_v_8.md.txt" rel="nofollow">Show Source</a></li>
+</ul>
+</div></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script defer="" src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer="" src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+<footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+<div class="footer-items__start">
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+</p>
+</div>
+<div class="footer-item">
+<p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+</p>
+</div>
+</div>
+<div class="footer-items__end">
+<div class="footer-item">
+<p class="theme-version">
+<!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+</div>
+</div>
+</footer>
+</body>
+</html>

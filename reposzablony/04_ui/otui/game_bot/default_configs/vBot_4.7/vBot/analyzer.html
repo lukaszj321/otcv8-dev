@@ -1,0 +1,991 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="game_bot/default_configs/vBot_4.7/vBot/analyzer.otui" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/04_ui/otui/game_bot/default_configs/vBot_4.7/vBot/analyzer.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Plik OTUI definiujący interfejs użytkownika dla analyzer. Widgets:,,,, ID, Class, Parent, Key Properties,,, drops, TrackerItem, Panel, height=40, i..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Plik OTUI definiujący interfejs użytkownika dla analyzer. Widgets:,,,, ID, Class, Parent, Key Properties,,, drops, TrackerItem, Panel, height=40, i..." />
+
+    <title>game_bot/default_configs/vBot_4.7/vBot/analyzer.otui &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/04_ui/otui/game_bot/default_configs/vBot_4.7/vBot/analyzer';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/04_ui/otui/game_bot/default_configs/vBot_4.7/vBot/analyzer.html" />
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_bot/default_configs/vBot_4.7/vBot/analyzer.otui</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-bot-default-configs-vbot-4-7-vbot-analyzer-otui">
+<h1>game_bot/default_configs/vBot_4.7/vBot/analyzer.otui<a class="headerlink" href="#game-bot-default-configs-vbot-4-7-vbot-analyzer-otui" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik OTUI definiujący interfejs użytkownika dla analyzer.</p>
+</section>
+<section id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Class</p></th>
+<th class="head"><p>Parent</p></th>
+<th class="head"><p>Key Properties</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">drops</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TrackerItem</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></td>
+<td><p>height=40, id=drops, margin-top=3</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DualLabel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Label</span></code></p></td>
+<td><p>height=15, text-offset=4 0, font=verdana-11px-rounded</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">healing</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MemberWidget</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></td>
+<td><p>size=28 28</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">remove</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerPriceLabel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Label</span></code></p></td>
+<td><p>background-color=#00000055, text-offset=2 0, focusable=true</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerListPanel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerListPanel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></td>
+<td><p>padding-left=4, padding-right=4, type=verticalBox</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ListLabel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ListLabel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Label</span></code></p></td>
+<td><p>height=15, font=verdana-11px-rounded, text-offset=15 0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">List</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerItemsPanel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></td>
+<td><p>id=List, padding=2, type=grid</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">count</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerLootItem</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UIItem</span></code></p></td>
+<td><p>opacity=0.87, height=37, margin-left=1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerGraph</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerGraph</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UIGraph</span></code></p></td>
+<td><p>height=140, capacity=400, line-width=1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerProgressBar</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerProgressBar</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code></p></td>
+<td><p>background-color=green, height=5, margin-top=3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerButton</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzerButton</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Button</span></code></p></td>
+<td><p>height=22, margin-bottom=2, font=verdana-11px-rounded</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ResetSession</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MainAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=ResetSession, text=Reset Session, height=266</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HuntingAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HuntingAnalyzer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=HuntingAnalyzerWindow, text=Hunt Analyzer, icon=/images/topbuttons/analyzers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LootAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LootAnalyzer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=LootAnalyzerWindow, text=Loot Analyzer, icon=/images/topbuttons/analyzers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SupplyAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SupplyAnalyzer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=SupplyAnalyzerWindow, text=Supply Analyzer, icon=/images/topbuttons/analyzers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ImpactAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ImpactAnalyzer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=ImpactAnalyzerWindow, text=Impact Analyzer, icon=/images/topbuttons/analyzers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">XPAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">XPAnalyzer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=XPAnalyzerWindow, text=XP Analyzer, height=150</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PartyAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PartyAnalyzerWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=PartyAnalyzerWindow, text=Party Hunt, height=200</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DropTracker</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DropTracker</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=DropTracker, text=Drop Tracker, height=200</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CaveBotStats</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CaveBotStats</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></td>
+<td><p>id=CaveBotStats, text=CaveBot Stats, height=200</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">closeButton</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FeaturesWindow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MainWindow</span></code></p></td>
+<td><p>size=45 21</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="widget-details">
+<h2>Widget Details<a class="headerlink" href="#widget-details" title="Link to this heading">#</a></h2>
+<section id="drops">
+<h3><code class="docutils literal notranslate"><span class="pre">drops</span></code><a class="headerlink" href="#drops" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">TrackerItem</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 40</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: drops</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-top</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-left</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Loot Drops: 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-align</span></code>: left</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: verdana-11px-rounded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: #CCCCCC</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="value">
+<h3><code class="docutils literal notranslate"><span class="pre">value</span></code><a class="headerlink" href="#value" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">DualLabel</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Label</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 15</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-offset</span></code>: 4 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: verdana-11px-rounded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-align</span></code>: right</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: 200</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: 4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: 0</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="healing">
+<h3><code class="docutils literal notranslate"><span class="pre">healing</span></code><a class="headerlink" href="#healing" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">MemberWidget</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 7</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-top</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: healing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: 28 28</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-left</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Healing:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: verdana-11px-rounded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-align</span></code>: left</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-color</span></code>: #0000FF</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phantom</span></code>: false</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="remove">
+<h3><code class="docutils literal notranslate"><span class="pre">remove</span></code><a class="headerlink" href="#remove" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzerPriceLabel</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Label</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-color</span></code>: #00000055</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-offset</span></code>: 2 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">focusable</span></code>: true</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 15</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: remove</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: 15</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: 15</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="analyzerlistpanel">
+<h3><code class="docutils literal notranslate"><span class="pre">AnalyzerListPanel</span></code><a class="headerlink" href="#analyzerlistpanel" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzerListPanel</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-left</span></code>: 4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-right</span></code>: 4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: verticalBox</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit-children</span></code>: true</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="listlabel">
+<h3><code class="docutils literal notranslate"><span class="pre">ListLabel</span></code><a class="headerlink" href="#listlabel" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">ListLabel</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Label</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 15</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: verdana-11px-rounded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-offset</span></code>: 15 0</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="list">
+<h3><code class="docutils literal notranslate"><span class="pre">List</span></code><a class="headerlink" href="#list" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzerItemsPanel</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Panel</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: List</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: grid</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cell-size</span></code>: 33 33</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cell-spacing</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num-columns</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit-children</span></code>: true</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="count">
+<h3><code class="docutils literal notranslate"><span class="pre">count</span></code><a class="headerlink" href="#count" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzerLootItem</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">UIItem</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">opacity</span></code>: 0.87</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 37</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-left</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">virtual</span></code>: true</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-color</span></code>: alpha</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: count</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: verdana-11px-rounded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: white</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-align</span></code>: right</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: 0</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="analyzergraph">
+<h3><code class="docutils literal notranslate"><span class="pre">AnalyzerGraph</span></code><a class="headerlink" href="#analyzergraph" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzerGraph</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">UIGraph</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 140</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">capacity</span></code>: 400</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line-width</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: red</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-top</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-left</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-color</span></code>: #383636</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: verdana-11px-rounded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image-source</span></code>: /images/ui/graph_background</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="analyzerprogressbar">
+<h3><code class="docutils literal notranslate"><span class="pre">AnalyzerProgressBar</span></code><a class="headerlink" href="#analyzerprogressbar" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzerProgressBar</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-color</span></code>: green</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-top</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phantom</span></code>: false</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-left</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border</span></code>: 1 black</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="analyzerbutton">
+<h3><code class="docutils literal notranslate"><span class="pre">AnalyzerButton</span></code><a class="headerlink" href="#analyzerbutton" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzerButton</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">Button</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 22</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-bottom</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: verdana-11px-rounded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-offset</span></code>: 0 4</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="resetsession">
+<h3><code class="docutils literal notranslate"><span class="pre">ResetSession</span></code><a class="headerlink" href="#resetsession" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">MainAnalyzerWindow</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: ResetSession</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Reset Session</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 266</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-left</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-right</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: #FF0000</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="huntinganalyzerwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">HuntingAnalyzerWindow</span></code><a class="headerlink" href="#huntinganalyzerwindow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">HuntingAnalyzer</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: HuntingAnalyzerWindow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Hunt Analyzer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="lootanalyzerwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">LootAnalyzerWindow</span></code><a class="headerlink" href="#lootanalyzerwindow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">LootAnalyzer</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: LootAnalyzerWindow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Loot Analyzer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="supplyanalyzerwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">SupplyAnalyzerWindow</span></code><a class="headerlink" href="#supplyanalyzerwindow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">SupplyAnalyzer</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: SupplyAnalyzerWindow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Supply Analyzer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="impactanalyzerwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">ImpactAnalyzerWindow</span></code><a class="headerlink" href="#impactanalyzerwindow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">ImpactAnalyzer</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: ImpactAnalyzerWindow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Impact Analyzer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="xpanalyzerwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">XPAnalyzerWindow</span></code><a class="headerlink" href="#xpanalyzerwindow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">XPAnalyzer</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: XPAnalyzerWindow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: XP Analyzer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 150</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="partyanalyzerwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">PartyAnalyzerWindow</span></code><a class="headerlink" href="#partyanalyzerwindow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">PartyAnalyzerWindow</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: PartyAnalyzerWindow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Party Hunt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 200</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-left</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-right</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="droptracker">
+<h3><code class="docutils literal notranslate"><span class="pre">DropTracker</span></code><a class="headerlink" href="#droptracker" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">DropTracker</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: DropTracker</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Drop Tracker</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 200</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-left</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-right</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="cavebotstats">
+<h3><code class="docutils literal notranslate"><span class="pre">CaveBotStats</span></code><a class="headerlink" href="#cavebotstats" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">CaveBotStats</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MiniWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: CaveBotStats</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: CaveBot Stats</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 200</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code>: /images/topbuttons/analyzers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-left</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-right</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: verticalBox</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="closebutton">
+<h3><code class="docutils literal notranslate"><span class="pre">closeButton</span></code><a class="headerlink" href="#closebutton" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Klasa:</strong> <code class="docutils literal notranslate"><span class="pre">FeaturesWindow</span></code></p></li>
+<li><p><strong>Rodzic:</strong> <code class="docutils literal notranslate"><span class="pre">MainWindow</span></code></p></li>
+<li><p><strong>Właściwości:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: closeButton</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: 45 21</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Rarity Frames</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-top</span></code>: 15</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 220</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vertical-scrollbar</span></code>: CustomPricesScrollBar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code>: 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pixels-scroll</span></code>: true</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-left</span></code>: 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: 100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimum</span></code>: 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maximum</span></code>: 1000000000</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-align</span></code>: center</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">focusable</span></code>: true</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font</span></code>: cipsoftFont</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-bottom</span></code>: 8</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="hierarchy-diagram">
+<h2>Hierarchy Diagram<a class="headerlink" href="#hierarchy-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/analyzer.mmd"><span class="xref myst">../diagrams/analyzer.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets">Widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-details">Widget Details</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drops"><code class="docutils literal notranslate"><span class="pre">drops</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#value"><code class="docutils literal notranslate"><span class="pre">value</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#healing"><code class="docutils literal notranslate"><span class="pre">healing</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove"><code class="docutils literal notranslate"><span class="pre">remove</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzerlistpanel"><code class="docutils literal notranslate"><span class="pre">AnalyzerListPanel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listlabel"><code class="docutils literal notranslate"><span class="pre">ListLabel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list"><code class="docutils literal notranslate"><span class="pre">List</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count"><code class="docutils literal notranslate"><span class="pre">count</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzergraph"><code class="docutils literal notranslate"><span class="pre">AnalyzerGraph</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzerprogressbar"><code class="docutils literal notranslate"><span class="pre">AnalyzerProgressBar</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzerbutton"><code class="docutils literal notranslate"><span class="pre">AnalyzerButton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetsession"><code class="docutils literal notranslate"><span class="pre">ResetSession</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#huntinganalyzerwindow"><code class="docutils literal notranslate"><span class="pre">HuntingAnalyzerWindow</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lootanalyzerwindow"><code class="docutils literal notranslate"><span class="pre">LootAnalyzerWindow</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supplyanalyzerwindow"><code class="docutils literal notranslate"><span class="pre">SupplyAnalyzerWindow</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impactanalyzerwindow"><code class="docutils literal notranslate"><span class="pre">ImpactAnalyzerWindow</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xpanalyzerwindow"><code class="docutils literal notranslate"><span class="pre">XPAnalyzerWindow</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partyanalyzerwindow"><code class="docutils literal notranslate"><span class="pre">PartyAnalyzerWindow</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#droptracker"><code class="docutils literal notranslate"><span class="pre">DropTracker</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cavebotstats"><code class="docutils literal notranslate"><span class="pre">CaveBotStats</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closebutton"><code class="docutils literal notranslate"><span class="pre">closeButton</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchy-diagram">Hierarchy Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../../_sources/reposzablony/04_ui/otui/game_bot/default_configs/vBot_4.7/vBot/analyzer.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

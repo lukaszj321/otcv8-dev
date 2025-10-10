@@ -1,0 +1,1180 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="game_bot/default_configs/vBot_4.7/vBot/vlib.lua" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.7/vBot/vlib.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Moduł Lua zawierający funkcje i logikę dla vlib. Globals/Exports: vBot: Author: Vithrax contains mostly basic function shortcuts and code shortener..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Moduł Lua zawierający funkcje i logikę dla vlib. Globals/Exports: vBot: Author: Vithrax contains mostly basic function shortcuts and code shortener..." />
+
+    <title>game_bot/default_configs/vBot_4.7/vBot/vlib.lua &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.7/vBot/vlib';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.7/vBot/vlib.html" />
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_bot/default_configs/vBot_4.7/vBot/vlib.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-bot-default-configs-vbot-4-7-vbot-vlib-lua">
+<h1>game_bot/default_configs/vBot_4.7/vBot/vlib.lua<a class="headerlink" href="#game-bot-default-configs-vbot-4-7-vbot-vlib-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla vlib.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="vbot">
+<h3><code class="docutils literal notranslate"><span class="pre">vBot</span></code><a class="headerlink" href="#vbot" title="Link to this heading">#</a></h3>
+<p>Author: Vithrax contains mostly basic function shortcuts and code shorteners initial global variables declaration</p>
+</section>
+<section id="spellcasttable">
+<h3><code class="docutils literal notranslate"><span class="pre">SpellCastTable</span></code><a class="headerlink" href="#spellcasttable" title="Link to this heading">#</a></h3>
+<p>[[ canCast and cast functions ]] – callback connected to cast and canCast function detects if a given spell was in fact casted based on player’s text messages Cast text and message text must match checks only spells inserted in SpellCastTable by function cast</p>
+</section>
+<section id="cachedfriends">
+<h3><code class="docutils literal notranslate"><span class="pre">CachedFriends</span></code><a class="headerlink" href="#cachedfriends" title="Link to this heading">#</a></h3>
+<p>global tables for cached players to prevent unnecesary resource consumption probably still can be improved, TODO in future c can be creature or string if exected then adds name or name and creature to tables returns boolean</p>
+</section>
+<section id="cachedenemies">
+<h3><code class="docutils literal notranslate"><span class="pre">CachedEnemies</span></code><a class="headerlink" href="#cachedenemies" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="loginfo-text">
+<h3><code class="docutils literal notranslate"><span class="pre">logInfo(text)</span></code><a class="headerlink" href="#loginfo-text" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="standtime">
+<h3><code class="docutils literal notranslate"><span class="pre">standTime()</span></code><a class="headerlink" href="#standtime" title="Link to this heading">#</a></h3>
+</section>
+<section id="relogoncharacter-charname">
+<h3><code class="docutils literal notranslate"><span class="pre">relogOnCharacter(charName)</span></code><a class="headerlink" href="#relogoncharacter-charname" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">charName</span></code></p></li>
+</ul>
+</section>
+<section id="castspell-text">
+<h3><code class="docutils literal notranslate"><span class="pre">castSpell(text)</span></code><a class="headerlink" href="#castspell-text" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="burstdamagevalue">
+<h3><code class="docutils literal notranslate"><span class="pre">burstDamageValue()</span></code><a class="headerlink" href="#burstdamagevalue" title="Link to this heading">#</a></h3>
+<p>based on data collected by callback calculates per second damage returns number</p>
+<p><strong>Zwraca:</strong> number</p>
+</section>
+<section id="whiteinfomessage-text">
+<h3><code class="docutils literal notranslate"><span class="pre">whiteInfoMessage(text)</span></code><a class="headerlink" href="#whiteinfomessage-text" title="Link to this heading">#</a></h3>
+<p>simplified function from modules displays string as white colour message</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="statusmessage-text-loginconsole">
+<h3><code class="docutils literal notranslate"><span class="pre">statusMessage(text,</span> <span class="pre">logInConsole)</span></code><a class="headerlink" href="#statusmessage-text-loginconsole" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logInConsole</span></code></p></li>
+</ul>
+</section>
+<section id="broadcastmessage-text">
+<h3><code class="docutils literal notranslate"><span class="pre">broadcastMessage(text)</span></code><a class="headerlink" href="#broadcastmessage-text" title="Link to this heading">#</a></h3>
+<p>same as above but red message</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="schedulenpcsay-text-delay">
+<h3><code class="docutils literal notranslate"><span class="pre">scheduleNpcSay(text,</span> <span class="pre">delay)</span></code><a class="headerlink" href="#schedulenpcsay-text-delay" title="Link to this heading">#</a></h3>
+<p>almost every talk action inside cavebot has to be done by using schedule therefore this is simplified function that doesn’t require to build a body for schedule function</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code></p></li>
+</ul>
+</section>
+<section id="getfirstnumberintext-text">
+<h3><code class="docutils literal notranslate"><span class="pre">getFirstNumberInText(text)</span></code><a class="headerlink" href="#getfirstnumberintext-text" title="Link to this heading">#</a></h3>
+<p>returns first number in string, already formatted as number returns number or nil</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> first number in string, already formatted as number returns number or nil</p>
+</section>
+<section id="isontile-id-p1-p2-p3">
+<h3><code class="docutils literal notranslate"><span class="pre">isOnTile(id,</span> <span class="pre">p1,</span> <span class="pre">p2,</span> <span class="pre">p3)</span></code><a class="headerlink" href="#isontile-id-p1-p2-p3" title="Link to this heading">#</a></h3>
+<p>function to search if item of given ID can be found on certain tile first argument is always ID the rest of aguments can be: - tile - position - or x,y,z coordinates as p1, p2 and p3 returns boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p3</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="getpos-x-y-z">
+<h3><code class="docutils literal notranslate"><span class="pre">getPos(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code><a class="headerlink" href="#getpos-x-y-z" title="Link to this heading">#</a></h3>
+<p>position is a special table, impossible to compare with normal one this is translator from x,y,z to proper position value returns position table</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">z</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> position table</p>
+</section>
+<section id="openpurse">
+<h3><code class="docutils literal notranslate"><span class="pre">openPurse()</span></code><a class="headerlink" href="#openpurse" title="Link to this heading">#</a></h3>
+<p>opens purse… that’s it</p>
+</section>
+<section id="containerisfull-c">
+<h3><code class="docutils literal notranslate"><span class="pre">containerIsFull(c)</span></code><a class="headerlink" href="#containerisfull-c" title="Link to this heading">#</a></h3>
+<p>check’s whether container is full c has to be container object returns boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="dropitem-idorobject">
+<h3><code class="docutils literal notranslate"><span class="pre">dropItem(idOrObject)</span></code><a class="headerlink" href="#dropitem-idorobject" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">idOrObject</span></code></p></li>
+</ul>
+</section>
+<section id="isbuffed">
+<h3><code class="docutils literal notranslate"><span class="pre">isBuffed()</span></code><a class="headerlink" href="#isbuffed" title="Link to this heading">#</a></h3>
+<p>not perfect function to return whether character has utito tempo buff known to be bugged if received debuff (ie. roshamuul) TODO: simply a better version returns boolean</p>
+<p><strong>Zwraca:</strong> whether character has utito tempo buff known to be bugged if received debuff (ie</p>
+</section>
+<section id="reindextable-t">
+<h3><code class="docutils literal notranslate"><span class="pre">reindexTable(t)</span></code><a class="headerlink" href="#reindextable-t" title="Link to this heading">#</a></h3>
+<p>if using index as table element, this can be used to properly assign new idex to all values table needs to contain “index” as value if no index in tables, it will create one</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
+</ul>
+</section>
+<section id="killstors">
+<h3><code class="docutils literal notranslate"><span class="pre">killsToRs()</span></code><a class="headerlink" href="#killstors" title="Link to this heading">#</a></h3>
+<p>supports only new tibia, ver 10+ returns how many kills left to get next skull - can be red skull, can be black skull! reutrns number</p>
+<p><strong>Zwraca:</strong> how many kills left to get next skull - can be red skull, can be black skull! reutrns number</p>
+</section>
+<section id="cast-text-delay">
+<h3><code class="docutils literal notranslate"><span class="pre">cast(text,</span> <span class="pre">delay)</span></code><a class="headerlink" href="#cast-text-delay" title="Link to this heading">#</a></h3>
+<p>if delay is nil or delay is lower than 100 then this function will act as a normal say function checks or adds a spell to SpellCastTable and updates cast time if exist</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code></p></li>
+</ul>
+</section>
+<section id="cancast-spell-ignorerl-ignorecd">
+<h3><code class="docutils literal notranslate"><span class="pre">canCast(spell,</span> <span class="pre">ignoreRL,</span> <span class="pre">ignoreCd)</span></code><a class="headerlink" href="#cancast-spell-ignorerl-ignorecd" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">spell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignoreRL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignoreCd</span></code></p></li>
+</ul>
+</section>
+<section id="getspelldata-spell">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpellData(spell)</span></code><a class="headerlink" href="#getspelldata-spell" title="Link to this heading">#</a></h3>
+<p>exctracts data about spell from gamelib SpellInfo table returns table ie:[‘Spell Name’] = {id, words, exhaustion, premium, type, icon, mana, level, soul, group, vocations} cooldown detection module</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">spell</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> table ie:[‘Spell Name’] = {id, words, exhaustion, premium, type, icon, mana, level, soul, group, vocations} cooldown detection module</p>
+</section>
+<section id="getspellcooldown-text">
+<h3><code class="docutils literal notranslate"><span class="pre">getSpellCoolDown(text)</span></code><a class="headerlink" href="#getspellcooldown-text" title="Link to this heading">#</a></h3>
+<p>based on info extracted by getSpellData checks if spell is on cooldown returns boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="string-starts-string-start">
+<h3><code class="docutils literal notranslate"><span class="pre">string.starts(String,</span> <span class="pre">Start)</span></code><a class="headerlink" href="#string-starts-string-start" title="Link to this heading">#</a></h3>
+<p>returns first word in string</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Start</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> first word in string</p>
+</section>
+<section id="isfriend-c">
+<h3><code class="docutils literal notranslate"><span class="pre">isFriend(c)</span></code><a class="headerlink" href="#isfriend-c" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
+</ul>
+</section>
+<section id="isenemy-c">
+<h3><code class="docutils literal notranslate"><span class="pre">isEnemy(c)</span></code><a class="headerlink" href="#isenemy-c" title="Link to this heading">#</a></h3>
+<p>similar to isFriend but lighter version accepts only name string returns boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="getplayerdistribution">
+<h3><code class="docutils literal notranslate"><span class="pre">getPlayerDistribution()</span></code><a class="headerlink" href="#getplayerdistribution" title="Link to this heading">#</a></h3>
+</section>
+<section id="getfriends">
+<h3><code class="docutils literal notranslate"><span class="pre">getFriends()</span></code><a class="headerlink" href="#getfriends" title="Link to this heading">#</a></h3>
+</section>
+<section id="getneutrals">
+<h3><code class="docutils literal notranslate"><span class="pre">getNeutrals()</span></code><a class="headerlink" href="#getneutrals" title="Link to this heading">#</a></h3>
+</section>
+<section id="getenemies">
+<h3><code class="docutils literal notranslate"><span class="pre">getEnemies()</span></code><a class="headerlink" href="#getenemies" title="Link to this heading">#</a></h3>
+</section>
+<section id="isattspell-expr">
+<h3><code class="docutils literal notranslate"><span class="pre">isAttSpell(expr)</span></code><a class="headerlink" href="#isattspell-expr" title="Link to this heading">#</a></h3>
+<p>based on first word in string detects if text is a offensive spell returns boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expr</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="getactiveitemid-id">
+<h3><code class="docutils literal notranslate"><span class="pre">getActiveItemId(id)</span></code><a class="headerlink" href="#getactiveitemid-id" title="Link to this heading">#</a></h3>
+<p>returns dressed-up item id based on not dressed id returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> dressed-up item id based on not dressed id returns number</p>
+</section>
+<section id="getinactiveitemid-id">
+<h3><code class="docutils literal notranslate"><span class="pre">getInactiveItemId(id)</span></code><a class="headerlink" href="#getinactiveitemid-id" title="Link to this heading">#</a></h3>
+<p>returns not dressed item id based on dressed-up id returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> not dressed item id based on dressed-up id returns number</p>
+</section>
+<section id="getmonstersinrange-pos-range">
+<h3><code class="docutils literal notranslate"><span class="pre">getMonstersInRange(pos,</span> <span class="pre">range)</span></code><a class="headerlink" href="#getmonstersinrange-pos-range" title="Link to this heading">#</a></h3>
+<p>returns amount of monsters within the range of position does not include summons (new tibia) returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> amount of monsters within the range of position does not include summons (new tibia) returns number</p>
+</section>
+<section id="distancefromplayer-coords">
+<h3><code class="docutils literal notranslate"><span class="pre">distanceFromPlayer(coords)</span></code><a class="headerlink" href="#distancefromplayer-coords" title="Link to this heading">#</a></h3>
+<p>shortcut in calculating distance from local player position needs only one argument returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coords</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> number</p>
+</section>
+<section id="getmonsters-range-multifloor">
+<h3><code class="docutils literal notranslate"><span class="pre">getMonsters(range,</span> <span class="pre">multifloor)</span></code><a class="headerlink" href="#getmonsters-range-multifloor" title="Link to this heading">#</a></h3>
+<p>returns amount of monsters within the range of local player position does not include summons (new tibia) can also check multiple floors returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multifloor</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> amount of monsters within the range of local player position does not include summons (new tibia) can also check multiple floors returns number</p>
+</section>
+<section id="getplayers-range-multifloor">
+<h3><code class="docutils literal notranslate"><span class="pre">getPlayers(range,</span> <span class="pre">multifloor)</span></code><a class="headerlink" href="#getplayers-range-multifloor" title="Link to this heading">#</a></h3>
+<p>returns amount of players within the range of local player position does not include party members can also check multiple floors returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multifloor</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> amount of players within the range of local player position does not include party members can also check multiple floors returns number</p>
+</section>
+<section id="isblacklistedplayerinrange-range">
+<h3><code class="docutils literal notranslate"><span class="pre">isBlackListedPlayerInRange(range)</span></code><a class="headerlink" href="#isblacklistedplayerinrange-range" title="Link to this heading">#</a></h3>
+<p>this is multifloor function checks if player added in “Anti RS list” in player list is within the given range returns boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="issafe-range-multifloor-padding">
+<h3><code class="docutils literal notranslate"><span class="pre">isSafe(range,</span> <span class="pre">multifloor,</span> <span class="pre">padding)</span></code><a class="headerlink" href="#issafe-range-multifloor-padding" title="Link to this heading">#</a></h3>
+<p>checks if there is non-friend player withing the range padding is only for multifloor returns boolean</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multifloor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> boolean</p>
+</section>
+<section id="getallplayers-range-multifloor">
+<h3><code class="docutils literal notranslate"><span class="pre">getAllPlayers(range,</span> <span class="pre">multifloor)</span></code><a class="headerlink" href="#getallplayers-range-multifloor" title="Link to this heading">#</a></h3>
+<p>returns amount of players within the range of local player position can also check multiple floors returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multifloor</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> amount of players within the range of local player position can also check multiple floors returns number</p>
+</section>
+<section id="getnpcs-range-multifloor">
+<h3><code class="docutils literal notranslate"><span class="pre">getNpcs(range,</span> <span class="pre">multifloor)</span></code><a class="headerlink" href="#getnpcs-range-multifloor" title="Link to this heading">#</a></h3>
+<p>returns amount of NPC’s within the range of local player position can also check multiple floors returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multifloor</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> amount of NPC’s within the range of local player position can also check multiple floors returns number</p>
+</section>
+<section id="itemamount-id">
+<h3><code class="docutils literal notranslate"><span class="pre">itemAmount(id)</span></code><a class="headerlink" href="#itemamount-id" title="Link to this heading">#</a></h3>
+<p>main function for calculatin item amount in all visible containers also considers equipped items returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> number</p>
+</section>
+<section id="useoninvertoryitem-a-b">
+<h3><code class="docutils literal notranslate"><span class="pre">useOnInvertoryItem(a,</span> <span class="pre">b)</span></code><a class="headerlink" href="#useoninvertoryitem-a-b" title="Link to this heading">#</a></h3>
+<p>self explanatory a is item to use on b is item to use a on</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></li>
+</ul>
+</section>
+<section id="getneartiles-pos">
+<h3><code class="docutils literal notranslate"><span class="pre">getNearTiles(pos)</span></code><a class="headerlink" href="#getneartiles-pos" title="Link to this heading">#</a></h3>
+<p>pos can be tile or position returns table of tiles surrounding given POS/tile</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> table of tiles surrounding given POS/tile</p>
+</section>
+<section id="usegrounditem-id">
+<h3><code class="docutils literal notranslate"><span class="pre">useGroundItem(id)</span></code><a class="headerlink" href="#usegrounditem-id" title="Link to this heading">#</a></h3>
+<p>self explanatory use along with delay, it will only call action</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+</section>
+<section id="reachgrounditem-id">
+<h3><code class="docutils literal notranslate"><span class="pre">reachGroundItem(id)</span></code><a class="headerlink" href="#reachgrounditem-id" title="Link to this heading">#</a></h3>
+<p>self explanatory use along with delay, it will only call action</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+</section>
+<section id="finditemonground-id">
+<h3><code class="docutils literal notranslate"><span class="pre">findItemOnGround(id)</span></code><a class="headerlink" href="#finditemonground-id" title="Link to this heading">#</a></h3>
+<p>self explanatory returns object</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> object</p>
+</section>
+<section id="useongrounditem-a-b">
+<h3><code class="docutils literal notranslate"><span class="pre">useOnGroundItem(a,</span> <span class="pre">b)</span></code><a class="headerlink" href="#useongrounditem-a-b" title="Link to this heading">#</a></h3>
+<p>self explanatory use along with delay, it will only call action</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></li>
+</ul>
+</section>
+<section id="target">
+<h3><code class="docutils literal notranslate"><span class="pre">target()</span></code><a class="headerlink" href="#target" title="Link to this heading">#</a></h3>
+<p>returns target creature</p>
+<p><strong>Zwraca:</strong> target creature</p>
+</section>
+<section id="gettarget">
+<h3><code class="docutils literal notranslate"><span class="pre">getTarget()</span></code><a class="headerlink" href="#gettarget" title="Link to this heading">#</a></h3>
+<p>returns target creature</p>
+<p><strong>Zwraca:</strong> target creature</p>
+</section>
+<section id="targetpos-dist">
+<h3><code class="docutils literal notranslate"><span class="pre">targetPos(dist)</span></code><a class="headerlink" href="#targetpos-dist" title="Link to this heading">#</a></h3>
+<p>dist is boolean returns target position/distance from player</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dist</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> target position/distance from player</p>
+</section>
+<section id="reopenpurse">
+<h3><code class="docutils literal notranslate"><span class="pre">reopenPurse()</span></code><a class="headerlink" href="#reopenpurse" title="Link to this heading">#</a></h3>
+<p>for gunzodus/ezodus only it will reopen loot bag, necessary for depositer</p>
+</section>
+<section id="getcreaturesinarea-param1-param2-param3">
+<h3><code class="docutils literal notranslate"><span class="pre">getCreaturesInArea(param1,</span> <span class="pre">param2,</span> <span class="pre">param3)</span></code><a class="headerlink" href="#getcreaturesinarea-param1-param2-param3" title="Link to this heading">#</a></h3>
+<p>getSpectator patterns param1 - pos/creature param2 - pattern param3 - type of return 1 - everyone, 2 - monsters, 3 - players returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">param1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param3</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> 1 - everyone, 2 - monsters, 3 - players returns number</p>
+</section>
+<section id="getbesttilebypatern-pattern-spectype-maxdist-safe">
+<h3><code class="docutils literal notranslate"><span class="pre">getBestTileByPatern(pattern,</span> <span class="pre">specType,</span> <span class="pre">maxDist,</span> <span class="pre">safe)</span></code><a class="headerlink" href="#getbesttilebypatern-pattern-spectype-maxdist-safe" title="Link to this heading">#</a></h3>
+<p>can be improved TODO in future uses getCreaturesInArea, specType returns number</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pattern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">specType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxDist</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safe</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> number</p>
+</section>
+<section id="getcontainerbyname-name-notfull">
+<h3><code class="docutils literal notranslate"><span class="pre">getContainerByName(name,</span> <span class="pre">notFull)</span></code><a class="headerlink" href="#getcontainerbyname-name-notfull" title="Link to this heading">#</a></h3>
+<p>returns container object based on name</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notFull</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> container object based on name</p>
+</section>
+<section id="getcontainerbyitem-id-notfull">
+<h3><code class="docutils literal notranslate"><span class="pre">getContainerByItem(id,</span> <span class="pre">notFull)</span></code><a class="headerlink" href="#getcontainerbyitem-id-notfull" title="Link to this heading">#</a></h3>
+<p>returns container object based on container ID</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notFull</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> container object based on container ID</p>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="playerpositionchange">
+<h3><code class="docutils literal notranslate"><span class="pre">PlayerPositionChange</span></code><a class="headerlink" href="#playerpositionchange" title="Link to this heading">#</a></h3>
+<p>scripts / functions</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onPlayerPositionChange(function(x,y)</span></code></p>
+</section>
+<section id="getrootwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">getRootWidget</span></code><a class="headerlink" href="#getrootwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">characters</span> <span class="pre">=</span> <span class="pre">g_ui.getRootWidget().charactersWindow.characters</span></code></p>
+</section>
+<section id="event">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#event" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(100,</span> <span class="pre">modules.client_entergame.CharacterList.doLogin)</span></code></p>
+</section>
+<section id="textmessage">
+<h3><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code><a class="headerlink" href="#textmessage" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTextMessage(function(mode,</span> <span class="pre">text)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(3050,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">schedule(delay,</span> <span class="pre">function()</span> <span class="pre">NPC.say(text)</span> <span class="pre">end)</span></code></p>
+</section>
+<section id="umber">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#umber" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">string.match(text,</span> <span class="pre">&quot;%d+&quot;)</span> <span class="pre">then</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">tonumber(string.match(text,</span> <span class="pre">&quot;%d+&quot;))</span> <span class="pre">end</span></code></p>
+</section>
+<section id="tainerisfull">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerIsFull</span></code><a class="headerlink" href="#tainerisfull" title="Link to this heading">#</a></h3>
+<p>check’s whether container is full c has to be container object returns boolean</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">containerIsFull(c)</span></code></p>
+</section>
+<section id="talk">
+<h3><code class="docutils literal notranslate"><span class="pre">Talk</span></code><a class="headerlink" href="#talk" title="Link to this heading">#</a></h3>
+<p>calculates exhaust for potions based on “Aaaah…” message changes state of vBot variable, can be used in other scripts already used in pushmax, healbot, etc</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTalk(function(name,</span> <span class="pre">level,</span> <span class="pre">mode,</span> <span class="pre">text,</span> <span class="pre">channelId,</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(950,</span> <span class="pre">function()</span> <span class="pre">vBot.isUsingPotion</span> <span class="pre">=</span> <span class="pre">false</span> <span class="pre">end)</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">Talk</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTalk(function(name,</span> <span class="pre">level,</span> <span class="pre">mode,</span> <span class="pre">text,</span> <span class="pre">channelId,</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">Talk</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onTalk(function(name,</span> <span class="pre">level,</span> <span class="pre">mode,</span> <span class="pre">text,</span> <span class="pre">channelId,</span> <span class="pre">pos)</span></code></p>
+</section>
+<section id="spellcooldown">
+<h3><code class="docutils literal notranslate"><span class="pre">SpellCooldown</span></code><a class="headerlink" href="#spellcooldown" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSpellCooldown(function(iconId,</span> <span class="pre">duration)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(1,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="groupspellcooldown">
+<h3><code class="docutils literal notranslate"><span class="pre">GroupSpellCooldown</span></code><a class="headerlink" href="#groupspellcooldown" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onGroupSpellCooldown(function(iconId,</span> <span class="pre">duration)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(2,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="active">
+<h3><code class="docutils literal notranslate"><span class="pre">Active</span></code><a class="headerlink" href="#active" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">icon</span> <span class="pre">=</span> <span class="pre">modules.game_cooldown.isCooldownIconActive(data.id)</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">Active</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">modules.game_cooldown.isGroupCooldownIconActive(groupId)</span> <span class="pre">then</span></code></p>
+</section>
+<section id="use">
+<h3><code class="docutils literal notranslate"><span class="pre">Use</span></code><a class="headerlink" href="#use" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onUse(function(pos,</span> <span class="pre">itemId,</span> <span class="pre">stackPos,</span> <span class="pre">subType)</span></code></p>
+</section>
+<section id="tainer">
+<h3><code class="docutils literal notranslate"><span class="pre">tainer</span></code><a class="headerlink" href="#tainer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">topThing:isContainer()</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="usewith">
+<h3><code class="docutils literal notranslate"><span class="pre">UseWith</span></code><a class="headerlink" href="#usewith" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onUseWith(function(pos,</span> <span class="pre">itemId,</span> <span class="pre">target,</span> <span class="pre">subType)</span></code></p>
+</section>
+<section id="s">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#s" title="Link to this heading">#</a></h3>
+<p>returns amount of monsters within the range of position</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">include</span> <span class="pre">summons</span> <span class="pre">(new</span> <span class="pre">tibia)</span></code></p>
+</section>
+<section id="stersinrange">
+<h3><code class="docutils literal notranslate"><span class="pre">stersInRange</span></code><a class="headerlink" href="#stersinrange" title="Link to this heading">#</a></h3>
+<p>returns amount of monsters within the range of position does not include summons (new tibia) returns number</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getMonstersInRange(pos,</span> <span class="pre">range)</span></code></p>
+</section>
+<section id="ster">
+<h3><code class="docutils literal notranslate"><span class="pre">ster</span></code><a class="headerlink" href="#ster" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">spec:isMonster()</span> <span class="pre">and</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>returns amount of monsters within the range of local player position</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">include</span> <span class="pre">summons</span> <span class="pre">(new</span> <span class="pre">tibia)</span></code></p>
+</section>
+<section id="sters">
+<h3><code class="docutils literal notranslate"><span class="pre">sters</span></code><a class="headerlink" href="#sters" title="Link to this heading">#</a></h3>
+<p>returns amount of monsters within the range of local player position does not include summons (new tibia) can also check multiple floors returns number</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getMonsters(range,</span> <span class="pre">multifloor)</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">ster</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">spec:isMonster()</span> <span class="pre">and</span> <span class="pre">distanceFromPlayer(spec:getPosition())</span> <span class="pre">&lt;=</span></code></p>
+</section>
+<section id="tainers">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#tainers" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(100,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">event</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">schedule(1400,</span> <span class="pre">function()</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">ster</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">spec:isMonster()</span> <span class="pre">and</span></code></p>
+</section>
+<section id="tainerbyname">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code><a class="headerlink" href="#tainerbyname" title="Link to this heading">#</a></h3>
+<p>returns container object based on name</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getContainerByName(name,</span> <span class="pre">notFull)</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerIsFull</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">c:getName():lower()</span> <span class="pre">==</span> <span class="pre">name:lower()</span> <span class="pre">and</span> <span class="pre">(not</span> <span class="pre">notFull</span> <span class="pre">or</span> <span class="pre">not</span> <span class="pre">containerIsFull(c))</span> <span class="pre">then</span></code></p>
+</section>
+<section id="tainerbyitem">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerByItem</span></code><a class="headerlink" href="#tainerbyitem" title="Link to this heading">#</a></h3>
+<p>returns container object based on container ID</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getContainerByItem(id,</span> <span class="pre">notFull)</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">tainers</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">pairs(getContainers())</span> <span class="pre">do</span></code></p>
+</section>
+<section id="taineritem">
+<h3><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code><a class="headerlink" href="#taineritem" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">c:getContainerItem():getId()</span> <span class="pre">==</span> <span class="pre">id</span> <span class="pre">and</span> <span class="pre">(not</span> <span class="pre">notFull</span> <span class="pre">or</span> <span class="pre">not</span> <span class="pre">containerIsFull(c))</span> <span class="pre">then</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vbot"><code class="docutils literal notranslate"><span class="pre">vBot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spellcasttable"><code class="docutils literal notranslate"><span class="pre">SpellCastTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cachedfriends"><code class="docutils literal notranslate"><span class="pre">CachedFriends</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cachedenemies"><code class="docutils literal notranslate"><span class="pre">CachedEnemies</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loginfo-text"><code class="docutils literal notranslate"><span class="pre">logInfo(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standtime"><code class="docutils literal notranslate"><span class="pre">standTime()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relogoncharacter-charname"><code class="docutils literal notranslate"><span class="pre">relogOnCharacter(charName)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#castspell-text"><code class="docutils literal notranslate"><span class="pre">castSpell(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#burstdamagevalue"><code class="docutils literal notranslate"><span class="pre">burstDamageValue()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whiteinfomessage-text"><code class="docutils literal notranslate"><span class="pre">whiteInfoMessage(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statusmessage-text-loginconsole"><code class="docutils literal notranslate"><span class="pre">statusMessage(text,</span> <span class="pre">logInConsole)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcastmessage-text"><code class="docutils literal notranslate"><span class="pre">broadcastMessage(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedulenpcsay-text-delay"><code class="docutils literal notranslate"><span class="pre">scheduleNpcSay(text,</span> <span class="pre">delay)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getfirstnumberintext-text"><code class="docutils literal notranslate"><span class="pre">getFirstNumberInText(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isontile-id-p1-p2-p3"><code class="docutils literal notranslate"><span class="pre">isOnTile(id,</span> <span class="pre">p1,</span> <span class="pre">p2,</span> <span class="pre">p3)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getpos-x-y-z"><code class="docutils literal notranslate"><span class="pre">getPos(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openpurse"><code class="docutils literal notranslate"><span class="pre">openPurse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#containerisfull-c"><code class="docutils literal notranslate"><span class="pre">containerIsFull(c)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropitem-idorobject"><code class="docutils literal notranslate"><span class="pre">dropItem(idOrObject)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isbuffed"><code class="docutils literal notranslate"><span class="pre">isBuffed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reindextable-t"><code class="docutils literal notranslate"><span class="pre">reindexTable(t)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#killstors"><code class="docutils literal notranslate"><span class="pre">killsToRs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cast-text-delay"><code class="docutils literal notranslate"><span class="pre">cast(text,</span> <span class="pre">delay)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cancast-spell-ignorerl-ignorecd"><code class="docutils literal notranslate"><span class="pre">canCast(spell,</span> <span class="pre">ignoreRL,</span> <span class="pre">ignoreCd)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspelldata-spell"><code class="docutils literal notranslate"><span class="pre">getSpellData(spell)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getspellcooldown-text"><code class="docutils literal notranslate"><span class="pre">getSpellCoolDown(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-starts-string-start"><code class="docutils literal notranslate"><span class="pre">string.starts(String,</span> <span class="pre">Start)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isfriend-c"><code class="docutils literal notranslate"><span class="pre">isFriend(c)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isenemy-c"><code class="docutils literal notranslate"><span class="pre">isEnemy(c)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getplayerdistribution"><code class="docutils literal notranslate"><span class="pre">getPlayerDistribution()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getfriends"><code class="docutils literal notranslate"><span class="pre">getFriends()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getneutrals"><code class="docutils literal notranslate"><span class="pre">getNeutrals()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getenemies"><code class="docutils literal notranslate"><span class="pre">getEnemies()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isattspell-expr"><code class="docutils literal notranslate"><span class="pre">isAttSpell(expr)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getactiveitemid-id"><code class="docutils literal notranslate"><span class="pre">getActiveItemId(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getinactiveitemid-id"><code class="docutils literal notranslate"><span class="pre">getInactiveItemId(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmonstersinrange-pos-range"><code class="docutils literal notranslate"><span class="pre">getMonstersInRange(pos,</span> <span class="pre">range)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distancefromplayer-coords"><code class="docutils literal notranslate"><span class="pre">distanceFromPlayer(coords)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmonsters-range-multifloor"><code class="docutils literal notranslate"><span class="pre">getMonsters(range,</span> <span class="pre">multifloor)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getplayers-range-multifloor"><code class="docutils literal notranslate"><span class="pre">getPlayers(range,</span> <span class="pre">multifloor)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isblacklistedplayerinrange-range"><code class="docutils literal notranslate"><span class="pre">isBlackListedPlayerInRange(range)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issafe-range-multifloor-padding"><code class="docutils literal notranslate"><span class="pre">isSafe(range,</span> <span class="pre">multifloor,</span> <span class="pre">padding)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getallplayers-range-multifloor"><code class="docutils literal notranslate"><span class="pre">getAllPlayers(range,</span> <span class="pre">multifloor)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getnpcs-range-multifloor"><code class="docutils literal notranslate"><span class="pre">getNpcs(range,</span> <span class="pre">multifloor)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itemamount-id"><code class="docutils literal notranslate"><span class="pre">itemAmount(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useoninvertoryitem-a-b"><code class="docutils literal notranslate"><span class="pre">useOnInvertoryItem(a,</span> <span class="pre">b)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getneartiles-pos"><code class="docutils literal notranslate"><span class="pre">getNearTiles(pos)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usegrounditem-id"><code class="docutils literal notranslate"><span class="pre">useGroundItem(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reachgrounditem-id"><code class="docutils literal notranslate"><span class="pre">reachGroundItem(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finditemonground-id"><code class="docutils literal notranslate"><span class="pre">findItemOnGround(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useongrounditem-a-b"><code class="docutils literal notranslate"><span class="pre">useOnGroundItem(a,</span> <span class="pre">b)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#target"><code class="docutils literal notranslate"><span class="pre">target()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettarget"><code class="docutils literal notranslate"><span class="pre">getTarget()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targetpos-dist"><code class="docutils literal notranslate"><span class="pre">targetPos(dist)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reopenpurse"><code class="docutils literal notranslate"><span class="pre">reopenPurse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcreaturesinarea-param1-param2-param3"><code class="docutils literal notranslate"><span class="pre">getCreaturesInArea(param1,</span> <span class="pre">param2,</span> <span class="pre">param3)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getbesttilebypatern-pattern-spectype-maxdist-safe"><code class="docutils literal notranslate"><span class="pre">getBestTileByPatern(pattern,</span> <span class="pre">specType,</span> <span class="pre">maxDist,</span> <span class="pre">safe)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcontainerbyname-name-notfull"><code class="docutils literal notranslate"><span class="pre">getContainerByName(name,</span> <span class="pre">notFull)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcontainerbyitem-id-notfull"><code class="docutils literal notranslate"><span class="pre">getContainerByItem(id,</span> <span class="pre">notFull)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#playerpositionchange"><code class="docutils literal notranslate"><span class="pre">PlayerPositionChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getrootwidget"><code class="docutils literal notranslate"><span class="pre">getRootWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textmessage"><code class="docutils literal notranslate"><span class="pre">TextMessage</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umber"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainerisfull"><code class="docutils literal notranslate"><span class="pre">tainerIsFull</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#talk"><code class="docutils literal notranslate"><span class="pre">Talk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">Talk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">Talk</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spellcooldown"><code class="docutils literal notranslate"><span class="pre">SpellCooldown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groupspellcooldown"><code class="docutils literal notranslate"><span class="pre">GroupSpellCooldown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#active"><code class="docutils literal notranslate"><span class="pre">Active</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">Active</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use"><code class="docutils literal notranslate"><span class="pre">Use</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainer"><code class="docutils literal notranslate"><span class="pre">tainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usewith"><code class="docutils literal notranslate"><span class="pre">UseWith</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stersinrange"><code class="docutils literal notranslate"><span class="pre">stersInRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ster"><code class="docutils literal notranslate"><span class="pre">ster</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">s</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sters"><code class="docutils literal notranslate"><span class="pre">sters</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">ster</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainers"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">event</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">ster</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainerbyname"><code class="docutils literal notranslate"><span class="pre">tainerByName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">tainerIsFull</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainerbyitem"><code class="docutils literal notranslate"><span class="pre">tainerByItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">tainers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taineritem"><code class="docutils literal notranslate"><span class="pre">tainerItem</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../../_sources/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.7/vBot/vlib.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1752 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/api/engine/presety_kanoniczne_otui_ts_otc_core.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Paleta: otc_core_v1 · Wersja: 1.0 Cel: Minimalne, kanoniczne presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Paleta: otc_core_v1 · Wersja: 1.0 Cel: Minimalne, kanoniczne presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4..." />
+
+    <title>Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua) &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../_static/js/hoverxref.js"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../_static/js/micromodal.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/engine/presety_kanoniczne_otui_ts_otc_core';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/api/engine/presety_kanoniczne_otui_ts_otc_core.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="presety-kanoniczne-otclient-v8-core-otui-typescript-lua">
+<h1>Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)<a class="headerlink" href="#presety-kanoniczne-otclient-v8-core-otui-typescript-lua" title="Link to this heading">#</a></h1>
+<p><strong>Paleta:</strong> <code class="docutils literal notranslate"><span class="pre">otc_core_v1</span></code> · <strong>Wersja:</strong> 1.0<br />
+<strong>Cel:</strong> Minimalne, <strong>kanoniczne</strong> presety dla każdego komponentu z palety „OTClient v8 Core”, w 100% zgodne z taksonomią (rozdz. 4 specyfikacji) oraz zasadami <strong>STRICT OTUI</strong>.</p>
+<blockquote>
+<div><p><strong>Konwencje</strong></p>
+<ul class="simple">
+<li><p>Wszystkie bloki <strong>OTUI są STRICT</strong>: końce linii LF, <strong>wcięcia = 2 spacje</strong>, <strong>brak komentarzy</strong>.</p></li>
+<li><p>Serializator emituje atrybuty w kolejności <strong>GEOMETRIA → STYL → ZACHOWANIE</strong> i mapuje <code class="docutils literal notranslate"><span class="pre">style.text</span></code> → <code class="docutils literal notranslate"><span class="pre">!text:</span> <span class="pre">tr('...')</span></code>.</p></li>
+<li><p>Bloki <strong>TypeScript (TS)</strong> zakładają AST w kształcie <code class="docutils literal notranslate"><span class="pre">WidgetNode</span></code> oraz serializer zgodny z powyższymi zasadami.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="spis-tresci">
+<h1>Spis treści<a class="headerlink" href="#spis-tresci" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="#a-windows-okna-g%C5%82%C3%B3wne"><span class="xref myst">A. Windows (Okna Główne)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#a1-mainwindow"><span class="xref myst">A.1 MainWindow</span></a></p></li>
+<li><p><a class="reference internal" href="#a2-staticmainwindow"><span class="xref myst">A.2 StaticMainWindow</span></a></p></li>
+<li><p><a class="reference internal" href="#a3-miniwindow"><span class="xref myst">A.3 MiniWindow</span></a></p></li>
+<li><p><a class="reference internal" href="#a4-containerwindow"><span class="xref myst">A.4 ContainerWindow</span></a></p></li>
+<li><p><a class="reference internal" href="#a5-dialogwindow"><span class="xref myst">A.5 DialogWindow</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#b-layout--organization-uk%C5%82ad-i-organizacja"><span class="xref myst">B. Layout &amp; Organization (Układ i Organizacja)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#b1-uiwidget-alias-widget"><span class="xref myst">B.1 UIWidget (alias: Widget)</span></a></p></li>
+<li><p><a class="reference internal" href="#b2-panel"><span class="xref myst">B.2 Panel</span></a></p></li>
+<li><p><a class="reference internal" href="#b3-groupbox"><span class="xref myst">B.3 GroupBox</span></a></p></li>
+<li><p><a class="reference internal" href="#b4-titlebar"><span class="xref myst">B.4 Titlebar</span></a></p></li>
+<li><p><a class="reference internal" href="#b5-toolbar"><span class="xref myst">B.5 Toolbar</span></a></p></li>
+<li><p><a class="reference internal" href="#b6-tabbar"><span class="xref myst">B.6 TabBar</span></a></p></li>
+<li><p><a class="reference internal" href="#b7-tabwidget"><span class="xref myst">B.7 TabWidget</span></a></p></li>
+<li><p><a class="reference internal" href="#b8-splitter-2-dzieci"><span class="xref myst">B.8 Splitter (2 dzieci)</span></a></p></li>
+<li><p><a class="reference internal" href="#b9-horizontalseparator"><span class="xref myst">B.9 HorizontalSeparator</span></a></p></li>
+<li><p><a class="reference internal" href="#b10-statusoverlay"><span class="xref myst">B.10 StatusOverlay</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#c-input-controls-kontrolki-wej%C5%9Bciowe"><span class="xref myst">C. Input Controls (Kontrolki Wejściowe)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#c1-button"><span class="xref myst">C.1 Button</span></a></p></li>
+<li><p><a class="reference internal" href="#c2-checkbox"><span class="xref myst">C.2 CheckBox</span></a></p></li>
+<li><p><a class="reference internal" href="#c2a-roundcheckbox-wariant-checkbox"><span class="xref myst">C.2a RoundCheckBox (wariant CheckBox)</span></a></p></li>
+<li><p><a class="reference internal" href="#c3-textedit"><span class="xref myst">C.3 TextEdit</span></a></p></li>
+<li><p><a class="reference internal" href="#c4-passwordtextedit"><span class="xref myst">C.4 PasswordTextEdit</span></a></p></li>
+<li><p><a class="reference internal" href="#c5-multilinetextedit--scroll"><span class="xref myst">C.5 MultilineTextEdit (+ Scroll)</span></a></p></li>
+<li><p><a class="reference internal" href="#c6-combobox"><span class="xref myst">C.6 ComboBox</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#d-data-display-wy%C5%9Bwietlanie-danych"><span class="xref myst">D. Data Display (Wyświetlanie Danych)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#d1-label-alias-uilabel"><span class="xref myst">D.1 Label (alias: UILabel)</span></a></p></li>
+<li><p><a class="reference internal" href="#d2-textlist--scroll"><span class="xref myst">D.2 TextList (+ Scroll)</span></a></p></li>
+<li><p><a class="reference internal" href="#d3-progressbar"><span class="xref myst">D.3 ProgressBar</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#e-indicators--scrolling-wska%C5%BAniki-i-przewijanie"><span class="xref myst">E. Indicators &amp; Scrolling (Wskaźniki i Przewijanie)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#e1-verticalscrollbar"><span class="xref myst">E.1 VerticalScrollBar</span></a></p></li>
+<li><p><a class="reference internal" href="#e2-horizontalscrollbar"><span class="xref myst">E.2 HorizontalScrollBar</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#f-uwagi-implementacyjne-sparky"><span class="xref myst">F. Uwagi implementacyjne (Sparky)</span></a></p></li>
+<li><p><a class="reference internal" href="#g-lua--otui-jako-string--glue-kontrolery"><span class="xref myst">G. Lua — OTUI jako string + glue (kontrolery)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#g1-miniwindow--lua"><span class="xref myst">G.1 MiniWindow — Lua</span></a></p></li>
+<li><p><a class="reference internal" href="#g2-containerwindow--lua"><span class="xref myst">G.2 ContainerWindow — Lua</span></a></p></li>
+<li><p><a class="reference internal" href="#g3-dialogwindow--lua"><span class="xref myst">G.3 DialogWindow — Lua</span></a></p></li>
+<li><p><a class="reference internal" href="#g4-wrappers-textlist--multilinetextedit"><span class="xref myst">G.4 Wrappers: TextList / MultilineTextEdit</span></a></p></li>
+<li><p><a class="reference internal" href="#g5-wzorzec-integracyjny"><span class="xref myst">G.5 Wzorzec integracyjny</span></a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="a-windows-okna-glowne">
+<h1>A. Windows (Okna Główne)<a class="headerlink" href="#a-windows-okna-glowne" title="Link to this heading">#</a></h1>
+</section>
+<section id="a-1-mainwindow">
+<h1>A.1 MainWindow<a class="headerlink" href="#a-1-mainwindow" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>MainWindow
+  id: main
+  size: 320 220
+  background-color: alpha
+
+  UIWidget
+    id: content
+    anchors.fill: parent
+    padding: 6
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetMainWindow</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MainWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">320</span><span class="p">,</span><span class="w"> </span><span class="mf">220</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alpha&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;content&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fill</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="a-2-staticmainwindow">
+<h1>A.2 StaticMainWindow<a class="headerlink" href="#a-2-staticmainwindow" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>StaticMainWindow
+  id: staticMain
+  size: 320 220
+  background-color: alpha
+
+  UIWidget
+    id: content
+    anchors.fill: parent
+    padding: 6
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetStaticMainWindow</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;StaticMainWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;staticMain&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">320</span><span class="p">,</span><span class="w"> </span><span class="mf">220</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alpha&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;content&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fill</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="a-3-miniwindow">
+<h1>A.3 MiniWindow<a class="headerlink" href="#a-3-miniwindow" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>MiniWindow &lt; MainWindow
+  id: mini
+  size: 260 180
+  background-color: alpha
+
+  UIWidget
+    id: titlebar
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    height: 20
+
+    Label
+      id: title
+      anchors.left: parent.left
+      anchors.verticalCenter: parent.verticalCenter
+      margin-left: 6
+      text-auto-resize: true
+      !text: tr(&#39;Mini Window&#39;)
+
+    Button
+      id: minimizeBtn
+      anchors.right: closeBtn.left
+      anchors.verticalCenter: parent.verticalCenter
+      width: 16
+      !text: tr(&#39;-&#39;)
+
+    Button
+      id: closeBtn
+      anchors.right: parent.right
+      anchors.verticalCenter: parent.verticalCenter
+      width: 16
+      !text: tr(&#39;x&#39;)
+
+  UIWidget
+    id: content
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: titlebar.bottom
+    anchors.bottom: footer.top
+    padding: 6
+
+  UIWidget
+    id: footer
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    height: 28
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetMiniWindow</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MiniWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">extends</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MainWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;mini&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">260</span><span class="p">,</span><span class="w"> </span><span class="mf">180</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alpha&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;titlebar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">marginLeft</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Mini Window&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">textAutoResize</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;minimizeBtn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;closeBtn.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;closeBtn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;content&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;titlebar.bottom&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;footer.top&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;footer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">28</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="a-4-containerwindow">
+<h1>A.4 ContainerWindow<a class="headerlink" href="#a-4-containerwindow" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>ContainerWindow &lt; MainWindow
+  id: container
+  size: 300 220
+  background-color: alpha
+
+  UIWidget
+    id: titlebar
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    height: 20
+
+    Label
+      id: title
+      anchors.left: parent.left
+      anchors.verticalCenter: parent.verticalCenter
+      margin-left: 6
+      text-auto-resize: true
+      !text: tr(&#39;Container&#39;)
+
+    Button
+      id: backBtn
+      anchors.right: pinBtn.left
+      anchors.verticalCenter: parent.verticalCenter
+      width: 20
+      !text: tr(&#39;&lt;&#39;)
+
+    Button
+      id: pinBtn
+      anchors.right: minimizeBtn.left
+      anchors.verticalCenter: parent.verticalCenter
+      width: 20
+      !text: tr(&#39;*&#39;)
+
+    Button
+      id: minimizeBtn
+      anchors.right: closeBtn.left
+      anchors.verticalCenter: parent.verticalCenter
+      width: 16
+      !text: tr(&#39;-&#39;)
+
+    Button
+      id: closeBtn
+      anchors.right: parent.right
+      anchors.verticalCenter: parent.verticalCenter
+      width: 16
+      !text: tr(&#39;x&#39;)
+
+  UIWidget
+    id: content
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: titlebar.bottom
+    anchors.bottom: parent.bottom
+    padding: 6
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetContainerWindow</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ContainerWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">extends</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MainWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;container&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">300</span><span class="p">,</span><span class="w"> </span><span class="mf">220</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alpha&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;titlebar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">marginLeft</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Container&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">textAutoResize</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;backBtn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pinBtn.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pinBtn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;minimizeBtn.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;minimizeBtn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;closeBtn.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;closeBtn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;content&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;titlebar.bottom&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="a-5-dialogwindow">
+<h1>A.5 DialogWindow<a class="headerlink" href="#a-5-dialogwindow" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>DialogWindow &lt; MainWindow
+  id: dialog
+  size: 260 160
+  background-color: alpha
+
+  UIWidget
+    id: titlebar
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    height: 20
+
+    Label
+      id: title
+      anchors.left: parent.left
+      anchors.verticalCenter: parent.verticalCenter
+      margin-left: 6
+      text-auto-resize: true
+      !text: tr(&#39;Dialog&#39;)
+
+  UIWidget
+    id: content
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: titlebar.bottom
+    anchors.bottom: footer.top
+    padding: 6
+
+  UIWidget
+    id: footer
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    height: 28
+
+    Button
+      id: okButton
+      anchors.right: cancelButton.left
+      anchors.bottom: parent.bottom
+      width: 64
+      margin-right: 8
+      !text: tr(&#39;Ok&#39;)
+
+    Button
+      id: cancelButton
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      width: 64
+      margin-right: 8
+      !text: tr(&#39;Cancel&#39;)
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetDialogWindow</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;DialogWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">extends</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MainWindow&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dialog&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">260</span><span class="p">,</span><span class="w"> </span><span class="mf">160</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alpha&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;titlebar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">marginLeft</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Dialog&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">textAutoResize</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;content&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;titlebar.bottom&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;footer.top&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;footer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">28</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;okButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cancelButton.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">64</span><span class="p">,</span><span class="w"> </span><span class="nx">marginRight</span><span class="o">:</span><span class="w"> </span><span class="kt">8</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Ok&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cancelButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">64</span><span class="p">,</span><span class="w"> </span><span class="nx">marginRight</span><span class="o">:</span><span class="w"> </span><span class="kt">8</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Cancel&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="b-layout-organization-uklad-i-organizacja">
+<h1>B. Layout &amp; Organization (Układ i Organizacja)<a class="headerlink" href="#b-layout-organization-uklad-i-organizacja" title="Link to this heading">#</a></h1>
+</section>
+<section id="b-1-uiwidget-alias-widget">
+<h1>B.1 UIWidget (alias: Widget)<a class="headerlink" href="#b-1-uiwidget-alias-widget" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>UIWidget
+  id: w
+  size: 100 60
+  background-color: alpha
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetUIWidget</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alpha&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-2-panel">
+<h1>B.2 Panel<a class="headerlink" href="#b-2-panel" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Panel
+  id: panel
+  anchors.fill: parent
+  padding: 6
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetPanel</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Panel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;panel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fill</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-3-groupbox">
+<h1>B.3 GroupBox<a class="headerlink" href="#b-3-groupbox" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>GroupBox
+  id: group
+  size: 220 120
+
+  UIWidget
+    id: header
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    height: 18
+
+    Label
+      id: caption
+      anchors.left: parent.left
+      anchors.verticalCenter: parent.verticalCenter
+      margin-left: 6
+      text-auto-resize: true
+      !text: tr(&#39;Group&#39;)
+
+  UIWidget
+    id: content
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: header.bottom
+    anchors.bottom: parent.bottom
+    padding: 6
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetGroupBox</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GroupBox&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="mf">120</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;header&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">18</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;caption&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">marginLeft</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">textAutoResize</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Group&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;content&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;header.bottom&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-4-titlebar">
+<h1>B.4 Titlebar<a class="headerlink" href="#b-4-titlebar" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Titlebar
+  id: tb
+  size: 200 20
+
+  Label
+    id: title
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 6
+    text-auto-resize: true
+    !text: tr(&#39;Title&#39;)
+
+  Button
+    id: closeBtn
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    width: 16
+    !text: tr(&#39;x&#39;)
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetTitlebar</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Titlebar&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tb&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">marginLeft</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">textAutoResize</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;closeBtn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">verticalCenter</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.verticalCenter&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-5-toolbar">
+<h1>B.5 Toolbar<a class="headerlink" href="#b-5-toolbar" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Toolbar
+  id: tools
+  size: 200 22
+
+  Button
+    id: action1
+    width: 20
+    !text: tr(&#39;A&#39;)
+
+  HorizontalSeparator
+    id: sep
+    size: 2 20
+
+  Button
+    id: action2
+    width: 20
+    !text: tr(&#39;B&#39;)
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetToolbar</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Toolbar&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tools&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;action1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;HorizontalSeparator&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sep&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;action2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">20</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-6-tabbar">
+<h1>B.6 TabBar<a class="headerlink" href="#b-6-tabbar" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>TabBar
+  id: tabbar
+  size: 220 22
+
+  Button
+    id: tab1
+    width: 60
+    !text: tr(&#39;Tab 1&#39;)
+
+  Button
+    id: tab2
+    anchors.left: tab1.right
+    width: 60
+    !text: tr(&#39;Tab 2&#39;)
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetTabBar</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;TabBar&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tabbar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tab1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Tab 1&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tab2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tab1.right&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Tab 2&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-7-tabwidget">
+<h1>B.7 TabWidget<a class="headerlink" href="#b-7-tabwidget" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>TabWidget
+  id: tabcontent
+  anchors.fill: parent
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetTabWidget</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;TabWidget&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tabcontent&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fill</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-8-splitter-2-dzieci">
+<h1>B.8 Splitter (2 dzieci)<a class="headerlink" href="#b-8-splitter-2-dzieci" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Splitter
+  id: split
+  size: 300 160
+
+  Panel
+    id: left
+    anchors.left: parent.left
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    width: 140
+
+  Panel
+    id: right
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    width: 140
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetSplitter</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Splitter&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;split&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">300</span><span class="p">,</span><span class="w"> </span><span class="mf">160</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Panel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">140</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Panel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">140</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-9-horizontalseparator">
+<h1>B.9 HorizontalSeparator<a class="headerlink" href="#b-9-horizontalseparator" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>HorizontalSeparator
+  id: hsep
+  size: 200 2
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetHorizontalSeparator</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;HorizontalSeparator&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hsep&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="b-10-statusoverlay">
+<h1>B.10 StatusOverlay<a class="headerlink" href="#b-10-statusoverlay" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>StatusOverlay
+  id: overlay
+  size: 240 80
+
+  Label
+    id: message
+    anchors.left: parent.left
+    anchors.right: parent.right
+    !text: tr(&#39;Working...&#39;)
+
+  ProgressBar
+    id: progress
+    anchors.left: parent.left
+    anchors.right: cancel.left
+    anchors.top: message.bottom
+    margin-top: 6
+
+  Button
+    id: cancel
+    anchors.right: parent.right
+    anchors.top: message.bottom
+    width: 64
+    margin-top: 6
+    !text: tr(&#39;Cancel&#39;)
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetStatusOverlay</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;StatusOverlay&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;overlay&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Working...&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ProgressBar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;progress&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cancel.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;message.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">marginTop</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cancel&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;message.bottom&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">64</span><span class="p">,</span><span class="w"> </span><span class="nx">marginTop</span><span class="o">:</span><span class="w"> </span><span class="kt">6</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Cancel&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="c-input-controls-kontrolki-wejsciowe">
+<h1>C. Input Controls (Kontrolki Wejściowe)<a class="headerlink" href="#c-input-controls-kontrolki-wejsciowe" title="Link to this heading">#</a></h1>
+</section>
+<section id="c-1-button">
+<h1>C.1 Button<a class="headerlink" href="#c-1-button" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Button
+  id: btn
+  width: 64
+  !text: tr(&#39;Ok&#39;)
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetButton</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Button&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;btn&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">64</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Ok&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="c-2-checkbox">
+<h1>C.2 CheckBox<a class="headerlink" href="#c-2-checkbox" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>CheckBox
+  id: check
+  width: 16
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetCheckBox</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CheckBox&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;check&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="c-2a-roundcheckbox-wariant-checkbox">
+<h1>C.2a RoundCheckBox (wariant CheckBox)<a class="headerlink" href="#c-2a-roundcheckbox-wariant-checkbox" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>CheckBox
+  id: roundCheck
+  width: 16
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetRoundCheckBox</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CheckBox&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;roundCheck&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">variant</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;RoundCheckBox&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="c-3-textedit">
+<h1>C.3 TextEdit<a class="headerlink" href="#c-3-textedit" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>TextEdit
+  id: edit
+  width: 120
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetTextEdit</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;TextEdit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;edit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">120</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="c-4-passwordtextedit">
+<h1>C.4 PasswordTextEdit<a class="headerlink" href="#c-4-passwordtextedit" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>PasswordTextEdit
+  id: pass
+  width: 120
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetPasswordTextEdit</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;PasswordTextEdit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pass&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">120</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="c-5-multilinetextedit-scroll">
+<h1>C.5 MultilineTextEdit (+ Scroll)<a class="headerlink" href="#c-5-multilinetextedit-scroll" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>UIWidget
+  id: wrapMultiline
+  size: 220 120
+
+  MultilineTextEdit
+    id: multi
+    anchors.left: parent.left
+    anchors.right: scroll.left
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+
+  VerticalScrollBar
+    id: scroll
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    step: 16
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetMultilineTextEdit</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;wrapMultiline&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="mf">120</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MultilineTextEdit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;multi&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scroll.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;VerticalScrollBar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">step</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="c-6-combobox">
+<h1>C.6 ComboBox<a class="headerlink" href="#c-6-combobox" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>ComboBox
+  id: combo
+  width: 120
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetComboBox</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ComboBox&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;combo&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">120</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="d-data-display-wyswietlanie-danych">
+<h1>D. Data Display (Wyświetlanie Danych)<a class="headerlink" href="#d-data-display-wyswietlanie-danych" title="Link to this heading">#</a></h1>
+</section>
+<section id="d-1-label-alias-uilabel">
+<h1>D.1 Label (alias: UILabel)<a class="headerlink" href="#d-1-label-alias-uilabel" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Label
+  id: label
+  text-wrap: true
+  !text: tr(&#39;Label&#39;)
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetLabel</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">textWrap</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="d-2-textlist-scroll">
+<h1>D.2 TextList (+ Scroll)<a class="headerlink" href="#d-2-textlist-scroll" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>UIWidget
+  id: wrapList
+  size: 220 140
+
+  TextList
+    id: list
+    anchors.left: parent.left
+    anchors.right: scroll.left
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+
+  VerticalScrollBar
+    id: scroll
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    step: 16
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetTextList</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UIWidget&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;wrapList&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="mf">140</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;TextList&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;list&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">left</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scroll.left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;VerticalScrollBar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">anchors</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">right</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">top</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.top&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bottom</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parent.bottom&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">step</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="d-3-progressbar">
+<h1>D.3 ProgressBar<a class="headerlink" href="#d-3-progressbar" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>ProgressBar
+  id: progress
+  size: 200 14
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetProgressBar</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ProgressBar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;progress&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="e-indicators-scrolling-wskazniki-i-przewijanie">
+<h1>E. Indicators &amp; Scrolling (Wskaźniki i Przewijanie)<a class="headerlink" href="#e-indicators-scrolling-wskazniki-i-przewijanie" title="Link to this heading">#</a></h1>
+</section>
+<section id="e-1-verticalscrollbar">
+<h1>E.1 VerticalScrollBar<a class="headerlink" href="#e-1-verticalscrollbar" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>VerticalScrollBar
+  id: vscroll
+  height: 120
+  step: 16
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetVerticalScrollBar</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;VerticalScrollBar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;vscroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="kt">120</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">step</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="e-2-horizontalscrollbar">
+<h1>E.2 HorizontalScrollBar<a class="headerlink" href="#e-2-horizontalscrollbar" title="Link to this heading">#</a></h1>
+<p><strong>OTUI</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>HorizontalScrollBar
+  id: hscroll
+  width: 200
+  step: 16
+</pre></div>
+</div>
+<p><strong>TypeScript (TS)</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">presetHorizontalScrollBar</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">WidgetNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">base</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;HorizontalScrollBar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hscroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="kt">200</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">step</span><span class="o">:</span><span class="w"> </span><span class="kt">16</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="f-uwagi-implementacyjne-sparky">
+<h1>F. Uwagi implementacyjne (Sparky)<a class="headerlink" href="#f-uwagi-implementacyjne-sparky" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Presety są <strong>minimalne</strong>: zachowują sloty, parowanie (TextList/Multiline ↔ ScrollBar) i deterministyczną strukturę do serializacji.</p></li>
+<li><p>Gdy wymagana jest para przewijania, używaj <strong>sąsiadujących</strong> (sibling) <code class="docutils literal notranslate"><span class="pre">VerticalScrollBar</span></code>/<code class="docutils literal notranslate"><span class="pre">HorizontalScrollBar</span></code> oraz odpowiednich kotwic <code class="docutils literal notranslate"><span class="pre">right:</span> <span class="pre">scroll.left</span></code> / <code class="docutils literal notranslate"><span class="pre">bottom:</span> <span class="pre">hscroll.top</span></code>.</p></li>
+<li><p>Presety okien zawierają <code class="docutils literal notranslate"><span class="pre">titlebar</span></code> (Mini/Container/Dialog) oraz minimalne <code class="docutils literal notranslate"><span class="pre">content</span></code>/<code class="docutils literal notranslate"><span class="pre">footer</span></code>.</p></li>
+<li><p><strong>TypeScript</strong> może wstrzykiwać zdarzenia (<code class="docutils literal notranslate"><span class="pre">&#64;onEnter/&#64;onEscape/&#64;onClick</span></code>) w generatorach, lecz celowo ich tu nie dodano, aby presety pozostały neutralne.</p></li>
+<li><p>Serializer musi zapewnić <strong>STRICT OTUI</strong> oraz konwersję <code class="docutils literal notranslate"><span class="pre">style.text</span></code> → <code class="docutils literal notranslate"><span class="pre">!text:</span> <span class="pre">tr('...')</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="g-lua-otui-jako-string-glue-kontrolery">
+<h1>G. Lua — OTUI jako string + glue (kontrolery)<a class="headerlink" href="#g-lua-otui-jako-string-glue-kontrolery" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p><strong>Cel:</strong> dodać do presetów trzeci filar — <strong>Lua</strong>, który zawiera: (1) kanoniczny blok <strong>OTUI jako string</strong> (STRICT, bez komentarzy w samym OTUI), (2) minimalistyczny <strong>glue</strong> (kontrolery/wywołania) spójny z presetami.</p>
+<p><strong>Ważne:</strong> w runtime używaj <strong>plików</strong> i <code class="docutils literal notranslate"><span class="pre">g_ui.displayUI('...')</span></code>. Bloki OTUI w Lua poniżej służą głównie do <strong>importu/eksportu</strong> w edytorze.</p>
+</div></blockquote>
+</section>
+<section id="g-1-miniwindow-lua">
+<h1>G.1 MiniWindow — Lua<a class="headerlink" href="#g-1-miniwindow-lua" title="Link to this heading">#</a></h1>
+<p><strong>Lua (OTUI jako string — STRICT)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">MiniWindow_OTUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[[</span>
+<span class="s">MiniWindow &lt; MainWindow</span>
+<span class="s">  id: mini</span>
+<span class="s">  size: 260 180</span>
+<span class="s">  background-color: alpha</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: titlebar</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: parent.top</span>
+<span class="s">    height: 20</span>
+
+<span class="s">    Label</span>
+<span class="s">      id: title</span>
+<span class="s">      anchors.left: parent.left</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      margin-left: 6</span>
+<span class="s">      text-auto-resize: true</span>
+<span class="s">      !text: tr(&#39;Mini Window&#39;)</span>
+
+<span class="s">    Button</span>
+<span class="s">      id: minimizeBtn</span>
+<span class="s">      anchors.right: closeBtn.left</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      width: 16</span>
+<span class="s">      !text: tr(&#39;-&#39;)</span>
+
+<span class="s">    Button</span>
+<span class="s">      id: closeBtn</span>
+<span class="s">      anchors.right: parent.right</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      width: 16</span>
+<span class="s">      !text: tr(&#39;x&#39;)</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: content</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: titlebar.bottom</span>
+<span class="s">    anchors.bottom: footer.top</span>
+<span class="s">    padding: 6</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: footer</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+<span class="s">    height: 28</span>
+<span class="s">]]</span>
+</pre></div>
+</div>
+<p><strong>Lua (glue — kontroler i standardowe operacje)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nv">MiniWindowController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">MiniWindowController</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">MiniWindowController</span><span class="p">.</span><span class="nf">mountFromFile</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">displayUI</span><span class="p">(</span><span class="s1">&#39;mini&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1">-- w runtime używaj plików .otui</span>
+<span class="w">  </span><span class="nv">MiniWindowController</span><span class="p">.</span><span class="nf">_wire</span><span class="p">(</span><span class="nv">win</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">win</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">MiniWindowController</span><span class="p">.</span><span class="nf">_wire</span><span class="p">(</span><span class="nv">win</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">minimizeBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;minimizeBtn&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">closeBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;closeBtn&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">minimizeBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">minimizeBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">MiniWindowController</span><span class="p">.</span><span class="py">onToggleMinimize</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">closeBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">closeBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">MiniWindowController</span><span class="p">.</span><span class="py">onClose</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">MiniWindowController</span><span class="p">.</span><span class="nf">onToggleMinimize</span><span class="p">(</span><span class="nv">btn</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">btn</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">():</span><span class="nf">getParent</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">footer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;footer&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">content</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="nv">content</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">())</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">footer</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">footer</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="nv">footer</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">())</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">MiniWindowController</span><span class="p">.</span><span class="nf">onClose</span><span class="p">(</span><span class="nv">btn</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">btn</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">():</span><span class="nf">getParent</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<section id="g-2-containerwindow-lua">
+<h1>G.2 ContainerWindow — Lua<a class="headerlink" href="#g-2-containerwindow-lua" title="Link to this heading">#</a></h1>
+<p><strong>Lua (OTUI jako string — STRICT)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">ContainerWindow_OTUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[[</span>
+<span class="s">ContainerWindow &lt; MainWindow</span>
+<span class="s">  id: container</span>
+<span class="s">  size: 300 220</span>
+<span class="s">  background-color: alpha</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: titlebar</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: parent.top</span>
+<span class="s">    height: 20</span>
+
+<span class="s">    Label</span>
+<span class="s">      id: title</span>
+<span class="s">      anchors.left: parent.left</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      margin-left: 6</span>
+<span class="s">      text-auto-resize: true</span>
+<span class="s">      !text: tr(&#39;Container&#39;)</span>
+
+<span class="s">    Button</span>
+<span class="s">      id: backBtn</span>
+<span class="s">      anchors.right: pinBtn.left</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      width: 20</span>
+<span class="s">      !text: tr(&#39;&lt;&#39;)</span>
+
+<span class="s">    Button</span>
+<span class="s">      id: pinBtn</span>
+<span class="s">      anchors.right: minimizeBtn.left</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      width: 20</span>
+<span class="s">      !text: tr(&#39;*&#39;)</span>
+
+<span class="s">    Button</span>
+<span class="s">      id: minimizeBtn</span>
+<span class="s">      anchors.right: closeBtn.left</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      width: 16</span>
+<span class="s">      !text: tr(&#39;-&#39;)</span>
+
+<span class="s">    Button</span>
+<span class="s">      id: closeBtn</span>
+<span class="s">      anchors.right: parent.right</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      width: 16</span>
+<span class="s">      !text: tr(&#39;x&#39;)</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: content</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: titlebar.bottom</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+<span class="s">    padding: 6</span>
+<span class="s">]]</span>
+</pre></div>
+</div>
+<p><strong>Lua (glue — kontroler i standardowe operacje)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nv">ContainerController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ContainerController</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">ContainerController</span><span class="p">.</span><span class="nf">mountFromFile</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">displayUI</span><span class="p">(</span><span class="s1">&#39;container&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">ContainerController</span><span class="p">.</span><span class="nf">_wire</span><span class="p">(</span><span class="nv">win</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">win</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">ContainerController</span><span class="p">.</span><span class="nf">_wire</span><span class="p">(</span><span class="nv">win</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">backBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;backBtn&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">pinBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;pinBtn&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">minBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;minimizeBtn&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">closeBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;closeBtn&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">backBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">backBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ContainerController</span><span class="p">.</span><span class="py">onBack</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">pinBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">pinBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ContainerController</span><span class="p">.</span><span class="py">onTogglePin</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">minBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">minBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ContainerController</span><span class="p">.</span><span class="py">onToggleMinimize</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">closeBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">closeBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ContainerController</span><span class="p">.</span><span class="py">onClose</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">ContainerController</span><span class="p">.</span><span class="nf">onBack</span><span class="p">(</span><span class="nv">btn</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">btn</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">():</span><span class="nf">getParent</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span><span class="w"> </span><span class="c1">-- docelowo: nawigacja wstecz</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">ContainerController</span><span class="p">.</span><span class="nf">onTogglePin</span><span class="p">(</span><span class="nv">btn</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">-- docelowo: zmiana stanu przypięcia</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">ContainerController</span><span class="p">.</span><span class="nf">onToggleMinimize</span><span class="p">(</span><span class="nv">btn</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">btn</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">():</span><span class="nf">getParent</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">content</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="nv">content</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">())</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">ContainerController</span><span class="p">.</span><span class="nf">onClose</span><span class="p">(</span><span class="nv">btn</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">btn</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">btn</span><span class="p">:</span><span class="nf">getParent</span><span class="p">():</span><span class="nf">getParent</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<section id="g-3-dialogwindow-lua">
+<h1>G.3 DialogWindow — Lua<a class="headerlink" href="#g-3-dialogwindow-lua" title="Link to this heading">#</a></h1>
+<p><strong>Lua (OTUI jako string — STRICT)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">DialogWindow_OTUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[[</span>
+<span class="s">DialogWindow &lt; MainWindow</span>
+<span class="s">  id: dialog</span>
+<span class="s">  size: 260 160</span>
+<span class="s">  background-color: alpha</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: titlebar</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: parent.top</span>
+<span class="s">    height: 20</span>
+
+<span class="s">    Label</span>
+<span class="s">      id: title</span>
+<span class="s">      anchors.left: parent.left</span>
+<span class="s">      anchors.verticalCenter: parent.verticalCenter</span>
+<span class="s">      margin-left: 6</span>
+<span class="s">      text-auto-resize: true</span>
+<span class="s">      !text: tr(&#39;Dialog&#39;)</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: content</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: titlebar.bottom</span>
+<span class="s">    anchors.bottom: footer.top</span>
+<span class="s">    padding: 6</span>
+
+<span class="s">  UIWidget</span>
+<span class="s">    id: footer</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+<span class="s">    height: 28</span>
+
+<span class="s">  Button</span>
+<span class="s">    id: okButton</span>
+<span class="s">    anchors.right: cancelButton.left</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+<span class="s">    width: 64</span>
+<span class="s">    margin-right: 8</span>
+<span class="s">    !text: tr(&#39;Ok&#39;)</span>
+
+<span class="s">  Button</span>
+<span class="s">    id: cancelButton</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+<span class="s">    width: 64</span>
+<span class="s">    margin-right: 8</span>
+<span class="s">    !text: tr(&#39;Cancel&#39;)</span>
+<span class="s">]]</span>
+</pre></div>
+</div>
+<p><strong>Lua (glue — kontroler i standardowe operacje)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nv">DialogController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">DialogController</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">DialogController</span><span class="p">.</span><span class="nf">mountFromFile</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">displayUI</span><span class="p">(</span><span class="s1">&#39;dialog&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">DialogController</span><span class="p">.</span><span class="nf">_wire</span><span class="p">(</span><span class="nv">win</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">win</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">DialogController</span><span class="p">.</span><span class="nf">_wire</span><span class="p">(</span><span class="nv">win</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">okBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;okButton&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cancelBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;cancelButton&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">okBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">okBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">DialogController</span><span class="p">.</span><span class="py">onOk</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">cancelBtn</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">cancelBtn</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">DialogController</span><span class="p">.</span><span class="py">onCancel</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">DialogController</span><span class="p">.</span><span class="nf">onOk</span><span class="p">(</span><span class="nv">widget</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getParent</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getParent</span><span class="p">():</span><span class="nf">getParent</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">DialogController</span><span class="p">.</span><span class="nf">onCancel</span><span class="p">(</span><span class="nv">widget</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getParent</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getParent</span><span class="p">():</span><span class="nf">getParent</span><span class="p">()</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">win</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<section id="g-4-wrappers-textlist-multilinetextedit">
+<h1>G.4 Wrappers: TextList / MultilineTextEdit<a class="headerlink" href="#g-4-wrappers-textlist-multilinetextedit" title="Link to this heading">#</a></h1>
+<p><strong>Lua (OTUI dla MultilineTextEdit + VerticalScrollBar)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">MultilineWrapper_OTUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[[</span>
+<span class="s">UIWidget</span>
+<span class="s">  id: wrapMultiline</span>
+<span class="s">  size: 220 120</span>
+
+<span class="s">  MultilineTextEdit</span>
+<span class="s">    id: multi</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: scroll.left</span>
+<span class="s">    anchors.top: parent.top</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+
+<span class="s">  VerticalScrollBar</span>
+<span class="s">    id: scroll</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: parent.top</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+<span class="s">    step: 16</span>
+<span class="s">]]</span>
+</pre></div>
+</div>
+<p><strong>Lua (OTUI dla TextList + VerticalScrollBar)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">TextListWrapper_OTUI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[[</span>
+<span class="s">UIWidget</span>
+<span class="s">  id: wrapList</span>
+<span class="s">  size: 220 140</span>
+
+<span class="s">  TextList</span>
+<span class="s">    id: list</span>
+<span class="s">    anchors.left: parent.left</span>
+<span class="s">    anchors.right: scroll.left</span>
+<span class="s">    anchors.top: parent.top</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+
+<span class="s">  VerticalScrollBar</span>
+<span class="s">    id: scroll</span>
+<span class="s">    anchors.right: parent.right</span>
+<span class="s">    anchors.top: parent.top</span>
+<span class="s">    anchors.bottom: parent.bottom</span>
+<span class="s">    step: 16</span>
+<span class="s">]]</span>
+</pre></div>
+</div>
+</section>
+<section id="g-5-wzorzec-integracyjny">
+<h1>G.5 Wzorzec integracyjny<a class="headerlink" href="#g-5-wzorzec-integracyjny" title="Link to this heading">#</a></h1>
+<p><strong>Lua (zalecany runtime‑flow)</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 1) Eksportuj z edytora do pliku .otui w Twoim module (poza runtime).</span>
+<span class="c1">-- 2) W runtime ładuj z pliku i przewiąż kontroler.</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">displayUI</span><span class="p">(</span><span class="s1">&#39;mini&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1">-- np. modules/yourmod/mini.otui</span>
+<span class="nv">MiniWindowController</span><span class="p">.</span><span class="nf">_wire</span><span class="p">(</span><span class="nv">win</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Edytor (round‑trip)</strong></p>
+<ul class="simple">
+<li><p>Import: wykryj w Lua stałe w formie <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">&lt;Name&gt;_OTUI</span> <span class="pre">=</span> <span class="pre">[[...]]</span></code> i wczytaj blok jako źródło UI.</p></li>
+<li><p>Eksport: zapisz do <code class="docutils literal notranslate"><span class="pre">.otui</span></code> oraz opcjonalnie zaktualizuj powyższy blok (z zachowaniem STRICT).</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Presety Kanoniczne — OTClient v8 Core (OTUI + TypeScript + Lua)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#spis-tresci">Spis treści</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-windows-okna-glowne">A. Windows (Okna Główne)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-mainwindow">A.1 MainWindow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-2-staticmainwindow">A.2 StaticMainWindow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-3-miniwindow">A.3 MiniWindow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-4-containerwindow">A.4 ContainerWindow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-5-dialogwindow">A.5 DialogWindow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-layout-organization-uklad-i-organizacja">B. Layout &amp; Organization (Układ i Organizacja)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-1-uiwidget-alias-widget">B.1 UIWidget (alias: Widget)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-2-panel">B.2 Panel</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-3-groupbox">B.3 GroupBox</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-4-titlebar">B.4 Titlebar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-5-toolbar">B.5 Toolbar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-6-tabbar">B.6 TabBar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-7-tabwidget">B.7 TabWidget</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-8-splitter-2-dzieci">B.8 Splitter (2 dzieci)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-9-horizontalseparator">B.9 HorizontalSeparator</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-10-statusoverlay">B.10 StatusOverlay</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-input-controls-kontrolki-wejsciowe">C. Input Controls (Kontrolki Wejściowe)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-1-button">C.1 Button</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-2-checkbox">C.2 CheckBox</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-2a-roundcheckbox-wariant-checkbox">C.2a RoundCheckBox (wariant CheckBox)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-3-textedit">C.3 TextEdit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-4-passwordtextedit">C.4 PasswordTextEdit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-5-multilinetextedit-scroll">C.5 MultilineTextEdit (+ Scroll)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-6-combobox">C.6 ComboBox</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-display-wyswietlanie-danych">D. Data Display (Wyświetlanie Danych)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-1-label-alias-uilabel">D.1 Label (alias: UILabel)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-2-textlist-scroll">D.2 TextList (+ Scroll)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-3-progressbar">D.3 ProgressBar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e-indicators-scrolling-wskazniki-i-przewijanie">E. Indicators &amp; Scrolling (Wskaźniki i Przewijanie)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e-1-verticalscrollbar">E.1 VerticalScrollBar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#e-2-horizontalscrollbar">E.2 HorizontalScrollBar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#f-uwagi-implementacyjne-sparky">F. Uwagi implementacyjne (Sparky)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#g-lua-otui-jako-string-glue-kontrolery">G. Lua — OTUI jako string + glue (kontrolery)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#g-1-miniwindow-lua">G.1 MiniWindow — Lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#g-2-containerwindow-lua">G.2 ContainerWindow — Lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#g-3-dialogwindow-lua">G.3 DialogWindow — Lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#g-4-wrappers-textlist-multilinetextedit">G.4 Wrappers: TextList / MultilineTextEdit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#g-5-wzorzec-integracyjny">G.5 Wzorzec integracyjny</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api/engine/presety_kanoniczne_otui_ts_otc_core.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1801 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Moduł: | Moduł: game_protocol" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-game_protocol.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="protocol.otmod:" />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="protocol.otmod:" />
+
+    <title>Moduł: | Moduł: game_protocol &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/dev_tools/modul-game_protocol';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-game_protocol.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_protocol</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-game-protocol">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_protocol</span></code><a class="headerlink" href="#modul-modul-game-protocol" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">registredOpcodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">ServerPackets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">	</span><span class="nv">DailyRewardCollectionState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xDE</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">OpenRewardWall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xE2</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">CloseRewardWall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xE3</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">DailyRewardBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xE4</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">DailyRewardHistory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xE5</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">RestingAreaState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xA9</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">BestiaryData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xd5</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">BestiaryOverview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xd6</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">BestiaryMonsterData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xd7</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">BestiaryCharmsData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xd8</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">BestiaryTracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xd9</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">BestiaryTrackerTab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xB9</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">OpenStashSupply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x29</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">UpdateLootTracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xCF</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">UpdateTrackerAnalyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xCC</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">UpdateSupplyTracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xCE</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">KillTracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xD1</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">SpecialContainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2A</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">isUpdateCoinBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xF2</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">UpdateCoinBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xDF</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">PartyAnalyzer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2B</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">GameNews</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x98</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">ClientCheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x63</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">LootStats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xCF</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">LootContainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xC0</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">TournamentLeaderBoard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xC5</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">CyclopediaCharacterInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xDA</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">Tutorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xDC</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">Highscores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xB1</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">Inspection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x76</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">TeamFinderList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2D</span><span class="p">,</span>
+
+<span class="w">	</span><span class="nv">TeamFinderLeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2C</span>
+
+<span class="p">}</span>
+
+<span class="c1">-- Server Types</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_TYPE_ITEM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_TYPE_STORAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_TYPE_PREY_REROLL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_TYPE_XP_BOOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+
+<span class="c1">-- Client Types</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_SKIP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_TYPE_ONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_TYPE_TWO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_TYPE_OTHER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_TYPE_PREY_REROLL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_TYPE_XP_BOOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">onEnterGame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">registerProtocol</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="nv">onPendingGame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">registerProtocol</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">unregisterProtocol</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">isOnline</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nf">registerProtocol</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">terminate</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">onEnterGame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">registerProtocol</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="nv">onPendingGame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">registerProtocol</span><span class="p">,</span>
+
+<span class="w">                    </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">unregisterProtocol</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="nf">unregisterProtocol</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">registerProtocol</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">registredOpcodes</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getFeature</span><span class="p">(</span><span class="nv">GameTibia12Protocol</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">registredOpcodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">TeamFinderLeader</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- reset</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="kr">return</span><span class="w"> </span><span class="c1">-- Server internal changes</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Min level</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Max level</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocation flag</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Slots</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Free slots</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Timestamp</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Team type</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Type flag</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Hunt area</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Members size</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Character id</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Character name</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Character level</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocation</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Member type (Leader == 3)</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">TeamFinderList</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- List size</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Leader Id</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">addString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Leader name</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Min level</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Max level</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocations flag</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Slots</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Used slots</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Timestamp</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Team type [1]: Boss, [2]: Hunt and [3]: Quest</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Type flag</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Hunt area</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player status</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">Inspection</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- IsPlayer</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1230</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- List</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">		</span><span class="nf">readAddItem</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Imbuements</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Imbue</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Details</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Description</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player name</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookType</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookHead</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookBody</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookLegs</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookFeet</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookAddons</span>
+
+<span class="w">		</span><span class="kr">else</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookTypeEx</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Detail</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_4</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Description</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">Highscores</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Worlds</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">--  World name</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Selected world</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocations</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Id</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocation selected Id</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Categories</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Id</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Category selected Id</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Pages</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Selected page</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Entries</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_4</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Rank</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Character name</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Character title</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocation</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- World</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Level</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is player? then highlight</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU64</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Points</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Last update</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">Tutorial</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Tutorial id</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">CyclopediaCharacterInfo</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1215</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nb">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nb">error</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="c1">-- [1] &#39;No data available at the moment.&#39;</span>
+
+<span class="w">			</span><span class="c1">-- [2] &#39;You are not allowed to see this character&#39;s data.&#39;</span>
+
+<span class="w">			</span><span class="c1">-- [3] &#39;You are not allowed to inspect this character.&#39;</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Basic Information</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player name</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocation</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Level</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookType</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookHead</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookBody</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookLegs</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookFeet</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookAddons</span>
+
+<span class="w">		</span><span class="kr">else</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookTypeEx</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Hide stamina</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1220</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Personal habs</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Title</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Character Stats</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU64</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Experience</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Level</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- LevelPercent</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- BaseXpGain</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Tournament</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Grinding</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Store XP</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Hunting</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Store XP Time</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Show store XP button (bool)</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Health</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Health max</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mana</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mana max</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Soul</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Stamina</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Food</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Offline training</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Speed</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Speed base</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Capacity bonus</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Capacity</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Capacity max</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Skills</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Skill id</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Skill level</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Base skill</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Base skill</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Skill percent</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1215</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocation</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Level</span>
+
+<span class="w">			</span><span class="kd">local</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookType</span>
+
+<span class="w">			</span><span class="kr">if</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookHead</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookBody</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookLegs</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookFeet</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookAddons</span>
+
+<span class="w">			</span><span class="kr">else</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookTypeEx</span>
+
+<span class="w">			</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Combat Stats</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Critical chance base</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Critical chance bonus</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Critical damage base</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Critical damage bonus</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Life leech chance base</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Life leech chance bonus</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Life leech amount base</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Life leech amount bonus</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mana leech chance base</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mana leech chance bonus</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mana leech amount base</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mana leech amount bonus</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Blessing amount</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Blessing max</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Attack</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Attack type</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Convert damage</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Convert damage type</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Armor</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Defense</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Reductions</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Element</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Percent</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Recent Deaths</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Page</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Page max</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Timestamp</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Cause</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Recent PvP Kills</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Page</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Page max</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Timestamp</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Description</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Status</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Achievements</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Points</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Secret max</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Unlocked</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Id</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Timestamp</span>
+
+<span class="w">			</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is secret</span>
+
+<span class="w">			</span><span class="kr">if</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Description</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Grade</span>
+
+<span class="w">			</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Item Summary</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item list size</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item client Id</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item count</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Outfits and Mounts</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Outfit list size</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Id</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Addon</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Category 0 = Standard, 1 = Quest, 2 = Store</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is current ? then 1000 or 0</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookHead</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookBody</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookLegs</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookFeet</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mount list size</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Id</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Addon</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Category 0 = Standard, 1 = Quest, 2 = Store</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is current ? then 1000 or 0</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1260</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mount lookHead</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mount lookBody</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mount lookLegs</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Mount lookFeet</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Store Summary</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Store XP boost time</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Daily reward XP boost time</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Blessings</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Amount</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Prey slots</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Prey wildcard</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Instant reward</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Charm expansion</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Hireling</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Hireling jogs</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Job id</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Hireling outfit</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Outfit id</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- House items</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Inspect</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Items</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Slot index</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item name</span>
+
+<span class="w">			</span><span class="nf">readAddItem</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">			</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Imbuements</span>
+
+<span class="w">			</span><span class="kr">for</span><span class="w"> </span><span class="nv">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Imbue</span>
+
+<span class="w">			</span><span class="kr">end</span>
+
+<span class="w">			</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Detail</span>
+
+<span class="w">			</span><span class="kr">for</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_3</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Description</span>
+
+<span class="w">			</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player name</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookType</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">outfit</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookHead</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookBody</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookLegs</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookFeet</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookAddons</span>
+
+<span class="w">		</span><span class="kr">else</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookTypeEx</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player detail</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_4</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Description</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Badges</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Show account</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is online</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is premium</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Loyality title</span>
+
+<span class="w">			</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Badges</span>
+
+<span class="w">			</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Id</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- Titles</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Title</span>
+
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Titles</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Id</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Description</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Permanent</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Unlocked</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">TournamentLeaderBoard</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Worlds</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">capacity</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- World name</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- World selected</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Refresh rate</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Current page</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Total pages</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Players on page</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Rank</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Previous rank</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Vocation</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU64</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Points</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Rank chance direction (arrow0</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Rank chance bool</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Rewards</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">LootContainer</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Fallback</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Quickloot size</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Category Id</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Client Id</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">LootStats</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nf">readAddItem</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item name</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">ClientCheck</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Data size</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Data</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">GameNews</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Category</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Page</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">PartyAnalyzer</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Timestamp</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Party leader id</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Price type (client/market)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Party size</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player ID</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- (Highlight text bool)</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU64</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Loot count</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU64</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Supply count</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU64</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Impact count</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU64</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Heal count</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Size</span>
+
+<span class="w">	</span><span class="kr">for</span><span class="w"> </span><span class="nv">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size_2</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player ID</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Player name</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">UpdateCoinBalance</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is updating</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Normal coin</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Transferable coin</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1220</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Reserved auction coin</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Tournament coin</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">isUpdateCoinBalance</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Is updating</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">SpecialContainer</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">supplyStashMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- (&#39;Stow item&#39;, &#39;Stow container&#39; ...)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">marketMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- (&#39;Show in market&#39;)</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">KillTracker</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Name</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookType</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookHead</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookBody</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookLegs</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookFeet</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- lookAddons</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Corpse size</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">			</span><span class="nf">readAddItem</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">UpdateSupplyTracker</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item client ID</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">UpdateTrackerAnalyzer</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Amount</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- ANALYZER_DAMAGE_DEALT</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Element</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">--</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Target</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">UpdateLootTracker</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nf">readAddItem</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item name</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">OpenStashSupply</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- List size</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item client ID</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item count</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Stash size left (total - used)</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">OpenRewardWall</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">taken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">taken</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">CloseRewardWall</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">DailyRewardBasic</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nf">readDailyReward</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nf">readDailyReward</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">maxBonus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">maxBonus</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">DailyRewardHistory</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nv">count</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">ServerPackets</span><span class="p">.</span><span class="py">BestiaryTrackerTab</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">protocol</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">readAddItem</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Item client ID</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1150</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Unmarked</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1150</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Loot flag</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getProtocolVersion</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1260</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">			</span><span class="kd">local</span><span class="w"> </span><span class="nv">isQuiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">			</span><span class="kr">if</span><span class="w"> </span><span class="nv">isQuiver</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">				</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span><span class="w"> </span><span class="c1">-- Quiver count</span>
+
+<span class="w">			</span><span class="kr">end</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">else</span>
+
+<span class="w">		</span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">unregisterProtocol</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">registredOpcodes</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">opcode</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">registredOpcodes</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="nv">ProtocolGame</span><span class="p">.</span><span class="nf">unregisterOpcode</span><span class="p">(</span><span class="nv">opcode</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">registredOpcodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">code</span><span class="p">,</span><span class="w"> </span><span class="nv">func</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">registredOpcodes</span><span class="p">[</span><span class="nv">code</span><span class="p">]</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nb">error</span><span class="p">(</span><span class="s2">&quot;Duplicated registed opcode: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">code</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">registredOpcodes</span><span class="p">[</span><span class="nv">code</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">func</span>
+
+<span class="w">  </span><span class="nv">ProtocolGame</span><span class="p">.</span><span class="nf">registerOpcode</span><span class="p">(</span><span class="nv">code</span><span class="p">,</span><span class="w"> </span><span class="nv">func</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">readDailyReward</span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">systemType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">systemType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getString</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU32</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">elseif</span><span class="w"> </span><span class="p">(</span><span class="nv">systemType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_TYPE_PREY_REROLL</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU8</span><span class="p">()</span>
+
+<span class="w">		</span><span class="kr">elseif</span><span class="w"> </span><span class="p">(</span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">DAILY_REWARD_SYSTEM_TYPE_XP_BOOST</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">msg</span><span class="p">:</span><span class="nf">getU16</span><span class="p">()</span>
+
+<span class="w">		</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="protocol-otmod">
+<h1>protocol.otmod<a class="headerlink" href="#protocol-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: game_protocol
+
+  description: Game protocol
+
+  author: otclientv8
+
+  website: http://otclient.ovh
+
+  scripts: [ protocol ]
+
+  sandboxed: true
+
+  autoload: true
+
+  autoload-priority: 500
+
+  @onLoad: init()
+
+  @onUnload: terminate()
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_protocol</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-otmod">protocol.otmod</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/dev_tools/modul-game_protocol.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

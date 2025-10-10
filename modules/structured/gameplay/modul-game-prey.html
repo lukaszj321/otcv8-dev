@@ -1,0 +1,2657 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Moduł: | Moduł: game_prey" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/modules/structured/gameplay/modul-game-prey.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="prey.otmod: prey.otui:" />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="prey.otmod: prey.otui:" />
+
+    <title>Moduł: | Moduł: game_prey &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/gameplay/modul-game-prey';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/modules/structured/gameplay/modul-game-prey.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_prey</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-game-prey">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_prey</span></code><a class="headerlink" href="#modul-modul-game-prey" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- sponsored by kivera-global.com</span>
+
+<span class="c1">-- remade by Vithrax#5814</span>
+
+<span class="nv">preyWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="nv">preyButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">preyTrackerButton</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">msgWindow</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">bankGold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">inventoryGold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">rerollPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">bonusRerolls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_BOOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_REDUCTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_BONUS_XP_BONUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_BONUS_IMPROVED_LOOT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_BONUS_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_ACTION_LISTREROLL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_ACTION_BONUSREROLL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_ACTION_MONSTERSELECTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_ACTION_REQUEST_ALL_MONSTERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_ACTION_CHANGE_FROM_ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">PREY_ACTION_LOCK_PREY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">preyDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">bonusDescription</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusValue</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_BOOST</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Damage bonus (&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;/10)&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_REDUCTION</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Damage reduction bonus (&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;/10)&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_XP_BONUS</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;XP bonus (&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;/10)&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_IMPROVED_LOOT</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Loot bonus (&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;/10)&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_BOOST</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Uknown bonus&quot;</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">timeleftTranslation</span><span class="p">(</span><span class="nv">timeleft</span><span class="p">,</span><span class="w"> </span><span class="nv">forPreyTimeleft</span><span class="p">)</span><span class="w"> </span><span class="c1">-- in seconds</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">timeleft</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">forPreyTimeleft</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;infinite bonus&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Free&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%02.f&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">math.floor</span><span class="p">(</span><span class="nv">timeleft</span><span class="o">/</span><span class="mi">3600</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">mins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%02.f&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">math.floor</span><span class="p">(</span><span class="nv">timeleft</span><span class="o">/</span><span class="mi">60</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="nv">hours</span><span class="o">*</span><span class="mi">60</span><span class="p">)))</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">hours</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">mins</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">check</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">hide</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onResourceBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onResourceBalance</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyFreeRolls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyFreeRolls</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyTimeLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyTimeLeft</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyPrice</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyLocked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyLocked</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyInactive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyInactive</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyActive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyActive</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreySelection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreySelection</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="nv">preyWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">displayUI</span><span class="p">(</span><span class="s1">&#39;prey&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">preyWindow</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">preyTracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;PreyTracker&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_interface</span><span class="p">.</span><span class="nf">getRightPanel</span><span class="p">())</span>
+
+<span class="w">  </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">setup</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">setContentMaximumHeight</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">setContentMinimumHeight</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">isOnline</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nf">check</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">setUnsupportedSettings</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">descriptionTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;shopPermButton&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Go to the Store to purchase the Permanent Prey Slot. Once you have completed the purchase, you can activate a prey here, no matter if your character is on a free or a Premium account.&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;shopTempButton&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;You can activate this prey whenever your account has Premium Status.&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;preyWindow&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;noBonusIcon&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;This prey is not available for your character yet.</span><span class="se">\n</span><span class="s2">Check the large blue button(s) to learn how to unlock this prey slot&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;selectPrey&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Click here to get a bonus with a higher value. The bonus for your prey will be selected randomly from one of the following: damage boost, damage reduction, bonus XP, improved loot. Your prey will be active for 2 hours hunting time again. Your prey creature will stay the same.&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;pickSpecificPrey&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Available only for protocols 12+&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;rerollButton&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;If you like to select another prey crature, click here to get a new list with 9 creatures to choose from.</span><span class="se">\n</span><span class="s2">The newly selected prey will be active for 2 hours hunting time again.&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;preyCandidate&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Select a new prey creature for the next 2 hours hunting time.&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">[</span><span class="s2">&quot;choosePreyButton&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Click on this button to confirm selected monsters as your prey creature for the next 2 hours hunting time.&quot;</span>
+
+<span class="p">}</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onHover</span><span class="p">(</span><span class="nv">widget</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">widget</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">.</span><span class="py">description</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">descriptionTable</span><span class="p">[</span><span class="nv">widget</span><span class="p">])</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">widget</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">slot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;slot&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="p">(</span><span class="nv">widget</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyTracker</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">:</span><span class="nf">getTooltip</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">desc</span><span class="p">:</span><span class="nf">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nv">desc</span><span class="p">:</span><span class="nf">len</span><span class="p">()</span><span class="o">-</span><span class="mi">46</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">.</span><span class="py">description</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">desc</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getId</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">descriptionTable</span><span class="p">[</span><span class="nv">id</span><span class="p">]</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">preyWindow</span><span class="p">.</span><span class="py">description</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">desc</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">terminate</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">check</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">hide</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onResourceBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onResourceBalance</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyFreeRolls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyFreeRolls</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyTimeLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyTimeLeft</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyPrice</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyLocked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyLocked</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyInactive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyInactive</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreyActive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreyActive</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onPreySelection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onPreySelection</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">preyButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">preyButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">preyTrackerButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">preyTrackerButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">preyWindow</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">msgWindow</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">msgWindow</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">msgWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">setUnsupportedSettings</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;slot1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slot2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slot3&quot;</span><span class="p">}</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">slot</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">j</span><span class="p">,</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">panel</span><span class="p">.</span><span class="py">active</span><span class="p">,</span><span class="w"> </span><span class="nv">panel</span><span class="p">.</span><span class="py">inactive</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">state</span><span class="p">.</span><span class="py">select</span><span class="p">.</span><span class="py">price</span><span class="p">.</span><span class="py">text</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;-------&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">panel</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">autoRerollPrice</span><span class="p">.</span><span class="py">text</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">panel</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">lockPreyPrice</span><span class="p">.</span><span class="py">text</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">panel</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">choose</span><span class="p">.</span><span class="py">price</span><span class="p">.</span><span class="py">text</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">panel</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">autoReroll</span><span class="p">.</span><span class="py">autoRerollCheck</span><span class="p">:</span><span class="nf">disable</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">panel</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">lockPrey</span><span class="p">.</span><span class="py">lockPreyCheck</span><span class="p">:</span><span class="nf">disable</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">check</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getFeature</span><span class="p">(</span><span class="nv">GamePrey</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">preyButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">preyButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_topmenu</span><span class="p">.</span><span class="nf">addRightGameToggleButton</span><span class="p">(</span><span class="s1">&#39;preyButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">tr</span><span class="p">(</span><span class="s1">&#39;Prey Dialog&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;/images/topbuttons/prey_window&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">toggle</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">preyTrackerButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">preyTrackerButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_topmenu</span><span class="p">.</span><span class="nf">addRightGameToggleButton</span><span class="p">(</span><span class="s2">&quot;preyTrackerButton&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">tr</span><span class="p">(</span><span class="s1">&#39;Prey Tracker&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;/images/topbuttons/prey&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">toggleTracker</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">preyButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">preyButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">preyButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">toggleTracker</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">preyWindow</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">msgWindow</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">msgWindow</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">msgWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getFeature</span><span class="p">(</span><span class="nv">GamePrey</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">preyWindow</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">preyWindow</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">preyWindow</span><span class="p">:</span><span class="nf">focus</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">preyRequest</span><span class="p">()</span><span class="w"> </span><span class="c1">-- update preys, it&#39;s for tibia 12</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">toggle</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">show</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onPreyFreeRolls</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">timeleft</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">timeleft</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">timeleftTranslation</span><span class="p">(</span><span class="nv">timeleft</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">panel</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">,</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">progressBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">panel</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">button</span><span class="p">.</span><span class="py">time</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">panel</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">price</span><span class="p">.</span><span class="py">text</span>
+
+<span class="w">    </span><span class="nv">progressBar</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">progressBar</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">desc</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">timeleft</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">price</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onPreyTimeLeft</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">timeLeft</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">-- description</span>
+
+<span class="w">  </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{</span><span class="nv">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">two</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">].</span><span class="nv">one</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nf">timeleftTranslation</span><span class="p">(</span><span class="nv">timeLeft</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">].</span><span class="nv">two</span>
+
+<span class="w">  </span><span class="c1">-- tracker</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">timeLeft</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="w">  </span><span class="nv">slot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;slot&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyTracker</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span>
+
+<span class="w">  </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">element</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">tracker</span><span class="p">.</span><span class="py">creatureName</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">preyType</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="nv">element</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">element</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- main window</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">progressbar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">creatureAndBonus</span><span class="p">.</span><span class="py">timeLeft</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">timeleftTranslation</span><span class="p">(</span><span class="nv">timeLeft</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">progressbar</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">progressbar</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">desc</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onPreyPrice</span><span class="p">(</span><span class="nv">price</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">rerollPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">price</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;slot1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slot2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slot3&quot;</span><span class="p">}</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">slot</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">j</span><span class="p">,</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">panel</span><span class="p">.</span><span class="py">active</span><span class="p">,</span><span class="w"> </span><span class="nv">panel</span><span class="p">.</span><span class="py">inactive</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">price</span><span class="p">.</span><span class="py">text</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">progressBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">button</span><span class="p">.</span><span class="py">time</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">progressBar</span><span class="p">:</span><span class="nf">getText</span><span class="p">()</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s2">&quot;Free&quot;</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">price</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">comma_value</span><span class="p">(</span><span class="nv">rerollPrice</span><span class="p">))</span>
+
+<span class="w">      </span><span class="kr">else</span>
+
+<span class="w">        </span><span class="nv">price</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nv">progressBar</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">setTimeUntilFreeReroll</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">)</span><span class="w"> </span><span class="c1">-- minutes</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="o">..</span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">timeUntilFreeReroll</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">timeleftTranslation</span><span class="p">(</span><span class="nv">timeUntilFreeReroll</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">panel</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">,</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">reroll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">panel</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">button</span><span class="p">.</span><span class="py">time</span>
+
+<span class="w">    </span><span class="nv">reroll</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">reroll</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">desc</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">panel</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">price</span><span class="p">.</span><span class="py">text</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">price</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">comma_value</span><span class="p">(</span><span class="nv">rerollPrice</span><span class="p">))</span>
+
+<span class="w">    </span><span class="kr">else</span>
+
+<span class="w">      </span><span class="nv">price</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Free&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onPreyLocked</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">unlockState</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">-- tracker</span>
+
+<span class="w">  </span><span class="nv">slot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;slot&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyTracker</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">setContentMaximumHeight</span><span class="p">(</span><span class="nv">preyTracker</span><span class="p">:</span><span class="nf">getHeight</span><span class="p">()</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- main window</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">title</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Locked&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">locked</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onPreyInactive</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">-- tracker</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyTracker</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="o">..</span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">noCreature</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creatureName</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Inactive&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">preyType</span><span class="p">:</span><span class="nf">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/prey/prey_no_bonus&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">element</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">tracker</span><span class="p">.</span><span class="py">creatureName</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">preyType</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">element</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="s2">&quot;Inactive Prey. </span><span class="se">\n\n</span><span class="s2">Click in this window to open the prey dialog.&quot;</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">element</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- main window</span>
+
+<span class="w">  </span><span class="nf">setTimeUntilFreeReroll</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="o">..</span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">locked</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">rerollButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">button</span><span class="p">.</span><span class="py">rerollButton</span>
+
+<span class="w">  </span><span class="nv">rerollButton</span><span class="p">:</span><span class="nf">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/prey/prey_reroll_blocked&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">rerollButton</span><span class="p">:</span><span class="nf">disable</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">rerollButton</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">preyAction</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">PREY_ACTION_LISTREROLL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">setBonusGradeStars</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">grade</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="o">..</span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">gradePanel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">creatureAndBonus</span><span class="p">.</span><span class="py">bonus</span><span class="p">.</span><span class="py">grade</span>
+
+<span class="w">  </span><span class="nv">gradePanel</span><span class="p">:</span><span class="nf">destroyChildren</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">grade</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s2">&quot;Star&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">gradePanel</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">widget</span><span class="p">.</span><span class="py">onHoverChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="nv">hovered</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nf">onHover</span><span class="p">(</span><span class="nv">slot</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">else</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s2">&quot;NoStar&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">gradePanel</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">widget</span><span class="p">.</span><span class="py">onHoverChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="nv">hovered</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nf">onHover</span><span class="p">(</span><span class="nv">slot</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">getBigIconPath</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/images/game/prey/&quot;</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_BOOST</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_bigdamage&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_REDUCTION</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_bigdefense&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_XP_BONUS</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_bigxp&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_IMPROVED_LOOT</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_bigloot&quot;</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">getSmallIconPath</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/images/game/prey/&quot;</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_BOOST</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_damage&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_REDUCTION</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_defense&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_XP_BONUS</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_xp&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_IMPROVED_LOOT</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">path</span><span class="o">..</span><span class="s2">&quot;prey_loot&quot;</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">getBonusDescription</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_BOOST</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Damage Boost&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_REDUCTION</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Damage Reduction&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_XP_BONUS</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;XP Bonus&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_IMPROVED_LOOT</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Improved Loot&quot;</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">getTooltipBonusDescription</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusValue</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_BOOST</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;You deal +&quot;</span><span class="o">..</span><span class="nv">bonusValue</span><span class="o">..</span><span class="s2">&quot;% extra damage against your prey creature.&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_DAMAGE_REDUCTION</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;You take &quot;</span><span class="o">..</span><span class="nv">bonusValue</span><span class="o">..</span><span class="s2">&quot;% less damage from your prey creature.&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_XP_BONUS</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Killing your prey creature rewards +&quot;</span><span class="o">..</span><span class="nv">bonusValue</span><span class="o">..</span><span class="s2">&quot;% extra XP.&quot;</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">bonusType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">PREY_BONUS_IMPROVED_LOOT</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;Your creature has a +&quot;</span><span class="o">..</span><span class="nv">bonusValue</span><span class="o">..</span><span class="s2">&quot;% chance to drop additional loot.&quot;</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">capitalFormatStr</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">formatted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+
+<span class="w">  </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="nv">str</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">word</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="nv">formatted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">formatted</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="p">(</span><span class="nb">string.gsub</span><span class="p">(</span><span class="nv">word</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;^%l&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">string.upper</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">formatted</span><span class="p">:</span><span class="nf">trim</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onItemBoxChecked</span><span class="p">(</span><span class="nv">widget</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">slot</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="s2">&quot;slot1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slot2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slot3&quot;</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="nv">slot</span><span class="p">].</span><span class="nv">inactive</span><span class="p">.</span><span class="py">list</span><span class="p">:</span><span class="nf">getChildren</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">table</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nv">list</span><span class="p">,</span><span class="w"> </span><span class="nv">widget</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">child</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">list</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">child</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">          </span><span class="nv">child</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">widget</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onPreyActive</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">currentHolderName</span><span class="p">,</span><span class="w"> </span><span class="nv">currentHolderOutfit</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusType</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusValue</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="p">,</span><span class="w"> </span><span class="nv">timeLeft</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">,</span><span class="w"> </span><span class="nv">lockType</span><span class="p">)</span><span class="w"> </span><span class="c1">-- locktype always 0 for protocols &lt;12</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyTracker</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="o">..</span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="nv">currentHolderName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">capitalFormatStr</span><span class="p">(</span><span class="nv">currentHolderName</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">timeLeft</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">noCreature</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creatureName</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">currentHolderName</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">setOutfit</span><span class="p">(</span><span class="nv">currentHolderOutfit</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">preyType</span><span class="p">:</span><span class="nf">setImageSource</span><span class="p">(</span><span class="nf">getSmallIconPath</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">))</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">].</span><span class="nv">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Creature: &quot;</span><span class="o">..</span><span class="nv">currentHolderName</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Duration: &quot;</span>
+
+<span class="w">    </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">].</span><span class="nv">two</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Value: &quot;</span><span class="w"> </span><span class="o">..</span><span class="nv">bonusGrade</span><span class="o">..</span><span class="s2">&quot;/10&quot;</span><span class="o">..</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Type: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nf">getBonusDescription</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w">  </span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">..</span><span class="nf">getTooltipBonusDescription</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">,</span><span class="nv">bonusValue</span><span class="p">)..</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Click in this window to open the prey dialog.&quot;</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">element</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">tracker</span><span class="p">.</span><span class="py">creatureName</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">preyType</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">element</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">].</span><span class="nv">one</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nf">timeleftTranslation</span><span class="p">(</span><span class="nv">timeLeft</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">preyDescription</span><span class="p">[</span><span class="nv">slot</span><span class="p">].</span><span class="nv">two</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">element</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">locked</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">title</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">currentHolderName</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">creatureAndBonus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">creatureAndBonus</span>
+
+<span class="w">  </span><span class="nv">creatureAndBonus</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">setOutfit</span><span class="p">(</span><span class="nv">currentHolderOutfit</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">setTimeUntilFreeReroll</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">creatureAndBonus</span><span class="p">.</span><span class="py">bonus</span><span class="p">.</span><span class="py">icon</span><span class="p">:</span><span class="nf">setImageSource</span><span class="p">(</span><span class="nf">getBigIconPath</span><span class="p">(</span><span class="nv">bonusType</span><span class="p">))</span>
+
+<span class="w">  </span><span class="nv">creatureAndBonus</span><span class="p">.</span><span class="py">bonus</span><span class="p">.</span><span class="py">icon</span><span class="p">.</span><span class="py">onHoverChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">hovered</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nf">onHover</span><span class="p">(</span><span class="nv">slot</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">setBonusGradeStars</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">creatureAndBonus</span><span class="p">.</span><span class="py">timeLeft</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">creatureAndBonus</span><span class="p">.</span><span class="py">timeLeft</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">timeleftTranslation</span><span class="p">(</span><span class="nv">timeLeft</span><span class="p">))</span>
+
+<span class="w">  </span><span class="c1">-- bonus reroll</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">choose</span><span class="p">.</span><span class="py">selectPrey</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">preyAction</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">PREY_ACTION_BONUSREROLL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- creature reroll</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">button</span><span class="p">.</span><span class="py">rerollButton</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">preyAction</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">PREY_ACTION_LISTREROLL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onPreySelection</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusType</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusValue</span><span class="p">,</span><span class="w"> </span><span class="nv">bonusGrade</span><span class="p">,</span><span class="w"> </span><span class="nv">names</span><span class="p">,</span><span class="w"> </span><span class="nv">outfits</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1">-- tracker</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyTracker</span><span class="p">.</span><span class="py">contentsPanel</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="o">..</span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">tracker</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">noCreature</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creatureName</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Inactive&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">tracker</span><span class="p">.</span><span class="py">preyType</span><span class="p">:</span><span class="nf">setImageSource</span><span class="p">(</span><span class="s2">&quot;/images/game/prey/prey_no_bonus&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">element</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">({</span><span class="nv">tracker</span><span class="p">.</span><span class="py">creatureName</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">creature</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">preyType</span><span class="p">,</span><span class="w"> </span><span class="nv">tracker</span><span class="p">.</span><span class="py">time</span><span class="p">})</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="nv">element</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="s2">&quot;Inactive Prey. </span><span class="se">\n\n</span><span class="s2">Click in this window to open the prey dialog.&quot;</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">element</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- main window</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">preyWindow</span><span class="p">[</span><span class="s2">&quot;slot&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="p">(</span><span class="nv">slot</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="w">  </span><span class="nf">setTimeUntilFreeReroll</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">timeUntilFreeReroll</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">prey</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">active</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">locked</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">title</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Select monster&quot;</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">rerollButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">.</span><span class="py">reroll</span><span class="p">.</span><span class="py">button</span><span class="p">.</span><span class="py">rerollButton</span>
+
+<span class="w">  </span><span class="nv">rerollButton</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">preyAction</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">PREY_ACTION_LISTREROLL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">.</span><span class="py">list</span>
+
+<span class="w">  </span><span class="nv">list</span><span class="p">:</span><span class="nf">destroyChildren</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">names</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s2">&quot;PreyCreatureBox&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">list</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">capitalFormatStr</span><span class="p">(</span><span class="nv">name</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">box</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="nv">name</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">box</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">setOutfit</span><span class="p">(</span><span class="nv">outfits</span><span class="p">[</span><span class="nv">i</span><span class="p">])</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">prey</span><span class="p">.</span><span class="py">inactive</span><span class="p">.</span><span class="py">choose</span><span class="p">.</span><span class="py">choosePreyButton</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">child</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">list</span><span class="p">:</span><span class="nf">getChildren</span><span class="p">())</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">child</span><span class="p">:</span><span class="nf">isChecked</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">preyAction</span><span class="p">(</span><span class="nv">slot</span><span class="p">,</span><span class="w"> </span><span class="nv">PREY_ACTION_MONSTERSELECTION</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">showMessage</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">),</span><span class="w"> </span><span class="nf">tr</span><span class="p">(</span><span class="s2">&quot;Select monster to proceed.&quot;</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onResourceBalance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span><span class="w"> </span><span class="nv">balance</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- bank gold</span>
+
+<span class="w">    </span><span class="nv">bankGold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">balance</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- inventory gold</span>
+
+<span class="w">    </span><span class="nv">inventoryGold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">balance</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- bonus rerolls</span>
+
+<span class="w">    </span><span class="nv">bonusRerolls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">balance</span>
+
+<span class="w">    </span><span class="nv">preyWindow</span><span class="p">.</span><span class="py">wildCards</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">balance</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">preyWindow</span><span class="p">.</span><span class="py">gold</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nf">comma_value</span><span class="p">(</span><span class="nv">bankGold</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">inventoryGold</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">showMessage</span><span class="p">(</span><span class="nv">title</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">msgWindow</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">msgWindow</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">msgWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">displayInfoBox</span><span class="p">(</span><span class="nv">title</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">msgWindow</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">msgWindow</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">msgWindow</span><span class="p">:</span><span class="nf">focus</span><span class="p">()</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="prey-otmod">
+<h1>prey.otmod<a class="headerlink" href="#prey-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: game_prey
+
+  description: Preys, sponsored by kivera-global.com, remade by Vithrax#5814
+
+  author: otclient.ovh &amp; kivera-global.com &amp; Vithrax#5814
+
+  website: http://otclient.ovh
+
+  sandboxed: true
+
+  scripts: [ prey ]
+
+  dependencies: [ client_topmenu ]
+
+  @onLoad: init()
+
+  @onUnload: terminate()
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="prey-otui">
+<h1>prey.otui<a class="headerlink" href="#prey-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+LockedPreyPanel &lt; Panel
+
+  size: 195 312
+
+  NoCreaturePanel
+
+    id: noCreature
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+  UIButton
+
+    id: perm
+
+    anchors.top: prev.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    height: 64
+
+    background-color: #1c4161
+
+    margin-top: 3
+
+    @onClick: modules.game_shop.show()
+
+    UIWidget
+
+      id: shopPermButton
+
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      anchors.verticalCenter: parent.verticalCenter
+
+      image-source: /images/game/prey/prey_perm_test
+
+      size: 195 67
+
+      image-clip: 0 0 204 67
+
+      @onClick: modules.game_shop.show()
+
+      @onHoverChange: modules.game_prey.onHover(self)
+
+      $pressed:
+
+        image-clip: 0 67 204 67
+
+  UIButton
+
+    id: temp
+
+    anchors.top: prev.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    height: 64
+
+    background-color: #1c4161
+
+    margin-top: 7
+
+    @onClick: modules.game_shop.show()
+
+    UIWidget
+
+      id: shopTempButton
+
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      anchors.verticalCenter: parent.verticalCenter
+
+      image-source: /images/game/prey/prey_temp_test
+
+      size: 195 67
+
+      image-clip: 0 0 204 67
+
+      @onClick: modules.game_shop.show()
+
+      @onHoverChange: modules.game_prey.onHover(self)
+
+      $pressed:
+
+        image-clip: 0 67 204 67
+
+Star &lt; UIWidget
+
+  size: 9 10
+
+  image-source: /images/game/prey/prey_star
+
+NoStar &lt; UIWidget
+
+  size: 9 10
+
+  image-source: /images/game/prey/prey_nostar
+
+NoCreaturePanel &lt; Panel
+
+  size: 195 152
+
+  FlatPanel
+
+    size: 124 124
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    image-source: /images/ui/panel_flat
+
+    image-border: 1
+
+    UIWidget
+
+      phantom: true
+
+      anchors.verticalCenter: parent.verticalCenter
+
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      image-source: /images/game/prey/prey_biginactive
+
+  FlatPanel
+
+    id: bonus
+
+    anchors.top: parent.top
+
+    anchors.left: prev.right
+
+    margin-left: 10
+
+    anchors.bottom: prev.bottom
+
+    anchors.right: parent.right
+
+    UIWidget
+
+      id: noBonusIcon
+
+      anchors.top: parent.top
+
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      image-source: /images/game/prey/prey_bignobonus
+
+      margin-top: 3
+
+      @onHoverChange: modules.game_prey.onHover(self)
+
+    HorizontalSeparator
+
+      anchors.top: prev.bottom
+
+      margin-top: 2
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      margin-left: 10
+
+      margin-right: 10
+
+    Panel
+
+      id: grade
+
+      anchors.top: prev.bottom
+
+      margin-top: 3
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      anchors.bottom: parent.bottom
+
+      padding-left: 5
+
+      layout:
+
+        type: grid
+
+        cell-size: 9 10
+
+        cell-spacing: 2
+
+        num-columns: 5
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+      NoStar
+
+        id: noBonusIcon
+
+        @onHoverChange: modules.game_prey.onHover(self)
+
+  UIWidget
+
+    anchors.top: prev.bottom
+
+    margin-top: 5
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    height: 20
+
+    background-color: #262626
+
+    border: 1 black
+
+    id: noBonusIcon
+
+    @onHoverChange: modules.game_prey.onHover(self)
+
+ActivePreyPanel &lt; Panel
+
+  size: 195 312
+
+  CreatureAndBonus
+
+    id: creatureAndBonus
+
+    anchors.left: parent.left
+
+    anchors.top: parent.top
+
+    margin-top: 20
+
+  BonusReroll
+
+    id: choose
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+  SelectPreyCreature
+
+    id: select
+
+    anchors.verticalCenter: prev.verticalCenter
+
+    anchors.right: prev.left
+
+    margin-right: 2
+
+  RerollButton
+
+    id: reroll
+
+    anchors.verticalCenter: prev.verticalCenter
+
+    anchors.right: prev.left
+
+    margin-right: 2
+
+  FlatPanel
+
+    id: autoReroll
+
+    size: 160 20
+
+    anchors.top: prev.bottom
+
+    margin-top: 5
+
+    anchors.left: parent.left
+
+    CheckBox
+
+      id: autoRerollCheck
+
+      margin-top: 2
+
+      anchors.verticalCenter: parent.verticalCenter
+
+      anchors.left: parent.left
+
+      image-source: /images/ui/panel_flat
+
+      image-border: 1
+
+      size: 155 15
+
+      font: verdana-11px-rounded
+
+      text: Automatic Bonus Rer...
+
+      margin-left: 5
+
+  CardLabel
+
+    id: autoRerollPrice
+
+    anchors.top: prev.top
+
+    anchors.left: prev.right
+
+    margin-left: 2
+
+    anchors.bottom: prev.bottom
+
+    anchors.right: parent.right
+
+  FlatPanel
+
+    id: lockPrey
+
+    size: 160 20
+
+    anchors.top: prev.bottom
+
+    margin-top: 5
+
+    anchors.left: parent.left
+
+    CheckBox
+
+      id: lockPreyCheck
+
+      margin-top: 2
+
+      anchors.verticalCenter: parent.verticalCenter
+
+      anchors.left: parent.left
+
+      image-source: /images/ui/panel_flat
+
+      image-border: 1
+
+      size: 155 15
+
+      font: verdana-11px-rounded
+
+      text: Lock Prey
+
+      margin-left: 5
+
+  CardLabel
+
+    id: lockPreyPrice
+
+    anchors.top: prev.top
+
+    anchors.left: prev.right
+
+    margin-left: 2
+
+    anchors.bottom: prev.bottom
+
+    anchors.right: parent.right
+
+CreatureAndBonus &lt; Panel
+
+  size: 195 152
+
+  UICreature
+
+    id: creature
+
+    phantom: true
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    size: 124 124
+
+    image-source: /images/ui/panel_flat
+
+    image-border: 1
+
+    padding: 5
+
+  FlatPanel
+
+    id: bonus
+
+    anchors.top: parent.top
+
+    anchors.left: prev.right
+
+    margin-left: 10
+
+    anchors.bottom: prev.bottom
+
+    anchors.right: parent.right
+
+    UIWidget
+
+      id: icon
+
+      anchors.top: parent.top
+
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      image-source: /images/game/prey/prey_bignobonus
+
+      margin-top: 3
+
+    HorizontalSeparator
+
+      anchors.top: prev.bottom
+
+      margin-top: 2
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      margin-left: 10
+
+      margin-right: 10
+
+    Panel
+
+      id: grade
+
+      anchors.top: prev.bottom
+
+      margin-top: 3
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      anchors.bottom: parent.bottom
+
+      padding-left: 5
+
+      layout:
+
+        type: grid
+
+        cell-size: 9 10
+
+        cell-spacing: 2
+
+        num-columns: 5
+
+  ProgressBar
+
+    id: timeLeft
+
+    anchors.top: prev.bottom
+
+    margin-top: 5
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    height: 20
+
+    background-color: #C28400
+
+BonusReroll &lt; FlatPanel
+
+  padding: 2
+
+  size: 55 92
+
+  UIButton
+
+    id: selectPrey
+
+    anchors.top: parent.top
+
+    margin-top: 5
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    image-source: /images/game/prey/prey_bonus_reroll
+
+    size: 40 55
+
+    image-clip: 1 0 35 52
+
+    @onHoverChange: modules.game_prey.onHover(self)
+
+    $pressed:
+
+      image-clip: 0 52 37 54
+
+  CardLabel
+
+    id: price
+
+    anchors.bottom: parent.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    height: 21
+
+    margin-top: 2
+
+InactivePreyPanel &lt; Panel
+
+  size: 195 312
+
+  ChoosePrey
+
+    id: choose
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+  SelectPreyCreature
+
+    id: select
+
+    anchors.bottom: parent.bottom
+
+    anchors.right: prev.left
+
+    margin-right: 2
+
+  RerollButton
+
+    id: reroll
+
+    anchors.bottom: parent.bottom
+
+    anchors.right: prev.left
+
+    margin-right: 2
+
+  FlatPanel
+
+    id: list
+
+    anchors.top: parent.top
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    margin-top: 20
+
+    padding-left: 4
+
+    padding-top: 4
+
+    size: 195 195
+
+    layout:
+
+      type: grid
+
+      cell-size: 60 60
+
+      cell-spacing: 3
+
+      num-columns: 3
+
+ChoosePrey &lt; FlatPanel
+
+  size: 55 92
+
+  padding: 10
+
+  UIButton
+
+    id: choosePreyButton
+
+    anchors.fill: parent
+
+    margin-bottom: 17
+
+    margin-top: 17
+
+    margin-left: 3
+
+    image-source: /images/game/prey/prey_choose
+
+    image-clip: 1 0 44 35
+
+    @onHoverChange: modules.game_prey.onHover(self)
+
+    $pressed:
+
+      image-clip: 0 35 45 37
+
+SelectPreyCreature &lt; FlatPanel
+
+  padding: 2
+
+  size: 70 92
+
+  UIButton
+
+    id: pickSpecificPrey
+
+    anchors.top: parent.top
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    size: 66 66
+
+    image-source: /images/game/prey/prey_select_blocked
+
+    @onHoverChange: modules.game_prey.onHover(self)
+
+  CardLabel
+
+    id: price
+
+    anchors.bottom: parent.bottom
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.top: prev.bottom
+
+    margin-top: 2
+
+RerollButton &lt; FlatPanel
+
+  padding: 2
+
+  size: 70 92
+
+  FlatPanel
+
+    id: button
+
+    size: 66 66
+
+    padding: 2
+
+    anchors.top: parent.top
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    ProgressBar
+
+      id: time
+
+      anchors.bottom: parent.bottom
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      height: 15
+
+      text-align: center
+
+      background-color: #C28400
+
+    UIButton
+
+      id: rerollButton
+
+      anchors.top: parent.top
+
+      anchors.left: parent.left
+
+      anchors.right: parent.right
+
+      anchors.bottom: prev.top
+
+      image-source: /images/game/prey/prey_reroll
+
+      image-clip: 1 0 58 45
+
+      @onHoverChange: modules.game_prey.onHover(self)
+
+      $pressed:
+
+        image-clip: 0 46 60 47
+
+  GoldLabel
+
+    id: price
+
+    anchors.top: prev.bottom
+
+    margin-top: 2
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+CardLabel &lt; FlatPanel
+
+  padding: 5
+
+  UIWidget
+
+    id: cards
+
+    anchors.right: parent.right
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    image-source: /images/game/prey/prey_wildcard
+
+    tooltip: Prey Wildcards
+
+  UIWidget
+
+    id: text
+
+    anchors.right: prev.left
+
+    margin-right: 5
+
+    anchors.left: parent.left
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    text-align: right
+
+GoldLabel &lt; FlatPanel
+
+  padding: 5
+
+  UIWidget
+
+    id: gold
+
+    anchors.right: parent.right
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    image-source: /images/game/prey/prey_gold
+
+    tooltip: Gold Coins
+
+  UIWidget
+
+    id: text
+
+    anchors.right: prev.left
+
+    margin-right: 5
+
+    anchors.left: parent.left
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    text-align: right
+
+PreyCreatureBox &lt; UICheckBox
+
+  border-width: 1
+
+  border-color: #ffffff
+
+  padding: 3
+
+  @onClick: modules.game_prey.onItemBoxChecked(self)
+
+  UICreature
+
+    id: creature
+
+    phantom: true
+
+    anchors.fill: parent
+
+    image-color: #ffffffff
+
+    margin-top: 3
+
+  $checked on:
+
+    border-color: #ffffff
+
+  $!checked:
+
+    border-color: alpha
+
+  $!on:
+
+    image-color: #ffffff88
+
+    color: #aaaaaa88
+
+SlotPanel &lt; Panel
+
+  size: 210 320
+
+  image-source: /images/ui/window
+
+  image-border: 25
+
+  padding-top: 2
+
+  padding-bottom: 6
+
+  padding-left: 8
+
+  padding-right: 8
+
+  Label
+
+    id: title
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    text-align: center
+
+  InactivePreyPanel
+
+    id: inactive
+
+    anchors.top: parent.top
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+  ActivePreyPanel
+
+    id: active
+
+    anchors.top: parent.top
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    visible: false
+
+  LockedPreyPanel
+
+    id: locked
+
+    margin-top: 20
+
+    anchors.top: parent.top
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    visible: false
+
+MainWindow
+
+  id: preyWindow
+
+  !text: tr(&#39;Preys&#39;)
+
+  size: 688 520
+
+  @onEscape: modules.game_prey.hide()
+
+  padding: 20
+
+  @onHoverChange: modules.game_prey.onHover(self)
+
+  SlotPanel
+
+    id: slot1
+
+    anchors.left: parent.left
+
+    anchors.top: parent.top
+
+    margin-top: 10
+
+  SlotPanel
+
+    id: slot2
+
+    anchors.verticalCenter: prev.verticalCenter
+
+    anchors.left: prev.right
+
+    margin-left: 10
+
+  SlotPanel
+
+    id: slot3
+
+    anchors.verticalCenter: prev.verticalCenter
+
+    anchors.left: prev.right
+
+    margin-left: 10
+
+  FlatLabel
+
+    id: description
+
+    anchors.left: slot1.left
+
+    anchors.top: slot1.bottom
+
+    anchors.right: slot3.right
+
+    anchors.bottom: bottomSep.top
+
+    margin-bottom: 10
+
+    margin-top: 10
+
+    text-wrap: true
+
+  HorizontalSeparator
+
+    id: bottomSep
+
+    anchors.left: parent.left
+
+    anchors.right: parent.right
+
+    anchors.bottom: closeButton.top
+
+    margin-bottom: 10
+
+  Button
+
+    id: closeButton
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+    size: 45 21
+
+    text: Close
+
+    font: cipsoftFont
+
+    @onClick: modules.game_prey.hide()
+
+  GoldLabel
+
+    id: gold
+
+    anchors.left: bottomSep.left
+
+    anchors.verticalCenter: closeButton.verticalCenter
+
+    size: 105 20
+
+  CardLabel
+
+    id: wildCards
+
+    anchors.left: prev.right
+
+    margin-left: 10
+
+    anchors.verticalCenter: closeButton.verticalCenter
+
+    size: 55 20
+
+  UIButton
+
+    id: openStore
+
+    anchors.left: prev.right
+
+    margin-left: 10
+
+    size: 20 20
+
+    anchors.verticalCenter: closeButton.verticalCenter
+
+    tooltip: Go to the Store to get more Prey Wildcards!
+
+    image-source: /images/topbuttons/shop
+
+    image-clip: 0 0 20 20
+
+    background-color: #17354e
+
+    @onClick: modules.game_shop.show()
+
+    $pressed:
+
+      image-clip: 0 20 20 20
+
+PreyCreature &lt; Panel
+
+  height: 22
+
+  margin-top: 3
+
+  UICreature
+
+    id: creature
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.bottom: parent.bottom
+
+    size: 20 20
+
+  UIWidget
+
+    id: noCreature
+
+    anchors.top: parent.top
+
+    anchors.left: parent.left
+
+    anchors.bottom: parent.bottom
+
+    size: 20 20
+
+    image-source: /images/game/prey/prey_inactive
+
+  UIWidget
+
+    id: preyType
+
+    anchors.left: prev.right
+
+    margin-left: 5
+
+    anchors.verticalCenter: prev.verticalCenter
+
+    size: 15 15
+
+  UIWidget
+
+    id: creatureName
+
+    anchors.left: prev.right
+
+    margin-left: 5
+
+    anchors.top: parent.top
+
+    anchors.bottom: prev.bottom
+
+    margin-bottom: 7
+
+    anchors.right: parent.right
+
+    text: Inactive
+
+    font: verdana-11px-rounded
+
+    text-align: left
+
+  ProgressBar
+
+    id: time
+
+    anchors.left: prev.left
+
+    anchors.right: parent.right
+
+    anchors.bottom: parent.bottom
+
+    margin-bottom: 2
+
+    height: 6
+
+    background-color: #C28400
+
+    phantom: false
+
+PreyTracker &lt; MiniWindow
+
+  id: preyTracker
+
+  !text: tr(&#39;Preys&#39;)
+
+  height: 95
+
+  icon: /images/topbuttons/prey
+
+  MiniWindowContents
+
+    padding-left: 5
+
+    padding-right: 5
+
+    padding-top: 5
+
+    layout: verticalBox
+
+    Label
+
+      !text: tr(&#39;Prey Creatures&#39;)
+
+      font: verdana-11px-rounded
+
+    HorizontalSeparator
+
+      margin-top: 1
+
+    PreyCreature
+
+      id: slot1
+
+      margin-top: 5
+
+    PreyCreature
+
+      id: slot2
+
+    PreyCreature
+
+      id: slot3
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_prey</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prey-otmod">prey.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prey-otui">prey.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/gameplay/modul-game-prey.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

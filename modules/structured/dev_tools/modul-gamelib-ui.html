@@ -1,0 +1,1505 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Moduł: | Moduł: gamelib/ui" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-gamelib-ui.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="uiitem.lua: uiminimap.lua:" />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="uiitem.lua: uiminimap.lua:" />
+
+    <title>Moduł: | Moduł: gamelib/ui &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/dev_tools/modul-gamelib-ui';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-gamelib-ui.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">gamelib/ui</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-gamelib-ui">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">gamelib/ui</span></code><a class="headerlink" href="#modul-modul-gamelib-ui" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- @docclass</span>
+
+<span class="nv">UICreatureButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">extends</span><span class="p">(</span><span class="nv">UIWidget</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;UICreatureButton&quot;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">CreatureButtonColors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="nv">onIdle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">notHovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">hovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#FFFFFF&#39;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nv">onTargeted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">notHovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">hovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#FF8888&#39;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nv">onFollowed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">notHovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#00FF00&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">hovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#88FF88&#39;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">LifeBarColors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">-- Must be sorted by percentAbove</span>
+
+<span class="nb">table.insert</span><span class="p">(</span><span class="nv">LifeBarColors</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">percentAbove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#00BC00&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+
+<span class="nb">table.insert</span><span class="p">(</span><span class="nv">LifeBarColors</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">percentAbove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#50A150&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+
+<span class="nb">table.insert</span><span class="p">(</span><span class="nv">LifeBarColors</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">percentAbove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#A1A100&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+
+<span class="nb">table.insert</span><span class="p">(</span><span class="nv">LifeBarColors</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">percentAbove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#BF0A0A&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+
+<span class="nb">table.insert</span><span class="p">(</span><span class="nv">LifeBarColors</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">percentAbove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#910F0F&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+
+<span class="nb">table.insert</span><span class="p">(</span><span class="nv">LifeBarColors</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">percentAbove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#850C0C&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">.</span><span class="nf">create</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">UICreatureButton</span><span class="p">.</span><span class="nf">internalCreate</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">button</span><span class="p">:</span><span class="nf">setFocusable</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">button</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="nv">button</span><span class="p">.</span><span class="py">isHovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">button</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">setCreature</span><span class="p">(</span><span class="nv">creature</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">creature</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">getCreature</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">getCreatureId</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">getId</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">setup</span><span class="p">(</span><span class="nv">id</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">lifeBarWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;lifeBar&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">creatureWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;creature&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">skullWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;skull&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;emblem&#39;</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">update</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">CreatureButtonColors</span><span class="p">.</span><span class="py">onIdle</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">show</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getAttackingCreature</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">CreatureButtonColors</span><span class="p">.</span><span class="py">onTargeted</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getFollowingCreature</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">CreatureButtonColors</span><span class="p">.</span><span class="py">onFollowed</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">isHovered</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">color</span><span class="p">.</span><span class="py">hovered</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">color</span><span class="p">.</span><span class="py">notHovered</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">color</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">color</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">CreatureButtonColors</span><span class="p">.</span><span class="py">onIdle</span><span class="p">.</span><span class="py">notHovered</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">creatureWidget</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">creatureWidget</span><span class="p">:</span><span class="nf">setBorderColor</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="p">:</span><span class="nf">setColor</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">creatureWidget</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="p">:</span><span class="nf">setColor</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">creatureSetup</span><span class="p">(</span><span class="nv">creature</span><span class="p">)</span>
+
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">creature</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">		</span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">creature</span>
+
+<span class="w">		</span><span class="nv">self</span><span class="p">.</span><span class="py">creatureWidget</span><span class="p">:</span><span class="nf">setCreature</span><span class="p">(</span><span class="nv">creature</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creatureName</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">creature</span><span class="p">:</span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">.</span><span class="py">creatureName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">creature</span><span class="p">:</span><span class="nf">getName</span><span class="p">()</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nv">creature</span><span class="p">:</span><span class="nf">getName</span><span class="p">())</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">	</span><span class="kr">end</span>
+
+<span class="w">	</span><span class="nv">self</span><span class="p">:</span><span class="nf">updateLifeBarPercent</span><span class="p">()</span>
+
+<span class="w">	</span><span class="nv">self</span><span class="p">:</span><span class="nf">updateSkull</span><span class="p">()</span>
+
+<span class="w">	</span><span class="nv">self</span><span class="p">:</span><span class="nf">updateEmblem</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">update</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">updateSkull</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">skullId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">getSkull</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">skullId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">skullId</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">skullId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">skullId</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">skullId</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">SkullNone</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">skullWidget</span><span class="p">:</span><span class="nf">setWidth</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">skullWidget</span><span class="p">:</span><span class="nf">getHeight</span><span class="p">())</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">imagePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getSkullImagePath</span><span class="p">(</span><span class="nv">skullId</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">skullWidget</span><span class="p">:</span><span class="nf">setImageSource</span><span class="p">(</span><span class="nv">imagePath</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">skullWidget</span><span class="p">:</span><span class="nf">setWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">getEmblem</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">EmblemNone</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">updateEmblem</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">emblemId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">getEmblem</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">emblemId</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">emblemId</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">emblemId</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">EmblemNone</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemWidget</span><span class="p">:</span><span class="nf">setWidth</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">emblemWidget</span><span class="p">:</span><span class="nf">getHeight</span><span class="p">())</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">imagePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getEmblemImagePath</span><span class="p">(</span><span class="nv">emblemId</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemWidget</span><span class="p">:</span><span class="nf">setImageSource</span><span class="p">(</span><span class="nv">imagePath</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemWidget</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemWidget</span><span class="p">:</span><span class="nf">setWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">emblemWidget</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">getSkull</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">SkullNone</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">.</span><span class="py">labelWidget</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UICreatureButton</span><span class="p">:</span><span class="nf">updateLifeBarPercent</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">creature</span><span class="p">:</span><span class="nf">getHealthPercent</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">percent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">percent</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">lifeBarWidget</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">color</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">LifeBarColors</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">v</span><span class="p">.</span><span class="py">percentAbove</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">v</span><span class="p">.</span><span class="py">color</span>
+
+<span class="w">      </span><span class="kr">break</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">lifeBarWidget</span><span class="p">:</span><span class="nf">setBackgroundColor</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="uiitem-lua">
+<h1>uiitem.lua<a class="headerlink" href="#uiitem-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onDragEnter</span><span class="p">(</span><span class="nv">mousePos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isVirtual</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getItem</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">currentDragThing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">item</span>
+
+<span class="w">  </span><span class="nv">g_mouse</span><span class="p">.</span><span class="nf">pushCursor</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onDragLeave</span><span class="p">(</span><span class="nv">droppedWidget</span><span class="p">,</span><span class="w"> </span><span class="nv">mousePos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isVirtual</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">currentDragThing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="nv">g_mouse</span><span class="p">.</span><span class="nf">popCursor</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">hoveredWho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onDrop</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">mousePos</span><span class="p">,</span><span class="w"> </span><span class="nv">forced</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">canAcceptDrop</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">mousePos</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">forced</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">widget</span><span class="p">.</span><span class="py">currentDragThing</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">item</span><span class="p">:</span><span class="nf">isItem</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">selectable</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">item</span><span class="p">:</span><span class="nf">isPickupable</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">:</span><span class="nf">setItem</span><span class="p">(</span><span class="nv">Item</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span><span class="nf">getId</span><span class="p">(),</span><span class="w"> </span><span class="nv">item</span><span class="p">:</span><span class="nf">getCountOrSubType</span><span class="p">()))</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">toPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">position</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">itemPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">item</span><span class="p">:</span><span class="nf">getPosition</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">itemPos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">toPos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">itemPos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">toPos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">itemPos</span><span class="p">.</span><span class="py">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">toPos</span><span class="p">.</span><span class="py">z</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">item</span><span class="p">:</span><span class="nf">getCount</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_interface</span><span class="p">.</span><span class="nf">moveStackableItem</span><span class="p">(</span><span class="nv">item</span><span class="p">,</span><span class="w"> </span><span class="nv">toPos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">move</span><span class="p">(</span><span class="nv">item</span><span class="p">,</span><span class="w"> </span><span class="nv">toPos</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onDestroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">getDraggingWidget</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">hoveredWho</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">hoveredWho</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">hoveredWho</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">hoveredWho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onHoverChange</span><span class="p">(</span><span class="nv">hovered</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">UIWidget</span><span class="p">.</span><span class="nf">onHoverChange</span><span class="p">(</span><span class="nv">self</span><span class="p">,</span><span class="w"> </span><span class="nv">hovered</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isVirtual</span><span class="p">()</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isDraggable</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">draggingWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">getDraggingWidget</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">draggingWidget</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">self</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">draggingWidget</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">gotMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">draggingWidget</span><span class="p">:</span><span class="nf">getClassName</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;UIGameMap&#39;</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">gotItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">draggingWidget</span><span class="p">:</span><span class="nf">getClassName</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;UIItem&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">draggingWidget</span><span class="p">:</span><span class="nf">isVirtual</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">hovered</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="nv">gotItem</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">gotMap</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">draggingWidget</span><span class="p">.</span><span class="py">hoveredWho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span>
+
+<span class="w">    </span><span class="kr">else</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">:</span><span class="nf">setBorderWidth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">draggingWidget</span><span class="p">.</span><span class="py">hoveredWho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onMouseRelease</span><span class="p">(</span><span class="nv">mousePosition</span><span class="p">,</span><span class="w"> </span><span class="nv">mouseButton</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">cancelNextRelease</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">cancelNextRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isVirtual</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getItem</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">containsPoint</span><span class="p">(</span><span class="nv">mousePosition</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_options</span><span class="p">.</span><span class="nf">getOption</span><span class="p">(</span><span class="s1">&#39;classicControl&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">isMobile</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span>
+
+<span class="w">     </span><span class="p">((</span><span class="nv">g_mouse</span><span class="p">.</span><span class="nf">isPressed</span><span class="p">(</span><span class="nv">MouseLeftButton</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">mouseButton</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseRightButton</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span>
+
+<span class="w">      </span><span class="p">(</span><span class="nv">g_mouse</span><span class="p">.</span><span class="nf">isPressed</span><span class="p">(</span><span class="nv">MouseRightButton</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">mouseButton</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseLeftButton</span><span class="p">))</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">look</span><span class="p">(</span><span class="nv">item</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">cancelNextRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_interface</span><span class="p">.</span><span class="nf">processMouseAction</span><span class="p">(</span><span class="nv">mousePosition</span><span class="p">,</span><span class="w"> </span><span class="nv">mouseButton</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nv">item</span><span class="p">,</span><span class="w"> </span><span class="nv">item</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">canAcceptDrop</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">mousePos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">selectable</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="nv">self</span><span class="p">:</span><span class="nf">isVirtual</span><span class="p">()</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isDraggable</span><span class="p">())</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">widget</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">widget</span><span class="p">.</span><span class="py">currentDragThing</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rootWidget</span><span class="p">:</span><span class="nf">recursiveGetChildrenByPos</span><span class="p">(</span><span class="nv">mousePos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">children</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">children</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">child</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">self</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">    </span><span class="kr">elseif</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">child</span><span class="p">:</span><span class="nf">isPhantom</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nb">error</span><span class="p">(</span><span class="s1">&#39;Widget &#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getId</span><span class="p">()</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s1">&#39; not in drop list.&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onClick</span><span class="p">(</span><span class="nv">mousePos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">selectable</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">editable</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_itemselector</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_itemselector</span><span class="p">.</span><span class="nf">show</span><span class="p">(</span><span class="nv">self</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIItem</span><span class="p">:</span><span class="nf">onItemChange</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tooltip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getItem</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getItem</span><span class="p">():</span><span class="nf">getTooltip</span><span class="p">():</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">tooltip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getItem</span><span class="p">():</span><span class="nf">getTooltip</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="nv">tooltip</span><span class="p">)</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="uiminimap-lua">
+<h1>uiminimap.lua<a class="headerlink" href="#uiminimap-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onCreate</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">autowalk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onSetup</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">alternatives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">onAddAutomapFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">)</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">addFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">onRemoveAutomapFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">)</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">removeFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onAddAutomapFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">onAddAutomapFlag</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onRemoveAutomapFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">onRemoveAutomapFlag</span><span class="p">,</span>
+
+<span class="p">})</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onDestroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">widget</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">alternatives</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="nv">widget</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">alternatives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onAddAutomapFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">onAddAutomapFlag</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onRemoveAutomapFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">onRemoveAutomapFlag</span><span class="p">,</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">destroyFlagWindow</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onVisibilityChange</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isVisible</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">destroyFlagWindow</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onCameraPositionChange</span><span class="p">(</span><span class="nv">cameraPos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">cross</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">setCrossPosition</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">cross</span><span class="p">.</span><span class="py">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">hideFloor</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">floorUpWidget</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">floorDownWidget</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">hideZoom</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">zoomInWidget</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">zoomOutWidget</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">disableAutoWalk</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">autowalk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">load</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_settings</span><span class="p">.</span><span class="nf">getNode</span><span class="p">(</span><span class="s1">&#39;Minimap&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">settings</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">settings</span><span class="p">.</span><span class="py">flags</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">flag</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">settings</span><span class="p">.</span><span class="py">flags</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">        </span><span class="nv">self</span><span class="p">:</span><span class="nf">addFlag</span><span class="p">(</span><span class="nv">flag</span><span class="p">.</span><span class="py">position</span><span class="p">,</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">description</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">setZoom</span><span class="p">(</span><span class="nv">settings</span><span class="p">.</span><span class="py">zoom</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">save</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">flags</span><span class="o">=</span><span class="p">{}</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">flag</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">flags</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">temporary</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">settings</span><span class="p">.</span><span class="py">flags</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="nv">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">pos</span><span class="p">,</span>
+
+<span class="w">        </span><span class="nv">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">icon</span><span class="p">,</span>
+
+<span class="w">        </span><span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">description</span><span class="p">,</span>
+
+<span class="p">})</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">settings</span><span class="p">.</span><span class="py">zoom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getZoom</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">g_settings</span><span class="p">.</span><span class="nf">setNode</span><span class="p">(</span><span class="s1">&#39;Minimap&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">settings</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">onFlagMouseRelease</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">button</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseRightButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;PopupMenu&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">menu</span><span class="p">:</span><span class="nf">setGameMenu</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">menu</span><span class="p">:</span><span class="nf">addOption</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s1">&#39;Delete mark&#39;</span><span class="p">),</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">menu</span><span class="p">:</span><span class="nf">display</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">setCrossPosition</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cross</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">cross</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">cross</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">cross</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;MinimapCross&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">self</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">cross</span><span class="p">:</span><span class="nf">setIcon</span><span class="p">(</span><span class="s1">&#39;/images/game/minimap/cross&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">cross</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cross</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">pos</span><span class="p">.</span><span class="py">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getCameraPosition</span><span class="p">().</span><span class="nv">z</span>
+
+<span class="w">  </span><span class="nv">cross</span><span class="p">.</span><span class="py">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">pos</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">centerInPosition</span><span class="p">(</span><span class="nv">cross</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">cross</span><span class="p">:</span><span class="nf">breakAnchors</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">addFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">,</span><span class="w"> </span><span class="nv">temporary</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">icon</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">flag</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">icon</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">temporary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">temporary</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;MinimapFlag&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">insertChild</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">flag</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="p">.</span><span class="py">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">pos</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="p">.</span><span class="py">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">description</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="p">.</span><span class="py">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">icon</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="p">.</span><span class="py">temporary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">temporary</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nb">tonumber</span><span class="p">(</span><span class="nv">icon</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;number&#39;</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">flag</span><span class="p">:</span><span class="nf">setIcon</span><span class="p">(</span><span class="s1">&#39;/images/game/minimap/flag&#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">icon</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">flag</span><span class="p">:</span><span class="nf">setIcon</span><span class="p">(</span><span class="nf">resolvepath</span><span class="p">(</span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="p">:</span><span class="nf">setTooltip</span><span class="p">(</span><span class="nv">description</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="p">.</span><span class="py">onMouseRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onFlagMouseRelease</span>
+
+<span class="w">  </span><span class="nv">flag</span><span class="p">.</span><span class="py">onDestroy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">table</span><span class="p">.</span><span class="nf">removevalue</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">flags</span><span class="p">,</span><span class="w"> </span><span class="nv">flag</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">flags</span><span class="p">,</span><span class="w"> </span><span class="nv">flag</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">centerInPosition</span><span class="p">(</span><span class="nv">flag</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">addAlternativeWidget</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">maxZoom</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">widget</span><span class="p">.</span><span class="py">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">pos</span>
+
+<span class="w">  </span><span class="nv">widget</span><span class="p">.</span><span class="py">maxZoom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">maxZoom</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">  </span><span class="nv">widget</span><span class="p">.</span><span class="py">minZoom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">minZoom</span>
+
+<span class="w">  </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">alternatives</span><span class="p">,</span><span class="w"> </span><span class="nv">widget</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">setAlternativeWidgetsVisible</span><span class="p">(</span><span class="nv">show</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getLayout</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">layout</span><span class="p">:</span><span class="nf">disableUpdates</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">widget</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">alternatives</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">show</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">:</span><span class="nf">insertChild</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">widget</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">:</span><span class="nf">centerInPosition</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">widget</span><span class="p">.</span><span class="py">pos</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">else</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">:</span><span class="nf">removeChild</span><span class="p">(</span><span class="nv">widget</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">layout</span><span class="p">:</span><span class="nf">enableUpdates</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">layout</span><span class="p">:</span><span class="nf">update</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onZoomChange</span><span class="p">(</span><span class="nv">zoom</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">widget</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">alternatives</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="nv">widget</span><span class="p">.</span><span class="py">minZoom</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">widget</span><span class="p">.</span><span class="py">minZoom</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nv">zoom</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">widget</span><span class="p">.</span><span class="py">maxZoom</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">zoom</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">widget</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">else</span>
+
+<span class="w">      </span><span class="nv">widget</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">getFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">flag</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">flags</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">pos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">pos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">flag</span><span class="p">.</span><span class="py">pos</span><span class="p">.</span><span class="py">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">z</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nv">flag</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">removeFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">flag</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">flag</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">reset</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">setZoom</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">cross</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">setCameraPosition</span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">cross</span><span class="p">.</span><span class="py">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">move</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cameraPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getCameraPosition</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getScale</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">scale</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">x</span><span class="o">/</span><span class="nv">scale</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">y</span><span class="o">/</span><span class="nv">scale</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cameraPos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">dx</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cameraPos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">dy</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cameraPos</span><span class="p">.</span><span class="py">z</span><span class="p">}</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">setCameraPosition</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onMouseWheel</span><span class="p">(</span><span class="nv">mousePos</span><span class="p">,</span><span class="w"> </span><span class="nv">direction</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">keyboardModifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_keyboard</span><span class="p">.</span><span class="nf">getModifiers</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">direction</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseWheelUp</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keyboardModifiers</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">KeyboardNoModifier</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">zoomIn</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">direction</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseWheelDown</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keyboardModifiers</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">KeyboardNoModifier</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">zoomOut</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">direction</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseWheelDown</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keyboardModifiers</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">KeyboardCtrlModifier</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">floorUp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">direction</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseWheelUp</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keyboardModifiers</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">KeyboardCtrlModifier</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">floorDown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onMousePress</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">button</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">isDragging</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">allowNextRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onMouseRelease</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">button</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">allowNextRelease</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">allowNextRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">mapPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getTilePosition</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">mapPos</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseLeftButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">getLocalPlayer</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">autowalk</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">player</span><span class="p">:</span><span class="nf">autoWalk</span><span class="p">(</span><span class="nv">mapPos</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseRightButton</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;PopupMenu&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">menu</span><span class="p">:</span><span class="nf">setGameMenu</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">menu</span><span class="p">:</span><span class="nf">addOption</span><span class="p">(</span><span class="nf">tr</span><span class="p">(</span><span class="s1">&#39;Create mark&#39;</span><span class="p">),</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">createFlagWindow</span><span class="p">(</span><span class="nv">mapPos</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">menu</span><span class="p">:</span><span class="nf">display</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onDragEnter</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">dragReference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">pos</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">dragCameraReference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getCameraPosition</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onDragMove</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">moved</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">:</span><span class="nf">getScale</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">dragReference</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="p">)</span><span class="o">/</span><span class="nv">scale</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">self</span><span class="p">.</span><span class="py">dragReference</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="p">)</span><span class="o">/</span><span class="nv">scale</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">dragCameraReference</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">dx</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">dragCameraReference</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">dy</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">dragCameraReference</span><span class="p">.</span><span class="py">z</span><span class="p">}</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">:</span><span class="nf">setCameraPosition</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onDragLeave</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">onStyleApply</span><span class="p">(</span><span class="nv">styleName</span><span class="p">,</span><span class="w"> </span><span class="nv">styleNode</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">name</span><span class="p">,</span><span class="nv">value</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">styleNode</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;autowalk&#39;</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">self</span><span class="p">.</span><span class="py">autowalk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">createFlagWindow</span><span class="p">(</span><span class="nv">pos</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">createWidget</span><span class="p">(</span><span class="s1">&#39;MinimapFlagWindow&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">rootWidget</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">positionLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">okButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;okButton&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cancelButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;cancelButton&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">positionLabel</span><span class="p">:</span><span class="nf">setText</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;%i, %i, %i&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">z</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">flagRadioGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">UIRadioGroup</span><span class="p">.</span><span class="nf">create</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">19</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">checkbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">:</span><span class="nf">getChildById</span><span class="p">(</span><span class="s1">&#39;flag&#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">i</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">checkbox</span><span class="p">.</span><span class="py">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">i</span>
+
+<span class="w">    </span><span class="nv">flagRadioGroup</span><span class="p">:</span><span class="nf">addWidget</span><span class="p">(</span><span class="nv">checkbox</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">flagRadioGroup</span><span class="p">:</span><span class="nf">selectWidget</span><span class="p">(</span><span class="nv">flagRadioGroup</span><span class="p">:</span><span class="nf">getFirstWidget</span><span class="p">())</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">successFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">addFlag</span><span class="p">(</span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">flagRadioGroup</span><span class="p">:</span><span class="nf">getSelectedWidget</span><span class="p">().</span><span class="nv">icon</span><span class="p">,</span><span class="w"> </span><span class="nv">description</span><span class="p">:</span><span class="nf">getText</span><span class="p">())</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">destroyFlagWindow</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cancelFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">:</span><span class="nf">destroyFlagWindow</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">okButton</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">successFunc</span>
+
+<span class="w">  </span><span class="nv">cancelButton</span><span class="p">.</span><span class="py">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cancelFunc</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">.</span><span class="py">onEnter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">successFunc</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">.</span><span class="py">onEscape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cancelFunc</span>
+
+<span class="w">  </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">.</span><span class="py">onDestroy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">flagRadioGroup</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nc">UIMinimap</span><span class="p">:</span><span class="nf">destroyFlagWindow</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">flagWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">gamelib/ui</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uiitem-lua">uiitem.lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uiminimap-lua">uiminimap.lua</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/dev_tools/modul-gamelib-ui.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

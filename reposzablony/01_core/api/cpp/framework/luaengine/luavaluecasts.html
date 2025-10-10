@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="framework/luaengine/luavaluecasts.h" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/framework/luaengine/luavaluecasts.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu luavaluecasts. Classes/Structs: Struktura: push_tuple_internal_luavalue: Szablon: template&lt;..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu luavaluecasts. Classes/Structs: Struktura: push_tuple_internal_luavalue: Szablon: template&lt;..." />
+
+    <title>framework/luaengine/luavaluecasts.h &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/luaengine/luavaluecasts';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/framework/luaengine/luavaluecasts.html" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/luaengine/luavaluecasts.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-luaengine-luavaluecasts-h">
+<h1>framework/luaengine/luavaluecasts.h<a class="headerlink" href="#framework-luaengine-luavaluecasts-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu luavaluecasts.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="struktura-push-tuple-internal-luavalue">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_internal_luavalue</span></code><a class="headerlink" href="#struktura-push-tuple-internal-luavalue" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;int</span> <span class="pre">N&gt;</span></code></p>
+</section>
+<section id="id1">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_internal_luavalue</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;&gt;</span></code></p>
+</section>
+<section id="struktura-push-tuple-luavalue">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_luavalue</span></code><a class="headerlink" href="#struktura-push-tuple-luavalue" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;int</span> <span class="pre">N&gt;</span></code></p>
+</section>
+<section id="id2">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_luavalue</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Szablon:</strong> <code class="docutils literal notranslate"><span class="pre">template&lt;&gt;</span></code></p>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="push-internal-luavalue">
+<h3><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code><a class="headerlink" href="#push-internal-luavalue" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_internal_luavalue(T</span> <span class="pre">v)</span></code></p>
+</section>
+<section id="push-luavalue">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#push-luavalue" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(bool</span> <span class="pre">b)</span></code></p>
+</section>
+<section id="luavalue-cast">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#luavalue-cast" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">bool&amp;</span> <span class="pre">b)</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(int</span> <span class="pre">i)</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">int&amp;</span> <span class="pre">i)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(double</span> <span class="pre">d)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">double&amp;</span> <span class="pre">d)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(float</span> <span class="pre">f)</span> <span class="pre">{</span> <span class="pre">push_luavalue((double)f);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">float&amp;</span> <span class="pre">f)</span> <span class="pre">{</span> <span class="pre">double</span> <span class="pre">d;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">d);</span> <span class="pre">f</span> <span class="pre">=</span> <span class="pre">d;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(int8</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">push_luavalue((int)v);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">int8&amp;</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">int</span> <span class="pre">i;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">i);</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">i;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(uint8</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">push_luavalue((int)v);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">uint8&amp;</span> <span class="pre">v){</span> <span class="pre">int</span> <span class="pre">i;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">i);</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">i;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(int16</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">push_luavalue((int)v);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">int16&amp;</span> <span class="pre">v){</span> <span class="pre">int</span> <span class="pre">i;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">i);</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">i;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(uint16</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">push_luavalue((int)v);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">uint16&amp;</span> <span class="pre">v){</span> <span class="pre">int</span> <span class="pre">i;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">i);</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">i;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(uint32</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">push_luavalue((double)v);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">uint32&amp;</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">double</span> <span class="pre">d;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">d);</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">d;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(int64</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">push_luavalue((double)v);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">int64&amp;</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">double</span> <span class="pre">d;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">d);</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">d;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">int</span> <span class="pre">push_luavalue(uint64</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">push_luavalue((double)v);</span> <span class="pre">return</span> <span class="pre">1;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">uint64&amp;</span> <span class="pre">v)</span> <span class="pre">{</span> <span class="pre">double</span> <span class="pre">d;</span> <span class="pre">bool</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">luavalue_cast(index,</span> <span class="pre">d);</span> <span class="pre">v</span> <span class="pre">=</span> <span class="pre">d;</span> <span class="pre">return</span> <span class="pre">r;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">char*</span> <span class="pre">cstr)</span></code></p>
+</section>
+<section id="id24">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::string&amp;</span> <span class="pre">str)</span></code></p>
+</section>
+<section id="id25">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::string&amp;</span> <span class="pre">str)</span></code></p>
+</section>
+<section id="id26">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">LuaCppFunction&amp;</span> <span class="pre">func)</span></code></p>
+</section>
+<section id="id27">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span></code></p>
+</section>
+<section id="id28">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span></code></p>
+</section>
+<section id="id29">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">Rect&amp;</span> <span class="pre">rect)</span></code></p>
+</section>
+<section id="id30">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">Rect&amp;</span> <span class="pre">rect)</span></code></p>
+</section>
+<section id="id31">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">Point&amp;</span> <span class="pre">point)</span></code></p>
+</section>
+<section id="id32">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">Point&amp;</span> <span class="pre">point)</span></code></p>
+</section>
+<section id="id33">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">Size&amp;</span> <span class="pre">size)</span></code></p>
+</section>
+<section id="id34">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">Size&amp;</span> <span class="pre">size)</span></code></p>
+</section>
+<section id="id35">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">OTMLNodePtr&amp;</span> <span class="pre">node)</span></code></p>
+</section>
+<section id="id36">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id36" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">OTMLNodePtr&amp;</span> <span class="pre">node)</span></code></p>
+</section>
+<section id="id37">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id37" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">LuaObjectPtr&amp;</span> <span class="pre">obj)</span></code></p>
+</section>
+<section id="id38">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id38" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::function&lt;Ret(Args...)&gt;&amp;</span> <span class="pre">func)</span></code></p>
+</section>
+<section id="id39">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id39" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::function&lt;void(Args...)&gt;&amp;</span> <span class="pre">func)</span></code></p>
+</section>
+<section id="id40">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id40" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::list&lt;T&gt;&amp;</span> <span class="pre">list)</span></code></p>
+</section>
+<section id="id41">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id41" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::list&lt;T&gt;&amp;</span> <span class="pre">list)</span></code></p>
+</section>
+<section id="id42">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id42" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::vector&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id43">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id43" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::vector&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id44">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id44" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::set&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id45">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id45" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::set&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id46">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id46" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::deque&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id47">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id47" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::deque&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id48">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id48" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::map&lt;K,</span> <span class="pre">V&gt;&amp;</span> <span class="pre">map)</span></code></p>
+</section>
+<section id="id49">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id49" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::map&lt;K,</span> <span class="pre">V&gt;&amp;</span> <span class="pre">map)</span></code></p>
+</section>
+<section id="id50">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id50" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::pair&lt;K,</span> <span class="pre">V&gt;&amp;</span> <span class="pre">pair)</span></code></p>
+</section>
+<section id="id51">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id51" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::tuple&lt;Args...&gt;&amp;</span> <span class="pre">tuple)</span></code></p>
+</section>
+<section id="id52">
+<h3><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code><a class="headerlink" href="#id52" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_internal_luavalue(const</span> <span class="pre">std::tuple&lt;Args...&gt;&amp;</span> <span class="pre">tuple)</span></code></p>
+</section>
+<section id="id53">
+<h3><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code><a class="headerlink" href="#id53" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_internal_luavalue(T</span> <span class="pre">v)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id54">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id54" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">push_luavalue(v)</span></code></p>
+</section>
+<section id="id55">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id55" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::function&lt;Ret(Args...)&gt;&amp;</span> <span class="pre">func)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id56">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id56" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::function&lt;void(Args...)&gt;&amp;</span> <span class="pre">func)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="luaexception">
+<h3><code class="docutils literal notranslate"><span class="pre">LuaException</span></code><a class="headerlink" href="#luaexception" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">throw</span> <span class="pre">LuaException(&quot;a</span> <span class="pre">function</span> <span class="pre">from</span> <span class="pre">lua</span> <span class="pre">didn't</span> <span class="pre">retrieve</span> <span class="pre">the</span> <span class="pre">expected</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">results&quot;,</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="ret">
+<h3><code class="docutils literal notranslate"><span class="pre">Ret</span></code><a class="headerlink" href="#ret" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">Ret()</span></code></p>
+</section>
+<section id="id57">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id57" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::list&lt;T&gt;&amp;</span> <span class="pre">list)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id58">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id58" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::list&lt;T&gt;&amp;</span> <span class="pre">list)</span></code></p>
+</section>
+<section id="id59">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id59" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::vector&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id60">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id60" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::vector&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id61">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id61" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::set&lt;T&gt;&amp;</span> <span class="pre">set)</span></code></p>
+</section>
+<section id="id62">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id62" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::set&lt;T&gt;&amp;</span> <span class="pre">set)</span></code></p>
+</section>
+<section id="id63">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id63" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::deque&lt;T&gt;&amp;</span> <span class="pre">vec)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id64">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id64" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::deque&lt;T&gt;&amp;</span> <span class="pre">vec)</span></code></p>
+</section>
+<section id="id65">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id65" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::map&lt;K,</span> <span class="pre">V&gt;&amp;</span> <span class="pre">map)</span></code></p>
+</section>
+<section id="id66">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id66" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::map&lt;K,</span> <span class="pre">V&gt;&amp;</span> <span class="pre">map)</span></code></p>
+</section>
+<section id="id67">
+<h3><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code><a class="headerlink" href="#id67" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">luavalue_cast(int</span> <span class="pre">index,</span> <span class="pre">std::pair&lt;K,</span> <span class="pre">V&gt;&amp;</span> <span class="pre">pair)</span></code></p>
+</section>
+<section id="call">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#call" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">call(const</span> <span class="pre">Tuple&amp;</span> <span class="pre">tuple)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id68">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#id68" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">call(const</span> <span class="pre">Tuple&amp;</span> <span class="pre">tuple)</span> <span class="pre">{</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id69">
+<h3><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code><a class="headerlink" href="#id69" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_internal_luavalue(const</span> <span class="pre">std::tuple&lt;Args...&gt;&amp;</span> <span class="pre">tuple)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id70">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#id70" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">call(const</span> <span class="pre">Tuple&amp;</span> <span class="pre">tuple)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id71">
+<h3><code class="docutils literal notranslate"><span class="pre">call</span></code><a class="headerlink" href="#id71" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">call(const</span> <span class="pre">Tuple&amp;</span> <span class="pre">tuple)</span> <span class="pre">{</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id72">
+<h3><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code><a class="headerlink" href="#id72" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">push_luavalue(const</span> <span class="pre">std::tuple&lt;Args...&gt;&amp;</span> <span class="pre">tuple)</span> <span class="pre">{</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/luavaluecasts.mmd"><span class="xref myst">../diagrams/luavaluecasts.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-push-tuple-internal-luavalue">Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_internal_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_internal_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-push-tuple-luavalue">Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Struktura: <code class="docutils literal notranslate"><span class="pre">push_tuple_luavalue</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-internal-luavalue"><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-luavalue"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luavalue-cast"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id39"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id40"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id41"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id44"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id45"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id46"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id48"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id49"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id50"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id51"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id52"><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id53"><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id54"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id55"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id56"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luaexception"><code class="docutils literal notranslate"><span class="pre">LuaException</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ret"><code class="docutils literal notranslate"><span class="pre">Ret</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id57"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id58"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id59"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id60"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id61"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id62"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id63"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id64"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id65"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id66"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id67"><code class="docutils literal notranslate"><span class="pre">luavalue_cast</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id69"><code class="docutils literal notranslate"><span class="pre">push_internal_luavalue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id70"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id71"><code class="docutils literal notranslate"><span class="pre">call</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id72"><code class="docutils literal notranslate"><span class="pre">push_luavalue</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/luaengine/luavaluecasts.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

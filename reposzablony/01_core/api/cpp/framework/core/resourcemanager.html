@@ -1,0 +1,919 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="framework/core/resourcemanager.h" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/framework/core/resourcemanager.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu resourcemanager. Classes/Structs: Klasa: ResourceManager:,,, Member, Brief, Signature,,, init,..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu resourcemanager. Classes/Structs: Klasa: ResourceManager:,,, Member, Brief, Signature,,, init,..." />
+
+    <title>framework/core/resourcemanager.h &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/core/resourcemanager';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/framework/core/resourcemanager.html" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/core/resourcemanager.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-core-resourcemanager-h">
+<h1>framework/core/resourcemanager.h<a class="headerlink" href="#framework-core-resourcemanager-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu resourcemanager.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-resourcemanager">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">ResourceManager</span></code><a class="headerlink" href="#klasa-resourcemanager" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Brief</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">init</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">init(const</span> <span class="pre">char</span> <span class="pre">*argv0)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">terminate</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">terminate()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">launchCorrect</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">launchCorrect(const</span> <span class="pre">std::string&amp;</span> <span class="pre">product,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">app)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setupWriteDir</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">setupWriteDir(const</span> <span class="pre">std::string&amp;</span> <span class="pre">product,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">app)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setup</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">setup()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getCompactName</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getCompactName()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">loadDataFromSelf</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">loadDataFromSelf(bool</span> <span class="pre">unmountIfMounted</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fileExists</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">fileExists(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">directoryExists</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">directoryExists(const</span> <span class="pre">std::string&amp;</span> <span class="pre">directoryName)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">readFileStream</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">readFileStream(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">std::iostream&amp;</span> <span class="pre">out)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">readFileContents</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">readFileContents(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">bool</span> <span class="pre">safe</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">readFileContentsSafe</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">readFileContentsSafe(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">readFileContents(fileName,</span> <span class="pre">true);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isFileEncryptedOrCompressed</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFileEncryptedOrCompressed(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">writeFileBuffer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">writeFileBuffer(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">const</span> <span class="pre">uchar*</span> <span class="pre">data,</span> <span class="pre">uint</span> <span class="pre">size)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">writeFileContents</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">writeFileContents(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">data)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">writeFileStream</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">writeFileStream(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">std::iostream&amp;</span> <span class="pre">in)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">openFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FileStreamPtr</span> <span class="pre">openFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">bool</span> <span class="pre">dontCache</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">appendFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FileStreamPtr</span> <span class="pre">appendFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">createFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FileStreamPtr</span> <span class="pre">createFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deleteFile</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">deleteFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">makeDir</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">makeDir(const</span> <span class="pre">std::string</span> <span class="pre">directory)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">listDirectoryFiles</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::list&lt;std::string&gt;</span> <span class="pre">listDirectoryFiles(const</span> <span class="pre">std::string</span> <span class="pre">&amp;</span> <span class="pre">directoryPath</span> <span class="pre">=</span> <span class="pre">&quot;&quot;,</span> <span class="pre">bool</span> <span class="pre">fullPath</span> <span class="pre">=</span> <span class="pre">false,</span> <span class="pre">bool</span> <span class="pre">raw</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">resolvePath</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">resolvePath(std::string</span> <span class="pre">path)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getWorkDir</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getWorkDir()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">&quot;/&quot;;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getWriteDir</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getWriteDir()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">&quot;/&quot;;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getBinaryName</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getBinaryName()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">&quot;otclientv8.apk&quot;;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getWriteDir</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getWriteDir()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_writeDir.string();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getBinaryName</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getBinaryName()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_binaryPath.filename().string();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">guessFilePath</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">guessFilePath(const</span> <span class="pre">std::string&amp;</span> <span class="pre">filename,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">type)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isFileType</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFileType(const</span> <span class="pre">std::string&amp;</span> <span class="pre">filename,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">type)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isLoadedFromArchive</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLoadedFromArchive()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_loadedFromArchive;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isLoadedFromMemory</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLoadedFromMemory()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_loadedFromMemory;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fileChecksum</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">fileChecksum(const</span> <span class="pre">std::string&amp;</span> <span class="pre">path)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">filesChecksums</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::map&lt;std::string,</span> <span class="pre">std::string&gt;</span> <span class="pre">filesChecksums()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">selfChecksum</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">selfChecksum()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">readCrashLog</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">readCrashLog(bool</span> <span class="pre">txt)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">deleteCrashLog</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">deleteCrashLog()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">updateData</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateData(const</span> <span class="pre">std::set&lt;std::string&gt;&amp;</span> <span class="pre">files,</span> <span class="pre">bool</span> <span class="pre">reMount)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">updateExecutable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateExecutable(std::string</span> <span class="pre">fileName)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createArchive</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">createArchive(const</span> <span class="pre">std::map&lt;std::string,</span> <span class="pre">std::string&gt;&amp;</span> <span class="pre">files)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">decompressArchive</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::map&lt;std::string,</span> <span class="pre">std::string&gt;</span> <span class="pre">decompressArchive(std::string</span> <span class="pre">dataOrPath)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">encrypt</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">encrypt(const</span> <span class="pre">std::string&amp;</span> <span class="pre">seed</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">encryptBuffer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">encryptBuffer(std::string</span> <span class="pre">&amp;</span> <span class="pre">buffer,</span> <span class="pre">uint32_t</span> <span class="pre">seed</span> <span class="pre">=</span> <span class="pre">0)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">decryptBuffer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">decryptBuffer(std::string</span> <span class="pre">&amp;</span> <span class="pre">buffer)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">installDlls</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">installDlls(std::filesystem::path</span> <span class="pre">dest)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setLayout</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setLayout(std::string</span> <span class="pre">layout)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getLayout</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getLayout()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">m_layout</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">m_layout</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">init(const</span> <span class="pre">char</span> <span class="pre">*argv0)</span></code></p>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">terminate()</span></code></p>
+</section>
+<section id="launchcorrect">
+<h3><code class="docutils literal notranslate"><span class="pre">launchCorrect</span></code><a class="headerlink" href="#launchcorrect" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">launchCorrect(const</span> <span class="pre">std::string&amp;</span> <span class="pre">product,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">app)</span></code></p>
+</section>
+<section id="setupwritedir">
+<h3><code class="docutils literal notranslate"><span class="pre">setupWriteDir</span></code><a class="headerlink" href="#setupwritedir" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">setupWriteDir(const</span> <span class="pre">std::string&amp;</span> <span class="pre">product,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">app)</span></code></p>
+</section>
+<section id="setup">
+<h3><code class="docutils literal notranslate"><span class="pre">setup</span></code><a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">setup()</span></code></p>
+</section>
+<section id="getcompactname">
+<h3><code class="docutils literal notranslate"><span class="pre">getCompactName</span></code><a class="headerlink" href="#getcompactname" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getCompactName()</span></code></p>
+</section>
+<section id="loaddatafromself">
+<h3><code class="docutils literal notranslate"><span class="pre">loadDataFromSelf</span></code><a class="headerlink" href="#loaddatafromself" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">loadDataFromSelf(bool</span> <span class="pre">unmountIfMounted</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="fileexists">
+<h3><code class="docutils literal notranslate"><span class="pre">fileExists</span></code><a class="headerlink" href="#fileexists" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">fileExists(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="directoryexists">
+<h3><code class="docutils literal notranslate"><span class="pre">directoryExists</span></code><a class="headerlink" href="#directoryexists" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">directoryExists(const</span> <span class="pre">std::string&amp;</span> <span class="pre">directoryName)</span></code></p>
+</section>
+<section id="readfilestream">
+<h3><code class="docutils literal notranslate"><span class="pre">readFileStream</span></code><a class="headerlink" href="#readfilestream" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">readFileStream(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">std::iostream&amp;</span> <span class="pre">out)</span></code></p>
+</section>
+<section id="readfilecontents">
+<h3><code class="docutils literal notranslate"><span class="pre">readFileContents</span></code><a class="headerlink" href="#readfilecontents" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">readFileContents(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">bool</span> <span class="pre">safe</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="readfilecontentssafe">
+<h3><code class="docutils literal notranslate"><span class="pre">readFileContentsSafe</span></code><a class="headerlink" href="#readfilecontentssafe" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">readFileContentsSafe(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">readFileContents(fileName,</span> <span class="pre">true);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isfileencryptedorcompressed">
+<h3><code class="docutils literal notranslate"><span class="pre">isFileEncryptedOrCompressed</span></code><a class="headerlink" href="#isfileencryptedorcompressed" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFileEncryptedOrCompressed(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="writefilebuffer">
+<h3><code class="docutils literal notranslate"><span class="pre">writeFileBuffer</span></code><a class="headerlink" href="#writefilebuffer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">writeFileBuffer(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">const</span> <span class="pre">uchar*</span> <span class="pre">data,</span> <span class="pre">uint</span> <span class="pre">size)</span></code></p>
+</section>
+<section id="writefilecontents">
+<h3><code class="docutils literal notranslate"><span class="pre">writeFileContents</span></code><a class="headerlink" href="#writefilecontents" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">writeFileContents(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">data)</span></code></p>
+</section>
+<section id="writefilestream">
+<h3><code class="docutils literal notranslate"><span class="pre">writeFileStream</span></code><a class="headerlink" href="#writefilestream" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">writeFileStream(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">std::iostream&amp;</span> <span class="pre">in)</span></code></p>
+</section>
+<section id="openfile">
+<h3><code class="docutils literal notranslate"><span class="pre">openFile</span></code><a class="headerlink" href="#openfile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">FileStreamPtr</span> <span class="pre">openFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName,</span> <span class="pre">bool</span> <span class="pre">dontCache</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="appendfile">
+<h3><code class="docutils literal notranslate"><span class="pre">appendFile</span></code><a class="headerlink" href="#appendfile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">FileStreamPtr</span> <span class="pre">appendFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="createfile">
+<h3><code class="docutils literal notranslate"><span class="pre">createFile</span></code><a class="headerlink" href="#createfile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">FileStreamPtr</span> <span class="pre">createFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="deletefile">
+<h3><code class="docutils literal notranslate"><span class="pre">deleteFile</span></code><a class="headerlink" href="#deletefile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">deleteFile(const</span> <span class="pre">std::string&amp;</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="makedir">
+<h3><code class="docutils literal notranslate"><span class="pre">makeDir</span></code><a class="headerlink" href="#makedir" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">makeDir(const</span> <span class="pre">std::string</span> <span class="pre">directory)</span></code></p>
+</section>
+<section id="listdirectoryfiles">
+<h3><code class="docutils literal notranslate"><span class="pre">listDirectoryFiles</span></code><a class="headerlink" href="#listdirectoryfiles" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::list&lt;std::string&gt;</span> <span class="pre">listDirectoryFiles(const</span> <span class="pre">std::string</span> <span class="pre">&amp;</span> <span class="pre">directoryPath</span> <span class="pre">=</span> <span class="pre">&quot;&quot;,</span> <span class="pre">bool</span> <span class="pre">fullPath</span> <span class="pre">=</span> <span class="pre">false,</span> <span class="pre">bool</span> <span class="pre">raw</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="resolvepath">
+<h3><code class="docutils literal notranslate"><span class="pre">resolvePath</span></code><a class="headerlink" href="#resolvepath" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">resolvePath(std::string</span> <span class="pre">path)</span></code></p>
+</section>
+<section id="getworkdir">
+<h3><code class="docutils literal notranslate"><span class="pre">getWorkDir</span></code><a class="headerlink" href="#getworkdir" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getWorkDir()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">&quot;/&quot;;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getwritedir">
+<h3><code class="docutils literal notranslate"><span class="pre">getWriteDir</span></code><a class="headerlink" href="#getwritedir" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getWriteDir()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">&quot;/&quot;;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getbinaryname">
+<h3><code class="docutils literal notranslate"><span class="pre">getBinaryName</span></code><a class="headerlink" href="#getbinaryname" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getBinaryName()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">&quot;otclientv8.apk&quot;;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">getWriteDir</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getWriteDir()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_writeDir.string();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">getBinaryName</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getBinaryName()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_binaryPath.filename().string();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="guessfilepath">
+<h3><code class="docutils literal notranslate"><span class="pre">guessFilePath</span></code><a class="headerlink" href="#guessfilepath" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">guessFilePath(const</span> <span class="pre">std::string&amp;</span> <span class="pre">filename,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">type)</span></code></p>
+</section>
+<section id="isfiletype">
+<h3><code class="docutils literal notranslate"><span class="pre">isFileType</span></code><a class="headerlink" href="#isfiletype" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isFileType(const</span> <span class="pre">std::string&amp;</span> <span class="pre">filename,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">type)</span></code></p>
+</section>
+<section id="isloadedfromarchive">
+<h3><code class="docutils literal notranslate"><span class="pre">isLoadedFromArchive</span></code><a class="headerlink" href="#isloadedfromarchive" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLoadedFromArchive()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_loadedFromArchive;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isloadedfrommemory">
+<h3><code class="docutils literal notranslate"><span class="pre">isLoadedFromMemory</span></code><a class="headerlink" href="#isloadedfrommemory" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLoadedFromMemory()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_loadedFromMemory;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="filechecksum">
+<h3><code class="docutils literal notranslate"><span class="pre">fileChecksum</span></code><a class="headerlink" href="#filechecksum" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">fileChecksum(const</span> <span class="pre">std::string&amp;</span> <span class="pre">path)</span></code></p>
+</section>
+<section id="fileschecksums">
+<h3><code class="docutils literal notranslate"><span class="pre">filesChecksums</span></code><a class="headerlink" href="#fileschecksums" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::map&lt;std::string,</span> <span class="pre">std::string&gt;</span> <span class="pre">filesChecksums()</span></code></p>
+</section>
+<section id="selfchecksum">
+<h3><code class="docutils literal notranslate"><span class="pre">selfChecksum</span></code><a class="headerlink" href="#selfchecksum" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">selfChecksum()</span></code></p>
+</section>
+<section id="readcrashlog">
+<h3><code class="docutils literal notranslate"><span class="pre">readCrashLog</span></code><a class="headerlink" href="#readcrashlog" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">readCrashLog(bool</span> <span class="pre">txt)</span></code></p>
+</section>
+<section id="deletecrashlog">
+<h3><code class="docutils literal notranslate"><span class="pre">deleteCrashLog</span></code><a class="headerlink" href="#deletecrashlog" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">deleteCrashLog()</span></code></p>
+</section>
+<section id="updatedata">
+<h3><code class="docutils literal notranslate"><span class="pre">updateData</span></code><a class="headerlink" href="#updatedata" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateData(const</span> <span class="pre">std::set&lt;std::string&gt;&amp;</span> <span class="pre">files,</span> <span class="pre">bool</span> <span class="pre">reMount)</span></code></p>
+</section>
+<section id="updateexecutable">
+<h3><code class="docutils literal notranslate"><span class="pre">updateExecutable</span></code><a class="headerlink" href="#updateexecutable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">updateExecutable(std::string</span> <span class="pre">fileName)</span></code></p>
+</section>
+<section id="createarchive">
+<h3><code class="docutils literal notranslate"><span class="pre">createArchive</span></code><a class="headerlink" href="#createarchive" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">createArchive(const</span> <span class="pre">std::map&lt;std::string,</span> <span class="pre">std::string&gt;&amp;</span> <span class="pre">files)</span></code></p>
+</section>
+<section id="decompressarchive">
+<h3><code class="docutils literal notranslate"><span class="pre">decompressArchive</span></code><a class="headerlink" href="#decompressarchive" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::map&lt;std::string,</span> <span class="pre">std::string&gt;</span> <span class="pre">decompressArchive(std::string</span> <span class="pre">dataOrPath)</span></code></p>
+</section>
+<section id="encrypt">
+<h3><code class="docutils literal notranslate"><span class="pre">encrypt</span></code><a class="headerlink" href="#encrypt" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">encrypt(const</span> <span class="pre">std::string&amp;</span> <span class="pre">seed</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code></p>
+</section>
+<section id="encryptbuffer">
+<h3><code class="docutils literal notranslate"><span class="pre">encryptBuffer</span></code><a class="headerlink" href="#encryptbuffer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">encryptBuffer(std::string</span> <span class="pre">&amp;</span> <span class="pre">buffer,</span> <span class="pre">uint32_t</span> <span class="pre">seed</span> <span class="pre">=</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="decryptbuffer">
+<h3><code class="docutils literal notranslate"><span class="pre">decryptBuffer</span></code><a class="headerlink" href="#decryptbuffer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">decryptBuffer(std::string</span> <span class="pre">&amp;</span> <span class="pre">buffer)</span></code></p>
+</section>
+<section id="installdlls">
+<h3><code class="docutils literal notranslate"><span class="pre">installDlls</span></code><a class="headerlink" href="#installdlls" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">installDlls(std::filesystem::path</span> <span class="pre">dest)</span></code></p>
+</section>
+<section id="setlayout">
+<h3><code class="docutils literal notranslate"><span class="pre">setLayout</span></code><a class="headerlink" href="#setlayout" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setLayout(std::string</span> <span class="pre">layout)</span></code></p>
+</section>
+<section id="getlayout">
+<h3><code class="docutils literal notranslate"><span class="pre">getLayout</span></code><a class="headerlink" href="#getlayout" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getLayout()</span></code></p>
+</section>
+<section id="mountmemorydata">
+<h3><code class="docutils literal notranslate"><span class="pre">mountMemoryData</span></code><a class="headerlink" href="#mountmemorydata" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">mountMemoryData(const</span> <span class="pre">std::shared_ptr&lt;std::vector&lt;uint8_t&gt;&gt;&amp;</span> <span class="pre">data)</span></code></p>
+</section>
+<section id="unmountmemorydata">
+<h3><code class="docutils literal notranslate"><span class="pre">unmountMemoryData</span></code><a class="headerlink" href="#unmountmemorydata" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">unmountMemoryData()</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/resourcemanager.mmd"><span class="xref myst">../diagrams/resourcemanager.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-resourcemanager">Klasa: <code class="docutils literal notranslate"><span class="pre">ResourceManager</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launchcorrect"><code class="docutils literal notranslate"><span class="pre">launchCorrect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setupwritedir"><code class="docutils literal notranslate"><span class="pre">setupWriteDir</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup"><code class="docutils literal notranslate"><span class="pre">setup</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcompactname"><code class="docutils literal notranslate"><span class="pre">getCompactName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loaddatafromself"><code class="docutils literal notranslate"><span class="pre">loadDataFromSelf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fileexists"><code class="docutils literal notranslate"><span class="pre">fileExists</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directoryexists"><code class="docutils literal notranslate"><span class="pre">directoryExists</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readfilestream"><code class="docutils literal notranslate"><span class="pre">readFileStream</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readfilecontents"><code class="docutils literal notranslate"><span class="pre">readFileContents</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readfilecontentssafe"><code class="docutils literal notranslate"><span class="pre">readFileContentsSafe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isfileencryptedorcompressed"><code class="docutils literal notranslate"><span class="pre">isFileEncryptedOrCompressed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writefilebuffer"><code class="docutils literal notranslate"><span class="pre">writeFileBuffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writefilecontents"><code class="docutils literal notranslate"><span class="pre">writeFileContents</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writefilestream"><code class="docutils literal notranslate"><span class="pre">writeFileStream</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openfile"><code class="docutils literal notranslate"><span class="pre">openFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appendfile"><code class="docutils literal notranslate"><span class="pre">appendFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createfile"><code class="docutils literal notranslate"><span class="pre">createFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deletefile"><code class="docutils literal notranslate"><span class="pre">deleteFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#makedir"><code class="docutils literal notranslate"><span class="pre">makeDir</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listdirectoryfiles"><code class="docutils literal notranslate"><span class="pre">listDirectoryFiles</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolvepath"><code class="docutils literal notranslate"><span class="pre">resolvePath</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getworkdir"><code class="docutils literal notranslate"><span class="pre">getWorkDir</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getwritedir"><code class="docutils literal notranslate"><span class="pre">getWriteDir</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getbinaryname"><code class="docutils literal notranslate"><span class="pre">getBinaryName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">getWriteDir</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">getBinaryName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guessfilepath"><code class="docutils literal notranslate"><span class="pre">guessFilePath</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isfiletype"><code class="docutils literal notranslate"><span class="pre">isFileType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isloadedfromarchive"><code class="docutils literal notranslate"><span class="pre">isLoadedFromArchive</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isloadedfrommemory"><code class="docutils literal notranslate"><span class="pre">isLoadedFromMemory</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filechecksum"><code class="docutils literal notranslate"><span class="pre">fileChecksum</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fileschecksums"><code class="docutils literal notranslate"><span class="pre">filesChecksums</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selfchecksum"><code class="docutils literal notranslate"><span class="pre">selfChecksum</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readcrashlog"><code class="docutils literal notranslate"><span class="pre">readCrashLog</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deletecrashlog"><code class="docutils literal notranslate"><span class="pre">deleteCrashLog</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatedata"><code class="docutils literal notranslate"><span class="pre">updateData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateexecutable"><code class="docutils literal notranslate"><span class="pre">updateExecutable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createarchive"><code class="docutils literal notranslate"><span class="pre">createArchive</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decompressarchive"><code class="docutils literal notranslate"><span class="pre">decompressArchive</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encrypt"><code class="docutils literal notranslate"><span class="pre">encrypt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encryptbuffer"><code class="docutils literal notranslate"><span class="pre">encryptBuffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decryptbuffer"><code class="docutils literal notranslate"><span class="pre">decryptBuffer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installdlls"><code class="docutils literal notranslate"><span class="pre">installDlls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setlayout"><code class="docutils literal notranslate"><span class="pre">setLayout</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getlayout"><code class="docutils literal notranslate"><span class="pre">getLayout</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mountmemorydata"><code class="docutils literal notranslate"><span class="pre">mountMemoryData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unmountmemorydata"><code class="docutils literal notranslate"><span class="pre">unmountMemoryData</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/core/resourcemanager.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

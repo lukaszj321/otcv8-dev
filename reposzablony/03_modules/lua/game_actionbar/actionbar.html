@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="game_actionbar/actionbar.lua" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_actionbar/actionbar.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Moduł Lua zawierający funkcje i logikę dla actionbar. Globals/Exports: settings: Functions: translateVocation(id): servers may have different id’s,..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Moduł Lua zawierający funkcje i logikę dla actionbar. Globals/Exports: settings: Functions: translateVocation(id): servers may have different id’s,..." />
+
+    <title>game_actionbar/actionbar.lua &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_actionbar/actionbar';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_actionbar/actionbar.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_actionbar/actionbar.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-actionbar-actionbar-lua">
+<h1>game_actionbar/actionbar.lua<a class="headerlink" href="#game-actionbar-actionbar-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla actionbar.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="settings">
+<h3><code class="docutils literal notranslate"><span class="pre">settings</span></code><a class="headerlink" href="#settings" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="translatevocation-id">
+<h3><code class="docutils literal notranslate"><span class="pre">translateVocation(id)</span></code><a class="headerlink" href="#translatevocation-id" title="Link to this heading">#</a></h3>
+<p>servers may have different id’s, change if not working properly (only for protocols 910+)</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+</ul>
+</section>
+<section id="isspell-text">
+<h3><code class="docutils literal notranslate"><span class="pre">isSpell(text)</span></code><a class="headerlink" href="#isspell-text" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init()</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate()</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+</section>
+<section id="createactionbars">
+<h3><code class="docutils literal notranslate"><span class="pre">createActionBars()</span></code><a class="headerlink" href="#createactionbars" title="Link to this heading">#</a></h3>
+</section>
+<section id="offline">
+<h3><code class="docutils literal notranslate"><span class="pre">offline()</span></code><a class="headerlink" href="#offline" title="Link to this heading">#</a></h3>
+</section>
+<section id="online">
+<h3><code class="docutils literal notranslate"><span class="pre">online()</span></code><a class="headerlink" href="#online" title="Link to this heading">#</a></h3>
+</section>
+<section id="show">
+<h3><code class="docutils literal notranslate"><span class="pre">show()</span></code><a class="headerlink" href="#show" title="Link to this heading">#</a></h3>
+</section>
+<section id="refresh">
+<h3><code class="docutils literal notranslate"><span class="pre">refresh()</span></code><a class="headerlink" href="#refresh" title="Link to this heading">#</a></h3>
+</section>
+<section id="translatehotkeydesc-text">
+<h3><code class="docutils literal notranslate"><span class="pre">translateHotkeyDesc(text)</span></code><a class="headerlink" href="#translatehotkeydesc-text" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="destroyassignwindows">
+<h3><code class="docutils literal notranslate"><span class="pre">destroyAssignWindows()</span></code><a class="headerlink" href="#destroyassignwindows" title="Link to this heading">#</a></h3>
+</section>
+<section id="changelockstate-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">changeLockState(widget)</span></code><a class="headerlink" href="#changelockstate-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="moveactionbuttons-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">moveActionButtons(widget)</span></code><a class="headerlink" href="#moveactionbuttons-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="ondropactionbutton-self-mouseposition-mousebutton">
+<h3><code class="docutils literal notranslate"><span class="pre">onDropActionButton(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code><a class="headerlink" href="#ondropactionbutton-self-mouseposition-mousebutton" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mousePosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mouseButton</span></code></p></li>
+</ul>
+</section>
+<section id="setupactionbar-n">
+<h3><code class="docutils literal notranslate"><span class="pre">setupActionBar(n)</span></code><a class="headerlink" href="#setupactionbar-n" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
+</ul>
+</section>
+<section id="setupbutton-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">setupButton(widget)</span></code><a class="headerlink" href="#setupbutton-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="widget-item-ondragenter-self">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.item.onDragEnter(self)</span></code><a class="headerlink" href="#widget-item-ondragenter-self" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+</ul>
+</section>
+<section id="widget-onmouserelease-widget-mousepos-mousebutton">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.onMouseRelease(widget,</span> <span class="pre">mousePos,</span> <span class="pre">mouseButton)</span></code><a class="headerlink" href="#widget-onmouserelease-widget-mousepos-mousebutton" title="Link to this heading">#</a></h3>
+<p>popupmenu &amp; execute action</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mousePos</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mouseButton</span></code></p></li>
+</ul>
+</section>
+<section id="widget-item-onitemchange-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.item.onItemChange(widget)</span></code><a class="headerlink" href="#widget-item-onitemchange-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="resetslot-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">resetSlot(widget)</span></code><a class="headerlink" href="#resetslot-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="assignitem-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">assignItem(widget)</span></code><a class="headerlink" href="#assignitem-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="window-select-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">window.select.onClick()</span></code><a class="headerlink" href="#window-select-onclick" title="Link to this heading">#</a></h3>
+<p>select item</p>
+</section>
+<section id="window-item-onitemchange-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">window.item.onItemChange(widget)</span></code><a class="headerlink" href="#window-item-onitemchange-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="window-buttonok-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">window.buttonOk.onClick()</span></code><a class="headerlink" href="#window-buttonok-onclick" title="Link to this heading">#</a></h3>
+<p>callbacks</p>
+</section>
+<section id="window-onenter">
+<h3><code class="docutils literal notranslate"><span class="pre">window.onEnter()</span></code><a class="headerlink" href="#window-onenter" title="Link to this heading">#</a></h3>
+</section>
+<section id="window-buttonapply-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">window.buttonApply.onClick()</span></code><a class="headerlink" href="#window-buttonapply-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="assigntext-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">assignText(widget)</span></code><a class="headerlink" href="#assigntext-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="window-text-ontextchange-self-text">
+<h3><code class="docutils literal notranslate"><span class="pre">window.text.onTextChange(self,</span> <span class="pre">text)</span></code><a class="headerlink" href="#window-text-ontextchange-self-text" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">window.buttonOk.onClick()</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>buttons</p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">window.buttonApply.onClick()</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">window.onEnter()</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+</section>
+<section id="assignspell-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">assignSpell(widget)</span></code><a class="headerlink" href="#assignspell-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="filterbyvocation-a-filter">
+<h3><code class="docutils literal notranslate"><span class="pre">filterByVocation(a,</span> <span class="pre">filter)</span></code><a class="headerlink" href="#filterbyvocation-a-filter" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code></p></li>
+</ul>
+</section>
+<section id="radio-onselectionchange-widget-selected">
+<h3><code class="docutils literal notranslate"><span class="pre">radio.onSelectionChange(widget,</span> <span class="pre">selected)</span></code><a class="headerlink" href="#radio-onselectionchange-widget-selected" title="Link to this heading">#</a></h3>
+<p>callback</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selected</span></code></p></li>
+</ul>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">window.buttonOk.onClick()</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">window.buttonApply.onClick()</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">window.onEnter()</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+</section>
+<section id="assignhotkey-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">assignHotkey(widget)</span></code><a class="headerlink" href="#assignhotkey-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="window-onkeydown-window-keycode-keyboardmodifiers">
+<h3><code class="docutils literal notranslate"><span class="pre">window.onKeyDown(window,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code><a class="headerlink" href="#window-onkeydown-window-keycode-keyboardmodifiers" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">window</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboardModifiers</span></code></p></li>
+</ul>
+</section>
+<section id="setupaction-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">setupAction(widget)</span></code><a class="headerlink" href="#setupaction-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="widget-callback">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.callback()</span></code><a class="headerlink" href="#widget-callback" title="Link to this heading">#</a></h3>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.callback()</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.callback()</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+</section>
+<section id="onspellcooldown-iconid-duration">
+<h3><code class="docutils literal notranslate"><span class="pre">onSpellCooldown(iconId,</span> <span class="pre">duration)</span></code><a class="headerlink" href="#onspellcooldown-iconid-duration" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iconId</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></li>
+</ul>
+</section>
+<section id="onspellgroupcooldown-groupid-duration">
+<h3><code class="docutils literal notranslate"><span class="pre">onSpellGroupCooldown(groupId,</span> <span class="pre">duration)</span></code><a class="headerlink" href="#onspellgroupcooldown-groupid-duration" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">groupId</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></li>
+</ul>
+</section>
+<section id="startcooldown-action-duration">
+<h3><code class="docutils literal notranslate"><span class="pre">startCooldown(action,</span> <span class="pre">duration)</span></code><a class="headerlink" href="#startcooldown-action-duration" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></li>
+</ul>
+</section>
+<section id="updatecooldown-action">
+<h3><code class="docutils literal notranslate"><span class="pre">updateCooldown(action)</span></code><a class="headerlink" href="#updatecooldown-action" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code></p></li>
+</ul>
+</section>
+<section id="save">
+<h3><code class="docutils literal notranslate"><span class="pre">save()</span></code><a class="headerlink" href="#save" title="Link to this heading">#</a></h3>
+</section>
+<section id="load">
+<h3><code class="docutils literal notranslate"><span class="pre">load()</span></code><a class="headerlink" href="#load" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="g-game">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#g-game" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="line">
+<h3><code class="docutils literal notranslate"><span class="pre">line</span></code><a class="headerlink" href="#line" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">online()</span></code></p>
+</section>
+<section id="createwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#createwidget" title="Link to this heading">#</a></h3>
+<p>taken from game_hotkeys</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">mouseGrabberWidget</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('UIWidget')</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="bars">
+<h3><code class="docutils literal notranslate"><span class="pre">Bars</span></code><a class="headerlink" href="#bars" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">createActionBars()</span></code></p>
+</section>
+<section id="panel">
+<h3><code class="docutils literal notranslate"><span class="pre">Panel</span></code><a class="headerlink" href="#panel" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">bottomPanel</span> <span class="pre">=</span> <span class="pre">modules.game_interface.getBottomActionPanel()</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">Panel</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">leftPanel</span> <span class="pre">=</span> <span class="pre">modules.game_interface.getLeftActionPanel()</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">Panel</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">rightPanel</span> <span class="pre">=</span> <span class="pre">modules.game_interface.getRightActionPanel()</span></code></p>
+</section>
+<section id="loadui">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#loadui" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">actionBars[i]</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI(layout,</span> <span class="pre">parent)</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">line</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">online()</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">Bars</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>create actionbars</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">createActionBars()</span></code></p>
+</section>
+<section id="bar">
+<h3><code class="docutils literal notranslate"><span class="pre">Bar</span></code><a class="headerlink" href="#bar" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">setupActionBar(i)</span></code></p>
+</section>
+<section id="getrootwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">getRootWidget</span></code><a class="headerlink" href="#getrootwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">rootWidget</span> <span class="pre">=</span> <span class="pre">g_ui.getRootWidget()</span></code></p>
+</section>
+<section id="buttons">
+<h3><code class="docutils literal notranslate"><span class="pre">Buttons</span></code><a class="headerlink" href="#buttons" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">moveActionButtons(widget)</span></code></p>
+</section>
+<section id="dropactionbutton">
+<h3><code class="docutils literal notranslate"><span class="pre">DropActionButton</span></code><a class="headerlink" href="#dropactionbutton" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onDropActionButton(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code></p>
+</section>
+<section id="ismousegrabbed">
+<h3><code class="docutils literal notranslate"><span class="pre">isMouseGrabbed</span></code><a class="headerlink" href="#ismousegrabbed" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">g_ui.isMouseGrabbed()</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">Bar</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">setupActionBar(n)</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">widget</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget(layout,</span> <span class="pre">actionbar.tabBar)</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">isMouseGrabbed</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">g_ui.isMouseGrabbed()</span> <span class="pre">or</span> <span class="pre">actionbar.locked</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">menu</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('PopupMenu')</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>create window</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('object',</span> <span class="pre">g_ui.getRootWidget())</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p>create window</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('text',</span> <span class="pre">g_ui.getRootWidget())</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>create window</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('spell',</span> <span class="pre">g_ui.getRootWidget())</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">widget</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('SpellPreview',</span> <span class="pre">window.spellList)</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">loadUI</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>create window</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">=</span> <span class="pre">g_ui.loadUI('hotkey',</span> <span class="pre">g_ui.getRootWidget())</span></code></p>
+</section>
+<section id="spellcooldown">
+<h3><code class="docutils literal notranslate"><span class="pre">SpellCooldown</span></code><a class="headerlink" href="#spellcooldown" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSpellCooldown(iconId,</span> <span class="pre">duration)</span></code></p>
+</section>
+<section id="spellgroupcooldown">
+<h3><code class="docutils literal notranslate"><span class="pre">SpellGroupCooldown</span></code><a class="headerlink" href="#spellgroupcooldown" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSpellGroupCooldown(groupId,</span> <span class="pre">duration)</span></code></p>
+</section>
+<section id="tents">
+<h3><code class="docutils literal notranslate"><span class="pre">tents</span></code><a class="headerlink" href="#tents" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_resources.writeFileContents(settingsFile,</span> <span class="pre">result)</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">tents</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">json.decode(g_resources.readFileContents(settingsFile))</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settings"><code class="docutils literal notranslate"><span class="pre">settings</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translatevocation-id"><code class="docutils literal notranslate"><span class="pre">translateVocation(id)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isspell-text"><code class="docutils literal notranslate"><span class="pre">isSpell(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createactionbars"><code class="docutils literal notranslate"><span class="pre">createActionBars()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline"><code class="docutils literal notranslate"><span class="pre">offline()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#online"><code class="docutils literal notranslate"><span class="pre">online()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show"><code class="docutils literal notranslate"><span class="pre">show()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refresh"><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translatehotkeydesc-text"><code class="docutils literal notranslate"><span class="pre">translateHotkeyDesc(text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#destroyassignwindows"><code class="docutils literal notranslate"><span class="pre">destroyAssignWindows()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changelockstate-widget"><code class="docutils literal notranslate"><span class="pre">changeLockState(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moveactionbuttons-widget"><code class="docutils literal notranslate"><span class="pre">moveActionButtons(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ondropactionbutton-self-mouseposition-mousebutton"><code class="docutils literal notranslate"><span class="pre">onDropActionButton(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setupactionbar-n"><code class="docutils literal notranslate"><span class="pre">setupActionBar(n)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setupbutton-widget"><code class="docutils literal notranslate"><span class="pre">setupButton(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-item-ondragenter-self"><code class="docutils literal notranslate"><span class="pre">widget.item.onDragEnter(self)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-onmouserelease-widget-mousepos-mousebutton"><code class="docutils literal notranslate"><span class="pre">widget.onMouseRelease(widget,</span> <span class="pre">mousePos,</span> <span class="pre">mouseButton)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-item-onitemchange-widget"><code class="docutils literal notranslate"><span class="pre">widget.item.onItemChange(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetslot-widget"><code class="docutils literal notranslate"><span class="pre">resetSlot(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignitem-widget"><code class="docutils literal notranslate"><span class="pre">assignItem(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-select-onclick"><code class="docutils literal notranslate"><span class="pre">window.select.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-item-onitemchange-widget"><code class="docutils literal notranslate"><span class="pre">window.item.onItemChange(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-buttonok-onclick"><code class="docutils literal notranslate"><span class="pre">window.buttonOk.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-onenter"><code class="docutils literal notranslate"><span class="pre">window.onEnter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-buttonapply-onclick"><code class="docutils literal notranslate"><span class="pre">window.buttonApply.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assigntext-widget"><code class="docutils literal notranslate"><span class="pre">assignText(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-text-ontextchange-self-text"><code class="docutils literal notranslate"><span class="pre">window.text.onTextChange(self,</span> <span class="pre">text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">window.buttonOk.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">window.buttonApply.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">window.onEnter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignspell-widget"><code class="docutils literal notranslate"><span class="pre">assignSpell(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filterbyvocation-a-filter"><code class="docutils literal notranslate"><span class="pre">filterByVocation(a,</span> <span class="pre">filter)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radio-onselectionchange-widget-selected"><code class="docutils literal notranslate"><span class="pre">radio.onSelectionChange(widget,</span> <span class="pre">selected)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">window.buttonOk.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">window.buttonApply.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">window.onEnter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignhotkey-widget"><code class="docutils literal notranslate"><span class="pre">assignHotkey(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-onkeydown-window-keycode-keyboardmodifiers"><code class="docutils literal notranslate"><span class="pre">window.onKeyDown(window,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setupaction-widget"><code class="docutils literal notranslate"><span class="pre">setupAction(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-callback"><code class="docutils literal notranslate"><span class="pre">widget.callback()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">widget.callback()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">widget.callback()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onspellcooldown-iconid-duration"><code class="docutils literal notranslate"><span class="pre">onSpellCooldown(iconId,</span> <span class="pre">duration)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onspellgroupcooldown-groupid-duration"><code class="docutils literal notranslate"><span class="pre">onSpellGroupCooldown(groupId,</span> <span class="pre">duration)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#startcooldown-action-duration"><code class="docutils literal notranslate"><span class="pre">startCooldown(action,</span> <span class="pre">duration)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatecooldown-action"><code class="docutils literal notranslate"><span class="pre">updateCooldown(action)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-game"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line"><code class="docutils literal notranslate"><span class="pre">line</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createwidget"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bars"><code class="docutils literal notranslate"><span class="pre">Bars</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel"><code class="docutils literal notranslate"><span class="pre">Panel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">Panel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">Panel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadui"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">line</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">Bars</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar"><code class="docutils literal notranslate"><span class="pre">Bar</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getrootwidget"><code class="docutils literal notranslate"><span class="pre">getRootWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons"><code class="docutils literal notranslate"><span class="pre">Buttons</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropactionbutton"><code class="docutils literal notranslate"><span class="pre">DropActionButton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ismousegrabbed"><code class="docutils literal notranslate"><span class="pre">isMouseGrabbed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">Bar</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">isMouseGrabbed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">loadUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spellcooldown"><code class="docutils literal notranslate"><span class="pre">SpellCooldown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spellgroupcooldown"><code class="docutils literal notranslate"><span class="pre">SpellGroupCooldown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tents"><code class="docutils literal notranslate"><span class="pre">tents</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">tents</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/game_actionbar/actionbar.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

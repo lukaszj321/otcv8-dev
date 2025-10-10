@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="client/position.h" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/client/position.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu position. Classes/Structs: Klasa: Position:,,, Member, Brief, Signature,,, translatedToDirecti..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu position. Classes/Structs: Klasa: Position:,,, Member, Brief, Signature,,, translatedToDirecti..." />
+
+    <title>client/position.h &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/client/position';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/client/position.html" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">client/position.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="client-position-h">
+<h1>client/position.h<a class="headerlink" href="#client-position-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu position.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-position">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">Position</span></code><a class="headerlink" href="#klasa-position" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Brief</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">translatedToDirection</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">translatedToDirection(Otc::Direction</span> <span class="pre">direction)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">pos</span> <span class="pre">=</span> <span class="pre">*this</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">pos</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">translatedToReverseDirection</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">translatedToReverseDirection(Otc::Direction</span> <span class="pre">direction)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">pos</span> <span class="pre">=</span> <span class="pre">*this</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">pos</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">translatedToDirections</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;Position&gt;</span> <span class="pre">translatedToDirections(const</span> <span class="pre">std::vector&lt;Otc::Direction&gt;&amp;</span> <span class="pre">dirs)</span> <span class="pre">const</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lastPos</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">lastPos</span> <span class="pre">=</span> <span class="pre">*this</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">positions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::vector&lt;Position&gt;</span> <span class="pre">positions</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">positions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">positions</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">positions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">positions</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getAngleFromPositions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">double</span> <span class="pre">getAngleFromPositions(const</span> <span class="pre">Position&amp;</span> <span class="pre">fromPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">toPos)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dx</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">dx</span> <span class="pre">=</span> <span class="pre">toPos.x</span> <span class="pre">-</span> <span class="pre">fromPos.x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dy</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">dy</span> <span class="pre">=</span> <span class="pre">toPos.y</span> <span class="pre">-</span> <span class="pre">fromPos.y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">angle</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">angle</span> <span class="pre">=</span> <span class="pre">std::atan2(dy</span> <span class="pre">*</span> <span class="pre">-1,</span> <span class="pre">dx)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">angle</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">angle</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getAngleFromPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getAngleFromPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">position)</span> <span class="pre">const</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getAngleFromPositions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">getAngleFromPositions(*this,</span> <span class="pre">position)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">angle</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">angle</span> <span class="pre">=</span> <span class="pre">getAngleFromPositions(fromPos,</span> <span class="pre">toPos)</span> <span class="pre">*</span> <span class="pre">RAD_TO_DEC</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">45</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">45</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">90</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">90</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">135</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">135</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">180</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">180</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">225</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">225</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">270</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">270</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">315</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">315</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getDirectionFromPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Otc::Direction</span> <span class="pre">getDirectionFromPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">position)</span> <span class="pre">const</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDirectionFromPositions</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">getDirectionFromPositions(*this,</span> <span class="pre">position)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isMapPosition</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMapPosition()</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(x</span> <span class="pre">&gt;=0</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span> <span class="pre">&gt;=</span> <span class="pre">0</span> <span class="pre">&amp;&amp;</span> <span class="pre">z</span> <span class="pre">&gt;=</span> <span class="pre">0</span> <span class="pre">&amp;&amp;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">z</span> <span class="pre">&lt;=</span> <span class="pre">Otc::MAX_Z);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isValid</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isValid()</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">!(x</span> <span class="pre">==</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span> <span class="pre">==</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">z</span> <span class="pre">==</span> <span class="pre">255);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">distance</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">distance(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">sqrt(pow((pos.x</span> <span class="pre">-</span> <span class="pre">x),</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">pow((pos.y</span> <span class="pre">-</span> <span class="pre">y),</span> <span class="pre">2));</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">manhattanDistance</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">manhattanDistance(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">std::abs(pos.x</span> <span class="pre">-</span> <span class="pre">x)</span> <span class="pre">+</span> <span class="pre">std::abs(pos.y</span> <span class="pre">-</span> <span class="pre">y);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">translate</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">translate(int</span> <span class="pre">dx,</span> <span class="pre">int</span> <span class="pre">dy,</span> <span class="pre">short</span> <span class="pre">dz</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">{</span> <span class="pre">x</span> <span class="pre">+=</span> <span class="pre">dx;</span> <span class="pre">y</span> <span class="pre">+=</span> <span class="pre">dy;</span> <span class="pre">z</span> <span class="pre">+=</span> <span class="pre">dz;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">translated</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">translated(int</span> <span class="pre">dx,</span> <span class="pre">int</span> <span class="pre">dy,</span> <span class="pre">short</span> <span class="pre">dz</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">Position</span> <span class="pre">pos</span> <span class="pre">=</span> <span class="pre">*this;</span> <span class="pre">pos.x</span> <span class="pre">+=</span> <span class="pre">dx;</span> <span class="pre">pos.y</span> <span class="pre">+=</span> <span class="pre">dy;</span> <span class="pre">pos.z</span> <span class="pre">+=</span> <span class="pre">dz;</span> <span class="pre">return</span> <span class="pre">pos;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">operator</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">operator==(const</span> <span class="pre">Position&amp;</span> <span class="pre">other)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">other.x</span> <span class="pre">==</span> <span class="pre">x</span> <span class="pre">&amp;&amp;</span> <span class="pre">other.y</span> <span class="pre">==</span> <span class="pre">y</span> <span class="pre">&amp;&amp;</span> <span class="pre">other.z</span> <span class="pre">==</span> <span class="pre">z;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isInRange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isInRange(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">xRange,</span> <span class="pre">int</span> <span class="pre">yRange,</span> <span class="pre">int</span> <span class="pre">zRange</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">std::abs(x-pos.x)</span> <span class="pre">&lt;=</span> <span class="pre">xRange</span> <span class="pre">&amp;&amp;</span> <span class="pre">std::abs(y-pos.y)</span> <span class="pre">&lt;=</span> <span class="pre">yRange</span> </code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isInRange</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isInRange(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">minXRange,</span> <span class="pre">int</span> <span class="pre">maxXRange,</span> <span class="pre">int</span> <span class="pre">minYRange,</span> <span class="pre">int</span> <span class="pre">maxYRange)</span> <span class="pre">const</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">up</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">up(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nz</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">nz</span> <span class="pre">=</span> <span class="pre">z-n</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">down</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">down(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nz</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">nz</span> <span class="pre">=</span> <span class="pre">z+n</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">coveredUp</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">coveredUp(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nx</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">nx</span> <span class="pre">=</span> <span class="pre">x+n,</span> <span class="pre">ny</span> <span class="pre">=</span> <span class="pre">y+n,</span> <span class="pre">nz</span> <span class="pre">=</span> <span class="pre">z-n</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">coveredDown</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">coveredDown(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nx</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">nx</span> <span class="pre">=</span> <span class="pre">x-n,</span> <span class="pre">ny</span> <span class="pre">=</span> <span class="pre">y-n,</span> <span class="pre">nz</span> <span class="pre">=</span> <span class="pre">z+n</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">toString</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">toString()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">z</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">short</span> <span class="pre">z</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="struktura-positionhasher">
+<h3>Struktura: <code class="docutils literal notranslate"><span class="pre">PositionHasher</span></code><a class="headerlink" href="#struktura-positionhasher" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="translatedtodirection">
+<h3><code class="docutils literal notranslate"><span class="pre">translatedToDirection</span></code><a class="headerlink" href="#translatedtodirection" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">translatedToDirection(Otc::Direction</span> <span class="pre">direction)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="translatedtoreversedirection">
+<h3><code class="docutils literal notranslate"><span class="pre">translatedToReverseDirection</span></code><a class="headerlink" href="#translatedtoreversedirection" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">translatedToReverseDirection(Otc::Direction</span> <span class="pre">direction)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="translatedtodirections">
+<h3><code class="docutils literal notranslate"><span class="pre">translatedToDirections</span></code><a class="headerlink" href="#translatedtodirections" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::vector&lt;Position&gt;</span> <span class="pre">translatedToDirections(const</span> <span class="pre">std::vector&lt;Otc::Direction&gt;&amp;</span> <span class="pre">dirs)</span> <span class="pre">const</span> <span class="pre">{</span></code></p>
+</section>
+<section id="getanglefrompositions">
+<h3><code class="docutils literal notranslate"><span class="pre">getAngleFromPositions</span></code><a class="headerlink" href="#getanglefrompositions" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">double</span> <span class="pre">getAngleFromPositions(const</span> <span class="pre">Position&amp;</span> <span class="pre">fromPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">toPos)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="getanglefromposition">
+<h3><code class="docutils literal notranslate"><span class="pre">getAngleFromPosition</span></code><a class="headerlink" href="#getanglefromposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">getAngleFromPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">position)</span> <span class="pre">const</span> <span class="pre">{</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">getAngleFromPositions</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">getAngleFromPositions(*this,</span> <span class="pre">position)</span></code></p>
+</section>
+<section id="if">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#if" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">45</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">45</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">90</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">90</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">135</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">135</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">180</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">180</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">225</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">225</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">270</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">270</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if(angle</span> <span class="pre">&gt;=</span> <span class="pre">315</span> <span class="pre">-</span> <span class="pre">22.5</span> <span class="pre">&amp;&amp;</span> <span class="pre">angle</span> <span class="pre">&lt;</span> <span class="pre">315</span> <span class="pre">+</span> <span class="pre">22.5)</span></code></p>
+</section>
+<section id="getdirectionfromposition">
+<h3><code class="docutils literal notranslate"><span class="pre">getDirectionFromPosition</span></code><a class="headerlink" href="#getdirectionfromposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Otc::Direction</span> <span class="pre">getDirectionFromPosition(const</span> <span class="pre">Position&amp;</span> <span class="pre">position)</span> <span class="pre">const</span> <span class="pre">{</span></code></p>
+</section>
+<section id="getdirectionfrompositions">
+<h3><code class="docutils literal notranslate"><span class="pre">getDirectionFromPositions</span></code><a class="headerlink" href="#getdirectionfrompositions" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">getDirectionFromPositions(*this,</span> <span class="pre">position)</span></code></p>
+</section>
+<section id="ismapposition">
+<h3><code class="docutils literal notranslate"><span class="pre">isMapPosition</span></code><a class="headerlink" href="#ismapposition" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMapPosition()</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">(x</span> <span class="pre">&gt;=0</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span> <span class="pre">&gt;=</span> <span class="pre">0</span> <span class="pre">&amp;&amp;</span> <span class="pre">z</span> <span class="pre">&gt;=</span> <span class="pre">0</span> <span class="pre">&amp;&amp;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">z</span> <span class="pre">&lt;=</span> <span class="pre">Otc::MAX_Z);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isvalid">
+<h3><code class="docutils literal notranslate"><span class="pre">isValid</span></code><a class="headerlink" href="#isvalid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isValid()</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">!(x</span> <span class="pre">==</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span> <span class="pre">==</span> <span class="pre">65535</span> <span class="pre">&amp;&amp;</span> <span class="pre">z</span> <span class="pre">==</span> <span class="pre">255);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="distance">
+<h3><code class="docutils literal notranslate"><span class="pre">distance</span></code><a class="headerlink" href="#distance" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">distance(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">sqrt(pow((pos.x</span> <span class="pre">-</span> <span class="pre">x),</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">pow((pos.y</span> <span class="pre">-</span> <span class="pre">y),</span> <span class="pre">2));</span> <span class="pre">}</span></code></p>
+</section>
+<section id="manhattandistance">
+<h3><code class="docutils literal notranslate"><span class="pre">manhattanDistance</span></code><a class="headerlink" href="#manhattandistance" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">manhattanDistance(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">std::abs(pos.x</span> <span class="pre">-</span> <span class="pre">x)</span> <span class="pre">+</span> <span class="pre">std::abs(pos.y</span> <span class="pre">-</span> <span class="pre">y);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="translate">
+<h3><code class="docutils literal notranslate"><span class="pre">translate</span></code><a class="headerlink" href="#translate" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">translate(int</span> <span class="pre">dx,</span> <span class="pre">int</span> <span class="pre">dy,</span> <span class="pre">short</span> <span class="pre">dz</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">{</span> <span class="pre">x</span> <span class="pre">+=</span> <span class="pre">dx;</span> <span class="pre">y</span> <span class="pre">+=</span> <span class="pre">dy;</span> <span class="pre">z</span> <span class="pre">+=</span> <span class="pre">dz;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="translated">
+<h3><code class="docutils literal notranslate"><span class="pre">translated</span></code><a class="headerlink" href="#translated" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">translated(int</span> <span class="pre">dx,</span> <span class="pre">int</span> <span class="pre">dy,</span> <span class="pre">short</span> <span class="pre">dz</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">Position</span> <span class="pre">pos</span> <span class="pre">=</span> <span class="pre">*this;</span> <span class="pre">pos.x</span> <span class="pre">+=</span> <span class="pre">dx;</span> <span class="pre">pos.y</span> <span class="pre">+=</span> <span class="pre">dy;</span> <span class="pre">pos.z</span> <span class="pre">+=</span> <span class="pre">dz;</span> <span class="pre">return</span> <span class="pre">pos;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isinrange">
+<h3><code class="docutils literal notranslate"><span class="pre">isInRange</span></code><a class="headerlink" href="#isinrange" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isInRange(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">xRange,</span> <span class="pre">int</span> <span class="pre">yRange,</span> <span class="pre">int</span> <span class="pre">zRange</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">const</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">std::abs(x-pos.x)</span> <span class="pre">&lt;=</span> <span class="pre">xRange</span> <span class="pre">&amp;&amp;</span> <span class="pre">std::abs(y-pos.y)</span> <span class="pre">&lt;=</span> <span class="pre">yRange</span> <span class="pre">&amp;&amp;</span> <span class="pre">std::abs(z</span> <span class="pre">-</span> <span class="pre">pos.z)</span> <span class="pre">&lt;=</span> <span class="pre">zRange;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">isInRange</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isInRange(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos,</span> <span class="pre">int</span> <span class="pre">minXRange,</span> <span class="pre">int</span> <span class="pre">maxXRange,</span> <span class="pre">int</span> <span class="pre">minYRange,</span> <span class="pre">int</span> <span class="pre">maxYRange)</span> <span class="pre">const</span> <span class="pre">{</span></code></p>
+</section>
+<section id="up">
+<h3><code class="docutils literal notranslate"><span class="pre">up</span></code><a class="headerlink" href="#up" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">up(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="down">
+<h3><code class="docutils literal notranslate"><span class="pre">down</span></code><a class="headerlink" href="#down" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">down(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="coveredup">
+<h3><code class="docutils literal notranslate"><span class="pre">coveredUp</span></code><a class="headerlink" href="#coveredup" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">coveredUp(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="covereddown">
+<h3><code class="docutils literal notranslate"><span class="pre">coveredDown</span></code><a class="headerlink" href="#covereddown" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">coveredDown(int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="tostring">
+<h3><code class="docutils literal notranslate"><span class="pre">toString</span></code><a class="headerlink" href="#tostring" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">toString()</span></code></p>
+</section>
+<section id="operator">
+<h3><code class="docutils literal notranslate"><span class="pre">operator</span></code><a class="headerlink" href="#operator" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::size_t</span> <span class="pre">operator()(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">const</span> <span class="pre">{</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference download internal" download="" href="../../../../../_downloads/ea2fe172a5922ca1e0ba3ba382826622/position.mmd"><span class="xref download myst">../diagrams/position.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-position">Klasa: <code class="docutils literal notranslate"><span class="pre">Position</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-positionhasher">Struktura: <code class="docutils literal notranslate"><span class="pre">PositionHasher</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translatedtodirection"><code class="docutils literal notranslate"><span class="pre">translatedToDirection</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translatedtoreversedirection"><code class="docutils literal notranslate"><span class="pre">translatedToReverseDirection</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translatedtodirections"><code class="docutils literal notranslate"><span class="pre">translatedToDirections</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getanglefrompositions"><code class="docutils literal notranslate"><span class="pre">getAngleFromPositions</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getanglefromposition"><code class="docutils literal notranslate"><span class="pre">getAngleFromPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">getAngleFromPositions</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdirectionfromposition"><code class="docutils literal notranslate"><span class="pre">getDirectionFromPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdirectionfrompositions"><code class="docutils literal notranslate"><span class="pre">getDirectionFromPositions</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ismapposition"><code class="docutils literal notranslate"><span class="pre">isMapPosition</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isvalid"><code class="docutils literal notranslate"><span class="pre">isValid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance"><code class="docutils literal notranslate"><span class="pre">distance</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattandistance"><code class="docutils literal notranslate"><span class="pre">manhattanDistance</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate"><code class="docutils literal notranslate"><span class="pre">translate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translated"><code class="docutils literal notranslate"><span class="pre">translated</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isinrange"><code class="docutils literal notranslate"><span class="pre">isInRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">isInRange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#up"><code class="docutils literal notranslate"><span class="pre">up</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#down"><code class="docutils literal notranslate"><span class="pre">down</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coveredup"><code class="docutils literal notranslate"><span class="pre">coveredUp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covereddown"><code class="docutils literal notranslate"><span class="pre">coveredDown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tostring"><code class="docutils literal notranslate"><span class="pre">toString</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operator"><code class="docutils literal notranslate"><span class="pre">operator</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/reposzablony/01_core/api/cpp/client/position.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

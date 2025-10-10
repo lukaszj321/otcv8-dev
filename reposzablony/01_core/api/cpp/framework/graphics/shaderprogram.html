@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="framework/graphics/shaderprogram.h" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/framework/graphics/shaderprogram.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu shaderprogram. Classes/Structs: Klasa: ShaderProgram: Functions: create: Sygnatura: static Pai..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu shaderprogram. Classes/Structs: Klasa: ShaderProgram: Functions: create: Sygnatura: static Pai..." />
+
+    <title>framework/graphics/shaderprogram.h &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/framework/graphics/shaderprogram';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/framework/graphics/shaderprogram.html" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">framework/graphics/shaderprogram.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="framework-graphics-shaderprogram-h">
+<h1>framework/graphics/shaderprogram.h<a class="headerlink" href="#framework-graphics-shaderprogram-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu shaderprogram.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-shaderprogram">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">ShaderProgram</span></code><a class="headerlink" href="#klasa-shaderprogram" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="create">
+<h3><code class="docutils literal notranslate"><span class="pre">create</span></code><a class="headerlink" href="#create" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">PainterShaderProgramPtr</span> <span class="pre">create(const</span> <span class="pre">std::string&amp;</span> <span class="pre">name,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">vertexShader,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">fragmentShader,</span> <span class="pre">bool</span> <span class="pre">colorMatrix</span> <span class="pre">=</span> <span class="pre">false)</span></code></p>
+</section>
+<section id="addshader">
+<h3><code class="docutils literal notranslate"><span class="pre">addShader</span></code><a class="headerlink" href="#addshader" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">addShader(const</span> <span class="pre">ShaderPtr&amp;</span> <span class="pre">shader)</span></code></p>
+</section>
+<section id="addshaderfromsourcecode">
+<h3><code class="docutils literal notranslate"><span class="pre">addShaderFromSourceCode</span></code><a class="headerlink" href="#addshaderfromsourcecode" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">addShaderFromSourceCode(Shader::ShaderType</span> <span class="pre">shaderType,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">sourceCode)</span></code></p>
+</section>
+<section id="addshaderfromsourcefile">
+<h3><code class="docutils literal notranslate"><span class="pre">addShaderFromSourceFile</span></code><a class="headerlink" href="#addshaderfromsourcefile" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">addShaderFromSourceFile(Shader::ShaderType</span> <span class="pre">shaderType,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">sourceFile)</span></code></p>
+</section>
+<section id="removeshader">
+<h3><code class="docutils literal notranslate"><span class="pre">removeShader</span></code><a class="headerlink" href="#removeshader" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeShader(const</span> <span class="pre">ShaderPtr&amp;</span> <span class="pre">shader)</span></code></p>
+</section>
+<section id="removeallshaders">
+<h3><code class="docutils literal notranslate"><span class="pre">removeAllShaders</span></code><a class="headerlink" href="#removeallshaders" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeAllShaders()</span></code></p>
+</section>
+<section id="bind">
+<h3><code class="docutils literal notranslate"><span class="pre">bind</span></code><a class="headerlink" href="#bind" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">bind()</span></code></p>
+</section>
+<section id="release">
+<h3><code class="docutils literal notranslate"><span class="pre">release</span></code><a class="headerlink" href="#release" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">release()</span></code></p>
+</section>
+<section id="log">
+<h3><code class="docutils literal notranslate"><span class="pre">log</span></code><a class="headerlink" href="#log" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">log()</span></code></p>
+</section>
+<section id="disableattributearray">
+<h3><code class="docutils literal notranslate"><span class="pre">disableAttributeArray</span></code><a class="headerlink" href="#disableattributearray" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">disableAttributeArray(int</span> <span class="pre">location)</span> <span class="pre">{</span> <span class="pre">glDisableVertexAttribArray(location);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="enableattributearray">
+<h3><code class="docutils literal notranslate"><span class="pre">enableAttributeArray</span></code><a class="headerlink" href="#enableattributearray" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">enableAttributeArray(int</span> <span class="pre">location)</span> <span class="pre">{</span> <span class="pre">glEnableVertexAttribArray(location);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">disableAttributeArray</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">disableAttributeArray(const</span> <span class="pre">char*</span> <span class="pre">name)</span> <span class="pre">{</span> <span class="pre">glDisableVertexAttribArray(getAttributeLocation(name));</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">enableAttributeArray</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">enableAttributeArray(const</span> <span class="pre">char*</span> <span class="pre">name)</span> <span class="pre">{</span> <span class="pre">glEnableVertexAttribArray(getAttributeLocation(name));</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getattributelocation">
+<h3><code class="docutils literal notranslate"><span class="pre">getAttributeLocation</span></code><a class="headerlink" href="#getattributelocation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getAttributeLocation(const</span> <span class="pre">char*</span> <span class="pre">name)</span></code></p>
+</section>
+<section id="bindattributelocation">
+<h3><code class="docutils literal notranslate"><span class="pre">bindAttributeLocation</span></code><a class="headerlink" href="#bindattributelocation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">bindAttributeLocation(int</span> <span class="pre">location,</span> <span class="pre">const</span> <span class="pre">char*</span> <span class="pre">name)</span></code></p>
+</section>
+<section id="binduniformlocation">
+<h3><code class="docutils literal notranslate"><span class="pre">bindUniformLocation</span></code><a class="headerlink" href="#binduniformlocation" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">bindUniformLocation(int</span> <span class="pre">location,</span> <span class="pre">const</span> <span class="pre">char*</span> <span class="pre">name)</span></code></p>
+</section>
+<section id="setattributearray">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeArray</span></code><a class="headerlink" href="#setattributearray" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeArray(int</span> <span class="pre">location,</span> <span class="pre">const</span> <span class="pre">float*</span> <span class="pre">values,</span> <span class="pre">int</span> <span class="pre">size,</span> <span class="pre">int</span> <span class="pre">stride</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">{</span> <span class="pre">glVertexAttribPointer(location,</span> <span class="pre">size,</span> <span class="pre">GL_FLOAT,</span> <span class="pre">GL_FALSE,</span> <span class="pre">stride,</span> <span class="pre">values);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setattributevalue">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code><a class="headerlink" href="#setattributevalue" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeValue(int</span> <span class="pre">location,</span> <span class="pre">float</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">glVertexAttrib1f(location,</span> <span class="pre">value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeValue(int</span> <span class="pre">location,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y)</span> <span class="pre">{</span> <span class="pre">glVertexAttrib2f(location,</span> <span class="pre">x,</span> <span class="pre">y);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeValue(int</span> <span class="pre">location,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y,</span> <span class="pre">float</span> <span class="pre">z)</span> <span class="pre">{</span> <span class="pre">glVertexAttrib3f(location,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeArray</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeArray(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">const</span> <span class="pre">float*</span> <span class="pre">values,</span> <span class="pre">int</span> <span class="pre">size,</span> <span class="pre">int</span> <span class="pre">stride</span> <span class="pre">=</span> <span class="pre">0)</span> <span class="pre">{</span> <span class="pre">glVertexAttribPointer(getAttributeLocation(name),</span> <span class="pre">size,</span> <span class="pre">GL_FLOAT,</span> <span class="pre">GL_FALSE,</span> <span class="pre">stride,</span> <span class="pre">values);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">float</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">glVertexAttrib1f(getAttributeLocation(name),</span> <span class="pre">value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y)</span> <span class="pre">{</span> <span class="pre">glVertexAttrib2f(getAttributeLocation(name),</span> <span class="pre">x,</span> <span class="pre">y);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAttributeValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y,</span> <span class="pre">float</span> <span class="pre">z)</span> <span class="pre">{</span> <span class="pre">glVertexAttrib3f(getAttributeLocation(name),</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setuniformvalue">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#setuniformvalue" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">glUniform4f(m_uniformLocations[location],</span> <span class="pre">color.rF(),</span> <span class="pre">color.gF(),</span> <span class="pre">color.bF(),</span> <span class="pre">color.aF());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">int</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">glUniform1i(m_uniformLocations[location],</span> <span class="pre">value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">float</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">glUniform1f(m_uniformLocations[location],</span> <span class="pre">value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y)</span> <span class="pre">{</span> <span class="pre">glUniform2f(m_uniformLocations[location],</span> <span class="pre">x,</span> <span class="pre">y);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y,</span> <span class="pre">float</span> <span class="pre">z)</span> <span class="pre">{</span> <span class="pre">glUniform3f(m_uniformLocations[location],</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y,</span> <span class="pre">float</span> <span class="pre">z,</span> <span class="pre">float</span> <span class="pre">w)</span> <span class="pre">{</span> <span class="pre">glUniform4f(m_uniformLocations[location],</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">w);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">const</span> <span class="pre">Matrix2&amp;</span> <span class="pre">mat)</span> <span class="pre">{</span> <span class="pre">glUniformMatrix2fv(m_uniformLocations[location],</span> <span class="pre">1,</span> <span class="pre">GL_FALSE,</span> <span class="pre">mat.data());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">const</span> <span class="pre">Matrix3&amp;</span> <span class="pre">mat)</span> <span class="pre">{</span> <span class="pre">glUniformMatrix3fv(m_uniformLocations[location],</span> <span class="pre">1,</span> <span class="pre">GL_FALSE,</span> <span class="pre">mat.data());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">const</span> <span class="pre">Matrix4&amp;</span> <span class="pre">mat)</span> <span class="pre">{</span> <span class="pre">glUniformMatrix4fv(m_uniformLocations[location],</span> <span class="pre">1,</span> <span class="pre">GL_FALSE,</span> <span class="pre">mat.data());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(int</span> <span class="pre">location,</span> <span class="pre">int</span> <span class="pre">count,</span> <span class="pre">const</span> <span class="pre">int*</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">glUniform1iv(m_uniformLocations[location],</span> <span class="pre">count,</span> <span class="pre">value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">const</span> <span class="pre">Color&amp;</span> <span class="pre">color)</span> <span class="pre">{</span> <span class="pre">glUniform4f(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">color.rF(),</span> <span class="pre">color.gF(),</span> <span class="pre">color.bF(),</span> <span class="pre">color.aF());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">int</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">glUniform1i(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">float</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">glUniform1f(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">value);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y)</span> <span class="pre">{</span> <span class="pre">glUniform2f(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">x,</span> <span class="pre">y);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y,</span> <span class="pre">float</span> <span class="pre">z)</span> <span class="pre">{</span> <span class="pre">glUniform3f(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">float</span> <span class="pre">x,</span> <span class="pre">float</span> <span class="pre">y,</span> <span class="pre">float</span> <span class="pre">z,</span> <span class="pre">float</span> <span class="pre">w)</span> <span class="pre">{</span> <span class="pre">glUniform4f(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">w);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id24">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">const</span> <span class="pre">Matrix2&amp;</span> <span class="pre">mat)</span> <span class="pre">{</span> <span class="pre">glUniformMatrix2fv(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">1,</span> <span class="pre">GL_FALSE,</span> <span class="pre">mat.data());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id25">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">const</span> <span class="pre">Matrix3&amp;</span> <span class="pre">mat)</span> <span class="pre">{</span> <span class="pre">glUniformMatrix3fv(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">1,</span> <span class="pre">GL_FALSE,</span> <span class="pre">mat.data());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="id26">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code><a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniformValue(const</span> <span class="pre">char*</span> <span class="pre">name,</span> <span class="pre">const</span> <span class="pre">Matrix4&amp;</span> <span class="pre">mat)</span> <span class="pre">{</span> <span class="pre">glUniformMatrix4fv(glGetUniformLocation(m_programId,</span> <span class="pre">name),</span> <span class="pre">1,</span> <span class="pre">GL_FALSE,</span> <span class="pre">mat.data());</span> <span class="pre">}</span></code></p>
+</section>
+<section id="islinked">
+<h3><code class="docutils literal notranslate"><span class="pre">isLinked</span></code><a class="headerlink" href="#islinked" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isLinked()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_linked;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getprogramid">
+<h3><code class="docutils literal notranslate"><span class="pre">getProgramId</span></code><a class="headerlink" href="#getprogramid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint</span> <span class="pre">getProgramId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_programId;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getshaders">
+<h3><code class="docutils literal notranslate"><span class="pre">getShaders</span></code><a class="headerlink" href="#getshaders" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ShaderList</span> <span class="pre">getShaders()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_shaders;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getname">
+<h3><code class="docutils literal notranslate"><span class="pre">getName</span></code><a class="headerlink" href="#getname" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getName()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_name;</span> <span class="pre">}</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference internal" href="#../diagrams/shaderprogram.mmd"><span class="xref myst">../diagrams/shaderprogram.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-shaderprogram">Klasa: <code class="docutils literal notranslate"><span class="pre">ShaderProgram</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create"><code class="docutils literal notranslate"><span class="pre">create</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addshader"><code class="docutils literal notranslate"><span class="pre">addShader</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addshaderfromsourcecode"><code class="docutils literal notranslate"><span class="pre">addShaderFromSourceCode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addshaderfromsourcefile"><code class="docutils literal notranslate"><span class="pre">addShaderFromSourceFile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removeshader"><code class="docutils literal notranslate"><span class="pre">removeShader</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removeallshaders"><code class="docutils literal notranslate"><span class="pre">removeAllShaders</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind"><code class="docutils literal notranslate"><span class="pre">bind</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#release"><code class="docutils literal notranslate"><span class="pre">release</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disableattributearray"><code class="docutils literal notranslate"><span class="pre">disableAttributeArray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enableattributearray"><code class="docutils literal notranslate"><span class="pre">enableAttributeArray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">disableAttributeArray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">enableAttributeArray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getattributelocation"><code class="docutils literal notranslate"><span class="pre">getAttributeLocation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bindattributelocation"><code class="docutils literal notranslate"><span class="pre">bindAttributeLocation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binduniformlocation"><code class="docutils literal notranslate"><span class="pre">bindUniformLocation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setattributearray"><code class="docutils literal notranslate"><span class="pre">setAttributeArray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setattributevalue"><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">setAttributeArray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">setAttributeValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setuniformvalue"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26"><code class="docutils literal notranslate"><span class="pre">setUniformValue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#islinked"><code class="docutils literal notranslate"><span class="pre">isLinked</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getprogramid"><code class="docutils literal notranslate"><span class="pre">getProgramId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getshaders"><code class="docutils literal notranslate"><span class="pre">getShaders</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getname"><code class="docutils literal notranslate"><span class="pre">getName</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../_sources/reposzablony/01_core/api/cpp/framework/graphics/shaderprogram.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

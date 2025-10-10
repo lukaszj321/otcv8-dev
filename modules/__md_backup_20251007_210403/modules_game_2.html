@@ -1,0 +1,1204 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Modules Game 2" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/modules/__md_backup_20251007_210403/modules_game_2.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="game_hotkeys: Game Hotkeys Module: hotkeys_extra.lua: Funkcje: addExtraHotkey(name, description, callback), setupExtraHotkeys(combobox), executeExtraHotkey(a..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="game_hotkeys: Game Hotkeys Module: hotkeys_extra.lua: Funkcje: addExtraHotkey(name, description, callback), setupExtraHotkeys(combobox), executeExtraHotkey(a..." />
+
+    <title>Modules Game 2 &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../_static/js/hoverxref.js"></script>
+    <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../_static/js/micromodal.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/__md_backup_20251007_210403/modules_game_2';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/modules/__md_backup_20251007_210403/modules_game_2.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Modules Game 2</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modules-game-2">
+<h1>Modules Game 2<a class="headerlink" href="#modules-game-2" title="Link to this heading">#</a></h1>
+</section>
+<hr class="docutils" />
+<section id="game-hotkeys">
+<h1>game_hotkeys<a class="headerlink" href="#game-hotkeys" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-hotkeys-module">
+<h1>Game Hotkeys Module<a class="headerlink" href="#game-hotkeys-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="hotkeys-extra-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">hotkeys_extra.lua</span></code><a class="headerlink" href="#hotkeys-extra-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="funkcje">
+<h1>Funkcje<a class="headerlink" href="#funkcje" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addExtraHotkey(name,</span> <span class="pre">description,</span> <span class="pre">callback)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setupExtraHotkeys(combobox)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">executeExtraHotkey(action,</span> <span class="pre">repeated)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">translateActionToActionComboboxIndex(action)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">translateActionComboboxIndexToAction(index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getActionDescription(action)</span></code></p></li>
+</ul>
+</section>
+<section id="wywolania-api">
+<h1>Wywołania API<a class="headerlink" href="#wywolania-api" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+</ul>
+</section>
+<section id="hotkeys-manager-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">hotkeys_manager.lua</span></code><a class="headerlink" href="#hotkeys-manager-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id1">
+<h1>Funkcje<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hide()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ok()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cancel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load(forceDefaults)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unload()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reload()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onConfigChange()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadDefautComboKeys()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setDefaultComboKeys(combo)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChooseItemMouseRelease(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startChooseItem()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clearObject()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addHotkey()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addKeyCombo(keyCombo,</span> <span class="pre">keySettings,</span> <span class="pre">focus)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prepareKeyCombo(keyCombo,</span> <span class="pre">ticks)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doKeyCombo(keyCombo,</span> <span class="pre">repeated)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateHotkeyLabel(hotkeyLabel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateHotkeyForm(reset)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeHotkey()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateHotkeyAction()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHotkeyTextChange(value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSendAutomaticallyChange(autoSend)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChangeUseType(useTypeWidget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSelectHotkeyLabel(hotkeyLabel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hotkeyCapture(assignWindow,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hotkeyCaptureOk(assignWindow,</span> <span class="pre">keyCombo)</span></code></p></li>
+</ul>
+</section>
+<section id="eventy-hooki">
+<h1>Eventy / Hooki<a class="headerlink" href="#eventy-hooki" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChangeUseType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChildFocusChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChooseItemMouseRelease</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onConfigChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHotkeyTextChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onKeyDown</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMouseRelease</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSelectHotkeyLabel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSelectionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSendAutomaticallyChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code></p></li>
+</ul>
+</section>
+<section id="id2">
+<h1>Wywołania API<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_clock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_mouse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-minimap">
+<h1>game_minimap<a class="headerlink" href="#game-minimap" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-minimap-module">
+<h1>Game Minimap Module<a class="headerlink" href="#game-minimap-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="minimap-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">minimap.lua</span></code><a class="headerlink" href="#minimap-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id3">
+<h1>Funkcje<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadMap()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveMap()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateCameraPosition()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggleFullMap()</span></code></p></li>
+</ul>
+</section>
+<section id="id4">
+<h1>Eventy / Hooki<a class="headerlink" href="#id4" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onPositionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+</ul>
+</section>
+<section id="id5">
+<h1>Wywołania API<a class="headerlink" href="#id5" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-actionbar">
+<h1>game_actionbar<a class="headerlink" href="#game-actionbar" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-actionbar-module">
+<h1>Game Actionbar Module<a class="headerlink" href="#game-actionbar-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="actionbar-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">actionbar.lua</span></code><a class="headerlink" href="#actionbar-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="opis">
+<h1>Opis<a class="headerlink" href="#opis" title="Link to this heading">#</a></h1>
+<p>– servers may have different id’s, change if not working properly (only for protocols 910+)</p>
+<p>– ek</p>
+</section>
+<section id="id6">
+<h1>Funkcje<a class="headerlink" href="#id6" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">translateVocation(id)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isSpell(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createActionBars()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">translateHotkeyDesc(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">destroyAssignWindows()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">changeLockState(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">moveActionButtons(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDropActionButton(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setupActionBar(n)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setupButton(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resetSlot(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assignItem(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assignText(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assignSpell(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filterByVocation(a,</span> <span class="pre">filter)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assignHotkey(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setupAction(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellCooldown(iconId,</span> <span class="pre">duration)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellGroupCooldown(groupId,</span> <span class="pre">duration)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startCooldown(action,</span> <span class="pre">duration)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateCooldown(action)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">translateVocation(id)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">isSpell(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">filterByVocation(a,</span> <span class="pre">filter)</span></code></p></li>
+</ul>
+</section>
+<section id="id7">
+<h1>Eventy / Hooki<a class="headerlink" href="#id7" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onCheckChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChildFocusChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDragEnter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDropActionButton</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEnter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEscape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onItemChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onKeyDown</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMouseRelease</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMouseWheel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSelectionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellCooldown</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellGroupCooldown</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTextChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">one</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">only</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code></p></li>
+</ul>
+</section>
+<section id="id8">
+<h1>Wywołania API<a class="headerlink" href="#id8" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_clock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_mouse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-skills">
+<h1>game_skills<a class="headerlink" href="#game-skills" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-skills-module">
+<h1>Game Skills Module<a class="headerlink" href="#game-skills-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="skills-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">skills.lua</span></code><a class="headerlink" href="#skills-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id9">
+<h1>Funkcje<a class="headerlink" href="#id9" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expForLevel(level)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expToAdvance(currentLevel,</span> <span class="pre">currentExp)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resetSkillColor(id)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggleSkill(id,</span> <span class="pre">state)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setSkillBase(id,</span> <span class="pre">value,</span> <span class="pre">baseValue)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setSkillValue(id,</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setSkillColor(id,</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setSkillTooltip(id,</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setSkillPercent(id,</span> <span class="pre">percent,</span> <span class="pre">tooltip,</span> <span class="pre">color)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkAlert(id,</span> <span class="pre">value,</span> <span class="pre">maxValue,</span> <span class="pre">threshold,</span> <span class="pre">greaterThan)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">update()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkExpSpeed()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSkillButtonClick(button)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onExperienceChange(localPlayer,</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onLevelChange(localPlayer,</span> <span class="pre">value,</span> <span class="pre">percent)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHealthChange(localPlayer,</span> <span class="pre">health,</span> <span class="pre">maxHealth)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onManaChange(localPlayer,</span> <span class="pre">mana,</span> <span class="pre">maxMana)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(localPlayer,</span> <span class="pre">freeCapacity)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTotalCapacityChange(localPlayer,</span> <span class="pre">totalCapacity)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onStaminaChange(localPlayer,</span> <span class="pre">stamina)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOfflineTrainingChange(localPlayer,</span> <span class="pre">offlineTrainingTime)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRegenerationChange(localPlayer,</span> <span class="pre">regenerationTime)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpeedChange(localPlayer,</span> <span class="pre">speed)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBaseSpeedChange(localPlayer,</span> <span class="pre">baseSpeed)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMagicLevelChange(localPlayer,</span> <span class="pre">magiclevel,</span> <span class="pre">percent)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBaseMagicLevelChange(localPlayer,</span> <span class="pre">baseMagicLevel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">level,</span> <span class="pre">percent)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBaseSkillChange(localPlayer,</span> <span class="pre">id,</span> <span class="pre">baseLevel)</span></code></p></li>
+</ul>
+</section>
+<section id="id10">
+<h1>Eventy / Hooki<a class="headerlink" href="#id10" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBaseMagicLevelChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBaseSkillChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBaseSpeedChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onExperienceChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHealthChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onLevelChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMagicLevelChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onManaChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOfflineTrainingChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRegenerationChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSkillButtonClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSkillChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSoulChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpeedChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onStaminaChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTotalCapacityChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">only</span></code></p></li>
+</ul>
+</section>
+<section id="id11">
+<h1>Wywołania API<a class="headerlink" href="#id11" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_clock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-stats">
+<h1>game_stats<a class="headerlink" href="#game-stats" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-stats-module">
+<h1>Game Stats Module<a class="headerlink" href="#game-stats-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="stats-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">stats.lua</span></code><a class="headerlink" href="#stats-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id12">
+<h1>Funkcje<a class="headerlink" href="#id12" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">update()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hide()</span></code></p></li>
+</ul>
+</section>
+<section id="id13">
+<h1>Eventy / Hooki<a class="headerlink" href="#id13" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code></p></li>
+</ul>
+</section>
+<section id="id14">
+<h1>Wywołania API<a class="headerlink" href="#id14" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-viplist">
+<h1>game_viplist<a class="headerlink" href="#game-viplist" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-viplist-module">
+<h1>Game Viplist Module<a class="headerlink" href="#game-viplist-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="viplist-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">viplist.lua</span></code><a class="headerlink" href="#viplist-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id15">
+<h1>Funkcje<a class="headerlink" href="#id15" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadVipInfo()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveVipInfo()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createAddWindow()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createEditWindow(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">destroyAddWindow()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addVip()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeVip(widgetOrName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hideOffline(state)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isHiddingOffline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getSortedBy()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sortBy(state)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAddVip(id,</span> <span class="pre">name,</span> <span class="pre">state,</span> <span class="pre">description,</span> <span class="pre">iconId,</span> <span class="pre">notify)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVipStateChange(id,</span> <span class="pre">state)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVipListMousePress(widget,</span> <span class="pre">mousePos,</span> <span class="pre">mouseButton)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVipListLabelMousePress(widget,</span> <span class="pre">mousePos,</span> <span class="pre">mouseButton)</span></code></p></li>
+</ul>
+</section>
+<section id="id16">
+<h1>Eventy / Hooki<a class="headerlink" href="#id16" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAddVip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDoubleClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEnter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEscape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMousePress</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVipListLabelMousePress</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVipListMousePress</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVipStateChange</span></code></p></li>
+</ul>
+</section>
+<section id="id17">
+<h1>Wywołania API<a class="headerlink" href="#id17" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_window</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-spelllist">
+<h1>game_spelllist<a class="headerlink" href="#game-spelllist" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-spelllist-module">
+<h1>Game Spelllist Module<a class="headerlink" href="#game-spelllist-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="spelllist-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">spelllist.lua</span></code><a class="headerlink" href="#spelllist-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id18">
+<h1>Funkcje<a class="headerlink" href="#id18" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">getSpelllistProfile()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setSpelllistProfile(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initializeSpelllist()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">changeSpelllistProfile(oldProfile)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateSpelllist()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateSpellInformation(widget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggleFilter(widget,</span> <span class="pre">selectedWidget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resizeWindow()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resetWindow()</span></code></p></li>
+</ul>
+</section>
+<section id="id19">
+<h1>Eventy / Hooki<a class="headerlink" href="#id19" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChildFocusChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSelectionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">only</span></code></p></li>
+</ul>
+</section>
+<section id="id20">
+<h1>Wywołania API<a class="headerlink" href="#id20" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-outfit">
+<h1>game_outfit<a class="headerlink" href="#game-outfit" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-outfit-module">
+<h1>Game Outfit Module<a class="headerlink" href="#game-outfit-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="outfit-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">outfit.lua</span></code><a class="headerlink" href="#outfit-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id21">
+<h1>Funkcje<a class="headerlink" href="#id21" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMovementChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowFloorChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowMountChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowOutfitChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowAuraChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowWingsChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowShaderChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowBarsChange(checkBox,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create(currentOutfit,</span> <span class="pre">outfitList,</span> <span class="pre">mountList,</span> <span class="pre">wingList,</span> <span class="pre">auraList,</span> <span class="pre">shaderList,</span> <span class="pre">healthBarList,</span> <span class="pre">manaBarList)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">destroy()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">configureAddons(addons)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">newPreset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deletePreset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">savePreset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">renamePreset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveRename(presetId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAppearanceChange(widget,</span> <span class="pre">selectedWidget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showPresets()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showOutfits()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showMounts()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showAuras()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showWings()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showShaders()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showHealthBars()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showManaBars()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onPresetSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOutfitSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMountSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAuraSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onWingsSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShaderSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHealthBarSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onManaBarSelect(list,</span> <span class="pre">focusedChild,</span> <span class="pre">unfocusedChild,</span> <span class="pre">reason)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateAppearanceText(widget,</span> <span class="pre">text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateAppearanceTexts(outfit)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deselectPreset()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAddonChange(widget,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onColorModeChange(widget,</span> <span class="pre">selectedWidget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onColorCheckChange(widget,</span> <span class="pre">selectedWidget)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updatePreview()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotate(value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onFilterSearch()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveSettings()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadSettings()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadDefaultSettings()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">accept()</span></code></p></li>
+</ul>
+</section>
+<section id="id22">
+<h1>Eventy / Hooki<a class="headerlink" href="#id22" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addEvent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAddonChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAppearanceChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAuraSelect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onCheckChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChildFocusChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onColorCheckChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onColorModeChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onFilterSearch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHealthBarSelect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onKeyPress</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onManaBarSelect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMountSelect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMovementChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOpenOutfitWindow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOutfitSelect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onPresetSelect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSelectionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShaderSelect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowAuraChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowBarsChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowFloorChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowMountChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowOutfitChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowShaderChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onShowWingsChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onWingsSelect</span></code></p></li>
+</ul>
+</section>
+<section id="id23">
+<h1>Wywołania API<a class="headerlink" href="#id23" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_clock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-shaders">
+<h1>game_shaders<a class="headerlink" href="#game-shaders" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-shaders-module">
+<h1>Game Shaders Module<a class="headerlink" href="#game-shaders-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="shaders-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">shaders.lua</span></code><a class="headerlink" href="#shaders-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id24">
+<h1>Opis<a class="headerlink" href="#id24" title="Link to this heading">#</a></h1>
+<p>– add manually your shaders from /data/shaders</p>
+<p>– map shaders</p>
+<p>– use modules.game_interface.gameMapPanel:setShader(“map_rainbow”) to set shader</p>
+<p>– outfit shaders</p>
+</section>
+<section id="id25">
+<h1>Funkcje<a class="headerlink" href="#id25" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+</ul>
+</section>
+<section id="id26">
+<h1>Wywołania API<a class="headerlink" href="#id26" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_shaders</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-cooldown">
+<h1>game_cooldown<a class="headerlink" href="#game-cooldown" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-cooldown-module">
+<h1>Game Cooldown Module<a class="headerlink" href="#game-cooldown-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="cooldown-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">cooldown.lua</span></code><a class="headerlink" href="#cooldown-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id27">
+<h1>Funkcje<a class="headerlink" href="#id27" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadIcon(iconId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeCooldown(progressRect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">turnOffCooldown(progressRect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initCooldown(progressRect,</span> <span class="pre">updateCallback,</span> <span class="pre">finishCallback)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateCooldown(progressRect,</span> <span class="pre">duration)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isGroupCooldownIconActive(groupId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isCooldownIconActive(iconId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellCooldown(iconId,</span> <span class="pre">duration)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellGroupCooldown(groupId,</span> <span class="pre">duration)</span></code></p></li>
+</ul>
+</section>
+<section id="id28">
+<h1>Eventy / Hooki<a class="headerlink" href="#id28" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEffectEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellCooldown</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSpellGroupCooldown</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code></p></li>
+</ul>
+</section>
+<section id="id29">
+<h1>Wywołania API<a class="headerlink" href="#id29" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-features">
+<h1>game_features<a class="headerlink" href="#game-features" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-features-module">
+<h1>Game Features Module<a class="headerlink" href="#game-features-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="features-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">features.lua</span></code><a class="headerlink" href="#features-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id30">
+<h1>Opis<a class="headerlink" href="#id30" title="Link to this heading">#</a></h1>
+<p>– you can add custom features here, list of them is in the modules\gamelib\const.lua</p>
+<p>–g_game.enableFeature(GameExtendedOpcode)</p>
+</section>
+<section id="id31">
+<h1>Funkcje<a class="headerlink" href="#id31" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateFeatures(version)</span></code></p></li>
+</ul>
+</section>
+<section id="id32">
+<h1>Eventy / Hooki<a class="headerlink" href="#id32" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClientVersionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">only</span></code></p></li>
+</ul>
+</section>
+<section id="id33">
+<h1>Wywołania API<a class="headerlink" href="#id33" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modules Game 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-hotkeys">game_hotkeys</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-hotkeys-module">Game Hotkeys Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeys-extra-lua"><code class="docutils literal notranslate"><span class="pre">hotkeys_extra.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wywolania-api">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeys-manager-lua"><code class="docutils literal notranslate"><span class="pre">hotkeys_manager.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventy-hooki">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-minimap">game_minimap</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-minimap-module">Game Minimap Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minimap-lua"><code class="docutils literal notranslate"><span class="pre">minimap.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-actionbar">game_actionbar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-actionbar-module">Game Actionbar Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#actionbar-lua"><code class="docutils literal notranslate"><span class="pre">actionbar.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#opis">Opis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-skills">game_skills</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-skills-module">Game Skills Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-lua"><code class="docutils literal notranslate"><span class="pre">skills.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-stats">game_stats</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-stats-module">Game Stats Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stats-lua"><code class="docutils literal notranslate"><span class="pre">stats.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-viplist">game_viplist</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-viplist-module">Game Viplist Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#viplist-lua"><code class="docutils literal notranslate"><span class="pre">viplist.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-spelllist">game_spelllist</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-spelllist-module">Game Spelllist Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#spelllist-lua"><code class="docutils literal notranslate"><span class="pre">spelllist.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-outfit">game_outfit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-outfit-module">Game Outfit Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#outfit-lua"><code class="docutils literal notranslate"><span class="pre">outfit.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-shaders">game_shaders</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-shaders-module">Game Shaders Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#shaders-lua"><code class="docutils literal notranslate"><span class="pre">shaders.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Opis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-cooldown">game_cooldown</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-cooldown-module">Game Cooldown Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cooldown-lua"><code class="docutils literal notranslate"><span class="pre">cooldown.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-features">game_features</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-features-module">Game Features Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#features-lua"><code class="docutils literal notranslate"><span class="pre">features.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Opis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Wywołania API</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/__md_backup_20251007_210403/modules_game_2.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

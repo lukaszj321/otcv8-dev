@@ -1,0 +1,1195 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Chapter 09 - Logging" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/chapters/chapter_09_logging_docs_export_kit_authoring_agent_ready.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Professional Pro Template - Agent-Ready - OTClient v8 (Consolidated with Fix Pack 01): Cel: ten rozdzial standaryzuje zbieranie logow aplikacyjnych i zewnetr..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Professional Pro Template - Agent-Ready - OTClient v8 (Consolidated with Fix Pack 01): Cel: ten rozdzial standaryzuje zbieranie logow aplikacyjnych i zewnetr..." />
+
+    <title>Chapter 09 - Logging &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter_09_logging_docs_export_kit_authoring_agent_ready';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/chapters/chapter_09_logging_docs_export_kit_authoring_agent_ready.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 09 - Logging</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="chapter-09-logging">
+<h1>Chapter 09 - Logging<a class="headerlink" href="#chapter-09-logging" title="Link to this heading">#</a></h1>
+<section id="professional-pro-template-agent-ready-otclient-v8-consolidated-with-fix-pack-01">
+<h2>Professional Pro Template - Agent-Ready - OTClient v8 (Consolidated with Fix Pack 01)<a class="headerlink" href="#professional-pro-template-agent-ready-otclient-v8-consolidated-with-fix-pack-01" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Cel: ten rozdzial standaryzuje zbieranie logow aplikacyjnych i zewnetrznych plikow logow. Tworzy rekordy NDJSON i CSV, wylicza statystyki, opisuje polityki prywatnosci (hash wiadomosci) oraz tryby pracy (proxy logger i tail plikow). Styl elastyczny i konkretny. Calosc ASCII-only, UTF-8 bez BOM.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="executive-summary">
+<h2>0) Executive summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Co: unifikacja logow z klienta lub plikow zewnetrznych (level, tag, ts, message lub hash), korelacja z runtime i eventami.</p></li>
+<li><p>Dla kogo: inzynierowie, QA, narzedzia AI/RAG i Studio (Electron/React).</p></li>
+<li><p>Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, correlations), diagramy (Mermaid), narracja (sekcje merytoryczne).</p></li>
+<li><p>Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="struktura-folderu-i-linkowanie">
+<h2>1) Struktura folderu i linkowanie<a class="headerlink" href="#struktura-folderu-i-linkowanie" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>09_logging/
+<span class="w">  </span>README.md<span class="w">                      </span><span class="c1"># narracja + TOC + nawigacja (ten plik)</span>
+<span class="w">  </span>meta.json<span class="w">                      </span><span class="c1"># mapa plikow + zadania + tags (machine-readable)</span>
+<span class="w">  </span>logs.schema.json<span class="w">               </span><span class="c1"># walidacja rekordow NDJSON (log)</span>
+<span class="w">  </span>sections/
+<span class="w">    </span>00_logging_basics.md<span class="w">         </span><span class="c1"># podstawy logowania (dla nowych dev)</span>
+<span class="w">    </span>01_introduction.md<span class="w">           </span><span class="c1"># po co normalizowac logi</span>
+<span class="w">    </span>02_log_model.md<span class="w">              </span><span class="c1"># slownik pol logu + przyklady</span>
+<span class="w">    </span>03_collection_methods.md<span class="w">     </span><span class="c1"># tryby: proxy logger i tail plikow</span>
+<span class="w">    </span>04_quality_and_limits.md<span class="w">     </span><span class="c1"># jakosc, ograniczenia, SLO</span>
+<span class="w">    </span>05_how_to_read_stats.md<span class="w">      </span><span class="c1"># jak czytac statystyki i korelowac</span>
+<span class="w">  </span>datasets/
+<span class="w">    </span>logs.dataset.jsonl<span class="w">           </span><span class="c1"># NDJSON (append-only)</span>
+<span class="w">    </span>logs.dataset.csv<span class="w">             </span><span class="c1"># CSV (naglowek staly)</span>
+<span class="w">    </span>chunks/
+<span class="w">      </span>README.md<span class="w">                  </span><span class="c1"># polityka dzielenia</span>
+<span class="w">  </span>stats/
+<span class="w">    </span>stats.json<span class="w">                   </span><span class="c1"># metryki zbiorcze (level/tag/hash)</span>
+<span class="w">    </span>stats.md<span class="w">                     </span><span class="c1"># raport czytelny dla ludzi</span>
+<span class="w">  </span>analysis/
+<span class="w">    </span>findings.md<span class="w">                  </span><span class="c1"># wnioski z danych + linki do rekordow</span>
+<span class="w">    </span>correlations.md<span class="w">              </span><span class="c1"># korelacje z runtime/events</span>
+<span class="w">    </span>figures/<span class="w">                     </span><span class="c1"># wykresy i tabele eksportowane</span>
+<span class="w">  </span>extractors/
+<span class="w">    </span>log_sniffer.lua<span class="w">              </span><span class="c1"># proxy logger + tail plikow -&gt; NDJSON/CSV</span>
+<span class="w">    </span>logs_stats.lua<span class="w">               </span><span class="c1"># agregacje -&gt; stats.json + stats.md</span>
+<span class="w">  </span>config/
+<span class="w">    </span>logging.policy.json<span class="w">          </span><span class="c1"># np. {&quot;storeMessage&quot;: false}</span>
+<span class="w">    </span>logging.targets.txt<span class="w">          </span><span class="c1"># sciezki plikow do tailowania (opcjonalnie)</span>
+<span class="w">    </span>logging.parsers.json<span class="w">         </span><span class="c1"># regexy do parsowania linii (opcjonalnie)</span>
+<span class="w">  </span>diagrams/
+<span class="w">    </span>logging_flow.mmd<span class="w">             </span><span class="c1"># Mermaid: przeplyw logow</span>
+<span class="w">    </span>error_timeline.mmd<span class="w">           </span><span class="c1"># Mermaid: korelacje z eventami</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: IO setup w README ponizej. Zawsze ASCII-only, UTF-8 bez BOM, LF konce linii.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="readme-nawigacja-i-instrukcje-agent-friendly">
+<h2>2) README - nawigacja i instrukcje (Agent-friendly)<a class="headerlink" href="#readme-nawigacja-i-instrukcje-agent-friendly" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: chapter:logging
+title: Logging - Normalization and Correlations
+authors: [&quot;docs-export&quot;]
+version: 1.0
+last_updated: 2025-10-08
+status: draft
+tags: [&quot;logging&quot;,&quot;logs&quot;,&quot;normalization&quot;,&quot;otclient&quot;,&quot;agent&quot;]
+related:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../01_runtime/README.md
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../02_events/README.md
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>../06_network/README.md
+outputs:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/logs.dataset.jsonl
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/logs.dataset.csv
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.json
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.md
+encoding: UTF-8 (no BOM)
+
+---
+
+Short: rozdzial normalizuje logi z klienta i/lub plikow zewnetrznych, zapewnia polityke prywatnosci (hash wiadomosci) i korelacje.
+
+Table of contents
+<span class="k">-</span><span class="w"> </span>[<span class="nt">0. Logging basics</span>](<span class="na">./sections/00_logging_basics.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">1. Wprowadzenie</span>](<span class="na">./sections/01_introduction.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">2. Model logu (slownik)</span>](<span class="na">./sections/02_log_model.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">3. Zbieranie (proxy + tail)</span>](<span class="na">./sections/03_collection_methods.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">4. Jakosc i ograniczenia</span>](<span class="na">./sections/04_quality_and_limits.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">5. Jak czytac statystyki</span>](<span class="na">./sections/05_how_to_read_stats.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Statystyki</span>](<span class="na">./stats/stats.md</span>) - [<span class="nt">Datasety</span>](<span class="na">./datasets/</span>) - [<span class="nt">Analizy</span>](<span class="na">./analysis/findings.md</span>)
+
+Quick links
+<span class="k">-</span><span class="w"> </span>Schema: [<span class="nt">logs.schema.json</span>](<span class="na">./logs.schema.json</span>)
+<span class="k">-</span><span class="w"> </span>NDJSON: [<span class="nt">datasets/logs.dataset.jsonl</span>](<span class="na">./datasets/logs.dataset.jsonl</span>)
+<span class="k">-</span><span class="w"> </span>CSV: [<span class="nt">datasets/logs.dataset.csv</span>](<span class="na">./datasets/logs.dataset.csv</span>)
+<span class="k">-</span><span class="w"> </span>Diagrams: [<span class="nt">diagrams/logging_flow.mmd</span>](<span class="na">./diagrams/logging_flow.mmd</span>), [<span class="nt">diagrams/error_timeline.mmd</span>](<span class="na">./diagrams/error_timeline.mmd</span>)
+
+Crosslinks
+<span class="k">-</span><span class="w"> </span>Runtime: ../01_runtime/README.md
+<span class="k">-</span><span class="w"> </span>Events: ../02_events/README.md
+<span class="k">-</span><span class="w"> </span>Network: ../06_network/README.md
+
+CSV header (logs.dataset.csv)
+
+id,ts,level,tag,hasMessage,messageHash,extras_json,source
+
+Header jest staly - narzedzia BI moga cachowac schemat.
+
+<span class="sb">`IO setup`</span>
+<span class="k">-</span><span class="w"> </span>Default: dofile(&#39;../../_shared/lua/docio.lua&#39;)
+<span class="k">-</span><span class="w"> </span>Isolated: copy to 09_logging/_local/docio.lua and use dofile(&#39;../_local/docio.lua&#39;)
+
+<span class="sb">`Skad do _shared`</span>
+| Start location | Path to _shared |
+|---|---|
+| 09_logging/extractors | ../../_shared/lua/docio.lua |
+| 09_logging | ../_shared/lua/docio.lua |
+
+<span class="sb">`Chunks aggregation`</span>
+<span class="k">-</span><span class="w"> </span>Aggregator czyta glowny plik oraz opcjonalny indeks: docs/09_logging/datasets/chunks/index.json (JSON array nazw chunkow).
+
+<span class="sb">`Studio hooks (Electron) - skrot`</span>
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:logging.sniffer.start&#39; -&gt; start proxy i/lub tail
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:logging.sniffer.stop&#39; -&gt; stop i flush
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:aggregate.logging&#39; -&gt; uruchamia logs_stats.lua
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:open.logging&#39; {type: &#39;jsonl&#39;|&#39;csv&#39;} -&gt; otwiera dataset w Studio
+<span class="k">-</span><span class="w"> </span>Preload: contextIsolation: true; nodeIntegration: false; eksponuj bezpieczne API
+<span class="k">-</span><span class="w"> </span>Sandbox: wszystkie zapisy ida przez docio.lua pod 09_logging
+<span class="k">-</span><span class="w"> </span>View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="mapa-plikow-i-odpowiedzialnosci-reference-for-agents">
+<h2>3) Mapa plikow i odpowiedzialnosci (reference for Agents)<a class="headerlink" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plik / Katalog</p></th>
+<th class="head"><p>Rola</p></th>
+<th class="head"><p>Kto uzupelnia</p></th>
+<th class="head"><p>Uwagi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>logs.schema.json</p></td>
+<td><p>walidacja rekordow logow</p></td>
+<td><p>Agent/CI</p></td>
+<td><p>waliduj linie po linii</p></td>
+</tr>
+<tr class="row-odd"><td><p>datasets/*.jsonl</p></td>
+<td><p>pelne rekordy (append)</p></td>
+<td><p>sniffer</p></td>
+<td><p>rotacja w chunks/</p></td>
+</tr>
+<tr class="row-even"><td><p>datasets/*.csv</p></td>
+<td><p>widok splaszczony</p></td>
+<td><p>sniffer</p></td>
+<td><p>messageHash zamiast tresci</p></td>
+</tr>
+<tr class="row-odd"><td><p>stats/*.json|md</p></td>
+<td><p>metryki zbiorcze</p></td>
+<td><p>aggregator</p></td>
+<td><p>level, tag, hash</p></td>
+</tr>
+<tr class="row-even"><td><p>sections/*.md</p></td>
+<td><p>narracja i wyjasnienia</p></td>
+<td><p>Agent/Autor</p></td>
+<td><p>AGENT:INSERT punkty</p></td>
+</tr>
+<tr class="row-odd"><td><p>analysis/*</p></td>
+<td><p>wnioski i korelacje</p></td>
+<td><p>Agent/Analityk</p></td>
+<td><p>linkuj id rekordow</p></td>
+</tr>
+<tr class="row-even"><td><p>extractors/*.lua</p></td>
+<td><p>zrzut i agregacja</p></td>
+<td><p>system</p></td>
+<td><p>nie zmieniaj API zapisu</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+</section>
+<section id="slownik-logu-data-dictionary">
+<h2>4) Slownik logu (data dictionary)<a class="headerlink" href="#slownik-logu-data-dictionary" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pole</p></th>
+<th class="head"><p>Typ</p></th>
+<th class="head"><p>Przyklad</p></th>
+<th class="head"><p>Znaczenie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>string</p></td>
+<td><p>log:ERROR/engine&#64;2025-10-08T12:00:00Z</p></td>
+<td><p>Unikat: <code class="docutils literal notranslate"><span class="pre">log:&lt;LEVEL&gt;/&lt;TAG_SAFE&gt;&#64;&lt;ISO&gt;</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>string</p></td>
+<td><p>log</p></td>
+<td><p>Stala wartosc: log.</p></td>
+</tr>
+<tr class="row-even"><td><p>ts</p></td>
+<td><p>string</p></td>
+<td><p>2025-10-08T12:00:00Z</p></td>
+<td><p>Czas wystapienia (UTC).</p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>string</p></td>
+<td><p>INFO</p></td>
+<td><p>Poziom (DEBUG, INFO, WARN, ERROR).</p></td>
+</tr>
+<tr class="row-even"><td><p>tag</p></td>
+<td><p>string</p></td>
+<td><p>engine-core</p></td>
+<td><p>Krotki identyfikator zrodla (oryginal, bez sanitizacji).</p></td>
+</tr>
+<tr class="row-odd"><td><p>hasMessage</p></td>
+<td><p>boolean</p></td>
+<td><p>true</p></td>
+<td><p>Czy tresc istniala.</p></td>
+</tr>
+<tr class="row-even"><td><p>messageHash</p></td>
+<td><p>string</p></td>
+<td><p>fnv1a32:ab12cd34</p></td>
+<td><p>Hash tresci (nie zapisujemy raw by default).</p></td>
+</tr>
+<tr class="row-odd"><td><p>extras</p></td>
+<td><p>object</p></td>
+<td><p>{“line”:123}</p></td>
+<td><p>Opcjonalny kontekst.</p></td>
+</tr>
+<tr class="row-even"><td><p>source</p></td>
+<td><p>string</p></td>
+<td><p>proxy|tail</p></td>
+<td><p>Zrodlo rekordu (proxy logger lub tail pliku).</p></td>
+</tr>
+<tr class="row-odd"><td><p>links[]</p></td>
+<td><p>string[]</p></td>
+<td><p>runtime:…, evt:…</p></td>
+<td><p>Powiazania z innymi rozdzialami.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Agent tip: w sections/02_log_model.md wstaw 5 realnych logow z NDJSON (zanonimizowanych) i jednozdaniowy komentarz.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="pipeline-danych-odczyt-zapis-analiza">
+<h2>5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)<a class="headerlink" href="#pipeline-danych-odczyt-zapis-analiza" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Sniffer: tryb proxy (uzyj <code class="docutils literal notranslate"><span class="pre">logger_proxy.*</span></code>) i/lub tail plikow z config; zapisuje do NDJSON + CSV.</p></li>
+<li><p>Aggregator: liczy metryki (per level, per tag, top messageHash) i zapisuje stats.*.</p></li>
+<li><p>Narracja: sekcje opisowe z przykladami i odwolaniami do id logow.</p></li>
+<li><p>Analizy: findings i correlations z runtime/events/network.</p></li>
+<li><p>Publikacja: sprawdz checklist DoD.</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="sekcje-merytoryczne-szablony-i-wprowadzenie-do-logging">
+<h2>6) Sekcje merytoryczne - szablony i wprowadzenie do Logging<a class="headerlink" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-logging" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sections/00_logging_basics.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Logging basics - dla nowych dev</span>
+Celem jest spójny format logow niezaleznie od zrodla. Domyslnie nie zapisujemy tresci wiadomosci, tylko hash i flage hasMessage.
+
+Pojecia
+<span class="k">-</span><span class="w"> </span>poziomy: DEBUG, INFO, WARN, ERROR.
+<span class="k">-</span><span class="w"> </span>tag: krotki identyfikator zrodla (np. modul, subsystem).
+<span class="k">-</span><span class="w"> </span>polityka: storeMessage=false (default) dla prywatnosci; mozna wlaczyc per-eksperyment.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/01_introduction.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Wprowadzenie - po co normalizowac logi</span>
+Aby porownywac w czasie i miedzy buildami, laczyc z eventami oraz monitorowac poziomy ERROR/WARN w regresjach.
+
+Kiedy uzywac
+<span class="k">-</span><span class="w"> </span>audyt stabilnosci,
+<span class="k">-</span><span class="w"> </span>korelacje z eventami logowania,
+<span class="k">-</span><span class="w"> </span>analiza regresji po zmianach w modulach.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/02_log_model.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Model logu - definicje i przyklady</span>
+Zobacz slownik w README. Wstaw przyklady z NDJSON oraz informacje o zrodle (proxy|tail).
+
+&lt;!-- AGENT:INSERT:LOG-EXAMPLES --&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/03_collection_methods.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Zbieranie (proxy + tail)</span>
+<span class="k">-</span><span class="w"> </span>Proxy: uzyj logger_proxy.* (ponizej) w miejscach, gdzie chcesz rejestrowac logi aplikacyjne.
+<span class="k">-</span><span class="w"> </span>Tail: wskaz sciezki w config/logging.targets.txt i (opcjonalnie) regexy w logging.parsers.json.
+<span class="k">-</span><span class="w"> </span>Studio: steruj start/stop przez IPC (patrz README Studio hooks).
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/04_quality_and_limits.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jakosc i ograniczenia</span>
+<span class="k">-</span><span class="w"> </span>Brak gwarancji formatu zewnetrznych plikow logow; stosuj regexy w parsowaniu.
+<span class="k">-</span><span class="w"> </span>Prywatnosc: storeMessage=false domyslnie; wlaczaj tylko swiadomie.
+<span class="k">-</span><span class="w"> </span>Roznice forkow: opisz w analysis/findings.md.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sections/05_how_to_read_stats.md</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jak czytac statystyki</span>
+<span class="k">-</span><span class="w"> </span>Obserwuj proporcje WARN/ERROR vs INFO/DEBUG.
+<span class="k">-</span><span class="w"> </span>Top tags oraz messageHash wskazuja gorace miejsca w kodzie.
+
+&lt;!-- AGENT:INSERT:READING-GUIDE --&gt;
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="polityka-dzielenia-danych-datasets-chunks-readme-md">
+<h2>7) Polityka dzielenia danych - datasets/chunks/README.md<a class="headerlink" href="#polityka-dzielenia-danych-datasets-chunks-readme-md" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Chunks - polityka</span>
+<span class="k">-</span><span class="w"> </span>Utrzymuj glowne pliki do ok. 50 MB.
+<span class="k">-</span><span class="w"> </span>Starsze dane przenos do logs.dataset.&lt;YYYYMMDD-HHMM&gt;.jsonl oraz .csv.
+<span class="k">-</span><span class="w"> </span>Po przeniesieniu chunkow traktuj je jako read-only.
+<span class="k">-</span><span class="w"> </span>Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni sie nazwa katalogu.
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="schema-logs-schema-json">
+<h2>8) Schema - logs.schema.json<a class="headerlink" href="#schema-logs-schema-json" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log.record&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span><span class="s2">&quot;level&quot;</span><span class="p">,</span><span class="s2">&quot;tag&quot;</span><span class="p">,</span><span class="s2">&quot;hasMessage&quot;</span><span class="p">,</span><span class="s2">&quot;messageHash&quot;</span><span class="p">,</span><span class="s2">&quot;source&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="s2">&quot;^log:[A-Z]+\/[A-Za-z0-9_.-]+@[0-9TZ:-]+$&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;const&quot;</span><span class="p">:</span><span class="s2">&quot;log&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;date-time&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;hasMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;messageHash&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;extras&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;object&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="nt">&quot;items&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="extractors-lua-gotowe-pliki-fix-pack-01-applied">
+<h2>9) Extractors (Lua) - gotowe pliki (Fix Pack 01 Applied)<a class="headerlink" href="#extractors-lua-gotowe-pliki-fix-pack-01-applied" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">extractors/log_sniffer.lua</span></code></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 09_logging/extractors/log_sniffer.lua</span>
+<span class="c1">-- Proxy logger + tail plikow -&gt; JSONL + CSV (append), start/stop</span>
+<span class="c1">-- ASCII-only; UTF-8 bez BOM; LF</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">docio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;ts&#39;</span><span class="p">,</span><span class="s1">&#39;level&#39;</span><span class="p">,</span><span class="s1">&#39;tag&#39;</span><span class="p">,</span><span class="s1">&#39;hasMessage&#39;</span><span class="p">,</span><span class="s1">&#39;messageHash&#39;</span><span class="p">,</span><span class="s1">&#39;extras_json&#39;</span><span class="p">,</span><span class="s1">&#39;source&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="c1">-- utils -----------------------------------------------------------------------</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">nowIso</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">os.date</span><span class="p">(</span><span class="s1">&#39;!*t&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;%04d-%02d-%02dT%02d:%02d:%02dZ&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">year</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">month</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">day</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">hour</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">min</span><span class="p">,</span><span class="w"> </span><span class="nv">t</span><span class="p">.</span><span class="py">sec</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">fnv1a32</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">bitlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">rawget</span><span class="p">(</span><span class="nb">_G</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit32&#39;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">rawget</span><span class="p">(</span><span class="nb">_G</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">band</span><span class="p">,</span><span class="w"> </span><span class="nv">bxor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">assert</span><span class="p">(</span><span class="nv">bitlib</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">bitlib</span><span class="p">.</span><span class="py">band</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit/bit32 required&#39;</span><span class="p">),</span><span class="w"> </span><span class="nb">assert</span><span class="p">(</span><span class="nv">bitlib</span><span class="p">.</span><span class="py">bxor</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bit/bit32 required&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2166136261</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="nv">s</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">bxor</span><span class="p">(</span><span class="nv">hash</span><span class="p">,</span><span class="w"> </span><span class="nb">string.byte</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span><span class="p">))</span>
+<span class="w">    </span><span class="nv">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">band</span><span class="p">((</span><span class="nv">hash</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">16777619</span><span class="p">),</span><span class="w"> </span><span class="mh">0xFFFFFFFF</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;fnv1a32:%08x&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">hash</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">trim</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">&#39;^%s+&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">):</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">&#39;%s+$&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">sanitizeToken</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">s</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="c1">-- pozwalamy tylko: A-Za-z0-9_.- ; reszta -&gt; &#39;_&#39;</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">&#39;[^A-Za-z0-9_.-]&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="c1">-- policy ----------------------------------------------------------------------</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">readPolicy</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/config/logging.policy.json&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">#</span><span class="nv">t</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">storeMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">obj</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">storeMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<span class="kr">end</span>
+
+<span class="c1">-- io --------------------------------------------------------------------------</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">rec</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">appendJsonl</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/datasets/logs.dataset.jsonl&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">rec</span><span class="p">,</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeCsvHeader</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/datasets/logs.dataset.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">id</span><span class="p">,</span><span class="w"> </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">ts</span><span class="p">,</span><span class="w"> </span><span class="nv">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">level</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">tag</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">hasMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">hasMessage</span><span class="p">,</span><span class="w"> </span><span class="nv">messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">messageHash</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">extras_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="nv">rec</span><span class="p">.</span><span class="py">extras</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}),</span><span class="w"> </span><span class="nv">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rec</span><span class="p">.</span><span class="py">source</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">appendCsvRow</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/datasets/logs.dataset.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">CSV_HEADER</span><span class="p">,</span><span class="w"> </span><span class="nv">row</span><span class="p">,</span><span class="w"> </span><span class="nv">MAX_BYTES</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- core ------------------------------------------------------------------------</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">emit</span><span class="p">(</span><span class="nv">level</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">,</span><span class="w"> </span><span class="nv">source</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">active</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">readPolicy</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nowIso</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.upper</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="nv">level</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;INFO&#39;</span><span class="p">))</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tagOrig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">tag</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;app&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">tagSafe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sanitizeToken</span><span class="p">(</span><span class="nv">tagOrig</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;log:%s/%s@%s&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">L</span><span class="p">,</span><span class="w"> </span><span class="nv">tagSafe</span><span class="p">,</span><span class="w"> </span><span class="nv">ts</span><span class="p">),</span>
+<span class="w">    </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;log&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ts</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">L</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">tagOrig</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">hasMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">msg</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">),</span>
+<span class="w">    </span><span class="nv">messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">fnv1a32</span><span class="p">(</span><span class="nv">msg</span><span class="p">),</span>
+<span class="w">    </span><span class="nv">extras</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">extras</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="nv">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">source</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;proxy&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">links</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">policy</span><span class="p">.</span><span class="py">storeMessage</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">msg</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="nv">rec</span><span class="p">.</span><span class="py">extras</span><span class="p">.</span><span class="py">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">msg</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="nf">write</span><span class="p">(</span><span class="nv">rec</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Proxy API (uzywaj w kodzie)</span>
+<span class="nv">logger_proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">logger_proxy</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+<span class="kr">function</span><span class="w"> </span><span class="nc">logger_proxy</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">)</span><span class="w"> </span><span class="nf">emit</span><span class="p">(</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;proxy&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">function</span><span class="w"> </span><span class="nc">logger_proxy</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">)</span><span class="w">  </span><span class="nf">emit</span><span class="p">(</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span><span class="w">  </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;proxy&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">function</span><span class="w"> </span><span class="nc">logger_proxy</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">)</span><span class="w">  </span><span class="nf">emit</span><span class="p">(</span><span class="s1">&#39;WARN&#39;</span><span class="p">,</span><span class="w">  </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;proxy&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+<span class="kr">function</span><span class="w"> </span><span class="nc">logger_proxy</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">)</span><span class="w"> </span><span class="nf">emit</span><span class="p">(</span><span class="s1">&#39;ERROR&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">extras</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;proxy&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="c1">-- Tail plikow (best-effort): parsowanie regexami z config/logging.parsers.json</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loadTargets</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/config/logging.targets.txt&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">cfg</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">cfg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">cfg</span><span class="p">:</span><span class="nf">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">trim</span><span class="p">(</span><span class="nv">line</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">p</span><span class="p">:</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^#&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">out</span><span class="p">[</span><span class="o">#</span><span class="nv">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loadParsers</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/config/logging.parsers.json&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">obj</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">parseLine</span><span class="p">(</span><span class="nv">parsers</span><span class="p">,</span><span class="w"> </span><span class="nv">line</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">rx</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">parsers</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{})</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="c1">-- rx: {&quot;pattern&quot;:&quot;^%[(%u+)%]%s+(%w+):%s+(.*)$&quot;,&quot;groups&quot;:{&quot;level&quot;:1,&quot;tag&quot;:2,&quot;message&quot;:3}}</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">pat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rx</span><span class="p">.</span><span class="py">pattern</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">rx</span><span class="p">.</span><span class="py">groups</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">a</span><span class="p">,</span><span class="nv">b</span><span class="p">,</span><span class="nv">c</span><span class="p">,</span><span class="nv">d</span><span class="p">,</span><span class="nv">e</span><span class="p">,</span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.match</span><span class="p">(</span><span class="nv">line</span><span class="p">,</span><span class="w"> </span><span class="nv">pat</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">g</span><span class="p">.</span><span class="py">level</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">_G</span><span class="p">.</span><span class="nb">tostring</span><span class="p">(</span><span class="nb">_G</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="nv">g</span><span class="p">.</span><span class="py">level</span><span class="p">,</span><span class="nv">a</span><span class="p">,</span><span class="nv">b</span><span class="p">,</span><span class="nv">c</span><span class="p">,</span><span class="nv">d</span><span class="p">,</span><span class="nv">e</span><span class="p">,</span><span class="nv">f</span><span class="p">)))</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;INFO&#39;</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">g</span><span class="p">.</span><span class="py">tag</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">_G</span><span class="p">.</span><span class="nb">tostring</span><span class="p">(</span><span class="nb">_G</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="nv">g</span><span class="p">.</span><span class="py">tag</span><span class="p">,</span><span class="nv">a</span><span class="p">,</span><span class="nv">b</span><span class="p">,</span><span class="nv">c</span><span class="p">,</span><span class="nv">d</span><span class="p">,</span><span class="nv">e</span><span class="p">,</span><span class="nv">f</span><span class="p">)))</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;tail&#39;</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">g</span><span class="p">.</span><span class="py">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">_G</span><span class="p">.</span><span class="nb">tostring</span><span class="p">(</span><span class="nb">_G</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="nv">g</span><span class="p">.</span><span class="py">message</span><span class="p">,</span><span class="nv">a</span><span class="p">,</span><span class="nv">b</span><span class="p">,</span><span class="nv">c</span><span class="p">,</span><span class="nv">d</span><span class="p">,</span><span class="nv">e</span><span class="p">,</span><span class="nv">f</span><span class="p">)))</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">line</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nv">level</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="c1">-- fallback: cala linia INFO tail</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">line</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">tailOnce</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">loadTargets</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">parsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">loadParsers</span><span class="p">().</span><span class="nv">patterns</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">path</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">targets</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_resources</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="py">fileExists</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">fileExists</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_resources</span><span class="p">.</span><span class="nf">readFileContents</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">txt</span><span class="p">:</span><span class="nf">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">level</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">parseLine</span><span class="p">(</span><span class="nv">parsers</span><span class="p">,</span><span class="w"> </span><span class="nv">line</span><span class="p">)</span>
+<span class="w">        </span><span class="nf">emit</span><span class="p">(</span><span class="nv">level</span><span class="p">,</span><span class="w"> </span><span class="nv">tag</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s1">&#39;tail&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Sterowanie (IPC)</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">start_logging_sniffer</span><span class="p">()</span>
+<span class="w">  </span><span class="nv">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">stop_logging_sniffer</span><span class="p">()</span>
+<span class="w">  </span><span class="nv">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Opcjonalny jednorazowy przebieg tail (uruchamiaj z IPC lub makrem vBot)</span>
+<span class="c1">-- tailOnce()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">extractors/logs_stats.lua</span></code></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 09_logging/extractors/logs_stats.lua</span>
+<span class="c1">-- Agregacja -&gt; stats.json + stats.md (deterministyczny output; sort kluczy)</span>
+<span class="c1">-- ASCII-only; UTF-8 bez BOM; LF</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">docio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">#</span><span class="nv">text</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">text</span><span class="p">:</span><span class="nf">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">line</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">obj</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">out</span><span class="p">[</span><span class="o">#</span><span class="nv">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">out</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">loadAllRecords</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">recs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/datasets/logs.dataset.jsonl&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">headList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">head</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">headList</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">recs</span><span class="p">[</span><span class="o">#</span><span class="nv">recs</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">headList</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">indexText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/datasets/chunks/index.json&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">indexText</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">#</span><span class="nv">indexText</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="nv">indexText</span><span class="p">)</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">list</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">fname</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">list</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">fname</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">fname</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="s1">&#39;^docs/&#39;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;docs/09_logging/datasets/chunks/&#39;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">fname</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">docio</span><span class="p">.</span><span class="nf">readAll</span><span class="p">(</span><span class="nv">path</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">parseLines</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="nv">more</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">recs</span><span class="p">[</span><span class="o">#</span><span class="nv">recs</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">more</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">      </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">recs</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">#</span><span class="nv">recs</span><span class="p">,</span><span class="w"> </span><span class="nv">byLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="nv">byTag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="nv">topHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">r</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">r</span><span class="p">.</span><span class="py">level</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;INFO&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">r</span><span class="p">.</span><span class="py">tag</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;app&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">s</span><span class="p">.</span><span class="py">byLevel</span><span class="p">[</span><span class="nv">L</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">byLevel</span><span class="p">[</span><span class="nv">L</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="nv">s</span><span class="p">.</span><span class="py">byTag</span><span class="p">[</span><span class="nv">T</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">byTag</span><span class="p">[</span><span class="nv">T</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tostring</span><span class="p">(</span><span class="nv">r</span><span class="p">.</span><span class="py">messageHash</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">H</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">topHash</span><span class="p">[</span><span class="nv">H</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">s</span><span class="p">.</span><span class="py">topHash</span><span class="p">[</span><span class="nv">H</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">s</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">writeSection</span><span class="p">(</span><span class="nv">title</span><span class="p">,</span><span class="w"> </span><span class="nv">map</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">lines</span><span class="p">,</span><span class="w"> </span><span class="nv">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="nv">_</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">map</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">keys</span><span class="p">[</span><span class="o">#</span><span class="nv">keys</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nb">table.sort</span><span class="p">(</span><span class="nv">keys</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">lines</span><span class="p">[</span><span class="o">#</span><span class="nv">lines</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">title</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="nv">k</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">keys</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="nv">lines</span><span class="p">[</span><span class="o">#</span><span class="nv">lines</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- %s: %d&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="w"> </span><span class="nv">map</span><span class="p">[</span><span class="nv">k</span><span class="p">])</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">  </span><span class="nv">lines</span><span class="p">[</span><span class="o">#</span><span class="nv">lines</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">(</span><span class="nv">lines</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">writeMD</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">md</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;# Logging - Statystyki</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- Rekordy: %d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">count</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">writeSection</span><span class="p">(</span><span class="s1">&#39;## By level&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">byLevel</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">writeSection</span><span class="p">(</span><span class="s1">&#39;## By tag&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">byTag</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">writeSection</span><span class="p">(</span><span class="s1">&#39;## Top messageHash&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">.</span><span class="py">topHash</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">md</span><span class="p">[</span><span class="o">#</span><span class="nv">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hint: koreluj pik ERROR/WARN z eventami oraz spadkami FPS.</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">(</span><span class="nv">md</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">recs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">loadAllRecords</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="nv">recs</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeAll</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/stats/stats.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">json</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="nv">s</span><span class="p">))</span>
+<span class="w">  </span><span class="nv">docio</span><span class="p">.</span><span class="nf">writeAll</span><span class="p">(</span><span class="s1">&#39;docs/09_logging/stats/stats.md&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">writeMD</span><span class="p">(</span><span class="nv">s</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="nf">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="diagramy-mermaid">
+<h2>10) Diagramy (Mermaid)<a class="headerlink" href="#diagramy-mermaid" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">diagrams/logging_flow.mmd</span></code></p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph TD
+  Studio[Electron Studio] --&gt;|IPC start/stop| Sniffer
+  Sniffer --&gt; NDJSON[(logs.dataset.jsonl)]
+  Sniffer --&gt; CSV[(logs.dataset.csv)]
+  NDJSON --&gt; Stats[stats.json and stats.md]
+  CSV --&gt; Stats
+  Stats --&gt; Studio
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">diagrams/error_timeline.mmd</span></code></p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>sequenceDiagram
+  participant Studio as Electron Studio
+  participant Sniffer
+  participant Events
+  participant Runtime
+
+  Studio-&gt;&gt;Sniffer: start
+  Events--&gt;&gt;Sniffer: onLoginError
+  Runtime--&gt;&gt;Sniffer: memory spike
+  Sniffer--&gt;&gt;Studio: ERROR engine-core ... (hashed)
+  Studio-&gt;&gt;Sniffer: stop
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="encoding-i-formatowanie-utf-8-safe">
+<h2>11) Encoding i formatowanie (UTF-8 safe)<a class="headerlink" href="#encoding-i-formatowanie-utf-8-safe" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska ‘-’, cudzyslow “, apostrof ‘).</p></li>
+<li><p>Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.</p></li>
+<li><p>Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="jakosc-slo-i-bezpieczenstwo-krotko">
+<h2>12) Jakosc, SLO i bezpieczenstwo (krotko)<a class="headerlink" href="#jakosc-slo-i-bezpieczenstwo-krotko" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>NDJSON append-only; przy duzych wolumenach uzyj chunks.</p></li>
+<li><p>Prywatnosc: storeMessage=false domyslnie; zapisujemy tylko hash.</p></li>
+<li><p>Tail: format nie jest gwarantowany; stosuj regexy w logging.parsers.json.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="dod-checklist-agent-clickable">
+<h2>13) DoD Checklist - Agent clickable<a class="headerlink" href="#dod-checklist-agent-clickable" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Zapis do docs/09_logging/datasets/logs.dataset.jsonl i logs.dataset.csv dziala (&gt;= 50 rekordow lub zgodnie z targets).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Dziala start/stop sniffera (proxy + tail) przez IPC.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Uzupelniono sekcje: 00_logging_basics.md, 01_introduction.md, 02_log_model.md (z przykladami), 03_collection_methods.md.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> W analysis/correlations.md dodano min. 1 korelacje log -&gt; event/runtime.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Diagramy logging_flow.mmd i error_timeline.mmd istnieja i sa logiczne.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../06_network.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Walidacja probki 20 linii NDJSON przeciw logs.schema.json zakonczona bez bledow.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="meta-json-wzorzec-z-tagami-i-linkowaniem-fix-pack-01-already-compatible">
+<h2>14) meta.json - wzorzec z tagami i linkowaniem (Fix Pack 01 already compatible)<a class="headerlink" href="#meta-json-wzorzec-z-tagami-i-linkowaniem-fix-pack-01-already-compatible" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;chapterId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chapter:logging&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logging - Normalization and Correlations&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;owners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;docs-export&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;logging&quot;</span><span class="p">,</span><span class="s2">&quot;logs&quot;</span><span class="p">,</span><span class="s2">&quot;normalization&quot;</span><span class="p">,</span><span class="s2">&quot;otclient&quot;</span><span class="p">,</span><span class="s2">&quot;agent&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;fileMap&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;readme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./README.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./logs.schema.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./sections/00_logging_basics.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/01_introduction.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/02_log_model.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/03_collection_methods.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/04_quality_and_limits.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/05_how_to_read_stats.md&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;datasets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/logs.dataset.jsonl&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;csv&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/logs.dataset.csv&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chunksDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/chunks&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;md&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.md&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/findings.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;correlations&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/correlations.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;figuresDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/figures&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;extractors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/log_sniffer.lua&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/logs_stats.lua&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;diagrams&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./diagrams/logging_flow.mmd&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./diagrams/error_timeline.mmd&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;policy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./config/logging.policy.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./config/logging.targets.txt&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;parsers&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./config/logging.parsers.json&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;linking&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;recordIdPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log:&lt;LEVEL&gt;/&lt;tagSafe&gt;@&lt;ISO8601&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;crossChapter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../01_runtime/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../02_events/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../06_network/README.md&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sniff&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Zbieranie logow (proxy + tail) do JSONL/CSV&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;datasets.jsonl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;datasets.csv&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agregacja do stats.json/stats.md&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;stats.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;stats.md&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;author&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uzupelnienie sekcji i korelacji + wstrzykniecia danych&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sections/*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;analysis/*&quot;</span><span class="p">]}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;insertPoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;sections/02_log_model.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:LOG-EXAMPLES&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;sections/05_how_to_read_stats.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:READING-GUIDE&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/findings.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:FINDINGS&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/correlations.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:CORRELATIONS&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#professional-pro-template-agent-ready-otclient-v8-consolidated-with-fix-pack-01">Professional Pro Template - Agent-Ready - OTClient v8 (Consolidated with Fix Pack 01)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">0) Executive summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-folderu-i-linkowanie">1) Struktura folderu i linkowanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-nawigacja-i-instrukcje-agent-friendly">2) README - nawigacja i instrukcje (Agent-friendly)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents">3) Mapa plikow i odpowiedzialnosci (reference for Agents)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slownik-logu-data-dictionary">4) Slownik logu (data dictionary)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-danych-odczyt-zapis-analiza">5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-logging">6) Sekcje merytoryczne - szablony i wprowadzenie do Logging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polityka-dzielenia-danych-datasets-chunks-readme-md">7) Polityka dzielenia danych - datasets/chunks/README.md</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schema-logs-schema-json">8) Schema - logs.schema.json</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extractors-lua-gotowe-pliki-fix-pack-01-applied">9) Extractors (Lua) - gotowe pliki (Fix Pack 01 Applied)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramy-mermaid">10) Diagramy (Mermaid)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-i-formatowanie-utf-8-safe">11) Encoding i formatowanie (UTF-8 safe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-slo-i-bezpieczenstwo-krotko">12) Jakosc, SLO i bezpieczenstwo (krotko)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dod-checklist-agent-clickable">13) DoD Checklist - Agent clickable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-json-wzorzec-z-tagami-i-linkowaniem-fix-pack-01-already-compatible">14) meta.json - wzorzec z tagami i linkowaniem (Fix Pack 01 already compatible)</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/chapters/chapter_09_logging_docs_export_kit_authoring_agent_ready.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

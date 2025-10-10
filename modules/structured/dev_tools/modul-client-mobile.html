@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Moduł: | Moduł: client_mobile" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-client-mobile.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="mobile.otmod: mobile.otui:" />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="mobile.otmod: mobile.otui:" />
+
+    <title>Moduł: | Moduł: client_mobile &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../_static/js/hoverxref.js"></script>
+    <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/dev_tools/modul-client-mobile';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/modules/structured/dev_tools/modul-client-mobile.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_mobile</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-client-mobile">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_mobile</span></code><a class="headerlink" href="#modul-modul-client-mobile" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">overlay</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">keypad</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">touchStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">updateCursorEvent</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">zoomInButton</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">zoomOutButton</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">keypadButton</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">keypadEvent</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">}</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">keypadTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c1">-- public functions</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">isMobile</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_ui</span><span class="p">.</span><span class="nf">displayUI</span><span class="p">(</span><span class="s1">&#39;mobile&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">overlay</span><span class="p">.</span><span class="py">keypad</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">zoomInButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_topmenu</span><span class="p">.</span><span class="nf">addLeftButton</span><span class="p">(</span><span class="s1">&#39;zoomInButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Zoom In&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/images/topbuttons/zoomin&#39;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">scaleUp</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">zoomOutButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_topmenu</span><span class="p">.</span><span class="nf">addLeftButton</span><span class="p">(</span><span class="s1">&#39;zoomOutButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Zoom Out&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/images/topbuttons/zoomout&#39;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">scaleDown</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypadButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">client_topmenu</span><span class="p">.</span><span class="nf">addLeftGameToggleButton</span><span class="p">(</span><span class="s1">&#39;keypadButton&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Keypad&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/images/topbuttons/keypad&#39;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">keypadButton</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="ow">not</span><span class="w"> </span><span class="nv">keypadButton</span><span class="p">:</span><span class="nf">isChecked</span><span class="p">())</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">isOnline</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">keypad</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">return</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">keypad</span><span class="p">:</span><span class="nf">setVisible</span><span class="p">(</span><span class="nv">keypadButton</span><span class="p">:</span><span class="nf">isChecked</span><span class="p">())</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypadButton</span><span class="p">:</span><span class="nf">setChecked</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">scale</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">overlay</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onMousePress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMousePress</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onMouseRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMouseRelease</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onTouchPress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMousePress</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onTouchRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMouseRelease</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onMouseMove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMouseMove</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">keypad</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onTouchPress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onKeypadTouchPress</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onTouchRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onKeypadTouchRelease</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onMouseMove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onKeypadTouchMove</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="nf">connect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">online</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">offline</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">g_game</span><span class="p">.</span><span class="nf">isOnline</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nf">online</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">terminate</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_app</span><span class="p">.</span><span class="nf">isMobile</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">updateCursorEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">keypadEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypadEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">overlay</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onMousePress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMousePress</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onMouseRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMouseRelease</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onTouchPress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMousePress</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onTouchRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMouseRelease</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onMouseMove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onMouseMove</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">keypad</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onTouchPress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onKeypadTouchPress</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onTouchRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onKeypadTouchRelease</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onMouseMove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">onKeypadTouchMove</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="nf">disconnect</span><span class="p">(</span><span class="nv">g_game</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nv">onGameStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">online</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nv">onGameEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">offline</span>
+
+<span class="p">})</span>
+
+<span class="w">  </span><span class="nv">zoomInButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">zoomOutButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">keypadButton</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="p">:</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">online</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">keypadButton</span><span class="p">:</span><span class="nf">isChecked</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">keypad</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">keypad</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">offline</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nv">keypad</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onMouseMove</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onMousePress</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">button</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseTouch</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">-- touch</span>
+
+<span class="w">    </span><span class="nv">overlay</span><span class="p">:</span><span class="nf">raise</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">overlay</span><span class="p">.</span><span class="py">cursor</span><span class="p">:</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">overlay</span><span class="p">.</span><span class="py">cursor</span><span class="p">:</span><span class="nf">setPosition</span><span class="p">({</span><span class="nv">x</span><span class="o">=</span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">32</span><span class="p">})</span>
+
+<span class="w">    </span><span class="nv">touchStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nf">updateCursor</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">overlay</span><span class="p">.</span><span class="py">cursor</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">updateCursorEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onMouseRelease</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">button</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">MouseTouch</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">overlay</span><span class="p">.</span><span class="py">cursor</span><span class="p">:</span><span class="nf">hide</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">updateCursorEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">updateCursor</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">updateCursorEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_mouse</span><span class="p">.</span><span class="nf">isPressed</span><span class="p">(</span><span class="nv">MouseTouch</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">math.min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nv">g_clock</span><span class="p">.</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">touchStart</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1">-- 500 ms</span>
+
+<span class="w">  </span><span class="nv">overlay</span><span class="p">.</span><span class="py">cursor</span><span class="p">:</span><span class="nf">setPercent</span><span class="p">(</span><span class="nv">percent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">percent</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">overlay</span><span class="p">.</span><span class="py">cursor</span><span class="p">:</span><span class="nf">setOpacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">updateCursorEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="nv">updateCursor</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">else</span>
+
+<span class="w">    </span><span class="nv">overlay</span><span class="p">.</span><span class="py">cursor</span><span class="p">:</span><span class="nf">setOpacity</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onKeypadTouchMove</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypadMousePos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getPosition</span><span class="p">().</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getWidth</span><span class="p">(),</span>
+
+<span class="w">                    </span><span class="nv">y</span><span class="o">=</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getPosition</span><span class="p">().</span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getHeight</span><span class="p">()}</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onKeypadTouchPress</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">button</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">MouseTouch</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">keypadTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">  </span><span class="nv">keypadMousePos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getPosition</span><span class="p">().</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getWidth</span><span class="p">(),</span>
+
+<span class="w">                    </span><span class="nv">y</span><span class="o">=</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getPosition</span><span class="p">().</span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getHeight</span><span class="p">()}</span>
+
+<span class="w">  </span><span class="nf">executeWalk</span><span class="p">()</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">onKeypadTouchRelease</span><span class="p">(</span><span class="nv">widget</span><span class="p">,</span><span class="w"> </span><span class="nv">pos</span><span class="p">,</span><span class="w"> </span><span class="nv">button</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">button</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">MouseTouch</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">keypadMousePos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getPosition</span><span class="p">().</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getWidth</span><span class="p">(),</span>
+
+<span class="w">                    </span><span class="nv">y</span><span class="o">=</span><span class="p">(</span><span class="nv">pos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getPosition</span><span class="p">().</span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">widget</span><span class="p">:</span><span class="nf">getHeight</span><span class="p">()}</span>
+
+<span class="w">  </span><span class="nf">executeWalk</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">keypadEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypad</span><span class="p">.</span><span class="py">pointer</span><span class="p">:</span><span class="nf">setMarginTop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypad</span><span class="p">.</span><span class="py">pointer</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">executeWalk</span><span class="p">()</span>
+
+<span class="w">  </span><span class="nf">removeEvent</span><span class="p">(</span><span class="nv">keypadEvent</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypadEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_walking</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">g_mouse</span><span class="p">.</span><span class="nf">isPressed</span><span class="p">(</span><span class="nv">MouseTouch</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">keypad</span><span class="p">.</span><span class="py">pointer</span><span class="p">:</span><span class="nf">setMarginTop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nv">keypad</span><span class="p">.</span><span class="py">pointer</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">return</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">keypadEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scheduleEvent</span><span class="p">(</span><span class="nv">executeWalk</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="p">))</span>
+
+<span class="w">  </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.atan2</span><span class="p">(</span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">maxTop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nb">math.cos</span><span class="p">(</span><span class="nv">angle</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">75</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">marginTop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="o">-</span><span class="nv">maxTop</span><span class="p">,</span><span class="w"> </span><span class="nb">math.min</span><span class="p">(</span><span class="nv">maxTop</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">150</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">maxLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nb">math.sin</span><span class="p">(</span><span class="nv">angle</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">75</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">marginLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="o">-</span><span class="nv">maxLeft</span><span class="p">,</span><span class="w"> </span><span class="nb">math.min</span><span class="p">(</span><span class="nv">maxLeft</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">150</span><span class="p">))</span>
+
+<span class="w">  </span><span class="nv">keypad</span><span class="p">.</span><span class="py">pointer</span><span class="p">:</span><span class="nf">setMarginTop</span><span class="p">(</span><span class="nv">marginTop</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nv">keypad</span><span class="p">.</span><span class="py">pointer</span><span class="p">:</span><span class="nf">setMarginLeft</span><span class="p">(</span><span class="nv">marginLeft</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">dir</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">NorthWest</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">NorthEast</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">SouthWest</span>
+
+<span class="w">  </span><span class="kr">elseif</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">SouthEast</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">dir</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="nb">math.abs</span><span class="p">(</span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">North</span>
+
+<span class="w">      </span><span class="kr">else</span>
+
+<span class="w">        </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">South</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">else</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">keypadMousePos</span><span class="p">.</span><span class="py">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">        </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">West</span>
+
+<span class="w">      </span><span class="kr">else</span>
+
+<span class="w">        </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Directions</span><span class="p">.</span><span class="py">East</span>
+
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">dir</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">    </span><span class="nv">modules</span><span class="p">.</span><span class="py">game_walking</span><span class="p">.</span><span class="nf">walk</span><span class="p">(</span><span class="nv">dir</span><span class="p">,</span><span class="w"> </span><span class="nv">keypadTicks</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">keypadTicks</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">      </span><span class="nv">keypadTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="mobile-otmod">
+<h1>mobile.otmod<a class="headerlink" href="#mobile-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: client_mobile
+
+  description: Handles the mobile interface for smartphones
+
+  author: otclient@otclient.ovh
+
+  website: http://otclient.net
+
+  sandboxed: true
+
+  scripts: [ mobile ]
+
+  @onLoad: init()
+
+  @onUnload: terminate()
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="mobile-otui">
+<h1>mobile.otui<a class="headerlink" href="#mobile-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+UIWidget
+
+  anchors.fill: parent
+
+  focusable: false
+
+  phantom: true
+
+  UIProgressRect
+
+    id: cursor
+
+    size: 64 64
+
+    background: #FF5858
+
+    percent: 100
+
+    visible: false
+
+    x: 0
+
+    y: 0
+
+    focusable: false
+
+    phantom: true
+
+  UIWidget
+
+    id: keypad
+
+    size: 200 150
+
+    anchors.bottom: parent.bottom
+
+    anchors.right: parent.right
+
+    phantom: false
+
+    focusable: false
+
+    visible: false
+
+    background: #00000044
+
+    image-source: /images/game/mobile/keypad
+
+    image-fixed-ratio: true
+
+    image-rect: 25 0 150 150
+
+    UIWidget
+
+      id: pointer
+
+      size: 49 49
+
+      anchors.verticalCenter: parent.verticalCenter
+
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      image-source: /images/game/mobile/keypad_pointer
+
+      image-fixed-ratio: true
+
+      phantom: true
+
+      focusable: false
+
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_mobile</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mobile-otmod">mobile.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mobile-otui">mobile.otui</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/dev_tools/modul-client-mobile.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1203 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="client/const.h" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/client/const.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu const. Namespaces: Otc: Enums: DepthConst: Wartości: MAX_DEPTH. DrawFlags: Wartości: DrawGroun..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Plik nagłówkowy C++ zawierający definicje dla modułu const. Namespaces: Otc: Enums: DepthConst: Wartości: MAX_DEPTH. DrawFlags: Wartości: DrawGroun..." />
+
+    <title>client/const.h &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/client/const';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/01_core/api/cpp/client/const.html" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">client/const.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="client-const-h">
+<h1>client/const.h<a class="headerlink" href="#client-const-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu const.</p>
+</section>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Link to this heading">#</a></h2>
+<section id="otc">
+<h3><code class="docutils literal notranslate"><span class="pre">Otc</span></code><a class="headerlink" href="#otc" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Link to this heading">#</a></h2>
+<section id="depthconst">
+<h3><code class="docutils literal notranslate"><span class="pre">DepthConst</span></code><a class="headerlink" href="#depthconst" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MAX_DEPTH</span></code></p></li>
+</ul>
+</section>
+<section id="drawflags">
+<h3><code class="docutils literal notranslate"><span class="pre">DrawFlags</span></code><a class="headerlink" href="#drawflags" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawGround</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawGroundBorders</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawOnBottom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawOnTop</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawItems</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawCreatures</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawEffects</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawMissiles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawCreaturesInformation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawStaticTexts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawAnimatedTexts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawAnimations</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawBars</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawNames</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawLights</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawManaBar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DontDrawLocalPlayer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawIcons</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawWalls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawEverything</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawCreatures</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawStaticTexts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DrawLights</span></code></p></li>
+</ul>
+</section>
+<section id="datopts">
+<h3><code class="docutils literal notranslate"><span class="pre">DatOpts</span></code><a class="headerlink" href="#datopts" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DatGround</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatGroundClip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatOnBottom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatOnTop</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatContainer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatStackable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatForceUse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatMultiUse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatWritable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatWritableOnce</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatFluidContainer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatSplash</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatBlockWalk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatNotMoveable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatBlockProjectile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatBlockPathFind</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatPickupable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatHangable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatHookSouth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatHookEast</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatRotable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatLight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatDontHide</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatTranslucent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatDisplacement</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatElevation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatLyingCorpse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatAnimateAlways</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatMinimapColor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatLensHelp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatFullGround</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatIgnoreLook</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatCloth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatAnimation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DatLastOpt</span></code></p></li>
+</ul>
+</section>
+<section id="inventoryslot">
+<h3><code class="docutils literal notranslate"><span class="pre">InventorySlot</span></code><a class="headerlink" href="#inventoryslot" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotHead</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotNecklace</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotBackpack</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotArmor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotRight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotLeft</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotLegs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotFeet</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotRing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotAmmo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotPurse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotExt1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotExt2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotExt3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InventorySlotExt4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LastInventorySlot</span></code></p></li>
+</ul>
+</section>
+<section id="statistic">
+<h3><code class="docutils literal notranslate"><span class="pre">Statistic</span></code><a class="headerlink" href="#statistic" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Health</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MaxHealth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FreeCapacity</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Experience</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Level</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LevelPercent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mana</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MaxMana</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MagicLevel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MagicLevelPercent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Soul</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Stamina</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LastStatistic</span></code></p></li>
+</ul>
+</section>
+<section id="skill">
+<h3><code class="docutils literal notranslate"><span class="pre">Skill</span></code><a class="headerlink" href="#skill" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Fist</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Club</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sword</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Axe</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Shielding</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fishing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CriticalChance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CriticalDamage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LifeLeechChance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LifeLeechAmount</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ManaLeechChance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ManaLeechAmount</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LastSkill</span></code></p></li>
+</ul>
+</section>
+<section id="direction">
+<h3><code class="docutils literal notranslate"><span class="pre">Direction</span></code><a class="headerlink" href="#direction" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">North</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">East</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">South</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">West</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NorthEast</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SouthEast</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SouthWest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NorthWest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InvalidDirection</span></code></p></li>
+</ul>
+</section>
+<section id="fluidscolor">
+<h3><code class="docutils literal notranslate"><span class="pre">FluidsColor</span></code><a class="headerlink" href="#fluidscolor" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidTransparent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidBlue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidRed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidBrown</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidGreen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidYellow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidWhite</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidPurple</span></code></p></li>
+</ul>
+</section>
+<section id="fluidstype">
+<h3><code class="docutils literal notranslate"><span class="pre">FluidsType</span></code><a class="headerlink" href="#fluidstype" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidWater</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidMana</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidBeer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidOil</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidBlood</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidSlime</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidMud</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidLemonade</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidMilk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidWine</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidHealth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidUrine</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidRum</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidFruidJuice</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidCoconutMilk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidTea</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FluidMead</span></code></p></li>
+</ul>
+</section>
+<section id="fightmodes">
+<h3><code class="docutils literal notranslate"><span class="pre">FightModes</span></code><a class="headerlink" href="#fightmodes" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FightOffensive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FightBalanced</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FightDefensive</span></code></p></li>
+</ul>
+</section>
+<section id="chasemodes">
+<h3><code class="docutils literal notranslate"><span class="pre">ChaseModes</span></code><a class="headerlink" href="#chasemodes" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DontChase</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ChaseOpponent</span></code></p></li>
+</ul>
+</section>
+<section id="pvpmodes">
+<h3><code class="docutils literal notranslate"><span class="pre">PVPModes</span></code><a class="headerlink" href="#pvpmodes" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">WhiteDove</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WhiteHand</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YellowHand</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RedFist</span></code></p></li>
+</ul>
+</section>
+<section id="playerskulls">
+<h3><code class="docutils literal notranslate"><span class="pre">PlayerSkulls</span></code><a class="headerlink" href="#playerskulls" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SkullNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SkullYellow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SkullGreen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SkullWhite</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SkullRed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SkullBlack</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SkullOrange</span></code></p></li>
+</ul>
+</section>
+<section id="playershields">
+<h3><code class="docutils literal notranslate"><span class="pre">PlayerShields</span></code><a class="headerlink" href="#playershields" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldWhiteYellow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldWhiteBlue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldBlue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldYellow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldBlueSharedExp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldYellowSharedExp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldBlueNoSharedExpBlink</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldYellowNoSharedExpBlink</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldBlueNoSharedExp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldYellowNoSharedExp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ShieldGray</span></code></p></li>
+</ul>
+</section>
+<section id="playeremblems">
+<h3><code class="docutils literal notranslate"><span class="pre">PlayerEmblems</span></code><a class="headerlink" href="#playeremblems" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EmblemNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmblemGreen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmblemRed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmblemBlue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmblemMember</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmblemOther</span></code></p></li>
+</ul>
+</section>
+<section id="creatureicons">
+<h3><code class="docutils literal notranslate"><span class="pre">CreatureIcons</span></code><a class="headerlink" href="#creatureicons" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NpcIconNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NpcIconChat</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NpcIconTrade</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NpcIconQuest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NpcIconTradeQuest</span></code></p></li>
+</ul>
+</section>
+<section id="playerstates">
+<h3><code class="docutils literal notranslate"><span class="pre">PlayerStates</span></code><a class="headerlink" href="#playerstates" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IconNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconPoison</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconBurn</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconEnergy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconDrunk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconManaShield</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconParalyze</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconHaste</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconSwords</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconDrowning</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconFreezing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconDazzled</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconCursed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconPartyBuff</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconPzBlock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconPz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconBleeding</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IconHungry</span></code></p></li>
+</ul>
+</section>
+<section id="messagemode">
+<h3><code class="docutils literal notranslate"><span class="pre">MessageMode</span></code><a class="headerlink" href="#messagemode" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageSay</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageWhisper</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageYell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessagePrivateFrom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessagePrivateTo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageChannelManagement</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageChannelHighlight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageSpell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageNpcFrom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageNpcTo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageGamemasterBroadcast</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageGamemasterChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageGamemasterPrivateFrom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageGamemasterPrivateTo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageLogin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageWarning</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageGame</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageFailure</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageLook</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageDamageDealed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageDamageReceived</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageHeal</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageExp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageDamageOthers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageHealOthers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageExpOthers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageStatus</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageLoot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageTradeNpc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageGuild</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessagePartyManagement</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageParty</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageBarkLow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageBarkLoud</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageReport</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageHotkeyUse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageTutorialHint</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageThankyou</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageMarket</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageMana</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageBeyondLast</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageMonsterYell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageMonsterSay</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageRed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageBlue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageRVRChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageRVRAnswer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageRVRContinue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageGameHighlight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageNpcFromStartBlock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LastMessage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageInvalid</span></code></p></li>
+</ul>
+</section>
+<section id="gamefeature">
+<h3><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code><a class="headerlink" href="#gamefeature" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GameProtocolChecksum</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameAccountNames</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameChallengeOnLogin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePenalityOnDeath</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNameOnNpcTrade</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleFreeCapacity</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleExperience</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameTotalCapacity</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSkillsBase</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePlayerRegenerationTime</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameChannelPlayerList</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePlayerMounts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameEnvironmentEffect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameCreatureEmblems</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameItemAnimationPhase</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMagicEffectU16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePlayerMarket</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSpritesU32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameTileAddThingWithStackpos</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameOfflineTrainingTime</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePurseSlot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameFormatCreatureName</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSpellList</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameClientPing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameExtendedClientPing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleHealth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleSkills</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameChangeMapAwareRange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMapMovePosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameAttackSeq</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameBlueNpcNameColor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDiagonalAnimatedText</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameLoginPending</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNewSpeedLaw</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameForceFirstAutoWalkStep</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMinimapRemove</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleShopSellAmount</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameContainerPagination</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameThingMarks</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameLooktypeU16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePlayerStamina</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePlayerAddons</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMessageStatements</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMessageLevel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNewFluids</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePlayerStateU16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNewOutfitProtocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePVPMode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameWritableDate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameAdditionalVipInfo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameBaseSkillU16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameCreatureIcons</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameHideNpcNames</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSpritesAlphaChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePremiumExpiration</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameBrowseField</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameEnhancedAnimations</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameOGLInformation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMessageSizeCheck</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePreviewState</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameLoginPacketEncryption</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameClientVersion</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameContentRevision</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameExperienceBonus</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameAuthenticator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameUnjustifiedPoints</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSessionKey</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDeathType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameIdleAnimations</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameKeepUnawareTiles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameIngameStore</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameIngameStoreHighlights</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameIngameStoreServiceType</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameAdditionalSkills</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDistanceEffectU16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePrey</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleMagicLevel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameExtendedOpcode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMinimapLimitedToSingleFloor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSendWorldName</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleLevel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleSoul</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoublePlayerGoodsMoney</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameCreatureWalkthrough</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDoubleTradeMoney</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSequencedPackets</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameTibia12Protocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNewWalking</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSlowerManualWalking</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameItemTooltip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameBot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameBiggerMapCache</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameForceLight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNoDebug</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameBotProtection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameCreatureDirectionPassable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameFasterAnimations</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameCenteredOutfits</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameSendIdentifiers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameWingsAndAura</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePlayerStateU32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameOutfitShaders</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameForceAllowItemHotkeys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameCountU16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDrawAuraOnTop</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePacketSizeU32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePacketCompression</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameOldInformationBar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameHealthInfoBackground</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameWingOffset</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameAuraFrontAndBack</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMapDrawGroundFirst</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMapIgnoreCorpseCorrection</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDontCacheFiles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameBigAurasCenter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNewUpdateWalk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameNewCreatureStacking</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameCreaturesMana</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameQuickLootFlags</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameDontMergeAnimatedText</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameMissionId</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameItemCustomAttributes</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GameAnimatedTextCustomFont</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LastGameFeature</span></code></p></li>
+</ul>
+</section>
+<section id="pathfindresult">
+<h3><code class="docutils literal notranslate"><span class="pre">PathFindResult</span></code><a class="headerlink" href="#pathfindresult" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindResultOk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindResultSamePosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindResultImpossible</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindResultTooFar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindResultNoWay</span></code></p></li>
+</ul>
+</section>
+<section id="pathfindflags">
+<h3><code class="docutils literal notranslate"><span class="pre">PathFindFlags</span></code><a class="headerlink" href="#pathfindflags" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindAllowNotSeenTiles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindAllowCreatures</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindAllowNonPathable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindAllowNonWalkable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PathFindIgnoreCreatures</span></code></p></li>
+</ul>
+</section>
+<section id="automapflags">
+<h3><code class="docutils literal notranslate"><span class="pre">AutomapFlags</span></code><a class="headerlink" href="#automapflags" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkTick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkQuestion</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkExclamation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkStar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkCross</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkTemple</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkKiss</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkShovel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkSword</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkFlag</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkLock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkBag</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkSkull</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkDollar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkRedNorth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkRedSouth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkRedEast</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkRedWest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkGreenNorth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MapMarkGreenSouth</span></code></p></li>
+</ul>
+</section>
+<section id="vipstate">
+<h3><code class="docutils literal notranslate"><span class="pre">VipState</span></code><a class="headerlink" href="#vipstate" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">VipStateOffline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VipStateOnline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VipStatePending</span></code></p></li>
+</ul>
+</section>
+<section id="speedformula">
+<h3><code class="docutils literal notranslate"><span class="pre">SpeedFormula</span></code><a class="headerlink" href="#speedformula" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SpeedFormulaA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpeedFormulaB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpeedFormulaC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LastSpeedFormula</span></code></p></li>
+</ul>
+</section>
+<section id="blessings">
+<h3><code class="docutils literal notranslate"><span class="pre">Blessings</span></code><a class="headerlink" href="#blessings" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BlessingNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlessingAdventurer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlessingSpiritualShielding</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlessingEmbraceOfTibia</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlessingFireOfSuns</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlessingWisdomOfSolitude</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlessingSparkOfPhoenix</span></code></p></li>
+</ul>
+</section>
+<section id="deathtype">
+<h3><code class="docutils literal notranslate"><span class="pre">DeathType</span></code><a class="headerlink" href="#deathtype" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeathRegular</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeathBlessed</span></code></p></li>
+</ul>
+</section>
+<section id="storeproducttypes">
+<h3><code class="docutils literal notranslate"><span class="pre">StoreProductTypes</span></code><a class="headerlink" href="#storeproducttypes" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ProductTypeOther</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProductTypeNameChange</span></code></p></li>
+</ul>
+</section>
+<section id="storeerrortypes">
+<h3><code class="docutils literal notranslate"><span class="pre">StoreErrorTypes</span></code><a class="headerlink" href="#storeerrortypes" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">StoreNoError</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StorePurchaseError</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StoreNetworkError</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StoreHistoryError</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StoreTransferError</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StoreInformation</span></code></p></li>
+</ul>
+</section>
+<section id="storestates">
+<h3><code class="docutils literal notranslate"><span class="pre">StoreStates</span></code><a class="headerlink" href="#storestates" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">StateNone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StateNew</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StateSale</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StateTimed</span></code></p></li>
+</ul>
+</section>
+<section id="preyslotnum-t">
+<h3><code class="docutils literal notranslate"><span class="pre">PreySlotNum_t</span></code><a class="headerlink" href="#preyslotnum-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_SLOTNUM_FIRST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_SLOTNUM_SECOND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_SLOTNUM_THIRD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_SLOTNUM_LAST</span></code></p></li>
+</ul>
+</section>
+<section id="preystate-t">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyState_t</span></code><a class="headerlink" href="#preystate-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_STATE_LOCKED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_STATE_INACTIVE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_STATE_ACTIVE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_STATE_SELECTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_STATE_SELECTION_CHANGE_MONSTER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_STATE_SELECTION_FROMALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_STATE_CHANGE_FROMALL</span></code></p></li>
+</ul>
+</section>
+<section id="preymessagedialog-t">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyMessageDialog_t</span></code><a class="headerlink" href="#preymessagedialog-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_MESSAGEDIALOG_PREY_MESSAGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_MESSAGEDIALOG_PREY_ERROR</span></code></p></li>
+</ul>
+</section>
+<section id="preyresourcetype-t">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyResourceType_t</span></code><a class="headerlink" href="#preyresourcetype-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_RESOURCETYPE_BANK_GOLD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_RESOURCETYPE_INVENTORY_GOLD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_RESOURCETYPE_PREY_BONUS_REROLLS</span></code></p></li>
+</ul>
+</section>
+<section id="preybonustype-t">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyBonusType_t</span></code><a class="headerlink" href="#preybonustype-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_BONUS_DAMAGE_BOOST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_BONUS_DAMAGE_REDUCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_BONUS_XP_BONUS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_BONUS_IMPROVED_LOOT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_BONUS_NONE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_BONUS_FIRST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_BONUS_LAST</span></code></p></li>
+</ul>
+</section>
+<section id="preyaction-t">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyAction_t</span></code><a class="headerlink" href="#preyaction-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_ACTION_LISTREROLL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_ACTION_BONUSREROLL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_ACTION_MONSTERSELECTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_ACTION_REQUEST_ALL_MONSTERS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_ACTION_CHANGE_FROM_ALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_ACTION_LOCK_PREY</span></code></p></li>
+</ul>
+</section>
+<section id="preyconfigstate">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyConfigState</span></code><a class="headerlink" href="#preyconfigstate" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_CONFIG_STATE_FREE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_CONFIG_STATE_PREMIUM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_CONFIG_STATE_TIBIACOINS</span></code></p></li>
+</ul>
+</section>
+<section id="preyunlockstate-t">
+<h3><code class="docutils literal notranslate"><span class="pre">PreyUnlockState_t</span></code><a class="headerlink" href="#preyunlockstate-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_UNLOCK_STORE_AND_PREMIUM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_UNLOCK_STORE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREY_UNLOCK_NONE</span></code></p></li>
+</ul>
+</section>
+<section id="magiceffectstype-t">
+<h3><code class="docutils literal notranslate"><span class="pre">MagicEffectsType_t</span></code><a class="headerlink" href="#magiceffectstype-t" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MAGIC_EFFECTS_END_LOOP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAGIC_EFFECTS_DELTA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAGIC_EFFECTS_DELAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAGIC_EFFECTS_CREATE_EFFECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAGIC_EFFECTS_CREATE_DISTANCEEFFECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAGIC_EFFECTS_CREATE_DISTANCEEFFECT_REVERSED</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#namespaces">Namespaces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otc"><code class="docutils literal notranslate"><span class="pre">Otc</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enums">Enums</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depthconst"><code class="docutils literal notranslate"><span class="pre">DepthConst</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawflags"><code class="docutils literal notranslate"><span class="pre">DrawFlags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datopts"><code class="docutils literal notranslate"><span class="pre">DatOpts</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inventoryslot"><code class="docutils literal notranslate"><span class="pre">InventorySlot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistic"><code class="docutils literal notranslate"><span class="pre">Statistic</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skill"><code class="docutils literal notranslate"><span class="pre">Skill</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#direction"><code class="docutils literal notranslate"><span class="pre">Direction</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fluidscolor"><code class="docutils literal notranslate"><span class="pre">FluidsColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fluidstype"><code class="docutils literal notranslate"><span class="pre">FluidsType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fightmodes"><code class="docutils literal notranslate"><span class="pre">FightModes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chasemodes"><code class="docutils literal notranslate"><span class="pre">ChaseModes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pvpmodes"><code class="docutils literal notranslate"><span class="pre">PVPModes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#playerskulls"><code class="docutils literal notranslate"><span class="pre">PlayerSkulls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#playershields"><code class="docutils literal notranslate"><span class="pre">PlayerShields</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#playeremblems"><code class="docutils literal notranslate"><span class="pre">PlayerEmblems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creatureicons"><code class="docutils literal notranslate"><span class="pre">CreatureIcons</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#playerstates"><code class="docutils literal notranslate"><span class="pre">PlayerStates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#messagemode"><code class="docutils literal notranslate"><span class="pre">MessageMode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamefeature"><code class="docutils literal notranslate"><span class="pre">GameFeature</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pathfindresult"><code class="docutils literal notranslate"><span class="pre">PathFindResult</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pathfindflags"><code class="docutils literal notranslate"><span class="pre">PathFindFlags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automapflags"><code class="docutils literal notranslate"><span class="pre">AutomapFlags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vipstate"><code class="docutils literal notranslate"><span class="pre">VipState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speedformula"><code class="docutils literal notranslate"><span class="pre">SpeedFormula</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blessings"><code class="docutils literal notranslate"><span class="pre">Blessings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deathtype"><code class="docutils literal notranslate"><span class="pre">DeathType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storeproducttypes"><code class="docutils literal notranslate"><span class="pre">StoreProductTypes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storeerrortypes"><code class="docutils literal notranslate"><span class="pre">StoreErrorTypes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storestates"><code class="docutils literal notranslate"><span class="pre">StoreStates</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyslotnum-t"><code class="docutils literal notranslate"><span class="pre">PreySlotNum_t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preystate-t"><code class="docutils literal notranslate"><span class="pre">PreyState_t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preymessagedialog-t"><code class="docutils literal notranslate"><span class="pre">PreyMessageDialog_t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyresourcetype-t"><code class="docutils literal notranslate"><span class="pre">PreyResourceType_t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preybonustype-t"><code class="docutils literal notranslate"><span class="pre">PreyBonusType_t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyaction-t"><code class="docutils literal notranslate"><span class="pre">PreyAction_t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyconfigstate"><code class="docutils literal notranslate"><span class="pre">PreyConfigState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preyunlockstate-t"><code class="docutils literal notranslate"><span class="pre">PreyUnlockState_t</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magiceffectstype-t"><code class="docutils literal notranslate"><span class="pre">MagicEffectsType_t</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/reposzablony/01_core/api/cpp/client/const.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

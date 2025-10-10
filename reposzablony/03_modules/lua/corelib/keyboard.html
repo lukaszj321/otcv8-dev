@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="corelib/keyboard.lua" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/corelib/keyboard.html" />
+<meta property="og:site_name" content="OTClient v8" />
+<meta property="og:description" content="Overview: Moduł Lua zawierający funkcje i logikę dla keyboard. Globals/Exports: g_keyboard:@docclass Functions: translateKeyCombo(keyCombo): private function..." />
+<meta property="og:image" content="https://lukaszj321.github.io/otcv8-dev/_static/og-image.png" />
+<meta property="og:image:alt" content="OTClient v8" />
+<meta name="description" content="Overview: Moduł Lua zawierający funkcje i logikę dla keyboard. Globals/Exports: g_keyboard:@docclass Functions: translateKeyCombo(keyCombo): private function..." />
+
+    <title>corelib/keyboard.lua &#8212; OTClient v8 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=a46eff05"></script>
+    <script src="../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../_static/js/micromodal.min.js"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/corelib/keyboard';</script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/corelib/keyboard.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OTClient v8 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../11_datasets/index.html">
+    Datasets i integracja z katalogiem data/
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../12_diagrams/index.html">
+    Diagramy (Mermaid)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../13_csv_snippets/index.html">
+    CSV / Tabele / Snippety
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">corelib/keyboard.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="corelib-keyboard-lua">
+<h1>corelib/keyboard.lua<a class="headerlink" href="#corelib-keyboard-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla keyboard.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="g-keyboard">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code><a class="headerlink" href="#g-keyboard" title="Link to this heading">#</a></h3>
+<p>&#64;docclass</p>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="translatekeycombo-keycombo">
+<h3><code class="docutils literal notranslate"><span class="pre">translateKeyCombo(keyCombo)</span></code><a class="headerlink" href="#translatekeycombo-keycombo" title="Link to this heading">#</a></h3>
+<p>private functions</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCombo</span></code></p></li>
+</ul>
+</section>
+<section id="getkeycode-key">
+<h3><code class="docutils literal notranslate"><span class="pre">getKeyCode(key)</span></code><a class="headerlink" href="#getkeycode-key" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code></p></li>
+</ul>
+</section>
+<section id="retranslatekeycombodesc-keycombodesc">
+<h3><code class="docutils literal notranslate"><span class="pre">retranslateKeyComboDesc(keyComboDesc)</span></code><a class="headerlink" href="#retranslatekeycombodesc-keycombodesc" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+</ul>
+</section>
+<section id="determinekeycombodesc-keycode-keyboardmodifiers">
+<h3><code class="docutils literal notranslate"><span class="pre">determineKeyComboDesc(keyCode,</span> <span class="pre">keyboardModifiers)</span></code><a class="headerlink" href="#determinekeycombodesc-keycode-keyboardmodifiers" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboardModifiers</span></code></p></li>
+</ul>
+</section>
+<section id="onwidgetkeydown-widget-keycode-keyboardmodifiers">
+<h3><code class="docutils literal notranslate"><span class="pre">onWidgetKeyDown(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code><a class="headerlink" href="#onwidgetkeydown-widget-keycode-keyboardmodifiers" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboardModifiers</span></code></p></li>
+</ul>
+</section>
+<section id="onwidgetkeyup-widget-keycode-keyboardmodifiers">
+<h3><code class="docutils literal notranslate"><span class="pre">onWidgetKeyUp(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code><a class="headerlink" href="#onwidgetkeyup-widget-keycode-keyboardmodifiers" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboardModifiers</span></code></p></li>
+</ul>
+</section>
+<section id="onwidgetkeypress-widget-keycode-keyboardmodifiers-autorepeatticks">
+<h3><code class="docutils literal notranslate"><span class="pre">onWidgetKeyPress(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers,</span> <span class="pre">autoRepeatTicks)</span></code><a class="headerlink" href="#onwidgetkeypress-widget-keycode-keyboardmodifiers-autorepeatticks" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboardModifiers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autoRepeatTicks</span></code></p></li>
+</ul>
+</section>
+<section id="connectkeydownevent-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">connectKeyDownEvent(widget)</span></code><a class="headerlink" href="#connectkeydownevent-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="connectkeyupevent-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">connectKeyUpEvent(widget)</span></code><a class="headerlink" href="#connectkeyupevent-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="connectkeypressevent-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">connectKeyPressEvent(widget)</span></code><a class="headerlink" href="#connectkeypressevent-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-bindkeydown-keycombodesc-callback-widget-alone">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.bindKeyDown(keyComboDesc,</span> <span class="pre">callback,</span> <span class="pre">widget,</span> <span class="pre">alone)</span></code><a class="headerlink" href="#g-keyboard-bindkeydown-keycombodesc-callback-widget-alone" title="Link to this heading">#</a></h3>
+<p>public functions</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alone</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-bindkeyup-keycombodesc-callback-widget-alone">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.bindKeyUp(keyComboDesc,</span> <span class="pre">callback,</span> <span class="pre">widget,</span> <span class="pre">alone)</span></code><a class="headerlink" href="#g-keyboard-bindkeyup-keycombodesc-callback-widget-alone" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alone</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-bindkeypress-keycombodesc-callback-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.bindKeyPress(keyComboDesc,</span> <span class="pre">callback,</span> <span class="pre">widget)</span></code><a class="headerlink" href="#g-keyboard-bindkeypress-keycombodesc-callback-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="getunbindargs-arg1-arg2">
+<h3><code class="docutils literal notranslate"><span class="pre">getUnbindArgs(arg1,</span> <span class="pre">arg2)</span></code><a class="headerlink" href="#getunbindargs-arg1-arg2" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arg1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg2</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-unbindkeydown-keycombodesc-arg1-arg2">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.unbindKeyDown(keyComboDesc,</span> <span class="pre">arg1,</span> <span class="pre">arg2)</span></code><a class="headerlink" href="#g-keyboard-unbindkeydown-keycombodesc-arg1-arg2" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg2</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-unbindkeyup-keycombodesc-arg1-arg2">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.unbindKeyUp(keyComboDesc,</span> <span class="pre">arg1,</span> <span class="pre">arg2)</span></code><a class="headerlink" href="#g-keyboard-unbindkeyup-keycombodesc-arg1-arg2" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg2</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-unbindkeypress-keycombodesc-arg1-arg2">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.unbindKeyPress(keyComboDesc,</span> <span class="pre">arg1,</span> <span class="pre">arg2)</span></code><a class="headerlink" href="#g-keyboard-unbindkeypress-keycombodesc-arg1-arg2" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg2</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-getmodifiers">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.getModifiers()</span></code><a class="headerlink" href="#g-keyboard-getmodifiers" title="Link to this heading">#</a></h3>
+</section>
+<section id="g-keyboard-iskeypressed-key">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.isKeyPressed(key)</span></code><a class="headerlink" href="#g-keyboard-iskeypressed-key" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-arekeyspressed-keycombodesc">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.areKeysPressed(keyComboDesc)</span></code><a class="headerlink" href="#g-keyboard-arekeyspressed-keycombodesc" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyComboDesc</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-iskeysetpressed-keys-all">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.isKeySetPressed(keys,</span> <span class="pre">all)</span></code><a class="headerlink" href="#g-keyboard-iskeysetpressed-keys-all" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></li>
+</ul>
+</section>
+<section id="g-keyboard-isinuse">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.isInUse()</span></code><a class="headerlink" href="#g-keyboard-isinuse" title="Link to this heading">#</a></h3>
+</section>
+<section id="g-keyboard-isctrlpressed">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.isCtrlPressed()</span></code><a class="headerlink" href="#g-keyboard-isctrlpressed" title="Link to this heading">#</a></h3>
+</section>
+<section id="g-keyboard-isaltpressed">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.isAltPressed()</span></code><a class="headerlink" href="#g-keyboard-isaltpressed" title="Link to this heading">#</a></h3>
+</section>
+<section id="g-keyboard-isshiftpressed">
+<h3><code class="docutils literal notranslate"><span class="pre">g_keyboard.isShiftPressed()</span></code><a class="headerlink" href="#g-keyboard-isshiftpressed" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="widgetkeydown">
+<h3><code class="docutils literal notranslate"><span class="pre">WidgetKeyDown</span></code><a class="headerlink" href="#widgetkeydown" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onWidgetKeyDown(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code></p>
+</section>
+<section id="widgetkeyup">
+<h3><code class="docutils literal notranslate"><span class="pre">WidgetKeyUp</span></code><a class="headerlink" href="#widgetkeyup" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onWidgetKeyUp(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code></p>
+</section>
+<section id="widgetkeypress">
+<h3><code class="docutils literal notranslate"><span class="pre">WidgetKeyPress</span></code><a class="headerlink" href="#widgetkeypress" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onWidgetKeyPress(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers,</span> <span class="pre">autoRepeatTicks)</span></code></p>
+</section>
+<section id="nectkeydownevent">
+<h3><code class="docutils literal notranslate"><span class="pre">nectKeyDownEvent</span></code><a class="headerlink" href="#nectkeydownevent" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">connectKeyDownEvent(widget)</span></code></p>
+</section>
+<section id="widget">
+<h3><code class="docutils literal notranslate"><span class="pre">widget</span></code><a class="headerlink" href="#widget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget,</span> <span class="pre">{</span> <span class="pre">onKeyDown</span> <span class="pre">=</span> <span class="pre">onWidgetKeyDown</span> <span class="pre">})</span></code></p>
+</section>
+<section id="nectkeyupevent">
+<h3><code class="docutils literal notranslate"><span class="pre">nectKeyUpEvent</span></code><a class="headerlink" href="#nectkeyupevent" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">connectKeyUpEvent(widget)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">widget</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget,</span> <span class="pre">{</span> <span class="pre">onKeyUp</span> <span class="pre">=</span> <span class="pre">onWidgetKeyUp</span> <span class="pre">})</span></code></p>
+</section>
+<section id="nectkeypressevent">
+<h3><code class="docutils literal notranslate"><span class="pre">nectKeyPressEvent</span></code><a class="headerlink" href="#nectkeypressevent" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">connectKeyPressEvent(widget)</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">widget</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget,</span> <span class="pre">{</span> <span class="pre">onKeyPress</span> <span class="pre">=</span> <span class="pre">onWidgetKeyPress</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">nectKeyDownEvent</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connectKeyDownEvent(widget)</span></code></p>
+</section>
+<section id="widget-boundalonekeydowncombos">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundAloneKeyDownCombos</span></code><a class="headerlink" href="#widget-boundalonekeydowncombos" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget.boundAloneKeyDownCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="widget-boundkeydowncombos">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundKeyDownCombos</span></code><a class="headerlink" href="#widget-boundkeydowncombos" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget.boundKeyDownCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">nectKeyUpEvent</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connectKeyUpEvent(widget)</span></code></p>
+</section>
+<section id="widget-boundalonekeyupcombos">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundAloneKeyUpCombos</span></code><a class="headerlink" href="#widget-boundalonekeyupcombos" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget.boundAloneKeyUpCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="widget-boundkeyupcombos">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundKeyUpCombos</span></code><a class="headerlink" href="#widget-boundkeyupcombos" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget.boundKeyUpCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">nectKeyPressEvent</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connectKeyPressEvent(widget)</span></code></p>
+</section>
+<section id="widget-boundkeypresscombos">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundKeyPressCombos</span></code><a class="headerlink" href="#widget-boundkeypresscombos" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(widget.boundKeyPressCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundKeyDownCombos</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(widget.boundKeyDownCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundKeyUpCombos</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(widget.boundKeyUpCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.boundKeyPressCombos</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(widget.boundKeyPressCombos,</span> <span class="pre">keyComboDesc,</span> <span class="pre">callback)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard"><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translatekeycombo-keycombo"><code class="docutils literal notranslate"><span class="pre">translateKeyCombo(keyCombo)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getkeycode-key"><code class="docutils literal notranslate"><span class="pre">getKeyCode(key)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retranslatekeycombodesc-keycombodesc"><code class="docutils literal notranslate"><span class="pre">retranslateKeyComboDesc(keyComboDesc)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determinekeycombodesc-keycode-keyboardmodifiers"><code class="docutils literal notranslate"><span class="pre">determineKeyComboDesc(keyCode,</span> <span class="pre">keyboardModifiers)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onwidgetkeydown-widget-keycode-keyboardmodifiers"><code class="docutils literal notranslate"><span class="pre">onWidgetKeyDown(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onwidgetkeyup-widget-keycode-keyboardmodifiers"><code class="docutils literal notranslate"><span class="pre">onWidgetKeyUp(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onwidgetkeypress-widget-keycode-keyboardmodifiers-autorepeatticks"><code class="docutils literal notranslate"><span class="pre">onWidgetKeyPress(widget,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers,</span> <span class="pre">autoRepeatTicks)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connectkeydownevent-widget"><code class="docutils literal notranslate"><span class="pre">connectKeyDownEvent(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connectkeyupevent-widget"><code class="docutils literal notranslate"><span class="pre">connectKeyUpEvent(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connectkeypressevent-widget"><code class="docutils literal notranslate"><span class="pre">connectKeyPressEvent(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-bindkeydown-keycombodesc-callback-widget-alone"><code class="docutils literal notranslate"><span class="pre">g_keyboard.bindKeyDown(keyComboDesc,</span> <span class="pre">callback,</span> <span class="pre">widget,</span> <span class="pre">alone)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-bindkeyup-keycombodesc-callback-widget-alone"><code class="docutils literal notranslate"><span class="pre">g_keyboard.bindKeyUp(keyComboDesc,</span> <span class="pre">callback,</span> <span class="pre">widget,</span> <span class="pre">alone)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-bindkeypress-keycombodesc-callback-widget"><code class="docutils literal notranslate"><span class="pre">g_keyboard.bindKeyPress(keyComboDesc,</span> <span class="pre">callback,</span> <span class="pre">widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getunbindargs-arg1-arg2"><code class="docutils literal notranslate"><span class="pre">getUnbindArgs(arg1,</span> <span class="pre">arg2)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-unbindkeydown-keycombodesc-arg1-arg2"><code class="docutils literal notranslate"><span class="pre">g_keyboard.unbindKeyDown(keyComboDesc,</span> <span class="pre">arg1,</span> <span class="pre">arg2)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-unbindkeyup-keycombodesc-arg1-arg2"><code class="docutils literal notranslate"><span class="pre">g_keyboard.unbindKeyUp(keyComboDesc,</span> <span class="pre">arg1,</span> <span class="pre">arg2)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-unbindkeypress-keycombodesc-arg1-arg2"><code class="docutils literal notranslate"><span class="pre">g_keyboard.unbindKeyPress(keyComboDesc,</span> <span class="pre">arg1,</span> <span class="pre">arg2)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-getmodifiers"><code class="docutils literal notranslate"><span class="pre">g_keyboard.getModifiers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-iskeypressed-key"><code class="docutils literal notranslate"><span class="pre">g_keyboard.isKeyPressed(key)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-arekeyspressed-keycombodesc"><code class="docutils literal notranslate"><span class="pre">g_keyboard.areKeysPressed(keyComboDesc)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-iskeysetpressed-keys-all"><code class="docutils literal notranslate"><span class="pre">g_keyboard.isKeySetPressed(keys,</span> <span class="pre">all)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-isinuse"><code class="docutils literal notranslate"><span class="pre">g_keyboard.isInUse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-isctrlpressed"><code class="docutils literal notranslate"><span class="pre">g_keyboard.isCtrlPressed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-isaltpressed"><code class="docutils literal notranslate"><span class="pre">g_keyboard.isAltPressed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-keyboard-isshiftpressed"><code class="docutils literal notranslate"><span class="pre">g_keyboard.isShiftPressed()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgetkeydown"><code class="docutils literal notranslate"><span class="pre">WidgetKeyDown</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgetkeyup"><code class="docutils literal notranslate"><span class="pre">WidgetKeyUp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgetkeypress"><code class="docutils literal notranslate"><span class="pre">WidgetKeyPress</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nectkeydownevent"><code class="docutils literal notranslate"><span class="pre">nectKeyDownEvent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget"><code class="docutils literal notranslate"><span class="pre">widget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nectkeyupevent"><code class="docutils literal notranslate"><span class="pre">nectKeyUpEvent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">widget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nectkeypressevent"><code class="docutils literal notranslate"><span class="pre">nectKeyPressEvent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">widget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">nectKeyDownEvent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-boundalonekeydowncombos"><code class="docutils literal notranslate"><span class="pre">widget.boundAloneKeyDownCombos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-boundkeydowncombos"><code class="docutils literal notranslate"><span class="pre">widget.boundKeyDownCombos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">nectKeyUpEvent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-boundalonekeyupcombos"><code class="docutils literal notranslate"><span class="pre">widget.boundAloneKeyUpCombos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-boundkeyupcombos"><code class="docutils literal notranslate"><span class="pre">widget.boundKeyUpCombos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">nectKeyPressEvent</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-boundkeypresscombos"><code class="docutils literal notranslate"><span class="pre">widget.boundKeyPressCombos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">widget.boundKeyDownCombos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">widget.boundKeyUpCombos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">widget.boundKeyPressCombos</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/corelib/keyboard.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTCv8.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
