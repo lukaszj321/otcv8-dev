@@ -15,6 +15,15 @@ Ten dokument zawiera kluczowe diagramy ilustrujące architekturę i przepływy w
 (diagram-main-architecture)=
 ## Główna architektura systemu
 
+Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
+
+```mermaid
+flowchart TB
+  A[Start] --> B{Decyzja?}
+  B -- Tak --> C[Wykonaj akcję]
+  B -- Nie --> D[Zakończ]
+  C --> D
+```
 ```{mermaid}
 flowchart TD
   A[Core Engine C++] --> B(Event System)
