@@ -2,6 +2,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 (intro)=
@@ -61,6 +62,9 @@ Dokumentacja techniczna i referencje API:
 =======
 
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
 Ta dokumentacja łączy opis architektury, wytyczne dla deweloperów oraz referencję modułów i zdarzeń. Korzysta z **PyData Sphinx Theme**, **MyST** (Markdown w Sphinx), oraz rozszerzeń do diagramów i podświetlania kodu.
 
 ## Jak czytać tę dokumentację
@@ -73,6 +77,7 @@ Ta dokumentacja łączy opis architektury, wytyczne dla deweloperów oraz refere
 
 ```{{toctree}}
 :maxdepth: 2
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -225,6 +230,38 @@ CSV / Tabele / Snippety <examples/csv>
 ---
 >>>>>>> Stashed changes
 =======
+---
+>>>>>>> Stashed changes
+=======
+:caption: Część I — Wprowadzenie i założenia
+
+Specyfikacja studia (React/Electron) <chapters/chapter_01_specyfikacja_implementacji_studio_react_electron_dla_skryptow_otclient_v_8_v_bot>
+```
+
+```{{toctree}}
+:maxdepth: 2
+:caption: Część II — Silnik, zdarzenia, moduły, UI
+
+Zdarzenia (Events) <chapters/chapter_02_events_docs_export_kit_authoring_agent_ready>
+Moduły (Modules) <chapters/chapter_03_modules_docs_export_kit_authoring_agent_ready>
+Interfejs (UI) <chapters/chapter_04_ui_docs_export_kit_authoring_agent_ready>
+Zasoby (Assets) <chapters/chapter_05_assets_docs_export_kit_authoring_agent_ready>
+Sieć (Network) <chapters/chapter_06_network_docs_export_kit_authoring_agent_ready>
+Ustawienia & Kryptografia <chapters/chapter_07_settings_crypto_docs_export_kit_authoring_agent_ready>
+Audio <chapters/chapter_08_audio_docs_export_kit_authoring_agent_ready>
+Logowanie/Zdarzeniowość <chapters/chapter_09_logging_docs_export_kit_authoring_agent_ready>
+Runtime gry <chapters/chapter_10_game_runtime_docs_export_kit_authoring_agent_ready>
+```
+
+```{{toctree}}
+:maxdepth: 2
+:caption: Część III — Datasets, przykłady i dodatki
+
+Datasets i integracja z katalogiem `data/` <datasets/index>
+Diagramy (Mermaid) <examples/diagrams>
+CSV / Tabele / Snippety <examples/csv>
+```
+
 ---
 >>>>>>> Stashed changes
 
