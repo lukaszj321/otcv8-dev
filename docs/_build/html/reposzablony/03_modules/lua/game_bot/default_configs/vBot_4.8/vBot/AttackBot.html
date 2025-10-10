@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/AttackBot';</script>
+    <link rel="icon" href="../../../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-bot-default-configs-vbot-4-8-vbot-attackbot-lua">
+<h1>game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua<a class="headerlink" href="#game-bot-default-configs-vbot-4-8-vbot-attackbot-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla AttackBot.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="attacktable">
+<h3><code class="docutils literal notranslate"><span class="pre">attackTable</span></code><a class="headerlink" href="#attacktable" title="Link to this heading">#</a></h3>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">attackTable</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">attackTable</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">attackTable</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">attackTable</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+</section>
+<section id="attackbot">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot</span></code><a class="headerlink" href="#attackbot" title="Link to this heading">#</a></h3>
+<p>public functions</p>
+</section>
+<section id="t">
+<h3><code class="docutils literal notranslate"><span class="pre">t</span></code><a class="headerlink" href="#t" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="ui-title-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">ui.title.onClick(widget)</span></code><a class="headerlink" href="#ui-title-onclick-widget" title="Link to this heading">#</a></h3>
+<p>small UI elements</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="ui-settings-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">ui.settings.onClick(widget)</span></code><a class="headerlink" href="#ui-settings-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="mainwindow-onvisibilitychange-widget-visible">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.onVisibilityChange(widget,</span> <span class="pre">visible)</span></code><a class="headerlink" href="#mainwindow-onvisibilitychange-widget-visible" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">visible</span></code></p></li>
+</ul>
+</section>
+<section id="togglesettings">
+<h3><code class="docutils literal notranslate"><span class="pre">toggleSettings()</span></code><a class="headerlink" href="#togglesettings" title="Link to this heading">#</a></h3>
+<p>main panel functions</p>
+</section>
+<section id="mainwindow-settings-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.settings.onClick()</span></code><a class="headerlink" href="#mainwindow-settings-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="toggleitem">
+<h3><code class="docutils literal notranslate"><span class="pre">toggleItem()</span></code><a class="headerlink" href="#toggleitem" title="Link to this heading">#</a></h3>
+</section>
+<section id="setcategorytext">
+<h3><code class="docutils literal notranslate"><span class="pre">setCategoryText()</span></code><a class="headerlink" href="#setcategorytext" title="Link to this heading">#</a></h3>
+</section>
+<section id="setpatterntext">
+<h3><code class="docutils literal notranslate"><span class="pre">setPatternText()</span></code><a class="headerlink" href="#setpatterntext" title="Link to this heading">#</a></h3>
+</section>
+<section id="panel-previouscategory-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.previousCategory.onClick()</span></code><a class="headerlink" href="#panel-previouscategory-onclick" title="Link to this heading">#</a></h3>
+<p>in/de/crementation buttons</p>
+</section>
+<section id="panel-nextcategory-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.nextCategory.onClick()</span></code><a class="headerlink" href="#panel-nextcategory-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="panel-previoussource-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.previousSource.onClick()</span></code><a class="headerlink" href="#panel-previoussource-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="panel-nextsource-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.nextSource.onClick()</span></code><a class="headerlink" href="#panel-nextsource-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="panel-previousrange-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.previousRange.onClick()</span></code><a class="headerlink" href="#panel-previousrange-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="panel-nextrange-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.nextRange.onClick()</span></code><a class="headerlink" href="#panel-nextrange-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="setupwidget-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">setupWidget(widget)</span></code><a class="headerlink" href="#setupwidget-widget" title="Link to this heading">#</a></h3>
+<p>eo in/de/crementation —– [[core table function]] ——-</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="widget-remove-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.remove.onClick()</span></code><a class="headerlink" href="#widget-remove-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="widget-enabled-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.enabled.onClick()</span></code><a class="headerlink" href="#widget-enabled-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="widget-ondoubleclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.onDoubleClick(widget)</span></code><a class="headerlink" href="#widget-ondoubleclick-widget" title="Link to this heading">#</a></h3>
+<p>will serve as edit</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="widget-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">widget.onClick(widget)</span></code><a class="headerlink" href="#widget-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="refreshattacks">
+<h3><code class="docutils literal notranslate"><span class="pre">refreshAttacks()</span></code><a class="headerlink" href="#refreshattacks" title="Link to this heading">#</a></h3>
+<p>refreshing values</p>
+</section>
+<section id="panel-addentry-onclick-wdiget">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.addEntry.onClick(wdiget)</span></code><a class="headerlink" href="#panel-addentry-onclick-wdiget" title="Link to this heading">#</a></h3>
+<p>adding values</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wdiget</span></code></p></li>
+</ul>
+</section>
+<section id="panel-up-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.up.onClick(widget)</span></code><a class="headerlink" href="#panel-up-onclick-widget" title="Link to this heading">#</a></h3>
+<p>moving values up</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="panel-down-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">panel.down.onClick(widget)</span></code><a class="headerlink" href="#panel-down-onclick-widget" title="Link to this heading">#</a></h3>
+<p>down</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-profilename-ontextchange-widget-text">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.profileName.onTextChange(widget,</span> <span class="pre">text)</span></code><a class="headerlink" href="#settingsui-profilename-ontextchange-widget-text" title="Link to this heading">#</a></h3>
+<p>[[settings panel]] –</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-ignoremana-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.IgnoreMana.onClick(widget)</span></code><a class="headerlink" href="#settingsui-ignoremana-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-rotate-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.Rotate.onClick(widget)</span></code><a class="headerlink" href="#settingsui-rotate-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-kills-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.Kills.onClick(widget)</span></code><a class="headerlink" href="#settingsui-kills-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-cooldown-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.Cooldown.onClick(widget)</span></code><a class="headerlink" href="#settingsui-cooldown-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-visible-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.Visible.onClick(widget)</span></code><a class="headerlink" href="#settingsui-visible-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-pvpmode-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.PvpMode.onClick(widget)</span></code><a class="headerlink" href="#settingsui-pvpmode-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-pvpsafe-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.PvpSafe.onClick(widget)</span></code><a class="headerlink" href="#settingsui-pvpsafe-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-training-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.Training.onClick(widget)</span></code><a class="headerlink" href="#settingsui-training-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-blacklistsafe-onclick-widget">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.BlackListSafe.onClick(widget)</span></code><a class="headerlink" href="#settingsui-blacklistsafe-onclick-widget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-killsamount-onvaluechange-widget-value">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.KillsAmount.onValueChange(widget,</span> <span class="pre">value)</span></code><a class="headerlink" href="#settingsui-killsamount-onvaluechange-widget-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="settingsui-antirsrange-onvaluechange-widget-value">
+<h3><code class="docutils literal notranslate"><span class="pre">settingsUI.AntiRsRange.onValueChange(widget,</span> <span class="pre">value)</span></code><a class="headerlink" href="#settingsui-antirsrange-onvaluechange-widget-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="mainwindow-closebutton-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">mainWindow.closeButton.onClick()</span></code><a class="headerlink" href="#mainwindow-closebutton-onclick" title="Link to this heading">#</a></h3>
+<p>window elements</p>
+</section>
+<section id="resetfields">
+<h3><code class="docutils literal notranslate"><span class="pre">resetFields()</span></code><a class="headerlink" href="#resetfields" title="Link to this heading">#</a></h3>
+<p>core functions</p>
+</section>
+<section id="loadsettings">
+<h3><code class="docutils literal notranslate"><span class="pre">loadSettings()</span></code><a class="headerlink" href="#loadsettings" title="Link to this heading">#</a></h3>
+</section>
+<section id="button-onclick">
+<h3><code class="docutils literal notranslate"><span class="pre">button.onClick()</span></code><a class="headerlink" href="#button-onclick" title="Link to this heading">#</a></h3>
+</section>
+<section id="attackbot-ison">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot.isOn()</span></code><a class="headerlink" href="#attackbot-ison" title="Link to this heading">#</a></h3>
+</section>
+<section id="attackbot-isoff">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot.isOff()</span></code><a class="headerlink" href="#attackbot-isoff" title="Link to this heading">#</a></h3>
+</section>
+<section id="attackbot-setoff">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot.setOff()</span></code><a class="headerlink" href="#attackbot-setoff" title="Link to this heading">#</a></h3>
+</section>
+<section id="attackbot-seton">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot.setOn()</span></code><a class="headerlink" href="#attackbot-seton" title="Link to this heading">#</a></h3>
+</section>
+<section id="attackbot-getactiveprofile">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot.getActiveProfile()</span></code><a class="headerlink" href="#attackbot-getactiveprofile" title="Link to this heading">#</a></h3>
+</section>
+<section id="attackbot-setactiveprofile-n">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot.setActiveProfile(n)</span></code><a class="headerlink" href="#attackbot-setactiveprofile-n" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
+</ul>
+</section>
+<section id="attackbot-show">
+<h3><code class="docutils literal notranslate"><span class="pre">AttackBot.show()</span></code><a class="headerlink" href="#attackbot-show" title="Link to this heading">#</a></h3>
+</section>
+<section id="getpattern-category-pattern-safe">
+<h3><code class="docutils literal notranslate"><span class="pre">getPattern(category,</span> <span class="pre">pattern,</span> <span class="pre">safe)</span></code><a class="headerlink" href="#getpattern-category-pattern-safe" title="Link to this heading">#</a></h3>
+<p>otui covered, now support functions</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">category</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pattern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safe</span></code></p></li>
+</ul>
+</section>
+<section id="getmonstersinarea-category-posorcreature-pattern-minhp-maxhp-safepattern-monsternamestable">
+<h3><code class="docutils literal notranslate"><span class="pre">getMonstersInArea(category,</span> <span class="pre">posOrCreature,</span> <span class="pre">pattern,</span> <span class="pre">minHp,</span> <span class="pre">maxHp,</span> <span class="pre">safePattern,</span> <span class="pre">monsterNamesTable)</span></code><a class="headerlink" href="#getmonstersinarea-category-posorcreature-pattern-minhp-maxhp-safepattern-monsternamestable" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">category</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">posOrCreature</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pattern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minHp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxHp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safePattern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">monsterNamesTable</span></code></p></li>
+</ul>
+</section>
+<section id="getbesttilebypattern-pattern-minhp-maxhp-safepattern-monsternamestable">
+<h3><code class="docutils literal notranslate"><span class="pre">getBestTileByPattern(pattern,</span> <span class="pre">minHp,</span> <span class="pre">maxHp,</span> <span class="pre">safePattern,</span> <span class="pre">monsterNamesTable)</span></code><a class="headerlink" href="#getbesttilebypattern-pattern-minhp-maxhp-safepattern-monsternamestable" title="Link to this heading">#</a></h3>
+<p>for area runes only should return valid targets number (int) and position</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pattern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minHp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxHp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safePattern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">monsterNamesTable</span></code></p></li>
+</ul>
+<p><strong>Zwraca:</strong> valid targets number (int) and position</p>
+</section>
+<section id="executeattackbotaction-categoryorpos-idorformula-cooldown">
+<h3><code class="docutils literal notranslate"><span class="pre">executeAttackBotAction(categoryOrPos,</span> <span class="pre">idOrFormula,</span> <span class="pre">cooldown)</span></code><a class="headerlink" href="#executeattackbotaction-categoryorpos-idorformula-cooldown" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">categoryOrPos</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idOrFormula</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cooldown</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="figsave">
+<h3><code class="docutils literal notranslate"><span class="pre">figSave</span></code><a class="headerlink" href="#figsave" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">vBotConfigSave(&quot;atk&quot;)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">figSave</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">vBotConfigSave(&quot;atk&quot;)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">figSave</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">vBotConfigSave(&quot;atk&quot;)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">figSave</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">vBotConfigSave(&quot;atk&quot;)</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">figSave</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">vBotConfigSave(&quot;atk&quot;)</span></code></p>
+</section>
+<section id="umber">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#umber" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">n</span> <span class="pre">or</span> <span class="pre">not</span> <span class="pre">tonumber(n)</span> <span class="pre">or</span> <span class="pre">n</span> <span class="pre">&lt;</span> <span class="pre">1</span> <span class="pre">or</span> <span class="pre">n</span> <span class="pre">&gt;</span> <span class="pre">5</span> <span class="pre">then</span></code></p>
+</section>
+<section id="stersinarea">
+<h3><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code><a class="headerlink" href="#stersinarea" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">getMonstersInArea(category,</span> <span class="pre">posOrCreature,</span> <span class="pre">pattern,</span> <span class="pre">minHp,</span> <span class="pre">maxHp,</span> <span class="pre">safePattern,</span> <span class="pre">monsterNamesTable)</span></code></p>
+</section>
+<section id="ster">
+<h3><code class="docutils literal notranslate"><span class="pre">ster</span></code><a class="headerlink" href="#ster" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">monsters</span> <span class="pre">=</span> <span class="pre">spec:isMonster()</span> <span class="pre">and</span> <span class="pre">specHp</span> <span class="pre">&gt;=</span> <span class="pre">minHp</span> <span class="pre">and</span> <span class="pre">specHp</span> <span class="pre">&lt;=</span> <span class="pre">maxHp</span> <span class="pre">and</span> <span class="pre">(#t</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">table.find(t,</span> <span class="pre">name,</span> <span class="pre">true))</span> <span class="pre">and</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">ster</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">monsters</span> <span class="pre">=</span> <span class="pre">spec:isMonster()</span> <span class="pre">and</span> <span class="pre">specHp</span> <span class="pre">&gt;=</span> <span class="pre">minHp</span> <span class="pre">and</span> <span class="pre">specHp</span> <span class="pre">&lt;=</span> <span class="pre">maxHp</span> <span class="pre">and</span> <span class="pre">(#t</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">table.find(t,</span> <span class="pre">name))</span> <span class="pre">and</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">amount</span> <span class="pre">=</span> <span class="pre">getMonstersInArea(2,</span> <span class="pre">tPos,</span> <span class="pre">pattern,</span> <span class="pre">minHp,</span> <span class="pre">maxHp,</span> <span class="pre">safePattern,</span> <span class="pre">monsterNamesTable)</span></code></p>
+</section>
+<section id="active">
+<h3><code class="docutils literal notranslate"><span class="pre">Active</span></code><a class="headerlink" href="#active" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">#currentSettings.attackTable</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">isInPz()</span> <span class="pre">or</span> <span class="pre">not</span> <span class="pre">target()</span> <span class="pre">or</span> <span class="pre">modules.game_cooldown.isGroupCooldownIconActive(1)</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">monsterAmount</span> <span class="pre">=</span> <span class="pre">getMonstersInArea(entry.category,</span> <span class="pre">nil,</span> <span class="pre">nil,</span> <span class="pre">entry.minHp,</span> <span class="pre">entry.maxHp,</span> <span class="pre">false,</span> <span class="pre">entry.monsters)</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">monsterAmount</span> <span class="pre">=</span> <span class="pre">getMonstersInArea(entry.category,</span> <span class="pre">nil,</span> <span class="pre">nil,</span> <span class="pre">entry.minHp,</span> <span class="pre">entry.maxHp,</span> <span class="pre">false,</span> <span class="pre">entry.monsters)</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">monsterAmount</span> <span class="pre">=</span> <span class="pre">pCat</span> <span class="pre">~=</span> <span class="pre">8</span> <span class="pre">and</span> <span class="pre">getMonstersInArea(entry.category,</span> <span class="pre">anchorParam,</span> <span class="pre">spellPatterns[pCat][entry.pattern][1],</span> <span class="pre">entry.minHp,</span> <span class="pre">entry.maxHp,</span> <span class="pre">safe,</span> <span class="pre">entry.monsters)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attacktable"><code class="docutils literal notranslate"><span class="pre">attackTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">attackTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">attackTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">attackTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">attackTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot"><code class="docutils literal notranslate"><span class="pre">AttackBot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t"><code class="docutils literal notranslate"><span class="pre">t</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-title-onclick-widget"><code class="docutils literal notranslate"><span class="pre">ui.title.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-settings-onclick-widget"><code class="docutils literal notranslate"><span class="pre">ui.settings.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-onvisibilitychange-widget-visible"><code class="docutils literal notranslate"><span class="pre">mainWindow.onVisibilityChange(widget,</span> <span class="pre">visible)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#togglesettings"><code class="docutils literal notranslate"><span class="pre">toggleSettings()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-settings-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.settings.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggleitem"><code class="docutils literal notranslate"><span class="pre">toggleItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcategorytext"><code class="docutils literal notranslate"><span class="pre">setCategoryText()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setpatterntext"><code class="docutils literal notranslate"><span class="pre">setPatternText()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-previouscategory-onclick"><code class="docutils literal notranslate"><span class="pre">panel.previousCategory.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-nextcategory-onclick"><code class="docutils literal notranslate"><span class="pre">panel.nextCategory.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-previoussource-onclick"><code class="docutils literal notranslate"><span class="pre">panel.previousSource.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-nextsource-onclick"><code class="docutils literal notranslate"><span class="pre">panel.nextSource.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-previousrange-onclick"><code class="docutils literal notranslate"><span class="pre">panel.previousRange.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-nextrange-onclick"><code class="docutils literal notranslate"><span class="pre">panel.nextRange.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setupwidget-widget"><code class="docutils literal notranslate"><span class="pre">setupWidget(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-remove-onclick"><code class="docutils literal notranslate"><span class="pre">widget.remove.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-enabled-onclick"><code class="docutils literal notranslate"><span class="pre">widget.enabled.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-ondoubleclick-widget"><code class="docutils literal notranslate"><span class="pre">widget.onDoubleClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-onclick-widget"><code class="docutils literal notranslate"><span class="pre">widget.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refreshattacks"><code class="docutils literal notranslate"><span class="pre">refreshAttacks()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-addentry-onclick-wdiget"><code class="docutils literal notranslate"><span class="pre">panel.addEntry.onClick(wdiget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-up-onclick-widget"><code class="docutils literal notranslate"><span class="pre">panel.up.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-down-onclick-widget"><code class="docutils literal notranslate"><span class="pre">panel.down.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-profilename-ontextchange-widget-text"><code class="docutils literal notranslate"><span class="pre">settingsUI.profileName.onTextChange(widget,</span> <span class="pre">text)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-ignoremana-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.IgnoreMana.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-rotate-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.Rotate.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-kills-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.Kills.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-cooldown-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.Cooldown.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-visible-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.Visible.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-pvpmode-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.PvpMode.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-pvpsafe-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.PvpSafe.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-training-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.Training.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-blacklistsafe-onclick-widget"><code class="docutils literal notranslate"><span class="pre">settingsUI.BlackListSafe.onClick(widget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-killsamount-onvaluechange-widget-value"><code class="docutils literal notranslate"><span class="pre">settingsUI.KillsAmount.onValueChange(widget,</span> <span class="pre">value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settingsui-antirsrange-onvaluechange-widget-value"><code class="docutils literal notranslate"><span class="pre">settingsUI.AntiRsRange.onValueChange(widget,</span> <span class="pre">value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mainwindow-closebutton-onclick"><code class="docutils literal notranslate"><span class="pre">mainWindow.closeButton.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resetfields"><code class="docutils literal notranslate"><span class="pre">resetFields()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadsettings"><code class="docutils literal notranslate"><span class="pre">loadSettings()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#button-onclick"><code class="docutils literal notranslate"><span class="pre">button.onClick()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot-ison"><code class="docutils literal notranslate"><span class="pre">AttackBot.isOn()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot-isoff"><code class="docutils literal notranslate"><span class="pre">AttackBot.isOff()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot-setoff"><code class="docutils literal notranslate"><span class="pre">AttackBot.setOff()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot-seton"><code class="docutils literal notranslate"><span class="pre">AttackBot.setOn()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot-getactiveprofile"><code class="docutils literal notranslate"><span class="pre">AttackBot.getActiveProfile()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot-setactiveprofile-n"><code class="docutils literal notranslate"><span class="pre">AttackBot.setActiveProfile(n)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attackbot-show"><code class="docutils literal notranslate"><span class="pre">AttackBot.show()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getpattern-category-pattern-safe"><code class="docutils literal notranslate"><span class="pre">getPattern(category,</span> <span class="pre">pattern,</span> <span class="pre">safe)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getmonstersinarea-category-posorcreature-pattern-minhp-maxhp-safepattern-monsternamestable"><code class="docutils literal notranslate"><span class="pre">getMonstersInArea(category,</span> <span class="pre">posOrCreature,</span> <span class="pre">pattern,</span> <span class="pre">minHp,</span> <span class="pre">maxHp,</span> <span class="pre">safePattern,</span> <span class="pre">monsterNamesTable)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getbesttilebypattern-pattern-minhp-maxhp-safepattern-monsternamestable"><code class="docutils literal notranslate"><span class="pre">getBestTileByPattern(pattern,</span> <span class="pre">minHp,</span> <span class="pre">maxHp,</span> <span class="pre">safePattern,</span> <span class="pre">monsterNamesTable)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executeattackbotaction-categoryorpos-idorformula-cooldown"><code class="docutils literal notranslate"><span class="pre">executeAttackBotAction(categoryOrPos,</span> <span class="pre">idOrFormula,</span> <span class="pre">cooldown)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figsave"><code class="docutils literal notranslate"><span class="pre">figSave</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">figSave</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">figSave</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">figSave</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">figSave</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umber"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stersinarea"><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ster"><code class="docutils literal notranslate"><span class="pre">ster</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">ster</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#active"><code class="docutils literal notranslate"><span class="pre">Active</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">stersInArea</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../../../_sources/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/AttackBot.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

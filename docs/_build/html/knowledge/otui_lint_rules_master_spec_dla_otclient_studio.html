@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OTUI Lint Rules (MASTER) – Specyfikacja dla OTClient Studio &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/otui_lint_rules_master_spec_dla_otclient_studio';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">OTUI Lint Rules (MASTER) – Specyfikacja dla <strong>OTClient Studio</strong></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="otui-lint-rules-master-specyfikacja-dla-otclient-studio">
+<h1>OTUI Lint Rules (MASTER) – Specyfikacja dla <strong>OTClient Studio</strong><a class="headerlink" href="#otui-lint-rules-master-specyfikacja-dla-otclient-studio" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Cel: kompletny katalog reguł lint/auto‑fix dla <strong>OTUI/OTML</strong> używany przez Studio. Dokument definiuje: zachowania reguł, algorytmy auto‑fix, format diagnostyk, konfigurację, test‑wektory, integrację z edytorem i wymagania jakościowe. <strong>Transfer 1:1</strong> – gotowe do bezpośredniej implementacji.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="zalozenia-wspolne">
+<h1>0) Założenia wspólne<a class="headerlink" href="#zalozenia-wspolne" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Parser/AST</strong>: zgodnie z dokumentem „Parser &amp; Schemas: AST + JSON Schema (OTClient Studio)” (§ OTUI AST). Każdy węzeł posiada <code class="docutils literal notranslate"><span class="pre">loc</span></code> (<code class="docutils literal notranslate"><span class="pre">file</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>).</p></li>
+<li><p><strong>Kategoryzacja atrybutów</strong>: <code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code>, <code class="docutils literal notranslate"><span class="pre">STYLE</span></code>, <code class="docutils literal notranslate"><span class="pre">BEHAVIOR</span></code> (lista bazowa w §1.3 tego dokumentu; rozszerzalna).</p></li>
+<li><p><strong>Deterministyczność</strong>: wyniki lint i auto‑fix są deterministyczne (stabilny sort atrybutów, niezmienność białych znaków poza miejscem naprawy).</p></li>
+<li><p><strong>Backup i diff</strong>: przy auto‑fix zapisywany jest plik <code class="docutils literal notranslate"><span class="pre">.bak</span></code> oraz generowany jest diff (Unified) do podglądu w UI.</p></li>
+<li><p><strong>Format diagnostyk</strong> (kanał do edytora):</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTUI-001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR|WARN|INFO|HINT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;opis problemu&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fix&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;opis auto-fix&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;edits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;range&quot;</span><span class="p">:{</span><span class="nt">&quot;start&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">},</span><span class="nt">&quot;end&quot;</span><span class="p">:{</span><span class="err">...</span><span class="p">}},</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">}]},</span>
+<span class="w">  </span><span class="nt">&quot;loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;start&quot;</span><span class="p">:{</span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="err">...</span><span class="p">},</span><span class="nt">&quot;end&quot;</span><span class="p">:{</span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="err">...</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;GEOMETRY|STYLE|BEHAVIOR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;widget&quot;</span><span class="p">:</span><span class="s2">&quot;MainWindow&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;width&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="katalog-regul-z-autofix-tam-gdzie-bezpieczny">
+<h1>1) Katalog reguł (z auto‑fix tam, gdzie bezpieczny)<a class="headerlink" href="#katalog-regul-z-autofix-tam-gdzie-bezpieczny" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p><strong>Legenda pól:</strong> <code class="docutils literal notranslate"><span class="pre">Opis</span></code>, <code class="docutils literal notranslate"><span class="pre">Wykrywanie</span></code>, <code class="docutils literal notranslate"><span class="pre">Auto‑fix</span></code>, <code class="docutils literal notranslate"><span class="pre">Przykład</span> <span class="pre">(before/after)</span></code>, <code class="docutils literal notranslate"><span class="pre">Severity</span></code>, <code class="docutils literal notranslate"><span class="pre">Bezpieczeństwo</span></code>, <code class="docutils literal notranslate"><span class="pre">Konfiguracja</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="otui001-kolejnosc-pol-geometria-styl-zachowanie-autofix">
+<h1>OTUI‑001 — Kolejność pól: GEOMETRIA → STYL → ZACHOWANIE (<strong>auto‑fix</strong>)<a class="headerlink" href="#otui001-kolejnosc-pol-geometria-styl-zachowanie-autofix" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: w obrębie każdego bloku deklaracji widżetu atrybuty muszą być uporządkowane wg kategorii.</p></li>
+<li><p><strong>Wykrywanie</strong>: przeanalizuj listę <code class="docutils literal notranslate"><span class="pre">KV</span></code> w <code class="docutils literal notranslate"><span class="pre">Decl.body</span></code>; jeśli sekwencja kategorii zawiera inwersje (np. <code class="docutils literal notranslate"><span class="pre">STYLE</span></code> przed <code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code>), zgłoś problem.</p></li>
+<li><p><strong>Auto‑fix</strong>: stabilne sortowanie kluczy: najpierw wszystkie <code class="docutils literal notranslate"><span class="pre">GEOMETRY</span></code>, potem <code class="docutils literal notranslate"><span class="pre">STYLE</span></code>, potem <code class="docutils literal notranslate"><span class="pre">BEHAVIOR</span></code>. Zachowaj względną kolejność wewnątrz kategorii i przenieś komentarze razem z parą <code class="docutils literal notranslate"><span class="pre">KV</span></code>.</p></li>
+<li><p><strong>Przykład</strong></p></li>
+</ul>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span># BEFORE
+Window &lt; UIWidget {
+  text: &quot;Hello&quot;
+  width: 300
+  id: main
+}
+# AFTER
+Window &lt; UIWidget {
+  width: 300        # GEOMETRY
+  text: &quot;Hello&quot;    # STYLE
+  id: main          # BEHAVIOR
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Severity</strong>: WARN (podniesienie do ERROR konfigurowalne).</p></li>
+<li><p><strong>Bezpieczeństwo</strong>: bezpieczny auto‑fix.</p></li>
+<li><p><strong>Konfiguracja</strong>:</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;OTUI-001&quot;</span><span class="p">:{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="s2">&quot;WARN&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</section>
+<section id="otui002-statyczne-teksty-musza-uzywac-tr-autofix">
+<h1>OTUI‑002 — Statyczne teksty muszą używać <code class="docutils literal notranslate"><span class="pre">tr()</span></code> (<strong>auto‑fix</strong>)<a class="headerlink" href="#otui002-statyczne-teksty-musza-uzywac-tr-autofix" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: literały string w atrybutach kategorii STYLE (np. <code class="docutils literal notranslate"><span class="pre">text</span></code>) muszą być opakowane <code class="docutils literal notranslate"><span class="pre">tr(&quot;...&quot;)</span></code>.</p></li>
+<li><p><strong>Wykrywanie</strong>: <code class="docutils literal notranslate"><span class="pre">KV.key</span></code> ∈ STYLE ∧ <code class="docutils literal notranslate"><span class="pre">value.type</span> <span class="pre">==</span> <span class="pre">StringLiteral</span></code> ∧ <code class="docutils literal notranslate"><span class="pre">value.value</span></code> nie zaczyna się od <code class="docutils literal notranslate"><span class="pre">tr(</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: zamień <code class="docutils literal notranslate"><span class="pre">&quot;Tekst&quot;</span></code> → <code class="docutils literal notranslate"><span class="pre">tr(&quot;Tekst&quot;)</span></code>. Wyklucz klucze <code class="docutils literal notranslate"><span class="pre">id</span></code>, nazwy klas/stylów.</p></li>
+<li><p><strong>Przykład</strong></p></li>
+</ul>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span># BEFORE
+Label &lt; UIWidget { text: &quot;Start&quot; }
+# AFTER
+Label &lt; UIWidget { text: tr(&quot;Start&quot;) }
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Severity</strong>: WARN.</p></li>
+<li><p><strong>Bezpieczeństwo</strong>: bezpieczny auto‑fix.</p></li>
+<li><p><strong>Konfiguracja</strong>: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;OTUI-002&quot;:</span> <span class="pre">{&quot;enabled&quot;:</span> <span class="pre">true,</span> <span class="pre">&quot;severity&quot;:</span> <span class="pre">&quot;WARN&quot;,</span> <span class="pre">&quot;allowList&quot;:</span> <span class="pre">[&quot;tooltip&quot;]</span> <span class="pre">}</span> <span class="pre">}</span></code></p></li>
+</ul>
+</section>
+<section id="otui003-sprzeczne-anchors-margins-detekcja">
+<h1>OTUI‑003 — Sprzeczne <code class="docutils literal notranslate"><span class="pre">anchors</span></code> / <code class="docutils literal notranslate"><span class="pre">margins</span></code> (detekcja)<a class="headerlink" href="#otui003-sprzeczne-anchors-margins-detekcja" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: wykrywa sprzeczności (np. jednoczesne kotwice wykluczające się lub ujemne marginesy tam, gdzie to niedozwolone w projekcie).</p></li>
+<li><p><strong>Wykrywanie</strong>: analizuj wartości <code class="docutils literal notranslate"><span class="pre">anchors</span></code> (obiekt/array) i <code class="docutils literal notranslate"><span class="pre">margin/…</span></code>; reguły domenowe: brak <code class="docutils literal notranslate"><span class="pre">left</span></code>+<code class="docutils literal notranslate"><span class="pre">right</span></code> bez <code class="docutils literal notranslate"><span class="pre">width</span></code> (jeśli projekt tak definiuje), brak ujemnych <code class="docutils literal notranslate"><span class="pre">margin</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: brak (tylko sugestie: usuń <code class="docutils literal notranslate"><span class="pre">right</span></code> lub dodaj <code class="docutils literal notranslate"><span class="pre">width</span></code>).</p></li>
+<li><p><strong>Severity</strong>: ERROR (domyślnie).</p></li>
+<li><p><strong>Bezpieczeństwo</strong>: brak auto‑fixu.</p></li>
+</ul>
+</section>
+<section id="otui004-zasob-nie-istnieje-style-image-font-style">
+<h1>OTUI‑004 — Zasób nie istnieje (STYLE → <code class="docutils literal notranslate"><span class="pre">image</span></code>, <code class="docutils literal notranslate"><span class="pre">font</span></code>, <code class="docutils literal notranslate"><span class="pre">style</span></code>)<a class="headerlink" href="#otui004-zasob-nie-istnieje-style-image-font-style" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: odwołanie do pliku zasobu, którego nie ma w projekcie.</p></li>
+<li><p><strong>Wykrywanie</strong>: sprawdź ścieżki względem <code class="docutils literal notranslate"><span class="pre">project-root/data/…</span></code> lub mapy zasobów (<code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code>).</p></li>
+<li><p><strong>Auto‑fix</strong>: brak; podaj propozycje (fuzzy match) najbliższych nazw.</p></li>
+<li><p><strong>Severity</strong>: ERROR.</p></li>
+</ul>
+</section>
+<section id="otui005-zduplikowane-id-w-obrebie-pliku">
+<h1>OTUI‑005 — Zduplikowane <code class="docutils literal notranslate"><span class="pre">id</span></code> w obrębie pliku<a class="headerlink" href="#otui005-zduplikowane-id-w-obrebie-pliku" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: <code class="docutils literal notranslate"><span class="pre">KV.key</span> <span class="pre">==</span> <span class="pre">id</span></code> nie może wystąpić wielokrotnie z tą samą wartością w pliku.</p></li>
+<li><p><strong>Wykrywanie</strong>: deduplikacja w <code class="docutils literal notranslate"><span class="pre">OTUIFile.body</span></code> (poziom pliku).</p></li>
+<li><p><strong>Auto‑fix</strong>: brak; zaproponuj nowe <code class="docutils literal notranslate"><span class="pre">id</span></code> (<code class="docutils literal notranslate"><span class="pre">&lt;id&gt;_1</span></code>).</p></li>
+<li><p><strong>Severity</strong>: ERROR.</p></li>
+</ul>
+</section>
+<section id="otui006-konwencja-nazewnictwa-id">
+<h1>OTUI‑006 — Konwencja nazewnictwa <code class="docutils literal notranslate"><span class="pre">id</span></code><a class="headerlink" href="#otui006-konwencja-nazewnictwa-id" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: <code class="docutils literal notranslate"><span class="pre">id</span></code> dopuszcza <code class="docutils literal notranslate"><span class="pre">[a-z0-9_]+</span></code> (konfigurowalne).</p></li>
+<li><p><strong>Wykrywanie</strong>: regex na <code class="docutils literal notranslate"><span class="pre">Identifier|StringLiteral</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: opcjonalna transformacja do lower_snake_case (jeśli włączona).</p></li>
+<li><p><strong>Severity</strong>: WARN.</p></li>
+</ul>
+</section>
+<section id="otui007-nieznany-atrybut-widzetu">
+<h1>OTUI‑007 — Nieznany atrybut widżetu<a class="headerlink" href="#otui007-nieznany-atrybut-widzetu" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: klucz <code class="docutils literal notranslate"><span class="pre">KV.key</span></code> nie znajduje się w dozwolonych dla danego widżetu (lista referencyjna + allow‑list projektu).</p></li>
+<li><p><strong>Wykrywanie</strong>: porównanie do bazy atrybutów; jeśli brak dopasowania → problem.</p></li>
+<li><p><strong>Auto‑fix</strong>: brak; podpowiedź najbliższych kluczy (Levenshtein).</p></li>
+<li><p><strong>Severity</strong>: WARN.</p></li>
+</ul>
+</section>
+<section id="otui008-atrybut-przestarzaly-deprecated">
+<h1>OTUI‑008 — Atrybut przestarzały (deprecated)<a class="headerlink" href="#otui008-atrybut-przestarzaly-deprecated" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: użycie atrybutu oznaczonego jako przestarzały w profilu projektu.</p></li>
+<li><p><strong>Wykrywanie</strong>: dopasowanie do listy <code class="docutils literal notranslate"><span class="pre">deprecatedAttributes</span></code> (konfiguracja).</p></li>
+<li><p><strong>Auto‑fix</strong>: propozycja zamiennika (jeśli podany w konfiguracji).</p></li>
+<li><p><strong>Severity</strong>: WARN.</p></li>
+</ul>
+</section>
+<section id="otui009-normalizacja-booleanow">
+<h1>OTUI‑009 — Normalizacja booleanów<a class="headerlink" href="#otui009-normalizacja-booleanow" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: wartości bool powinny być <code class="docutils literal notranslate"><span class="pre">true|false</span></code> (nie <code class="docutils literal notranslate"><span class="pre">0|1|&quot;true&quot;</span></code>).</p></li>
+<li><p><strong>Wykrywanie</strong>: <code class="docutils literal notranslate"><span class="pre">value</span></code> typu <code class="docutils literal notranslate"><span class="pre">Identifier/StringLiteral/NumberLiteral</span></code> odwzorowuje bool.</p></li>
+<li><p><strong>Auto‑fix</strong>: zamień na <code class="docutils literal notranslate"><span class="pre">true/false</span></code>.</p></li>
+<li><p><strong>Severity</strong>: HINT.</p></li>
+</ul>
+</section>
+<section id="otui010-format-kolorow">
+<h1>OTUI‑010 — Format kolorów<a class="headerlink" href="#otui010-format-kolorow" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: akceptowane formaty kolorów wg projektu (np. <code class="docutils literal notranslate"><span class="pre">#RRGGBB</span></code>, <code class="docutils literal notranslate"><span class="pre">rgba(...)</span></code>).</p></li>
+<li><p><strong>Wykrywanie</strong>: regex na <code class="docutils literal notranslate"><span class="pre">StringLiteral</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: konwersja do kanonicznego formatu (jeśli możliwa).</p></li>
+<li><p><strong>Severity</strong>: WARN.</p></li>
+</ul>
+</section>
+<section id="otui011-jednostki-wymiarow-liczb">
+<h1>OTUI‑011 — Jednostki wymiarów/liczb<a class="headerlink" href="#otui011-jednostki-wymiarow-liczb" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: liczby powinny być bez jednostek (lub z konkretną notacją – zależnie od projektu).</p></li>
+<li><p><strong>Wykrywanie</strong>: <code class="docutils literal notranslate"><span class="pre">NumberLiteral</span></code> OK; <code class="docutils literal notranslate"><span class="pre">StringLiteral</span></code> z sufiksem jednostki → problem (opcjonalnie).</p></li>
+<li><p><strong>Auto‑fix</strong>: usunięcie sufiksu, jeśli włączone.</p></li>
+<li><p><strong>Severity</strong>: HINT/WARN.</p></li>
+</ul>
+</section>
+<section id="otui012-cykl-dziedziczenia-widzetow">
+<h1>OTUI‑012 — Cykl dziedziczenia widżetów<a class="headerlink" href="#otui012-cykl-dziedziczenia-widzetow" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: <code class="docutils literal notranslate"><span class="pre">Decl.base</span></code> tworzy cykl (A &lt; B, B &lt; C, C &lt; A).</p></li>
+<li><p><strong>Wykrywanie</strong>: graf dziedziczenia per plik (lub cały projekt); detekcja cykli.</p></li>
+<li><p><strong>Auto‑fix</strong>: brak; raport ścieżki cyklu.</p></li>
+<li><p><strong>Severity</strong>: ERROR.</p></li>
+</ul>
+</section>
+<section id="otui013-puste-deklaracje">
+<h1>OTUI‑013 — Puste deklaracje<a class="headerlink" href="#otui013-puste-deklaracje" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: <code class="docutils literal notranslate"><span class="pre">Decl</span></code> bez atrybutów i potomków.</p></li>
+<li><p><strong>Wykrywanie</strong>: <code class="docutils literal notranslate"><span class="pre">Decl.body.length</span> <span class="pre">==</span> <span class="pre">0</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: usuń pusty blok (opcjonalnie, jeśli nie referencjonowany).</p></li>
+<li><p><strong>Severity</strong>: INFO.</p></li>
+</ul>
+</section>
+<section id="otui014-niezreferencjonowany-widzet-analiza-projektowa">
+<h1>OTUI‑014 — Niezreferencjonowany widżet (analiza projektowa)<a class="headerlink" href="#otui014-niezreferencjonowany-widzet-analiza-projektowa" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: <code class="docutils literal notranslate"><span class="pre">Decl</span></code> nigdy nie ładowany przez <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI</span></code> ani dziedziczony.</p></li>
+<li><p><strong>Wykrywanie</strong>: korelacja z <code class="docutils literal notranslate"><span class="pre">project-index.json.relations.lua_to_otui</span></code> i bazą typów.</p></li>
+<li><p><strong>Auto‑fix</strong>: brak; informacja do porządków.</p></li>
+<li><p><strong>Severity</strong>: INFO.</p></li>
+</ul>
+</section>
+<section id="otui015-odnosnik-do-stylu-nie-istnieje">
+<h1>OTUI‑015 — Odnośnik do stylu nie istnieje<a class="headerlink" href="#otui015-odnosnik-do-stylu-nie-istnieje" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: <code class="docutils literal notranslate"><span class="pre">style:</span> <span class="pre">&quot;…&quot;</span></code> nie znajduje się w katalogu stylów projektu.</p></li>
+<li><p><strong>Wykrywanie</strong>: porównanie do listy stylów (assets‑map lub dedykowana baza stylów).</p></li>
+<li><p><strong>Auto‑fix</strong>: brak; fuzzy proposals.</p></li>
+<li><p><strong>Severity</strong>: WARN.</p></li>
+</ul>
+</section>
+<section id="otui016-event-handler-w-kluczu-on-ma-niekanoniczna-wartosc">
+<h1>OTUI‑016 — Event handler w kluczu <code class="docutils literal notranslate"><span class="pre">on...</span></code> ma niekanoniczną wartość<a class="headerlink" href="#otui016-event-handler-w-kluczu-on-ma-niekanoniczna-wartosc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: wartości eventów powinny być identyfikatorami (nie stringami) — zależnie od konwencji projektu.</p></li>
+<li><p><strong>Wykrywanie</strong>: <code class="docutils literal notranslate"><span class="pre">key</span></code> zaczyna się od <code class="docutils literal notranslate"><span class="pre">on</span></code> + wielka litera; <code class="docutils literal notranslate"><span class="pre">value.type</span> <span class="pre">!=</span> <span class="pre">Identifier</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: usuń cudzysłowy (opcjonalnie).</p></li>
+<li><p><strong>Severity</strong>: HINT/WARN.</p></li>
+</ul>
+</section>
+<section id="otui017-atrybuty-powielone-w-obrebie-tego-samego-decl">
+<h1>OTUI‑017 — Atrybuty powielone w obrębie tego samego <code class="docutils literal notranslate"><span class="pre">Decl</span></code><a class="headerlink" href="#otui017-atrybuty-powielone-w-obrebie-tego-samego-decl" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: ten sam <code class="docutils literal notranslate"><span class="pre">key</span></code> występuje wielokrotnie – ostatni wygrywa (nieczytelne).</p></li>
+<li><p><strong>Wykrywanie</strong>: duplikaty <code class="docutils literal notranslate"><span class="pre">KV.key</span></code> w <code class="docutils literal notranslate"><span class="pre">Decl.body</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: scal albo usuń duplikaty (zachowaj ostatni) — <strong>opcjonalne</strong>.</p></li>
+<li><p><strong>Severity</strong>: WARN.</p></li>
+</ul>
+</section>
+<section id="otui018-biale-znaki-i-wciecia-2-spacje">
+<h1>OTUI‑018 — Białe znaki i wcięcia (2 spacje)<a class="headerlink" href="#otui018-biale-znaki-i-wciecia-2-spacje" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: standaryzacja wcięć i trailing spaces.</p></li>
+<li><p><strong>Wykrywanie</strong>: tokenizer whitespace; linie z tabami/końcówkami spacji.</p></li>
+<li><p><strong>Auto‑fix</strong>: konwersja TAB→2 spacje, trim końcówek.</p></li>
+<li><p><strong>Severity</strong>: HINT.</p></li>
+</ul>
+</section>
+<section id="otui019-komentarze-format">
+<h1>OTUI‑019 — Komentarze (#) format<a class="headerlink" href="#otui019-komentarze-format" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: komentarz powinien poprzedzać deklarację lub stać po wartości (a nie w środku tokena).</p></li>
+<li><p><strong>Wykrywanie</strong>: pozycje <code class="docutils literal notranslate"><span class="pre">Comment</span></code> vs <code class="docutils literal notranslate"><span class="pre">KV</span></code>/<code class="docutils literal notranslate"><span class="pre">Decl</span></code>.</p></li>
+<li><p><strong>Auto‑fix</strong>: przenieś komentarz do poprawnej pozycji (jeśli możliwe).</p></li>
+<li><p><strong>Severity</strong>: HINT.</p></li>
+</ul>
+</section>
+<section id="otui020-klucze-nieobslugiwane-przez-dany-typ-bazowy">
+<h1>OTUI‑020 — Klucze nieobsługiwane przez dany typ bazowy<a class="headerlink" href="#otui020-klucze-nieobslugiwane-przez-dany-typ-bazowy" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Opis</strong>: atrybut zarezerwowany dla innego typu (np. <code class="docutils literal notranslate"><span class="pre">icon</span></code> na widżecie, który go nie wspiera — wg bazy projektu).</p></li>
+<li><p><strong>Wykrywanie</strong>: mapowanie <code class="docutils literal notranslate"><span class="pre">Type</span></code>→dozwolone atrybuty.</p></li>
+<li><p><strong>Auto‑fix</strong>: brak.</p></li>
+<li><p><strong>Severity</strong>: WARN.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="mapowanie-kategorii-atrybutow-bazowa-lista-rozszerzalna">
+<h1>2) Mapowanie kategorii atrybutów (bazowa lista rozszerzalna)<a class="headerlink" href="#mapowanie-kategorii-atrybutow-bazowa-lista-rozszerzalna" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>GEOMETRY</strong>: <code class="docutils literal notranslate"><span class="pre">x,y,width,height,anchors,margin,padding,min-width,max-width,min-height,max-height</span></code></p></li>
+<li><p><strong>STYLE</strong>: <code class="docutils literal notranslate"><span class="pre">font,color,image,style,opacity,icon,background,spacing,text</span></code></p></li>
+<li><p><strong>BEHAVIOR</strong>: <code class="docutils literal notranslate"><span class="pre">id,focusable,draggable,enabled,visible,onClick,onText,tooltip</span></code></p></li>
+</ul>
+<blockquote>
+<div><p>Lista jest punktem startowym; może zostać poszerzona w <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code>.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="integracja-z-edytorem-monaco-diagnostyka-i-quick-fix">
+<h1>3) Integracja z edytorem (Monaco) – diagnostyka i Quick Fix<a class="headerlink" href="#integracja-z-edytorem-monaco-diagnostyka-i-quick-fix" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Publish diagnostyk</strong>: na każdy zapis i/lub po krótkim debounce (150 ms) po zmianie.</p></li>
+<li><p><strong>Format</strong>: jak w §0; severity mapowane na kolor/ikonę.</p></li>
+<li><p><strong>Quick Fix</strong>: prezentuj <code class="docutils literal notranslate"><span class="pre">fix.title</span></code>; po akceptacji wykonaj <code class="docutils literal notranslate"><span class="pre">edits[]</span></code> (wspieraj multi‑file).</p></li>
+<li><p><strong>Podgląd diff</strong>: dla auto‑fixów wymagających większej zmiany (OTUI‑001) pokaż unified diff.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="konfiguracja-regul-json">
+<h1>4) Konfiguracja reguł (JSON)<a class="headerlink" href="#konfiguracja-regul-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-001&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-002&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;allowList&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;tooltip&quot;</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-003&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-004&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;assetsRoot&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data/&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-005&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-006&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^[a-z0-9_]+$&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;autoTransform&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-007&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;customAttribute&quot;</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-008&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;oldAttr&quot;</span><span class="p">:</span><span class="s2">&quot;newAttr&quot;</span><span class="p">}},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-009&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HINT&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-010&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#RRGGBB&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-011&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HINT&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-012&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-013&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;removeEmpty&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-014&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-015&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-016&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HINT&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-017&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;removeDuplicates&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-018&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HINT&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-019&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HINT&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OTUI-020&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARN&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="algorytmy-autofix-pseudokod-ts">
+<h1>5) Algorytmy auto‑fix (pseudokod TS)<a class="headerlink" href="#algorytmy-autofix-pseudokod-ts" title="Link to this heading">#</a></h1>
+</section>
+<section id="otui001-sort-kategorii">
+<h1>5.1 OTUI‑001 (sort kategorii)<a class="headerlink" href="#otui001-sort-kategorii" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">fixOrder</span><span class="p">(</span><span class="nx">decl</span><span class="o">:</span><span class="w"> </span><span class="kt">Decl</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Edit</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">G</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">KV</span><span class="p">[],</span><span class="w"> </span><span class="nx">S</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">KV</span><span class="p">[],</span><span class="w"> </span><span class="nx">B</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">KV</span><span class="p">[]};</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">kv</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">decl</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">isKV</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">categorize</span><span class="p">(</span><span class="nx">kv</span><span class="p">.</span><span class="nx">key</span><span class="p">);</span><span class="w"> </span><span class="c1">// GEOMETRY|STYLE|BEHAVIOR</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cat</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;GEOMETRY&#39;</span><span class="p">)</span><span class="w"> </span><span class="nx">groups</span><span class="p">.</span><span class="nx">G</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">kv</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cat</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;STYLE&#39;</span><span class="p">)</span><span class="w"> </span><span class="nx">groups</span><span class="p">.</span><span class="nx">S</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">kv</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nx">groups</span><span class="p">.</span><span class="nx">B</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">kv</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sorted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">groups</span><span class="p">.</span><span class="nx">G</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">groups</span><span class="p">.</span><span class="nx">S</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">groups</span><span class="p">.</span><span class="nx">B</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sameOrder</span><span class="p">(</span><span class="nx">decl</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">sorted</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">renderKVWithComments</span><span class="p">(</span><span class="nx">sorted</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">decl.loc.file</span><span class="p">,</span><span class="w"> </span><span class="nx">range</span><span class="o">:</span><span class="w"> </span><span class="kt">rangeOfKVBlock</span><span class="p">(</span><span class="nx">decl</span><span class="p">),</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="p">}];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="otui002-wrap-tr">
+<h1>5.2 OTUI‑002 (wrap <code class="docutils literal notranslate"><span class="pre">tr()</span></code>)<a class="headerlink" href="#otui002-wrap-tr" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">wrapTr</span><span class="p">(</span><span class="nx">kv</span><span class="o">:</span><span class="w"> </span><span class="kt">KV</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Edit</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">kv</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="kr">type</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;StringLiteral&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">kv</span><span class="p">.</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">kv.loc.file</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">range</span><span class="o">:</span><span class="w"> </span><span class="kt">kv.value.loc</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="sb">`tr(</span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">kv</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="si">}</span><span class="sb">)`</span>
+<span class="w">  </span><span class="p">}];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="otui009-booleany">
+<h1>5.3 OTUI‑009 (booleany)<a class="headerlink" href="#otui009-booleany" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">normalizeBool</span><span class="p">(</span><span class="nx">kv</span><span class="o">:</span><span class="w"> </span><span class="kt">KV</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Edit</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kv</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">toBool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">/^</span><span class="p">(</span><span class="nx">?</span><span class="o">:</span><span class="kt">true</span><span class="o">|</span><span class="mf">1</span><span class="p">)</span><span class="nx">$</span><span class="o">/</span><span class="nx">i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="kr">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;StringLiteral&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[{</span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">kv.loc.file</span><span class="p">,</span><span class="w"> </span><span class="nx">range</span><span class="o">:</span><span class="w"> </span><span class="kt">val.loc</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">toBool</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;false&#39;</span><span class="p">}];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="kr">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;NumberLiteral&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[{</span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">kv.loc.file</span><span class="p">,</span><span class="w"> </span><span class="nx">range</span><span class="o">:</span><span class="w"> </span><span class="kt">val.loc</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">val.value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;false&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">}];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="kr">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Identifier&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="sr">/^(true|false)$/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[{</span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">kv.loc.file</span><span class="p">,</span><span class="w"> </span><span class="nx">range</span><span class="o">:</span><span class="w"> </span><span class="kt">val.loc</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">toBool</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;false&#39;</span><span class="p">}];</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="testwektory-minimalny-zestaw-regresji">
+<h1>6) Test‑wektory (minimalny zestaw regresji)<a class="headerlink" href="#testwektory-minimalny-zestaw-regresji" title="Link to this heading">#</a></h1>
+</section>
+<section id="kolejnosc-pol">
+<h1>6.1 Kolejność pól<a class="headerlink" href="#kolejnosc-pol" title="Link to this heading">#</a></h1>
+<p><strong>Wejście</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>W &lt; UIWidget { text: &quot;x&quot; width: 1 id: a }
+</pre></div>
+</div>
+<p><strong>Oczekiwane</strong>: pojedyncza diagnostyka <code class="docutils literal notranslate"><span class="pre">OTUI-001</span></code> + auto‑fix sortujący.</p>
+</section>
+<section id="tr-wrap">
+<h1>6.2 <code class="docutils literal notranslate"><span class="pre">tr()</span></code> wrap<a class="headerlink" href="#tr-wrap" title="Link to this heading">#</a></h1>
+<p><strong>Wejście</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>L &lt; UIWidget { text: &quot;Start&quot; id: start }
+</pre></div>
+</div>
+<p><strong>Oczekiwane</strong>: <code class="docutils literal notranslate"><span class="pre">OTUI-002</span></code> z auto‑fix → <code class="docutils literal notranslate"><span class="pre">text:</span> <span class="pre">tr(&quot;Start&quot;)</span></code>.</p>
+</section>
+<section id="zasob-nie-istnieje">
+<h1>6.3 Zasób nie istnieje<a class="headerlink" href="#zasob-nie-istnieje" title="Link to this heading">#</a></h1>
+<p><strong>Wejście</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>B &lt; UIWidget { image: &quot;images/missing.png&quot; }
+</pre></div>
+</div>
+<p><strong>Oczekiwane</strong>: <code class="docutils literal notranslate"><span class="pre">OTUI-004</span></code> (ERROR), propozycje fuzzy jeśli <code class="docutils literal notranslate"><span class="pre">images/button.png</span></code> istnieje.</p>
+</section>
+<section id="duplikat-id">
+<h1>6.4 Duplikat <code class="docutils literal notranslate"><span class="pre">id</span></code><a class="headerlink" href="#duplikat-id" title="Link to this heading">#</a></h1>
+<p><strong>Wejście</strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>A &lt; UIWidget { id: x }
+B &lt; UIWidget { id: x }
+</pre></div>
+</div>
+<p><strong>Oczekiwane</strong>: <code class="docutils literal notranslate"><span class="pre">OTUI-005</span></code> na drugim wystąpieniu.</p>
+</section>
+<hr class="docutils" />
+<section id="kody-bledow-parsera-enginu-dla-otui">
+<h1>7) Kody błędów parsera/enginu (dla OTUI)<a class="headerlink" href="#kody-bledow-parsera-enginu-dla-otui" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OTUI_PARSE_001</span></code> – niezamknięty blok <code class="docutils literal notranslate"><span class="pre">{</span></code> (ParseError)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTUI_PARSE_002</span></code> – nieznany token/literał → potraktowano jako <code class="docutils literal notranslate"><span class="pre">Identifier</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTUI_ENGINE_001</span></code> – nieprawidłowa kategoria atrybutu (brak w mapie)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OTUI_ENGINE_100</span></code> – błąd I/O przy sprawdzaniu zasobów</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="wydajnosc-i-limity">
+<h1>8) Wydajność i limity<a class="headerlink" href="#wydajnosc-i-limity" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Reguły jednoprzebiegowe; jedna analiza AST/plik.</p></li>
+<li><p>Sprawdzenie zasobów buforowane (cache ścieżek → hash katalogów assets).</p></li>
+<li><p>Cały lint dla pliku &lt; 50 ms (target), batch 100 plików &lt; 2 s.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="checklisty-wdrozeniowe-dla-warstwy-lint">
+<h1>9) Checklisty wdrożeniowe (dla warstwy Lint)<a class="headerlink" href="#checklisty-wdrozeniowe-dla-warstwy-lint" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>[ ] Implementacja wszystkich reguł OTUI‑001…020.</p></li>
+<li><p>[ ] Włączone auto‑fix dla 001/002/009/018; pozostałe bezpieczne – opcjonalnie.</p></li>
+<li><p>[ ] Konfiguracja reguł w <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code>; integracja w UI (enable/disable, severity).</p></li>
+<li><p>[ ] Testy z §6 – zielone; snapshoty zmian po auto‑fix.</p></li>
+<li><p>[ ] Cache zasobów i fuzzy propozycje działają.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="noty-koncowe">
+<h1>10) Noty końcowe<a class="headerlink" href="#noty-koncowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Reguły są projektowalne – dopuszcza się dodawanie własnych rozszerzeń, o ile nie zmieniają publicznych kontraktów (format diagnostyk i edycji).</p></li>
+<li><p>Wszelkie zmiany w zestawie reguł wymagają podniesienia <code class="docutils literal notranslate"><span class="pre">$schemaVersion</span></code> w konfiguracji i aktualizacji test‑wektorów.</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">OTUI Lint Rules (MASTER) – Specyfikacja dla <strong>OTClient Studio</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zalozenia-wspolne">0) Założenia wspólne</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#katalog-regul-z-autofix-tam-gdzie-bezpieczny">1) Katalog reguł (z auto‑fix tam, gdzie bezpieczny)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui001-kolejnosc-pol-geometria-styl-zachowanie-autofix">OTUI‑001 — Kolejność pól: GEOMETRIA → STYL → ZACHOWANIE (<strong>auto‑fix</strong>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui002-statyczne-teksty-musza-uzywac-tr-autofix">OTUI‑002 — Statyczne teksty muszą używać <code class="docutils literal notranslate"><span class="pre">tr()</span></code> (<strong>auto‑fix</strong>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui003-sprzeczne-anchors-margins-detekcja">OTUI‑003 — Sprzeczne <code class="docutils literal notranslate"><span class="pre">anchors</span></code> / <code class="docutils literal notranslate"><span class="pre">margins</span></code> (detekcja)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui004-zasob-nie-istnieje-style-image-font-style">OTUI‑004 — Zasób nie istnieje (STYLE → <code class="docutils literal notranslate"><span class="pre">image</span></code>, <code class="docutils literal notranslate"><span class="pre">font</span></code>, <code class="docutils literal notranslate"><span class="pre">style</span></code>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui005-zduplikowane-id-w-obrebie-pliku">OTUI‑005 — Zduplikowane <code class="docutils literal notranslate"><span class="pre">id</span></code> w obrębie pliku</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui006-konwencja-nazewnictwa-id">OTUI‑006 — Konwencja nazewnictwa <code class="docutils literal notranslate"><span class="pre">id</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui007-nieznany-atrybut-widzetu">OTUI‑007 — Nieznany atrybut widżetu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui008-atrybut-przestarzaly-deprecated">OTUI‑008 — Atrybut przestarzały (deprecated)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui009-normalizacja-booleanow">OTUI‑009 — Normalizacja booleanów</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui010-format-kolorow">OTUI‑010 — Format kolorów</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui011-jednostki-wymiarow-liczb">OTUI‑011 — Jednostki wymiarów/liczb</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui012-cykl-dziedziczenia-widzetow">OTUI‑012 — Cykl dziedziczenia widżetów</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui013-puste-deklaracje">OTUI‑013 — Puste deklaracje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui014-niezreferencjonowany-widzet-analiza-projektowa">OTUI‑014 — Niezreferencjonowany widżet (analiza projektowa)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui015-odnosnik-do-stylu-nie-istnieje">OTUI‑015 — Odnośnik do stylu nie istnieje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui016-event-handler-w-kluczu-on-ma-niekanoniczna-wartosc">OTUI‑016 — Event handler w kluczu <code class="docutils literal notranslate"><span class="pre">on...</span></code> ma niekanoniczną wartość</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui017-atrybuty-powielone-w-obrebie-tego-samego-decl">OTUI‑017 — Atrybuty powielone w obrębie tego samego <code class="docutils literal notranslate"><span class="pre">Decl</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui018-biale-znaki-i-wciecia-2-spacje">OTUI‑018 — Białe znaki i wcięcia (2 spacje)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui019-komentarze-format">OTUI‑019 — Komentarze (#) format</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui020-klucze-nieobslugiwane-przez-dany-typ-bazowy">OTUI‑020 — Klucze nieobsługiwane przez dany typ bazowy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mapowanie-kategorii-atrybutow-bazowa-lista-rozszerzalna">2) Mapowanie kategorii atrybutów (bazowa lista rozszerzalna)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#integracja-z-edytorem-monaco-diagnostyka-i-quick-fix">3) Integracja z edytorem (Monaco) – diagnostyka i Quick Fix</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konfiguracja-regul-json">4) Konfiguracja reguł (JSON)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytmy-autofix-pseudokod-ts">5) Algorytmy auto‑fix (pseudokod TS)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui001-sort-kategorii">5.1 OTUI‑001 (sort kategorii)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui002-wrap-tr">5.2 OTUI‑002 (wrap <code class="docutils literal notranslate"><span class="pre">tr()</span></code>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui009-booleany">5.3 OTUI‑009 (booleany)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testwektory-minimalny-zestaw-regresji">6) Test‑wektory (minimalny zestaw regresji)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kolejnosc-pol">6.1 Kolejność pól</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tr-wrap">6.2 <code class="docutils literal notranslate"><span class="pre">tr()</span></code> wrap</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zasob-nie-istnieje">6.3 Zasób nie istnieje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#duplikat-id">6.4 Duplikat <code class="docutils literal notranslate"><span class="pre">id</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kody-bledow-parsera-enginu-dla-otui">7) Kody błędów parsera/enginu (dla OTUI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wydajnosc-i-limity">8) Wydajność i limity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-wdrozeniowe-dla-warstwy-lint">9) Checklisty wdrożeniowe (dla warstwy Lint)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-koncowe">10) Noty końcowe</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/knowledge/otui_lint_rules_master_spec_dla_otclient_studio.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

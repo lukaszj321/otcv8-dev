@@ -1,0 +1,1553 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Moduł: | Moduł: client_locales &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/dev_tools/modul-client-locales';</script>
+    <link rel="icon" href="../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_locales</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-client-locales">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_locales</span></code><a class="headerlink" href="#modul-modul-client-locales" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nb">dofile</span> <span class="s1">&#39;neededtranslations&#39;</span>
+
+<span class="c1">-- private variables</span>
+
+<span class="kd">local</span> <span class="n">defaultLocaleName</span> <span class="o">=</span> <span class="s1">&#39;en&#39;</span>
+
+<span class="kd">local</span> <span class="n">installedLocales</span>
+
+<span class="kd">local</span> <span class="n">currentLocale</span>
+
+<span class="kd">local</span> <span class="n">missingTranslations</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kr">function</span> <span class="nf">createWindow</span><span class="p">()</span>
+
+  <span class="n">localesWindow</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">displayUI</span><span class="p">(</span><span class="s1">&#39;locales&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">localesPanel</span> <span class="o">=</span> <span class="n">localesWindow</span><span class="p">:</span><span class="n">getChildById</span><span class="p">(</span><span class="s1">&#39;localesPanel&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">localesPanel</span><span class="p">:</span><span class="n">getLayout</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">spacing</span> <span class="o">=</span> <span class="n">layout</span><span class="p">:</span><span class="n">getCellSpacing</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">size</span> <span class="o">=</span> <span class="n">layout</span><span class="p">:</span><span class="n">getCellSize</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="kr">for</span> <span class="n">name</span><span class="p">,</span><span class="n">locale</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">installedLocales</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kd">local</span> <span class="n">widget</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">createWidget</span><span class="p">(</span><span class="s1">&#39;LocalesButton&#39;</span><span class="p">,</span> <span class="n">localesPanel</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">:</span><span class="n">setImageSource</span><span class="p">(</span><span class="s1">&#39;/images/flags/&#39;</span> <span class="o">..</span> <span class="n">name</span> <span class="o">..</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">:</span><span class="n">setText</span><span class="p">(</span><span class="n">locale</span><span class="p">.</span><span class="n">languageName</span><span class="p">)</span>
+
+    <span class="n">widget</span><span class="p">.</span><span class="n">onClick</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span> <span class="n">selectFirstLocale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="kr">end</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">count</span> <span class="o">=</span> <span class="nb">math.max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">math.min</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+  <span class="n">localesPanel</span><span class="p">:</span><span class="n">setWidth</span><span class="p">(</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="n">count</span> <span class="o">+</span> <span class="n">spacing</span><span class="o">*</span><span class="p">(</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+  <span class="n">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="n">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="n">localesWindow</span><span class="p">:</span><span class="n">raise</span><span class="p">()</span> <span class="n">localesWindow</span><span class="p">:</span><span class="n">focus</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">selectFirstLocale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">localesWindow</span> <span class="kr">then</span>
+
+    <span class="n">localesWindow</span><span class="p">:</span><span class="n">destroy</span><span class="p">()</span>
+
+    <span class="n">localesWindow</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">setLocale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="kr">then</span>
+
+    <span class="n">g_modules</span><span class="p">.</span><span class="n">reloadModules</span><span class="p">()</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- public functions</span>
+
+<span class="kr">function</span> <span class="nf">init</span><span class="p">()</span>
+
+  <span class="n">installedLocales</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="n">installLocales</span><span class="p">(</span><span class="s1">&#39;/locales&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">userLocaleName</span> <span class="o">=</span> <span class="n">g_settings</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">,</span> <span class="s1">&#39;false&#39;</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">userLocaleName</span> <span class="o">~=</span> <span class="s1">&#39;false&#39;</span> <span class="ow">and</span> <span class="n">setLocale</span><span class="p">(</span><span class="n">userLocaleName</span><span class="p">)</span> <span class="kr">then</span>
+
+    <span class="n">pdebug</span><span class="p">(</span><span class="s1">&#39;Using configured locale: &#39;</span> <span class="o">..</span> <span class="n">userLocaleName</span><span class="p">)</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">setLocale</span><span class="p">(</span><span class="n">defaultLocaleName</span><span class="p">)</span>
+
+    <span class="c1">--connect(g_app, { onRun = createWindow })</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">terminate</span><span class="p">()</span>
+
+  <span class="n">installedLocales</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="n">currentLocale</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="c1">--disconnect(g_app, { onRun = createWindow })</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">generateNewTranslationTable</span><span class="p">(</span><span class="n">localename</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">locale</span> <span class="o">=</span> <span class="n">installedLocales</span><span class="p">[</span><span class="n">localename</span><span class="p">]</span>
+
+  <span class="kr">for</span> <span class="n">_i</span><span class="p">,</span><span class="n">k</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">neededTranslations</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kd">local</span> <span class="n">trans</span> <span class="o">=</span> <span class="n">locale</span><span class="p">.</span><span class="n">translation</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">)</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t&#39;</span><span class="p">)</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\\\&quot;</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="n">trans</span> <span class="kr">then</span>
+
+      <span class="n">trans</span> <span class="o">=</span> <span class="n">trans</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">)</span>
+
+      <span class="n">trans</span> <span class="o">=</span> <span class="n">trans</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t&#39;</span><span class="p">)</span>
+
+      <span class="n">trans</span> <span class="o">=</span> <span class="n">trans</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\\\&quot;</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">trans</span> <span class="kr">then</span>
+
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    [&quot;&#39;</span> <span class="o">..</span> <span class="n">k</span> <span class="o">..</span> <span class="s1">&#39;&quot;]&#39;</span> <span class="o">..</span> <span class="s1">&#39; = false,&#39;</span><span class="p">)</span>
+
+    <span class="kr">else</span>
+
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    [&quot;&#39;</span> <span class="o">..</span> <span class="n">k</span> <span class="o">..</span> <span class="s1">&#39;&quot;]&#39;</span> <span class="o">..</span> <span class="s1">&#39; = &quot;&#39;</span> <span class="o">..</span> <span class="n">trans</span> <span class="o">..</span> <span class="s1">&#39;&quot;,&#39;</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">installLocale</span><span class="p">(</span><span class="n">locale</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">locale</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">locale</span><span class="p">.</span><span class="n">name</span> <span class="kr">then</span>
+
+    <span class="nb">error</span><span class="p">(</span><span class="s1">&#39;Unable to install locale.&#39;</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">_G</span><span class="p">.</span><span class="n">allowedLocales</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_G</span><span class="p">.</span><span class="n">allowedLocales</span><span class="p">[</span><span class="n">locale</span><span class="p">.</span><span class="n">name</span><span class="p">]</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">locale</span><span class="p">.</span><span class="n">name</span> <span class="o">~=</span> <span class="n">defaultLocaleName</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">updatesNamesMissing</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span><span class="n">k</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">neededTranslations</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="kr">if</span> <span class="n">locale</span><span class="p">.</span><span class="n">translation</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+        <span class="n">updatesNamesMissing</span><span class="p">[</span><span class="o">#</span><span class="n">updatesNamesMissing</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+    <span class="kr">if</span> <span class="o">#</span><span class="n">updatesNamesMissing</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+      <span class="n">pdebug</span><span class="p">(</span><span class="s1">&#39;Locale </span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">..</span> <span class="n">locale</span><span class="p">.</span><span class="n">name</span> <span class="o">..</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1"> is missing &#39;</span> <span class="o">..</span> <span class="o">#</span><span class="n">updatesNamesMissing</span> <span class="o">..</span> <span class="s1">&#39; translations.&#39;</span><span class="p">)</span>
+
+      <span class="kr">for</span> <span class="n">_</span><span class="p">,</span><span class="n">name</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">updatesNamesMissing</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="n">pdebug</span><span class="p">(</span><span class="s1">&#39;[&quot;&#39;</span> <span class="o">..</span> <span class="n">name</span> <span class="o">..</span><span class="s1">&#39;&quot;] = </span><span class="se">\&quot;\&quot;</span><span class="s1">,&#39;</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">installedLocale</span> <span class="o">=</span> <span class="n">installedLocales</span><span class="p">[</span><span class="n">locale</span><span class="p">.</span><span class="n">name</span><span class="p">]</span>
+
+  <span class="kr">if</span> <span class="n">installedLocale</span> <span class="kr">then</span>
+
+    <span class="kr">for</span> <span class="n">word</span><span class="p">,</span><span class="n">translation</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">locale</span><span class="p">.</span><span class="n">translation</span><span class="p">)</span> <span class="kr">do</span>
+
+      <span class="n">installedLocale</span><span class="p">.</span><span class="n">translation</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">translation</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">installedLocales</span><span class="p">[</span><span class="n">locale</span><span class="p">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">installLocales</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+
+  <span class="n">dofiles</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">setLocale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">locale</span> <span class="o">=</span> <span class="n">installedLocales</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+  <span class="kr">if</span> <span class="n">locale</span> <span class="o">==</span> <span class="n">currentLocale</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">locale</span> <span class="kr">then</span>
+
+    <span class="n">pwarning</span><span class="p">(</span><span class="s2">&quot;Locale &quot;</span> <span class="o">..</span> <span class="n">name</span> <span class="o">..</span> <span class="s1">&#39; does not exist.&#39;</span><span class="p">)</span>
+
+    <span class="kr">return</span> <span class="kc">false</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">currentLocale</span> <span class="o">=</span> <span class="n">locale</span>
+
+  <span class="n">g_settings</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="n">onLocaleChanged</span> <span class="kr">then</span> <span class="n">onLocaleChanged</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="kc">true</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">getInstalledLocales</span><span class="p">()</span>
+
+  <span class="kr">return</span> <span class="n">installedLocales</span>
+
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">getCurrentLocale</span><span class="p">()</span>
+
+  <span class="kr">return</span> <span class="n">currentLocale</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- global function used to translate texts</span>
+
+<span class="kr">function</span> <span class="nc">_G</span><span class="p">.</span><span class="nf">tr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">...)</span>
+
+  <span class="kr">if</span> <span class="n">currentLocale</span> <span class="kr">then</span>
+
+    <span class="kr">if</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="ow">and</span> <span class="n">currentLocale</span><span class="p">.</span><span class="n">formatNumbers</span> <span class="kr">then</span>
+
+      <span class="kd">local</span> <span class="n">number</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">text</span><span class="p">):</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+      <span class="kd">local</span> <span class="n">out</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+      <span class="kd">local</span> <span class="n">reverseNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="n">reverse</span><span class="p">()</span>
+
+      <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="o">#</span><span class="n">reverseNumber</span> <span class="kr">do</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">..</span> <span class="n">reverseNumber</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+        <span class="kr">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">~=</span> <span class="o">#</span><span class="n">number</span> <span class="kr">then</span>
+
+          <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">..</span> <span class="n">currentLocale</span><span class="p">.</span><span class="n">thousandsSeperator</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+      <span class="kr">if</span> <span class="n">number</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="kr">then</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">..</span> <span class="n">currentLocale</span><span class="p">.</span><span class="n">decimalSeperator</span> <span class="o">..</span> <span class="n">out</span>
+
+      <span class="kr">end</span>
+
+      <span class="kr">return</span> <span class="n">out</span><span class="p">:</span><span class="n">reverse</span><span class="p">()</span>
+
+    <span class="kr">elseif</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="kr">then</span>
+
+      <span class="kd">local</span> <span class="n">translation</span> <span class="o">=</span> <span class="n">currentLocale</span><span class="p">.</span><span class="n">translation</span><span class="p">[</span><span class="n">text</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="ow">not</span> <span class="n">translation</span> <span class="kr">then</span>
+
+        <span class="kr">if</span> <span class="n">translation</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+
+          <span class="kr">if</span> <span class="n">currentLocale</span><span class="p">.</span><span class="n">name</span> <span class="o">~=</span> <span class="n">defaultLocaleName</span> <span class="kr">then</span>
+
+            <span class="kr">if</span> <span class="ow">not</span> <span class="n">missingTranslations</span><span class="p">[</span><span class="n">text</span><span class="p">]</span> <span class="kr">then</span>
+
+              <span class="n">pdebug</span><span class="p">(</span><span class="s1">&#39;Unable to translate: </span><span class="se">\&quot;</span><span class="s1">&#39;</span> <span class="o">..</span> <span class="n">text</span> <span class="o">..</span> <span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="p">)</span>
+
+              <span class="n">missingTranslations</span><span class="p">[</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+
+            <span class="kr">end</span>
+
+          <span class="kr">end</span>
+
+        <span class="kr">end</span>
+
+        <span class="n">translation</span> <span class="o">=</span> <span class="n">text</span>
+
+      <span class="kr">end</span>
+
+      <span class="kr">return</span> <span class="nb">string.format</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="p">...)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">text</span>
+
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="locales-otmod">
+<h1>locales.otmod<a class="headerlink" href="#locales-otmod" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Module
+
+  name: client_locales
+
+  description: Translates texts to selected language
+
+  author: baxnie, edubart
+
+  website: https://github.com/edubart/otclient
+
+  sandboxed: true
+
+  scripts: [ locales ]
+
+  @onLoad: init()
+
+  @onUnload: terminate()
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="locales-otui">
+<h1>locales.otui<a class="headerlink" href="#locales-otui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>
+LocalesMainLabel &lt; Label
+
+  font: sans-bold-16px
+
+LocalesButton &lt; UIWidget
+
+  size: 96 96
+
+  image-size: 96 96
+
+  image-smooth: true
+
+  text-offset: 0 96
+
+  font: verdana-11px-antialised
+
+UIWindow
+
+  id: localesWindow
+
+  background-color: #000000
+
+  opacity: 0.90
+
+  clipping: true
+
+  anchors.fill: parent
+
+  LocalesMainLabel
+
+    !text: tr(&#39;Select your language&#39;)
+
+    text-auto-resize: true
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    anchors.verticalCenter: parent.verticalCenter
+
+    margin-top: -100
+
+  Panel
+
+    id: localesPanel
+
+    margin-top: 50
+
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    anchors.top: prev.bottom
+
+    anchors.bottom: parent.bottom
+
+    layout:
+
+      type: grid
+
+      cell-size: 96 128
+
+      cell-spacing: 32
+
+      flow: true
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="neededtranslations-lua">
+<h1>neededtranslations.lua<a class="headerlink" href="#neededtranslations-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- generated by ./tools/gen_needed_translations.sh</span>
+
+<span class="n">neededTranslations</span> <span class="o">=</span> <span class="p">{</span>
+
+  <span class="s2">&quot;1a) Offensive Name&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;1b) Invalid Name Format&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;1c) Unsuitable Name&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;1d) Name Inciting Rule Violation&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;2a) Offensive Statement&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;2b) Spamming&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;2c) Illegal Advertising&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;2d) Off-Topic Public Statement&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;2e) Non-English Public Statement&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;2f) Inciting Rule Violation&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;3a) Bug Abuse&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;3b) Game Weakness Abuse&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;3c) Using Unofficial Software to Play&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;3d) Hacking&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;3e) Multi-Clienting&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;3f) Account Trading or Sharing&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;4a) Threatening Gamemaster&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;4b) Pretending to Have Influence on Rule Enforcement&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;4c) False Report to Gamemaster&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Accept&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Account name&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Account Status:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Action:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Add&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Add new VIP&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Addon 1&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Addon 2&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Addon 3&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Add to VIP list&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Adjust volume&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Alas! Brave adventurer, you have met a sad fate.</span><span class="se">\n</span><span class="s2">But do not despair, for the gods will bring you back</span><span class="se">\n</span><span class="s2">into this world in exchange for a small sacrifice</span><span class="se">\n\n</span><span class="s2">Simply click on Ok to resume your journeys!&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;All&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;All modules and scripts were reloaded.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Allow auto chase override&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ambient light: %s%%&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Amount:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Anonymous&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Are you sure you want to logout?&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Attack&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Author&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Autoload&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Autoload priority&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Auto login&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Auto login selected character on next charlist load&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Axe Fighting&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Balance:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Banishment&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Banishment + Final Warning&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Battle&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Browse&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Bug report sent.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Button Assign&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Buy&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Buy Now&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Buy Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Buy with backpack&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Cancel&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Cannot login while already in game.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Cap&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Capacity&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Center&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Channels&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Character List&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Classic control&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Clear current message window&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Clear Messages&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Clear object&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Client needs update.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Close&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Close this channel&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Club Fighting&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Combat Controls&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Comment:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Connecting to game server...&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Connecting to login server...&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Console&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Cooldowns&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Copy message&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Copy name&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Copy Name&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Create Map Mark&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Create mark&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Create New Offer&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Create Offer&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Current hotkeys:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Current hotkey to add: %s&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Current Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Default&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Delete mark&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Description:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Destructive Behaviour&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Detail&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Details&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Disable Shared Experience&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Dismount&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Display connection speed to the server (milliseconds)&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Distance Fighting&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Don</span><span class="se">\&#39;</span><span class="s2">t stretch/shrink Game Window&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Edit hotkey text:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Edit List&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Edit Text&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enable music&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enable Shared Experience&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enable smart walking&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enable vertical synchronization&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enable walk booster&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enter Game&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enter one name per line.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Enter with your account again to update your client.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Error&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Error&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Excessive Unjustified Player Killing&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Exclude from private chat&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Exit&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Experience&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Filter list to match your level&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Filter list to match your vocation&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Find:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Fishing&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Fist Fighting&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Follow&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Force Exit&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;For Your Information&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Free Account&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Fullscreen&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Game&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Game framerate limit: %s&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Graphics&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Graphics card driver not detected&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Graphics Engine:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Head&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Healing&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Health Info&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Health Information&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide monsters&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide non-skull players&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide Npcs&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide Offline&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide party members&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide players&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide spells for higher exp. levels&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hide spells for other vocations&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hit Points&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hold left mouse button to navigate</span><span class="se">\n</span><span class="s2">Scroll mouse middle button to zoom</span><span class="se">\n</span><span class="s2">Right mouse button to create map marks&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Hotkeys&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;If you shut down the program, your character might stay in the game.</span><span class="se">\n</span><span class="s2">Click on &#39;Logout&#39; to ensure that you character leaves the game properly.</span><span class="se">\n</span><span class="s2">Click on &#39;Exit&#39; if you want to exit the program without logging out your character.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignore&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignore capacity&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignored players:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignore equipped&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignore List&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignore players&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignore Private Messages&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ignore Yelling&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Interface framerate limit: %s&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Inventory&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Invite to Party&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Invite to private chat&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;IP Address Banishment&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Item Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;It is empty.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Join %s</span><span class="se">\&#39;</span><span class="s2">s Party&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Leave Party&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Level&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Lifetime Premium Account&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Limits FPS to 60&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;List of items that you&#39;re able to buy&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;List of items that you&#39;re able to sell&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Load&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Logging out...&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Login&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Login Error&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Login Error&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Logout&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Look&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Magic Level&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Make sure that your client uses</span><span class="se">\n</span><span class="s2">the correct game protocol version&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Mana&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Manage hotkeys:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Market&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Market Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Message of the day&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Message to &quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Message to %s&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Minimap&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Module Manager&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Module name&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Mount&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Move Stackable Item&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Move up&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;My Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Name:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Name Report&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Name Report + Banishment&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Name Report + Banishment + Final Warning&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;No&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;No graphics card detected, everything will be drawn using the CPU,</span><span class="se">\n</span><span class="s2">thus the performance will be really bad.</span><span class="se">\n</span><span class="s2">Please update your graphics driver to have a better performance.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;No item selected.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;No Mount&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;No Outfit&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;No statement has been selected.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Notation&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;NPC Trade&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Offer History&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Offer Type:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Offline Training&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Ok&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;on %s.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Open&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Open a private message channel:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Open charlist automatically when starting client&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Open in new window&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Open new channel&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Options&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Overview&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Pass Leadership to %s&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Password&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Piece Price:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Please enter a character name:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Please, press the key you wish to add onto your hotkeys manager&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Please Select&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Please use this dialog to only report bugs. Do not report rule violations here!&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Please wait&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Port&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Position:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Position: %i %i %i&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Premium Account (%s) days left&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Price:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Primary&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Protocol&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Quest Log&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Randomize&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Randomize characters outfit&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Reason:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Refresh&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Refresh Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Regeneration Time&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Reject&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Reload All&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Remember account and password when starts client&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Remember password&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Remove&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Remove %s&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Report Bug&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Reserved for more functionality later.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Reset Market&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Revoke %s</span><span class="se">\&#39;</span><span class="s2">s Invitation&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Rotate&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Rule Violation&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Save&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Save Messages&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Search:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Search all items&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Secondary&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Select object&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Select Outfit&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Select your language&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Sell&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Sell Now&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Sell Offers&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Send&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Send automatically&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Send Message&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Server&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Server Log&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Set Outfit&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Shielding&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show all items&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show connection ping&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show Depot Only&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show event messages in console&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show frame rate&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show info messages in console&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show left panel&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show levels in console&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show Offline&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show private messages in console&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show private messages on screen&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show Server Messages&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show status messages in console&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show Text&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show timestamps in console&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Show your depot items only&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Skills&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Soul&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Soul Points&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Special&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Speed&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Spell Cooldowns&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Spell List&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Stamina&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Statement:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Statement Report&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Statistics&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Stop Attack&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Stop Follow&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Support&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;%s: (use object)&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;%s: (use object on target)&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;%s: (use object on yourself)&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;%s: (use object with crosshair)&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Sword Fighting&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Terminal&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;There is no way.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Title&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Total Price:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Trade&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Trade with ...&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Trying to reconnect in %s seconds.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Unable to load dat file, please place a valid dat in &#39;%s&#39;&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Unable to load spr file, please place a valid spr in &#39;%s&#39;&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Unable to logout.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Unignore&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Unload&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Update needed&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Use&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Use on target&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Use on yourself&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Use with ...&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Version&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;VIP List&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Voc.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Vocation&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Waiting List&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Website&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Weight:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Will detect when to use diagonal step based on the</span><span class="se">\n</span><span class="s2">keys you are pressing&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;With crosshair&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are bleeding&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are burning&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are cursed&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are dazzled&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are dead.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are dead&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are drowning&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are drunk&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are electrified&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are freezing&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are hasted&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are hungry&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are paralysed&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are poisoned&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are protected by a magic shield&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are strengthened&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You are within a protection zone&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You can enter new text.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You have %s percent&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You have %s percent to go&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You may not logout during a fight&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You may not logout or enter a protection zone&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You must enter a comment.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You must enter a valid server address and port.&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You must select a character to login!&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Your Capacity:&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You read the following, written by </span><span class="se">\n</span><span class="s2">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;You read the following, written on </span><span class="se">\n</span><span class="s2">%s.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+
+  <span class="s2">&quot;Your Money:&quot;</span><span class="p">,</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">client_locales</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#locales-otmod">locales.otmod</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#locales-otui">locales.otui</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#neededtranslations-lua">neededtranslations.lua</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/dev_tools/modul-client-locales.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

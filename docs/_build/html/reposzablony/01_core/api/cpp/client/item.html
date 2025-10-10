@@ -1,0 +1,1055 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>client/item.h &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/01_core/api/cpp/client/item';</script>
+    <link rel="icon" href="../../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">client/item.h</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="client-item-h">
+<h1>client/item.h<a class="headerlink" href="#client-item-h" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Plik nagłówkowy C++ zawierający definicje dla modułu item.</p>
+</section>
+<section id="classes-structs">
+<h2>Classes/Structs<a class="headerlink" href="#classes-structs" title="Link to this heading">#</a></h2>
+<section id="klasa-item">
+<h3>Klasa: <code class="docutils literal notranslate"><span class="pre">Item</span></code><a class="headerlink" href="#klasa-item" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Brief</p></th>
+<th class="head"><p>Signature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">ItemPtr</span> <span class="pre">create(int</span> <span class="pre">id,</span> <span class="pre">int</span> <span class="pre">countOrSubtype</span> <span class="pre">=</span> <span class="pre">1)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">createFromOtb</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">ItemPtr</span> <span class="pre">createFromOtb(int</span> <span class="pre">id)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">draw</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">draw(const</span> <span class="pre">Point&amp;</span> <span class="pre">dest,</span> <span class="pre">bool</span> <span class="pre">animate</span> <span class="pre">=</span> <span class="pre">true,</span> <span class="pre">LightView*</span> <span class="pre">lightView</span> <span class="pre">=</span> <span class="pre">nullptr)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">draw</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">draw(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest,</span> <span class="pre">bool</span> <span class="pre">animate</span> <span class="pre">=</span> <span class="pre">true)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setId(uint32</span> <span class="pre">id)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setOtbId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setOtbId(uint16</span> <span class="pre">id)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setCountOrSubType</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCountOrSubType(int</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">m_countOrSubType</span> <span class="pre">=</span> <span class="pre">value;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setCount</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCount(int</span> <span class="pre">count)</span> <span class="pre">{</span> <span class="pre">m_countOrSubType</span> <span class="pre">=</span> <span class="pre">count;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setSubType</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSubType(int</span> <span class="pre">subType)</span> <span class="pre">{</span> <span class="pre">m_countOrSubType</span> <span class="pre">=</span> <span class="pre">subType;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setColor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">c)</span> <span class="pre">{</span> <span class="pre">m_color</span> <span class="pre">=</span> <span class="pre">c;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setTooltip</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTooltip(const</span> <span class="pre">std::string&amp;</span> <span class="pre">str)</span> <span class="pre">{</span> <span class="pre">m_tooltip</span> <span class="pre">=</span> <span class="pre">str;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setQuickLootFlags</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setQuickLootFlags(uint32</span> <span class="pre">flags)</span> <span class="pre">{</span> <span class="pre">m_quickLootFlags</span> <span class="pre">=</span> <span class="pre">flags;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setShader</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShader(const</span> <span class="pre">std::string&amp;</span> <span class="pre">str)</span> <span class="pre">{</span> <span class="pre">m_shader</span> <span class="pre">=</span> <span class="pre">str;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getCountOrSubType</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getCountOrSubType()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_countOrSubType;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSubType</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSubType()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getCount</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getCount()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span> <span class="pre">getId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_clientId;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getClientId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getClientId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_clientId;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getServerId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getServerId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_serverId;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getName</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getName()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isValid</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isValid()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getTooltip</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getTooltip()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_tooltip;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getQuickLootFlags</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span> <span class="pre">getQuickLootFlags()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_quickLootFlags;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getShader</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getShader()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_shader;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unserializeItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">unserializeItem(const</span> <span class="pre">BinaryTreePtr&amp;</span> <span class="pre">in)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">serializeItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">serializeItem(const</span> <span class="pre">OutputBinaryTreePtr&amp;</span> <span class="pre">out)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setDepotId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDepotId(uint16</span> <span class="pre">depotId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_DEPOT_ID,</span> <span class="pre">depotId);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDepotId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getDepotId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint16&gt;(ATTR_DEPOT_ID);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setDoorId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDoorId(uint8</span> <span class="pre">doorId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_HOUSEDOORID,</span> <span class="pre">doorId);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDoorId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span> <span class="pre">getDoorId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint8&gt;(ATTR_HOUSEDOORID);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getUniqueId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getUniqueId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint16&gt;(ATTR_UNIQUE_ID);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getActionId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getActionId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint16&gt;(ATTR_ACTION_ID);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setActionId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setActionId(uint16</span> <span class="pre">actionId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_ACTION_ID,</span> <span class="pre">actionId);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setUniqueId</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniqueId(uint16</span> <span class="pre">uniqueId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_UNIQUE_ID,</span> <span class="pre">uniqueId);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getText()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(ATTR_TEXT);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDescription</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getDescription()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(ATTR_DESC);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setDescription</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDescription(std::string</span> <span class="pre">desc)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_DESC,</span> <span class="pre">desc);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setText</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setText(std::string</span> <span class="pre">txt)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_TEXT,</span> <span class="pre">txt);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getTeleportDestination</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getTeleportDestination()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;Position&gt;(ATTR_TELE_DEST);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setTeleportDestination</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTeleportDestination(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_TELE_DEST,</span> <span class="pre">pos);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setAsync</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAsync(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_async</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isHouseDoor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHouseDoor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_HOUSEDOORID);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isDepot</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isDepot()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_DEPOT_ID);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isContainer</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isContainer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_CONTAINER_ITEMS);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isDoor</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isDoor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_HOUSEDOORID);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isTeleport</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTeleport()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_TELE_DEST);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isMoveable</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMoveable()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isGround</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isGround()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">clone</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">clone()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">asItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">asItem()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">static_self_cast&lt;Item&gt;();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isItem()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">true;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getContainerItems</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ItemVector</span> <span class="pre">getContainerItems()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_containerItems;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getContainerItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">getContainerItem(int</span> <span class="pre">slot)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_containerItems[slot];</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">addContainerItemIndexed</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addContainerItemIndexed(const</span> <span class="pre">ItemPtr&amp;</span> <span class="pre">i,</span> <span class="pre">int</span> <span class="pre">slot)</span> <span class="pre">{</span> <span class="pre">m_containerItems[slot]</span> <span class="pre">=</span> <span class="pre">i;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">addContainerItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addContainerItem(const</span> <span class="pre">ItemPtr&amp;</span> <span class="pre">i)</span> <span class="pre">{</span> <span class="pre">m_containerItems.push_back(i);</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">removeContainerItem</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeContainerItem(int</span> <span class="pre">slot)</span> <span class="pre">{</span> <span class="pre">m_containerItems[slot]</span> <span class="pre">=</span> <span class="pre">nullptr;</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">clearContainerItems</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clearContainerItems()</span> <span class="pre">{</span> <span class="pre">m_containerItems.clear();</span> <span class="pre">}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">calculatePatterns</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">calculatePatterns(int&amp;</span> <span class="pre">xPattern,</span> <span class="pre">int&amp;</span> <span class="pre">yPattern,</span> <span class="pre">int&amp;</span> <span class="pre">zPattern)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">calculateAnimationPhase</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">calculateAnimationPhase(bool</span> <span class="pre">animate)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getExactSize</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getExactSize(int</span> <span class="pre">layer</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">xPattern</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">yPattern</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">zPattern</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">animationPhase</span> <span class="pre">=</span> <span class="pre">0)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setCustomAttribute</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCustomAttribute(uint16</span> <span class="pre">key,</span> <span class="pre">uint64</span> <span class="pre">value)</span> <span class="pre">{</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getCustomAttribute</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint64</span> <span class="pre">getCustomAttribute(uint16</span> <span class="pre">key)</span> <span class="pre">{</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Link to this heading">#</a></h2>
+<section id="itemattr">
+<h3><code class="docutils literal notranslate"><span class="pre">ItemAttr</span></code><a class="headerlink" href="#itemattr" title="Link to this heading">#</a></h3>
+<p><strong>Wartości:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_END</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_TILE_FLAGS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_ACTION_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_UNIQUE_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_TEXT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_DESC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_TELE_DEST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_ITEM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_DEPOT_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_RUNE_CHARGES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_HOUSEDOORID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_COUNT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_DURATION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_DECAYING_STATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_WRITTENDATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_WRITTENBY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_SLEEPERGUID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_SLEEPSTART</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_CHARGES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_CONTAINER_ITEMS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_NAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_PLURALNAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_ATTACK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_EXTRAATTACK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_DEFENSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_EXTRADEFENSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_ARMOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_ATTACKSPEED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_HITCHANCE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_SHOOTRANGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_ARTICLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_SCRIPTPROTECTED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_DUALWIELD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTR_ATTRIBUTE_MAP</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="create">
+<h3><code class="docutils literal notranslate"><span class="pre">create</span></code><a class="headerlink" href="#create" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">ItemPtr</span> <span class="pre">create(int</span> <span class="pre">id,</span> <span class="pre">int</span> <span class="pre">countOrSubtype</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+</section>
+<section id="createfromotb">
+<h3><code class="docutils literal notranslate"><span class="pre">createFromOtb</span></code><a class="headerlink" href="#createfromotb" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">ItemPtr</span> <span class="pre">createFromOtb(int</span> <span class="pre">id)</span></code></p>
+</section>
+<section id="draw">
+<h3><code class="docutils literal notranslate"><span class="pre">draw</span></code><a class="headerlink" href="#draw" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">draw(const</span> <span class="pre">Point&amp;</span> <span class="pre">dest,</span> <span class="pre">bool</span> <span class="pre">animate</span> <span class="pre">=</span> <span class="pre">true,</span> <span class="pre">LightView*</span> <span class="pre">lightView</span> <span class="pre">=</span> <span class="pre">nullptr)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">draw</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">draw(const</span> <span class="pre">Rect&amp;</span> <span class="pre">dest,</span> <span class="pre">bool</span> <span class="pre">animate</span> <span class="pre">=</span> <span class="pre">true)</span></code></p>
+</section>
+<section id="setid">
+<h3><code class="docutils literal notranslate"><span class="pre">setId</span></code><a class="headerlink" href="#setid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setId(uint32</span> <span class="pre">id)</span></code></p>
+</section>
+<section id="setotbid">
+<h3><code class="docutils literal notranslate"><span class="pre">setOtbId</span></code><a class="headerlink" href="#setotbid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setOtbId(uint16</span> <span class="pre">id)</span></code></p>
+</section>
+<section id="setcountorsubtype">
+<h3><code class="docutils literal notranslate"><span class="pre">setCountOrSubType</span></code><a class="headerlink" href="#setcountorsubtype" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCountOrSubType(int</span> <span class="pre">value)</span> <span class="pre">{</span> <span class="pre">m_countOrSubType</span> <span class="pre">=</span> <span class="pre">value;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setcount">
+<h3><code class="docutils literal notranslate"><span class="pre">setCount</span></code><a class="headerlink" href="#setcount" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCount(int</span> <span class="pre">count)</span> <span class="pre">{</span> <span class="pre">m_countOrSubType</span> <span class="pre">=</span> <span class="pre">count;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setsubtype">
+<h3><code class="docutils literal notranslate"><span class="pre">setSubType</span></code><a class="headerlink" href="#setsubtype" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setSubType(int</span> <span class="pre">subType)</span> <span class="pre">{</span> <span class="pre">m_countOrSubType</span> <span class="pre">=</span> <span class="pre">subType;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setcolor">
+<h3><code class="docutils literal notranslate"><span class="pre">setColor</span></code><a class="headerlink" href="#setcolor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setColor(const</span> <span class="pre">Color&amp;</span> <span class="pre">c)</span> <span class="pre">{</span> <span class="pre">m_color</span> <span class="pre">=</span> <span class="pre">c;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="settooltip">
+<h3><code class="docutils literal notranslate"><span class="pre">setTooltip</span></code><a class="headerlink" href="#settooltip" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTooltip(const</span> <span class="pre">std::string&amp;</span> <span class="pre">str)</span> <span class="pre">{</span> <span class="pre">m_tooltip</span> <span class="pre">=</span> <span class="pre">str;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setquicklootflags">
+<h3><code class="docutils literal notranslate"><span class="pre">setQuickLootFlags</span></code><a class="headerlink" href="#setquicklootflags" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setQuickLootFlags(uint32</span> <span class="pre">flags)</span> <span class="pre">{</span> <span class="pre">m_quickLootFlags</span> <span class="pre">=</span> <span class="pre">flags;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setshader">
+<h3><code class="docutils literal notranslate"><span class="pre">setShader</span></code><a class="headerlink" href="#setshader" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setShader(const</span> <span class="pre">std::string&amp;</span> <span class="pre">str)</span> <span class="pre">{</span> <span class="pre">m_shader</span> <span class="pre">=</span> <span class="pre">str;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getcountorsubtype">
+<h3><code class="docutils literal notranslate"><span class="pre">getCountOrSubType</span></code><a class="headerlink" href="#getcountorsubtype" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getCountOrSubType()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_countOrSubType;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getsubtype">
+<h3><code class="docutils literal notranslate"><span class="pre">getSubType</span></code><a class="headerlink" href="#getsubtype" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getSubType()</span></code></p>
+</section>
+<section id="getcount">
+<h3><code class="docutils literal notranslate"><span class="pre">getCount</span></code><a class="headerlink" href="#getcount" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getCount()</span></code></p>
+</section>
+<section id="getid">
+<h3><code class="docutils literal notranslate"><span class="pre">getId</span></code><a class="headerlink" href="#getid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint32</span> <span class="pre">getId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_clientId;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getclientid">
+<h3><code class="docutils literal notranslate"><span class="pre">getClientId</span></code><a class="headerlink" href="#getclientid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getClientId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_clientId;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getserverid">
+<h3><code class="docutils literal notranslate"><span class="pre">getServerId</span></code><a class="headerlink" href="#getserverid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getServerId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_serverId;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getname">
+<h3><code class="docutils literal notranslate"><span class="pre">getName</span></code><a class="headerlink" href="#getname" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getName()</span></code></p>
+</section>
+<section id="isvalid">
+<h3><code class="docutils literal notranslate"><span class="pre">isValid</span></code><a class="headerlink" href="#isvalid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isValid()</span></code></p>
+</section>
+<section id="gettooltip">
+<h3><code class="docutils literal notranslate"><span class="pre">getTooltip</span></code><a class="headerlink" href="#gettooltip" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getTooltip()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_tooltip;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getquicklootflags">
+<h3><code class="docutils literal notranslate"><span class="pre">getQuickLootFlags</span></code><a class="headerlink" href="#getquicklootflags" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint32</span> <span class="pre">getQuickLootFlags()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_quickLootFlags;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getshader">
+<h3><code class="docutils literal notranslate"><span class="pre">getShader</span></code><a class="headerlink" href="#getshader" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getShader()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_shader;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="unserializeitem">
+<h3><code class="docutils literal notranslate"><span class="pre">unserializeItem</span></code><a class="headerlink" href="#unserializeitem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">unserializeItem(const</span> <span class="pre">BinaryTreePtr&amp;</span> <span class="pre">in)</span></code></p>
+</section>
+<section id="serializeitem">
+<h3><code class="docutils literal notranslate"><span class="pre">serializeItem</span></code><a class="headerlink" href="#serializeitem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">serializeItem(const</span> <span class="pre">OutputBinaryTreePtr&amp;</span> <span class="pre">out)</span></code></p>
+</section>
+<section id="setdepotid">
+<h3><code class="docutils literal notranslate"><span class="pre">setDepotId</span></code><a class="headerlink" href="#setdepotid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDepotId(uint16</span> <span class="pre">depotId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_DEPOT_ID,</span> <span class="pre">depotId);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getdepotid">
+<h3><code class="docutils literal notranslate"><span class="pre">getDepotId</span></code><a class="headerlink" href="#getdepotid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getDepotId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint16&gt;(ATTR_DEPOT_ID);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setdoorid">
+<h3><code class="docutils literal notranslate"><span class="pre">setDoorId</span></code><a class="headerlink" href="#setdoorid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDoorId(uint8</span> <span class="pre">doorId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_HOUSEDOORID,</span> <span class="pre">doorId);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getdoorid">
+<h3><code class="docutils literal notranslate"><span class="pre">getDoorId</span></code><a class="headerlink" href="#getdoorid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint8</span> <span class="pre">getDoorId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint8&gt;(ATTR_HOUSEDOORID);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getuniqueid">
+<h3><code class="docutils literal notranslate"><span class="pre">getUniqueId</span></code><a class="headerlink" href="#getuniqueid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getUniqueId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint16&gt;(ATTR_UNIQUE_ID);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getactionid">
+<h3><code class="docutils literal notranslate"><span class="pre">getActionId</span></code><a class="headerlink" href="#getactionid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint16</span> <span class="pre">getActionId()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;uint16&gt;(ATTR_ACTION_ID);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setactionid">
+<h3><code class="docutils literal notranslate"><span class="pre">setActionId</span></code><a class="headerlink" href="#setactionid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setActionId(uint16</span> <span class="pre">actionId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_ACTION_ID,</span> <span class="pre">actionId);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setuniqueid">
+<h3><code class="docutils literal notranslate"><span class="pre">setUniqueId</span></code><a class="headerlink" href="#setuniqueid" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setUniqueId(uint16</span> <span class="pre">uniqueId)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_UNIQUE_ID,</span> <span class="pre">uniqueId);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="gettext">
+<h3><code class="docutils literal notranslate"><span class="pre">getText</span></code><a class="headerlink" href="#gettext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getText()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(ATTR_TEXT);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getdescription">
+<h3><code class="docutils literal notranslate"><span class="pre">getDescription</span></code><a class="headerlink" href="#getdescription" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">getDescription()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;std::string&gt;(ATTR_DESC);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setdescription">
+<h3><code class="docutils literal notranslate"><span class="pre">setDescription</span></code><a class="headerlink" href="#setdescription" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setDescription(std::string</span> <span class="pre">desc)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_DESC,</span> <span class="pre">desc);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="settext">
+<h3><code class="docutils literal notranslate"><span class="pre">setText</span></code><a class="headerlink" href="#settext" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setText(std::string</span> <span class="pre">txt)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_TEXT,</span> <span class="pre">txt);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getteleportdestination">
+<h3><code class="docutils literal notranslate"><span class="pre">getTeleportDestination</span></code><a class="headerlink" href="#getteleportdestination" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">getTeleportDestination()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.get&lt;Position&gt;(ATTR_TELE_DEST);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setteleportdestination">
+<h3><code class="docutils literal notranslate"><span class="pre">setTeleportDestination</span></code><a class="headerlink" href="#setteleportdestination" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setTeleportDestination(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span> <span class="pre">{</span> <span class="pre">m_attribs.set(ATTR_TELE_DEST,</span> <span class="pre">pos);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="setasync">
+<h3><code class="docutils literal notranslate"><span class="pre">setAsync</span></code><a class="headerlink" href="#setasync" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setAsync(bool</span> <span class="pre">enable)</span> <span class="pre">{</span> <span class="pre">m_async</span> <span class="pre">=</span> <span class="pre">enable;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ishousedoor">
+<h3><code class="docutils literal notranslate"><span class="pre">isHouseDoor</span></code><a class="headerlink" href="#ishousedoor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isHouseDoor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_HOUSEDOORID);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isdepot">
+<h3><code class="docutils literal notranslate"><span class="pre">isDepot</span></code><a class="headerlink" href="#isdepot" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isDepot()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_DEPOT_ID);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="iscontainer">
+<h3><code class="docutils literal notranslate"><span class="pre">isContainer</span></code><a class="headerlink" href="#iscontainer" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isContainer()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_CONTAINER_ITEMS);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isdoor">
+<h3><code class="docutils literal notranslate"><span class="pre">isDoor</span></code><a class="headerlink" href="#isdoor" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isDoor()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_HOUSEDOORID);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isteleport">
+<h3><code class="docutils literal notranslate"><span class="pre">isTeleport</span></code><a class="headerlink" href="#isteleport" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isTeleport()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_attribs.has(ATTR_TELE_DEST);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="ismoveable">
+<h3><code class="docutils literal notranslate"><span class="pre">isMoveable</span></code><a class="headerlink" href="#ismoveable" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isMoveable()</span></code></p>
+</section>
+<section id="isground">
+<h3><code class="docutils literal notranslate"><span class="pre">isGround</span></code><a class="headerlink" href="#isground" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isGround()</span></code></p>
+</section>
+<section id="clone">
+<h3><code class="docutils literal notranslate"><span class="pre">clone</span></code><a class="headerlink" href="#clone" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">clone()</span></code></p>
+</section>
+<section id="asitem">
+<h3><code class="docutils literal notranslate"><span class="pre">asItem</span></code><a class="headerlink" href="#asitem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">asItem()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">static_self_cast&lt;Item&gt;();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="isitem">
+<h3><code class="docutils literal notranslate"><span class="pre">isItem</span></code><a class="headerlink" href="#isitem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">isItem()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">true;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getcontaineritems">
+<h3><code class="docutils literal notranslate"><span class="pre">getContainerItems</span></code><a class="headerlink" href="#getcontaineritems" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ItemVector</span> <span class="pre">getContainerItems()</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_containerItems;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="getcontaineritem">
+<h3><code class="docutils literal notranslate"><span class="pre">getContainerItem</span></code><a class="headerlink" href="#getcontaineritem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">ItemPtr</span> <span class="pre">getContainerItem(int</span> <span class="pre">slot)</span> <span class="pre">{</span> <span class="pre">return</span> <span class="pre">m_containerItems[slot];</span> <span class="pre">}</span></code></p>
+</section>
+<section id="addcontaineritemindexed">
+<h3><code class="docutils literal notranslate"><span class="pre">addContainerItemIndexed</span></code><a class="headerlink" href="#addcontaineritemindexed" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addContainerItemIndexed(const</span> <span class="pre">ItemPtr&amp;</span> <span class="pre">i,</span> <span class="pre">int</span> <span class="pre">slot)</span> <span class="pre">{</span> <span class="pre">m_containerItems[slot]</span> <span class="pre">=</span> <span class="pre">i;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="addcontaineritem">
+<h3><code class="docutils literal notranslate"><span class="pre">addContainerItem</span></code><a class="headerlink" href="#addcontaineritem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">addContainerItem(const</span> <span class="pre">ItemPtr&amp;</span> <span class="pre">i)</span> <span class="pre">{</span> <span class="pre">m_containerItems.push_back(i);</span> <span class="pre">}</span></code></p>
+</section>
+<section id="removecontaineritem">
+<h3><code class="docutils literal notranslate"><span class="pre">removeContainerItem</span></code><a class="headerlink" href="#removecontaineritem" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">removeContainerItem(int</span> <span class="pre">slot)</span> <span class="pre">{</span> <span class="pre">m_containerItems[slot]</span> <span class="pre">=</span> <span class="pre">nullptr;</span> <span class="pre">}</span></code></p>
+</section>
+<section id="clearcontaineritems">
+<h3><code class="docutils literal notranslate"><span class="pre">clearContainerItems</span></code><a class="headerlink" href="#clearcontaineritems" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clearContainerItems()</span> <span class="pre">{</span> <span class="pre">m_containerItems.clear();</span> <span class="pre">}</span></code></p>
+</section>
+<section id="calculatepatterns">
+<h3><code class="docutils literal notranslate"><span class="pre">calculatePatterns</span></code><a class="headerlink" href="#calculatepatterns" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">calculatePatterns(int&amp;</span> <span class="pre">xPattern,</span> <span class="pre">int&amp;</span> <span class="pre">yPattern,</span> <span class="pre">int&amp;</span> <span class="pre">zPattern)</span></code></p>
+</section>
+<section id="calculateanimationphase">
+<h3><code class="docutils literal notranslate"><span class="pre">calculateAnimationPhase</span></code><a class="headerlink" href="#calculateanimationphase" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">calculateAnimationPhase(bool</span> <span class="pre">animate)</span></code></p>
+</section>
+<section id="getexactsize">
+<h3><code class="docutils literal notranslate"><span class="pre">getExactSize</span></code><a class="headerlink" href="#getexactsize" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">getExactSize(int</span> <span class="pre">layer</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">xPattern</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">yPattern</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">zPattern</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">int</span> <span class="pre">animationPhase</span> <span class="pre">=</span> <span class="pre">0)</span></code></p>
+</section>
+<section id="setcustomattribute">
+<h3><code class="docutils literal notranslate"><span class="pre">setCustomAttribute</span></code><a class="headerlink" href="#setcustomattribute" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">setCustomAttribute(uint16</span> <span class="pre">key,</span> <span class="pre">uint64</span> <span class="pre">value)</span> <span class="pre">{</span></code></p>
+</section>
+<section id="getcustomattribute">
+<h3><code class="docutils literal notranslate"><span class="pre">getCustomAttribute</span></code><a class="headerlink" href="#getcustomattribute" title="Link to this heading">#</a></h3>
+<p><strong>Sygnatura:</strong> <code class="docutils literal notranslate"><span class="pre">uint64</span> <span class="pre">getCustomAttribute(uint16</span> <span class="pre">key)</span> <span class="pre">{</span></code></p>
+</section>
+</section>
+<section id="class-diagram">
+<h2>Class Diagram<a class="headerlink" href="#class-diagram" title="Link to this heading">#</a></h2>
+<p>Zobacz: <a class="reference download internal" download="" href="../../../../../_downloads/b49254dc171c6628abe0ba8e639754c8/item.mmd"><span class="xref download myst">../diagrams/item.mmd</span></a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-structs">Classes/Structs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasa-item">Klasa: <code class="docutils literal notranslate"><span class="pre">Item</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enums">Enums</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itemattr"><code class="docutils literal notranslate"><span class="pre">ItemAttr</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create"><code class="docutils literal notranslate"><span class="pre">create</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createfromotb"><code class="docutils literal notranslate"><span class="pre">createFromOtb</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw"><code class="docutils literal notranslate"><span class="pre">draw</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">draw</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setid"><code class="docutils literal notranslate"><span class="pre">setId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setotbid"><code class="docutils literal notranslate"><span class="pre">setOtbId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcountorsubtype"><code class="docutils literal notranslate"><span class="pre">setCountOrSubType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcount"><code class="docutils literal notranslate"><span class="pre">setCount</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setsubtype"><code class="docutils literal notranslate"><span class="pre">setSubType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcolor"><code class="docutils literal notranslate"><span class="pre">setColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settooltip"><code class="docutils literal notranslate"><span class="pre">setTooltip</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setquicklootflags"><code class="docutils literal notranslate"><span class="pre">setQuickLootFlags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setshader"><code class="docutils literal notranslate"><span class="pre">setShader</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcountorsubtype"><code class="docutils literal notranslate"><span class="pre">getCountOrSubType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsubtype"><code class="docutils literal notranslate"><span class="pre">getSubType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcount"><code class="docutils literal notranslate"><span class="pre">getCount</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getid"><code class="docutils literal notranslate"><span class="pre">getId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getclientid"><code class="docutils literal notranslate"><span class="pre">getClientId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getserverid"><code class="docutils literal notranslate"><span class="pre">getServerId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getname"><code class="docutils literal notranslate"><span class="pre">getName</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isvalid"><code class="docutils literal notranslate"><span class="pre">isValid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettooltip"><code class="docutils literal notranslate"><span class="pre">getTooltip</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getquicklootflags"><code class="docutils literal notranslate"><span class="pre">getQuickLootFlags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getshader"><code class="docutils literal notranslate"><span class="pre">getShader</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unserializeitem"><code class="docutils literal notranslate"><span class="pre">unserializeItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#serializeitem"><code class="docutils literal notranslate"><span class="pre">serializeItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdepotid"><code class="docutils literal notranslate"><span class="pre">setDepotId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdepotid"><code class="docutils literal notranslate"><span class="pre">getDepotId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdoorid"><code class="docutils literal notranslate"><span class="pre">setDoorId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdoorid"><code class="docutils literal notranslate"><span class="pre">getDoorId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getuniqueid"><code class="docutils literal notranslate"><span class="pre">getUniqueId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getactionid"><code class="docutils literal notranslate"><span class="pre">getActionId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setactionid"><code class="docutils literal notranslate"><span class="pre">setActionId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setuniqueid"><code class="docutils literal notranslate"><span class="pre">setUniqueId</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettext"><code class="docutils literal notranslate"><span class="pre">getText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdescription"><code class="docutils literal notranslate"><span class="pre">getDescription</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdescription"><code class="docutils literal notranslate"><span class="pre">setDescription</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#settext"><code class="docutils literal notranslate"><span class="pre">setText</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getteleportdestination"><code class="docutils literal notranslate"><span class="pre">getTeleportDestination</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setteleportdestination"><code class="docutils literal notranslate"><span class="pre">setTeleportDestination</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setasync"><code class="docutils literal notranslate"><span class="pre">setAsync</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ishousedoor"><code class="docutils literal notranslate"><span class="pre">isHouseDoor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isdepot"><code class="docutils literal notranslate"><span class="pre">isDepot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iscontainer"><code class="docutils literal notranslate"><span class="pre">isContainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isdoor"><code class="docutils literal notranslate"><span class="pre">isDoor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isteleport"><code class="docutils literal notranslate"><span class="pre">isTeleport</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ismoveable"><code class="docutils literal notranslate"><span class="pre">isMoveable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isground"><code class="docutils literal notranslate"><span class="pre">isGround</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone"><code class="docutils literal notranslate"><span class="pre">clone</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asitem"><code class="docutils literal notranslate"><span class="pre">asItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#isitem"><code class="docutils literal notranslate"><span class="pre">isItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcontaineritems"><code class="docutils literal notranslate"><span class="pre">getContainerItems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcontaineritem"><code class="docutils literal notranslate"><span class="pre">getContainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addcontaineritemindexed"><code class="docutils literal notranslate"><span class="pre">addContainerItemIndexed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addcontaineritem"><code class="docutils literal notranslate"><span class="pre">addContainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removecontaineritem"><code class="docutils literal notranslate"><span class="pre">removeContainerItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearcontaineritems"><code class="docutils literal notranslate"><span class="pre">clearContainerItems</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculatepatterns"><code class="docutils literal notranslate"><span class="pre">calculatePatterns</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculateanimationphase"><code class="docutils literal notranslate"><span class="pre">calculateAnimationPhase</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getexactsize"><code class="docutils literal notranslate"><span class="pre">getExactSize</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setcustomattribute"><code class="docutils literal notranslate"><span class="pre">setCustomAttribute</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getcustomattribute"><code class="docutils literal notranslate"><span class="pre">getCustomAttribute</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-diagram">Class Diagram</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/reposzablony/01_core/api/cpp/client/item.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

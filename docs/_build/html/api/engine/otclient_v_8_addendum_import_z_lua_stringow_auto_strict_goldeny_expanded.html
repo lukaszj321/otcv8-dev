@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded) &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/engine/otclient_v_8_addendum_import_z_lua_stringow_auto_strict_goldeny_expanded';</script>
+    <link rel="icon" href="../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="otclient-v8-addendum-import-z-luastringow-autostrict-goldeny-expanded">
+<h1>OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)<a class="headerlink" href="#otclient-v8-addendum-import-z-luastringow-autostrict-goldeny-expanded" title="Link to this heading">#</a></h1>
+<p><strong>Cel:</strong> Dostarczyć kompletne, wdrażalne uzupełnienie do Part 4:</p>
+<p>A) <strong>Import z Lua‑stringów do AST</strong> (AUTO‑STRICT, aktualizacja <em>in‑place</em>),
+B) <strong>Rozszerzona biblioteka goldenów</strong> (round‑trip 1:1),
+C) <strong>Runner z obsługą profili</strong> (<code class="docutils literal notranslate"><span class="pre">game_bot</span></code>, <code class="docutils literal notranslate"><span class="pre">client</span></code>, …).</p>
+</section>
+<hr class="docutils" />
+<section id="spis-tresci">
+<h1>Spis treści<a class="headerlink" href="#spis-tresci" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="#a-import"><span class="xref myst">A. Import z Lua‑stringów → AST (AUTO‑STRICT)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#a-1"><span class="xref myst">A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe</span></a></p></li>
+<li><p><a class="reference internal" href="#a-2"><span class="xref myst">A.2 API ekstrakcji i podmiany (TypeScript)</span></a></p></li>
+<li><p><a class="reference internal" href="#a-3"><span class="xref myst">A.3 Polityka AUTO‑STRICT i błędy importu</span></a></p></li>
+<li><p><a class="reference internal" href="#a-4"><span class="xref myst">A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#b-goldens"><span class="xref myst">B. Goldeny (expanded)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#b-1"><span class="xref myst">B.1 Indeks JSON (nazwy → opis)</span></a></p></li>
+<li><p><a class="reference internal" href="#b-2"><span class="xref myst">B.2 Wybrane goldeny (STRICT OTUI)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#c-runner"><span class="xref myst">C. Runner round‑trip + walidacja profili</span></a></p></li>
+</ul>
+<hr class="docutils" />
+<div id="a-import"></div>
+</section>
+<section id="a-import-z-luastringow-ast-autostrict">
+<h1>A. Import z Lua‑stringów → AST (AUTO‑STRICT)<a class="headerlink" href="#a-import-z-luastringow-ast-autostrict" title="Link to this heading">#</a></h1>
+<div id="a-1"></div>
+</section>
+<section id="a-1-wykrywanie-blokow-zmienne-i-kotwice-komentarzowe">
+<h1>A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe<a class="headerlink" href="#a-1-wykrywanie-blokow-zmienne-i-kotwice-komentarzowe" title="Link to this heading">#</a></h1>
+<p><strong>Obsługiwane formy:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Zmienna</strong>: <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">&lt;Name&gt;_OTUI</span> <span class="pre">=</span> <span class="pre">[[</span> <span class="pre">...</span> <span class="pre">]]</span></code> — preferowana w kodzie źródłowym.</p></li>
+<li><p><strong>Kotwice</strong>: <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">&#64;OTUI_BEGIN</span> <span class="pre">name=&lt;name&gt;</span></code> … <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">&#64;OTUI_END</span> <span class="pre">name=&lt;name&gt;</span></code> — czytelny marker w Lua.</p></li>
+</ol>
+<p><strong>Regexy (TS, <code class="docutils literal notranslate"><span class="pre">gms</span></code>):</strong></p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">RX_VAR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/(^|\n)\s*local\s+([A-Za-z0-9_]+)_OTUI\s*=\s*\[\[([\s\S]*?)\]\]/gms</span><span class="p">;</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">RX_TAG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/(^|\n)\s*--\s*@OTUI_BEGIN\s+name=([A-Za-z0-9_]+)[^\n]*\n([\s\S]*?)\n\s*--\s*@OTUI_END\s+name=\2/gms</span><span class="p">;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>STRICT OTUI</strong> wewnątrz bloków: brak tabów/komentarzy/BOM; wcięcia 2 sp.; kolejność atrybutów GEOMETRIA→STYL→ZACHOWANIE.</p>
+</div></blockquote>
+<div id="a-2"></div>
+</section>
+<section id="a-2-api-ekstrakcji-i-podmiany-typescript">
+<h1>A.2 API ekstrakcji i podmiany (TypeScript)<a class="headerlink" href="#a-2-api-ekstrakcji-i-podmiany-typescript" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">LuaOtuiBlock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">otui</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"> </span><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;var&#39;</span><span class="o">|</span><span class="s1">&#39;tag&#39;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">extractLuaOtuiBlocks</span><span class="p">(</span><span class="nx">lua</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">LuaOtuiBlock</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">out</span><span class="o">:</span><span class="w"> </span><span class="kt">LuaOtuiBlock</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">push</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="o">:</span><span class="w"> </span><span class="kt">RegExpExecArray</span><span class="p">,</span><span class="w"> </span><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;var&#39;</span><span class="o">|</span><span class="s1">&#39;tag&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">nameIdx</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">bodyIdx</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">out</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">m</span><span class="p">[</span><span class="nx">nameIdx</span><span class="p">],</span><span class="w"> </span><span class="nx">otui</span><span class="o">:</span><span class="w"> </span><span class="kt">m</span><span class="p">[</span><span class="nx">bodyIdx</span><span class="p">],</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="kt">m.index</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="kt">m.index</span><span class="o">!</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">m</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="nx">kind</span><span class="w"> </span><span class="p">});</span>
+<span class="p">};</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">mv</span><span class="o">:</span><span class="w"> </span><span class="kt">RegExpExecArray</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">rxv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="nx">RX_VAR</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="nx">mv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rxv</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">lua</span><span class="p">)))</span><span class="w"> </span><span class="nx">push</span><span class="p">(</span><span class="nx">mv</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">mt</span><span class="o">:</span><span class="w"> </span><span class="kt">RegExpExecArray</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">rxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="nx">RX_TAG</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="nx">mt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rxt</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">lua</span><span class="p">)))</span><span class="w"> </span><span class="nx">push</span><span class="p">(</span><span class="nx">mt</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tag&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">out</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">replaceLuaOtuiBlock</span><span class="p">(</span><span class="nx">lua</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">newOtuiStrict</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">byVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="nx">RX_VAR</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">byTag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="nx">RX_TAG</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">replVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lua</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">byVar</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">full</span><span class="p">,</span><span class="w"> </span><span class="nx">pre</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="o">===</span><span class="nx">name</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">pre</span><span class="si">}</span><span class="sb">local </span><span class="si">${</span><span class="nx">n</span><span class="si">}</span><span class="sb">_OTUI = [[\n</span><span class="si">${</span><span class="nx">newOtuiStrict</span><span class="si">}</span><span class="sb">\n]]`</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">full</span><span class="p">));</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">replVar</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">lua</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">replVar</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">lua</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">byTag</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">full</span><span class="p">,</span><span class="w"> </span><span class="nx">pre</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="o">===</span><span class="nx">name</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">pre</span><span class="si">}</span><span class="sb">-- @OTUI_BEGIN name=</span><span class="si">${</span><span class="nx">n</span><span class="si">}</span><span class="sb">\n</span><span class="si">${</span><span class="nx">newOtuiStrict</span><span class="si">}</span><span class="sb">\n-- @OTUI_END name=</span><span class="si">${</span><span class="nx">n</span><span class="si">}</span><span class="sb">`</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">full</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div id="a-3"></div>
+</section>
+<section id="a-3-polityka-autostrict-i-bledy-importu">
+<h1>A.3 Polityka AUTO‑STRICT i błędy importu<a class="headerlink" href="#a-3-polityka-autostrict-i-bledy-importu" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>AUTO‑STRICT:</strong> <code class="docutils literal notranslate"><span class="pre">ensureStrictOtui(text)</span></code> przed <code class="docutils literal notranslate"><span class="pre">parseOtui()</span></code>; jeśli zmieni treść → <code class="docutils literal notranslate"><span class="pre">W:STRICT</span></code> (propozycja auto‑zapisania).</p></li>
+<li><p><strong>Błędy importu:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">E:LUA‑DUP</span></code> — więcej niż jeden blok o tej samej nazwie w pliku.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E:LUA‑NOUPD</span></code> — brak bloku do podmiany.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E:STRICT</span></code> — komentarze/taby/BOM wewnątrz bloku OTUI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E:PARSE</span></code> — niepoprawny OTUI po <code class="docutils literal notranslate"><span class="pre">ensureStrictOtui()</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div id="a-4"></div>
+</section>
+<section id="a-4-przeplyw-ide-import-edycja-eksport-do-lua-plik">
+<h1>A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)<a class="headerlink" href="#a-4-przeplyw-ide-import-edycja-eksport-do-lua-plik" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Import</strong>: odczytaj plik Lua → <code class="docutils literal notranslate"><span class="pre">extractLuaOtuiBlocks()</span></code> → wybór bloku → <code class="docutils literal notranslate"><span class="pre">ensureStrictOtui()</span></code> → <code class="docutils literal notranslate"><span class="pre">parseOtui()</span></code> → edycja w IDE.</p></li>
+<li><p><strong>Eksport</strong>: <code class="docutils literal notranslate"><span class="pre">serializeAst()</span></code> → <code class="docutils literal notranslate"><span class="pre">ensureStrictOtui()</span></code> → <code class="docutils literal notranslate"><span class="pre">replaceLuaOtuiBlock()</span></code> (Lua) <strong>oraz</strong> zapis do <code class="docutils literal notranslate"><span class="pre">.otui</span></code> (kanoniczny runtime).</p></li>
+<li><p><strong>Walidacja profilu</strong>: <code class="docutils literal notranslate"><span class="pre">validateAst(ast,</span> <span class="pre">{</span> <span class="pre">profile:</span> <span class="pre">'game_bot'</span> <span class="pre">})</span></code> przed zapisem; blokujące <code class="docutils literal notranslate"><span class="pre">E:BLK</span></code> przerywają zapis.</p></li>
+</ol>
+<hr class="docutils" />
+<div id="b-goldens"></div>
+</section>
+<section id="b-goldeny-expanded">
+<h1>B. Goldeny (expanded)<a class="headerlink" href="#b-goldeny-expanded" title="Link to this heading">#</a></h1>
+<div id="b-1"></div>
+</section>
+<section id="b-1-indeks-json-nazwy-opis">
+<h1>B.1 Indeks JSON (nazwy → opis)<a class="headerlink" href="#b-1-indeks-json-nazwy-opis" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;mainwindow_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;MainWindow + content (fill)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;staticmain_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;StaticMainWindow + content&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;miniwindow_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;MiniWindow z titlebar/content/footer&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;container_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;ContainerWindow z titlebar + content&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;dialog_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;DialogWindow z footer OK/Cancel&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;textlist_with_scroll&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;TextList + VerticalScrollBar (pairing)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;multiline_with_scroll&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;MultilineTextEdit + VerticalScrollBar (pairing)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;splitter_two_panels&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Splitter z dwojgiem dzieci&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;status_overlay_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;StatusOverlay (Label+Progress+Cancel)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tabbar_tabwidget_pair&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;TabBar + TabWidget (para)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;toolbar_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Toolbar z dwiema akcjami i separatorem&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;titlebar_buttons_set&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Titlebar z tytułem i przyciskami close/min&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;groupbox_form_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;GroupBox z headerem i contentem&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;tabbed_miniwindow&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;MiniWindow z TabBar + TabWidget&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;combobox_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;ComboBox (szerokość stała)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;checkbox_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;CheckBox (wariant podstawowy)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;progressbar_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;ProgressBar (rozmiar minimalny)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;label_wrap_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Label z text-wrap&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;panel_with_padding&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Panel (anchors.fill + padding)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;textlist_with_hscroll&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;TextList + HorizontalScrollBar (dok do dołu)&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;login_screen_basic&quot;</span><span class="p">,</span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;StaticMainWindow – prosty ekran logowania&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div id="b-2"></div>
+</section>
+<section id="b-2-wybrane-goldeny-strict-otui">
+<h1>B.2 Wybrane goldeny (STRICT OTUI)<a class="headerlink" href="#b-2-wybrane-goldeny-strict-otui" title="Link to this heading">#</a></h1>
+<p><strong><code class="docutils literal notranslate"><span class="pre">toolbar_basic</span></code></strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Toolbar
+  id: tools
+  size: 200 22
+
+  Button
+    id: action1
+    width: 20
+    !text: tr(&#39;A&#39;)
+
+  HorizontalSeparator
+    id: sep
+    size: 2 20
+
+  Button
+    id: action2
+    width: 20
+    !text: tr(&#39;B&#39;)
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">titlebar_buttons_set</span></code></strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>Titlebar
+  id: tb
+  size: 200 20
+
+  Label
+    id: title
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 6
+    text-auto-resize: true
+    !text: tr(&#39;Title&#39;)
+
+  Button
+    id: closeBtn
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    width: 16
+    !text: tr(&#39;x&#39;)
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">groupbox_form_basic</span></code></strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>GroupBox
+  id: group
+  size: 220 120
+
+  UIWidget
+    id: header
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    height: 18
+
+    Label
+      id: caption
+      anchors.left: parent.left
+      anchors.verticalCenter: parent.verticalCenter
+      margin-left: 6
+      text-auto-resize: true
+      !text: tr(&#39;Group&#39;)
+
+  UIWidget
+    id: content
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: header.bottom
+    anchors.bottom: parent.bottom
+    padding: 6
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">tabbed_miniwindow</span></code></strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>MiniWindow &lt; MainWindow
+  id: mini
+  size: 280 200
+  background-color: alpha
+
+  UIWidget
+    id: titlebar
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    height: 20
+
+  UIWidget
+    id: content
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: titlebar.bottom
+    anchors.bottom: parent.bottom
+    padding: 6
+
+    TabBar
+      id: tabbar
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.top: parent.top
+      height: 22
+
+      Button
+        id: tab1
+        width: 60
+        !text: tr(&#39;Tab 1&#39;)
+
+      Button
+        id: tab2
+        anchors.left: tab1.right
+        width: 60
+        !text: tr(&#39;Tab 2&#39;)
+
+    TabWidget
+      id: tabcontent
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.top: tabbar.bottom
+      anchors.bottom: parent.bottom
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">textlist_with_hscroll</span></code></strong></p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>UIWidget
+  id: wrap
+  size: 240 120
+
+  TextList
+    id: list
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: hscroll.top
+
+  HorizontalScrollBar
+    id: hscroll
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    step: 8
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">login_screen_basic</span></code></strong> (podgląd)</p>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>StaticMainWindow
+  id: smw_login
+  size: 320 240
+  background-color: alpha
+
+  UIWidget
+    id: content
+    anchors.fill: parent
+    padding: 6
+
+    Label
+      id: lbl_user
+      anchors.left: parent.left
+      anchors.top: parent.top
+      !text: tr(&#39;Username:&#39;)
+
+    TextEdit
+      id: edit_user
+      anchors.left: parent.left
+      anchors.top: lbl_user.bottom
+      width: 160
+
+    Label
+      id: lbl_pass
+      anchors.left: parent.left
+      anchors.top: edit_user.bottom
+      margin-top: 6
+      !text: tr(&#39;Password:&#39;)
+
+    PasswordTextEdit
+      id: edit_pass
+      anchors.left: parent.left
+      anchors.top: lbl_pass.bottom
+      width: 160
+
+    Button
+      id: btn_login
+      anchors.left: parent.left
+      anchors.top: edit_pass.bottom
+      margin-top: 8
+      width: 80
+      !text: tr(&#39;Log In&#39;)
+</pre></div>
+</div>
+<hr class="docutils" />
+<div id="c-runner"></div>
+</section>
+<section id="c-runner-roundtrip-walidacja-profili">
+<h1>C. Runner round‑trip + walidacja profili<a class="headerlink" href="#c-runner-roundtrip-walidacja-profili" title="Link to this heading">#</a></h1>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">GoldenCase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">otui?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">}</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">GoldenIO</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">read</span><span class="p">(</span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">write</span><span class="p">(</span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">}</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">GoldenReport</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">passed</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[];</span><span class="w"> </span><span class="nx">failed</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="nx">reason</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">runGoldenSuite</span><span class="p">(</span><span class="nx">cases</span><span class="o">:</span><span class="w"> </span><span class="kt">GoldenCase</span><span class="p">[],</span><span class="w"> </span><span class="nx">io</span><span class="o">:</span><span class="w"> </span><span class="kt">GoldenIO</span><span class="p">,</span><span class="w"> </span><span class="nx">opts</span><span class="o">?:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">profile</span><span class="o">?:</span><span class="w"> </span><span class="s1">&#39;game_bot&#39;</span><span class="o">|</span><span class="s1">&#39;client&#39;</span><span class="o">|</span><span class="kt">string</span><span class="w"> </span><span class="p">})</span><span class="o">:</span><span class="w"> </span><span class="nx">GoldenReport</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">passed</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">failed</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="kt">string</span><span class="p">;</span><span class="nx">reason</span><span class="o">:</span><span class="kt">string</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">cases</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">otuiIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">otui</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="nx">io</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="sb">`tests/goldens/otui/</span><span class="si">${</span><span class="nx">c</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">.otui`</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">strict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ensureStrictOtui</span><span class="p">(</span><span class="nx">otuiIn</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parseOtui</span><span class="p">(</span><span class="nx">strict</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">issues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">validateAst</span><span class="p">(</span><span class="nx">ast</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="kt">opts?.profile</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">blocking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">issues</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="p">.</span><span class="nx">severity</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">blocking</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`validation failed: </span><span class="si">${</span><span class="nx">blocking</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="p">=&gt;</span><span class="nx">i</span><span class="p">.</span><span class="nx">code</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ensureStrictOtui</span><span class="p">(</span><span class="nx">serializeAst</span><span class="p">(</span><span class="nx">ast</span><span class="p">));</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">out</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">strict</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;round-trip mismatch&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">passed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="o">:</span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">failed</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">c.name</span><span class="p">,</span><span class="w"> </span><span class="nx">reason</span><span class="o">:</span><span class="w"> </span><span class="kt">String</span><span class="p">(</span><span class="nx">e</span><span class="o">?</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">passed</span><span class="p">,</span><span class="w"> </span><span class="nx">failed</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Notatka:</strong> Ten addendum nie zmienia zasad bazowych; integruj gotowe sekcje A–C z Twoim pipeline’em IDE oraz CI.</p>
+</div></blockquote>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">OTClient v8 — Addendum: Import z Lua‑stringów (AUTO‑STRICT) + Goldeny (Expanded)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#spis-tresci">Spis treści</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-import-z-luastringow-ast-autostrict">A. Import z Lua‑stringów → AST (AUTO‑STRICT)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1-wykrywanie-blokow-zmienne-i-kotwice-komentarzowe">A.1 Wykrywanie bloków: zmienne i kotwice komentarzowe</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-2-api-ekstrakcji-i-podmiany-typescript">A.2 API ekstrakcji i podmiany (TypeScript)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-3-polityka-autostrict-i-bledy-importu">A.3 Polityka AUTO‑STRICT i błędy importu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-4-przeplyw-ide-import-edycja-eksport-do-lua-plik">A.4 Przepływ IDE (import → edycja → eksport do Lua/plik)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-goldeny-expanded">B. Goldeny (expanded)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-1-indeks-json-nazwy-opis">B.1 Indeks JSON (nazwy → opis)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-2-wybrane-goldeny-strict-otui">B.2 Wybrane goldeny (STRICT OTUI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-runner-roundtrip-walidacja-profili">C. Runner round‑trip + walidacja profili</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api/engine/otclient_v_8_addendum_import_z_lua_stringow_auto_strict_goldeny_expanded.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

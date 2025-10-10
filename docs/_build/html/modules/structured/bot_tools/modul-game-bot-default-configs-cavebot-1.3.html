@@ -1,0 +1,1467 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Moduł: | Moduł: game_bot/default_configs/cavebot_1.3 &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/structured/bot_tools/modul-game-bot-default-configs-cavebot-1.3';</script>
+    <link rel="icon" href="../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_bot/default_configs/cavebot_1.3</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modul-modul-game-bot-default-configs-cavebot-1-3">
+<h1>Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_bot/default_configs/cavebot_1.3</span></code><a class="headerlink" href="#modul-modul-game-bot-default-configs-cavebot-1-3" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Cavebot by otclient@otclient.ovh</span>
+
+<span class="c1">-- visit http://bot.otclient.ovh/</span>
+
+<span class="kd">local</span> <span class="n">cavebotTab</span> <span class="o">=</span> <span class="s2">&quot;Cave&quot;</span>
+
+<span class="kd">local</span> <span class="n">targetingTab</span> <span class="o">=</span> <span class="s2">&quot;Target&quot;</span>
+
+<span class="n">setDefaultTab</span><span class="p">(</span><span class="n">cavebotTab</span><span class="p">)</span>
+
+<span class="n">CaveBot</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">-- global namespace</span>
+
+<span class="n">CaveBot</span><span class="p">.</span><span class="n">Extensions</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">importStyle</span><span class="p">(</span><span class="s2">&quot;/cavebot/cavebot.otui&quot;</span><span class="p">)</span>
+
+<span class="n">importStyle</span><span class="p">(</span><span class="s2">&quot;/cavebot/config.otui&quot;</span><span class="p">)</span>
+
+<span class="n">importStyle</span><span class="p">(</span><span class="s2">&quot;/cavebot/editor.otui&quot;</span><span class="p">)</span>
+
+<span class="n">importStyle</span><span class="p">(</span><span class="s2">&quot;/cavebot/supply.otui&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/actions.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/config.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/editor.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/example_functions.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/recorder.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/walking.lua&quot;</span><span class="p">)</span>
+
+<span class="c1">-- in this section you can add extensions, check extension_template.lua</span>
+
+<span class="c1">--dofile(&quot;/cavebot/extension_template.lua&quot;)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/depositer.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/supply.lua&quot;</span><span class="p">)</span>
+
+<span class="c1">-- main cavebot file, must be last</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/cavebot/cavebot.lua&quot;</span><span class="p">)</span>
+
+<span class="n">setDefaultTab</span><span class="p">(</span><span class="n">targetingTab</span><span class="p">)</span>
+
+<span class="n">TargetBot</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">-- global namespace</span>
+
+<span class="n">importStyle</span><span class="p">(</span><span class="s2">&quot;/targetbot/looting.otui&quot;</span><span class="p">)</span>
+
+<span class="n">importStyle</span><span class="p">(</span><span class="s2">&quot;/targetbot/target.otui&quot;</span><span class="p">)</span>
+
+<span class="n">importStyle</span><span class="p">(</span><span class="s2">&quot;/targetbot/creature_editor.otui&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/targetbot/creature.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/targetbot/creature_attack.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/targetbot/creature_editor.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/targetbot/creature_priority.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/targetbot/looting.lua&quot;</span><span class="p">)</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/targetbot/walking.lua&quot;</span><span class="p">)</span>
+
+<span class="c1">-- main targetbot file, must be last</span>
+
+<span class="nb">dofile</span><span class="p">(</span><span class="s2">&quot;/targetbot/target.lua&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="hp-lua">
+<h1>hp.lua<a class="headerlink" href="#hp-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">setDefaultTab</span><span class="p">(</span><span class="s2">&quot;HP&quot;</span><span class="p">)</span>
+
+<span class="c1">--2x healing spell</span>
+
+<span class="c1">--2x healing rune</span>
+
+<span class="c1">--utani hur</span>
+
+<span class="c1">--mana shield</span>
+
+<span class="c1">--anti paralyze</span>
+
+<span class="c1">--4x equip</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Healing spells&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">healing1</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">healing1</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HP%&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;exura&quot;</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">90</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">healing2</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">healing2</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HP%&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;exura vita&quot;</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">50</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="c1">-- create 2 healing widgets</span>
+
+<span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">healingInfo</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">({</span><span class="n">storage</span><span class="p">.</span><span class="n">healing1</span><span class="p">,</span> <span class="n">storage</span><span class="p">.</span><span class="n">healing2</span><span class="p">})</span> <span class="kr">do</span>
+
+  <span class="kd">local</span> <span class="n">healingmacro</span> <span class="o">=</span> <span class="n">macro</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">player</span><span class="p">:</span><span class="n">getHealthPercent</span><span class="p">()</span>
+
+    <span class="kr">if</span> <span class="n">healingInfo</span><span class="p">.</span><span class="n">max</span> <span class="o">&gt;=</span> <span class="n">hp</span> <span class="ow">and</span> <span class="n">hp</span> <span class="o">&gt;=</span> <span class="n">healingInfo</span><span class="p">.</span><span class="n">min</span> <span class="kr">then</span>
+
+      <span class="kr">if</span> <span class="n">TargetBot</span> <span class="kr">then</span>
+
+        <span class="n">TargetBot</span><span class="p">.</span><span class="n">saySpell</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">text</span><span class="p">)</span> <span class="c1">-- sync spell with targetbot if available</span>
+
+      <span class="kr">else</span>
+
+        <span class="n">say</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+  <span class="n">healingmacro</span><span class="p">.</span><span class="n">setOn</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">on</span><span class="p">)</span>
+
+  <span class="n">UI</span><span class="p">.</span><span class="n">DualScrollPanel</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">newParams</span><span class="p">)</span>
+
+    <span class="n">healingInfo</span> <span class="o">=</span> <span class="n">newParams</span>
+
+    <span class="n">healingmacro</span><span class="p">.</span><span class="n">setOn</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">on</span><span class="p">)</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Mana &amp; health potions/runes&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">hpitem1</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">hpitem1</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HP%&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="mi">266</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">90</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">hpitem2</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">hpitem2</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;HP%&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="mi">3160</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">50</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaitem1</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">manaitem1</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;MP%&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="mi">268</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">90</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaitem2</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">manaitem2</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;MP%&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="mi">3157</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">50</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">healingInfo</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">({</span><span class="n">storage</span><span class="p">.</span><span class="n">hpitem1</span><span class="p">,</span> <span class="n">storage</span><span class="p">.</span><span class="n">hpitem2</span><span class="p">,</span> <span class="n">storage</span><span class="p">.</span><span class="n">manaitem1</span><span class="p">,</span> <span class="n">storage</span><span class="p">.</span><span class="n">manaitem2</span><span class="p">})</span> <span class="kr">do</span>
+
+  <span class="kd">local</span> <span class="n">healingmacro</span> <span class="o">=</span> <span class="n">macro</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+    <span class="kd">local</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">player</span><span class="p">:</span><span class="n">getHealthPercent</span><span class="p">()</span> <span class="ow">or</span> <span class="nb">math.min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="nb">math.floor</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">getMana</span><span class="p">()</span> <span class="o">/</span> <span class="n">player</span><span class="p">:</span><span class="n">getMaxMana</span><span class="p">())))</span>
+
+    <span class="kr">if</span> <span class="n">healingInfo</span><span class="p">.</span><span class="n">max</span> <span class="o">&gt;=</span> <span class="n">hp</span> <span class="ow">and</span> <span class="n">hp</span> <span class="o">&gt;=</span> <span class="n">healingInfo</span><span class="p">.</span><span class="n">min</span> <span class="kr">then</span>
+
+      <span class="kr">if</span> <span class="n">TargetBot</span> <span class="kr">then</span>
+
+        <span class="n">TargetBot</span><span class="p">.</span><span class="n">useItem</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">item</span><span class="p">,</span> <span class="n">healingInfo</span><span class="p">.</span><span class="n">subType</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span> <span class="c1">-- sync spell with targetbot if available</span>
+
+      <span class="kr">else</span>
+
+        <span class="kd">local</span> <span class="n">thing</span> <span class="o">=</span> <span class="n">g_things</span><span class="p">.</span><span class="n">getThingType</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="kd">local</span> <span class="n">subType</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getClientVersion</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">860</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span>
+
+        <span class="kr">if</span> <span class="n">thing</span> <span class="ow">and</span> <span class="n">thing</span><span class="p">:</span><span class="n">isFluidContainer</span><span class="p">()</span> <span class="kr">then</span>
+
+          <span class="n">subType</span> <span class="o">=</span> <span class="n">healingInfo</span><span class="p">.</span><span class="n">subType</span>
+
+        <span class="kr">end</span>
+
+        <span class="n">g_game</span><span class="p">.</span><span class="n">useInventoryItemWith</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">item</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">subType</span><span class="p">)</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+  <span class="n">healingmacro</span><span class="p">.</span><span class="n">setOn</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">on</span><span class="p">)</span>
+
+  <span class="n">UI</span><span class="p">.</span><span class="n">DualScrollItemPanel</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">newParams</span><span class="p">)</span>
+
+    <span class="n">healingInfo</span> <span class="o">=</span> <span class="n">newParams</span>
+
+    <span class="n">healingmacro</span><span class="p">.</span><span class="n">setOn</span><span class="p">(</span><span class="n">healingInfo</span><span class="p">.</span><span class="n">on</span> <span class="ow">and</span> <span class="n">healingInfo</span><span class="p">.</span><span class="n">item</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getClientVersion</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">780</span> <span class="kr">then</span>
+
+  <span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;In old tibia potions &amp; runes work only when you have backpack with them opened&quot;</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Mana shield spell:&quot;</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">TextEdit</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaShield</span> <span class="ow">or</span> <span class="s2">&quot;utamo vita&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">newText</span><span class="p">)</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">manaShield</span> <span class="o">=</span> <span class="n">newText</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">lastManaShield</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;mana shield&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">hasManaShield</span><span class="p">()</span> <span class="ow">or</span> <span class="n">lastManaShield</span> <span class="o">+</span> <span class="mi">90000</span> <span class="o">&gt;</span> <span class="n">now</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">TargetBot</span> <span class="kr">then</span>
+
+    <span class="n">TargetBot</span><span class="p">.</span><span class="n">saySpell</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaShield</span><span class="p">)</span> <span class="c1">-- sync spell with targetbot if available</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">say</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaShield</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Haste spell:&quot;</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">TextEdit</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">hasteSpell</span> <span class="ow">or</span> <span class="s2">&quot;utani hur&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">newText</span><span class="p">)</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">hasteSpell</span> <span class="o">=</span> <span class="n">newText</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="s2">&quot;haste&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">hasHaste</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">TargetBot</span> <span class="kr">then</span>
+
+    <span class="n">TargetBot</span><span class="p">.</span><span class="n">saySpell</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">hasteSpell</span><span class="p">)</span> <span class="c1">-- sync spell with targetbot if available</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">say</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">hasteSpell</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Anti paralyze spell:&quot;</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">TextEdit</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">antiParalyze</span> <span class="ow">or</span> <span class="s2">&quot;utani hur&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">newText</span><span class="p">)</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">antiParalyze</span> <span class="o">=</span> <span class="n">newText</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;anti paralyze&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">isParalyzed</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">TargetBot</span> <span class="kr">then</span>
+
+    <span class="n">TargetBot</span><span class="p">.</span><span class="n">saySpell</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">antiParalyze</span><span class="p">)</span> <span class="c1">-- sync spell with targetbot if available</span>
+
+  <span class="kr">else</span>
+
+    <span class="n">say</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">antiParalyze</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Eatable items:&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3582</span><span class="p">,</span> <span class="mi">3577</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">foodContainer</span> <span class="o">=</span> <span class="n">UI</span><span class="p">.</span><span class="n">Container</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span> <span class="o">=</span> <span class="n">items</span>
+
+<span class="kr">end</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+<span class="n">foodContainer</span><span class="p">:</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+
+<span class="n">foodContainer</span><span class="p">:</span><span class="n">setItems</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span><span class="p">)</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;eat food&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="c1">-- search for food in containers</span>
+
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">container</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">g_game</span><span class="p">.</span><span class="n">getContainers</span><span class="p">())</span> <span class="kr">do</span>
+
+    <span class="kr">for</span> <span class="n">__</span><span class="p">,</span> <span class="n">item</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">container</span><span class="p">:</span><span class="n">getItems</span><span class="p">())</span> <span class="kr">do</span>
+
+      <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">foodItem</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">foodItem</span><span class="p">.</span><span class="n">id</span> <span class="kr">then</span>
+
+          <span class="kr">return</span> <span class="n">g_game</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+  <span class="c1">-- can&#39;t find any food, try to eat random item using hotkey</span>
+
+  <span class="kr">if</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getClientVersion</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">780</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span> <span class="c1">-- hotkey&#39;s dont work on old tibia</span>
+
+  <span class="kd">local</span> <span class="n">toEat</span> <span class="o">=</span> <span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span><span class="p">[</span><span class="nb">math.random</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">storage</span><span class="p">.</span><span class="n">foodItems</span><span class="p">)]</span>
+
+  <span class="kr">if</span> <span class="n">toEat</span> <span class="kr">then</span> <span class="n">g_game</span><span class="p">.</span><span class="n">useInventoryItem</span><span class="p">(</span><span class="n">toEat</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Auto equip&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">autoEquip</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">autoEquip</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span> <span class="kr">do</span> <span class="c1">-- if you want more auto equip panels you can change 4 to higher value</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">storage</span><span class="p">.</span><span class="n">autoEquip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="kr">then</span>
+
+    <span class="n">storage</span><span class="p">.</span><span class="n">autoEquip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Auto Equip&quot;</span><span class="p">,</span> <span class="n">item1</span><span class="o">=</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">3052</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span> <span class="n">item2</span><span class="o">=</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">3089</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span> <span class="n">slot</span><span class="o">=</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">9</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">}</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">UI</span><span class="p">.</span><span class="n">TwoItemsAndSlotPanel</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">autoEquip</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">newParams</span><span class="p">)</span>
+
+    <span class="n">storage</span><span class="p">.</span><span class="n">autoEquip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">newParams</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">containers</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getContainers</span><span class="p">()</span>
+
+  <span class="kr">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">autoEquip</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">autoEquip</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kr">if</span> <span class="n">autoEquip</span><span class="p">.</span><span class="n">on</span> <span class="kr">then</span>
+
+      <span class="kd">local</span> <span class="n">slotItem</span> <span class="o">=</span> <span class="n">getSlot</span><span class="p">(</span><span class="n">autoEquip</span><span class="p">.</span><span class="n">slot</span><span class="p">)</span>
+
+      <span class="kr">if</span> <span class="ow">not</span> <span class="n">slotItem</span> <span class="ow">or</span> <span class="p">(</span><span class="n">slotItem</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">~=</span> <span class="n">autoEquip</span><span class="p">.</span><span class="n">item1</span> <span class="ow">and</span> <span class="n">slotItem</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">~=</span> <span class="n">autoEquip</span><span class="p">.</span><span class="n">item2</span><span class="p">)</span> <span class="kr">then</span>
+
+        <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">container</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span> <span class="kr">do</span>
+
+          <span class="kr">for</span> <span class="n">__</span><span class="p">,</span> <span class="n">item</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">container</span><span class="p">:</span><span class="n">getItems</span><span class="p">())</span> <span class="kr">do</span>
+
+            <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">autoEquip</span><span class="p">.</span><span class="n">item1</span> <span class="ow">or</span> <span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">autoEquip</span><span class="p">.</span><span class="n">item2</span> <span class="kr">then</span>
+
+              <span class="n">g_game</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">65535</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">autoEquip</span><span class="p">.</span><span class="n">slot</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">())</span>
+
+              <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1">-- don&#39;t call it too often</span>
+
+              <span class="kr">return</span>
+
+            <span class="kr">end</span>
+
+          <span class="kr">end</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="main-lua">
+<h1>main.lua<a class="headerlink" href="#main-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- main tab</span>
+
+<span class="n">VERSION</span> <span class="o">=</span> <span class="s2">&quot;1.3&quot;</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Config version: &quot;</span> <span class="o">..</span> <span class="n">VERSION</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Discord&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="n">g_platform</span><span class="p">.</span><span class="n">openUrl</span><span class="p">(</span><span class="s2">&quot;https://discord.gg/yhqBE4A&quot;</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Forum&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="n">g_platform</span><span class="p">.</span><span class="n">openUrl</span><span class="p">(</span><span class="s2">&quot;http://otclient.net/&quot;</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Help &amp; Tutorials&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="n">g_platform</span><span class="p">.</span><span class="n">openUrl</span><span class="p">(</span><span class="s2">&quot;http://bot.otclient.ovh/&quot;</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="mwall-timer-lua">
+<h1>mwall_timer.lua<a class="headerlink" href="#mwall-timer-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Magic wall &amp; Wild growth timer</span>
+
+<span class="c1">-- config</span>
+
+<span class="kd">local</span> <span class="n">magicWallId</span> <span class="o">=</span> <span class="mi">2129</span>
+
+<span class="kd">local</span> <span class="n">magicWallTime</span> <span class="o">=</span> <span class="mi">20000</span>
+
+<span class="kd">local</span> <span class="n">wildGrowthId</span> <span class="o">=</span> <span class="mi">2130</span>
+
+<span class="kd">local</span> <span class="n">wildGrowthTime</span> <span class="o">=</span> <span class="mi">45000</span>
+
+<span class="c1">-- script</span>
+
+<span class="kd">local</span> <span class="n">activeTimers</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">onAddThing</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">tile</span><span class="p">,</span> <span class="n">thing</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="p">:</span><span class="n">isItem</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="kr">if</span> <span class="n">thing</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">magicWallId</span> <span class="kr">then</span>
+
+    <span class="n">timer</span> <span class="o">=</span> <span class="n">magicWallTime</span>
+
+  <span class="kr">elseif</span> <span class="n">thing</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">wildGrowthId</span> <span class="kr">then</span>
+
+    <span class="n">timer</span> <span class="o">=</span> <span class="n">wildGrowthTime</span>
+
+  <span class="kr">else</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">tile</span><span class="p">:</span><span class="n">getPosition</span><span class="p">().</span><span class="n">x</span> <span class="o">..</span> <span class="s2">&quot;,&quot;</span> <span class="o">..</span> <span class="n">tile</span><span class="p">:</span><span class="n">getPosition</span><span class="p">().</span><span class="n">y</span> <span class="o">..</span> <span class="s2">&quot;,&quot;</span> <span class="o">..</span> <span class="n">tile</span><span class="p">:</span><span class="n">getPosition</span><span class="p">().</span><span class="n">z</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">activeTimers</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="ow">or</span> <span class="n">activeTimers</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">now</span> <span class="kr">then</span>
+
+    <span class="n">activeTimers</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span> <span class="o">+</span> <span class="n">timer</span>
+
+  <span class="kr">end</span>
+
+  <span class="n">tile</span><span class="p">:</span><span class="n">setTimer</span><span class="p">(</span><span class="n">activeTimers</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">-</span> <span class="n">now</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">onRemoveThing</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">tile</span><span class="p">,</span> <span class="n">thing</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="p">:</span><span class="n">isItem</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kr">return</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="p">(</span><span class="n">thing</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">magicWallId</span> <span class="ow">or</span> <span class="n">thing</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">wildGrowthId</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tile</span><span class="p">:</span><span class="n">getGround</span><span class="p">()</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">tile</span><span class="p">:</span><span class="n">getPosition</span><span class="p">().</span><span class="n">x</span> <span class="o">..</span> <span class="s2">&quot;,&quot;</span> <span class="o">..</span> <span class="n">tile</span><span class="p">:</span><span class="n">getPosition</span><span class="p">().</span><span class="n">y</span> <span class="o">..</span> <span class="s2">&quot;,&quot;</span> <span class="o">..</span> <span class="n">tile</span><span class="p">:</span><span class="n">getPosition</span><span class="p">().</span><span class="n">z</span>
+
+    <span class="n">activeTimers</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="n">tile</span><span class="p">:</span><span class="n">setTimer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="storage-json">
+<h1>storage.json<a class="headerlink" href="#storage-json" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
+
+  &quot;hpitem1&quot;: {
+
+    &quot;max&quot;: 90,
+
+    &quot;title&quot;: &quot;HP%&quot;,
+
+    &quot;subType&quot;: 0,
+
+    &quot;item&quot;: 266,
+
+    &quot;min&quot;: 51,
+
+    &quot;on&quot;: false
+
+},
+
+  &quot;foodItems&quot;: [
+
+{
+
+      &quot;id&quot;: 3582,
+
+      &quot;count&quot;: 1
+
+},
+
+{
+
+      &quot;id&quot;: 3577,
+
+      &quot;count&quot;: 1
+
+}
+
+],
+
+  &quot;autoEquip&quot;: [
+
+{
+
+      &quot;item1&quot;: 3052,
+
+      &quot;title&quot;: &quot;Auto Equip&quot;,
+
+      &quot;item2&quot;: 3089,
+
+      &quot;on&quot;: false,
+
+      &quot;slot&quot;: 9
+
+},
+
+{
+
+      &quot;item1&quot;: 0,
+
+      &quot;title&quot;: &quot;Auto Equip&quot;,
+
+      &quot;item2&quot;: 0,
+
+      &quot;on&quot;: false,
+
+      &quot;slot&quot;: 0
+
+},
+
+{
+
+      &quot;item1&quot;: 0,
+
+      &quot;title&quot;: &quot;Auto Equip&quot;,
+
+      &quot;item2&quot;: 0,
+
+      &quot;on&quot;: false,
+
+      &quot;slot&quot;: 0
+
+},
+
+{
+
+      &quot;item1&quot;: 0,
+
+      &quot;title&quot;: &quot;Auto Equip&quot;,
+
+      &quot;item2&quot;: 0,
+
+      &quot;on&quot;: false,
+
+      &quot;slot&quot;: 0
+
+}
+
+],
+
+  &quot;ingame_hotkeys&quot;: &quot;singlehotkey(\&quot;f1\&quot;, function()\nlocal shaders = {\&quot;stars\&quot;, \&quot;gold\&quot;, \&quot;rainbow\&quot;, \&quot;sweden\&quot;, \&quot;brazil\&quot;, \&quot;line\&quot;, \&quot;3line\&quot;, \&quot;circle\&quot;, \&quot;outline\&quot;}\nlocal p = 0\nfor i, c in pairs(getSpectators()) do\n    c:setOutfitShader(shaders[1 + p % 10])\n    p = p + 1\nend\nend)\n\nsinglehotkey(\&quot;1\&quot;, function()\n  for _, s in ipairs(getSpectators()) do\n    if s:canShoot(3) then\n      info(s:getName())\n    else\n      warn(s:getName())\n    end\n  end\nend)&quot;,
+
+  &quot;healing2&quot;: {
+
+    &quot;max&quot;: 50,
+
+    &quot;title&quot;: &quot;HP%&quot;,
+
+    &quot;on&quot;: false,
+
+    &quot;min&quot;: 1,
+
+    &quot;text&quot;: &quot;exura vita&quot;
+
+},
+
+  &quot;ingame_macros&quot;: &quot;&quot;,
+
+  &quot;hasteSpell&quot;: &quot;utani hur&quot;,
+
+  &quot;manaitem2&quot;: {
+
+    &quot;max&quot;: 50,
+
+    &quot;title&quot;: &quot;MP%&quot;,
+
+    &quot;subType&quot;: 0,
+
+    &quot;item&quot;: 3157,
+
+    &quot;min&quot;: 0,
+
+    &quot;on&quot;: false
+
+},
+
+  &quot;_configs&quot;: {
+
+    &quot;cavebot_configs&quot;: {
+
+      &quot;selected&quot;: &quot;test_src&quot;,
+
+      &quot;enabled&quot;: false
+
+},
+
+    &quot;targetbot_configs&quot;: {
+
+      &quot;enabled&quot;: false,
+
+      &quot;selected&quot;: &quot;config_name&quot;
+
+}
+
+},
+
+  &quot;healing1&quot;: {
+
+    &quot;max&quot;: 100,
+
+    &quot;title&quot;: &quot;HP%&quot;,
+
+    &quot;on&quot;: false,
+
+    &quot;min&quot;: 51,
+
+    &quot;text&quot;: &quot;exura&quot;
+
+},
+
+  &quot;dropItems&quot;: [
+
+{
+
+      &quot;id&quot;: 283,
+
+      &quot;count&quot;: 1
+
+},
+
+{
+
+      &quot;id&quot;: 284,
+
+      &quot;count&quot;: 1
+
+},
+
+{
+
+      &quot;id&quot;: 285,
+
+      &quot;count&quot;: 1
+
+}
+
+],
+
+  &quot;_macros&quot;: {
+
+    &quot;&quot;: false
+
+},
+
+  &quot;manaitem1&quot;: {
+
+    &quot;max&quot;: 90,
+
+    &quot;title&quot;: &quot;MP%&quot;,
+
+    &quot;subType&quot;: 0,
+
+    &quot;item&quot;: 268,
+
+    &quot;min&quot;: 51,
+
+    &quot;on&quot;: false
+
+},
+
+  &quot;hpitem2&quot;: {
+
+    &quot;max&quot;: 50,
+
+    &quot;title&quot;: &quot;HP%&quot;,
+
+    &quot;subType&quot;: 0,
+
+    &quot;item&quot;: 3160,
+
+    &quot;min&quot;: 0,
+
+    &quot;on&quot;: false
+
+},
+
+  &quot;manaShield&quot;: &quot;utamo vita&quot;,
+
+  &quot;autoTradeMessage&quot;: &quot;I&#39;m using OTClientV8!&quot;,
+
+  &quot;antiParalyze&quot;: &quot;utani hur&quot;,
+
+  &quot;manaTrain&quot;: {
+
+    &quot;max&quot;: 100,
+
+    &quot;title&quot;: &quot;MP%&quot;,
+
+    &quot;on&quot;: false,
+
+    &quot;min&quot;: 80,
+
+    &quot;text&quot;: &quot;utevo lux&quot;
+
+}
+
+}
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tools-lua">
+<h1>tools.lua<a class="headerlink" href="#tools-lua" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- tools tab</span>
+
+<span class="n">setDefaultTab</span><span class="p">(</span><span class="s2">&quot;Tools&quot;</span><span class="p">)</span>
+
+<span class="c1">-- allows to test/edit bot lua scripts ingame, you can have multiple scripts like this, just change storage.ingame_lua</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Ingame macro editor&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">newText</span><span class="p">)</span>
+
+  <span class="n">UI</span><span class="p">.</span><span class="n">MultilineEditorWindow</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">ingame_macros</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Macro editor&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;You can add your custom macros (or any other lua code) here&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="n">storage</span><span class="p">.</span><span class="n">ingame_macros</span> <span class="o">=</span> <span class="n">text</span>
+
+    <span class="n">reload</span><span class="p">()</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Ingame hotkey editor&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">newText</span><span class="p">)</span>
+
+  <span class="n">UI</span><span class="p">.</span><span class="n">MultilineEditorWindow</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">ingame_hotkeys</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Hotkeys editor&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;You can add your custom hotkeys/singlehotkeys here&quot;</span><span class="p">},</span> <span class="kr">function</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="n">storage</span><span class="p">.</span><span class="n">ingame_hotkeys</span> <span class="o">=</span> <span class="n">text</span>
+
+    <span class="n">reload</span><span class="p">()</span>
+
+  <span class="kr">end</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">scripts</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">({</span><span class="n">storage</span><span class="p">.</span><span class="n">ingame_macros</span><span class="p">,</span> <span class="n">storage</span><span class="p">.</span><span class="n">ingame_hotkeys</span><span class="p">})</span> <span class="kr">do</span>
+
+  <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">scripts</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span> <span class="ow">and</span> <span class="n">scripts</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="kr">then</span>
+
+    <span class="kd">local</span> <span class="n">status</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+
+      <span class="nb">assert</span><span class="p">(</span><span class="nb">load</span><span class="p">(</span><span class="n">scripts</span><span class="p">,</span> <span class="s2">&quot;ingame_editor&quot;</span><span class="p">))()</span>
+
+    <span class="kr">end</span><span class="p">)</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">status</span> <span class="kr">then</span>
+
+      <span class="nb">error</span><span class="p">(</span><span class="s2">&quot;Ingame edior error:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">..</span> <span class="n">result</span><span class="p">)</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Zoom In map [ctrl + =]&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span> <span class="n">zoomIn</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Zoom Out map [ctrl + -]&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span> <span class="n">zoomOut</span><span class="p">()</span> <span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="kd">local</span> <span class="n">moneyIds</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3031</span><span class="p">,</span> <span class="mi">3035</span><span class="p">}</span> <span class="c1">-- gold coin, platinium coin</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;Exchange money&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">containers</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getContainers</span><span class="p">()</span>
+
+  <span class="kr">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">container</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">container</span><span class="p">.</span><span class="n">lootContainer</span> <span class="kr">then</span> <span class="c1">-- ignore monster containers</span>
+
+      <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">container</span><span class="p">:</span><span class="n">getItems</span><span class="p">())</span> <span class="kr">do</span>
+
+        <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">100</span> <span class="kr">then</span>
+
+          <span class="kr">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">moneyId</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">moneyIds</span><span class="p">)</span> <span class="kr">do</span>
+
+            <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">moneyId</span> <span class="kr">then</span>
+
+              <span class="kr">return</span> <span class="n">g_game</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+            <span class="kr">end</span>
+
+          <span class="kr">end</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;Stack items&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">containers</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getContainers</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">toStack</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="kr">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">container</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span> <span class="kr">do</span>
+
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">container</span><span class="p">.</span><span class="n">lootContainer</span> <span class="kr">then</span> <span class="c1">-- ignore monster containers</span>
+
+      <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">container</span><span class="p">:</span><span class="n">getItems</span><span class="p">())</span> <span class="kr">do</span>
+
+        <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">isStackable</span><span class="p">()</span> <span class="ow">and</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="kr">then</span>
+
+          <span class="kd">local</span> <span class="n">stackWith</span> <span class="o">=</span> <span class="n">toStack</span><span class="p">[</span><span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()]</span>
+
+          <span class="kr">if</span> <span class="n">stackWith</span> <span class="kr">then</span>
+
+            <span class="n">g_game</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">stackWith</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">math.min</span><span class="p">(</span><span class="n">stackWith</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">()))</span>
+
+            <span class="kr">return</span>
+
+          <span class="kr">end</span>
+
+          <span class="n">toStack</span><span class="p">[</span><span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()]</span> <span class="o">=</span> <span class="p">{</span><span class="n">container</span><span class="p">:</span><span class="n">getSlotPosition</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">()}</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Anti Kick&quot;</span><span class="p">,</span>  <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">dir</span> <span class="o">=</span> <span class="n">player</span><span class="p">:</span><span class="n">getDirection</span><span class="p">()</span>
+
+  <span class="n">turn</span><span class="p">((</span><span class="n">dir</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span><span class="p">)</span>
+
+  <span class="n">turn</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Drop items:&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">dropItems</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">dropItems</span> <span class="o">=</span> <span class="p">{</span><span class="mi">283</span><span class="p">,</span> <span class="mi">284</span><span class="p">,</span> <span class="mi">285</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">foodContainer</span> <span class="o">=</span> <span class="n">UI</span><span class="p">.</span><span class="n">Container</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">dropItems</span> <span class="o">=</span> <span class="n">items</span>
+
+<span class="kr">end</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+<span class="n">foodContainer</span><span class="p">:</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+
+<span class="n">foodContainer</span><span class="p">:</span><span class="n">setItems</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">dropItems</span><span class="p">)</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;drop items&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">storage</span><span class="p">.</span><span class="n">dropItems</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">TargetBot</span> <span class="ow">and</span> <span class="n">TargetBot</span><span class="p">.</span><span class="n">isActive</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span> <span class="c1">-- pause when attacking</span>
+
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">container</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">g_game</span><span class="p">.</span><span class="n">getContainers</span><span class="p">())</span> <span class="kr">do</span>
+
+    <span class="kr">for</span> <span class="n">__</span><span class="p">,</span> <span class="n">item</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">container</span><span class="p">:</span><span class="n">getItems</span><span class="p">())</span> <span class="kr">do</span>
+
+      <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dropItem</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">dropItems</span><span class="p">)</span> <span class="kr">do</span>
+
+        <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span> <span class="o">==</span> <span class="n">dropItem</span><span class="p">.</span><span class="n">id</span> <span class="kr">then</span>
+
+          <span class="kr">if</span> <span class="n">item</span><span class="p">:</span><span class="n">isStackable</span><span class="p">()</span> <span class="kr">then</span>
+
+            <span class="kr">return</span> <span class="n">g_game</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getPosition</span><span class="p">(),</span> <span class="n">item</span><span class="p">:</span><span class="n">getCount</span><span class="p">())</span>
+
+          <span class="kr">else</span>
+
+            <span class="kr">return</span> <span class="n">g_game</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getPosition</span><span class="p">(),</span> <span class="n">dropItem</span><span class="p">.</span><span class="n">count</span><span class="p">)</span> <span class="c1">-- count is also subtype</span>
+
+          <span class="kr">end</span>
+
+        <span class="kr">end</span>
+
+      <span class="kr">end</span>
+
+    <span class="kr">end</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Mana training&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span><span class="p">)</span> <span class="o">~=</span> <span class="s2">&quot;table&quot;</span> <span class="kr">then</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span> <span class="o">=</span> <span class="p">{</span><span class="n">on</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;MP%&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;utevo lux&quot;</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">max</span><span class="o">=</span><span class="mi">100</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">manatrainmacro</span> <span class="o">=</span> <span class="n">macro</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">TargetBot</span> <span class="ow">and</span> <span class="n">TargetBot</span><span class="p">.</span><span class="n">isActive</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span> <span class="c1">-- pause when attacking</span>
+
+  <span class="kd">local</span> <span class="n">mana</span> <span class="o">=</span> <span class="nb">math.min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="nb">math.floor</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">getMana</span><span class="p">()</span> <span class="o">/</span> <span class="n">player</span><span class="p">:</span><span class="n">getMaxMana</span><span class="p">())))</span>
+
+  <span class="kr">if</span> <span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span><span class="p">.</span><span class="n">max</span> <span class="o">&gt;=</span> <span class="n">mana</span> <span class="ow">and</span> <span class="n">mana</span> <span class="o">&gt;=</span> <span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span><span class="p">.</span><span class="n">min</span> <span class="kr">then</span>
+
+    <span class="n">say</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">manatrainmacro</span><span class="p">.</span><span class="n">setOn</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span><span class="p">.</span><span class="n">on</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">DualScrollPanel</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">newParams</span><span class="p">)</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span> <span class="o">=</span> <span class="n">newParams</span>
+
+  <span class="n">manatrainmacro</span><span class="p">.</span><span class="n">setOn</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">manaTrain</span><span class="p">.</span><span class="n">on</span><span class="p">)</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+
+<span class="n">macro</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="s2">&quot;Send message on trade&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">trade</span> <span class="o">=</span> <span class="n">getChannelId</span><span class="p">(</span><span class="s2">&quot;advertising&quot;</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">trade</span> <span class="kr">then</span>
+
+    <span class="n">trade</span> <span class="o">=</span> <span class="n">getChannelId</span><span class="p">(</span><span class="s2">&quot;trade&quot;</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+  <span class="kr">if</span> <span class="n">trade</span> <span class="ow">and</span> <span class="n">storage</span><span class="p">.</span><span class="n">autoTradeMessage</span><span class="p">:</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+
+    <span class="n">sayChannel</span><span class="p">(</span><span class="n">trade</span><span class="p">,</span> <span class="n">storage</span><span class="p">.</span><span class="n">autoTradeMessage</span><span class="p">)</span>
+
+  <span class="kr">end</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">TextEdit</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">autoTradeMessage</span> <span class="ow">or</span> <span class="s2">&quot;I&#39;m using OTClientV8!&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+  <span class="n">storage</span><span class="p">.</span><span class="n">autoTradeMessage</span> <span class="o">=</span> <span class="n">text</span>
+
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="n">UI</span><span class="p">.</span><span class="n">Separator</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Moduł: | Moduł: <code class="docutils literal notranslate"><span class="pre">game_bot/default_configs/cavebot_1.3</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hp-lua">hp.lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#main-lua">main.lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mwall-timer-lua">mwall_timer.lua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-json">storage.json</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-lua">tools.lua</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/modules/structured/bot_tools/modul-game-bot-default-configs-cavebot-1.3.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

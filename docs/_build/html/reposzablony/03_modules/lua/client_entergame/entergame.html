@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>client_entergame/entergame.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/client_entergame/entergame';</script>
+    <link rel="icon" href="../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">client_entergame/entergame.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="client-entergame-entergame-lua">
+<h1>client_entergame/entergame.lua<a class="headerlink" href="#client-entergame-entergame-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla entergame.</p>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="onprotocolerror-protocol-message-errorcode">
+<h3><code class="docutils literal notranslate"><span class="pre">onProtocolError(protocol,</span> <span class="pre">message,</span> <span class="pre">errorCode)</span></code><a class="headerlink" href="#onprotocolerror-protocol-message-errorcode" title="Link to this heading">#</a></h3>
+<p>private functions</p>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">errorCode</span></code></p></li>
+</ul>
+</section>
+<section id="onsessionkey-protocol-sessionkey">
+<h3><code class="docutils literal notranslate"><span class="pre">onSessionKey(protocol,</span> <span class="pre">sessionKey)</span></code><a class="headerlink" href="#onsessionkey-protocol-sessionkey" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sessionKey</span></code></p></li>
+</ul>
+</section>
+<section id="oncharacterlist-protocol-characters-account-otui">
+<h3><code class="docutils literal notranslate"><span class="pre">onCharacterList(protocol,</span> <span class="pre">characters,</span> <span class="pre">account,</span> <span class="pre">otui)</span></code><a class="headerlink" href="#oncharacterlist-protocol-characters-account-otui" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">characters</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">account</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">otui</span></code></p></li>
+</ul>
+</section>
+<section id="onupdateneeded-protocol-signature">
+<h3><code class="docutils literal notranslate"><span class="pre">onUpdateNeeded(protocol,</span> <span class="pre">signature)</span></code><a class="headerlink" href="#onupdateneeded-protocol-signature" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signature</span></code></p></li>
+</ul>
+</section>
+<section id="onproxylist-protocol-proxies">
+<h3><code class="docutils literal notranslate"><span class="pre">onProxyList(protocol,</span> <span class="pre">proxies)</span></code><a class="headerlink" href="#onproxylist-protocol-proxies" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proxies</span></code></p></li>
+</ul>
+</section>
+<section id="parsefeatures-features">
+<h3><code class="docutils literal notranslate"><span class="pre">parseFeatures(features)</span></code><a class="headerlink" href="#parsefeatures-features" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">features</span></code></p></li>
+</ul>
+</section>
+<section id="validatethings-things">
+<h3><code class="docutils literal notranslate"><span class="pre">validateThings(things)</span></code><a class="headerlink" href="#validatethings-things" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">things</span></code></p></li>
+</ul>
+</section>
+<section id="ontibia12httpresult-session-playdata">
+<h3><code class="docutils literal notranslate"><span class="pre">onTibia12HTTPResult(session,</span> <span class="pre">playdata)</span></code><a class="headerlink" href="#ontibia12httpresult-session-playdata" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">session</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playdata</span></code></p></li>
+</ul>
+</section>
+<section id="onhttpresult-data-err">
+<h3><code class="docutils literal notranslate"><span class="pre">onHTTPResult(data,</span> <span class="pre">err)</span></code><a class="headerlink" href="#onhttpresult-data-err" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">err</span></code></p></li>
+</ul>
+</section>
+<section id="entergame-init">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.init()</span></code><a class="headerlink" href="#entergame-init" title="Link to this heading">#</a></h3>
+<p>public functions</p>
+</section>
+<section id="entergame-terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.terminate()</span></code><a class="headerlink" href="#entergame-terminate" title="Link to this heading">#</a></h3>
+</section>
+<section id="entergame-show">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.show()</span></code><a class="headerlink" href="#entergame-show" title="Link to this heading">#</a></h3>
+</section>
+<section id="entergame-hide">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.hide()</span></code><a class="headerlink" href="#entergame-hide" title="Link to this heading">#</a></h3>
+</section>
+<section id="entergame-openwindow">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.openWindow()</span></code><a class="headerlink" href="#entergame-openwindow" title="Link to this heading">#</a></h3>
+</section>
+<section id="entergame-clearaccountfields">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.clearAccountFields()</span></code><a class="headerlink" href="#entergame-clearaccountfields" title="Link to this heading">#</a></h3>
+</section>
+<section id="entergame-onserverchange">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.onServerChange()</span></code><a class="headerlink" href="#entergame-onserverchange" title="Link to this heading">#</a></h3>
+</section>
+<section id="entergame-dologin-account-password-token-host">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.doLogin(account,</span> <span class="pre">password,</span> <span class="pre">token,</span> <span class="pre">host)</span></code><a class="headerlink" href="#entergame-dologin-account-password-token-host" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">account</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></li>
+</ul>
+</section>
+<section id="entergame-dologinhttp">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.doLoginHttp()</span></code><a class="headerlink" href="#entergame-dologinhttp" title="Link to this heading">#</a></h3>
+</section>
+<section id="entergame-onerror-err">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.onError(err)</span></code><a class="headerlink" href="#entergame-onerror-err" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">err</span></code></p></li>
+</ul>
+</section>
+<section id="entergame-onloginerror-err">
+<h3><code class="docutils literal notranslate"><span class="pre">EnterGame.onLoginError(err)</span></code><a class="headerlink" href="#entergame-onloginerror-err" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">err</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="protocolerror">
+<h3><code class="docutils literal notranslate"><span class="pre">ProtocolError</span></code><a class="headerlink" href="#protocolerror" title="Link to this heading">#</a></h3>
+<p>private functions</p>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onProtocolError(protocol,</span> <span class="pre">message,</span> <span class="pre">errorCode)</span></code></p>
+</section>
+<section id="error">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#error" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(message)</span></code></p>
+</section>
+<section id="loginerror">
+<h3><code class="docutils literal notranslate"><span class="pre">LoginError</span></code><a class="headerlink" href="#loginerror" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onLoginError(message)</span></code></p>
+</section>
+<section id="sessionkey">
+<h3><code class="docutils literal notranslate"><span class="pre">SessionKey</span></code><a class="headerlink" href="#sessionkey" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onSessionKey(protocol,</span> <span class="pre">sessionKey)</span></code></p>
+</section>
+<section id="characterlist">
+<h3><code class="docutils literal notranslate"><span class="pre">CharacterList</span></code><a class="headerlink" href="#characterlist" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onCharacterList(protocol,</span> <span class="pre">characters,</span> <span class="pre">account,</span> <span class="pre">otui)</span></code></p>
+</section>
+<section id="updateneeded">
+<h3><code class="docutils literal notranslate"><span class="pre">UpdateNeeded</span></code><a class="headerlink" href="#updateneeded" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onUpdateNeeded(protocol,</span> <span class="pre">signature)</span></code></p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(tr('Your</span> <span class="pre">client</span> <span class="pre">needs</span> <span class="pre">updating,</span> <span class="pre">try</span> <span class="pre">redownloading</span> <span class="pre">it.'))</span></code></p>
+</section>
+<section id="proxylist">
+<h3><code class="docutils literal notranslate"><span class="pre">ProxyList</span></code><a class="headerlink" href="#proxylist" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onProxyList(protocol,</span> <span class="pre">proxies)</span></code></p>
+</section>
+<section id="tibia12httpresult">
+<h3><code class="docutils literal notranslate"><span class="pre">Tibia12HTTPResult</span></code><a class="headerlink" href="#tibia12httpresult" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onTibia12HTTPResult(session,</span> <span class="pre">playdata)</span></code></p>
+</section>
+<section id="ds">
+<h3><code class="docutils literal notranslate"><span class="pre">ds</span></code><a class="headerlink" href="#ds" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">session[&quot;premiumuntil&quot;]</span> <span class="pre">&gt;</span> <span class="pre">g_clock.seconds()</span> <span class="pre">then</span></code></p>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">ds</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">account.subStatus</span> <span class="pre">=</span> <span class="pre">math.floor((session[&quot;premiumuntil&quot;]</span> <span class="pre">-</span> <span class="pre">g_clock.seconds())</span> <span class="pre">/</span> <span class="pre">86400)</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(incorrectThings)</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">SessionKey</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSessionKey(nil,</span> <span class="pre">session[&quot;sessionkey&quot;])</span></code></p>
+</section>
+<section id="umber">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#umber" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_proxy.addProxy(proxy[&quot;host&quot;],</span> <span class="pre">tonumber(proxy[&quot;port&quot;]),</span> <span class="pre">tonumber(proxy[&quot;priority&quot;]))</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">CharacterList</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onCharacterList(nil,</span> <span class="pre">characters,</span> <span class="pre">account,</span> <span class="pre">nil)</span></code></p>
+</section>
+<section id="httpresult">
+<h3><code class="docutils literal notranslate"><span class="pre">HTTPResult</span></code><a class="headerlink" href="#httpresult" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">function</span> <span class="pre">onHTTPResult(data,</span> <span class="pre">err)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(err)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">LoginError</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onLoginError(data['error'])</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">LoginError</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onLoginError(data['errorMessage'])</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">Tibia12HTTPResult</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">onTibia12HTTPResult(data[&quot;session&quot;],</span> <span class="pre">data[&quot;playdata&quot;])</span></code></p>
+</section>
+<section id="id10">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(incorrectThings)</span></code></p>
+</section>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">customProtocol</span> <span class="pre">=</span> <span class="pre">tonumber(customProtocol)</span></code></p>
+</section>
+<section id="id12">
+<h3><code class="docutils literal notranslate"><span class="pre">SessionKey</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onSessionKey(nil,</span> <span class="pre">session)</span></code></p>
+</section>
+<section id="id13">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_proxy.addProxy(proxy[&quot;host&quot;],</span> <span class="pre">tonumber(proxy[&quot;port&quot;]),</span> <span class="pre">tonumber(proxy[&quot;priority&quot;]))</span></code></p>
+</section>
+<section id="id14">
+<h3><code class="docutils literal notranslate"><span class="pre">CharacterList</span></code><a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">onCharacterList(nil,</span> <span class="pre">characters,</span> <span class="pre">account,</span> <span class="pre">nil)</span></code></p>
+</section>
+<section id="displayui">
+<h3><code class="docutils literal notranslate"><span class="pre">displayUI</span></code><a class="headerlink" href="#displayui" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">enterGame</span> <span class="pre">=</span> <span class="pre">g_ui.displayUI('entergame')</span></code></p>
+</section>
+<section id="scount">
+<h3><code class="docutils literal notranslate"><span class="pre">sCount</span></code><a class="headerlink" href="#scount" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">serverSelector:getOptionsCount()</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">ALLOW_CUSTOM_SERVERS</span> <span class="pre">then</span></code></p>
+</section>
+<section id="id15">
+<h3><code class="docutils literal notranslate"><span class="pre">sCount</span></code><a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">serverSelector:getOptionsCount()</span> <span class="pre">==</span> <span class="pre">1</span> <span class="pre">then</span></code></p>
+</section>
+<section id="serverchange">
+<h3><code class="docutils literal notranslate"><span class="pre">ServerChange</span></code><a class="headerlink" href="#serverchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">EnterGame.onServerChange()</span></code></p>
+</section>
+<section id="errorbox">
+<h3><code class="docutils literal notranslate"><span class="pre">errorBox</span></code><a class="headerlink" href="#errorbox" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(errorBox,</span> <span class="pre">{</span> <span class="pre">onOk</span> <span class="pre">=</span> <span class="pre">EnterGame.show</span> <span class="pre">})</span></code></p>
+</section>
+<section id="id16">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">G.clientVersion</span> <span class="pre">=</span> <span class="pre">tonumber(clientVersionSelector:getText())</span></code></p>
+</section>
+<section id="id17">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">G.clientVersion</span> <span class="pre">=</span> <span class="pre">tonumber(server_params[4])</span></code></p>
+</section>
+<section id="id18">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">tostring(tonumber(server_params[3]))</span> <span class="pre">==</span> <span class="pre">server_params[3]</span> <span class="pre">then</span></code></p>
+</section>
+<section id="id19">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">G.clientVersion</span> <span class="pre">=</span> <span class="pre">tonumber(server_params[3])</span></code></p>
+</section>
+<section id="id20">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">server_port</span> <span class="pre">=</span> <span class="pre">tonumber(server_params[2])</span></code></p>
+</section>
+<section id="id21">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">G.clientVersion</span> <span class="pre">=</span> <span class="pre">tonumber(server_params[3])</span></code></p>
+</section>
+<section id="id22">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(&quot;Invalid</span> <span class="pre">server,</span> <span class="pre">it</span> <span class="pre">should</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">format</span> <span class="pre">IP:PORT</span> <span class="pre">or</span> <span class="pre">it</span> <span class="pre">should</span> <span class="pre">be</span> <span class="pre">http</span> <span class="pre">url</span> <span class="pre">to</span> <span class="pre">login</span> <span class="pre">script&quot;)</span></code></p>
+</section>
+<section id="id23">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(incorrectThings)</span></code></p>
+</section>
+<section id="loadbox">
+<h3><code class="docutils literal notranslate"><span class="pre">loadBox</span></code><a class="headerlink" href="#loadbox" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(loadBox,</span> <span class="pre">{</span> <span class="pre">onCancel</span> <span class="pre">=</span> <span class="pre">function(msgbox)</span></code></p>
+</section>
+<section id="id24">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">g_game.enableFeature(tonumber(server_params[i]))</span></code></p>
+</section>
+<section id="id25">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">EnterGame.onError(&quot;Invalid</span> <span class="pre">server</span> <span class="pre">url:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">G.host)</span></code></p>
+</section>
+<section id="id26">
+<h3><code class="docutils literal notranslate"><span class="pre">loadBox</span></code><a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(loadBox,</span> <span class="pre">{</span> <span class="pre">onCancel</span> <span class="pre">=</span> <span class="pre">function(msgbox)</span></code></p>
+</section>
+<section id="id27">
+<h3><code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">EnterGame.onError(err)</span></code></p>
+</section>
+<section id="id28">
+<h3><code class="docutils literal notranslate"><span class="pre">LoginError</span></code><a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">EnterGame.onLoginError(err)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onprotocolerror-protocol-message-errorcode"><code class="docutils literal notranslate"><span class="pre">onProtocolError(protocol,</span> <span class="pre">message,</span> <span class="pre">errorCode)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsessionkey-protocol-sessionkey"><code class="docutils literal notranslate"><span class="pre">onSessionKey(protocol,</span> <span class="pre">sessionKey)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oncharacterlist-protocol-characters-account-otui"><code class="docutils literal notranslate"><span class="pre">onCharacterList(protocol,</span> <span class="pre">characters,</span> <span class="pre">account,</span> <span class="pre">otui)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onupdateneeded-protocol-signature"><code class="docutils literal notranslate"><span class="pre">onUpdateNeeded(protocol,</span> <span class="pre">signature)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onproxylist-protocol-proxies"><code class="docutils literal notranslate"><span class="pre">onProxyList(protocol,</span> <span class="pre">proxies)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parsefeatures-features"><code class="docutils literal notranslate"><span class="pre">parseFeatures(features)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validatethings-things"><code class="docutils literal notranslate"><span class="pre">validateThings(things)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontibia12httpresult-session-playdata"><code class="docutils literal notranslate"><span class="pre">onTibia12HTTPResult(session,</span> <span class="pre">playdata)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onhttpresult-data-err"><code class="docutils literal notranslate"><span class="pre">onHTTPResult(data,</span> <span class="pre">err)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-init"><code class="docutils literal notranslate"><span class="pre">EnterGame.init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-terminate"><code class="docutils literal notranslate"><span class="pre">EnterGame.terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-show"><code class="docutils literal notranslate"><span class="pre">EnterGame.show()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-hide"><code class="docutils literal notranslate"><span class="pre">EnterGame.hide()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-openwindow"><code class="docutils literal notranslate"><span class="pre">EnterGame.openWindow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-clearaccountfields"><code class="docutils literal notranslate"><span class="pre">EnterGame.clearAccountFields()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-onserverchange"><code class="docutils literal notranslate"><span class="pre">EnterGame.onServerChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-dologin-account-password-token-host"><code class="docutils literal notranslate"><span class="pre">EnterGame.doLogin(account,</span> <span class="pre">password,</span> <span class="pre">token,</span> <span class="pre">host)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-dologinhttp"><code class="docutils literal notranslate"><span class="pre">EnterGame.doLoginHttp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-onerror-err"><code class="docutils literal notranslate"><span class="pre">EnterGame.onError(err)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entergame-onloginerror-err"><code class="docutils literal notranslate"><span class="pre">EnterGame.onLoginError(err)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolerror"><code class="docutils literal notranslate"><span class="pre">ProtocolError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loginerror"><code class="docutils literal notranslate"><span class="pre">LoginError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessionkey"><code class="docutils literal notranslate"><span class="pre">SessionKey</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characterlist"><code class="docutils literal notranslate"><span class="pre">CharacterList</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updateneeded"><code class="docutils literal notranslate"><span class="pre">UpdateNeeded</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxylist"><code class="docutils literal notranslate"><span class="pre">ProxyList</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tibia12httpresult"><code class="docutils literal notranslate"><span class="pre">Tibia12HTTPResult</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ds"><code class="docutils literal notranslate"><span class="pre">ds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">ds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">SessionKey</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umber"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">CharacterList</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#httpresult"><code class="docutils literal notranslate"><span class="pre">HTTPResult</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">LoginError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">LoginError</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">Tibia12HTTPResult</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">SessionKey</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">CharacterList</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displayui"><code class="docutils literal notranslate"><span class="pre">displayUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scount"><code class="docutils literal notranslate"><span class="pre">sCount</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">sCount</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#serverchange"><code class="docutils literal notranslate"><span class="pre">ServerChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#errorbox"><code class="docutils literal notranslate"><span class="pre">errorBox</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadbox"><code class="docutils literal notranslate"><span class="pre">loadBox</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26"><code class="docutils literal notranslate"><span class="pre">loadBox</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28"><code class="docutils literal notranslate"><span class="pre">LoginError</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/client_entergame/entergame.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

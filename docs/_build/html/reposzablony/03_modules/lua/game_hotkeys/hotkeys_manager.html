@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game_hotkeys/hotkeys_manager.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_hotkeys/hotkeys_manager';</script>
+    <link rel="icon" href="../../../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">game_hotkeys/hotkeys_manager.lua</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="game-hotkeys-hotkeys-manager-lua">
+<h1>game_hotkeys/hotkeys_manager.lua<a class="headerlink" href="#game-hotkeys-hotkeys-manager-lua" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Moduł Lua zawierający funkcje i logikę dla hotkeys_manager.</p>
+</section>
+<section id="globals-exports">
+<h2>Globals/Exports<a class="headerlink" href="#globals-exports" title="Link to this heading">#</a></h2>
+<section id="boundcomboscallback">
+<h3><code class="docutils literal notranslate"><span class="pre">boundCombosCallback</span></code><a class="headerlink" href="#boundcomboscallback" title="Link to this heading">#</a></h3>
+</section>
+<section id="hotkeyslist">
+<h3><code class="docutils literal notranslate"><span class="pre">hotkeysList</span></code><a class="headerlink" href="#hotkeyslist" title="Link to this heading">#</a></h3>
+</section>
+<section id="hotkeyconfigs">
+<h3><code class="docutils literal notranslate"><span class="pre">hotkeyConfigs</span></code><a class="headerlink" href="#hotkeyconfigs" title="Link to this heading">#</a></h3>
+</section>
+<section id="hotkeylist">
+<h3><code class="docutils literal notranslate"><span class="pre">hotkeyList</span></code><a class="headerlink" href="#hotkeylist" title="Link to this heading">#</a></h3>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">boundCombosCallback</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">hotkeyList</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init()</span></code><a class="headerlink" href="#init" title="Link to this heading">#</a></h3>
+<p>public functions</p>
+</section>
+<section id="useradiogroup-onselectionchange-self-selected">
+<h3><code class="docutils literal notranslate"><span class="pre">useRadioGroup.onSelectionChange(self,</span> <span class="pre">selected)</span></code><a class="headerlink" href="#useradiogroup-onselectionchange-self-selected" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selected</span></code></p></li>
+</ul>
+</section>
+<section id="currenthotkeys-onchildfocuschange-self-hotkeylabel">
+<h3><code class="docutils literal notranslate"><span class="pre">currentHotkeys.onChildFocusChange(self,</span> <span class="pre">hotkeyLabel)</span></code><a class="headerlink" href="#currenthotkeys-onchildfocuschange-self-hotkeylabel" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hotkeyLabel</span></code></p></li>
+</ul>
+</section>
+<section id="terminate">
+<h3><code class="docutils literal notranslate"><span class="pre">terminate()</span></code><a class="headerlink" href="#terminate" title="Link to this heading">#</a></h3>
+</section>
+<section id="online">
+<h3><code class="docutils literal notranslate"><span class="pre">online()</span></code><a class="headerlink" href="#online" title="Link to this heading">#</a></h3>
+</section>
+<section id="offline">
+<h3><code class="docutils literal notranslate"><span class="pre">offline()</span></code><a class="headerlink" href="#offline" title="Link to this heading">#</a></h3>
+</section>
+<section id="show">
+<h3><code class="docutils literal notranslate"><span class="pre">show()</span></code><a class="headerlink" href="#show" title="Link to this heading">#</a></h3>
+</section>
+<section id="hide">
+<h3><code class="docutils literal notranslate"><span class="pre">hide()</span></code><a class="headerlink" href="#hide" title="Link to this heading">#</a></h3>
+</section>
+<section id="toggle">
+<h3><code class="docutils literal notranslate"><span class="pre">toggle()</span></code><a class="headerlink" href="#toggle" title="Link to this heading">#</a></h3>
+</section>
+<section id="ok">
+<h3><code class="docutils literal notranslate"><span class="pre">ok()</span></code><a class="headerlink" href="#ok" title="Link to this heading">#</a></h3>
+</section>
+<section id="cancel">
+<h3><code class="docutils literal notranslate"><span class="pre">cancel()</span></code><a class="headerlink" href="#cancel" title="Link to this heading">#</a></h3>
+</section>
+<section id="load-forcedefaults">
+<h3><code class="docutils literal notranslate"><span class="pre">load(forceDefaults)</span></code><a class="headerlink" href="#load-forcedefaults" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">forceDefaults</span></code></p></li>
+</ul>
+</section>
+<section id="unload">
+<h3><code class="docutils literal notranslate"><span class="pre">unload()</span></code><a class="headerlink" href="#unload" title="Link to this heading">#</a></h3>
+</section>
+<section id="reset">
+<h3><code class="docutils literal notranslate"><span class="pre">reset()</span></code><a class="headerlink" href="#reset" title="Link to this heading">#</a></h3>
+</section>
+<section id="reload">
+<h3><code class="docutils literal notranslate"><span class="pre">reload()</span></code><a class="headerlink" href="#reload" title="Link to this heading">#</a></h3>
+</section>
+<section id="save">
+<h3><code class="docutils literal notranslate"><span class="pre">save()</span></code><a class="headerlink" href="#save" title="Link to this heading">#</a></h3>
+</section>
+<section id="onconfigchange">
+<h3><code class="docutils literal notranslate"><span class="pre">onConfigChange()</span></code><a class="headerlink" href="#onconfigchange" title="Link to this heading">#</a></h3>
+</section>
+<section id="loaddefautcombokeys">
+<h3><code class="docutils literal notranslate"><span class="pre">loadDefautComboKeys()</span></code><a class="headerlink" href="#loaddefautcombokeys" title="Link to this heading">#</a></h3>
+</section>
+<section id="setdefaultcombokeys-combo">
+<h3><code class="docutils literal notranslate"><span class="pre">setDefaultComboKeys(combo)</span></code><a class="headerlink" href="#setdefaultcombokeys-combo" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">combo</span></code></p></li>
+</ul>
+</section>
+<section id="onchooseitemmouserelease-self-mouseposition-mousebutton">
+<h3><code class="docutils literal notranslate"><span class="pre">onChooseItemMouseRelease(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code><a class="headerlink" href="#onchooseitemmouserelease-self-mouseposition-mousebutton" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mousePosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mouseButton</span></code></p></li>
+</ul>
+</section>
+<section id="startchooseitem">
+<h3><code class="docutils literal notranslate"><span class="pre">startChooseItem()</span></code><a class="headerlink" href="#startchooseitem" title="Link to this heading">#</a></h3>
+</section>
+<section id="clearobject">
+<h3><code class="docutils literal notranslate"><span class="pre">clearObject()</span></code><a class="headerlink" href="#clearobject" title="Link to this heading">#</a></h3>
+</section>
+<section id="addhotkey">
+<h3><code class="docutils literal notranslate"><span class="pre">addHotkey()</span></code><a class="headerlink" href="#addhotkey" title="Link to this heading">#</a></h3>
+</section>
+<section id="addkeycombo-keycombo-keysettings-focus">
+<h3><code class="docutils literal notranslate"><span class="pre">addKeyCombo(keyCombo,</span> <span class="pre">keySettings,</span> <span class="pre">focus)</span></code><a class="headerlink" href="#addkeycombo-keycombo-keysettings-focus" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCombo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keySettings</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">focus</span></code></p></li>
+</ul>
+</section>
+<section id="preparekeycombo-keycombo-ticks">
+<h3><code class="docutils literal notranslate"><span class="pre">prepareKeyCombo(keyCombo,</span> <span class="pre">ticks)</span></code><a class="headerlink" href="#preparekeycombo-keycombo-ticks" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCombo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ticks</span></code></p></li>
+</ul>
+</section>
+<section id="dokeycombo-keycombo-repeated">
+<h3><code class="docutils literal notranslate"><span class="pre">doKeyCombo(keyCombo,</span> <span class="pre">repeated)</span></code><a class="headerlink" href="#dokeycombo-keycombo-repeated" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCombo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repeated</span></code></p></li>
+</ul>
+</section>
+<section id="updatehotkeylabel-hotkeylabel">
+<h3><code class="docutils literal notranslate"><span class="pre">updateHotkeyLabel(hotkeyLabel)</span></code><a class="headerlink" href="#updatehotkeylabel-hotkeylabel" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hotkeyLabel</span></code></p></li>
+</ul>
+</section>
+<section id="updatehotkeyform-reset">
+<h3><code class="docutils literal notranslate"><span class="pre">updateHotkeyForm(reset)</span></code><a class="headerlink" href="#updatehotkeyform-reset" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reset</span></code></p></li>
+</ul>
+</section>
+<section id="removehotkey">
+<h3><code class="docutils literal notranslate"><span class="pre">removeHotkey()</span></code><a class="headerlink" href="#removehotkey" title="Link to this heading">#</a></h3>
+</section>
+<section id="updatehotkeyaction">
+<h3><code class="docutils literal notranslate"><span class="pre">updateHotkeyAction()</span></code><a class="headerlink" href="#updatehotkeyaction" title="Link to this heading">#</a></h3>
+</section>
+<section id="onhotkeytextchange-value">
+<h3><code class="docutils literal notranslate"><span class="pre">onHotkeyTextChange(value)</span></code><a class="headerlink" href="#onhotkeytextchange-value" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+</ul>
+</section>
+<section id="onsendautomaticallychange-autosend">
+<h3><code class="docutils literal notranslate"><span class="pre">onSendAutomaticallyChange(autoSend)</span></code><a class="headerlink" href="#onsendautomaticallychange-autosend" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">autoSend</span></code></p></li>
+</ul>
+</section>
+<section id="onchangeusetype-usetypewidget">
+<h3><code class="docutils literal notranslate"><span class="pre">onChangeUseType(useTypeWidget)</span></code><a class="headerlink" href="#onchangeusetype-usetypewidget" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">useTypeWidget</span></code></p></li>
+</ul>
+</section>
+<section id="onselecthotkeylabel-hotkeylabel">
+<h3><code class="docutils literal notranslate"><span class="pre">onSelectHotkeyLabel(hotkeyLabel)</span></code><a class="headerlink" href="#onselecthotkeylabel-hotkeylabel" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hotkeyLabel</span></code></p></li>
+</ul>
+</section>
+<section id="hotkeycapture-assignwindow-keycode-keyboardmodifiers">
+<h3><code class="docutils literal notranslate"><span class="pre">hotkeyCapture(assignWindow,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code><a class="headerlink" href="#hotkeycapture-assignwindow-keycode-keyboardmodifiers" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assignWindow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboardModifiers</span></code></p></li>
+</ul>
+</section>
+<section id="hotkeycaptureok-assignwindow-keycombo">
+<h3><code class="docutils literal notranslate"><span class="pre">hotkeyCaptureOk(assignWindow,</span> <span class="pre">keyCombo)</span></code><a class="headerlink" href="#hotkeycaptureok-assignwindow-keycombo" title="Link to this heading">#</a></h3>
+<p><strong>Parametry:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assignWindow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyCombo</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="events-callbacks">
+<h2>Events/Callbacks<a class="headerlink" href="#events-callbacks" title="Link to this heading">#</a></h2>
+<section id="displayui">
+<h3><code class="docutils literal notranslate"><span class="pre">displayUI</span></code><a class="headerlink" href="#displayui" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">hotkeysWindow</span> <span class="pre">=</span> <span class="pre">g_ui.displayUI('hotkeys_manager')</span></code></p>
+</section>
+<section id="changeusetype">
+<h3><code class="docutils literal notranslate"><span class="pre">ChangeUseType</span></code><a class="headerlink" href="#changeusetype" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">useRadioGroup.onSelectionChange</span> <span class="pre">=</span> <span class="pre">function(self,</span> <span class="pre">selected)</span> <span class="pre">onChangeUseType(selected)</span> <span class="pre">end</span></code></p>
+</section>
+<section id="createwidget">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#createwidget" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">mouseGrabberWidget</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('UIWidget')</span></code></p>
+</section>
+<section id="selecthotkeylabel">
+<h3><code class="docutils literal notranslate"><span class="pre">SelectHotkeyLabel</span></code><a class="headerlink" href="#selecthotkeylabel" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">currentHotkeys.onChildFocusChange</span> <span class="pre">=</span> <span class="pre">function(self,</span> <span class="pre">hotkeyLabel)</span> <span class="pre">onSelectHotkeyLabel(hotkeyLabel)</span> <span class="pre">end</span></code></p>
+</section>
+<section id="g-game">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#g-game" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">connect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="scount">
+<h3><code class="docutils literal notranslate"><span class="pre">sCount</span></code><a class="headerlink" href="#scount" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">configSelector:getOptionsCount()</span> <span class="pre">do</span></code></p>
+</section>
+<section id="id3">
+<h3><code class="docutils literal notranslate"><span class="pre">g_game</span></code><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">disconnect(g_game,</span> <span class="pre">{</span></code></p>
+</section>
+<section id="line">
+<h3><code class="docutils literal notranslate"><span class="pre">line</span></code><a class="headerlink" href="#line" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">online()</span></code></p>
+</section>
+<section id="configchange">
+<h3><code class="docutils literal notranslate"><span class="pre">ConfigChange</span></code><a class="headerlink" href="#configchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onConfigChange()</span></code></p>
+</section>
+<section id="chooseitemmouserelease">
+<h3><code class="docutils literal notranslate"><span class="pre">ChooseItemMouseRelease</span></code><a class="headerlink" href="#chooseitemmouserelease" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onChooseItemMouseRelease(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code></p>
+</section>
+<section id="tainer">
+<h3><code class="docutils literal notranslate"><span class="pre">tainer</span></code><a class="headerlink" href="#tainer" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">item:isFluidContainer()</span> <span class="pre">then</span></code></p>
+</section>
+<section id="ismousegrabbed">
+<h3><code class="docutils literal notranslate"><span class="pre">isMouseGrabbed</span></code><a class="headerlink" href="#ismousegrabbed" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">g_ui.isMouseGrabbed()</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">end</span></code></p>
+</section>
+<section id="id4">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">assignWindow</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('HotkeyAssignWindow',</span> <span class="pre">rootWidget)</span></code></p>
+</section>
+<section id="id5">
+<h3><code class="docutils literal notranslate"><span class="pre">createWidget</span></code><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">hotkeyLabel</span> <span class="pre">=</span> <span class="pre">g_ui.createWidget('HotkeyListLabel')</span></code></p>
+</section>
+<section id="umber">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#umber" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">hotkeyLabel.itemId</span> <span class="pre">=</span> <span class="pre">tonumber(keySettings.itemId)</span></code></p>
+</section>
+<section id="id6">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">hotkeyLabel.subType</span> <span class="pre">=</span> <span class="pre">tonumber(keySettings.subType)</span></code></p>
+</section>
+<section id="id7">
+<h3><code class="docutils literal notranslate"><span class="pre">umber</span></code><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">hotkeyLabel.useType</span> <span class="pre">=</span> <span class="pre">tonumber(keySettings.useType)</span></code></p>
+</section>
+<section id="description">
+<h3><code class="docutils literal notranslate"><span class="pre">Description</span></code><a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">hotkeyLabel:setText(tr('%s:</span> <span class="pre">(Action:</span> <span class="pre">%s)',</span> <span class="pre">hotkeyLabel.keyCombo,</span> <span class="pre">getActionDescription(hotkeyLabel.action)))</span></code></p>
+</section>
+<section id="toactioncomboboxindex">
+<h3><code class="docutils literal notranslate"><span class="pre">ToActionComboboxIndex</span></code><a class="headerlink" href="#toactioncomboboxindex" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">hotkeysWindow.action:setCurrentIndex(translateActionToActionComboboxIndex(currentHotkeyLabel.action),</span> <span class="pre">true)</span></code></p>
+</section>
+<section id="comboboxindextoaction">
+<h3><code class="docutils literal notranslate"><span class="pre">ComboboxIndexToAction</span></code><a class="headerlink" href="#comboboxindextoaction" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">currentHotkeyLabel.action</span> <span class="pre">=</span> <span class="pre">translateActionComboboxIndexToAction(hotkeysWindow.action.currentIndex)</span></code></p>
+</section>
+<section id="hotkeytextchange">
+<h3><code class="docutils literal notranslate"><span class="pre">HotkeyTextChange</span></code><a class="headerlink" href="#hotkeytextchange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onHotkeyTextChange(value)</span></code></p>
+</section>
+<section id="sendautomaticallychange">
+<h3><code class="docutils literal notranslate"><span class="pre">SendAutomaticallyChange</span></code><a class="headerlink" href="#sendautomaticallychange" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSendAutomaticallyChange(autoSend)</span></code></p>
+</section>
+<section id="id8">
+<h3><code class="docutils literal notranslate"><span class="pre">ChangeUseType</span></code><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onChangeUseType(useTypeWidget)</span></code></p>
+</section>
+<section id="id9">
+<h3><code class="docutils literal notranslate"><span class="pre">SelectHotkeyLabel</span></code><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><strong>Wywołanie:</strong> <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onSelectHotkeyLabel(hotkeyLabel)</span></code></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globals-exports">Globals/Exports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundcomboscallback"><code class="docutils literal notranslate"><span class="pre">boundCombosCallback</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeyslist"><code class="docutils literal notranslate"><span class="pre">hotkeysList</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeyconfigs"><code class="docutils literal notranslate"><span class="pre">hotkeyConfigs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeylist"><code class="docutils literal notranslate"><span class="pre">hotkeyList</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">boundCombosCallback</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">hotkeyList</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useradiogroup-onselectionchange-self-selected"><code class="docutils literal notranslate"><span class="pre">useRadioGroup.onSelectionChange(self,</span> <span class="pre">selected)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#currenthotkeys-onchildfocuschange-self-hotkeylabel"><code class="docutils literal notranslate"><span class="pre">currentHotkeys.onChildFocusChange(self,</span> <span class="pre">hotkeyLabel)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminate"><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#online"><code class="docutils literal notranslate"><span class="pre">online()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline"><code class="docutils literal notranslate"><span class="pre">offline()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show"><code class="docutils literal notranslate"><span class="pre">show()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hide"><code class="docutils literal notranslate"><span class="pre">hide()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toggle"><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ok"><code class="docutils literal notranslate"><span class="pre">ok()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cancel"><code class="docutils literal notranslate"><span class="pre">cancel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-forcedefaults"><code class="docutils literal notranslate"><span class="pre">load(forceDefaults)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unload"><code class="docutils literal notranslate"><span class="pre">unload()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reload"><code class="docutils literal notranslate"><span class="pre">reload()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onconfigchange"><code class="docutils literal notranslate"><span class="pre">onConfigChange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loaddefautcombokeys"><code class="docutils literal notranslate"><span class="pre">loadDefautComboKeys()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setdefaultcombokeys-combo"><code class="docutils literal notranslate"><span class="pre">setDefaultComboKeys(combo)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onchooseitemmouserelease-self-mouseposition-mousebutton"><code class="docutils literal notranslate"><span class="pre">onChooseItemMouseRelease(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#startchooseitem"><code class="docutils literal notranslate"><span class="pre">startChooseItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clearobject"><code class="docutils literal notranslate"><span class="pre">clearObject()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addhotkey"><code class="docutils literal notranslate"><span class="pre">addHotkey()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addkeycombo-keycombo-keysettings-focus"><code class="docutils literal notranslate"><span class="pre">addKeyCombo(keyCombo,</span> <span class="pre">keySettings,</span> <span class="pre">focus)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparekeycombo-keycombo-ticks"><code class="docutils literal notranslate"><span class="pre">prepareKeyCombo(keyCombo,</span> <span class="pre">ticks)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokeycombo-keycombo-repeated"><code class="docutils literal notranslate"><span class="pre">doKeyCombo(keyCombo,</span> <span class="pre">repeated)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatehotkeylabel-hotkeylabel"><code class="docutils literal notranslate"><span class="pre">updateHotkeyLabel(hotkeyLabel)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatehotkeyform-reset"><code class="docutils literal notranslate"><span class="pre">updateHotkeyForm(reset)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removehotkey"><code class="docutils literal notranslate"><span class="pre">removeHotkey()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatehotkeyaction"><code class="docutils literal notranslate"><span class="pre">updateHotkeyAction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onhotkeytextchange-value"><code class="docutils literal notranslate"><span class="pre">onHotkeyTextChange(value)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onsendautomaticallychange-autosend"><code class="docutils literal notranslate"><span class="pre">onSendAutomaticallyChange(autoSend)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onchangeusetype-usetypewidget"><code class="docutils literal notranslate"><span class="pre">onChangeUseType(useTypeWidget)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onselecthotkeylabel-hotkeylabel"><code class="docutils literal notranslate"><span class="pre">onSelectHotkeyLabel(hotkeyLabel)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeycapture-assignwindow-keycode-keyboardmodifiers"><code class="docutils literal notranslate"><span class="pre">hotkeyCapture(assignWindow,</span> <span class="pre">keyCode,</span> <span class="pre">keyboardModifiers)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeycaptureok-assignwindow-keycombo"><code class="docutils literal notranslate"><span class="pre">hotkeyCaptureOk(assignWindow,</span> <span class="pre">keyCombo)</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events-callbacks">Events/Callbacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displayui"><code class="docutils literal notranslate"><span class="pre">displayUI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changeusetype"><code class="docutils literal notranslate"><span class="pre">ChangeUseType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createwidget"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecthotkeylabel"><code class="docutils literal notranslate"><span class="pre">SelectHotkeyLabel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-game"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scount"><code class="docutils literal notranslate"><span class="pre">sCount</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">g_game</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line"><code class="docutils literal notranslate"><span class="pre">line</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configchange"><code class="docutils literal notranslate"><span class="pre">ConfigChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chooseitemmouserelease"><code class="docutils literal notranslate"><span class="pre">ChooseItemMouseRelease</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tainer"><code class="docutils literal notranslate"><span class="pre">tainer</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ismousegrabbed"><code class="docutils literal notranslate"><span class="pre">isMouseGrabbed</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">createWidget</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umber"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">umber</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description"><code class="docutils literal notranslate"><span class="pre">Description</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toactioncomboboxindex"><code class="docutils literal notranslate"><span class="pre">ToActionComboboxIndex</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comboboxindextoaction"><code class="docutils literal notranslate"><span class="pre">ComboboxIndexToAction</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hotkeytextchange"><code class="docutils literal notranslate"><span class="pre">HotkeyTextChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sendautomaticallychange"><code class="docutils literal notranslate"><span class="pre">SendAutomaticallyChange</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">ChangeUseType</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">SelectHotkeyLabel</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/reposzablony/03_modules/lua/game_hotkeys/hotkeys_manager.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

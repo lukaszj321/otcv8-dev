@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Documentation Generation Tools &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/_tools/README';</script>
+    <link rel="icon" href="../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Documentation Generation Tools</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="documentation-generation-tools">
+<h1>Documentation Generation Tools<a class="headerlink" href="#documentation-generation-tools" title="Link to this heading">#</a></h1>
+<p>This directory contains tools for generating OTClient v8 documentation and RAG datasets.</p>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h2>
+<section id="cpp-doc-generator-py">
+<h3>1. <code class="docutils literal notranslate"><span class="pre">cpp_doc_generator.py</span></code><a class="headerlink" href="#cpp-doc-generator-py" title="Link to this heading">#</a></h3>
+<p>Generates Markdown documentation from C++ header files.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>cpp_doc_generator.py<span class="w"> </span>--source-dir<span class="w"> </span>src
+python3<span class="w"> </span>cpp_doc_generator.py<span class="w"> </span>--source-dir<span class="w"> </span>modules
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p>MD files: <code class="docutils literal notranslate"><span class="pre">docs/reposzablony/01_core/api/cpp/**/*.md</span></code></p></li>
+<li><p>Diagrams: <code class="docutils literal notranslate"><span class="pre">docs/reposzablony/01_core/api/diagrams/*.mmd</span></code></p></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Extracts namespaces, classes, enums, functions, typedefs</p></li>
+<li><p>Generates class diagrams (Mermaid)</p></li>
+<li><p>Frontmatter with git SHA tracking</p></li>
+<li><p>Idempotent (checks content before writing)</p></li>
+</ul>
+</section>
+<section id="lua-doc-generator-py">
+<h3>2. <code class="docutils literal notranslate"><span class="pre">lua_doc_generator.py</span></code><a class="headerlink" href="#lua-doc-generator-py" title="Link to this heading">#</a></h3>
+<p>Generates Markdown documentation from Lua modules.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>lua_doc_generator.py<span class="w"> </span>--source-dirs<span class="w"> </span>modules<span class="w"> </span>mods
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p>MD files: <code class="docutils literal notranslate"><span class="pre">docs/reposzablony/03_modules/lua/**/*.md</span></code></p></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Extracts globals, functions, events, callbacks</p></li>
+<li><p>Parameter and return documentation</p></li>
+<li><p>Example code extraction</p></li>
+<li><p>Idempotent</p></li>
+</ul>
+</section>
+<section id="otui-doc-generator-py">
+<h3>3. <code class="docutils literal notranslate"><span class="pre">otui_doc_generator.py</span></code><a class="headerlink" href="#otui-doc-generator-py" title="Link to this heading">#</a></h3>
+<p>Generates Markdown documentation from OTUI widget files.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>otui_doc_generator.py<span class="w"> </span>--source-dir<span class="w"> </span>modules
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p>MD files: <code class="docutils literal notranslate"><span class="pre">docs/reposzablony/04_ui/otui/**/*.md</span></code></p></li>
+<li><p>Diagrams: <code class="docutils literal notranslate"><span class="pre">docs/reposzablony/04_ui/diagrams/*.mmd</span></code></p></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Extracts widget hierarchies</p></li>
+<li><p>Widget property documentation</p></li>
+<li><p>Graph TD diagrams showing relationships</p></li>
+<li><p>Idempotent</p></li>
+</ul>
+</section>
+<section id="events-doc-generator-py">
+<h3>4. <code class="docutils literal notranslate"><span class="pre">events_doc_generator.py</span></code><a class="headerlink" href="#events-doc-generator-py" title="Link to this heading">#</a></h3>
+<p>Detects and documents event emitters and handlers in C++ and Lua.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>events_doc_generator.py
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p>Index: <code class="docutils literal notranslate"><span class="pre">docs/reposzablony/05_events/index.md</span></code></p></li>
+<li><p>Datasets: <code class="docutils literal notranslate"><span class="pre">docs/reposzablony/datasets/events.{csv,ndjson}</span></code></p></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>C++ patterns: dispatch, emit, signal, addEvent, g_dispatcher</p></li>
+<li><p>Lua patterns: connect, on*, addEvent, schedule, g_ui.*</p></li>
+<li><p>CSV and NDJSON output</p></li>
+</ul>
+</section>
+<section id="rag-datasets-generator-py">
+<h3>5. <code class="docutils literal notranslate"><span class="pre">rag_datasets_generator.py</span></code><a class="headerlink" href="#rag-datasets-generator-py" title="Link to this heading">#</a></h3>
+<p>Generates RAG datasets from documentation.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>rag_datasets_generator.py
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/datasets/api.{csv,ndjson}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/datasets/ui.{csv,ndjson}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/datasets/modules.{csv,ndjson}</span></code></p></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Chunks documentation (≤1200 tokens, ~10% overlap)</p></li>
+<li><p>H2-H4 boundary splitting</p></li>
+<li><p>CSV and NDJSON formats</p></li>
+<li><p>Rotation support for files &gt;50MB</p></li>
+</ul>
+</section>
+<section id="qa-checker-py">
+<h3>6. <code class="docutils literal notranslate"><span class="pre">qa_checker.py</span></code><a class="headerlink" href="#qa-checker-py" title="Link to this heading">#</a></h3>
+<p>Validates documentation quality.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>qa_checker.py
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/qa/frontmatter_issues.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/qa/chunking_report.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/qa/link_lint.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/qa/dataset_sanity.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/qa/diagram_lint.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/qa/idempotency.md</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/qa/qa_summary.md</span></code></p></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Frontmatter validation</p></li>
+<li><p>Chunk size checking</p></li>
+<li><p>Link validation</p></li>
+<li><p>Dataset sanity checks</p></li>
+<li><p>Diagram size limits</p></li>
+</ul>
+</section>
+<section id="analytics-generator-py">
+<h3>7. <code class="docutils literal notranslate"><span class="pre">analytics_generator.py</span></code><a class="headerlink" href="#analytics-generator-py" title="Link to this heading">#</a></h3>
+<p>Generates analytics and coverage reports.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>analytics_generator.py
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/analytics/coverage.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/analytics/gaps.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/analytics/xref_stats.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/analytics/coverage_matrix.md</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/analytics/overview.mmd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/analytics/run_summary.json</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/reposzablony/analytics/errors.md</span></code></p></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Coverage matrix (module × artifact type)</p></li>
+<li><p>Gap detection</p></li>
+<li><p>Cross-reference statistics</p></li>
+<li><p>Overview diagram</p></li>
+<li><p>Summary JSON</p></li>
+</ul>
+</section>
+</section>
+<section id="running-all-generators">
+<h2>Running All Generators<a class="headerlink" href="#running-all-generators" title="Link to this heading">#</a></h2>
+<p>To regenerate all documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs/reposzablony/_tools
+
+<span class="c1"># Phase 1: C++ API</span>
+python3<span class="w"> </span>cpp_doc_generator.py<span class="w"> </span>--source-dir<span class="w"> </span>../../../src
+
+<span class="c1"># Phase 3: Lua Modules</span>
+python3<span class="w"> </span>lua_doc_generator.py
+
+<span class="c1"># Phase 4: OTUI</span>
+python3<span class="w"> </span>otui_doc_generator.py
+
+<span class="c1"># Phase 5: Events</span>
+python3<span class="w"> </span>events_doc_generator.py
+
+<span class="c1"># Phase 8: RAG Datasets</span>
+python3<span class="w"> </span>rag_datasets_generator.py
+
+<span class="c1"># Phase 9: QA</span>
+python3<span class="w"> </span>qa_checker.py
+
+<span class="c1"># Phase 10: Analytics</span>
+python3<span class="w"> </span>analytics_generator.py
+</pre></div>
+</div>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Python 3.7+</p></li>
+<li><p>Git (for SHA extraction)</p></li>
+</ul>
+</section>
+<section id="idempotency">
+<h2>Idempotency<a class="headerlink" href="#idempotency" title="Link to this heading">#</a></h2>
+<p>All generators implement idempotency by comparing content before writing. Re-running generators on unchanged source code produces no file changes.</p>
+</section>
+<section id="output-structure">
+<h2>Output Structure<a class="headerlink" href="#output-structure" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docs/reposzablony/
+├── 01_core/api/
+│   ├── cpp/            # C++ API docs
+│   └── diagrams/       # Class diagrams
+├── 03_modules/lua/     # Lua module docs
+├── 04_ui/
+│   ├── otui/           # OTUI widget docs
+│   └── diagrams/       # Widget diagrams
+├── 05_events/          # Events index
+├── datasets/           # RAG datasets
+│   ├── api.{csv,ndjson}
+│   ├── ui.{csv,ndjson}
+│   ├── modules.{csv,ndjson}
+│   ├── events.{csv,ndjson}
+│   └── chunks/         # Rotated files
+├── qa/                 # QA reports
+├── analytics/          # Analytics reports
+├── _tools/             # This directory
+└── _shared/lua/        # Shared utilities
+</pre></div>
+</div>
+</section>
+<section id="frontmatter-schema">
+<h2>Frontmatter Schema<a class="headerlink" href="#frontmatter-schema" title="Link to this heading">#</a></h2>
+<p>All generated MD files include YAML frontmatter:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">doc_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;stable-id&gt;&quot;</span>
+<span class="nt">source_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;repo-relative-path&gt;&quot;</span>
+<span class="nt">source_sha</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;git-sha-abbrev&gt;&quot;</span>
+<span class="nt">last_sync_iso</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YYYY-MM-DDTHH:MM:SSZ&quot;</span>
+<span class="nt">doc_class</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;api|ui|spec|guide&quot;</span>
+<span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pl&quot;</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;title&gt;&quot;</span>
+<span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;1-2</span><span class="nv"> </span><span class="s">sentences&gt;&quot;</span>
+<span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;tag1&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;tag2&quot;</span><span class="p p-Indicator">]</span>
+<span class="nn">---</span>
+</pre></div>
+</div>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>Same as OTClient v8</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cpp-doc-generator-py">1. <code class="docutils literal notranslate"><span class="pre">cpp_doc_generator.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lua-doc-generator-py">2. <code class="docutils literal notranslate"><span class="pre">lua_doc_generator.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otui-doc-generator-py">3. <code class="docutils literal notranslate"><span class="pre">otui_doc_generator.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events-doc-generator-py">4. <code class="docutils literal notranslate"><span class="pre">events_doc_generator.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rag-datasets-generator-py">5. <code class="docutils literal notranslate"><span class="pre">rag_datasets_generator.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qa-checker-py">6. <code class="docutils literal notranslate"><span class="pre">qa_checker.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytics-generator-py">7. <code class="docutils literal notranslate"><span class="pre">analytics_generator.py</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-all-generators">Running All Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#idempotency">Idempotency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-structure">Output Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frontmatter-schema">Frontmatter Schema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reposzablony/_tools/README.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

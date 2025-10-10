@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modules Game 1 &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/__md_backup_20251007_210403/modules_game_1';</script>
+    <link rel="icon" href="../../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Modules Game 1</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="modules-game-1">
+<h1>Modules Game 1<a class="headerlink" href="#modules-game-1" title="Link to this heading">#</a></h1>
+</section>
+<hr class="docutils" />
+<section id="game-interface">
+<h1>game_interface<a class="headerlink" href="#game-interface" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-interface-module">
+<h1>Game Interface Module<a class="headerlink" href="#game-interface-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="gameinterface-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">gameinterface.lua</span></code><a class="headerlink" href="#gameinterface-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="funkcje">
+<h1>Funkcje<a class="headerlink" href="#funkcje" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bindKeys()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hide()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onLoginAdvice(message)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">forceExit()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tryExit()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tryLogout(prompt)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateStretchShrink()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMouseGrabberRelease(self,</span> <span class="pre">mousePosition,</span> <span class="pre">mouseButton)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onUseWith(clickedWidget,</span> <span class="pre">mousePosition)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTradeWith(clickedWidget,</span> <span class="pre">mousePosition)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startUseWith(thing,</span> <span class="pre">subType)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startTradeWith(thing)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isMenuHookCategoryEmpty(category)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addMenuHook(category,</span> <span class="pre">name,</span> <span class="pre">callback,</span> <span class="pre">condition,</span> <span class="pre">shortcut)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeMenuHook(category,</span> <span class="pre">name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createThingMenu(menuPosition,</span> <span class="pre">lookThing,</span> <span class="pre">useThing,</span> <span class="pre">creatureThing)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">processMouseAction(menuPosition,</span> <span class="pre">mouseButton,</span> <span class="pre">autoWalkPos,</span> <span class="pre">lookThing,</span> <span class="pre">useThing,</span> <span class="pre">creatureThing,</span> <span class="pre">attackCreature,</span> <span class="pre">marking)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">moveStackableItem(item,</span> <span class="pre">toPos)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getRootPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getMapPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getRightPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getLeftPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getContainerPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addRightPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addLeftPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeRightPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeLeftPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getBottomPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getBottomActionPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getLeftActionPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getRightActionPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getTopBar()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refreshViewMode()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limitZoom()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateSize()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setupLeftActions()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resetLeftActions()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getLeftAction()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isChatVisible()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">addRightPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">addLeftPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">removeRightPanel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">removeLeftPanel()</span></code></p></li>
+</ul>
+</section>
+<section id="eventy-hooki">
+<h1>Eventy / Hooki<a class="headerlink" href="#eventy-hooki" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addEvent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEnter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEscape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onExit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGeometryChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onLeftPanelVisibilityChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onLoginAdvice</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMapChangeAwareRange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMouseGrabberRelease</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMouseRelease</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRun</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTouchRelease</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTradeWith</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onUseWith</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onValueChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVisibilityChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onVisibleDimensionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code></p></li>
+</ul>
+</section>
+<section id="wywolania-api">
+<h1>Wywołania API<a class="headerlink" href="#wywolania-api" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_clock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_map</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_mouse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_window</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-inventory">
+<h1>game_inventory<a class="headerlink" href="#game-inventory" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-inventory-module">
+<h1>Game Inventory Module<a class="headerlink" href="#game-inventory-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="inventory-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">inventory.lua</span></code><a class="headerlink" href="#inventory-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id1">
+<h1>Funkcje<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggleAdventurerStyle(hasBlessing)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onInventoryChange(player,</span> <span class="pre">slot,</span> <span class="pre">item,</span> <span class="pre">oldItem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBlessingsChange(player,</span> <span class="pre">blessings,</span> <span class="pre">oldBlessings)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">update()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetFightMode(self,</span> <span class="pre">selectedFightButton)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetChaseMode(self,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetSafeFight(self,</span> <span class="pre">checked)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetSafeFight2(self)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetPVPMode(self,</span> <span class="pre">selectedPVPButton)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMountButtonClick(self,</span> <span class="pre">mousePos)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOutfitChange(localPlayer,</span> <span class="pre">outfit,</span> <span class="pre">oldOutfit)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getPVPBoxByMode(mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggleIcon(bitChanged)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadIcon(bitChanged)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSoulChange(localPlayer,</span> <span class="pre">soul)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange(player,</span> <span class="pre">freeCapacity)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onStatesChange(localPlayer,</span> <span class="pre">now,</span> <span class="pre">old)</span></code></p></li>
+</ul>
+</section>
+<section id="id2">
+<h1>Eventy / Hooki<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAutoWalk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onBlessingsChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChaseModeChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onCheckChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onFightModeChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onFreeCapacityChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onInventoryChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMiniWindowClose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMountButtonClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOutfitChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onPVPModeChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSafeFightChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSelectionChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetChaseMode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetFightMode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetPVPMode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetSafeFight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSetSafeFight2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onSoulChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onStatesChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onWalk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+</ul>
+</section>
+<section id="id3">
+<h1>Wywołania API<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-console">
+<h1>game_console<a class="headerlink" href="#game-console" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-console-module">
+<h1>Game Console Module<a class="headerlink" href="#game-console-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="console-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">console.lua</span></code><a class="headerlink" href="#console-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id4">
+<h1>Funkcje<a class="headerlink" href="#id4" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clearSelection(consoleBuffer)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selectAll(consoleBuffer)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggleChat()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enableChat(temporarily)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disableChat(temporarily)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isChatEnabled()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTabChange(tabBar,</span> <span class="pre">tab)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">switchMode(newView)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDragEnter(widget,</span> <span class="pre">pos)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDragMove(widget,</span> <span class="pre">pos,</span> <span class="pre">moved)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDragLeave(widget,</span> <span class="pre">pos)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clearChannel(consoleTabBar)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setTextEditText(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">openHelp()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">openPlayerReportRuleViolationWindow()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addTab(name,</span> <span class="pre">focus)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeTab(tab)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeCurrentTab()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getTab(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getChannelTab(channelId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getRuleViolationsTab()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getCurrentTab()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addChannel(name,</span> <span class="pre">id)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addPrivateChannel(receiver)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addPrivateText(text,</span> <span class="pre">speaktype,</span> <span class="pre">name,</span> <span class="pre">isPrivateCommand,</span> <span class="pre">creatureName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addText(text,</span> <span class="pre">speaktype,</span> <span class="pre">tabName,</span> <span class="pre">creatureName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getHighlightedText(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getNewHighlightedText(text,</span> <span class="pre">color,</span> <span class="pre">highlightColor)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addTabText(text,</span> <span class="pre">speaktype,</span> <span class="pre">tab,</span> <span class="pre">creatureName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeTabLabelByName(tab,</span> <span class="pre">name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">processChannelTabMenu(tab,</span> <span class="pre">mousePos,</span> <span class="pre">mouseButton)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">processMessageMenu(mousePos,</span> <span class="pre">mouseButton,</span> <span class="pre">creatureName,</span> <span class="pre">text,</span> <span class="pre">label,</span> <span class="pre">tab)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sendCurrentMessage()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addFilter(filter)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeFilter(filter)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sendMessage(message,</span> <span class="pre">tab)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sayModeChange(sayMode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getOwnPrivateTab()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setIgnoreNpcMessages(ignore)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">navigateMessageHistory(step)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">applyMessagePrefixies(name,</span> <span class="pre">level,</span> <span class="pre">message)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTalk(name,</span> <span class="pre">level,</span> <span class="pre">mode,</span> <span class="pre">message,</span> <span class="pre">channelId,</span> <span class="pre">creaturePos)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOpenChannel(channelId,</span> <span class="pre">channelName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOpenPrivateChannel(receiver)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOpenOwnPrivateChannel(channelId,</span> <span class="pre">channelName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onCloseChannel(channelId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">processViolation(name,</span> <span class="pre">text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationChannel(channelId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationRemove(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationCancel(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationLock()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doChannelListSubmit()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChannelList(channelList)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadCommunicationSettings()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saveCommunicationSettings()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getIgnoredPlayers()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getWhitelistedPlayers()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isUsingIgnoreList()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isUsingWhiteList()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isIgnored(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addIgnoredPlayer(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeIgnoredPlayer(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isWhitelisted(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addWhitelistedPlayer(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">removeWhitelistedPlayer(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isIgnoringPrivate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isIgnoringYelling()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isAllowingVIPs()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClickIgnoreButton()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChannelEvent(channelId,</span> <span class="pre">name,</span> <span class="pre">type)</span></code></p></li>
+</ul>
+</section>
+<section id="id5">
+<h1>Eventy / Hooki<a class="headerlink" href="#id5" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChannelEvent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChannelList</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onChildFocusChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onClickIgnoreButton</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onCloseChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDestroy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDoubleClick</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDragEnter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDragLeave</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onDragMove</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEnter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onEscape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onKeyPress</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMousePress</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onMouseRelease</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOpenChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOpenOwnPrivateChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onOpenPrivateChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationCancel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationChannel</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationLock</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onRuleViolationRemove</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTabChange</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTalk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">online</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code></p></li>
+</ul>
+</section>
+<section id="id6">
+<h1>Wywołania API<a class="headerlink" href="#id6" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_keyboard</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_map</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_window</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-things">
+<h1>game_things<a class="headerlink" href="#game-things" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-things-module">
+<h1>Game Things Module<a class="headerlink" href="#game-things-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="things-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">things.lua</span></code><a class="headerlink" href="#things-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id7">
+<h1>Funkcje<a class="headerlink" href="#id7" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">setFileName(name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isLoaded()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load()</span></code></p></li>
+</ul>
+</section>
+<section id="id8">
+<h1>Eventy / Hooki<a class="headerlink" href="#id8" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addEvent</span></code></p></li>
+</ul>
+</section>
+<section id="id9">
+<h1>Wywołania API<a class="headerlink" href="#id9" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-textmessage">
+<h1>game_textmessage<a class="headerlink" href="#game-textmessage" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-textmessage-module">
+<h1>Game Textmessage Module<a class="headerlink" href="#game-textmessage-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="textmessage-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">textmessage.lua</span></code><a class="headerlink" href="#textmessage-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id10">
+<h1>Funkcje<a class="headerlink" href="#id10" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculateVisibleTime(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayMessage(mode,</span> <span class="pre">text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayPrivateMessage(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayStatusMessage(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayFailureMessage(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayGameMessage(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayBroadcastMessage(text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clearMessages()</span></code></p></li>
+</ul>
+</section>
+<section id="id11">
+<h1>Eventy / Hooki<a class="headerlink" href="#id11" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onAutoWalkFail</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameEnd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent</span></code></p></li>
+</ul>
+</section>
+<section id="id12">
+<h1>Wywołania API<a class="headerlink" href="#id12" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="game-buttons">
+<h1>game_buttons<a class="headerlink" href="#game-buttons" title="Link to this heading">#</a></h1>
+</section>
+<section id="game-buttons-module">
+<h1>Game Buttons Module<a class="headerlink" href="#game-buttons-module" title="Link to this heading">#</a></h1>
+</section>
+<section id="buttons-lua">
+<h1><code class="docutils literal notranslate"><span class="pre">buttons.lua</span></code><a class="headerlink" href="#buttons-lua" title="Link to this heading">#</a></h1>
+</section>
+<section id="id13">
+<h1>Funkcje<a class="headerlink" href="#id13" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">takeButtons(buttons)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">takeButton(button,</span> <span class="pre">dontUpdateOrder)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateOrder()</span></code></p></li>
+</ul>
+</section>
+<section id="id14">
+<h1>Wywołania API<a class="headerlink" href="#id14" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code></p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modules Game 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-interface">game_interface</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-interface-module">Game Interface Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gameinterface-lua"><code class="docutils literal notranslate"><span class="pre">gameinterface.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventy-hooki">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wywolania-api">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-inventory">game_inventory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-inventory-module">Game Inventory Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inventory-lua"><code class="docutils literal notranslate"><span class="pre">inventory.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-console">game_console</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-console-module">Game Console Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#console-lua"><code class="docutils literal notranslate"><span class="pre">console.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-things">game_things</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-things-module">Game Things Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#things-lua"><code class="docutils literal notranslate"><span class="pre">things.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-textmessage">game_textmessage</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-textmessage-module">Game Textmessage Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#textmessage-lua"><code class="docutils literal notranslate"><span class="pre">textmessage.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Eventy / Hooki</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Wywołania API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-buttons">game_buttons</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#game-buttons-module">Game Buttons Module</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#buttons-lua"><code class="docutils literal notranslate"><span class="pre">buttons.lua</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Funkcje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Wywołania API</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/__md_backup_20251007_210403/modules_game_1.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

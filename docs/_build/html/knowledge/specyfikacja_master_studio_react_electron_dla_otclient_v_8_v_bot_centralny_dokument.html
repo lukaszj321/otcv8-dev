@@ -1,0 +1,890 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Specyfikacja implementacji (MASTER v1.0): Studio React/Electron dla skryptów OTClient v8 + modules/game_bot (vBot) &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/specyfikacja_master_studio_react_electron_dla_otclient_v_8_v_bot_centralny_dokument';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Specyfikacja implementacji (MASTER v1.0): <strong>Studio React/Electron</strong> dla skryptów <strong>OTClient v8</strong> + <strong>modules/game_bot (vBot)</strong></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="specyfikacja-implementacji-master-v1-0-studio-react-electron-dla-skryptow-otclient-v8-modules-game-bot-vbot">
+<h1>Specyfikacja implementacji (MASTER v1.0): <strong>Studio React/Electron</strong> dla skryptów <strong>OTClient v8</strong> + <strong>modules/game_bot (vBot)</strong><a class="headerlink" href="#specyfikacja-implementacji-master-v1-0-studio-react-electron-dla-skryptow-otclient-v8-modules-game-bot-vbot" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Dokument centralny – pełna, profesjonalna specyfikacja do autonomicznej implementacji narzędzia. Zawiera architekturę, modele danych, protokoły, checklisty, reguły jakości, plan wdrożenia, testy, ryzyka i artefakty startowe. Wszystkie kroki są deterministyczne i możliwe do zautomatyzowania na podstawie danych zawartych w tym dokumencie.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="executive-summary">
+<h1>0. Executive Summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Cel:</strong> zbudować wieloplatformowe Studio (desktop <strong>Electron</strong> + <strong>React/TypeScript</strong>) do tworzenia, analizy i utrzymania skryptów <strong>Lua/OTUI/OTML</strong> dla <strong>OTClient v8</strong> oraz <strong>vBot</strong>.</p></li>
+<li><p><strong>Core features:</strong></p>
+<ol class="arabic simple">
+<li><p>Inteligentne <strong>podpowiedzi API</strong> (kuratorowany <code class="docutils literal notranslate"><span class="pre">api.json</span></code> + indeks ze skanu repo),</p></li>
+<li><p><strong>Lint/auto‑fix</strong> dla <strong>OTUI</strong> i lekkie reguły dla <strong>Lua</strong>,</p></li>
+<li><p><strong>Generator</strong> modułów/szablonów,</p></li>
+<li><p>Integracja z klientem: <strong>hot‑reload</strong> i <strong>Log Viewer</strong> (debug przez logi),</p></li>
+<li><p>Praca <strong>offline‑first</strong>.</p></li>
+</ol>
+</li>
+<li><p><strong>Ograniczenia:</strong> brak oficjalnego step‑debuggera Lua; debug realizowany przez logi oraz hot‑reload.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="slownik-pojec">
+<h1>1. Słownik pojęć<a class="headerlink" href="#slownik-pojec" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>OTClient v8</strong> – klient gry (Lua/OTUI/OTML).</p></li>
+<li><p><strong>vBot</strong> – moduł <code class="docutils literal notranslate"><span class="pre">modules/game_bot</span></code> (makra/triggery).</p></li>
+<li><p><strong>Hot‑reload</strong> – <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules()</span></code> (skrót w kliencie lub moduł dev).</p></li>
+<li><p><strong>Flag file</strong> – plik‑flaga <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> wyzwalający hot‑reload.</p></li>
+<li><p><strong>NDJSON</strong> – log <em>newline‑delimited JSON</em> (każda linia = obiekt JSON).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="zakres-poza-zakresem">
+<h1>2. Zakres / Poza zakresem<a class="headerlink" href="#zakres-poza-zakresem" title="Link to this heading">#</a></h1>
+<p><strong>MVP w zakresie:</strong> edycja Lua/OTUI/OTML, podpowiedzi API, lint/auto‑fix (OTUI + Lua‑lite), generator szablonów, skan repo i indeks, Log Viewer, hot‑reload.</p>
+<p><strong>Poza MVP:</strong> step‑debugger (breakpointy), zdalne eval Lua; profiling runtime; złożone RPC do klienta (inne niż plik/log/skrót).</p>
+</section>
+<hr class="docutils" />
+<section id="architektura-systemu">
+<h1>3. Architektura systemu<a class="headerlink" href="#architektura-systemu" title="Link to this heading">#</a></h1>
+<p><strong>Wariant rekomendowany:</strong> Desktop <strong>Electron</strong> (React/TS + Node/FS), integracja z OTClient przez system plików i skrót hot‑reload.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>+--------------------+       IPC        +-------------------+
+| React/TS Frontend  | ←------------→ | Electron Main/Pre |
+| (Vite + Monaco)    |                  |   + Node/FS       |
++--------------------+                  +-------------------+
+          |   FS (read/write JSON, pliki projektu)
+v
++--------------------+         plik/flag/log         +----------------+
+|  Projekt lokalny   | ←--------------------------→ |  OTClient v8  |
+| (lua/otui/otmod/…) |                               | (hot‑reload)  |
++--------------------+                                +----------------+
+</pre></div>
+</div>
+<p><strong>Alternatywa web:</strong> React + lokalny serwis Node (HTTP/WebSocket) + File System Access API (ograniczenia dostępu; rekomendowane tylko gdy Electron jest niewskazany).</p>
+</section>
+<hr class="docutils" />
+<section id="wymagania-funkcjonalne-fr">
+<h1>4. Wymagania funkcjonalne (FR)<a class="headerlink" href="#wymagania-funkcjonalne-fr" title="Link to this heading">#</a></h1>
+<p><strong>FR‑01 – Projekty:</strong> wybór katalogu, ostatnie projekty, walidacja (<code class="docutils literal notranslate"><span class="pre">modules/</span></code>, <code class="docutils literal notranslate"><span class="pre">.otmod</span></code>).
+<strong>FR‑02 – Eksplorator:</strong> drzewo <code class="docutils literal notranslate"><span class="pre">.lua/.otui/.otmod</span></code> + assets; CRUD na plikach; drag‑drop; operacje atomowe.
+<strong>FR‑03 – Edytor:</strong> Monaco (Lua/OTUI/OTML/JSON), go‑to symbol, minimapa, format, folding.
+<strong>FR‑04 – IntelliSense:</strong> hover, signature help, autocomplete z <code class="docutils literal notranslate"><span class="pre">api.json</span></code> + indeks projektu + docstrings.
+<strong>FR‑05 – Lint OTUI:</strong> kolejność pól, <code class="docutils literal notranslate"><span class="pre">tr()</span></code> dla stałych, anchors/margins, istnienie zasobów; auto‑fix dla kolejności i <code class="docutils literal notranslate"><span class="pre">tr()</span></code>.
+<strong>FR‑06 – Lint Lua (lite):</strong> preferuj <code class="docutils literal notranslate"><span class="pre">local</span></code>, wykryj globalne; <code class="docutils literal notranslate"><span class="pre">table.unpack</span></code> vs <code class="docutils literal notranslate"><span class="pre">unpack</span></code>.
+<strong>FR‑07 – Generator:</strong> moduły (<code class="docutils literal notranslate"><span class="pre">.otmod</span></code> + <code class="docutils literal notranslate"><span class="pre">main.lua</span></code> + <code class="docutils literal notranslate"><span class="pre">ui/*.otui</span></code>) + snippety vBot z checklistą.
+<strong>FR‑08 – Skan/Indeks:</strong> glob, parsery Lua/OTUI/OTML, relacje <code class="docutils literal notranslate"><span class="pre">dofile/require</span></code> i <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI</span></code>; cache inkrementalny.
+<strong>FR‑09 – Integracja z OTClient:</strong> przycisk „Przeładuj w kliencie” (skrót/flag file).
+<strong>FR‑10 – Log Viewer:</strong> tail NDJSON/tekst, filtry (level/tag/file:line), wyszukiwarka, eksport.
+<strong>FR‑11 – Ustawienia:</strong> ścieżki artefaktów i logu, ignore patterns, motyw; import/eksport.
+<strong>FR‑12 – Wbudowany help:</strong> panel „API &amp; How‑to”, wyszukiwarka offline.</p>
+<p><strong>Kryteria akceptacji (wybrane):</strong> indeks 5k plików &lt; 5 s z cache; brak crashy przy edycji plików 2 MB; &gt;90% trafień podpowiedzi dla znanych symboli; auto‑fix deterministyczny.</p>
+</section>
+<hr class="docutils" />
+<section id="wymagania-niefunkcjonalne-nfr">
+<h1>5. Wymagania niefunkcjonalne (NFR)<a class="headerlink" href="#wymagania-niefunkcjonalne-nfr" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Perf:</strong> indeks &lt; 5 s (cache), &lt; 30 s zimny start; Monaco 60 FPS podczas pisania.</p></li>
+<li><p><strong>Security:</strong> brak sieci (offline‑first), sandbox Renderer, IPC whitelist, brak uruchamiania Lua.</p></li>
+<li><p><strong>Portability:</strong> Windows/macOS/Linux; Web (opcjonalnie, ograniczenia FS API).</p></li>
+<li><p><strong>Reliability:</strong> zapisy atomowe (temp→rename), odtwarzanie cache po awarii.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="kontrakty-i-modele-danych-kanoniczne-wersjonowane">
+<h1>6. Kontrakty i modele danych (kanoniczne, wersjonowane)<a class="headerlink" href="#kontrakty-i-modele-danych-kanoniczne-wersjonowane" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Każdy JSON zawiera <code class="docutils literal notranslate"><span class="pre">$schemaVersion</span></code> i jest walidowany testami kontraktowymi.</p>
+</div></blockquote>
+</section>
+<section id="resources-api-json-kuratorowane-seed-ingest">
+<h1>6.1. <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code> (kuratorowane, seed + ingest)<a class="headerlink" href="#resources-api-json-kuratorowane-seed-ingest" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;generatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-10-02T00:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;functions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_modules.reloadModules&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_modules&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">&quot;returns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Przeładowuje moduły i skrypty OTClient.&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;since&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v8&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_resources.readFile&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_resources&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">}],</span><span class="w"> </span><span class="nt">&quot;returns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">}],</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Czyta plik do stringa.&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_resources.writeFile&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_resources&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">}],</span><span class="w"> </span><span class="nt">&quot;returns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">}],</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Zapisuje string do pliku.&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;onGameStart&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Game&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Wywoływane przy starcie gry.&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_resources&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;members&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;readFile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;writeFile&quot;</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Menedżer zasobów.&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Uwaga:</strong> to seed. Pełny <code class="docutils literal notranslate"><span class="pre">api.json</span></code> powstaje wg §7 z lokalnych plików dokumentacji.</p>
+</div></blockquote>
+</section>
+<section id="project-index-json-z-automatycznego-skanu">
+<h1>6.2. <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code> (z automatycznego skanu)<a class="headerlink" href="#project-index-json-z-automatycznego-skanu" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;root&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/abs/path/to/project&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;lua&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;modules/game_bot/bot.lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;modules/client/client.lua&quot;</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;otui&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;modules/client/ui/main.otui&quot;</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;otmod&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;modules/client/client.otmod&quot;</span><span class="p">]},</span>
+<span class="w">  </span><span class="nt">&quot;symbols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;functions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;reloadScripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;modules/client/client.lua:120&quot;</span><span class="p">]},</span><span class="w"> </span><span class="nt">&quot;widgets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;MainWindow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;modules/client/ui/main.otui:5&quot;</span><span class="p">]}},</span>
+<span class="w">  </span><span class="nt">&quot;relations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;lua_to_otui&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;lua&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;modules/client/client.lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;otui&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;modules/client/ui/main.otui&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;via&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g_ui.loadUI&quot;</span><span class="p">}],</span><span class="w"> </span><span class="nt">&quot;includes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;modules/a/main.lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;modules/a/util.lua&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;via&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dofile&quot;</span><span class="p">}]}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="otui-rules-json-lint-autofix">
+<h1>6.3. <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code> (lint/auto‑fix)<a class="headerlink" href="#otui-rules-json-lint-autofix" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;rules&quot;</span><span class="p">:[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;OTUI-001&quot;</span><span class="p">,</span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Kolejność pól: GEOMETRIA→STYL→ZACHOWANIE.&quot;</span><span class="p">,</span><span class="nt">&quot;fixable&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;OTUI-002&quot;</span><span class="p">,</span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Stałe stringi muszą używać tr().&quot;</span><span class="p">,</span><span class="nt">&quot;fixable&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;OTUI-003&quot;</span><span class="p">,</span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Walidacja anchors/margins (brak sprzeczności).&quot;</span><span class="p">,</span><span class="nt">&quot;fixable&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;OTUI-004&quot;</span><span class="p">,</span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Weryfikacja istnienia zasobów (obrazy, fonty, style).&quot;</span><span class="p">,</span><span class="nt">&quot;fixable&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">}]}</span>
+</pre></div>
+</div>
+</section>
+<section id="templates-json-generator">
+<h1>6.4. <code class="docutils literal notranslate"><span class="pre">templates.json</span></code> (generator)<a class="headerlink" href="#templates-json-generator" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;module.default&quot;</span><span class="p">:{</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Moduł OTClient — szkielet&quot;</span><span class="p">,</span><span class="nt">&quot;files&quot;</span><span class="p">:[{</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;modules/hello/hello.otmod&quot;</span><span class="p">,</span><span class="nt">&quot;contents&quot;</span><span class="p">:</span><span class="s2">&quot;name: hello\n&quot;</span><span class="p">},{</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;modules/hello/hello.lua&quot;</span><span class="p">,</span><span class="nt">&quot;contents&quot;</span><span class="p">:</span><span class="s2">&quot;-- entry point\nlocal M = {}\nreturn M\n&quot;</span><span class="p">},{</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;modules/hello/ui/hello.otui&quot;</span><span class="p">,</span><span class="nt">&quot;contents&quot;</span><span class="p">:</span><span class="s2">&quot;MainWindow &lt; UIWidget { }\n&quot;</span><span class="p">}],</span><span class="nt">&quot;checklist&quot;</span><span class="p">:[</span><span class="s2">&quot;Umieść katalog w modules/&quot;</span><span class="p">,</span><span class="s2">&quot;Uruchom klienta i przeładuj moduły&quot;</span><span class="p">,</span><span class="s2">&quot;Sprawdź log po starcie modułu&quot;</span><span class="p">]}}</span>
+</pre></div>
+</div>
+</section>
+<section id="docstrings-json">
+<h1>6.5. <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code><a class="headerlink" href="#docstrings-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;entries&quot;</span><span class="p">:[{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;modules/x/main.lua&quot;</span><span class="p">,</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span><span class="nt">&quot;params&quot;</span><span class="p">:[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">}],</span><span class="nt">&quot;returns&quot;</span><span class="p">:[{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;boolean&quot;</span><span class="p">}],</span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="s2">&quot;---@param a number\n---@return boolean&quot;</span><span class="p">}]}</span>
+</pre></div>
+</div>
+</section>
+<section id="assets-map-json">
+<h1>6.6. <code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code><a class="headerlink" href="#assets-map-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;assets&quot;</span><span class="p">:{</span><span class="nt">&quot;images&quot;</span><span class="p">:[</span><span class="s2">&quot;images/button.png&quot;</span><span class="p">],</span><span class="nt">&quot;fonts&quot;</span><span class="p">:[</span><span class="s2">&quot;fonts/verdana.otf&quot;</span><span class="p">],</span><span class="nt">&quot;styles&quot;</span><span class="p">:[</span><span class="s2">&quot;styles/dark.otui&quot;</span><span class="p">]}}</span>
+</pre></div>
+</div>
+</section>
+<section id="studio-config-json">
+<h1>6.7. <code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code><a class="headerlink" href="#studio-config-json" title="Link to this heading">#</a></h1>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;projectRoot&quot;</span><span class="p">:</span><span class="s2">&quot;/abs/path/to/project&quot;</span><span class="p">,</span><span class="nt">&quot;apiPath&quot;</span><span class="p">:</span><span class="s2">&quot;resources/api.json&quot;</span><span class="p">,</span><span class="nt">&quot;otuiRulesPath&quot;</span><span class="p">:</span><span class="s2">&quot;resources/otui-rules.json&quot;</span><span class="p">,</span><span class="nt">&quot;templatesPath&quot;</span><span class="p">:</span><span class="s2">&quot;resources/templates.json&quot;</span><span class="p">,</span><span class="nt">&quot;logPath&quot;</span><span class="p">:</span><span class="s2">&quot;/abs/path/to/log.ndjson&quot;</span><span class="p">,</span><span class="nt">&quot;ignore&quot;</span><span class="p">:[</span><span class="s2">&quot;**/node_modules/**&quot;</span><span class="p">,</span><span class="s2">&quot;.git/**&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="procedura-ingest-budowa-api-json">
+<h1>7. Procedura ingest – budowa <code class="docutils literal notranslate"><span class="pre">api.json</span></code><a class="headerlink" href="#procedura-ingest-budowa-api-json" title="Link to this heading">#</a></h1>
+<p><strong>Wejścia:</strong> lokalne pliki dokumentacji (<code class="docutils literal notranslate"><span class="pre">OTClient_data_documentation_FULL.md</span></code>, <code class="docutils literal notranslate"><span class="pre">luafunctionscpp.md</span></code>, <code class="docutils literal notranslate"><span class="pre">modules_Documentation.md</span></code>, <code class="docutils literal notranslate"><span class="pre">src</span> <span class="pre">framework.md</span></code>, <code class="docutils literal notranslate"><span class="pre">src</span> <span class="pre">client.md</span></code>).</p>
+<p><strong>Kroki:</strong></p>
+<ol class="arabic simple">
+<li><p>Segmentacja MD (H1–H3) i klasyfikacja sekcji: API/Events/Hooks/Globals/Managers.</p></li>
+<li><p>Ekstrakcja sygnatur: <code class="docutils literal notranslate"><span class="pre">name(params)</span> <span class="pre">→</span> <span class="pre">returns</span></code>, opisów, przykładów, statusu (<code class="docutils literal notranslate"><span class="pre">since/deprecated</span></code>).</p></li>
+<li><p>Normalizacja nazewnictwa (<code class="docutils literal notranslate"><span class="pre">module</span></code>: <code class="docutils literal notranslate"><span class="pre">g_resources</span></code>, <code class="docutils literal notranslate"><span class="pre">g_modules</span></code>, itp.).</p></li>
+<li><p>Walidacja: unikalne <code class="docutils literal notranslate"><span class="pre">name</span></code>, kompletne <code class="docutils literal notranslate"><span class="pre">params/returns</span></code>.</p></li>
+<li><p>Scalanie z <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code> (uzupełnienia typów/przykładów).</p></li>
+<li><p>Eksport <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code> (dodaj <code class="docutils literal notranslate"><span class="pre">generatedAt</span></code>, <code class="docutils literal notranslate"><span class="pre">$schemaVersion</span></code>).</p></li>
+</ol>
+<p><strong>Wzorce (regex – przykładowe):</strong></p>
+<ul class="simple">
+<li><p>Funkcja: <code class="docutils literal notranslate"><span class="pre">^\s*([A-Za-z0-9_\.\:]+)\s*\(([^)]*)\)\s*(?:→\s*([^\n{]+))?</span></code></p></li>
+<li><p>Param: <code class="docutils literal notranslate"><span class="pre">---&#64;param\s+(\w+)\s+([\w&lt;&gt;\|]+)</span></code></p></li>
+<li><p>Return: <code class="docutils literal notranslate"><span class="pre">---&#64;return\s+([\w&lt;&gt;\|]+)</span></code></p></li>
+<li><p>Event: <code class="docutils literal notranslate"><span class="pre">\bon[A-Z][A-Za-z0-9]+\b</span></code> (lub sekcje „Events”).</p></li>
+</ul>
+<p><strong>Polityka typów:</strong> <code class="docutils literal notranslate"><span class="pre">string|number|boolean|table|any|nil|function|userdata</span></code>; <code class="docutils literal notranslate"><span class="pre">optional</span></code> jeśli oznaczone <code class="docutils literal notranslate"><span class="pre">?</span></code> lub w kwadratowych nawiasach.</p>
+<p><strong>Quality Gate:</strong> 0 duplikatów; ≥95% pozycji z opisem i kompletnymi parametrami; walidacja JSON wg schematu.</p>
+</section>
+<hr class="docutils" />
+<section id="skaner-i-parsery-specyfikacja">
+<h1>8. Skaner i parsery – specyfikacja<a class="headerlink" href="#skaner-i-parsery-specyfikacja" title="Link to this heading">#</a></h1>
+<p><strong>FS skan:</strong> glob <code class="docutils literal notranslate"><span class="pre">**/*.{lua,otui,otmod}</span></code>; wyklucz <code class="docutils literal notranslate"><span class="pre">.git/**</span></code>, <code class="docutils literal notranslate"><span class="pre">**/node_modules/**</span></code>, <code class="docutils literal notranslate"><span class="pre">**/.studio-cache/**</span></code>; hash (size+mtime) → indeks inkrementalny.</p>
+<p><strong>Parser Lua:</strong></p>
+<ul class="simple">
+<li><p>Tokenizacja: identyfikatory, stringi, komentarze (<code class="docutils literal notranslate"><span class="pre">--</span></code>, blokowe), słowa kluczowe.</p></li>
+<li><p>Ekstrakcja: <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">name(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">obj:method(...)</span></code> (pozycja file:line).</p></li>
+<li><p>Docstrings: <code class="docutils literal notranslate"><span class="pre">---</span></code> + adnotacje <code class="docutils literal notranslate"><span class="pre">---&#64;param</span></code>, <code class="docutils literal notranslate"><span class="pre">---&#64;return</span></code> → <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code>.</p></li>
+<li><p>Relacje: <code class="docutils literal notranslate"><span class="pre">dofile(&quot;path&quot;)</span></code>, <code class="docutils literal notranslate"><span class="pre">require(&quot;...&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">relations.includes</span></code>.</p></li>
+<li><p>Heurystyki vBot: wykrywanie <code class="docutils literal notranslate"><span class="pre">macro(</span></code>, <code class="docutils literal notranslate"><span class="pre">onTextMessage</span></code>, itp. → tag <code class="docutils literal notranslate"><span class="pre">botSymbols</span></code>.</p></li>
+</ul>
+<p><strong>Parser OTUI/OTML:</strong></p>
+<ul class="simple">
+<li><p>AST wg skróconej EBNF:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>File := (Decl | Comment)*
+Decl := Type (&quot;&lt;&quot; Base &quot;&gt;&quot;)? &quot;{&quot; (KV | Decl)* &quot;}&quot;
+KV   := Key &quot;:&quot; Value
+Value:= String | Number | Bool | Ident | Array | Object
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Kategoryzacja atrybutów: GEOMETRIA (<code class="docutils literal notranslate"><span class="pre">x</span></code>,<code class="docutils literal notranslate"><span class="pre">y</span></code>,<code class="docutils literal notranslate"><span class="pre">width</span></code>,<code class="docutils literal notranslate"><span class="pre">height</span></code>,<code class="docutils literal notranslate"><span class="pre">anchors</span></code>,<code class="docutils literal notranslate"><span class="pre">margin</span></code>), STYL (<code class="docutils literal notranslate"><span class="pre">font</span></code>,<code class="docutils literal notranslate"><span class="pre">color</span></code>,<code class="docutils literal notranslate"><span class="pre">image</span></code>,<code class="docutils literal notranslate"><span class="pre">style</span></code>), ZACHOWANIE (<code class="docutils literal notranslate"><span class="pre">draggable</span></code>,<code class="docutils literal notranslate"><span class="pre">onClick</span></code>,<code class="docutils literal notranslate"><span class="pre">id</span></code>).</p></li>
+<li><p>Relacje: <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI(&quot;path&quot;)</span></code> → <code class="docutils literal notranslate"><span class="pre">relations.lua_to_otui</span></code>.</p></li>
+</ul>
+<p><strong>Parser <code class="docutils literal notranslate"><span class="pre">.otmod</span></code>:</strong> klucz:wartość (+ listy); wymagane <code class="docutils literal notranslate"><span class="pre">name</span></code>; waliduj znaki w <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p><strong>Kody błędów parsera:</strong> <code class="docutils literal notranslate"><span class="pre">P001</span></code> (Lua tokenizer), <code class="docutils literal notranslate"><span class="pre">P101</span></code> (OTUI niezamknięty blok), <code class="docutils literal notranslate"><span class="pre">P201</span></code> (.otmod brak <code class="docutils literal notranslate"><span class="pre">name</span></code>).</p>
+</section>
+<hr class="docutils" />
+<section id="lint-autofix-reguly">
+<h1>9. Lint/Auto‑fix – reguły<a class="headerlink" href="#lint-autofix-reguly" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>OTUI‑001 (order):</strong> sortuj atrybuty: GEOMETRIA → STYL → ZACHOWANIE (auto‑fix: przetasuj z zachowaniem komentarzy).</p></li>
+<li><p><strong>OTUI‑002 (tr):</strong> stałe literały string wrapuj <code class="docutils literal notranslate"><span class="pre">tr()</span></code> (auto‑fix; ignoruj <code class="docutils literal notranslate"><span class="pre">id</span></code>/nazwy klas).</p></li>
+<li><p><strong>OTUI‑003 (anchors):</strong> wykryj sprzeczności anchors/margins (sugestie, bez auto‑fix).</p></li>
+<li><p><strong>OTUI‑004 (assets):</strong> zgłoś brakujące zasoby (fuzzy podpowiedzi).</p></li>
+<li><p><strong>LUA‑001 (locals):</strong> ostrzegaj globali; auto‑fix: <code class="docutils literal notranslate"><span class="pre">local</span></code> jeśli bez kolizji.</p></li>
+<li><p><strong>LUA‑002 (unpack):</strong> zamieniaj <code class="docutils literal notranslate"><span class="pre">unpack</span></code> → <code class="docutils literal notranslate"><span class="pre">table.unpack</span></code> (auto‑fix bezpieczny).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="integracja-z-otclient-hotreload-logi">
+<h1>10. Integracja z OTClient (hot‑reload, logi)<a class="headerlink" href="#integracja-z-otclient-hotreload-logi" title="Link to this heading">#</a></h1>
+<p><strong>Tryb A (podstawowy):</strong> zapis → skrót hot‑reload w kliencie (np. Ctrl+Shift+R).</p>
+<p><strong>Tryb B (z modułem dev):</strong> Studio zapisuje <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code>; moduł dev w kliencie wykrywa i:</p>
+<ol class="arabic simple">
+<li><p>wywołuje <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules()</span></code>,</p></li>
+<li><p>usuwa/przepisuje plik flagi,</p></li>
+<li><p>opcjonalnie loguje wynik (NDJSON) do <code class="docutils literal notranslate"><span class="pre">modules/.dev/log.jsonl</span></code>.</p></li>
+</ol>
+<p><strong>Szkic modułu dev (Lua):</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">dev</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">local</span> <span class="n">flagPath</span> <span class="o">=</span> <span class="s1">&#39;modules/.dev/reload.flag&#39;</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">return</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">ok</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kc">nil</span> <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">data</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">fileExists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="n">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">data</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="o">#</span><span class="n">data</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">tryReload</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">fileExists</span><span class="p">(</span><span class="n">flagPath</span><span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[dev] reload flag detected&#39;</span><span class="p">)</span>
+    <span class="n">g_modules</span><span class="p">.</span><span class="n">reloadModules</span><span class="p">()</span>
+    <span class="n">g_resources</span><span class="p">.</span><span class="n">writeFile</span><span class="p">(</span><span class="n">flagPath</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">start</span><span class="p">()</span>
+  <span class="n">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="n">tryReload</span><span class="p">()</span>
+    <span class="n">scheduleEvent</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+  <span class="kr">end</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="n">start</span><span class="p">()</span>
+<span class="kr">return</span> <span class="n">dev</span>
+</pre></div>
+</div>
+<p><strong>Logi (NDJSON):</strong> pola: <code class="docutils literal notranslate"><span class="pre">ts</span></code> (ISO), <code class="docutils literal notranslate"><span class="pre">level</span></code> (INFO|WARN|ERROR), <code class="docutils literal notranslate"><span class="pre">tag</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span></code>, <code class="docutils literal notranslate"><span class="pre">msg</span></code>, <code class="docutils literal notranslate"><span class="pre">meta</span></code>.</p>
+<p>Przykład:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;2025-10-02T12:34:56.789Z&quot;</span><span class="p">,</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="s2">&quot;modules/x/main.lua&quot;</span><span class="p">,</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="s2">&quot;Hot reload done&quot;</span><span class="p">,</span><span class="nt">&quot;meta&quot;</span><span class="p">:{</span><span class="nt">&quot;changed&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ui-ux-ekrany-i-przeplywy">
+<h1>11. UI/UX (ekrany i przepływy)<a class="headerlink" href="#ui-ux-ekrany-i-przeplywy" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Start:</strong> wybór/ostatnie projekty, skróty do dokumentacji, „Nowy moduł”.</p></li>
+<li><p><strong>Eksplorator:</strong> drzewo plików, akcje kontekstowe, status operacji FS.</p></li>
+<li><p><strong>Edytor:</strong> Monaco + panel boczny (API/Doc), statusbar (pozycja, problems, encoding).</p></li>
+<li><p><strong>Diagnostyka:</strong> lista Issues (filtry), Quick Fix, przejścia do linii.</p></li>
+<li><p><strong>API Browser:</strong> lista obiektów → szczegóły (opis, params, examples) → „Wstaw snippet”.</p></li>
+<li><p><strong>Log Viewer:</strong> stream z filtrami (ERR/WARN/INFO), szukanie, pauza, eksport.</p></li>
+<li><p><strong>Ustawienia:</strong> ścieżki zasobów, logu, motyw, ignorowane foldery, mapowanie skrótu.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ipc-electron-kontrakty">
+<h1>12. IPC (Electron) – kontrakty<a class="headerlink" href="#ipc-electron-kontrakty" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">studio:scan:start</span></code> – req: <code class="docutils literal notranslate"><span class="pre">{root}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code> | err: <code class="docutils literal notranslate"><span class="pre">{code,msg}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">studio:api:load</span></code> – req: <code class="docutils literal notranslate"><span class="pre">{path}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">api.json</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">studio:lint:run</span></code> – req: <code class="docutils literal notranslate"><span class="pre">{files[]}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">{problems[]}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">studio:templates:generate</span></code> – req: <code class="docutils literal notranslate"><span class="pre">{templateId,</span> <span class="pre">targetDir,</span> <span class="pre">vars}</span></code> → res: <code class="docutils literal notranslate"><span class="pre">{createdFiles[]}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">studio:log:tail</span></code> – req: <code class="docutils literal notranslate"><span class="pre">{path}</span></code> → stream: <code class="docutils literal notranslate"><span class="pre">{line}</span></code> | <code class="docutils literal notranslate"><span class="pre">{eof}</span></code> | <code class="docutils literal notranslate"><span class="pre">{error}</span></code></p></li>
+</ul>
+<p><strong>Błędy:</strong> <code class="docutils literal notranslate"><span class="pre">E_FS_001</span></code> (dostęp FS), <code class="docutils literal notranslate"><span class="pre">E_PARSE_LUA</span></code>, <code class="docutils literal notranslate"><span class="pre">E_PARSE_OTUI</span></code>, <code class="docutils literal notranslate"><span class="pre">E_JSON_SCHEMA</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="warstwa-stanu-fe">
+<h1>13. Warstwa stanu FE<a class="headerlink" href="#warstwa-stanu-fe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Zustand:</strong> <code class="docutils literal notranslate"><span class="pre">projectStore</span></code>, <code class="docutils literal notranslate"><span class="pre">editorStore</span></code>, <code class="docutils literal notranslate"><span class="pre">diagnosticsStore</span></code>, <code class="docutils literal notranslate"><span class="pre">apiStore</span></code>, <code class="docutils literal notranslate"><span class="pre">logStore</span></code>.</p></li>
+<li><p><strong>Persist:</strong> <code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code> przez backend FS.</p></li>
+<li><p><strong>Normalizacja:</strong> mapy symboli <code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">→</span> <span class="pre">{files[]}</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="bezpieczenstwo-i-prywatnosc">
+<h1>14. Bezpieczeństwo i prywatność<a class="headerlink" href="#bezpieczenstwo-i-prywatnosc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Renderer sandbox, restrykcyjne IPC, brak sieci (domyślnie), brak wykonywania Lua.</p></li>
+<li><p>Backup <code class="docutils literal notranslate"><span class="pre">.bak</span></code> przy auto‑fixach; zapisy atomowe.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="wydajnosc-i-stabilnosc">
+<h1>15. Wydajność i stabilność<a class="headerlink" href="#wydajnosc-i-stabilnosc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Worker Threads dla parserów; debounce 150 ms; cache w <code class="docutils literal notranslate"><span class="pre">.studio-cache/</span></code>.</p></li>
+<li><p>„Big file mode” w Monaco &gt; 2 MB (ograniczenie części funkcji).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="i18n-a11y-theming">
+<h1>16. i18n, A11y, theming<a class="headerlink" href="#i18n-a11y-theming" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>i18n: <code class="docutils literal notranslate"><span class="pre">en</span></code>/<code class="docutils literal notranslate"><span class="pre">pl</span></code>; wymuszaj <code class="docutils literal notranslate"><span class="pre">tr()</span></code> w OTUI poprzez lint.</p></li>
+<li><p>A11y: ARIA, focus outlines, kontrast WCAG AA.</p></li>
+<li><p>Tematy: Light/Dark/High‑Contrast; zapis w config.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="testy-i-qa">
+<h1>17. Testy i QA<a class="headerlink" href="#testy-i-qa" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Unit:</strong> parsery (Lua/OTUI), lint rules, generator.</p></li>
+<li><p><strong>Contract:</strong> walidacja JSON kontra schemat, IPC payloady/typy.</p></li>
+<li><p><strong>Integration:</strong> skan 5k plików, pomiary czasu/RAM.</p></li>
+<li><p><strong>E2E (Playwright):</strong> flow „Open → Edit → Lint → Generate → Reload → Logs”.</p></li>
+<li><p><strong>Regression:</strong> snapshot AST/diagnostyki.</p></li>
+</ul>
+<p><strong>DoD (final):</strong> patrz §21 – wszystkie punkty odhaczone.</p>
+</section>
+<hr class="docutils" />
+<section id="build-release-update">
+<h1>18. Build/Release/Update<a class="headerlink" href="#build-release-update" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">electron-builder</span></code> (Win NSIS, macOS dmg, Linux AppImage); podpisy binarek.</p></li>
+<li><p>Auto‑update (opcjonalny), domyślnie wyłączony – narzędzie offline‑first.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="observability-narzedzia">
+<h1>19. Observability narzędzia<a class="headerlink" href="#observability-narzedzia" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Log aplikacji: <code class="docutils literal notranslate"><span class="pre">.studio/logs/app.ndjson</span></code>; poziomy: DEBUG/INFO/WARN/ERROR.</p></li>
+<li><p>Metryki: czas skanu, liczba plików, czas lintu, błędy parserów.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="migracje-i-zgodnosc">
+<h1>20. Migracje i zgodność<a class="headerlink" href="#migracje-i-zgodnosc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$schemaVersion</span></code> w artefaktach; migracje <code class="docutils literal notranslate"><span class="pre">vN</span> <span class="pre">→</span> <span class="pre">vN+1</span></code> dla config/cache.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="plan-wdrozenia-i-checklisty">
+<h1>21. Plan wdrożenia i checklisty<a class="headerlink" href="#plan-wdrozenia-i-checklisty" title="Link to this heading">#</a></h1>
+<p><strong>Etap 0 – Inicjalizacja</strong></p>
+<ul class="simple">
+<li><p>[ ] Monorepo (pnpm), Vite+React+TS, Electron scaffold.</p></li>
+<li><p>[ ] Monaco, routing, layout.</p></li>
+</ul>
+<p><strong>Etap 1 – Kontrakty i zasoby</strong></p>
+<ul class="simple">
+<li><p>[ ] Interfejsy TS (ApiFunction/ApiEvent/ProjectIndex/OtuiRule/Template).</p></li>
+<li><p>[ ] Dodać <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code> (seed), <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code>, <code class="docutils literal notranslate"><span class="pre">templates.json</span></code>.</p></li>
+</ul>
+<p><strong>Etap 2 – Skaner/Parsery</strong></p>
+<ul class="simple">
+<li><p>[ ] Glob/FS, cache, incremental hashing.</p></li>
+<li><p>[ ] Parser Lua + docstrings + relacje.</p></li>
+<li><p>[ ] Parser OTUI/OTML + kategoryzacja atrybutów.</p></li>
+<li><p>[ ] Parser <code class="docutils literal notranslate"><span class="pre">.otmod</span></code>.</p></li>
+</ul>
+<p><strong>Etap 3 – IDE/UX</strong></p>
+<ul class="simple">
+<li><p>[ ] Explorer, Edytor, API Browser.</p></li>
+<li><p>[ ] Diagnostyka + Quick Fix.</p></li>
+</ul>
+<p><strong>Etap 4 – Integracja z klientem</strong></p>
+<ul class="simple">
+<li><p>[ ] Przeładuj (skrót/flag) + Log Viewer.</p></li>
+</ul>
+<p><strong>Etap 5 – Stabilizacja</strong></p>
+<ul class="simple">
+<li><p>[ ] Testy (unit/contract/integration/E2E), pakiety instalacyjne.</p></li>
+</ul>
+<p><strong>Definition of Done (Końcowe):</strong></p>
+<ul class="simple">
+<li><p>[ ] Aplikacja offline; projekty się otwierają; indeks i symbole działają.</p></li>
+<li><p>[ ] <code class="docutils literal notranslate"><span class="pre">api.json</span></code> zasila podpowiedzi (hover/complete/signature help).</p></li>
+<li><p>[ ] Lint OTUI/Lua i auto‑fix (backup <code class="docutils literal notranslate"><span class="pre">.bak</span></code>).</p></li>
+<li><p>[ ] Integracja z OTClient: hot‑reload + logi stabilne.</p></li>
+<li><p>[ ] Pakiety Win/macOS/Linux; dokumentacja użytkownika; sample project.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ryzyka-i-mitigacje">
+<h1>22. Ryzyka i mitigacje<a class="headerlink" href="#ryzyka-i-mitigacje" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Brak step‑debuggera:</strong> Log Viewer + snippety logujące + mapowanie file:line.</p></li>
+<li><p><strong>Różnice wersji:</strong> <code class="docutils literal notranslate"><span class="pre">since/deprecated</span></code> w <code class="docutils literal notranslate"><span class="pre">api.json</span></code>, profile klienta.</p></li>
+<li><p><strong>Wydajność:</strong> indeks inkrementalny, workers, throttling.</p></li>
+<li><p><strong>Parsery:</strong> testy kontraktowe + snapshoty, tolerant parsing.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="artefakty-komplet-mvp-gotowe-w-tym-dokumencie">
+<h1>23. Artefakty – komplet MVP (gotowe w tym dokumencie)<a class="headerlink" href="#artefakty-komplet-mvp-gotowe-w-tym-dokumencie" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code> – seed (6.1 + 24.A)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resources/otui-rules.json</span></code> – (6.3 + 24.B)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resources/templates.json</span></code> – (6.4 + 24.C)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code> – format (6.5)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code> – format (6.6)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code> – format (6.7)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="przykladowe-dane-seed-do-startu">
+<h1>24. Przykładowe dane (seed do startu)<a class="headerlink" href="#przykladowe-dane-seed-do-startu" title="Link to this heading">#</a></h1>
+<p><strong>A. <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code> (seed)</strong> – patrz §6.1 (pełny JSON wstawiony).</p>
+<p><strong>B. <code class="docutils literal notranslate"><span class="pre">resources/otui-rules.json</span></code> (seed)</strong> – patrz §6.3 (pełny JSON wstawiony).</p>
+<p><strong>C. <code class="docutils literal notranslate"><span class="pre">resources/templates.json</span></code> (seed)</strong> – patrz §6.4 (pełny JSON wstawiony).</p>
+</section>
+<hr class="docutils" />
+<section id="noty-koncowe">
+<h1>25. Noty końcowe<a class="headerlink" href="#noty-koncowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Ten dokument jest <strong>źródłem prawdy (SoT)</strong>. Dodatkowe canvasy muszą odwoływać się do sekcji (§) i kontraktów tutaj zdefiniowanych.</p></li>
+<li><p>Zmiany wymagają podniesienia <code class="docutils literal notranslate"><span class="pre">$schemaVersion</span></code> i przejścia testów kontraktowych.</p></li>
+<li><p>Wszelkie dane są przygotowane z myślą o pracy <strong>offline</strong> w oparciu o lokalne pliki dokumentacji i kodu.</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Specyfikacja implementacji (MASTER v1.0): <strong>Studio React/Electron</strong> dla skryptów <strong>OTClient v8</strong> + <strong>modules/game_bot (vBot)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">0. Executive Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slownik-pojec">1. Słownik pojęć</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zakres-poza-zakresem">2. Zakres / Poza zakresem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#architektura-systemu">3. Architektura systemu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wymagania-funkcjonalne-fr">4. Wymagania funkcjonalne (FR)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wymagania-niefunkcjonalne-nfr">5. Wymagania niefunkcjonalne (NFR)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kontrakty-i-modele-danych-kanoniczne-wersjonowane">6. Kontrakty i modele danych (kanoniczne, wersjonowane)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-api-json-kuratorowane-seed-ingest">6.1. <code class="docutils literal notranslate"><span class="pre">resources/api.json</span></code> (kuratorowane, seed + ingest)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#project-index-json-z-automatycznego-skanu">6.2. <code class="docutils literal notranslate"><span class="pre">project-index.json</span></code> (z automatycznego skanu)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#otui-rules-json-lint-autofix">6.3. <code class="docutils literal notranslate"><span class="pre">otui-rules.json</span></code> (lint/auto‑fix)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#templates-json-generator">6.4. <code class="docutils literal notranslate"><span class="pre">templates.json</span></code> (generator)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-json">6.5. <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-map-json">6.6. <code class="docutils literal notranslate"><span class="pre">assets-map.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#studio-config-json">6.7. <code class="docutils literal notranslate"><span class="pre">.studio/config.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#procedura-ingest-budowa-api-json">7. Procedura ingest – budowa <code class="docutils literal notranslate"><span class="pre">api.json</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#skaner-i-parsery-specyfikacja">8. Skaner i parsery – specyfikacja</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lint-autofix-reguly">9. Lint/Auto‑fix – reguły</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#integracja-z-otclient-hotreload-logi">10. Integracja z OTClient (hot‑reload, logi)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-ux-ekrany-i-przeplywy">11. UI/UX (ekrany i przepływy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ipc-electron-kontrakty">12. IPC (Electron) – kontrakty</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#warstwa-stanu-fe">13. Warstwa stanu FE</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bezpieczenstwo-i-prywatnosc">14. Bezpieczeństwo i prywatność</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wydajnosc-i-stabilnosc">15. Wydajność i stabilność</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#i18n-a11y-theming">16. i18n, A11y, theming</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testy-i-qa">17. Testy i QA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#build-release-update">18. Build/Release/Update</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#observability-narzedzia">19. Observability narzędzia</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migracje-i-zgodnosc">20. Migracje i zgodność</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-wdrozenia-i-checklisty">21. Plan wdrożenia i checklisty</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ryzyka-i-mitigacje">22. Ryzyka i mitigacje</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#artefakty-komplet-mvp-gotowe-w-tym-dokumencie">23. Artefakty – komplet MVP (gotowe w tym dokumencie)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#przykladowe-dane-seed-do-startu">24. Przykładowe dane (seed do startu)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-koncowe">25. Noty końcowe</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/knowledge/specyfikacja_master_studio_react_electron_dla_otclient_v_8_v_bot_centralny_dokument.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

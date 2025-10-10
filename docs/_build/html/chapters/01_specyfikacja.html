@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 01 - Runtime &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/01_specyfikacja';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chapter 01 - Runtime</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="chapter-01-runtime">
+<h1>Chapter 01 - Runtime<a class="headerlink" href="#chapter-01-runtime" title="Link to this heading">#</a></h1>
+<section id="professional-pro-template-agent-ready-otclient-v8">
+<h2>Professional Pro Template - Agent-Ready - OTClient v8<a class="headerlink" href="#professional-pro-template-agent-ready-otclient-v8" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Cel: rozdzial ma byc zrodlem prawdy o srodowisku uruchomieniowym klienta (FPS/UPS, pamiec, okno/OS, build). Laczy surowe dane z opisem, kontekstem, przykladami, zadaniami dla Agenta AI i jasnymi kryteriami ukonczenia. Styl jest elastyczny i konkretny. Caly dokument i kod sa ASCII-only, kodowanie UTF-8 bez BOM.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="executive-summary">
+<h2>0) Executive summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Co: komplet metryk runtime + wyjasnienia jak je czytac i uzywac (UI scaling, wydajnosc, korelacje z eventami i logami).</p></li>
+<li><p>Dla kogo: inzynierowie, autorzy skryptow (OTUI/vBot), systemy AI/RAG.</p></li>
+<li><p>Wyniki: NDJSON (pelne), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, comparisons), diagram (Mermaid), narracja (sekcje merytoryczne).</p></li>
+<li><p>Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), tags, spis tresci i linkowanie, checklist DoD z polami do odhaczania.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="struktura-folderu-i-linkowanie">
+<h2>1) Struktura folderu i linkowanie<a class="headerlink" href="#struktura-folderu-i-linkowanie" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>01_runtime/
+<span class="w">  </span>README.md<span class="w">                     </span><span class="c1"># narracja + TOC + nawigacja (ten plik)</span>
+<span class="w">  </span>meta.json<span class="w">                     </span><span class="c1"># mapa plikow + zadania + tags (machine-readable)</span>
+<span class="w">  </span>runtime.schema.json<span class="w">           </span><span class="c1"># walidacja rekordow NDJSON</span>
+<span class="w">  </span>sections/
+<span class="w">    </span>00_otclient_basics.md<span class="w">      </span><span class="c1"># wprowadzenie do OTClient (dla nowych dev)</span>
+<span class="w">    </span>01_introduction.md<span class="w">          </span><span class="c1"># po co mierzymy runtime (kontekst)</span>
+<span class="w">    </span>02_runtime_model.md<span class="w">         </span><span class="c1"># slownik pol + przyklady + pulapki</span>
+<span class="w">    </span>03_collection_methods.md<span class="w">    </span><span class="c1"># jak zbieramy (ekstraktory, czestotliwosc)</span>
+<span class="w">    </span>04_quality_and_limits.md<span class="w">    </span><span class="c1"># jakosc, ograniczenia, SLO</span>
+<span class="w">    </span>05_how_to_read_stats.md<span class="w">     </span><span class="c1"># jak czytac statystyki + interpretacje</span>
+<span class="w">  </span>datasets/
+<span class="w">    </span>runtime.dataset.jsonl<span class="w">       </span><span class="c1"># NDJSON (append-only)</span>
+<span class="w">    </span>runtime.dataset.csv<span class="w">         </span><span class="c1"># CSV (naglowek staly)</span>
+<span class="w">    </span>chunks/<span class="w">                     </span><span class="c1"># partycje przy duzych wolumenach</span>
+<span class="w">      </span>README.md<span class="w">                 </span><span class="c1"># polityka dzielenia</span>
+<span class="w">  </span>stats/
+<span class="w">    </span>stats.json<span class="w">                  </span><span class="c1"># metryki zbiorcze (min/avg/max, itp.)</span>
+<span class="w">    </span>stats.md<span class="w">                    </span><span class="c1"># raport czytelny dla ludzi</span>
+<span class="w">  </span>analysis/
+<span class="w">    </span>findings.md<span class="w">                 </span><span class="c1"># wnioski z danych + linki do rekordow</span>
+<span class="w">    </span>comparisons.md<span class="w">              </span><span class="c1"># porownania buildow/konfiguracji</span>
+<span class="w">    </span>figures/<span class="w">                    </span><span class="c1"># obrazy (wykresy, tabele eksportowane)</span>
+<span class="w">  </span>extractors/
+<span class="w">    </span>runtime_extractor.lua<span class="w">       </span><span class="c1"># snapshot -&gt; JSONL + CSV (rotacja, flatten)</span>
+<span class="w">    </span>runtime_stats.lua<span class="w">           </span><span class="c1"># agregacja -&gt; stats.json + stats.md</span>
+<span class="w">  </span>diagrams/
+<span class="w">    </span>runtime_stack.mmd<span class="w">           </span><span class="c1"># Mermaid: przeplyw danych i kontekst</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: zobacz README sekcja IO setup.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="readme-nawigacja-i-instrukcje-agent-friendly">
+<h2>2) README - nawigacja i instrukcje (Agent-friendly)<a class="headerlink" href="#readme-nawigacja-i-instrukcje-agent-friendly" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+id: chapter:runtime
+title: Runtime and Build - Snapshots
+authors: [&quot;docs-export&quot;]
+version: 1.0
+last_updated: 2025-10-08
+status: draft
+tags: [&quot;runtime&quot;,&quot;performance&quot;,&quot;ui&quot;,&quot;otclient&quot;,&quot;agent&quot;]
+related:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>.../02_events/README.md
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>.../04_ui/README.md
+outputs:
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/runtime.dataset.jsonl
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./datasets/runtime.dataset.csv
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.json
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>./stats/stats.md
+<span class="gu">encoding: UTF-8 (no BOM)</span>
+<span class="gu">---</span>
+Short: rozdzial zbiera metryki runtime i tlumaczy, jak je czytac. Uzywaj jako kontekstu przy pracy nad UI, automatyzacja (vBot) i analizach wydajnosci.
+
+Table of contents
+<span class="k">-</span><span class="w"> </span>[<span class="nt">0. OTClient - podstawy</span>](<span class="na">./sections/00_otclient_basics.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">1. Wprowadzenie</span>](<span class="na">./sections/01_introduction.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">2. Model danych (slownik)</span>](<span class="na">./sections/02_runtime_model.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">3. Zbieranie danych (ekstraktory)</span>](<span class="na">./sections/03_collection_methods.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">4. Jakosc i ograniczenia</span>](<span class="na">./sections/04_quality_and_limits.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">5. Jak czytac statystyki</span>](<span class="na">./sections/05_how_to_read_stats.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Statystyki</span>](<span class="na">./stats/stats.md</span>) - [<span class="nt">Datasety</span>](<span class="na">./datasets/</span>) - [<span class="nt">Analizy</span>](<span class="na">./analysis/findings.md</span>)
+
+Quick links
+<span class="k">-</span><span class="w"> </span>Schema: [<span class="nt">runtime.schema.json</span>](<span class="na">./runtime.schema.json</span>)
+<span class="k">-</span><span class="w"> </span>NDJSON: [<span class="nt">datasets/runtime.dataset.jsonl</span>](<span class="na">./datasets/runtime.dataset.jsonl</span>)
+<span class="k">-</span><span class="w"> </span>CSV: [<span class="nt">datasets/runtime.dataset.csv</span>](<span class="na">./datasets/runtime.dataset.csv</span>)
+<span class="k">-</span><span class="w"> </span>Diagram: [<span class="nt">diagrams/runtime_stack.mmd</span>](<span class="na">./diagrams/runtime_stack.mmd</span>)
+
+Crosslinks
+<span class="k">-</span><span class="w"> </span>Events: .../02_events/README.md (korelacje logowania z FPS/UPS)
+<span class="k">-</span><span class="w"> </span>UI: .../04_ui/README.md (wplyw window.displaySize na layout)
+<span class="k">-</span><span class="w"> </span>Logging: .../09_logging/README.md (kontekst zdarzen i czasu)
+
+How to work (for Agent)
+1) Uruchom extractors/runtime_extractor.lua (cyklicznie lub on-demand).
+2) Uruchom extractors/runtime_stats.lua -&gt; odswiez stats/.
+3) Uzupelnij sekcje w sections/ i wstaw przyklady w miejscach &lt;!-- AGENT:INSERT:... --&gt;.
+4) Zapisz obserwacje w analysis/findings.md i porownania w analysis/comparisons.md.
+5) Sprawdz checklist DoD na koncu tego dokumentu.
+
+<span class="gu">### CSV header (runtime.dataset.csv)</span>
+
+id,ts,fps,ups,memoryKB,window.displaySize,window.isMaximized,window.platform,build.name,build.version,build.buildVersion,build.arch,build.graphics
+
+<span class="gu">### IO setup</span>
+<span class="k">-</span><span class="w"> </span>Default: dofile(&#39;../../_shared/lua/docio.lua&#39;)
+<span class="k">-</span><span class="w"> </span>Isolated: copy to 01_runtime/_local/docio.lua and use dofile(&#39;../_local/docio.lua&#39;)
+
+Skad do _shared
+| Start location | Path to _shared |
+|---|---|
+| 01_runtime/extractors | ../../_shared/lua/docio.lua |
+| 01_runtime | ../_shared/lua/docio.lua |
+
+<span class="gu">### Studio hooks (Electron) - skrot</span>
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:extract.runtime.tick&#39; uruchamia runtime_extractor.lua (pojedynczy snapshot)
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:aggregate.runtime&#39; uruchamia runtime_stats.lua (agregacja)
+<span class="k">-</span><span class="w"> </span>IPC: &#39;studio:open.dataset&#39; {type: &#39;jsonl&#39; lub &#39;csv&#39;} otwiera podglad w Studio
+<span class="k">-</span><span class="w"> </span>Preload: contextIsolation: true; nodeIntegration: false; eksponuj tylko bezpieczne API do renderer
+<span class="k">-</span><span class="w"> </span>Sandbox: wszystkie zapisy ida przez docio.lua pod 01_runtime
+<span class="k">-</span><span class="w"> </span>View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="mapa-plikow-i-odpowiedzialnosci-reference-for-agents">
+<h2>3) Mapa plikow i odpowiedzialnosci (reference for Agents)<a class="headerlink" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plik / Katalog</p></th>
+<th class="head"><p>Rola</p></th>
+<th class="head"><p>Kto uzupelnia</p></th>
+<th class="head"><p>Uwagi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>runtime.schema.json</p></td>
+<td><p>walidacja rekordow NDJSON</p></td>
+<td><p>Agent/CI</p></td>
+<td><p>waliduj linie po linii</p></td>
+</tr>
+<tr class="row-odd"><td><p>datasets/*.jsonl</p></td>
+<td><p>pelne dane (append)</p></td>
+<td><p>extractor</p></td>
+<td><p>rozmiar kontroluj przez chunks/</p></td>
+</tr>
+<tr class="row-even"><td><p>datasets/*.csv</p></td>
+<td><p>widok splaszczony</p></td>
+<td><p>extractor</p></td>
+<td><p>staly naglowek; zlozone -&gt; *_json</p></td>
+</tr>
+<tr class="row-odd"><td><p>stats/*.json|md</p></td>
+<td><p>metryki zbiorcze</p></td>
+<td><p>extractor</p></td>
+<td><p>stats.md jest czytelne dla ludzi</p></td>
+</tr>
+<tr class="row-even"><td><p>sections/*.md</p></td>
+<td><p>narracja i wyjasnienia</p></td>
+<td><p>Agent/Autor</p></td>
+<td><p>wstaw dane w AGENT:INSERT</p></td>
+</tr>
+<tr class="row-odd"><td><p>analysis/*</p></td>
+<td><p>wnioski i porownania</p></td>
+<td><p>Agent/Analityk</p></td>
+<td><p>linkuj id rekordow z JSONL</p></td>
+</tr>
+<tr class="row-even"><td><p>extractors/*.lua</p></td>
+<td><p>zrzut i agregacja</p></td>
+<td><p>system</p></td>
+<td><p>nie modyfikuj API zapisu</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+</section>
+<section id="slownik-pol-data-dictionary">
+<h2>4) Slownik pol (data dictionary)<a class="headerlink" href="#slownik-pol-data-dictionary" title="Link to this heading">#</a></h2>
+<p>Cel: jednoznacznie nazwac i zrozumiec kazde pole rekordu runtime.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pole</p></th>
+<th class="head"><p>Typ</p></th>
+<th class="head"><p>Przyklad</p></th>
+<th class="head"><p>Znaczenie</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>string</p></td>
+<td><p>runtime:2025-10-08T12:00:00Z</p></td>
+<td><p>Unikat pomiaru (UTC ISO8601).</p></td>
+</tr>
+<tr class="row-odd"><td><p>ts</p></td>
+<td><p>string</p></td>
+<td><p>2025-10-08T12:00:00Z</p></td>
+<td><p>Czas pomiaru (UTC).</p></td>
+</tr>
+<tr class="row-even"><td><p>fps</p></td>
+<td><p>number</p></td>
+<td><p>144</p></td>
+<td><p>Klatki/s (rendering). Wplyw: GPU, VSync, scena.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ups</p></td>
+<td><p>number</p></td>
+<td><p>60</p></td>
+<td><p>Aktualizacje/s (logika gry).</p></td>
+</tr>
+<tr class="row-even"><td><p>memoryKB</p></td>
+<td><p>number</p></td>
+<td><p>512000</p></td>
+<td><p>Przyblizone zuzycie RAM procesu.</p></td>
+</tr>
+<tr class="row-odd"><td><p>window.displaySize</p></td>
+<td><p>string</p></td>
+<td><p>1920x1080</p></td>
+<td><p>Rozmiar obszaru renderowania; wplywa na layout UI.</p></td>
+</tr>
+<tr class="row-even"><td><p>window.isMaximized</p></td>
+<td><p>boolean</p></td>
+<td><p>true</p></td>
+<td><p>Czy okno jest zmaksymalizowane.</p></td>
+</tr>
+<tr class="row-odd"><td><p>window.platform</p></td>
+<td><p>string</p></td>
+<td><p>win</p></td>
+<td><p>Identyfikator platformy (win, linux, mac).</p></td>
+</tr>
+<tr class="row-even"><td><p>build.name</p></td>
+<td><p>string</p></td>
+<td><p>OTClient</p></td>
+<td><p>Nazwa aplikacji.</p></td>
+</tr>
+<tr class="row-odd"><td><p>build.version</p></td>
+<td><p>string</p></td>
+<td><p>8.0.0</p></td>
+<td><p>Wersja logiczna.</p></td>
+</tr>
+<tr class="row-even"><td><p>build.buildVersion</p></td>
+<td><p>string</p></td>
+<td><p>build-1234</p></td>
+<td><p>Identyfikator builda.</p></td>
+</tr>
+<tr class="row-odd"><td><p>build.arch</p></td>
+<td><p>string</p></td>
+<td><p>x64</p></td>
+<td><p>Architektura procesu.</p></td>
+</tr>
+<tr class="row-even"><td><p>build.graphics</p></td>
+<td><p>string</p></td>
+<td><p>OpenGL</p></td>
+<td><p>Backend grafiki.</p></td>
+</tr>
+<tr class="row-odd"><td><p>links[]</p></td>
+<td><p>string[]</p></td>
+<td><p>proto:…, ui:…</p></td>
+<td><p>Powiazania z innymi rozdzialami.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Agent tip: w sections/02_runtime_model.md wstaw 2-3 realne rekordy z NDJSON i jednozdaniowe interpretacje.</p>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="pipeline-danych-odczyt-zapis-analiza">
+<h2>5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)<a class="headerlink" href="#pipeline-danych-odczyt-zapis-analiza" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Snapshot (extractor) -&gt; dopisz rekord do datasets/runtime.dataset.jsonl i wiersz do datasets/runtime.dataset.csv.</p></li>
+<li><p>Agregacja -&gt; przelicz stats.json i wygeneruj stats.md.</p></li>
+<li><p>Narracja -&gt; uzupelnij sections/* przykladami i komentarzem.</p></li>
+<li><p>Analizy -&gt; dodaj wnioski i porownania (analysis/*) z linkami do id rekordow.</p></li>
+<li><p>Publikacja -&gt; sprawdz checklist DoD i oznacz rozdzial jako ready.</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="sekcje-merytoryczne-szablony-i-wprowadzenie-do-otclient">
+<h2>6) Sekcje merytoryczne - szablony i wprowadzenie do OTClient<a class="headerlink" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-otclient" title="Link to this heading">#</a></h2>
+<p>sections/00_otclient_basics.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># OTClient - podstawy dla nowych dev</span>
+Ten plik daje lekki kontekst: co to jest OTClient, jakich ma menedzerow i gdzie znajdziesz interfejsy, z ktorych korzystamy w tym rozdziale.
+
+Najwazniejsze pojecia
+<span class="k">-</span><span class="w"> </span>g_client: metryki klienta (fps, ups, pamiec, architektura).
+<span class="k">-</span><span class="w"> </span>g_window: srodowisko okna (rozmiar, platforma, stan okna).
+<span class="k">-</span><span class="w"> </span>g_app: metadane aplikacji (nazwa, wersja, buildVersion).
+<span class="k">-</span><span class="w"> </span>modules: modulowa struktura kodu, w tym skrypty i pliki OTUI.
+<span class="k">-</span><span class="w"> </span>OTUI: opis interfejsu w plikach .otui (drzewa widzetow), istotne przy zaleznosci od rozmiaru okna.
+
+Jak to laczy sie z runtime
+<span class="k">-</span><span class="w"> </span>runtime to widok „tu i teraz” srodowiska klienta.
+<span class="k">-</span><span class="w"> </span>dane z runtime sa czesto korelowane z eventami (logowanie) i z UI (skalowanie).
+</pre></div>
+</div>
+<p>sections/01_introduction.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Wprowadzenie - po co mierzymy runtime</span>
+Rama: patrzymy na sygnaly widoczne z poziomu klienta. Celem nie jest pelny profiling, tylko szybkie uchwycenie trendow (fps/ups, pamiec, okno/os, build) i ich wplywu na UX/UI.
+
+Kiedy uzywac
+<span class="k">-</span><span class="w"> </span>porownania buildow,
+<span class="k">-</span><span class="w"> </span>decyzje o skalowaniu UI,
+<span class="k">-</span><span class="w"> </span>kontekst dla skryptow automatyzujacych.
+</pre></div>
+</div>
+<p>sections/02_runtime_model.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Model danych - definicje i przyklady</span>
+Uzyj tabeli w README jako slownika. Wstaw krotki wycinek danych i komentarz.
+
+&lt;!-- AGENT:INSERT:MODEL-EXAMPLES --&gt;
+</pre></div>
+</div>
+<p>sections/03_collection_methods.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Zbieranie danych (ekstraktory)</span>
+<span class="k">-</span><span class="w"> </span>runtime_extractor.lua -&gt; JSONL/CSV (append), rotacja.
+<span class="k">-</span><span class="w"> </span>runtime_stats.lua -&gt; stats.json i stats.md.
+
+Czestotliwosc: 1-5 s (ciagle) lub on-demand. Przy dluzszych sesjach uzyj datasets/chunks.
+</pre></div>
+</div>
+<p>sections/04_quality_and_limits.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jakosc i ograniczenia</span>
+<span class="k">-</span><span class="w"> </span>FPS/UPS zalezne od sceny, sterownikow i OS.
+<span class="k">-</span><span class="w"> </span>memoryKB jest przyblizeniem; porownuj warunki do warunkow.
+<span class="k">-</span><span class="w"> </span>Roznice miedzy forkami opisz w analysis/findings.md.
+</pre></div>
+</div>
+<p>sections/05_how_to_read_stats.md</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Jak czytac statystyki (bez nadinterpretacji)</span>
+<span class="k">-</span><span class="w"> </span>min/avg/max to szybki opis trendu.
+<span class="k">-</span><span class="w"> </span>Porownuj podobne warunki (scena, okno, build).
+
+&lt;!-- AGENT:INSERT:READING-GUIDE --&gt;
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="polityka-dzielenia-danych-datasets-chunks-readme-md">
+<h2>7) Polityka dzielenia danych - datasets/chunks/README.md<a class="headerlink" href="#polityka-dzielenia-danych-datasets-chunks-readme-md" title="Link to this heading">#</a></h2>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Chunks - polityka</span>
+<span class="k">-</span><span class="w"> </span>Utrzymuj glowne pliki do ok. 50 MB.
+<span class="k">-</span><span class="w"> </span>Starsze dane przenos do runtime.dataset.&lt;YYYYMMDD-HHMM&gt;.jsonl oraz .csv.
+<span class="k">-</span><span class="w"> </span>Po przeniesieniu chunkow traktuj je jako read-only.
+<span class="k">-</span><span class="w"> </span>Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni sie nazwa katalogu.
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="extractors-lua-gotowe-pliki">
+<h2>8) Extractors (Lua) - gotowe pliki<a class="headerlink" href="#extractors-lua-gotowe-pliki" title="Link to this heading">#</a></h2>
+<p>extractors/runtime_extractor.lua</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Snapshot runtime + build -&gt; JSONL + CSV (rotacja, flatten)</span>
+<span class="c1">-- Agent: uruchamiaj cyklicznie lub na zadanie, potem odpal agregator.</span>
+<span class="kd">local</span> <span class="n">docio</span> <span class="o">=</span> <span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">CSV_HEADER</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;ts&#39;</span><span class="p">,</span><span class="s1">&#39;fps&#39;</span><span class="p">,</span><span class="s1">&#39;ups&#39;</span><span class="p">,</span><span class="s1">&#39;memoryKB&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;window.displaySize&#39;</span><span class="p">,</span><span class="s1">&#39;window.isMaximized&#39;</span><span class="p">,</span><span class="s1">&#39;window.platform&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;build.name&#39;</span><span class="p">,</span><span class="s1">&#39;build.version&#39;</span><span class="p">,</span><span class="s1">&#39;build.buildVersion&#39;</span><span class="p">,</span><span class="s1">&#39;build.arch&#39;</span><span class="p">,</span><span class="s1">&#39;build.graphics&#39;</span>
+<span class="p">}</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">nowIso</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">os.date</span><span class="p">(</span><span class="s1">&#39;!*t&#39;</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;%04d-%02d-%02dT%02d:%02d:%02dZ&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">year</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">month</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">day</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">min</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">sec</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">strSize</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">s</span> <span class="kr">then</span> <span class="kr">return</span> <span class="s1">&#39;&#39;</span> <span class="kr">end</span>
+  <span class="kr">return</span> <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;%dx%d&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">snapshot</span><span class="p">()</span>
+  <span class="kr">return</span> <span class="p">{</span>
+    <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;runtime:&#39;</span> <span class="o">..</span> <span class="n">nowIso</span><span class="p">(),</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;runtime&#39;</span><span class="p">,</span>
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">nowIso</span><span class="p">(),</span>
+    <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_client</span> <span class="ow">and</span> <span class="n">g_client</span><span class="p">:</span><span class="n">getFps</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">ups</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_client</span> <span class="ow">and</span> <span class="n">g_client</span><span class="p">:</span><span class="n">getUps</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">memoryKB</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_client</span> <span class="ow">and</span> <span class="n">g_client</span><span class="p">:</span><span class="n">getMemoryUsage</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">displaySize</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_window</span> <span class="ow">and</span> <span class="n">strSize</span><span class="p">(</span><span class="n">g_window</span><span class="p">:</span><span class="n">getDisplaySize</span><span class="p">())</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+      <span class="n">isMaximized</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_window</span> <span class="ow">and</span> <span class="n">g_window</span><span class="p">:</span><span class="n">isMaximized</span><span class="p">()</span> <span class="ow">or</span> <span class="kc">false</span><span class="p">),</span>
+      <span class="n">platform</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_window</span> <span class="ow">and</span> <span class="n">g_window</span><span class="p">:</span><span class="n">getPlatform</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">build</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_app</span> <span class="ow">and</span> <span class="n">g_app</span><span class="p">:</span><span class="n">getName</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+      <span class="n">version</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_app</span> <span class="ow">and</span> <span class="n">g_app</span><span class="p">:</span><span class="n">getVersion</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+      <span class="n">buildVersion</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_app</span> <span class="ow">and</span> <span class="n">g_app</span><span class="p">:</span><span class="n">getBuildVersion</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+      <span class="n">arch</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_client</span> <span class="ow">and</span> <span class="n">g_client</span><span class="p">:</span><span class="n">getArch</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+      <span class="n">graphics</span> <span class="o">=</span> <span class="p">(</span><span class="n">g_client</span> <span class="ow">and</span> <span class="n">g_client</span><span class="p">:</span><span class="n">getGraphicsEngine</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="p">}</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">run</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">rec</span> <span class="o">=</span> <span class="n">snapshot</span><span class="p">()</span>
+  <span class="n">docio</span><span class="p">.</span><span class="n">appendJsonl</span><span class="p">(</span><span class="s1">&#39;01_runtime/datasets/runtime.dataset.jsonl&#39;</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">)</span>
+  <span class="n">docio</span><span class="p">.</span><span class="n">writeCsvHeader</span><span class="p">(</span><span class="s1">&#39;01_runtime/datasets/runtime.dataset.csv&#39;</span><span class="p">,</span> <span class="n">CSV_HEADER</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">f</span> <span class="o">=</span> <span class="n">docio</span><span class="p">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">row</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;fps&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;fps&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;ups&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;ups&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;memoryKB&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;memoryKB&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;window.displaySize&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;window.displaySize&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;window.isMaximized&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;window.isMaximized&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;window.platform&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;window.platform&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;build.name&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;build.name&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;build.version&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;build.version&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;build.buildVersion&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;build.buildVersion&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;build.arch&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;build.arch&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;build.graphics&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;build.graphics&#39;</span><span class="p">]</span>
+  <span class="p">}</span>
+  <span class="n">docio</span><span class="p">.</span><span class="n">appendCsvRow</span><span class="p">(</span><span class="s1">&#39;01_runtime/datasets/runtime.dataset.csv&#39;</span><span class="p">,</span> <span class="n">CSV_HEADER</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>extractors/runtime_stats.lua</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Agregacja NDJSON -&gt; stats.json oraz stats.md (lekki przebieg)</span>
+<span class="kd">local</span> <span class="n">docio</span> <span class="o">=</span> <span class="nb">dofile</span><span class="p">(</span><span class="s1">&#39;../../_shared/lua/docio.lua&#39;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">parseLines</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">t</span> <span class="ow">or</span> <span class="o">#</span><span class="n">t</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kr">return</span> <span class="n">o</span> <span class="kr">end</span>
+  <span class="kr">for</span> <span class="n">line</span> <span class="kr">in</span> <span class="n">t</span><span class="p">:</span><span class="n">gmatch</span><span class="p">(</span><span class="s1">&#39;[^</span><span class="se">\r\n</span><span class="s1">]+&#39;</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">obj</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">return</span> <span class="n">json</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">ok</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;table&#39;</span> <span class="kr">then</span> <span class="n">o</span><span class="p">[</span><span class="o">#</span><span class="n">o</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span> <span class="kr">end</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">o</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">stats</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="n">count</span><span class="o">=#</span><span class="n">re</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="p">{</span><span class="n">min</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span><span class="n">max</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span><span class="n">avg</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span> <span class="n">ups</span><span class="o">=</span><span class="p">{</span><span class="n">min</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span><span class="n">max</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span><span class="n">avg</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span> <span class="n">memoryKB</span><span class="o">=</span><span class="p">{</span><span class="n">min</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span><span class="n">max</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span><span class="n">avg</span><span class="o">=</span><span class="mi">0</span><span class="p">}}</span>
+  <span class="kr">if</span> <span class="o">#</span><span class="n">re</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kr">return</span> <span class="n">s</span> <span class="kr">end</span>
+  <span class="kd">local</span> <span class="n">fs</span><span class="p">,</span> <span class="n">us</span><span class="p">,</span> <span class="n">ms</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">r</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">re</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">fps</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+    <span class="kd">local</span> <span class="n">u</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">ups</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+    <span class="kd">local</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">min</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">min</span> <span class="ow">and</span> <span class="nb">math.min</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">min</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span> <span class="ow">or</span> <span class="n">f</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">max</span> <span class="ow">and</span> <span class="nb">math.max</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">max</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span> <span class="ow">or</span> <span class="n">f</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">min</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">min</span> <span class="ow">and</span> <span class="nb">math.min</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">min</span><span class="p">,</span> <span class="n">u</span><span class="p">))</span> <span class="ow">or</span> <span class="n">u</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">max</span> <span class="ow">and</span> <span class="nb">math.max</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">max</span><span class="p">,</span> <span class="n">u</span><span class="p">))</span> <span class="ow">or</span> <span class="n">u</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">min</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">min</span> <span class="ow">and</span> <span class="nb">math.min</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">min</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span> <span class="ow">or</span> <span class="n">m</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">max</span> <span class="ow">and</span> <span class="nb">math.max</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">max</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span> <span class="ow">or</span> <span class="n">m</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="n">fs</span> <span class="o">+</span> <span class="n">f</span><span class="p">;</span> <span class="n">us</span> <span class="o">=</span> <span class="n">us</span> <span class="o">+</span> <span class="n">u</span><span class="p">;</span> <span class="n">ms</span> <span class="o">=</span> <span class="n">ms</span> <span class="o">+</span> <span class="n">m</span>
+  <span class="kr">end</span>
+  <span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">avg</span> <span class="o">=</span> <span class="n">fs</span> <span class="o">/</span> <span class="o">#</span><span class="n">re</span>
+  <span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">avg</span> <span class="o">=</span> <span class="n">us</span> <span class="o">/</span> <span class="o">#</span><span class="n">re</span>
+  <span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">avg</span> <span class="o">=</span> <span class="n">ms</span> <span class="o">/</span> <span class="o">#</span><span class="n">re</span>
+  <span class="kr">return</span> <span class="n">s</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">writeMD</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="nb">table.concat</span><span class="p">({</span>
+    <span class="s1">&#39;# Runtime - Statystyki</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- Rekordy: %d</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">),</span>
+    <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- FPS min/avg/max: %s / %.2f / %s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">min</span> <span class="ow">or</span> <span class="s1">&#39;-&#39;</span><span class="p">),</span> <span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">avg</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">fps</span><span class="p">.</span><span class="n">max</span> <span class="ow">or</span> <span class="s1">&#39;-&#39;</span><span class="p">)),</span>
+    <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- UPS min/avg/max: %s / %.2f / %s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">min</span> <span class="ow">or</span> <span class="s1">&#39;-&#39;</span><span class="p">),</span> <span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">avg</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">ups</span><span class="p">.</span><span class="n">max</span> <span class="ow">or</span> <span class="s1">&#39;-&#39;</span><span class="p">)),</span>
+    <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;- memoryKB min/avg/max: %s / %.2f / %s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">min</span> <span class="ow">or</span> <span class="s1">&#39;-&#39;</span><span class="p">),</span> <span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">avg</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">memoryKB</span><span class="p">.</span><span class="n">max</span> <span class="ow">or</span> <span class="s1">&#39;-&#39;</span><span class="p">)),</span>
+    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Hint: porownuj warunki (ta sama scena/okno/build).</span><span class="se">\n</span><span class="s1">&#39;</span>
+  <span class="p">})</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">run</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="n">docio</span><span class="p">.</span><span class="n">readAll</span><span class="p">(</span><span class="s1">&#39;01_runtime/datasets/runtime.dataset.jsonl&#39;</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">re</span> <span class="o">=</span> <span class="n">parseLines</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">s</span> <span class="o">=</span> <span class="n">stats</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
+  <span class="n">docio</span><span class="p">.</span><span class="n">writeAll</span><span class="p">(</span><span class="s1">&#39;01_runtime/stats/stats.json&#39;</span><span class="p">,</span> <span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+  <span class="n">docio</span><span class="p">.</span><span class="n">writeAll</span><span class="p">(</span><span class="s1">&#39;01_runtime/stats/stats.md&#39;</span><span class="p">,</span> <span class="n">writeMD</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="kr">end</span>
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="diagram-mermaid-diagrams-runtime-stack-mmd">
+<h2>9) Diagram (Mermaid) - diagrams/runtime_stack.mmd<a class="headerlink" href="#diagram-mermaid-diagrams-runtime-stack-mmd" title="Link to this heading">#</a></h2>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph TD
+  Studio[Electron Studio] --&gt;|IPC extract or aggregate| Extractors
+  subgraph Client
+    W[Window] --&gt; G[Graphics Engine]
+    A[Application] --&gt; B[Build Info]
+  end
+  G --&gt; FPS[FPS]
+  A --&gt; UPS[UPS]
+  A --&gt; MEM[Memory]
+  Extractors --&gt; DS[(runtime.dataset.jsonl)]
+  Extractors --&gt; CSV[(runtime.dataset.csv)]
+  DS --&gt; Stats[stats.json and stats.md]
+  CSV --&gt; Stats
+  Stats --&gt; Studio
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="encoding-i-formatowanie-utf-8-safe">
+<h2>10) Encoding i formatowanie (UTF-8 safe)<a class="headerlink" href="#encoding-i-formatowanie-utf-8-safe" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Zawsze zapisuj pliki w UTF-8 bez BOM.</p></li>
+<li><p>Uzywaj ASCII w tresci (kreska «-», cudzyslow „, apostrof «). Unikaj znakow specjalnych (np. •, —, …, -&gt;).</p></li>
+<li><p>Zlamy wierszy: LF (\n). W Mermaid i tabelach uzywaj ASCII.</p></li>
+<li><p>Naglowki: tytul H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="jakosc-slo-i-bezpieczenstwo-krotko">
+<h2>11) Jakosc, SLO i bezpieczenstwo (krotko)<a class="headerlink" href="#jakosc-slo-i-bezpieczenstwo-krotko" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>ID/czas: id = <code class="docutils literal notranslate"><span class="pre">runtime:&lt;ISO8601&gt;</span></code>, ts w UTC.</p></li>
+<li><p>CSV: staly naglowek, tylko skalary; zlozone pola do *_json.</p></li>
+<li><p>IO SLO: snapshot lekki; dlugie sesje -&gt; chunks/.</p></li>
+<li><p>Bezpieczenstwo: brak danych wrazliwych; nie zapisuj prywatnych sciezek ani kluczy.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="dod-checklist-agent-clickable">
+<h2>12) DoD Checklist - Agent clickable<a class="headerlink" href="#dod-checklist-agent-clickable" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ ] Zebrano &gt;= 1 rekord w datasets/runtime.dataset.jsonl i dopisano do runtime.dataset.csv.</p></li>
+<li><p>[ ] Wygenerowano stats/stats.json oraz stats/stats.md.</p></li>
+<li><p>[ ] Uzupelniono sekcje: 00_otclient_basics.md, 01_introduction.md, 02_runtime_model.md (z przykladami), 03_collection_methods.md.</p></li>
+<li><p>[ ] W analysis/findings.md zapisano &gt;= 2 obserwacje z linkami do id rekordow; w razie porownan uzupelniono analysis/comparisons.md.</p></li>
+<li><p>[ ] Diagram diagrams/runtime_stack.mmd istnieje i odzwierciedla przeplyw danych.</p></li>
+<li><p>[ ] meta.json zawiera poprawne sciezki, tags, agent.tasks, insertPoints.</p></li>
+<li><p>[ ] Walidacja probki 10 linii NDJSON przeciw runtime.schema.json zakonczona bez bledow.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="meta-json-wzorzec-z-tagami-i-linkowaniem">
+<h2>13) meta.json - wzorzec z tagami i linkowaniem<a class="headerlink" href="#meta-json-wzorzec-z-tagami-i-linkowaniem" title="Link to this heading">#</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;chapterId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chapter:runtime&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Runtime and Build - Snapshots&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;owners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;docs-export&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;runtime&quot;</span><span class="p">,</span><span class="s2">&quot;performance&quot;</span><span class="p">,</span><span class="s2">&quot;ui&quot;</span><span class="p">,</span><span class="s2">&quot;otclient&quot;</span><span class="p">,</span><span class="s2">&quot;agent&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;fileMap&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;readme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./README.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./runtime.schema.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./sections/00_otclient_basics.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/01_introduction.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/02_runtime_model.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/03_collection_methods.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/04_quality_and_limits.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./sections/05_how_to_read_stats.md&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;datasets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/runtime.dataset.jsonl&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;csv&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/runtime.dataset.csv&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chunksDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./datasets/chunks&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;md&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./stats/stats.md&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;findings&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/findings.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;comparisons&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/comparisons.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;figuresDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./analysis/figures&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;extractors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/runtime_extractor.lua&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;./extractors/runtime_stats.lua&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;diagram&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./diagrams/runtime_stack.mmd&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;linking&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;recordIdPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runtime:&lt;ISO8601&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;crossChapter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../02_events/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ui&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../04_ui/README.md&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../09_logging/README.md&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;collect&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Zbieranie snapshotow do JSONL/CSV&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;datasets.jsonl&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;datasets.csv&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agregacja do stats.json/stats.md&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;stats.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;stats.md&quot;</span><span class="p">]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;author&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uzupelnienie sekcji merytorycznych + wstrzykniecia danych&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sections/*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;analysis/*&quot;</span><span class="p">]}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;insertPoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;sections/02_runtime_model.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:MODEL-EXAMPLES&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;sections/05_how_to_read_stats.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:READING-GUIDE&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/findings.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:FINDINGS&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;analysis/comparisons.md&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AGENT:INSERT:COMPARISONS&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#professional-pro-template-agent-ready-otclient-v8">Professional Pro Template - Agent-Ready - OTClient v8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">0) Executive summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-folderu-i-linkowanie">1) Struktura folderu i linkowanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-nawigacja-i-instrukcje-agent-friendly">2) README - nawigacja i instrukcje (Agent-friendly)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-plikow-i-odpowiedzialnosci-reference-for-agents">3) Mapa plikow i odpowiedzialnosci (reference for Agents)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slownik-pol-data-dictionary">4) Slownik pol (data dictionary)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-danych-odczyt-zapis-analiza">5) Pipeline danych (odczyt -&gt; zapis -&gt; analiza)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sekcje-merytoryczne-szablony-i-wprowadzenie-do-otclient">6) Sekcje merytoryczne - szablony i wprowadzenie do OTClient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polityka-dzielenia-danych-datasets-chunks-readme-md">7) Polityka dzielenia danych - datasets/chunks/README.md</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extractors-lua-gotowe-pliki">8) Extractors (Lua) - gotowe pliki</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagram-mermaid-diagrams-runtime-stack-mmd">9) Diagram (Mermaid) - diagrams/runtime_stack.mmd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-i-formatowanie-utf-8-safe">10) Encoding i formatowanie (UTF-8 safe)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-slo-i-bezpieczenstwo-krotko">11) Jakosc, SLO i bezpieczenstwo (krotko)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dod-checklist-agent-clickable">12) DoD Checklist - Agent clickable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-json-wzorzec-z-tagami-i-linkowaniem">13) meta.json - wzorzec z tagami i linkowaniem</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/chapters/01_specyfikacja.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

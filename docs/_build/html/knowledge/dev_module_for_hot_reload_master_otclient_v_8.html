@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pl" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dev Module for Hot‑Reload (MASTER) – OTClient v8 &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/dev_module_for_hot_reload_master_otclient_v_8';</script>
+    <link rel="icon" href="../_static/logo-light.svg"/>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pl"/>
+  <meta name="docsearch:version" content="0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Dev Module for Hot‑Reload (MASTER) – <strong>OTClient v8</strong></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="dev-module-for-hotreload-master-otclient-v8">
+<h1>Dev Module for Hot‑Reload (MASTER) – <strong>OTClient v8</strong><a class="headerlink" href="#dev-module-for-hotreload-master-otclient-v8" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Cel: dostarczyć <strong>produkcyjny moduł Lua</strong> wspierający hot‑reload skryptów OTClient oraz <strong>NDJSON logowanie</strong> do integracji ze Studio. Dokument zawiera: pełną strukturę plików, kompletny kod, konfigurację, protokoły, scenariusze testowe, checklisty i wskazówki operacyjne. <strong>Transfer 1:1</strong> – gotowe do wklejenia.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="zalozenia-i-zakres">
+<h1>0) Założenia i zakres<a class="headerlink" href="#zalozenia-i-zakres" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Hot‑reload:</strong> wyzwalane skrótem klawiszowym w kliencie <strong>lub</strong> przez „flag file” (<code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code>).</p></li>
+<li><p><strong>Logi NDJSON:</strong> zapisywane do <code class="docutils literal notranslate"><span class="pre">modules/.dev/log.jsonl</span></code> (rotacja rozmiaru).</p></li>
+<li><p><strong>Bezpieczeństwo:</strong> brak step‑debuggera; debug przez logi i komunikaty.</p></li>
+<li><p><strong>Zależności:</strong> standardowe API OTClient v8 (m.in. <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code>, <code class="docutils literal notranslate"><span class="pre">g_resources.readFile/writeFile</span></code>, <code class="docutils literal notranslate"><span class="pre">addEvent/scheduleEvent</span></code>).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="struktura-plikow-modulu">
+<h1>1) Struktura plików modułu<a class="headerlink" href="#struktura-plikow-modulu" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>modules/
+└─ dev/
+   ├─ dev.otmod
+   ├─ dev.lua
+   └─ ui/
+      └─ dev.otui   # (opcjonalne mini‑UI)
+# Katalog roboczy dla flag/logów (musi istnieć):
+modules/.dev/
+   ├─ reload.flag   # plik‑flaga (pusty lub z treścią)
+   └─ log.jsonl     # NDJSON (tworzony automatycznie)
+</pre></div>
+</div>
+<blockquote>
+<div><p>Uwaga: Utwórz katalog <code class="docutils literal notranslate"><span class="pre">modules/.dev/</span></code> ręcznie, jeśli nie istnieje.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="dev-otmod-pelny-plik">
+<h1>2) <code class="docutils literal notranslate"><span class="pre">dev.otmod</span></code> (pełny plik)<a class="headerlink" href="#dev-otmod-pelny-plik" title="Link to this heading">#</a></h1>
+<div class="highlight-otml notranslate"><div class="highlight"><pre><span></span>name: dev
+description: Development tools (hot-reload + NDJSON log)
+# Moduł ładuje dev.lua przy starcie klienta
+# (dodatkowe pola otmod według konwencji projektu)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ui-dev-otui-opcjonalny-szkielet-ui">
+<h1>3) <code class="docutils literal notranslate"><span class="pre">ui/dev.otui</span></code> (opcjonalny szkielet UI)<a class="headerlink" href="#ui-dev-otui-opcjonalny-szkielet-ui" title="Link to this heading">#</a></h1>
+<div class="highlight-otui notranslate"><div class="highlight"><pre><span></span>DevWindow &lt; UIWidget {
+  id: devWindow
+  width: 260
+  height: 120
+  text: tr(&quot;Dev Tools&quot;)
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p>OTUI: wcięcia 2 spacje; kolejność pól: GEOMETRIA → STYL → ZACHOWANIE.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="dev-lua-pelny-produkcyjny-kod-modulu">
+<h1>4) <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code> (pełny, produkcyjny kod modułu)<a class="headerlink" href="#dev-lua-pelny-produkcyjny-kod-modulu" title="Link to this heading">#</a></h1>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- modules/dev/dev.lua</span>
+<span class="c1">-- Dev tools: hot-reload via flag file + NDJSON logging</span>
+<span class="c1">-- Wymaga katalogu: modules/.dev/</span>
+
+<span class="kd">local</span> <span class="n">M</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1">-- === Konfiguracja ===</span>
+<span class="kd">local</span> <span class="n">CFG</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">flagPath</span> <span class="o">=</span> <span class="s1">&#39;modules/.dev/reload.flag&#39;</span><span class="p">,</span>
+  <span class="n">logPath</span>  <span class="o">=</span> <span class="s1">&#39;modules/.dev/log.jsonl&#39;</span><span class="p">,</span>
+  <span class="n">pollMs</span>   <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>      <span class="c1">-- interwał sprawdzania flagi</span>
+  <span class="n">minReloadIntervalMs</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span> <span class="c1">-- anty-drd</span>
+  <span class="n">maxLogBytes</span> <span class="o">=</span> <span class="mi">512</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>  <span class="c1">-- 512 KB rotacji</span>
+  <span class="n">echoToConsole</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">-- === Stan modułu ===</span>
+<span class="kd">local</span> <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">lastReloadAt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="n">reloading</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="n">loopStarted</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">-- === Utils ===</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">nowMs</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">g_clock</span> <span class="ow">and</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span><span class="p">()</span>
+  <span class="kr">end</span>
+  <span class="c1">-- fallback (sekundy → ms)</span>
+  <span class="kr">return</span> <span class="p">(</span><span class="nb">os.time</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">jsonEscape</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span><span class="p">)</span>
+       <span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+       <span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">)</span>
+       <span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">r&#39;</span><span class="p">)</span>
+       <span class="p">:</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t&#39;</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">s</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">isArrayTable</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="kr">for</span> <span class="n">_</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="kr">if</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kc">false</span> <span class="kr">end</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">encodeJSON</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">tv</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">tv</span> <span class="o">==</span> <span class="s1">&#39;nil&#39;</span> <span class="kr">then</span> <span class="kr">return</span> <span class="s1">&#39;null&#39;</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">tv</span> <span class="o">==</span> <span class="s1">&#39;boolean&#39;</span> <span class="kr">then</span> <span class="kr">return</span> <span class="n">v</span> <span class="ow">and</span> <span class="s1">&#39;true&#39;</span> <span class="ow">or</span> <span class="s1">&#39;false&#39;</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">tv</span> <span class="o">==</span> <span class="s1">&#39;number&#39;</span> <span class="kr">then</span> <span class="kr">return</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="kr">elseif</span> <span class="n">tv</span> <span class="o">==</span> <span class="s1">&#39;string&#39;</span> <span class="kr">then</span> <span class="kr">return</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">..</span> <span class="n">jsonEscape</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">..</span> <span class="s1">&#39;&quot;&#39;</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="n">tv</span> <span class="o">==</span> <span class="s1">&#39;table&#39;</span> <span class="kr">then</span>
+    <span class="kr">if</span> <span class="n">isArrayTable</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="kr">then</span>
+      <span class="kd">local</span> <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+      <span class="kr">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">v</span> <span class="kr">do</span> <span class="n">out</span><span class="p">[</span><span class="o">#</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">encodeJSON</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="kr">end</span>
+      <span class="kr">return</span> <span class="s1">&#39;[&#39;</span> <span class="o">..</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">..</span> <span class="s1">&#39;]&#39;</span>
+    <span class="kr">else</span>
+      <span class="kd">local</span> <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+      <span class="kr">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="n">out</span><span class="p">[</span><span class="o">#</span><span class="n">out</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">..</span> <span class="n">jsonEscape</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">..</span> <span class="s1">&#39;&quot;:&#39;</span> <span class="o">..</span> <span class="n">encodeJSON</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+      <span class="kr">end</span>
+      <span class="nb">table.sort</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="c1">-- stabilna kolejność kluczy</span>
+      <span class="kr">return</span> <span class="s1">&#39;{&#39;</span> <span class="o">..</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">..</span> <span class="s1">&#39;}&#39;</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="s1">&#39;null&#39;</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">return</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">ok</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kc">nil</span> <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">data</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">writeFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">ok</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span> <span class="kr">return</span> <span class="n">g_resources</span><span class="p">.</span><span class="n">writeFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="kr">end</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">ok</span> <span class="o">==</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">ensureLogSize</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="o">#</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="n">CFG</span><span class="p">.</span><span class="n">maxLogBytes</span> <span class="kr">then</span> <span class="kr">return</span> <span class="n">s</span> <span class="kr">end</span>
+  <span class="c1">-- rotacja: obetnij do ostatnich maxLogBytes (od granicy \n jeśli możliwe)</span>
+  <span class="kd">local</span> <span class="n">cut</span> <span class="o">=</span> <span class="nb">string.sub</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="o">-</span><span class="n">CFG</span><span class="p">.</span><span class="n">maxLogBytes</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">p</span> <span class="o">=</span> <span class="n">cut</span><span class="p">:</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">p</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">cut</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">cut</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">appendLine</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">newContent</span>
+  <span class="kr">if</span> <span class="n">prev</span> <span class="ow">and</span> <span class="o">#</span><span class="n">prev</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+    <span class="kr">if</span> <span class="n">prev</span><span class="p">:</span><span class="n">sub</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">~=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="kr">then</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">prev</span> <span class="o">..</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="kr">end</span>
+    <span class="n">newContent</span> <span class="o">=</span> <span class="n">prev</span> <span class="o">..</span> <span class="n">line</span> <span class="o">..</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+  <span class="kr">else</span>
+    <span class="n">newContent</span> <span class="o">=</span> <span class="n">line</span> <span class="o">..</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+  <span class="kr">end</span>
+  <span class="n">newContent</span> <span class="o">=</span> <span class="n">ensureLogSize</span><span class="p">(</span><span class="n">newContent</span><span class="p">)</span>
+  <span class="n">writeFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">newContent</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">isoTs</span><span class="p">()</span>
+  <span class="c1">-- ISO8601 (sekundy + opcjonalne ms)</span>
+  <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">os.date</span><span class="p">(</span><span class="s1">&#39;!*t&#39;</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">base</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;%04d-%02d-%02dT%02d:%02d:%02d&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">year</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">month</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">day</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">min</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">sec</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">ms</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="kr">if</span> <span class="n">g_clock</span> <span class="ow">and</span> <span class="n">g_clock</span><span class="p">.</span><span class="n">millis</span> <span class="kr">then</span> <span class="n">ms</span> <span class="o">=</span> <span class="n">nowMs</span><span class="p">()</span> <span class="o">%</span> <span class="mi">1000</span> <span class="kr">end</span>
+  <span class="kr">return</span> <span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;%s.%03dZ&#39;</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">log</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">CFG</span><span class="p">.</span><span class="n">echoToConsole</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s1">&#39;[dev][%s][%s] %s&#39;</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">or</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+  <span class="kr">end</span>
+  <span class="kd">local</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">isoTs</span><span class="p">(),</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="ow">or</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="n">tag</span> <span class="ow">or</span> <span class="s1">&#39;dev&#39;</span><span class="p">,</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;modules/dev/dev.lua&#39;</span><span class="p">,</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">msg</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">meta</span> <span class="ow">or</span> <span class="p">{}</span>
+<span class="p">}</span>
+  <span class="n">appendLine</span><span class="p">(</span><span class="n">CFG</span><span class="p">.</span><span class="n">logPath</span><span class="p">,</span> <span class="n">encodeJSON</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+<span class="kr">end</span>
+
+<span class="c1">-- === Log helpers ===</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">info</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>  <span class="n">log</span><span class="p">(</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>  <span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">warn</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>  <span class="n">log</span><span class="p">(</span><span class="s1">&#39;WARN&#39;</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>  <span class="kr">end</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">errorLog</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span> <span class="n">log</span><span class="p">(</span><span class="s1">&#39;ERROR&#39;</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span> <span class="kr">end</span>
+
+<span class="c1">-- === Hot-reload core ===</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">flagExists</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="n">readFile</span><span class="p">(</span><span class="n">CFG</span><span class="p">.</span><span class="n">flagPath</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">data</span> <span class="o">~=</span> <span class="kc">nil</span>  <span class="c1">-- istnienie pliku (nawet pustego)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">clearFlag</span><span class="p">()</span>
+  <span class="n">writeFile</span><span class="p">(</span><span class="n">CFG</span><span class="p">.</span><span class="n">flagPath</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">canReload</span><span class="p">()</span>
+  <span class="kd">local</span> <span class="n">t</span> <span class="o">=</span> <span class="n">nowMs</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">state</span><span class="p">.</span><span class="n">reloading</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kc">false</span> <span class="kr">end</span>
+  <span class="kr">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">state</span><span class="p">.</span><span class="n">lastReloadAt</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">CFG</span><span class="p">.</span><span class="n">minReloadIntervalMs</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kc">false</span> <span class="kr">end</span>
+  <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">doReload</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">canReload</span><span class="p">()</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kc">false</span> <span class="kr">end</span>
+  <span class="n">state</span><span class="p">.</span><span class="n">reloading</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">info</span><span class="p">(</span><span class="s1">&#39;reload&#39;</span><span class="p">,</span> <span class="s1">&#39;requested&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">reason</span> <span class="ow">or</span> <span class="s1">&#39;flag&#39;</span> <span class="p">})</span>
+  <span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="nb">pcall</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="n">g_modules</span><span class="p">.</span><span class="n">reloadModules</span><span class="p">()</span>
+  <span class="kr">end</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">ok</span> <span class="kr">then</span>
+    <span class="n">state</span><span class="p">.</span><span class="n">lastReloadAt</span> <span class="o">=</span> <span class="n">nowMs</span><span class="p">()</span>
+    <span class="n">info</span><span class="p">(</span><span class="s1">&#39;reload&#39;</span><span class="p">,</span> <span class="s1">&#39;done&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">lastReloadAt</span> <span class="p">})</span>
+  <span class="kr">else</span>
+    <span class="n">errorLog</span><span class="p">(</span><span class="s1">&#39;reload&#39;</span><span class="p">,</span> <span class="s1">&#39;failed&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nb">error</span> <span class="o">=</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="p">})</span>
+  <span class="kr">end</span>
+  <span class="n">state</span><span class="p">.</span><span class="n">reloading</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="kr">return</span> <span class="n">ok</span>
+<span class="kr">end</span>
+
+<span class="c1">-- public API do ręcznego wywołania z konsoli</span>
+<span class="kr">function</span> <span class="nc">M</span><span class="p">.</span><span class="nf">requestReload</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">doReload</span><span class="p">(</span><span class="n">reason</span> <span class="ow">or</span> <span class="s1">&#39;manual&#39;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">loop</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">flagExists</span><span class="p">()</span> <span class="kr">then</span>
+    <span class="n">clearFlag</span><span class="p">()</span>
+    <span class="n">doReload</span><span class="p">(</span><span class="s1">&#39;flag&#39;</span><span class="p">)</span>
+  <span class="kr">end</span>
+  <span class="n">scheduleEvent</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">CFG</span><span class="p">.</span><span class="n">pollMs</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">start</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">state</span><span class="p">.</span><span class="n">loopStarted</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+  <span class="n">state</span><span class="p">.</span><span class="n">loopStarted</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="n">info</span><span class="p">(</span><span class="s1">&#39;startup&#39;</span><span class="p">,</span> <span class="s1">&#39;dev module ready&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">pollMs</span> <span class="o">=</span> <span class="n">CFG</span><span class="p">.</span><span class="n">pollMs</span> <span class="p">})</span>
+    <span class="n">loop</span><span class="p">()</span>
+  <span class="kr">end</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- start modułu</span>
+<span class="n">start</span><span class="p">()</span>
+
+<span class="kr">return</span> <span class="n">M</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="protokol-integracji-ze-studio">
+<h1>5) Protokół integracji ze <strong>Studio</strong><a class="headerlink" href="#protokol-integracji-ze-studio" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Wyzwalanie reloadu:</strong> Studio zapisuje/”dotyka” <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> → moduł wykrywa i woła <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules()</span></code>.</p></li>
+<li><p><strong>Logi NDJSON:</strong> Studio tail‑uje <code class="docutils literal notranslate"><span class="pre">modules/.dev/log.jsonl</span></code> i filtruje po <code class="docutils literal notranslate"><span class="pre">level/tag/file:line</span></code>.</p></li>
+<li><p><strong>Akcje ręczne:</strong> z konsoli: <code class="docutils literal notranslate"><span class="pre">modules.dev.dev.requestReload('manual')</span></code> (jeżeli środowisko wspiera wywołania).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="konfiguracja-i-warianty">
+<h1>6) Konfiguracja i warianty<a class="headerlink" href="#konfiguracja-i-warianty" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.pollMs</span></code> – interwał sprawdzania flagi (zalecane 300–600 ms).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.minReloadIntervalMs</span></code> – anty‑drganie przy seryjnych zapisach.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.maxLogBytes</span></code> – rotacja logu (zapobiega rozrostowi pliku).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFG.echoToConsole</span></code> – mirror logów do konsoli klienta.</p></li>
+</ul>
+<blockquote>
+<div><p>Zmiany konfiguracji wprowadzaj w <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code> i przeładuj moduły.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="scenariusze-testowe-qa">
+<h1>7) Scenariusze testowe (QA)<a class="headerlink" href="#scenariusze-testowe-qa" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Start modułu:</strong> uruchom klienta → w <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code> linia <code class="docutils literal notranslate"><span class="pre">startup/dev</span> <span class="pre">module</span> <span class="pre">ready</span></code>.</p></li>
+<li><p><strong>Reload przez flagę:</strong> utwórz pusty <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> → w logu <code class="docutils literal notranslate"><span class="pre">reload/requested</span></code> i <code class="docutils literal notranslate"><span class="pre">reload/done</span></code>.</p></li>
+<li><p><strong>Anty‑drganie:</strong> utwórz 3× flagę w &lt; 800 ms → 1 realny reload.</p></li>
+<li><p><strong>Błąd podczas reloadu (symulacja):</strong> tymczasowo zasymuluj błąd w <code class="docutils literal notranslate"><span class="pre">g_modules.reloadModules</span></code> (jeśli możliwe) → <code class="docutils literal notranslate"><span class="pre">reload/failed</span></code> (ERROR) w logu.</p></li>
+<li><p><strong>Rotacja logu:</strong> wygeneruj &gt; <code class="docutils literal notranslate"><span class="pre">maxLogBytes</span></code> → plik przycięty do dozwolonego rozmiaru, bez rozbicia JSON.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="checklisty-wdrozeniowe">
+<h1>8) Checklisty wdrożeniowe<a class="headerlink" href="#checklisty-wdrozeniowe" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>[ ] Utwórz <code class="docutils literal notranslate"><span class="pre">modules/.dev/</span></code> (zapisywalny katalog).</p></li>
+<li><p>[ ] Skopiuj <code class="docutils literal notranslate"><span class="pre">dev.otmod</span></code>, <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code>, opcjonalnie <code class="docutils literal notranslate"><span class="pre">ui/dev.otui</span></code> do <code class="docutils literal notranslate"><span class="pre">modules/dev/</span></code>.</p></li>
+<li><p>[ ] Uruchom klienta; sprawdź, czy <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code> powstał.</p></li>
+<li><p>[ ] Zapisz/”dotknij” <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code>; obserwuj <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code>.</p></li>
+<li><p>[ ] Skonfiguruj Studio, by tail‑owało <code class="docutils literal notranslate"><span class="pre">log.jsonl</span></code> i zapisywało flagę.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="noty-operacyjne">
+<h1>9) Noty operacyjne<a class="headerlink" href="#noty-operacyjne" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Jeśli <code class="docutils literal notranslate"><span class="pre">modules/.dev/</span></code> nie istnieje lub brak uprawnień zapisu, <strong>logi trafią tylko na konsolę</strong> (zależnie od <code class="docutils literal notranslate"><span class="pre">echoToConsole</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">writeFile</span></code> nadpisuje – dlatego <strong>append</strong> realizujemy przez odczyt→doklejenie→zapis + rotację.</p></li>
+<li><p>Wydziel logowanie ciężkie (duże <code class="docutils literal notranslate"><span class="pre">meta</span></code>) – może spowolnić zapis; zalecane krótkie pola.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="rozszerzenia-opcjonalne">
+<h1>10) Rozszerzenia (opcjonalne)<a class="headerlink" href="#rozszerzenia-opcjonalne" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Keybind reloadu:</strong> dodać skrót klawiszowy wiążący <code class="docutils literal notranslate"><span class="pre">M.requestReload()</span></code> (jeśli środowisko udostępnia mapowanie klawiszy).</p></li>
+<li><p><strong>UI DevWindow:</strong> przyciski <em>Request Reload</em>, <em>Open Log</em>, licznik reloadów.</p></li>
+<li><p><strong>Heartbeat:</strong> wpis NDJSON co X sekund potwierdzający żywotność modułu.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="definition-of-done-dod">
+<h1>11) Definition of Done (DoD)<a class="headerlink" href="#definition-of-done-dod" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>[ ] Moduł ładuje się, loguje <code class="docutils literal notranslate"><span class="pre">startup</span></code> (NDJSON + konsola).</p></li>
+<li><p>[ ] Flaga wyzwala <code class="docutils literal notranslate"><span class="pre">reload</span></code> deterministycznie (z anty‑drganiem).</p></li>
+<li><p>[ ] Rotacja logu działa; plik nie rośnie nieograniczenie.</p></li>
+<li><p>[ ] Studio wykrywa logi i poprawnie je filtruje.</p></li>
+<li><p>[ ] Brak globali; <code class="docutils literal notranslate"><span class="pre">local</span></code> wszędzie; brak użycia <code class="docutils literal notranslate"><span class="pre">unpack</span></code> (tylko <code class="docutils literal notranslate"><span class="pre">table.unpack</span></code>).</p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dev Module for Hot‑Reload (MASTER) – <strong>OTClient v8</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zalozenia-i-zakres">0) Założenia i zakres</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-plikow-modulu">1) Struktura plików modułu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-otmod-pelny-plik">2) <code class="docutils literal notranslate"><span class="pre">dev.otmod</span></code> (pełny plik)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-dev-otui-opcjonalny-szkielet-ui">3) <code class="docutils literal notranslate"><span class="pre">ui/dev.otui</span></code> (opcjonalny szkielet UI)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-lua-pelny-produkcyjny-kod-modulu">4) <code class="docutils literal notranslate"><span class="pre">dev.lua</span></code> (pełny, produkcyjny kod modułu)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#protokol-integracji-ze-studio">5) Protokół integracji ze <strong>Studio</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konfiguracja-i-warianty">6) Konfiguracja i warianty</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scenariusze-testowe-qa">7) Scenariusze testowe (QA)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-wdrozeniowe">8) Checklisty wdrożeniowe</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-operacyjne">9) Noty operacyjne</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rozszerzenia-opcjonalne">10) Rozszerzenia (opcjonalne)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-done-dod">11) Definition of Done (DoD)</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/knowledge/dev_module_for_hot_reload_master_otclient_v_8.md.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
