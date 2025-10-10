@@ -35,10 +35,7 @@ jobs:
       - name: Build JSON (RAG)
         continue-on-error: true
         run: |
-          sphinx-build -b json docs docs/_build/json || {
-            echo "::warning::JSON build failed - this is a known issue with PyData theme"
-            echo "HTML documentation will still be published"
-          }
+          sphinx-build -b json docs docs/_build/json
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
