@@ -1,70 +1,66 @@
-import os, sys
-from datetime import datetime
 
-project = "OTClient v8"
-author = "OTCv8"
-copyright = f"{datetime.now():%Y}, OTCv8"
-release = "0.1"
+project = "OTCv8 Dev"
+author = "lukaszj321"
+copyright = "2025, " + author
+language = "pl"
 
 extensions = [
     "myst_parser",
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_sitemap",
+    "linkify_it_py",
     "sphinxext.opengraph",
-    "sphinx_favicon",
     "sphinxcontrib.mermaid",
     "sphinx_codeautolink",
     "hoverxref.extension",
 ]
 
+myst_heading_anchors = 4
 myst_enable_extensions = [
-    "deflist",
-    "fieldlist",
+    "linkify",
     "colon_fence",
     "attrs_block",
     "attrs_inline",
+    "deflist",
     "substitution",
-    "tasklist",
-    "linkify",
 ]
 
-# Theme
-html_theme = "pydata_sphinx_theme"
-html_theme_options = {
-    "show_prev_next": True,
-    "navigation_depth": 3,
-    "collapse_navigation": False,
-}
-html_static_path = ["_static"]
 templates_path = ["_templates"]
+exclude_patterns = ["_build", "build", "Thumbs.db", ".DS_Store"]
 
-# Copy raw data/ into site for linking (images, fonts, sounds, etc.)
-# Assumes repository layout: docs/conf.py and sibling ../data
+html_theme = "pydata_sphinx_theme"
+html_logo = "_static/logo.svg"
+html_favicon = "_static/favicon.svg"
 html_extra_path = ["../data"]
-
-# Sitemap (GitHub Pages URL - adjust if using custom domain)
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
 
-# OpenGraph
+html_theme_options = {
+    "show_nav_level": 2,
+    "navigation_depth": 4,
+    "collapse_navigation": True,
+    "icon_links": [
+        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev", "icon": "fa-brands fa-github"},
+    ],
+    "navbar_align": "content",
+    "secondary_sidebar_items": ["page-toc", "sourcelink"],
+    "footer_start": ["copyright"],
+    "footer_center": ["sphinx-version"],
+    "footer_end": ["theme-version"],
+    "announcement": "⚙️ Przebudowa dokumentacji — część sekcji to placeholdery.",
+}
+
+html_css_files = ["custom.css"]
+
 ogp_site_url = html_baseurl
-ogp_image = "https://lukaszj321.github.io/otcv8-dev/_static/og-image.png"
-ogp_description_length = 160
+ogp_image = "_static/og-image.png"
+ogp_description_length = 200
 
-# Copybutton: ignore prompts
-copybutton_prompt_text = r">>> |\$ "
-copybutton_prompt_is_regexp = True
-copybutton_line_continuation_character = "\\"
-
-# Hoverxref
-hoverxref_auto_ref = True
-
-# Code autolink
 codeautolink_autodoc_inject = False
-codeautolink_concat_default = True
+hoverxref_auto_ref = True
+hoverxref_intersphinx = []
 
-# MyST linkify
-myst_linkify_fuzzy_links = True
+copybutton_prompt_is_regexp = True
+copybutton_prompt_text = r"^\$ |^>>> |^\.\.\. "
 
-# Mermaid config
 mermaid_version = "10.9.1"

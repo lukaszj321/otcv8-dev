@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lukaszj321.github.io/otcv8-dev/sitemap.xml

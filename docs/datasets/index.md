@@ -1,18 +1,19 @@
-# Datasets i katalog `data/`
+# Datasets — folder `data/`
 
-Katalog `data/` w repozytorium zawiera dodatkowe zasoby (obrazy, fonty, mapy). Aby z nich korzystać w dokumentacji, rekomendowana struktura to:
+**Cel:** publikować zasoby (obrazy, fonty, binaria), by były dostępne z poziomu dokumentacji.
 
+## Jak to działa
+- W `conf.py` ustawiono `html_extra_path = ["../data"]`, więc wszystko z repo `data/` pojawi się obok strony.
+- Linkowanie do pliku:
+  - Markdown: `[Pobierz paczkę](../data/paczka.7z)`
+  - Obraz: `![Sprite](../data/sprites/hero.png)`
+
+## Struktura rekomendowana
 ```
 data/
-  images/
+  sprites/
   fonts/
-  maps/
+  audio/
+  binaries/
+  samples/
 ```
-
-## Jak odwoływać się do plików z `data/`
-
-- Najprościej **skopiować niezbędne zasoby** do `docs/_static` i odwoływać się ścieżką względną, np. `![](_static/logo.png)`.
-- Można także dodać skrypt CI, który podczas builda **synchronizuje** wybrane pliki z `data/` do `docs/_static`.
-
-> **Uwaga:** PyData theme wspiera tryb jasny/ciemny. Dobrze jest przygotować obrazy, które wyglądają poprawnie w obu trybach (np. przez transparentne PNG/SVG).
-

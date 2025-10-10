@@ -1,11 +1,4 @@
-/* Drobne poprawki pod pydata-sphinx-theme */
-.bd-article-container .highlight pre {
-  border-radius: 10px;
-}
-.bd-sidebar-primary .sidebar-primary-items {
-  font-size: 0.95rem;
-}
-/* tryb dark: delikatniejszy kontrast obrazków og */
-html[data-theme="dark"] img[src*="images/og/"] {
-  filter: brightness(0.95) contrast(1.05);
-}
+
+:root {{ --pst-font-size-base: 16px; }}
+.otc-hero {{ padding: 2.5rem 1.2rem; border-radius: 16px; background: var(--pst-color-surface); box-shadow: 0 1px 3px rgba(0,0,0,.08); }}
+.otc-cards .sd-card {{ border-radius: 14px; }}
