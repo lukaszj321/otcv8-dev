@@ -296,9 +296,59 @@
                   
   <section id="dokumentacja-otclientv8">
 <h1>Dokumentacja OTClientV8<a class="headerlink" href="#dokumentacja-otclientv8" title="Link to this heading">#</a></h1>
+<section id="o-projekcie">
+<span id="intro"></span><h2>O projekcie<a class="headerlink" href="#o-projekcie" title="Link to this heading">#</a></h2>
+<p><strong>OTClientV8</strong> to zaawansowany klient gry online oparty na silniku C++ z obsługą Lua dla skryptów i OTUI dla interfejsu użytkownika. Ten projekt zapewnia kompletną dokumentację techniczną obejmującą architekturę, API, moduły, UI oraz narzędzia dla deweloperów.</p>
+<p>:::note
+Ta dokumentacja jest generowana automatycznie z kodu źródłowego i zawiera pełne snippety, diagramy oraz przykłady użycia.
+:::</p>
+</section>
+<section id="glowne-cechy">
+<h2>Główne cechy<a class="headerlink" href="#glowne-cechy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Architektura modułowa</strong> - elastyczny system ładowania modułów z zależnościami</p></li>
+<li><p><strong>Lua scripting</strong> - pełne API Lua dla logiki gry i botów</p></li>
+<li><p><strong>OTUI</strong> - deklaratywny język opisu interfejsu użytkownika</p></li>
+<li><p><strong>System zdarzeń</strong> - asynchroniczna komunikacja między komponentami</p></li>
+<li><p><strong>Network stack</strong> - stabilny protokół sieciowy z auto-reconnect</p></li>
+<li><p><strong>Asset management</strong> - zarządzanie grafiką, dźwiękiem, fontami i innymi zasobami</p></li>
+</ul>
+</section>
+<section id="nawigacja">
+<span id="navigation"></span><h2>Nawigacja<a class="headerlink" href="#nawigacja" title="Link to this heading">#</a></h2>
+<p>:::tip
+Użyj wyszukiwarki (Ctrl+K lub ikona lupy) aby szybko znaleźć interesujące Cię tematy.
+:::</p>
+<section id="dla-poczatkujacych">
+<h3>Dla początkujących<a class="headerlink" href="#dla-poczatkujacych" title="Link to this heading">#</a></h3>
+<p>Jeśli dopiero zaczynasz pracę z OTClientV8, polecamy przeczytać w kolejności:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="chapters/01_specyfikacja.html"><span class="std std-doc">Specyfikacja i architektura</span></a> - przegląd struktury projektu</p></li>
+<li><p><a class="reference internal" href="chapters/03_modules.html"><span class="std std-doc">System modułów</span></a> - jak działają moduły</p></li>
+<li><p><a class="reference internal" href="chapters/04_ui.html"><span class="std std-doc">Interfejs użytkownika</span></a> - podstawy OTUI</p></li>
+<li><p><a class="reference internal" href="examples/diagrams.html"><span class="std std-doc">Przykłady diagramów</span></a> - wizualizacje architektury</p></li>
+</ol>
+</section>
+<section id="dla-deweloperow">
+<h3>Dla deweloperów<a class="headerlink" href="#dla-deweloperow" title="Link to this heading">#</a></h3>
+<p>Dokumentacja techniczna i referencje API:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="reference/api.html"><span class="std std-doc">API C++</span></a> - kompletne API silnika</p></li>
+<li><p><a class="reference internal" href="reference/events.html"><span class="std std-doc">Events</span></a> - system zdarzeń</p></li>
+<li><p><a class="reference internal" href="reference/modules.html"><span class="std std-doc">Moduły Lua</span></a> - dostępne moduły</p></li>
+<li><p><a class="reference internal" href="reference/ui.html"><span class="std std-doc">UI Components</span></a> - widgety OTUI</p></li>
+</ul>
+</section>
+<section id="zasoby">
+<h3>Zasoby<a class="headerlink" href="#zasoby" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="datasets/index.html"><span class="std std-doc">Dane i assety</span></a> - obrazy, fonty, dźwięki</p></li>
+<li><p><a class="reference internal" href="examples/csv.html"><span class="std std-doc">Przykłady CSV</span></a> - integracja danych tabelarycznych</p></li>
+</ul>
 <p>:::{toctree}
 :maxdepth: 2
-:caption: Wprowadzenie</p>
+:caption: Wprowadzenie
+:hidden:</p>
 <p>chapters/01_specyfikacja
 chapters/02_events
 chapters/03_modules
@@ -312,20 +362,25 @@ chapters/10_game_runtime
 :::</p>
 <p>:::{toctree}
 :maxdepth: 2
-:caption: Referencje (API / moduły / UI)</p>
+:caption: Referencje (API / moduły / UI)
+:hidden:</p>
 <p>reference/index
 :::</p>
 <p>:::{toctree}
 :maxdepth: 2
-:caption: Przykłady / Wzorce</p>
+:caption: Przykłady / Wzorce
+:hidden:</p>
 <p>examples/diagrams
 examples/csv
 :::</p>
 <p>:::{toctree}
 :maxdepth: 1
-:caption: Dane i zasoby</p>
+:caption: Dane i zasoby
+:hidden:</p>
 <p>datasets/index
 :::</p>
+</section>
+</section>
 </section>
 
 
@@ -348,6 +403,25 @@ examples/csv
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#o-projekcie">O projekcie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glowne-cechy">Główne cechy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nawigacja">Nawigacja</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-poczatkujacych">Dla początkujących</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-deweloperow">Dla deweloperów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zasoby">Zasoby</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

@@ -1,6 +1,0 @@
-
-.only-dark { display: none; }
-html[data-theme="dark"] .only-dark { display: initial; }
-html[data-theme="dark"] .only-light { display: none; }
-.highlight pre { white-space: pre-wrap; }
-.admonition { border-radius: 0.6rem; }

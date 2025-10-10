@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>API Reference &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
   
   
   
@@ -301,7 +301,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">API</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">API Reference</span></li>
   </ul>
 </nav>
 </div>
@@ -318,8 +318,281 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="api">
-<h1>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h1>
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h1>
+<section id="przeglad-api">
+<span id="api-overview"></span><h2>Przegląd API<a class="headerlink" href="#przeglad-api" title="Link to this heading">#</a></h2>
+<p>OTClientV8 dostarcza bogate API w C++ dla silnika oraz Lua bindings dla skryptów. Ta sekcja zawiera kompletną referencję kluczowych klas i funkcji.</p>
+</section>
+<section id="index-of-symbols">
+<span id="api-index-symbols"></span><h2>Index of Symbols<a class="headerlink" href="#index-of-symbols" title="Link to this heading">#</a></h2>
+<section id="core-classes">
+<h3>Core Classes<a class="headerlink" href="#core-classes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#api-creature">Creature</a> - reprezentacja stworzenia w grze</p></li>
+<li><p><a class="reference internal" href="#api-player">Player</a> - reprezentacja gracza</p></li>
+<li><p><a class="reference internal" href="#api-game"><span class="xref myst">Game</span></a> - główna logika gry</p></li>
+<li><p><a class="reference internal" href="#api-map"><span class="xref myst">Map</span></a> - reprezentacja mapy świata</p></li>
+<li><p><a class="reference internal" href="#api-tile"><span class="xref myst">Tile</span></a> - pojedyncze pole mapy</p></li>
+</ul>
+</section>
+<section id="ui-classes">
+<h3>UI Classes<a class="headerlink" href="#ui-classes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#api-uiwidget"><span class="xref myst">UIWidget</span></a> - bazowy widget UI</p></li>
+<li><p><a class="reference internal" href="#api-uimap"><span class="xref myst">UIMap</span></a> - widget mapy</p></li>
+<li><p><a class="reference internal" href="#api-uicreature"><span class="xref myst">UICreature</span></a> - widget stworzenia</p></li>
+</ul>
+</section>
+<section id="network">
+<h3>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#api-protocol"><span class="xref myst">Protocol</span></a> - protokół sieciowy</p></li>
+<li><p><a class="reference internal" href="#api-connection"><span class="xref myst">Connection</span></a> - połączenie sieciowe</p></li>
+</ul>
+</section>
+</section>
+<section id="creature-class">
+<span id="api-creature"></span><h2>Creature Class<a class="headerlink" href="#creature-class" title="Link to this heading">#</a></h2>
+<p>Klasa <code class="docutils literal notranslate"><span class="pre">Creature</span></code> reprezentuje żywe stworzenie w grze (gracza, potwora, NPC).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">src/client/creature.h</span></code> - Creature class interface</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#ifndef CREATURE_H</span>
+<span class="linenos"> 2</span><span class="cp">#define CREATURE_H</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;thing.h&quot;</span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;outfit.h&quot;</span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tile.h&quot;</span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mapview.h&quot;</span>
+<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;framework/core/scheduledevent.h&gt;</span>
+<span class="linenos"> 9</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;framework/core/declarations.h&gt;</span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;framework/core/timer.h&gt;</span>
+<span class="linenos">11</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;framework/graphics/fontmanager.h&gt;</span>
+<span class="linenos">12</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;framework/graphics/cachedtext.h&gt;</span>
+<span class="linenos">13</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;framework/ui/uiwidget.h&gt;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w"> </span><span class="c1">// @bindclass</span>
+<span class="linenos">16</span><span class="k">class</span><span class="w"> </span><span class="nc">Creature</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Thing</span>
+<span class="linenos">17</span><span class="p">{</span>
+<span class="linenos">18</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">19</span><span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">20</span><span class="w">        </span><span class="n">SHIELD_BLINK_TICKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<span class="linenos">21</span><span class="w">        </span><span class="n">VOLATILE_SQUARE_DURATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span>
+<span class="linenos">22</span><span class="w">    </span><span class="p">};</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">Creature</span><span class="p">();</span>
+<span class="linenos">25</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Creature</span><span class="p">();</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">animate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">LightView</span><span class="o">*</span><span class="w"> </span><span class="n">lightView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="linenos">28</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">drawOutfit</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Rect</span><span class="o">&amp;</span><span class="w"> </span><span class="n">destRect</span><span class="p">,</span><span class="w"> </span><span class="n">Otc</span><span class="o">::</span><span class="n">Direction</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Otc</span><span class="o">::</span><span class="n">InvalidDirection</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Color</span><span class="o">&amp;</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="o">::</span><span class="n">white</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">animate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">oldScaling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">drawInformation</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">point</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">useGray</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Rect</span><span class="o">&amp;</span><span class="w"> </span><span class="n">parentRect</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">drawFlags</span><span class="p">);</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isInsideOffset</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">offset</span><span class="p">);</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setId</span><span class="p">(</span><span class="n">uint32</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">35</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="linenos">36</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setManaPercent</span><span class="p">(</span><span class="n">int8</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_manaPercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">37</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHealthPercent</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">healthPercent</span><span class="p">);</span>
+<span class="linenos">38</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setDirection</span><span class="p">(</span><span class="n">Otc</span><span class="o">::</span><span class="n">Direction</span><span class="w"> </span><span class="n">direction</span><span class="p">);</span>
+<span class="linenos">39</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setOutfit</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Outfit</span><span class="o">&amp;</span><span class="w"> </span><span class="n">outfit</span><span class="p">);</span>
+<span class="linenos">40</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setOutfitColor</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Color</span><span class="o">&amp;</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
+<span class="linenos">41</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setLight</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Light</span><span class="o">&amp;</span><span class="w"> </span><span class="n">light</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_light</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">light</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">42</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setSpeed</span><span class="p">(</span><span class="n">uint16</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span>
+<span class="linenos">43</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setBaseSpeed</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">baseSpeed</span><span class="p">);</span>
+<span class="linenos">44</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setSkull</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">skull</span><span class="p">);</span>
+<span class="linenos">45</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setShield</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">shield</span><span class="p">);</span>
+<span class="linenos">46</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEmblem</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">emblem</span><span class="p">);</span>
+<span class="linenos">47</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setType</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">type</span><span class="p">);</span>
+<span class="linenos">48</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setIcon</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">icon</span><span class="p">);</span>
+<span class="linenos">49</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setSkullTexture</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
+<span class="linenos">50</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setShieldTexture</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">blink</span><span class="p">);</span>
+<span class="linenos">51</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEmblemTexture</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
+<span class="linenos">52</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setTypeTexture</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
+<span class="linenos">53</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setIconTexture</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
+<span class="linenos">54</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPassable</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">passable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_passable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">passable</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">55</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setSpeedFormula</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">speedA</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">speedB</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">speedC</span><span class="p">);</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">addTimedSquare</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<span class="linenos">58</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeTimedSquare</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_showTimedSquare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<section id="kluczowe-metody">
+<h3>Kluczowe metody<a class="headerlink" href="#kluczowe-metody" title="Link to this heading">#</a></h3>
+<p><strong>setName(const std::string&amp; name)</strong></p>
+<p>Ustawia nazwę stworzenia.</p>
+<ul class="simple">
+<li><p><strong>Parametry:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> <em>(std::string)</em> - nowa nazwa stworzenia</p></li>
+</ul>
+</li>
+<li><p><strong>Zwraca:</strong> void</p></li>
+</ul>
+<p><strong>setHealthPercent(uint8 healthPercent)</strong></p>
+<p>Ustawia procent zdrowia stworzenia (0-100).</p>
+<ul class="simple">
+<li><p><strong>Parametry:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">healthPercent</span></code> <em>(uint8)</em> - procent zdrowia (0-100)</p></li>
+</ul>
+</li>
+<li><p><strong>Zwraca:</strong> void</p></li>
+</ul>
+<p><strong>setDirection(Otc::Direction direction)</strong></p>
+<p>Ustawia kierunek patrzenia stworzenia.</p>
+<ul class="simple">
+<li><p><strong>Parametry:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">direction</span></code> <em>(Otc::Direction)</em> - kierunek: North, East, South, West</p></li>
+</ul>
+</li>
+<li><p><strong>Zwraca:</strong> void</p></li>
+</ul>
+<p><strong>setOutfit(const Outfit&amp; outfit)</strong></p>
+<p>Ustawia wygląd (outfit) stworzenia.</p>
+<ul class="simple">
+<li><p><strong>Parametry:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">outfit</span></code> <em>(const Outfit&amp;)</em> - obiekt opisujący wygląd</p></li>
+</ul>
+</li>
+<li><p><strong>Zwraca:</strong> void</p></li>
+</ul>
+<p>:::note
+Klasa <code class="docutils literal notranslate"><span class="pre">Creature</span></code> jest bindowana do Lua (patrz <code class="docutils literal notranslate"><span class="pre">&#64;bindclass</span></code>) i może być używana bezpośrednio w skryptach.
+:::</p>
+</section>
+</section>
+<section id="player-class">
+<span id="api-player"></span><h2>Player Class<a class="headerlink" href="#player-class" title="Link to this heading">#</a></h2>
+<p>Player dziedziczy po Creature i dodaje funkcjonalność specyficzną dla gracza.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">src/client/player.h</span></code> - Player class</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cm">/*</span>
+<span class="linenos"> 2</span><span class="cm"> * Copyright (c) 2010-2017 OTClient &lt;https://github.com/edubart/otclient&gt;</span>
+<span class="linenos"> 3</span><span class="cm"> *</span>
+<span class="linenos"> 4</span><span class="cm"> * Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="linenos"> 5</span><span class="cm"> * of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="linenos"> 6</span><span class="cm"> * in the Software without restriction, including without limitation the rights</span>
+<span class="linenos"> 7</span><span class="cm"> * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="linenos"> 8</span><span class="cm"> * copies of the Software, and to permit persons to whom the Software is</span>
+<span class="linenos"> 9</span><span class="cm"> * furnished to do so, subject to the following conditions:</span>
+<span class="linenos">10</span><span class="cm"> *</span>
+<span class="linenos">11</span><span class="cm"> * The above copyright notice and this permission notice shall be included in</span>
+<span class="linenos">12</span><span class="cm"> * all copies or substantial portions of the Software.</span>
+<span class="linenos">13</span><span class="cm"> *</span>
+<span class="linenos">14</span><span class="cm"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="linenos">15</span><span class="cm"> * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="linenos">16</span><span class="cm"> * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="linenos">17</span><span class="cm"> * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="linenos">18</span><span class="cm"> * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="linenos">19</span><span class="cm"> * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<span class="linenos">20</span><span class="cm"> * THE SOFTWARE.</span>
+<span class="linenos">21</span><span class="cm"> */</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="cp">#ifndef PLAYER_H</span>
+<span class="linenos">24</span><span class="cp">#define PLAYER_H</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;creature.h&quot;</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="c1">// @bindclass</span>
+<span class="linenos">29</span><span class="k">class</span><span class="w"> </span><span class="nc">Player</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Creature</span>
+<span class="linenos">30</span><span class="p">{</span>
+<span class="linenos">31</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">Player</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Player</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">    </span><span class="n">PlayerPtr</span><span class="w"> </span><span class="n">asPlayer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">static_self_cast</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">36</span><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isPlayer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="linenos">37</span><span class="p">};</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="przyklady-uzycia-w-lua">
+<span id="api-lua-examples"></span><h2>Przykłady użycia w Lua<a class="headerlink" href="#przyklady-uzycia-w-lua" title="Link to this heading">#</a></h2>
+<section id="pobieranie-informacji-o-graczu">
+<h3>Pobieranie informacji o graczu<a class="headerlink" href="#pobieranie-informacji-o-graczu" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Pobranie lokalnego gracza</span>
+<span class="kd">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">g_game</span><span class="p">.</span><span class="n">getLocalPlayer</span><span class="p">()</span>
+<span class="kr">if</span> <span class="n">player</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Player name:&quot;</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getName</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Health:&quot;</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getHealthPercent</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mana:&quot;</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getManaPercent</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Position:&quot;</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">getPosition</span><span class="p">())</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<section id="obserwowanie-zmiany-zdrowia">
+<h3>Obserwowanie zmiany zdrowia<a class="headerlink" href="#obserwowanie-zmiany-zdrowia" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Callback na zmianę zdrowia</span>
+<span class="kr">function</span> <span class="nf">onHealthChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">percent</span> <span class="o">=</span> <span class="nb">math.floor</span><span class="p">((</span><span class="n">health</span> <span class="o">/</span> <span class="n">maxHealth</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;Health: %d/%d (%d%%)&quot;</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">,</span> <span class="n">percent</span><span class="p">))</span>
+    
+    <span class="kr">if</span> <span class="n">percent</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="kr">then</span>
+        <span class="c1">-- Ostrzeżenie o niskim zdrowiu</span>
+        <span class="n">modules</span><span class="p">.</span><span class="n">game_console</span><span class="p">.</span><span class="n">addText</span><span class="p">(</span><span class="s2">&quot;Warning: Low health!&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Połączenie sygnału</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">LocalPlayer</span><span class="p">,</span> <span class="p">{</span> <span class="n">onHealthChange</span> <span class="o">=</span> <span class="n">onHealthChange</span> <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="iteracja-po-stworzeniach">
+<h3>Iteracja po stworzeniach<a class="headerlink" href="#iteracja-po-stworzeniach" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Pobranie wszystkich widocznych stworzeń</span>
+<span class="kr">function</span> <span class="nf">scanCreatures</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">spectators</span> <span class="o">=</span> <span class="n">g_map</span><span class="p">.</span><span class="n">getSpectators</span><span class="p">(</span><span class="n">g_game</span><span class="p">.</span><span class="n">getLocalPlayer</span><span class="p">():</span><span class="n">getPosition</span><span class="p">(),</span> <span class="kc">false</span><span class="p">)</span>
+    
+    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">creature</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">spectators</span><span class="p">)</span> <span class="kr">do</span>
+        <span class="kr">if</span> <span class="n">creature</span><span class="p">:</span><span class="n">isMonster</span><span class="p">()</span> <span class="kr">then</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monster found:&quot;</span><span class="p">,</span> <span class="n">creature</span><span class="p">:</span><span class="n">getName</span><span class="p">(),</span> 
+                  <span class="s2">&quot;HP:&quot;</span><span class="p">,</span> <span class="n">creature</span><span class="p">:</span><span class="n">getHealthPercent</span><span class="p">(),</span>
+                  <span class="s2">&quot;Distance:&quot;</span><span class="p">,</span> <span class="n">creature</span><span class="p">:</span><span class="n">getPosition</span><span class="p">():</span><span class="n">distance</span><span class="p">(</span><span class="n">g_game</span><span class="p">.</span><span class="n">getLocalPlayer</span><span class="p">():</span><span class="n">getPosition</span><span class="p">()))</span>
+        <span class="kr">end</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="przyklady-uzycia-w-c">
+<span id="api-cpp-examples"></span><h2>Przykłady użycia w C++<a class="headerlink" href="#przyklady-uzycia-w-c" title="Link to this heading">#</a></h2>
+<section id="tworzenie-i-konfiguracja-stworzenia">
+<h3>Tworzenie i konfiguracja stworzenia<a class="headerlink" href="#tworzenie-i-konfiguracja-stworzenia" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Utworzenie nowego stworzenia</span>
+<span class="n">CreaturePtr</span><span class="w"> </span><span class="n">creature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreaturePtr</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Creature</span><span class="p">);</span>
+<span class="n">creature</span><span class="o">-&gt;</span><span class="n">setId</span><span class="p">(</span><span class="mi">12345</span><span class="p">);</span>
+<span class="n">creature</span><span class="o">-&gt;</span><span class="n">setName</span><span class="p">(</span><span class="s">&quot;Dragon&quot;</span><span class="p">);</span>
+<span class="n">creature</span><span class="o">-&gt;</span><span class="n">setHealthPercent</span><span class="p">(</span><span class="mi">75</span><span class="p">);</span>
+<span class="n">creature</span><span class="o">-&gt;</span><span class="n">setDirection</span><span class="p">(</span><span class="n">Otc</span><span class="o">::</span><span class="n">South</span><span class="p">);</span>
+
+<span class="c1">// Ustawienie wyglądu</span>
+<span class="n">Outfit</span><span class="w"> </span><span class="n">outfit</span><span class="p">;</span>
+<span class="n">outfit</span><span class="p">.</span><span class="n">setCategory</span><span class="p">(</span><span class="n">ThingCategoryCreature</span><span class="p">);</span>
+<span class="n">outfit</span><span class="p">.</span><span class="n">setId</span><span class="p">(</span><span class="mi">130</span><span class="p">);</span>
+<span class="n">creature</span><span class="o">-&gt;</span><span class="n">setOutfit</span><span class="p">(</span><span class="n">outfit</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="zobacz-tez">
+<span id="api-see-also"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="events.html"><span class="std std-doc">Events Reference</span></a> - system zdarzeń</p></li>
+<li><p><a class="reference internal" href="modules.html"><span class="std std-doc">Modules Reference</span></a> - dokumentacja modułów Lua</p></li>
+<li><p><a class="reference internal" href="ui.html"><span class="std std-doc">UI Reference</span></a> - komponenty interfejsu użytkownika</p></li>
+<li><p><a class="reference internal" href="../examples/diagrams.html"><span class="std std-doc">Przykłady</span></a> - diagramy architektury</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -342,6 +615,40 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeglad-api">Przegląd API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-of-symbols">Index of Symbols</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-classes">Core Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-classes">UI Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creature-class">Creature Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kluczowe-metody">Kluczowe metody</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#player-class">Player Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-uzycia-w-lua">Przykłady użycia w Lua</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pobieranie-informacji-o-graczu">Pobieranie informacji o graczu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obserwowanie-zmiany-zdrowia">Obserwowanie zmiany zdrowia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracja-po-stworzeniach">Iteracja po stworzeniach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-uzycia-w-c">Przykłady użycia w C++</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-i-konfiguracja-stworzenia">Tworzenie i konfiguracja stworzenia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

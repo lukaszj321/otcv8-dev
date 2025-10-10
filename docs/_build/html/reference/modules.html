@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Modules &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>Modules Reference &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
   
   
   
@@ -301,7 +301,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Modules</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Modules Reference</span></li>
   </ul>
 </nav>
 </div>
@@ -318,8 +318,296 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="modules">
-<h1>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h1>
+  <section id="modules-reference">
+<h1>Modules Reference<a class="headerlink" href="#modules-reference" title="Link to this heading">#</a></h1>
+<section id="przeglad-systemu-modulow">
+<span id="modules-overview"></span><h2>Przegląd systemu modułów<a class="headerlink" href="#przeglad-systemu-modulow" title="Link to this heading">#</a></h2>
+<p>System modułów OTClientV8 umożliwia organizację kodu w niezależne, ładowalne komponenty. Każdy moduł może definiować własną logikę, UI i zależności.</p>
+</section>
+<section id="index-modulow">
+<span id="modules-index"></span><h2>Index modułów<a class="headerlink" href="#index-modulow" title="Link to this heading">#</a></h2>
+<section id="core-modules">
+<h3>Core Modules<a class="headerlink" href="#core-modules" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#module-corelib">corelib</a> - podstawowe funkcje Lua</p></li>
+<li><p><a class="reference internal" href="#module-client"><span class="xref myst">client</span></a> - główny moduł klienta</p></li>
+</ul>
+</section>
+<section id="game-modules">
+<h3>Game Modules<a class="headerlink" href="#game-modules" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#module-game-interface"><span class="xref myst">game_interface</span></a> - interfejs gry</p></li>
+<li><p><a class="reference internal" href="#module-game-battle"><span class="xref myst">game_battle</span></a> - system walki</p></li>
+<li><p><a class="reference internal" href="#module-game-walking"><span class="xref myst">game_walking</span></a> - system chodzenia</p></li>
+</ul>
+</section>
+<section id="bot-modules">
+<h3>Bot Modules<a class="headerlink" href="#bot-modules" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#module-game-bot"><span class="xref myst">game_bot</span></a> - framework botów</p></li>
+</ul>
+</section>
+</section>
+<section id="struktura-modulu">
+<span id="modules-structure"></span><h2>Struktura modułu<a class="headerlink" href="#struktura-modulu" title="Link to this heading">#</a></h2>
+<p>Każdy moduł składa się z:</p>
+<ul class="simple">
+<li><p><strong>module.otmod</strong> - plik deskryptora (metadata, zależności)</p></li>
+<li><p><strong>init.lua</strong> - główny skrypt inicjalizacyjny</p></li>
+<li><p>*<strong>.lua</strong> - dodatkowe skrypty</p></li>
+<li><p>*<strong>.otui</strong> - pliki interfejsu użytkownika</p></li>
+</ul>
+<p>Przykład <code class="docutils literal notranslate"><span class="pre">module.otmod</span></code>:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">Module</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">game_interface</span>
+  <span class="n">description</span><span class="p">:</span> <span class="n">Main</span> <span class="n">game</span> <span class="n">interface</span>
+  <span class="n">author</span><span class="p">:</span> <span class="n">OTClient</span> <span class="n">team</span>
+  <span class="n">website</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">edubart</span><span class="o">/</span><span class="n">otclient</span>
+  <span class="n">version</span><span class="p">:</span> <span class="mf">1.0</span>
+  
+  <span class="n">dependencies</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">corelib</span>
+    <span class="o">-</span> <span class="n">game</span>
+  
+  <span class="err">@</span><span class="n">onLoad</span><span class="p">:</span> <span class="n">init</span><span class="p">.</span><span class="n">lua</span>
+  <span class="err">@</span><span class="n">onUnload</span><span class="p">:</span> <span class="n">terminate</span><span class="p">.</span><span class="n">lua</span>
+</pre></div>
+</div>
+</section>
+<section id="module-corelib">
+<span id="id1"></span><h2>Module: corelib<a class="headerlink" href="#module-corelib" title="Link to this heading">#</a></h2>
+<p>Moduł <code class="docutils literal notranslate"><span class="pre">corelib</span></code> dostarcza podstawowe funkcje pomocnicze używane przez wszystkie inne moduły.</p>
+<section id="globals">
+<h3>Globals<a class="headerlink" href="#globals" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">modules/corelib/globals.lua</span></code> - Global functions</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- @docvars @{</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">-- root widget</span>
+<span class="linenos"> 4</span><span class="n">rootWidget</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">getRootWidget</span><span class="p">()</span>
+<span class="linenos"> 5</span><span class="n">modules</span> <span class="o">=</span> <span class="nb">package.loaded</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1">-- G is used as a global table to save variables in memory between reloads</span>
+<span class="linenos"> 8</span><span class="n">G</span> <span class="o">=</span> <span class="n">G</span> <span class="ow">or</span> <span class="p">{}</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1">-- @}</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1">-- @docfuncs @{</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kr">function</span> <span class="nf">scheduleEvent</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+<span class="linenos">15</span>  <span class="kd">local</span> <span class="n">desc</span> <span class="o">=</span> <span class="s2">&quot;lua&quot;</span>
+<span class="linenos">16</span>  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="nb">debug.getinfo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Sl&quot;</span><span class="p">)</span>
+<span class="linenos">17</span>  <span class="kr">if</span> <span class="n">info</span> <span class="kr">then</span>
+<span class="linenos">18</span>    <span class="n">desc</span> <span class="o">=</span> <span class="n">info</span><span class="p">.</span><span class="n">short_src</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">info</span><span class="p">.</span><span class="n">currentline</span>
+<span class="linenos">19</span>  <span class="kr">end</span>
+<span class="linenos">20</span>  <span class="kd">local</span> <span class="n">event</span> <span class="o">=</span> <span class="n">g_dispatcher</span><span class="p">.</span><span class="n">scheduleEvent</span><span class="p">(</span><span class="n">desc</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+<span class="linenos">21</span>  <span class="c1">-- must hold a reference to the callback, otherwise it would be collected</span>
+<span class="linenos">22</span>  <span class="n">event</span><span class="p">.</span><span class="n">_callback</span> <span class="o">=</span> <span class="n">callback</span>
+<span class="linenos">23</span>  <span class="kr">return</span> <span class="n">event</span>
+<span class="linenos">24</span><span class="kr">end</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="kr">function</span> <span class="nf">addEvent</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">front</span><span class="p">)</span>
+<span class="linenos">27</span>  <span class="kd">local</span> <span class="n">desc</span> <span class="o">=</span> <span class="s2">&quot;lua&quot;</span>
+<span class="linenos">28</span>  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="nb">debug.getinfo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Sl&quot;</span><span class="p">)</span>
+<span class="linenos">29</span>  <span class="kr">if</span> <span class="n">info</span> <span class="kr">then</span>
+<span class="linenos">30</span>    <span class="n">desc</span> <span class="o">=</span> <span class="n">info</span><span class="p">.</span><span class="n">short_src</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">info</span><span class="p">.</span><span class="n">currentline</span>
+<span class="linenos">31</span>  <span class="kr">end</span>
+<span class="linenos">32</span>  <span class="kd">local</span> <span class="n">event</span> <span class="o">=</span> <span class="n">g_dispatcher</span><span class="p">.</span><span class="n">addEvent</span><span class="p">(</span><span class="n">desc</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">front</span><span class="p">)</span>
+<span class="linenos">33</span>  <span class="c1">-- must hold a reference to the callback, otherwise it would be collected</span>
+<span class="linenos">34</span>  <span class="n">event</span><span class="p">.</span><span class="n">_callback</span> <span class="o">=</span> <span class="n">callback</span>
+<span class="linenos">35</span>  <span class="kr">return</span> <span class="n">event</span>
+<span class="linenos">36</span><span class="kr">end</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="kr">function</span> <span class="nf">cycleEvent</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
+<span class="linenos">39</span>  <span class="kd">local</span> <span class="n">desc</span> <span class="o">=</span> <span class="s2">&quot;lua&quot;</span>
+<span class="linenos">40</span>  <span class="kd">local</span> <span class="n">info</span> <span class="o">=</span> <span class="nb">debug.getinfo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Sl&quot;</span><span class="p">)</span>
+<span class="linenos">41</span>  <span class="kr">if</span> <span class="n">info</span> <span class="kr">then</span>
+<span class="linenos">42</span>    <span class="n">desc</span> <span class="o">=</span> <span class="n">info</span><span class="p">.</span><span class="n">short_src</span> <span class="o">..</span> <span class="s2">&quot;:&quot;</span> <span class="o">..</span> <span class="n">info</span><span class="p">.</span><span class="n">currentline</span>
+<span class="linenos">43</span>  <span class="kr">end</span>
+<span class="linenos">44</span>  <span class="kd">local</span> <span class="n">event</span> <span class="o">=</span> <span class="n">g_dispatcher</span><span class="p">.</span><span class="n">cycleEvent</span><span class="p">(</span><span class="n">desc</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
+<span class="linenos">45</span>  <span class="c1">-- must hold a reference to the callback, otherwise it would be collected</span>
+<span class="linenos">46</span>  <span class="n">event</span><span class="p">.</span><span class="n">_callback</span> <span class="o">=</span> <span class="n">callback</span>
+<span class="linenos">47</span>  <span class="kr">return</span> <span class="n">event</span>
+<span class="linenos">48</span><span class="kr">end</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="kr">function</span> <span class="nf">periodicalEvent</span><span class="p">(</span><span class="n">eventFunc</span><span class="p">,</span> <span class="n">conditionFunc</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">autoRepeatDelay</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="kluczowe-funkcje">
+<h3>Kluczowe funkcje<a class="headerlink" href="#kluczowe-funkcje" title="Link to this heading">#</a></h3>
+<section id="scheduleevent">
+<span id="func-scheduleevent"></span><h4>scheduleEvent<a class="headerlink" href="#scheduleevent" title="Link to this heading">#</a></h4>
+<p>Planuje wywołanie funkcji po określonym czasie.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">scheduleEvent</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code> <em>(function)</em> - funkcja do wywołania</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code> <em>(number)</em> - opóźnienie w milisekundach</p></li>
+</ul>
+<p><strong>Zwraca</strong></p>
+<ul class="simple">
+<li><p><em>(Event)</em> - obiekt eventu, który można anulować</p></li>
+</ul>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Wywołanie funkcji po 1 sekundzie</span>
+<span class="kd">local</span> <span class="n">event</span> <span class="o">=</span> <span class="n">scheduleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Delayed message!&quot;</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">-- Anulowanie eventu przed wykonaniem</span>
+<span class="c1">-- event:cancel()</span>
+</pre></div>
+</div>
+</section>
+<section id="addevent">
+<span id="func-addevent"></span><h4>addEvent<a class="headerlink" href="#addevent" title="Link to this heading">#</a></h4>
+<p>Dodaje event do kolejki zdarzeń do wykonania w następnej klatce.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">addEvent</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">front</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code> <em>(function)</em> - funkcja do wywołania</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">front</span></code> <em>(boolean, optional)</em> - czy dodać na początek kolejki (domyślnie false)</p></li>
+</ul>
+<p><strong>Zwraca</strong></p>
+<ul class="simple">
+<li><p><em>(Event)</em> - obiekt eventu</p></li>
+</ul>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Wykonanie w następnej klatce</span>
+<span class="n">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next frame execution&quot;</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="c1">-- Wykonanie na początku kolejki (wysoki priorytet)</span>
+<span class="n">addEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;High priority execution&quot;</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="cycleevent">
+<span id="func-cycleevent"></span><h4>cycleEvent<a class="headerlink" href="#cycleevent" title="Link to this heading">#</a></h4>
+<p>Tworzy cykliczny event wykonywany w określonych odstępach czasu.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">cycleEvent</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code> <em>(function)</em> - funkcja do cyklicznego wywoływania</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interval</span></code> <em>(number)</em> - odstęp czasu w milisekundach</p></li>
+</ul>
+<p><strong>Zwraca</strong></p>
+<ul class="simple">
+<li><p><em>(Event)</em> - obiekt eventu, który można anulować</p></li>
+</ul>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Wykonywanie co sekundę</span>
+<span class="kd">local</span> <span class="n">cycleEvent</span> <span class="o">=</span> <span class="n">cycleEvent</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tick:&quot;</span><span class="p">,</span> <span class="nb">os.time</span><span class="p">())</span>
+<span class="kr">end</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">-- Zatrzymanie cyklu</span>
+<span class="c1">-- cycleEvent:cancel()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="modul-math-utilities">
+<span id="modules-math"></span><h2>Moduł: Math utilities<a class="headerlink" href="#modul-math-utilities" title="Link to this heading">#</a></h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">modules/corelib/math.lua</span></code> - Math utilities</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">-- @docclass math</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kd">local</span> <span class="n">U8</span>  <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">8</span>
+<span class="linenos"> 4</span><span class="kd">local</span> <span class="n">U16</span> <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">16</span>
+<span class="linenos"> 5</span><span class="kd">local</span> <span class="n">U32</span> <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">32</span>
+<span class="linenos"> 6</span><span class="kd">local</span> <span class="n">U64</span> <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">64</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="kr">function</span> <span class="nc">math</span><span class="p">.</span><span class="nf">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">idp</span><span class="p">)</span>
+<span class="linenos"> 9</span>  <span class="kd">local</span> <span class="n">mult</span> <span class="o">=</span> <span class="mi">10</span><span class="o">^</span><span class="p">(</span><span class="n">idp</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">10</span>  <span class="kr">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">then</span>
+<span class="linenos">11</span>    <span class="kr">return</span> <span class="nb">math.floor</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">mult</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="n">mult</span>
+<span class="linenos">12</span>  <span class="kr">else</span>
+<span class="linenos">13</span>    <span class="kr">return</span> <span class="nb">math.ceil</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">mult</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="n">mult</span>
+<span class="linenos">14</span>  <span class="kr">end</span>
+<span class="linenos">15</span><span class="kr">end</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="kr">function</span> <span class="nc">math</span><span class="p">.</span><span class="nf">isu8</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="linenos">18</span>  <span class="kr">return</span> <span class="n">math</span><span class="p">.</span><span class="n">isinteger</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">U8</span>
+<span class="linenos">19</span><span class="kr">end</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="kr">function</span> <span class="nc">math</span><span class="p">.</span><span class="nf">isu16</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="linenos">22</span>  <span class="kr">return</span> <span class="n">math</span><span class="p">.</span><span class="n">isinteger</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="n">U8</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">U16</span>
+<span class="linenos">23</span><span class="kr">end</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="kr">function</span> <span class="nc">math</span><span class="p">.</span><span class="nf">isu32</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="linenos">26</span>  <span class="kr">return</span> <span class="n">math</span><span class="p">.</span><span class="n">isinteger</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="n">U16</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">U32</span>
+<span class="linenos">27</span><span class="kr">end</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="kr">function</span> <span class="nc">math</span><span class="p">.</span><span class="nf">isu64</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="linenos">30</span>  <span class="kr">return</span> <span class="n">math</span><span class="p">.</span><span class="n">isinteger</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="n">U32</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">U64</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ladowanie-modulow">
+<span id="modules-loading"></span><h2>Ładowanie modułów<a class="headerlink" href="#ladowanie-modulow" title="Link to this heading">#</a></h2>
+<p>Moduły są ładowane automatycznie przez system, ale można je też ładować programowo:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Załadowanie modułu</span>
+<span class="n">g_modules</span><span class="p">.</span><span class="n">discoverModule</span><span class="p">(</span><span class="s2">&quot;/path/to/module&quot;</span><span class="p">)</span>
+<span class="n">g_modules</span><span class="p">.</span><span class="n">ensureModuleLoaded</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
+
+<span class="c1">-- Przeładowanie modułu</span>
+<span class="n">g_modules</span><span class="p">.</span><span class="n">reloadModule</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
+
+<span class="c1">-- Sprawdzenie czy moduł jest załadowany</span>
+<span class="kr">if</span> <span class="n">g_modules</span><span class="p">.</span><span class="n">getModule</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Module is loaded&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<section id="zarzadzanie-zaleznosciami">
+<span id="modules-dependencies"></span><h2>Zarządzanie zależnościami<a class="headerlink" href="#zarzadzanie-zaleznosciami" title="Link to this heading">#</a></h2>
+<p>System automatycznie ładuje zależności w odpowiedniej kolejności:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- W module.otmod</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">corelib</span>
+  <span class="o">-</span> <span class="n">client</span>
+  <span class="o">-</span> <span class="n">game</span>
+</pre></div>
+</div>
+<p>Cykliczne zależności są wykrywane i zgłaszane jako błędy.</p>
+</section>
+<section id="dobre-praktyki">
+<span id="modules-best-practices"></span><h2>Dobre praktyki<a class="headerlink" href="#dobre-praktyki" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Izolacja</strong> - moduły powinny być niezależne i nie polegać na globalnym stanie</p></li>
+<li><p><strong>Cleanup</strong> - zawsze implementuj <code class="docutils literal notranslate"><span class="pre">terminate()</span></code> aby zwolnić zasoby</p></li>
+<li><p><strong>Zależności</strong> - deklaruj wszystkie zależności w <code class="docutils literal notranslate"><span class="pre">module.otmod</span></code></p></li>
+<li><p><strong>Namespace</strong> - używaj unikalnych nazw dla globalnych zmiennych</p></li>
+<li><p><strong>Events</strong> - anuluj wszystkie eventy w <code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+</ol>
+</section>
+<section id="zobacz-tez">
+<span id="modules-see-also"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html"><span class="std std-doc">API Reference</span></a> - C++ API</p></li>
+<li><p><a class="reference internal" href="events.html"><span class="std std-doc">Events Reference</span></a> - system zdarzeń</p></li>
+<li><p><a class="reference internal" href="ui.html"><span class="std std-doc">UI Reference</span></a> - komponenty UI</p></li>
+<li><p><a class="reference internal" href="../chapters/03_modules.html"><span class="std std-doc">Chapter: Modules</span></a> - pełna dokumentacja modułów</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -342,6 +630,40 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeglad-systemu-modulow">Przegląd systemu modułów</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-modulow">Index modułów</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-modules">Core Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-modules">Game Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bot-modules">Bot Modules</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktura-modulu">Struktura modułu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corelib">Module: corelib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#globals">Globals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kluczowe-funkcje">Kluczowe funkcje</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scheduleevent">scheduleEvent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#addevent">addEvent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cycleevent">cycleEvent</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modul-math-utilities">Moduł: Math utilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ladowanie-modulow">Ładowanie modułów</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zarzadzanie-zaleznosciami">Zarządzanie zależnościami</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dobre-praktyki">Dobre praktyki</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

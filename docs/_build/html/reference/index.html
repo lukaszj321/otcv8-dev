@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Referencje &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>Referencje API &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
   
   
   
@@ -301,7 +301,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Referencje</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Referencje API</span></li>
   </ul>
 </nav>
 </div>
@@ -318,15 +318,198 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="referencje">
-<h1>Referencje<a class="headerlink" href="#referencje" title="Link to this heading">#</a></h1>
+  <section id="referencje-api">
+<h1>Referencje API<a class="headerlink" href="#referencje-api" title="Link to this heading">#</a></h1>
+<section id="przeglad">
+<span id="reference-overview"></span><h2>Przegląd<a class="headerlink" href="#przeglad" title="Link to this heading">#</a></h2>
+<p>Ta sekcja zawiera kompletną dokumentację referencyjną API OTClientV8, obejmującą:</p>
+<ul class="simple">
+<li><p><strong>C++ API</strong> - klasy silnika, typy, funkcje</p></li>
+<li><p><strong>Events System</strong> - zdarzenia i sygnały</p></li>
+<li><p><strong>Modules</strong> - system modułów Lua</p></li>
+<li><p><strong>UI Components</strong> - widgety i OTUI</p></li>
+</ul>
+</section>
+<section id="szybkie-odnosniki">
+<span id="reference-quick-links"></span><h2>Szybkie odnośniki<a class="headerlink" href="#szybkie-odnosniki" title="Link to this heading">#</a></h2>
+<section id="dla-programistow-c">
+<h3>Dla programistów C++<a class="headerlink" href="#dla-programistow-c" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#api-creature"><span class="std std-ref">Creature API</span></a> - zarządzanie stworzeniami</p></li>
+<li><p><a class="reference internal" href="api.html#api-player"><span class="std std-ref">Player API</span></a> - API gracza</p></li>
+<li><p><a class="reference internal" href="api.html#api-map"><span class="std std-ref">Map API</span></a> - operacje na mapie</p></li>
+<li><p><a class="reference internal" href="api.html#api-protocol"><span class="std std-ref">Network API</span></a> - protokół sieciowy</p></li>
+</ul>
+</section>
+<section id="dla-skrypterow-lua">
+<h3>Dla skrypterów Lua<a class="headerlink" href="#dla-skrypterow-lua" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="modules.html#module-corelib"><span class="std std-ref">Global Functions</span></a> - funkcje globalne</p></li>
+<li><p><a class="reference internal" href="events.html#events-connection"><span class="std std-ref">Event Handlers</span></a> - obsługa zdarzeń</p></li>
+<li><p><a class="reference internal" href="modules.html#modules-loading"><span class="std std-ref">Module System</span></a> - ładowanie modułów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-lua-api"><span class="std std-ref">UI Manipulation</span></a> - tworzenie i manipulacja UI</p></li>
+</ul>
+</section>
+<section id="dla-designerow-ui">
+<h3>Dla designerów UI<a class="headerlink" href="#dla-designerow-ui" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="ui.html#ui-otui-syntax"><span class="std std-ref">OTUI Syntax</span></a> - składnia OTUI</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-index"><span class="std std-ref">Widget Types</span></a> - typy widgetów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-styling"><span class="std std-ref">Styling</span></a> - stylowanie komponentów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-layouts"><span class="std std-ref">Layouts</span></a> - systemy układów</p></li>
+</ul>
+</section>
+</section>
+<section id="index-symboli-a-z">
+<span id="reference-symbol-index"></span><h2>Index symboli (A-Z)<a class="headerlink" href="#index-symboli-a-z" title="Link to this heading">#</a></h2>
+<section id="a">
+<h3>A<a class="headerlink" href="#a" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addEvent()</span></code> - <a class="reference internal" href="modules.html#func-addEvent"><span class="std std-ref">Modules: addEvent</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anchors</span></code> - <a class="reference internal" href="ui.html#ui-anchors"><span class="std std-ref">UI: Anchors</span></a></p></li>
+</ul>
+</section>
+<section id="c">
+<h3>C<a class="headerlink" href="#c" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connect()</span></code> - <a class="reference internal" href="events.html#events-connection"><span class="std std-ref">Events: Connection</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Creature</span></code> - <a class="reference internal" href="api.html#api-creature"><span class="std std-ref">API: Creature</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cycleEvent()</span></code> - <a class="reference internal" href="modules.html#func-cycleEvent"><span class="std std-ref">Modules: cycleEvent</span></a></p></li>
+</ul>
+</section>
+<section id="d">
+<h3>D<a class="headerlink" href="#d" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">disconnect()</span></code> - <a class="reference internal" href="events.html#events-connection"><span class="std std-ref">Events: Disconnection</span></a></p></li>
+</ul>
+</section>
+<section id="g">
+<h3>G<a class="headerlink" href="#g" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g_game</span></code> - <a class="reference internal" href="api.html#api-game"><span class="std std-ref">API: Game</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_map</span></code> - <a class="reference internal" href="api.html#api-map"><span class="std std-ref">API: Map</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_modules</span></code> - <a class="reference internal" href="modules.html#modules-loading"><span class="std std-ref">Modules: Loading</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g_ui</span></code> - <a class="reference internal" href="ui.html#ui-lua-api"><span class="std std-ref">UI: Lua API</span></a></p></li>
+</ul>
+</section>
+<section id="l">
+<h3>L<a class="headerlink" href="#l" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code> - <a class="reference internal" href="api.html#api-player"><span class="std std-ref">API: Player</span></a></p></li>
+</ul>
+</section>
+<section id="o">
+<h3>O<a class="headerlink" href="#o" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">onCreatureAppear</span></code> - <a class="reference internal" href="events.html#event-onCreatureAppear"><span class="std std-ref">Events: onCreatureAppear</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onGameStart</span></code> - <a class="reference internal" href="events.html#event-onGameStart"><span class="std std-ref">Events: onGameStart</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onHealthChange</span></code> - <a class="reference internal" href="events.html#event-onHealthChange"><span class="std std-ref">Events: onHealthChange</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onLogin</span></code> - <a class="reference internal" href="events.html#event-onLogin"><span class="std std-ref">Events: onLogin</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">onTextMessage</span></code> - <a class="reference internal" href="events.html#event-onTextMessage"><span class="std std-ref">Events: onTextMessage</span></a></p></li>
+</ul>
+</section>
+<section id="p">
+<h3>P<a class="headerlink" href="#p" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Player</span></code> - <a class="reference internal" href="api.html#api-player"><span class="std std-ref">API: Player</span></a></p></li>
+</ul>
+</section>
+<section id="s">
+<h3>S<a class="headerlink" href="#s" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduleEvent()</span></code> - <a class="reference internal" href="modules.html#func-scheduleEvent"><span class="std std-ref">Modules: scheduleEvent</span></a></p></li>
+</ul>
+</section>
+<section id="u">
+<h3>U<a class="headerlink" href="#u" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UIButton</span></code> - <a class="reference internal" href="ui.html#ui-button"><span class="std std-ref">UI: Button</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UIWidget</span></code> - <a class="reference internal" href="ui.html#ui-widget"><span class="std std-ref">UI: Widget</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UIWindow</span></code> - <a class="reference internal" href="ui.html#ui-window"><span class="std std-ref">UI: Window</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="symbole-wedlug-kategorii">
+<span id="reference-by-category"></span><h2>Symbole według kategorii<a class="headerlink" href="#symbole-wedlug-kategorii" title="Link to this heading">#</a></h2>
+<section id="core-system">
+<h3>Core System<a class="headerlink" href="#core-system" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="events.html"><span class="std std-doc">Event System</span></a> - asynchroniczna komunikacja</p></li>
+<li><p><a class="reference internal" href="modules.html#modules-loading"><span class="std std-ref">Module Loader</span></a> - ładowanie modułów</p></li>
+<li><p><a class="reference internal" href="modules.html#func-scheduleEvent"><span class="std std-ref">Scheduler</span></a> - planowanie zadań</p></li>
+</ul>
+</section>
+<section id="game-logic">
+<h3>Game Logic<a class="headerlink" href="#game-logic" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#api-creature"><span class="std std-ref">Creature Management</span></a> - stworzenia</p></li>
+<li><p><a class="reference internal" href="api.html#api-player"><span class="std std-ref">Player Control</span></a> - sterowanie graczem</p></li>
+<li><p><a class="reference internal" href="api.html#api-map"><span class="std std-ref">Map Operations</span></a> - operacje na mapie</p></li>
+<li><p><a class="reference internal" href="api.html#api-item"><span class="std std-ref">Item Handling</span></a> - zarządzanie przedmiotami</p></li>
+</ul>
+</section>
+<section id="ui-framework">
+<h3>UI Framework<a class="headerlink" href="#ui-framework" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="ui.html#ui-widget-hierarchy"><span class="std std-ref">Widget System</span></a> - hierarchia widgetów</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-layouts"><span class="std std-ref">Layout Management</span></a> - układy</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-lua-api"><span class="std std-ref">Event Handling</span></a> - eventy UI</p></li>
+<li><p><a class="reference internal" href="ui.html#ui-styling"><span class="std std-ref">Styling</span></a> - stylowanie</p></li>
+</ul>
+</section>
+<section id="network">
+<h3>Network<a class="headerlink" href="#network" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html#api-protocol"><span class="std std-ref">Protocol</span></a> - protokół komunikacji</p></li>
+<li><p><a class="reference internal" href="api.html#api-connection"><span class="std std-ref">Connection Management</span></a> - zarządzanie połączeniem</p></li>
+</ul>
+</section>
+</section>
+<section id="konwencje-dokumentacji">
+<span id="reference-conventions"></span><h2>Konwencje dokumentacji<a class="headerlink" href="#konwencje-dokumentacji" title="Link to this heading">#</a></h2>
+<section id="typy-parametrow">
+<h3>Typy parametrów<a class="headerlink" href="#typy-parametrow" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> - ciąg znaków</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code> - liczba (int lub float)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code> - wartość logiczna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code> - tabela Lua</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> - funkcja/callback</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userdata</span></code> - obiekt C++ (np. Creature, Player)</p></li>
+</ul>
+</section>
+<section id="opcjonalnosc">
+<h3>Opcjonalność<a class="headerlink" href="#opcjonalnosc" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span></code> - parametr wymagany</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span> <span class="pre">(optional)</span></code> - parametr opcjonalny</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">param</span> <span class="pre">=</span> <span class="pre">default</span></code> - parametr z wartością domyślną</p></li>
+</ul>
+</section>
+<section id="przyklady-kodu">
+<h3>Przykłady kodu<a class="headerlink" href="#przyklady-kodu" title="Link to this heading">#</a></h3>
+<p>Wszystkie przykłady są testowalne i mogą być użyte bezpośrednio w projekcie.</p>
+</section>
+</section>
+<section id="nawigacja">
+<span id="reference-navigation"></span><h2>Nawigacja<a class="headerlink" href="#nawigacja" title="Link to this heading">#</a></h2>
 <p>:::{toctree}
-:maxdepth: 2</p>
+:maxdepth: 2
+:caption: Sekcje referencyjne</p>
 <p>api
 events
 modules
 ui
 :::</p>
+</section>
+<section id="zobacz-tez">
+<span id="reference-see-also"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../chapters/01_specyfikacja.html"><span class="std std-doc">Chapters</span></a> - dokumentacja opisowa</p></li>
+<li><p><a class="reference internal" href="../examples/diagrams.html"><span class="std std-doc">Examples</span></a> - przykłady i diagramy</p></li>
+<li><p><a class="reference internal" href="../datasets/index.html"><span class="std std-doc">Datasets</span></a> - dane i zasoby</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -349,6 +532,51 @@ ui
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeglad">Przegląd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#szybkie-odnosniki">Szybkie odnośniki</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-programistow-c">Dla programistów C++</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-skrypterow-lua">Dla skrypterów Lua</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-designerow-ui">Dla designerów UI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-symboli-a-z">Index symboli (A-Z)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a">A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g">G</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l">L</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o">O</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p">P</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">S</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#u">U</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbole-wedlug-kategorii">Symbole według kategorii</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-system">Core System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-logic">Game Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-framework">UI Framework</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network">Network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konwencje-dokumentacji">Konwencje dokumentacji</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-parametrow">Typy parametrów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opcjonalnosc">Opcjonalność</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-kodu">Przykłady kodu</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nawigacja">Nawigacja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

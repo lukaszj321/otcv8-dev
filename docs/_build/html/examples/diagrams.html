@@ -328,18 +328,142 @@ window.addEventListener("load", () => mermaid.run());
                   
   <section id="diagramy-mermaid">
 <h1>Diagramy (Mermaid)<a class="headerlink" href="#diagramy-mermaid" title="Link to this heading">#</a></h1>
+<section id="przeglad-architektury">
+<span id="diagram-overview"></span><h2>Przegląd architektury<a class="headerlink" href="#przeglad-architektury" title="Link to this heading">#</a></h2>
+<p>Ten dokument zawiera kluczowe diagramy ilustrujące architekturę i przepływy w OTClientV8.</p>
+</section>
+<section id="glowna-architektura-systemu">
+<span id="diagram-main-architecture"></span><h2>Główna architektura systemu<a class="headerlink" href="#glowna-architektura-systemu" title="Link to this heading">#</a></h2>
 <pre  class="mermaid">
         flowchart TD
-  A[Core] --&gt; B(Events)
-  A --&gt; C(Modules)
-  C --&gt; D[UI]
-  C --&gt; E[Network]
-  E --&gt; F[(Assets)]
+  A[Core Engine C++] --&gt; B(Event System)
+  A --&gt; C(Module Loader)
+  C --&gt; D[UI Manager OTUI]
+  C --&gt; E[Network Protocol]
+  E --&gt; F[(Asset Manager)]
   B --&gt; G{Settings/Crypto}
-  G --&gt; H[Audio]
-  H --&gt; I[Logging]
-  I --&gt; J[Game Runtime]
+  G --&gt; H[Audio System]
+  H --&gt; I[Logging Framework]
+  I --&gt; J[Game Runtime Loop]
+  
+  style A fill:#f9f,stroke:#333,stroke-width:4px
+  style D fill:#bbf,stroke:#333,stroke-width:2px
+  style E fill:#bfb,stroke:#333,stroke-width:2px
     </pre></section>
+<section id="cykl-zycia-modulu">
+<span id="diagram-module-lifecycle"></span><h2>Cykl życia modułu<a class="headerlink" href="#cykl-zycia-modulu" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        stateDiagram-v2
+    [*] --&gt; Unloaded
+    Unloaded --&gt; Loading: load()
+    Loading --&gt; Loaded: init()
+    Loaded --&gt; Running: onGameStart
+    Running --&gt; Loaded: onGameEnd
+    Loaded --&gt; Unloading: terminate()
+    Unloading --&gt; Unloaded: cleanup()
+    Unloaded --&gt; [*]
+    
+    Loading --&gt; Error: Fail
+    Error --&gt; Unloaded: cleanup()
+    </pre></section>
+<section id="przeplyw-zdarzen">
+<span id="diagram-event-flow"></span><h2>Przepływ zdarzeń<a class="headerlink" href="#przeplyw-zdarzen" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        sequenceDiagram
+    participant Game as Game Engine
+    participant EventSys as Event System
+    participant Module1 as Module A
+    participant Module2 as Module B
+    participant UI as UI Layer
+    
+    Game-&gt;&gt;EventSys: emit(onLogin)
+    EventSys-&gt;&gt;Module1: notify(onLogin)
+    Module1-&gt;&gt;Module1: processLogin()
+    EventSys-&gt;&gt;Module2: notify(onLogin)
+    Module2-&gt;&gt;UI: updateLoginStatus()
+    UI--&gt;&gt;Game: render()
+    </pre></section>
+<section id="stos-sieciowy">
+<span id="diagram-network-stack"></span><h2>Stos sieciowy<a class="headerlink" href="#stos-sieciowy" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart LR
+    subgraph Client
+        A[Application Layer] --&gt; B[Protocol Handler]
+        B --&gt; C[Packet Queue]
+        C --&gt; D[Socket Layer]
+    end
+    
+    subgraph Network
+        D &lt;--&gt; E[TCP/IP]
+    end
+    
+    subgraph Server
+        E &lt;--&gt; F[Server Socket]
+        F --&gt; G[Protocol Parser]
+        G --&gt; H[Game Logic]
+    end
+    
+    style Client fill:#e1f5ff
+    style Network fill:#fff3e0
+    style Server fill:#f3e5f5
+    </pre></section>
+<section id="hierarchia-ui">
+<span id="diagram-ui-hierarchy"></span><h2>Hierarchia UI<a class="headerlink" href="#hierarchia-ui" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        graph TD
+    Root[Root Widget] --&gt; MainWindow[Main Window]
+    Root --&gt; TopMenu[Top Menu Bar]
+    
+    MainWindow --&gt; GameInterface[Game Interface]
+    MainWindow --&gt; Console[Console Panel]
+    
+    GameInterface --&gt; GameMap[Game Map Viewport]
+    GameInterface --&gt; Sidebar[Right Sidebar]
+    
+    Sidebar --&gt; Inventory[Inventory]
+    Sidebar --&gt; Skills[Skills Panel]
+    Sidebar --&gt; VipList[VIP List]
+    
+    style Root fill:#ff9800
+    style MainWindow fill:#4caf50
+    style GameInterface fill:#2196f3
+    </pre></section>
+<section id="pipeline-assetow">
+<span id="diagram-asset-pipeline"></span><h2>Pipeline assetów<a class="headerlink" href="#pipeline-assetow" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart TD
+    A[Raw Assets] --&gt; B{Asset Type?}
+    B --&gt;|Image| C[Texture Loader]
+    B --&gt;|Audio| D[Sound Loader]
+    B --&gt;|Font| E[Font Loader]
+    B --&gt;|Data| F[Data Parser]
+    
+    C --&gt; G[Texture Cache]
+    D --&gt; H[Audio Buffer]
+    E --&gt; I[Font Cache]
+    F --&gt; J[Memory]
+    
+    G --&gt; K[Renderer]
+    H --&gt; L[Audio Mixer]
+    I --&gt; K
+    J --&gt; M[Game Logic]
+    
+    style A fill:#ffeb3b
+    style K fill:#4caf50
+    style L fill:#2196f3
+    </pre><p>:::tip
+Wszystkie diagramy są renderowane dynamicznie przez Mermaid i można je kopiować jako kod źródłowy.
+:::</p>
+</section>
+<section id="zobacz-tez">
+<span id="see-also-diagrams"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../chapters/01_specyfikacja.html"><span class="std std-doc">Architektura Core</span></a></p></li>
+<li><p><a class="reference internal" href="../chapters/02_events.html"><span class="std std-doc">System zdarzeń</span></a></p></li>
+<li><p><a class="reference internal" href="../chapters/03_modules.html"><span class="std std-doc">Moduły</span></a></p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -361,6 +485,25 @@ window.addEventListener("load", () => mermaid.run());
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeglad-architektury">Przegląd architektury</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glowna-architektura-systemu">Główna architektura systemu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cykl-zycia-modulu">Cykl życia modułu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeplyw-zdarzen">Przepływ zdarzeń</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stos-sieciowy">Stos sieciowy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchia-ui">Hierarchia UI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-assetow">Pipeline assetów</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

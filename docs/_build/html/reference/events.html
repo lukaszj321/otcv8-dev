@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Emiter/Events &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>Events Reference &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
   
   
   
@@ -49,6 +49,14 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/translations.js?v=da4973ce"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/events';</script>
     <link rel="icon" href="../_static/logo-light.svg"/>
     <link rel="index" title="Indeks" href="../genindex.html" />
@@ -301,7 +309,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Emiter/Events</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Events Reference</span></li>
   </ul>
 </nav>
 </div>
@@ -318,8 +326,292 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="emiter-events">
-<h1>Emiter/Events<a class="headerlink" href="#emiter-events" title="Link to this heading">#</a></h1>
+  <section id="events-reference">
+<h1>Events Reference<a class="headerlink" href="#events-reference" title="Link to this heading">#</a></h1>
+<section id="przeglad-systemu-zdarzen">
+<span id="events-overview"></span><h2>Przegląd systemu zdarzeń<a class="headerlink" href="#przeglad-systemu-zdarzen" title="Link to this heading">#</a></h2>
+<p>System zdarzeń w OTClientV8 umożliwia asynchroniczną komunikację między komponentami. Wykorzystuje wzorzec Observer/Pub-Sub do powiadamiania o zmianach stanu.</p>
+</section>
+<section id="index-zdarzen">
+<span id="events-index"></span><h2>Index zdarzeń<a class="headerlink" href="#index-zdarzen" title="Link to this heading">#</a></h2>
+<section id="game-events">
+<h3>Game Events<a class="headerlink" href="#game-events" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#event-ongamestart"><span class="std std-ref">onGameStart</span></a> - rozpoczęcie sesji gry</p></li>
+<li><p><a class="reference internal" href="#event-onGameEnd"><span class="xref myst">onGameEnd</span></a> - zakończenie sesji gry</p></li>
+<li><p><a class="reference internal" href="#event-onlogin"><span class="std std-ref">onLogin</span></a> - logowanie gracza</p></li>
+<li><p><a class="reference internal" href="#event-onLogout"><span class="xref myst">onLogout</span></a> - wylogowanie gracza</p></li>
+</ul>
+</section>
+<section id="creature-events">
+<h3>Creature Events<a class="headerlink" href="#creature-events" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#event-oncreatureappear"><span class="std std-ref">onCreatureAppear</span></a> - pojawienie się stworzenia</p></li>
+<li><p><a class="reference internal" href="#event-onCreatureDisappear"><span class="xref myst">onCreatureDisappear</span></a> - zniknięcie stworzenia</p></li>
+<li><p><a class="reference internal" href="#event-onCreatureMove"><span class="xref myst">onCreatureMove</span></a> - ruch stworzenia</p></li>
+</ul>
+</section>
+<section id="player-events">
+<h3>Player Events<a class="headerlink" href="#player-events" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#event-onhealthchange"><span class="std std-ref">onHealthChange</span></a> - zmiana zdrowia</p></li>
+<li><p><a class="reference internal" href="#event-onManaChange"><span class="xref myst">onManaChange</span></a> - zmiana many</p></li>
+<li><p><a class="reference internal" href="#event-onPositionChange"><span class="xref myst">onPositionChange</span></a> - zmiana pozycji</p></li>
+</ul>
+</section>
+<section id="text-events">
+<h3>Text Events<a class="headerlink" href="#text-events" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#event-ontextmessage"><span class="std std-ref">onTextMessage</span></a> - wiadomość tekstowa</p></li>
+<li><p><a class="reference internal" href="#event-onTalk"><span class="xref myst">onTalk</span></a> - komunikat czatu</p></li>
+</ul>
+</section>
+</section>
+<section id="podlaczanie-zdarzen">
+<span id="events-connection"></span><h2>Podłączanie zdarzeń<a class="headerlink" href="#podlaczanie-zdarzen" title="Link to this heading">#</a></h2>
+<section id="podstawowa-skladnia">
+<h3>Podstawowa składnia<a class="headerlink" href="#podstawowa-skladnia" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Podłączenie do zdarzenia</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">ObjectClass</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">eventName</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
+        <span class="c1">-- Obsługa zdarzenia</span>
+    <span class="kr">end</span>
+<span class="p">})</span>
+
+<span class="c1">-- Odłączenie zdarzenia</span>
+<span class="n">disconnect</span><span class="p">(</span><span class="n">ObjectClass</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">eventName</span> <span class="o">=</span> <span class="n">callbackFunction</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="event-ongamestart">
+<span id="id1"></span><h2>Event: onGameStart<a class="headerlink" href="#event-ongamestart" title="Link to this heading">#</a></h2>
+<p>Wywoływane gdy sesja gry się rozpoczyna.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onGameStart</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong>
+Brak</p>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onGameStart</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Game session started!&quot;</span><span class="p">)</span>
+    
+    <span class="c1">-- Inicjalizacja UI</span>
+    <span class="kd">local</span> <span class="n">gameInterface</span> <span class="o">=</span> <span class="n">g_ui</span><span class="p">.</span><span class="n">getRootWidget</span><span class="p">():</span><span class="n">recursiveGetChildById</span><span class="p">(</span><span class="s1">&#39;gameInterface&#39;</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">gameInterface</span> <span class="kr">then</span>
+        <span class="n">gameInterface</span><span class="p">:</span><span class="n">show</span><span class="p">()</span>
+    <span class="kr">end</span>
+    
+    <span class="c1">-- Załadowanie konfiguracji</span>
+    <span class="n">loadConfiguration</span><span class="p">()</span>
+<span class="kr">end</span>
+
+<span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameStart</span> <span class="o">=</span> <span class="n">onGameStart</span> <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="event-onlogin">
+<span id="id2"></span><h2>Event: onLogin<a class="headerlink" href="#event-onlogin" title="Link to this heading">#</a></h2>
+<p>Wywoływane po pomyślnym zalogowaniu gracza do gry.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onLogin</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code> <em>(LocalPlayer)</em> - obiekt lokalnego gracza</p></li>
+</ul>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onLogin</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Player logged in:&quot;</span><span class="p">,</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">getName</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Position:&quot;</span><span class="p">,</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">getPosition</span><span class="p">())</span>
+    
+    <span class="c1">-- Powiadomienie w UI</span>
+    <span class="n">displayStatusMessage</span><span class="p">(</span><span class="s2">&quot;Welcome, &quot;</span> <span class="o">..</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">getName</span><span class="p">()</span> <span class="o">..</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
+    
+    <span class="c1">-- Inicjalizacja modułów specyficznych dla gracza</span>
+    <span class="n">initializePlayerModules</span><span class="p">()</span>
+<span class="kr">end</span>
+
+<span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onLogin</span> <span class="o">=</span> <span class="n">onLogin</span> <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="event-oncreatureappear">
+<span id="id3"></span><h2>Event: onCreatureAppear<a class="headerlink" href="#event-oncreatureappear" title="Link to this heading">#</a></h2>
+<p>Wywoływane gdy stworzenie pojawia się w polu widzenia gracza.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onCreatureAppear</span><span class="p">(</span><span class="n">creature</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">creature</span></code> <em>(Creature)</em> - pojawione stworzenie</p></li>
+</ul>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onCreatureAppear</span><span class="p">(</span><span class="n">creature</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">name</span> <span class="o">=</span> <span class="n">creature</span><span class="p">:</span><span class="n">getName</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">creature</span><span class="p">:</span><span class="n">getPosition</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;Creature appeared: %s at %s&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pos</span><span class="p">))</span>
+    
+    <span class="c1">-- Sprawdzenie czy to potwór</span>
+    <span class="kr">if</span> <span class="n">creature</span><span class="p">:</span><span class="n">isMonster</span><span class="p">()</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monster detected:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="c1">-- Możliwość aktywacji auto-targetu lub alarmu</span>
+        <span class="n">onMonsterDetected</span><span class="p">(</span><span class="n">creature</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onCreatureAppear</span> <span class="o">=</span> <span class="n">onCreatureAppear</span> <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="event-onhealthchange">
+<span id="id4"></span><h2>Event: onHealthChange<a class="headerlink" href="#event-onhealthchange" title="Link to this heading">#</a></h2>
+<p>Wywoływane gdy zdrowie gracza się zmienia.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onHealthChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localPlayer</span></code> <em>(LocalPlayer)</em> - lokalny gracz</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">health</span></code> <em>(number)</em> - aktualne zdrowie</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxHealth</span></code> <em>(number)</em> - maksymalne zdrowie</p></li>
+</ul>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onHealthChange</span><span class="p">(</span><span class="n">localPlayer</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">percent</span> <span class="o">=</span> <span class="nb">math.floor</span><span class="p">((</span><span class="n">health</span> <span class="o">/</span> <span class="n">maxHealth</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+    
+    <span class="c1">-- Aktualizacja UI</span>
+    <span class="n">updateHealthBar</span><span class="p">(</span><span class="n">percent</span><span class="p">)</span>
+    
+    <span class="c1">-- Ostrzeżenie o niskim zdrowiu</span>
+    <span class="kr">if</span> <span class="n">percent</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="kr">then</span>
+        <span class="n">playSound</span><span class="p">(</span><span class="s2">&quot;low_health_warning.ogg&quot;</span><span class="p">)</span>
+        <span class="n">showWarning</span><span class="p">(</span><span class="s2">&quot;Critical health!&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+    
+    <span class="c1">-- Automatyczne użycie potion</span>
+    <span class="kr">if</span> <span class="n">percent</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">hasHealthPotion</span><span class="p">()</span> <span class="kr">then</span>
+        <span class="n">useHealthPotion</span><span class="p">()</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">connect</span><span class="p">(</span><span class="n">LocalPlayer</span><span class="p">,</span> <span class="p">{</span> <span class="n">onHealthChange</span> <span class="o">=</span> <span class="n">onHealthChange</span> <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="event-ontextmessage">
+<span id="id5"></span><h2>Event: onTextMessage<a class="headerlink" href="#event-ontextmessage" title="Link to this heading">#</a></h2>
+<p>Wywoływane gdy gracz otrzymuje wiadomość tekstową.</p>
+<p><strong>Sygnatura</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onTextMessage</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parametry</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code> <em>(MessageMode)</em> - tryb wiadomości (np. MESSAGE_INFO_DESCR)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code> <em>(string)</em> - treść wiadomości</p></li>
+</ul>
+<p><strong>Przykład użycia</strong></p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onTextMessage</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="c1">-- Filtrowanie spamu</span>
+    <span class="kr">if</span> <span class="n">isSpam</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="kr">return</span> <span class="c1">-- Ignoruj</span>
+    <span class="kr">end</span>
+    
+    <span class="c1">-- Logowanie wiadomości</span>
+    <span class="n">logMessage</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    
+    <span class="c1">-- Specjalna obsługa dla niektórych typów</span>
+    <span class="kr">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">MessageModes</span><span class="p">.</span><span class="n">MessageInfoDescr</span> <span class="kr">then</span>
+        <span class="c1">-- Wiadomości systemowe</span>
+        <span class="n">addToConsole</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;#00FF00&quot;</span><span class="p">)</span>
+    <span class="kr">elseif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">MessageModes</span><span class="p">.</span><span class="n">MessagePrivateFrom</span> <span class="kr">then</span>
+        <span class="c1">-- Prywatne wiadomości</span>
+        <span class="n">showPrivateMessageNotification</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onTextMessage</span> <span class="o">=</span> <span class="n">onTextMessage</span> <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="zaawansowane-techniki">
+<span id="events-advanced"></span><h2>Zaawansowane techniki<a class="headerlink" href="#zaawansowane-techniki" title="Link to this heading">#</a></h2>
+<section id="event-priorities">
+<h3>Event priorities<a class="headerlink" href="#event-priorities" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Wysokie priorytety wykonywane jako pierwsze</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameStart</span> <span class="o">=</span> <span class="n">earlyHandler</span> <span class="p">},</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">-- high priority</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameStart</span> <span class="o">=</span> <span class="n">normalHandler</span> <span class="p">})</span>      <span class="c1">-- normal priority</span>
+</pre></div>
+</div>
+</section>
+<section id="event-cancellation">
+<h3>Event cancellation<a class="headerlink" href="#event-cancellation" title="Link to this heading">#</a></h3>
+<p>Niektóre eventy mogą być anulowane przez zwrócenie <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">onCreatureAppear</span><span class="p">(</span><span class="n">creature</span><span class="p">)</span>
+    <span class="c1">-- Filtruj niektóre stworzenia</span>
+    <span class="kr">if</span> <span class="n">shouldIgnoreCreature</span><span class="p">(</span><span class="n">creature</span><span class="p">)</span> <span class="kr">then</span>
+        <span class="kr">return</span> <span class="kc">false</span> <span class="c1">-- Anuluj dalsze przetwarzanie</span>
+    <span class="kr">end</span>
+    <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+</section>
+<section id="disconnect-patterns">
+<h3>Disconnect patterns<a class="headerlink" href="#disconnect-patterns" title="Link to this heading">#</a></h3>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Zachowanie referencji do callbacka</span>
+<span class="kd">local</span> <span class="n">myHandler</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span> <span class="kr">end</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameStart</span> <span class="o">=</span> <span class="n">myHandler</span> <span class="p">})</span>
+
+<span class="c1">-- Późniejsze odłączenie</span>
+<span class="n">disconnect</span><span class="p">(</span><span class="n">g_game</span><span class="p">,</span> <span class="p">{</span> <span class="n">onGameStart</span> <span class="o">=</span> <span class="n">myHandler</span> <span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cykl-zycia-zdarzen">
+<span id="events-lifecycle"></span><h2>Cykl życia zdarzeń<a class="headerlink" href="#cykl-zycia-zdarzen" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        sequenceDiagram
+    participant Source as Event Source
+    participant Dispatcher as Event Dispatcher
+    participant Handler1 as Handler 1 (high priority)
+    participant Handler2 as Handler 2 (normal priority)
+    
+    Source-&gt;&gt;Dispatcher: emit(event, params)
+    Dispatcher-&gt;&gt;Handler1: callback(params)
+    Handler1--&gt;&gt;Dispatcher: return true
+    Dispatcher-&gt;&gt;Handler2: callback(params)
+    Handler2--&gt;&gt;Dispatcher: return true
+    Dispatcher--&gt;&gt;Source: event complete
+    </pre></section>
+<section id="dobre-praktyki">
+<span id="events-best-practices"></span><h2>Dobre praktyki<a class="headerlink" href="#dobre-praktyki" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Cleanup</strong> - zawsze disconnect w <code class="docutils literal notranslate"><span class="pre">terminate()</span></code></p></li>
+<li><p><strong>Performance</strong> - unikaj ciężkich operacji w event handlerach</p></li>
+<li><p><strong>Error handling</strong> - owijaj w pcall dla bezpieczeństwa</p></li>
+<li><p><strong>Naming</strong> - używaj opisowych nazw dla handlerów</p></li>
+<li><p><strong>Documentation</strong> - dokumentuj parametry zdarzeń</p></li>
+</ol>
+</section>
+<section id="zobacz-tez">
+<span id="events-see-also"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="api.html"><span class="std std-doc">API Reference</span></a> - C++ API</p></li>
+<li><p><a class="reference internal" href="modules.html"><span class="std std-doc">Modules Reference</span></a> - system modułów</p></li>
+<li><p><a class="reference internal" href="../chapters/02_events.html"><span class="std std-doc">Chapter: Events</span></a> - pełna dokumentacja zdarzeń</p></li>
+<li><p><a class="reference internal" href="../examples/diagrams.html#diagram-event-flow"><span class="std std-ref">Examples: Diagrams</span></a> - diagram przepływu zdarzeń</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -342,6 +634,43 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przeglad-systemu-zdarzen">Przegląd systemu zdarzeń</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-zdarzen">Index zdarzeń</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-events">Game Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creature-events">Creature Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#player-events">Player Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-events">Text Events</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podlaczanie-zdarzen">Podłączanie zdarzeń</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowa-skladnia">Podstawowa składnia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-ongamestart">Event: onGameStart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-onlogin">Event: onLogin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-oncreatureappear">Event: onCreatureAppear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-onhealthchange">Event: onHealthChange</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-ontextmessage">Event: onTextMessage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zaawansowane-techniki">Zaawansowane techniki</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-priorities">Event priorities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-cancellation">Event cancellation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disconnect-patterns">Disconnect patterns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cykl-zycia-zdarzen">Cykl życia zdarzeń</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dobre-praktyki">Dobre praktyki</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

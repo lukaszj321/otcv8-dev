@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Przykład: CSV → tabela &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>Przykłady: CSV → tabele &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
   
   
   
@@ -301,7 +301,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Przykład: CSV → tabela</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Przykłady: CSV → tabele</span></li>
   </ul>
 </nav>
 </div>
@@ -318,10 +318,16 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="przyklad-csv-tabela">
-<h1>Przykład: CSV → tabela<a class="headerlink" href="#przyklad-csv-tabela" title="Link to this heading">#</a></h1>
+  <section id="przyklady-csv-tabele">
+<h1>Przykłady: CSV → tabele<a class="headerlink" href="#przyklady-csv-tabele" title="Link to this heading">#</a></h1>
+<section id="integracja-danych-csv">
+<span id="csv-overview"></span><h2>Integracja danych CSV<a class="headerlink" href="#integracja-danych-csv" title="Link to this heading">#</a></h2>
+<p>Dokumentacja OTClientV8 wspiera bezpośrednią integrację plików CSV, które są automatycznie renderowane jako tabele HTML.</p>
+</section>
+<section id="zaleznosci-modulow">
+<span id="csv-module-dependencies"></span><h2>Zależności modułów<a class="headerlink" href="#zaleznosci-modulow" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table" id="id1">
-<caption><span class="caption-text">Zależności modułów</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<caption><span class="caption-text">Zależności między modułami</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 30.0%" />
 <col style="width: 70.0%" />
@@ -354,6 +360,169 @@
 </table>
 </div>
 </section>
+<section id="statystyki-zdarzen">
+<span id="csv-events-stats"></span><h2>Statystyki zdarzeń<a class="headerlink" href="#statystyki-zdarzen" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table" id="id2">
+<caption><span class="caption-text">Zdarzenia systemowe</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Event Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Priority</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Event Name</p></td>
+<td><p>Description</p></td>
+<td><p>Frequency</p></td>
+<td><p>Priority</p></td>
+</tr>
+<tr class="row-odd"><td><p>onGameStart</p></td>
+<td><p>Fired when game session starts</p></td>
+<td><p>Once per session</p></td>
+<td><p>High</p></td>
+</tr>
+<tr class="row-even"><td><p>onGameEnd</p></td>
+<td><p>Fired when game session ends</p></td>
+<td><p>Once per session</p></td>
+<td><p>High</p></td>
+</tr>
+<tr class="row-odd"><td><p>onLogin</p></td>
+<td><p>Fired when player successfully logs in</p></td>
+<td><p>Once per login</p></td>
+<td><p>High</p></td>
+</tr>
+<tr class="row-even"><td><p>onLogout</p></td>
+<td><p>Fired when player logs out</p></td>
+<td><p>Once per logout</p></td>
+<td><p>Medium</p></td>
+</tr>
+<tr class="row-odd"><td><p>onTextMessage</p></td>
+<td><p>Fired when text message received</p></td>
+<td><p>Multiple per second</p></td>
+<td><p>Low</p></td>
+</tr>
+<tr class="row-even"><td><p>onCreatureAppear</p></td>
+<td><p>Fired when creature enters viewport</p></td>
+<td><p>Frequent</p></td>
+<td><p>Medium</p></td>
+</tr>
+<tr class="row-odd"><td><p>onCreatureDisappear</p></td>
+<td><p>Fired when creature leaves viewport</p></td>
+<td><p>Frequent</p></td>
+<td><p>Medium</p></td>
+</tr>
+<tr class="row-even"><td><p>onHealthChange</p></td>
+<td><p>Fired when player health changes</p></td>
+<td><p>Variable</p></td>
+<td><p>High</p></td>
+</tr>
+<tr class="row-odd"><td><p>onManaChange</p></td>
+<td><p>Fired when player mana changes</p></td>
+<td><p>Variable</p></td>
+<td><p>High</p></td>
+</tr>
+<tr class="row-even"><td><p>onPositionChange</p></td>
+<td><p>Fired when player position changes</p></td>
+<td><p>Frequent</p></td>
+<td><p>Medium</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="rozklad-typow-modulow">
+<span id="csv-module-stats"></span><h2>Rozkład typów modułów<a class="headerlink" href="#rozklad-typow-modulow" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table" id="id3">
+<caption><span class="caption-text">Statystyki modułów według typu</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module Type</p></th>
+<th class="head"><p>Count</p></th>
+<th class="head"><p>Percentage</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Module Type</p></td>
+<td><p>Count</p></td>
+<td><p>Percentage</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-odd"><td><p>Core</p></td>
+<td><p>5</p></td>
+<td><p>10%</p></td>
+<td><p>Core system modules</p></td>
+</tr>
+<tr class="row-even"><td><p>Game</p></td>
+<td><p>15</p></td>
+<td><p>30%</p></td>
+<td><p>Game mechanics modules</p></td>
+</tr>
+<tr class="row-odd"><td><p>UI</p></td>
+<td><p>20</p></td>
+<td><p>40%</p></td>
+<td><p>User interface modules</p></td>
+</tr>
+<tr class="row-even"><td><p>Bot</p></td>
+<td><p>8</p></td>
+<td><p>16%</p></td>
+<td><p>Bot and automation modules</p></td>
+</tr>
+<tr class="row-odd"><td><p>Utility</p></td>
+<td><p>2</p></td>
+<td><p>4%</p></td>
+<td><p>Utility and helper modules</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>:::note
+Pliki CSV są przechowywane w <code class="docutils literal notranslate"><span class="pre">docs/assets/samples/</span></code> i mogą być łatwo aktualizowane bez modyfikacji dokumentacji.
+:::</p>
+</section>
+<section id="jak-uzywac-csv-w-dokumentacji">
+<span id="csv-usage"></span><h2>Jak używać CSV w dokumentacji<a class="headerlink" href="#jak-uzywac-csv-w-dokumentacji" title="Link to this heading">#</a></h2>
+<p>Aby dodać tabelę CSV do dokumentacji, użyj dyrektywy <code class="docutils literal notranslate"><span class="pre">csv-table</span></code>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{csv-table} Tytuł tabeli
+:header: Kolumna1, Kolumna2
+:widths: 50, 50
+:file: ../assets/samples/your_file.csv
+:delim: ,
+```
+</pre></div>
+</div>
+</section>
+<section id="dobre-praktyki">
+<span id="csv-best-practices"></span><h2>Dobre praktyki<a class="headerlink" href="#dobre-praktyki" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Nagłówki</strong> - zawsze używaj wiersza nagłówkowego w CSV</p></li>
+<li><p><strong>Separatory</strong> - używaj przecinka (<code class="docutils literal notranslate"><span class="pre">,</span></code>) jako separatora</p></li>
+<li><p><strong>Encoding</strong> - pliki CSV powinny być w UTF-8</p></li>
+<li><p><strong>Szerokości</strong> - dostosuj <code class="docutils literal notranslate"><span class="pre">:widths:</span></code> do zawartości kolumn</p></li>
+<li><p><strong>Lokalizacja</strong> - przechowuj CSV w <code class="docutils literal notranslate"><span class="pre">docs/assets/samples/</span></code></p></li>
+</ol>
+</section>
+<section id="zobacz-tez">
+<span id="see-also-csv"></span><h2>Zobacz też<a class="headerlink" href="#zobacz-tez" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="diagrams.html"><span class="std std-doc">Diagramy</span></a> - wizualizacje graficzne</p></li>
+<li><p><a class="reference internal" href="../datasets/index.html"><span class="std std-doc">Datasets</span></a> - większe zbiory danych</p></li>
+<li><p><a class="reference internal" href="../chapters/03_modules.html"><span class="std std-doc">Moduły</span></a> - dokumentacja modułów</p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -375,6 +544,24 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integracja-danych-csv">Integracja danych CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zaleznosci-modulow">Zależności modułów</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statystyki-zdarzen">Statystyki zdarzeń</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rozklad-typow-modulow">Rozkład typów modułów</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jak-uzywac-csv-w-dokumentacji">Jak używać CSV w dokumentacji</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dobre-praktyki">Dobre praktyki</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
