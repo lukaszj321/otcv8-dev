@@ -1,10 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-# Przykłady: CSV → tabele
+# Przykład: CSV → tabela
 
 (csv-overview)=
 ## Integracja danych CSV
@@ -18,79 +12,6 @@ Dokumentacja OTClientV8 wspiera bezpośrednią integrację plików CSV, które s
 :header: Moduł, Zależy od
 :widths: 30, 70
 :file: ../assets/samples/deps.csv
-:delim: ,
-=======
-# CSV / Tabele / Snippety
-
-=======
-# CSV / Tabele / Snippety
-
->>>>>>> Stashed changes
-=======
-# CSV / Tabele / Snippety
-
->>>>>>> Stashed changes
-=======
-# CSV / Tabele / Snippety
-
->>>>>>> Stashed changes
-=======
-# CSV / Tabele / Snippety
-
->>>>>>> Stashed changes
-=======
-# CSV / Tabele / Snippety
-
->>>>>>> Stashed changes
-Przykładowa tabela w czystym Markdown:
-
-| Klucz          | Wartość         | Opis                           |
-|----------------|-----------------|--------------------------------|
-| `module.id`    | `skills.combo`  | Identyfikator modułu           |
-| `enabled`      | `true/false`    | Flaga włączenia                |
-| `cooldown_ms`  | `250`           | Czas odnowienia w milisekundach|
-
-Przykładowy fragment CSV (do analizy poza dokumentacją):
-
-```csv
-id,name,enabled,cooldown_ms
-1,skills.combo,true,250
-2,skills.heal,false,0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-```
-
-(csv-events-stats)=
-## Statystyki zdarzeń
-
-```{csv-table} Zdarzenia systemowe
-:header: Event Name, Description, Frequency, Priority
-:widths: 20, 40, 20, 20
-:file: ../assets/samples/events_example.csv
-:delim: ,
-```
-
-(csv-module-stats)=
-## Rozkład typów modułów
-
-```{csv-table} Statystyki modułów według typu
-:header: Module Type, Count, Percentage, Description
-:widths: 20, 15, 15, 50
-:file: ../assets/samples/modules_stats.csv
 :delim: ,
 ```
 
