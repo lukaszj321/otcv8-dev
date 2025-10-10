@@ -1,2 +1,5 @@
-Name,Category,Status,Maintainer,Notes
-Example Auto-Heal,PvE,alpha,dev@team,Triggers heal on threshold
+id,name,category,lang,status,description
+001,Auto-Heal,combat,lua,stable,Auto-casts heal based on HP thresholds
+002,Depot Organizer,utility,lua,wip,Sorts items into containers using rules
+003,HUD Stats,ui,lua,stable,Displays stats in overlay with metrics
+004,Route Planner,automation,lua,experimental,Generates paths with waypoints
