@@ -1,80 +1,39 @@
-# OTCv8 – Dokumentacja
+# Dokumentacja OTClientV8
 
-Poniżej **kategorie** i pełny spis treści generowany automatycznie. Wszystkie strony muszą być włączone do jednego z poniższych bloków `{toctree}` – wtedy pojawią się w bocznej nawigacji i w wyszukiwarce.
-
-> **Uwaga (dirhtml):** Linkuj bez `.html` (np. `/api/`, `/modules/structured/core/`).
-
----
-
-```{toctree}
+:::{toctree}
+:maxdepth: 2
 :caption: Wprowadzenie
+
+chapters/01_specyfikacja
+chapters/02_events
+chapters/03_modules
+chapters/04_ui
+chapters/05_assets
+chapters/06_network
+chapters/07_settings_crypto
+chapters/08_audio
+chapters/09_logging
+chapters/10_game_runtime
+:::
+
+:::{toctree}
 :maxdepth: 2
+:caption: Referencje (API / moduły / UI)
 
-cpp/overview
-README
-```
+reference/index
+:::
 
-```{toctree}
-:caption: API
+:::{toctree}
 :maxdepth: 2
-:glob:
+:caption: Przykłady / Wzorce
 
-api/*
-api/**/*
-```
+examples/diagrams
+examples/csv
+:::
 
-```{toctree}
-:caption: Dane / Specyfikacje
-:maxdepth: 2
-:glob:
-
-data/*
-```
-
-```{toctree}
-:caption: Moduły – Bot Tools
-:maxdepth: 2
-:glob:
-
-modules/structured/bot_tools/*
-```
-
-```{toctree}
-:caption: Moduły – Core
-:maxdepth: 2
-:glob:
-
-modules/structured/core/*
-```
-
-```{toctree}
-:caption: Moduły – Dev Tools
-:maxdepth: 2
-:glob:
-
-modules/structured/dev_tools/*
-```
-
-```{toctree}
-:caption: Moduły – Gameplay
-:maxdepth: 2
-:glob:
-
-modules/structured/gameplay/*
-```
-
-```{toctree}
-:caption: Pozostałe moduły (nie-structured)
-:maxdepth: 2
-:glob:
-
-modules/*
-```
-
-```{toctree}
-:caption: Załączniki / Inne
+:::{toctree}
 :maxdepth: 1
-:glob:
+:caption: Dane i zasoby
 
-*/*
-```
+datasets/index
+:::

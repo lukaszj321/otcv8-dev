@@ -156,3 +156,4 @@ pip-wheel-metadata/
 # Tools/IDEs
 .vscode/
 .idea/
+node_modules

@@ -1,12 +1,12 @@
 name: Build & Deploy Docs
-
 on:
   push:
-    branches: [ main ]   # <-- zmień jeśli masz inny branch domyślny
+    branches: [ master, main ]
+    paths:
+      - 'docs/**'
+      - 'data/**'
+      - '.github/workflows/docs.yml'
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   docs:
@@ -14,31 +14,38 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Python
+        with:
+          fetch-depth: 0
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
-      - name: Install dependencies
+          python-version: '3.x'
+      - name: Install deps
         run: |
-          python -m pip install --upgrade pip
-          if [ -f docs/requirements.txt ]; then
-            pip install -r docs/requirements.txt
-          elif [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            pip install sphinx myst-parser furo sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink
+          python -m pip install -U pip
+          pip install -r docs/requirements.txt
+      - name: Prepare data → docs/_static/data
+        run: |
+          if [ -d "data" ]; then
+            mkdir -p docs/_static/data
+            rsync -a --delete data/ docs/_static/data/
           fi
-
-      - name: Build Sphinx (dirhtml)
-        run: |
-          sphinx-build -b dirhtml docs docs/_build/html
-          touch docs/_build/html/.nojekyll
-
-      - name: Deploy to GitHub Pages
+      - name: Build HTML
+        run: sphinx-build -b html docs docs/_build/html
+      - name: Build JSON (RAG)
+        run: sphinx-build -b json docs docs/_build/json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: |
+            docs/_build/html
+            docs/_build/json
+      - name: Deploy to gh-pages
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_build/html
           publish_branch: gh-pages
+          publish_dir: docs/_build/html
+          force_orphan: true

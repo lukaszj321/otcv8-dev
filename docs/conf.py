@@ -1,102 +1,64 @@
-# docs/conf.py
-# -*- coding: utf-8 -*-
-
-import os
-from datetime import datetime
-
-# --- Podstawy projektu ---
-project = "OTCv8 Developer Documentation"
-author = "lukaszj321"
-current_year = datetime.now().year
-copyright = f"{current_year}, {author}"
+project = "OTClientV8 Dev Docs"
+author = "OTCV8 Team"
+version = "0.1"
+release = "0.1.0"
 language = "pl"
 
-# --- Rozszerzenia ---
 extensions = [
     "myst_parser",
-    "sphinx_copybutton",
     "sphinx_design",
-    "sphinx_sitemap",
-    "sphinxext.opengraph",
-    "sphinx_favicon",
     "sphinxcontrib.mermaid",
-    "sphinx_codeautolink",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.viewcode",
+    "sphinx_copybutton",
 ]
 
-# MyST (Markdown w Sphinx)
 myst_enable_extensions = [
     "colon_fence",
-    "linkify",
-    "attrs_block",
     "deflist",
+    "linkify",
+    "attrs",
+    "substitution",
     "tasklist",
+    "fieldlist",
 ]
-# automatyczne kotwice do H2/H3/H4
 myst_heading_anchors = 3
 
-# --- Wejście/wyjście dokumentów ---
-# Sphinx 7+: root_doc zamiast master_doc
-root_doc = "index"
-
-# Obsługuj zarówno .md jak i .rst (jeśli się trafią)
-source_suffix = {
-    ".md": "markdown",
-    ".rst": "restructuredtext",
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", {}),
+    "sphinx": ("https://www.sphinx-doc.org/en/master", {}),
 }
 
-# Wykluczamy śmieci, backupy i build
-exclude_patterns = [
-    "_build",
-    "Thumbs.db",
-    ".DS_Store",
-    "**/__md_backup_*",
-    "**/__md_backup_*/*",
-]
+templates_path = ["_templates"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-templates_path = ["_templates"]  # jeśli nie używasz, może zostać — Sphinx nie krzyczy
-
-# --- Motyw / front ---
-html_theme = "furo"
-html_title = "OTCv8 Dev Docs"
-
+html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
-html_css_files = ["custom.css"]  # docs/_static/custom.css
+html_css_files = ["css/custom.css"]
+html_logo = "_static/only-light/logo-light.svg"
+html_favicon = "_static/only-light/logo-light.svg"
 
-# Kolory składni
-pygments_style = "friendly"
-pygments_dark_style = "native"
-
-# Opcje motywu Furo (logotypy w docs/_static/img/)
 html_theme_options = {
-    "light_logo": "img/logo-light.svg",  # -> docs/_static/img/logo-light.svg
-    "dark_logo": "img/logo-dark.svg",    # -> docs/_static/img/logo-dark.svg
-    "sidebar_hide_name": True,
-    "announcement": "📣 Dev build dokumentacji (auto z CI).",
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/lukaszj321/otcv8-dev",
+            "icon": "fab fa-github",
+            "type": "fontawesome",
+        },
+    ],
+    "show_prev_next": True,
+    "header_links_before_dropdown": 8,
 }
 
-# --- GitHub Pages / sitemap / kanoniczne linki (ważne dla -b dirhtml) ---
-html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
-sitemap_url_scheme = "{link}"  # bez .html, poprawne URL-e w dirhtml
+def setup(app):
+    app.add_css_file("css/custom.css")
 
-# --- OpenGraph (ładne podglądy linków) ---
-ogp_site_url = "https://lukaszj321.github.io/otcv8-dev/"
-ogp_image = "https://lukaszj321.github.io/otcv8-dev/_static/cover.png"  # wgraj plik
-
-# --- Favicons (pliki w docs/_static/) ---
-favicons = [
-    {"rel": "icon", "href": "favicon.svg"},
-    # możesz dodać więcej wariantów jeśli chcesz
-]
-
-# --- Copybutton (pomija prompt w kopiowaniu) ---
-copybutton_prompt_text = r">>> |\.\.\. |\$ "
-copybutton_prompt_is_regexp = True
-
-# --- Mermaid (opcjonalnie jawna wersja runtime) ---
-mermaid_version = "10.9.1"
-
-# --- CodeAutoLink (basic, bez autodoc) ---
-codeautolink_autodoc_inject = False
-
-# --- Drobiazgi przydatne na Pages ---
-html_show_sphinx = False  # ukryj "Built with Sphinx"
+autosectionlabel_prefix_document = True
+nitpicky = False
+suppress_warnings = ["ref.ref", "myst.xref_missing"]

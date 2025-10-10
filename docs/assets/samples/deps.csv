@@ -1,0 +1,6 @@
+module,depends_on
+core,
+events,core
+modules,core
+audio,modules
+logging,modules
