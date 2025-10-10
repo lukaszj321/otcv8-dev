@@ -1,6 +1,5 @@
 # Przykład: CSV → tabela
 
-Dokumentacja OTClientV8 wspiera bezpośrednią integrację plików CSV, które są automatycznie renderowane jako tabele HTML.
 ```{csv-table} Zależności modułów
 :header: Moduł, Zależy od
 :widths: 30, 70
