@@ -1,0 +1,25 @@
+name: Sync API Docs
+
+on:
+  push:
+    branches: [ "master", "main" ]
+
+jobs:
+  sync-api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync API -> docs/api/external
+        run: |
+          mkdir -p docs/api/external/lua
+          cp -f api/otcv8-full-api.md docs/api/external/ || true
+          cp -f api/lua/luafunctions_client.md docs/api/external/lua/ || true
+      - name: Commit changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add docs/api/external
+            git commit -m "Sync API docs into docs/"
+            git push
+          fi
