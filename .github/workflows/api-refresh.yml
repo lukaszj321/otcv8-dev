@@ -1,0 +1,43 @@
+name: Refresh API Markdown
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz ripgrep python3
+
+      - name: Regenerate C++ API
+        run: bash scripts/gen_api_cpp.sh
+
+      - name: Regenerate Lua API
+        run: bash scripts/gen_api_lua.sh
+
+      - name: Commit changes (if any)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/api/external/*.md || true
+          if ! git diff --cached --quiet; then
+            git commit -m "docs(api): refresh API exports (Doxygen/Lua)"
+            git push
+          else
+            echo "No changes to commit."
+          fi
