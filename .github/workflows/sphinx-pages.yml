@@ -1,5 +1,6 @@
 # .github/workflows/sphinx-pages.yml
 name: Build & Deploy Docs (Sphinx) Page
+
 on:
   push:
     branches: [ main, master ]
@@ -29,17 +30,46 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          if [ -f docs/requirements.txt ]; then
-            pip install -r docs/requirements.txt
-          elif [ -f requirements.txt ]; then
-            pip install -r requirements.txt
+          set -e
+          python -m pip install --upgrade pip setuptools wheel
+          REQS=()
+          if [ -f docs/requirements.txt ]; then REQS+=(-r docs/requirements.txt); fi
+          if [ -f requirements.txt ]; then REQS+=(-r requirements.txt); fi
+
+          if [ ${#REQS[@]} -gt 0 ]; then
+            echo "Installing from: ${REQS[@]}"
+            pip install "${REQS[@]}"
           else
-            pip install sphinx myst-parser furo
+            echo "No requirements files found, installing defaults"
+            pip install \
+              sphinx==7.4.7 \
+              myst-parser>=4.0.1 \
+              pydata-sphinx-theme>=0.16.1 \
+              sphinx-copybutton>=0.5.2 \
+              sphinx-design>=0.6.0 \
+              sphinx-sitemap>=2.6.0 \
+              linkify-it-py>=2.0.2 \
+              sphinxext-opengraph>=0.9.1 \
+              sphinx-favicon>=1.0.1 \
+              sphinxcontrib-mermaid>=0.9.2 \
+              sphinx-codeautolink>=0.15.0 \
+              "sphinx-hoverxref>=1.4.2,<1.5"
           fi
+          python - <<'PY'
+import sphinx, sys
+print("Sphinx =", sphinx.__version__)
+try:
+    import pydata_sphinx_theme as t
+    print("pydata_sphinx_theme =", t.__version__)
+except Exception as e:
+    print("pydata_sphinx_theme NOT FOUND!", e)
+    sys.exit(2)
+PY
 
       - name: Build Sphinx
         run: |
+          set -e
+          rm -rf docs/_build  # unikamy "pickled environment not current"
           sphinx-build -b html docs docs/_build/html
           touch docs/_build/html/.nojekyll
 
