@@ -1,7 +1,21 @@
-name: Extract API (manual)1
+name: 1Extract & Commit API
 
 on:
   workflow_dispatch: {}
+  # (opcjonalnie) automatycznie po zmianach w kodzie / layoutach / schemas:
+  # push:
+  #   paths:
+  #     - "scripts/extract-api.mjs"
+  #     - "src/**/*.h"
+  #     - "src/**/*.hpp"
+  #     - "include/**/*.h"
+  #     - "include/**/*.hpp"
+  #     - "layouts/**/*"
+  #     - "schemas/**/*.json"
+  #     - "!docs/**"
+
+permissions:
+  contents: write  # potrzebne do commita przez GITHUB_TOKEN
 
 jobs:
   run:
@@ -9,24 +23,43 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0           # dla pewności przy commit/push
+          persist-credentials: true
 
-      - name: Node 18
+      - name: Setup Node 18 (ESM)
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Install deps
-        run: npm i glob@^10
+      - name: Install minimal deps for the script
+        run: |
+          npm i glob@^10
 
       - name: Generate API (MyST + schemas + manifest)
-        run: node scripts/extract-api.mjs --split-cpp
+        run: |
+          set -e
+          test -f scripts/extract-api.mjs || { echo "::error::Brak scripts/extract-api.mjs"; exit 1; }
+          node scripts/extract-api.mjs --split-cpp
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Verify outputs (fail if missing)
+        run: |
+          set -e
+          test -f docs/api/otcv8-full-api.md || { echo "::error::Nie powstał docs/api/otcv8-full-api.md"; exit 1; }
+          echo "== Lista wygenerowanych plików =="
+          ls -la docs/api || true
+          ls -la docs/api/schemas || true
+          ls -la docs/api/external/cpp || true
+          test -f docs/_data/_api_manifest.json || { echo "::warning::Brak manifestu (opcjonalny)"; }
+
+      - name: Auto-commit generated docs
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          name: api-docs
-          path: |
-            docs/api/otcv8-full-api.md
-            docs/api/schemas/*.md
-            docs/api/external/cpp/*.md
-            docs/_data/_api_manifest.json
+          commit_message: "chore(docs): auto-update API (otcv8-full-api + schemas + cpp)"
+          file_pattern: |
+            docs/api/**
+            docs/_data/**
+          push_options: --force-with-lease
+
+      - name: Done
+        run: echo "API wygenerowane i zacommitowane."
