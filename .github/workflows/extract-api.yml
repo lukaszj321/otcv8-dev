@@ -1,0 +1,32 @@
+name: Extract API (manual)1
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install deps
+        run: npm i glob@^10
+
+      - name: Generate API (MyST + schemas + manifest)
+        run: node scripts/extract-api.mjs --split-cpp
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-docs
+          path: |
+            docs/api/otcv8-full-api.md
+            docs/api/schemas/*.md
+            docs/api/external/cpp/*.md
+            docs/_data/_api_manifest.json

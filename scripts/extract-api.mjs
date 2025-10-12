@@ -6,7 +6,7 @@
  *  - MyST: {contents}, H2/H3/H4, kotwice
  *  - JSON Schema => docs/api/schemas/*.md + index
  *  - Lua: sygnatury M.fn(args) + komentarze LDoc/Emmy
- *  - C++: opcjonalny split per plik (--split-cpp)
+ *  - C++: obsługa wielolinijkowych prototypów + opcjonalny split per plik (--split-cpp)
  *  - Manifest do RAG: docs/_data/_api_manifest.json
  */
 
@@ -16,9 +16,7 @@ import { glob } from "glob";
 
 const argv = new Set(process.argv.slice(2));
 const SPLIT_CPP = argv.has("--split-cpp"); // per-file strony dla C++
-const MAX_DOC_PREVIEW = 200;
 
-// ===== KONFIG =====
 const OUT_MAIN = "docs/api/otcv8-full-api.md";
 const OUT_SCHEMAS_DIR = "docs/api/schemas";
 const OUT_SCHEMAS_INDEX = "docs/api/schemas/index.md";
@@ -26,9 +24,9 @@ const OUT_CPP_DIR = "docs/api/external/cpp"; // gdy --split-cpp
 const OUT_MANIFEST = "docs/_data/_api_manifest.json";
 
 // skanowane katalogi
-const LUA_GLOB = ["**/*.lua", "!**/node_modules/**", "!**/site/**"];
+const LUA_GLOB = ["**/*.lua", "!**/node_modules/**", "!**/site/**", "!**/build/**", "!**/dist/**"];
 const UI_GLOB = ["layouts/**/*.{otui,otml,txt}"];
-const WS_GLOB = ["**/*.{json,js,ts,tsx}", "!**/node_modules/**", "!**/site/**"];
+const WS_GLOB = ["**/*.{json,js,ts,tsx}", "!**/node_modules/**", "!**/site/**", "!**/build/**", "!**/dist/**"];
 const CPP_GLOB = ["include/**/*.{h,hpp,hxx}", "src/**/*.{h,hpp,hxx}"];
 
 const read = async f => { try { return await fs.readFile(f, "utf8"); } catch { return ""; } };
@@ -37,14 +35,14 @@ const uniq = a => [...new Set(a)].sort((x, y) => x.localeCompare(y));
 const esc = s => String(s ?? "").replace(/\|/g, "\\|").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 // MyST kotwice
-const slug = s => s
+const slug = s => String(s ?? "")
   .toLowerCase()
   .replace(/[`~!@#$%^&*()+=\[\]{}|\\;:'",.<>/?]/g, "")
   .replace(/\s+/g, "-")
   .replace(/-+/g, "-")
   .replace(/^-|-$/g, "");
 
-// =================== 1) LUA ===================
+/* =================== 1) LUA =================== */
 const luaFiles = await glob(LUA_GLOB, { nodir: true });
 const lua = {
   events: new Set(),
@@ -81,7 +79,7 @@ for (const f of luaFiles) {
   // globalne heurystycznie
   for (const m of t.matchAll(/\b([a-z][a-z0-9_]{2,})\s*\(/g)) {
     const n = m[1];
-    if (["if", "for", "and", "end", "then", "else", "not", "nil", "true", "false", "local", "return", "function", "print", "ctx"].includes(n)) continue;
+    if (["if", "for", "and", "end", "then", "else", "not", "nil", "true", "false", "local", "return", "function", "print", "ctx", "M"].includes(n)) continue;
     if (!n.startsWith("on")) lua.globals.add(n);
   }
 
@@ -89,14 +87,12 @@ for (const f of luaFiles) {
   for (const m of t.matchAll(/(?:(?:---[^\n]*\n)+)\s*function\s+([A-Za-z0-9_.:]+)\s*\(([^)]*)\)/g)) {
     const sym = m[1];
     const before = t.slice(0, m.index);
-    const doc = (before.match(/(---.*\n)+$/m) || [""])[0]
-      .replace(/^--- ?/gm, "")
-      .trim();
+    const doc = (before.match(/(---.*\n)+$/m) || [""])[0].replace(/^--- ?/gm, "").trim();
     if (doc) lua.docs.set(sym, doc);
   }
 }
 
-// =================== 2) OTUI ===================
+/* =================== 2) OTUI =================== */
 const uiFiles = await glob(UI_GLOB, { nodir: true });
 const ui = [];
 for (const f of uiFiles) {
@@ -107,7 +103,7 @@ for (const f of uiFiles) {
   }
 }
 
-// =================== 3) WS / JSON ===================
+/* =================== 3) WS / JSON =================== */
 const txtFiles = await glob(WS_GLOB, { nodir: true });
 const wsTypes = new Set();
 const wsSchemas = new Map(); // $id -> file
@@ -182,36 +178,47 @@ async function renderSchemas() {
   return items;
 }
 
-// =================== 4) C++ ===================
+/* =================== 4) C++ (wielolinijkowe prototypy) =================== */
 const hFiles = await glob(CPP_GLOB, { nodir: true });
 const cppByFile = new Map(); // file -> [{sig, brief}]
+
 for (const f of hFiles) {
   const t = await read(f); if (!t) continue;
-  const lines = t.split("\n");
-  for (let i = 0; i < lines.length; i++) {
-    const L = lines[i];
 
-    // prototyp: typ zwrotu + nazwa + (args) ;
-    const m = L.match(/^\s*([A-Za-z_][A-Za-z0-9_:<>*&\s]+?)\s+([A-Za-z_][A-Za-z0-9_:<>*&]*)\s*\(([^)]*)\)\s*;/);
-    if (m && !m[2].startsWith("operator")) {
-      let brief = "";
-      for (let j = i - 1; j >= 0 && j > i - 10; j--) {
-        const b = lines[j].trim();
-        if (/^(?:\/\*\*|\/\/\/|\*)/.test(b)) {
-          brief = (b.replace(/^\/\*\*?|\*+\/|^\* ?|^\/\/\/ ?/g, "") + "\n" + brief).trim();
-        } else if (b === "") {
-          continue;
-        } else break;
-      }
-      const sig = `${m[1].trim()} ${m[2]}(${m[3].trim()})`;
-      const list = cppByFile.get(f) || [];
-      list.push({ sig, brief });
-      cppByFile.set(f, list);
+  // prototyp dopasowany wielolinijkowo (do średnika), bez operatorów
+  const re = /(^|[\n\r])\s*(?:template\s*<[\s\S]*?>\s*)?((?:[A-Za-z_][\w:<>*&\s]+?)\s+([A-Za-z_][\w:<>*&]*))\s*\(([\s\S]*?)\)\s*;/g;
+  let m;
+  while ((m = re.exec(t)) !== null) {
+    const fullRetAndName = m[2].trim();
+    const name = m[3].trim();
+    if (name.startsWith("operator")) continue;
+
+    // odetnij ew. fałszywe trafienia na class/struct/enum/typedef/using/namespace
+    const headTok = fullRetAndName.split(/\s+/)[0];
+    if (/(class|struct|enum|typedef|using|namespace)\b/.test(headTok)) continue;
+
+    const args = m[4].replace(/\s+/g, " ").trim();
+    const sig = `${fullRetAndName}(${args})`;
+
+    // @brief powyżej sygnatury
+    const before = t.slice(0, m.index);
+    const linesBefore = before.split("\n");
+    let brief = "";
+    for (let j = linesBefore.length - 1, steps = 0; j >= 0 && steps < 12; j--, steps++) {
+      const b = linesBefore[j].trim();
+      if (/^(?:\/\*\*|\*|\/\/\/)/.test(b)) {
+        brief = (b.replace(/^\/\*\*?|\*+\/|^\* ?|^\/\/\/ ?/g, "") + "\n" + brief).trim();
+      } else if (b === "") continue;
+      else break;
     }
+
+    const list = cppByFile.get(f) || [];
+    list.push({ sig, brief });
+    cppByFile.set(f, list);
   }
 }
 
-// =================== RENDER MAIN ===================
+/* =================== RENDER MAIN =================== */
 const out = [];
 const manifest = {
   generatedAt: new Date().toISOString(),
@@ -270,8 +277,8 @@ if (lua.globals.size) {
 if (lua.docs.size) {
   out.push(`### 1.5. Komentarze LDoc/EmmyLua (wyciąg)`);
   for (const [sym, doc] of [...lua.docs.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
-    const short = doc.replace(/\n+/g, " ").slice(0, MAX_DOC_PREVIEW);
-    out.push(`- \`${sym}()\` — ${short}${doc.length > MAX_DOC_PREVIEW ? "…" : ""}`);
+    const short = doc.replace(/\n+/g, " ").slice(0, 200);
+    out.push(`- \`${sym}()\` — ${short}${doc.length > 200 ? "…" : ""}`);
   }
   out.push("");
 }
@@ -352,7 +359,7 @@ if (!cppByFile.size) {
     idx.push({ title, md: outPath });
   }
   // indeks w głównym pliku
-  out.push("```{toctree}\n:maxdepth: 1");
+  out.push("```{toctree}\n:maxdepth: 1\n");
   for (const item of idx) {
     out.push(path.relative("docs", item.md).replace(/\\/g, "/").replace(/^docs\//, ""));
   }
@@ -362,7 +369,7 @@ if (!cppByFile.size) {
 
 // -------- Uwaga + linki --------
 out.push(`## 5. Uwaga`);
-out.push("- Jeśli czegoś brakuje: doprecyzuj wzorce w **tym skrypcie** (sekcje regexów).");
+out.push("- Jeśli czegoś brakuje: doprecyzuj regexy w **tym skrypcie** (sekcje regexów).");
 out.push(`- Dodaj JSON Schema do \`schemas/ws/*.schema.json\` — wygenerują się automatycznie jako strony w \`${OUT_SCHEMAS_DIR}\`.`);
 out.push("");
 
