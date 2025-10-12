@@ -9,7 +9,7 @@ To jest opisowa dokumentacja interfejsu OTClient/OTUI. Pliki źródłowe:
 UIopis/ui_otclient_v_8_addendum_import_z_lua_stringow_auto_strict_goldeny_expanded
 UIopis/ui_otclient_v_8_specyfikacja_ui
 UIopis/ui_presety_kanoniczne_otui_ts_otc_core
-UIopis/ui_specyfikacja_parsera_serializer
+UIopis/ui_specyfikacja_parsera_serializera_OTUI_otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna
 ```
 
 :::{admonition} Wyświetlanie bloków OTUI
