@@ -1,4 +1,3 @@
-# .github/workflows/sphinx-pages.yml
 name: Build & Deploy Docs (Sphinx) Page
 
 on:
@@ -6,7 +5,9 @@ on:
     branches: [ main, master ]
     paths:
       - 'docs/**'
-      - 'scripts/extract-api.mjs'
+      - 'scripts/**'
+      - 'src/**'
+      - 'include/**'
       - '.github/workflows/sphinx-pages.yml'
   workflow_dispatch:
 
@@ -23,48 +24,92 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # Python do Sphinx
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      # --- Python (Sphinx) ---
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      # Node do uruchomienia scripts/extract-api.mjs (jeśli jest)
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Python dependencies
+      - name: Install Sphinx deps
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then
             pip install -r docs/requirements.txt
-            # Upewnij się, że motyw jest NA PEWNO zainstalowany
-            pip install --upgrade "pydata-sphinx-theme>=0.16.1"
           elif [ -f requirements.txt ]; then
             pip install -r requirements.txt
-            pip install --upgrade "pydata-sphinx-theme>=0.16.1"
           else
-            pip install "sphinx>=7.4.7" "myst-parser>=4.0.1" "pydata-sphinx-theme>=0.16.1"
+            pip install sphinx myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design
           fi
 
-      - name: Install Node deps for extractor (optional)
-        if: ${{ hashFiles('scripts/extract-api.mjs') != '' }}
-        run: |
-          npm init -y >/dev/null 2>&1 || true
-          # extract-api.mjs używa 'glob'
-          npm i --no-save glob@^10
+      # --- Node (extract-api.mjs) ---
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Generate API docs (optional)
-        if: ${{ hashFiles('scripts/extract-api.mjs') != '' }}
+      - name: Install Node deps for extract scripts
         run: |
-          # spróbuj pełnego splitu C++; jak nie, fallback bez splitu
-          node scripts/extract-api.mjs --split-cpp || node scripts/extract-api.mjs
+          if [ -f package.json ]; then
+            npm ci
+          else
+            npm init -y >/dev/null 2>&1
+            npm i glob >/dev/null 2>&1
+          fi
 
+      # --- Doxygen (C++ -> XML) ---
+      - name: Install Doxygen & Graphviz
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz
+
+      - name: Ensure Doxyfile (XML -> .doxygen/xml)
+        run: |
+          # jeśli nie ma Doxyfile, wygeneruj
+          if [ ! -f Doxyfile ]; then
+            doxygen -g Doxyfile
+          fi
+
+          # OUTPUT/XML: .doxygen/xml
+          sed -i 's|^#\? *OUTPUT_DIRECTORY .*|OUTPUT_DIRECTORY = .doxygen|' Doxyfile
+          sed -i 's|^#\? *GENERATE_XML .*|GENERATE_XML = YES|' Doxyfile
+          sed -i 's|^#\? *XML_OUTPUT .*|XML_OUTPUT = xml|' Doxyfile
+
+          # źródła i rekursja
+          if grep -qE '^#? *INPUT *=' Doxyfile; then
+            sed -i 's|^#\? *INPUT .*|INPUT = src include|' Doxyfile
+          else
+            echo 'INPUT = src include' >> Doxyfile
+          fi
+          sed -i 's|^#\? *RECURSIVE .*|RECURSIVE = YES|' Doxyfile
+
+          # trochę rozsądnych flag (bez HTML, szybciej)
+          sed -i 's|^#\? *GENERATE_HTML .*|GENERATE_HTML = NO|' Doxyfile
+          sed -i 's|^#\? *EXTRACT_ALL .*|EXTRACT_ALL = YES|' Doxyfile
+          sed -i 's|^#\? *QUIET .*|QUIET = YES|' Doxyfile
+
+      # --- API extraction (Lua/OTUI/WS + C++ via Doxygen) ---
+      - name: Run extract-api (JS)
+        run: |
+          # preferowany skrypt
+          if [ -f scripts/extract-api.mjs ]; then
+            node scripts/extract-api.mjs --split-cpp
+          # fallback, jeśli repo ma alternatywną nazwę
+          elif [ -f scripts/scripts_extract-api.mjs ]; then
+            node scripts/scripts_extract-api.mjs --split-cpp
+          else
+            echo "::warning ::Brak scripts/extract-api.mjs (ani scripts/scripts_extract-api.mjs) – pomijam ten krok."
+          fi
+
+      - name: Generate C++ API (Doxygen -> Markdown)
+        run: |
+          if [ -f scripts/gen_api_cpp.sh ]; then
+            chmod +x scripts/gen_api_cpp.sh
+            bash scripts/gen_api_cpp.sh
+          else
+            echo "::warning ::Brak scripts/gen_api_cpp.sh – pomijam ten krok."
+          fi
+
+      # --- Build Sphinx ---
       - name: Build Sphinx
         run: |
           sphinx-build -b html docs docs/_build/html
