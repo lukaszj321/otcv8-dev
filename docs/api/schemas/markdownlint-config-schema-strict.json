@@ -1,0 +1,142 @@
+(markdownlint-configuration-schema)=
+# markdownlint configuration schema
+**$id:** `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json`
+
+
+## Properties
+
+| name | type | description | enum | pattern | default | required |
+|---|---|---|---|---|---|---|
+| `$schema` | string | JSON Schema URI (expected by some editors) |  |  | `"https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema.json"` | no |
+| `default` | boolean | Default state for all rules |  |  | `true` | no |
+| `extends` | string \| null | Path to configuration file to extend |  |  | `null` | no |
+| `MD001` | boolean | MD001/heading-increment : Heading levels should only increment by one level at a time : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md001.md |  |  | `true` | no |
+| `heading-increment` | boolean | MD001/heading-increment : Heading levels should only increment by one level at a time : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md001.md |  |  | `true` | no |
+| `MD003` | boolean \| object | MD003/heading-style : Heading style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md003.md |  |  | `true` | no |
+| `heading-style` | boolean \| object | MD003/heading-style : Heading style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md003.md |  |  | `true` | no |
+| `MD004` | boolean \| object | MD004/ul-style : Unordered list style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md004.md |  |  | `true` | no |
+| `ul-style` | boolean \| object | MD004/ul-style : Unordered list style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md004.md |  |  | `true` | no |
+| `MD005` | boolean | MD005/list-indent : Inconsistent indentation for list items at the same level : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md005.md |  |  | `true` | no |
+| `list-indent` | boolean | MD005/list-indent : Inconsistent indentation for list items at the same level : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md005.md |  |  | `true` | no |
+| `MD007` | boolean \| object | MD007/ul-indent : Unordered list indentation : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md007.md |  |  | `true` | no |
+| `ul-indent` | boolean \| object | MD007/ul-indent : Unordered list indentation : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md007.md |  |  | `true` | no |
+| `MD009` | boolean \| object | MD009/no-trailing-spaces : Trailing spaces : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md |  |  | `true` | no |
+| `no-trailing-spaces` | boolean \| object | MD009/no-trailing-spaces : Trailing spaces : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md009.md |  |  | `true` | no |
+| `MD010` | boolean \| object | MD010/no-hard-tabs : Hard tabs : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md010.md |  |  | `true` | no |
+| `no-hard-tabs` | boolean \| object | MD010/no-hard-tabs : Hard tabs : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md010.md |  |  | `true` | no |
+| `MD011` | boolean | MD011/no-reversed-links : Reversed link syntax : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md011.md |  |  | `true` | no |
+| `no-reversed-links` | boolean | MD011/no-reversed-links : Reversed link syntax : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md011.md |  |  | `true` | no |
+| `MD012` | boolean \| object | MD012/no-multiple-blanks : Multiple consecutive blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md012.md |  |  | `true` | no |
+| `no-multiple-blanks` | boolean \| object | MD012/no-multiple-blanks : Multiple consecutive blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md012.md |  |  | `true` | no |
+| `MD013` | boolean \| object | MD013/line-length : Line length : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md013.md |  |  | `true` | no |
+| `line-length` | boolean \| object | MD013/line-length : Line length : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md013.md |  |  | `true` | no |
+| `MD014` | boolean | MD014/commands-show-output : Dollar signs used before commands without showing output : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md014.md |  |  | `true` | no |
+| `commands-show-output` | boolean | MD014/commands-show-output : Dollar signs used before commands without showing output : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md014.md |  |  | `true` | no |
+| `MD018` | boolean | MD018/no-missing-space-atx : No space after hash on atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md018.md |  |  | `true` | no |
+| `no-missing-space-atx` | boolean | MD018/no-missing-space-atx : No space after hash on atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md018.md |  |  | `true` | no |
+| `MD019` | boolean | MD019/no-multiple-space-atx : Multiple spaces after hash on atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md019.md |  |  | `true` | no |
+| `no-multiple-space-atx` | boolean | MD019/no-multiple-space-atx : Multiple spaces after hash on atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md019.md |  |  | `true` | no |
+| `MD020` | boolean | MD020/no-missing-space-closed-atx : No space inside hashes on closed atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md020.md |  |  | `true` | no |
+| `no-missing-space-closed-atx` | boolean | MD020/no-missing-space-closed-atx : No space inside hashes on closed atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md020.md |  |  | `true` | no |
+| `MD021` | boolean | MD021/no-multiple-space-closed-atx : Multiple spaces inside hashes on closed atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md021.md |  |  | `true` | no |
+| `no-multiple-space-closed-atx` | boolean | MD021/no-multiple-space-closed-atx : Multiple spaces inside hashes on closed atx style heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md021.md |  |  | `true` | no |
+| `MD022` | boolean \| object | MD022/blanks-around-headings : Headings should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md022.md |  |  | `true` | no |
+| `blanks-around-headings` | boolean \| object | MD022/blanks-around-headings : Headings should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md022.md |  |  | `true` | no |
+| `MD023` | boolean | MD023/heading-start-left : Headings must start at the beginning of the line : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md023.md |  |  | `true` | no |
+| `heading-start-left` | boolean | MD023/heading-start-left : Headings must start at the beginning of the line : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md023.md |  |  | `true` | no |
+| `MD024` | boolean \| object | MD024/no-duplicate-heading : Multiple headings with the same content : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md024.md |  |  | `true` | no |
+| `no-duplicate-heading` | boolean \| object | MD024/no-duplicate-heading : Multiple headings with the same content : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md024.md |  |  | `true` | no |
+| `MD025` | boolean \| object | MD025/single-title/single-h1 : Multiple top-level headings in the same document : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md025.md |  |  | `true` | no |
+| `single-title` | boolean \| object | MD025/single-title/single-h1 : Multiple top-level headings in the same document : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md025.md |  |  | `true` | no |
+| `single-h1` | boolean \| object | MD025/single-title/single-h1 : Multiple top-level headings in the same document : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md025.md |  |  | `true` | no |
+| `MD026` | boolean \| object | MD026/no-trailing-punctuation : Trailing punctuation in heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md026.md |  |  | `true` | no |
+| `no-trailing-punctuation` | boolean \| object | MD026/no-trailing-punctuation : Trailing punctuation in heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md026.md |  |  | `true` | no |
+| `MD027` | boolean \| object | MD027/no-multiple-space-blockquote : Multiple spaces after blockquote symbol : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md027.md |  |  | `true` | no |
+| `no-multiple-space-blockquote` | boolean \| object | MD027/no-multiple-space-blockquote : Multiple spaces after blockquote symbol : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md027.md |  |  | `true` | no |
+| `MD028` | boolean | MD028/no-blanks-blockquote : Blank line inside blockquote : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md028.md |  |  | `true` | no |
+| `no-blanks-blockquote` | boolean | MD028/no-blanks-blockquote : Blank line inside blockquote : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md028.md |  |  | `true` | no |
+| `MD029` | boolean \| object | MD029/ol-prefix : Ordered list item prefix : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md029.md |  |  | `true` | no |
+| `ol-prefix` | boolean \| object | MD029/ol-prefix : Ordered list item prefix : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md029.md |  |  | `true` | no |
+| `MD030` | boolean \| object | MD030/list-marker-space : Spaces after list markers : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md030.md |  |  | `true` | no |
+| `list-marker-space` | boolean \| object | MD030/list-marker-space : Spaces after list markers : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md030.md |  |  | `true` | no |
+| `MD031` | boolean \| object | MD031/blanks-around-fences : Fenced code blocks should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md031.md |  |  | `true` | no |
+| `blanks-around-fences` | boolean \| object | MD031/blanks-around-fences : Fenced code blocks should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md031.md |  |  | `true` | no |
+| `MD032` | boolean | MD032/blanks-around-lists : Lists should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md032.md |  |  | `true` | no |
+| `blanks-around-lists` | boolean | MD032/blanks-around-lists : Lists should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md032.md |  |  | `true` | no |
+| `MD033` | boolean \| object | MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md033.md |  |  | `true` | no |
+| `no-inline-html` | boolean \| object | MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md033.md |  |  | `true` | no |
+| `MD034` | boolean | MD034/no-bare-urls : Bare URL used : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md034.md |  |  | `true` | no |
+| `no-bare-urls` | boolean | MD034/no-bare-urls : Bare URL used : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md034.md |  |  | `true` | no |
+| `MD035` | boolean \| object | MD035/hr-style : Horizontal rule style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md035.md |  |  | `true` | no |
+| `hr-style` | boolean \| object | MD035/hr-style : Horizontal rule style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md035.md |  |  | `true` | no |
+| `MD036` | boolean \| object | MD036/no-emphasis-as-heading : Emphasis used instead of a heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md036.md |  |  | `true` | no |
+| `no-emphasis-as-heading` | boolean \| object | MD036/no-emphasis-as-heading : Emphasis used instead of a heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md036.md |  |  | `true` | no |
+| `MD037` | boolean | MD037/no-space-in-emphasis : Spaces inside emphasis markers : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md037.md |  |  | `true` | no |
+| `no-space-in-emphasis` | boolean | MD037/no-space-in-emphasis : Spaces inside emphasis markers : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md037.md |  |  | `true` | no |
+| `MD038` | boolean | MD038/no-space-in-code : Spaces inside code span elements : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md038.md |  |  | `true` | no |
+| `no-space-in-code` | boolean | MD038/no-space-in-code : Spaces inside code span elements : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md038.md |  |  | `true` | no |
+| `MD039` | boolean | MD039/no-space-in-links : Spaces inside link text : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md039.md |  |  | `true` | no |
+| `no-space-in-links` | boolean | MD039/no-space-in-links : Spaces inside link text : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md039.md |  |  | `true` | no |
+| `MD040` | boolean \| object | MD040/fenced-code-language : Fenced code blocks should have a language specified : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md040.md |  |  | `true` | no |
+| `fenced-code-language` | boolean \| object | MD040/fenced-code-language : Fenced code blocks should have a language specified : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md040.md |  |  | `true` | no |
+| `MD041` | boolean \| object | MD041/first-line-heading/first-line-h1 : First line in a file should be a top-level heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md041.md |  |  | `true` | no |
+| `first-line-heading` | boolean \| object | MD041/first-line-heading/first-line-h1 : First line in a file should be a top-level heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md041.md |  |  | `true` | no |
+| `first-line-h1` | boolean \| object | MD041/first-line-heading/first-line-h1 : First line in a file should be a top-level heading : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md041.md |  |  | `true` | no |
+| `MD042` | boolean | MD042/no-empty-links : No empty links : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md042.md |  |  | `true` | no |
+| `no-empty-links` | boolean | MD042/no-empty-links : No empty links : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md042.md |  |  | `true` | no |
+| `MD043` | boolean \| object | MD043/required-headings : Required heading structure : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md043.md |  |  | `true` | no |
+| `required-headings` | boolean \| object | MD043/required-headings : Required heading structure : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md043.md |  |  | `true` | no |
+| `MD044` | boolean \| object | MD044/proper-names : Proper names should have the correct capitalization : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md044.md |  |  | `true` | no |
+| `proper-names` | boolean \| object | MD044/proper-names : Proper names should have the correct capitalization : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md044.md |  |  | `true` | no |
+| `MD045` | boolean | MD045/no-alt-text : Images should have alternate text (alt text) : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md045.md |  |  | `true` | no |
+| `no-alt-text` | boolean | MD045/no-alt-text : Images should have alternate text (alt text) : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md045.md |  |  | `true` | no |
+| `MD046` | boolean \| object | MD046/code-block-style : Code block style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md046.md |  |  | `true` | no |
+| `code-block-style` | boolean \| object | MD046/code-block-style : Code block style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md046.md |  |  | `true` | no |
+| `MD047` | boolean | MD047/single-trailing-newline : Files should end with a single newline character : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md047.md |  |  | `true` | no |
+| `single-trailing-newline` | boolean | MD047/single-trailing-newline : Files should end with a single newline character : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md047.md |  |  | `true` | no |
+| `MD048` | boolean \| object | MD048/code-fence-style : Code fence style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md048.md |  |  | `true` | no |
+| `code-fence-style` | boolean \| object | MD048/code-fence-style : Code fence style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md048.md |  |  | `true` | no |
+| `MD049` | boolean \| object | MD049/emphasis-style : Emphasis style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md049.md |  |  | `true` | no |
+| `emphasis-style` | boolean \| object | MD049/emphasis-style : Emphasis style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md049.md |  |  | `true` | no |
+| `MD050` | boolean \| object | MD050/strong-style : Strong style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md050.md |  |  | `true` | no |
+| `strong-style` | boolean \| object | MD050/strong-style : Strong style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md050.md |  |  | `true` | no |
+| `MD051` | boolean \| object | MD051/link-fragments : Link fragments should be valid : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md051.md |  |  | `true` | no |
+| `link-fragments` | boolean \| object | MD051/link-fragments : Link fragments should be valid : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md051.md |  |  | `true` | no |
+| `MD052` | boolean \| object | MD052/reference-links-images : Reference links and images should use a label that is defined : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md052.md |  |  | `true` | no |
+| `reference-links-images` | boolean \| object | MD052/reference-links-images : Reference links and images should use a label that is defined : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md052.md |  |  | `true` | no |
+| `MD053` | boolean \| object | MD053/link-image-reference-definitions : Link and image reference definitions should be needed : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md053.md |  |  | `true` | no |
+| `link-image-reference-definitions` | boolean \| object | MD053/link-image-reference-definitions : Link and image reference definitions should be needed : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md053.md |  |  | `true` | no |
+| `MD054` | boolean \| object | MD054/link-image-style : Link and image style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md054.md |  |  | `true` | no |
+| `link-image-style` | boolean \| object | MD054/link-image-style : Link and image style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md054.md |  |  | `true` | no |
+| `MD055` | boolean \| object | MD055/table-pipe-style : Table pipe style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md055.md |  |  | `true` | no |
+| `table-pipe-style` | boolean \| object | MD055/table-pipe-style : Table pipe style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md055.md |  |  | `true` | no |
+| `MD056` | boolean | MD056/table-column-count : Table column count : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md056.md |  |  | `true` | no |
+| `table-column-count` | boolean | MD056/table-column-count : Table column count : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md056.md |  |  | `true` | no |
+| `MD058` | boolean | MD058/blanks-around-tables : Tables should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md058.md |  |  | `true` | no |
+| `blanks-around-tables` | boolean | MD058/blanks-around-tables : Tables should be surrounded by blank lines : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md058.md |  |  | `true` | no |
+| `MD059` | boolean \| object | MD059/descriptive-link-text : Link text should be descriptive : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md059.md |  |  | `true` | no |
+| `descriptive-link-text` | boolean \| object | MD059/descriptive-link-text : Link text should be descriptive : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md059.md |  |  | `true` | no |
+| `headings` | boolean | headings : MD001, MD003, MD018, MD019, MD020, MD021, MD022, MD023, MD024, MD025, MD026, MD036, MD041, MD043 |  |  | `true` | no |
+| `bullet` | boolean | bullet : MD004, MD005, MD007, MD032 |  |  | `true` | no |
+| `ul` | boolean | ul : MD004, MD005, MD007, MD030, MD032 |  |  | `true` | no |
+| `indentation` | boolean | indentation : MD005, MD007, MD027 |  |  | `true` | no |
+| `whitespace` | boolean | whitespace : MD009, MD010, MD012, MD027, MD028, MD030, MD037, MD038, MD039 |  |  | `true` | no |
+| `hard_tab` | boolean | hard_tab : MD010 |  |  | `true` | no |
+| `links` | boolean | links : MD011, MD034, MD039, MD042, MD051, MD052, MD053, MD054, MD059 |  |  | `true` | no |
+| `blank_lines` | boolean | blank_lines : MD012, MD022, MD031, MD032, MD047 |  |  | `true` | no |
+| `line_length` | boolean | line_length : MD013 |  |  | `true` | no |
+| `code` | boolean | code : MD014, MD031, MD038, MD040, MD046, MD048 |  |  | `true` | no |
+| `atx` | boolean | atx : MD018, MD019 |  |  | `true` | no |
+| `spaces` | boolean | spaces : MD018, MD019, MD020, MD021, MD023 |  |  | `true` | no |
+| `atx_closed` | boolean | atx_closed : MD020, MD021 |  |  | `true` | no |
+| `blockquote` | boolean | blockquote : MD027, MD028 |  |  | `true` | no |
+| `ol` | boolean | ol : MD029, MD030, MD032 |  |  | `true` | no |
+| `html` | boolean | html : MD033 |  |  | `true` | no |
+| `url` | boolean | url : MD034 |  |  | `true` | no |
+| `hr` | boolean | hr : MD035 |  |  | `true` | no |
+| `emphasis` | boolean | emphasis : MD036, MD037, MD049, MD050 |  |  | `true` | no |
+| `language` | boolean | language : MD040 |  |  | `true` | no |
+| `spelling` | boolean | spelling : MD044 |  |  | `true` | no |
+| `accessibility` | boolean | accessibility : MD045, MD059 |  |  | `true` | no |
+| `images` | boolean | images : MD045, MD052, MD053, MD054 |  |  | `true` | no |
+| `table` | boolean | table : MD055, MD056, MD058 |  |  | `true` | no |
