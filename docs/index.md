@@ -12,6 +12,8 @@ title: OTClientV8 – Dokumentacja
 overview/getting_started
 dashboard/index
 api/index
+modules/index
+ui/index
 rag/index
 ```
 
@@ -29,7 +31,9 @@ OTClientV8 to nowoczesny klient i framework skryptowy (Lua/C++) z bogatym zestaw
 ## Start
 
 - **Szybki start** → {doc}`overview/getting_started`
-- **API (auto + surowe)** → {doc}`api/index`
+- **API (surowe)** → {doc}`api/index`
+- **Moduły** → {doc}`modules/index`
+- **UI (OTUI)** → {doc}`ui/index`
 - **RAG / wyszukiwarka semantyczna** → {doc}`rag/index`
 - **Dashboard** → {doc}`dashboard/index`
 
@@ -58,3 +62,4 @@ Poniżej przykładowa tabela (CSV) wczytywana podczas builda:
 :file: _data/modules.csv
 :widths: 20, 60, 20
 ```
+---

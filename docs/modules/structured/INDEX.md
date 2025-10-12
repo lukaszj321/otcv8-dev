@@ -1,3 +1,14 @@
+```{toctree}
+:hidden:
+:maxdepth: 1
+:glob:
+
+./core/*
+./dev_tools/*
+./gameplay/*
+./bot_tools/*
+```
+
 # Modules - structured
 *This file was generated automatically.*
 # Contents
@@ -81,4 +92,3 @@
 - **game_viplist** → ./gameplay/modul-game_viplist.md
 - **game_walking** → ./gameplay/modul-game_walking.md
 - **updater** → ./dev_tools/modul-updater.md
-
