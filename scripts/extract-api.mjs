@@ -1,89 +1,101 @@
 #!/usr/bin/env node
 /**
- * OTCv8 – AUTO pełne API z repo → docs/api/otcv8-full-api.md (+ schemas, manifest)
- * Rozszerzenia:
- *  - pełne listy (bez obcinania)
- *  - MyST: {contents}, H2/H3/H4, kotwice
- *  - JSON Schema => docs/api/schemas/*.md + index
- *  - Lua: sygnatury M.fn(args) + komentarze LDoc/Emmy
- *  - C++: obsługa wielolinijkowych prototypów + opcjonalny split per plik (--split-cpp)
- *  - Manifest do RAG: docs/_data/_api_manifest.json
+ * OTCv8 - pełny ekstraktor API → docs/api/otcv8-full-api.md (+schemas, C++ split, manifest)
+ * Cel: być co najmniej tak szczegółowym jak poprzedni external/otcv8-full-api.md
+ * i do tego generować linki/sekcje z kotwicami MyST, indeksy oraz strony schematów JSON.
+ *
+ * Uruchamianie:
+ *   node scripts/extract-api.mjs            # główny plik + indeks schematów
+ *   node scripts/extract-api.mjs --split-cpp  # dodatkowo per-plik C++ w docs/api/external/cpp
+ *
+ * Wymagania: Node 18+, glob (ESM), uprawnienia zapisu w docs/
  */
-
 import fs from "fs/promises";
 import path from "path";
 import { glob } from "glob";
 
 const argv = new Set(process.argv.slice(2));
-const SPLIT_CPP = argv.has("--split-cpp"); // per-file strony dla C++
+const SPLIT_CPP = argv.has("--split-cpp");
+const MAX_DOC_PREVIEW = 400;
 
+// ===== ŚCIEŻKI WYJŚCIOWE =====
 const OUT_MAIN = "docs/api/otcv8-full-api.md";
 const OUT_SCHEMAS_DIR = "docs/api/schemas";
 const OUT_SCHEMAS_INDEX = "docs/api/schemas/index.md";
-const OUT_CPP_DIR = "docs/api/external/cpp"; // gdy --split-cpp
+const OUT_CPP_DIR = "docs/api/external/cpp";
+const OUT_CPP_INDEX = "docs/api/external/cpp/index.md";
 const OUT_MANIFEST = "docs/_data/_api_manifest.json";
 
-// skanowane katalogi
-const LUA_GLOB = ["**/*.lua", "!**/node_modules/**", "!**/site/**", "!**/build/**", "!**/dist/**"];
+// ===== ZESTAW GLOBÓW =====
+const LUA_GLOB = ["**/*.lua", "!**/node_modules/**", "!**/site/**", "!**/_build/**"];
 const UI_GLOB = ["layouts/**/*.{otui,otml,txt}"];
-const WS_GLOB = ["**/*.{json,js,ts,tsx}", "!**/node_modules/**", "!**/site/**", "!**/build/**", "!**/dist/**"];
+const WS_GLOB = ["**/*.{json,js,ts,tsx}", "!**/node_modules/**", "!**/site/**", "!**/_build/**"];
 const CPP_GLOB = ["include/**/*.{h,hpp,hxx}", "src/**/*.{h,hpp,hxx}"];
 
-const read = async f => { try { return await fs.readFile(f, "utf8"); } catch { return ""; } };
-const ensureDir = p => fs.mkdir(path.dirname(p), { recursive: true });
-const uniq = a => [...new Set(a)].sort((x, y) => x.localeCompare(y));
-const esc = s => String(s ?? "").replace(/\|/g, "\\|").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-// MyST kotwice
-const slug = s => String(s ?? "")
-  .toLowerCase()
+// ===== POMOCE =====
+const read = async (f) => { try { return await fs.readFile(f, "utf8"); } catch { return ""; } };
+const ensureDir = (p) => fs.mkdir(path.dirname(p), { recursive: true });
+const uniq = (a) => [...new Set(a)].sort((x, y) => x.localeCompare(y));
+const esc = (s) => String(s ?? "").replace(/\|/g, "\\|").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const slug = (s) => String(s ?? "").toLowerCase()
   .replace(/[`~!@#$%^&*()+=\[\]{}|\\;:'",.<>/?]/g, "")
-  .replace(/\s+/g, "-")
-  .replace(/-+/g, "-")
-  .replace(/^-|-$/g, "");
+  .replace(/\s+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
 
-/* =================== 1) LUA =================== */
+// ===== 1) LUA =====
 const luaFiles = await glob(LUA_GLOB, { nodir: true });
 const lua = {
   events: new Set(),
   globals: new Set(),
-  ctx: new Map(),                 // nazwa -> Set(odwołania)
-  modules: new Map(),             // plik -> Map(nazwa -> {args, line})
-  docs: new Map(),                // "M.fn" / "fn" / "ctx.fn" -> markdown doc
+  ctx: new Map(),        // name -> Set(files:line)
+  modules: new Map(),    // file -> Map(fname -> {args,line,modName})
+  docs: new Map(),       // symbol -> doc
+  moduleNames: new Set(["M", "Module", "Api", "API", "mod", "export", "exports"]) // heurystyka
 };
 
 for (const f of luaFiles) {
   const t = await read(f); if (!t) continue;
 
-  // onEvent()
+  // wykryj nazwy modułowych tabel (local X = {}; return X)
+  for (const m of t.matchAll(/\blocal\s+([A-Za-z_][A-Za-z0-9_]*)\s*=\s*\{\s*\}/g)) {
+    lua.moduleNames.add(m[1]);
+  }
+
+  // eventy onXxx(...)
   for (const m of t.matchAll(/\bon([A-Z][A-Za-z0-9_]*)\s*\(/g)) lua.events.add("on" + m[1]);
 
-  // ctx.*
-  for (const m of t.matchAll(/\bctx\.([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g)) {
+  // ctx.foo(...) oraz ctx:foo(...)
+  for (const m of t.matchAll(/\bctx[:.]([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g)) {
     const k = m[1];
     const list = lua.ctx.get(k) || new Set();
     list.add(`${path.basename(f)}:${m.index}`);
     lua.ctx.set(k, list);
   }
 
-  // M.* = function(...) i function M.fn(...)
-  const modMap = new Map();
-  for (const m of t.matchAll(/\bM\.([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*function\s*\(([^)]*)\)/g)) {
-    modMap.set(m[1], { args: m[2].trim(), line: m.index });
+  // Moduły: X.fn = function(...) oraz function X.fn(...), gdzie X ∈ moduleNames
+  for (const modName of lua.moduleNames) {
+    const modMap = lua.modules.get(f) || new Map();
+    for (const m of t.matchAll(new RegExp(`\\b${modName}\\.([a-zA-Z_][a-zA-Z0-9_]*)\\s*=\\s*function\\s*\\(([^)]*)\\)`, "g"))) {
+      modMap.set(`${modName}.${m[1]}`, { args: m[2].trim(), line: m.index, modName });
+    }
+    for (const m of t.matchAll(new RegExp(`\\bfunction\\s+${modName}\\.([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(([^)]*)\\)`, "g"))) {
+      modMap.set(`${modName}.${m[1]}`, { args: m[2].trim(), line: m.index, modName });
+    }
+    if (modMap.size) lua.modules.set(f, modMap);
   }
-  for (const m of t.matchAll(/\bfunction\s+M\.([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)/g)) {
-    modMap.set(m[1], { args: m[2].trim(), line: m.index });
-  }
-  if (modMap.size) lua.modules.set(f, modMap);
 
-  // globalne heurystycznie
+  // Globalne definicje: function foo(...)
+  for (const m of t.matchAll(/\bfunction\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)/g)) {
+    const name = m[1];
+    if (!name.startsWith("on")) lua.globals.add(name);
+  }
+  // Heurystyka wywołań jako globalne
   for (const m of t.matchAll(/\b([a-z][a-z0-9_]{2,})\s*\(/g)) {
     const n = m[1];
-    if (["if", "for", "and", "end", "then", "else", "not", "nil", "true", "false", "local", "return", "function", "print", "ctx", "M"].includes(n)) continue;
+    if (["if", "for", "and", "end", "then", "else", "not", "nil", "true", "false", "local", "return", "function", "print", "ctx"].includes(n)) continue;
     if (!n.startsWith("on")) lua.globals.add(n);
   }
 
-  // komentarze LDoc/Emmy poprzedzające function X(...) / function M.X(...)
+  // Komentarze LDoc/Emmy poprzedzające function [X.|]name(...)
   for (const m of t.matchAll(/(?:(?:---[^\n]*\n)+)\s*function\s+([A-Za-z0-9_.:]+)\s*\(([^)]*)\)/g)) {
     const sym = m[1];
     const before = t.slice(0, m.index);
@@ -92,18 +104,18 @@ for (const f of luaFiles) {
   }
 }
 
-/* =================== 2) OTUI =================== */
+// ===== 2) OTUI =====
 const uiFiles = await glob(UI_GLOB, { nodir: true });
 const ui = [];
 for (const f of uiFiles) {
   const t = await read(f); if (!t) continue;
   for (const b of t.split(/\n\s*\n/)) {
-    const m = b.match(/^\s*([A-Za-z][A-Za-z0-9]*)[\s\S]*?\bid:\s*([A-Za-z0-9_\-]+)/m);
+    const m = b.match(/^\s*([A-Za-z][A-Za-z0-9]*)[\s\S]*?\bid\s*:\s*([A-Za-z0-9_\-]+)/m);
     if (m) ui.push({ file: f, type: m[1], id: m[2] });
   }
 }
 
-/* =================== 3) WS / JSON =================== */
+// ===== 3) WS / JSON =====
 const txtFiles = await glob(WS_GLOB, { nodir: true });
 const wsTypes = new Set();
 const wsSchemas = new Map(); // $id -> file
@@ -114,7 +126,6 @@ for (const f of txtFiles) {
   if (id && f.endsWith(".json")) wsSchemas.set(id[1], f);
 }
 
-// Render JSON schema → md (tabela właściwości)
 function typeString(schema) {
   if (!schema) return "";
   const t = schema.type;
@@ -125,8 +136,7 @@ async function renderSchemas() {
   await fs.mkdir(OUT_SCHEMAS_DIR, { recursive: true });
   const items = [];
   for (const [id, file] of [...wsSchemas.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
-    let j;
-    try { j = JSON.parse(await fs.readFile(file, "utf8")); } catch { continue; }
+    let j; try { j = JSON.parse(await fs.readFile(file, "utf8")); } catch { continue; }
     const title = j.title || path.basename(file);
     const desc = j.description || "";
     const props = j.properties || {};
@@ -174,51 +184,65 @@ async function renderSchemas() {
     "",
   ].join("\n");
   await fs.writeFile(OUT_SCHEMAS_INDEX, index, "utf8");
-
   return items;
 }
 
-/* =================== 4) C++ (wielolinijkowe prototypy) =================== */
+// ===== 4) C++ =====
+// bardziej agresywne wzorce: multiline, makra, specyfikatory, definicje inline
 const hFiles = await glob(CPP_GLOB, { nodir: true });
-const cppByFile = new Map(); // file -> [{sig, brief}]
-
+const cppByFile = new Map();
 for (const f of hFiles) {
-  const t = await read(f); if (!t) continue;
+  const raw = await read(f); if (!raw) continue;
+  // Zwiń nadmiar białych znaków w sygnaturach (ułatwia regexy wielowierszowe)
+  const t = raw.replace(/\r\n/g, "\n");
 
-  // prototyp dopasowany wielolinijkowo (do średnika), bez operatorów
-  const re = /(^|[\n\r])\s*(?:template\s*<[\s\S]*?>\s*)?((?:[A-Za-z_][\w:<>*&\s]+?)\s+([A-Za-z_][\w:<>*&]*))\s*\(([\s\S]*?)\)\s*;/g;
-  let m;
-  while ((m = re.exec(t)) !== null) {
-    const fullRetAndName = m[2].trim();
-    const name = m[3].trim();
-    if (name.startsWith("operator")) continue;
+  // 4.1 Prototypy deklaracji kończące się na ;
+  const declRe = /(^|\n)\s*(?:template\s*<[^>]+>\s*)*(?:[A-Za-z_][A-Za-z0-9_:<>*&\s]+)\s+([A-Za-z_][A-Za-z0-9_:<>*&]*)\s*\(([^;{}]*)\)\s*(?:const\s*)?(?:noexcept\s*)?(?:=\s*0\s*)?;\s*(?=$|\n)/g;
+  // 4.2 Definicje inline (kończące się { ... }), bez wnikania w ciało
+  const defRe = /(^|\n)\s*(?:template\s*<[^>]+>\s*)*([A-Za-z_][A-Za-z0-9_:<>*&\s]+)\s+([A-Za-z_][A-Za-z0-9_:<>*&]*)\s*\(([^;{}]*)\)\s*(?:const\s*)?(?:noexcept\s*)?\s*\{\s*/g;
 
-    // odetnij ew. fałszywe trafienia na class/struct/enum/typedef/using/namespace
-    const headTok = fullRetAndName.split(/\s+/)[0];
-    if (/(class|struct|enum|typedef|using|namespace)\b/.test(headTok)) continue;
-
-    const args = m[4].replace(/\s+/g, " ").trim();
-    const sig = `${fullRetAndName}(${args})`;
-
-    // @brief powyżej sygnatury
-    const before = t.slice(0, m.index);
-    const linesBefore = before.split("\n");
-    let brief = "";
-    for (let j = linesBefore.length - 1, steps = 0; j >= 0 && steps < 12; j--, steps++) {
-      const b = linesBefore[j].trim();
-      if (/^(?:\/\*\*|\*|\/\/\/)/.test(b)) {
-        brief = (b.replace(/^\/\*\*?|\*+\/|^\* ?|^\/\/\/ ?/g, "") + "\n" + brief).trim();
-      } else if (b === "") continue;
-      else break;
-    }
-
+  const add = (sig, brief) => {
     const list = cppByFile.get(f) || [];
     list.push({ sig, brief });
     cppByFile.set(f, list);
+  };
+
+  // Funkcja do zbierania @brief / /// komentarzy nad sygnaturą
+  const collectBrief = (src, idx) => {
+    const up = src.slice(0, idx).split("\n");
+    let brief = "";
+    for (let j = up.length - 1; j >= 0 && j > up.length - 12; j--) {
+      const line = up[j].trim();
+      if (/^(?:\/\*\*|\/\/\/|\*)/.test(line)) {
+        brief = (line.replace(/^\/\*\*?|\*+\/|^\* ?|^\/\/\/ ?/g, "") + "\n" + brief).trim();
+      } else if (line === "" || /^\s*\/\//.test(line)) {
+        continue;
+      } else break;
+    }
+    return brief;
+  };
+
+  // deklaracje
+  for (const m of t.matchAll(declRe)) {
+    const idx = m.index ?? 0;
+    const retType = (m[0].match(/^\s*(?:template\s*<[^>]+>\s*)*([A-Za-z_][A-Za-z0-9_:<>*&\s]+)\s+[A-Za-z_]/m) || [, ""])[1]?.trim() ?? "";
+    const name = m[2].trim();
+    const args = (m[3] || "").replace(/\s+/g, " ").trim();
+    const sig = `${retType} ${name}(${args})`.replace(/\s+/g, " ").trim();
+    add(sig, collectBrief(t, idx));
+  }
+  // definicje inline
+  for (const m of t.matchAll(defRe)) {
+    const idx = m.index ?? 0;
+    const retType = m[2].trim().replace(/\s+/g, " ");
+    const name = m[3].trim();
+    const args = (m[4] || "").replace(/\s+/g, " ").trim();
+    const sig = `${retType} ${name}(${args})`.replace(/\s+/g, " ").trim();
+    add(sig, collectBrief(t, idx));
   }
 }
 
-/* =================== RENDER MAIN =================== */
+// ===== RENDER GŁÓWNY =====
 const out = [];
 const manifest = {
   generatedAt: new Date().toISOString(),
@@ -228,32 +252,26 @@ const manifest = {
   cppSplit: SPLIT_CPP ? [] : null,
 };
 
-// nagłówek + spis treści MyST
-out.push(`# OTCv8 – Pełne API (auto)\n`);
+out.push(`# OTCv8 - Pełne API (auto)\n`);
 out.push(`Wygenerowano: ${new Date().toISOString()}\n`);
 out.push(`> Ten plik jest generowany automatycznie z kodu. Nie edytuj ręcznie.\n`);
 out.push("```{contents}\n:depth: 2\n:backlinks: entry\n```\n");
 
-// -------- Lua --------
+// Lua
 out.push(`(lua-api)=\n## 1. Lua\n`);
-
 out.push(`### 1.1. Zdarzenia \`on*\``);
 {
   const ev = uniq([...lua.events]);
   out.push(ev.length ? ev.map(x => `- \`${x}(...)\``).join("\n") : "_brak_");
-  manifest.sections.push({ anchor: "lua-api", title: "Lua API" });
-  manifest.sections.push({ anchor: "1-1-zdarzenia-on", title: "Lua: Zdarzenia" });
   out.push("");
 }
-
 out.push(`### 1.2. Kontekst \`ctx.*\``);
 {
   const ctx = uniq([...lua.ctx.keys()]);
   out.push(ctx.length ? ctx.map(x => `- \`ctx.${x}(...)\``).join("\n") : "_brak_");
   out.push("");
 }
-
-out.push(`### 1.3. Moduły (eksporty \`M.*\`)`);
+out.push(`### 1.3. Moduły (eksporty)`);
 {
   const files = [...lua.modules.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   if (!files.length) out.push("_brak_");
@@ -261,29 +279,27 @@ out.push(`### 1.3. Moduły (eksporty \`M.*\`)`);
     out.push(`- **${file}**`);
     const items = [...map.entries()]
       .sort((a, b) => a[0].localeCompare(b[0]))
-      .map(([name, meta]) => `  - \`M.${name}(${meta.args})\``);
+      .map(([name, meta]) => `  - \`${name}(${meta.args})\``);
     if (items.length) out.push(items.join("\n"));
   }
   out.push("");
 }
-
 if (lua.globals.size) {
-  out.push(`### 1.4. Globalne funkcje (heur.)`);
+  out.push(`### 1.4. Globalne funkcje (wykryte)`);
   const g = uniq([...lua.globals]).filter(n => !n.startsWith("on"));
   out.push(g.length ? g.map(n => "- `" + n + "()`").join("\n") : "_brak_");
   out.push("");
 }
-
 if (lua.docs.size) {
-  out.push(`### 1.5. Komentarze LDoc/EmmyLua (wyciąg)`);
+  out.push(`### 1.5. Komentarze LDoc/Emmy (wyciąg)`);
   for (const [sym, doc] of [...lua.docs.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
-    const short = doc.replace(/\n+/g, " ").slice(0, 200);
-    out.push(`- \`${sym}()\` — ${short}${doc.length > 200 ? "…" : ""}`);
+    const short = doc.replace(/\n+/g, " ").slice(0, MAX_DOC_PREVIEW);
+    out.push(`- \`${sym}()\` — ${short}${doc.length > MAX_DOC_PREVIEW ? "…" : ""}`);
   }
   out.push("");
 }
 
-// -------- OTUI --------
+// OTUI
 out.push(`(otui)=\n## 2. OTUI (layouty)\n`);
 if (ui.length) {
   const by = new Map();
@@ -298,7 +314,7 @@ if (ui.length) {
   out.push("_brak plików layouts/_\n");
 }
 
-// -------- WS / Schemas --------
+// WS
 out.push(`(ws)=\n## 3. WebSocket / JSON\n`);
 out.push(`### 3.1. Typy wiadomości (wykryte)`);
 {
@@ -314,14 +330,11 @@ out.push(`### 3.2. Schematy JSON ($id → plik)`);
 }
 const schemaItems = await renderSchemas();
 manifest.schemas = schemaItems.map(s => ({
-  id: s.id,
-  title: s.title,
-  md: path.relative(process.cwd(), s.md)
+  id: s.id, title: s.title, md: s.md
 }));
 
-// -------- C++ --------
+// C++
 out.push(`(cpp-api)=\n## 4. C++ (nagłówki)\n`);
-
 if (!cppByFile.size) {
   out.push("_brak_\n");
 } else if (!SPLIT_CPP) {
@@ -338,7 +351,6 @@ if (!cppByFile.size) {
     }
   }
 } else {
-  // split per plik
   await fs.mkdir(OUT_CPP_DIR, { recursive: true });
   const idx = [];
   const files = [...cppByFile.keys()].sort();
@@ -358,26 +370,29 @@ if (!cppByFile.size) {
     await fs.writeFile(outPath, lines.join("\n"), "utf8");
     idx.push({ title, md: outPath });
   }
-  // indeks w głównym pliku
-  out.push("```{toctree}\n:maxdepth: 1\n");
-  for (const item of idx) {
-    out.push(path.relative("docs", item.md).replace(/\\/g, "/").replace(/^docs\//, ""));
-  }
-  out.push("```\n");
-  manifest.cppSplit = idx.map(i => ({ title: i.title, md: i.md }));
+  // indeks C++ (toctree)
+  const cppIndex = [
+    "# C++ - per-plik",
+    "",
+  "```{toctree}",
+  ":maxdepth: 1",
+  ...idx.map(x => "./" + path.basename(x.md)),
+  "```",
+  ""
+  ].join("\n");
+  await fs.writeFile(OUT_CPP_INDEX, cppIndex, "utf8");
+  manifest.cppSplit = idx;
 }
 
-// -------- Uwaga + linki --------
+// Uwaga
 out.push(`## 5. Uwaga`);
-out.push("- Jeśli czegoś brakuje: doprecyzuj regexy w **tym skrypcie** (sekcje regexów).");
+out.push("- Jeśli czegoś brakuje: doprecyzuj wzorce w **tym skrypcie** (sekcje regexów).");
 out.push(`- Dodaj JSON Schema do \`schemas/ws/*.schema.json\` — wygenerują się automatycznie jako strony w \`${OUT_SCHEMAS_DIR}\`.`);
 out.push("");
 
 // zapis
 await ensureDir(OUT_MAIN);
 await fs.writeFile(OUT_MAIN, out.join("\n"), "utf8");
-
-// manifest (do RAG itp.)
 await fs.mkdir(path.dirname(OUT_MANIFEST), { recursive: true });
 await fs.writeFile(OUT_MANIFEST, JSON.stringify(manifest, null, 2), "utf8");
 
