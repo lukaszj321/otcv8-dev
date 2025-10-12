@@ -29,7 +29,7 @@ OTClientV8 to nowoczesny klient i framework skryptowy (Lua/C++) z bogatym zestaw
 ## Start
 
 - **Szybki start** → {doc}`overview/getting_started`
-- **API (surowe)** → {doc}`api/index`
+- **API (auto + surowe)** → {doc}`api/index`
 - **RAG / wyszukiwarka semantyczna** → {doc}`rag/index`
 - **Dashboard** → {doc}`dashboard/index`
 

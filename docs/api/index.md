@@ -1,12 +1,24 @@
-# API (surowe i zewnętrzne)
+# API (auto + surowe)
 
 :::{admonition} Skąd pochodzą pliki?
-Te pliki są **kopiowane** z repo (`api/otcv8-full-api.md`, `api/lua/luafunctions_client.md`) przez job CI (patrz fragment w ISSUE).
+- Sekcja **Auto‑generated**: tworzona przez skrypt CI (`scripts/extract-api.mjs`) ze źródeł repo.
+- Sekcja **Surowe (z repo)**: ręcznie utrzymywane snapshoty.
 :::
 
 ```{toctree}
+:maxdepth: 2
+:caption: Auto‑generated (CI)
+:glob:
+
+otcv8-full-api
+schemas/index
+external/cpp/*
+```
+
+```{toctree}
 :maxdepth: 1
-:caption: API
+:caption: Surowe (z repo)
+
 external/otcv8-full-api
 external/lua/luafunctions_client
 ```
