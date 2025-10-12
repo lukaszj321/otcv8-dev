@@ -1,4 +1,3 @@
-# .github/workflows/sphinx-pages.yml
 name: Build & Deploy Docs (Sphinx) Page
 
 on:
