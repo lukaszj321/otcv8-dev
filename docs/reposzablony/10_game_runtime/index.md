@@ -1,8 +1,8 @@
-# Event Details
+# Game Runtime
 
 ## Overview
 
-Detailed event documentation and patterns
+Game runtime state, player stats, and gameplay metrics
 
 ## Contents
 

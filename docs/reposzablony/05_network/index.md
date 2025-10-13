@@ -1,8 +1,8 @@
-# Event Details
+# Network
 
 ## Overview
 
-Detailed event documentation and patterns
+Network protocol, messages, and communication patterns
 
 ## Contents
 

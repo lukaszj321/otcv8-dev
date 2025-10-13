@@ -1,8 +1,8 @@
-# Event Details
+# Settings & Crypto
 
 ## Overview
 
-Detailed event documentation and patterns
+Configuration settings and cryptography utilities
 
 ## Contents
 

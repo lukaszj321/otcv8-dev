@@ -1,0 +1,4 @@
+Entity Type,Count,Description
+Network Messages,10,Sample network messages count
+Protocol Handlers,20,Sample protocol handlers count
+Network Stats,30,Sample network stats count

@@ -1,8 +1,8 @@
-# Event Details
+# UI (OTUI)
 
 ## Overview
 
-Detailed event documentation and patterns
+OTUI widget hierarchy and UI component documentation
 
 ## Contents
 

@@ -1,8 +1,8 @@
-# Event Details
+# Assets
 
 ## Overview
 
-Detailed event documentation and patterns
+Asset management, sprites, and resource tracking
 
 ## Contents
 

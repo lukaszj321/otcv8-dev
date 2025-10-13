@@ -1,8 +1,8 @@
-# Event Details
+# Lua Modules
 
 ## Overview
 
-Detailed event documentation and patterns
+Lua module exports and function documentation
 
 ## Contents
 

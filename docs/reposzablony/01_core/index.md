@@ -1,8 +1,8 @@
-# Event Details
+# Core API
 
 ## Overview
 
-Detailed event documentation and patterns
+Core C++ API documentation and class hierarchies
 
 ## Contents
 
