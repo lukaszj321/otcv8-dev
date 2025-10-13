@@ -62,24 +62,23 @@ def write_chapter(chapter: str):
         ```{{csv-table}} {p.stem}
         :header-rows: 1
         :file: {rel(base_rel / 'datasets' / p.name)}
-        :widths: 50,50
+        :widths: auto
         ```
         """).strip()
 
     def mmd_block(p: pathlib.Path):
         return textwrap.dedent(f"""
-        ```{{admonition}} {p.name} (Mermaid)
+        ```{{admonition}} {p.name} (Mermaid diagram)
         :class: tip
-        Lokalizacja: `{rel(base_rel / 'diagrams' / p.name)}`
+        Źródło: `{rel(base_rel / 'diagrams' / p.name)}`
         ```
 
-        ````{{mermaid}}
+        ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
+        :language: mermaid
         :caption: {p.stem}
-        ```{{include}} {rel(base_rel / 'diagrams' / p.name)}
         ```
-        ````
 
-        ```{{admonition}} Kod źródłowy ({p.name})
+        ```{{admonition}} Kod źródłowy (kliknij aby rozwinąć)
         :class: dropdown
         ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
         :language: mermaid

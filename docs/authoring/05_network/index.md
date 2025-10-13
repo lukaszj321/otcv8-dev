@@ -27,7 +27,7 @@ Lokalizacja: `../../reposzablony/05_network/datasets/entities.csv`
 ```{csv-table} entities
 :header-rows: 1
 :file: ../../reposzablony/05_network/datasets/entities.csv
-:widths: 50,50
+:widths: auto
 ```
 
 :::
@@ -42,7 +42,7 @@ Lokalizacja: `../../reposzablony/05_network/datasets/summary.csv`
 ```{csv-table} summary
 :header-rows: 1
 :file: ../../reposzablony/05_network/datasets/summary.csv
-:widths: 50,50
+:widths: auto
 ```
 
 :::
@@ -50,36 +50,34 @@ Lokalizacja: `../../reposzablony/05_network/datasets/summary.csv`
 :::
 
 ## Diagrams
-```{admonition} architecture.mmd (Mermaid)
+```{admonition} architecture.mmd (Mermaid diagram)
 :class: tip
-Lokalizacja: `../../reposzablony/05_network/diagrams/architecture.mmd`
+Źródło: `../../reposzablony/05_network/diagrams/architecture.mmd`
 ```
 
-````{mermaid}
+```{literalinclude} ../../reposzablony/05_network/diagrams/architecture.mmd
+:language: mermaid
 :caption: architecture
-```{include} ../../reposzablony/05_network/diagrams/architecture.mmd
 ```
-````
 
-```{admonition} Kod źródłowy (architecture.mmd)
+```{admonition} Kod źródłowy (kliknij aby rozwinąć)
 :class: dropdown
 ```{literalinclude} ../../reposzablony/05_network/diagrams/architecture.mmd
 :language: mermaid
 ```
 ```
 
-```{admonition} flow.mmd (Mermaid)
+```{admonition} flow.mmd (Mermaid diagram)
 :class: tip
-Lokalizacja: `../../reposzablony/05_network/diagrams/flow.mmd`
+Źródło: `../../reposzablony/05_network/diagrams/flow.mmd`
 ```
 
-````{mermaid}
+```{literalinclude} ../../reposzablony/05_network/diagrams/flow.mmd
+:language: mermaid
 :caption: flow
-```{include} ../../reposzablony/05_network/diagrams/flow.mmd
 ```
-````
 
-```{admonition} Kod źródłowy (flow.mmd)
+```{admonition} Kod źródłowy (kliknij aby rozwinąć)
 :class: dropdown
 ```{literalinclude} ../../reposzablony/05_network/diagrams/flow.mmd
 :language: mermaid
