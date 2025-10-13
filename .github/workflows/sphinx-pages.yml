@@ -1,11 +1,12 @@
 # .github/workflows/sphinx-pages.yml
-name: Build & Deploy Docs (Sphinx) Page
+name: Build & Deploy Docs (Sphinx)
 
 on:
   push:
     branches: [ main, master ]
     paths:
       - 'docs/**'
+      - 'mkdocs.modules.yml'
       - 'scripts/**'
       - '.github/workflows/sphinx-pages.yml'
   workflow_dispatch:
@@ -23,111 +24,72 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install system deps (Doxygen/Graphviz)
+      # (opcjonalnie) narzędzia do C++ → Doxygen/Graphviz
+      - name: Install OS deps (doxygen/graphviz)
         run: |
           sudo apt-get update
           sudo apt-get install -y doxygen graphviz
 
-      - name: Setup Node (for extract-api.mjs)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install Node deps (glob) for extract script
+      - name: Install Python deps (Sphinx + MkDocs)
         run: |
-          npm init -y >/dev/null 2>&1 || true
-          npm install glob@^10 --no-audit --no-fund
+          set -euxo pipefail
+          python -m pip install --upgrade pip setuptools wheel
 
-      - name: Install Python deps for Sphinx
-        run: |
-          python -m pip install --upgrade pip
+          # Jeśli masz docs/requirements.txt – użyj go
           if [ -f docs/requirements.txt ]; then
             pip install -r docs/requirements.txt
-          elif [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            pip install sphinx myst-parser pydata-sphinx-theme
           fi
-          python - << 'PY'
-          import importlib, sys
-          for mod in ["pydata_sphinx_theme","myst_parser","sphinx"]:
-              try: importlib.import_module(mod)
-              except Exception as e:
-                  print(f"[FATAL] missing {mod}: {e}", file=sys.stderr); sys.exit(2)
-          print("[OK] Python deps present.")
-          PY
 
-      # ==== Doxygen -> .doxygen/xml ====
-      - name: Pre-generate Doxygen XML -> .doxygen/xml
+          # Twarde dopilnowanie kluczowych paczek Sphinx (naprawia "no theme named pydata_sphinx_theme")
+          pip install \
+            "pydata-sphinx-theme>=0.16.1" \
+            "sphinx==7.4.7" \
+            "myst-parser>=4.0.1" \
+            "sphinx-copybutton>=0.5.2" \
+            "sphinx-design>=0.6.0" \
+            "sphinx-sitemap>=2.6.0" \
+            "linkify-it-py>=2.0.2" \
+            "sphinxext-opengraph>=0.9.1" \
+            "sphinx-favicon>=1.0.1" \
+            "sphinxcontrib-mermaid>=0.9.2" \
+            "sphinx-codeautolink>=0.15.0" \
+            "sphinx-hoverxref>=1.4.2,<1.5"
+
+          # Jeśli istnieje mkdocs.modules.yml – doinstaluj mkdocs + plugin exclude (naprawia błąd o exclude)
+          if [ -f mkdocs.modules.yml ]; then
+            pip install "mkdocs>=1.6.0" "mkdocs-material>=9.5.0" "mkdocs-exclude>=1.0.2"
+          fi
+
+          pip list
+
+      # (opcjonalnie) C++ API (nie wysadza buildu, jeśli coś pójdzie nie tak)
+      - name: (Optional) Generate C++ API via Doxygen
+        if: hashFiles('scripts/gen_api_cpp.sh') != ''
         run: |
           set -euxo pipefail
-
-          cat > Doxyfile.ci << 'EOF'
-          PROJECT_NAME           = OTCv8 CI
-          OUTPUT_DIRECTORY       = .doxygen
-          GENERATE_XML           = YES
-          XML_OUTPUT             = xml
-          GENERATE_HTML          = NO
-          QUIET                  = YES
-          EXTRACT_ALL            = YES
-          RECURSIVE              = YES
-          FILE_PATTERNS          = *.h *.hpp *.hh *.hxx *.c *.cc *.cpp
-          INPUT                  = src
-          WARN_IF_UNDOCUMENTED   = NO
-          WARNINGS               = YES
-          WARN_LOGFILE           = .doxygen/doxygen-warnings.log
-          EOF
-
-          # Dodaj 'include/' tylko jeśli istnieje (eliminuje "INPUT: ... does not exist")
-          if [ -d include ]; then
-            echo "INPUT                 += include" >> Doxyfile.ci
-          fi
-
-          rm -rf .doxygen || true
-          mkdir -p .doxygen
-          doxygen Doxyfile.ci
-
-          test -f .doxygen/xml/index.xml || { echo "::error ::Brak .doxygen/xml/index.xml po Doxygen"; exit 2; }
-
-          echo "== LIST .doxygen/xml =="
-          # unikamy Broken pipe przy 'ls | head' w połączeniu z 'pipefail'
-          set +o pipefail
-          ls -la .doxygen/xml | head -n 50
-          set -o pipefail
-
-      - name: Generate C++ API (Doxygen -> Markdown)
-        env:
-          DOXY_XML_DIR: .doxygen/xml
-        run: |
-          set -euxo pipefail
-          if [ -f scripts/gen_api_cpp.sh ]; then
-            chmod +x scripts/gen_api_cpp.sh
-            bash scripts/gen_api_cpp.sh
-          else
-            echo "::warning ::Brak scripts/gen_api_cpp.sh – pomijam ten krok."
-          fi
-
-      - name: Extract OTCv8 API (Lua/WS/OTUI/CPP index) via Node script
-        run: |
-          set -euxo pipefail
-          if [ -f scripts/extract-api.mjs ]; then
-            node scripts/extract-api.mjs
-          else
-            echo "::warning ::Brak scripts/extract-api.mjs – pomijam ten krok."
-          fi
+          chmod +x scripts/gen_api_cpp.sh
+          # Nie przerywaj joba w razie błędu w generatorze – tylko ostrzeż
+          bash scripts/gen_api_cpp.sh || { echo "::warning ::gen_api_cpp.sh returned non-zero; continuing"; }
 
       - name: Build Sphinx
         run: |
+          set -euxo pipefail
           sphinx-build -b html docs docs/_build/html
           touch docs/_build/html/.nojekyll
+
+      # (opcjonalnie) Podgląd modułów w MkDocs – jeśli masz mkdocs.modules.yml
+      - name: (Optional) Build Modules preview (MkDocs)
+        if: hashFiles('mkdocs.modules.yml') != ''
+        run: |
+          set -euxo pipefail
+          # Jeśli chcesz, aby błąd MkDocs NIE przerywał release Sphinx – puść jako warning:
+          mkdocs build --clean -f mkdocs.modules.yml -v || { echo "::warning ::MkDocs preview failed; continuing"; }
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -140,6 +102,9 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
