@@ -39,9 +39,9 @@ jobs:
           pip install --upgrade sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog matplotlib
           # sanity-check
           python - << 'PY'
-import sphinx, pydata_sphinx_theme, ablog, matplotlib, sphinxcontrib.mermaid
-print("OK: sphinx,", sphinx.__version__)
-PY
+          import sphinx, pydata_sphinx_theme, ablog, matplotlib, sphinxcontrib.mermaid
+          print("OK: sphinx,", sphinx.__version__)
+          PY
 
       - name: Generate authoring pages
         shell: bash
