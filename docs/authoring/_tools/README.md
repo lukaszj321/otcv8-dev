@@ -26,8 +26,8 @@ python3 cpp_doc_generator.py --source-dir modules
 ```
 
 **Output:**
-- MD files: `docs/reposzablony/01_core/api/cpp/**/*.md`
-- Diagrams: `docs/reposzablony/01_core/api/diagrams/*.mmd`
+- MD files: `docs/authoring/01_core/api/cpp/**/*.md`
+- Diagrams: `docs/authoring/01_core/api/diagrams/*.mmd`
 
 **Features:**
 - Extracts namespaces, classes, enums, functions, typedefs
@@ -45,7 +45,7 @@ python3 lua_doc_generator.py --source-dirs modules mods
 ```
 
 **Output:**
-- MD files: `docs/reposzablony/03_modules/lua/**/*.md`
+- MD files: `docs/authoring/03_modules/lua/**/*.md`
 
 **Features:**
 - Extracts globals, functions, events, callbacks
@@ -63,8 +63,8 @@ python3 otui_doc_generator.py --source-dir modules
 ```
 
 **Output:**
-- MD files: `docs/reposzablony/04_ui/otui/**/*.md`
-- Diagrams: `docs/reposzablony/04_ui/diagrams/*.mmd`
+- MD files: `docs/authoring/04_ui/otui/**/*.md`
+- Diagrams: `docs/authoring/04_ui/diagrams/*.mmd`
 
 **Features:**
 - Extracts widget hierarchies
@@ -82,8 +82,8 @@ python3 events_doc_generator.py
 ```
 
 **Output:**
-- Index: `docs/reposzablony/05_events/index.md`
-- Datasets: `docs/reposzablony/datasets/events.{csv,ndjson}`
+- Index: `docs/authoring/05_events/index.md`
+- Datasets: `docs/authoring/datasets/events.{csv,ndjson}`
 
 **Features:**
 - C++ patterns: dispatch, emit, signal, addEvent, g_dispatcher
@@ -100,9 +100,9 @@ python3 rag_datasets_generator.py
 ```
 
 **Output:**
-- `docs/reposzablony/datasets/api.{csv,ndjson}`
-- `docs/reposzablony/datasets/ui.{csv,ndjson}`
-- `docs/reposzablony/datasets/modules.{csv,ndjson}`
+- `docs/authoring/datasets/api.{csv,ndjson}`
+- `docs/authoring/datasets/ui.{csv,ndjson}`
+- `docs/authoring/datasets/modules.{csv,ndjson}`
 
 **Features:**
 - Chunks documentation (≤1200 tokens, ~10% overlap)
@@ -120,13 +120,13 @@ python3 qa_checker.py
 ```
 
 **Output:**
-- `docs/reposzablony/qa/frontmatter_issues.csv`
-- `docs/reposzablony/qa/chunking_report.csv`
-- `docs/reposzablony/qa/link_lint.csv`
-- `docs/reposzablony/qa/dataset_sanity.csv`
-- `docs/reposzablony/qa/diagram_lint.csv`
-- `docs/reposzablony/qa/idempotency.md`
-- `docs/reposzablony/qa/qa_summary.md`
+- `docs/authoring/qa/frontmatter_issues.csv`
+- `docs/authoring/qa/chunking_report.csv`
+- `docs/authoring/qa/link_lint.csv`
+- `docs/authoring/qa/dataset_sanity.csv`
+- `docs/authoring/qa/diagram_lint.csv`
+- `docs/authoring/qa/idempotency.md`
+- `docs/authoring/qa/qa_summary.md`
 
 **Features:**
 - Frontmatter validation
@@ -145,13 +145,13 @@ python3 analytics_generator.py
 ```
 
 **Output:**
-- `docs/reposzablony/analytics/coverage.csv`
-- `docs/reposzablony/analytics/gaps.csv`
-- `docs/reposzablony/analytics/xref_stats.csv`
-- `docs/reposzablony/analytics/coverage_matrix.md`
-- `docs/reposzablony/analytics/overview.mmd`
-- `docs/reposzablony/analytics/run_summary.json`
-- `docs/reposzablony/analytics/errors.md`
+- `docs/authoring/analytics/coverage.csv`
+- `docs/authoring/analytics/gaps.csv`
+- `docs/authoring/analytics/xref_stats.csv`
+- `docs/authoring/analytics/coverage_matrix.md`
+- `docs/authoring/analytics/overview.mmd`
+- `docs/authoring/analytics/run_summary.json`
+- `docs/authoring/analytics/errors.md`
 
 **Features:**
 - Coverage matrix (module × artifact type)
@@ -165,7 +165,7 @@ python3 analytics_generator.py
 To regenerate all documentation:
 
 ```bash
-cd docs/reposzablony/_tools
+cd docs/authoring/_tools
 
 # Phase 1: C++ API
 python3 cpp_doc_generator.py --source-dir ../../../src
@@ -201,7 +201,7 @@ All generators implement idempotency by comparing content before writing. Re-run
 ## Output Structure
 
 ```
-docs/reposzablony/
+docs/authoring/
 ├── 01_core/api/
 │   ├── cpp/            # C++ API docs
 │   └── diagrams/       # Class diagrams
