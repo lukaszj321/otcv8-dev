@@ -1,4 +1,6 @@
 # -- Sphinx core config ------------------------------------------------
+import os
+import sys
 from datetime import datetime
 project = "OTClientV8"
 author = "OTClientV8 Team"
@@ -12,19 +14,20 @@ extensions = [
     "sphinx_sitemap",
     "sphinxext.opengraph",
     "sphinx_favicon",
+    "sphinxcontrib_mermaid",  # alias: some installs use underscore
     "sphinxcontrib.mermaid",
     "sphinx_codeautolink",
     "hoverxref.extension",
-    "ablog",
 ]
 
-# Blog (może być puste – ważne, że ablog jest dostępny)
-blog_title = "OTCv8 Blog"
-blog_path = "blog"
-blog_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
-blog_authors = { "lukasz": ("lukasz", "https://github.com/lukaszj321") }
+# try-load ablog (bez wywalania buildu)
+try:
+    __import__("ablog")
+    extensions.append("ablog")
+except Exception:
+    pass
 
-# Lexer dla OTUI (żeby nie było warningów)
+# --- Lexer dla OTUI (łagodzimy warnings) ------------------------------
 from sphinx.highlighting import lexers
 try:
     from pygments.lexers.data import IniLexer
@@ -57,11 +60,9 @@ html_theme_options = {
     "use_edit_page_button": True,
     "footer_items": ["copyright"],
     "icon_links": [
-        {
-          "name": "GitHub",
+        { "name": "GitHub",
           "url": "https://github.com/lukaszj321/otcv8-dev",
-          "icon": "fa-brands fa-github"
-        },
+          "icon": "fa-brands fa-github" },
     ],
 }
 html_context = {
@@ -79,7 +80,7 @@ sitemap_url_scheme = "{link}"
 ogp_site_url = html_baseurl
 ogp_description_length = 200
 
-# Mermaid / Graphviz
+# Mermaid + Graphviz (dark/light aware)
 mermaid_version = "10.9.1"
 graphviz_output_format = "svg"
 graphviz_dot_args = ["-Gbgcolor=transparent"]
@@ -95,7 +96,9 @@ hoverxref_auto_ref = True
 # Extra static
 html_extra_path = ["../data"]
 
-# Dodatkowo: stabilne odnośniki do nagłówków i czytelny sidebar
+# Krótsza / czystsza nawigacja
 extensions += ["sphinx.ext.autosectionlabel"]
 autosectionlabel_prefix_document = True
+
+# Stabilne kotwice H1..H4
 myst_heading_anchors = 4
