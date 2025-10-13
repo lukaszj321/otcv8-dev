@@ -1,5 +1,4 @@
-Entity,Count
-component,3
-pipeline,1
-dataset,2
-diagram,2
+Entity Type,Count,Description
+Widgets,10,Sample widgets count
+UI Components,20,Sample ui components count
+Layouts,30,Sample layouts count

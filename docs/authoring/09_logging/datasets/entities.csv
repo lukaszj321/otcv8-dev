@@ -1,5 +1,4 @@
-Entity,Count
-component,3
-pipeline,1
-dataset,2
-diagram,2
+Entity Type,Count,Description
+Log Entries,10,Sample log entries count
+Log Levels,20,Sample log levels count
+Log Sources,30,Sample log sources count

@@ -1,5 +1,4 @@
-Entity,Count
-component,3
-pipeline,1
-dataset,2
-diagram,2
+Entity Type,Count,Description
+Game State,10,Sample game state count
+Player Stats,20,Sample player stats count
+Runtime Events,30,Sample runtime events count

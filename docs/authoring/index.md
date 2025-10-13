@@ -1,121 +1,67 @@
-
 ---
-title: Authoring — rozdziały danych i diagramów
+title: Repo szablony — hub
 ---
 
-# Authoring
+# Repo szablony (hub)
 
-:::{admonition} Co to jest?
+:::{admonition} O sekcji
 :class: tip
-Ta sekcja zawiera **wygenerowane** strony z danymi (CSV) i diagramami (Mermaid) dla kolejnych rozdziałów.
-Każdy rozdział embeduje pliki z `datasets/` i `diagrams/` na **tej samej stronie**.
+Tu znajdują się **szablony i przewodniki** do utrzymania repozytoriów: README, CONTRIBUTING,
+CODEOWNERS, Style Guide, ADR, Diagrams, itp.
 :::
 
-:::{grid} 1 1 2 2
-:gutter: 2
-
-:::{grid-item-card} 01 Core
-:link: 01_core/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 01 Runtime
-:link: 01_runtime/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 02 Events
-:link: 02_events/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 03 Modules
-:link: 03_modules/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 04 UI
-:link: 04_ui/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 05 Events (legacy)
-:link: 05_events/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 05 Network
-:link: 05_network/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 06 Assets
-:link: 06_assets/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 07 Settings & Crypto
-:link: 07_settings_crypto/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 08 Audio
-:link: 08_audio/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 09 Logging
-:link: 09_logging/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::{grid-item-card} 10 Game Runtime
-:link: 10_game_runtime/index
-:link-type: doc
-:shadow: md
-Auto-generated datasets & diagrams.
-:::
-
-:::
-
-## Spis stron
+## Spis treści (ręczny)
 
 ```{toctree}
 :maxdepth: 2
 :titlesonly:
 
-01_core/index
-01_runtime/index
-02_events/index
-03_modules/index
-04_ui/index
-05_events/index
-05_network/index
-06_assets/index
-07_settings_crypto/index
-08_audio/index
-09_logging/index
-10_game_runtime/index
+szablony/readme
+szablony/contributing
+szablony/code_of_conduct
+szablony/security
+szablony/issue_templates
+szablony/pr_template
+szablony/changelog_release
+szablony/codeowners
+szablony/license_guide
+szablony/adr
+szablony/style_guide
+szablony/diagrams
+szablony/kitchen_sink
+```
+
+## Auto-wygenerowane (CSV / obrazy / mermaid)
+
+```{toctree}
+:maxdepth: 1
+
+_auto/toctree
+```
+
+
+## Datasets
+
+```{csv-table} Api
+:file: datasets/api.csv
+:header-rows: 1
+:widths: auto
+```
+
+```{csv-table} Events
+:file: datasets/events.csv
+:header-rows: 1
+:widths: auto
+```
+
+```{csv-table} Modules
+:file: datasets/modules.csv
+:header-rows: 1
+:widths: auto
+```
+
+```{csv-table} Ui
+:file: datasets/ui.csv
+:header-rows: 1
+:widths: auto
 ```

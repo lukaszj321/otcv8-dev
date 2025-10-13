@@ -1,16 +1,8 @@
-graph TD
-    subgraph Ingestion
-        S1[Sources] --> S2[Collectors]
+graph LR
+    subgraph Runtime
+        E0[Runtime Metrics]
+        E1[Performance Stats]
+        E2[Memory Usage]
+        E0 --> E1
+        E1 --> E2
     end
-    subgraph Processing
-        S2 --> P1[Parser]
-        P1 --> P2[Validator]
-        P2 --> P3[Exporter]
-    end
-    subgraph Output
-        P3 --> O1[CSV datasets]
-        P3 --> O2[Mermaid diagrams]
-        O1 --> O3[Authoring Page]
-        O2 --> O3
-    end
-    

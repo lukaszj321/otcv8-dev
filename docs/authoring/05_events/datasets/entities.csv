@@ -1,5 +1,4 @@
-Entity,Count
-component,3
-pipeline,1
-dataset,2
-diagram,2
+Entity Type,Count,Description
+Event Patterns,10,Sample event patterns count
+Event Chains,20,Sample event chains count
+Event Handlers,30,Sample event handlers count

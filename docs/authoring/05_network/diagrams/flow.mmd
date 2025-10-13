@@ -1,9 +1,9 @@
-flowchart TD
-    A[Start: 05 Network] --> B[Process data]
-    B --> C[Generate CSV]
-    B --> D[Render Diagrams]
-    C --> E[Page build]
-    D --> E
-    click B "../05_network/index.html" "Open 05 Network"
-    click E "../index.html" "Back to Authoring"
-    
+graph TD
+    A[Network] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H

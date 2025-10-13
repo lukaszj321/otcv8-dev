@@ -1,5 +1,4 @@
-Entity,Count
-component,3
-pipeline,1
-dataset,2
-diagram,2
+Entity Type,Count,Description
+Classes,10,Sample classes count
+Functions,20,Sample functions count
+Namespaces,30,Sample namespaces count

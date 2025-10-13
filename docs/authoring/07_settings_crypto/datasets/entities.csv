@@ -1,5 +1,4 @@
-Entity,Count
-component,3
-pipeline,1
-dataset,2
-diagram,2
+Entity Type,Count,Description
+Settings,10,Sample settings count
+Crypto Functions,20,Sample crypto functions count
+Config Options,30,Sample config options count

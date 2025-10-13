@@ -1,75 +1,82 @@
-# Authoring Documentation
+# Reposzablony - Source Data Repository
 
-This directory contains auto-generated documentation artifacts for all major components of OTClientV8.
+This directory contains the source data and artifacts for OTClientV8 documentation generation.
 
-## What's Inside
+## Structure
 
-### Structure
+Each chapter folder (01_core, 01_runtime, etc.) contains:
 
 ```
-authoring/
-├── index.md                    # Main authoring index with grid navigation
-├── 01_core/                    # Core API documentation
-├── 01_runtime/                 # Runtime monitoring
-├── 02_events/                  # Event system
-├── 03_modules/                 # Lua modules
-├── 04_ui/                      # UI components
-├── 05_events/                  # Event details
-├── 05_network/                 # Network protocol
-├── 06_assets/                  # Asset management
-├── 07_settings_crypto/         # Settings & cryptography
-├── 08_audio/                   # Audio system
-├── 09_logging/                 # Logging system
-└── 10_game_runtime/            # Game runtime state
+<chapter>/
+├── index.md                 # Chapter overview and navigation
+├── datasets/                # Raw CSV/JSON data files
+│   ├── summary.csv         # Basic statistics
+│   └── entities.csv        # Entity information
+└── diagrams/                # Mermaid diagram definitions
+    ├── architecture.mmd    # Architecture diagram
+    └── flow.mmd           # Data flow diagram
 ```
 
-### Each Chapter Contains
+## Chapters
 
-1. **Summary Table** - Basic statistics and metrics
-2. **Entities Table** - Key entities and their counts
-3. **Architecture Diagram** - Component relationships (Mermaid)
-4. **Data Flow Diagram** - Processing pipeline (Mermaid)
-5. **Source Links** - Links to raw data files in repository
+- **01_core** - Core C++ API documentation
+- **01_runtime** - Runtime statistics and monitoring
+- **02_events** - Event system and signals
+- **03_modules** - Lua module exports
+- **04_ui** - OTUI widget hierarchy
+- **05_events** - Detailed event documentation
+- **05_network** - Network protocol
+- **06_assets** - Asset management
+- **07_settings_crypto** - Settings and cryptography
+- **08_audio** - Audio system
+- **09_logging** - Logging system
+- **10_game_runtime** - Game runtime state
 
-## Source Data
+## Usage
 
-All data is generated from:
-- `docs/reposzablony/<chapter>/datasets/` - Raw CSV files
-- `docs/reposzablony/<chapter>/diagrams/` - Mermaid diagram definitions
-- `docs/_data/<chapter>/` - Sphinx-optimized CSV files
+These files serve as the source for:
 
-## How to Update
+1. **Sphinx Documentation** - Rendered pages in `docs/authoring/`
+2. **RAG Systems** - Training data for AI/ML systems
+3. **Analysis Tools** - Data for automated analysis
+4. **API Documentation** - Reference material for developers
 
-To regenerate the authoring documentation:
+## Generation
 
-1. Ensure you have Python 3.10+ installed
-2. Install dependencies: `pip install -r requirements-docs.txt`
-3. Run the generator scripts (if available) or manually update CSV files
-4. Rebuild Sphinx: `sphinx-build -b html docs docs/_build/html`
+The artifacts in this directory were generated using:
+- Python scripts in `docs/reposzablony/_tools/`
+- Data extraction from source code
+- Template-based generation
 
-## Features
+Last generated: 2025-10-13 04:50:32 UTC
 
-- **Grid Navigation**: Easy-to-navigate card-based interface
-- **CSV Tables**: Embedded tables using MyST csv-table directive
-- **Mermaid Diagrams**: Interactive diagrams rendered in browser
-- **GitHub Links**: Direct links to source files in repository
-- **Responsive Design**: Works on desktop and mobile devices
+## File Formats
+
+- **CSV**: UTF-8 encoded, comma-separated values with headers
+- **Mermaid**: Graph definitions in Mermaid syntax
+- **Markdown**: MyST-flavored Markdown with frontmatter
+
+## Guidelines
+
+When adding or modifying content:
+
+1. Use UTF-8 encoding without BOM
+2. Use LF line endings (Unix style)
+3. Follow existing naming conventions
+4. Keep CSV headers consistent
+5. Test Mermaid diagrams before committing
+6. Update index.md files when adding new files
 
 ## Integration
 
-The authoring section is integrated into the main documentation:
-- Listed in main navigation menu
-- Accessible from homepage
-- Part of the toctree structure
-- Included in sitemap and search index
-
-## Generation Date
-
-This content was last generated on: 2025-10-13 04:50:32 UTC
+Data from this directory is:
+- Copied to `docs/_data/<chapter>/` for Sphinx
+- Referenced by `docs/authoring/<chapter>/index.md`
+- Used by RAG dataset generators
+- Included in CI/CD builds
 
 ## Notes
 
-- All content is auto-generated - manual edits will be overwritten
-- To modify content, update the source data files and regenerate
-- Diagrams are rendered client-side using Mermaid.js
-- CSV files are loaded at build time using Sphinx csv-table directive
+- Some content is auto-generated, some is manually curated
+- Check chapter specification files for detailed requirements
+- Refer to `.github/instructions/` for generation guidelines

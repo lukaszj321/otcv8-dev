@@ -1,72 +1,74 @@
+# Assets
 
----
-title: 06 Assets
----
+## Overview
 
-# 06 Assets
+Asset management, sprites, and resource tracking
 
-Krótki opis rozdziału – skąd pochodzą dane, co przedstawiają wykresy i jak interpretować metryki.
+## Contents
+
+- **Datasets**: Statistical data and entity information
+- **Diagrams**: Visual representations of architecture and flow
+- **Analysis**: Detailed findings and correlations
 
 ## Datasets
 
+
 ```{csv-table} Summary
-:header: "Metric","Value"
 :file: datasets/summary.csv
-:widths: 40,60
+:header-rows: 1
+:widths: auto
 ```
 
+Basic statistics and metrics for this chapter.
+
+
 ```{csv-table} Entities
-:header: "Entity","Count"
 :file: datasets/entities.csv
-:widths: 50,50
+:header-rows: 1
+:widths: auto
 ```
+
+Key entities and their counts.
 
 ## Diagrams
 
-```{dropdown} Flow Diagram
-:icon: flow
-```{mermaid}
-flowchart TD
-A[Start: 06 Assets] --> B[Process data]
-B --> C[Generate CSV]
-B --> D[Render Diagrams]
-C --> E[Page build]
-D --> E
-click B "../06_assets/index.html" "Open 06 Assets"
-click E "../index.html" "Back to Authoring"
-```
+
+```{literalinclude} diagrams/flow.mmd
+:language: mermaid
+:caption: Flow
 ```
 
-```{dropdown} Architecture Diagram
-:icon: blueprint
-```{mermaid}
-graph TD
-subgraph Ingestion
-    S1[Sources] --> S2[Collectors]
-end
-subgraph Processing
-    S2 --> P1[Parser]
-    P1 --> P2[Validator]
-    P2 --> P3[Exporter]
-end
-subgraph Output
-    P3 --> O1[CSV datasets]
-    P3 --> O2[Mermaid diagrams]
-    O1 --> O3[Authoring Page]
-    O2 --> O3
-end
-```
+Data flow and processing pipeline for this chapter.
+
+
+```{literalinclude} diagrams/architecture.mmd
+:language: mermaid
+:caption: Architecture
 ```
 
-## Zawartość rozdziału
+Architecture and component relationships.
+
+## How to Use
+
+1. Review the summary CSV for an overview of available data
+2. Examine the entities CSV for detailed entity information
+3. View the diagrams for visual understanding of relationships
+4. Check the analysis section for insights and correlations
+
+## Related Chapters
+
+- Main documentation: [OTClientV8 Docs](../../index.md)
+- API Reference: [API Index](../../api/index.md)
+
+## Generated
+
+This content was auto-generated on 2025-10-13 04:50:32.
+
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 :titlesonly:
 
+datasets/index
+diagrams/index
 ```
-
-## Zobacz też
-
-- {doc}/modules/index
-- {doc}/ui/index
