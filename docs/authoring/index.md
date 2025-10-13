@@ -1,161 +1,115 @@
 ---
-title: Authoring (przeniesione)
+title: Authoring (Repo templates & docs)
 ---
 
-# Authoring
+# Authoring — repo szablony i przewodniki
 
-Ta sekcja została przeniesiona do **Repo Szablony**.
-
-:::{admonition} Gdzie to teraz jest?
-:class: note
-Wejdź tutaj: {doc}`../reposzablony/index`
+:::{admonition} Co znajdziesz w tej sekcji?
+:class: tip
+Zestaw **szablonów repozytorium** (README, CONTRIBUTING, CODEOWNERS, CODE OF CONDUCT, itp.),
+**przewodniki praktyk**, przykłady bloków i **kuchnia formatek** do re-użycia w projektach.
 :::
 
-```{toctree}
-:hidden:
-../reposzablony/index
-```
-
-# Authoring Documentation
-
-This section contains auto-generated documentation artifacts including datasets, diagrams, and analysis for all major components of OTClientV8.
-
-## Overview
-
-The authoring documentation provides:
-- **Datasets**: CSV and JSON data exports for analysis and RAG systems
-- **Diagrams**: Visual representations of architecture and data flows
-- **Statistics**: Aggregated metrics and summaries
-- **Analysis**: Insights and correlations across components
-
-## Chapters
-
-:::{grid} 3
+:::{grid} 1 1 2 2
 :gutter: 2
 
-:::{grid-item-card} 01. Core API
-:link: 01_core/index
+:::{grid-item-card} README (wzorzec)
+:link: ../reposzablony/szablony/readme
 :link-type: doc
-
-Core C++ API documentation and class hierarchies
+:shadow: md
+Szablon README z sekcjami „O projekcie", „Instalacja", „Kontrybucja", „Licencja".
 :::
 
-:::{grid-item-card} 01. Runtime
-:link: 01_runtime/index
+:::{grid-item-card} Contributing
+:link: ../reposzablony/szablony/contributing
 :link-type: doc
-
-Runtime statistics and monitoring data
+:shadow: md
+Zasady kontrybucji, style commitów, flow PR, code review.
 :::
 
-:::{grid-item-card} 02. Events
-:link: 02_events/index
+:::{grid-item-card} Code of Conduct
+:link: ../reposzablony/szablony/code_of_conduct
 :link-type: doc
-
-Event system, signals, and event flow
+:shadow: md
+Zasady zachowania w społeczności / repozytorium.
 :::
 
-:::{grid-item-card} 03. Lua Modules
-:link: 03_modules/index
+:::{grid-item-card} Security
+:link: ../reposzablony/szablony/security
 :link-type: doc
-
-Lua module exports and functions
+:shadow: md
+Zgłaszanie podatności, kanały kontaktu, okno reakcji.
 :::
 
-:::{grid-item-card} 04. UI (OTUI)
-:link: 04_ui/index
+:::{grid-item-card} Issue Templates
+:link: ../reposzablony/szablony/issue_templates
 :link-type: doc
-
-OTUI widget hierarchy and components
+:shadow: md
+Szablony zgłoszeń: bug, feature, task, question.
 :::
 
-:::{grid-item-card} 05. Event Details
-:link: 05_events/index
+:::{grid-item-card} PR Template
+:link: ../reposzablony/szablony/pr_template
 :link-type: doc
-
-Detailed event documentation
+:shadow: md
+Szablon PR (co, dlaczego, jak testować, checklisty).
 :::
 
-:::{grid-item-card} 05. Network
-:link: 05_network/index
+:::{grid-item-card} Changelog / Release
+:link: ../reposzablony/szablony/changelog_release
 :link-type: doc
-
-Network protocol and messages
+:shadow: md
+Konwencje CHANGELOG i notek wydawniczych (semver).
 :::
 
-:::{grid-item-card} 06. Assets
-:link: 06_assets/index
+:::{grid-item-card} CODEOWNERS
+:link: ../reposzablony/szablony/codeowners
 :link-type: doc
-
-Asset management and resources
+:shadow: md
+Wzorzec CODEOWNERS i jak go utrzymywać.
 :::
 
-:::{grid-item-card} 07. Settings & Crypto
-:link: 07_settings_crypto/index
+:::{grid-item-card} License Guide
+:link: ../reposzablony/szablony/license_guide
 :link-type: doc
-
-Configuration and cryptography
+:shadow: md
+Jak wybrać licencję i jak ją komunikować.
 :::
 
-:::{grid-item-card} 08. Audio
-:link: 08_audio/index
+:::{grid-item-card} ADR (Architecture Decision Record)
+:link: ../reposzablony/szablony/adr
 :link-type: doc
-
-Audio system and sound channels
+:shadow: md
+Jak prowadzić ADR-y (wzór + przykłady).
 :::
 
-:::{grid-item-card} 09. Logging
-:link: 09_logging/index
+:::{grid-item-card} Style Guide
+:link: ../reposzablony/szablony/style_guide
 :link-type: doc
-
-Logging system and log analysis
+:shadow: md
+Język, formaty, nazewnictwo, formaty plików.
 :::
 
-:::{grid-item-card} 10. Game Runtime
-:link: 10_game_runtime/index
+:::{grid-item-card} Diagrams
+:link: ../reposzablony/szablony/diagrams
 :link-type: doc
-
-Game runtime state and metrics
+:shadow: md
+Konwencje diagramów (Mermaid/Graphviz), przykłady, foldery.
 :::
 
+:::{grid-item-card} Kitchen Sink
+:link: ../reposzablony/szablony/kitchen_sink
+:link-type: doc
+:shadow: md
+Katalog przykładów „wszystkiego po trochu": admonitions, tabele, bloki kodów.
+:::
 :::
 
-## Navigation
+## Spis treści (pełna sekcja)
 
 ```{toctree}
-:maxdepth: 1
-:hidden:
+:maxdepth: 2
+:caption: Reposzablony — pełny spis
 
-01_core/index
-01_runtime/index
-02_events/index
-03_modules/index
-04_ui/index
-05_events/index
-05_network/index
-06_assets/index
-07_settings_crypto/index
-08_audio/index
-09_logging/index
-10_game_runtime/index
+../reposzablony/index
 ```
-
-## How to Use
-
-1. **Browse by chapter**: Select a chapter from the grid above
-2. **Review datasets**: Each chapter includes CSV files with structured data
-3. **Explore diagrams**: Visual representations help understand architecture
-4. **Check statistics**: Summary tables provide quick insights
-
-## Source Files
-
-The source data for this documentation is located in:
-- `docs/reposzablony/<chapter>/datasets/` - Raw CSV and JSON data
-- `docs/reposzablony/<chapter>/diagrams/` - Mermaid diagram definitions
-- `docs/_data/<chapter>/` - Sphinx-optimized data files
-
-## Generated Content
-
-:::{note}
-All content in this section is auto-generated from source code and configuration files.
-Last updated: {sub-ref}`today`
-:::
