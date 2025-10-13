@@ -1,6 +1,4 @@
-?# {% raw %}
-
-**Pakiet:** `otc_core_v1/engine` · **Wersja:** 1.0
+# **Pakiet:** `otc_core_v1/engine` · **Wersja:** 1.0
 
 **Cel:** Jednolita, operacyjna specyfikacja **parsera/serializera OTUI (STRICT)**, **walidatora** i **macierzy dozwolonych dzieci**. Dokument jest fundamentem dla edytora TS (Sparky) oraz testów round‑trip.
 
@@ -36,13 +34,13 @@
 
 - Pokrycie: *cały pipeline* od tekstu OTUI (STRICT) ↔ AST (TS) ↔ walidacja ↔ auto‑naprawy ↔ eksport/import.
 - Zakres UI: komplet taksonomii z części „Specyfikacja UI” (rozdz. 4) + presety kanoniczne.
-- 
+-
 # 0.2 Definicje {#ch-0-2}
 
 - **STRICT OTUI** — format bezkomentarzowy, LF, wcięcia 2 sp., kolejność GEOMETRIA→STYL→ZACHOWANIE.
 - **AST** — drzewo `WidgetNode`, deterministyczne klucze i kolejność dzieci.
 - **Macierz** — tablica dozwolonych dzieci dla par (parent, slot).
-- 
+-
 # 0.3 Założenia projektowe {#ch-0-3}
 
 - **Deterministyczność**: ten sam AST → ten sam OTUI (bit‑identyczny, przy tej samej wersji serializera).
@@ -127,7 +125,7 @@ export interface WidgetNode {
 - Uzupełnij brakujące struktury: `children = []`, `style = {}` gdy potrzebne.
 - Zamień `style.text` → w serializacji na `!text: tr('...')`.
 - Zastąp `size` parą `width/height` podczas walidacji kotwic (na potrzeby reguł), ale w serializacji zachowuj wejściową postać.
-- 
+-
 # 2.3 Stabilizacja kolejności {#ch-2-3}
 
 - Atrybuty: najpierw **GEOMETRIA**, potem **STYL**, na końcu **ZACHOWANIE** (events/states).
@@ -146,7 +144,7 @@ export interface WidgetNode {
 - Wcięcie: **2 spacje**.
 - Puste wartości pomijaj.
 - Sekcja kolejności: GEOMETRIA (`id`, `size`/`width`/`height`, `anchors.*`, `margin-*`, `padding`) → STYL → ZACHOWANIE (`@on*`, `$state:` bloki).
-- 
+-
 # 3.2 Escaping i i18n {#ch-3-2}
 
 - `style.text` → `!text: tr('...')`, `'` → `\'`.
