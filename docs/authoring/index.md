@@ -39,11 +39,11 @@ Wszystkie dane są osadzane inline, bez wychodzenia poza sekcję **authoring**.
 :shadow: md
 04_ui — Ui — wbudowany podgląd CSV i diagramów.
 :::
-:::{grid-item-card} 05_events — Events
-:link: 05_events/index
+:::{grid-item-card} 05_network — Network
+:link: 05_network/index
 :link-type: doc
 :shadow: md
-05_events — Events — wbudowany podgląd CSV i diagramów.
+05_network — Network — wbudowany podgląd CSV i diagramów.
 :::
 :::{grid-item-card} 05_network — Network
 :link: 05_network/index
