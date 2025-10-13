@@ -6,11 +6,14 @@ const char* demangle_name(const char* name);
 Demangle names for GNU g++ compiler
 
 ```cpp
-std::string demangle_class() { #ifdef _MSC_VER return demangle_name(typeid(T).name()) + 6; #else return demangle_name(typeid(T).name());
+return demangle_name(typeid(T).name());
+```
+```cpp
+std::string demangle_class();
 ```
 Returns the name of a class
 
 ```cpp
-std::string demangle_type() { return demangle_name(typeid(T).name());
+std::string demangle_type();
 ```
 Returns the name of a type

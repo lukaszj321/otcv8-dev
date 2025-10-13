@@ -1,18 +1,17 @@
 # src/framework/util/extras.h
 
 ```cpp
-public:
-    Extras() { DEFINE_OPTION(limitedPolling, "Limited polling");
+public: Extras();
 ```
 ```cpp
-void set(const std::string& key, bool value) { auto it = m_options.find(key);
+void set(const std::string& key, bool value);
 ```
 ```cpp
-bool get(const std::string& key) { auto it = m_options.find(key);
+bool get(const std::string& key);
 ```
 ```cpp
-std::string getDescription(const std::string& key) { auto it = m_options.find(key);
+std::string getDescription(const std::string& key);
 ```
 ```cpp
-std::vector<std::string> getAll() { std::vector<std::string> ret; for (auto& it : m_options) ret.push_back(it.first);
+std::vector<std::string> getAll();
 ```

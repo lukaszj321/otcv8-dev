@@ -1,17 +1,13 @@
 # src/framework/core/binarytree.h
 
 ```cpp
-public:
-    BinaryTree(const FileStreamPtr& fin);
+public: BinaryTree(const FileStreamPtr& fin);
 ```
 ```cpp
 void seek(uint pos);
 ```
 ```cpp
 void skip(uint len);
-```
-```cpp
-uint tell() { return m_pos; } uint size() { unserialize();
 ```
 ```cpp
 uint8 getU8();
@@ -35,18 +31,13 @@ Point getPoint();
 BinaryTreeVec getChildren();
 ```
 ```cpp
-bool canRead() { unserialize();
-```
-```cpp
-private:
-    void unserialize();
+private: void unserialize();
 ```
 ```cpp
 void skipNodes();
 ```
 ```cpp
-public:
-    OutputBinaryTree(const FileStreamPtr& finish);
+public: OutputBinaryTree(const FileStreamPtr& finish);
 ```
 ```cpp
 void addU8(uint8 v);
@@ -73,6 +64,14 @@ void startNode(uint8 node);
 void endNode();
 ```
 ```cpp
-protected:
-    void write(const uint8* data, size_t size);
+protected: void write(const uint8* data, size_t size);
+```
+```cpp
+uint tell();
+```
+```cpp
+uint size();
+```
+```cpp
+bool canRead();
 ```

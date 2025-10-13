@@ -9,3 +9,9 @@ bool compileSourceFile(const std::string& sourceFile);
 ```cpp
 std::string log();
 ```
+```cpp
+uint getShaderId();
+```
+```cpp
+ShaderType getShaderType();
+```

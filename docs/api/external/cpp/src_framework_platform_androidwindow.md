@@ -22,8 +22,7 @@ void internalDestroyGLContext();
 void internalConnectGLContext();
 ```
 ```cpp
-public:
-    AndroidWindow();
+public: AndroidWindow();
 ```
 ```cpp
 void init();
@@ -98,7 +97,7 @@ std::string getClipboardText();
 std::string getPlatformType();
 ```
 ```cpp
-void displayFatalError(const std::string& message) override; void showTextEditor(const std::string& title, const std::string& description, const std::string& text, int flags) override; void handleCmd(int32_t cmd);
+void handleCmd(int32_t cmd);
 ```
 ```cpp
 int handleInput(AInputEvent* event);
@@ -111,4 +110,13 @@ void handleTextInput(std::string text);
 ```
 ```cpp
 void openUrl(std::string url);
+```
+```cpp
+JNIEnv* getJNIEnv();
+```
+```cpp
+JavaVM* getJavaVM();
+```
+```cpp
+jobject getClazz();
 ```

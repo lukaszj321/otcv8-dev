@@ -1,8 +1,7 @@
 # src/framework/http/http.h
 
 ```cpp
-public:
-    Http() : m_ios(), m_guard(boost::asio::make_work_guard(m_ios)) {} void init();
+void init();
 ```
 ```cpp
 void terminate();
@@ -29,8 +28,14 @@ bool wsClose(int operationId);
 bool cancel(int id);
 ```
 ```cpp
-void clearDownloads() { m_downloads.clear();
+public: Http() : m_ios(), m_guard(boost::asio::make_work_guard(m_ios));
 ```
 ```cpp
-HttpResult_ptr getFile(std::string path) { if (!path.empty() && path[0] == '/') path = path.substr(1);
+void clearDownloads();
+```
+```cpp
+HttpResult_ptr getFile(std::string path);
+```
+```cpp
+void setUserAgent(const std::string& userAgent);
 ```

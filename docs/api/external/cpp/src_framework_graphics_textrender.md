@@ -1,8 +1,7 @@
 # src/framework/graphics/textrender.h
 
 ```cpp
-public:
-    void init();
+public: void init();
 ```
 ```cpp
 void terminate();

@@ -1,8 +1,7 @@
 # src/framework/net/protocol.h
 
 ```cpp
-public:
-    Protocol();
+public: Protocol();
 ```
 ```cpp
 void connect(const std::string& host, uint16 port);
@@ -23,7 +22,7 @@ bool isConnected();
 bool isConnecting();
 ```
 ```cpp
-ticks_t getElapsedTicksSinceLastRead() { return m_connection ? m_connection->getElapsedTicksSinceLastRead() : -1; } ConnectionPtr getConnection() { return m_connection; } void setConnection(const ConnectionPtr& connection) { m_connection = connection; } void generateXteaKey();
+void generateXteaKey();
 ```
 ```cpp
 void setXteaKey(uint32 a, uint32 b, uint32 c, uint32 d);
@@ -32,17 +31,13 @@ void setXteaKey(uint32 a, uint32 b, uint32 c, uint32 d);
 std::vector<uint32> getXteaKey();
 ```
 ```cpp
-void enableXteaEncryption() { m_xteaEncryptionEnabled = true; } void enableChecksum() { m_checksumEnabled = true; } void enabledSequencedPackets() { m_sequencedPackets = true; } void enableBigPackets() { m_bigPackets = true; } void enableCompression() { m_compression = true; } virtual void send(const OutputMessagePtr& outputMessage, bool rawPacket = false);
+virtual void send(const OutputMessagePtr& outputMessage, bool rawPacket = false);
 ```
 ```cpp
 virtual void recv();
 ```
 ```cpp
-ProtocolPtr asProtocol() { return static_self_cast<Protocol>();
-```
-```cpp
-protected:
-    virtual void onConnect();
+protected: virtual void onConnect();
 ```
 ```cpp
 virtual void onRecv(const InputMessagePtr& inputMessage);
@@ -60,8 +55,7 @@ void onPlayerPacket(const std::shared_ptr<std::vector<uint8_t>>& packet);
 void onLocalDisconnected(boost::system::error_code ec);
 ```
 ```cpp
-private:
-    void internalRecvHeader(uint8* buffer, uint32 size);
+private: void internalRecvHeader(uint8* buffer, uint32 size);
 ```
 ```cpp
 void internalRecvData(uint8* buffer, uint32 size);
@@ -71,4 +65,31 @@ bool xteaDecrypt(const InputMessagePtr& inputMessage);
 ```
 ```cpp
 void xteaEncrypt(const OutputMessagePtr& outputMessage);
+```
+```cpp
+ticks_t getElapsedTicksSinceLastRead();
+```
+```cpp
+ConnectionPtr getConnection();
+```
+```cpp
+void setConnection(const ConnectionPtr& connection);
+```
+```cpp
+void enableXteaEncryption();
+```
+```cpp
+void enableChecksum();
+```
+```cpp
+void enabledSequencedPackets();
+```
+```cpp
+void enableBigPackets();
+```
+```cpp
+void enableCompression();
+```
+```cpp
+ProtocolPtr asProtocol();
 ```

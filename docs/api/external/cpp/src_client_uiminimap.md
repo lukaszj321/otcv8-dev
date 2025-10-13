@@ -1,23 +1,16 @@
 # src/client/uiminimap.h
 
 ```cpp
-public:
-    UIMinimap();
+public: UIMinimap();
 ```
 ```cpp
 void drawSelf(Fw::DrawPane drawPane);
 ```
 ```cpp
-bool zoomIn() { return setZoom(m_zoom+1);
-```
-```cpp
-bool zoomOut() { return setZoom(m_zoom-1);
-```
-```cpp
 bool setZoom(int zoom);
 ```
 ```cpp
-void setMinZoom(int minZoom) { m_minZoom = minZoom; } void setMaxZoom(int maxZoom) { m_maxZoom = maxZoom; } void setCameraPosition(const Position& pos);
+void setCameraPosition(const Position& pos);
 ```
 ```cpp
 bool floorUp();
@@ -35,7 +28,7 @@ Rect getTileRect(const Position& pos);
 Position getTilePosition(const Point& mousePos);
 ```
 ```cpp
-Position getCameraPosition() { return m_cameraPosition; } int getMinZoom() { return m_minZoom; } int getMaxZoom() { return m_maxZoom; } int getZoom() { return m_zoom; } float getScale() { return m_scale; } void anchorPosition(const UIWidgetPtr& anchoredWidget, Fw::AnchorEdge anchoredEdge, const Position& hookedPosition, Fw::AnchorEdge hookedEdge);
+void anchorPosition(const UIWidgetPtr& anchoredWidget, Fw::AnchorEdge anchoredEdge, const Position& hookedPosition, Fw::AnchorEdge hookedEdge);
 ```
 ```cpp
 void fillPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition);
@@ -44,8 +37,7 @@ void fillPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosit
 void centerInPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosition);
 ```
 ```cpp
-protected:
-    virtual void onZoomChange(int zoom, int oldZoom);
+protected: virtual void onZoomChange(int zoom, int oldZoom);
 ```
 ```cpp
 virtual void onCameraPositionChange(const Position& position, const Position& oldPosition);
@@ -54,6 +46,32 @@ virtual void onCameraPositionChange(const Position& position, const Position& ol
 virtual void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode);
 ```
 ```cpp
-private:
-    void update();
+private: void update();
+```
+```cpp
+bool zoomIn();
+```
+```cpp
+bool zoomOut();
+```
+```cpp
+void setMinZoom(int minZoom);
+```
+```cpp
+void setMaxZoom(int maxZoom);
+```
+```cpp
+Position getCameraPosition();
+```
+```cpp
+int getMinZoom();
+```
+```cpp
+int getMaxZoom();
+```
+```cpp
+int getZoom();
+```
+```cpp
+float getScale();
 ```

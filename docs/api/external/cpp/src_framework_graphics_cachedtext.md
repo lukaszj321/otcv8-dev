@@ -1,8 +1,7 @@
 # src/framework/graphics/cachedtext.h
 
 ```cpp
-public:
-    CachedText();
+public: CachedText();
 ```
 ```cpp
 void draw(const Rect& rect, const Color& color);
@@ -11,21 +10,32 @@ void draw(const Rect& rect, const Color& color);
 void wrapText(int maxWidth);
 ```
 ```cpp
-void setFont(const BitmapFontPtr& font) { m_font = font; update();
-```
-```cpp
-void setText(const std::string& text) { m_textColors.clear();
-```
-```cpp
 void setColoredText(const std::vector<std::string>& texts);
 ```
 ```cpp
-void setAlign(Fw::AlignmentFlag align) { m_align = align; update();
+private: void update();
 ```
 ```cpp
-Size getTextSize() { return m_textSize; } std::string getText() const { return m_text; } BitmapFontPtr getFont() const { return m_font; } Fw::AlignmentFlag getAlign() { return m_align; } bool hasText() { return !m_text.empty();
+void setFont(const BitmapFontPtr& font);
 ```
 ```cpp
-private:
-    void update();
+void setText(const std::string& text);
+```
+```cpp
+void setAlign(Fw::AlignmentFlag align);
+```
+```cpp
+Size getTextSize();
+```
+```cpp
+std::string getText();
+```
+```cpp
+BitmapFontPtr getFont();
+```
+```cpp
+Fw::AlignmentFlag getAlign();
+```
+```cpp
+bool hasText();
 ```

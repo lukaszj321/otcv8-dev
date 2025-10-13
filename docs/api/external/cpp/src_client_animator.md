@@ -1,8 +1,7 @@
 # src/client/animator.h
 
 ```cpp
-public:
-    Animator();
+public: Animator();
 ```
 ```cpp
 void unserialize(int animationPhases, const FileStreamPtr& fin);
@@ -23,14 +22,13 @@ int getPhaseAt(Timer& timer, int lastPhase = 0);
 int getStartPhase();
 ```
 ```cpp
-int getAnimationPhases() { return m_animationPhases; } bool isAsync() { return m_async; } bool isComplete() { return m_isComplete; } ticks_t getTotalDuration();
+ticks_t getTotalDuration();
 ```
 ```cpp
 void resetAnimation();
 ```
 ```cpp
-private:
-    int getPingPongPhase();
+private: int getPingPongPhase();
 ```
 ```cpp
 int getLoopPhase();
@@ -40,4 +38,13 @@ int getPhaseDuration(int phase);
 ```
 ```cpp
 void calculateSynchronous();
+```
+```cpp
+int getAnimationPhases();
+```
+```cpp
+bool isAsync();
+```
+```cpp
+bool isComplete();
 ```

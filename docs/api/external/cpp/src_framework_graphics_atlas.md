@@ -1,8 +1,7 @@
 # src/framework/graphics/atlas.h
 
 ```cpp
-public:
-    void init();
+public: void init();
 ```
 ```cpp
 void terminate();
@@ -17,20 +16,13 @@ Point cache(uint64_t hash, const Size& size, bool& draw);
 Point cacheFont(const TexturePtr& fontTexture);
 ```
 ```cpp
-TexturePtr get(int location) { return m_atlas[location]->getTexture();
-```
-```cpp
 void bind();
 ```
 ```cpp
 void release();
 ```
 ```cpp
-std::string getStats();
-```
-```cpp
-private:
-    void reset();
+private: void reset();
 ```
 ```cpp
 void resetAtlas(int location);
@@ -40,4 +32,7 @@ bool findSpace(int location, int index);
 ```
 ```cpp
 inline int calculateIndex(const Size& size);
+```
+```cpp
+TexturePtr get(int location);
 ```

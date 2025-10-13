@@ -1,8 +1,7 @@
 # src/framework/util/crypt.h
 
 ```cpp
-public:
-    Crypt();
+public: Crypt();
 ```
 ```cpp
 std::string base64Encode(const std::string& decoded_string);
@@ -12,12 +11,6 @@ std::string base64Decode(const std::string& encoded_string);
 ```
 ```cpp
 std::string xorCrypt(const std::string& buffer, const std::string& key);
-```
-```cpp
-std::string encrypt(const std::string& decrypted_string) { return _encrypt(decrypted_string, true);
-```
-```cpp
-std::string decrypt(const std::string& encrypted_string) { return _decrypt(encrypted_string, true);
 ```
 ```cpp
 std::string genUUID();
@@ -71,12 +64,17 @@ void bencrypt(uint8_t * buffer, int len, uint64_t k);
 void bdecrypt(uint8_t * buffer, int len, uint64_t k);
 ```
 ```cpp
-private:
-    std::string _encrypt(const std::string& decrypted_string, bool useMachineUUID);
+private: std::string _encrypt(const std::string& decrypted_string, bool useMachineUUID);
 ```
 ```cpp
 std::string _decrypt(const std::string& encrypted_string, bool useMachineUUID);
 ```
 ```cpp
 std::string getCryptKey(bool useMachineUUID);
+```
+```cpp
+std::string encrypt(const std::string& decrypted_string);
+```
+```cpp
+std::string decrypt(const std::string& encrypted_string);
 ```

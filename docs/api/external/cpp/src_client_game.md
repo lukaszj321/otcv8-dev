@@ -1,8 +1,7 @@
 # src/client/game.h
 
 ```cpp
-public:
-    Game();
+public: Game();
 ```
 ```cpp
 void init();
@@ -11,12 +10,10 @@ void init();
 void terminate();
 ```
 ```cpp
-private:
-    void resetGameStates();
+private: void resetGameStates();
 ```
 ```cpp
-protected:
-    void processConnectionError(const boost::system::error_code& error);
+protected: void processConnectionError(const boost::system::error_code& error);
 ```
 ```cpp
 void processDisconnect();
@@ -265,13 +262,7 @@ void refreshContainer(const ContainerPtr& container);
 void attack(CreaturePtr creature, bool cancel = false);
 ```
 ```cpp
-void cancelAttack() { attack(nullptr, true);
-```
-```cpp
 void follow(CreaturePtr creature);
-```
-```cpp
-void cancelFollow() { follow(nullptr);
 ```
 ```cpp
 void cancelAttackAndFollow();
@@ -355,13 +346,13 @@ void setSafeFight(bool on);
 void setPVPMode(Otc::PVPModes pvpMode);
 ```
 ```cpp
-Otc::ChaseModes getChaseMode() { return m_chaseMode; } Otc::FightModes getFightMode() { return m_fightMode; } bool isSafeFight() { return m_safeFight; } Otc::PVPModes getPVPMode() { return m_pvpMode; } // pvp related void setUnjustifiedPoints(UnjustifiedPoints unjustifiedPoints);
+void setUnjustifiedPoints(UnjustifiedPoints unjustifiedPoints);
 ```
 ```cpp
-UnjustifiedPoints getUnjustifiedPoints() { return m_unjustifiedPoints; }; void setOpenPvpSituations(int openPvpSitations);
+void setOpenPvpSituations(int openPvpSitations);
 ```
 ```cpp
-int getOpenPvpSituations() { return m_openPvpSituations; } // npc trade related void inspectNpcTrade(const ItemPtr& item);
+void inspectNpcTrade(const ItemPtr& item);
 ```
 ```cpp
 void buyItem(const ItemPtr& item, int amount, bool ignoreCapacity, bool buyWithBackpack);
@@ -478,31 +469,16 @@ void ping();
 void newPing();
 ```
 ```cpp
-void setPingDelay(int delay) { m_pingDelay = delay; } // otclient only void changeMapAwareRange(int xrange, int yrange);
-```
-```cpp
-void resetFeatures() { m_features.reset();
-```
-```cpp
-void enableFeature(Otc::GameFeature feature) { m_features.set(feature, true);
-```
-```cpp
-void disableFeature(Otc::GameFeature feature) { m_features.set(feature, false);
-```
-```cpp
-void setFeature(Otc::GameFeature feature, bool enabled) { m_features.set(feature, enabled);
-```
-```cpp
-bool getFeature(Otc::GameFeature feature) { return m_features.test(feature);
+void changeMapAwareRange(int xrange, int yrange);
 ```
 ```cpp
 void setProtocolVersion(int version);
 ```
 ```cpp
-int getProtocolVersion() { return m_protocolVersion; } void setCustomProtocolVersion(int version) { m_customProtocolVersion = version; } int getCustomProtocolVersion() { return m_customProtocolVersion != 0 ? m_customProtocolVersion : m_protocolVersion; } void setClientVersion(int version);
+void setClientVersion(int version);
 ```
 ```cpp
-int getClientVersion() { return m_clientVersion; } void setCustomOs(int os) { m_clientCustomOs = os; } int getOs();
+int getOs();
 ```
 ```cpp
 bool canPerformGameAction();
@@ -511,20 +487,191 @@ bool canPerformGameAction();
 bool checkBotProtection();
 ```
 ```cpp
-bool isOnline() { return m_online; } bool isLogging() { return !m_online && m_protocolGame; } bool isDead() { return m_dead; } bool isAttacking() { return !!m_attackingCreature && !m_attackingCreature->isRemoved();
-```
-```cpp
-bool isFollowing() { return !!m_followingCreature && !m_followingCreature->isRemoved();
-```
-```cpp
-bool isConnectionOk() { return m_protocolGame && m_protocolGame->getElapsedTicksSinceLastRead() < 5000; } int getPing() { return m_ping; } ContainerPtr getContainer(int index) { if (m_containers.find(index) == m_containers.end()) { return nullptr; } return m_containers[index]; } std::map<int, ContainerPtr> getContainers() { return m_containers; } std::map<int, Vip> getVips() { return m_vips; } CreaturePtr getAttackingCreature() { return m_attackingCreature; } CreaturePtr getFollowingCreature() { return m_followingCreature; } void setServerBeat(int beat) { m_serverBeat = beat; } int getServerBeat() { return m_serverBeat; } void setCanReportBugs(bool enable) { m_canReportBugs = enable; } bool canReportBugs() { return m_canReportBugs; } void setExpertPvpMode(bool enable) { m_expertPvpMode = enable; } bool getExpertPvpMode() { return m_expertPvpMode; } LocalPlayerPtr getLocalPlayer() { return m_localPlayer; } ProtocolGamePtr getProtocolGame() { return m_protocolGame; } std::string getCharacterName() { return m_characterName; } std::string getWorldName() { return m_worldName; } std::vector<uint8> getGMActions() { return m_gmActions; } bool isGM() { return m_gmActions.size() > 0; } Otc::Direction getLastWalkDir() { return m_lastWalkDir; } std::string formatCreatureName(const std::string &name);
+std::string formatCreatureName(const std::string &name);
 ```
 ```cpp
 int findEmptyContainerId();
 ```
 ```cpp
-void setTibiaCoins(int coins, int transferableCoins) { m_coins = coins; m_transferableCoins = transferableCoins; } int getTibiaCoins() { return m_coins; } int getTransferableTibiaCoins() { return m_transferableCoins; } void setMaxPreWalkingSteps(uint value) { m_maxPreWalkingSteps = value; } uint getMaxPreWalkingSteps() { return m_maxPreWalkingSteps; } void showRealDirection(bool value) { m_showRealDirection = value; } bool shouldShowingRealDirection() { return m_showRealDirection; } uint getWalkId() { return m_walkId; } uint getWalkPreditionId() { return m_walkPrediction; } void ignoreServerDirection(bool value) { m_ignoreServerDirection = value; } bool isIgnoringServerDirection() { return m_ignoreServerDirection; } void enableTileThingLuaCallback(bool value) { m_tileThingsLuaCallback = value; } bool isTileThingLuaCallbackEnabled() { return m_tileThingsLuaCallback; } int getRecivedPacketsCount() { return m_protocolGame ? m_protocolGame->getRecivedPacketsCount() : 0; } int getRecivedPacketsSize() { return m_protocolGame ? m_protocolGame->getRecivedPacketsSize() : 0; } protected: void enableBotCall() { m_denyBotCall = false; } void disableBotCall() { m_denyBotCall = true; } private: void setAttackingCreature(const CreaturePtr& creature);
+private: void setAttackingCreature(const CreaturePtr& creature);
 ```
 ```cpp
 void setFollowingCreature(const CreaturePtr& creature);
+```
+```cpp
+void cancelAttack();
+```
+```cpp
+void cancelFollow();
+```
+```cpp
+Otc::ChaseModes getChaseMode();
+```
+```cpp
+Otc::FightModes getFightMode();
+```
+```cpp
+bool isSafeFight();
+```
+```cpp
+Otc::PVPModes getPVPMode();
+```
+```cpp
+UnjustifiedPoints getUnjustifiedPoints();
+```
+```cpp
+int getOpenPvpSituations();
+```
+```cpp
+void setPingDelay(int delay);
+```
+```cpp
+void resetFeatures();
+```
+```cpp
+void enableFeature(Otc::GameFeature feature);
+```
+```cpp
+void disableFeature(Otc::GameFeature feature);
+```
+```cpp
+void setFeature(Otc::GameFeature feature, bool enabled);
+```
+```cpp
+bool getFeature(Otc::GameFeature feature);
+```
+```cpp
+int getProtocolVersion();
+```
+```cpp
+void setCustomProtocolVersion(int version);
+```
+```cpp
+int getCustomProtocolVersion();
+```
+```cpp
+int getClientVersion();
+```
+```cpp
+void setCustomOs(int os);
+```
+```cpp
+bool isOnline();
+```
+```cpp
+bool isLogging();
+```
+```cpp
+bool isDead();
+```
+```cpp
+bool isAttacking();
+```
+```cpp
+bool isFollowing();
+```
+```cpp
+bool isConnectionOk();
+```
+```cpp
+int getPing();
+```
+```cpp
+ContainerPtr getContainer(int index);
+```
+```cpp
+CreaturePtr getAttackingCreature();
+```
+```cpp
+CreaturePtr getFollowingCreature();
+```
+```cpp
+void setServerBeat(int beat);
+```
+```cpp
+int getServerBeat();
+```
+```cpp
+void setCanReportBugs(bool enable);
+```
+```cpp
+bool canReportBugs();
+```
+```cpp
+void setExpertPvpMode(bool enable);
+```
+```cpp
+bool getExpertPvpMode();
+```
+```cpp
+LocalPlayerPtr getLocalPlayer();
+```
+```cpp
+ProtocolGamePtr getProtocolGame();
+```
+```cpp
+std::string getCharacterName();
+```
+```cpp
+std::string getWorldName();
+```
+```cpp
+std::vector<uint8> getGMActions();
+```
+```cpp
+bool isGM();
+```
+```cpp
+Otc::Direction getLastWalkDir();
+```
+```cpp
+void setTibiaCoins(int coins, int transferableCoins);
+```
+```cpp
+int getTibiaCoins();
+```
+```cpp
+int getTransferableTibiaCoins();
+```
+```cpp
+void setMaxPreWalkingSteps(uint value);
+```
+```cpp
+uint getMaxPreWalkingSteps();
+```
+```cpp
+void showRealDirection(bool value);
+```
+```cpp
+bool shouldShowingRealDirection();
+```
+```cpp
+uint getWalkId();
+```
+```cpp
+uint getWalkPreditionId();
+```
+```cpp
+void ignoreServerDirection(bool value);
+```
+```cpp
+bool isIgnoringServerDirection();
+```
+```cpp
+void enableTileThingLuaCallback(bool value);
+```
+```cpp
+bool isTileThingLuaCallbackEnabled();
+```
+```cpp
+int getRecivedPacketsCount();
+```
+```cpp
+int getRecivedPacketsSize();
+```
+```cpp
+protected: void enableBotCall();
+```
+```cpp
+void disableBotCall();
 ```

@@ -1,8 +1,7 @@
 # src/framework/ui/uigridlayout.h
 
 ```cpp
-public:
-    UIGridLayout(UIWidgetPtr parentWidget);
+public: UIGridLayout(UIWidgetPtr parentWidget);
 ```
 ```cpp
 void applyStyle(const OTMLNodePtr& styleNode);
@@ -14,32 +13,47 @@ void removeWidget(const UIWidgetPtr& widget);
 void addWidget(const UIWidgetPtr& widget);
 ```
 ```cpp
-void setCellSize(const Size& size) { m_cellSize = size; update();
+protected: bool internalUpdate();
 ```
 ```cpp
-void setCellWidth(int width) { m_cellSize.setWidth(width);
+void setCellSize(const Size& size);
 ```
 ```cpp
-void setCellHeight(int height) { m_cellSize.setHeight(height);
+void setCellWidth(int width);
 ```
 ```cpp
-void setCellSpacing(int spacing) { m_cellSpacing = spacing; update();
+void setCellHeight(int height);
 ```
 ```cpp
-void setNumColumns(int columns) { m_numColumns = columns; update();
+void setCellSpacing(int spacing);
 ```
 ```cpp
-void setNumLines(int lines) { m_numLines = lines; update();
+void setNumColumns(int columns);
 ```
 ```cpp
-void setAutoSpacing(bool enable) { m_autoSpacing = enable; update();
+void setNumLines(int lines);
 ```
 ```cpp
-void setFitChildren(bool enable) { m_fitChildren = enable; update();
+void setAutoSpacing(bool enable);
 ```
 ```cpp
-void setFlow(bool enable) { m_flow = enable; update();
+void setFitChildren(bool enable);
 ```
 ```cpp
-Size getCellSize() { return m_cellSize; } int getCellSpacing() { return m_cellSpacing; } int getNumColumns() { return m_numColumns; } int getNumLines() { return m_numLines; } virtual bool isUIGridLayout() { return true; } protected: bool internalUpdate();
+void setFlow(bool enable);
+```
+```cpp
+Size getCellSize();
+```
+```cpp
+int getCellSpacing();
+```
+```cpp
+int getNumColumns();
+```
+```cpp
+int getNumLines();
+```
+```cpp
+virtual bool isUIGridLayout();
 ```

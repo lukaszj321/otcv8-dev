@@ -1,8 +1,7 @@
 # src/framework/graphics/framebuffer.h
 
 ```cpp
-public:
-    FrameBuffer(bool withDepth = false);
+public: FrameBuffer(bool withDepth = false);
 ```
 ```cpp
 void resize(const Size& size);
@@ -26,21 +25,32 @@ void draw(const Rect& dest, const Rect& src);
 void setSmooth(bool enabled);
 ```
 ```cpp
-TexturePtr getTexture() { return m_texture; } Size getSize();
+Size getSize();
 ```
 ```cpp
-bool isSmooth() { return m_smooth; } #ifdef WITH_DEPTH_BUFFER uint getDepthRenderBuffer() { return m_depthRbo; } bool hasDepth() { return m_depth; } #endif std::vector<uint32_t> readPixels();
+std::vector<uint32_t> readPixels();
 ```
 ```cpp
 void doScreenshot(std::string fileName);
 ```
 ```cpp
-private:
-    void internalCreate();
+private: void internalCreate();
 ```
 ```cpp
 void internalBind();
 ```
 ```cpp
 void internalRelease();
+```
+```cpp
+TexturePtr getTexture();
+```
+```cpp
+bool isSmooth();
+```
+```cpp
+uint getDepthRenderBuffer();
+```
+```cpp
+bool hasDepth();
 ```

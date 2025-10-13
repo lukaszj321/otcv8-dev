@@ -1,14 +1,13 @@
 # src/framework/sound/combinedsoundsource.h
 
 ```cpp
-public:
-    CombinedSoundSource();
+public: CombinedSoundSource();
 ```
 ```cpp
 void addSource(const SoundSourcePtr& source);
 ```
 ```cpp
-std::vector<SoundSourcePtr> getSources() { return m_sources; } void play();
+void play();
 ```
 ```cpp
 void stop();
@@ -44,6 +43,8 @@ void setVelocity(const Point& velocity);
 void setFading(FadeState state, float fadetime);
 ```
 ```cpp
-protected:
-    virtual void update();
+protected: virtual void update();
+```
+```cpp
+std::vector<SoundSourcePtr> getSources();
 ```

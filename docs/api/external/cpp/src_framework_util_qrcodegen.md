@@ -3,7 +3,6 @@
 ```cpp
 bool qrcodegen_encodeText(const char *text, uint8_t tempBuffer[], uint8_t qrcode[], enum qrcodegen_Ecc ecl, int minVersion, int maxVersion, enum qrcodegen_Mask mask, bool boostEcl);
 ```
-- The arrays tempBuffer and qrcode must each have a length
 of at least qrcodegen_BUFFER_LEN_FOR_VERSION(maxVersion).
 - After the function returns, tempBuffer contains no useful data.
 - If successful, the resulting QR Code may use numeric,
@@ -18,7 +17,6 @@ data capacities per version, ECC level, and text encoding mode.
 ```cpp
 bool qrcodegen_encodeBinary(uint8_t dataAndTemp[], size_t dataLen, uint8_t qrcode[], enum qrcodegen_Ecc ecl, int minVersion, int maxVersion, enum qrcodegen_Mask mask, bool boostEcl);
 ```
-- The variables ecl and mask must correspond to enum constant values.
 - Requires 1 <= minVersion <= maxVersion <= 40.
 - The arrays dataAndTemp and qrcode must each have a length
 of at least qrcodegen_BUFFER_LEN_FOR_VERSION(maxVersion).
@@ -47,7 +45,6 @@ But the qrcode array must not overlap tempBuffer or any segment's data buffer.
 ```cpp
 bool qrcodegen_encodeSegmentsAdvanced(const struct qrcodegen_Segment segs[], size_t len, enum qrcodegen_Ecc ecl, int minVersion, int maxVersion, enum qrcodegen_Mask mask, bool boostEcl, uint8_t tempBuffer[], uint8_t qrcode[]);
 ```
-The smallest possible QR Code version within the given range is automatically
 chosen for the output. Iff boostEcl is true, then the ECC level of the result
 may be higher than the ecl argument if it can be done without increasing the
 version. The mask is either between qrcodegen_Mask_0 to 7 to force that mask, or
@@ -84,6 +81,31 @@ the number of needed bits exceeds INT16_MAX (i.e. 32767).
 - For byte mode, numChars measures the number of bytes, not Unicode code points.
 - For ECI mode, numChars must be 0, and the worst-case number of bytes is returned.
 An actual ECI segment can have shorter data. For non-ECI modes, the result is exact.
+
+```cpp
+struct qrcodegen_Segment qrcodegen_makeBytes(const uint8_t data[], size_t len, uint8_t buf[]);
+```
+Returns a segment representing the given binary data encoded in
+byte mode. All input byte arrays are acceptable. Any text string
+can be converted to UTF-8 bytes and encoded as a byte mode segment.
+
+```cpp
+struct qrcodegen_Segment qrcodegen_makeNumeric(const char *digits, uint8_t buf[]);
+```
+Returns a segment representing the given string of decimal digits encoded in numeric mode.
+
+```cpp
+struct qrcodegen_Segment qrcodegen_makeAlphanumeric(const char *text, uint8_t buf[]);
+```
+Returns a segment representing the given text string encoded in alphanumeric mode.
+The characters allowed are: 0 to 9, A to Z (uppercase only), space,
+dollar, percent, asterisk, plus, hyphen, period, slash, colon.
+
+```cpp
+struct qrcodegen_Segment qrcodegen_makeEci(long assignVal, uint8_t buf[]);
+```
+Returns a segment representing an Extended Channel Interpretation
+(ECI) designator with the given assignment value.
 
 ```cpp
 int qrcodegen_getSize(const uint8_t qrcode[]);

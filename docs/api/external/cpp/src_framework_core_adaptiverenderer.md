@@ -1,8 +1,7 @@
 # src/framework/core/adaptiverenderer.h
 
 ```cpp
-public:
-    void newFrame();
+public: void newFrame();
 ```
 ```cpp
 void refresh();
@@ -29,8 +28,14 @@ int creaturesRenderInterval();
 bool allowFading();
 ```
 ```cpp
-int getLevel() { return m_speed; } int foregroundUpdateInterval();
+int foregroundUpdateInterval();
 ```
 ```cpp
 std::string getDebugInfo();
+```
+```cpp
+int getLevel();
+```
+```cpp
+void setForcedLevel(int value);
 ```

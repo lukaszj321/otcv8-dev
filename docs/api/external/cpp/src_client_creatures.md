@@ -1,22 +1,6 @@
 # src/client/creatures.h
 
 ```cpp
-public:
-    Spawn() = default; Spawn(int32 radius) { setRadius(radius);
-```
-```cpp
-void setRadius(int32 r) { m_attribs.set(SpawnAttrRadius, r);
-```
-```cpp
-int32 getRadius() { return m_attribs.get<int32>(SpawnAttrRadius);
-```
-```cpp
-void setCenterPos(const Position& pos) { m_attribs.set(SpawnAttrCenter, pos);
-```
-```cpp
-Position getCenterPos() { return m_attribs.get<Position>(SpawnAttrCenter);
-```
-```cpp
 std::vector<CreatureTypePtr> getCreatures();
 ```
 ```cpp
@@ -26,58 +10,16 @@ void addCreature(const Position& placePos, const CreatureTypePtr& cType);
 void removeCreature(const Position& pos);
 ```
 ```cpp
-void clear() { m_creatures.clear();
-```
-```cpp
-protected:
-    void load(TiXmlElement* node);
+protected: void load(TiXmlElement* node);
 ```
 ```cpp
 void save(TiXmlElement* node);
 ```
 ```cpp
-public:
-    CreatureType() = default; CreatureType(const std::string& name) { setName(name);
-```
-```cpp
-void setSpawnTime(int32 spawnTime) { m_attribs.set(CreatureAttrSpawnTime, spawnTime);
-```
-```cpp
-int32 getSpawnTime() { return m_attribs.get<int32>(CreatureAttrSpawnTime);
-```
-```cpp
-void setName(const std::string& name) { m_attribs.set(CreatureAttrName, name);
-```
-```cpp
-std::string getName() { return m_attribs.get<std::string>(CreatureAttrName);
-```
-```cpp
-void setOutfit(const Outfit& o) { m_attribs.set(CreatureAttrOutfit, o);
-```
-```cpp
-Outfit getOutfit() { return m_attribs.get<Outfit>(CreatureAttrOutfit);
-```
-```cpp
-void setDirection(Otc::Direction dir) { m_attribs.set(CreatureAttrDir, dir);
-```
-```cpp
-Otc::Direction getDirection() { return m_attribs.get<Otc::Direction>(CreatureAttrDir);
-```
-```cpp
-void setRace(CreatureRace race) { m_attribs.set(CreatureAttrRace, race);
-```
-```cpp
-CreatureRace getRace() { return m_attribs.get<CreatureRace>(CreatureAttrRace);
-```
-```cpp
 CreaturePtr cast();
 ```
 ```cpp
-public:
-    CreatureManager();
-```
-```cpp
-void clear() { m_creatures.clear();
+public: CreatureManager();
 ```
 ```cpp
 void clearSpawns();
@@ -125,5 +67,62 @@ SpawnPtr addSpawn(const Position& centerPos, int radius);
 void deleteSpawn(const SpawnPtr& spawn);
 ```
 ```cpp
-bool isLoaded() { return m_loaded; } bool isSpawnLoaded() { return m_spawnLoaded; } const std::vector<CreatureTypePtr>& getCreatures() { return m_creatures; } protected: void internalLoadCreatureBuffer(TiXmlElement* elem, const CreatureTypePtr& m);
+protected: void internalLoadCreatureBuffer(TiXmlElement* elem, const CreatureTypePtr& m);
+```
+```cpp
+void setRadius(int32 r);
+```
+```cpp
+int32 getRadius();
+```
+```cpp
+void setCenterPos(const Position& pos);
+```
+```cpp
+Position getCenterPos();
+```
+```cpp
+void clear();
+```
+```cpp
+void setSpawnTime(int32 spawnTime);
+```
+```cpp
+int32 getSpawnTime();
+```
+```cpp
+void setName(const std::string& name);
+```
+```cpp
+std::string getName();
+```
+```cpp
+void setOutfit(const Outfit& o);
+```
+```cpp
+Outfit getOutfit();
+```
+```cpp
+void setDirection(Otc::Direction dir);
+```
+```cpp
+Otc::Direction getDirection();
+```
+```cpp
+void setRace(CreatureRace race);
+```
+```cpp
+CreatureRace getRace();
+```
+```cpp
+void clear();
+```
+```cpp
+bool isLoaded();
+```
+```cpp
+bool isSpawnLoaded();
+```
+```cpp
+const std::vector<CreatureTypePtr>& getCreatures();
 ```

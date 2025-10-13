@@ -1,12 +1,41 @@
 # src/framework/util/point.h
 
 ```cpp
-public:
-    TPoint() : x(0), y(0) {} TPoint(T x, T y) : x(x), y(y) { } TPoint(const TPoint<T>& other) : x(other.x), y(other.y) { } bool isNull() const { return x==0 && y==0; } TSize<T> toSize() const { return TSize<T>(x, y);
+return TPoint<T>(x - other.x, y - other.y).getLength();
 ```
 ```cpp
-float length() const { return sqrt((float)(x*x + y*y));
+public: TPoint() : x(0), y(0);
 ```
 ```cpp
-float distanceFrom(const TPoint<T>& other) const { return TPoint<T>(x - other.x, y - other.y).getLength();
+bool isNull();
+```
+```cpp
+TSize<T> toSize();
+```
+```cpp
+TPoint<T> operator*(const TPoint<T>& other);
+```
+```cpp
+TPoint<T> operator*(float v);
+```
+```cpp
+TPoint<T> operator&(int a);
+```
+```cpp
+bool operator<(const TPoint<T>&other);
+```
+```cpp
+bool operator>(const TPoint<T>&other);
+```
+```cpp
+float length();
+```
+```cpp
+float distanceFrom(const TPoint<T>& other);
+```
+```cpp
+std::ostream& operator<<(std::ostream& out, const TPoint<T>& point);
+```
+```cpp
+std::istream& operator>>(std::istream& in, TPoint<T>& point);
 ```

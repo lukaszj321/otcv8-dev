@@ -7,7 +7,7 @@ void play();
 void stop();
 ```
 ```cpp
-bool isPlaying() { return m_playing; } void setSoundFile(const SoundFilePtr& soundFile);
+void setSoundFile(const SoundFilePtr& soundFile);
 ```
 ```cpp
 void downMix(DownMix downMix);
@@ -16,12 +16,14 @@ void downMix(DownMix downMix);
 void update();
 ```
 ```cpp
-private:
-    void queueBuffers();
+private: void queueBuffers();
 ```
 ```cpp
 void unqueueBuffers();
 ```
 ```cpp
 bool fillBufferAndQueue(uint buffer);
+```
+```cpp
+bool isPlaying();
 ```

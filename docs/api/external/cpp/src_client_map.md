@@ -1,20 +1,7 @@
 # src/client/map.h
 
 ```cpp
-public:
-    TileBlock() { m_tiles.fill(nullptr);
-```
-```cpp
-const TilePtr& create(const Position& pos) { TilePtr& tile = m_tiles[getTileIndex(pos)]; tile = TilePtr(new Tile(pos));
-```
-```cpp
-const TilePtr& getOrCreate(const Position& pos) { TilePtr& tile = m_tiles[getTileIndex(pos)]; if(!tile) tile = TilePtr(new Tile(pos));
-```
-```cpp
-const TilePtr& get(const Position& pos) { return m_tiles[getTileIndex(pos)]; } void remove(const Position& pos) { m_tiles[getTileIndex(pos)] = nullptr; } uint getTileIndex(const Position& pos) { return ((pos.y % BLOCK_SIZE) * BLOCK_SIZE) + (pos.x % BLOCK_SIZE);
-```
-```cpp
-int horizontal() { return left + right + 1; } int vertical() { return top + bottom + 1; } }; struct PathFindResult { Otc::PathFindResult status = Otc::PathFindResultNoWay; std::vector<Otc::Direction> path; int complexity = 0; Position start; Position destination; }; using PathFindResult_ptr = std::shared_ptr<PathFindResult>; struct Node { float cost; float totalCost; Position pos; Node *prev; int distance; int unseen; }; //@bindsingleton g_map class Map { public: void init();
+public: void init();
 ```
 ```cpp
 void terminate();
@@ -42,36 +29,6 @@ void loadOtbm(const std::string& fileName);
 ```
 ```cpp
 void saveOtbm(const std::string& fileName);
-```
-```cpp
-void setHouseFile(const std::string& file) { m_attribs.set(OTBM_ATTR_HOUSE_FILE, file);
-```
-```cpp
-void setSpawnFile(const std::string& file) { m_attribs.set(OTBM_ATTR_SPAWN_FILE, file);
-```
-```cpp
-void setDescription(const std::string& desc) { m_attribs.set(OTBM_ATTR_DESCRIPTION, desc);
-```
-```cpp
-void clearDescriptions() { m_attribs.remove(OTBM_ATTR_DESCRIPTION);
-```
-```cpp
-void setWidth(uint16 w) { m_attribs.set(OTBM_ATTR_WIDTH, w);
-```
-```cpp
-void setHeight(uint16 h) { m_attribs.set(OTBM_ATTR_HEIGHT, h);
-```
-```cpp
-std::string getHouseFile() { return m_attribs.get<std::string>(OTBM_ATTR_HOUSE_FILE);
-```
-```cpp
-std::string getSpawnFile() { return m_attribs.get<std::string>(OTBM_ATTR_SPAWN_FILE);
-```
-```cpp
-Size getSize() { return Size(m_attribs.get<uint16>(OTBM_ATTR_WIDTH), m_attribs.get<uint16>(OTBM_ATTR_HEIGHT));
-```
-```cpp
-std::vector<std::string> getDescriptions() { return stdext::split(m_attribs.get<std::string>(OTBM_ATTR_DESCRIPTION), "\n");
 ```
 ```cpp
 void clean();
@@ -134,10 +91,10 @@ void setShowZones(bool show);
 void setZoneColor(tileflags_t flag, const Color& color);
 ```
 ```cpp
-void setZoneOpacity(float opacity) { m_zoneOpacity = opacity; } float getZoneOpacity() { return m_zoneOpacity; } Color getZoneColor(tileflags_t flag);
+Color getZoneColor(tileflags_t flag);
 ```
 ```cpp
-tileflags_t getZoneFlags() { return (tileflags_t)m_zoneFlags; } bool showZones() { return m_zoneFlags != 0; } bool showZone(tileflags_t zone) { return (m_zoneFlags & zone) == zone; } void setForceShowAnimations(bool force);
+void setForceShowAnimations(bool force);
 ```
 ```cpp
 bool isForcingAnimations();
@@ -173,7 +130,7 @@ std::vector<CreaturePtr> getSpectatorsInRangeEx(const Position& centerPos, bool 
 std::vector<CreaturePtr> getSpectatorsByPattern(const Position& centerPos, const std::string& pattern, Otc::Direction direction);
 ```
 ```cpp
-void setLight(const Light& light) { m_light = light; } void setCentralPosition(const Position& centralPosition);
+void setCentralPosition(const Position& centralPosition);
 ```
 ```cpp
 bool isLookPossible(const Position& pos);
@@ -197,16 +154,10 @@ void setAwareRange(const AwareRange& range);
 void resetAwareRange();
 ```
 ```cpp
-AwareRange getAwareRange() { return m_awareRange; } Size getAwareRangeAsSize() { return Size(m_awareRange.horizontal(), m_awareRange.vertical());
-```
-```cpp
-Light getLight() { return m_light; } Position getCentralPosition() { return m_centralPosition; } int getFirstAwareFloor();
+int getFirstAwareFloor();
 ```
 ```cpp
 int getLastAwareFloor();
-```
-```cpp
-const std::vector<MissilePtr>& getFloorMissiles(int z) { return m_floorMissiles[z]; } std::vector<AnimatedTextPtr> getAnimatedTexts() { return m_animatedTexts; } std::vector<StaticTextPtr> getStaticTexts() { return m_staticTexts; } std::tuple<std::vector<Otc::Direction>, Otc::PathFindResult> findPath(const Position& start, const Position& goal, int maxComplexity, int flags = 0);
 ```
 ```cpp
 PathFindResult_ptr newFindPath(const Position& start, const Position& goal, std::shared_ptr<std::list<Node*>> visibleNodes);
@@ -230,9 +181,101 @@ bool isSightClear(const Position& fromPos, const Position& toPos);
 bool checkSightLine(const Position& fromPos, const Position& toPos);
 ```
 ```cpp
-private:
-    void removeUnawareThings();
+private: void removeUnawareThings();
 ```
 ```cpp
-uint getBlockIndex(const Position& pos) { return ((pos.y / BLOCK_SIZE) * (65536 / BLOCK_SIZE)) + (pos.x / BLOCK_SIZE);
+public: TileBlock();
+```
+```cpp
+const TilePtr& create(const Position& pos);
+```
+```cpp
+const TilePtr& getOrCreate(const Position& pos);
+```
+```cpp
+const TilePtr& get(const Position& pos);
+```
+```cpp
+void remove(const Position& pos);
+```
+```cpp
+uint getTileIndex(const Position& pos);
+```
+```cpp
+int horizontal();
+```
+```cpp
+int vertical();
+```
+```cpp
+void setHouseFile(const std::string& file);
+```
+```cpp
+void setSpawnFile(const std::string& file);
+```
+```cpp
+void setDescription(const std::string& desc);
+```
+```cpp
+void clearDescriptions();
+```
+```cpp
+void setWidth(uint16 w);
+```
+```cpp
+void setHeight(uint16 h);
+```
+```cpp
+std::string getHouseFile();
+```
+```cpp
+std::string getSpawnFile();
+```
+```cpp
+Size getSize();
+```
+```cpp
+std::vector<std::string> getDescriptions();
+```
+```cpp
+void setZoneOpacity(float opacity);
+```
+```cpp
+float getZoneOpacity();
+```
+```cpp
+tileflags_t getZoneFlags();
+```
+```cpp
+bool showZones();
+```
+```cpp
+bool showZone(tileflags_t zone);
+```
+```cpp
+void setLight(const Light& light);
+```
+```cpp
+AwareRange getAwareRange();
+```
+```cpp
+Size getAwareRangeAsSize();
+```
+```cpp
+Light getLight();
+```
+```cpp
+Position getCentralPosition();
+```
+```cpp
+const std::vector<MissilePtr>& getFloorMissiles(int z);
+```
+```cpp
+std::vector<AnimatedTextPtr> getAnimatedTexts();
+```
+```cpp
+std::vector<StaticTextPtr> getStaticTexts();
+```
+```cpp
+uint getBlockIndex(const Position& pos);
 ```

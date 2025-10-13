@@ -1,18 +1,16 @@
 # src/framework/ui/uianchorlayout.h
 
 ```cpp
-public:
-    UIAnchor(Fw::AnchorEdge anchoredEdge, const std::string& hookedWidgetId, Fw::AnchorEdge hookedEdge) : m_anchoredEdge(anchoredEdge), m_hookedEdge(hookedEdge), m_hookedWidgetId(hookedWidgetId) { } Fw::AnchorEdge getAnchoredEdge() const { return m_anchoredEdge; } Fw::AnchorEdge getHookedEdge() const { return m_hookedEdge; } virtual UIWidgetPtr getHookedWidget(const UIWidgetPtr& widget, const UIWidgetPtr& parentWidget);
+virtual UIWidgetPtr getHookedWidget(const UIWidgetPtr& widget, const UIWidgetPtr& parentWidget);
 ```
 ```cpp
 virtual int getHookedPoint(const UIWidgetPtr& hookedWidget, const UIWidgetPtr& parentWidget);
 ```
 ```cpp
-public:
-    UIAnchorGroup() : m_updated(true) { } void addAnchor(const UIAnchorPtr& anchor);
+void addAnchor(const UIAnchorPtr& anchor);
 ```
 ```cpp
-const UIAnchorList& getAnchors() { return m_anchors; } bool isUpdated() { return m_updated; } void setUpdated(bool updated) { m_updated = updated; } private: UIAnchorList m_anchors; bool m_updated; }; // @bindclass class UIAnchorLayout : public UILayout { public: UIAnchorLayout(UIWidgetPtr parentWidget) : UILayout(parentWidget) { } void addAnchor(const UIWidgetPtr& anchoredWidget, Fw::AnchorEdge anchoredEdge, const std::string& hookedWidgetId, Fw::AnchorEdge hookedEdge);
+void addAnchor(const UIWidgetPtr& anchoredWidget, Fw::AnchorEdge anchoredEdge, const std::string& hookedWidgetId, Fw::AnchorEdge hookedEdge);
 ```
 ```cpp
 void removeAnchors(const UIWidgetPtr& anchoredWidget);
@@ -33,8 +31,35 @@ void addWidget(const UIWidgetPtr& widget);
 void removeWidget(const UIWidgetPtr& widget);
 ```
 ```cpp
-bool isUIAnchorLayout() { return true; } protected: virtual bool internalUpdate();
+protected: virtual bool internalUpdate();
 ```
 ```cpp
 virtual bool updateWidget(const UIWidgetPtr& widget, const UIAnchorGroupPtr& anchorGroup, UIWidgetPtr first = nullptr);
+```
+```cpp
+public: UIAnchor(Fw::AnchorEdge anchoredEdge, const std::string& hookedWidgetId, Fw::AnchorEdge hookedEdge) : m_anchoredEdge(anchoredEdge), m_hookedEdge(hookedEdge), m_hookedWidgetId(hookedWidgetId);
+```
+```cpp
+Fw::AnchorEdge getAnchoredEdge();
+```
+```cpp
+Fw::AnchorEdge getHookedEdge();
+```
+```cpp
+public: UIAnchorGroup() : m_updated(true);
+```
+```cpp
+const UIAnchorList& getAnchors();
+```
+```cpp
+bool isUpdated();
+```
+```cpp
+void setUpdated(bool updated);
+```
+```cpp
+public: UIAnchorLayout(UIWidgetPtr parentWidget) : UILayout(parentWidget);
+```
+```cpp
+bool isUIAnchorLayout();
 ```

@@ -1,12 +1,20 @@
 # src/framework/graphics/colorarray.h
 
 ```cpp
-public:
-    inline void addColor(float r, float g, float b, float a) { m_buffer << r << g << b << a; } inline void addColor(const Color& c) { addColor(c.rF(), c.gF(), c.bF(), c.aF());
+public: inline void addColor(float r, float g, float b, float a);
 ```
 ```cpp
-void clear() { m_buffer.reset();
+inline void addColor(const Color& c);
 ```
 ```cpp
-int colorCount() const { return m_buffer.size() / 4; } int count() const { return m_buffer.size() / 4; } int size() const { return m_buffer.size();
+void clear();
+```
+```cpp
+int colorCount();
+```
+```cpp
+int count();
+```
+```cpp
+int size();
 ```

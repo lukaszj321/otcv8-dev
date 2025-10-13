@@ -1,8 +1,10 @@
 # src/framework/luaengine/luainterface.h
 
 ```cpp
-public:
-    LuaInterface();
+typedef int(*LuaCFunction) (lua_State *L);
+```
+```cpp
+public: LuaInterface();
 ```
 ```cpp
 void init();
@@ -32,18 +34,6 @@ void registerClassMemberField(const std::string& className, const std::string& f
 ```
 ```cpp
 void registerGlobalFunction(const std::string& functionName, const LuaCppFunction& function);
-```
-```cpp
-void registerClass() { registerClass(stdext::demangle_class<C>(), stdext::demangle_class<B>());
-```
-```cpp
-void registerClassStaticFunction(const std::string& functionName, const LuaCppFunction& function) { registerClassStaticFunction(stdext::demangle_class<C>(), functionName, function);
-```
-```cpp
-void registerClassMemberFunction(const std::string& functionName, const LuaCppFunction& function) { registerClassMemberFunction(stdext::demangle_class<C>(), functionName, function);
-```
-```cpp
-void registerClassMemberField(const std::string& field, const LuaCppFunction& getFunction, const LuaCppFunction& setFunction) { registerClassMemberField(stdext::demangle_class<C>(), field, getFunction, setFunction);
 ```
 ```cpp
 void bindSingletonFunction(const std::string& functionName, F C::*function, C *instance);
@@ -202,61 +192,395 @@ int luaCallGlobalField(const std::string& global, const std::string& field, cons
 void callGlobalField(const std::string& global, const std::string& field, const T&... args);
 ```
 ```cpp
+static int luaScriptLoader(lua_State* L);
+```
+Load scripts requested by lua 'require'
+
+```cpp
+static int lua_dofile(lua_State* L);
+```
+Run scripts requested by lua 'dofile'
+
+```cpp
+static int lua_dofiles(lua_State* L);
+```
+Run scripts requested by lua 'dofiles'
+
+```cpp
+static int lua_loadfile(lua_State* L);
+```
+Run scripts requested by lua 'dofiles'
+
+```cpp
+static int luaErrorHandler(lua_State* L);
+```
+Handle lua errors from safeCall
+
+```cpp
+static int luaCppFunctionCallback(lua_State* L);
+```
+Handle bound cpp functions callbacks
+
+```cpp
+static int luaCollectCppFunction(lua_State* L);
+```
+Collect bound cpp function pointers
+
+```cpp
+public: void createLuaState();
+```
+```cpp
+void closeLuaState();
+```
+```cpp
+void collectGarbage();
+```
+```cpp
+void loadBuffer(const std::string& buffer, const std::string& source);
+```
+```cpp
+std::string generateByteCode(const std::string & buffer, std::string source);
+```
+```cpp
+int pcall(int numArgs = 0, int numRets = 0, int errorFuncIndex = 0);
+```
+```cpp
+void call(int numArgs = 0, int numRets = 0);
+```
+```cpp
+void error();
+```
+```cpp
+int ref();
+```
+```cpp
+int weakRef();
+```
+```cpp
+void unref(int ref);
+```
+```cpp
+const char* typeName(int index = -1);
+```
+```cpp
+std::string functionSourcePath();
+```
+```cpp
+std::string functionSource();
+```
+```cpp
+void insert(int index);
+```
+```cpp
+void remove(int index);
+```
+```cpp
+bool next(int index = -2);
+```
+```cpp
+void getStackFunction(int level = 0);
+```
+```cpp
+void getRef(int ref);
+```
+```cpp
+void getWeakRef(int weakRef);
+```
+```cpp
+void setGlobalEnvironment(int env);
+```
+```cpp
+void setMetatable(int index = -2);
+```
+```cpp
+void getMetatable(int index = -1);
+```
+```cpp
+void getField(const char* key, int index = -1);
+```
+```cpp
+void setField(const char* key, int index = -2);
+```
+```cpp
+void getTable(int index = -2);
+```
+```cpp
+void setTable(int index = -3);
+```
+```cpp
+void clearTable(int index = -1);
+```
+```cpp
+void getEnv(int index = -1);
+```
+```cpp
+void setEnv(int index = -2);
+```
+```cpp
+void getGlobal(const std::string& key);
+```
+```cpp
+void getGlobalField(const std::string& globalKey, const std::string& fieldKey);
+```
+```cpp
+void setGlobal(const std::string& key);
+```
+```cpp
+void rawGet(int index = -1);
+```
+```cpp
+void rawGeti(int n, int index = -1);
+```
+```cpp
+void rawSet(int index = -3);
+```
+```cpp
+void rawSeti(int n, int index = -2);
+```
+```cpp
+void newTable();
+```
+```cpp
+void createTable(int narr, int nrec);
+```
+```cpp
+void* newUserdata(int size);
+```
+```cpp
+void pop(int n = 1);
+```
+```cpp
+long popInteger();
+```
+```cpp
+double popNumber();
+```
+```cpp
+bool popBoolean();
+```
+```cpp
+std::string popString();
+```
+```cpp
+void* popUserdata();
+```
+```cpp
+void* popUpvalueUserdata();
+```
+```cpp
+LuaObjectPtr popObject();
+```
+```cpp
+void pushNil();
+```
+```cpp
+void pushInteger(long v);
+```
+```cpp
+void pushNumber(double v);
+```
+```cpp
+void pushBoolean(bool v);
+```
+```cpp
+void pushCString(const char* v);
+```
+```cpp
+void pushString(const std::string& v);
+```
+```cpp
+void pushLightUserdata(void* p);
+```
+```cpp
+void pushThread();
+```
+```cpp
+void pushValue(int index = -1);
+```
+```cpp
+void pushObject(const LuaObjectPtr& obj);
+```
+```cpp
+void pushCFunction(LuaCFunction func, int n = 0);
+```
+```cpp
+void pushCppFunction(const LuaCppFunction& func);
+```
+```cpp
+bool isNil(int index = -1);
+```
+```cpp
+bool isBoolean(int index = -1);
+```
+```cpp
+bool isNumber(int index = -1);
+```
+```cpp
+bool isString(int index = -1);
+```
+```cpp
+bool isTable(int index = -1);
+```
+```cpp
+bool isFunction(int index = -1);
+```
+```cpp
+bool isCFunction(int index = -1);
+```
+```cpp
+bool isUserdata(int index = -1);
+```
+```cpp
+bool toBoolean(int index = -1);
+```
+```cpp
+int toInteger(int index = -1);
+```
+```cpp
+double toNumber(int index = -1);
+```
+```cpp
+const char* toCString(int index = -1);
+```
+```cpp
+std::string toString(int index = -1);
+```
+```cpp
+void* toUserdata(int index = -1);
+```
+```cpp
+LuaObjectPtr toObject(int index = -1);
+```
+```cpp
+int getTop();
+```
+```cpp
+std::string getSource(int level = 2);
+```
+```cpp
+void loadFiles(std::string directory, bool recursive = false, std::string contains = "");
+```
+```cpp
 int polymorphicPush(const T& v, const Args&... args);
 ```
+Pushes any type onto the stack
+
 ```cpp
-int polymorphicPush() { return 0; } /// Casts a value from stack to any type /// @exception LuaBadValueCastException thrown if the cast fails template<class T> T castValue(int index = -1);
+template<class T> T castValue(int index = -1);
+```
+Casts a value from stack to any type
+@exception LuaBadValueCastException thrown if the cast fails
+
+```cpp
+throw LuaBadValueCastException(typeName(index), stdext::demangle_type<T>());
 ```
 ```cpp
-int LuaInterface::polymorphicPush(const T& v, const Args&... args) { int r = push_luavalue(v);
+AutoStat s(STATS_LUA, std::string(global) + ":" + field);
+```
+```cpp
+void registerClass();
+```
+```cpp
+void registerClassStaticFunction(const std::string& functionName, const LuaCppFunction& function);
+```
+```cpp
+void registerClassMemberFunction(const std::string& functionName, const LuaCppFunction& function);
+```
+```cpp
+void registerClassMemberField(const std::string& field, const LuaCppFunction& getFunction, const LuaCppFunction& setFunction);
+```
+```cpp
+bool isInCppCallback();
+```
+```cpp
+void useValue();
+```
+```cpp
+void checkStack();
+```
+```cpp
+int getGlobalEnvironment();
+```
+```cpp
+void resetGlobalEnvironment();
+```
+```cpp
+void getField(const std::string& key, int index = -1);
+```
+```cpp
+void setField(const std::string& key, int index = -2);
+```
+```cpp
+bool isLuaFunction(int index = -1);
+```
+```cpp
+int stackSize();
+```
+```cpp
+void clearStack();
+```
+```cpp
+bool hasIndex(int index);
+```
+```cpp
+int polymorphicPush();
+```
+```cpp
+template<class T> T polymorphicPop();
 ```
 Same as castValue but also pops
 
 ```cpp
-void LuaInterface::bindSingletonFunction(const std::string& functionName, F C::*function, C *instance) { registerClassStaticFunction<C>(functionName, luabinder::bind_singleton_mem_fun(function, instance));
+int LuaInterface::polymorphicPush(const T& v, const Args&... args);
 ```
 ```cpp
-void LuaInterface::bindSingletonFunction(const std::string& className, const std::string& functionName, F C::*function, C *instance) { registerClassStaticFunction(className, functionName, luabinder::bind_singleton_mem_fun(function, instance));
+void LuaInterface::bindSingletonFunction(const std::string& functionName, F C::*function, C *instance);
 ```
 ```cpp
-void LuaInterface::bindSingletonFunction(const std::string& className, const std::string& functionName, const F& function) { registerClassStaticFunction(className, functionName, luabinder::bind_fun(function));
+void LuaInterface::bindSingletonFunction(const std::string& className, const std::string& functionName, F C::*function, C *instance);
 ```
 ```cpp
-void LuaInterface::bindClassStaticFunction(const std::string& functionName, const F& function) { registerClassStaticFunction<C>(functionName, luabinder::bind_fun(function));
+void LuaInterface::bindSingletonFunction(const std::string& className, const std::string& functionName, const F& function);
 ```
 ```cpp
-void LuaInterface::bindClassStaticFunction(const std::string& className, const std::string& functionName, const F& function) { registerClassStaticFunction(className, functionName, luabinder::bind_fun(function));
+void LuaInterface::bindClassStaticFunction(const std::string& functionName, const F& function);
 ```
 ```cpp
-void LuaInterface::bindClassMemberFunction(const std::string& functionName, F FC::*function) { registerClassMemberFunction<C>(functionName, luabinder::bind_mem_fun<C>(function));
+void LuaInterface::bindClassStaticFunction(const std::string& className, const std::string& functionName, const F& function);
 ```
 ```cpp
-void LuaInterface::bindClassMemberFunction(const std::string& className, const std::string& functionName, F FC::*function) { registerClassMemberFunction(className, functionName, luabinder::bind_mem_fun<C>(function));
+void LuaInterface::bindClassMemberFunction(const std::string& functionName, F FC::*function);
 ```
 ```cpp
-void LuaInterface::bindClassMemberField(const std::string& fieldName, F1 FC::*getFunction, F2 FC::*setFunction) { registerClassMemberField<C>(fieldName, luabinder::bind_mem_fun<C>(getFunction), luabinder::bind_mem_fun<C>(setFunction));
+void LuaInterface::bindClassMemberFunction(const std::string& className, const std::string& functionName, F FC::*function);
 ```
 ```cpp
-void LuaInterface::bindClassMemberField(const std::string& className, const std::string& fieldName, F1 FC::*getFunction, F2 FC::*setFunction) { registerClassMemberField(className, fieldName, luabinder::bind_mem_fun<C>(getFunction), luabinder::bind_mem_fun<C>(setFunction));
+void LuaInterface::bindClassMemberField(const std::string& fieldName, F1 FC::*getFunction, F2 FC::*setFunction);
 ```
 ```cpp
-void LuaInterface::bindClassMemberGetField(const std::string& fieldName, F FC::*getFunction) { registerClassMemberField<C>(fieldName, luabinder::bind_mem_fun<C>(getFunction), LuaCppFunction());
+void LuaInterface::bindClassMemberField(const std::string& className, const std::string& fieldName, F1 FC::*getFunction, F2 FC::*setFunction);
 ```
 ```cpp
-void LuaInterface::bindClassMemberGetField(const std::string& className, const std::string& fieldName, F FC::*getFunction) { registerClassMemberField(className, fieldName, luabinder::bind_mem_fun<C>(getFunction), LuaCppFunction());
+void LuaInterface::bindClassMemberGetField(const std::string& fieldName, F FC::*getFunction);
 ```
 ```cpp
-void LuaInterface::bindClassMemberSetField(const std::string& fieldName, F FC::*setFunction) { registerClassMemberField<C>(fieldName, LuaCppFunction(), luabinder::bind_mem_fun<C>(setFunction));
+void LuaInterface::bindClassMemberGetField(const std::string& className, const std::string& fieldName, F FC::*getFunction);
 ```
 ```cpp
-void LuaInterface::bindClassMemberSetField(const std::string& className, const std::string& fieldName, F FC::*setFunction) { registerClassMemberField(className, fieldName, LuaCppFunction(), luabinder::bind_mem_fun<C>(setFunction));
+void LuaInterface::bindClassMemberSetField(const std::string& fieldName, F FC::*setFunction);
 ```
 ```cpp
-void LuaInterface::bindGlobalFunction(const std::string& functionName, const F& function) { registerGlobalFunction(functionName, luabinder::bind_fun(function));
+void LuaInterface::bindClassMemberSetField(const std::string& className, const std::string& fieldName, F FC::*setFunction);
 ```
 ```cpp
-int LuaInterface::luaCallGlobalField(const std::string& global, const std::string& field, const T&... args) { AutoStat s(STATS_LUA, std::string(global) + ":" + field);
+void LuaInterface::bindGlobalFunction(const std::string& functionName, const F& function);
 ```
 ```cpp
-void LuaInterface::callGlobalField(const std::string& global, const std::string& field, const T&... args) { int rets = luaCallGlobalField(global, field, args...);
+template<class T> T LuaInterface::castValue(int index);
+```
+```cpp
+int LuaInterface::luaCallGlobalField(const std::string& global, const std::string& field, const T&... args);
+```
+```cpp
+void LuaInterface::callGlobalField(const std::string& global, const std::string& field, const T&... args);
 ```

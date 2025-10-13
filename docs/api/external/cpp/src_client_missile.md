@@ -1,8 +1,7 @@
 # src/client/missile.h
 
 ```cpp
-public:
-    void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr);
+public: void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr);
 ```
 ```cpp
 void setId(uint32 id);
@@ -11,8 +10,20 @@ void setId(uint32 id);
 void setPath(const Position& fromPosition, const Position& toPosition);
 ```
 ```cpp
-uint32 getId() { return m_id; } MissilePtr asMissile() { return static_self_cast<Missile>();
+const ThingTypePtr& getThingType();
 ```
 ```cpp
-bool isMissile() { return true; } const ThingTypePtr& getThingType();
+uint32 getId();
+```
+```cpp
+MissilePtr asMissile();
+```
+```cpp
+bool isMissile();
+```
+```cpp
+Position getSource();
+```
+```cpp
+Position getDestination();
 ```

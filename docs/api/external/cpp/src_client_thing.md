@@ -1,14 +1,13 @@
 # src/client/thing.h
 
 ```cpp
-public:
-    Thing();
+public: Thing();
 ```
 ```cpp
-virtual void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr) { } virtual void setId(uint32 id) { } void setPosition(const Position& position);
+void setPosition(const Position& position);
 ```
 ```cpp
-virtual uint32 getId() { return 0; } Position getPosition() { return m_position; } int getStackPriority();
+int getStackPriority();
 ```
 ```cpp
 virtual const TilePtr& getTile();
@@ -20,194 +19,257 @@ ContainerPtr getParentContainer();
 int getStackPos();
 ```
 ```cpp
-void setMarked(const std::string& color) { if (color.empty()) { m_marked = false; return; } m_marked = true; m_markedColor = Color(color);
-```
-```cpp
 Color updatedMarkedColor();
 ```
 ```cpp
-virtual bool isItem() { return false; } virtual bool isEffect() { return false; } virtual bool isMissile() { return false; } virtual bool isCreature() { return false; } virtual bool isNpc() { return false; } virtual bool isMonster() { return false; } virtual bool isPlayer() { return false; } virtual bool isLocalPlayer() { return false; } virtual bool isAnimatedText() { return false; } virtual bool isStaticText() { return false; } // type shortcuts virtual const ThingTypePtr& getThingType();
+virtual const ThingTypePtr& getThingType();
 ```
 ```cpp
-Size getSize() { return rawGetThingType()->getSize();
+virtual void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr);
 ```
 ```cpp
-int getWidth() { return rawGetThingType()->getWidth();
+virtual void setId(uint32 id);
 ```
 ```cpp
-int getHeight() { return rawGetThingType()->getHeight();
+virtual uint32 getId();
 ```
 ```cpp
-virtual Point getDisplacement() { return rawGetThingType()->getDisplacement();
+Position getPosition();
 ```
 ```cpp
-virtual int getDisplacementX() { return rawGetThingType()->getDisplacementX();
+void setMarked(const std::string& color);
 ```
 ```cpp
-virtual int getDisplacementY() { return rawGetThingType()->getDisplacementY();
+virtual bool isItem();
 ```
 ```cpp
-virtual int getExactSize(int layer, int xPattern, int yPattern, int zPattern, int animationPhase) { return rawGetThingType()->getExactSize(layer, xPattern, yPattern, zPattern, animationPhase);
+virtual bool isEffect();
 ```
 ```cpp
-int getLayers() { return rawGetThingType()->getLayers();
+virtual bool isMissile();
 ```
 ```cpp
-int getNumPatternX() { return rawGetThingType()->getNumPatternX();
+virtual bool isCreature();
 ```
 ```cpp
-int getNumPatternY() { return rawGetThingType()->getNumPatternY();
+virtual bool isNpc();
 ```
 ```cpp
-int getNumPatternZ() { return rawGetThingType()->getNumPatternZ();
+virtual bool isMonster();
 ```
 ```cpp
-int getAnimationPhases() { return rawGetThingType()->getAnimationPhases();
+virtual bool isPlayer();
 ```
 ```cpp
-AnimatorPtr getAnimator() { return rawGetThingType()->getAnimator();
+virtual bool isLocalPlayer();
 ```
 ```cpp
-AnimatorPtr getIdleAnimator() { return rawGetThingType()->getIdleAnimator();
+virtual bool isAnimatedText();
 ```
 ```cpp
-int getGroundSpeed() { return rawGetThingType()->getGroundSpeed();
+virtual bool isStaticText();
 ```
 ```cpp
-int getMaxTextLength() { return rawGetThingType()->getMaxTextLength();
+Size getSize();
 ```
 ```cpp
-Light getLight() { return rawGetThingType()->getLight();
+int getWidth();
 ```
 ```cpp
-int getMinimapColor() { return rawGetThingType()->getMinimapColor();
+int getHeight();
 ```
 ```cpp
-int getLensHelp() { return rawGetThingType()->getLensHelp();
+virtual Point getDisplacement();
 ```
 ```cpp
-int getClothSlot() { return rawGetThingType()->getClothSlot();
+virtual int getDisplacementX();
 ```
 ```cpp
-int getElevation() { return rawGetThingType()->getElevation();
+virtual int getDisplacementY();
 ```
 ```cpp
-bool isGround() { return rawGetThingType()->isGround();
+virtual int getExactSize(int layer, int xPattern, int yPattern, int zPattern, int animationPhase);
 ```
 ```cpp
-bool isGroundBorder() { return rawGetThingType()->isGroundBorder();
+int getLayers();
 ```
 ```cpp
-bool isOnBottom() { return rawGetThingType()->isOnBottom();
+int getNumPatternX();
 ```
 ```cpp
-bool isOnTop() { return rawGetThingType()->isOnTop();
+int getNumPatternY();
 ```
 ```cpp
-bool isContainer() { return rawGetThingType()->isContainer();
+int getNumPatternZ();
 ```
 ```cpp
-bool isStackable() { return rawGetThingType()->isStackable();
+int getAnimationPhases();
 ```
 ```cpp
-bool isForceUse() { return rawGetThingType()->isForceUse();
+AnimatorPtr getAnimator();
 ```
 ```cpp
-bool isMultiUse() { return rawGetThingType()->isMultiUse();
+AnimatorPtr getIdleAnimator();
 ```
 ```cpp
-bool isWritable() { return rawGetThingType()->isWritable();
+int getGroundSpeed();
 ```
 ```cpp
-bool isChargeable() { return rawGetThingType()->isChargeable();
+int getMaxTextLength();
 ```
 ```cpp
-bool isWritableOnce() { return rawGetThingType()->isWritableOnce();
+Light getLight();
 ```
 ```cpp
-bool isFluidContainer() { return rawGetThingType()->isFluidContainer();
+int getMinimapColor();
 ```
 ```cpp
-bool isSplash() { return rawGetThingType()->isSplash();
+int getLensHelp();
 ```
 ```cpp
-bool isNotWalkable() { return rawGetThingType()->isNotWalkable();
+int getClothSlot();
 ```
 ```cpp
-bool isNotMoveable() { return rawGetThingType()->isNotMoveable();
+int getElevation();
 ```
 ```cpp
-bool blockProjectile() { return rawGetThingType()->blockProjectile();
+bool isGround();
 ```
 ```cpp
-bool isNotPathable() { return rawGetThingType()->isNotPathable();
+bool isGroundBorder();
 ```
 ```cpp
-bool isPickupable() { return rawGetThingType()->isPickupable();
+bool isOnBottom();
 ```
 ```cpp
-bool isHangable() { return rawGetThingType()->isHangable();
+bool isOnTop();
 ```
 ```cpp
-bool isHookSouth() { return rawGetThingType()->isHookSouth();
+bool isContainer();
 ```
 ```cpp
-bool isHookEast() { return rawGetThingType()->isHookEast();
+bool isStackable();
 ```
 ```cpp
-bool isRotateable() { return rawGetThingType()->isRotateable();
+bool isForceUse();
 ```
 ```cpp
-bool hasLight() { return rawGetThingType()->hasLight();
+bool isMultiUse();
 ```
 ```cpp
-bool isDontHide() { return rawGetThingType()->isDontHide();
+bool isWritable();
 ```
 ```cpp
-bool isTranslucent() { return rawGetThingType()->isTranslucent();
+bool isChargeable();
 ```
 ```cpp
-bool hasDisplacement() { return rawGetThingType()->hasDisplacement();
+bool isWritableOnce();
 ```
 ```cpp
-bool hasElevation() { return rawGetThingType()->hasElevation();
+bool isFluidContainer();
 ```
 ```cpp
-bool isLyingCorpse() { return rawGetThingType()->isLyingCorpse();
+bool isSplash();
 ```
 ```cpp
-bool isAnimateAlways() { return rawGetThingType()->isAnimateAlways();
+bool isNotWalkable();
 ```
 ```cpp
-bool hasMiniMapColor() { return rawGetThingType()->hasMiniMapColor();
+bool isNotMoveable();
 ```
 ```cpp
-bool hasLensHelp() { return rawGetThingType()->hasLensHelp();
+bool blockProjectile();
 ```
 ```cpp
-bool isFullGround() { return rawGetThingType()->isFullGround();
+bool isNotPathable();
 ```
 ```cpp
-bool isIgnoreLook() { return rawGetThingType()->isIgnoreLook();
+bool isPickupable();
 ```
 ```cpp
-bool isCloth() { return rawGetThingType()->isCloth();
+bool isHangable();
 ```
 ```cpp
-bool isMarketable() { return rawGetThingType()->isMarketable();
+bool isHookSouth();
 ```
 ```cpp
-bool isUsable() { return rawGetThingType()->isUsable();
+bool isHookEast();
 ```
 ```cpp
-bool isWrapable() { return rawGetThingType()->isWrapable();
+bool isRotateable();
 ```
 ```cpp
-bool isUnwrapable() { return rawGetThingType()->isUnwrapable();
+bool hasLight();
 ```
 ```cpp
-bool isTopEffect() { return rawGetThingType()->isTopEffect();
+bool isDontHide();
 ```
 ```cpp
-MarketData getMarketData() { return rawGetThingType()->getMarketData();
+bool isTranslucent();
+```
+```cpp
+bool hasDisplacement();
+```
+```cpp
+bool hasElevation();
+```
+```cpp
+bool isLyingCorpse();
+```
+```cpp
+bool isAnimateAlways();
+```
+```cpp
+bool hasMiniMapColor();
+```
+```cpp
+bool hasLensHelp();
+```
+```cpp
+bool isFullGround();
+```
+```cpp
+bool isIgnoreLook();
+```
+```cpp
+bool isCloth();
+```
+```cpp
+bool isMarketable();
+```
+```cpp
+bool isUsable();
+```
+```cpp
+bool isWrapable();
+```
+```cpp
+bool isUnwrapable();
+```
+```cpp
+bool isTopEffect();
+```
+```cpp
+MarketData getMarketData();
+```
+```cpp
+void hide();
+```
+```cpp
+void show();
+```
+```cpp
+void setHidden(bool value);
+```
+```cpp
+bool isHidden();
+```
+```cpp
+virtual void onPositionChange(const Position& newPos, const Position& oldPos);
+```
+```cpp
+virtual void onAppear();
+```
+```cpp
+virtual void onDisappear();
 ```

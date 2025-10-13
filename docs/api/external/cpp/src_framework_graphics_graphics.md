@@ -1,8 +1,7 @@
 # src/framework/graphics/graphics.h
 
 ```cpp
-public:
-    Graphics();
+public: Graphics();
 ```
 ```cpp
 void init();
@@ -17,8 +16,29 @@ void resize(const Size& size);
 void checkDepthSupport();
 ```
 ```cpp
-int getMaxTextureSize() { return m_maxTextureSize; } const Size& getViewportSize() { return m_viewportSize; } std::string getVendor() { return m_vendor; } std::string getRenderer() { return m_renderer; } std::string getVersion() { return m_version; } std::string getExtensions() { return m_extensions; } bool ok() { return m_ok; } void checkForError(const std::string& function, const std::string& file, int line);
+void checkForError(const std::string& function, const std::string& file, int line);
 ```
 ```cpp
 void checkDepthSupport();
+```
+```cpp
+int getMaxTextureSize();
+```
+```cpp
+const Size& getViewportSize();
+```
+```cpp
+std::string getVendor();
+```
+```cpp
+std::string getRenderer();
+```
+```cpp
+std::string getVersion();
+```
+```cpp
+std::string getExtensions();
+```
+```cpp
+bool ok();
 ```

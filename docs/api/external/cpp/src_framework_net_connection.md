@@ -1,6 +1,9 @@
 # src/framework/net/connection.h
 
 ```cpp
+public: Connection();
+```
+```cpp
 static void poll();
 ```
 ```cpp
@@ -25,14 +28,10 @@ void read_until(const std::string& what, const RecvCallback& callback);
 void read_some(const RecvCallback& callback);
 ```
 ```cpp
-void setErrorCallback(const ErrorCallback& errorCallback) { m_errorCallback = errorCallback; } int getIp();
+int getIp();
 ```
 ```cpp
-boost::system::error_code getError() { return m_error; } bool isConnecting() { return m_connecting; } bool isConnected() { return m_connected; } ticks_t getElapsedTicksSinceLastRead() { return m_connected ? m_activityTimer.elapsed_millis() : -1; } ConnectionPtr asConnection() { return static_self_cast<Connection>();
-```
-```cpp
-protected:
-    void internal_connect(asio::ip::basic_resolver<asio::ip::tcp>::iterator endpointIterator);
+protected: void internal_connect(asio::ip::basic_resolver<asio::ip::tcp>::iterator endpointIterator);
 ```
 ```cpp
 void internal_write();
@@ -57,4 +56,22 @@ void onTimeout(const boost::system::error_code& error);
 ```
 ```cpp
 void handleError(const boost::system::error_code& error);
+```
+```cpp
+void setErrorCallback(const ErrorCallback& errorCallback);
+```
+```cpp
+boost::system::error_code getError();
+```
+```cpp
+bool isConnecting();
+```
+```cpp
+bool isConnected();
+```
+```cpp
+ticks_t getElapsedTicksSinceLastRead();
+```
+```cpp
+ConnectionPtr asConnection();
 ```

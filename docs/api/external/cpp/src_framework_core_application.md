@@ -1,8 +1,7 @@
 # src/framework/core/application.h
 
 ```cpp
-public:
-    Application();
+public: Application();
 ```
 ```cpp
 virtual void init(std::vector<std::string>& args);
@@ -14,7 +13,10 @@ virtual void deinit();
 virtual void terminate();
 ```
 ```cpp
-virtual void run() = 0; virtual void poll();
+virtual void run();
+```
+```cpp
+virtual void poll();
 ```
 ```cpp
 virtual void exit();
@@ -32,14 +34,68 @@ void restart();
 void restartArgs(const std::vector<std::string>& args);
 ```
 ```cpp
-void setName(const std::string& name) { m_appName = name; } void setCompactName(const std::string& compactName) { m_appCompactName = compactName; } void setVersion(const std::string& version) { m_appVersion = version; } bool isRunning() { return m_running; } bool isStopping() { return m_stopping; } bool isTerminated() { return m_terminated; } const std::string& getName() { return m_appName; } const std::string& getCompactName() { return m_appCompactName; } const std::string& getVersion() { return m_appVersion; } std::string getCharset() { return m_charset; } std::string getBuildCompiler() { return BUILD_COMPILER; } std::string getBuildDate() { return std::string(__DATE__);
+std::string getOs();
 ```
 ```cpp
-std::string getBuildRevision() { return std::to_string(BUILD_REVISION);
+protected: void registerLuaFunctions();
 ```
 ```cpp
-std::string getBuildCommit() { return BUILD_COMMIT; } #ifdef FREE_VERSION std::string getBuildType() { return "FREE"; } #else std::string getBuildType() { return "FULL"; } #endif std::string getBuildArch() { return BUILD_ARCH; } std::string getAuthor() { return "otclient.net"; } std::string getOs();
+void setName(const std::string& name);
 ```
 ```cpp
-std::string getStartupOptions() { return m_startupOptions; } bool isMobile() { return m_mobile; } protected: void registerLuaFunctions();
+void setCompactName(const std::string& compactName);
+```
+```cpp
+void setVersion(const std::string& version);
+```
+```cpp
+bool isRunning();
+```
+```cpp
+bool isStopping();
+```
+```cpp
+bool isTerminated();
+```
+```cpp
+const std::string& getName();
+```
+```cpp
+const std::string& getCompactName();
+```
+```cpp
+const std::string& getVersion();
+```
+```cpp
+std::string getCharset();
+```
+```cpp
+std::string getBuildCompiler();
+```
+```cpp
+std::string getBuildDate();
+```
+```cpp
+std::string getBuildRevision();
+```
+```cpp
+std::string getBuildCommit();
+```
+```cpp
+std::string getBuildType();
+```
+```cpp
+std::string getBuildType();
+```
+```cpp
+std::string getBuildArch();
+```
+```cpp
+std::string getAuthor();
+```
+```cpp
+std::string getStartupOptions();
+```
+```cpp
+bool isMobile();
 ```

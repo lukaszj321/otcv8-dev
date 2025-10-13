@@ -1,8 +1,7 @@
 # src/framework/graphics/image.h
 
 ```cpp
-public:
-    Image(const Size& size, int bpp = 4, uint8 *pixels = nullptr);
+public: Image(const Size& size, int bpp = 4, uint8 *pixels = nullptr);
 ```
 ```cpp
 static ImagePtr load(std::string file);
@@ -26,29 +25,44 @@ void paste(const ImagePtr& other);
 ImagePtr upscale();
 ```
 ```cpp
-void resize(const Size& size) { m_size = size; m_pixels.resize(size.area() * m_bpp, 0);
-```
-```cpp
 bool nextMipmap();
 ```
 ```cpp
-void setPixel(int x, int y, uint8 *pixel) { memcpy(&m_pixels[(y * m_size.width() + x) * m_bpp], pixel, m_bpp);
+static ImagePtr fromQRCode(const std::string& code, int border);
 ```
 ```cpp
-void setPixel(int x, int y, uint32_t argb) { setPixel(x, y, (uint8*)&argb);
+void resize(const Size& size);
 ```
 ```cpp
-void setPixel(int x, int y, const Color& color) { m_pixels[(y * m_size.width() + x) * m_bpp] = color.r();
+void setPixel(int x, int y, uint8 *pixel);
 ```
 ```cpp
-std::vector<uint8>& getPixels() { return m_pixels; } uint8* getPixelData() { return &m_pixels[0]; } int getPixelCount() { return m_size.area();
+void setPixel(int x, int y, uint32_t argb);
 ```
 ```cpp
-const Size& getSize() { return m_size; } int getWidth() { return m_size.width();
+void setPixel(int x, int y, const Color& color);
 ```
 ```cpp
-int getHeight() { return m_size.height();
+std::vector<uint8>& getPixels();
 ```
 ```cpp
-int getBpp() { return m_bpp; } uint8* getPixel(int x, int y) { return &m_pixels[(y * m_size.width() + x) * m_bpp]; } static ImagePtr fromQRCode(const std::string& code, int border);
+uint8* getPixelData();
+```
+```cpp
+int getPixelCount();
+```
+```cpp
+const Size& getSize();
+```
+```cpp
+int getWidth();
+```
+```cpp
+int getHeight();
+```
+```cpp
+int getBpp();
+```
+```cpp
+uint8* getPixel(int x, int y);
 ```

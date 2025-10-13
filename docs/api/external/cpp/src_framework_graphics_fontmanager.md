@@ -1,8 +1,7 @@
 # src/framework/graphics/fontmanager.h
 
 ```cpp
-public:
-    FontManager();
+public: FontManager();
 ```
 ```cpp
 void terminate();
@@ -20,5 +19,8 @@ bool fontExists(const std::string& fontName);
 BitmapFontPtr getFont(const std::string& fontName);
 ```
 ```cpp
-BitmapFontPtr getDefaultFont() { return m_defaultFont; } void setDefaultFont(const std::string& fontName) { m_defaultFont = getFont(fontName);
+BitmapFontPtr getDefaultFont();
+```
+```cpp
+void setDefaultFont(const std::string& fontName);
 ```

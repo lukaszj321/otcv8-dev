@@ -1,8 +1,7 @@
 # src/framework/platform/platform.h
 
 ```cpp
-public:
-    void processArgs(std::vector<std::string>& args);
+public: void processArgs(std::vector<std::string>& args);
 ```
 ```cpp
 bool spawnProcess(std::string process, const std::vector<std::string>& args);

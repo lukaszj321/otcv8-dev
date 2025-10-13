@@ -1,10 +1,6 @@
 # src/framework/sound/soundsource.h
 
 ```cpp
-protected:
-    SoundSource(uint sourceId) : m_sourceId(sourceId) { } public: enum FadeState { NoFading, FadingOn, FadingOff }; SoundSource();
-```
-```cpp
 virtual void play();
 ```
 ```cpp
@@ -14,10 +10,7 @@ virtual void stop();
 virtual bool isBuffering();
 ```
 ```cpp
-virtual bool isPlaying() { return isBuffering();
-```
-```cpp
-void setName(const std::string& name) { m_name = name; } virtual void setLooping(bool looping);
+virtual void setLooping(bool looping);
 ```
 ```cpp
 virtual void setRelative(bool relative);
@@ -41,8 +34,29 @@ virtual void setVelocity(const Point& velocity);
 virtual void setFading(FadeState state, float fadetime);
 ```
 ```cpp
-std::string getName() { return m_name; } uchar getChannel() { return m_channel; } float getGain() { return m_gain; } protected: void setBuffer(const SoundBufferPtr& buffer);
+protected: void setBuffer(const SoundBufferPtr& buffer);
 ```
 ```cpp
-void setChannel(uchar channel) { m_channel = channel; } virtual void update();
+virtual void update();
+```
+```cpp
+protected: SoundSource(uint sourceId) : m_sourceId(sourceId);
+```
+```cpp
+virtual bool isPlaying();
+```
+```cpp
+void setName(const std::string& name);
+```
+```cpp
+std::string getName();
+```
+```cpp
+uchar getChannel();
+```
+```cpp
+float getGain();
+```
+```cpp
+void setChannel(uchar channel);
 ```

@@ -1,8 +1,7 @@
 # src/framework/sound/soundmanager.h
 
 ```cpp
-public:
-    void init();
+public: void init();
 ```
 ```cpp
 void terminate();
@@ -12,12 +11,6 @@ void poll();
 ```
 ```cpp
 void setAudioEnabled(bool enable);
-```
-```cpp
-bool isAudioEnabled() { return m_device && m_context && m_audioEnabled ; } void enableAudio() { setAudioEnabled(true);
-```
-```cpp
-void disableAudio() { setAudioEnabled(true);
 ```
 ```cpp
 void stopAll();
@@ -38,6 +31,14 @@ std::string resolveSoundFile(std::string file);
 void ensureContext();
 ```
 ```cpp
-private:
-    SoundSourcePtr createSoundSource(const std::string& filename);
+private: SoundSourcePtr createSoundSource(const std::string& filename);
+```
+```cpp
+bool isAudioEnabled();
+```
+```cpp
+void enableAudio();
+```
+```cpp
+void disableAudio();
 ```

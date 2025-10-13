@@ -22,8 +22,7 @@ void drawTexts(Point dest);
 void drawWidget(Point dest);
 ```
 ```cpp
-public:
-    void clean();
+public: void clean();
 ```
 ```cpp
 void addWalkingCreature(const CreaturePtr& creature);
@@ -77,22 +76,19 @@ ThingPtr getTopMultiUseThing();
 ThingPtr getTopMultiUseThingEx(Point offset);
 ```
 ```cpp
-const Position& getPosition() { return m_position; } int getDrawElevation() { return m_drawElevation; } std::vector<ItemPtr> getItems();
+std::vector<ItemPtr> getItems();
 ```
 ```cpp
 std::vector<CreaturePtr> getCreatures();
 ```
 ```cpp
-std::vector<CreaturePtr> getWalkingCreatures() { return m_walkingCreatures; } std::vector<ThingPtr> getThings() { return m_things; } std::vector<EffectPtr> getEffects() { return m_effects; } ItemPtr getGround();
+ItemPtr getGround();
 ```
 ```cpp
 int getGroundSpeed();
 ```
 ```cpp
-bool isBlocking() { return m_blocking != 0; } uint8 getMinimapColorByte();
-```
-```cpp
-int getThingCount() { return m_things.size() + m_effects.size();
+uint8 getMinimapColorByte();
 ```
 ```cpp
 bool isPathable();
@@ -125,7 +121,7 @@ bool isEmpty();
 bool isDrawable();
 ```
 ```cpp
-bool hasTranslucentLight() { return m_flags & TILESTATE_TRANSLUECENT_LIGHT; } bool mustHookSouth();
+bool mustHookSouth();
 ```
 ```cpp
 bool mustHookEast();
@@ -149,10 +145,7 @@ int getElevation();
 bool hasElevation(int elevation = 1);
 ```
 ```cpp
-void overwriteMinimapColor(uint8 color) { m_minimapColor = color; } void remFlag(uint32 flag) { m_flags &= ~flag; } void setFlag(uint32 flag) { m_flags |= flag; } void setFlags(uint32 flags) { m_flags = flags; } bool hasFlag(uint32 flag) { return (m_flags & flag) == flag; } uint32 getFlags() { return m_flags; } void setHouseId(uint32 hid) { m_houseId = hid; } uint32 getHouseId() { return m_houseId; } bool isHouseTile() { return m_houseId != 0 && (m_flags & TILESTATE_HOUSE) == TILESTATE_HOUSE; } void select() { m_selected = true; } void unselect() { m_selected = false; } bool isSelected() { return m_selected; } TilePtr asTile() { return static_self_cast<Tile>();
-```
-```cpp
-void setSpeed(uint16_t speed, uint8_t blocking) { m_speed = speed; m_blocking = blocking; } void setText(const std::string& text, Color color);
+void setText(const std::string& text, Color color);
 ```
 ```cpp
 std::string getText();
@@ -167,12 +160,86 @@ int getTimer();
 void setFill(Color color);
 ```
 ```cpp
-void resetFill() { m_fill = Color::alpha; } bool canShoot(int distance);
+bool canShoot(int distance);
 ```
 ```cpp
-void setWidget(UIWidgetPtr widget) { m_widget = widget; } UIWidgetPtr getWidget() { return m_widget; } void removeWidget() { if (m_widget) { m_widget->destroy();
+private: void checkTranslucentLight();
 ```
 ```cpp
-private:
-    void checkTranslucentLight();
+const Position& getPosition();
+```
+```cpp
+int getDrawElevation();
+```
+```cpp
+std::vector<CreaturePtr> getWalkingCreatures();
+```
+```cpp
+std::vector<ThingPtr> getThings();
+```
+```cpp
+std::vector<EffectPtr> getEffects();
+```
+```cpp
+bool isBlocking();
+```
+```cpp
+int getThingCount();
+```
+```cpp
+bool hasTranslucentLight();
+```
+```cpp
+void overwriteMinimapColor(uint8 color);
+```
+```cpp
+void remFlag(uint32 flag);
+```
+```cpp
+void setFlag(uint32 flag);
+```
+```cpp
+void setFlags(uint32 flags);
+```
+```cpp
+bool hasFlag(uint32 flag);
+```
+```cpp
+uint32 getFlags();
+```
+```cpp
+void setHouseId(uint32 hid);
+```
+```cpp
+uint32 getHouseId();
+```
+```cpp
+bool isHouseTile();
+```
+```cpp
+void select();
+```
+```cpp
+void unselect();
+```
+```cpp
+bool isSelected();
+```
+```cpp
+TilePtr asTile();
+```
+```cpp
+void setSpeed(uint16_t speed, uint8_t blocking);
+```
+```cpp
+void resetFill();
+```
+```cpp
+void setWidget(UIWidgetPtr widget);
+```
+```cpp
+UIWidgetPtr getWidget();
+```
+```cpp
+void removeWidget();
 ```

@@ -1,8 +1,7 @@
 # src/client/item.h
 
 ```cpp
-public:
-    Item();
+public: Item();
 ```
 ```cpp
 static ItemPtr create(int id, int countOrSubtype = 1);
@@ -23,79 +22,22 @@ void setId(uint32 id);
 void setOtbId(uint16 id);
 ```
 ```cpp
-void setCountOrSubType(int value) { m_countOrSubType = value; } void setCount(int count) { m_countOrSubType = count; } void setSubType(int subType) { m_countOrSubType = subType; } void setColor(const Color& c) { m_color = c; } void setTooltip(const std::string& str) { m_tooltip = str; } void setQuickLootFlags(uint32 flags) { m_quickLootFlags = flags; } void setShader(const std::string& str) { m_shader = str; } int getCountOrSubType() { return m_countOrSubType; } int getSubType();
+int getSubType();
 ```
 ```cpp
 int getCount();
 ```
 ```cpp
-uint32 getId() { return m_clientId; } uint16 getClientId() { return m_clientId; } uint16 getServerId() { return m_serverId; } std::string getName();
+std::string getName();
 ```
 ```cpp
 bool isValid();
 ```
 ```cpp
-std::string getTooltip() { return m_tooltip; } uint32 getQuickLootFlags() { return m_quickLootFlags; } std::string getShader() { return m_shader; } void unserializeItem(const BinaryTreePtr& in);
+void unserializeItem(const BinaryTreePtr& in);
 ```
 ```cpp
 void serializeItem(const OutputBinaryTreePtr& out);
-```
-```cpp
-void setDepotId(uint16 depotId) { m_attribs.set(ATTR_DEPOT_ID, depotId);
-```
-```cpp
-uint16 getDepotId() { return m_attribs.get<uint16>(ATTR_DEPOT_ID);
-```
-```cpp
-void setDoorId(uint8 doorId) { m_attribs.set(ATTR_HOUSEDOORID, doorId);
-```
-```cpp
-uint8 getDoorId() { return m_attribs.get<uint8>(ATTR_HOUSEDOORID);
-```
-```cpp
-uint16 getUniqueId() { return m_attribs.get<uint16>(ATTR_UNIQUE_ID);
-```
-```cpp
-uint16 getActionId() { return m_attribs.get<uint16>(ATTR_ACTION_ID);
-```
-```cpp
-void setActionId(uint16 actionId) { m_attribs.set(ATTR_ACTION_ID, actionId);
-```
-```cpp
-void setUniqueId(uint16 uniqueId) { m_attribs.set(ATTR_UNIQUE_ID, uniqueId);
-```
-```cpp
-std::string getText() { return m_attribs.get<std::string>(ATTR_TEXT);
-```
-```cpp
-std::string getDescription() { return m_attribs.get<std::string>(ATTR_DESC);
-```
-```cpp
-void setDescription(std::string desc) { m_attribs.set(ATTR_DESC, desc);
-```
-```cpp
-void setText(std::string txt) { m_attribs.set(ATTR_TEXT, txt);
-```
-```cpp
-Position getTeleportDestination() { return m_attribs.get<Position>(ATTR_TELE_DEST);
-```
-```cpp
-void setTeleportDestination(const Position& pos) { m_attribs.set(ATTR_TELE_DEST, pos);
-```
-```cpp
-void setAsync(bool enable) { m_async = enable; } bool isHouseDoor() { return m_attribs.has(ATTR_HOUSEDOORID);
-```
-```cpp
-bool isDepot() { return m_attribs.has(ATTR_DEPOT_ID);
-```
-```cpp
-bool isContainer() { return m_attribs.has(ATTR_CONTAINER_ITEMS);
-```
-```cpp
-bool isDoor() { return m_attribs.has(ATTR_HOUSEDOORID);
-```
-```cpp
-bool isTeleport() { return m_attribs.has(ATTR_TELE_DEST);
 ```
 ```cpp
 bool isMoveable();
@@ -105,15 +47,6 @@ bool isGround();
 ```
 ```cpp
 ItemPtr clone();
-```
-```cpp
-ItemPtr asItem() { return static_self_cast<Item>();
-```
-```cpp
-bool isItem() { return true; } ItemVector getContainerItems() { return m_containerItems; } ItemPtr getContainerItem(int slot) { return m_containerItems[slot]; } void addContainerItemIndexed(const ItemPtr& i, int slot) { m_containerItems[slot] = i; } void addContainerItem(const ItemPtr& i) { m_containerItems.push_back(i);
-```
-```cpp
-void removeContainerItem(int slot) { m_containerItems[slot] = nullptr; } void clearContainerItems() { m_containerItems.clear();
 ```
 ```cpp
 void calculatePatterns(int& xPattern, int& yPattern, int& zPattern);
@@ -128,8 +61,134 @@ int getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern
 const ThingTypePtr& getThingType();
 ```
 ```cpp
-void setCustomAttribute(uint16 key, uint64 value) { m_customAttribs.set(key, value);
+void setCountOrSubType(int value);
 ```
 ```cpp
-uint64 getCustomAttribute(uint16 key) { return m_customAttribs.get<uint64>(key);
+void setCount(int count);
+```
+```cpp
+void setSubType(int subType);
+```
+```cpp
+void setColor(const Color& c);
+```
+```cpp
+void setTooltip(const std::string& str);
+```
+```cpp
+void setQuickLootFlags(uint32 flags);
+```
+```cpp
+void setShader(const std::string& str);
+```
+```cpp
+int getCountOrSubType();
+```
+```cpp
+uint32 getId();
+```
+```cpp
+uint16 getClientId();
+```
+```cpp
+uint16 getServerId();
+```
+```cpp
+std::string getTooltip();
+```
+```cpp
+uint32 getQuickLootFlags();
+```
+```cpp
+std::string getShader();
+```
+```cpp
+void setDepotId(uint16 depotId);
+```
+```cpp
+uint16 getDepotId();
+```
+```cpp
+void setDoorId(uint8 doorId);
+```
+```cpp
+uint8 getDoorId();
+```
+```cpp
+uint16 getUniqueId();
+```
+```cpp
+uint16 getActionId();
+```
+```cpp
+void setActionId(uint16 actionId);
+```
+```cpp
+void setUniqueId(uint16 uniqueId);
+```
+```cpp
+std::string getText();
+```
+```cpp
+std::string getDescription();
+```
+```cpp
+void setDescription(std::string desc);
+```
+```cpp
+void setText(std::string txt);
+```
+```cpp
+Position getTeleportDestination();
+```
+```cpp
+void setTeleportDestination(const Position& pos);
+```
+```cpp
+void setAsync(bool enable);
+```
+```cpp
+bool isHouseDoor();
+```
+```cpp
+bool isDepot();
+```
+```cpp
+bool isContainer();
+```
+```cpp
+bool isDoor();
+```
+```cpp
+bool isTeleport();
+```
+```cpp
+ItemPtr asItem();
+```
+```cpp
+bool isItem();
+```
+```cpp
+ItemVector getContainerItems();
+```
+```cpp
+ItemPtr getContainerItem(int slot);
+```
+```cpp
+void addContainerItemIndexed(const ItemPtr& i, int slot);
+```
+```cpp
+void addContainerItem(const ItemPtr& i);
+```
+```cpp
+void removeContainerItem(int slot);
+```
+```cpp
+void clearContainerItems();
+```
+```cpp
+void setCustomAttribute(uint16 key, uint64 value);
+```
+```cpp
+uint64 getCustomAttribute(uint16 key);
 ```

@@ -1,9 +1,10 @@
 # src/framework/graphics/bitmapfont.h
 
 ```cpp
-public:
-    BitmapFont(const std::string& name) : m_name(name) { static int id = 1; m_id = id++; } /// Load font from otml node void load(const OTMLNodePtr& fontNode);
+void load(const OTMLNodePtr& fontNode);
 ```
+Load font from otml node
+
 ```cpp
 void drawText(const std::string& text, const Point& startPos, const Color& color = Color::white, bool shadow = false);
 ```
@@ -34,8 +35,37 @@ Simulate render and calculate text size
 std::string wrapText(const std::string& text, int maxWidth, std::vector<std::pair<int, Color>>* colors = nullptr);
 ```
 ```cpp
-int getId() { return m_id; } std::string getName() { return m_name; } int getGlyphHeight() { return m_glyphHeight; } const Rect* getGlyphsTextureCoords() { return m_glyphsTextureCoords; } const Size* getGlyphsSize() { return m_glyphsSize; } const TexturePtr& getTexture() { return m_texture; } int getYOffset() { return m_yOffset; } Size getGlyphSpacing() { return m_glyphSpacing; } private: /// Calculates each font character by inspecting font bitmap void calculateGlyphsWidthsAutomatically(const ImagePtr& image, const Size& glyphSize);
+void calculateGlyphsWidthsAutomatically(const ImagePtr& image, const Size& glyphSize);
 ```
+Calculates each font character by inspecting font bitmap
+
 ```cpp
 void updateColors(std::vector<std::pair<int, Color>>* colors, int pos, int newTextLen);
+```
+```cpp
+public: BitmapFont(const std::string& name) : m_name(name);
+```
+```cpp
+int getId();
+```
+```cpp
+std::string getName();
+```
+```cpp
+int getGlyphHeight();
+```
+```cpp
+const Rect* getGlyphsTextureCoords();
+```
+```cpp
+const Size* getGlyphsSize();
+```
+```cpp
+const TexturePtr& getTexture();
+```
+```cpp
+int getYOffset();
+```
+```cpp
+Size getGlyphSpacing();
 ```

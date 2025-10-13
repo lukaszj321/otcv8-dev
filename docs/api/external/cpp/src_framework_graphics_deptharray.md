@@ -1,15 +1,17 @@
 # src/framework/graphics/deptharray.h
 
 ```cpp
-public:
-    inline void addDepth(float depth) { m_buffer << depth; } void clear() { m_buffer.reset();
+public: inline void addDepth(float depth);
 ```
 ```cpp
-int depthCount() const { return m_buffer.size();
+void clear();
 ```
 ```cpp
-int count() const { return m_buffer.size();
+int depthCount();
 ```
 ```cpp
-int size() const { return m_buffer.size();
+int count();
+```
+```cpp
+int size();
 ```

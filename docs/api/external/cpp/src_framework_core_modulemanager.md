@@ -1,8 +1,7 @@
 # src/framework/core/modulemanager.h
 
 ```cpp
-public:
-    void clear();
+public: void clear();
 ```
 ```cpp
 void discoverModules();
@@ -26,5 +25,8 @@ void reloadModules();
 ModulePtr getModule(const std::string& moduleName);
 ```
 ```cpp
-std::deque<ModulePtr> getModules() { return m_modules; } protected: void updateModuleLoadOrder(ModulePtr module);
+protected: void updateModuleLoadOrder(ModulePtr module);
+```
+```cpp
+std::deque<ModulePtr> getModules();
 ```

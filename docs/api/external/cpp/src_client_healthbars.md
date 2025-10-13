@@ -1,17 +1,10 @@
 # src/client/healthbars.h
 
 ```cpp
-public:
-    void setPath(const std::string& path) { m_path = path; } std::string getPath() { return m_path; } void setTexture(const std::string& path);
+void setTexture(const std::string& path);
 ```
 ```cpp
-TexturePtr getTexture() { return m_texture; } void setOffset(int x, int y) { m_offset = Point(x, y);
-```
-```cpp
-Point getOffset() { return m_offset; } void setBarOffset(int x, int y) { m_barOffset = Point(x, y);
-```
-```cpp
-Point getBarOffset() { return m_barOffset; } void setHeight(int height) { m_height = height; } int getHeight() { return m_height; } private: std::string m_path; TexturePtr m_texture; Point m_offset; Point m_barOffset; int m_height; }; //@bindsingleton g_healthBars class HealthBars { public: void init();
+public: void init();
 ```
 ```cpp
 void terminate();
@@ -23,7 +16,7 @@ void addHealthBackground(const std::string& path, int offsetX, int offsetY, int 
 void addManaBackground(const std::string& path, int offsetX, int offsetY, int barOffsetX, int barOffsetY, int height);
 ```
 ```cpp
-HealthBarPtr getHealthBar(int id) { return m_healthBars[id]; } HealthBarPtr getManaBar(int id) { return m_manaBars[id]; } std::string getHealthBarPath(int id);
+std::string getHealthBarPath(int id);
 ```
 ```cpp
 std::string getManaBarPath(int id);
@@ -45,4 +38,37 @@ int getHealthBarHeight(int id);
 ```
 ```cpp
 int getManaBarHeight(int id);
+```
+```cpp
+public: void setPath(const std::string& path);
+```
+```cpp
+std::string getPath();
+```
+```cpp
+TexturePtr getTexture();
+```
+```cpp
+void setOffset(int x, int y);
+```
+```cpp
+Point getOffset();
+```
+```cpp
+void setBarOffset(int x, int y);
+```
+```cpp
+Point getBarOffset();
+```
+```cpp
+void setHeight(int height);
+```
+```cpp
+int getHeight();
+```
+```cpp
+HealthBarPtr getHealthBar(int id);
+```
+```cpp
+HealthBarPtr getManaBar(int id);
 ```

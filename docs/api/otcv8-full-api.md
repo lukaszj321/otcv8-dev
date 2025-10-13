@@ -1,6 +1,6 @@
-# OTCv8 – Pełne API (auto)
+# OTCv8 - Pełne API (auto)
 
-Wygenerowano: 2025-10-12T21:03:00.017Z
+Wygenerowano: 2025-10-13T00:19:18.137Z
 
 > Ten plik jest generowany automatycznie z kodu. Nie edytuj ręcznie.
 
@@ -287,10 +287,241 @@ Wygenerowano: 2025-10-12T21:03:00.017Z
 ### 1.2. Kontekst `ctx.*`
 _brak_
 
-### 1.3. Moduły (eksporty `M.*`)
-_brak_
+### 1.3. Moduły (eksporty)
+- **docs/reposzablony/_shared/lua/docio.lua**
+  - `docio.append(path, content)`
+  - `docio.isoTimestamp()`
+  - `docio.needsRotation(path)`
+  - `docio.readAll(path)`
+  - `docio.rotate(path)`
+  - `docio.writeAll(path, content)`
+  - `docio.writeCSV(path, headers, rows)`
+  - `docio.writeNDJSON(path, records)`
+- **modules/client_textedit/textedit.lua**
+  - `text.onTextChange(widget, text)`
+- **modules/corelib/util.lua**
+  - `class.getClassName()`
+  - `class.internalCreate()`
+  - `derived.getClassName()`
+  - `derived.internalCreate()`
+- **modules/game_actionbar/actionbar.lua**
+  - `text.onTextChange(self, text)`
+- **modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua**
+  - `settings.onClick()`
+- **modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua**
+  - `settings.onClick(widget)`
+- **modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua**
+  - `friends.onClick(widget)`
+- **modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua**
+  - `text.onTextChange(widget, newText)`
+- **modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua**
+  - `settings.onClick()`
+- **modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua**
+  - `settings.onClick(widget)`
+- **modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua**
+  - `friends.onClick(widget)`
+- **modules/game_bot/executor.lua**
+  - `context.dofile(file)`
+  - `context.error(text)`
+  - `context.getDistanceBetween(p1, p2)`
+  - `context.info(text)`
+  - `context.load(str)`
+  - `context.warn(text)`
+- **modules/game_bot/functions/callbacks.lua**
+  - `context.callback(callbackType, callback)`
+  - `context.listen(name, callback)`
+  - `context.onAddItem(callback)`
+  - `context.onAddThing(callback)`
+  - `context.onAnimatedText(callback)`
+  - `context.onAttackingCreatureChange(callback)`
+  - `context.onChannelEvent(callback)`
+  - `context.onChannelList(callback)`
+  - `context.onCloseChannel(callback)`
+  - `context.onContainerClose(callback)`
+  - `context.onContainerOpen(callback)`
+  - `context.onContainerUpdateItem(callback)`
+  - `context.onCreatureAppear(callback)`
+  - `context.onCreatureDisappear(callback)`
+  - `context.onCreatureHealthPercentChange(callback)`
+  - `context.onCreaturePositionChange(callback)`
+  - `context.onGameEditText(callback)`
+  - `context.onGroupSpellCooldown(callback)`
+  - `context.onImbuementWindow(callback)`
+  - `context.onInventoryChange(callback)`
+  - `context.onKeyDown(callback)`
+  - `context.onKeyPress(callback)`
+  - `context.onKeyUp(callback)`
+  - `context.onLoginAdvice(callback)`
+  - `context.onManaChange(callback)`
+  - `context.onMissle(callback)`
+  - `context.onModalDialog(callback)`
+  - `context.onOpenChannel(callback)`
+  - `context.onPlayerHealthChange(callback)`
+  - `context.onPlayerInventoryChange(callback)`
+  - `context.onPlayerPositionChange(callback)`
+  - `context.onRemoveItem(callback)`
+  - `context.onRemoveThing(callback)`
+  - `context.onSpellCooldown(callback)`
+  - `context.onStatesChange(callback)`
+  - `context.onStaticText(callback)`
+  - `context.onTalk(callback)`
+  - `context.onTextMessage(callback)`
+  - `context.onTurn(callback)`
+  - `context.onUse(callback)`
+  - `context.onUseWith(callback)`
+  - `context.onWalk(callback)`
+- **modules/game_bot/functions/icon.lua**
+  - `context.addIcon(id, options, callback)`
+- **modules/game_bot/functions/main.lua**
+  - `context.delay(duration)`
+  - `context.hotkey(keys, name, callback, parent, single)`
+  - `context.macro(timeout, name, hotkey, callback, parent)`
+  - `context.schedule(timeout, callback)`
+  - `context.singlehotkey(keys, name, callback, parent)`
+- **modules/game_bot/functions/map.lua**
+  - `context.autoWalk(destination, maxDist, params)`
+  - `context.canShoot(pos, distance)`
+  - `context.findAllPaths(start, maxDist, params)`
+  - `context.findPath(startPos, destPos, maxDist, params)`
+  - `context.getCreatureById(id, multifloor)`
+  - `context.getCreatureByName(name, multifloor)`
+  - `context.getMapView()`
+  - `context.getPlayerByName(name, multifloor)`
+  - `context.getSpectators(param1, param2)`
+  - `context.getTileUnderCursor()`
+  - `context.isTrapped(creature)`
+  - `context.translateAllPathsToPath(paths, destPos)`
+  - `context.zoomIn()`
+  - `context.zoomOut()`
+- **modules/game_bot/functions/player_conditions.lua**
+  - `context.canLogout()`
+  - `context.hasCondition(condition)`
+  - `context.hasHaste()`
+  - `context.hasManaShield()`
+  - `context.hasPartyBuff()`
+  - `context.hasPz()`
+  - `context.hasPzBlock()`
+  - `context.hasPzLock()`
+  - `context.hasSwords()`
+  - `context.isBleeding()`
+  - `context.isBurning()`
+  - `context.isCursed()`
+  - `context.isDazzled()`
+  - `context.isDrowning()`
+  - `context.isDrunk()`
+  - `context.isEnergized()`
+  - `context.isFreezing()`
+  - `context.isHungry()`
+  - `context.isInFight()`
+  - `context.isInProtectionZone()`
+  - `context.isInPz()`
+  - `context.isParalyzed()`
+  - `context.isPoisioned()`
+  - `context.isPzBlocked()`
+  - `context.isPzLocked()`
+- **modules/game_bot/functions/player_inventory.lua**
+  - `context.getAmmo()`
+  - `context.getBack()`
+  - `context.getBody()`
+  - `context.getContainer(index)`
+  - `context.getContainers()`
+  - `context.getFeet()`
+  - `context.getFinger()`
+  - `context.getHead()`
+  - `context.getInventoryItem(slot)`
+  - `context.getLeft()`
+  - `context.getLeg()`
+  - `context.getNeck()`
+  - `context.getPurse()`
+  - `context.getRight()`
+  - `context.moveToSlot(item, slot, count)`
+- **modules/game_bot/functions/player.lua**
+  - `context.bless()`
+  - `context.blesses()`
+  - `context.blessings()`
+  - `context.cap()`
+  - `context.capmax()`
+  - `context.direction()`
+  - `context.exp()`
+  - `context.findItem(itemId, subType)`
+  - `context.freecap()`
+  - `context.getChannelId(name)`
+  - `context.getChannels()`
+  - `context.hp()`
+  - `context.hpmax()`
+  - `context.hppercent()`
+  - `context.level()`
+  - `context.lvl()`
+  - `context.magic()`
+  - `context.mana()`
+  - `context.manamax()`
+  - `context.manapercent()`
+  - `context.maxcap()`
+  - `context.maxhp()`
+  - `context.maxmana()`
+  - `context.mlev()`
+  - `context.mlevel()`
+  - `context.name()`
+  - `context.outfit()`
+  - `context.pos()`
+  - `context.posx()`
+  - `context.posy()`
+  - `context.posz()`
+  - `context.saySpell(text, lastSpellTimeout)`
+  - `context.setOutfit(outfit)`
+  - `context.setSpeed(value)`
+  - `context.setSpellTimeout()`
+  - `context.skull()`
+  - `context.soul()`
+  - `context.speed()`
+  - `context.stamina()`
+  - `context.talkChannel(channel, text)`
+  - `context.talkNpc(text)`
+  - `context.talkPrivate(receiver, text)`
+  - `context.turn(dir)`
+  - `context.use(thing, subtype)`
+  - `context.useRune(itemid, target, lastSpellTimeout)`
+  - `context.usewith(thing, target, subtype)`
+  - `context.voc()`
+  - `context.vocation()`
+  - `context.walk(dir)`
+  - `context.yell(text)`
+- **modules/game_bot/functions/script_loader.lua**
+  - `context.loadRemoteScript(url, onLoadCallback)`
+  - `context.loadScript(path, onLoadCallback)`
+- **modules/game_bot/functions/sound.lua**
+  - `context.getSoundChannel()`
+  - `context.playAlarm()`
+  - `context.playSound(file)`
+  - `context.stopSound()`
+- **modules/game_bot/functions/test.lua**
+  - `context.test()`
+- **modules/game_bot/functions/tools.lua**
+  - `context.decode(text)`
+  - `context.displayGeneralBox(title, message, buttons, onEnterCallback, onEscapeCallback)`
+  - `context.doScreenshot(filename)`
+  - `context.encode(data, indent)`
+  - `context.getVersion()`
+- **modules/game_bot/functions/ui_elements.lua**
+  - `text.onTextChange(widget, text)`
+- **modules/game_bot/functions/ui_legacy.lua**
+  - `context._addHotkeySwitch(name, keys, parent)`
+  - `context._addMacroSwitch(name, keys, parent)`
+  - `context.addButton(id, text, onClickCallback, parent)`
+  - `context.addLabel(id, text, parent)`
+  - `context.addSeparator(id, parent)`
+  - `context.addSwitch(id, text, onClickCallback, parent)`
+  - `context.addTab(name)`
+  - `context.addTextEdit(id, text, onTextChangeCallback, parent)`
+  - `context.createWidget(name, parent)`
+  - `context.importStyle(otml)`
+  - `context.setDefaultTab(name)`
+  - `context.setupUI(otml, parent)`
+- **modules/game_bot/panels/healing.lua**
+  - `text.onTextChange(widget, text)`
 
-### 1.4. Globalne funkcje (heur.)
+### 1.4. Globalne funkcje (wykryte)
+- `__genOrderedIndex()`
 - `abort()`
 - `about_graphics()`
 - `about_modules()`
@@ -299,82 +530,278 @@ _brak_
 - `accept()`
 - `action()`
 - `add()`
+- `addBlackListPlayer()`
+- `addButton()`
+- `addCategory()`
+- `addChannel()`
+- `addEvent()`
+- `addExampleFunction()`
+- `addExtraHotkey()`
+- `addFilter()`
+- `addHotkey()`
+- `addIgnoredPlayer()`
+- `addItemPanel()`
+- `addKeyCombo()`
+- `addLeftButton()`
+- `addLeftGameButton()`
+- `addLeftGameToggleButton()`
+- `addLeftPanel()`
+- `addLeftToggleButton()`
+- `addLine()`
+- `addMenuHook()`
+- `addNewline()`
+- `addOffer()`
+- `addPosition()`
+- `addPrivateChannel()`
+- `addPrivateText()`
+- `addRightButton()`
+- `addRightGameButton()`
+- `addRightGameToggleButton()`
+- `addRightPanel()`
+- `addRightToggleButton()`
+- `addStairs()`
+- `addTab()`
+- `addTabText()`
+- `addText()`
+- `addVip()`
+- `addWhitelistedPlayer()`
 - `alarm()`
 - `api()`
 - `append()`
+- `applyMessagePrefixies()`
+- `arabicToRoman()`
 - `assert()`
+- `assignHotkey()`
+- `assignItem()`
+- `assignSpell()`
+- `assignText()`
 - `atan2()`
 - `attack()`
+- `avgTable()`
 - `back()`
 - `band()`
+- `bindKeys()`
+- `bindTurnKey()`
+- `bindWalkKey()`
 - `bit()`
 - `bonus()`
+- `bonusDescription()`
 - `booleantonumber()`
+- `botAddThing()`
+- `botAttackingCreatureChange()`
+- `botChannelEvent()`
+- `botChannelList()`
+- `botCloseChannel()`
+- `botContainerAddItem()`
+- `botContainerClose()`
+- `botContainerOpen()`
+- `botContainerRemoveItem()`
+- `botContainerUpdateItem()`
+- `botCraetureHealthPercentChange()`
+- `botCreatureAppear()`
+- `botCreatureDisappear()`
+- `botCreaturePositionChange()`
+- `botCreatureTurn()`
+- `botCreatureWalk()`
+- `botGameEditText()`
+- `botGroupSpellCooldown()`
+- `botImbuementWindow()`
+- `botInventoryChange()`
+- `botKeyDown()`
+- `botKeyPress()`
+- `botKeyUp()`
+- `botManaChange()`
+- `botModalDialog()`
+- `botOnAnimatedText()`
+- `botOnLoginAdvice()`
+- `botOnMissle()`
+- `botOnStaticText()`
+- `botOnTalk()`
+- `botOnTextMessage()`
+- `botOnUse()`
+- `botOnUseWith()`
+- `botOpenChannel()`
+- `botRemoveThing()`
+- `botSpellCooldown()`
+- `botStatesChange()`
+- `bottingLabels()`
+- `bottingStats()`
+- `breakFurniture()`
+- `broadcastMessage()`
+- `burstDamageValue()`
 - `button()`
 - `buy()`
+- `buyCanceled()`
+- `buyConfirmed()`
+- `buyOffer()`
 - `bxor()`
 - `byte()`
+- `calculateVisibleTime()`
+- `calcValues()`
 - `callback()`
+- `canCast()`
 - `cancel()`
+- `cancelMyOffer()`
+- `canChangeFloorDown()`
+- `canChangeFloorUp()`
+- `canTradeItem()`
+- `capitalFistLetter()`
+- `capitalFormatStr()`
 - `cast()`
+- `castSpell()`
 - `cavebot()`
+- `CaveBotConfigParse()`
 - `ceil()`
 - `center()`
 - `challenge()`
+- `changeCategory()`
 - `changed()`
+- `changeLockState()`
+- `changeSpelllistProfile()`
+- `changeWalkDir()`
 - `char()`
 - `check()`
+- `checkAlert()`
+- `checkCreatures()`
+- `checkExpSpeed()`
+- `checkForDoors()`
+- `checkPlayers()`
+- `checkSellAllTooltip()`
+- `checkTurn()`
 - `chodzenie()`
 - `clean()`
 - `clear()`
 - `clearbit()`
+- `clearCachedPlayers()`
+- `clearCategories()`
+- `clearChannel()`
+- `clearEmptyPanels()`
+- `clearFee()`
+- `clearFields()`
+- `clearFilters()`
+- `clearForm()`
+- `clearHistory()`
+- `clearItems()`
+- `clearMessages()`
+- `clearMyOffers()`
+- `clearObject()`
+- `clearOffers()`
+- `clearSelectedItem()`
+- `clearSelection()`
 - `client()`
+- `clipboardData()`
 - `close()`
+- `closeNpcTrade()`
 - `codepoint_to_utf8()`
 - `collect()`
+- `collectiveReload()`
 - `colortostring()`
 - `comma_value()`
 - `compare()`
+- `completeCommand()`
+- `compressConfig()`
 - `concat()`
 - `condition()`
 - `config()`
+- `configureAddons()`
 - `connect()`
+- `connectKeyDownEvent()`
+- `connectKeyPressEvent()`
+- `connectKeyUpEvent()`
 - `container()`
+- `containerIsFull()`
 - `contains()`
+- `convertOldConfig()`
+- `convertSettingValue()`
 - `copy()`
 - `cos()`
 - `countbrackets()`
 - `create()`
 - `create_set()`
+- `createActionBars()`
+- `createAddWindow()`
+- `createBossPanel()`
+- `createDefaultConfigs()`
+- `createEditWindow()`
+- `createShop()`
+- `createThingMenu()`
+- `createTrackedItems()`
+- `createTrade()`
+- `createTransferWindow()`
+- `createWindow()`
+- `cycleEvent()`
+- `damageHour()`
 - `date()`
 - `debuff()`
 - `decode()`
 - `decode_error()`
+- `decompressConfig()`
 - `decrement()`
 - `decrypt()`
 - `delay()`
+- `deleteFirstEmptyPanel()`
+- `deletePreset()`
+- `deselectPreset()`
 - `destory()`
 - `destroy()`
+- `destroyAddWindow()`
+- `destroyAmountWindow()`
+- `destroyAssignWindows()`
+- `destroyDialog()`
+- `destroyWindow()`
+- `destroyWindows()`
+- `determineKeyComboDesc()`
 - `difftime()`
 - `direction()`
 - `directory()`
 - `dirtostring()`
 - `disable()`
+- `disableChat()`
+- `disableWSAD()`
 - `disconnect()`
 - `dismount()`
 - `display()`
+- `displayBroadcastMessage()`
+- `displayCancelBox()`
+- `displayDeadMessage()`
+- `displayErrorBox()`
+- `displayFailureMessage()`
+- `displayGameMessage()`
+- `displayGeneralBox()`
+- `displayInfoBox()`
+- `displayMessage()`
+- `displayNumberInputBox()`
+- `displayPrivateMessage()`
+- `displayStatusMessage()`
+- `displayTextInputBox()`
 - `distance()`
+- `distanceFromPlayer()`
+- `doChannelListSubmit()`
+- `doCommand()`
+- `doCreatureFitFilters()`
 - `dofile()`
 - `dofiles()`
+- `doKeyCombo()`
+- `doReport()`
 - `down()`
 - `download()`
+- `downloadConfig()`
+- `downloadFiles()`
 - `draw_debug_boxes()`
+- `dropItem()`
 - `dump()`
 - `edit()`
 - `editor()`
 - `elseif()`
+- `emitClassDecl()`
+- `emitClassEnd()`
+- `emitMemberFunctionDecl()`
+- `emitSingletonDecl()`
+- `emitSingletonFunctionDecl()`
 - `empty()`
 - `enable()`
+- `enableChat()`
+- `enableWSAD()`
 - `encode()`
 - `encode_nil()`
 - `encode_number()`
@@ -386,15 +813,24 @@ _brak_
 - `eof()`
 - `equal()`
 - `equals()`
+- `equipItem()`
 - `error()`
 - `escape_char()`
 - `execute()`
+- `executeAttackBotAction()`
+- `executeAutoReconnect()`
+- `executeBot()`
+- `executeCommand()`
+- `executeExtraHotkey()`
+- `executeWalk()`
 - `exist()`
 - `exists()`
 - `exit()`
 - `exp()`
+- `expForLevel()`
 - `explode()`
 - `export()`
+- `expToAdvance()`
 - `extends()`
 - `extension()`
 - `extract()`
@@ -403,113 +839,321 @@ _brak_
 - `file()`
 - `files()`
 - `fill()`
+- `fillTrade()`
+- `filterArgs()`
+- `filterByVocation()`
+- `filterReturn()`
+- `filterType()`
+- `finalCheck()`
 - `find()`
 - `findbyfield()`
 - `findbykey()`
+- `findItemOnGround()`
+- `findItemsInArray()`
 - `findkey()`
 - `flash()`
 - `float()`
 - `floor()`
+- `flushLines()`
 - `fmod()`
 - `focus()`
 - `follow()`
+- `forceExit()`
+- `forceMarked()`
 - `format()`
 - `format_thousand()`
+- `formatCurrency()`
+- `formatStr()`
 - `freecap()`
 - `frexp()`
+- `friendHealerAction()`
 - `fromboolean()`
 - `func()`
 - `gcinfo()`
+- `generateNewTranslationTable()`
 - `get()`
+- `getActionDescription()`
+- `getActiveItemId()`
+- `getAllPlayers()`
+- `getBackground()`
+- `getBestTileByPatern()`
+- `getBestTileByPattern()`
+- `getBigIconPath()`
+- `getBonusDescription()`
+- `getBottomActionPanel()`
+- `getBottomPanel()`
+- `getButton()`
+- `getChannelTab()`
+- `getColor()`
+- `getColorByKills()`
+- `getContainerByItem()`
+- `getContainerByName()`
+- `getContainerPanel()`
+- `getCreaturesInArea()`
+- `getCurrentLocale()`
+- `getCurrentTab()`
+- `getCurrentTradeType()`
+- `getDistanceBetween()`
+- `getEmblemImagePath()`
+- `getEmptyItemPanels()`
+- `getEnemies()`
 - `getfenv()`
+- `getFirstNumberInText()`
+- `getFrame()`
+- `getFriends()`
 - `getfsrcpath()`
+- `getHighlightedText()`
+- `getHuntingData()`
+- `getIconImagePath()`
+- `getIgnoredPlayers()`
+- `getInactiveItemId()`
 - `getinfo()`
+- `getInstalledLocales()`
+- `getItemPrice()`
+- `getKeyCode()`
+- `getLeftAction()`
+- `getLeftActionPanel()`
+- `getLeftPanel()`
+- `getMapPanel()`
+- `getMarketCategoryId()`
+- `getMarketCategoryName()`
+- `getMarketDescriptionId()`
+- `getMarketDescriptionName()`
+- `getMarketSlotFilterId()`
+- `getMarketSlotFilterName()`
+- `getMaxAmount()`
+- `getMaxMargin()`
 - `getmetatable()`
+- `getMonsters()`
+- `getMonstersInArea()`
+- `getMonstersInRange()`
 - `getn()`
 - `getname()`
+- `getNearTiles()`
+- `getNeutrals()`
+- `getNewHighlightedText()`
+- `getNextSkullId()`
+- `getNpcs()`
+- `getOppositeAnchor()`
+- `getOption()`
+- `getOwnPrivateTab()`
+- `getPanelHeight()`
+- `getPattern()`
+- `getPlayerDistribution()`
+- `getPlayers()`
+- `getPos()`
+- `getPrice()`
+- `getProfileFromSettings()`
+- `getProfileFromStartupArgument()`
+- `getPVPBoxByMode()`
+- `getQuiverAmount()`
+- `getRightActionPanel()`
+- `getRightPanel()`
+- `getRootPanel()`
+- `getRuleViolationsTab()`
+- `getSellQuantity()`
+- `getSettingsFilePath()`
+- `getShieldImagePathAndBlink()`
+- `getSkullImagePath()`
+- `getSmallIconPath()`
+- `getSortedBy()`
+- `getSortOrder()`
+- `getSortType()`
+- `getSpellCoolDown()`
+- `getSpellData()`
+- `getSpelllistProfile()`
+- `getStashingIndex()`
+- `getSumStats()`
+- `getTab()`
+- `getTarget()`
+- `getTooltipBonusDescription()`
+- `getTopBar()`
+- `getTopMenu()`
+- `getTradeItemData()`
+- `getTypeImagePath()`
+- `getUnbindArgs()`
+- `getWalkableTilesCount()`
+- `getWhitelistedPlayers()`
 - `gmatch()`
 - `gsub()`
 - `haskey()`
+- `hasWindowAccess()`
+- `healHour()`
 - `helper()`
 - `hide()`
 - `hide_map()`
+- `hideButton()`
+- `hideExperience()`
+- `hideFilterPanel()`
+- `hideGameButtons()`
+- `hideLabels()`
+- `hideOffline()`
+- `hideTabs()`
+- `hideTransfer()`
+- `hideVersionLabel()`
 - `high()`
+- `hightlightText()`
 - `hotkey()`
+- `hotkeyCapture()`
+- `hotkeyCaptureOk()`
+- `hourVal()`
 - `hppercent()`
 - `import()`
 - `increment()`
 - `info()`
 - `information()`
 - `init()`
+- `initAppWindow()`
+- `initBotServerListenFunctions()`
+- `initCallbacks()`
+- `initCooldown()`
+- `initializeSpelllist()`
+- `initInterface()`
+- `initMarketItems()`
+- `initProtocol()`
 - `insert()`
+- `installLocale()`
+- `installLocales()`
+- `interpreteCondition()`
 - `invalid()`
 - `inventory()`
 - `ipairs()`
 - `iptostring()`
+- `isAllowingVIPs()`
+- `isAttSpell()`
+- `isBlackListedPlayerInRange()`
+- `isBuffed()`
+- `isCandidate()`
+- `isChatEnabled()`
+- `isChatVisible()`
+- `isCooldownIconActive()`
+- `isEnemy()`
+- `isEquipped()`
+- `isFriend()`
+- `isGroupCooldownIconActive()`
+- `isHiddingOffline()`
+- `isHidingFilters()`
+- `isIgnored()`
+- `isIgnoringPrivate()`
+- `isIgnoringYelling()`
 - `isinteger()`
+- `isItemValid()`
+- `isLoaded()`
+- `isMenuHookCategoryEmpty()`
+- `isOnTile()`
+- `isSafe()`
+- `isSortAsc()`
+- `isSortDesc()`
+- `isSpell()`
 - `issues()`
 - `isu16()`
 - `isu32()`
 - `isu64()`
 - `isu8()`
+- `isUsingIgnoreList()`
+- `isUsingWhiteList()`
+- `isValid()`
+- `isWhitelisted()`
+- `itemAmount()`
+- `itemPopup()`
+- `killsToRs()`
 - `ldexp()`
 - `left()`
 - `len()`
 - `level()`
+- `limitZoom()`
 - `line()`
 - `lines()`
 - `list()`
 - `listen()`
 - `load()`
 - `loadasmodule()`
+- `loadCommunicationSettings()`
+- `loadDefaultSettings()`
+- `loadDefautComboKeys()`
 - `loadfile()`
+- `loadIcon()`
+- `loadMap()`
+- `loadModules()`
+- `loadReasons()`
+- `loadScript()`
+- `loadSettings()`
 - `loadstring()`
+- `loadVipInfo()`
 - `lock()`
 - `log()`
 - `login()`
+- `logInfo()`
 - `logs()`
 - `look()`
+- `lootHour()`
 - `lose()`
 - `lower()`
+- `ls()`
 - `lvl()`
 - `macro()`
 - `macros()`
+- `maintainDropTable()`
 - `make_indent()`
 - `makedecoder()`
 - `makeencoder()`
 - `makesingleton()`
 - `mana()`
+- `manageQuiver()`
 - `manapercent()`
+- `markChild()`
+- `markStart()`
 - `match()`
 - `matchcount()`
 - `max()`
 - `maximize()`
 - `menu()`
 - `merge()`
+- `mergeOffer()`
 - `message()`
 - `micros()`
 - `millis()`
 - `min()`
 - `minimize()`
 - `mod()`
+- `modPos()`
 - `module_loader()`
 - `monitor()`
 - `mount()`
 - `move()`
+- `moveActionButtons()`
+- `moveItem()`
+- `moveStackableItem()`
+- `moveToolTip()`
+- `multilineEditor()`
 - `music()`
 - `name()`
+- `nameContainersOnLogin()`
+- `navigateCommand()`
+- `navigateMessageHistory()`
 - `new()`
 - `newclass()`
+- `newPreset()`
 - `next()`
 - `next_char()`
 - `nfiles()`
+- `niceFormat()`
 - `number()`
 - `numbertoboolean()`
 - `off()`
 - `offline()`
+- `ok()`
 - `opcode()`
 - `open()`
+- `openAmountWindow()`
+- `openHelp()`
+- `openNextLootContainer()`
+- `openPlayerReportRuleViolationWindow()`
+- `openPurse()`
+- `openWindow()`
 - `order()`
+- `orderedNext()`
+- `orderedPairs()`
 - `pack()`
 - `pairs()`
 - `params()`
@@ -520,18 +1164,30 @@ _brak_
 - `parse_object()`
 - `parse_string()`
 - `parse_unicode_escape()`
+- `parseClassHeader()`
+- `parseFeatures()`
+- `parseHeader()`
+- `parseMarketBrowse()`
+- `parseMarketDetail()`
+- `parseMarketEnter()`
+- `parseMarketLeave()`
+- `parseSliderPos()`
+- `parseSliderPress()`
 - `pathfinder()`
 - `pcall()`
 - `pcolored()`
 - `pdebug()`
+- `periodicalEvent()`
 - `permute()`
 - `perror()`
 - `pinfo()`
 - `ping()`
+- `pingBack()`
 - `place()`
 - `play()`
 - `pointtostring()`
 - `popvalue()`
+- `popWindow()`
 - `pos()`
 - `position()`
 - `post()`
@@ -541,11 +1197,25 @@ _brak_
 - `posz()`
 - `pow()`
 - `preload()`
+- `prepareKeyCombo()`
 - `prev()`
+- `print()`
 - `process()`
+- `processAd()`
+- `processCategories()`
+- `processChannelTabMenu()`
+- `processHistory()`
+- `processMessage()`
+- `processMessageMenu()`
+- `processMouseAction()`
+- `processStatus()`
+- `processViolation()`
+- `progressUpdater()`
 - `proper()`
 - `properly()`
+- `properTable()`
 - `protectedcall()`
+- `pushPlayer()`
 - `pwarning()`
 - `quit()`
 - `raise()`
@@ -554,114 +1224,358 @@ _brak_
 - `randomseed()`
 - `range()`
 - `rawget()`
+- `reachGroundItem()`
 - `read()`
+- `readAddItem()`
+- `readDailyReward()`
+- `readMarketOffer()`
 - `recttostring()`
 - `recursivecopy()`
 - `recv()`
 - `refresh()`
+- `refreshAttacks()`
+- `refreshContainerItems()`
+- `refreshContainerPages()`
+- `refreshEntries()`
+- `refreshItem()`
+- `refreshKills()`
+- `refreshList()`
+- `refreshLoot()`
+- `refreshPlayerGoods()`
+- `refreshProfileList()`
+- `refreshQuests()`
+- `refreshRules()`
+- `refreshSortList()`
+- `refreshTrackerWidgets()`
+- `refreshTradeItems()`
+- `refreshTypeList()`
+- `refreshViewMode()`
+- `refreshVisibleBars()`
+- `refreshWaste()`
+- `registerMessageMode()`
+- `registerOpcode()`
+- `registerProtocol()`
+- `reindexTable()`
 - `reload()`
+- `reloadContainers()`
+- `reloadScripts()`
+- `relogOnCharacter()`
 - `remove()`
+- `removeCooldown()`
+- `removeCurrentTab()`
+- `removeEvent()`
+- `removeFilter()`
+- `removeHotkey()`
+- `removeIgnoredPlayer()`
+- `removeLeftPanel()`
+- `removeMenuHook()`
+- `removeRightPanel()`
+- `removeTab()`
+- `removeTabLabelByName()`
 - `removevalue()`
+- `removeVip()`
+- `removeWhitelistedPlayer()`
 - `rename()`
+- `renamePreset()`
+- `reopenBackpacks()`
+- `reopenLootContainer()`
+- `reopenPurse()`
 - `rep()`
 - `report()`
+- `reportStats()`
+- `rePosition()`
 - `require()`
+- `resendWait()`
 - `reset()`
+- `resetCache()`
+- `resetFields()`
+- `resetLeftActions()`
+- `resetSkillColor()`
+- `resetSlot()`
+- `resetSlots()`
+- `resetWindow()`
 - `resize()`
+- `resizeWindow()`
 - `resolvepath()`
 - `restart()`
+- `retranslateKeyComboDesc()`
 - `retries()`
 - `reverse()`
+- `reverseTable()`
 - `rotate()`
 - `rotation()`
 - `round()`
 - `rpairs()`
 - `run()`
 - `runinsandbox()`
+- `safeBotCall()`
+- `safeExit()`
 - `sandboxed()`
 - `save()`
+- `saveCommunicationSettings()`
+- `saveMap()`
+- `savePreset()`
+- `saveRename()`
+- `saveSettings()`
+- `saveVipInfo()`
 - `say()`
+- `sayModeChange()`
 - `scale()`
 - `schedule()`
+- `scheduleAutoReconnect()`
+- `scheduleEvent()`
+- `scheduleNpcSay()`
 - `script()`
 - `second()`
 - `seconds()`
 - `see()`
 - `seek()`
 - `select()`
+- `selectAll()`
+- `selectFirstLocale()`
 - `selectivecopy()`
+- `selectSlot()`
+- `sellAll()`
 - `send()`
+- `sendAction()`
+- `sendCurrentMessage()`
+- `sendData()`
+- `sendMessage()`
+- `sendStats()`
 - `separatly()`
 - `server()`
 - `servidor()`
 - `serwera()`
 - `set()`
 - `setbit()`
+- `setBonusGradeStars()`
+- `setCategoryText()`
+- `setCaveBotData()`
+- `setCondition()`
+- `setCrementalButtons()`
+- `setCurrency()`
+- `setDefaultComboKeys()`
+- `setExperienceTooltip()`
 - `setfenv()`
+- `setFileName()`
+- `setFpsVisible()`
+- `setFrames()`
+- `setHealthTooltip()`
+- `setHidingFilters()`
+- `setIgnoreNpcMessages()`
+- `setLightOptionsVisibility()`
+- `setLocale()`
+- `setManaTooltip()`
 - `setmetatable()`
+- `setMusic()`
+- `setOption()`
+- `setPatternText()`
+- `setPingVisible()`
+- `setProfileFocus()`
+- `setProfileOption()`
+- `setProtection()`
+- `setShowWeight()`
+- `setShowYourCapacity()`
+- `setSkillBase()`
+- `setSkillColor()`
+- `setSkillPercent()`
+- `setSkillsLayout()`
+- `setSkillTooltip()`
+- `setSkillValue()`
+- `setSortOrder()`
+- `setSortType()`
+- `setSpelllistProfile()`
 - `setter()`
+- `setTextEditText()`
+- `setTimeUntilFreeReroll()`
+- `setUnsupportedSettings()`
 - `setup()`
+- `setupAction()`
+- `setupActionBar()`
+- `setupButton()`
+- `setupExtraHotkeys()`
+- `setupLeftActions()`
+- `setupPreview()`
+- `setupSkillPanel()`
+- `setupSkills()`
+- `setupTopBar()`
+- `setupWidget()`
+- `setVersionText()`
 - `shl()`
 - `show()`
 - `show_map()`
+- `showAuras()`
+- `showFilterPanel()`
+- `showGameButtons()`
+- `showHealthBars()`
+- `showHistory()`
+- `showManaBars()`
+- `showMessage()`
+- `showMounts()`
+- `showOutfits()`
+- `showPostTab()`
+- `showPresets()`
+- `showPreTab()`
+- `showQuestLine()`
+- `showShaders()`
+- `showTransfer()`
+- `showWings()`
 - `shr()`
 - `signalcall()`
 - `silent()`
 - `sin()`
 - `singlehotkey()`
+- `singlelineEditor()`
 - `size()`
 - `sizetostring()`
 - `slow()`
+- `smallNumbers()`
+- `smartWalk()`
+- `softHide()`
 - `sort()`
+- `sortBy()`
+- `sortCreatures()`
 - `split()`
 - `splitlines()`
 - `sqrt()`
 - `stamina()`
+- `standTime()`
+- `startChooseItem()`
+- `startCooldown()`
 - `starts()`
+- `startTradeWith()`
 - `startup()`
+- `startUseWith()`
+- `statusMessage()`
 - `stop()`
+- `stopSmartWalk()`
 - `storage()`
 - `sub()`
 - `summons()`
+- `switchMode()`
+- `tabBlink()`
 - `table()`
+- `takeButton()`
+- `takeButtons()`
 - `talk()`
 - `target()`
+- `targetPos()`
+- `terminalPrint()`
 - `terminate()`
+- `terminateCallbacks()`
+- `terminateProtocol()`
 - `test()`
 - `text()`
 - `the()`
 - `time()`
+- `timeleftTranslation()`
 - `toboolean()`
 - `tocolor()`
 - `toggle()`
+- `toggleAdventurerStyle()`
+- `toggleChat()`
+- `toggleContainerPages()`
+- `toggleDisplays()`
+- `toggleFilter()`
+- `toggleFilterPanel()`
+- `toggleFullMap()`
+- `toggleIcon()`
+- `toggleItem()`
+- `toggleMount()`
+- `toggleOption()`
+- `toggleSettings()`
+- `toggleSkill()`
+- `toggleSkillPanel()`
+- `toggleTracker()`
 - `tonumber()`
 - `topoint()`
 - `torect()`
 - `tosize()`
 - `tostring()`
+- `tr()`
 - `traceback()`
+- `transferCoins()`
+- `translateActionComboboxIndexToAction()`
+- `translateActionToActionComboboxIndex()`
+- `translateHotkeyDesc()`
+- `translateKeyCombo()`
+- `translateNetworkError()`
+- `translateVocation()`
 - `trim()`
+- `tryExit()`
+- `tryLogin()`
+- `tryLogout()`
 - `turn()`
+- `turnOffCooldown()`
 - `type()`
 - `types()`
+- `unbindKeys()`
+- `unbindTurnKey()`
+- `unbindWalkKey()`
 - `underscore()`
+- `unequipItem()`
 - `unexport()`
 - `unload()`
 - `unlock()`
 - `unpack()`
+- `unregisterMessageMode()`
+- `unregisterProtocol()`
 - `update()`
+- `updateAppearanceText()`
+- `updateAppearanceTexts()`
+- `updateBalance()`
+- `updateBattleList()`
+- `updateCameraPosition()`
+- `updateCooldown()`
+- `updateCursor()`
+- `updateDetails()`
+- `updateFeatures()`
+- `updateFee()`
+- `updateFiles()`
+- `updateFps()`
+- `updateHistoryOffers()`
+- `updateHotkeyAction()`
+- `updateHotkeyForm()`
+- `updateHotkeyLabel()`
+- `updateIndexes()`
+- `updateMargins()`
+- `updateNavigation()`
+- `updateOffers()`
+- `updateOrder()`
+- `updatePing()`
+- `updatePreview()`
+- `updateSelectedItem()`
+- `updateSize()`
+- `updateSlider()`
+- `updateSpellInformation()`
+- `updateSpelllist()`
+- `updateSquare()`
+- `updateStatus()`
+- `updateStatusText()`
+- `updateStretchShrink()`
+- `updateTabs()`
+- `updateValueDisplay()`
+- `updateWait()`
+- `uploadConfig()`
 - `upper()`
 - `use()`
+- `useGroundItem()`
+- `useOnGroundItem()`
+- `useOnInvertoryItem()`
 - `usewith()`
 - `validate()`
+- `validateThings()`
 - `value()`
 - `values()`
+- `vBotConfigSave()`
 - `voc()`
 - `void()`
 - `wait()`
 - `walk()`
 - `warn()`
 - `warning()`
+- `wasteHour()`
+- `whiteInfoMessage()`
 - `wrap()`
 - `write()`
 
@@ -977,177 +1891,6 @@ _brak_
 (cpp-api)=
 ## 4. C++ (nagłówki)
 
-```{toctree}
-:maxdepth: 1
-
-api/external/cpp/src_android_android_native_app_glue.md
-api/external/cpp/src_client_animatedtext.md
-api/external/cpp/src_client_animator.md
-api/external/cpp/src_client_client.md
-api/external/cpp/src_client_container.md
-api/external/cpp/src_client_creature.md
-api/external/cpp/src_client_creatures.md
-api/external/cpp/src_client_effect.md
-api/external/cpp/src_client_game.md
-api/external/cpp/src_client_healthbars.md
-api/external/cpp/src_client_houses.md
-api/external/cpp/src_client_item.md
-api/external/cpp/src_client_itemtype.md
-api/external/cpp/src_client_lightview.md
-api/external/cpp/src_client_localplayer.md
-api/external/cpp/src_client_luavaluecasts_client.md
-api/external/cpp/src_client_map.md
-api/external/cpp/src_client_mapview.md
-api/external/cpp/src_client_minimap.md
-api/external/cpp/src_client_missile.md
-api/external/cpp/src_client_outfit.md
-api/external/cpp/src_client_player.md
-api/external/cpp/src_client_position.md
-api/external/cpp/src_client_protocolcodes.md
-api/external/cpp/src_client_protocolgame.md
-api/external/cpp/src_client_spritemanager.md
-api/external/cpp/src_client_statictext.md
-api/external/cpp/src_client_thing.md
-api/external/cpp/src_client_thingstype.md
-api/external/cpp/src_client_thingtype.md
-api/external/cpp/src_client_thingtypemanager.md
-api/external/cpp/src_client_tile.md
-api/external/cpp/src_client_towns.md
-api/external/cpp/src_client_uicreature.md
-api/external/cpp/src_client_uigraph.md
-api/external/cpp/src_client_uiitem.md
-api/external/cpp/src_client_uimap.md
-api/external/cpp/src_client_uimapanchorlayout.md
-api/external/cpp/src_client_uiminimap.md
-api/external/cpp/src_client_uiprogressrect.md
-api/external/cpp/src_client_uisprite.md
-api/external/cpp/src_client_walkmatrix.md
-api/external/cpp/src_framework_core_adaptiverenderer.md
-api/external/cpp/src_framework_core_application.md
-api/external/cpp/src_framework_core_asyncdispatcher.md
-api/external/cpp/src_framework_core_binarytree.md
-api/external/cpp/src_framework_core_clock.md
-api/external/cpp/src_framework_core_config.md
-api/external/cpp/src_framework_core_configmanager.md
-api/external/cpp/src_framework_core_consoleapplication.md
-api/external/cpp/src_framework_core_event.md
-api/external/cpp/src_framework_core_eventdispatcher.md
-api/external/cpp/src_framework_core_filestream.md
-api/external/cpp/src_framework_core_graphicalapplication.md
-api/external/cpp/src_framework_core_inputevent.md
-api/external/cpp/src_framework_core_logger.md
-api/external/cpp/src_framework_core_module.md
-api/external/cpp/src_framework_core_modulemanager.md
-api/external/cpp/src_framework_core_resourcemanager.md
-api/external/cpp/src_framework_core_scheduledevent.md
-api/external/cpp/src_framework_core_timer.md
-api/external/cpp/src_framework_global.md
-api/external/cpp/src_framework_graphics_animatedtexture.md
-api/external/cpp/src_framework_graphics_apngloader.md
-api/external/cpp/src_framework_graphics_atlas.md
-api/external/cpp/src_framework_graphics_bitmapfont.md
-api/external/cpp/src_framework_graphics_cachedtext.md
-api/external/cpp/src_framework_graphics_colorarray.md
-api/external/cpp/src_framework_graphics_coordsbuffer.md
-api/external/cpp/src_framework_graphics_deptharray.md
-api/external/cpp/src_framework_graphics_drawcache.md
-api/external/cpp/src_framework_graphics_drawqueue.md
-api/external/cpp/src_framework_graphics_fontmanager.md
-api/external/cpp/src_framework_graphics_framebuffer.md
-api/external/cpp/src_framework_graphics_framebuffermanager.md
-api/external/cpp/src_framework_graphics_graph.md
-api/external/cpp/src_framework_graphics_graphics.md
-api/external/cpp/src_framework_graphics_hardwarebuffer.md
-api/external/cpp/src_framework_graphics_image.md
-api/external/cpp/src_framework_graphics_painter.md
-api/external/cpp/src_framework_graphics_paintershaderprogram.md
-api/external/cpp/src_framework_graphics_shader.md
-api/external/cpp/src_framework_graphics_shadermanager.md
-api/external/cpp/src_framework_graphics_shaderprogram.md
-api/external/cpp/src_framework_graphics_shaders_newshader.md
-api/external/cpp/src_framework_graphics_shaders_outfits.md
-api/external/cpp/src_framework_graphics_shaders_shadersources.md
-api/external/cpp/src_framework_graphics_textrender.md
-api/external/cpp/src_framework_graphics_texture.md
-api/external/cpp/src_framework_graphics_texturemanager.md
-api/external/cpp/src_framework_graphics_vertexarray.md
-api/external/cpp/src_framework_http_http.md
-api/external/cpp/src_framework_http_session.md
-api/external/cpp/src_framework_http_websocket.md
-api/external/cpp/src_framework_input_mouse.md
-api/external/cpp/src_framework_luaengine_lbitlib.md
-api/external/cpp/src_framework_luaengine_luabinder.md
-api/external/cpp/src_framework_luaengine_luaexception.md
-api/external/cpp/src_framework_luaengine_luainterface.md
-api/external/cpp/src_framework_luaengine_luaobject.md
-api/external/cpp/src_framework_luaengine_luavaluecasts.md
-api/external/cpp/src_framework_net_connection.md
-api/external/cpp/src_framework_net_inputmessage.md
-api/external/cpp/src_framework_net_outputmessage.md
-api/external/cpp/src_framework_net_packet_player.md
-api/external/cpp/src_framework_net_packet_recorder.md
-api/external/cpp/src_framework_net_protocol.md
-api/external/cpp/src_framework_net_server.md
-api/external/cpp/src_framework_otml_otmldocument.md
-api/external/cpp/src_framework_otml_otmlemitter.md
-api/external/cpp/src_framework_otml_otmlexception.md
-api/external/cpp/src_framework_otml_otmlnode.md
-api/external/cpp/src_framework_otml_otmlparser.md
-api/external/cpp/src_framework_platform_androidwindow.md
-api/external/cpp/src_framework_platform_crashhandler.md
-api/external/cpp/src_framework_platform_platform.md
-api/external/cpp/src_framework_platform_platformwindow.md
-api/external/cpp/src_framework_platform_sdlwindow.md
-api/external/cpp/src_framework_platform_win32window.md
-api/external/cpp/src_framework_platform_x11window.md
-api/external/cpp/src_framework_proxy_proxy.md
-api/external/cpp/src_framework_proxy_proxy_client.md
-api/external/cpp/src_framework_sound_combinedsoundsource.md
-api/external/cpp/src_framework_sound_oggsoundfile.md
-api/external/cpp/src_framework_sound_soundbuffer.md
-api/external/cpp/src_framework_sound_soundchannel.md
-api/external/cpp/src_framework_sound_soundfile.md
-api/external/cpp/src_framework_sound_soundmanager.md
-api/external/cpp/src_framework_sound_soundsource.md
-api/external/cpp/src_framework_sound_streamsoundsource.md
-api/external/cpp/src_framework_stdext_any.md
-api/external/cpp/src_framework_stdext_cast.md
-api/external/cpp/src_framework_stdext_demangle.md
-api/external/cpp/src_framework_stdext_dynamic_storage.md
-api/external/cpp/src_framework_stdext_exception.md
-api/external/cpp/src_framework_stdext_fastrand.md
-api/external/cpp/src_framework_stdext_format.md
-api/external/cpp/src_framework_stdext_math.md
-api/external/cpp/src_framework_stdext_net.md
-api/external/cpp/src_framework_stdext_packed_any.md
-api/external/cpp/src_framework_stdext_packed_storage.md
-api/external/cpp/src_framework_stdext_shared_object.md
-api/external/cpp/src_framework_stdext_string.md
-api/external/cpp/src_framework_stdext_time.md
-api/external/cpp/src_framework_stdext_uri.md
-api/external/cpp/src_framework_ui_uianchorlayout.md
-api/external/cpp/src_framework_ui_uiboxlayout.md
-api/external/cpp/src_framework_ui_uigridlayout.md
-api/external/cpp/src_framework_ui_uihorizontallayout.md
-api/external/cpp/src_framework_ui_uilayout.md
-api/external/cpp/src_framework_ui_uimanager.md
-api/external/cpp/src_framework_ui_uitextedit.md
-api/external/cpp/src_framework_ui_uitranslator.md
-api/external/cpp/src_framework_ui_uiverticallayout.md
-api/external/cpp/src_framework_ui_uiwidget.md
-api/external/cpp/src_framework_util_color.md
-api/external/cpp/src_framework_util_crypt.md
-api/external/cpp/src_framework_util_databuffer.md
-api/external/cpp/src_framework_util_extras.md
-api/external/cpp/src_framework_util_framecounter.md
-api/external/cpp/src_framework_util_pngunpacker.md
-api/external/cpp/src_framework_util_point.md
-api/external/cpp/src_framework_util_qrcodegen.md
-api/external/cpp/src_framework_util_stats.md
-api/external/cpp/src_framework_xml_tinystr.md
-api/external/cpp/src_framework_xml_tinyxml.md
-```
-
 ## 5. Uwaga
-- Jeśli czegoś brakuje: doprecyzuj regexy w **tym skrypcie** (sekcje regexów).
+- Jeśli czegoś brakuje: doprecyzuj wzorce w **tym skrypcie** (sekcje regexów).
 - Dodaj JSON Schema do `schemas/ws/*.schema.json` — wygenerują się automatycznie jako strony w `docs/api/schemas`.

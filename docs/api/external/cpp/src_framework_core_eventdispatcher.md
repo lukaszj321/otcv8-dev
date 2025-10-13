@@ -1,8 +1,7 @@
 # src/framework/core/eventdispatcher.h
 
 ```cpp
-public:
-    void shutdown();
+public: void shutdown();
 ```
 ```cpp
 void poll();
@@ -15,4 +14,7 @@ ScheduledEventPtr scheduleEventEx(const std::string& function, const std::functi
 ```
 ```cpp
 ScheduledEventPtr cycleEventEx(const std::string& function, const std::function<void()>& callback, int delay);
+```
+```cpp
+bool isBotSafe();
 ```

@@ -1,8 +1,7 @@
 # src/framework/graphics/texture.h
 
 ```cpp
-public:
-    Texture(const Size& size, bool depthTexture = false, bool smooth = false, bool upsideDown = false);
+public: Texture(const Size& size, bool depthTexture = false, bool smooth = false, bool upsideDown = false);
 ```
 ```cpp
 virtual void replace(const ImagePtr& image);
@@ -26,13 +25,7 @@ virtual void setRepeat(bool repeat);
 virtual bool buildHardwareMipmaps();
 ```
 ```cpp
-void setTime(ticks_t time) { m_time = time; } void setCanCache(bool canCache) { m_canCache = canCache; } uint getId() { return m_id; } uint getUniqueId() { return m_uniqueId; } ticks_t getTime() { return m_time; } int getWidth() { return m_size.width();
-```
-```cpp
-int getHeight() { return m_size.height();
-```
-```cpp
-const Size& getSize() { return m_size; } const Matrix3& getTransformMatrix() { return m_transformMatrix; } bool isEmpty() { return false; } bool hasRepeat() { return m_repeat; } bool hasMipmaps() { return m_hasMipmaps; } bool canCache() { return m_canCache; } virtual bool isAnimatedTexture() { return false; } protected: void uploadPixels(const ImagePtr& image, bool buildMipmaps = false, bool compress = false);
+protected: void uploadPixels(const ImagePtr& image, bool buildMipmaps = false, bool compress = false);
 ```
 ```cpp
 void setupSize(const Size& size);
@@ -48,4 +41,46 @@ void setupTranformMatrix();
 ```
 ```cpp
 void setupPixels(int level, const Size& size, uchar *pixels, int channels = 4, bool compress = false);
+```
+```cpp
+void setTime(ticks_t time);
+```
+```cpp
+void setCanCache(bool canCache);
+```
+```cpp
+uint getId();
+```
+```cpp
+uint getUniqueId();
+```
+```cpp
+ticks_t getTime();
+```
+```cpp
+int getWidth();
+```
+```cpp
+int getHeight();
+```
+```cpp
+const Size& getSize();
+```
+```cpp
+const Matrix3& getTransformMatrix();
+```
+```cpp
+bool isEmpty();
+```
+```cpp
+bool hasRepeat();
+```
+```cpp
+bool hasMipmaps();
+```
+```cpp
+bool canCache();
+```
+```cpp
+virtual bool isAnimatedTexture();
 ```

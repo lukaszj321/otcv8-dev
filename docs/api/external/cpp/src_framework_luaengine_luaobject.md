@@ -1,8 +1,7 @@
 # src/framework/luaengine/luaobject.h
 
 ```cpp
-public:
-    LuaObject();
+public: LuaObject();
 ```
 ```cpp
 void connectLuaField(const std::string& field, const std::function<T>& f, bool pushFront = false);
@@ -28,32 +27,79 @@ void setLuaField(const std::string& key, const T& value);
 Sets a field in this lua object
 
 ```cpp
-void connect(const LuaObjectPtr& obj, const std::string& field, const std::function<F>& f, bool pushFront = false);
+template<typename T> T getLuaField(const std::string& key);
 ```
 Gets a field from this lua object
 
 ```cpp
+void releaseLuaFieldsTable();
+```
+Release fields table reference
+
+```cpp
+void luaSetField(const std::string& key);
+```
+Sets a field from this lua object, the value must be on the stack
+
+```cpp
+void luaGetField(const std::string& key);
+```
+Gets a field from this lua object, the result is pushed onto the stack
+
+```cpp
+void luaGetMetatable();
+```
+Get object's metatable
+
+```cpp
+void luaGetFieldsTable();
+```
+Gets the table containing all stored fields of this lua object, the result is pushed onto the stack
+
+```cpp
+int getUseCount();
+```
+Returns the number of references of this object
+@note each userdata of this object on lua counts as a reference
+
+```cpp
+std::string getClassName();
+```
+Returns the derived class name, its the same name used in Lua
+
+```cpp
+void connect(const LuaObjectPtr& obj, const std::string& field, const std::function<F>& f, bool pushFront = false);
+```
+```cpp
 typename std::enable_if<std::is_constructible<decltype(&Lambda::operator())>::value, void>::type connect(const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool pushFront = false);
 ```
 ```cpp
-void LuaObject::connectLuaField(const std::string& field, const std::function<T>& f, bool pushFront) { luaGetField(field);
+AutoStat s(STATS_LUA, getClassName() + ":" + field);
 ```
 ```cpp
-void connect(const LuaObjectPtr& obj, const std::string& field, const std::function<F>& f, bool pushFront) { obj->connectLuaField<F>(field, f, pushFront);
+LuaObjectPtr asLuaObject();
 ```
 ```cpp
-typename std::enable_if<std::is_constructible<decltype(&Lambda::operator())>::value, void>::type connect(const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool pushFront) { typedef decltype(&Lambda::operator()) F; luabinder::connect_lambda<F>::call(obj, field, f, pushFront);
+void LuaObject::connectLuaField(const std::string& field, const std::function<T>& f, bool pushFront);
 ```
 ```cpp
-int LuaObject::luaCallLuaField(const std::string& field, const T&... args) { AutoStat s(STATS_LUA, getClassName() + ":" + field);
+void connect(const LuaObjectPtr& obj, const std::string& field, const std::function<F>& f, bool pushFront);
 ```
 ```cpp
-void LuaObject::callLuaField(const std::string& field, const T&... args) { int rets = luaCallLuaField(field, args...);
+static void call(const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool pushFront);
 ```
 ```cpp
-void LuaObject::setLuaField(const std::string& key, const T& value) { g_lua.polymorphicPush(value);
+typename std::enable_if<std::is_constructible<decltype(&Lambda::operator())>::value, void>::type connect(const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool pushFront);
 ```
 ```cpp
-template<typename T>
-T LuaObject::getLuaField(const std::string& key) { luaGetField(key);
+int LuaObject::luaCallLuaField(const std::string& field, const T&... args);
+```
+```cpp
+void LuaObject::callLuaField(const std::string& field, const T&... args);
+```
+```cpp
+void LuaObject::setLuaField(const std::string& key, const T& value);
+```
+```cpp
+template<typename T> T LuaObject::getLuaField(const std::string& key);
 ```

@@ -1,15 +1,17 @@
 # src/framework/net/server.h
 
 ```cpp
-public:
-    Server(int port);
+public: Server(int port);
 ```
 ```cpp
 static ServerPtr create(int port);
 ```
 ```cpp
-bool isOpen() { return m_isOpen; } void close();
+void close();
 ```
 ```cpp
 void acceptNext();
+```
+```cpp
+bool isOpen();
 ```

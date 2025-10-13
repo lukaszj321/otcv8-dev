@@ -1,15 +1,23 @@
 # src/framework/core/clock.h
 
 ```cpp
-public:
-    Clock();
+public: Clock();
 ```
 ```cpp
 void update();
 ```
 ```cpp
-ticks_t micros() { return m_currentMicros; } ticks_t millis() { return m_currentMillis; } float seconds() { return m_currentSeconds; } ticks_t realMicros();
+ticks_t realMicros();
 ```
 ```cpp
 ticks_t realMillis();
+```
+```cpp
+ticks_t micros();
+```
+```cpp
+ticks_t millis();
+```
+```cpp
+float seconds();
 ```

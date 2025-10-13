@@ -34,9 +34,6 @@ void readFileStream(const std::string& fileName, std::iostream& out);
 std::string readFileContents(const std::string& fileName, bool safe = false);
 ```
 ```cpp
-std::string readFileContentsSafe(const std::string& fileName) { return readFileContents(fileName, true);
-```
-```cpp
 bool isFileEncryptedOrCompressed(const std::string& fileName);
 ```
 ```cpp
@@ -70,19 +67,13 @@ std::list<std::string> listDirectoryFiles(const std::string & directoryPath = ""
 std::string resolvePath(std::string path);
 ```
 ```cpp
-std::string getWorkDir() { return "/"; } #ifdef ANDROID std::string getWriteDir() { return "/"; } std::string getBinaryName() { return "otclientv8.apk"; } #else std::string getWriteDir() { return m_writeDir.string();
-```
-```cpp
-std::string getBinaryName() { return m_binaryPath.filename().string();
-```
-```cpp
 std::string guessFilePath(const std::string& filename, const std::string& type);
 ```
 ```cpp
 bool isFileType(const std::string& filename, const std::string& type);
 ```
 ```cpp
-bool isLoadedFromArchive() { return m_loadedFromArchive; } bool isLoadedFromMemory() { return m_loadedFromMemory; } std::string fileChecksum(const std::string& path);
+std::string fileChecksum(const std::string& path);
 ```
 ```cpp
 std::string selfChecksum();
@@ -118,8 +109,35 @@ void installDlls(std::filesystem::path dest);
 void setLayout(std::string layout);
 ```
 ```cpp
-std::string getLayout() { return m_layout; } private: bool mountMemoryData(const std::shared_ptr<std::vector<uint8_t>>& data);
+private: bool mountMemoryData(const std::shared_ptr<std::vector<uint8_t>>& data);
 ```
 ```cpp
 void unmountMemoryData();
+```
+```cpp
+std::string readFileContentsSafe(const std::string& fileName);
+```
+```cpp
+std::string getWorkDir();
+```
+```cpp
+std::string getWriteDir();
+```
+```cpp
+std::string getBinaryName();
+```
+```cpp
+std::string getWriteDir();
+```
+```cpp
+std::string getBinaryName();
+```
+```cpp
+bool isLoadedFromArchive();
+```
+```cpp
+bool isLoadedFromMemory();
+```
+```cpp
+std::string getLayout();
 ```

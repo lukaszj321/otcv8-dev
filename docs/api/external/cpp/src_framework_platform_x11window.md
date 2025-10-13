@@ -28,8 +28,7 @@ void internalConnectGLContext();
 bool isExtensionSupported(const char *ext);
 ```
 ```cpp
-public:
-    X11Window();
+public: X11Window();
 ```
 ```cpp
 void init();
@@ -104,6 +103,5 @@ std::string getPlatformType();
 void displayFatalError(const std::string& message);
 ```
 ```cpp
-protected:
-    int internalLoadMouseCursor(const ImagePtr& image, const Point& hotSpot);
+protected: int internalLoadMouseCursor(const ImagePtr& image, const Point& hotSpot);
 ```

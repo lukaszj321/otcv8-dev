@@ -1,8 +1,7 @@
 # src/framework/core/config.h
 
 ```cpp
-public:
-    Config();
+public: Config();
 ```
 ```cpp
 bool load(const std::string& file);
@@ -53,5 +52,5 @@ std::string getFileName();
 bool isLoaded();
 ```
 ```cpp
-ConfigPtr asConfig() { return static_self_cast<Config>();
+ConfigPtr asConfig();
 ```

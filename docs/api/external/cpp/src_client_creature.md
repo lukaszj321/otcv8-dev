@@ -13,10 +13,10 @@ void drawInformation(const Point& point, bool useGray, const Rect& parentRect, i
 bool isInsideOffset(Point offset);
 ```
 ```cpp
-void setId(uint32 id) { m_id = id; } void setName(const std::string& name);
+void setName(const std::string& name);
 ```
 ```cpp
-void setManaPercent(int8 value) { m_manaPercent = value; } void setHealthPercent(uint8 healthPercent);
+void setHealthPercent(uint8 healthPercent);
 ```
 ```cpp
 void setDirection(Otc::Direction direction);
@@ -28,7 +28,7 @@ void setOutfit(const Outfit& outfit);
 void setOutfitColor(const Color& color, int duration);
 ```
 ```cpp
-void setLight(const Light& light) { m_light = light; } void setSpeed(uint16 speed);
+void setSpeed(uint16 speed);
 ```
 ```cpp
 void setBaseSpeed(double baseSpeed);
@@ -64,16 +64,10 @@ void setTypeTexture(const std::string& filename);
 void setIconTexture(const std::string& filename);
 ```
 ```cpp
-void setPassable(bool passable) { m_passable = passable; } void setSpeedFormula(double speedA, double speedB, double speedC);
+void setSpeedFormula(double speedA, double speedB, double speedC);
 ```
 ```cpp
 void addTimedSquare(uint8 color);
-```
-```cpp
-void removeTimedSquare() { m_showTimedSquare = false; } void showStaticSquare(const Color& color) { m_showStaticSquare = true; m_staticSquareColor = color; } void hideStaticSquare() { m_showStaticSquare = false; } void setInformationColor(const Color& color) { m_useCustomInformationColor = true; m_informationColor = color; } void resetInformationColor() { m_useCustomInformationColor = false; setHealthPercent(getHealthPercent());
-```
-```cpp
-Point getInformationOffset() { return m_informationOffset; } void setInformationOffset(int x, int y) { m_informationOffset = Point(x, y);
 ```
 ```cpp
 void setText(const std::string& text, const Color& color);
@@ -82,34 +76,16 @@ void setText(const std::string& text, const Color& color);
 std::string getText();
 ```
 ```cpp
-void clearText() { setText("", Color::white);
-```
-```cpp
 void setTitle(const std::string& title, const std::string& font, const Color& color);
 ```
 ```cpp
-void clearTitle() { setTitle("", "", Color::white);
-```
-```cpp
-std::string getTitle() { return m_titleCache.getText();
-```
-```cpp
-uint32 getId() { return m_id; } std::string getName() { return m_name; } uint8 getHealthPercent() { return m_healthPercent; } int8 getManaPercent() { return m_manaPercent; } Otc::Direction getDirection() { return m_direction; } Otc::Direction getWalkDirection() { return m_walkDirection; } Outfit getOutfit() { return m_outfit; } Light getLight() { return m_light; } uint16 getSpeed() { return m_speed; } double getBaseSpeed() { return m_baseSpeed; } uint8 getSkull() { return m_skull; } uint8 getShield() { return m_shield; } uint8 getEmblem() { return m_emblem; } uint8 getType() { return m_type; } uint8 getIcon() { return m_icon; } bool isPassable() { return m_passable; } Point getDrawOffset();
+Point getDrawOffset();
 ```
 ```cpp
 uint16 getStepDuration(bool ignoreDiagonal = false, Otc::Direction dir = Otc::InvalidDirection);
 ```
 ```cpp
-Point getWalkOffset(bool inNextFrame = false) { return inNextFrame ? m_walkOffsetInNextFrame : m_walkOffset; } Position getLastStepFromPosition() { return m_lastStepFromPosition; } Position getLastStepToPosition() { return m_lastStepToPosition; } float getStepProgress() { return m_walkTimer.ticksElapsed() / getStepDuration();
-```
-```cpp
-int getStepTicksLeft() { return getStepDuration() - m_walkTimer.ticksElapsed();
-```
-```cpp
-ticks_t getWalkTicksElapsed() { return m_walkTimer.ticksElapsed();
-```
-```cpp
-double getSpeedFormula(Otc::SpeedFormula formula) { return m_speedFormula[formula]; } bool hasSpeedFormula();
+bool hasSpeedFormula();
 ```
 ```cpp
 virtual Point getDisplacement();
@@ -124,7 +100,7 @@ virtual int getDisplacementY();
 virtual int getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern = 0, int animationPhase = 0);
 ```
 ```cpp
-PointF getJumpOffset() { return m_jumpOffset; } bool isTimedSquareVisible() { return m_showTimedSquare; } Color getTimedSquareColor() { return m_timedSquareColor; } bool isStaticSquareVisible() { return m_showStaticSquare; } Color getStaticSquareColor() { return m_staticSquareColor; } void updateShield();
+void updateShield();
 ```
 ```cpp
 int getWalkAnimationPhases();
@@ -142,10 +118,7 @@ virtual void walk(const Position& oldPos, const Position& newPos);
 virtual void stopWalk();
 ```
 ```cpp
-void allowAppearWalk(uint16_t stepSpeed) { m_allowAppearWalk = true; m_stepDuration = stepSpeed; } bool isWalking() { return m_walking; } bool isRemoved() { return m_removed; } bool isInvisible() { return m_outfit.getCategory() == ThingCategoryEffect && m_outfit.getAuxId() == 13; } bool isDead() { return m_healthPercent <= 0; } bool canBeSeen() { return !isInvisible() || isPlayer();
-```
-```cpp
-bool isCreature() { return true; } bool canShoot(int distance);
+bool canShoot(int distance);
 ```
 ```cpp
 const ThingTypePtr& getThingType();
@@ -163,10 +136,7 @@ virtual void onDisappear();
 virtual void onDeath();
 ```
 ```cpp
-virtual bool isPreWalking() { return false; } virtual Position getPrewalkingPosition(bool beforePrewalk = false) { return m_position; } TilePtr getWalkingTileOrTile() { return m_walkingTile ? m_walkingTile : getTile();
-```
-```cpp
-virtual bool isServerWalking() { return true; } void setElevation(uint8 elevation) { m_elevation = elevation; } uint8 getElevation() { return m_elevation; } // widgets void addTopWidget(const UIWidgetPtr& widget);
+void addTopWidget(const UIWidgetPtr& widget);
 ```
 ```cpp
 void addBottomWidget(const UIWidgetPtr& widget);
@@ -211,14 +181,13 @@ void drawTopWidgets(const Point& rect, const Otc::Direction direction);
 void drawBottomWidgets(const Point& rect, const Otc::Direction direction);
 ```
 ```cpp
-uint8 getProgressBarPercent() { return m_progressBarPercent; } void setProgressBar(uint32 duration, bool ltr);
+void setProgressBar(uint32 duration, bool ltr);
 ```
 ```cpp
 void updateProgressBar(uint32 duration, bool ltr);
 ```
 ```cpp
-protected:
-    virtual void updateWalkAnimation(uint8 totalPixelsWalked);
+protected: virtual void updateWalkAnimation(uint8 totalPixelsWalked);
 ```
 ```cpp
 virtual void updateWalkOffset(uint8 totalPixelsWalked, bool inNextFrame = false);
@@ -240,4 +209,178 @@ void updateOutfitColor(Color color, Color finalColor, Color delta, int duration)
 ```
 ```cpp
 void updateJump();
+```
+```cpp
+void setId(uint32 id);
+```
+```cpp
+void setManaPercent(int8 value);
+```
+```cpp
+void setLight(const Light& light);
+```
+```cpp
+void setPassable(bool passable);
+```
+```cpp
+void removeTimedSquare();
+```
+```cpp
+void showStaticSquare(const Color& color);
+```
+```cpp
+void hideStaticSquare();
+```
+```cpp
+void setInformationColor(const Color& color);
+```
+```cpp
+void resetInformationColor();
+```
+```cpp
+Point getInformationOffset();
+```
+```cpp
+void setInformationOffset(int x, int y);
+```
+```cpp
+void clearText();
+```
+```cpp
+void clearTitle();
+```
+```cpp
+std::string getTitle();
+```
+```cpp
+uint32 getId();
+```
+```cpp
+std::string getName();
+```
+```cpp
+uint8 getHealthPercent();
+```
+```cpp
+int8 getManaPercent();
+```
+```cpp
+Otc::Direction getDirection();
+```
+```cpp
+Otc::Direction getWalkDirection();
+```
+```cpp
+Outfit getOutfit();
+```
+```cpp
+Light getLight();
+```
+```cpp
+uint16 getSpeed();
+```
+```cpp
+double getBaseSpeed();
+```
+```cpp
+uint8 getSkull();
+```
+```cpp
+uint8 getShield();
+```
+```cpp
+uint8 getEmblem();
+```
+```cpp
+uint8 getType();
+```
+```cpp
+uint8 getIcon();
+```
+```cpp
+bool isPassable();
+```
+```cpp
+Point getWalkOffset(bool inNextFrame = false);
+```
+```cpp
+Position getLastStepFromPosition();
+```
+```cpp
+Position getLastStepToPosition();
+```
+```cpp
+float getStepProgress();
+```
+```cpp
+int getStepTicksLeft();
+```
+```cpp
+ticks_t getWalkTicksElapsed();
+```
+```cpp
+double getSpeedFormula(Otc::SpeedFormula formula);
+```
+```cpp
+PointF getJumpOffset();
+```
+```cpp
+bool isTimedSquareVisible();
+```
+```cpp
+Color getTimedSquareColor();
+```
+```cpp
+bool isStaticSquareVisible();
+```
+```cpp
+Color getStaticSquareColor();
+```
+```cpp
+void allowAppearWalk(uint16_t stepSpeed);
+```
+```cpp
+bool isWalking();
+```
+```cpp
+bool isRemoved();
+```
+```cpp
+bool isInvisible();
+```
+```cpp
+bool isDead();
+```
+```cpp
+bool canBeSeen();
+```
+```cpp
+bool isCreature();
+```
+```cpp
+virtual bool isPreWalking();
+```
+```cpp
+virtual Position getPrewalkingPosition(bool beforePrewalk = false);
+```
+```cpp
+TilePtr getWalkingTileOrTile();
+```
+```cpp
+virtual bool isServerWalking();
+```
+```cpp
+void setElevation(uint8 elevation);
+```
+```cpp
+uint8 getElevation();
+```
+```cpp
+uint8 getProgressBarPercent();
+```
+```cpp
+public: bool isNpc();
+```
+```cpp
+public: bool isMonster();
 ```

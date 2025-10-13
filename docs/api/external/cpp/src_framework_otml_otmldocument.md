@@ -30,3 +30,7 @@ Emits this document and all it's children to a std::string
 bool save(const std::string& fileName);
 ```
 Save this document to a file
+
+```cpp
+private: OTMLDocument();
+```

@@ -1,8 +1,7 @@
 # src/client/protocolgame.h
 
 ```cpp
-public:
-    void login(const std::string& accountName, const std::string& accountPassword, const std::string& host, uint16 port, const std::string& characterName, const std::string& authenticatorToken, const std::string& sessionKey, const std::string& worldName);
+public: void login(const std::string& accountName, const std::string& accountPassword, const std::string& host, uint16 port, const std::string& characterName, const std::string& authenticatorToken, const std::string& sessionKey, const std::string& worldName);
 ```
 ```cpp
 void send(const OutputMessagePtr& outputMessage, bool rawPacket = false);
@@ -302,8 +301,7 @@ void sendChangeMapAwareRange(int xrange, int yrange);
 void sendNewWalk(int walkId, int predictionId, const Position& pos, uint8_t flags, const std::vector<Otc::Direction>& path);
 ```
 ```cpp
-protected:
-    void onConnect();
+protected: void onConnect();
 ```
 ```cpp
 void onRecv(const InputMessagePtr& inputMessage);
@@ -312,12 +310,10 @@ void onRecv(const InputMessagePtr& inputMessage);
 void onError(const boost::system::error_code& error);
 ```
 ```cpp
-public:
-    void addPosition(const OutputMessagePtr& msg, const Position& position);
+public: void addPosition(const OutputMessagePtr& msg, const Position& position);
 ```
 ```cpp
-private:
-    void parseStoreButtonIndicators(const InputMessagePtr& msg);
+private: void parseStoreButtonIndicators(const InputMessagePtr& msg);
 ```
 ```cpp
 void parseSetStoreDeepLink(const InputMessagePtr& msg);
@@ -773,8 +769,7 @@ void parseDllsRequest(const InputMessagePtr& msg);
 void parseWindowsRequest(const InputMessagePtr& msg);
 ```
 ```cpp
-public:
-    void setMapDescription(const InputMessagePtr& msg, int x, int y, int z, int width, int height);
+public: void setMapDescription(const InputMessagePtr& msg, int x, int y, int z, int width, int height);
 ```
 ```cpp
 int setFloorDescription(const InputMessagePtr& msg, int x, int y, int z, int width, int height, int offset, int skip);
@@ -805,4 +800,10 @@ Position getPosition(const InputMessagePtr& msg);
 ```
 ```cpp
 Imbuement getImbuementInfo(const InputMessagePtr& msg);
+```
+```cpp
+int getRecivedPacketsCount();
+```
+```cpp
+int getRecivedPacketsSize();
 ```

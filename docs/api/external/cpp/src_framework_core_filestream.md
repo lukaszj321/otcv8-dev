@@ -1,8 +1,7 @@
 # src/framework/core/filestream.h
 
 ```cpp
-public:
-    FileStream(const std::string& name, PHYSFS_File *fileHandle, bool writeable);
+public: FileStream(const std::string& name, PHYSFS_File *fileHandle, bool writeable);
 ```
 ```cpp
 void close();
@@ -32,7 +31,7 @@ uint tell();
 bool eof();
 ```
 ```cpp
-std::string name() { return m_name; } uint8 getU8();
+uint8 getU8();
 ```
 ```cpp
 uint16 getU16();
@@ -95,21 +94,23 @@ void add64(int64 v);
 void addString(const std::string& v);
 ```
 ```cpp
-void addPos(uint16 x, uint16 y, uint8 z) { addU16(x);
-```
-```cpp
-void addPoint(const Point& p) { addU8(p.x);
-```
-```cpp
-FileStreamPtr asFileStream() { return static_self_cast<FileStream>();
-```
-```cpp
-private:
-    bool initFromGzip(const std::string& buffer);
+private: bool initFromGzip(const std::string& buffer);
 ```
 ```cpp
 void checkWrite();
 ```
 ```cpp
 void throwError(const std::string& message, bool physfsError = false);
+```
+```cpp
+std::string name();
+```
+```cpp
+void addPos(uint16 x, uint16 y, uint8 z);
+```
+```cpp
+void addPoint(const Point& p);
+```
+```cpp
+FileStreamPtr asFileStream();
 ```

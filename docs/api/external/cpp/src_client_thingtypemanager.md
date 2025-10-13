@@ -1,8 +1,7 @@
 # src/client/thingtypemanager.h
 
 ```cpp
-public:
-    void init();
+public: void init();
 ```
 ```cpp
 void terminate();
@@ -50,16 +49,10 @@ ItemTypeList findItemTypesByName(std::string name);
 ItemTypeList findItemTypesByString(std::string str);
 ```
 ```cpp
-std::set<int> getMarketCategories() { return m_marketCategories; } const ThingTypePtr& getNullThingType() { return m_nullThingType; } const ItemTypePtr& getNullItemType() { return m_nullItemType; } const ThingTypePtr& getThingType(uint16 id, ThingCategory category);
+const ThingTypePtr& getThingType(uint16 id, ThingCategory category);
 ```
 ```cpp
 const ItemTypePtr& getItemType(uint16 id);
-```
-```cpp
-ThingType* rawGetThingType(uint16 id, ThingCategory category) { VALIDATE(id < m_thingTypes[category].size());
-```
-```cpp
-ItemType* rawGetItemType(uint16 id) { VALIDATE(id < m_itemTypes.size());
 ```
 ```cpp
 ThingTypeList findThingTypeByAttr(ThingAttr attr, ThingCategory category);
@@ -71,8 +64,47 @@ ItemTypeList findItemTypeByCategory(ItemCategory category);
 const ThingTypeList& getThingTypes(ThingCategory category);
 ```
 ```cpp
-const ItemTypeList& getItemTypes() { return m_itemTypes; } uint32 getDatSignature() { return m_datSignature; } uint32 getOtbMajorVersion() { return m_otbMajorVersion; } uint32 getOtbMinorVersion() { return m_otbMinorVersion; } uint16 getContentRevision() { return m_contentRevision; } bool isDatLoaded() { return m_datLoaded; } bool isXmlLoaded() { return m_xmlLoaded; } bool isOtbLoaded() { return m_otbLoaded; } bool isValidDatId(uint16 id, ThingCategory category) { return id >= 1 && id < m_thingTypes[category].size();
+std::set<int> getMarketCategories();
 ```
 ```cpp
-bool isValidOtbId(uint16 id) { return id >= 1 && id < m_itemTypes.size();
+const ThingTypePtr& getNullThingType();
+```
+```cpp
+const ItemTypePtr& getNullItemType();
+```
+```cpp
+ThingType* rawGetThingType(uint16 id, ThingCategory category);
+```
+```cpp
+ItemType* rawGetItemType(uint16 id);
+```
+```cpp
+const ItemTypeList& getItemTypes();
+```
+```cpp
+uint32 getDatSignature();
+```
+```cpp
+uint32 getOtbMajorVersion();
+```
+```cpp
+uint32 getOtbMinorVersion();
+```
+```cpp
+uint16 getContentRevision();
+```
+```cpp
+bool isDatLoaded();
+```
+```cpp
+bool isXmlLoaded();
+```
+```cpp
+bool isOtbLoaded();
+```
+```cpp
+bool isValidDatId(uint16 id, ThingCategory category);
+```
+```cpp
+bool isValidOtbId(uint16 id);
 ```

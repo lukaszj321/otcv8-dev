@@ -1,8 +1,7 @@
 # src/framework/core/graphicalapplication.h
 
 ```cpp
-public:
-    void init(std::vector<std::string>& args);
+public: void init(std::vector<std::string>& args);
 ```
 ```cpp
 void deinit();
@@ -23,16 +22,7 @@ void pollGraphics();
 void close();
 ```
 ```cpp
-bool willRepaint() { return m_mustRepaint; } void repaint() { m_mustRepaint = true; } void setMaxFps(int maxFps) { m_maxFps = maxFps; } int getMaxFps() { return m_maxFps; } int getFps() { return m_graphicsFrames.getFps();
-```
-```cpp
-int getGraphicsFps() { return m_graphicsFrames.getFps();
-```
-```cpp
-int getProcessingFps() { return m_processingFrames.getFps();
-```
-```cpp
-bool isOnInputEvent() { return m_onInputEvent; } int getIteration() { return m_iteration; } void doScreenshot(std::string file);
+void doScreenshot(std::string file);
 ```
 ```cpp
 void scaleUp();
@@ -50,9 +40,35 @@ void setSmooth(bool value);
 void doMapScreenshot(std::string fileName);
 ```
 ```cpp
-protected:
-    void resize(const Size& size);
+protected: void resize(const Size& size);
 ```
 ```cpp
 void inputEvent(InputEvent event);
+```
+```cpp
+bool willRepaint();
+```
+```cpp
+void repaint();
+```
+```cpp
+void setMaxFps(int maxFps);
+```
+```cpp
+int getMaxFps();
+```
+```cpp
+int getFps();
+```
+```cpp
+int getGraphicsFps();
+```
+```cpp
+int getProcessingFps();
+```
+```cpp
+bool isOnInputEvent();
+```
+```cpp
+int getIteration();
 ```

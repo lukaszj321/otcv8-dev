@@ -1,8 +1,7 @@
 # src/client/uisprite.h
 
 ```cpp
-public:
-    UISprite();
+public: UISprite();
 ```
 ```cpp
 void drawSelf(Fw::DrawPane drawPane);
@@ -11,8 +10,23 @@ void drawSelf(Fw::DrawPane drawPane);
 void setSpriteId(uint32 id);
 ```
 ```cpp
-uint32 getSpriteId() { return m_spriteId; } void clearSprite() { setSpriteId(0);
+protected: void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode);
 ```
 ```cpp
-void setSpriteColor(Color color) { m_spriteColor = color; } bool isSpriteVisible() { return m_spriteVisible; } void setSpriteVisible(bool visible) { m_spriteVisible = visible; } bool hasSprite() { return m_sprite != nullptr; } protected: void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode);
+uint32 getSpriteId();
+```
+```cpp
+void clearSprite();
+```
+```cpp
+void setSpriteColor(Color color);
+```
+```cpp
+bool isSpriteVisible();
+```
+```cpp
+void setSpriteVisible(bool visible);
+```
+```cpp
+bool hasSprite();
 ```

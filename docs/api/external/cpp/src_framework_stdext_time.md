@@ -16,9 +16,17 @@ void millisleep(size_t ms);
 void microsleep(size_t us);
 ```
 ```cpp
-public:
-    timer() { restart();
+public: timer();
 ```
 ```cpp
-float elapsed_seconds() { return (float)((stdext::micros() - m_start)/1000000.0);
+float elapsed_seconds();
+```
+```cpp
+ticks_t elapsed_millis();
+```
+```cpp
+ticks_t elapsed_micros();
+```
+```cpp
+void restart(int shift = 0);
 ```

@@ -1,8 +1,7 @@
 # src/framework/graphics/shaderprogram.h
 
 ```cpp
-public:
-    ShaderProgram(const std::string& name);
+public: ShaderProgram(const std::string& name);
 ```
 ```cpp
 static PainterShaderProgramPtr create(const std::string& name, const std::string& vertexShader, const std::string& fragmentShader, bool colorMatrix = false);
@@ -35,18 +34,6 @@ static void release();
 std::string log();
 ```
 ```cpp
-static void disableAttributeArray(int location) { glDisableVertexAttribArray(location);
-```
-```cpp
-static void enableAttributeArray(int location) { glEnableVertexAttribArray(location);
-```
-```cpp
-void disableAttributeArray(const char* name) { glDisableVertexAttribArray(getAttributeLocation(name));
-```
-```cpp
-void enableAttributeArray(const char* name) { glEnableVertexAttribArray(getAttributeLocation(name));
-```
-```cpp
 int getAttributeLocation(const char* name);
 ```
 ```cpp
@@ -56,83 +43,107 @@ void bindAttributeLocation(int location, const char* name);
 void bindUniformLocation(int location, const char* name);
 ```
 ```cpp
-void setAttributeArray(int location, const float* values, int size, int stride = 0) { glVertexAttribPointer(location, size, GL_FLOAT, GL_FALSE, stride, values);
+static void disableAttributeArray(int location);
 ```
 ```cpp
-void setAttributeValue(int location, float value) { glVertexAttrib1f(location, value);
+static void enableAttributeArray(int location);
 ```
 ```cpp
-void setAttributeValue(int location, float x, float y) { glVertexAttrib2f(location, x, y);
+void disableAttributeArray(const char* name);
 ```
 ```cpp
-void setAttributeValue(int location, float x, float y, float z) { glVertexAttrib3f(location, x, y, z);
+void enableAttributeArray(const char* name);
 ```
 ```cpp
-void setAttributeArray(const char* name, const float* values, int size, int stride = 0) { glVertexAttribPointer(getAttributeLocation(name), size, GL_FLOAT, GL_FALSE, stride, values);
+void setAttributeArray(int location, const float* values, int size, int stride = 0);
 ```
 ```cpp
-void setAttributeValue(const char* name, float value) { glVertexAttrib1f(getAttributeLocation(name), value);
+void setAttributeValue(int location, float value);
 ```
 ```cpp
-void setAttributeValue(const char* name, float x, float y) { glVertexAttrib2f(getAttributeLocation(name), x, y);
+void setAttributeValue(int location, float x, float y);
 ```
 ```cpp
-void setAttributeValue(const char* name, float x, float y, float z) { glVertexAttrib3f(getAttributeLocation(name), x, y, z);
+void setAttributeValue(int location, float x, float y, float z);
 ```
 ```cpp
-void setUniformValue(int location, const Color& color) { glUniform4f(m_uniformLocations[location], color.rF(), color.gF(), color.bF(), color.aF());
+void setAttributeArray(const char* name, const float* values, int size, int stride = 0);
 ```
 ```cpp
-void setUniformValue(int location, int value) { glUniform1i(m_uniformLocations[location], value);
+void setAttributeValue(const char* name, float value);
 ```
 ```cpp
-void setUniformValue(int location, float value) { glUniform1f(m_uniformLocations[location], value);
+void setAttributeValue(const char* name, float x, float y);
 ```
 ```cpp
-void setUniformValue(int location, float x, float y) { glUniform2f(m_uniformLocations[location], x, y);
+void setAttributeValue(const char* name, float x, float y, float z);
 ```
 ```cpp
-void setUniformValue(int location, float x, float y, float z) { glUniform3f(m_uniformLocations[location], x, y, z);
+void setUniformValue(int location, const Color& color);
 ```
 ```cpp
-void setUniformValue(int location, float x, float y, float z, float w) { glUniform4f(m_uniformLocations[location], x, y, z, w);
+void setUniformValue(int location, int value);
 ```
 ```cpp
-void setUniformValue(int location, const Matrix2& mat) { glUniformMatrix2fv(m_uniformLocations[location], 1, GL_FALSE, mat.data());
+void setUniformValue(int location, float value);
 ```
 ```cpp
-void setUniformValue(int location, const Matrix3& mat) { glUniformMatrix3fv(m_uniformLocations[location], 1, GL_FALSE, mat.data());
+void setUniformValue(int location, float x, float y);
 ```
 ```cpp
-void setUniformValue(int location, const Matrix4& mat) { glUniformMatrix4fv(m_uniformLocations[location], 1, GL_FALSE, mat.data());
+void setUniformValue(int location, float x, float y, float z);
 ```
 ```cpp
-void setUniformValue(int location, int count, const int* value) { glUniform1iv(m_uniformLocations[location], count, value);
+void setUniformValue(int location, float x, float y, float z, float w);
 ```
 ```cpp
-void setUniformValue(const char* name, const Color& color) { glUniform4f(glGetUniformLocation(m_programId, name), color.rF(), color.gF(), color.bF(), color.aF());
+void setUniformValue(int location, const Matrix2& mat);
 ```
 ```cpp
-void setUniformValue(const char* name, int value) { glUniform1i(glGetUniformLocation(m_programId, name), value);
+void setUniformValue(int location, const Matrix3& mat);
 ```
 ```cpp
-void setUniformValue(const char* name, float value) { glUniform1f(glGetUniformLocation(m_programId, name), value);
+void setUniformValue(int location, const Matrix4& mat);
 ```
 ```cpp
-void setUniformValue(const char* name, float x, float y) { glUniform2f(glGetUniformLocation(m_programId, name), x, y);
+void setUniformValue(int location, int count, const int* value);
 ```
 ```cpp
-void setUniformValue(const char* name, float x, float y, float z) { glUniform3f(glGetUniformLocation(m_programId, name), x, y, z);
+void setUniformValue(const char* name, const Color& color);
 ```
 ```cpp
-void setUniformValue(const char* name, float x, float y, float z, float w) { glUniform4f(glGetUniformLocation(m_programId, name), x, y, z, w);
+void setUniformValue(const char* name, int value);
 ```
 ```cpp
-void setUniformValue(const char* name, const Matrix2& mat) { glUniformMatrix2fv(glGetUniformLocation(m_programId, name), 1, GL_FALSE, mat.data());
+void setUniformValue(const char* name, float value);
 ```
 ```cpp
-void setUniformValue(const char* name, const Matrix3& mat) { glUniformMatrix3fv(glGetUniformLocation(m_programId, name), 1, GL_FALSE, mat.data());
+void setUniformValue(const char* name, float x, float y);
 ```
 ```cpp
-void setUniformValue(const char* name, const Matrix4& mat) { glUniformMatrix4fv(glGetUniformLocation(m_programId, name), 1, GL_FALSE, mat.data());
+void setUniformValue(const char* name, float x, float y, float z);
+```
+```cpp
+void setUniformValue(const char* name, float x, float y, float z, float w);
+```
+```cpp
+void setUniformValue(const char* name, const Matrix2& mat);
+```
+```cpp
+void setUniformValue(const char* name, const Matrix3& mat);
+```
+```cpp
+void setUniformValue(const char* name, const Matrix4& mat);
+```
+```cpp
+bool isLinked();
+```
+```cpp
+uint getProgramId();
+```
+```cpp
+ShaderList getShaders();
+```
+```cpp
+std::string getName();
 ```

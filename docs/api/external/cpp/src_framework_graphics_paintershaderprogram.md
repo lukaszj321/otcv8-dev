@@ -4,8 +4,7 @@
 virtual void setupUniforms();
 ```
 ```cpp
-public:
-    PainterShaderProgram(const std::string& name);
+public: PainterShaderProgram(const std::string& name);
 ```
 ```cpp
 bool link();
@@ -48,4 +47,7 @@ void bindMultiTextures();
 ```
 ```cpp
 void clearMultiTextures();
+```
+```cpp
+void enableColorMatrix();
 ```

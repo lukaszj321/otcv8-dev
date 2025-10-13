@@ -1,8 +1,7 @@
 # src/framework/otml/otmlparser.h
 
 ```cpp
-public:
-    OTMLParser(OTMLDocumentPtr doc, std::istream& in);
+public: OTMLParser(OTMLDocumentPtr doc, std::istream& in);
 ```
 ```cpp
 void parse();

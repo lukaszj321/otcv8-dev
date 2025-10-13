@@ -1,27 +1,41 @@
 # src/framework/graphics/vertexarray.h
 
 ```cpp
-public:
-    VertexArray() {} ~VertexArray() { if (m_hardwareBuffer) delete m_hardwareBuffer; } VertexArray(VertexArray& c) : m_buffer(c.m_buffer) { m_hardwareBuffer = nullptr; } VertexArray& operator=(VertexArray& c) = delete; inline void addVertex(float x, float y) { m_buffer << x << y; } inline void addTriangle(const Point& a, const Point& b, const Point& c) { addVertex(a.x, a.y);
+public: VertexArray();
 ```
 ```cpp
-inline void addRect(const Rect& rect) { float top = rect.top();
+inline void addVertex(float x, float y);
 ```
 ```cpp
-inline void addRect(const RectF& rect) { float top = rect.top();
+inline void addTriangle(const Point& a, const Point& b, const Point& c);
 ```
 ```cpp
-inline void addQuad(const Rect& rect) { float top = rect.top();
+inline void addRect(const Rect& rect);
 ```
 ```cpp
-inline void addUpsideDownQuad(const Rect& rect) { float top = rect.top();
+inline void addRect(const RectF& rect);
 ```
 ```cpp
-void clear() { m_buffer.reset();
+inline void addQuad(const Rect& rect);
 ```
 ```cpp
-int vertexCount() const { return m_buffer.size() / 2; } int size() const { return m_buffer.size();
+inline void addUpsideDownQuad(const Rect& rect);
 ```
 ```cpp
-void cache() { if (m_buffer.size() < CACHE_MIN_VERTICES_COUNT) return; if (m_hardwareBuffer) return; m_hardwareBuffer = new HardwareBuffer(HardwareBuffer::VertexBuffer);
+void clear();
+```
+```cpp
+int vertexCount();
+```
+```cpp
+int size();
+```
+```cpp
+void cache();
+```
+```cpp
+bool isCached();
+```
+```cpp
+HardwareBuffer* getHardwareCache();
 ```

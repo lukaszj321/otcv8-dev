@@ -1,11 +1,10 @@
 # src/client/localplayer.h
 
 ```cpp
-public:
-    LocalPlayer();
+public: LocalPlayer();
 ```
 ```cpp
-void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr) override; void unlockWalk() { m_walkLockExpiration = 0; } void lockWalk(int millis = 200);
+void lockWalk(int millis = 200);
 ```
 ```cpp
 void stopAutoWalk();
@@ -17,10 +16,7 @@ bool autoWalk(Position destination, bool retry = false);
 bool canWalk(Otc::Direction direction, bool ignoreLock = false);
 ```
 ```cpp
-bool isWalkLocked() { return (m_walkLockExpiration != 0 && g_clock.millis() < m_walkLockExpiration);
-```
-```cpp
-void turn(Otc::Direction) override; void setStates(int states);
+void setStates(int states);
 ```
 ```cpp
 void setSkill(uint8_t skill, int level, int levelPercent);
@@ -59,7 +55,7 @@ void setSoul(double soul);
 void setStamina(double stamina);
 ```
 ```cpp
-void setKnown(bool known) { m_known = known; } void setPendingGame(bool pending) { m_pending = pending; } void setInventoryItem(Otc::InventorySlot inventory, const ItemPtr& item);
+void setInventoryItem(Otc::InventorySlot inventory, const ItemPtr& item);
 ```
 ```cpp
 void setVocation(int vocation);
@@ -80,34 +76,13 @@ void setSpells(const std::vector<int>& spells);
 void setBlessings(int blessings);
 ```
 ```cpp
-int getStates() { return m_states; } int getSkillLevel(uint8_t skill) { return skill < m_skillsLevel.size() ? m_skillsLevel[skill] : 0; } int getSkillBaseLevel(uint8_t skill) { return skill < m_skillsBaseLevel.size() ? m_skillsBaseLevel[skill] : 0; } int getSkillLevelPercent(uint8_t skill) { return skill < m_skillsLevelPercent.size() ? m_skillsLevelPercent[skill] : 0; } int getVocation() { return m_vocation; } double getHealth() { return m_health; } double getMaxHealth() { return m_maxHealth; } double getFreeCapacity() { return m_freeCapacity; } double getTotalCapacity() { return m_totalCapacity; } double getExperience() { return m_experience; } double getLevel() { return m_level; } double getLevelPercent() { return m_levelPercent; } double getMana() { return m_mana; } double getMaxMana() { return std::max<double>(m_mana, m_maxMana);
+bool hasSight(const Position& pos);
 ```
 ```cpp
-double getMagicLevel() { return m_magicLevel; } double getMagicLevelPercent() { return m_magicLevelPercent; } double getBaseMagicLevel() { return m_baseMagicLevel; } double getSoul() { return m_soul; } double getStamina() { return m_stamina; } double getRegenerationTime() { return m_regenerationTime; } double getOfflineTrainingTime() { return m_offlineTrainingTime; } std::vector<int> getSpells() { return m_spells; } ItemPtr getInventoryItem(Otc::InventorySlot inventory) { return m_inventoryItems[inventory]; } int getBlessings() { return m_blessings; } bool hasSight(const Position& pos);
+void preWalk(Otc::Direction direction);
 ```
 ```cpp
-bool isKnown() { return m_known; } bool isAutoWalking() { return m_autoWalkDestination.isValid();
-```
-```cpp
-bool isServerWalking() override { return m_serverWalking; } bool isPremium() { return m_premium; } bool isPendingGame() { return m_pending; } LocalPlayerPtr asLocalPlayer() { return static_self_cast<LocalPlayer>();
-```
-```cpp
-bool isLocalPlayer() override { return true; } void onAppear() override; void onPositionChange(const Position& newPos, const Position& oldPos) override; // pre walking void preWalk(Otc::Direction direction);
-```
-```cpp
-bool isPreWalking() override { return !m_preWalking.empty();
-```
-```cpp
-Position getPrewalkingPosition(bool beforePrewalk = false) override { if(m_preWalking.empty()) return m_position; else if (!beforePrewalk && m_preWalking.size() == 1) return m_position; auto ret = m_preWalking.rbegin();
-```
-```cpp
-uint32_t getWalkPrediction(const Position& pos) { return m_walkMatrix.get(pos);
-```
-```cpp
-std::string dumpWalkMatrix() { return m_walkMatrix.dump();
-```
-```cpp
-void startServerWalking() { m_serverWalking = true; } void finishServerWalking() { m_serverWalking = false; } protected: void walk(const Position& oldPos, const Position& newPos) override; void cancelWalk(Otc::Direction direction = Otc::InvalidDirection);
+void cancelWalk(Otc::Direction direction = Otc::InvalidDirection);
 ```
 ```cpp
 void cancelNewWalk(Otc::Direction dir);
@@ -117,4 +92,115 @@ bool predictiveCancelWalk(const Position& pos, uint32_t predictionId, Otc::Direc
 ```
 ```cpp
 bool retryAutoWalk();
+```
+```cpp
+void unlockWalk();
+```
+```cpp
+bool isWalkLocked();
+```
+```cpp
+void setKnown(bool known);
+```
+```cpp
+void setPendingGame(bool pending);
+```
+```cpp
+int getStates();
+```
+```cpp
+int getSkillLevel(uint8_t skill);
+```
+```cpp
+int getSkillBaseLevel(uint8_t skill);
+```
+```cpp
+int getSkillLevelPercent(uint8_t skill);
+```
+```cpp
+int getVocation();
+```
+```cpp
+double getHealth();
+```
+```cpp
+double getMaxHealth();
+```
+```cpp
+double getFreeCapacity();
+```
+```cpp
+double getTotalCapacity();
+```
+```cpp
+double getExperience();
+```
+```cpp
+double getLevel();
+```
+```cpp
+double getLevelPercent();
+```
+```cpp
+double getMana();
+```
+```cpp
+double getMaxMana();
+```
+```cpp
+double getMagicLevel();
+```
+```cpp
+double getMagicLevelPercent();
+```
+```cpp
+double getBaseMagicLevel();
+```
+```cpp
+double getSoul();
+```
+```cpp
+double getStamina();
+```
+```cpp
+double getRegenerationTime();
+```
+```cpp
+double getOfflineTrainingTime();
+```
+```cpp
+std::vector<int> getSpells();
+```
+```cpp
+ItemPtr getInventoryItem(Otc::InventorySlot inventory);
+```
+```cpp
+int getBlessings();
+```
+```cpp
+bool isKnown();
+```
+```cpp
+bool isAutoWalking();
+```
+```cpp
+bool isPremium();
+```
+```cpp
+bool isPendingGame();
+```
+```cpp
+LocalPlayerPtr asLocalPlayer();
+```
+```cpp
+uint32_t getWalkPrediction(const Position& pos);
+```
+```cpp
+std::string dumpWalkMatrix();
+```
+```cpp
+void startServerWalking();
+```
+```cpp
+void finishServerWalking();
 ```

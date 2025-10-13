@@ -1,12 +1,20 @@
 # src/framework/ui/uiverticallayout.h
 
 ```cpp
-public:
-    UIVerticalLayout(UIWidgetPtr parentWidget) : UIBoxLayout(parentWidget) { } void applyStyle(const OTMLNodePtr& styleNode);
+void applyStyle(const OTMLNodePtr& styleNode);
 ```
 ```cpp
-void setAlignBottom(bool aliginBottom) { m_alignBottom = aliginBottom; update();
+protected: bool internalUpdate();
 ```
 ```cpp
-bool isAlignBottom() { return m_alignBottom; } bool isUIVerticalLayout() { return true; } protected: bool internalUpdate();
+public: UIVerticalLayout(UIWidgetPtr parentWidget) : UIBoxLayout(parentWidget);
+```
+```cpp
+void setAlignBottom(bool aliginBottom);
+```
+```cpp
+bool isAlignBottom();
+```
+```cpp
+bool isUIVerticalLayout();
 ```

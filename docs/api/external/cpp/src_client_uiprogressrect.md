@@ -1,8 +1,7 @@
 # src/client/uiprogressrect.h
 
 ```cpp
-public:
-    UIProgressRect();
+public: UIProgressRect();
 ```
 ```cpp
 void drawSelf(Fw::DrawPane drawPane);
@@ -11,5 +10,8 @@ void drawSelf(Fw::DrawPane drawPane);
 void setPercent(float percent);
 ```
 ```cpp
-float getPercent() { return m_percent; } protected: void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode);
+protected: void onStyleApply(const std::string& styleName, const OTMLNodePtr& styleNode);
+```
+```cpp
+float getPercent();
 ```

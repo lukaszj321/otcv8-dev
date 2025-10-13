@@ -1,8 +1,7 @@
 # src/client/spritemanager.h
 
 ```cpp
-public:
-    SpriteManager();
+public: SpriteManager();
 ```
 ```cpp
 void terminate();
@@ -26,10 +25,10 @@ void encryptSprites(std::string fileName);
 void dumpSprites(std::string dir);
 ```
 ```cpp
-uint32 getSignature() { return m_signature; } int getSpritesCount() { return m_spritesCount; } ImagePtr getSpriteImage(int id);
+ImagePtr getSpriteImage(int id);
 ```
 ```cpp
-bool isLoaded() { return m_loaded; } int spriteSize() { return m_spriteSize; } float getOffsetFactor() const { return static_cast<float>(m_spriteSize) / 32.0f; } bool isHdMod() const { return m_isHdMod; } private: bool loadCasualSpr(std::string file);
+private: bool loadCasualSpr(std::string file);
 ```
 ```cpp
 bool loadCwmSpr(std::string file);
@@ -39,4 +38,22 @@ ImagePtr getSpriteImageCasual(int id);
 ```
 ```cpp
 ImagePtr getSpriteImageHd(int id);
+```
+```cpp
+uint32 getSignature();
+```
+```cpp
+int getSpritesCount();
+```
+```cpp
+bool isLoaded();
+```
+```cpp
+int spriteSize();
+```
+```cpp
+float getOffsetFactor();
+```
+```cpp
+bool isHdMod();
 ```

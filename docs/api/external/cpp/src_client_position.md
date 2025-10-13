@@ -1,33 +1,86 @@
 # src/client/position.h
 
 ```cpp
-public:
-    Position() : x(65535), y(65535), z(255) { } Position(uint16 x, uint16 y, uint8 z) : x(x), y(y), z(z) { } Position translatedToDirection(Otc::Direction direction) { Position pos = *this; switch(direction) { case Otc::North: pos.y--; break; case Otc::East: pos.x++; break; case Otc::South: pos.y++; break; case Otc::West: pos.x--; break; case Otc::NorthEast: pos.x++; pos.y--; break; case Otc::SouthEast: pos.x++; pos.y++; break; case Otc::SouthWest: pos.x--; pos.y++; break; case Otc::NorthWest: pos.x--; pos.y--; break; default: break; } return pos; } Position translatedToReverseDirection(Otc::Direction direction) { Position pos = *this; switch(direction) { case Otc::North: pos.y++; break; case Otc::East: pos.x--; break; case Otc::South: pos.y--; break; case Otc::West: pos.x++; break; case Otc::NorthEast: pos.x--; pos.y++; break; case Otc::SouthEast: pos.x--; pos.y--; break; case Otc::SouthWest: pos.x++; pos.y--; break; case Otc::NorthWest: pos.x++; pos.y++; break; default: break; } return pos; } std::vector<Position> translatedToDirections(const std::vector<Otc::Direction>& dirs) const { Position lastPos = *this; std::vector<Position> positions; if(!lastPos.isValid()) return positions; positions.push_back(lastPos);
+return getAngleFromPositions(*this, position);
 ```
 ```cpp
-static double getAngleFromPositions(const Position& fromPos, const Position& toPos) { // Returns angle in radians from 0 to 2Pi. -1 means positions are equal. int dx = toPos.x - fromPos.x; int dy = toPos.y - fromPos.y; if(dx == 0 && dy == 0) return -1; float angle = std::atan2(dy * -1, dx);
+return getDirectionFromPositions(*this, position);
 ```
 ```cpp
-double getAngleFromPosition(const Position& position) const { return getAngleFromPositions(*this, position);
+return std::to_string(x) + "," + std::to_string(y) + "," + std::to_string(z);
 ```
 ```cpp
-static Otc::Direction getDirectionFromPositions(const Position& fromPos, const Position& toPos) { float angle = getAngleFromPositions(fromPos, toPos) * RAD_TO_DEC; if(angle >= 360 - 22.5 || angle < 0 + 22.5) return Otc::East; else if(angle >= 45 - 22.5 && angle < 45 + 22.5) return Otc::NorthEast; else if(angle >= 90 - 22.5 && angle < 90 + 22.5) return Otc::North; else if(angle >= 135 - 22.5 && angle < 135 + 22.5) return Otc::NorthWest; else if(angle >= 180 - 22.5 && angle < 180 + 22.5) return Otc::West; else if(angle >= 225 - 22.5 && angle < 225 + 22.5) return Otc::SouthWest; else if(angle >= 270 - 22.5 && angle < 270 + 22.5) return Otc::South; else if(angle >= 315 - 22.5 && angle < 315 + 22.5) return Otc::SouthEast; else return Otc::InvalidDirection; } Otc::Direction getDirectionFromPosition(const Position& position) const { return getDirectionFromPositions(*this, position);
+public: Position() : x(65535), y(65535), z(255);
 ```
 ```cpp
-bool isMapPosition() const { return (x >=0 && y >= 0 && z >= 0 && x < 65535 && y < 65535 && z <= Otc::MAX_Z);
+Position translatedToDirection(Otc::Direction direction);
 ```
 ```cpp
-bool isValid() const { return !(x == 65535 && y == 65535 && z == 255);
+Position translatedToReverseDirection(Otc::Direction direction);
 ```
 ```cpp
-float distance(const Position& pos) const { return sqrt(pow((pos.x - x), 2) + pow((pos.y - y), 2));
+std::vector<Position> translatedToDirections(const std::vector<Otc::Direction>& dirs);
 ```
 ```cpp
-int manhattanDistance(const Position& pos) const { return std::abs(pos.x - x) + std::abs(pos.y - y);
+static double getAngleFromPositions(const Position& fromPos, const Position& toPos);
 ```
 ```cpp
-void translate(int dx, int dy, short dz = 0) { x += dx; y += dy; z += dz; } Position translated(int dx, int dy, short dz = 0) const { Position pos = *this; pos.x += dx; pos.y += dy; pos.z += dz; return pos; } Position operator+(const Position& other) const { return Position(x + other.x, y + other.y, z + other.z);
+double getAngleFromPosition(const Position& position);
 ```
 ```cpp
-bool isInRange(const Position& pos, int xRange, int yRange, int zRange = 0) const { return std::abs(x-pos.x) <= xRange && std::abs(y-pos.y) <= yRange && std::abs(z - pos.z) <= zRange; } bool isInRange(const Position& pos, int minXRange, int maxXRange, int minYRange, int maxYRange) const { return (pos.x >= x-minXRange && pos.x <= x+maxXRange && pos.y >= y-minYRange && pos.y <= y+maxYRange && pos.z == z);
+static Otc::Direction getDirectionFromPositions(const Position& fromPos, const Position& toPos);
+```
+```cpp
+Otc::Direction getDirectionFromPosition(const Position& position);
+```
+```cpp
+bool isMapPosition();
+```
+```cpp
+bool isValid();
+```
+```cpp
+float distance(const Position& pos);
+```
+```cpp
+int manhattanDistance(const Position& pos);
+```
+```cpp
+void translate(int dx, int dy, short dz = 0);
+```
+```cpp
+Position translated(int dx, int dy, short dz = 0);
+```
+```cpp
+bool isInRange(const Position& pos, int xRange, int yRange, int zRange = 0);
+```
+```cpp
+bool isInRange(const Position& pos, int minXRange, int maxXRange, int minYRange, int maxYRange);
+```
+```cpp
+bool operator<(const Position& other);
+```
+```cpp
+bool up(int n = 1);
+```
+```cpp
+bool down(int n = 1);
+```
+```cpp
+bool coveredUp(int n = 1);
+```
+```cpp
+bool coveredDown(int n = 1);
+```
+```cpp
+std::string toString();
+```
+```cpp
+std::size_t operator()(const Position& pos);
+```
+```cpp
+inline std::ostream& operator<<(std::ostream& out, const Position& pos);
+```
+```cpp
+inline std::istream& operator>>(std::istream& in, Position& pos);
 ```

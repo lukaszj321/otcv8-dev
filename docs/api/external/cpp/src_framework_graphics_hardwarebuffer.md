@@ -1,11 +1,11 @@
 # src/framework/graphics/hardwarebuffer.h
 
 ```cpp
-void bind() { glBindBuffer(m_type, m_id);
+void bind();
 ```
 ```cpp
-static void unbind(Type type) { glBindBuffer(type, 0);
+static void unbind(Type type);
 ```
 ```cpp
-void write(void *data, int count, UsagePattern usage) { glBufferData(m_type, count, data, usage);
+void write(void *data, int count, UsagePattern usage);
 ```

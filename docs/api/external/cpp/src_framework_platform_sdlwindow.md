@@ -22,8 +22,7 @@ void internalDestroyGLContext();
 void internalConnectGLContext();
 ```
 ```cpp
-public:
-    SDLWindow();
+public: SDLWindow();
 ```
 ```cpp
 void init();
@@ -95,7 +94,7 @@ std::string getClipboardText();
 std::string getPlatformType();
 ```
 ```cpp
-void displayFatalError(const std::string& message) override; void showTextEditor(const std::string& title, const std::string& description, const std::string& text, int flags) override; void updateSize();
+void updateSize();
 ```
 ```cpp
 void handleTextInput(std::string text);

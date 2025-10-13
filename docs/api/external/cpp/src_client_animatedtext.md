@@ -1,8 +1,7 @@
 # src/client/animatedtext.h
 
 ```cpp
-public:
-    AnimatedText();
+public: AnimatedText();
 ```
 ```cpp
 void drawText(const Point& dest, const Rect& visibleRect);
@@ -14,18 +13,35 @@ void setColor(int color);
 void setText(const std::string& text);
 ```
 ```cpp
-void setOffset(const Point& offset) { m_offset = offset; } void setFont(const std::string& fontName);
+void setFont(const std::string& fontName);
 ```
 ```cpp
-Color getColor() { return m_color; } const CachedText& getCachedText() const { return m_cachedText; } Point getOffset() { return m_offset; } Timer getTimer() { return m_animationTimer; } bool merge(const AnimatedTextPtr& other);
+bool merge(const AnimatedTextPtr& other);
 ```
 ```cpp
-AnimatedTextPtr asAnimatedText() { return static_self_cast<AnimatedText>();
+protected: virtual void onAppear();
 ```
 ```cpp
-bool isAnimatedText() { return true; } std::string getText() { return m_cachedText.getText();
+void setOffset(const Point& offset);
 ```
 ```cpp
-protected:
-    virtual void onAppear();
+Color getColor();
+```
+```cpp
+const CachedText& getCachedText();
+```
+```cpp
+Point getOffset();
+```
+```cpp
+Timer getTimer();
+```
+```cpp
+AnimatedTextPtr asAnimatedText();
+```
+```cpp
+bool isAnimatedText();
+```
+```cpp
+std::string getText();
 ```

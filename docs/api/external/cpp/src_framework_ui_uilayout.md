@@ -1,12 +1,56 @@
 # src/framework/ui/uilayout.h
 
 ```cpp
-public:
-    UILayout(UIWidgetPtr parentWidget) : m_parentWidget(parentWidget) { m_updateDisabled = 0; } void update();
+void update();
 ```
 ```cpp
 void updateLater();
 ```
 ```cpp
-virtual void applyStyle(const OTMLNodePtr& styleNode) { } virtual void addWidget(const UIWidgetPtr& widget) { } virtual void removeWidget(const UIWidgetPtr& widget) { } void disableUpdates() { m_updateDisabled++; } void enableUpdates() { m_updateDisabled = std::max<int>(m_updateDisabled-1,0);
+public: UILayout(UIWidgetPtr parentWidget) : m_parentWidget(parentWidget);
+```
+```cpp
+virtual void applyStyle(const OTMLNodePtr& styleNode);
+```
+```cpp
+virtual void addWidget(const UIWidgetPtr& widget);
+```
+```cpp
+virtual void removeWidget(const UIWidgetPtr& widget);
+```
+```cpp
+void disableUpdates();
+```
+```cpp
+void enableUpdates();
+```
+```cpp
+void setParent(UIWidgetPtr parentWidget);
+```
+```cpp
+UIWidgetPtr getParentWidget();
+```
+```cpp
+bool isUpdateDisabled();
+```
+```cpp
+bool isUpdating();
+```
+```cpp
+virtual bool isUIAnchorLayout();
+```
+```cpp
+virtual bool isUIBoxLayout();
+```
+```cpp
+virtual bool isUIHorizontalLayout();
+```
+```cpp
+virtual bool isUIVerticalLayout();
+```
+```cpp
+virtual bool isUIGridLayout();
+```
+```cpp
+protected: virtual bool internalUpdate();
 ```

@@ -1,8 +1,7 @@
 # src/framework/graphics/texturemanager.h
 
 ```cpp
-public:
-    void init();
+public: void init();
 ```
 ```cpp
 void terminate();
@@ -14,11 +13,11 @@ void clearCache();
 void reload();
 ```
 ```cpp
-void preload(const std::string& fileName) { getTexture(fileName);
-```
-```cpp
 TexturePtr getTexture(const std::string& fileName);
 ```
 ```cpp
 TexturePtr loadTexture(std::stringstream& file, const std::string& source);
+```
+```cpp
+void preload(const std::string& fileName);
 ```

@@ -28,8 +28,7 @@ LRESULT dispatcherWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 Fw::Key retranslateVirtualKey(WPARAM wParam, LPARAM lParam);
 ```
 ```cpp
-public:
-    WIN32Window();
+public: WIN32Window();
 ```
 ```cpp
 void init();
@@ -104,11 +103,10 @@ std::string getClipboardText();
 std::string getPlatformType();
 ```
 ```cpp
-void flash() override; protected: int internalLoadMouseCursor(const ImagePtr& image, const Point& hotSpot);
+protected: int internalLoadMouseCursor(const ImagePtr& image, const Point& hotSpot);
 ```
 ```cpp
-private:
-    Rect getClientRect();
+private: Rect getClientRect();
 ```
 ```cpp
 Rect getWindowRect();

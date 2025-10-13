@@ -1,8 +1,7 @@
 # src/framework/input/mouse.h
 
 ```cpp
-public:
-    void init();
+public: void init();
 ```
 ```cpp
 void terminate();

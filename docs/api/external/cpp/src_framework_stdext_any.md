@@ -1,17 +1,35 @@
 # src/framework/stdext/any.h
 
 ```cpp
-virtual const std::type_info& type() const = 0; virtual placeholder* clone() const = 0; }; template<typename T> struct holder : public placeholder { holder(const T& value) : held(value) { } const std::type_info& type() const { return typeid(T);
+virtual const std::type_info& type();
 ```
 ```cpp
-placeholder* clone() const { return new holder(held);
+virtual placeholder* clone();
 ```
 ```cpp
-const T& cast() const; const std::type_info & type() const { return content ? content->type() : typeid(void);
+const T& cast();
 ```
 ```cpp
-const T& any_cast(const any& operand) { VALIDATE(operand.type() == typeid(T));
+const std::type_info& type();
 ```
 ```cpp
-return static_cast<any::holder<T>*>(operand.content)->held; } template<typename T> const T& any::cast() const { return any_cast<T>(*this);
+placeholder* clone();
+```
+```cpp
+template<typename T> any(const T& value) : content(new holder<T>(value));
+```
+```cpp
+any& swap(any& rhs);
+```
+```cpp
+bool empty();
+```
+```cpp
+const std::type_info & type();
+```
+```cpp
+const T& any_cast(const any& operand);
+```
+```cpp
+const T& any::cast();
 ```
