@@ -13,7 +13,7 @@ Wszystkie dane są osadzane inline, bez wychodzenia poza sekcję **authoring**.
 :link: 01_core/index
 :link-type: doc
 :shadow: md
-01_core — Core — wbudowany podgląd CSV i diagramów.
+Rozdział Core zawiera podstawowe komponenty i mechanizmy systemu, umożliwiając podgląd danych CSV oraz diagramów związanych z główną logiką aplikacji.
 :::
 :::{grid-item-card} 01_runtime — Runtime
 :link: 01_runtime/index
