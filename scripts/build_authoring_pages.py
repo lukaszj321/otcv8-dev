@@ -6,8 +6,9 @@
 import os, sys, pathlib, textwrap
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-REPO = ROOT / "reposzablony"
-AUTHORING = ROOT / "authoring"
+DOCS = ROOT / "docs"
+REPO = DOCS / "reposzablony"
+AUTHORING = DOCS / "authoring"
 
 def find_chapters():
     if not REPO.exists():
@@ -79,6 +80,7 @@ def write_chapter(chapter: str):
         ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
         :language: mermaid
         ```
+        ```
         """).strip()
 
     if len(csvs) >= 2:
@@ -99,7 +101,14 @@ def write_chapter(chapter: str):
     else:
         mmd_section = "_Brak diagramów w tym rozdziale._"
 
-    body = textwrap.dedent(f"""---
+    # Build the body with proper string concatenation to avoid escaping issues
+    admonition_part = """:::{admonition} Co jest na tej stronie?
+:class: tip
+- **Datasets** — CSV z `datasets/` osadzone jako tabele
+- **Diagrams** — Mermaid z `diagrams/` + podgląd kodu w dropdown
+:::"""
+    
+    body = f"""---
 title: {title}
 ---
 
@@ -107,18 +116,14 @@ title: {title}
 
 > Źródła: `docs/reposzablony/{chapter}/`
 
-:::{admonition} Co jest na tej stronie?
-:class: tip
-- **Datasets** — CSV z `datasets/` osadzone jako tabele
-- **Diagrams** — Mermaid z `diagrams/` + podgląd kodu w dropdown
-:::
+{admonition_part}
 
 ## Datasets
 {csv_section}
 
 ## Diagrams
 {mmd_section}
-""")
+"""
 
     dst.write_text(body, encoding="utf-8")
     print(f"[OK] Wrote {dst}")
@@ -130,7 +135,7 @@ def write_index(chapters):
         title = chapter_title(ch)
         link = f"{ch}/index"
         cards += [
-            "::: {grid-item-card} " + title,
+            ":::{grid-item-card} " + title,
             f":link: {link}",
             ":link-type: doc",
             ":shadow: md",
