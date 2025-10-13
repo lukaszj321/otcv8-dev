@@ -80,6 +80,7 @@ def write_chapter(chapter: str):
         ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
         :language: mermaid
         ```
+        ```
         """).strip()
 
     if len(csvs) >= 2:

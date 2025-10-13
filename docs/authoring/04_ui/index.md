@@ -66,6 +66,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/AttackBot.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/AttackBot.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} BotServer.mmd (Mermaid)
 :class: tip
@@ -82,6 +83,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/BotServer.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/BotServer.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} Conditions.mmd (Mermaid)
@@ -100,6 +102,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/Conditions.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/Conditions.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} HealBot.mmd (Mermaid)
 :class: tip
@@ -116,6 +119,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/HealBot.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/HealBot.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} actionbar.mmd (Mermaid)
@@ -134,6 +138,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/actionbar.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/actionbar.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} alarms.mmd (Mermaid)
 :class: tip
@@ -150,6 +155,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/alarms.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/alarms.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} amountwindow.mmd (Mermaid)
@@ -168,6 +174,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/amountwindow.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/amountwindow.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} analyzer.mmd (Mermaid)
 :class: tip
@@ -184,6 +191,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/analyzer.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/analyzer.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} architecture.mmd (Mermaid)
@@ -202,6 +210,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/architecture.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/architecture.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} basic.mmd (Mermaid)
 :class: tip
@@ -218,6 +227,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/basic.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/basic.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} battle.mmd (Mermaid)
@@ -236,6 +246,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/battle.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/battle.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} battlebutton.mmd (Mermaid)
 :class: tip
@@ -252,6 +263,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/battlebutton.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/battlebutton.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} bot.mmd (Mermaid)
@@ -270,6 +282,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/bot.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/bot.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} browse.mmd (Mermaid)
 :class: tip
@@ -286,6 +299,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/browse.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/browse.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} bugreport.mmd (Mermaid)
@@ -304,6 +318,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/bugreport.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/bugreport.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} cavebot.mmd (Mermaid)
 :class: tip
@@ -320,6 +335,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/cavebot.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/cavebot.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} channelswindow.mmd (Mermaid)
@@ -338,6 +354,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/channelswindow.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/channelswindow.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} characterlist.mmd (Mermaid)
 :class: tip
@@ -354,6 +371,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/characterlist.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/characterlist.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} combo.mmd (Mermaid)
@@ -372,6 +390,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/combo.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/combo.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} communicationwindow.mmd (Mermaid)
 :class: tip
@@ -388,6 +407,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/communicationwindow.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/communicationwindow.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} config.mmd (Mermaid)
@@ -406,6 +426,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/config.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/config.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} container.mmd (Mermaid)
 :class: tip
@@ -422,6 +443,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/container.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/container.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} cooldown.mmd (Mermaid)
@@ -440,6 +462,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/cooldown.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/cooldown.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} countwindow.mmd (Mermaid)
 :class: tip
@@ -456,6 +479,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/countwindow.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/countwindow.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} creature_editor.mmd (Mermaid)
@@ -474,6 +498,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/creature_editor.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/creature_editor.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} currentoffers.mmd (Mermaid)
 :class: tip
@@ -490,6 +515,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/currentoffers.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/currentoffers.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} deathwindow.mmd (Mermaid)
@@ -508,6 +534,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/deathwindow.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/deathwindow.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} depositer_config.mmd (Mermaid)
 :class: tip
@@ -524,6 +551,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/depositer_config.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/depositer_config.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} editor.mmd (Mermaid)
@@ -542,6 +570,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/editor.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/editor.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} editvip.mmd (Mermaid)
 :class: tip
@@ -558,6 +587,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/editvip.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/editvip.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} equipper.mmd (Mermaid)
@@ -576,6 +606,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/equipper.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/equipper.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} extras.mmd (Mermaid)
 :class: tip
@@ -592,6 +623,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/extras.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/extras.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} flagwindow.mmd (Mermaid)
@@ -610,6 +642,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/flagwindow.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/flagwindow.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} flow.mmd (Mermaid)
 :class: tip
@@ -626,6 +659,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/flow.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/flow.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} gameinterface.mmd (Mermaid)
@@ -644,6 +678,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/gameinterface.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/gameinterface.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} hotkeys_manager.mmd (Mermaid)
 :class: tip
@@ -660,6 +695,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/hotkeys_manager.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/hotkeys_manager.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} icons.mmd (Mermaid)
@@ -678,6 +714,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/icons.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/icons.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} imbuing.mmd (Mermaid)
 :class: tip
@@ -694,6 +731,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/imbuing.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/imbuing.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} itemdetails.mmd (Mermaid)
@@ -712,6 +750,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/itemdetails.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/itemdetails.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} itemoffers.mmd (Mermaid)
 :class: tip
@@ -728,6 +767,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/itemoffers.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/itemoffers.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} itemselector.mmd (Mermaid)
@@ -746,6 +786,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/itemselector.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/itemselector.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} itemstats.mmd (Mermaid)
 :class: tip
@@ -762,6 +803,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/itemstats.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/itemstats.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} locales.mmd (Mermaid)
@@ -780,6 +822,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/locales.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/locales.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} looting.mmd (Mermaid)
 :class: tip
@@ -796,6 +839,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/looting.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/looting.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} market.mmd (Mermaid)
@@ -814,6 +858,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/market.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/market.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} marketbuttons.mmd (Mermaid)
 :class: tip
@@ -830,6 +875,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/marketbuttons.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/marketbuttons.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} marketcombobox.mmd (Mermaid)
@@ -848,6 +894,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/marketcombobox.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/marketcombobox.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} markettabs.mmd (Mermaid)
 :class: tip
@@ -864,6 +911,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/markettabs.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/markettabs.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} modaldialog.mmd (Mermaid)
@@ -882,6 +930,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/modaldialog.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/modaldialog.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} new_healer.mmd (Mermaid)
 :class: tip
@@ -898,6 +947,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/new_healer.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/new_healer.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} npctrade.mmd (Mermaid)
@@ -916,6 +966,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/npctrade.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/npctrade.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} object.mmd (Mermaid)
 :class: tip
@@ -932,6 +983,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/object.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/object.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} options.mmd (Mermaid)
@@ -950,6 +1002,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/options.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/options.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} outfitwindow.mmd (Mermaid)
 :class: tip
@@ -966,6 +1019,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/outfitwindow.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/outfitwindow.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} panels.mmd (Mermaid)
@@ -984,6 +1038,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/panels.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/panels.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} playerlist.mmd (Mermaid)
 :class: tip
@@ -1000,6 +1055,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/playerlist.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/playerlist.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} prey.mmd (Mermaid)
@@ -1018,6 +1074,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/prey.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/prey.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} pushmax.mmd (Mermaid)
 :class: tip
@@ -1034,6 +1091,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/pushmax.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/pushmax.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} questlogwindow.mmd (Mermaid)
@@ -1052,6 +1110,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/questlogwindow.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/questlogwindow.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} ruleviolation.mmd (Mermaid)
 :class: tip
@@ -1068,6 +1127,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/ruleviolation.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/ruleviolation.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} shop.mmd (Mermaid)
@@ -1086,6 +1146,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/shop.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/shop.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} sideactionbar.mmd (Mermaid)
 :class: tip
@@ -1102,6 +1163,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/sideactionbar.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/sideactionbar.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} siolist.mmd (Mermaid)
@@ -1120,6 +1182,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/siolist.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/siolist.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} skills.mmd (Mermaid)
 :class: tip
@@ -1136,6 +1199,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/skills.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/skills.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} spell.mmd (Mermaid)
@@ -1154,6 +1218,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/spell.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/spell.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} spelllist.mmd (Mermaid)
 :class: tip
@@ -1170,6 +1235,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/spelllist.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/spelllist.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} stats.mmd (Mermaid)
@@ -1188,6 +1254,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/stats.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/stats.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} supplies.mmd (Mermaid)
 :class: tip
@@ -1204,6 +1271,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/supplies.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/supplies.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} supply.mmd (Mermaid)
@@ -1222,6 +1290,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/supply.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/supply.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} target.mmd (Mermaid)
 :class: tip
@@ -1238,6 +1307,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/target.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/target.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} terminal.mmd (Mermaid)
@@ -1256,6 +1326,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/terminal.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/terminal.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} textedit.mmd (Mermaid)
 :class: tip
@@ -1272,6 +1343,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/textedit.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/textedit.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} textmessage.mmd (Mermaid)
@@ -1290,6 +1362,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/textmessage.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/textmessage.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} textwindow.mmd (Mermaid)
 :class: tip
@@ -1306,6 +1379,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/textwindow.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/textwindow.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} topbar.mmd (Mermaid)
@@ -1324,6 +1398,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/topbar.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/topbar.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} tradewindow.mmd (Mermaid)
 :class: tip
@@ -1340,6 +1415,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/tradewindow.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/tradewindow.mmd
 :language: mermaid
+```
 ```
 
 ```{admonition} unjustifiedpoints.mmd (Mermaid)
@@ -1358,6 +1434,7 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/unjustifiedpoints.mmd`
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/unjustifiedpoints.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} viplist.mmd (Mermaid)
 :class: tip
@@ -1374,4 +1451,5 @@ Lokalizacja: `../../reposzablony/04_ui/diagrams/viplist.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/04_ui/diagrams/viplist.mmd
 :language: mermaid
+```
 ```
