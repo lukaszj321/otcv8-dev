@@ -1,3 +1,15 @@
+# Dev Tools
+
+```{toctree}
+:maxdepth: 1
+:caption: Dev Tools
+:glob:
+
+modul-*.md
+*/modul-*.md
+```
+
+
 # Modu: Moduy  indeks
 Poniej lista moduw w tej kategorii (auto-generated). Edytuj swobodnie  skrypt bdzie dopisywa nowe pozycje.
 

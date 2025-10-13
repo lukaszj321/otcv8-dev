@@ -1,3 +1,14 @@
+# C++ – API (per plik)
+
+```{toctree}
+:maxdepth: 1
+:glob:
+:titlesonly:
+
+*.md
+```
+
+
 # C++ - per-plik
 
 ```{toctree}

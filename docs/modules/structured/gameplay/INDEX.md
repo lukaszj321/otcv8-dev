@@ -1,3 +1,15 @@
+# Gameplay
+
+```{toctree}
+:maxdepth: 1
+:caption: Gameplay
+:glob:
+
+modul-*.md
+*/modul-*.md
+```
+
+
 # Modu: Moduy  indeks
 Poniej lista moduw w tej kategorii (auto-generated). Edytuj swobodnie  skrypt bdzie dopisywa nowe pozycje.
 

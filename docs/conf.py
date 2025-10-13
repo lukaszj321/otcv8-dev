@@ -69,3 +69,22 @@ copybutton_only_copy_prompt_lines = False
 hoverxref_auto_ref = True
 # Extra static
 html_extra_path = ["../data"]
+
+# --- Add these lines into your existing docs/conf.py ---
+
+# Shorter / cleaner sidebar
+extensions += ["sphinx.ext.autosectionlabel"]
+autosectionlabel_prefix_document = True
+
+# Stable anchors for H1..H4 (better cross-file refs)
+myst_heading_anchors = 4
+
+# Reduce sidebar noise
+html_theme_options.update({
+    "show_nav_level": 1,
+    "navigation_depth": 2,
+    "collapse_navigation": True,  # pydata-sphinx-theme supports this
+})
+
+# Dark-mode fix for Mermaid/Graphviz strokes (place file in docs/_static/)
+html_css_files.append("custom-dark-mermaid.css")

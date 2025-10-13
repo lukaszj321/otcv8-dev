@@ -1,29 +1,38 @@
-# API (auto + surowe)
+# API
 
-:::{admonition} Skąd pochodzą pliki?
-- Sekcja **Auto‑generated**: tworzona przez skrypt CI (`scripts/extract-api.mjs`) ze źródeł repo.
-- Sekcja **Surowe (z repo)**: ręcznie utrzymywane snapshoty.
-:::
-
-```{toctree}
-:maxdepth: 2
-:caption: Auto‑generated (CI)
-:glob:
-
-otcv8-full-api
-schemas/index
-external/cpp/*
-```
+:::{tab-set}
+:::{tab-item} Wygenerowane (auto)
+:sync: auto
 
 ```{toctree}
 :maxdepth: 1
-:caption: Surowe (z repo)
+:caption: Auto
+:titlesonly:
 
 external/otcv8-full-api
-external/lua/luafunctions_client
+external/cpp/index
+external/schemas/index
 ```
 
-## Snippety
+:::
+:::{tab-item} Opisowe (guide)
+:sync: guide
+
+```{toctree}
+:maxdepth: 1
+:caption: Guide / Wyjaśnienia
+:titlesonly:
+
+../ui/UIopis/ui_otclient_v_8_specyfikacja_ui
+../ui/UIopis/ui_presety_kanoniczne_otui_ts_otc_core
+../ui/UIopis/ui_specyfikacja_parsera_serializer
+../ui/UIopis/ui_otclient_v_8_addendum_import_z_lua_stringow_auto_strict_goldeny_expanded
+```
+
+:::
+:::
+
+## Snippety (przykład)
 
 ```lua
 -- przykład użycia funkcji:

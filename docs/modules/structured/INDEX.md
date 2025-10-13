@@ -9,6 +9,42 @@
 ./bot_tools/*
 ```
 
+# Moduły – przegląd kategorii
+
+:::{admonition} Jak czytać?
+Ten dział grupuje moduły w cztery kategorie. Wejdź w wybraną, żeby zobaczyć listę plików.
+:::
+
+:::{grid} 2
+:gutter: 2
+
+:::{grid-item-card} **Bot Tools**
+:link: ./bot_tools/index
+:link-type: doc
+Narzędzia bota i ich konfiguracje.
+:::
+
+:::{grid-item-card} **Core**
+:link: ./core/index
+:link-type: doc
+Rdzeń klienta i biblioteki podstawowe.
+:::
+
+:::{grid-item-card} **Dev Tools**
+:link: ./dev_tools/index
+:link-type: doc
+Narzędzia deweloperskie i debugowanie.
+:::
+
+:::{grid-item-card} **Gameplay**
+:link: ./gameplay/index
+:link-type: doc
+UI, interakcje i logika rozgrywki.
+:::
+
+:::
+
+
 # Modules - structured
 *This file was generated automatically.*
 # Contents
