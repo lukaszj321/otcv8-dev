@@ -38,3 +38,30 @@ szablony/kitchen_sink
 
 _auto/toctree
 ```
+
+
+## Datasets
+
+```{csv-table} Api
+:file: datasets/api.csv
+:header-rows: 1
+:widths: auto
+```
+
+```{csv-table} Events
+:file: datasets/events.csv
+:header-rows: 1
+:widths: auto
+```
+
+```{csv-table} Modules
+:file: datasets/modules.csv
+:header-rows: 1
+:widths: auto
+```
+
+```{csv-table} Ui
+:file: datasets/ui.csv
+:header-rows: 1
+:widths: auto
+```
