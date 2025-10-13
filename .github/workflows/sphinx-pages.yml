@@ -1,12 +1,14 @@
 # .github/workflows/sphinx-pages.yml
-name: Build & Deploy Docs (Sphinx)
+name: Build & Deploy Docs (Sphinx + Modules preview)
 
 on:
   push:
     branches: [ main, master ]
     paths:
       - 'docs/**'
-      - 'mkdocs.modules.yml'
+      - 'schemas/**'
+      - 'src/**'
+      - 'include/**'
       - 'scripts/**'
       - '.github/workflows/sphinx-pages.yml'
   workflow_dispatch:
@@ -23,73 +25,92 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # (opcjonalnie) narzędzia do C++ → Doxygen/Graphviz
-      - name: Install OS deps (doxygen/graphviz)
+      - name: System deps for docs (doxygen/graphviz)
         run: |
           sudo apt-get update
           sudo apt-get install -y doxygen graphviz
 
-      - name: Install Python deps (Sphinx + MkDocs)
+      - name: Install Python deps (Sphinx)
         run: |
-          set -euxo pipefail
           python -m pip install --upgrade pip setuptools wheel
-
-          # Jeśli masz docs/requirements.txt – użyj go
           if [ -f docs/requirements.txt ]; then
             pip install -r docs/requirements.txt
+          else
+            # awaryjnie gdyby plik zniknął
+            pip install "sphinx==7.4.7" "myst-parser>=4.0.1" "pydata-sphinx-theme>=0.16.1" \
+                        sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py \
+                        sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid \
+                        sphinx-codeautolink "sphinx-hoverxref>=1.4.2,<1.5"
+          fi
+          # opcjonalnie – wycisza ostrzeżenie o social cards
+          pip install matplotlib || true
+          # info diagnostyczne
+          python -V
+          pip freeze
+
+      - name: (Optional) Generate C++ API via Doxygen -> md
+        id: gen_cpp
+        continue-on-error: true
+        run: |
+          if [ -f scripts/gen_api_cpp.sh ]; then
+            chmod +x scripts/gen_api_cpp.sh
+            bash scripts/gen_api_cpp.sh
+          else
+            echo "::warning ::Brak scripts/gen_api_cpp.sh – pomijam ten krok."
           fi
 
-          # Twarde dopilnowanie kluczowych paczek Sphinx (naprawia "no theme named pydata_sphinx_theme")
-          pip install \
-            "pydata-sphinx-theme>=0.16.1" \
-            "sphinx==7.4.7" \
-            "myst-parser>=4.0.1" \
-            "sphinx-copybutton>=0.5.2" \
-            "sphinx-design>=0.6.0" \
-            "sphinx-sitemap>=2.6.0" \
-            "linkify-it-py>=2.0.2" \
-            "sphinxext-opengraph>=0.9.1" \
-            "sphinx-favicon>=1.0.1" \
-            "sphinxcontrib-mermaid>=0.9.2" \
-            "sphinx-codeautolink>=0.15.0" \
-            "sphinx-hoverxref>=1.4.2,<1.5"
-
-          # Jeśli istnieje mkdocs.modules.yml – doinstaluj mkdocs + plugin exclude (naprawia błąd o exclude)
-          if [ -f mkdocs.modules.yml ]; then
-            pip install "mkdocs>=1.6.0" "mkdocs-material>=9.5.0" "mkdocs-exclude>=1.0.2"
+      - name: (Optional) Extract API (Node script)
+        id: extract_api
+        continue-on-error: true
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run extract-api.mjs (if present)
+        if: ${{ always() }}
+        continue-on-error: true
+        run: |
+          if [ -f scripts/extract-api.mjs ]; then
+            # upewnij się, że mamy 'glob'
+            node -e "require('glob')" 2>/dev/null || {
+              npm init -y >/dev/null 2>&1 || true
+              npm i glob@^10 --save-dev
+            }
+            node scripts/extract-api.mjs --split-cpp || true
+          else
+            echo "No scripts/extract-api.mjs – skipping."
           fi
 
-          pip list
-
-      # (opcjonalnie) C++ API (nie wysadza buildu, jeśli coś pójdzie nie tak)
-      - name: (Optional) Generate C++ API via Doxygen
-        if: hashFiles('scripts/gen_api_cpp.sh') != ''
+      - name: Build Sphinx (HTML)
         run: |
-          set -euxo pipefail
-          chmod +x scripts/gen_api_cpp.sh
-          # Nie przerywaj joba w razie błędu w generatorze – tylko ostrzeż
-          bash scripts/gen_api_cpp.sh || { echo "::warning ::gen_api_cpp.sh returned non-zero; continuing"; }
-
-      - name: Build Sphinx
-        run: |
-          set -euxo pipefail
           sphinx-build -b html docs docs/_build/html
           touch docs/_build/html/.nojekyll
 
-      # (opcjonalnie) Podgląd modułów w MkDocs – jeśli masz mkdocs.modules.yml
-      - name: (Optional) Build Modules preview (MkDocs)
-        if: hashFiles('mkdocs.modules.yml') != ''
+      # ------- MKDOCS MODULES PREVIEW  -------
+      - name: Install MkDocs deps
         run: |
-          set -euxo pipefail
-          # Jeśli chcesz, aby błąd MkDocs NIE przerywał release Sphinx – puść jako warning:
-          mkdocs build --clean -f mkdocs.modules.yml -v || { echo "::warning ::MkDocs preview failed; continuing"; }
+          pip install "mkdocs>=1.6.0" "mkdocs-material>=9.5.0" mkdocs-exclude
+          mkdocs --version || true
+
+      - name: Build modules preview with MkDocs (if config exists)
+        run: |
+          if [ -f mkdocs.modules.yml ]; then
+            mkdocs build --clean -f mkdocs.modules.yml -v
+            # skopiuj wynik do Sphinxowego buildu, żeby wszystko poszło w jednym deployu
+            mkdir -p docs/_build/html/modules-preview
+            rsync -a site-modules/ docs/_build/html/modules-preview/
+          else
+            echo "mkdocs.modules.yml not found – skipping modules preview."
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -102,9 +123,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
