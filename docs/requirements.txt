@@ -13,4 +13,4 @@ sphinx-hoverxref>=1.4.2,<1.5
 ablog>=0.11.6
 matplotlib>=3.8
 pillow>=10.0
-# sphinx-autobuild>=2024.10.3
+sphinx-autobuild>=2024.10.3
