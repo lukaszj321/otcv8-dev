@@ -1,14 +1,5 @@
 # Diagramy (Mermaid)
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 (diagram-overview)=
 ## Przegląd architektury
 
@@ -17,10 +8,6 @@ Ten dokument zawiera kluczowe diagramy ilustrujące architekturę i przepływy w
 (diagram-main-architecture)=
 ## Główna architektura systemu
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
 
 ```mermaid
@@ -29,9 +16,10 @@ flowchart TB
   B -- Tak --> C[Wykonaj akcję]
   B -- Nie --> D[Zakończ]
   C --> D
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 ```
+
+---
+
 ```{mermaid}
 flowchart TD
   A[Core Engine C++] --> B(Event System)
@@ -47,19 +35,7 @@ flowchart TD
   style A fill:#f9f,stroke:#333,stroke-width:4px
   style D fill:#bbf,stroke:#333,stroke-width:2px
   style E fill:#bfb,stroke:#333,stroke-width:2px
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+```
 Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
 
 ```mermaid
@@ -68,25 +44,6 @@ flowchart TB
   B -- Tak --> C[Wykonaj akcję]
   B -- Nie --> D[Zakończ]
   C --> D
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 ```
 
 (diagram-module-lifecycle)=
@@ -199,10 +156,6 @@ flowchart TD
     style A fill:#ffeb3b
     style K fill:#4caf50
     style L fill:#2196f3
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 ```
 
 :::tip
