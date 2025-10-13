@@ -1,7 +1,6 @@
 # -- Sphinx core config ------------------------------------------------
-import os
-import sys
 from datetime import datetime
+
 project = "OTClientV8"
 author = "OTClientV8 Team"
 year = datetime.now().year
@@ -14,20 +13,19 @@ extensions = [
     "sphinx_sitemap",
     "sphinxext.opengraph",
     "sphinx_favicon",
-    "sphinxcontrib_mermaid",  # alias: some installs use underscore
-    "sphinxcontrib.mermaid",
+    "sphinxcontrib.mermaid",   # <-- poprawny moduł (kropka, NIE podkreślenie)
     "sphinx_codeautolink",
     "hoverxref.extension",
 ]
 
-# try-load ablog (bez wywalania buildu)
+# try-load ablog (build nie padnie jeśli brak, ale w workflow i tak instalujemy)
 try:
     __import__("ablog")
     extensions.append("ablog")
 except Exception:
     pass
 
-# --- Lexer dla OTUI (łagodzimy warnings) ------------------------------
+# Lexer 'otui' jako INI, żeby nie sypał warningami
 from sphinx.highlighting import lexers
 try:
     from pygments.lexers.data import IniLexer
@@ -72,18 +70,14 @@ html_context = {
     "doc_path": "docs",
 }
 
-# sitemap
+# sitemap / OpenGraph
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
 sitemap_url_scheme = "{link}"
-
-# OpenGraph
 ogp_site_url = html_baseurl
 ogp_description_length = 200
 
 # Mermaid + Graphviz (dark/light aware)
 mermaid_version = "10.9.1"
-graphviz_output_format = "svg"
-graphviz_dot_args = ["-Gbgcolor=transparent"]
 
 # Copybutton
 copybutton_prompt_is_regexp = True
