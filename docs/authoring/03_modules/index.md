@@ -66,6 +66,7 @@ Lokalizacja: `../../reposzablony/03_modules/diagrams/architecture.mmd`
 ```{literalinclude} ../../reposzablony/03_modules/diagrams/architecture.mmd
 :language: mermaid
 ```
+```
 
 ```{admonition} flow.mmd (Mermaid)
 :class: tip
@@ -82,4 +83,5 @@ Lokalizacja: `../../reposzablony/03_modules/diagrams/flow.mmd`
 :class: dropdown
 ```{literalinclude} ../../reposzablony/03_modules/diagrams/flow.mmd
 :language: mermaid
+```
 ```
