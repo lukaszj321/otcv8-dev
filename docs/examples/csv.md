@@ -30,7 +30,7 @@ Aby dodać tabelę CSV do dokumentacji, użyj dyrektywy `csv-table`:
 :header: Kolumna1, Kolumna2
 :widths: 50, 50
 :file: ../assets/samples/your_file.csv
-:delim: ,
+:delim:
 ```
 ````
 
