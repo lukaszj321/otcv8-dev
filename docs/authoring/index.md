@@ -19,61 +19,61 @@ Rozdział Core zawiera podstawowe komponenty i mechanizmy systemu, umożliwiają
 :link: 01_runtime/index
 :link-type: doc
 :shadow: md
-01_runtime — Runtime — wbudowany podgląd CSV i diagramów.
+Rozdział Runtime prezentuje mechanizmy uruchamiania aplikacji, zarządzania cyklem życia oraz obsługi środowiska wykonawczego.
 :::
 :::{grid-item-card} 02_events — Events
 :link: 02_events/index
 :link-type: doc
 :shadow: md
-02_events — Events — wbudowany podgląd CSV i diagramów.
+Rozdział Events skupia się na obsłudze zdarzeń systemowych i użytkownika, umożliwiając ich rejestrację i przetwarzanie.
 :::
 :::{grid-item-card} 03_modules — Modules
 :link: 03_modules/index
 :link-type: doc
 :shadow: md
-03_modules — Modules — wbudowany podgląd CSV i diagramów.
+Rozdział Modules zawiera opis modułów rozszerzających funkcjonalność systemu oraz ich integrację.
 :::
 :::{grid-item-card} 04_ui — Ui
 :link: 04_ui/index
 :link-type: doc
 :shadow: md
-04_ui — Ui — wbudowany podgląd CSV i diagramów.
+Rozdział Ui prezentuje komponenty interfejsu użytkownika, ich konfigurację oraz możliwości personalizacji.
 :::
 :::{grid-item-card} 05_network — Network
 :link: 05_network/index
 :link-type: doc
 :shadow: md
-05_network — Network — wbudowany podgląd CSV i diagramów.
+Rozdział Network opisuje mechanizmy komunikacji sieciowej, integrację z zewnętrznymi usługami oraz zarządzanie połączeniami.
 :::
 :::{grid-item-card} 06_assets — Assets
 :link: 06_assets/index
 :link-type: doc
 :shadow: md
-06_assets — Assets — wbudowany podgląd CSV i diagramów.
+Rozdział Assets zawiera informacje o zarządzaniu zasobami, takimi jak pliki multimedialne, grafiki i inne elementy projektu.
 :::
 :::{grid-item-card} 07_settings_crypto — Settings crypto
 :link: 07_settings_crypto/index
 :link-type: doc
 :shadow: md
-07_settings_crypto — Settings crypto — wbudowany podgląd CSV i diagramów.
+Rozdział Settings crypto skupia się na ustawieniach związanych z kryptografią, bezpieczeństwem danych oraz konfiguracją kluczy.
 :::
 :::{grid-item-card} 08_audio — Audio
 :link: 08_audio/index
 :link-type: doc
 :shadow: md
-08_audio — Audio — wbudowany podgląd CSV i diagramów.
+Rozdział Audio prezentuje obsługę dźwięku, zarządzanie plikami audio oraz integrację z systemem odtwarzania.
 :::
 :::{grid-item-card} 09_logging — Logging
 :link: 09_logging/index
 :link-type: doc
 :shadow: md
-09_logging — Logging — wbudowany podgląd CSV i diagramów.
+Rozdział Logging opisuje mechanizmy rejestrowania zdarzeń, logowania błędów oraz monitorowania działania systemu.
 :::
 :::{grid-item-card} 10_game_runtime — Game runtime
 :link: 10_game_runtime/index
 :link-type: doc
 :shadow: md
-10_game_runtime — Game runtime — wbudowany podgląd CSV i diagramów.
+Rozdział Game runtime skupia się na mechanizmach uruchamiania i zarządzania logiką gry oraz integracji z silnikiem.
 :::
 :::
 
