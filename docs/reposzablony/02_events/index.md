@@ -1,8 +1,8 @@
-# Event Details
+# Events
 
 ## Overview
 
-Detailed event documentation and patterns
+Event system, signals, and event flow documentation
 
 ## Contents
 

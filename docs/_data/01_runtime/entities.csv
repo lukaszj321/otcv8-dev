@@ -1,0 +1,4 @@
+Entity Type,Count,Description
+Runtime Metrics,10,Sample runtime metrics count
+Performance Stats,20,Sample performance stats count
+Memory Usage,30,Sample memory usage count

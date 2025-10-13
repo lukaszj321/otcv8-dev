@@ -1,8 +1,8 @@
-# Event Details
+# Audio
 
 ## Overview
 
-Detailed event documentation and patterns
+Audio system, sound channels, and audio management
 
 ## Contents
 

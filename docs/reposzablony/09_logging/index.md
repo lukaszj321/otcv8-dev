@@ -1,8 +1,8 @@
-# Event Details
+# Logging
 
 ## Overview
 
-Detailed event documentation and patterns
+Logging system, log levels, and log analysis
 
 ## Contents
 

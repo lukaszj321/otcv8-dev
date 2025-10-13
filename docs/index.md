@@ -14,6 +14,7 @@ dashboard/index
 api/index
 modules/index
 ui/index
+authoring/index
 reposzablony/index
 rag/index
 ```
@@ -35,6 +36,7 @@ OTClientV8 to nowoczesny klient i framework skryptowy (Lua/C++) z bogatym zestaw
 - **API (surowe)** → {doc}`api/index`
 - **Moduły** → {doc}`modules/index`
 - **UI (OTUI)** → {doc}`ui/index`
+- **Authoring** → {doc}`authoring/index`
 - **RAG / wyszukiwarka semantyczna** → {doc}`rag/index`
 - **Dashboard** → {doc}`dashboard/index`
 

@@ -1,8 +1,8 @@
-# Event Details
+# Runtime
 
 ## Overview
 
-Detailed event documentation and patterns
+Runtime statistics and monitoring data
 
 ## Contents
 
