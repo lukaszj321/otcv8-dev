@@ -1,16 +1,21 @@
-name: Build Modules Preview (MkDocs)
+name: Build & Deploy Docs (Sphinx) Page
 
 on:
   push:
     branches: [ main, master ]
     paths:
-      - 'docs/modules/**'
-      - 'mkdocs.modules.yml'
-      - '.github/workflows/docs-modules-deploy.yml'
+      - 'docs/**'
+      - '.github/workflows/sphinx-pages.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -24,16 +29,58 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install MkDocs deps
+      - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install \
-            mkdocs==1.6.1 \
-            mkdocs-material \
-            mkdocs-exclude \
-            pymdown-extensions
+          python -m pip install --upgrade pip wheel setuptools
+          if [ -f docs/requirements.txt ]; then
+            pip install -r docs/requirements.txt
+          elif [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          # Twardy fallback, gdyby coś nie doszło z requirements:
+          python - <<'PY'
+          import pkgutil, sys, subprocess
+          need = [ "sphinx", "myst_parser", "pydata_sphinx_theme" ]
+          missing = [p for p in need if not pkgutil.find_loader(p)]
+          if missing:
+              subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
+          PY
+          pip list
 
-      - name: Build modules preview
+      - name: Clean Sphinx cache
         run: |
-          set -euo pipefail
-          mkdocs build --clean -f mkdocs.modules.yml -v
+          rm -rf docs/_build || true
+          rm -rf docs/.doctrees || true
+
+      - name: Verify theme import
+        run: |
+          python - <<'PY'
+          import sphinx, myst_parser, pydata_sphinx_theme
+          print("Sphinx:", sphinx.__version__)
+          print("MyST  :", myst_parser.__version__)
+          print("PyData:", pydata_sphinx_theme.__version__)
+          PY
+
+      - name: Build Sphinx
+        run: |
+          sphinx-build -b html docs docs/_build/html -W --keep-going
+          touch docs/_build/html/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_build/html
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
