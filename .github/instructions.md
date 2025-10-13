@@ -176,11 +176,11 @@ Lua  → `docs/reposzablony/03_modules/lua/<REL_PATH>.md`
   - `mkdir -p docs/reposzablony/{01_core/api/cpp,03_modules/lua,04_ui/otui,datasets/{api,ui,modules}}`
 
 ## L) Kryteria akceptacji (PR)
-- ✅ Zmienione **wyłącznie** pliki w `docs/reposzablony/**`.
-- ✅ Każdy MD ma **frontmatter** z §D1; linki działają.
-- ✅ CSV mają nagłówki; NDJSON poprawne; rotacja zachowana.
-- ✅ Brak arbitralnych zmian formatowania; tylko rzeczywiste różnice.
-- ✅ Tytuł PR: `docs(agent): sync tech docs + rag datasets` + krótki opis.
+- [ ] Zmienione **wyłącznie** pliki w `docs/reposzablony/**`.
+- [ ] Każdy MD ma **frontmatter** z §D1; linki działają.
+- [ ] CSV mają nagłówki; NDJSON poprawne; rotacja zachowana.
+- [ ] Brak arbitralnych zmian formatowania; tylko rzeczywiste różnice.
+- [ ] Tytuł PR: `docs(agent): sync tech docs + rag datasets` + krótki opis.
 
 ---
 ## Załącznik A — Sanitizacja ID
