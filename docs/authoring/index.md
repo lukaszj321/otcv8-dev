@@ -45,12 +45,6 @@ Wszystkie dane są osadzane inline, bez wychodzenia poza sekcję **authoring**.
 :shadow: md
 05_network — Network — wbudowany podgląd CSV i diagramów.
 :::
-:::{grid-item-card} 05_network — Network
-:link: 05_network/index
-:link-type: doc
-:shadow: md
-05_network — Network — wbudowany podgląd CSV i diagramów.
-:::
 :::{grid-item-card} 06_assets — Assets
 :link: 06_assets/index
 :link-type: doc
