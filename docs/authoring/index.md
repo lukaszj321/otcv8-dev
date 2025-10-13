@@ -1,86 +1,111 @@
+
 ---
-title: Authoring Kit (embedded)
+title: Authoring — rozdziały danych i diagramów
 ---
 
-# Authoring Kit — embedded
+# Authoring
 
-Poniżej **wbudowane** strony dla rozdziałów z `docs/reposzablony/**`.
-Wszystkie dane są osadzane inline, bez wychodzenia poza sekcję **authoring**.
+:::{admonition} Co to jest?
+:class: tip
+Ta sekcja zawiera **wygenerowane** strony z danymi (CSV) i diagramami (Mermaid) dla kolejnych rozdziałów.
+Każdy rozdział embeduje pliki z `datasets/` i `diagrams/` na **tej samej stronie**.
+:::
 
-:::{grid} 1 1 2 3
+:::{grid} 1 1 2 2
 :gutter: 2
-:::{grid-item-card} 01_core — Core
+
+:::{grid-item-card} 01 Core
 :link: 01_core/index
 :link-type: doc
 :shadow: md
-Rozdział Core zawiera podstawowe komponenty i mechanizmy systemu, umożliwiając podgląd danych CSV oraz diagramów związanych z główną logiką aplikacji.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 01_runtime — Runtime
+
+:::{grid-item-card} 01 Runtime
 :link: 01_runtime/index
 :link-type: doc
 :shadow: md
-Rozdział Runtime prezentuje mechanizmy uruchamiania aplikacji, zarządzania cyklem życia oraz obsługi środowiska wykonawczego.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 02_events — Events
+
+:::{grid-item-card} 02 Events
 :link: 02_events/index
 :link-type: doc
 :shadow: md
-Rozdział Events skupia się na obsłudze zdarzeń systemowych i użytkownika, umożliwiając ich rejestrację i przetwarzanie.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 03_modules — Modules
+
+:::{grid-item-card} 03 Modules
 :link: 03_modules/index
 :link-type: doc
 :shadow: md
-Rozdział Modules zawiera opis modułów rozszerzających funkcjonalność systemu oraz ich integrację.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 04_ui — Ui
+
+:::{grid-item-card} 04 UI
 :link: 04_ui/index
 :link-type: doc
 :shadow: md
-Rozdział Ui prezentuje komponenty interfejsu użytkownika, ich konfigurację oraz możliwości personalizacji.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 05_network — Network
+
+:::{grid-item-card} 05 Events (legacy)
+:link: 05_events/index
+:link-type: doc
+:shadow: md
+Auto-generated datasets & diagrams.
+:::
+
+:::{grid-item-card} 05 Network
 :link: 05_network/index
 :link-type: doc
 :shadow: md
-Rozdział Network opisuje mechanizmy komunikacji sieciowej, integrację z zewnętrznymi usługami oraz zarządzanie połączeniami.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 06_assets — Assets
+
+:::{grid-item-card} 06 Assets
 :link: 06_assets/index
 :link-type: doc
 :shadow: md
-Rozdział Assets zawiera informacje o zarządzaniu zasobami, takimi jak pliki multimedialne, grafiki i inne elementy projektu.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 07_settings_crypto — Settings crypto
+
+:::{grid-item-card} 07 Settings & Crypto
 :link: 07_settings_crypto/index
 :link-type: doc
 :shadow: md
-Rozdział Settings crypto skupia się na ustawieniach związanych z kryptografią, bezpieczeństwem danych oraz konfiguracją kluczy.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 08_audio — Audio
+
+:::{grid-item-card} 08 Audio
 :link: 08_audio/index
 :link-type: doc
 :shadow: md
-Rozdział Audio prezentuje obsługę dźwięku, zarządzanie plikami audio oraz integrację z systemem odtwarzania.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 09_logging — Logging
+
+:::{grid-item-card} 09 Logging
 :link: 09_logging/index
 :link-type: doc
 :shadow: md
-Rozdział Logging opisuje mechanizmy rejestrowania zdarzeń, logowania błędów oraz monitorowania działania systemu.
+Auto-generated datasets & diagrams.
 :::
-:::{grid-item-card} 10_game_runtime — Game runtime
+
+:::{grid-item-card} 10 Game Runtime
 :link: 10_game_runtime/index
 :link-type: doc
 :shadow: md
-Rozdział Game runtime skupia się na mechanizmach uruchamiania i zarządzania logiką gry oraz integracji z silnikiem.
-:::
+Auto-generated datasets & diagrams.
 :::
 
+:::
+
+## Spis stron
+
 ```{toctree}
-:caption: Rozdziały
-:maxdepth: 1
+:maxdepth: 2
 :titlesonly:
+
 01_core/index
 01_runtime/index
 02_events/index

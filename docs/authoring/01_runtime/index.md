@@ -1,85 +1,72 @@
+
 ---
-title: 01_runtime — Runtime
+title: 01 Runtime
 ---
 
-# 01_runtime — Runtime
+# 01 Runtime
 
-> Źródła: `docs/reposzablony/01_runtime/`
-
-:::{admonition} Co jest na tej stronie?
-:class: tip
-- **Datasets** — CSV z `datasets/` osadzone jako tabele
-- **Diagrams** — Mermaid z `diagrams/` + podgląd kodu w dropdown
-:::
+Krótki opis rozdziału – skąd pochodzą dane, co przedstawiają wykresy i jak interpretować metryki.
 
 ## Datasets
-:::{grid} 1 1 2 2
 
-:gutter: 2
-
-:::{grid-item}
-
-```{admonition} entities.csv (CSV)
-:class: dropdown
-Lokalizacja: `../../reposzablony/01_runtime/datasets/entities.csv`
+```{csv-table} Summary
+:header: "Metric","Value"
+:file: datasets/summary.csv
+:widths: 40,60
 ```
 
-```{csv-table} entities
-:header-rows: 1
-:file: ../../reposzablony/01_runtime/datasets/entities.csv
-:widths: auto
+```{csv-table} Entities
+:header: "Entity","Count"
+:file: datasets/entities.csv
+:widths: 50,50
 ```
-
-:::
-
-:::{grid-item}
-
-```{admonition} summary.csv (CSV)
-:class: dropdown
-Lokalizacja: `../../reposzablony/01_runtime/datasets/summary.csv`
-```
-
-```{csv-table} summary
-:header-rows: 1
-:file: ../../reposzablony/01_runtime/datasets/summary.csv
-:widths: auto
-```
-
-:::
-
-:::
 
 ## Diagrams
-```{admonition} architecture.mmd (Mermaid diagram)
-:class: tip
-Źródło: `../../reposzablony/01_runtime/diagrams/architecture.mmd`
-```
 
-```{literalinclude} ../../reposzablony/01_runtime/diagrams/architecture.mmd
-:language: mermaid
-:caption: architecture
-```
-
-```{admonition} Kod źródłowy (kliknij aby rozwinąć)
-:class: dropdown
-```{literalinclude} ../../reposzablony/01_runtime/diagrams/architecture.mmd
-:language: mermaid
+```{dropdown} Flow Diagram
+:icon: flow
+```{mermaid}
+flowchart TD
+A[Start: 01 Runtime] --> B[Process data]
+B --> C[Generate CSV]
+B --> D[Render Diagrams]
+C --> E[Page build]
+D --> E
+click B "../01_runtime/index.html" "Open 01 Runtime"
+click E "../index.html" "Back to Authoring"
 ```
 ```
 
-```{admonition} flow.mmd (Mermaid diagram)
-:class: tip
-Źródło: `../../reposzablony/01_runtime/diagrams/flow.mmd`
+```{dropdown} Architecture Diagram
+:icon: blueprint
+```{mermaid}
+graph TD
+subgraph Ingestion
+    S1[Sources] --> S2[Collectors]
+end
+subgraph Processing
+    S2 --> P1[Parser]
+    P1 --> P2[Validator]
+    P2 --> P3[Exporter]
+end
+subgraph Output
+    P3 --> O1[CSV datasets]
+    P3 --> O2[Mermaid diagrams]
+    O1 --> O3[Authoring Page]
+    O2 --> O3
+end
+```
 ```
 
-```{literalinclude} ../../reposzablony/01_runtime/diagrams/flow.mmd
-:language: mermaid
-:caption: flow
+## Zawartość rozdziału
+
+```{toctree}
+:maxdepth: 1
+:titlesonly:
+
 ```
 
-```{admonition} Kod źródłowy (kliknij aby rozwinąć)
-:class: dropdown
-```{literalinclude} ../../reposzablony/01_runtime/diagrams/flow.mmd
-:language: mermaid
-```
-```
+## Zobacz też
+
+- {doc}/modules/index
+- {doc}/ui/index
