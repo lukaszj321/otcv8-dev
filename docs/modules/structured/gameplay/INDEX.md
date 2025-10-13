@@ -1,3 +1,7 @@
+---
+title: Gameplay
+---
+
 # Gameplay
 
 ```{toctree}

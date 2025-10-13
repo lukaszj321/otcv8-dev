@@ -1,8 +1,12 @@
-# Dev Tools
+---
+title: Dev tools
+---
+
+# Dev tools
 
 ```{toctree}
 :maxdepth: 1
-:caption: Dev Tools
+:caption: Dev tools
 :glob:
 
 modul-*.md

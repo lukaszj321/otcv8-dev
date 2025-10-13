@@ -6,8 +6,9 @@ title: UI w OTClientV8
 
 :::{admonition} Co znajdziesz w tej sekcji?
 :class: tip
-- **Specyfikacje** i **presety** UI (OTUI/OTML),  
-- **Addendum** dot. importu z łańcuchów Lua,  
+- **Specyfikacje** i **presety** UI (OTUI/OTML),
+- **Presety kanoniczne** Zestawy gotowych presetów zgodnych z core
+- **Addendum** dot. importu z łańcuchów Lua,
 - **Parser/serializer** – techniczne szczegóły, walidacje, round-trip.
 :::
 
@@ -45,10 +46,11 @@ Parser/serializer, walidator, macierze, AST, round-trip.
 
 ## Dokumenty UI
 
+# UI — dokumentacja opisowa
+
 ```{toctree}
-:caption: Dokumentacja UI
-:maxdepth: 2
-:titlesonly:
+:maxdepth: 1
+:caption: UI — pliki opisowe
 
 UIopis/ui_otclient_v_8_specyfikacja_ui
 UIopis/ui_presety_kanoniczne_otui_ts_otc_core
