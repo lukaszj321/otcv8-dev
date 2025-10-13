@@ -1,150 +1,190 @@
 #!/usr/bin/env python3
 # coding: utf-8
 """
-Generator stron Authoring -> z docs/reposzablony/** do docs/authoring/**
-- Renderuje CSV (summary.csv, entities.csv) i Mermaid (flow.mmd, architecture.mmd) na JEDNEJ stronie
-- Nie linkuje do GitHuba; ładuje pliki lokalnie z docs/reposzablony
-- Dokłada toctree do wszystkich *.md w rozdziale, aby menu widziało pełną zawartość
+Authoring generator (FIXED):
+- Źródło: docs/reposzablony/** (01_core, 01_runtime, 02_events, ...)
+- Cel:    docs/authoring/** 
+Renderuje NA STRONIE:
+  • CSV -> csv-table (summary.csv, entities.csv)
+  • Mermaid -> inline (flow.mmd, architecture.mmd)
+  • ToC do wszystkich *.md z rozdziału (żeby nawigacja łapała zawartość)
+Czyści docs/authoring przed generowaniem (hard reset).
 """
 
-import os
-import pathlib
 from pathlib import Path
+import shutil
 
 DOCS = Path("docs")
 SRC  = DOCS / "reposzablony"
 DST  = DOCS / "authoring"
 
-def as_docname(md_path: Path) -> str:
-    """Zwraca ścieżkę dokumentu względem docs/, bez rozszerzenia .md (tak lubi Sphinx)."""
-    p = md_path.as_posix()
-    if p.startswith("docs/"):
-        p = p[5:]
-    if p.endswith(".md"):
-        p = p[:-3]
-    return p
+def read_text(p: Path) -> str:
+    try:
+        return p.read_text(encoding="utf-8")
+    except Exception:
+        return ""
 
-def write(dst: Path, text: str):
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(text, encoding="utf-8")
+def safe_rel(from_file: Path, to_file: Path) -> str:
+    """Zwróć ścieżkę względną (as_posix), z punktu widzenia from_file.parent."""
+    try:
+        return to_file.resolve().relative_to(from_file.parent.resolve()).as_posix()
+    except Exception:
+        # fallback – względna po prostu po segmentach
+        return str(Path(*([".."] * (len(from_file.parent.parts))) ) / to_file).replace("\\", "/")
 
 def discover_chapters(base: Path):
-    """Zwraca listę katalogów (rozdziałów) bez ukrytych, posortowaną."""
     if not base.exists():
         return []
-    items = []
-    for p in sorted(base.iterdir()):
-        if p.is_dir() and not p.name.startswith("."):
-            items.append(p)
-    return items
+    return [p for p in sorted(base.iterdir()) if p.is_dir() and not p.name.startswith(".")]
 
-def discover_md_list(chapter_dir: Path):
-    """Zwraca listę ścieżek *.md w rozdziale (względem docs/), posortowane."""
-    md_files = []
-    for root, _, files in os.walk(chapter_dir):
-        for f in files:
-            if f.lower().endswith(".md"):
-                full = Path(root) / f
-                md_files.append(full)
-    md_files = sorted(md_files)
-    # Zamień na docnames względem docs/
-    docnames = [as_docname(p) for p in md_files]
-    return docnames
+def discover_md(chapter_dir: Path):
+    files = []
+    for p in chapter_dir.rglob("*.md"):
+        # pomijamy naszą sekcję outputową:
+        if "/authoring/" in p.as_posix():
+            continue
+        files.append(p)
+    return sorted(files)
 
-def page_for_chapter(chapter: Path) -> str:
-    """Generuje treść index.md dla pojedynczego rozdziału."""
+def write(path: Path, text: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+def build_chapter_page(chapter: Path):
+    """
+    Tworzy docs/authoring/<name>/index.md z:
+    - CSV (summary.csv, entities.csv) osadzone jako csv-table
+    - Mermaid (flow.mmd, architecture.mmd) osadzone inline (czytamy plik i wklejamy do ```{mermaid} ... ```)
+    - ToC do wszystkich .md z tego rozdziału (z wykluczeniem docs/authoring)
+    """
     name = chapter.name  # np. 01_core
-    # Ścieżki do danych i diagramów
-    s_summary = chapter / "datasets" / "summary.csv"
-    s_entities = chapter / "datasets" / "entities.csv"
-    d_flow = chapter / "diagrams" / "flow.mmd"
-    d_arch = chapter / "diagrams" / "architecture.mmd"
+    out_file = DST / name / "index.md"
 
-    # Relatywne ścieżki od docs/authoring/<name>/index.md do plików źródłowych:
-    rel_summary = f"../../reposzablony/{name}/datasets/summary.csv"
-    rel_entities = f"../../reposzablony/{name}/datasets/entities.csv"
-    rel_flow     = f"../../reposzablony/{name}/diagrams/flow.mmd"
-    rel_arch     = f"../../reposzablony/{name}/diagrams/architecture.mmd"
+    # Lokacje danych
+    p_summary = chapter / "datasets" / "summary.csv"
+    p_entities = chapter / "datasets" / "entities.csv"
+    p_flow = chapter / "diagrams" / "flow.mmd"
+    p_arch = chapter / "diagrams" / "architecture.mmd"
 
+    # Czytamy mermaid jako tekst, wklejamy inline (bez include) -> zawsze renderuje.
+    flow_txt = read_text(p_flow).strip()
+    arch_txt = read_text(p_arch).strip()
+
+    # Zbierz wszystkie md z rozdziału dla toctree
+    md_files = discover_md(chapter)
+    # Sphinx chce ścieżki względem docs/, bez rozszerzenia
+    def to_docname(p: Path) -> str:
+        ap = p.as_posix()
+        if ap.startswith("docs/"):
+            ap = ap[5:]
+        if ap.endswith(".md"):
+            ap = ap[:-3]
+        return ap
+
+    related_docs = [to_docname(p) for p in md_files if p.exists()]
+
+    # Budujemy stronę
     lines = []
     lines.append(f"---\ntitle: {name} — Authoring\n---\n")
     lines.append(f"# {name}\n")
 
-    # Datasets
-    lines.append("## Datasets")
-    if s_summary.exists():
-        lines.append("::::{dropdown} Summary (`datasets/summary.csv`)")
+    # Kafelki z sekcjami
+    lines.append(":::{grid} 1 1 2 2\n:gutter: 2\n")
+
+    # Datasets (CSV)
+    lines.append(":::{grid-item-card} Datasets")
+    lines.append(":shadow: md\n")
+    if p_summary.exists():
+        rel_summary = Path("../../") / (p_summary.relative_to(DOCS))
+        lines.append("**Summary**")
         lines.append("```{csv-table}")
         lines.append(':header: "Key","Value","Notes"')
-        lines.append(f":file: {rel_summary}")
+        lines.append(f":file: {rel_summary.as_posix()}")
         lines.append(":widths: 30, 30, 40")
         lines.append("```")
-        lines.append("::::\n")
+        lines.append("")
     else:
-        lines.append("> _Brak_ `datasets/summary.csv`\n")
+        lines.append("_Brak_ `datasets/summary.csv`\n")
 
-    if s_entities.exists():
-        lines.append("::::{dropdown} Entities (`datasets/entities.csv`)")
+    if p_entities.exists():
+        rel_entities = Path("../../") / (p_entities.relative_to(DOCS))
+        lines.append("**Entities**")
         lines.append("```{csv-table}")
         lines.append(':header: "Entity","Count","Meta"')
-        lines.append(f":file: {rel_entities}")
+        lines.append(f":file: {rel_entities.as_posix()}")
         lines.append(":widths: 40, 20, 40")
         lines.append("```")
-        lines.append("::::\n")
+        lines.append("")
     else:
-        lines.append("> _Brak_ `datasets/entities.csv`\n")
+        lines.append("_Brak_ `datasets/entities.csv`\n")
+    lines.append(":::\n")  # /grid-item-card
 
-    # Diagrams
-    lines.append("## Diagrams")
-    if d_flow.exists():
-        lines.append("::::{dropdown} Flow (`diagrams/flow.mmd`)")
+    # Diagrams (Mermaid)
+    lines.append(":::{grid-item-card} Diagrams")
+    lines.append(":shadow: md\n")
+    if flow_txt:
+        lines.append("**Flow (Mermaid)**")
         lines.append("```{mermaid}")
-        lines.append(f"{{include}} {rel_flow}")
+        lines.append(flow_txt)
         lines.append("```")
-        lines.append("::::\n")
+        lines.append("")
     else:
-        lines.append("> _Brak_ `diagrams/flow.mmd`\n")
+        lines.append("_Brak_ `diagrams/flow.mmd`\n")
 
-    if d_arch.exists():
-        lines.append("::::{dropdown} Architecture (`diagrams/architecture.mmd`)")
+    if arch_txt:
+        lines.append("**Architecture (Mermaid)**")
         lines.append("```{mermaid}")
-        lines.append(f"{{include}} {rel_arch}")
+        lines.append(arch_txt)
         lines.append("```")
-        lines.append("::::\n")
+        lines.append("")
     else:
-        lines.append("> _Brak_ `diagrams/architecture.mmd`\n")
+        lines.append("_Brak_ `diagrams/architecture.mmd`\n")
+    lines.append(":::\n")  # /grid-item-card
 
-    # ToC z całej zawartości rozdziału (wszystkie .md)
-    docnames = [d for d in discover_md_list(chapter) if not d.startswith("authoring/")]
-    if docnames:
+    lines.append(":::\n")  # /grid
+
+    # ToC do wszystkich md w rozdziale
+    if related_docs:
         lines.append("\n## Powiązane dokumenty\n")
         lines.append("```{toctree}")
         lines.append(":maxdepth: 2")
         lines.append(":titlesonly:\n")
-        for d in docnames:
-            # Pokaż tylko w obrębie reposzablony/<name>/...
+        for d in related_docs:
+            # tylko z bieżącego rozdziału
             if d.startswith(f"reposzablony/{name}/"):
                 lines.append(d)
         lines.append("```")
-    return "\n".join(lines).strip() + "\n"
 
-def build_authoring():
+    write(out_file, "\n".join(lines) + "\n")
+
+def build_index(chapters):
+    out = []
+    out.append("---\ntitle: Authoring — AUTO\n---\n")
+    out.append("# Authoring (auto)\n")
+    out.append(":::{admonition} Źródło\nTe strony są generowane z `docs/reposzablony/**` i osadzają CSV/diagramy inline.\n:::")
+    out.append("\n```{toctree}\n:caption: Rozdziały\n:maxdepth: 1\n")
+    for ch in chapters:
+        out.append(f"{ch.name}/index")
+    out.append("```\n")
+    write(DST / "index.md", "\n".join(out))
+
+def main():
+    # HARD RESET outputu (na Twoje życzenie: „wolę hard reset”)
+    if DST.exists():
+        shutil.rmtree(DST)
+    DST.mkdir(parents=True, exist_ok=True)
+
+    # Odkryj rozdziały w reposzablony
     chapters = discover_chapters(SRC)
-    # Strona główna Authoring z listą rozdziałów:
-    index_lines = []
-    index_lines.append("---\ntitle: Authoring – rozdziały (AUTO)\n---\n")
-    index_lines.append("# Authoring (AUTO)\n")
-    index_lines.append("```{toctree}\n:caption: Rozdziały\n:maxdepth: 1\n")
-    for ch in chapters:
-        index_lines.append(f"{ch.name}/index")
-    index_lines.append("```\n")
-    write(DST / "index.md", "\n".join(index_lines))
 
-    # Każdy rozdział
+    # Zbuduj stronę główną Authoring
+    build_index(chapters)
+
+    # Zbuduj każdą stronę rozdziału
     for ch in chapters:
-        out = page_for_chapter(ch)
-        write(DST / ch.name / "index.md", out)
+        build_chapter_page(ch)
+
+    print("OK: generated docs/authoring/* from docs/reposzablony/* (inline CSV + Mermaid + TOC)")
 
 if __name__ == "__main__":
-    build_authoring()
-    print("OK: generated docs/authoring/* from docs/reposzablony/*")
+    main()
