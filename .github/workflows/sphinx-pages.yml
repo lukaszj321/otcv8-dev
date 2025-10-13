@@ -33,19 +33,15 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip wheel setuptools
-          # Jeśli istnieje własny requirements — zainstaluj najpierw
-          if [ -f docs/requirements.txt ]; then
-            pip install -r docs/requirements.txt
-          fi
-          # Twarde doinstalowanie wszystkiego co trzeba (bez backslashy, jedna linia)
-          pip install --upgrade \
-            sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design \
-            sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon \
-            sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog matplotlib
-          # sanity
-          python -c "import sphinx, pydata_sphinx_theme; print('Sphinx OK')"
-          python -c "import sphinxcontrib.mermaid; print('Mermaid OK')"
-          python -c "import ablog, matplotlib; print('Ablog+Matplotlib OK')"
+          # Jeśli masz własny requirements, zainstaluj go najpierw:
+          if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
+          # Do-instaluj WSZYSTKO, co bywa brakujące w CI
+          pip install --upgrade sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog matplotlib
+          # sanity-check
+          python - << 'PY'
+import sphinx, pydata_sphinx_theme, ablog, matplotlib, sphinxcontrib.mermaid
+print("OK: sphinx,", sphinx.__version__)
+PY
 
       - name: Generate authoring pages
         shell: bash
