@@ -54,24 +54,22 @@ jobs:
           elif [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            # fallback (nieużywany u Ciebie, ale zostawiamy awaryjnie)
             pip install sphinx myst-parser pydata-sphinx-theme
           fi
-          # sanity-check na theme
           python - << 'PY'
-          import importlib; import sys
+          import importlib, sys
           for mod in ["pydata_sphinx_theme","myst_parser","sphinx"]:
-              try:
-                  importlib.import_module(mod)
+              try: importlib.import_module(mod)
               except Exception as e:
                   print(f"[FATAL] missing {mod}: {e}", file=sys.stderr); sys.exit(2)
           print("[OK] Python deps present.")
           PY
 
-      # --- ZAWSZE generujemy XML do .doxygen/xml w CI ---
+      # ==== Doxygen -> .doxygen/xml ====
       - name: Pre-generate Doxygen XML -> .doxygen/xml
         run: |
           set -euxo pipefail
+
           cat > Doxyfile.ci << 'EOF'
           PROJECT_NAME           = OTCv8 CI
           OUTPUT_DIRECTORY       = .doxygen
@@ -82,19 +80,28 @@ jobs:
           EXTRACT_ALL            = YES
           RECURSIVE              = YES
           FILE_PATTERNS          = *.h *.hpp *.hh *.hxx *.c *.cc *.cpp
-          INPUT                  = src include
+          INPUT                  = src
           WARN_IF_UNDOCUMENTED   = NO
           WARNINGS               = YES
           WARN_LOGFILE           = .doxygen/doxygen-warnings.log
           EOF
+
+          # Dodaj 'include/' tylko jeśli istnieje (eliminuje "INPUT: ... does not exist")
+          if [ -d include ]; then
+            echo "INPUT                 += include" >> Doxyfile.ci
+          fi
 
           rm -rf .doxygen || true
           mkdir -p .doxygen
           doxygen Doxyfile.ci
 
           test -f .doxygen/xml/index.xml || { echo "::error ::Brak .doxygen/xml/index.xml po Doxygen"; exit 2; }
+
           echo "== LIST .doxygen/xml =="
+          # unikamy Broken pipe przy 'ls | head' w połączeniu z 'pipefail'
+          set +o pipefail
           ls -la .doxygen/xml | head -n 50
+          set -o pipefail
 
       - name: Generate C++ API (Doxygen -> Markdown)
         env:
