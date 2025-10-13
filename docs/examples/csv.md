@@ -14,10 +14,6 @@ Przykładowy fragment CSV (do analizy poza dokumentacją):
 id,name,enabled,cooldown_ms
 1,skills.combo,true,250
 2,skills.heal,false,0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 ```
 
 :::note
@@ -35,8 +31,6 @@ Aby dodać tabelę CSV do dokumentacji, użyj dyrektywy `csv-table`:
 :widths: 50, 50
 :file: ../assets/samples/your_file.csv
 :delim: ,
-=======
->>>>>>> Stashed changes
 ```
 ````
 
