@@ -1,3 +1,4 @@
+# .github/workflows/sphinx-pages.yml
 name: Build & Deploy Docs (Sphinx) Page
 
 on:
@@ -6,8 +7,6 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/**'
-      - 'src/**'
-      - 'include/**'
       - '.github/workflows/sphinx-pages.yml'
   workflow_dispatch:
 
@@ -24,14 +23,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # --- Python (Sphinx) ---
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
-      - name: Install Sphinx deps
+      - name: Install system deps (Doxygen/Graphviz)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz
+
+      - name: Setup Node (for extract-api.mjs)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Node deps (glob) for extract script
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm install glob@^10 --no-audit --no-fund
+
+      - name: Install Python deps for Sphinx
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then
@@ -39,69 +54,53 @@ jobs:
           elif [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            pip install sphinx myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design
+            # fallback (nieużywany u Ciebie, ale zostawiamy awaryjnie)
+            pip install sphinx myst-parser pydata-sphinx-theme
           fi
+          # sanity-check na theme
+          python - << 'PY'
+          import importlib; import sys
+          for mod in ["pydata_sphinx_theme","myst_parser","sphinx"]:
+              try:
+                  importlib.import_module(mod)
+              except Exception as e:
+                  print(f"[FATAL] missing {mod}: {e}", file=sys.stderr); sys.exit(2)
+          print("[OK] Python deps present.")
+          PY
 
-      # --- Node (extract-api.mjs) ---
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Node deps for extract scripts
+      # --- ZAWSZE generujemy XML do .doxygen/xml w CI ---
+      - name: Pre-generate Doxygen XML -> .doxygen/xml
         run: |
-          if [ -f package.json ]; then
-            npm ci
-          else
-            npm init -y >/dev/null 2>&1
-            npm i glob >/dev/null 2>&1
-          fi
+          set -euxo pipefail
+          cat > Doxyfile.ci << 'EOF'
+          PROJECT_NAME           = OTCv8 CI
+          OUTPUT_DIRECTORY       = .doxygen
+          GENERATE_XML           = YES
+          XML_OUTPUT             = xml
+          GENERATE_HTML          = NO
+          QUIET                  = YES
+          EXTRACT_ALL            = YES
+          RECURSIVE              = YES
+          FILE_PATTERNS          = *.h *.hpp *.hh *.hxx *.c *.cc *.cpp
+          INPUT                  = src include
+          WARN_IF_UNDOCUMENTED   = NO
+          WARNINGS               = YES
+          WARN_LOGFILE           = .doxygen/doxygen-warnings.log
+          EOF
 
-      # --- Doxygen (C++ -> XML) ---
-      - name: Install Doxygen & Graphviz
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y doxygen graphviz
+          rm -rf .doxygen || true
+          mkdir -p .doxygen
+          doxygen Doxyfile.ci
 
-      - name: Ensure Doxyfile (XML -> .doxygen/xml)
-        run: |
-          # jeśli nie ma Doxyfile, wygeneruj
-          if [ ! -f Doxyfile ]; then
-            doxygen -g Doxyfile
-          fi
-
-          # OUTPUT/XML: .doxygen/xml
-          sed -i 's|^#\? *OUTPUT_DIRECTORY .*|OUTPUT_DIRECTORY = .doxygen|' Doxyfile
-          sed -i 's|^#\? *GENERATE_XML .*|GENERATE_XML = YES|' Doxyfile
-          sed -i 's|^#\? *XML_OUTPUT .*|XML_OUTPUT = xml|' Doxyfile
-
-          # źródła i rekursja
-          if grep -qE '^#? *INPUT *=' Doxyfile; then
-            sed -i 's|^#\? *INPUT .*|INPUT = src include|' Doxyfile
-          else
-            echo 'INPUT = src include' >> Doxyfile
-          fi
-          sed -i 's|^#\? *RECURSIVE .*|RECURSIVE = YES|' Doxyfile
-
-          # trochę rozsądnych flag (bez HTML, szybciej)
-          sed -i 's|^#\? *GENERATE_HTML .*|GENERATE_HTML = NO|' Doxyfile
-          sed -i 's|^#\? *EXTRACT_ALL .*|EXTRACT_ALL = YES|' Doxyfile
-          sed -i 's|^#\? *QUIET .*|QUIET = YES|' Doxyfile
-
-      # --- API extraction (Lua/OTUI/WS + C++ via Doxygen) ---
-      - name: Run extract-api (JS)
-        run: |
-          # preferowany skrypt
-          if [ -f scripts/extract-api.mjs ]; then
-            node scripts/extract-api.mjs --split-cpp
-          # fallback, jeśli repo ma alternatywną nazwę
-          elif [ -f scripts/scripts_extract-api.mjs ]; then
-            node scripts/scripts_extract-api.mjs --split-cpp
-          else
-            echo "::warning ::Brak scripts/extract-api.mjs (ani scripts/scripts_extract-api.mjs) – pomijam ten krok."
-          fi
+          test -f .doxygen/xml/index.xml || { echo "::error ::Brak .doxygen/xml/index.xml po Doxygen"; exit 2; }
+          echo "== LIST .doxygen/xml =="
+          ls -la .doxygen/xml | head -n 50
 
       - name: Generate C++ API (Doxygen -> Markdown)
+        env:
+          DOXY_XML_DIR: .doxygen/xml
         run: |
+          set -euxo pipefail
           if [ -f scripts/gen_api_cpp.sh ]; then
             chmod +x scripts/gen_api_cpp.sh
             bash scripts/gen_api_cpp.sh
@@ -109,7 +108,15 @@ jobs:
             echo "::warning ::Brak scripts/gen_api_cpp.sh – pomijam ten krok."
           fi
 
-      # --- Build Sphinx ---
+      - name: Extract OTCv8 API (Lua/WS/OTUI/CPP index) via Node script
+        run: |
+          set -euxo pipefail
+          if [ -f scripts/extract-api.mjs ]; then
+            node scripts/extract-api.mjs
+          else
+            echo "::warning ::Brak scripts/extract-api.mjs – pomijam ten krok."
+          fi
+
       - name: Build Sphinx
         run: |
           sphinx-build -b html docs docs/_build/html
