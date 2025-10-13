@@ -1,0 +1,23 @@
+# Plan folderów do zintegrowania przez Agenta (pomocniczy plik YAML)
+# Nie używany przez workflow — tylko jako „manifest treści” dla agenta.
+
+modules_structured_dirs:
+  - docs/modules/structured/bot_tools
+  - docs/modules/structured/core
+  - docs/modules/structured/dev_tools
+  - docs/modules/structured/gameplay
+
+ui_opisy_dir: docs/ui/UIopis
+
+api_files:
+  - docs/api/otcv8-full-api.md
+  - docs/api/external/otcv8-full-api.md
+  - docs/api/lua/luafunctions_client.md
+
+notes:
+  - docs/reposzablony/index.md
+  - docs/reposzablony/szablony/
+
+hints:
+  - "Dodaj wpis {doc}`reposzablony/index` do głównego toctree w docs/index.md (już omawiane)."
+  - "Zachowuj MyST H2/H3/H4 i kotwice."

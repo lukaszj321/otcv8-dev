@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2025-10-13T02:46:14.858400Z",
+  "section": "docs/reposzablony",
+  "pages": [
+    "docs/reposzablony/index.md",
+    "docs/reposzablony/szablony/readme.md",
+    "docs/reposzablony/szablony/contributing.md",
+    "docs/reposzablony/szablony/code_of_conduct.md",
+    "docs/reposzablony/szablony/security.md",
+    "docs/reposzablony/szablony/issue_templates.md",
+    "docs/reposzablony/szablony/pr_template.md",
+    "docs/reposzablony/szablony/changelog_release.md",
+    "docs/reposzablony/szablony/codeowners.md",
+    "docs/reposzablony/szablony/license_guide.md",
+    "docs/reposzablony/szablony/adr.md",
+    "docs/reposzablony/szablony/style_guide.md",
+    "docs/reposzablony/szablony/diagrams.md",
+    "docs/reposzablony/szablony/kitchen_sink.md"
+  ]
+}
