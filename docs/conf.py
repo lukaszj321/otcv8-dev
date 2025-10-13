@@ -13,12 +13,12 @@ extensions = [
     "sphinx_sitemap",
     "sphinxext.opengraph",
     "sphinx_favicon",
-    "sphinxcontrib.mermaid",   # <-- poprawny moduł (kropka, NIE podkreślenie)
+    "sphinxcontrib.mermaid",   # ważne: kropka, NIE podkreślenie
     "sphinx_codeautolink",
     "hoverxref.extension",
 ]
 
-# try-load ablog (build nie padnie jeśli brak, ale w workflow i tak instalujemy)
+# ABlog – miękko (w CI i tak instalujemy)
 try:
     __import__("ablog")
     extensions.append("ablog")
@@ -76,7 +76,7 @@ sitemap_url_scheme = "{link}"
 ogp_site_url = html_baseurl
 ogp_description_length = 200
 
-# Mermaid + Graphviz (dark/light aware)
+# Mermaid
 mermaid_version = "10.9.1"
 
 # Copybutton
@@ -90,9 +90,7 @@ hoverxref_auto_ref = True
 # Extra static
 html_extra_path = ["../data"]
 
-# Krótsza / czystsza nawigacja
+# Lepsze refy i kotwice
 extensions += ["sphinx.ext.autosectionlabel"]
 autosectionlabel_prefix_document = True
-
-# Stabilne kotwice H1..H4
 myst_heading_anchors = 4
