@@ -1,5 +1,4 @@
 name: Build & Deploy Docs (Sphinx) Page
-
 on:
   push:
     branches: [ main, master ]
@@ -27,39 +26,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Sphinx deps
         run: |
-          set -euxo pipefail
-          python -m pip install --upgrade pip wheel setuptools
-          if [ -f docs/requirements.txt ]; then
-            pip install --upgrade -r docs/requirements.txt
-          elif [ -f requirements.txt ]; then
-            pip install --upgrade -r requirements.txt
-          fi
-          # Twarde doinstalowanie aby nigdy nie brakowało:
-          pip install --upgrade ablog matplotlib
-
-          # Szybka weryfikacja obecności modułów, zanim odpali Sphinx
-          python - <<'PY'
-          import sys
-          try:
-              import ablog, matplotlib
-              print("OK: ablog", ablog.__version__, "matplotlib", matplotlib.__version__)
-          except Exception as e:
-              print("CHECK FAILED:", e); sys.exit(1)
-          PY
-
-      - name: Pre-build Authoring pages (optional)
-        run: |
-          set -euxo pipefail
-          if [ -f scripts/build_authoring.py ]; then
-            python scripts/build_authoring.py
-          fi
+          python -m pip install --upgrade pip
+          pip install -r docs/requirements.txt
 
       - name: Build Sphinx
         run: |
-          set -euxo pipefail
-          sphinx-build -E -b html docs docs/_build/html
+          sphinx-build -b html docs docs/_build/html
           touch docs/_build/html/.nojekyll
 
       - name: Upload Pages artifact
