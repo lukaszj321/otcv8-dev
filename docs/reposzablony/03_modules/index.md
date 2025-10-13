@@ -12,25 +12,39 @@ Lua module exports and function documentation
 
 ## Datasets
 
-### Summary
-Location: `datasets/summary.csv`
+
+```{csv-table} Summary
+:file: datasets/summary.csv
+:header-rows: 1
+:widths: auto
+```
 
 Basic statistics and metrics for this chapter.
 
-### Entities
-Location: `datasets/entities.csv`
+
+```{csv-table} Entities
+:file: datasets/entities.csv
+:header-rows: 1
+:widths: auto
+```
 
 Key entities and their counts.
 
 ## Diagrams
 
-### Flow Diagram
-Location: `diagrams/flow.mmd`
+
+```{literalinclude} diagrams/flow.mmd
+:language: mermaid
+:caption: Flow
+```
 
 Data flow and processing pipeline for this chapter.
 
-### Architecture Diagram
-Location: `diagrams/architecture.mmd`
+
+```{literalinclude} diagrams/architecture.mmd
+:language: mermaid
+:caption: Architecture
+```
 
 Architecture and component relationships.
 
@@ -49,3 +63,13 @@ Architecture and component relationships.
 ## Generated
 
 This content was auto-generated on 2025-10-13 04:50:32.
+
+
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+
+datasets/index
+diagrams/index
+lua/index
+```
