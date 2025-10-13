@@ -4,13 +4,16 @@ title: Core
 
 # Core
 
+Biblioteki bazowe klienta i runtime.
+
 ```{toctree}
 :maxdepth: 1
 :caption: Core
 :glob:
+:titlesonly:
 
-modul-*.md
-*/modul-*.md
+modul-*
+*/modul-*
 ```
 
 
