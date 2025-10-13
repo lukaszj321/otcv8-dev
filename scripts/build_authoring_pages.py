@@ -15,12 +15,16 @@ def find_chapters():
         print(f"[WARN] Missing {REPO}")
         return []
     items = []
+    # Only include numbered chapter directories (01_* through 12_*)
+    import re
+    chapter_pattern = re.compile(r'^(0[1-9]|1[0-2])_.*$')
     for p in sorted(REPO.iterdir()):
         if not p.is_dir():
             continue
         if p.name.startswith("."):
             continue
-        items.append(p.name)
+        if chapter_pattern.match(p.name):
+            items.append(p.name)
     return items
 
 def chapter_title(slug: str) -> str:
@@ -58,24 +62,23 @@ def write_chapter(chapter: str):
         ```{{csv-table}} {p.stem}
         :header-rows: 1
         :file: {rel(base_rel / 'datasets' / p.name)}
-        :widths: 50,50
+        :widths: auto
         ```
         """).strip()
 
     def mmd_block(p: pathlib.Path):
         return textwrap.dedent(f"""
-        ```{{admonition}} {p.name} (Mermaid)
+        ```{{admonition}} {p.name} (Mermaid diagram)
         :class: tip
-        Lokalizacja: `{rel(base_rel / 'diagrams' / p.name)}`
+        Źródło: `{rel(base_rel / 'diagrams' / p.name)}`
         ```
 
-        ````{{mermaid}}
+        ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
+        :language: mermaid
         :caption: {p.stem}
-        ```{{include}} {rel(base_rel / 'diagrams' / p.name)}
         ```
-        ````
 
-        ```{{admonition}} Kod źródłowy ({p.name})
+        ```{{admonition}} Kod źródłowy (kliknij aby rozwinąć)
         :class: dropdown
         ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
         :language: mermaid
