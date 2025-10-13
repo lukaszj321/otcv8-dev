@@ -23,20 +23,20 @@
 
 **Reguły:**
 1) **Code fence z atrybutem `path=` (preferowane)**
-````
+
 ```lua path=docs/reposzablony/03_modules/examples/foo.lua
 -- treść pliku
 ```
-````
+
 → zapis dokładnie pod `path` (idempotent: tylko gdy różni się treść).
 
 2) **Marker sekcji `### file: <ścieżka>`**
-```
+
 ### file: docs/reposzablony/04_ui/diagrams/widgets.mmd
 ```mermaid
 graph TD; A-->B
 ```
-```
+
 → następny fenced block to zawartość pliku docelowego.
 
 3) **Bloki `diff`** – stosuj tylko gdy `+++ b/...` wskazuje `docs/reposzablony/**`.
