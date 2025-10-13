@@ -61,6 +61,16 @@ jobs:
           print("deps-ok")
           PY
 
+      - name: Setup Node (for authoring-discover)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate authoring auto-pages
+        run: |
+          node --version
+          node scripts/authoring-discover.mjs
+
       - name: Build Sphinx
         run: |
           sphinx-build -b html docs docs/_build/html
