@@ -15,9 +15,9 @@ def find_chapters():
         print(f"[WARN] Missing {REPO}")
         return []
     items = []
-    # Only include numbered chapter directories (01_* through 10_*)
+    # Only include numbered chapter directories (01_* through 12_*)
     import re
-    chapter_pattern = re.compile(r'^(0[1-9]|10)_.*$')
+    chapter_pattern = re.compile(r'^(0[1-9]|1[0-2])_.*$')
     for p in sorted(REPO.iterdir()):
         if not p.is_dir():
             continue
