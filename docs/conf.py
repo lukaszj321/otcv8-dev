@@ -18,6 +18,19 @@ extensions = [
     "hoverxref.extension",
     "ablog",
 ]
+# --- ABlog (minimal) -----------------------------------------------------
+blog_title = "OTCv8 Blog"
+blog_path = "blog"
+blog_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
+blog_authors = { "lukasz": ("lukasz", "https://github.com/lukaszj321") }
+
+# --- Lexer dla OTUI (traktuj jak INI, aby zniknęły warningi) -------------
+from sphinx.highlighting import lexers
+try:
+    from pygments.lexers.data import IniLexer
+    lexers["otui"] = IniLexer()   # teraz `otui` nie będzie zgłaszać WARNING
+except Exception:
+    pass
 myst_enable_extensions = [
     "colon_fence", "attrs_block", "attrs_inline",
     "deflist", "linkify", "substitution", "tasklist",
