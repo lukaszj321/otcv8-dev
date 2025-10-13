@@ -1,41 +1,63 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Ścieżki
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-SRC_DIR="$ROOT/src"
-BUILD_DIR="$ROOT/.doxygen"
-XML_DIR="$BUILD_DIR/xml"
-OUT_MD="$ROOT/docs/api/external/otcv8-full-api.md"
+ROOT="$(pwd)"
+OUT_DIR=".doxygen"
+XML_DIR="$OUT_DIR/xml"
 
-mkdir -p "$BUILD_DIR" "$(dirname "$OUT_MD")"
+# 1) Zbierz istniejące wejścia (bez crasha gdy 'include/' nie ma)
+INPUTS=()
+[[ -d src ]] && INPUTS+=("src")
+[[ -d include ]] && INPUTS+=("include")
 
-# Minimalny Doxyfile generowany w locie
-cat > "$BUILD_DIR/Doxyfile" <<'EOF'
-PROJECT_NAME           = "otcv8 C++ API"
-INPUT                  = src
-FILE_PATTERNS          = *.h *.hpp *.hh *.hxx
-RECURSIVE              = YES
-EXTRACT_ALL            = YES
-EXTRACT_PRIVATE        = NO
-EXTRACT_STATIC         = YES
-EXTRACT_LOCAL_METHODS  = YES
-EXTRACT_LOCAL_CLASSES  = YES
-JAVADOC_AUTOBRIEF      = YES
-MACRO_EXPANSION        = YES
-EXPAND_ONLY_PREDEF     = NO
-QUIET                  = YES
-GENERATE_HTML          = NO
+if [ ${#INPUTS[@]} -eq 0 ]; then
+  echo "::warning ::No input directories (expected src/ and/or include/). Skipping C++ API generation."
+  exit 0
+fi
+
+# 2) Doxyfile (CI)
+cat > Doxyfile.ci <<EOF
+PROJECT_NAME           = OTCv8 CI
+OUTPUT_DIRECTORY       = $OUT_DIR
 GENERATE_XML           = YES
 XML_OUTPUT             = xml
-# Jeżeli są makra osłaniające mobilne/silnikowe rzeczy, można tu je dodać:
-# PREDEFINED            = OTCLIENT_MOBILE=1
+GENERATE_HTML          = NO
+QUIET                  = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+RECURSIVE              = YES
+JAVADOC_AUTOBRIEF      = YES
+FILE_PATTERNS          = *.h *.hpp *.hh *.hxx *.c *.cc *.cpp
+INPUT                  = ${INPUTS[*]}
+WARN_IF_UNDOCUMENTED   = NO
+WARNINGS               = YES
+WARN_LOGFILE           = $OUT_DIR/doxygen-warnings.log
 EOF
 
+# 3) Uruchom doxygen
+rm -rf "$OUT_DIR"
+mkdir -p "$OUT_DIR"
 echo "==> Doxygen (C++)"
-( cd "$ROOT" && doxygen "$BUILD_DIR/Doxyfile" )
+doxygen Doxyfile.ci || { echo "::error ::Doxygen failed"; cat "$OUT_DIR/doxygen-warnings.log" || true; exit 2; }
 
+# 4) Wymagany artefakt: .doxygen/xml/index.xml
+if [[ ! -s "$XML_DIR/index.xml" ]]; then
+  echo "::error ::Missing $XML_DIR/index.xml after Doxygen"
+  echo "== Listing $XML_DIR =="
+  ls -la "$XML_DIR" | head -n 200 || true
+  echo "== Doxygen warnings =="
+  sed -n '1,200p' "$OUT_DIR/doxygen-warnings.log" || true
+  exit 2
+fi
+
+# 5) Opcjonalna konwersja XML -> Markdown (tylko jeśli masz konwerter)
 echo "==> XML -> Markdown"
-python3 "$ROOT/scripts/doxy_to_md.py" "$XML_DIR" > "$OUT_MD"
+if [[ -f scripts/doxygen-xml2md.mjs ]]; then
+  node scripts/doxygen-xml2md.mjs "$XML_DIR" "docs/api/external/cpp" \
+    || echo "::warning ::xml->md converter failed, skipping"
+else
+  echo "::notice ::No scripts/doxygen-xml2md.mjs found; skipping conversion"
+fi
 
-echo "Wygenerowano: $OUT_MD"
+echo "OK"
