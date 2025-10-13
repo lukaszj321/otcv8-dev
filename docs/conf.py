@@ -16,6 +16,7 @@ extensions = [
     "sphinxcontrib.mermaid",
     "sphinx_codeautolink",
     "hoverxref.extension",
+    "ablog",
 ]
 myst_enable_extensions = [
     "colon_fence", "attrs_block", "attrs_inline",
