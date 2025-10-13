@@ -14,6 +14,7 @@ dashboard/index
 api/index
 modules/index
 ui/index
+reposzablony/index
 rag/index
 ```
 

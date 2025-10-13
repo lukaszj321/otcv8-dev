@@ -4,13 +4,16 @@ title: Dev tools
 
 # Dev tools
 
+Narzędzia deweloperskie (style, profile, bugreport, updater, protocol, shaders).
+
 ```{toctree}
 :maxdepth: 1
 :caption: Dev tools
 :glob:
+:titlesonly:
 
-modul-*.md
-*/modul-*.md
+modul-*
+*/modul-*
 ```
 
 

@@ -4,13 +4,16 @@ title: Gameplay
 
 # Gameplay
 
+Interfejs gry, inv, minimap, questy, rynek, hotkeys, statystyki, shop…
+
 ```{toctree}
 :maxdepth: 1
 :caption: Gameplay
 :glob:
+:titlesonly:
 
-modul-*.md
-*/modul-*.md
+modul-*
+*/modul-*
 ```
 
 
