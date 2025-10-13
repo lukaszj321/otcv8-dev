@@ -31,6 +31,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
+      - name: Run pre-build script
+        run: |
+          python scripts/build_authoring_pages.py
+
       - name: Build Sphinx
         run: |
           sphinx-build -b html docs docs/_build/html
