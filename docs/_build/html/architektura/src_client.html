@@ -2,13 +2,19 @@
 <!DOCTYPE html>
 
 
-<html lang="pl" data-content_root="../" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="otclientv8-dev/src/client" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/architektura/src_client.html" />
+<meta property="og:site_name" content="OTClientV8" />
+<meta property="og:description" content="NOTE: Wszystkie pliki w repozytorium są objęte licencją MIT (2010–2017 OTClient, autor Edubart). Ogólny opis: Implementacja klasy AnimatedText, która odpowiada za renderowanie animowanego tekstu na..." />
+<meta name="description" content="NOTE: Wszystkie pliki w repozytorium są objęte licencją MIT (2010–2017 OTClient, autor Edubart). Ogólny opis: Implementacja klasy AnimatedText, która odpowiada za renderowanie animowanego tekstu na..." />
 
-    <title>otclientv8-dev/src/client &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>otclientv8-dev/src/client &#8212; OTClientV8 Docs</title>
   
   
   
@@ -32,9 +38,18 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom-dark-mermaid.css?v=41a4be34" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,20 +57,26 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/copybutton.js?v=60c6efc8"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'architektura/src_client';</script>
-    <link rel="icon" href="../_static/logo-light.svg"/>
-    <link rel="index" title="Indeks" href="../genindex.html" />
-    <link rel="search" title="Szukaj" href="../search.html" />
+    <script src="../_static/custom.js?v=11ee1396"></script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/architektura/src_client.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="pl"/>
-  <meta name="docsearch:version" content="0.1" />
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -116,14 +137,8 @@
   
   
   
-    
-    
-      
-    
-    
-    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
-    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
   
+    <p class="title logo__title">OTClientV8</p>
   
 </a></div>
     
@@ -137,6 +152,57 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -148,9 +214,9 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
@@ -175,7 +241,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -187,9 +253,9 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
@@ -228,6 +294,47 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -257,7 +364,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -550,7 +657,7 @@
 </section>
 <section id="id9">
 <h1>Opis<a class="headerlink" href="#id9" title="Link to this heading">#</a></h1>
-<p>Dziedziczy po <code class="docutils literal notranslate"><span class="pre">Thing</span></code>. Służy do wyświetlania tekstu, który porusza się i zanika. Jest to obiekt „efemeryczny”, który istnieje na mapie tylko przez czas trwania animacji.</p>
+<p>Dziedziczy po <code class="docutils literal notranslate"><span class="pre">Thing</span></code>. Służy do wyświetlania tekstu, który porusza się i zanika. Jest to obiekt “efemeryczny”, który istnieje na mapie tylko przez czas trwania animacji.</p>
 </section>
 <section id="id10">
 <h1>Metody<a class="headerlink" href="#id10" title="Link to this heading">#</a></h1>
@@ -740,7 +847,7 @@
 <td><p>Przywraca animator do stanu początkowego.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getPingPongPhase()</span></code></p></td>
-<td><p>Oblicza następną fazę dla animacji typu „ping-pong” (do przodu i do tyłu).</p></td>
+<td><p>Oblicza następną fazę dla animacji typu “ping-pong” (do przodu i do tyłu).</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getLoopPhase()</span></code></p></td>
 <td><p>Oblicza następną fazę dla animacji w pętli.</p></td>
@@ -940,7 +1047,7 @@
 </section>
 <section id="id35">
 <h1>Zależności i powiązania<a class="headerlink" href="#id35" title="Link to this heading">#</a></h1>
-<p>Ten plik jest fundamentalny i jest dołączany w większości plików projektu, ponieważ definiuje podstawowe „słownictwo” używane w logice gry.</p>
+<p>Ten plik jest fundamentalny i jest dołączany w większości plików projektu, ponieważ definiuje podstawowe “słownictwo” używane w logice gry.</p>
 </section>
 <hr class="docutils" />
 <section id="container-cpp">
@@ -2249,7 +2356,7 @@
 <h1>Logika serializacji<a class="headerlink" href="#logika-serializacji" title="Link to this heading">#</a></h1>
 <p>Metoda <code class="docutils literal notranslate"><span class="pre">unserialize</span></code> zawiera logikę dostosowującą wczytywanie atrybutów do różnych wersji klienta Tibii. Na przykład, dla starszych wersji klienta, ID serwera musi być dostosowane, aby poprawnie mapować przedmioty.</p>
 <blockquote>
-<div><p>NOTE: Statyczna zmienna <code class="docutils literal notranslate"><span class="pre">lastId</span></code> jest używana do tworzenia „pustych” typów przedmiotów, jeśli w pliku OTB występują luki w numeracji ID serwera. Jest to mechanizm zapewniający spójność indeksowania.</p>
+<div><p>NOTE: Statyczna zmienna <code class="docutils literal notranslate"><span class="pre">lastId</span></code> jest używana do tworzenia “pustych” typów przedmiotów, jeśli w pliku OTB występują luki w numeracji ID serwera. Jest to mechanizm zapewniający spójność indeksowania.</p>
 </div></blockquote>
 </section>
 <section id="id114">
@@ -2551,19 +2658,19 @@
 <td><p>Blokuje możliwość chodzenia na określony czas, np. po użyciu przedmiotu.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">canWalk(Otc::Direction</span> <span class="pre">direction,</span> <span class="pre">...)</span></code></p></td>
-<td><p>Sprawdza, czy gracz może wykonać krok w danym kierunku. Uwzględnia blokady, paraliż, trwający ruch oraz limity „pre-walkingu”.</p></td>
+<td><p>Sprawdza, czy gracz może wykonać krok w danym kierunku. Uwzględnia blokady, paraliż, trwający ruch oraz limity “pre-walkingu”.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">walk(const</span> <span class="pre">Position&amp;</span> <span class="pre">oldPos,</span> <span class="pre">const</span> <span class="pre">Position&amp;</span> <span class="pre">newPos)</span></code></p></td>
-<td><p>Obsługuje ruch potwierdzony przez serwer. Jeśli ruch odpowiada wykonanemu „pre-walk”, usuwa go z kolejki. Jeśli nie, traktuje to jako ruch wymuszony przez serwer (np. odepchnięcie).</p></td>
+<td><p>Obsługuje ruch potwierdzony przez serwer. Jeśli ruch odpowiada wykonanemu “pre-walk”, usuwa go z kolejki. Jeśli nie, traktuje to jako ruch wymuszony przez serwer (np. odepchnięcie).</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">preWalk(Otc::Direction</span> <span class="pre">direction)</span></code></p></td>
-<td><p>Inicjuje „pre-walking” – ruch wykonywany przez klienta przed potwierdzeniem z serwera, aby zniwelować opóźnienie sieciowe. Dodaje nową pozycję do kolejki <code class="docutils literal notranslate"><span class="pre">m_preWalking</span></code>.</p></td>
+<td><p>Inicjuje “pre-walking” – ruch wykonywany przez klienta przed potwierdzeniem z serwera, aby zniwelować opóźnienie sieciowe. Dodaje nową pozycję do kolejki <code class="docutils literal notranslate"><span class="pre">m_preWalking</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cancelNewWalk(Otc::Direction</span> <span class="pre">dir)</span></code></p></td>
-<td><p>Anuluje wszystkie ruchy „pre-walk” w odpowiedzi na pakiet „cancel walk” z serwera. Może próbować ponowić auto-walking.</p></td>
+<td><p>Anuluje wszystkie ruchy “pre-walk” w odpowiedzi na pakiet “cancel walk” z serwera. Może próbować ponowić auto-walking.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">predictiveCancelWalk(...)</span></code></p></td>
-<td><p>Anuluje ruchy „pre-walk” na podstawie predykcji, jeśli serwer odrzuci krok w połowie ścieżki.</p></td>
+<td><p>Anuluje ruchy “pre-walk” na podstawie predykcji, jeśli serwer odrzuci krok w połowie ścieżki.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">autoWalk(Position</span> <span class="pre">destination,</span> <span class="pre">...)</span></code></p></td>
 <td><p>Inicjuje automatyczne poruszanie się do celu. Asynchronicznie wyszukuje ścieżkę i wysyła ją do serwera.</p></td>
@@ -2572,10 +2679,10 @@
 <td><p>Przerywa auto-walking.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stopWalk()</span></code></p></td>
-<td><p>Natychmiastowo zatrzymuje wszelki ruch, czyszcząc kolejkę „pre-walk”.</p></td>
+<td><p>Natychmiastowo zatrzymuje wszelki ruch, czyszcząc kolejkę “pre-walk”.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">updateWalkOffset(...)</span></code></p></td>
-<td><p>Specjalna implementacja dla „pre-walk”, gdzie offset jest liczony w przeciwnym kierunku niż normalny ruch.</p></td>
+<td><p>Specjalna implementacja dla “pre-walk”, gdzie offset jest liczony w przeciwnym kierunku niż normalny ruch.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">updateWalk()</span></code></p></td>
 <td><p>Aktualizuje stan chodzenia; kończy krok, gdy upłynie jego czas trwania.</p></td>
@@ -2829,7 +2936,7 @@
 </section>
 <section id="id148">
 <h1>Ogólny opis<a class="headerlink" href="#id148" title="Link to this heading">#</a></h1>
-<p>Implementacja funkcji do konwersji (rzutowania) niestandardowych typów danych C++ na wartości Lua i z powrotem. Ten plik zawiera logikę „tłumaczenia” złożonych obiektów C++ na tabele Lua i odwrotnie.</p>
+<p>Implementacja funkcji do konwersji (rzutowania) niestandardowych typów danych C++ na wartości Lua i z powrotem. Ten plik zawiera logikę “tłumaczenia” złożonych obiektów C++ na tabele Lua i odwrotnie.</p>
 </section>
 <section id="id149">
 <h1>Funkcje<a class="headerlink" href="#id149" title="Link to this heading">#</a></h1>
@@ -3229,7 +3336,7 @@
 <p>Niestandardowe elementy kolejki rysowania, które pozwalają na zaawansowane renderowanie ubiorów.</p>
 <ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">DrawQueueItemOutfit</span></code></strong>: Używa specjalnego shadera (<code class="docutils literal notranslate"><span class="pre">outfit.frag</span></code>), który na podstawie 32-bitowej liczby <code class="docutils literal notranslate"><span class="pre">m_colors</span></code> i tekstury z warstwami, koloruje każdą z czterech części ubioru (głowa, ciało, nogi, stopy) na odpowiedni kolor.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">DrawQueueItemOutfitWithShader</span></code></strong>: Rozszerza powyższą logikę o dodatkowy, niestandardowy shader (np. efekt „ghost”), który jest nakładany na finalny obraz ubioru.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">DrawQueueItemOutfitWithShader</span></code></strong>: Rozszerza powyższą logikę o dodatkowy, niestandardowy shader (np. efekt “ghost”), który jest nakładany na finalny obraz ubioru.</p></li>
 </ul>
 </section>
 <section id="id175">
@@ -3563,7 +3670,7 @@
 <td><p>Sprawdza, czy pozycja jest poprawną pozycją na mapie.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isValid()</span></code></p></td>
-<td><p>Sprawdza, czy pozycja jest „ważna” (różna od pozycji specjalnej 65535, 65535, 255).</p></td>
+<td><p>Sprawdza, czy pozycja jest “ważna” (różna od pozycji specjalnej 65535, 65535, 255).</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">distance(const</span> <span class="pre">Position&amp;</span> <span class="pre">pos)</span></code></p></td>
 <td><p>Oblicza dystans euklidesowy.</p></td>
@@ -3575,7 +3682,7 @@
 <td><p>Metody do przemieszczania się między piętrami z uwzględnieniem perspektywy izometrycznej.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">toString()</span></code></p></td>
-<td><p>Zwraca pozycję w formacie „x,y,z”.</p></td>
+<td><p>Zwraca pozycję w formacie “x,y,z”.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">operator==</span></code>, <code class="docutils literal notranslate"><span class="pre">operator!=</span></code>, <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code></p></td>
 <td><p>Operatory porównania.</p></td>
@@ -3916,10 +4023,10 @@
 <td><p>Sprawdza, czy gracz może się poruszyć.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isPreWalking()</span></code></p></td>
-<td><p>Zwraca <code class="docutils literal notranslate"><span class="pre">true</span></code>, jeśli gracz wykonuje ruch „pre-walk”.</p></td>
+<td><p>Zwraca <code class="docutils literal notranslate"><span class="pre">true</span></code>, jeśli gracz wykonuje ruch “pre-walk”.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getPrewalkingPosition(...)</span></code></p></td>
-<td><p>Zwraca pozycję, na której gracz znajdzie się po zakończeniu wszystkich ruchów „pre-walk”.</p></td>
+<td><p>Zwraca pozycję, na której gracz znajdzie się po zakończeniu wszystkich ruchów “pre-walk”.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setHealth(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">setMana(...)</span></code>, etc.</p></td>
 <td><p>Metody do ustawiania statystyk gracza.</p></td>
@@ -4137,13 +4244,13 @@
 <td><p>Usuwa obiekt ze stosu.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">addWalkingCreature(...)</span></code></p></td>
-<td><p>Dodaje stworzenie do listy „przechodzących” przez to pole, które są rysowane osobno.</p></td>
+<td><p>Dodaje stworzenie do listy “przechodzących” przez to pole, które są rysowane osobno.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getThing(...)</span></code></p></td>
 <td><p>Zwraca obiekt z danej pozycji na stosie.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getTopThing()</span></code>, <code class="docutils literal notranslate"><span class="pre">getTopCreature()</span></code>, etc.</p></td>
-<td><p>Zwracają „najważniejszy” obiekt danego typu na polu, uwzględniając logikę gry (np. na co patrzy gracz, czego używa).</p></td>
+<td><p>Zwracają “najważniejszy” obiekt danego typu na polu, uwzględniając logikę gry (np. na co patrzy gracz, czego używa).</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getItems()</span></code>, <code class="docutils literal notranslate"><span class="pre">getCreatures()</span></code></p></td>
 <td><p>Zwracają listy wszystkich przedmiotów lub stworzeń na polu.</p></td>
@@ -4413,7 +4520,7 @@
 <td><p>Ustawia przedmiot do wyświetlenia na podstawie istniejącego obiektu <code class="docutils literal notranslate"><span class="pre">Item</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">setVirtual(bool</span> <span class="pre">virt)</span></code></p></td>
-<td><p>Oznacza, czy przedmiot jest „wirtualny” (nie jest prawdziwą instancją, tylko reprezentacją wizualną).</p></td>
+<td><p>Oznacza, czy przedmiot jest “wirtualny” (nie jest prawdziwą instancją, tylko reprezentacją wizualną).</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setShowCount(bool</span> <span class="pre">value)</span></code></p></td>
 <td><p>Włącza/wyłącza wyświetlanie liczby sztuk.</p></td>
@@ -4472,7 +4579,7 @@
 <td><p>Zwraca pozycję na stosie: albo wewnątrz kontenera, albo na polu mapy.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getThingType()</span></code> / <code class="docutils literal notranslate"><span class="pre">rawGetThingType()</span></code></p></td>
-<td><p>Zwracają domyślny, „pusty” <code class="docutils literal notranslate"><span class="pre">ThingType</span></code>. Muszą być nadpisane przez klasy pochodne.</p></td>
+<td><p>Zwracają domyślny, “pusty” <code class="docutils literal notranslate"><span class="pre">ThingType</span></code>. Muszą być nadpisane przez klasy pochodne.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">updatedMarkedColor()</span></code></p></td>
 <td><p>Aktualizuje kolor i przezroczystość znacznika (jeśli jest ustawiony), tworząc efekt pulsowania.</p></td>
@@ -4510,7 +4617,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">drawSelf(Fw::DrawPane</span> <span class="pre">drawPane)</span></code></p></td>
-<td><p>Główna funkcja rysująca. Jest wywoływana trzykrotnie dla różnych „warstw” (<code class="docutils literal notranslate"><span class="pre">DrawPane</span></code>): <br> 1. <code class="docutils literal notranslate"><span class="pre">MapBackgroundPane</span></code>: Rysuje tło mapy (<code class="docutils literal notranslate"><span class="pre">m_mapView→drawMapBackground</span></code>). <br> 2. <code class="docutils literal notranslate"><span class="pre">MapForegroundPane</span></code>: Rysuje pierwszy plan (<code class="docutils literal notranslate"><span class="pre">m_mapView→drawMapForeground</span></code>). <br> 3. <code class="docutils literal notranslate"><span class="pre">ForegroundPane</span></code>: Rysuje obramowanie wokół mapy.</p></td>
+<td><p>Główna funkcja rysująca. Jest wywoływana trzykrotnie dla różnych “warstw” (<code class="docutils literal notranslate"><span class="pre">DrawPane</span></code>): <br> 1. <code class="docutils literal notranslate"><span class="pre">MapBackgroundPane</span></code>: Rysuje tło mapy (<code class="docutils literal notranslate"><span class="pre">m_mapView→drawMapBackground</span></code>). <br> 2. <code class="docutils literal notranslate"><span class="pre">MapForegroundPane</span></code>: Rysuje pierwszy plan (<code class="docutils literal notranslate"><span class="pre">m_mapView→drawMapForeground</span></code>). <br> 3. <code class="docutils literal notranslate"><span class="pre">ForegroundPane</span></code>: Rysuje obramowanie wokół mapy.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setZoom(int</span> <span class="pre">zoom)</span></code></p></td>
 <td><p>Ustawia poziom przybliżenia, co wpływa na <code class="docutils literal notranslate"><span class="pre">m_mapView→setVisibleDimension</span></code>.</p></td>
@@ -4544,7 +4651,7 @@
 <h1>Zależności i powiązania<a class="headerlink" href="#id265" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">game.h</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">map.h</span></code></strong>: Dostęp do globalnych obiektów gry i mapy.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">mapview.h</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">UIMap</span></code> jest „opakowaniem” dla <code class="docutils literal notranslate"><span class="pre">MapView</span></code>, przekazując mu zadania renderowania.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">mapview.h</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">UIMap</span></code> jest “opakowaniem” dla <code class="docutils literal notranslate"><span class="pre">MapView</span></code>, przekazując mu zadania renderowania.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">framework/otml/otml.h</span></code></strong>: Parsuje właściwości z plików OTML, takie jak <code class="docutils literal notranslate"><span class="pre">multifloor</span></code> czy <code class="docutils literal notranslate"><span class="pre">animated</span></code>.</p></li>
 </ul>
 </section>
@@ -4581,7 +4688,7 @@
 <td><p>Planuje wywołanie <code class="docutils literal notranslate"><span class="pre">update()</span></code> po czasie równym czasowi życia najstarszej wiadomości w kolejce.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compose()</span></code></p></td>
-<td><p>Tworzy sformatowany tekst do wyświetlenia. Łączy wszystkie wiadomości z kolejki, dodaje nagłówki (np. „Player says:”), ustawia kolory i zawija tekst, jeśli jest zbyt długi.</p></td>
+<td><p>Tworzy sformatowany tekst do wyświetlenia. Łączy wszystkie wiadomości z kolejki, dodaje nagłówki (np. “Player says:”), ustawia kolory i zawija tekst, jeśli jest zbyt długi.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4638,7 +4745,7 @@
 <td><p>Parsuje niestandardowe atrybuty z OTML, takie jak <code class="docutils literal notranslate"><span class="pre">item-id</span></code>, <code class="docutils literal notranslate"><span class="pre">item-count</span></code>, <code class="docutils literal notranslate"><span class="pre">virtual</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cacheCountText()</span></code></p></td>
-<td><p>Formatuje tekst licznika. Dla liczb &gt;= 1000 używa skrótu „k” (np. „1.2k”), jeśli funkcja <code class="docutils literal notranslate"><span class="pre">GameCountU16</span></code> jest aktywna.</p></td>
+<td><p>Formatuje tekst licznika. Dla liczb &gt;= 1000 używa skrótu “k” (np. “1.2k”), jeśli funkcja <code class="docutils literal notranslate"><span class="pre">GameCountU16</span></code> jest aktywna.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4912,7 +5019,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getTexture(int</span> <span class="pre">animationPhase)</span></code></p></td>
-<td><p>Zwraca teksturę dla danej fazy animacji. Jeśli tekstura nie została jeszcze utworzona, generuje ją „w locie”: <br> 1. Tworzy duży obraz (atlas). <br> 2. Składa go z pojedynczych sprite’ów pobranych z <code class="docutils literal notranslate"><span class="pre">g_sprites</span></code>. <br> 3. Tworzy z niego obiekt <code class="docutils literal notranslate"><span class="pre">Texture</span></code> i przechowuje go w pamięci podręcznej. <br> 4. Zapisuje również prostokąty (<code class="docutils literal notranslate"><span class="pre">Rect</span></code>) i przesunięcia dla każdej klatki na tej teksturze.</p></td>
+<td><p>Zwraca teksturę dla danej fazy animacji. Jeśli tekstura nie została jeszcze utworzona, generuje ją “w locie”: <br> 1. Tworzy duży obraz (atlas). <br> 2. Składa go z pojedynczych sprite’ów pobranych z <code class="docutils literal notranslate"><span class="pre">g_sprites</span></code>. <br> 3. Tworzy z niego obiekt <code class="docutils literal notranslate"><span class="pre">Texture</span></code> i przechowuje go w pamięci podręcznej. <br> 4. Zapisuje również prostokąty (<code class="docutils literal notranslate"><span class="pre">Rect</span></code>) i przesunięcia dla każdej klatki na tej teksturze.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unload()</span></code></p></td>
 <td><p>Zwalnia wygenerowane tekstury z pamięci, aby oszczędzać zasoby. Są one ponownie generowane przy następnym użyciu.</p></td>
@@ -5249,7 +5356,7 @@
 <td><p>Czyści wszystkie dane z wykresu.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">addValue(int</span> <span class="pre">value,</span> <span class="pre">...)</span></code></p></td>
-<td><p>Dodaje nową wartość do kolejki <code class="docutils literal notranslate"><span class="pre">m_values</span></code>. Jeśli kolejka przekroczy pojemność (<code class="docutils literal notranslate"><span class="pre">m_capacity</span></code>), najstarsza wartość jest usuwana. Opcjonalnie ignoruje małe, powtarzające się wartości, aby uniknąć „szumu” na wykresie.</p></td>
+<td><p>Dodaje nową wartość do kolejki <code class="docutils literal notranslate"><span class="pre">m_values</span></code>. Jeśli kolejka przekroczy pojemność (<code class="docutils literal notranslate"><span class="pre">m_capacity</span></code>), najstarsza wartość jest usuwana. Opcjonalnie ignoruje małe, powtarzające się wartości, aby uniknąć “szumu” na wykresie.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onStyleApply(...)</span></code></p></td>
 <td><p>Parsuje niestandardowe atrybuty z OTML, takie jak <code class="docutils literal notranslate"><span class="pre">line-width</span></code>, <code class="docutils literal notranslate"><span class="pre">capacity</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code>.</p></td>
@@ -5278,7 +5385,7 @@
 </section>
 <section id="id322">
 <h1>Opis<a class="headerlink" href="#id322" title="Link to this heading">#</a></h1>
-<p>Dziedziczy po <code class="docutils literal notranslate"><span class="pre">UIWidget</span></code>. Działa jako „okno” na świat gry, wykorzystując <code class="docutils literal notranslate"><span class="pre">MapView</span></code> do faktycznego renderowania. Umożliwia interakcję z mapą, taką jak przesuwanie, przybliżanie i pobieranie informacji o tym, co znajduje się pod kursorem.</p>
+<p>Dziedziczy po <code class="docutils literal notranslate"><span class="pre">UIWidget</span></code>. Działa jako “okno” na świat gry, wykorzystując <code class="docutils literal notranslate"><span class="pre">MapView</span></code> do faktycznego renderowania. Umożliwia interakcję z mapą, taką jak przesuwanie, przybliżanie i pobieranie informacji o tym, co znajduje się pod kursorem.</p>
 </section>
 <section id="id323">
 <h1>Metody<a class="headerlink" href="#id323" title="Link to this heading">#</a></h1>
@@ -5767,150 +5874,150 @@
 <li><p><a class="reference internal" href="#-klasa-animatedtext"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">AnimatedText</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-housesh"><span class="xref myst">📄 houses.h</span></a></p>
+<li><p><a class="reference internal" href="#houses-h">📄 houses.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-house"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">House</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-housemanager"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">HouseManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-animatedtexth"><span class="xref myst">📄 animatedtext.h</span></a></p>
+<li><p><a class="reference internal" href="#animatedtext-h">📄 animatedtext.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-animatedtext-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">AnimatedText</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-animatorh"><span class="xref myst">📄 animator.h</span></a></p>
+<li><p><a class="reference internal" href="#animator-h">📄 animator.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-animator"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Animator</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-animatorcpp"><span class="xref myst">📄 animator.cpp</span></a></p>
+<li><p><a class="reference internal" href="#animator-cpp">📄 animator.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-animator-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Animator</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-clientcpp"><span class="xref myst">📄 client.cpp</span></a></p>
+<li><p><a class="reference internal" href="#client-cpp">📄 client.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-client"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Client</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-clienth"><span class="xref myst">📄 client.h</span></a></p>
+<li><p><a class="reference internal" href="#client-h">📄 client.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-client-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Client</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-cmakeliststxt"><span class="xref myst">📄 CMakeLists.txt</span></a></p></li>
-<li><p><a class="reference internal" href="#-consth"><span class="xref myst">📄 const.h</span></a></p>
+<li><p><a class="reference internal" href="#cmakelists-txt">📄 CMakeLists.txt</a></p></li>
+<li><p><a class="reference internal" href="#const-h">📄 const.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-namespace-otc"><span class="xref myst">Namespace <code class="docutils literal notranslate"><span class="pre">Otc</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-containercpp"><span class="xref myst">📄 container.cpp</span></a></p>
+<li><p><a class="reference internal" href="#container-cpp">📄 container.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-container"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Container</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-creaturecpp"><span class="xref myst">📄 creature.cpp</span></a></p>
+<li><p><a class="reference internal" href="#creature-cpp">📄 creature.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-creature"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Creature</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-containerh"><span class="xref myst">📄 container.h</span></a></p>
+<li><p><a class="reference internal" href="#container-h">📄 container.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-container-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Container</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-creatureh"><span class="xref myst">📄 creature.h</span></a></p>
+<li><p><a class="reference internal" href="#creature-h">📄 creature.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-creature-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Creature</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-npc"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Npc</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-monster"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Monster</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-creaturesh"><span class="xref myst">📄 creatures.h</span></a></p>
+<li><p><a class="reference internal" href="#creatures-h">📄 creatures.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-spawn"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Spawn</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-creaturetype"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">CreatureType</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-creaturemanager"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">CreatureManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-declarationsh"><span class="xref myst">📄 declarations.h</span></a></p></li>
-<li><p><a class="reference internal" href="#-creaturescpp"><span class="xref myst">📄 creatures.cpp</span></a></p>
+<li><p><a class="reference internal" href="#declarations-h">📄 declarations.h</a></p></li>
+<li><p><a class="reference internal" href="#creatures-cpp">📄 creatures.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-spawn-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Spawn</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-creaturetype-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">CreatureType</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-creaturemanager-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">CreatureManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-effectcpp"><span class="xref myst">📄 effect.cpp</span></a></p>
+<li><p><a class="reference internal" href="#effect-cpp">📄 effect.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-effect"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Effect</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-globalh"><span class="xref myst">📄 global.h</span></a></p></li>
-<li><p><a class="reference internal" href="#-effecth"><span class="xref myst">📄 effect.h</span></a></p>
+<li><p><a class="reference internal" href="#global-h">📄 global.h</a></p></li>
+<li><p><a class="reference internal" href="#effect-h">📄 effect.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-effect-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Effect</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-healthbarscpp"><span class="xref myst">📄 healthbars.cpp</span></a></p>
+<li><p><a class="reference internal" href="#healthbars-cpp">📄 healthbars.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-healthbars"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">HealthBars</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-healthbar"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">HealthBar</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-gameh"><span class="xref myst">📄 game.h</span></a></p>
+<li><p><a class="reference internal" href="#game-h">📄 game.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-game"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Game</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-healthbarsh"><span class="xref myst">📄 healthbars.h</span></a></p>
+<li><p><a class="reference internal" href="#healthbars-h">📄 healthbars.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-healthbar-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">HealthBar</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-healthbars-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">HealthBars</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-housescpp"><span class="xref myst">📄 houses.cpp</span></a></p>
+<li><p><a class="reference internal" href="#houses-cpp">📄 houses.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-house-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">House</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-housemanager-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">HouseManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-itemcpp"><span class="xref myst">📄 item.cpp</span></a></p>
+<li><p><a class="reference internal" href="#item-cpp">📄 item.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-item"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Item</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-itemtypecpp"><span class="xref myst">📄 itemtype.cpp</span></a></p>
+<li><p><a class="reference internal" href="#itemtype-cpp">📄 itemtype.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-itemtype"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ItemType</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-itemh"><span class="xref myst">📄 item.h</span></a></p>
+<li><p><a class="reference internal" href="#item-h">📄 item.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-item-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Item</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-itemtypeh"><span class="xref myst">📄 itemtype.h</span></a></p>
+<li><p><a class="reference internal" href="#itemtype-h">📄 itemtype.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-itemtype-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ItemType</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-lightviewcpp"><span class="xref myst">📄 lightview.cpp</span></a></p>
+<li><p><a class="reference internal" href="#lightview-cpp">📄 lightview.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-lightview"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">LightView</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-lightviewh"><span class="xref myst">📄 lightview.h</span></a></p>
+<li><p><a class="reference internal" href="#lightview-h">📄 lightview.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-lightview-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">LightView</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-localplayercpp"><span class="xref myst">📄 localplayer.cpp</span></a></p>
+<li><p><a class="reference internal" href="#localplayer-cpp">📄 localplayer.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-localplayer"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-mapcpp"><span class="xref myst">📄 map.cpp</span></a></p>
+<li><p><a class="reference internal" href="#map-cpp">📄 map.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-map"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Map</span></code></span></a></p></li>
 </ul>
@@ -5920,190 +6027,190 @@
 <li><p><a class="reference internal" href="#-klasa-map-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Map</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-luavaluecasts_clienth"><span class="xref myst">📄 luavaluecasts_client.h</span></a></p></li>
-<li><p><a class="reference internal" href="#-mapiocpp"><span class="xref myst">📄 mapio.cpp</span></a></p>
+<li><p><a class="reference internal" href="#luavaluecasts-client-h">📄 luavaluecasts_client.h</a></p></li>
+<li><p><a class="reference internal" href="#mapio-cpp">📄 mapio.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-map-2"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Map</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-luavaluecasts_clientcpp"><span class="xref myst">📄 luavaluecasts_client.cpp</span></a></p></li>
-<li><p><a class="reference internal" href="#-mapviewcpp"><span class="xref myst">📄 mapview.cpp</span></a></p>
+<li><p><a class="reference internal" href="#luavaluecasts-client-cpp">📄 luavaluecasts_client.cpp</a></p></li>
+<li><p><a class="reference internal" href="#mapview-cpp">📄 mapview.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-mapview"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">MapView</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-mapviewh"><span class="xref myst">📄 mapview.h</span></a></p>
+<li><p><a class="reference internal" href="#mapview-h">📄 mapview.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-mapview-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">MapView</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-minimaph"><span class="xref myst">📄 minimap.h</span></a></p>
+<li><p><a class="reference internal" href="#minimap-h">📄 minimap.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-minimapblock"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">MinimapBlock</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-minimap"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Minimap</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-missilecpp"><span class="xref myst">📄 missile.cpp</span></a></p>
+<li><p><a class="reference internal" href="#missile-cpp">📄 missile.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-missile"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Missile</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-missileh"><span class="xref myst">📄 missile.h</span></a></p>
+<li><p><a class="reference internal" href="#missile-h">📄 missile.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-missile-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Missile</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-outfitcpp"><span class="xref myst">📄 outfit.cpp</span></a></p>
+<li><p><a class="reference internal" href="#outfit-cpp">📄 outfit.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-outfit"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Outfit</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-outfith"><span class="xref myst">📄 outfit.h</span></a></p>
+<li><p><a class="reference internal" href="#outfit-h">📄 outfit.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-outfit-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Outfit</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-playercpp"><span class="xref myst">📄 player.cpp</span></a></p>
+<li><p><a class="reference internal" href="#player-cpp">📄 player.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-player"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Player</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-playerh"><span class="xref myst">📄 player.h</span></a></p>
+<li><p><a class="reference internal" href="#player-h">📄 player.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-player-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Player</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-protocolcodescpp"><span class="xref myst">📄 protocolcodes.cpp</span></a></p>
+<li><p><a class="reference internal" href="#protocolcodes-cpp">📄 protocolcodes.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-namespace-proto"><span class="xref myst">Namespace <code class="docutils literal notranslate"><span class="pre">Proto</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-minimapcpp"><span class="xref myst">📄 minimap.cpp</span></a></p>
+<li><p><a class="reference internal" href="#minimap-cpp">📄 minimap.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-minimapblock-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">MinimapBlock</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-minimap-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Minimap</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-positionh"><span class="xref myst">📄 position.h</span></a></p>
+<li><p><a class="reference internal" href="#position-h">📄 position.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-struktura-position"><span class="xref myst">Struktura <code class="docutils literal notranslate"><span class="pre">Position</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-struktura-positionhasher"><span class="xref myst">Struktura <code class="docutils literal notranslate"><span class="pre">PositionHasher</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-protocolcodesh"><span class="xref myst">📄 protocolcodes.h</span></a></p>
+<li><p><a class="reference internal" href="#protocolcodes-h">📄 protocolcodes.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-namespace-proto-1"><span class="xref myst">Namespace <code class="docutils literal notranslate"><span class="pre">Proto</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-protocolgamecpp"><span class="xref myst">📄 protocolgame.cpp</span></a></p>
+<li><p><a class="reference internal" href="#protocolgame-cpp">📄 protocolgame.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-protocolgame"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ProtocolGame</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-protocolgameh"><span class="xref myst">📄 protocolgame.h</span></a></p>
+<li><p><a class="reference internal" href="#protocolgame-h">📄 protocolgame.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-protocolgame-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ProtocolGame</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-spritemanagercpp"><span class="xref myst">📄 spritemanager.cpp</span></a></p>
+<li><p><a class="reference internal" href="#spritemanager-cpp">📄 spritemanager.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-spritemanager"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">SpriteManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-protocolgamesendcpp"><span class="xref myst">📄 protocolgamesend.cpp</span></a></p>
+<li><p><a class="reference internal" href="#protocolgamesend-cpp">📄 protocolgamesend.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-protocolgame-2"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ProtocolGame</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-localplayerh"><span class="xref myst">📄 localplayer.h</span></a></p>
+<li><p><a class="reference internal" href="#localplayer-h">📄 localplayer.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-localplayer-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">LocalPlayer</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-townscpp"><span class="xref myst">📄 towns.cpp</span></a></p>
+<li><p><a class="reference internal" href="#towns-cpp">📄 towns.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-town"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Town</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-townmanager"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">TownManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-spritemanagerh"><span class="xref myst">📄 spritemanager.h</span></a></p>
+<li><p><a class="reference internal" href="#spritemanager-h">📄 spritemanager.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-spritemanager-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">SpriteManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-tilecpp"><span class="xref myst">📄 tile.cpp</span></a></p>
+<li><p><a class="reference internal" href="#tile-cpp">📄 tile.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-tile"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Tile</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-statictexth"><span class="xref myst">📄 statictext.h</span></a></p>
+<li><p><a class="reference internal" href="#statictext-h">📄 statictext.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-statictext"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">StaticText</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uimapanchorlayoutcpp"><span class="xref myst">📄 uimapanchorlayout.cpp</span></a></p>
+<li><p><a class="reference internal" href="#uimapanchorlayout-cpp">📄 uimapanchorlayout.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uipositionanchor"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIPositionAnchor</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-uimapanchorlayout"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIMapAnchorLayout</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-thingh"><span class="xref myst">📄 thing.h</span></a></p>
+<li><p><a class="reference internal" href="#thing-h">📄 thing.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-thing"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Thing</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uiitemh"><span class="xref myst">📄 uiitem.h</span></a></p>
+<li><p><a class="reference internal" href="#uiitem-h">📄 uiitem.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uiitem"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIItem</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-thingcpp"><span class="xref myst">📄 thing.cpp</span></a></p>
+<li><p><a class="reference internal" href="#thing-cpp">📄 thing.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-thing-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Thing</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uimapcpp"><span class="xref myst">📄 uimap.cpp</span></a></p>
+<li><p><a class="reference internal" href="#uimap-cpp">📄 uimap.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uimap"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIMap</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-thingstypeh"><span class="xref myst">📄 thingstype.h</span></a></p>
+<li><p><a class="reference internal" href="#thingstype-h">📄 thingstype.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-thingstype"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ThingsType</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uigraphh"><span class="xref myst">📄 uigraph.h</span></a></p>
+<li><p><a class="reference internal" href="#uigraph-h">📄 uigraph.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uigraph"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIGraph</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uicreatureh"><span class="xref myst">📄 uicreature.h</span></a></p>
+<li><p><a class="reference internal" href="#uicreature-h">📄 uicreature.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uicreature"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UICreature</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-thingtypecpp"><span class="xref myst">📄 thingtype.cpp</span></a></p>
+<li><p><a class="reference internal" href="#thingtype-cpp">📄 thingtype.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-thingtype"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ThingType</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-townsh"><span class="xref myst">📄 towns.h</span></a></p>
+<li><p><a class="reference internal" href="#towns-h">📄 towns.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-town-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Town</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-townmanager-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">TownManager</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-thingtypeh"><span class="xref myst">📄 thingtype.h</span></a></p>
+<li><p><a class="reference internal" href="#thingtype-h">📄 thingtype.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-thingtype-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ThingType</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uicreaturecpp"><span class="xref myst">📄 uicreature.cpp</span></a></p>
+<li><p><a class="reference internal" href="#uicreature-cpp">📄 uicreature.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uicreature-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UICreature</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-thingtypemanagerh"><span class="xref myst">📄 thingtypemanager.h</span></a></p>
+<li><p><a class="reference internal" href="#thingtypemanager-h">📄 thingtypemanager.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-thingtypemanager"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ThingTypeManager</span></code></span></a></p></li>
 </ul>
@@ -6118,7 +6225,7 @@
 <li><p><a class="reference internal" href="#-klasa-tile-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Tile</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uimaph"><span class="xref myst">📄 uimap.h</span></a></p>
+<li><p><a class="reference internal" href="#uimap-h">📄 uimap.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uimap-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIMap</span></code></span></a></p></li>
 </ul>
@@ -6128,18 +6235,18 @@
 <li><p><a class="reference internal" href="#-klasa-uiminimap"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIMinimap</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uiprogressrectcpp"><span class="xref myst">📄 uiprogressrect.cpp</span></a></p>
+<li><p><a class="reference internal" href="#uiprogressrect-cpp">📄 uiprogressrect.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uiprogressrect"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIProgressRect</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uimapanchorlayouth"><span class="xref myst">📄 uimapanchorlayout.h</span></a></p>
+<li><p><a class="reference internal" href="#uimapanchorlayout-h">📄 uimapanchorlayout.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uipositionanchor-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIPositionAnchor</span></code></span></a></p></li>
 <li><p><a class="reference internal" href="#-klasa-uimapanchorlayout-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIMapAnchorLayout</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uiminimaph"><span class="xref myst">📄 uiminimap.h</span></a></p>
+<li><p><a class="reference internal" href="#uiminimap-h">📄 uiminimap.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uiminimap-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIMinimap</span></code></span></a></p></li>
 </ul>
@@ -6149,27 +6256,27 @@
 <li><p><a class="reference internal" href="#-klasa-game-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">Game</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uiprogressrecth"><span class="xref myst">📄 uiprogressrect.h</span></a></p>
+<li><p><a class="reference internal" href="#uiprogressrect-h">📄 uiprogressrect.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uiprogressrect-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UIProgressRect</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uispritecpp"><span class="xref myst">📄 uisprite.cpp</span></a></p>
+<li><p><a class="reference internal" href="#uisprite-cpp">📄 uisprite.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uisprite"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UISprite</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-uispriteh"><span class="xref myst">📄 uisprite.h</span></a></p>
+<li><p><a class="reference internal" href="#uisprite-h">📄 uisprite.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-uisprite-1"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">UISprite</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-walkmatrixh"><span class="xref myst">📄 walkmatrix.h</span></a></p>
+<li><p><a class="reference internal" href="#walkmatrix-h">📄 walkmatrix.h</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-walkmatrix"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">WalkMatrix</span></code></span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#-protocolgameparsecpp"><span class="xref myst">📄 protocolgameparse.cpp</span></a></p>
+<li><p><a class="reference internal" href="#protocolgameparse-cpp">📄 protocolgameparse.cpp</a></p>
 <ul>
 <li><p><a class="reference internal" href="#-klasa-protocolgame-3"><span class="xref myst">Klasa <code class="docutils literal notranslate"><span class="pre">ProtocolGame</span></code></span></a></p></li>
 </ul>
@@ -6512,7 +6619,7 @@
 <p><strong>Opis zależności:</strong></p>
 <ul class="simple">
 <li><p><strong>Client</strong> jest punktem startowym, który inicjalizuje wszystkie główne moduły (<code class="docutils literal notranslate"><span class="pre">Game</span></code>, <code class="docutils literal notranslate"><span class="pre">Map</span></code>, <code class="docutils literal notranslate"><span class="pre">ThingTypeManager</span></code>).</p></li>
-<li><p><strong>Game</strong> jest centralnym „mózgiem” aplikacji, zarządzającym stanem gry, lokalnym graczem i komunikacją sieciową poprzez <code class="docutils literal notranslate"><span class="pre">ProtocolGame</span></code>.</p></li>
+<li><p><strong>Game</strong> jest centralnym “mózgiem” aplikacji, zarządzającym stanem gry, lokalnym graczem i komunikacją sieciową poprzez <code class="docutils literal notranslate"><span class="pre">ProtocolGame</span></code>.</p></li>
 <li><p><strong>ProtocolGame</strong> jest odpowiedzialny za serializację i deserializację danych przesyłanych do i z serwera. Aktualizuje stan <code class="docutils literal notranslate"><span class="pre">Game</span></code> na podstawie otrzymanych pakietów.</p></li>
 <li><p><strong>Map</strong> przechowuje wszystkie dane o świecie gry, w tym <code class="docutils literal notranslate"><span class="pre">Tile</span></code> (pola) i <code class="docutils literal notranslate"><span class="pre">Thing</span></code> (obiekty).</p></li>
 <li><p><strong>MapView</strong> jest odpowiedzialny za renderowanie danych z <code class="docutils literal notranslate"><span class="pre">Map</span></code> na ekranie. Jest to warstwa wizualizacyjna dla danych mapy.</p></li>
@@ -7144,10 +7251,10 @@
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
-    <h3>Ta strona</h3>
+    <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../_sources/architektura/src_client.md.txt"
-            rel="nofollow">Pokaż źródło</a></li>
+            rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>
 
@@ -7171,6 +7278,16 @@
 <div class="bd-footer__inner bd-page-width">
   
     <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTClientV8 Team.
+      <br/>
+    
+  </p>
+</div>
       
         <div class="footer-item">
 

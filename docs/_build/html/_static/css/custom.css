@@ -1,6 +1,10 @@
-
-.only-dark { display: none; }
-html[data-theme="dark"] .only-dark { display: initial; }
-html[data-theme="dark"] .only-light { display: none; }
-.highlight pre { white-space: pre-wrap; }
-.admonition { border-radius: 0.6rem; }
+/* Dark-mode mermaid arrows and nodes */
+:root[data-theme="dark"] .mermaid .edgeLabel, 
+:root[data-theme="dark"] .mermaid .label { color: #e6e6e6; }
+:root[data-theme="dark"] .mermaid .edgePath .path { stroke: #b8b8b8; }
+:root[data-theme="dark"] .mermaid .node rect,
+:root[data-theme="dark"] .mermaid .node circle {
+  stroke: #b8b8b8; fill: #222;
+}
+/* Table overflow wrapper */
+.otc-table { overflow-x: auto; }

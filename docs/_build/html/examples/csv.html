@@ -2,13 +2,19 @@
 <!DOCTYPE html>
 
 
-<html lang="pl" data-content_root="../" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="CSV / Tabele / Snippety" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/examples/csv.html" />
+<meta property="og:site_name" content="OTClientV8" />
+<meta property="og:description" content="Przykładowa tabela w czystym Markdown:,,, Klucz, Wartość, Opis,,, module.id, skills.combo, Identyfikator modułu,, enabled, true/false, Flaga włączenia,, cooldown_ms, 250, Czas odnowienia w miliseku..." />
+<meta name="description" content="Przykładowa tabela w czystym Markdown:,,, Klucz, Wartość, Opis,,, module.id, skills.combo, Identyfikator modułu,, enabled, true/false, Flaga włączenia,, cooldown_ms, 250, Czas odnowienia w miliseku..." />
 
-    <title>Przykłady: CSV → tabele &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>CSV / Tabele / Snippety &#8212; OTClientV8 Docs</title>
   
   
   
@@ -32,9 +38,18 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom-dark-mermaid.css?v=41a4be34" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,20 +57,26 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/translations.js?v=da4973ce"></script>
+    <script src="../_static/copybutton.js?v=60c6efc8"></script>
+    <script src="../_static/js/hoverxref.js"></script>
+    <script src="../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../_static/js/micromodal.min.js"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/csv';</script>
-    <link rel="icon" href="../_static/logo-light.svg"/>
-    <link rel="index" title="Indeks" href="../genindex.html" />
-    <link rel="search" title="Szukaj" href="../search.html" />
+    <script src="../_static/custom.js?v=11ee1396"></script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/examples/csv.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="pl"/>
-  <meta name="docsearch:version" content="0.1" />
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -116,14 +137,8 @@
   
   
   
-    
-    
-      
-    
-    
-    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
-    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
   
+    <p class="title logo__title">OTClientV8</p>
   
 </a></div>
     
@@ -137,6 +152,57 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -148,9 +214,9 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
@@ -175,7 +241,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -187,9 +253,9 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
@@ -228,6 +294,47 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -257,7 +364,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -301,7 +408,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Przykłady: CSV → tabele</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">CSV / Tabele / Snippety</span></li>
   </ul>
 </nav>
 </div>
@@ -318,180 +425,45 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="przyklady-csv-tabele">
-<h1>Przykłady: CSV → tabele<a class="headerlink" href="#przyklady-csv-tabele" title="Link to this heading">#</a></h1>
-<section id="integracja-danych-csv">
-<span id="csv-overview"></span><h2>Integracja danych CSV<a class="headerlink" href="#integracja-danych-csv" title="Link to this heading">#</a></h2>
-<p>Dokumentacja OTClientV8 wspiera bezpośrednią integrację plików CSV, które są automatycznie renderowane jako tabele HTML.</p>
-</section>
-<section id="zaleznosci-modulow">
-<span id="csv-module-dependencies"></span><h2>Zależności modułów<a class="headerlink" href="#zaleznosci-modulow" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table" id="id1">
-<caption><span class="caption-text">Zależności między modułami</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 30.0%" />
-<col style="width: 70.0%" />
-</colgroup>
+  <section id="csv-tabele-snippety">
+<h1>CSV / Tabele / Snippety<a class="headerlink" href="#csv-tabele-snippety" title="Link to this heading">#</a></h1>
+<p>Przykładowa tabela w czystym Markdown:</p>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Moduł</p></th>
-<th class="head"><p>Zależy od</p></th>
+<tr class="row-odd"><th class="head"><p>Klucz</p></th>
+<th class="head"><p>Wartość</p></th>
+<th class="head"><p>Opis</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>module</p></td>
-<td><p>depends_on</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">module.id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">skills.combo</span></code></p></td>
+<td><p>Identyfikator modułu</p></td>
 </tr>
-<tr class="row-odd"><td><p>core</p></td>
-<td></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enabled</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true/false</span></code></p></td>
+<td><p>Flaga włączenia</p></td>
 </tr>
-<tr class="row-even"><td><p>events</p></td>
-<td><p>core</p></td>
-</tr>
-<tr class="row-odd"><td><p>modules</p></td>
-<td><p>core</p></td>
-</tr>
-<tr class="row-even"><td><p>audio</p></td>
-<td><p>modules</p></td>
-</tr>
-<tr class="row-odd"><td><p>logging</p></td>
-<td><p>modules</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cooldown_ms</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">250</span></code></p></td>
+<td><p>Czas odnowienia w milisekundach</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</section>
-<section id="statystyki-zdarzen">
-<span id="csv-events-stats"></span><h2>Statystyki zdarzeń<a class="headerlink" href="#statystyki-zdarzen" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table" id="id2">
-<caption><span class="caption-text">Zdarzenia systemowe</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 40.0%" />
-<col style="width: 20.0%" />
-<col style="width: 20.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Event Name</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Frequency</p></th>
-<th class="head"><p>Priority</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Event Name</p></td>
-<td><p>Description</p></td>
-<td><p>Frequency</p></td>
-<td><p>Priority</p></td>
-</tr>
-<tr class="row-odd"><td><p>onGameStart</p></td>
-<td><p>Fired when game session starts</p></td>
-<td><p>Once per session</p></td>
-<td><p>High</p></td>
-</tr>
-<tr class="row-even"><td><p>onGameEnd</p></td>
-<td><p>Fired when game session ends</p></td>
-<td><p>Once per session</p></td>
-<td><p>High</p></td>
-</tr>
-<tr class="row-odd"><td><p>onLogin</p></td>
-<td><p>Fired when player successfully logs in</p></td>
-<td><p>Once per login</p></td>
-<td><p>High</p></td>
-</tr>
-<tr class="row-even"><td><p>onLogout</p></td>
-<td><p>Fired when player logs out</p></td>
-<td><p>Once per logout</p></td>
-<td><p>Medium</p></td>
-</tr>
-<tr class="row-odd"><td><p>onTextMessage</p></td>
-<td><p>Fired when text message received</p></td>
-<td><p>Multiple per second</p></td>
-<td><p>Low</p></td>
-</tr>
-<tr class="row-even"><td><p>onCreatureAppear</p></td>
-<td><p>Fired when creature enters viewport</p></td>
-<td><p>Frequent</p></td>
-<td><p>Medium</p></td>
-</tr>
-<tr class="row-odd"><td><p>onCreatureDisappear</p></td>
-<td><p>Fired when creature leaves viewport</p></td>
-<td><p>Frequent</p></td>
-<td><p>Medium</p></td>
-</tr>
-<tr class="row-even"><td><p>onHealthChange</p></td>
-<td><p>Fired when player health changes</p></td>
-<td><p>Variable</p></td>
-<td><p>High</p></td>
-</tr>
-<tr class="row-odd"><td><p>onManaChange</p></td>
-<td><p>Fired when player mana changes</p></td>
-<td><p>Variable</p></td>
-<td><p>High</p></td>
-</tr>
-<tr class="row-even"><td><p>onPositionChange</p></td>
-<td><p>Fired when player position changes</p></td>
-<td><p>Frequent</p></td>
-<td><p>Medium</p></td>
-</tr>
-</tbody>
-</table>
+<p>Przykładowy fragment CSV (do analizy poza dokumentacją):</p>
+<div class="highlight-csv notranslate"><div class="highlight"><pre><span></span>id,name,enabled,cooldown_ms
+1,skills.combo,true,250
+2,skills.heal,false,0
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream
+=======
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes
+</pre></div>
 </div>
-</section>
-<section id="rozklad-typow-modulow">
-<span id="csv-module-stats"></span><h2>Rozkład typów modułów<a class="headerlink" href="#rozklad-typow-modulow" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table" id="id3">
-<caption><span class="caption-text">Statystyki modułów według typu</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 15.0%" />
-<col style="width: 50.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Module Type</p></th>
-<th class="head"><p>Count</p></th>
-<th class="head"><p>Percentage</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Module Type</p></td>
-<td><p>Count</p></td>
-<td><p>Percentage</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="row-odd"><td><p>Core</p></td>
-<td><p>5</p></td>
-<td><p>10%</p></td>
-<td><p>Core system modules</p></td>
-</tr>
-<tr class="row-even"><td><p>Game</p></td>
-<td><p>15</p></td>
-<td><p>30%</p></td>
-<td><p>Game mechanics modules</p></td>
-</tr>
-<tr class="row-odd"><td><p>UI</p></td>
-<td><p>20</p></td>
-<td><p>40%</p></td>
-<td><p>User interface modules</p></td>
-</tr>
-<tr class="row-even"><td><p>Bot</p></td>
-<td><p>8</p></td>
-<td><p>16%</p></td>
-<td><p>Bot and automation modules</p></td>
-</tr>
-<tr class="row-odd"><td><p>Utility</p></td>
-<td><p>2</p></td>
-<td><p>4%</p></td>
-<td><p>Utility and helper modules</p></td>
-</tr>
-</tbody>
-</table>
+<div class="note docutils">
+<p>Pliki CSV są przechowywane w <code class="docutils literal notranslate"><span class="pre">docs/assets/samples/</span></code> i mogą być łatwo aktualizowane bez modyfikacji dokumentacji.</p>
 </div>
-<p>:::note
-Pliki CSV są przechowywane w <code class="docutils literal notranslate"><span class="pre">docs/assets/samples/</span></code> i mogą być łatwo aktualizowane bez modyfikacji dokumentacji.
-:::</p>
-</section>
 <section id="jak-uzywac-csv-w-dokumentacji">
 <span id="csv-usage"></span><h2>Jak używać CSV w dokumentacji<a class="headerlink" href="#jak-uzywac-csv-w-dokumentacji" title="Link to this heading">#</a></h2>
 <p>Aby dodać tabelę CSV do dokumentacji, użyj dyrektywy <code class="docutils literal notranslate"><span class="pre">csv-table</span></code>:</p>
@@ -499,7 +471,9 @@ Pliki CSV są przechowywane w <code class="docutils literal notranslate"><span c
 :header: Kolumna1, Kolumna2
 :widths: 50, 50
 :file: ../assets/samples/your_file.csv
-:delim: ,
+<span class="gh">:delim: ,</span>
+<span class="gh">=======</span>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes
 ```
 </pre></div>
 </div>
@@ -553,10 +527,6 @@ Pliki CSV są przechowywane w <code class="docutils literal notranslate"><span c
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integracja-danych-csv">Integracja danych CSV</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zaleznosci-modulow">Zależności modułów</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statystyki-zdarzen">Statystyki zdarzeń</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rozklad-typow-modulow">Rozkład typów modułów</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jak-uzywac-csv-w-dokumentacji">Jak używać CSV w dokumentacji</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dobre-praktyki">Dobre praktyki</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zobacz-tez">Zobacz też</a></li>
@@ -565,10 +535,10 @@ Pliki CSV są przechowywane w <code class="docutils literal notranslate"><span c
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
-    <h3>Ta strona</h3>
+    <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../_sources/examples/csv.md.txt"
-            rel="nofollow">Pokaż źródło</a></li>
+            rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>
 
@@ -592,6 +562,16 @@ Pliki CSV są przechowywane w <code class="docutils literal notranslate"><span c
 <div class="bd-footer__inner bd-page-width">
   
     <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTClientV8 Team.
+      <br/>
+    
+  </p>
+</div>
       
         <div class="footer-item">
 

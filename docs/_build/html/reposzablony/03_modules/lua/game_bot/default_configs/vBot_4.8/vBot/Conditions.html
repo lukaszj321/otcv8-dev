@@ -2,13 +2,19 @@
 <!DOCTYPE html>
 
 
-<html lang="pl" data-content_root="../../../../../../../" >
+<html lang="en" data-content_root="../../../../../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="game_bot/default_configs/vBot_4.8/vBot/Conditions.lua" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/Conditions.html" />
+<meta property="og:site_name" content="OTClientV8" />
+<meta property="og:description" content="Overview: Moduł Lua zawierający funkcje i logikę dla Conditions. Globals/Exports: Conditions: Functions: ui.title.onClick(widget): Parametry: widget. ui.conditionList.onClick(widget): Parametry: wi..." />
+<meta name="description" content="Overview: Moduł Lua zawierający funkcje i logikę dla Conditions. Globals/Exports: Conditions: Functions: ui.title.onClick(widget): Parametry: widget. ui.conditionList.onClick(widget): Parametry: wi..." />
 
-    <title>game_bot/default_configs/vBot_4.8/vBot/Conditions.lua &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>game_bot/default_configs/vBot_4.8/vBot/Conditions.lua &#8212; OTClientV8 Docs</title>
   
   
   
@@ -32,9 +38,18 @@
 
     <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/micromodal.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/custom-dark-mermaid.css?v=41a4be34" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,20 +57,26 @@
   <link rel="preload" as="script" href="../../../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../../../../../_static/documentation_options.js?v=c0495948"></script>
+    <script src="../../../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../../../../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../../../../../_static/translations.js?v=da4973ce"></script>
+    <script src="../../../../../../../_static/copybutton.js?v=60c6efc8"></script>
+    <script src="../../../../../../../_static/js/hoverxref.js"></script>
+    <script src="../../../../../../../_static/js/tooltipster.bundle.min.js"></script>
+    <script src="../../../../../../../_static/js/micromodal.min.js"></script>
     <script src="../../../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/Conditions';</script>
-    <link rel="icon" href="../../../../../../../_static/logo-light.svg"/>
-    <link rel="index" title="Indeks" href="../../../../../../../genindex.html" />
-    <link rel="search" title="Szukaj" href="../../../../../../../search.html" />
+    <script src="../../../../../../../_static/custom.js?v=11ee1396"></script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/Conditions.html" />
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="pl"/>
-  <meta name="docsearch:version" content="0.1" />
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -116,14 +137,8 @@
   
   
   
-    
-    
-      
-    
-    
-    <img src="../../../../../../../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
-    <img src="../../../../../../../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
   
+    <p class="title logo__title">OTClientV8</p>
   
 </a></div>
     
@@ -137,6 +152,57 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../../../../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -148,9 +214,9 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
@@ -175,7 +241,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -187,9 +253,9 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
@@ -228,6 +294,47 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../../../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -257,7 +364,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -713,10 +820,10 @@
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
-    <h3>Ta strona</h3>
+    <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../../../../../../../_sources/reposzablony/03_modules/lua/game_bot/default_configs/vBot_4.8/vBot/Conditions.md.txt"
-            rel="nofollow">Pokaż źródło</a></li>
+            rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>
 
@@ -740,6 +847,16 @@
 <div class="bd-footer__inner bd-page-width">
   
     <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTClientV8 Team.
+      <br/>
+    
+  </p>
+</div>
       
         <div class="footer-item">
 

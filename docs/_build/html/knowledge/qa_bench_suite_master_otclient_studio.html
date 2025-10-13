@@ -1,330 +1,271 @@
 
 <!DOCTYPE html>
 
-
-<html lang="pl" data-content_root="../" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>QA &amp; Bench Suite (MASTER) – OTClient Studio &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
-  
-  
-  
-  <script data-cfasync="false">
+<html data-content_root="../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="QA &amp; Bench Suite (MASTER) – OTClient Studio" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://lukaszj321.github.io/otcv8-dev/knowledge/qa_bench_suite_master_otclient_studio.html" property="og:url"/>
+<meta content="OTClientV8" property="og:site_name"/>
+<meta content="Cel: kompletna, wykonywalna specyfikacja testów jakości i benchmarków dla Studio React/Electron tworzącego skrypty OTClient v8 + vBot. Dokument opisuje: matrycę testową, wektory testów, E2E (Playwr..." property="og:description"/>
+<meta content="Cel: kompletna, wykonywalna specyfikacja testów jakości i benchmarków dla Studio React/Electron tworzącego skrypty OTClient v8 + vBot. Dokument opisuje: matrycę testową, wektory testów, E2E (Playwr..." name="description"/>
+<title>QA &amp; Bench Suite (MASTER) – OTClient Studio — OTClientV8 Docs</title>
+<script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
+<!--
     this give us a css class that will be invisible only if js is disabled
   -->
-  <noscript>
-    <style>
+<noscript>
+<style>
       .pst-js-only { display: none !important; }
 
     </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8aaba760" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="../_static/documentation_options.js?v=c0495948"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/translations.js?v=da4973ce"></script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/qa_bench_suite_master_otclient_studio';</script>
-    <link rel="icon" href="../_static/logo-light.svg"/>
-    <link rel="index" title="Indeks" href="../genindex.html" />
-    <link rel="search" title="Szukaj" href="../search.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="pl"/>
-  <meta name="docsearch:version" content="0.1" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</noscript>
+<!-- Loaded before other Sphinx assets -->
+<link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../_static/pygments.css?v=a746c00c" rel="stylesheet" type="text/css"/>
+<link href="../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../_static/sphinx-codeautolink.css?v=b2176991" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster.custom.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster.bundle.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-shadow.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-punk.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-noir.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-light.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/tooltipster-sideTip-borderless.min.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/micromodal.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../_static/custom.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/custom-dark-mermaid.css?v=41a4be34" rel="stylesheet" type="text/css"/>
+<!-- So that users can add custom icons -->
+<script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<link as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<script src="../_static/jquery.js?v=5d32c60e"></script>
+<script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+<script src="../_static/documentation_options.js?v=5929fcd5"></script>
+<script src="../_static/doctools.js?v=9a2dae69"></script>
+<script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../_static/copybutton.js?v=60c6efc8"></script>
+<script src="../_static/js/hoverxref.js"></script>
+<script src="../_static/js/tooltipster.bundle.min.js"></script>
+<script src="../_static/js/micromodal.min.js"></script>
+<script src="../_static/design-tabs.js?v=f930bc37"></script>
+<script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'knowledge/qa_bench_suite_master_otclient_studio';</script>
+<script src="../_static/custom.js?v=11ee1396"></script>
+<link href="https://lukaszj321.github.io/otcv8-dev/knowledge/qa_bench_suite_master_otclient_studio.html" rel="canonical"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+<meta content="" name="docsearch:version"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<dialog id="pst-search-dialog">
+<form action="../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search the docs ..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" name="q" placeholder="Search the docs ..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</dialog>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
 </div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
-
-  
-    
-  
-
+<button aria-label="Site navigation" class="pst-navbar-icon sidebar-toggle primary-toggle">
+<span class="fa-solid fa-bars"></span>
+</button>
+<div class="col-lg-3 navbar-header-items__start">
+<div class="navbar-item">
 <a class="navbar-brand logo" href="../index.html">
-  
-  
-  
-  
-  
-    
-    
-      
-    
-    
-    <img src="../_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
-    <img src="../_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
-  
-  
+<p class="title logo__title">OTClientV8</p>
 </a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-        <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
-      
-        <div class="navbar-item"><ul class="navbar-icon-links"
-    aria-label="Icon Links">
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
-        </li>
-</ul></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-        
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
+<div class="col-lg-9 navbar-header-items">
+<div class="me-auto navbar-header-items__center">
+<div class="navbar-item">
 <nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-  </ul>
+<ul class="bd-navbar-elements navbar-nav">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../modules/index.html">
+    Moduły
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+<li class="nav-item dropdown">
+<button aria-controls="pst-nav-more-links" aria-expanded="false" class="btn dropdown-toggle nav-item" data-bs-toggle="dropdown" type="button">
+                    More
+                </button>
+<ul class="dropdown-menu" id="pst-nav-more-links">
+<li class="">
+<a class="nav-link dropdown-item nav-internal" href="../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+</ul>
+</li>
+</ul>
 </nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</div>
+<div class="navbar-header-items__end">
+<div class="navbar-item navbar-persistent--container">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+</div>
+<div class="navbar-item">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
 </button></div>
-        
-          <div class="navbar-item"><ul class="navbar-icon-links"
-    aria-label="Icon Links">
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
-        </li>
+<div class="navbar-item"><ul aria-label="Icon Links" class="navbar-icon-links">
+<li class="nav-item">
+<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/lukaszj321/otcv8-dev" rel="noopener" target="_blank" title="GitHub"><i aria-hidden="true" class="fa-brands fa-github fa-lg"></i>
+<span class="sr-only">GitHub</span></a>
+</li>
 </ul></div>
-        
-      </div>
-    
-  </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
+</div>
+</div>
+<div class="navbar-persistent--mobile">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+</div>
+<button aria-label="On this page" class="pst-navbar-icon sidebar-toggle secondary-toggle">
+<span class="fa-solid fa-outdent"></span>
+</button>
+</div>
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<dialog id="pst-primary-sidebar-modal"></dialog>
+<div class="bd-sidebar-primary bd-sidebar hide-on-wide" id="pst-primary-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+<div class="sidebar-header-items__center">
+<div class="navbar-item">
+<nav>
+<ul class="bd-navbar-elements navbar-nav">
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../modules/index.html">
+    Moduły
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+<li class="nav-item">
+<a class="nav-link nav-internal" href="../rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+</ul>
+</nav></div>
+</div>
+<div class="sidebar-header-items__end">
+<div class="navbar-item">
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+</button></div>
+<div class="navbar-item"><ul aria-label="Icon Links" class="navbar-icon-links">
+<li class="nav-item">
+<a class="nav-link pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/lukaszj321/otcv8-dev" rel="noopener" target="_blank" title="GitHub"><i aria-hidden="true" class="fa-brands fa-github fa-lg"></i>
+<span class="sr-only">GitHub</span></a>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+<div class="sidebar-primary-item">
+<div class="flat" data-ea-manual="true" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" id="ethical-ad-placement">
 </div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
+</div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item">
-
+<div class="header-article-items__start">
+<div class="header-article-item">
 <nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="../index.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">QA &amp; Bench Suite (MASTER) – <strong>OTClient Studio</strong></span></li>
-  </ul>
+<ul class="bd-breadcrumbs">
+<li class="breadcrumb-item breadcrumb-home">
+<a aria-label="Home" class="nav-link" href="../index.html">
+<i class="fa-solid fa-home"></i>
+</a>
+</li>
+<li aria-current="page" class="breadcrumb-item active"><span class="ellipsis">QA &amp; Bench Suite (MASTER) – <strong>OTClient Studio</strong></span></li>
+</ul>
 </nav>
 </div>
-      
-    </div>
-  
-  
 </div>
 </div>
-              
-              
-              
-                
+</div>
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
-  <section id="qa-bench-suite-master-otclient-studio">
+<article class="bd-article">
+<section id="qa-bench-suite-master-otclient-studio">
 <h1>QA &amp; Bench Suite (MASTER) – <strong>OTClient Studio</strong><a class="headerlink" href="#qa-bench-suite-master-otclient-studio" title="Link to this heading">#</a></h1>
 <blockquote>
 <div><p>Cel: kompletna, wykonywalna specyfikacja testów jakości i benchmarków dla <strong>Studio React/Electron</strong> tworzącego skrypty <strong>OTClient v8 + vBot</strong>. Dokument opisuje: matrycę testową, wektory testów, E2E (Playwright), benchmarki (perf/mem), stabilność/awarie, bezpieczeństwo, CI/CD, metryki oraz kryteria akceptacji. <strong>Transfer 1:1</strong> – gotowe do bezpośredniej implementacji.</p>
 </div></blockquote>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="zakres-i-zalozenia">
 <h1>0) Zakres i założenia<a class="headerlink" href="#zakres-i-zalozenia" title="Link to this heading">#</a></h1>
 <ul class="simple">
@@ -341,7 +282,7 @@
 </li>
 </ul>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="matryca-testowa-obszary-kategorie">
 <h1>1) Matryca testowa (obszary × kategorie)<a class="headerlink" href="#matryca-testowa-obszary-kategorie" title="Link to this heading">#</a></h1>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -391,7 +332,7 @@
 </table>
 </div>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="konwencje-nazw-i-identyfikatorow-testow">
 <h1>2) Konwencje nazw i identyfikatorów testów<a class="headerlink" href="#konwencje-nazw-i-identyfikatorow-testow" title="Link to this heading">#</a></h1>
 <ul class="simple">
@@ -399,7 +340,7 @@
 <li><p>Format ID: <code class="docutils literal notranslate"><span class="pre">XXX-###</span></code> (np. <code class="docutils literal notranslate"><span class="pre">PAR-011</span></code>).</p></li>
 </ul>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="zasoby-testowe-fixtures-struktura">
 <h1>3) Zasoby testowe (fixtures) – struktura<a class="headerlink" href="#zasoby-testowe-fixtures-struktura" title="Link to this heading">#</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>qa/
@@ -428,7 +369,7 @@
 </pre></div>
 </div>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="parsery-przypadki-i-kryteria">
 <h1>4) Parsery – przypadki i kryteria<a class="headerlink" href="#parsery-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
 <p><strong>PAR‑001 (OTUI proste):</strong> plik <code class="docutils literal notranslate"><span class="pre">main.otui</span></code> → AST zgodny ze schema <code class="docutils literal notranslate"><span class="pre">otui-ast.schema.json</span></code>; kategorie <code class="docutils literal notranslate"><span class="pre">id→BEHAVIOR</span></code>, <code class="docutils literal notranslate"><span class="pre">width→GEOMETRY</span></code>, <code class="docutils literal notranslate"><span class="pre">text→STYLE</span></code>.
@@ -437,10 +378,10 @@
 <strong>PAR‑010 (Lua funkcje/metody):</strong> deklaracje <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">M.a()</span></code> i <code class="docutils literal notranslate"><span class="pre">obj:method()</span></code> → poprawne węzły <code class="docutils literal notranslate"><span class="pre">FunctionDecl</span></code> i <code class="docutils literal notranslate"><span class="pre">CallExpr.method</span></code>.
 <strong>PAR‑011 (Lua relacje):</strong> <code class="docutils literal notranslate"><span class="pre">dofile('x.lua')</span></code>, <code class="docutils literal notranslate"><span class="pre">require('y')</span></code> → <code class="docutils literal notranslate"><span class="pre">relations.includes</span></code>.
 <strong>PAR‑012 (Lua→OTUI):</strong> <code class="docutils literal notranslate"><span class="pre">g_ui.loadUI('ui/main.otui')</span></code> → <code class="docutils literal notranslate"><span class="pre">relations.lua_to_otui</span></code>.
-<strong>PAR‑020 (Docstrings):</strong> <code class="docutils literal notranslate"><span class="pre">---&#64;param</span> <span class="pre">/</span> <span class="pre">&#64;return</span></code> → <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code>.
+<strong>PAR‑020 (Docstrings):</strong> <code class="docutils literal notranslate"><span class="pre">---@param</span> <span class="pre">/</span> <span class="pre">@return</span></code> → <code class="docutils literal notranslate"><span class="pre">docstrings.json</span></code>.
 <strong>Kryteria:</strong> walidacja JSON Schema (brak błędów), deterministyczne <code class="docutils literal notranslate"><span class="pre">loc</span></code>, brak crash.</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="lint-przypadki-i-kryteria">
 <h1>5) Lint – przypadki i kryteria<a class="headerlink" href="#lint-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
 <p><strong>LNT‑001 (kolejność pól):</strong> wymuś <code class="docutils literal notranslate"><span class="pre">GEOMETRY→STYLE→BEHAVIOR</span></code>, auto‑fix generuje spójny diff, idempotentny (drugie uruchomienie: 0 zmian).
@@ -452,7 +393,7 @@
 <strong>LNT‑011 (<code class="docutils literal notranslate"><span class="pre">unpack</span></code>):</strong> zamień na <code class="docutils literal notranslate"><span class="pre">table.unpack</span></code>.
 <strong>Kryteria:</strong> 100% wykrywalności dla zestawu wzorcowego; brak false‑positive dla plików poprawnych.</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="generator-przypadki-i-kryteria">
 <h1>6) Generator – przypadki i kryteria<a class="headerlink" href="#generator-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
 <p><strong>GEN‑001 (moduł default):</strong> wygeneruj <code class="docutils literal notranslate"><span class="pre">.otmod</span></code> + <code class="docutils literal notranslate"><span class="pre">hello.lua</span></code> + <code class="docutils literal notranslate"><span class="pre">ui/hello.otui</span></code>; skaner wykrywa pliki; lint OK.
@@ -460,7 +401,7 @@
 <strong>GEN‑010 (konflikt ścieżek):</strong> próba nadpisania istniejących plików → błąd z sugestią <code class="docutils literal notranslate"><span class="pre">--force</span></code> lub zmiany nazwy.
 <strong>Kryteria:</strong> pliki powstają atomowo (temp→rename), zawartość zgodna z template, lint = 0 ERROR.</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="ide-providers-przypadki-i-kryteria">
 <h1>7) IDE Providers – przypadki i kryteria<a class="headerlink" href="#ide-providers-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
 <p><strong>IDE‑COMP‑01 (Lua, API):</strong> prefiks <code class="docutils literal notranslate"><span class="pre">g_res</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code> → <code class="docutils literal notranslate"><span class="pre">g_resources.readFile</span></code> (score ≥ 0.9).
@@ -471,7 +412,7 @@
 <strong>IDE‑SYM‑01:</strong> symbole dokumentu (Lua/OTUI) – poprawne zakresy.
 <strong>Kryteria:</strong> czasy odpowiedzi zgodne z budżetem (§10), deterministyczny ranking.</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="integracja-z-otclient-przypadki-i-kryteria">
 <h1>8) Integracja z OTClient – przypadki i kryteria<a class="headerlink" href="#integracja-z-otclient-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
 <p><strong>INT‑001 (flaga reload):</strong> utwórz <code class="docutils literal notranslate"><span class="pre">modules/.dev/reload.flag</span></code> → <code class="docutils literal notranslate"><span class="pre">reload</span> <span class="pre">requested/done</span></code> w NDJSON.
@@ -480,7 +421,7 @@
 <strong>INT‑010 (brak katalogu .dev):</strong> moduł loguje do konsoli; brak crash.
 <strong>Kryteria:</strong> brak wyjątków, log zgodny ze schematem <code class="docutils literal notranslate"><span class="pre">log-line.schema.json</span></code>.</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="log-viewer-przypadki-i-kryteria">
 <h1>9) Log Viewer – przypadki i kryteria<a class="headerlink" href="#log-viewer-przypadki-i-kryteria" title="Link to this heading">#</a></h1>
 <p><strong>LOG‑001:</strong> tail żywego pliku (1000 linii/min) bez utraty wpisów.
@@ -488,7 +429,7 @@
 <strong>LOG‑003:</strong> eksport do <code class="docutils literal notranslate"><span class="pre">.ndjson</span></code> i <code class="docutils literal notranslate"><span class="pre">.txt</span></code> – zawartość zgodna z filtrem.
 <strong>Kryteria:</strong> stabilna praca &gt; 1h, zużycie RAM &lt; 200 MB.</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="benchmarki-wydajnosc-budzety-i-scenariusze">
 <h1>10) Benchmarki (wydajność) – budżety i scenariusze<a class="headerlink" href="#benchmarki-wydajnosc-budzety-i-scenariusze" title="Link to this heading">#</a></h1>
 <p><strong>BUDŻETY</strong> (zgodne z MASTER):</p>
@@ -508,12 +449,12 @@
 <li><p><strong>PERF‑LOG‑01:</strong> tail logu 30 min – brak wzrostu RAM.</p></li>
 </ul>
 <p><strong>Format wyników (NDJSON):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;bench&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-SCAN-01&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;timeMs&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="nt">&quot;meta&quot;</span><span class="p">:{</span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="mi">5000</span><span class="p">}}</span>
-<span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;bench&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-COMP-01&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;p95Ms&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mf">5.7</span><span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">"ts"</span><span class="p">:</span><span class="s2">"..."</span><span class="p">,</span><span class="nt">"bench"</span><span class="p">:</span><span class="s2">"PERF-SCAN-01"</span><span class="p">,</span><span class="nt">"metric"</span><span class="p">:</span><span class="s2">"timeMs"</span><span class="p">,</span><span class="nt">"value"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="nt">"meta"</span><span class="p">:{</span><span class="nt">"files"</span><span class="p">:</span><span class="mi">5000</span><span class="p">}}</span>
+<span class="p">{</span><span class="nt">"ts"</span><span class="p">:</span><span class="s2">"..."</span><span class="p">,</span><span class="nt">"bench"</span><span class="p">:</span><span class="s2">"PERF-COMP-01"</span><span class="p">,</span><span class="nt">"metric"</span><span class="p">:</span><span class="s2">"p95Ms"</span><span class="p">,</span><span class="nt">"value"</span><span class="p">:</span><span class="mf">5.7</span><span class="p">}</span>
 </pre></div>
 </div>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="stabilnosc-i-odpornosc-resilience">
 <h1>11) Stabilność i odporność (Resilience)<a class="headerlink" href="#stabilnosc-i-odpornosc-resilience" title="Link to this heading">#</a></h1>
 <p><strong>RES‑001 (przerwane I/O):</strong> zapis atomowy (temp→rename); wymuś przerwanie → brak korupcji pliku docelowego.
@@ -522,7 +463,7 @@
 <strong>RES‑004 (duże pliki):</strong> &gt; 2 MB → „big‑file mode” (ograniczone funkcje) bez crash.
 <strong>RES‑005 (długi runtime):</strong> 8h działania, brak wycieków (&gt; +10% RAM).</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="bezpieczenstwo">
 <h1>12) Bezpieczeństwo<a class="headerlink" href="#bezpieczenstwo" title="Link to this heading">#</a></h1>
 <p><strong>SEC‑001 (sandbox IPC):</strong> tylko whitelista kanałów; próby nieznanych kanałów → odrzucone + log.
@@ -531,7 +472,7 @@
 <strong>SEC‑004 (log injection):</strong> znaki sterujące w <code class="docutils literal notranslate"><span class="pre">msg</span></code> → escapowane; NDJSON zawsze poprawny JSON.
 <strong>SEC‑005 (arb. exec):</strong> brak wykonywania Lua; walidacje w generatorze (bez eval).</p>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="e2e-playwright-scenariusze">
 <h1>13) E2E (Playwright) – scenariusze<a class="headerlink" href="#e2e-playwright-scenariusze" title="Link to this heading">#</a></h1>
 <p><strong>E2E‑01 – Open → Edit → Lint → Generate → Reload → Logs</strong></p>
@@ -554,7 +495,7 @@
 <strong>Kryteria:</strong> odpowiedzi &lt; budżetów, poprawna zawartość.</p></li>
 </ol>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="ci-cd-pipeline-i-artefakty">
 <h1>14) CI/CD – pipeline i artefakty<a class="headerlink" href="#ci-cd-pipeline-i-artefakty" title="Link to this heading">#</a></h1>
 <p><strong>Narzędzia:</strong> pnpm/yarn, Vitest/Jest, Playwright, <code class="docutils literal notranslate"><span class="pre">electron-builder</span></code> (dry‑run), validator JSON Schema.</p>
@@ -576,7 +517,7 @@
 <li><p>Bench – żadna metryka &gt; budżet (P95), w przeciwnym razie <strong>UNSTABLE</strong>; dwie kolejne iteracje <strong>FAIL</strong>.</p></li>
 </ul>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="metryki-i-obserwowalnosc-qa">
 <h1>15) Metryki i obserwowalność QA<a class="headerlink" href="#metryki-i-obserwowalnosc-qa" title="Link to this heading">#</a></h1>
 <ul class="simple">
@@ -587,48 +528,48 @@
 <li><p><strong>Trendy:</strong> porównania względem poprzedniego builda (delta%).</p></li>
 </ul>
 <p><strong>Format metryk (NDJSON):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;suite&quot;</span><span class="p">:</span><span class="s2">&quot;bench&quot;</span><span class="p">,</span><span class="nt">&quot;case&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-SCAN-01&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;timeMs&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">12345</span><span class="p">}</span>
-<span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;suite&quot;</span><span class="p">:</span><span class="s2">&quot;qa&quot;</span><span class="p">,</span><span class="nt">&quot;case&quot;</span><span class="p">:</span><span class="s2">&quot;LNT-001&quot;</span><span class="p">,</span><span class="nt">&quot;metric&quot;</span><span class="p">:</span><span class="s2">&quot;fixedIssues&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">"ts"</span><span class="p">:</span><span class="s2">"..."</span><span class="p">,</span><span class="nt">"suite"</span><span class="p">:</span><span class="s2">"bench"</span><span class="p">,</span><span class="nt">"case"</span><span class="p">:</span><span class="s2">"PERF-SCAN-01"</span><span class="p">,</span><span class="nt">"metric"</span><span class="p">:</span><span class="s2">"timeMs"</span><span class="p">,</span><span class="nt">"value"</span><span class="p">:</span><span class="mi">12345</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">"ts"</span><span class="p">:</span><span class="s2">"..."</span><span class="p">,</span><span class="nt">"suite"</span><span class="p">:</span><span class="s2">"qa"</span><span class="p">,</span><span class="nt">"case"</span><span class="p">:</span><span class="s2">"LNT-001"</span><span class="p">,</span><span class="nt">"metric"</span><span class="p">:</span><span class="s2">"fixedIssues"</span><span class="p">,</span><span class="nt">"value"</span><span class="p">:</span><span class="mi">7</span><span class="p">}</span>
 </pre></div>
 </div>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="manifest-testow-i-benchmarkow">
 <h1>16) Manifest testów i benchmarków<a class="headerlink" href="#manifest-testow-i-benchmarkow" title="Link to this heading">#</a></h1>
 <p><strong>tests.json (przykład):</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;PAR-001&quot;</span><span class="p">,</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;qa/fixtures/otui/valid/main.otui&quot;</span><span class="p">,</span><span class="nt">&quot;expect&quot;</span><span class="p">:</span><span class="s2">&quot;qa/expected/ast/main.json&quot;</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;LNT-001&quot;</span><span class="p">,</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;qa/fixtures/otui/invalid/order.otui&quot;</span><span class="p">,</span><span class="nt">&quot;expect&quot;</span><span class="p">:</span><span class="s2">&quot;qa/expected/lint/order.fixed.otui&quot;</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;GEN-001&quot;</span><span class="p">,</span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="s2">&quot;module.default&quot;</span><span class="p">,</span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="s2">&quot;qa/tmp/out1&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"$schemaVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"tests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"PAR-001"</span><span class="p">,</span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"qa/fixtures/otui/valid/main.otui"</span><span class="p">,</span><span class="nt">"expect"</span><span class="p">:</span><span class="s2">"qa/expected/ast/main.json"</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"LNT-001"</span><span class="p">,</span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"qa/fixtures/otui/invalid/order.otui"</span><span class="p">,</span><span class="nt">"expect"</span><span class="p">:</span><span class="s2">"qa/expected/lint/order.fixed.otui"</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"GEN-001"</span><span class="p">,</span><span class="nt">"template"</span><span class="p">:</span><span class="s2">"module.default"</span><span class="p">,</span><span class="nt">"target"</span><span class="p">:</span><span class="s2">"qa/tmp/out1"</span><span class="p">}</span>
 <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>perf.json (przykład):</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;$schemaVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;benches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-SCAN-01&quot;</span><span class="p">,</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="s2">&quot;qa/fixtures/sample-project-large&quot;</span><span class="p">,</span><span class="nt">&quot;metrics&quot;</span><span class="p">:[</span><span class="s2">&quot;timeMs&quot;</span><span class="p">,</span><span class="s2">&quot;rssMB&quot;</span><span class="p">]},</span>
-<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;PERF-COMP-01&quot;</span><span class="p">,</span><span class="nt">&quot;queries&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;metrics&quot;</span><span class="p">:[</span><span class="s2">&quot;p95Ms&quot;</span><span class="p">]}</span>
+<span class="w">  </span><span class="nt">"$schemaVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"benches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"PERF-SCAN-01"</span><span class="p">,</span><span class="nt">"project"</span><span class="p">:</span><span class="s2">"qa/fixtures/sample-project-large"</span><span class="p">,</span><span class="nt">"metrics"</span><span class="p">:[</span><span class="s2">"timeMs"</span><span class="p">,</span><span class="s2">"rssMB"</span><span class="p">]},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"PERF-COMP-01"</span><span class="p">,</span><span class="nt">"queries"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">"metrics"</span><span class="p">:[</span><span class="s2">"p95Ms"</span><span class="p">]}</span>
 <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="checklisty-i-dod">
 <h1>17) Checklisty i DoD<a class="headerlink" href="#checklisty-i-dod" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>[ ] Zasoby testowe zbudowane (small/large, valid/invalid, expected/*).</p></li>
-<li><p>[ ] Unit/contract/IDE tests zielone na CI.</p></li>
-<li><p>[ ] E2E scenariusze wykonane (zrzuty ekranów zapisane).</p></li>
-<li><p>[ ] Bench w granicach budżetów; brak regresji.</p></li>
-<li><p>[ ] Raporty i artefakty opublikowane; trendy zaktualizowane.</p></li>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Zasoby testowe zbudowane (small/large, valid/invalid, expected/*).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Unit/contract/IDE tests zielone na CI.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> E2E scenariusze wykonane (zrzuty ekranów zapisane).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Bench w granicach budżetów; brak regresji.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"/> Raporty i artefakty opublikowane; trendy zaktualizowane.</p></li>
 </ul>
 </section>
-<hr class="docutils" />
+<hr class="docutils"/>
 <section id="noty-koncowe">
 <h1>18) Noty końcowe<a class="headerlink" href="#noty-koncowe" title="Link to this heading">#</a></h1>
 <ul class="simple">
@@ -637,36 +578,20 @@
 <li><p>Zmiany w budżetach wydajności wymagają przeglądu architektonicznego (ADR) i aktualizacji tego dokumentu.</p></li>
 </ul>
 </section>
-
-
-                </article>
-              
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
+</article>
+<footer class="prev-next-footer d-print-none">
 <div class="prev-next-area">
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
+</footer>
+</div>
+<dialog id="pst-secondary-sidebar-modal"></dialog>
+<div class="bd-sidebar-secondary bd-toc" id="pst-secondary-sidebar"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage" id="pst-page-navigation-heading-2">
+<i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+<nav aria-labelledby="pst-page-navigation-heading-2" class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">QA &amp; Bench Suite (MASTER) – <strong>OTClient Studio</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zakres-i-zalozenia">0) Zakres i założenia</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matryca-testowa-obszary-kategorie">1) Matryca testowa (obszary × kategorie)</a></li>
@@ -688,63 +613,49 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#checklisty-i-dod">17) Checklisty i DoD</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#noty-koncowe">18) Noty końcowe</a></li>
 </ul>
-
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>Ta strona</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/knowledge/qa_bench_suite_master_otclient_studio.md.txt"
-            rel="nofollow">Pokaż źródło</a></li>
-    </ul>
-   </div></div>
-
+</nav></div>
+<div class="sidebar-secondary-item">
+<div aria-label="source link" role="note">
+<h3>This Page</h3>
+<ul class="this-page-menu">
+<li><a href="../_sources/knowledge/qa_bench_suite_master_otclient_studio.md.txt" rel="nofollow">Show Source</a></li>
+</ul>
 </div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-          </footer>
-        
-      </main>
-    </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
-
-  <footer class="bd-footer">
+</div></div>
+</div>
+<footer class="bd-footer-content">
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script defer="" src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer="" src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+<footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
-
-  <p class="sphinx-version">
+<div class="footer-items__start">
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025, OTClientV8 Team.
+      <br/>
+</p>
+</div>
+<div class="footer-item">
+<p class="sphinx-version">
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
-  </p>
+</p>
 </div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
+</div>
+<div class="footer-items__end">
+<div class="footer-item">
 <p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+<!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
   Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
-      
-    </div>
-  
 </div>
-
-  </footer>
-  </body>
+</div>
+</footer>
+</body>
 </html>

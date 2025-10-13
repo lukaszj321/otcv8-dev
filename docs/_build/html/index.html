@@ -2,13 +2,19 @@
 <!DOCTYPE html>
 
 
-<html lang="pl" data-content_root="./" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="OTClientV8 – Dokumentacja" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukaszj321.github.io/otcv8-dev/index.html" />
+<meta property="og:site_name" content="OTClientV8" />
+<meta property="og:description" content="Start Szybki start → Getting Started, API (surowe) → API, Moduły → Moduły, UI (OTUI) → UI w OTClientV8, RAG / wyszukiwarka semantyczna → RAG – wyszukiwanie semantyczne, Dashboard → OTCv8 Developer ..." />
+<meta name="description" content="Start Szybki start → Getting Started, API (surowe) → API, Moduły → Moduły, UI (OTUI) → UI w OTClientV8, RAG / wyszukiwarka semantyczna → RAG – wyszukiwanie semantyczne, Dashboard → OTCv8 Developer ..." />
 
-    <title>Dokumentacja OTClientV8 &#8212; OTClientV8 Dev Docs 0.1.0 - dokumentacja</title>
+    <title>OTClientV8 – Dokumentacja &#8212; OTClientV8 Docs</title>
   
   
   
@@ -32,9 +38,18 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-codeautolink.css?v=b2176991" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster.custom.css?v=7bc2f056" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster.bundle.min.css?v=37217874" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
+    <link rel="stylesheet" type="text/css" href="_static/css/micromodal.css?v=d7bf34ee" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=8aaba760" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom-dark-mermaid.css?v=41a4be34" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,20 +57,27 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=c0495948"></script>
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/translations.js?v=da4973ce"></script>
+    <script src="_static/copybutton.js?v=60c6efc8"></script>
+    <script src="_static/js/hoverxref.js?v=c95ade4f"></script>
+    <script src="_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
+    <script src="_static/js/micromodal.min.js?v=04d6302d"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
-    <link rel="icon" href="_static/logo-light.svg"/>
-    <link rel="index" title="Indeks" href="genindex.html" />
-    <link rel="search" title="Szukaj" href="search.html" />
+    <script src="_static/custom.js?v=11ee1396"></script>
+    <link rel="canonical" href="https://lukaszj321.github.io/otcv8-dev/index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="overview/getting_started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="pl"/>
-  <meta name="docsearch:version" content="0.1" />
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -116,14 +138,8 @@
   
   
   
-    
-    
-      
-    
-    
-    <img src="_static/logo-light.svg" class="logo__image only-light" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
-    <img src="_static/logo-light.svg" class="logo__image only-dark pst-js-only" alt="OTClientV8 Dev Docs 0.1.0 - dokumentacja - Home"/>
   
+    <p class="title logo__title">OTClientV8</p>
   
 </a></div>
     
@@ -137,6 +153,57 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -148,9 +215,9 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
         </div>
@@ -175,7 +242,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -187,9 +254,9 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Szukaj" aria-label="Szukaj" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Szukaj</span>
+ <span class="search-button__default-text">Search</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button>
     </div>
@@ -228,6 +295,47 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="overview/getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dashboard/index.html">
+    OTCv8 Developer Portal
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="modules/index.html">
+    Moduły
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ui/index.html">
+    UI w OTClientV8
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="rag/index.html">
+    RAG – wyszukiwanie semantyczne
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -257,7 +365,7 @@
           
           
           
-          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/lukaszj321/otcv8-dev" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -294,95 +402,42 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="dokumentacja-otclientv8">
-<h1>Dokumentacja OTClientV8<a class="headerlink" href="#dokumentacja-otclientv8" title="Link to this heading">#</a></h1>
-<section id="o-projekcie">
-<span id="intro"></span><h2>O projekcie<a class="headerlink" href="#o-projekcie" title="Link to this heading">#</a></h2>
-<p><strong>OTClientV8</strong> to zaawansowany klient gry online oparty na silniku C++ z obsługą Lua dla skryptów i OTUI dla interfejsu użytkownika. Ten projekt zapewnia kompletną dokumentację techniczną obejmującą architekturę, API, moduły, UI oraz narzędzia dla deweloperów.</p>
-<p>:::note
-Ta dokumentacja jest generowana automatycznie z kodu źródłowego i zawiera pełne snippety, diagramy oraz przykłady użycia.
-:::</p>
-</section>
-<section id="glowne-cechy">
-<h2>Główne cechy<a class="headerlink" href="#glowne-cechy" title="Link to this heading">#</a></h2>
+  <section id="otclientv8-dokumentacja">
+<h1>OTClientV8 – Dokumentacja<a class="headerlink" href="#otclientv8-dokumentacja" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Co to jest?</p>
+<p>OTClientV8 to nowoczesny klient i framework skryptowy (Lua/C++) z bogatym zestawem modułów, API i narzędzi.</p>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 docutils">
+<p class="rubric" id="start">Start</p>
 <ul class="simple">
-<li><p><strong>Architektura modułowa</strong> - elastyczny system ładowania modułów z zależnościami</p></li>
-<li><p><strong>Lua scripting</strong> - pełne API Lua dla logiki gry i botów</p></li>
-<li><p><strong>OTUI</strong> - deklaratywny język opisu interfejsu użytkownika</p></li>
-<li><p><strong>System zdarzeń</strong> - asynchroniczna komunikacja między komponentami</p></li>
-<li><p><strong>Network stack</strong> - stabilny protokół sieciowy z auto-reconnect</p></li>
-<li><p><strong>Asset management</strong> - zarządzanie grafiką, dźwiękiem, fontami i innymi zasobami</p></li>
+<li><p><strong>Szybki start</strong> → <a class="reference internal" href="overview/getting_started.html"><span class="doc">Getting Started</span></a></p></li>
+<li><p><strong>API (surowe)</strong> → <a class="reference internal" href="api/index.html"><span class="doc">API</span></a></p></li>
+<li><p><strong>Moduły</strong> → <a class="reference internal" href="modules/index.html"><span class="doc">Moduły</span></a></p></li>
+<li><p><strong>UI (OTUI)</strong> → <a class="reference internal" href="ui/index.html"><span class="doc">UI w OTClientV8</span></a></p></li>
+<li><p><strong>RAG / wyszukiwarka semantyczna</strong> → <a class="reference internal" href="rag/index.html"><span class="doc">RAG – wyszukiwanie semantyczne</span></a></p></li>
+<li><p><strong>Dashboard</strong> → <a class="reference internal" href="dashboard/index.html"><span class="doc">OTCv8 Developer Portal</span></a></p></li>
 </ul>
-</section>
-<section id="nawigacja">
-<span id="navigation"></span><h2>Nawigacja<a class="headerlink" href="#nawigacja" title="Link to this heading">#</a></h2>
-<p>:::tip
-Użyj wyszukiwarki (Ctrl+K lub ikona lupy) aby szybko znaleźć interesujące Cię tematy.
-:::</p>
-<section id="dla-poczatkujacych">
-<h3>Dla początkujących<a class="headerlink" href="#dla-poczatkujacych" title="Link to this heading">#</a></h3>
-<p>Jeśli dopiero zaczynasz pracę z OTClientV8, polecamy przeczytać w kolejności:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="chapters/01_core.html"><span class="std std-doc">Core Architecture</span></a> - architektura rdzenia</p></li>
-<li><p><a class="reference internal" href="chapters/01_specyfikacja.html"><span class="std std-doc">Specyfikacja Runtime</span></a> - środowisko uruchomieniowe</p></li>
-<li><p><a class="reference internal" href="chapters/03_modules.html"><span class="std std-doc">System modułów</span></a> - jak działają moduły</p></li>
-<li><p><a class="reference internal" href="chapters/04_ui.html"><span class="std std-doc">Interfejs użytkownika</span></a> - podstawy OTUI</p></li>
-<li><p><a class="reference internal" href="examples/diagrams.html"><span class="std std-doc">Przykłady diagramów</span></a> - wizualizacje architektury</p></li>
-</ol>
-</section>
-<section id="dla-deweloperow">
-<h3>Dla deweloperów<a class="headerlink" href="#dla-deweloperow" title="Link to this heading">#</a></h3>
-<p>Dokumentacja techniczna i referencje API:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="reference/api.html"><span class="std std-doc">API C++</span></a> - kompletne API silnika</p></li>
-<li><p><a class="reference internal" href="reference/events.html"><span class="std std-doc">Events</span></a> - system zdarzeń</p></li>
-<li><p><a class="reference internal" href="reference/modules.html"><span class="std std-doc">Moduły Lua</span></a> - dostępne moduły</p></li>
-<li><p><a class="reference internal" href="reference/ui.html"><span class="std std-doc">UI Components</span></a> - widgety OTUI</p></li>
-</ul>
-</section>
-<section id="zasoby">
-<h3>Zasoby<a class="headerlink" href="#zasoby" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference internal" href="datasets/index.html"><span class="std std-doc">Dane i assety</span></a> - obrazy, fonty, dźwięki</p></li>
-<li><p><a class="reference internal" href="examples/csv.html"><span class="std std-doc">Przykłady CSV</span></a> - integracja danych tabelarycznych</p></li>
-</ul>
-<p>:::{toctree}
-:maxdepth: 2
-:caption: Wprowadzenie
-:hidden:</p>
-<p>chapters/01_core
-chapters/01_specyfikacja
-chapters/02_events
-chapters/03_modules
-chapters/04_ui
-chapters/05_assets
-chapters/06_network
-chapters/07_settings_crypto
-chapters/08_audio
-chapters/09_logging
-chapters/10_game_runtime
-:::</p>
-<p>:::{toctree}
-:maxdepth: 2
-:caption: Referencje (API / moduły / UI)
-:hidden:</p>
-<p>reference/index
-:::</p>
-<p>:::{toctree}
-:maxdepth: 2
-:caption: Przykłady / Wzorce
-:hidden:</p>
-<p>examples/diagrams
-examples/csv
-:::</p>
-<p>:::{toctree}
-:maxdepth: 1
-:caption: Dane i zasoby
-:hidden:</p>
-<p>datasets/index
-:::</p>
-</section>
-</section>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
+<p class="rubric" id="podglad">Podgląd</p>
+<div class="simple-slider" data-interval="4000">
+  <div class="slide"><img src="https://placehold.co/600x360?text=UI+Mock" alt="UI preview"></div>
+  <div class="slide"><img src="https://placehold.co/600x360?text=Modules" alt="Modules"></div>
+  <div class="slide"><img src="https://placehold.co/600x360?text=API+Docs" alt="API"></div>
+</div>
+</div>
+<div class="docutils">
+<p class="rubric" id="przykladowy-katalog-danych">Przykładowy katalog danych</p>
+<p>Poniżej przykładowa tabela (CSV) wczytywana podczas builda:</p>
+<hr class="docutils" />
+</div>
 </section>
 
 
@@ -395,6 +450,15 @@ examples/csv
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="right-next"
+       href="overview/getting_started.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting Started</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -407,30 +471,11 @@ examples/csv
 
 
   <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#o-projekcie">O projekcie</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glowne-cechy">Główne cechy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nawigacja">Nawigacja</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-poczatkujacych">Dla początkujących</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dla-deweloperow">Dla deweloperów</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zasoby">Zasoby</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
-    <h3>Ta strona</h3>
+    <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="_sources/index.md.txt"
-            rel="nofollow">Pokaż źródło</a></li>
+            rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>
 
@@ -454,6 +499,16 @@ examples/csv
 <div class="bd-footer__inner bd-page-width">
   
     <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, OTClientV8 Team.
+      <br/>
+    
+  </p>
+</div>
       
         <div class="footer-item">
 
