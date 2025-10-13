@@ -6,17 +6,6 @@ on:
     paths:
       - 'docs/**'
       - '.github/workflows/sphinx-pages.yml'
-      - 'scripts/**'
-      - '01_*/**'
-      - '02_*/**'
-      - '03_*/**'
-      - '04_*/**'
-      - '05_*/**'
-      - '06_*/**'
-      - '07_*/**'
-      - '08_*/**'
-      - '09_*/**'
-      - '10_*/**'
   workflow_dispatch:
 
 permissions:
@@ -31,226 +20,50 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Setup Node (for extract scripts if used)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install system deps
+      # (opcjonalnie) systemowa zależność dla graphviz, jeśli kiedyś włączysz rozszerzenie graphviz
+      - name: Install system packages (graphviz optional)
         run: |
           sudo apt-get update
-          sudo apt-get install -y doxygen graphviz rsync
+          sudo apt-get install -y graphviz || true
 
-      - name: Install Python deps (Sphinx + theme)
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('docs/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Python dependencies
         run: |
-          set -e
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip wheel setuptools
           if [ -f docs/requirements.txt ]; then
             pip install -r docs/requirements.txt
           else
-            pip install \
-              sphinx==7.4.7 \
-              myst-parser>=4.0.1 \
-              pydata-sphinx-theme>=0.16.1 \
-              sphinx-copybutton>=0.5.2 \
-              sphinx-design>=0.6.0 \
-              sphinx-sitemap>=2.6.0 \
-              linkify-it-py>=2.0.2 \
-              sphinxext-opengraph>=0.9.1 \
-              sphinx-favicon>=1.0.1 \
-              sphinxcontrib-mermaid>=0.9.2 \
-              sphinx-codeautolink>=0.15.0 \
-              sphinx-hoverxref>=1.4.2,<1.5 \
-              ablog
+            # awaryjnie, gdyby pliku nie było
+            pip install sphinx myst-parser pydata-sphinx-theme \
+                       sphinx-copybutton sphinx-design sphinx-sitemap \
+                       linkify-it-py sphinxext-opengraph sphinx-favicon \
+                       sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref \
+                       ablog matplotlib pillow
           fi
-
-      - name: (optional) Doxygen C++ XML
-        run: |
-          set -euxo pipefail
-          cat > Doxyfile.ci << 'EOF'
-          PROJECT_NAME           = OTCv8 CI
-          OUTPUT_DIRECTORY       = .doxygen
-          GENERATE_XML           = YES
-          XML_OUTPUT             = xml
-          GENERATE_HTML          = NO
-          QUIET                  = YES
-          EXTRACT_ALL            = YES
-          RECURSIVE              = YES
-          FILE_PATTERNS          = *.h *.hpp *.hh *.hxx *.c *.cc *.cpp
-          INPUT                  = src
-          WARN_IF_UNDOCUMENTED   = NO
-          WARNINGS               = YES
-          WARN_LOGFILE           = .doxygen/doxygen-warnings.log
-          EOF
-          rm -rf .doxygen || true
-          mkdir -p .doxygen
-          doxygen Doxyfile.ci || echo "::warning ::Doxygen returned non-zero; continuing"
-          test -f .doxygen/xml/index.xml || echo "::warning ::No .doxygen/xml/index.xml; skipping XML→MD steps"
-
-      - name: (optional) Run extract-api.mjs
-        run: |
-          set -e
-          if [ -f scripts/extract-api.mjs ]; then
-            node scripts/extract-api.mjs || echo "::warning ::extract-api.mjs failed; continuing"
-          fi
-
-      - name: Import authoring artifacts
-        run: |
-          set -euxo pipefail
-          mkdir -p docs/authoring/_imported
-          for d in 01_core 01_runtime 02_events 03_modules 04_ui 05_events 05_network 06_assets 07_settings_crypto 08_audio 09_logging 10_game_runtime; do
-            if [ -d "$d" ]; then
-              mkdir -p "docs/authoring/_imported/$d"
-              rsync -a "$d"/ "docs/authoring/_imported/$d"/
-            fi
-          done
-
-      - name: Generate authoring pages (with toctrees & relative links)
-        run: |
           python - << 'PY'
-          import os, pathlib
-
-          DOCS = pathlib.Path("docs")
-          ROOT = DOCS / "authoring"
-          IMPORTED = ROOT / "_imported"
-          chapters = [
-              "01_core","01_runtime","02_events","03_modules","04_ui",
-              "05_events","05_network","06_assets","07_settings_crypto",
-              "08_audio","09_logging","10_game_runtime"
-          ]
-
-          def write(p: pathlib.Path, s: str):
-              p.parent.mkdir(parents=True, exist_ok=True)
-              p.write_text(s, encoding="utf-8")
-
-          def rel(from_dir: pathlib.Path, to_path: pathlib.Path) -> str:
-              return str(os.path.relpath(to_path, start=from_dir)).replace("\\","/")
-
-          # Hub: authoring/index.md
-          hub = [
-            "---\ntitle: Authoring — rozdziały\n---\n",
-            "# Authoring — rozdziały\n",
-            "::: {admonition} Jak to działa?\n:class: tip\nTo są **wewnętrzne** strony; wszystko otwiera się w obrębie dokumentacji.\n:::\n",
-            "::: {grid} 1 1 2 2\n:gutter: 2\n"
-          ]
-          for ch in chapters:
-            hub += [
-              f"::: {{grid-item-card}} {ch}\n",
-              f":link: {ch}/index\n:link-type: doc\n:shadow: md\n",
-              f"Wejście do rozdziału `{ch}`.\n:::\n"
-            ]
-          hub += [":::\n\n"]
-          # HIDDEN TOCTREE – żeby Sphinx zbudował podstrony
-          hub += [
-            "```{toctree}\n:hidden:\n",
-            *[f"{ch}/index\n" for ch in chapters],
-            "```\n"
-          ]
-          write(ROOT / "index.md", "".join(hub))
-
-          # Per-chapter pages
-          for ch in chapters:
-              ch_out = ROOT / ch
-              ch_in  = IMPORTED / ch
-              ch_out.mkdir(parents=True, exist_ok=True)
-
-              # index.md (z toctree do subpages)
-              idx = [
-                f"---\ntitle: {ch} — Authoring\n---\n",
-                f"# {ch} — Authoring\n\n",
-                "::: {grid} 1 1 2 2\n:gutter: 2\n",
-                "::: {grid-item-card} Datasets\n:link: datasets\n:link-type: doc\n:shadow: md\nPodgląd i lista plików danych.\n:::\n",
-                "::: {grid-item-card} Diagrams\n:link: diagrams\n:link-type: doc\n:shadow: md\nPodgląd wykresów/obrazów.\n:::\n",
-                "::: {grid-item-card} Index (surowe pliki)\n:link: index-sources\n:link-type: doc\n:shadow: md\nSpis zaimportowanych plików.\n:::\n",
-                "::: \n\n",
-                "```{toctree}\n:hidden:\n",
-                "datasets\n",
-                "diagrams\n",
-                "index-sources\n",
-                "```\n"
-              ]
-              write(ch_out/"index.md", "".join(idx))
-
-              # datasets.md
-              datasets_md = [f"# {ch} — Datasets\n\n"]
-              datasets_dir = ch_in / "datasets"
-              if datasets_dir.exists():
-                  files = []
-                  for ext in ["*.csv","*.json","*.ndjson","*.parquet","*.tsv"]:
-                      files.extend(datasets_dir.rglob(ext))
-                  if files:
-                      datasets_md.append("Lista wykrytych plików:\n\n")
-                      for fp in sorted(files):
-                          web = ROOT / "_imported" / ch / fp.relative_to(ch_in)
-                          href = rel((ch_out), web)
-                          datasets_md.append(f"- [{fp.name}]({href})\n")
-                      datasets_md += [
-                        "\n:::{admonition} Jak osadzić CSV jako tabelę?\n",
-                        "```{csv-table} Tabela\n:header: \"col1\", \"col2\"\n",
-                        f":file: ../_imported/{ch}/datasets/<PLIK.csv>\n```\n:::\n"
-                      ]
-                  else:
-                      datasets_md.append("_Brak plików danych._\n")
-              else:
-                  datasets_md.append("_Brak katalogu `datasets/`._\n")
-              write(ch_out/"datasets.md", "".join(datasets_md))
-
-              # diagrams.md
-              img_ext = {".png",".jpg",".jpeg",".svg",".gif",".webp"}
-              diagrams_md = [f"# {ch} — Diagrams\n\n"]
-              diagrams_dir = ch_in / "diagrams"
-              if diagrams_dir.exists():
-                  imgs = [p for p in diagrams_dir.rglob("*") if p.suffix.lower() in img_ext]
-                  if imgs:
-                      for fp in sorted(imgs):
-                          web = ROOT / "_imported" / ch / fp.relative_to(ch_in)
-                          href = rel((ch_out), web)
-                          diagrams_md.append(f"### {fp.name}\n\n![{fp.name}]({href})\n\n")
-                  else:
-                      diagrams_md.append("_Brak obrazów w `diagrams/`._\n")
-              else:
-                  diagrams_md.append("_Brak katalogu `diagrams/`._\n")
-              write(ch_out/"diagrams.md", "".join(diagrams_md))
-
-              # index-sources.md
-              src_md = [f"# {ch} — Source Index\n\n"]
-              if ch_in.exists():
-                  for sub in ["datasets","diagrams","api","cpp","lua"]:
-                      p = ch_in / sub
-                      if not p.exists(): continue
-                      src_md.append(f"## {sub}\n\n")
-                      for root, _, files in os.walk(p):
-                          rootp = pathlib.Path(root)
-                          for f in sorted(files):
-                              fp = rootp / f
-                              web = ROOT / "_imported" / ch / fp.relative_to(ch_in)
-                              href = rel((ch_out), web)
-                              src_md.append(f"- [{fp.relative_to(ch_in)}]({href})\n")
-                      src_md.append("\n")
-              else:
-                  src_md.append("_Brak zaimportowanych plików._\n")
-              write(ch_out/"index-sources.md", "".join(src_md))
-
-          print("Authoring pages generated.")
+          import importlib, sys
+          for mod in ["pydata_sphinx_theme","ablog","matplotlib"]:
+              importlib.import_module(mod)
+          print("deps-ok")
           PY
 
-      - name: Clean Sphinx cache
-        run: rm -rf docs/_build
-
-      - name: Build Sphinx HTML (do not fail on warnings)
+      - name: Build Sphinx
         run: |
-          set -e
-          sphinx-build -b html -E -a docs docs/_build/html || echo "::warning ::Sphinx returned non-zero (warnings). Continuing."
+          sphinx-build -b html docs docs/_build/html
           touch docs/_build/html/.nojekyll
 
       - name: Upload Pages artifact
