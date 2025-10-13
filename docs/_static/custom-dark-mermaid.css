@@ -1,12 +1,3 @@
-/* Mermaid / Graphviz dark mode – visible lines and arrows */
-:root[data-theme="dark"] .mermaid svg * {
-  stroke: currentColor !important;
-}
-:root[data-theme="dark"] .mermaid svg path,
-:root[data-theme="dark"] .mermaid svg line,
-:root[data-theme="dark"] .mermaid svg polygon {
-  stroke-width: 1.2 !important;
-}
-:root[data-theme="dark"] .mermaid svg .edgePath path {
-  stroke: currentColor !important;
-}
+/* Better Mermaid contrast on dark theme */
+.mermaid svg * { stroke-opacity: 1 !important; }
+.mermaid svg .edgePath path.path { stroke-width: 1.5px !important; }
