@@ -1,115 +1,113 @@
 ---
-title: Authoring (Repo templates & docs)
+title: Authoring — Chapter Workspace
 ---
 
-# Authoring — repo szablony i przewodniki
+# Authoring (Chapters)
 
-:::{admonition} Co znajdziesz w tej sekcji?
+```{admonition} Co to jest?
 :class: tip
-Zestaw **szablonów repozytorium** (README, CONTRIBUTING, CODEOWNERS, CODE OF CONDUCT, itp.),
-**przewodniki praktyk**, przykłady bloków i **kuchnia formatek** do re-użycia w projektach.
-:::
+To „robocza” sekcja dokumentacji budowana z **folderów rozdziałów**:
+`01_core`, `01_runtime`, `02_events`, `03_modules`, `04_ui`, `05_events`,
+`05_network`, `06_assets`, `07_settings_crypto`, `08_audio`, `09_logging`, `10_game_runtime`.
+Każdy rozdział ma własny `index.md`, podkatalog `datasets/` (CSV) i `diagrams/` (Mermaid).
+```
 
 :::{grid} 1 1 2 2
 :gutter: 2
 
-:::{grid-item-card} README (wzorzec)
-:link: ../reposzablony/szablony/readme
+:::{grid-item-card} 01 — Core
+:link: 01_core/index
 :link-type: doc
-:shadow: md
-Szablon README z sekcjami „O projekcie", „Instalacja", „Kontrybucja", „Licencja".
+Podstawy klienta, framework, C++ i API.
 :::
 
-:::{grid-item-card} Contributing
-:link: ../reposzablony/szablony/contributing
+:::{grid-item-card} 01 — Runtime
+:link: 01_runtime/index
 :link-type: doc
-:shadow: md
-Zasady kontrybucji, style commitów, flow PR, code review.
+Dane i pipeline runtime.
 :::
 
-:::{grid-item-card} Code of Conduct
-:link: ../reposzablony/szablony/code_of_conduct
+:::{grid-item-card} 02 — Events
+:link: 02_events/index
 :link-type: doc
-:shadow: md
-Zasady zachowania w społeczności / repozytorium.
+System zdarzeń, strumienie, emitery.
 :::
 
-:::{grid-item-card} Security
-:link: ../reposzablony/szablony/security
+:::{grid-item-card} 03 — Modules
+:link: 03_modules/index
 :link-type: doc
-:shadow: md
-Zgłaszanie podatności, kanały kontaktu, okno reakcji.
+Moduły i integracje.
 :::
 
-:::{grid-item-card} Issue Templates
-:link: ../reposzablony/szablony/issue_templates
+:::{grid-item-card} 04 — UI
+:link: 04_ui/index
 :link-type: doc
-:shadow: md
-Szablony zgłoszeń: bug, feature, task, question.
+Interfejs OTUI, widżety, layouty.
 :::
 
-:::{grid-item-card} PR Template
-:link: ../reposzablony/szablony/pr_template
+:::{grid-item-card} 05 — Events (doc)
+:link: 05_events/index
 :link-type: doc
-:shadow: md
-Szablon PR (co, dlaczego, jak testować, checklisty).
+Dokumenty uzupełniające.
 :::
 
-:::{grid-item-card} Changelog / Release
-:link: ../reposzablony/szablony/changelog_release
+:::{grid-item-card} 05 — Network
+:link: 05_network/index
 :link-type: doc
-:shadow: md
-Konwencje CHANGELOG i notek wydawniczych (semver).
+Warstwa sieciowa i protokoły.
 :::
 
-:::{grid-item-card} CODEOWNERS
-:link: ../reposzablony/szablony/codeowners
+:::{grid-item-card} 06 — Assets
+:link: 06_assets/index
 :link-type: doc
-:shadow: md
-Wzorzec CODEOWNERS i jak go utrzymywać.
+Zasoby, formaty, pipeline.
 :::
 
-:::{grid-item-card} License Guide
-:link: ../reposzablony/szablony/license_guide
+:::{grid-item-card} 07 — Settings & Crypto
+:link: 07_settings_crypto/index
 :link-type: doc
-:shadow: md
-Jak wybrać licencję i jak ją komunikować.
+Konfiguracja, bezpieczeństwo, kryptografia.
 :::
 
-:::{grid-item-card} ADR (Architecture Decision Record)
-:link: ../reposzablony/szablony/adr
+:::{grid-item-card} 08 — Audio
+:link: 08_audio/index
 :link-type: doc
-:shadow: md
-Jak prowadzić ADR-y (wzór + przykłady).
+Silnik audio i integracje.
 :::
 
-:::{grid-item-card} Style Guide
-:link: ../reposzablony/szablony/style_guide
+:::{grid-item-card} 09 — Logging
+:link: 09_logging/index
 :link-type: doc
-:shadow: md
-Język, formaty, nazewnictwo, formaty plików.
+Logowanie, metryki, obserwowalność.
 :::
 
-:::{grid-item-card} Diagrams
-:link: ../reposzablony/szablony/diagrams
+:::{grid-item-card} 10 — Game Runtime
+:link: 10_game_runtime/index
 :link-type: doc
-:shadow: md
-Konwencje diagramów (Mermaid/Graphviz), przykłady, foldery.
-:::
-
-:::{grid-item-card} Kitchen Sink
-:link: ../reposzablony/szablony/kitchen_sink
-:link-type: doc
-:shadow: md
-Katalog przykładów „wszystkiego po trochu": admonitions, tabele, bloki kodów.
+Pętla gry, stany, tick i zasoby.
 :::
 :::
 
-## Spis treści (pełna sekcja)
+## Spis rozdziałów
+
+> **Ważne**: Ścieżki poniżej są *docname* Sphinxa (bez rozszerzeń), liczone od katalogu `docs/`.
+> Nie używaj linków do GitHuba — wtedy strona nie jest włączana do nawigacji.
 
 ```{toctree}
+:caption: Rozdziały (Authoring)
 :maxdepth: 2
-:caption: Reposzablony — pełny spis
+:titlesonly:
 
-../reposzablony/index
+01_core/index
+01_runtime/index
+02_events/index
+03_modules/index
+04_ui/index
+05_events/index
+05_network/index
+06_assets/index
+07_settings_crypto/index
+08_audio/index
+09_logging/index
+10_game_runtime/index
 ```
