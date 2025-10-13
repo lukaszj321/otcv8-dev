@@ -44,10 +44,10 @@ jobs:
           PY
 
       - name: Generate authoring pages
+        if: ${{ false }}   # wyłączone, nie rusza docs/authoring
         shell: bash
         run: |
-          set -euo pipefail
-          python scripts/gen_authoring.py
+          echo "SKIPPED"
 
       - name: Build Sphinx
         shell: bash
