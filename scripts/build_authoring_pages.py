@@ -15,12 +15,16 @@ def find_chapters():
         print(f"[WARN] Missing {REPO}")
         return []
     items = []
+    # Only include numbered chapter directories (01_* through 10_*)
+    import re
+    chapter_pattern = re.compile(r'^(0[1-9]|10)_.*$')
     for p in sorted(REPO.iterdir()):
         if not p.is_dir():
             continue
         if p.name.startswith("."):
             continue
-        items.append(p.name)
+        if chapter_pattern.match(p.name):
+            items.append(p.name)
     return items
 
 def chapter_title(slug: str) -> str:
