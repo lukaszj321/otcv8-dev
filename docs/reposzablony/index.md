@@ -1,4 +1,42 @@
 ---
+title: Repo Szablony (Authoring)
+---
+
+# Repo Szablony (Authoring)
+
+:::{admonition} Co to jest?
+:class: tip
+To warsztat/authoring do generowania struktury repo, szablonów i artefaktów (CSV, diagramy, itp.), które później integrujemy z dokumentacją.
+:::
+
+:::{grid} 1 1 2 2
+:gutter: 2
+
+:::{grid-item-card} Szablony plików repo
+:link: szablony/index
+:link-type: doc
+:shadow: md
+Zbiór gotowych plików: README, CONTRIBUTING, CODEOWNERS, SECURITY, CHANGES/RELEASE, ADR, Style Guide, Diagrams, Kitchen Sink itd.
+:::
+
+:::{grid-item-card} Dane/artefakty (jeśli generowane)
+:link: artifacts/index
+:link-type: doc
+:shadow: md
+CSV, grafy, obrazy — wszystko to, co agent/CI wygenerował w tym obszarze.
+:::
+:::
+
+```{toctree}
+:maxdepth: 2
+:caption: Nawigacja
+:titlesonly:
+
+szablony/index
+artifacts/index
+```
+
+---
 title: Repo szablony i wzorce dokumentów
 ---
 

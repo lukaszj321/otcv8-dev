@@ -1,3 +1,21 @@
+---
+title: Authoring (przeniesione)
+---
+
+# Authoring
+
+Ta sekcja została przeniesiona do **Repo Szablony**.
+
+:::{admonition} Gdzie to teraz jest?
+:class: note
+Wejdź tutaj: {doc}`../reposzablony/index`
+:::
+
+```{toctree}
+:hidden:
+../reposzablony/index
+```
+
 # Authoring Documentation
 
 This section contains auto-generated documentation artifacts including datasets, diagrams, and analysis for all major components of OTClientV8.
