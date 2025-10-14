@@ -42,7 +42,7 @@ jobs:
 
       - name: Build OpenGL
         working-directory: ./vc16
-        run: msbuild /p:Configuration=OpenGL /p:BUILD_REVISION=${{ github.run_number }}
+        run: msbuild /p:Configuration=OpenGL  /p:BUILD_REVISION=${{ github.run_number }}
 
       - name: Upload binaries
         uses: actions/upload-artifact@v4
@@ -82,19 +82,34 @@ jobs:
           $sdkRoot = "${env:ANDROID_SDK_ROOT}"
           & "$sdkRoot\cmdline-tools\latest\bin\sdkmanager.bat" --install "ndk;21.4.7075529"
           echo "VS_NdkRoot=$sdkRoot\ndk\21.4.7075529" | Out-File -FilePath $env:GITHUB_ENV -Encoding ascii -Append
-
       - name: Prepare android assets
         shell: pwsh
         run: |
-          pwsh -ExecutionPolicy Bypass -File ./android/create_android_assets.ps1
-
+          if (Test-Path .\create_android_assets.ps1) {
+            powershell -ExecutionPolicy Bypass -File .\create_android_assets.ps1
+          }
+      - name: Generate data.zip for Android
+        shell: pwsh
+        run: |
+          $assetsDir = "android/otclientv8/assets"
+          $dataDir = "assets/data"
+          if (!(Test-Path $assetsDir)) {
+            New-Item -ItemType Directory -Path $assetsDir | Out-Null
+          }
+          if (Test-Path $dataDir) {
+            Add-Type -AssemblyName System.IO.Compression.FileSystem
+            $zipPath = "$assetsDir/data.zip"
+            if (Test-Path $zipPath) { Remove-Item $zipPath }
+            [System.IO.Compression.ZipFile]::CreateFromDirectory($dataDir, $zipPath)
+          } else {
+            Write-Host "Brak folderu assets/data – ZIP nie zostanie wygenerowany."
+          }
       - name: Unpack prebuilt android libs (if present)
         shell: pwsh
         run: |
           if (Test-Path .\android_libs.7z) {
             7z x android_libs.7z -aoa -oC:\android
           }
-
       - name: Build (ARM64 Release)
         shell: pwsh
         working-directory: ./android
@@ -122,23 +137,21 @@ jobs:
       - name: Install deps (brew)
         run: |
           brew update
-          brew install cmake ninja physfs pkgconf luajit xquartz glew openal-soft libogg libvorbis libzip bzip2 openssl@3
-
-      - name: Fix openssl@3 postinstall
-        run: brew postinstall openssl@3
-
+          brew install cmake ninja physfs pkgconf luajit xquartz glew openal-soft libogg libvorbis libzip bzip2 openssl@3 || true
+      - name: Set env for keg-only libs
+        run: |
+          echo 'LDFLAGS="-L/usr/local/opt/openal-soft/lib -L/usr/local/opt/bzip2/lib"' >> $GITHUB_ENV
+          echo 'CPPFLAGS="-I/usr/local/opt/openal-soft/include -I/usr/local/opt/bzip2/include"' >> $GITHUB_ENV
+          echo 'PKG_CONFIG_PATH="/usr/local/opt/openal-soft/lib/pkgconfig:/usr/local/opt/bzip2/lib/pkgconfig"' >> $GITHUB_ENV
       - name: Configure
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-
       - name: Build
         run: |
           cmake --build build --parallel
-
       - name: Rename binary
         run: |
           if [ -f build/otclient ]; then mv build/otclient build/otclient_mac; fi
-
       - name: Upload mac binary
         uses: actions/upload-artifact@v4
         with:
@@ -163,20 +176,17 @@ jobs:
           sudo apt-get install -y build-essential ninja-build cmake \
             libglew-dev liblua5.1-0-dev libluajit-5.1-dev \
             libogg-dev libvorbis-dev zlib1g-dev libzip-dev \
-            libopenal-dev libbz2-dev libssl-dev libphysfs-dev
-
+            libopenal-dev libbz2-dev libssl-dev libphysfs-dev \
+            libboost-system-dev libboost-filesystem-dev
       - name: Configure
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-
       - name: Build
         run: |
           cmake --build build --parallel
-
       - name: Rename binary
         run: |
           if [ -f build/otclient ]; then mv build/otclient build/otclient_linux; fi
-
       - name: Upload linux binary
         uses: actions/upload-artifact@v4
         with:
