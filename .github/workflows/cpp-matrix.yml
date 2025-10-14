@@ -1,0 +1,84 @@
+name: C++ Matrix Build (desktop)
+on:
+  push:
+    paths: [ "src/**", "CMakeLists.txt", ".github/workflows/cpp-matrix.yml" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-13 ]
+        build_type: [ Release ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install deps (Linux)
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build build-essential \
+            libsdl2-dev libglew-dev libphysfs-dev libboost-all-dev doxygen graphviz
+
+      - name: Install deps (macOS)
+        if: startsWith(matrix.os, 'macos')
+        run: |
+          brew update
+          brew install cmake ninja sdl2 glew physfs doxygen graphviz
+          echo "CODE_SIGNING_ALLOWED=NO" >> $GITHUB_ENV
+
+      - name: Install deps (Windows)
+        if: startsWith(matrix.os, 'windows')
+        shell: pwsh
+        run: |
+          choco install --no-progress ninja doxygen.install graphviz
+          # Jeśli używasz vcpkg (opcjonalnie):
+          # git clone https://github.com/microsoft/vcpkg C:\vcpkg
+          # C:\vcpkg\bootstrap-vcpkg.bat
+          # C:\vcpkg\vcpkg.exe install sdl2 glew physfs --triplet x64-windows
+          # echo "CMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Configure
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+      - name: Build
+        run: cmake --build build --config ${{ matrix.build_type }} --parallel
+
+      - name: Collect build intel (compile_commands, symbols)
+        shell: bash
+        run: |
+          mkdir -p build_artifacts/${{ runner.os }}
+          cp build/compile_commands.json build_artifacts/${{ runner.os }}/ || true
+          if [[ "$RUNNER_OS" == "Linux" || "$RUNNER_OS" == "macOS" ]]; then
+            # zrzut symboli dla analityki API
+            find build -type f -perm -111 -maxdepth 2 -print0 | xargs -0 -I{} sh -c 'file "{}" | grep -q ELF || file "{}" | grep -q Mach-O || exit 0; nm -gU "{}" > "{}".nm || true'
+            tar czf build_artifacts/${{ runner.os }}/symbols.tgz $(find build -name "*.nm" || true)
+          fi
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            echo "Windows: symbole zbierzesz przez dumpbin /linkermember /symbols (jeśli potrzebne)."
+          fi
+
+      - name: Doxygen XML (Linux only, feed dla Breathe/Exhale)
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          doxygen -g doxygen.conf
+          sed -i 's/GENERATE_HTML.*/GENERATE_HTML = NO/' doxygen.conf
+          sed -i 's/GENERATE_XML.*/GENERATE_XML = YES/' doxygen.conf
+          sed -i 's/RECURSIVE.*/RECURSIVE = YES/' doxygen.conf
+          sed -i 's/INPUT.*/INPUT = src include/' doxygen.conf
+          doxygen doxygen.conf
+          mkdir -p build_artifacts/${{ runner.os }}/doxygen
+          cp -r xml build_artifacts/${{ runner.os }}/doxygen/xml
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: otclient-${{ matrix.os }}-${{ matrix.build_type }}
+          path: build_artifacts/${{ runner.os }}
+          if-no-files-found: ignore
