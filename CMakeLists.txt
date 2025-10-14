@@ -49,7 +49,7 @@ endif()
 # add client executable
 add_executable(${PROJECT_NAME} ${framework_SOURCES} ${client_SOURCES} ${executable_SOURCES})
 
-# NAJWAŻNIEJSZA POPRAWA: dodajemy include do src/framework!
+# POPRAWKA: dodajemy include do src/framework, aby rozwiązać błąd z application.h
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/framework)
 
 target_link_libraries(${PROJECT_NAME} ${framework_LIBRARIES})
