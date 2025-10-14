@@ -1,4 +1,3 @@
-# path=.github/workflows/cpp-matrix.yml
 name: C++ Matrix Build (OTCv8)
 
 on:
@@ -41,7 +40,7 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           brew update
-          brew install boost glew physfs openssl lua@5.1
+          brew install boost glew physfs openssl lua@5.3
           pip install conan
 
       - name: Configure
