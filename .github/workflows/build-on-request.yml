@@ -178,18 +178,14 @@ jobs:
             libogg-dev libvorbis-dev zlib1g-dev libzip-dev \
             libopenal-dev libbz2-dev libssl-dev libphysfs-dev \
             libboost-system-dev libboost-filesystem-dev
-      - name: Configure
+          pip install conan
+      - name: Install vcpkg (stable 2024.05.24)
         run: |
-          cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-      - name: Build
-        run: |
-          cmake --build build --parallel
-      - name: Rename binary
-        run: |
-          if [ -f build/otclient ]; then mv build/otclient build/otclient_linux; fi
-      - name: Upload linux binary
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux-binary
-          path: build/otclient_linux
-          if-no-files-found: error
+          git clone https://github.com/microsoft/vcpkg.git
+          cd vcpkg
+          git checkout 2024.05.24
+          ./bootstrap-vcpkg.sh
+          cd ..
+      - name: Fix libphysfs.a index
+        run: sudo ranlib /usr/lib/x86_64-linux-gnu/libphysfs](#)**
+
