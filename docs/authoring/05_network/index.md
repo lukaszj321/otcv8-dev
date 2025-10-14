@@ -4,6 +4,8 @@ title: 05_network - Network
 
 # 05_network - Network
 
+snapshot/y konfiguracji protokolu (clientVersion, customOs, RSA – tylko skrót, bez klucza), zebrane z runtime (jesli API obecne) i/lub z plików repo (skan – wzorce tekstowe).
+
 ```{contents} Table of contents
 :depth: 2
 :local:

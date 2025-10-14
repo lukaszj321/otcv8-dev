@@ -4,6 +4,8 @@ title: 01_core - Core
 
 # 01_core - Core
 
+komplet metryk runtime + wyjasnienia jak je czytac i uzywac (UI scaling, wydajnosc, korelacje z eventami i logami).
+
 ```{contents} Table of contents
 :depth: 2
 :local:

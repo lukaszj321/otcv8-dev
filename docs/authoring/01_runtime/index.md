@@ -4,6 +4,8 @@ title: 01_runtime - Runtime
 
 # 01_runtime - Runtime
 
+Runtime documentation covering performance metrics, memory usage, and execution environment for the OTClient v8 engine.
+
 ```{contents} Table of contents
 :depth: 2
 :local:

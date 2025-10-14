@@ -4,6 +4,8 @@ title: 08_audio - Audio
 
 # 08_audio - Audio
 
+snapshot(y) konfiguracji i stanu audio: masterVolume, per-channel volume, muted, lista grajacych zrodel (jesli API na to pozwala). Best-effort z runtime.
+
 ```{contents} Table of contents
 :depth: 2
 :local:

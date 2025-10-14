@@ -4,6 +4,8 @@ title: 02_events - Events
 
 # 02_events - Events
 
+zdarzenia startu/konca gry, logowania, listy postaci, bledow, itp. ich parametr payload.
+
 ```{contents} Table of contents
 :depth: 2
 :local:

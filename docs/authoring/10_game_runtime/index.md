@@ -4,6 +4,8 @@ title: 10_game_runtime - Game runtime
 
 # 10_game_runtime - Game runtime
 
+obserwacje runtime gry w czasie (hp/mp, poziom, predkosc, pozycja, tryby walki, proste liczebnosci). Bez danych wrazliwych ani tresci czatu.
+
 ```{contents} Table of contents
 :depth: 2
 :local:
