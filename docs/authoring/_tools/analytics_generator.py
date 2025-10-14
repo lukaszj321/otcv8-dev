@@ -14,7 +14,7 @@ from collections import defaultdict
 
 # Repository root
 REPO_ROOT = Path(__file__).resolve().parents[3]
-DOCS_BASE = REPO_ROOT / "docs" / "reposzablony"
+DOCS_BASE = REPO_ROOT / "docs" / "authoring"
 ANALYTICS_OUTPUT = DOCS_BASE / "analytics"
 
 
