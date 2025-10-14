@@ -1,0 +1,2 @@
+opcode,direction,description,handler_file,triggers_event,requires_otclient
+0x00,server->client,Handshake flag for extended opcodes,protocolgame.cpp,,true

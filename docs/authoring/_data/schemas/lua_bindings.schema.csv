@@ -1,0 +1,7 @@
+column,type,required,description
+cppclass,string,yes,C++ class name exporting functions to Lua
+luaclass,string,yes,Target Lua table/class name
+func,string,yes,Function name exposed to Lua
+ret,string,no,Return type or semantics
+args,string,no,Comma-separated argument signature
+kind,string,no,Member/static/helper tag

@@ -1,0 +1,2 @@
+column,type,required,description
+key,string,yes,Localization key missing or required in UI

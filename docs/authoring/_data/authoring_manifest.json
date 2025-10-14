@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "facets": [
+    {
+      "id": "01_core.lua_bindings",
+      "type": "dataset",
+      "path": "docs/authoring/01_core/datasets/lua_bindings.csv"
+    },
+    {
+      "id": "04_ui.needed_translations",
+      "type": "dataset",
+      "path": "docs/authoring/04_ui/datasets/needed_translations.csv"
+    },
+    {
+      "id": "05_network.extended_opcodes",
+      "type": "dataset",
+      "path": "docs/authoring/05_network/datasets/extended_opcodes.csv"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "schema.lua_bindings",
+      "path": "docs/authoring/_data/schemas/lua_bindings.schema.csv"
+    },
+    {
+      "id": "schema.needed_translations",
+      "path": "docs/authoring/_data/schemas/needed_translations.schema.csv"
+    },
+    {
+      "id": "schema.extended_opcodes",
+      "path": "docs/authoring/_data/schemas/extended_opcodes.schema.csv"
+    }
+  ],
+  "tools_pages": [
+    {
+      "slug": "tfs_extendedopcode",
+      "path": "docs/tools/tfs_extendedopcode.md"
+    },
+    {
+      "slug": "lua_bindings",
+      "path": "docs/tools/lua_bindings.md"
+    },
+    {
+      "slug": "translations_needed",
+      "path": "docs/tools/translations_needed.md"
+    },
+    {
+      "slug": "translations_template",
+      "path": "docs/tools/translations_template.md"
+    },
+    {
+      "slug": "bitmap_font",
+      "path": "docs/tools/bitmap_font.md"
+    },
+    {
+      "slug": "make_snapshot",
+      "path": "docs/tools/make_snapshot.md"
+    },
+    {
+      "slug": "index",
+      "path": "docs/tools/index.md"
+    }
+  ]
+}

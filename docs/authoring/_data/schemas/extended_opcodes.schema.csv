@@ -1,0 +1,7 @@
+column,type,required,description
+opcode,string,yes,Opcode value in hex (e.g. 0x32)
+direction,string,yes,server->client or client->server
+description,string,no,Short purpose description
+handler_file,string,no,Main source file handling this opcode
+triggers_event,string,no,Event or hook name (e.g. onExtendedOpcode)
+requires_otclient,boolean,yes,True if only OTClient supports this
