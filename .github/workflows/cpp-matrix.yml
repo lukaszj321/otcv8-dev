@@ -116,3 +116,4 @@ jobs:
           name: otclient-${{ matrix.os }}-${{ matrix.build_type }}
           path: build/
           if-no-files-found: ignore
+        
