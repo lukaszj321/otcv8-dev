@@ -33,7 +33,6 @@ jobs:
         if: startsWith(matrix.os, 'macos')
         run: |
           brew update
-          # graphviz -> netpbm html checkout wymaga svn
           brew install svn
           brew install cmake ninja sdl2 glew physfs doxygen graphviz
 
@@ -47,10 +46,12 @@ jobs:
         shell: pwsh
         run: |
           choco install --no-progress ninja git
-          # vcpkg (cache byłby miły, ale na start prosto)
           git clone https://github.com/microsoft/vcpkg $env:GITHUB_WORKSPACE\vcpkg
           & $env:GITHUB_WORKSPACE\vcpkg\bootstrap-vcpkg.bat
           $triplet = "x64-windows"
+          # Fix for broken zlib in vcpkg
+          & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe remove zlib --recurse
+          & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install zlib:$triplet --recurse
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install `
             boost-filesystem boost-system `
             zlib bzip2 libzip `
@@ -90,7 +91,6 @@ jobs:
           sed -i 's/GENERATE_XML.*/GENERATE_XML = YES/' doxygen.conf
           sed -i 's/RECURSIVE.*/RECURSIVE = YES/' doxygen.conf
           sed -i 's/INPUT.*/INPUT = src include/' doxygen.conf
-          # jeżeli chcesz uniknąć graphviz: sed -i 's/HAVE_DOT.*/HAVE_DOT = NO/' doxygen.conf
           doxygen doxygen.conf
           mkdir -p build_artifacts/linux/doxygen
           cp -r xml build_artifacts/linux/doxygen/xml
