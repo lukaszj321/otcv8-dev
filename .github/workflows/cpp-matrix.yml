@@ -1,123 +1,61 @@
+# path=.github/workflows/cpp-matrix.yml
 name: C++ Matrix Build (OTCv8)
+
 on:
   push:
-    paths:
-      - "src/**"
-      - "include/**"
-      - "CMakeLists.txt"
-      - ".github/workflows/cpp-matrix.yml"
-  workflow_dispatch:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-14]
-        build_type: [Release]
     runs-on: ${{ matrix.os }}
-
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        build_type: [Release, Debug]
+    env:
+      BUILD_TYPE: ${{ matrix.build_type }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
 
-      # Linux dependencies
-      - name: Install deps (Linux)
-        if: startsWith(matrix.os, 'ubuntu')
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            cmake ninja-build build-essential pkg-config \
-            libsdl2-dev libglew-dev libphysfs-dev \
-            libboost-filesystem-dev libboost-system-dev \
-            zlib1g-dev libbz2-dev libzip-dev \
-            libssl-dev \
-            doxygen graphviz \
-            luajit libluajit-5.1-dev
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-      # macOS dependencies
-      - name: Install deps (macOS)
-        if: startsWith(matrix.os, 'macos')
-        run: |
-          brew install cmake ninja sdl2 glew physfs doxygen graphviz \
-            boost libzip luajit openssl pkg-config
-
-      # Windows dependencies
-      - name: MSVC dev cmd
-        if: startsWith(matrix.os, 'windows')
-        uses: ilammy/msvc-dev-cmd@v1
-
-      - name: Install deps (Windows)
-        if: startsWith(matrix.os, 'windows')
-        shell: pwsh
-        run: |
-          choco install --no-progress ninja
-          git clone --depth=1 https://github.com/microsoft/vcpkg $env:GITHUB_WORKSPACE\vcpkg
-          & $env:GITHUB_WORKSPACE\vcpkg\bootstrap-vcpkg.bat
-          $triplet = "x64-windows"
-          & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install `
-            boost-filesystem boost-system boost-iostreams `
-            zlib bzip2 libzip `
-            openssl `
-            sdl2 glew physfs luajit `
-            --triplet $triplet
-          echo "VCPKG_ROOT=$env:GITHUB_WORKSPACE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Append
-          echo "VCPKG_TRIPLET=$triplet" | Out-File -FilePath $env:GITHUB_ENV -Append
-
-      # Configure (Linux)
-      - name: Configure (Linux)
+      - name: Install dependencies (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         run: |
-          cmake -S . -B build -G Ninja \
-            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-            -DLIBZIP_LIBRARY=/usr/lib/x86_64-linux-gnu/libzip.so \
-            -DLIBZIP_INCLUDE_DIR=/usr/include
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake git libboost-all-dev liblua5.1-0-dev libglew-dev libphysfs-dev libssl-dev
+          pip install conan
 
-      # Configure (macOS)
-      - name: Configure (macOS)
-        if: startsWith(matrix.os, 'macos')
+      - name: Install dependencies (Windows)
+        if: matrix.os == 'windows-latest'
         run: |
-          export PKG_CONFIG_PATH="$(brew --prefix openssl)/lib/pkgconfig:$(brew --prefix)/lib/pkgconfig"
-          export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
-          cmake -S . -B build -G Ninja \
-            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-            -DCMAKE_PREFIX_PATH="$(brew --prefix boost);$(brew --prefix openssl);$(brew --prefix luajit)" \
-            -DBoost_NO_BOOST_CMAKE=ON
+          choco install boost-msvc14 glew physfs openssl lua conan
+          python -m pip install conan
 
-      # Configure (Windows)
-      - name: Configure (Windows MSVC + vcpkg)
-        if: startsWith(matrix.os, 'windows')
-        shell: pwsh
-        run: >
-          cmake -S . -B build -G "Ninja"
-          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-          -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-          -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake"
-          -DVCPKG_TARGET_TRIPLET="$env:VCPKG_TRIPLET"
+      - name: Install dependencies (macOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew update
+          brew install boost glew physfs openssl lua@5.1
+          pip install conan
 
-      # Build
+      - name: Configure
+        run: |
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
+
       - name: Build
-        run: cmake --build build --config ${{ matrix.build_type }} --parallel
-
-      # (Optional) Doxygen XML (Linux only)
-      - name: Doxygen XML (Linux)
-        if: startsWith(matrix.os, 'ubuntu')
         run: |
-          doxygen -g doxygen.conf
-          sed -i 's/GENERATE_HTML.*/GENERATE_HTML = NO/' doxygen.conf
-          sed -i 's/GENERATE_XML.*/GENERATE_XML = YES/' doxygen.conf
-          sed -i 's/RECURSIVE.*/RECURSIVE = YES/' doxygen.conf
-          sed -i 's/INPUT.*/INPUT = src include/' doxygen.conf
-          doxygen doxygen.conf
-          mkdir -p build_artifacts/linux/doxygen
-          cp -r xml build_artifacts/linux/doxygen/xml
+          cd build
+          cmake --build . --config ${{ env.BUILD_TYPE }}
 
-      # Collect build artifacts
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: otclient-${{ matrix.os }}-${{ matrix.build_type }}
-          path: build/
-          if-no-files-found: ignore
-        
+      - name: Run tests
+        run: |
+          cd build
+          ctest --output-on-failure --build-config ${{ env.BUILD_TYPE }}
