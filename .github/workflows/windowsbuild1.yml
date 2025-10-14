@@ -27,7 +27,7 @@ jobs:
           ./vcpkg update
       - name: Clear vcpkg cache
         run: |
-          Remove-Item -Recurse -Force ${{ runner.workspace }}\vcpkg\packages, ${{ runner.workspace }}\vcpkg\buildtrees, ${{ runner.workspace }}\vcpkg\downloads
+          Remove-Item -Recurse -Force -ErrorAction SilentlyContinue ${{ runner.workspace }}\vcpkg\packages, ${{ runner.workspace }}\vcpkg\buildtrees, ${{ runner.workspace }}\vcpkg\downloads
       - name: Setup MSBuild and add to PATH
         uses: microsoft/setup-msbuild@v1.0.2
         id: setup_msbuild
