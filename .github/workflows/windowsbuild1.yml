@@ -12,17 +12,33 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Ensure vcpkg exists
+      - name: Ensure vcpkg exists and is valid
         run: |
-          if (!(Test-Path "${{ runner.workspace }}\vcpkg")) {
-            git clone https://github.com/microsoft/vcpkg.git "${{ runner.workspace }}\vcpkg"
+          $vcpkgPath = "${{ runner.workspace }}\vcpkg"
+          $gitDir = Join-Path $vcpkgPath ".git"
+          if (Test-Path $vcpkgPath) {
+            if (!(Test-Path $gitDir)) {
+              Write-Host "vcpkg directory exists but is not a valid git repository. Removing..."
+              Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $vcpkgPath
+            }
+          }
+          if (!(Test-Path $vcpkgPath)) {
+            git clone https://github.com/microsoft/vcpkg.git $vcpkgPath
           }
         shell: pwsh
 
       - name: Update vcpkg and portfiles
         run: |
           cd ${{ runner.workspace }}/vcpkg
-          git pull
+          try {
+            git pull
+          } catch {
+            Write-Host "git pull failed. Repository may be corrupted. Removing and re-cloning vcpkg..."
+            cd ..
+            Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "${{ runner.workspace }}\vcpkg"
+            git clone https://github.com/microsoft/vcpkg.git "${{ runner.workspace }}\vcpkg"
+            cd "${{ runner.workspace }}\vcpkg"
+          }
           ./vcpkg update
       - name: Clear vcpkg cache
         run: |
