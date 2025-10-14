@@ -1,30 +1,55 @@
-cmake_minimum_required(VERSION 3.13)
-project(otcv8-dev LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.15)
+project(otclient)
+
+if(CMAKE_BASE_NAME STREQUAL "em++")
+    set(WASM ON)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Dodaj katalog z plikami źródłowymi
-file(GLOB SRC_FILES src/*.cpp)
+# default build type
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release")
+endif()
 
-# Dodaj katalog z plikami nagłówkowymi
-include_directories(
-    ${CMAKE_SOURCE_DIR}/include
+option(FRAMEWORK_SOUND "Use SOUND " OFF)
+option(FRAMEWORK_GRAPHICS "Use GRAPHICS " ON)
+option(FRAMEWORK_XML "Use XML " ON)
+option(FRAMEWORK_NET "Use NET " ON)
+
+find_package(ZLIB REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system filesystem)
+
+include(src/framework/CMakeLists.txt)
+include(src/client/CMakeLists.txt)
+
+# functions map for reading backtraces
+if(NOT APPLE AND NOT WASM)
+    set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -no-pie -Wl,-Map=${PROJECT_NAME}.map")
+endif()
+
+set(executable_SOURCES
+    src/main.cpp
 )
 
-# Dodaj zewnętrzne biblioteki, jeśli potrzebujesz (przykład z Boost)
-find_package(Boost REQUIRED COMPONENTS filesystem system)
-include_directories(${Boost_INCLUDE_DIRS})
+# add executable icon for win32 platforms
+if(WIN32)
+    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/otcicon.o
+                       COMMAND ${CMAKE_RC_COMPILER}
+                       -I${CMAKE_CURRENT_SOURCE_DIR}/src
+                       -i${CMAKE_CURRENT_SOURCE_DIR}/src/otcicon.rc
+                       -o ${CMAKE_CURRENT_BINARY_DIR}/otcicon.o)
+    set(executable_SOURCES ${executable_SOURCES} otcicon.o)
+endif()
 
-# Dodaj bibliotekę lub program
-add_executable(otcv8 ${SRC_FILES})
+if(VERSION)
+    add_definitions(-D"VERSION=\\"${VERSION}\\"")
+endif()
 
-# Podlinkuj zewnętrzne biblioteki
-target_link_libraries(otcv8 PRIVATE ${Boost_LIBRARIES} zip lua5.1 glew physfs ssl bz2 luajit-5.1)
+# add client executable
+add_executable(${PROJECT_NAME} ${framework_SOURCES} ${client_SOURCES} ${executable_SOURCES})
+target_link_libraries(${PROJECT_NAME} ${framework_LIBRARIES})
 
-# Jeśli używasz innych bibliotek, dodaj je tutaj
-# target_link_libraries(otcv8 PRIVATE ...)
-
-# Opcjonalnie: Dodaj testy
-# enable_testing()
-# add_subdirectory(tests)
+if(APPLE AND USE_STATIC_LIBS)
+    target_link_libraries(${PROJECT_NAME} "-framework Foundation" "-framework IOKit")
+endif()
