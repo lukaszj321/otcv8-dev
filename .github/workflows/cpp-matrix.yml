@@ -35,7 +35,8 @@ jobs:
         run: |
           brew update
           brew install svn
-          brew install cmake ninja sdl2 glew physfs doxygen graphviz
+          brew install cmake ninja sdl2 glew physfs doxygen graphviz \
+            boost libzip zlib
 
       # ---------- Windows ----------
       - name: MSVC dev cmd
@@ -58,8 +59,7 @@ jobs:
             boost-iostreams boost-asio boost-beast boost-system `
             boost-variant boost-lockfree boost-process boost-program-options `
             boost-filesystem boost-uuid glew luajit physfs openal-soft `
-            libogg libvorbis zlib libzip openssl `
-            sdl2 `
+            libogg libvorbis zlib libzip openssl sdl2 `
             --triplet $triplet
           echo "VCPKG_ROOT=$env:GITHUB_WORKSPACE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Append
           echo "VCPKG_TRIPLET=$triplet" | Out-File -FilePath $env:GITHUB_ENV -Append
