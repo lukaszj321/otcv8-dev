@@ -29,7 +29,9 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
+          cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
+            -DLIBZIP_LIBRARY=/usr/lib/x86_64-linux-gnu/libzip.so \
+            -DLIBZIP_INCLUDE_DIR=/usr/include/zip
       - name: Build
         run: |
           cd build
