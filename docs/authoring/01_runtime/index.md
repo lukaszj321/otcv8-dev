@@ -10,13 +10,7 @@ title: 01_runtime - Runtime
 ```
 
 ## Datasets
-:::{grid} 1 1 2 2
-
-:gutter: 2
-
-:::{grid-item}
-
-#### `entities.csv`
+### entities
 *Facet:* [`01_runtime.entities`](#facet-01_runtime.entities)
 
 ```{csv-table} entities
@@ -25,11 +19,7 @@ title: 01_runtime - Runtime
 :widths: auto
 ```
 
-:::
-
-:::{grid-item}
-
-#### `runtime_stats.csv`
+### runtime_stats
 *Facet:* [`01_runtime.runtime_stats`](#facet-01_runtime.runtime_stats)
 
 ```{csv-table} runtime_stats
@@ -38,11 +28,7 @@ title: 01_runtime - Runtime
 :widths: auto
 ```
 
-:::
-
-:::{grid-item}
-
-#### `summary.csv`
+### summary
 *Facet:* [`01_runtime.summary`](#facet-01_runtime.summary)
 
 ```{csv-table} summary
@@ -51,12 +37,8 @@ title: 01_runtime - Runtime
 :widths: auto
 ```
 
-:::
-
-:::
-
 ## Diagrams
-#### `architecture.mmd`
+### architecture
         *Facet:* [`01_runtime.architecture`](#facet-01_runtime.architecture)
 
         ```{mermaid}
@@ -71,7 +53,7 @@ graph LR
     end
         ```
 
-#### `flow.mmd`
+### flow
         *Facet:* [`01_runtime.flow`](#facet-01_runtime.flow)
 
         ```{mermaid}
@@ -87,7 +69,7 @@ graph TD
     F --> H
         ```
 
-#### `runtime_flow.mmd`
+### runtime_flow
         *Facet:* [`01_runtime.runtime_flow`](#facet-01_runtime.runtime_flow)
 
         ```{mermaid}
@@ -99,16 +81,33 @@ graph TD
 click RuntimeFlow "./index.html#facet-01_runtime.runtime_flow" "Open runtime_flow"
         ```
 
+
+
+
+
 ## Appendix / Facets
+
 (facet-01_runtime.architecture)=
 ### Facet: `01_runtime.architecture`
+Type: diagram
+
 (facet-01_runtime.entities)=
 ### Facet: `01_runtime.entities`
+Type: dataset
+
 (facet-01_runtime.flow)=
 ### Facet: `01_runtime.flow`
+Type: diagram
+
 (facet-01_runtime.runtime_flow)=
 ### Facet: `01_runtime.runtime_flow`
+Type: diagram
+
 (facet-01_runtime.runtime_stats)=
 ### Facet: `01_runtime.runtime_stats`
+Type: dataset
+
 (facet-01_runtime.summary)=
 ### Facet: `01_runtime.summary`
+Type: dataset
+

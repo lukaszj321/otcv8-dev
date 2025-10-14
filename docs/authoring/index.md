@@ -2,94 +2,96 @@
 title: Authoring (embedded)
 ---
 
-# Authoring - Embedded Documentation
+# Authoring - embedded
 
-All chapters from `docs/authoring/**` rendered inline with datasets and diagrams.
+Wszystkie rozdzialy z `docs/authoring/**` renderowane inline.
 
 :::{grid} 1 1 2 3
 :gutter: 2
-
-:::{grid-item-card} Specyfikacja: Studio (React/Electron) dla skryptów OTClient v8/vBot
+:::{grid-item-card} 01_core - Core
 :link: 01_core/index
 :link-type: doc
 :shadow: md
-Specyfikacja: Studio (React/Electron) dla skryptów OTClient v8/vBot - datasets and diagrams embedded.
+01_core - Core - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Event system and signals — export kit
+:::{grid-item-card} 01_runtime - Runtime
+:link: 01_runtime/index
+:link-type: doc
+:shadow: md
+01_runtime - Runtime - wbudowany podglad CSV i diagramow.
+:::
+:::{grid-item-card} 02_events - Events
 :link: 02_events/index
 :link-type: doc
 :shadow: md
-Event system and signals — export kit - datasets and diagrams embedded.
+02_events - Events - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Lua modules — export kit
+:::{grid-item-card} 03_modules - Modules
 :link: 03_modules/index
 :link-type: doc
 :shadow: md
-Lua modules — export kit - datasets and diagrams embedded.
+03_modules - Modules - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} UI — OTUI widget hierarchy — export kit
+:::{grid-item-card} 04_ui - Ui
 :link: 04_ui/index
 :link-type: doc
 :shadow: md
-UI — OTUI widget hierarchy — export kit - datasets and diagrams embedded.
+04_ui - Ui - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Network protocol — export kit
+:::{grid-item-card} 05_events - Events
+:link: 05_events/index
+:link-type: doc
+:shadow: md
+05_events - Events - wbudowany podglad CSV i diagramow.
+:::
+:::{grid-item-card} 05_network - Network
 :link: 05_network/index
 :link-type: doc
 :shadow: md
-Network protocol — export kit - datasets and diagrams embedded.
+05_network - Network - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Assets — export kit
+:::{grid-item-card} 06_assets - Assets
 :link: 06_assets/index
 :link-type: doc
 :shadow: md
-Assets — export kit - datasets and diagrams embedded.
+06_assets - Assets - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Settings & Cryptography — export kit
+:::{grid-item-card} 07_settings_crypto - Settings crypto
 :link: 07_settings_crypto/index
 :link-type: doc
 :shadow: md
-Settings & Cryptography — export kit - datasets and diagrams embedded.
+07_settings_crypto - Settings crypto - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Audio system — export kit
+:::{grid-item-card} 08_audio - Audio
 :link: 08_audio/index
 :link-type: doc
 :shadow: md
-Audio system — export kit - datasets and diagrams embedded.
+08_audio - Audio - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Logging system — export kit
+:::{grid-item-card} 09_logging - Logging
 :link: 09_logging/index
 :link-type: doc
 :shadow: md
-Logging system — export kit - datasets and diagrams embedded.
+09_logging - Logging - wbudowany podglad CSV i diagramow.
 :::
-
-:::{grid-item-card} Game runtime — export kit
+:::{grid-item-card} 10_game_runtime - Game runtime
 :link: 10_game_runtime/index
 :link-type: doc
 :shadow: md
-Game runtime — export kit - datasets and diagrams embedded.
+10_game_runtime - Game runtime - wbudowany podglad CSV i diagramow.
 :::
-
 :::
 
 ```{toctree}
-:caption: Chapters
+:caption: Rozdzialy
 :maxdepth: 1
 :titlesonly:
-
 01_core/index
+01_runtime/index
 02_events/index
 03_modules/index
 04_ui/index
+05_events/index
 05_network/index
 06_assets/index
 07_settings_crypto/index
@@ -98,4 +100,13 @@ Game runtime — export kit - datasets and diagrams embedded.
 10_game_runtime/index
 
 analytics/summary
+qa/summary
 ```
+
+## Narzedzia
+
+Zobacz: [Tools Documentation](../tools/index)
+
+## RAG Manifest
+
+Zobacz: [Datasets](./datasets/index)

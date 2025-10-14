@@ -10,13 +10,7 @@ title: 05_events - Events
 ```
 
 ## Datasets
-:::{grid} 1 1 2 2
-
-:gutter: 2
-
-:::{grid-item}
-
-#### `entities.csv`
+### entities
 *Facet:* [`05_events.entities`](#facet-05_events.entities)
 
 ```{csv-table} entities
@@ -25,11 +19,7 @@ title: 05_events - Events
 :widths: auto
 ```
 
-:::
-
-:::{grid-item}
-
-#### `events_details.csv`
+### events_details
 *Facet:* [`05_events.events_details`](#facet-05_events.events_details)
 
 ```{csv-table} events_details
@@ -38,11 +28,7 @@ title: 05_events - Events
 :widths: auto
 ```
 
-:::
-
-:::{grid-item}
-
-#### `summary.csv`
+### summary
 *Facet:* [`05_events.summary`](#facet-05_events.summary)
 
 ```{csv-table} summary
@@ -51,12 +37,8 @@ title: 05_events - Events
 :widths: auto
 ```
 
-:::
-
-:::
-
 ## Diagrams
-#### `architecture.mmd`
+### architecture
         *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
         ```{mermaid}
@@ -71,7 +53,7 @@ graph LR
     end
         ```
 
-#### `events_overview.mmd`
+### events_overview
         *Facet:* [`05_events.events_overview`](#facet-05_events.events_overview)
 
         ```{mermaid}
@@ -83,7 +65,7 @@ graph TD
 click EventOverview "./index.html#facet-05_events.events_overview" "Open events_overview"
         ```
 
-#### `flow.mmd`
+### flow
         *Facet:* [`05_events.flow`](#facet-05_events.flow)
 
         ```{mermaid}
@@ -99,16 +81,33 @@ graph TD
     F --> H
         ```
 
+
+
+
+
 ## Appendix / Facets
+
 (facet-05_events.architecture)=
 ### Facet: `05_events.architecture`
+Type: diagram
+
 (facet-05_events.entities)=
 ### Facet: `05_events.entities`
+Type: dataset
+
 (facet-05_events.events_details)=
 ### Facet: `05_events.events_details`
+Type: dataset
+
 (facet-05_events.events_overview)=
 ### Facet: `05_events.events_overview`
+Type: diagram
+
 (facet-05_events.flow)=
 ### Facet: `05_events.flow`
+Type: diagram
+
 (facet-05_events.summary)=
 ### Facet: `05_events.summary`
+Type: dataset
+
