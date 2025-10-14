@@ -1,4 +1,5 @@
-name: C++ Build (Ubuntu only)
+cmake_minimum_required(VERSION 3.13)
+project(otcv8-dev)
 
 on:
   push:
