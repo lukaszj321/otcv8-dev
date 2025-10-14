@@ -1,31 +1,114 @@
 ---
-title: 08_audio — Audio system
+title: 08_audio - Audio
 ---
 
-# 08_audio — Audio system
+# 08_audio - Audio
 
-```{contents} Spis treści
+```{contents} Table of contents
 :depth: 2
 :local:
 ```
 
 ## Datasets
-```{csv-table} Summary
-:file: ./datasets/summary.csv
+:::{grid} 1 1 2 2
+
+:gutter: 2
+
+:::{grid-item}
+
+#### `audio_assets.csv`
+*Facet:* [`08_audio.audio_assets`](#facet-08_audio.audio_assets)
+
+```{csv-table} audio_assets
 :header-rows: 1
+:file: ./datasets/audio_assets.csv
 :widths: auto
 ```
 
-## Diagrams
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  A[Źródła] --> B[Datasets]
-  B --> C[Mermaid]
-  C --> D[Render w Sphinx]
-```
-(facet-08_audio.summary)=
-### Facet: `08_audio.summary`
+:::
 
+:::{grid-item}
+
+#### `entities.csv`
+*Facet:* [`08_audio.entities`](#facet-08_audio.entities)
+
+```{csv-table} entities
+:header-rows: 1
+:file: ./datasets/entities.csv
+:widths: auto
+```
+
+:::
+
+:::{grid-item}
+
+#### `summary.csv`
+*Facet:* [`08_audio.summary`](#facet-08_audio.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
+
+:::
+
+:::
+
+## Diagrams
+#### `architecture.mmd`
+        *Facet:* [`08_audio.architecture`](#facet-08_audio.architecture)
+
+        ```{mermaid}
+        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Audio
+        E0[Sound Channels]
+        E1[Audio Sources]
+        E2[Audio Stats]
+        E0 --> E1
+        E1 --> E2
+    end
+        ```
+
+#### `audio_pipeline.mmd`
+        *Facet:* [`08_audio.audio_pipeline`](#facet-08_audio.audio_pipeline)
+
+        ```{mermaid}
+        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  AudioPipeline[08_audio:audio_pipeline] --> Data[Datasets]
+  Data --> Page[Index]
+
+click AudioPipeline "./index.html#facet-08_audio.audio_pipeline" "Open audio_pipeline"
+        ```
+
+#### `flow.mmd`
+        *Facet:* [`08_audio.flow`](#facet-08_audio.flow)
+
+        ```{mermaid}
+        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Audio] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H
+        ```
+
+## Appendix / Facets
+(facet-08_audio.architecture)=
+### Facet: `08_audio.architecture`
+(facet-08_audio.audio_assets)=
+### Facet: `08_audio.audio_assets`
 (facet-08_audio.audio_pipeline)=
 ### Facet: `08_audio.audio_pipeline`
+(facet-08_audio.entities)=
+### Facet: `08_audio.entities`
+(facet-08_audio.flow)=
+### Facet: `08_audio.flow`
+(facet-08_audio.summary)=
+### Facet: `08_audio.summary`
