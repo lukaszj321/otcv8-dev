@@ -30,6 +30,7 @@ jobs:
             libsdl2-dev libglew-dev libphysfs-dev \
             libboost-filesystem-dev libboost-system-dev \
             zlib1g-dev libbz2-dev libzip-dev \
+            libssl-dev \
             doxygen graphviz \
             luajit libluajit-5.1-dev
 
@@ -37,9 +38,8 @@ jobs:
       - name: Install deps (macOS)
         if: startsWith(matrix.os, 'macos')
         run: |
-          brew update
           brew install cmake ninja sdl2 glew physfs doxygen graphviz \
-            boost libzip zlib
+            boost libzip luajit openssl pkg-config
 
       # Windows dependencies
       - name: MSVC dev cmd
@@ -50,13 +50,14 @@ jobs:
         if: startsWith(matrix.os, 'windows')
         shell: pwsh
         run: |
-          choco install --no-progress ninja git
+          choco install --no-progress ninja
           git clone --depth=1 https://github.com/microsoft/vcpkg $env:GITHUB_WORKSPACE\vcpkg
           & $env:GITHUB_WORKSPACE\vcpkg\bootstrap-vcpkg.bat
-          $triplet = "x64-windows-static"
+          $triplet = "x64-windows"
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install `
-            boost-filesystem boost-system `
+            boost-filesystem boost-system boost-iostreams `
             zlib bzip2 libzip `
+            openssl `
             sdl2 glew physfs luajit `
             --triplet $triplet
           echo "VCPKG_ROOT=$env:GITHUB_WORKSPACE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Append
@@ -76,10 +77,13 @@ jobs:
       - name: Configure (macOS)
         if: startsWith(matrix.os, 'macos')
         run: |
+          export PKG_CONFIG_PATH="$(brew --prefix openssl)/lib/pkgconfig:$(brew --prefix)/lib/pkgconfig"
+          export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
           cmake -S . -B build -G Ninja \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
             -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-            -DCMAKE_PREFIX_PATH=$(brew --prefix boost)
+            -DCMAKE_PREFIX_PATH="$(brew --prefix boost);$(brew --prefix openssl);$(brew --prefix luajit)" \
+            -DBoost_NO_BOOST_CMAKE=ON
 
       # Configure (Windows)
       - name: Configure (Windows MSVC + vcpkg)
