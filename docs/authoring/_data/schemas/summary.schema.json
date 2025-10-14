@@ -1,0 +1,20 @@
+{
+  "title": "summary.csv",
+  "columns": [
+    {
+      "name": "metric",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "any",
+      "required": true
+    },
+    {
+      "name": "note",
+      "type": "string",
+      "required": true
+    }
+  ]
+}

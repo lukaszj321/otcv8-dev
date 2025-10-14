@@ -1,0 +1,30 @@
+{
+  "title": "network_messages.csv",
+  "columns": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "direction",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "fields",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

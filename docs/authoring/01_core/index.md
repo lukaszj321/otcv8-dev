@@ -1,75 +1,31 @@
-# Core API
+---
+title: 01_core — Core C++ API documentation
+---
 
-## Overview
+# 01_core — Core C++ API documentation
 
-Core C++ API documentation and class hierarchies
-
-## Contents
-
-- **Datasets**: Statistical data and entity information
-- **Diagrams**: Visual representations of architecture and flow
-- **Analysis**: Detailed findings and correlations
+```{contents} Spis treści
+:depth: 2
+:local:
+```
 
 ## Datasets
-
-
 ```{csv-table} Summary
-:file: datasets/summary.csv
+:file: ./datasets/summary.csv
 :header-rows: 1
 :widths: auto
 ```
-
-Basic statistics and metrics for this chapter.
-
-
-```{csv-table} Entities
-:file: datasets/entities.csv
-:header-rows: 1
-:widths: auto
-```
-
-Key entities and their counts.
 
 ## Diagrams
-
-
-```{literalinclude} diagrams/flow.mmd
-:language: mermaid
-:caption: Flow
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  A[Źródła] --> B[Datasets]
+  B --> C[Mermaid]
+  C --> D[Render w Sphinx]
 ```
+(facet-01_core.summary)=
+### Facet: `01_core.summary`
 
-Data flow and processing pipeline for this chapter.
-
-
-```{literalinclude} diagrams/architecture.mmd
-:language: mermaid
-:caption: Architecture
-```
-
-Architecture and component relationships.
-
-## How to Use
-
-1. Review the summary CSV for an overview of available data
-2. Examine the entities CSV for detailed entity information
-3. View the diagrams for visual understanding of relationships
-4. Check the analysis section for insights and correlations
-
-## Related Chapters
-
-- Main documentation: [OTClientV8 Docs](../../index.md)
-- API Reference: [API Index](../../api/index.md)
-
-## Generated
-
-This content was auto-generated on 2025-10-13 04:50:32.
-
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-
-api/index
-datasets/index
-diagrams/index
-```
+(facet-01_core.architecture)=
+### Facet: `01_core.architecture`

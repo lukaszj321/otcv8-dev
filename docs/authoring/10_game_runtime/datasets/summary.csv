@@ -1,5 +1,4 @@
-Metric,Value,Description
-Chapter,Game Runtime,Chapter name
-Generated,2025-10-13 04:50:32,Generation timestamp
-Entity Count,3,Number of main entity types
-Status,Generated,Current status
+metric,value,note
+entities_total,0,starter
+datasets_count,1,starter
+diagrams_count,1,starter

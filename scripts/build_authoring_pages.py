@@ -1,29 +1,19 @@
+
 #!/usr/bin/env python3
-# Build Authoring pages from docs/reposzablony/**
-# - For each chapter folder (e.g., 01_core), generate docs/authoring/<chapter>/index.md
-# - Embed CSV via csv-table; embed Mermaid via mermaid + include; show code via literalinclude
-# - Update docs/authoring/index.md with cards and toctree
-import os, sys, pathlib, textwrap
+import os, sys, pathlib, textwrap, re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-REPO = DOCS / "reposzablony"
 AUTHORING = DOCS / "authoring"
 
 def find_chapters():
-    if not REPO.exists():
-        print(f"[WARN] Missing {REPO}")
+    if not AUTHORING.exists():
+        print(f"[WARN] Missing {AUTHORING}")
         return []
     items = []
-    # Only include numbered chapter directories (01_* through 12_*)
-    import re
     chapter_pattern = re.compile(r'^(0[1-9]|1[0-2])_.*$')
-    for p in sorted(REPO.iterdir()):
-        if not p.is_dir():
-            continue
-        if p.name.startswith("."):
-            continue
-        if chapter_pattern.match(p.name):
+    for p in sorted(AUTHORING.iterdir(), key=lambda q: q.name):
+        if p.is_dir() and not p.name.startswith(".") and chapter_pattern.match(p.name):
             items.append(p.name)
     return items
 
@@ -31,58 +21,47 @@ def chapter_title(slug: str) -> str:
     clean = slug.replace("_", " ").strip()
     parts = clean.split(" ", 1)
     if len(parts) == 2 and parts[0].isdigit():
-        return f"{slug} — {parts[1].capitalize()}"
+        return f"{slug} - {parts[1].capitalize()}"
     return clean.title()
 
-def rel(path: pathlib.Path) -> str:
-    return str(path.as_posix())
+def ensure_mermaid_init(text: str) -> str:
+    init = "%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%"
+    t = text.strip()
+    if not t.startswith("%%{init:"):
+        return init + "\n" + t
+    return t
 
 def write_chapter(chapter: str):
-    src = REPO / chapter
-    dst_dir = AUTHORING / chapter
-    dst_dir.mkdir(parents=True, exist_ok=True)
-    dst = dst_dir / "index.md"
-
-    datasets = src / "datasets"
-    diagrams = src / "diagrams"
-
+    ch_dir = AUTHORING / chapter
+    dst = ch_dir / "index.md"
+    datasets = ch_dir / "datasets"
+    diagrams = ch_dir / "diagrams"
     csvs = sorted(datasets.glob("*.csv")) if datasets.exists() else []
     mmds = sorted(diagrams.glob("*.mmd")) if diagrams.exists() else []
 
-    title = chapter_title(chapter)
-    base_rel = pathlib.Path("../../reposzablony") / chapter
-
     def csv_block(p: pathlib.Path):
+        fid = f"{chapter}.{p.stem}"
         return textwrap.dedent(f"""
-        ```{{admonition}} {p.name} (CSV)
-        :class: dropdown
-        Lokalizacja: `{rel(base_rel / 'datasets' / p.name)}`
-        ```
+        #### `{p.name}`
+        *Facet:* [`{fid}`](#facet-{fid})
 
         ```{{csv-table}} {p.stem}
         :header-rows: 1
-        :file: {rel(base_rel / 'datasets' / p.name)}
+        :file: ./datasets/{p.name}
         :widths: auto
         ```
         """).strip()
 
     def mmd_block(p: pathlib.Path):
+        content = (diagrams / p.name).read_text(encoding="utf-8") if (diagrams / p.name).exists() else "graph TD\n  A[Error]"
+        content = ensure_mermaid_init(content)
+        fid = f"{chapter}.{p.stem}"
         return textwrap.dedent(f"""
-        ```{{admonition}} {p.name} (Mermaid diagram)
-        :class: tip
-        Źródło: `{rel(base_rel / 'diagrams' / p.name)}`
-        ```
+        #### `{p.name}`
+        *Facet:* [`{fid}`](#facet-{fid})
 
-        ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
-        :language: mermaid
-        :caption: {p.stem}
-        ```
-
-        ```{{admonition}} Kod źródłowy (kliknij aby rozwinąć)
-        :class: dropdown
-        ```{{literalinclude}} {rel(base_rel / 'diagrams' / p.name)}
-        :language: mermaid
-        ```
+        ```{{mermaid}}
+        {content}
         ```
         """).strip()
 
@@ -99,35 +78,32 @@ def write_chapter(chapter: str):
     else:
         csv_section = "_Brak CSV w tym rozdziale._"
 
-    if mmds:
-        mmd_section = "\n\n".join(mmd_block(m) for m in mmds)
-    else:
-        mmd_section = "_Brak diagramów w tym rozdziale._"
+    mmd_section = "\n\n".join(mmd_block(m) for m in mmds) if mmds else "_Brak diagramow w tym rozdziale._"
 
-    # Build the body with proper string concatenation to avoid escaping issues
-    admonition_part = """:::{admonition} Co jest na tej stronie?
-:class: tip
-- **Datasets** — CSV z `datasets/` osadzone jako tabele
-- **Diagrams** — Mermaid z `diagrams/` + podgląd kodu w dropdown
-:::"""
-    
+    stems = sorted({p.stem for p in csvs + mmds})
+    appendix_md = ""
+    if stems:
+        appendix_md = "## Appendix / Facets\n" + "\n".join([f"(facet-{chapter}.{s})=\n### Facet: `{chapter}.{s}`" for s in stems])
+
     body = f"""---
-title: {title}
+title: {chapter_title(chapter)}
 ---
 
-# {title}
+# {chapter_title(chapter)}
 
-> Źródła: `docs/reposzablony/{chapter}/`
-
-{admonition_part}
+```{{contents}} Table of contents
+:depth: 2
+:local:
+```
 
 ## Datasets
 {csv_section}
 
 ## Diagrams
 {mmd_section}
-"""
 
+{appendix_md}
+"""
     dst.write_text(body, encoding="utf-8")
     print(f"[OK] Wrote {dst}")
 
@@ -142,35 +118,29 @@ def write_index(chapters):
             f":link: {link}",
             ":link-type: doc",
             ":shadow: md",
-            f"{title} — wbudowany podgląd CSV i diagramów.",
+            f"{title} - wbudowany podglad CSV i diagramow.",
             ":::",
         ]
     cards.append(":::")
-
-    toc = ["```{toctree}", ":caption: Rozdziały", ":maxdepth: 1", ":titlesonly:"]
-    toc += [f"{ch}/index" for ch in chapters]
-    toc.append("```")
-
-    body = textwrap.dedent(f"""---
-title: Authoring Kit (embedded)
+    toc = ["```{toctree}", ":caption: Rozdzialy", ":maxdepth: 1", ":titlesonly:"] + [f"{ch}/index" for ch in chapters] + ["```"]
+    dst.write_text(f"""---
+title: Authoring (embedded)
 ---
 
-# Authoring Kit — embedded
+# Authoring - embedded
 
-Poniżej **wbudowane** strony dla rozdziałów z `docs/reposzablony/**`.
-Wszystkie dane są osadzane inline, bez wychodzenia poza sekcję **authoring**.
+Wszystkie rozdzialy z `docs/authoring/**` renderowane inline.
 
 {os.linesep.join(cards)}
 
 {os.linesep.join(toc)}
-""")
-    dst.write_text(body, encoding="utf-8")
+""", encoding="utf-8")
     print(f"[OK] Wrote {dst}")
 
 def main():
     chapters = find_chapters()
     if not chapters:
-        print("[WARN] No chapters found under docs/reposzablony/**")
+        print("[WARN] No chapters found under docs/authoring/**")
         return 0
     for ch in chapters:
         write_chapter(ch)

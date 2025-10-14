@@ -1,3 +1,80 @@
+---
+chapter: "03_modules"
+slug: "03_modules"
+title: "Lua modules — export kit"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "03_modules.summary"
+    - id: "lua_exports"
+      file: "lua_exports.csv"
+      headers: ["module","function","params","returns","raises","availability","notes"]
+      facet: "03_modules.lua_exports"
+    - id: "modules_index"
+      file: "modules_index.csv"
+      headers: ["id","name","path","scripts_count","reloadable","sandboxed","author","website"]
+      facet: "03_modules.modules_index"
+    - id: "hot_reload"
+      file: "hot_reload.csv"
+      headers: ["module","file","watched","last_reload","errors"]
+      facet: "03_modules.hot_reload"
+  diagrams:
+    - id: "modules_graph"
+      file: "modules_graph.mmd"
+      facet: "03_modules.modules_graph"
+xrefs:
+  - to: "04_ui.ui_widgets"
+    type: "renders"
+    evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
+  - to: "02_events.events_matrix"
+    type: "handles"
+    evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
+  - to: "09_logging.logging_categories"
+    type: "logs"
+    evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+tags: ["lua","modules","otclient","vBot"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# Moduły Lua
+
+(facet-03_modules.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `03_modules.summary`
+
+(facet-03_modules.lua_exports)=
+## Dataset: lua_exports
+- headers: `module,function,params,returns,raises,availability,notes`
+- facet: `03_modules.lua_exports`
+
+(facet-03_modules.modules_index)=
+## Dataset: modules_index
+- headers: `id,name,path,scripts_count,reloadable,sandboxed,author,website`
+- facet: `03_modules.modules_index`
+
+(facet-03_modules.hot_reload)=
+## Dataset: hot_reload
+- headers: `module,file,watched,last_reload,errors`
+- facet: `03_modules.hot_reload`
+
+(facet-03_modules.modules_graph)=
+## Diagram: modules_graph
+- facet: `03_modules.modules_graph`
+
+## Relacje
+- renders → `04_ui.ui_widgets`
+- handles → `02_events.events_matrix`
+- logs → `09_logging.logging_categories`
+
+---
+
 # Chapter 03 - Modules
 
 ### Professional Pro Template - Agent-Ready - OTClient v8

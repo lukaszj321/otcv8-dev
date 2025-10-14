@@ -1,0 +1,40 @@
+{
+  "title": "lua_exports.csv",
+  "columns": [
+    {
+      "name": "module",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "function",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "params",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "returns",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "raises",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "availability",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

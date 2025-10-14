@@ -1,3 +1,76 @@
+---
+chapter: "07_settings_crypto"
+slug: "07_settings_crypto"
+title: "Settings & Cryptography — export kit"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "07_settings_crypto.summary"
+    - id: "settings"
+      file: "settings.csv"
+      headers: ["key","scope","type","default","notes"]
+      facet: "07_settings_crypto.settings"
+    - id: "secrets"
+      file: "secrets.csv"
+      headers: ["name","provider","location","rotation","notes"]
+      facet: "07_settings_crypto.secrets"
+    - id: "crypto_primitives"
+      file: "crypto_primitives.csv"
+      headers: ["name","type","params","usage","notes"]
+      facet: "07_settings_crypto.crypto_primitives"
+  diagrams:
+    - id: "config_flow"
+      file: "config_flow.mmd"
+      facet: "07_settings_crypto.config_flow"
+xrefs:
+  - to: "01_runtime.counters"
+    type: "affects"
+    evidence: "docs/authoring/01_runtime/datasets/counters.csv"
+  - to: "05_network.network_messages"
+    type: "secures"
+    evidence: "docs/authoring/05_network/datasets/network_messages.csv"
+tags: ["settings","crypto","security"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# Ustawienia i kryptografia
+
+(facet-07_settings_crypto.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `07_settings_crypto.summary`
+
+(facet-07_settings_crypto.settings)=
+## Dataset: settings
+- headers: `key,scope,type,default,notes`
+- facet: `07_settings_crypto.settings`
+
+(facet-07_settings_crypto.secrets)=
+## Dataset: secrets
+- headers: `name,provider,location,rotation,notes`
+- facet: `07_settings_crypto.secrets`
+
+(facet-07_settings_crypto.crypto_primitives)=
+## Dataset: crypto_primitives
+- headers: `name,type,params,usage,notes`
+- facet: `07_settings_crypto.crypto_primitives`
+
+(facet-07_settings_crypto.config_flow)=
+## Diagram: config_flow
+- facet: `07_settings_crypto.config_flow`
+
+## Relacje
+- affects → `01_runtime.counters`
+- secures → `05_network.network_messages`
+
+---
+
 # Chapter 07 - Settings & Crypto
 
 ### Professional Pro Template - Agent-Ready - OTClient v8

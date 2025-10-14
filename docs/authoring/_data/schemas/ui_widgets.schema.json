@@ -1,0 +1,45 @@
+{
+  "title": "ui_widgets.csv",
+  "columns": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "widget",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "parent",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "inherits",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "otui_file",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "properties_count",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "signals_count",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

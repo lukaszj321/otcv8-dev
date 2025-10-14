@@ -1,0 +1,18 @@
+
+/* CSV tables: horizontal scroll + sticky header */
+table.docutils {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+table.docutils thead th {
+  position: sticky;
+  top: 0;
+  background: var(--pst-color-surface);
+  z-index: 1;
+}
+/* Wrap long words in cells that are too wide */
+table.docutils td, table.docutils th {
+  word-break: break-word;
+  white-space: normal;
+}

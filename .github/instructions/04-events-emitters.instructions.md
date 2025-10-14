@@ -1,36 +1,40 @@
 
 ---
-title: 02_events — emitery i subskrybenci
-owner: docs/authoring
-inputs:
-  - źródła: src/**/*.{h,hpp,cpp}, modules/**/*.lua
-outputs:
-  - md: docs/authoring/02_events/index.md
-  - csv: docs/authoring/02_events/datasets/events.csv
-  - diagrams: docs/authoring/02_events/diagrams/*.mmd
-render:
-  - myst: {csv-table}, mermaid (sequence), admonitions
-rules:
-  - idempotent: czyść katalog docelowy
+title: 04 — Events & Emitters (Authoring Plan)
+purpose: Document event streams, sources, handlers, payloads; embed matrices and sequence diagrams.
+chapter: docs/authoring/02_events
+constraints:
+  - Outputs under docs/authoring/02_events/**
+  - Use MyST `{csv-table}` and `{mermaid}`
+
+datasets:
+  - file: events_matrix.csv
+    header: ["id","ts","source","event","payload_schema","handlers","notes"]
+  - file: emitters.csv
+    header: ["emitter","event","args","notes"]
+  - file: handlers.csv
+    header: ["handler","event","callback","threading","notes"]
+
+diagrams:
+  style:
+    init: "%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%"
+  files:
+    - file: event_flow.mmd
+      desc: Typical client lifecycle events (sequenceDiagram)
+      must_click: 'click EventFlow "./index.html#facet-02_events.event_flow" "Open event_flow"'
+      template: |
+        sequenceDiagram
+          participant C as Client
+          participant S as Server
+          C->>S: Login request
+          S->>C: Characters list
+
+index.must_embed:
+  - datasets/events_matrix.csv via {csv-table}
+  - diagrams/event_flow.mmd via {mermaid}
+  - Appendix/Facets
+
 acceptance:
-  - sequence diagrams per event, ToC osadzony
----
-
-## Kolumny CSV
-`emitter,module,signal,handler,location`
-
-## Szablon diagramu
-```mermaid
-sequenceDiagram
-  autonumber
-  participant E as Emitter
-  participant H as Handler
-  E->>H: signal <nazwa>
-  note over E,H: źródło: {{file}}:{{line}}
-```
-:::{admonition} Wskazówka: jakość diagramów
-:class: tip
-- Używamy `sphinxcontrib-mermaid` + `docs/_static/custom-dark-mermaid.css`, aby strzałki i etykiety były czytelne w dark/light mode.
-- Węzły mają linki (`click <id> "<rel-url>" "otwórz"`), co poprawia nawigację w dokumentacji.
-- Dla dużych diagramów użyj `:class: dropdown` aby były zwijane.
-:::
+  - [ ] events_matrix.csv present and non-empty
+  - [ ] event_flow.mmd renders in dark/light
+  - [ ] Facets anchors generated

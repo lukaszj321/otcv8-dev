@@ -1,22 +1,26 @@
 
 ---
-title: QA — walidacje dokumentacji
-owner: docs/authoring
-inputs:
-  - źródła: docs/authoring/**/*
-outputs:
-  - md: docs/authoring/qa/index.md
-render:
-  - myst: admonitions, tables
-rules:
-  - waliduj istnienie plików referencjonowanych w toctree/csv/mermaid click
-  - raportuj brakujące pliki oraz puste katalogi
+title: 09 — QA Checks (Authoring)
+purpose: Validate structure, schemas, anchors, and Sphinx render.
+checks:
+  structure:
+    - docs/authoring/<chapter>/datasets/*.csv exist
+    - docs/authoring/<chapter>/diagrams/*.mmd exist (>=1 recommended)
+    - docs/authoring/<chapter>/index.md exists
+  csv_headers:
+    - summary.csv: ["metric","value","note"]
+    - entities.csv (if present): ["id","name","type","notes"]
+  mermaid:
+    - First line has %%{init: ...}%%
+    - If CSV with same stem exists → ensure click anchor
+  facets:
+    - Anchor exists: (facet-<chapter>.<stem>) in index.md
+    - Mermaid click points to ./index.html#facet-<chapter>.<stem>
+  sphinx:
+    - Build succeeds with PyData theme (no blocking warnings)
+    - At least one {csv-table} and one {mermaid} per chapter
+report:
+  - Save QA report to docs/authoring/_data/qa_report.csv
+  - headers: ["chapter","check","status","details"]
 acceptance:
-  - sekcja "Problemy" pusta (lub lista błędów)
----
-
-## Sekcje raportu
-- **Brakujące pliki**
-- **Puste katalogi**
-- **Zduplikowane kotwice**
-- **Zewnętrzne linki** (niepożądane surowe URL do GitHuba)
+  - [ ] qa_report.csv exists; any FAILs clearly listed

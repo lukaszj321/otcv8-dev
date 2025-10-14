@@ -1,0 +1,40 @@
+{
+  "title": "events_matrix.csv",
+  "columns": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "ts",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "event",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "payload_schema",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "handlers",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "required": false
+    }
+  ]
+}

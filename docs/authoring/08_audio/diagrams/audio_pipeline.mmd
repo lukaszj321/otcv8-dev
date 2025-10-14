@@ -1,0 +1,6 @@
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  AudioPipeline[08_audio:audio_pipeline] --> Data[Datasets]
+  Data --> Page[Index]
+
+click AudioPipeline "./index.html#facet-08_audio.audio_pipeline" "Open audio_pipeline"

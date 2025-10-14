@@ -8,10 +8,10 @@
 # otcv8-dev — Agent Contract (RAG‑ready)
 
 ## A) Cel i zakres
-**Goal:** Agent tworzy i utrzymuje dokumentację (MD) i zbiory danych (CSV/NDJSON) na podstawie **C++/Lua/OTUI** repo oraz źródeł kanonicznych w `docs/reposzablony/*.md`. Artefakty muszą być **RAG‑friendly** (metadane, chunkowanie, stabilne ID).
+**Goal:** Agent tworzy i utrzymuje dokumentację (MD) i zbiory danych (CSV/NDJSON) na podstawie **C++/Lua/OTUI** repo oraz źródeł kanonicznych w `docs/authoring/*.md`. Artefakty muszą być **RAG‑friendly** (metadane, chunkowanie, stabilne ID).
 
 ## B) Polityka IO (czytaj/zapis)
-- **WRITE (dozwolone):** `docs/reposzablony/**` *(jedyna ścieżka zapisu)*.
+- **WRITE (dozwolone): `docs/authoring/**` *(jedyna ścieżka zapisu)*.
 - **READ (dozwolone):** `src/**`, `modules/**`, `mods/**`, `data/**`, `tools/**`, `layouts/**`, `test/**` (tylko do odczytu), opcj. `android/**`, `vc16/**`.
 - **DENY (nigdy nie czytaj/nie zapisuj):** `**/backup/**`, `**/backups/**`, `**/tmp/**`, `**/temp/**`, `**/.cache/**`, `**/build/**`, `**/bin/**`, `**/dist/**`, `**/.git/**`, `**/.github/**` *(poza plikami instrukcji)*.
 - **Kodowanie/EOL:** UTF‑8 **bez BOM**, EOL = **LF**.
@@ -19,12 +19,12 @@
 ## C) Materializacja treści (źródła → artefakty)
 **Źródła:**
 1. **Kod repo:** C++ (`.h/.hpp/.hxx`), Lua (`.lua`), OTUI (`.otui`).
-2. **Specyfikacje:** `docs/reposzablony/chapter_*.md` (jeśli zawierają bloki „file:” lub code fences z atrybutem `path=`).
+2. **Specyfikacje:** `docs/authoring/chapter_*.md` (jeśli zawierają bloki „file:” lub code fences z atrybutem `path=`).
 
 **Reguły:**
 1) **Code fence z atrybutem `path=` (preferowane)**
 
-```lua path=docs/reposzablony/03_modules/examples/foo.lua
+```lua path=docs/authoring/03_modules/examples/foo.lua
 -- treść pliku
 ```
 
@@ -32,18 +32,18 @@
 
 2) **Marker sekcji `### file: <ścieżka>`**
 
-### file: docs/reposzablony/04_ui/diagrams/widgets.mmd
+### file: docs/authoring/04_ui/diagrams/widgets.mmd
 ```mermaid
 graph TD; A-->B
 ```
 
 → następny fenced block to zawartość pliku docelowego.
 
-3) **Bloki `diff`** – stosuj tylko gdy `+++ b/...` wskazuje `docs/reposzablony/**`.
+3) **Bloki `diff`** – stosuj tylko gdy `+++ b/...` wskazuje `docs/authoring/**`.
 
 4) **Brak ścieżki ⇒ brak zapisu** – dopisz notatkę „unmapped code block”.
 
-> **Wyjątek:** Generatory C++/Lua/OTUI mogą pisać **bezpośrednio** pod `docs/reposzablony/**` na podstawie źródeł objętych `applyTo` (patrz §J).
+> **Wyjątek:** Generatory C++/Lua/OTUI mogą pisać **bezpośrednio** pod `docs/authoring/**` na podstawie źródeł objętych `applyTo` (patrz §J).
 
 ## D) Profil RAG: metadane, chunkowanie, ID
 ### D1. YAML frontmatter dla **każdego** wygenerowanego MD
@@ -79,11 +79,11 @@ links:
 - Dodawaj *See also* sekcję (krótka lista 3–5 linków powiązanych).
 
 ## E) Struktura wyjścia i nazewnictwo
-- C++ API → `docs/reposzablony/01_core/api/cpp/<REL_PATH>.md` *(REL_PATH = ścieżka pliku nagłówkowego z `.md`)*
-- Lua → `docs/reposzablony/03_modules/lua/<REL_PATH>.md`
-- OTUI → `docs/reposzablony/04_ui/otui/<REL_PATH>.md`
-- Diagramy/mermaid → `docs/reposzablony/04_ui/diagrams/**`
-- Zbiory RAG → `docs/reposzablony/datasets/{api,ui,modules}/**.{csv,ndjson}`
+- C++ API → `docs/authoring/01_core/api/cpp/<REL_PATH>.md` *(REL_PATH = ścieżka pliku nagłówkowego z `.md`)*
+- Lua → `docs/authoring/03_modules/lua/<REL_PATH>.md`
+- OTUI → `docs/authoring/04_ui/otui/<REL_PATH>.md`
+- Diagramy/mermaid → `docs/authoring/04_ui/diagrams/**`
+- Zbiory RAG → `docs/authoring/datasets/{api,ui,modules}/**.{csv,ndjson}`
 
 ## F) Format treści (skrót)
 ### F1. C++ (plik MD)
@@ -100,7 +100,7 @@ links:
 
 ## G) Walidacje i bramki jakości
 - **Frontmatter** wymagany (patrz §D1).
-- **Lint linków**: brak martwych linków w obrębie `docs/reposzablony/**`.
+- **Lint linków**: brak martwych linków w obrębie `docs/authoring/**`.
 - **Idempotencja**: zapisuj tylko, gdy diff ≠ 0.
 - **Bez PII**: treści użytkownika zastępuj wskaźnikami (np. `hasMessage: true`).
 
@@ -151,7 +151,7 @@ applyTo:
 Dla każdego pliku nagłówkowego wygeneruj MD (public/protected: klasy, enumy, funkcje). Pomiń prywatne. Wyciągaj komentarze `///` i `/** */`.
 
 # Output
-Zapis do: `docs/reposzablony/01_core/api/cpp/<REL_PATH>.md`
+Zapis do: `docs/authoring/01_core/api/cpp/<REL_PATH>.md`
 ```
 
 **`02-ui-lua.instructions.md`**
@@ -166,17 +166,17 @@ applyTo:
 OTUI → lista widgetów (id,class,parent,props) + AST + mały diagram. Lua → exports, funkcje publiczne, eventy.
 
 # Output
-OTUI → `docs/reposzablony/04_ui/otui/<REL_PATH>.md`
-Lua  → `docs/reposzablony/03_modules/lua/<REL_PATH>.md`
+OTUI → `docs/authoring/04_ui/otui/<REL_PATH>.md`
+Lua  → `docs/authoring/03_modules/lua/<REL_PATH>.md`
 ```
 
 ## K) Setup (bootstrap minimalny)
 - **Workflow** `.github/copilot-setup-steps.yml` z jobem `copilot-setup-steps`:
-  - `bash docs/reposzablony/_bootstrap.sh || true`
-  - `mkdir -p docs/reposzablony/{01_core/api/cpp,03_modules/lua,04_ui/otui,datasets/{api,ui,modules}}`
+  - `bash docs/authoring/_bootstrap.sh || true`
+  - `mkdir -p docs/authoring/{01_core/api/cpp,03_modules/lua,04_ui/otui,datasets/{api,ui,modules}}`
 
 ## L) Kryteria akceptacji (PR)
-- [ ] Zmienione **wyłącznie** pliki w `docs/reposzablony/**`.
+- [ ] Zmienione **wyłącznie** pliki w `docs/authoring/**`.
 - [ ] Każdy MD ma **frontmatter** z §D1; linki działają.
 - [ ] CSV mają nagłówki; NDJSON poprawne; rotacja zachowana.
 - [ ] Brak arbitralnych zmian formatowania; tylko rzeczywiste różnice.

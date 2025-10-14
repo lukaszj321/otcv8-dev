@@ -1,0 +1,29 @@
+
+/* Premium table UX: sticky first column, zebra stripes, compact mode */
+table.docutils {
+  display: block;
+  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+table.docutils thead th {
+  position: sticky;
+  top: 0;
+  background: var(--pst-color-surface);
+  z-index: 2;
+}
+table.docutils tbody tr:nth-child(odd) {
+  background: color-mix(in srgb, var(--pst-color-surface) 92%, var(--pst-color-text) 8%);
+}
+table.docutils td:first-child, table.docutils th:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--pst-color-surface);
+  z-index: 1;
+  box-shadow: 1px 0 0 rgba(0,0,0,0.05);
+}
+/* Compact */
+.table-compact table.docutils td, .table-compact table.docutils th {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}

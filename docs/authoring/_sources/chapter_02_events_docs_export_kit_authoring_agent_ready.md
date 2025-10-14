@@ -1,3 +1,87 @@
+---
+chapter: "02_events"
+slug: "02_events"
+title: "Event system and signals — export kit"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "02_events.summary"
+    - id: "events_matrix"
+      file: "events_matrix.csv"
+      headers: ["id","ts","source","event","payload_schema","handlers","notes"]
+      facet: "02_events.events_matrix"
+    - id: "emitters"
+      file: "emitters.csv"
+      headers: ["source","event","count","notes"]
+      facet: "02_events.emitters"
+    - id: "handlers"
+      file: "handlers.csv"
+      headers: ["module","event","fn","arity","notes"]
+      facet: "02_events.handlers"
+  diagrams:
+    - id: "bus"
+      file: "bus.mmd"
+      facet: "02_events.bus"
+    - id: "propagation"
+      file: "propagation.mmd"
+      facet: "02_events.propagation"
+xrefs:
+  - to: "03_modules.lua_exports"
+    type: "handled_by"
+    evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
+  - to: "04_ui.signals"
+    type: "emits"
+    evidence: "docs/authoring/04_ui/datasets/signals.csv"
+  - to: "09_logging.logging_categories"
+    type: "logs"
+    evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+tags: ["events","signals","otclient","v8"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# System zdarzeń
+
+(facet-02_events.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `02_events.summary`
+
+(facet-02_events.events_matrix)=
+## Dataset: events_matrix
+- headers: `id,ts,source,event,payload_schema,handlers,notes`
+- facet: `02_events.events_matrix`
+
+(facet-02_events.emitters)=
+## Dataset: emitters
+- headers: `source,event,count,notes`
+- facet: `02_events.emitters`
+
+(facet-02_events.handlers)=
+## Dataset: handlers
+- headers: `module,event,fn,arity,notes`
+- facet: `02_events.handlers`
+
+(facet-02_events.bus)=
+## Diagram: bus
+- facet: `02_events.bus`
+
+(facet-02_events.propagation)=
+## Diagram: propagation
+- facet: `02_events.propagation`
+
+## Relacje
+- handled_by → `03_modules.lua_exports`
+- emits → `04_ui.signals`
+- logs → `09_logging.logging_categories`
+
+---
+
 # Chapter 02 - Events
 
 ### Professional Pro Template - Agent-Ready - OTClient v8

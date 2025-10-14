@@ -33,21 +33,24 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip wheel setuptools
-          # Jeśli masz własny requirements, zainstaluj go najpierw:
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          # Do-instaluj WSZYSTKO, co bywa brakujące w CI
-          pip install --upgrade sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog matplotlib
-          # sanity-check
+          pip install --upgrade sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog
           python - << 'PY'
-          import sphinx, pydata_sphinx_theme, ablog, matplotlib, sphinxcontrib.mermaid
-          print("OK: sphinx,", sphinx.__version__)
+          import sphinx, pydata_sphinx_theme, sphinxcontrib.mermaid
+          print("OK: sphinx", sphinx.__version__)
           PY
 
       - name: Generate authoring pages
-        if: ${{ false }}   # wyłączone, nie rusza docs/authoring
         shell: bash
         run: |
-          echo "SKIPPED"
+          set -euo pipefail
+          python scripts/build_authoring_pages.py
+
+      - name: Patch Mermaid diagrams (click → facets)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f scripts/patch_diagrams_clicks.py ]; then python scripts/patch_diagrams_clicks.py; fi
 
       - name: Build Sphinx
         shell: bash
@@ -68,6 +71,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
