@@ -1,4 +1,4 @@
-name: C++ Matrix Build (OTCv8)
+name: C++ Build (Ubuntu only)
 
 on:
   push:
@@ -8,58 +8,32 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
         build_type: [Release, Debug]
     env:
       BUILD_TYPE: ${{ matrix.build_type }}
     steps:
       - uses: actions/checkout@v2
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
-      - name: Install dependencies (Ubuntu)
-        if: matrix.os == 'ubuntu-latest'
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential cmake git libboost-all-dev liblua5.1-0-dev libglew-dev libphysfs-dev libssl-dev
           pip install conan
-
-      - name: Install dependencies (Windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          choco install boost-msvc14 glew physfs openssl lua conan
-          python -m pip install conan
-
-      - name: Build Lua 5.1 from source (macOS)
-        if: matrix.os == 'macos-latest'
-        run: |
-          brew update
-          brew install boost glew physfs openssl
-          pip install conan
-          curl -R -O http://www.lua.org/ftp/lua-5.1.5.tar.gz
-          tar zxf lua-5.1.5.tar.gz
-          cd lua-5.1.5
-          make macosx
-          sudo make install
-          cd ..
-
       - name: Configure
         run: |
           mkdir build
           cd build
           cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
-
       - name: Build
         run: |
           cd build
           cmake --build . --config ${{ env.BUILD_TYPE }}
-
       - name: Run tests
         run: |
           cd build
