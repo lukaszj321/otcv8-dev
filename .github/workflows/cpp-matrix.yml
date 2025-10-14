@@ -1,7 +1,11 @@
-name: C++ Matrix Build (desktop)
+name: C++ Matrix Build (OTCv8)
 on:
   push:
-    paths: [ "src/**", "include/**", "CMakeLists.txt", ".github/workflows/cpp-matrix.yml" ]
+    paths:
+      - "src/**"
+      - "include/**"
+      - "CMakeLists.txt"
+      - ".github/workflows/cpp-matrix.yml"
   workflow_dispatch:
 
 jobs:
@@ -9,14 +13,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, windows-latest, macos-14 ]
-        build_type: [ Release ]
+        os: [ubuntu-latest, windows-latest, macos-14]
+        build_type: [Release]
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v4
 
-      # ---------- Linux ----------
+      # Linux dependencies
       - name: Install deps (Linux)
         if: startsWith(matrix.os, 'ubuntu')
         run: |
@@ -29,7 +33,7 @@ jobs:
             doxygen graphviz \
             luajit libluajit-5.1-dev
 
-      # ---------- macOS ----------
+      # macOS dependencies
       - name: Install deps (macOS)
         if: startsWith(matrix.os, 'macos')
         run: |
@@ -37,7 +41,7 @@ jobs:
           brew install cmake ninja sdl2 glew physfs doxygen graphviz \
             boost libzip zlib
 
-      # ---------- Windows ----------
+      # Windows dependencies
       - name: MSVC dev cmd
         if: startsWith(matrix.os, 'windows')
         uses: ilammy/msvc-dev-cmd@v1
@@ -58,14 +62,26 @@ jobs:
           echo "VCPKG_ROOT=$env:GITHUB_WORKSPACE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Append
           echo "VCPKG_TRIPLET=$triplet" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-      # ---------- Configure ----------
-      - name: Configure (Linux/macOS)
-        if: matrix.os == 'ubuntu-latest' || startsWith(matrix.os, 'macos')
+      # Configure (Linux)
+      - name: Configure (Linux)
+        if: matrix.os == 'ubuntu-latest'
         run: |
           cmake -S . -B build -G Ninja \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DLIBZIP_LIBRARY=/usr/lib/x86_64-linux-gnu/libzip.so \
+            -DLIBZIP_INCLUDE_DIR=/usr/include
 
+      # Configure (macOS)
+      - name: Configure (macOS)
+        if: startsWith(matrix.os, 'macos')
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DCMAKE_PREFIX_PATH=$(brew --prefix boost)
+
+      # Configure (Windows)
       - name: Configure (Windows MSVC + vcpkg)
         if: startsWith(matrix.os, 'windows')
         shell: pwsh
@@ -76,11 +92,24 @@ jobs:
           -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake"
           -DVCPKG_TARGET_TRIPLET="$env:VCPKG_TRIPLET"
 
-      # ---------- Build ----------
+      # Build
       - name: Build
         run: cmake --build build --config ${{ matrix.build_type }} --parallel
 
-      # ---------- Upload artifacts ----------
+      # (Optional) Doxygen XML (Linux only)
+      - name: Doxygen XML (Linux)
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          doxygen -g doxygen.conf
+          sed -i 's/GENERATE_HTML.*/GENERATE_HTML = NO/' doxygen.conf
+          sed -i 's/GENERATE_XML.*/GENERATE_XML = YES/' doxygen.conf
+          sed -i 's/RECURSIVE.*/RECURSIVE = YES/' doxygen.conf
+          sed -i 's/INPUT.*/INPUT = src include/' doxygen.conf
+          doxygen doxygen.conf
+          mkdir -p build_artifacts/linux/doxygen
+          cp -r xml build_artifacts/linux/doxygen/xml
+
+      # Collect build artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
