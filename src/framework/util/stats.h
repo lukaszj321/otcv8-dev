@@ -9,7 +9,7 @@
 #include <chrono>
 #include <unordered_map>
 #include <set>
-#include <string>
+#include <string> // NAJWAŻNIEJSZE!
 
 // NOT THREAD SAFE
 
@@ -74,7 +74,7 @@ public:
     std::string getWidgetsInfo(int limit, bool pretty);
 
     inline void addTexture() { createdTextures += 1; }
-    inline void removeTexture() { destroyedTextures += 1; }
+    inline void removeTexture() { destroyedTextures -= 1; }
 
     inline void addThing() { createdThings += 1; }
     inline void removeThing() { destroyedThings += 1; }
