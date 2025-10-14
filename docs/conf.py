@@ -1,12 +1,13 @@
-# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7.4.7, PyData 0.16.1) -----------------
+# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7.4.7, PyData 0.16.1) -----
 
 import os
 from pathlib import Path
+from importlib import import_module
 
 # -- Project -------------------------------------------------------------------
 project = "OTClient v8 — Developer Documentation"
-author = "Dildo"
-language = "pl"  # możesz zmienić na 'en' jeśli wolisz
+author = "OTClient v8 contributors"
+language = "pl"
 
 # -- Paths ---------------------------------------------------------------------
 DOCS_DIR = Path(__file__).parent.resolve()
@@ -15,9 +16,6 @@ TEMPLATES_DIR = DOCS_DIR / "_templates"
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
-html_css_files = []
-if (STATIC_DIR / "tables-premium.css").exists():
-    html_css_files.append("tables-premium.css")
 
 exclude_patterns = [
     "_build",
@@ -31,13 +29,16 @@ exclude_patterns = [
 # -- Extensions ----------------------------------------------------------------
 # Uwaga: NIE ładujemy jednocześnie "myst_parser" i "myst_nb".
 extensions = [
-    "myst_nb",                      # MyST + notebooki (ale wykonanie wyłączone poniżej)
-    "sphinx.ext.autosectionlabel",  # zastępuje nieistniejący pip-pakiet "sphinx-autosectionlabel"
-    "sphinx.ext.githubpages",       # .nojekyll
+    "myst_nb",                      # MyST + notebooki (wykonanie wyłączone poniżej)
+    "sphinx.ext.autosectionlabel",  # zamiast pip-owego "sphinx-autosectionlabel"
+    "sphinx.ext.githubpages",
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
     "sphinx.ext.duration",
+]
 
+# Opcjonalne rozszerzenia — doładuj tylko jeśli są zainstalowane w CI
+_optional_exts = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_sitemap",
@@ -49,14 +50,24 @@ extensions = [
     "sphinx_hoverxref",
 ]
 
+for ext in list(_optional_exts):
+    try:
+        # import name == ext (kropki są poprawne, myślników nie używamy w nazwach)
+        import_module(ext)
+        extensions.append(ext)
+    except Exception:
+        print(f"[conf.py] optional extension skipped: {ext}")
+
+# Bezpiecznik gdyby ktoś przez przypadek dodał myst_parser obok myst_nb
+if "myst_nb" in extensions and "myst_parser" in extensions:
+    extensions.remove("myst_parser")
+
 # -- MyST / Notebooks ----------------------------------------------------------
-# Wyłączamy wykonywanie komórek (bezpiecznie dla CI, szybkie buildy)
-nb_execution_mode = "off"
+nb_execution_mode = "off"          # nie wykonujemy komórek w CI
 nb_execution_timeout = 300
 
-# Rozszerzenia MyST
 myst_enable_extensions = [
-    "colon_fence",     # ```{admonition} / {toctree} / {csv-table} itp.
+    "colon_fence",
     "deflist",
     "substitution",
     "linkify",
@@ -65,19 +76,26 @@ myst_enable_extensions = [
     "tasklist",
     "smartquotes",
 ]
-myst_heading_anchors = 3  # automatyczne kotwice H1..H3
+myst_heading_anchors = 3
 
-# Autosectionlabel — prefiksuj dokumentem, żeby uniknąć kolizji nagłówków
+# Labelowanie nagłówków bez kolizji
 autosectionlabel_prefix_document = True
 
-# -- HTML ----------------------------------------------------------------------
-html_theme = "pydata_sphinx_theme"
+# -- HTML / Theme --------------------------------------------------------------
+# Jeśli pydata-sphinx-theme nie jest zainstalowany, fallback do alabaster
+try:
+    import pydata_sphinx_theme  # noqa: F401
+    html_theme = "pydata_sphinx_theme"
+except Exception:
+    print("[conf.py] pydata-sphinx-theme not available — falling back to 'alabaster'")
+    html_theme = "alabaster"
+
+html_title = "OTClient v8 — Authoring & API"
+html_css_files = []
+if (STATIC_DIR / "tables-premium.css").exists():
+    html_css_files.append("tables-premium.css")
 
 html_theme_options = {
-    "logo": {
-        # Dodaj jeśli masz logo w _static
-        # "text": "OTClient v8",
-    },
     "use_edit_page_button": True,
     "show_nav_level": 2,
     "navigation_with_keys": True,
@@ -92,26 +110,24 @@ html_theme_options = {
     ],
 }
 
-html_title = "OTClient v8 — Authoring & API"
-# Dla sitemap i ogp musisz podać publiczny URL
+# Publiczny URL dla sitemap/opengraph (zmień jeśli masz inny branch/URL)
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
 
 html_context = {
     "github_user": "lukaszj321",
     "github_repo": "otcv8-dev",
-    "github_version": "master",   # lub "main" jeśli używasz main
+    "github_version": "master",  # zmień na "main" jeśli używasz main
     "doc_path": "docs",
 }
 
 # -- Mermaid (sphinxcontrib-mermaid) -------------------------------------------
-# Neutralny motyw — dobrze czytelny w light/dark
 mermaid_version = "10.9.0"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'neutral'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
 ogp_site_url = html_baseurl
 ogp_site_name = "OTClient v8 Dev Docs"
-# ogp_image = "https://lukaszj321.github.io/otcv8-dev/_static/og.png"  # jeśli posiadasz
+# ogp_image = html_baseurl + "_static/og.png"
 
 # -- Copybutton ----------------------------------------------------------------
 copybutton_prompt_is_regexp = True
@@ -119,6 +135,7 @@ copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
 
 # -- Hoverxref -----------------------------------------------------------------
+# (działa tylko jeśli zainstalowane; w przeciwnym razie zostanie pominięte powyżej)
 hoverxref_auto_ref = True
 hoverxref_domains = ["std"]
 hoverxref_default_type = "tooltip"
@@ -135,17 +152,15 @@ favicons = []
 if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
-# -- Warnings / czyszczenie szumu ---------------------------------------------
+# -- Warnings / porządek -------------------------------------------------------
 suppress_warnings = [
-    # Przydatne, gdy mieszamy MyST i duże zbiory
     "myst.header",
     "myst.nb.render",
 ]
 
 # -- Todo ----------------------------------------------------------------------
-todo_include_todos = False  # ustaw True, jeśli chcesz renderować .. todo::
+todo_include_todos = False
 
-# -- Build hooks (opcjonalne) --------------------------------------------------
+# -- Build hooks ---------------------------------------------------------------
 def setup(app):
-    # Jeżeli masz własne CSS/JS do wstrzyknięcia warunkowo — zrób to tutaj
     pass
