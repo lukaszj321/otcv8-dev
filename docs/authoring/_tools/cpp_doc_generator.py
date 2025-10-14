@@ -15,8 +15,8 @@ from typing import List, Dict, Optional, Tuple
 
 # Repository root
 REPO_ROOT = Path(__file__).resolve().parents[3]
-DOCS_OUTPUT = REPO_ROOT / "docs" / "reposzablony" / "01_core" / "api" / "cpp"
-DIAGRAMS_OUTPUT = REPO_ROOT / "docs" / "reposzablony" / "01_core" / "api" / "diagrams"
+DOCS_OUTPUT = REPO_ROOT / "docs" / "authoring" / "01_core" / "api" / "cpp"
+DIAGRAMS_OUTPUT = REPO_ROOT / "docs" / "authoring" / "01_core" / "api" / "diagrams"
 
 
 def get_git_sha(file_path: Path) -> str:
