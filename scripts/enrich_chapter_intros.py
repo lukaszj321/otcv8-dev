@@ -15,18 +15,6 @@ AUTHORING = ROOT / "docs" / "authoring"
 SOURCES = AUTHORING / "_sources"
 
 # Mapping of chapter numbers to directories
-CHAPTER_MAP = {
-    "01_core": "01_core",
-    "02_events": "02_events",
-    "03_modules": "03_modules",
-    "04_ui": "04_ui",
-    "05_network": "05_network",
-    "06_assets": "06_assets",
-    "07_settings_crypto": "07_settings_crypto",
-    "08_audio": "08_audio",
-    "09_logging": "09_logging",
-    "10_game_runtime": "10_game_runtime",
-}
 
 def parse_source_file(source_path: Path) -> Dict[str, str]:
     """Extract metadata and intro from source file."""
