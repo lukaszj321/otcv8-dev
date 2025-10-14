@@ -25,7 +25,10 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential cmake git gcc g++ libboost-all-dev liblua5.1-0-dev libglew-dev libphysfs-dev libssl-dev libbz2-dev libzip-dev libluajit-5.1-dev zlib1g-dev
+          sudo apt-get install -y build-essential cmake git gcc g++ \
+            libboost-all-dev libboost-system-dev libboost-filesystem-dev \
+            liblua5.1-0-dev libglew-dev libphysfs-dev libssl-dev \
+            libbz2-dev libzip-dev libluajit-5.1-dev zlib1g-dev
           pip install conan
       - name: Install vcpkg (stable 2024.05.24)
         run: |
@@ -43,7 +46,9 @@ jobs:
           cd build
           cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
             -DLIBZIP_LIBRARY=/usr/lib/x86_64-linux-gnu/libzip.so \
-            -DLIBZIP_INCLUDE_DIR=/usr/include/zip
+            -DLIBZIP_INCLUDE_DIR=/usr/include/zip \
+            -DZLIB_LIBRARY=/usr/lib/x86_64-linux-gnu/libz.so \
+            -DZLIB_INCLUDE_DIR=/usr/include
       - name: Build
         run: |
           cd build
