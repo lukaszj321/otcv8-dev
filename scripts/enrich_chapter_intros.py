@@ -20,18 +20,35 @@ def parse_source_file(source_path: Path) -> Dict[str, str]:
     """Extract metadata and intro from source file."""
     content = source_path.read_text(encoding='utf-8')
     
-    # Parse frontmatter
-    match = re.match(r'^---\s*\n(.*?)\n---\s*\n(.*)', content, re.DOTALL)
-    if not match:
+    # Parse frontmatter robustly (handle leading whitespace/comments)
+    lines = content.splitlines()
+    in_frontmatter = False
+    frontmatter_lines = []
+    body_lines = []
+    found_frontmatter = False
+    for idx, line in enumerate(lines):
+        if not in_frontmatter:
+            if line.strip() == "---":
+                in_frontmatter = True
+                found_frontmatter = True
+                continue
+        else:
+            if line.strip() == "---":
+                in_frontmatter = False
+                # body starts after this line
+                body_lines = lines[idx+1:]
+                break
+            else:
+                frontmatter_lines.append(line)
+    if not found_frontmatter or in_frontmatter:
         return {}
-    
+    frontmatter = "\n".join(frontmatter_lines)
+    body = "\n".join(body_lines).strip()
     try:
-        meta = yaml.safe_load(match.group(1)) or {}
+        meta = yaml.safe_load(frontmatter) or {}
     except yaml.YAMLError as e:
         print(f"[WARN] YAML parse error in {source_path}: {e}")
         return {}
-    
-    body = match.group(2).strip()
     
     # Extract a concise intro (first meaningful paragraph or executive summary)
     intro = extract_intro(body, meta)
