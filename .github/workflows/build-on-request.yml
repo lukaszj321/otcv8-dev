@@ -188,4 +188,3 @@ jobs:
           cd ..
       - name: Fix libphysfs.a index
         run: sudo ranlib /usr/lib/x86_64-linux-gnu/libphysfs](#)**
-
