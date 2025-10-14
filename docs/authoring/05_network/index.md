@@ -1,8 +1,8 @@
 ---
-title: 05_network - Network
+title: Network protocol — export kit
 ---
 
-# 05_network - Network
+# Network protocol — export kit
 
 ```{contents} Table of contents
 :depth: 2
@@ -10,26 +10,17 @@ title: 05_network - Network
 ```
 
 ## Datasets
-:::{grid} 1 1 2 2
 
-:gutter: 2
+### flows
+*Facet:* [`05_network.flows`](#facet-05_network.flows)
 
-:::{grid-item}
-
-#### `entities.csv`
-*Facet:* [`05_network.entities`](#facet-05_network.entities)
-
-```{csv-table} entities
+```{csv-table} flows
 :header-rows: 1
-:file: ./datasets/entities.csv
+:file: ./datasets/flows.csv
 :widths: auto
 ```
 
-:::
-
-:::{grid-item}
-
-#### `network_messages.csv`
+### network_messages
 *Facet:* [`05_network.network_messages`](#facet-05_network.network_messages)
 
 ```{csv-table} network_messages
@@ -38,11 +29,16 @@ title: 05_network - Network
 :widths: auto
 ```
 
-:::
+### opcodes
+*Facet:* [`05_network.opcodes`](#facet-05_network.opcodes)
 
-:::{grid-item}
+```{csv-table} opcodes
+:header-rows: 1
+:file: ./datasets/opcodes.csv
+:widths: auto
+```
 
-#### `summary.csv`
+### summary
 *Facet:* [`05_network.summary`](#facet-05_network.summary)
 
 ```{csv-table} summary
@@ -51,64 +47,43 @@ title: 05_network - Network
 :widths: auto
 ```
 
-:::
-
-:::
-
 ## Diagrams
-#### `architecture.mmd`
-        *Facet:* [`05_network.architecture`](#facet-05_network.architecture)
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph LR
-    subgraph Network
-        E0[Network Messages]
-        E1[Protocol Handlers]
-        E2[Network Stats]
-        E0 --> E1
-        E1 --> E2
-    end
-        ```
+### handshake
+*Facet:* [`05_network.handshake`](#facet-05_network.handshake)
 
-#### `flow.mmd`
-        *Facet:* [`05_network.flow`](#facet-05_network.flow)
-
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
-    A[Network] --> B[Data Collection]
-    B --> C[Processing]
-    C --> D[Datasets]
-    C --> E[Analysis]
-    D --> F[CSV Export]
-    E --> G[Statistics]
-    G --> H[Reports]
-    F --> H
-        ```
+    A[05_network.handshake] --> B[Dataset]
+    B --> C[Page]
 
-#### `network_sequence.mmd`
-        *Facet:* [`05_network.network_sequence`](#facet-05_network.network_sequence)
+click A "./index.html#facet-05_network.handshake" "Open handshake"
+```
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  NetworkEquence[05_network:network_sequence] --> Data[Datasets]
-  Data --> Page[Index]
+## Cross-References
 
-click NetworkEquence "./index.html#facet-05_network.network_sequence" "Open network_sequence"
-        ```
+- **influences** → `10_game_runtime.game_state` (evidence: `docs/authoring/10_game_runtime/datasets/game_state.csv`)
+- **logs** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
 
 ## Appendix / Facets
-(facet-05_network.architecture)=
-### Facet: `05_network.architecture`
-(facet-05_network.entities)=
-### Facet: `05_network.entities`
-(facet-05_network.flow)=
-### Facet: `05_network.flow`
+
+(facet-05_network.flows)=
+### Facet: `05_network.flows`
+Type: dataset
+
+(facet-05_network.handshake)=
+### Facet: `05_network.handshake`
+Type: diagram
+
 (facet-05_network.network_messages)=
 ### Facet: `05_network.network_messages`
-(facet-05_network.network_sequence)=
-### Facet: `05_network.network_sequence`
+Type: dataset
+
+(facet-05_network.opcodes)=
+### Facet: `05_network.opcodes`
+Type: dataset
+
 (facet-05_network.summary)=
 ### Facet: `05_network.summary`
+Type: dataset

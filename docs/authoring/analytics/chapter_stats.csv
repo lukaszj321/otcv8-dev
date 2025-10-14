@@ -1,0 +1,11 @@
+chapter,datasets_count,diagrams_count,xrefs_count,facets_count
+01_core,4,2,4,6
+02_events,4,2,3,6
+03_modules,4,1,3,5
+04_ui,4,2,4,6
+05_network,4,1,2,5
+06_assets,4,1,2,5
+07_settings_crypto,4,1,2,5
+08_audio,4,1,2,5
+09_logging,4,1,2,5
+10_game_runtime,4,1,3,5

@@ -1,8 +1,8 @@
 ---
-title: 02_events - Events
+title: Event system and signals — export kit
 ---
 
-# 02_events - Events
+# Event system and signals — export kit
 
 ```{contents} Table of contents
 :depth: 2
@@ -10,26 +10,17 @@ title: 02_events - Events
 ```
 
 ## Datasets
-:::{grid} 1 1 2 2
 
-:gutter: 2
+### emitters
+*Facet:* [`02_events.emitters`](#facet-02_events.emitters)
 
-:::{grid-item}
-
-#### `entities.csv`
-*Facet:* [`02_events.entities`](#facet-02_events.entities)
-
-```{csv-table} entities
+```{csv-table} emitters
 :header-rows: 1
-:file: ./datasets/entities.csv
+:file: ./datasets/emitters.csv
 :widths: auto
 ```
 
-:::
-
-:::{grid-item}
-
-#### `events_matrix.csv`
+### events_matrix
 *Facet:* [`02_events.events_matrix`](#facet-02_events.events_matrix)
 
 ```{csv-table} events_matrix
@@ -38,11 +29,16 @@ title: 02_events - Events
 :widths: auto
 ```
 
-:::
+### handlers
+*Facet:* [`02_events.handlers`](#facet-02_events.handlers)
 
-:::{grid-item}
+```{csv-table} handlers
+:header-rows: 1
+:file: ./datasets/handlers.csv
+:widths: auto
+```
 
-#### `summary.csv`
+### summary
 *Facet:* [`02_events.summary`](#facet-02_events.summary)
 
 ```{csv-table} summary
@@ -51,64 +47,60 @@ title: 02_events - Events
 :widths: auto
 ```
 
-:::
-
-:::
-
 ## Diagrams
-#### `architecture.mmd`
-        *Facet:* [`02_events.architecture`](#facet-02_events.architecture)
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph LR
-    subgraph Events
-        E0[Event Types]
-        E1[Signal Handlers]
-        E2[Event Sequences]
-        E0 --> E1
-        E1 --> E2
-    end
-        ```
+### bus
+*Facet:* [`02_events.bus`](#facet-02_events.bus)
 
-#### `event_flow.mmd`
-        *Facet:* [`02_events.event_flow`](#facet-02_events.event_flow)
-
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
-  EventFlow[02_events:event_flow] --> Data[Datasets]
-  Data --> Page[Index]
+    A[02_events.bus] --> B[Dataset]
+    B --> C[Page]
 
-click EventFlow "./index.html#facet-02_events.event_flow" "Open event_flow"
-        ```
+click A "./index.html#facet-02_events.bus" "Open bus"
+```
 
-#### `flow.mmd`
-        *Facet:* [`02_events.flow`](#facet-02_events.flow)
+### propagation
+*Facet:* [`02_events.propagation`](#facet-02_events.propagation)
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
-    A[Events] --> B[Data Collection]
-    B --> C[Processing]
-    C --> D[Datasets]
-    C --> E[Analysis]
-    D --> F[CSV Export]
-    E --> G[Statistics]
-    G --> H[Reports]
-    F --> H
-        ```
+    A[02_events.propagation] --> B[Dataset]
+    B --> C[Page]
+
+click A "./index.html#facet-02_events.propagation" "Open propagation"
+```
+
+## Cross-References
+
+- **handled_by** → `03_modules.lua_exports` (evidence: `docs/authoring/03_modules/datasets/lua_exports.csv`)
+- **emits** → `04_ui.signals` (evidence: `docs/authoring/04_ui/datasets/signals.csv`)
+- **logs** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
 
 ## Appendix / Facets
-(facet-02_events.architecture)=
-### Facet: `02_events.architecture`
-(facet-02_events.entities)=
-### Facet: `02_events.entities`
-(facet-02_events.event_flow)=
-### Facet: `02_events.event_flow`
+
+(facet-02_events.bus)=
+### Facet: `02_events.bus`
+Type: diagram
+
+(facet-02_events.emitters)=
+### Facet: `02_events.emitters`
+Type: dataset
+
 (facet-02_events.events_matrix)=
 ### Facet: `02_events.events_matrix`
-(facet-02_events.flow)=
-### Facet: `02_events.flow`
+Type: dataset
+
+(facet-02_events.handlers)=
+### Facet: `02_events.handlers`
+Type: dataset
+
+(facet-02_events.propagation)=
+### Facet: `02_events.propagation`
+Type: diagram
+
 (facet-02_events.summary)=
 ### Facet: `02_events.summary`
+Type: dataset

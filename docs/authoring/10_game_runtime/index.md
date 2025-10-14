@@ -1,8 +1,8 @@
 ---
-title: 10_game_runtime - Game runtime
+title: Game runtime — export kit
 ---
 
-# 10_game_runtime - Game runtime
+# Game runtime — export kit
 
 ```{contents} Table of contents
 :depth: 2
@@ -10,26 +10,8 @@ title: 10_game_runtime - Game runtime
 ```
 
 ## Datasets
-:::{grid} 1 1 2 2
 
-:gutter: 2
-
-:::{grid-item}
-
-#### `entities.csv`
-*Facet:* [`10_game_runtime.entities`](#facet-10_game_runtime.entities)
-
-```{csv-table} entities
-:header-rows: 1
-:file: ./datasets/entities.csv
-:widths: auto
-```
-
-:::
-
-:::{grid-item}
-
-#### `game_state.csv`
+### game_state
 *Facet:* [`10_game_runtime.game_state`](#facet-10_game_runtime.game_state)
 
 ```{csv-table} game_state
@@ -38,11 +20,16 @@ title: 10_game_runtime - Game runtime
 :widths: auto
 ```
 
-:::
+### resources
+*Facet:* [`10_game_runtime.resources`](#facet-10_game_runtime.resources)
 
-:::{grid-item}
+```{csv-table} resources
+:header-rows: 1
+:file: ./datasets/resources.csv
+:widths: auto
+```
 
-#### `summary.csv`
+### summary
 *Facet:* [`10_game_runtime.summary`](#facet-10_game_runtime.summary)
 
 ```{csv-table} summary
@@ -51,64 +38,53 @@ title: 10_game_runtime - Game runtime
 :widths: auto
 ```
 
-:::
+### ticks
+*Facet:* [`10_game_runtime.ticks`](#facet-10_game_runtime.ticks)
 
-:::
+```{csv-table} ticks
+:header-rows: 1
+:file: ./datasets/ticks.csv
+:widths: auto
+```
 
 ## Diagrams
-#### `architecture.mmd`
-        *Facet:* [`10_game_runtime.architecture`](#facet-10_game_runtime.architecture)
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph LR
-    subgraph Game Runtime
-        E0[Game State]
-        E1[Player Stats]
-        E2[Runtime Events]
-        E0 --> E1
-        E1 --> E2
-    end
-        ```
+### loop
+*Facet:* [`10_game_runtime.loop`](#facet-10_game_runtime.loop)
 
-#### `flow.mmd`
-        *Facet:* [`10_game_runtime.flow`](#facet-10_game_runtime.flow)
-
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
-    A[Game Runtime] --> B[Data Collection]
-    B --> C[Processing]
-    C --> D[Datasets]
-    C --> E[Analysis]
-    D --> F[CSV Export]
-    E --> G[Statistics]
-    G --> H[Reports]
-    F --> H
-        ```
+    A[10_game_runtime.loop] --> B[Dataset]
+    B --> C[Page]
 
-#### `runtime_loop.mmd`
-        *Facet:* [`10_game_runtime.runtime_loop`](#facet-10_game_runtime.runtime_loop)
+click A "./index.html#facet-10_game_runtime.loop" "Open loop"
+```
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  RuntimeLoop[10_game_runtime:runtime_loop] --> Data[Datasets]
-  Data --> Page[Index]
+## Cross-References
 
-click RuntimeLoop "./index.html#facet-10_game_runtime.runtime_loop" "Open runtime_loop"
-        ```
+- **consumes** → `06_assets.assets_index` (evidence: `docs/authoring/06_assets/datasets/assets_index.csv`)
+- **driven_by** → `05_network.flows` (evidence: `docs/authoring/05_network/datasets/flows.csv`)
+- **syncs** → `08_audio.events` (evidence: `docs/authoring/08_audio/datasets/events.csv`)
 
 ## Appendix / Facets
-(facet-10_game_runtime.architecture)=
-### Facet: `10_game_runtime.architecture`
-(facet-10_game_runtime.entities)=
-### Facet: `10_game_runtime.entities`
-(facet-10_game_runtime.flow)=
-### Facet: `10_game_runtime.flow`
+
 (facet-10_game_runtime.game_state)=
 ### Facet: `10_game_runtime.game_state`
-(facet-10_game_runtime.runtime_loop)=
-### Facet: `10_game_runtime.runtime_loop`
+Type: dataset
+
+(facet-10_game_runtime.loop)=
+### Facet: `10_game_runtime.loop`
+Type: diagram
+
+(facet-10_game_runtime.resources)=
+### Facet: `10_game_runtime.resources`
+Type: dataset
+
 (facet-10_game_runtime.summary)=
 ### Facet: `10_game_runtime.summary`
+Type: dataset
+
+(facet-10_game_runtime.ticks)=
+### Facet: `10_game_runtime.ticks`
+Type: dataset

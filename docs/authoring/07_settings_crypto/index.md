@@ -1,8 +1,8 @@
 ---
-title: 07_settings_crypto - Settings crypto
+title: Settings & Cryptography — export kit
 ---
 
-# 07_settings_crypto - Settings crypto
+# Settings & Cryptography — export kit
 
 ```{contents} Table of contents
 :depth: 2
@@ -10,26 +10,26 @@ title: 07_settings_crypto - Settings crypto
 ```
 
 ## Datasets
-:::{grid} 1 1 2 2
 
-:gutter: 2
+### crypto_primitives
+*Facet:* [`07_settings_crypto.crypto_primitives`](#facet-07_settings_crypto.crypto_primitives)
 
-:::{grid-item}
-
-#### `entities.csv`
-*Facet:* [`07_settings_crypto.entities`](#facet-07_settings_crypto.entities)
-
-```{csv-table} entities
+```{csv-table} crypto_primitives
 :header-rows: 1
-:file: ./datasets/entities.csv
+:file: ./datasets/crypto_primitives.csv
 :widths: auto
 ```
 
-:::
+### secrets
+*Facet:* [`07_settings_crypto.secrets`](#facet-07_settings_crypto.secrets)
 
-:::{grid-item}
+```{csv-table} secrets
+:header-rows: 1
+:file: ./datasets/secrets.csv
+:widths: auto
+```
 
-#### `settings.csv`
+### settings
 *Facet:* [`07_settings_crypto.settings`](#facet-07_settings_crypto.settings)
 
 ```{csv-table} settings
@@ -38,11 +38,7 @@ title: 07_settings_crypto - Settings crypto
 :widths: auto
 ```
 
-:::
-
-:::{grid-item}
-
-#### `summary.csv`
+### summary
 *Facet:* [`07_settings_crypto.summary`](#facet-07_settings_crypto.summary)
 
 ```{csv-table} summary
@@ -51,64 +47,43 @@ title: 07_settings_crypto - Settings crypto
 :widths: auto
 ```
 
-:::
-
-:::
-
 ## Diagrams
-#### `architecture.mmd`
-        *Facet:* [`07_settings_crypto.architecture`](#facet-07_settings_crypto.architecture)
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph LR
-    subgraph Settings & Crypto
-        E0[Settings]
-        E1[Crypto Functions]
-        E2[Config Options]
-        E0 --> E1
-        E1 --> E2
-    end
-        ```
+### config_flow
+*Facet:* [`07_settings_crypto.config_flow`](#facet-07_settings_crypto.config_flow)
 
-#### `crypto_overview.mmd`
-        *Facet:* [`07_settings_crypto.crypto_overview`](#facet-07_settings_crypto.crypto_overview)
-
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
-  CryptoOverview[07_settings_crypto:crypto_overview] --> Data[Datasets]
-  Data --> Page[Index]
+    A[07_settings_crypto.config_flow] --> B[Dataset]
+    B --> C[Page]
 
-click CryptoOverview "./index.html#facet-07_settings_crypto.crypto_overview" "Open crypto_overview"
-        ```
+click A "./index.html#facet-07_settings_crypto.config_flow" "Open config_flow"
+```
 
-#### `flow.mmd`
-        *Facet:* [`07_settings_crypto.flow`](#facet-07_settings_crypto.flow)
+## Cross-References
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-    A[Settings & Crypto] --> B[Data Collection]
-    B --> C[Processing]
-    C --> D[Datasets]
-    C --> E[Analysis]
-    D --> F[CSV Export]
-    E --> G[Statistics]
-    G --> H[Reports]
-    F --> H
-        ```
+- **affects** → `01_runtime.counters` (evidence: `docs/authoring/01_runtime/datasets/counters.csv`)
+- **secures** → `05_network.network_messages` (evidence: `docs/authoring/05_network/datasets/network_messages.csv`)
 
 ## Appendix / Facets
-(facet-07_settings_crypto.architecture)=
-### Facet: `07_settings_crypto.architecture`
-(facet-07_settings_crypto.crypto_overview)=
-### Facet: `07_settings_crypto.crypto_overview`
-(facet-07_settings_crypto.entities)=
-### Facet: `07_settings_crypto.entities`
-(facet-07_settings_crypto.flow)=
-### Facet: `07_settings_crypto.flow`
+
+(facet-07_settings_crypto.config_flow)=
+### Facet: `07_settings_crypto.config_flow`
+Type: diagram
+
+(facet-07_settings_crypto.crypto_primitives)=
+### Facet: `07_settings_crypto.crypto_primitives`
+Type: dataset
+
+(facet-07_settings_crypto.secrets)=
+### Facet: `07_settings_crypto.secrets`
+Type: dataset
+
 (facet-07_settings_crypto.settings)=
 ### Facet: `07_settings_crypto.settings`
+Type: dataset
+
 (facet-07_settings_crypto.summary)=
 ### Facet: `07_settings_crypto.summary`
+Type: dataset
