@@ -28,11 +28,11 @@ jobs:
           sudo apt-get install -y build-essential cmake git gcc g++ libboost-all-dev liblua5.1-0-dev libglew-dev libphysfs-dev libssl-dev libbz2-dev libzip-dev libluajit-5.1-dev
           pip install conan
 
-      - name: Install vcpkg (specific commit)
+      - name: Install vcpkg (stable 2024.05.24)
         run: |
           git clone https://github.com/microsoft/vcpkg.git
           cd vcpkg
-          git checkout 761c81d43335a5d5ccc2ec8ad90bd7e2cbba734e
+          git checkout 2024.05.24
           ./bootstrap-vcpkg.sh
           cd ..
 
