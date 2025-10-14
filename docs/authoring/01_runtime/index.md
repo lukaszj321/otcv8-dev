@@ -83,11 +83,7 @@ click RuntimeFlow "./index.html#facet-01_runtime.runtime_flow" "Open runtime_flo
 
 
 
-## Crosslinks
 
-- **consumes** → `06_assets.assets_index` (evidence: `docs/authoring/06_assets/datasets/assets_index.csv`)
-- **driven_by** → `05_network.flows` (evidence: `docs/authoring/05_network/datasets/flows.csv`)
-- **syncs** → `08_audio.events` (evidence: `docs/authoring/08_audio/datasets/events.csv`)
 
 ## Appendix / Facets
 

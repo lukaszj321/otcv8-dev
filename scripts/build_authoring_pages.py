@@ -37,12 +37,19 @@ def generate_crossref_section(chapter: str) -> str:
     if not sources_dir.exists():
         return ""
     
-    # Try to find matching source file
-    pattern = re.compile(f"chapter_.*{chapter.split('_', 1)[1]}.*\\.md")
+    # Try to find matching source file by checking frontmatter
     source_file = None
     for f in sources_dir.glob("*.md"):
-        if pattern.search(f.name) or f.stem.endswith(chapter):
-            source_file = f
+        content = f.read_text(encoding="utf-8")
+        # Check if this file has the matching chapter in frontmatter
+        lines = content.split("\n")
+        for i, line in enumerate(lines):
+            if i > 20:  # Only check first 20 lines for frontmatter
+                break
+            if f'chapter: "{chapter}"' in line or f"chapter: '{chapter}'" in line or f"slug: '{chapter}'" in line or f'slug: "{chapter}"' in line:
+                source_file = f
+                break
+        if source_file:
             break
     
     if not source_file or not source_file.exists():

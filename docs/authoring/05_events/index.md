@@ -83,11 +83,7 @@ graph TD
 
 
 
-## Crosslinks
 
-- **handled_by** → `03_modules.lua_exports` (evidence: `docs/authoring/03_modules/datasets/lua_exports.csv`)
-- **emits** → `04_ui.signals` (evidence: `docs/authoring/04_ui/datasets/signals.csv`)
-- **logs** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
 
 ## Appendix / Facets
 
