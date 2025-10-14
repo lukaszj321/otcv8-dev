@@ -1,153 +1,151 @@
+# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7.4.7, PyData 0.16.1) -----------------
 
-# -- Project info -----------------------------------------------------
-project = "otcv8-dev"
-author = "Project Authors"
-
-# -- Helpers ----------------------------------------------------------
-def _ext_if_available(name, import_name=None, predicate=True):
-    if not predicate:
-        return None
-    try:
-        __import__(import_name or name.replace("-", "_").replace(".", "_"))
-        return name
-    except Exception:
-        return None
-
-from pathlib import Path
 import os
+from pathlib import Path
 
-_HAS_DOXYGEN_XML = (Path("docs/_doxygen/xml").exists() or Path("_doxygen/xml").exists())
-_HAS_AUTOAPI_SRC = Path("src").exists()
+# -- Project -------------------------------------------------------------------
+project = "OTClient v8 — Developer Documentation"
+author = "Dildo"
+language = "pl"  # możesz zmienić na 'en' jeśli wolisz
 
-CSV_PREVIEW_ROWS = int(os.environ.get("CSV_PREVIEW_ROWS", "100"))
-CSV_PREVIEW_MAX_COLUMNS = int(os.environ.get("CSV_PREVIEW_MAX_COLUMNS", "80"))
+# -- Paths ---------------------------------------------------------------------
+DOCS_DIR = Path(__file__).parent.resolve()
+STATIC_DIR = DOCS_DIR / "_static"
+TEMPLATES_DIR = DOCS_DIR / "_templates"
 
-# -- General config ---------------------------------------------------
-_base_extensions = [
-    "myst_parser",
-    "myst_nb",
-    "sphinx_design",
+templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
+html_static_path = ["_static"] if STATIC_DIR.exists() else []
+html_css_files = []
+if (STATIC_DIR / "tables-premium.css").exists():
+    html_css_files.append("tables-premium.css")
+
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "**/.ipynb_checkpoints",
+    ".venv",
+    "venv",
+]
+
+# -- Extensions ----------------------------------------------------------------
+# Uwaga: NIE ładujemy jednocześnie "myst_parser" i "myst_nb".
+extensions = [
+    "myst_nb",                      # MyST + notebooki (ale wykonanie wyłączone poniżej)
+    "sphinx.ext.autosectionlabel",  # zastępuje nieistniejący pip-pakiet "sphinx-autosectionlabel"
+    "sphinx.ext.githubpages",       # .nojekyll
+    "sphinx.ext.todo",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.duration",
+
     "sphinx_copybutton",
+    "sphinx_design",
     "sphinx_sitemap",
     "sphinxext.opengraph",
     "sphinx_favicon",
     "sphinxcontrib.mermaid",
     "sphinx_codeautolink",
-    "hoverxref.extension",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.intersphinx",
-    "sphinx.ext.mathjax",
-    _ext_if_available("autoapi.extension", import_name="autoapi", predicate=_HAS_AUTOAPI_SRC),
-    _ext_if_available("breathe", predicate=_HAS_DOXYGEN_XML),
-    _ext_if_available("exhale", predicate=_HAS_DOXYGEN_XML),
-    _ext_if_available("sphinxcontrib.bibtex", import_name="sphinxcontrib.bibtex"),
-    _ext_if_available("sphinxcontrib.luadomain", import_name="sphinxcontrib.luadomain"),
-    _ext_if_available("sphinxext.rediraffe", import_name="sphinxext.rediraffe"),
-    _ext_if_available("sphinx_last_updated_by_git", import_name="sphinx_last_updated_by_git"),
-    _ext_if_available("jupyter_sphinx"),
-    _ext_if_available("jupyterlite_sphinx"),
+    "sphinxcontrib.jquery",
+    "sphinx_hoverxref",
 ]
-extensions = [e for e in _base_extensions if e]
 
-templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
-
-# -- MyST / MyST-NB ---------------------------------------------------
-myst_enable_extensions = [
-    "colon_fence","attrs_block","attrs_inline","deflist","linkify","substitution",
-    "tasklist","replacements","html_admonition","html_image",
-]
-myst_heading_anchors = 3
-jupyter_execute_notebooks = "off"
+# -- MyST / Notebooks ----------------------------------------------------------
+# Wyłączamy wykonywanie komórek (bezpiecznie dla CI, szybkie buildy)
 nb_execution_mode = "off"
-nb_render_image_options = {"align": "center"}
+nb_execution_timeout = 300
 
-# -- AutoAPI ----------------------------------------------------------
-if "autoapi.extension" in extensions:
-    autoapi_type = "python"
-    autoapi_dirs = ["src"]
-    autoapi_add_toctree_entry = False
-    autoapi_keep_files = False
-    autoapi_generate_api_docs = True
+# Rozszerzenia MyST
+myst_enable_extensions = [
+    "colon_fence",     # ```{admonition} / {toctree} / {csv-table} itp.
+    "deflist",
+    "substitution",
+    "linkify",
+    "attrs_block",
+    "attrs_inline",
+    "tasklist",
+    "smartquotes",
+]
+myst_heading_anchors = 3  # automatyczne kotwice H1..H3
 
-# -- Breathe / Exhale -------------------------------------------------
-if "breathe" in extensions:
-    _xml = "docs/_doxygen/xml" if Path("docs/_doxygen/xml").exists() else "_doxygen/xml"
-    breathe_projects = {"otcv8-dev": _xml}
-    breathe_default_project = "otcv8-dev"
+# Autosectionlabel — prefiksuj dokumentem, żeby uniknąć kolizji nagłówków
+autosectionlabel_prefix_document = True
 
-if "exhale" in extensions:
-    exhale_args = {
-        "containmentFolder": "./docs/api/cpp",
-        "rootFileName": "index.rst",
-        "rootFileTitle": "C++ API Reference",
-        "doxygenStripFromPath": "..",
-        "createTreeView": True,
-    }
-
-# -- BibTeX -----------------------------------------------------------
-if "sphinxcontrib.bibtex" in extensions:
-    bibtex_bibfiles = []
-
-# -- Rediraffe --------------------------------------------------------
-if "sphinxext.rediraffe" in extensions:
-    rediraffe_branch = "master"
-    rediraffe_redirects = {}
-
-# -- Hoverxref --------------------------------------------------------
-hoverxref_auto_ref = True
-hoverxref_domains = ["py", "std"]
-hoverxref_role_types = {
-    "ref": "modal",
-    "doc": "modal",
-    "class": "tooltip",
-    "func": "tooltip",
-}
-
-# -- Codeautolink -----------------------------------------------------
-codeautolink_autodoc_inject = False
-codeautolink_concat_default = True
-
-# -- HTML output ------------------------------------------------------
+# -- HTML ----------------------------------------------------------------------
 html_theme = "pydata_sphinx_theme"
-html_static_path = ["_static"]
-html_css_files = ["custom-dark-mermaid.css", "tables.css", "tables-premium.css"]
 
 html_theme_options = {
-    "navigation_depth": 4,
+    "logo": {
+        # Dodaj jeśli masz logo w _static
+        # "text": "OTClient v8",
+    },
+    "use_edit_page_button": True,
     "show_nav_level": 2,
-    "collapse_navigation": False,
-    "use_edit_page_button": False,
-    "logo": {},
+    "navigation_with_keys": True,
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {"name": "GitHub","url": "https://github.com/lukaszj321/otcv8-dev","icon": "fa-brands fa-github"},
+        {
+            "name": "GitHub",
+            "url": "https://github.com/lukaszj321/otcv8-dev",
+            "icon": "fa-brands fa-github",
+            "type": "fontawesome",
+        }
     ],
 }
 
-# -- Sitemap / OpenGraph ---------------------------------------------
+html_title = "OTClient v8 — Authoring & API"
+# Dla sitemap i ogp musisz podać publiczny URL
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
-sitemap_url_scheme = "{link}"
-ogp_site_url = html_baseurl
-ogp_image = "https://lukaszj321.github.io/otcv8-dev/_static/favicon.png"
 
-# -- Autosectionlabel -------------------------------------------------
-autosectionlabel_prefix_document = True
-
-# -- Mermaid ----------------------------------------------------------
-mermaid_version = "10.9.0"
-
-# -- Intersphinx ------------------------------------------------------
-intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", {}),
-    "sphinx": ("https://www.sphinx-doc.org/en/master/", {}),
+html_context = {
+    "github_user": "lukaszj321",
+    "github_repo": "otcv8-dev",
+    "github_version": "master",   # lub "main" jeśli używasz main
+    "doc_path": "docs",
 }
 
-# -- Copybutton -------------------------------------------------------
-copybutton_prompt_text = r">>> |\$ "
+# -- Mermaid (sphinxcontrib-mermaid) -------------------------------------------
+# Neutralny motyw — dobrze czytelny w light/dark
+mermaid_version = "10.9.0"
+mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'neutral'});"
+
+# -- OpenGraph / SEO -----------------------------------------------------------
+ogp_site_url = html_baseurl
+ogp_site_name = "OTClient v8 Dev Docs"
+# ogp_image = "https://lukaszj321.github.io/otcv8-dev/_static/og.png"  # jeśli posiadasz
+
+# -- Copybutton ----------------------------------------------------------------
 copybutton_prompt_is_regexp = True
+copybutton_prompt_text = r">>> |\.\.\. |\$ "
+copybutton_only_copy_prompt_lines = False
 
-# -- Figures ----------------------------------------------------------
-numfig = True
+# -- Hoverxref -----------------------------------------------------------------
+hoverxref_auto_ref = True
+hoverxref_domains = ["std"]
+hoverxref_default_type = "tooltip"
 
-# -- Warnings / Quality -----------------------------------------------
-suppress_warnings = ["mystnb.unknown_mime_type"]
+# -- Sitemap -------------------------------------------------------------------
+sitemap_url_scheme = "{link}"
+
+# -- CodeAutolink --------------------------------------------------------------
+codeautolink_autodoc_inject = False
+codeautolink_concat = True
+
+# -- Favicon -------------------------------------------------------------------
+favicons = []
+if (STATIC_DIR / "favicon.ico").exists():
+    favicons.append({"rel": "icon", "href": "favicon.ico"})
+
+# -- Warnings / czyszczenie szumu ---------------------------------------------
+suppress_warnings = [
+    # Przydatne, gdy mieszamy MyST i duże zbiory
+    "myst.header",
+    "myst.nb.render",
+]
+
+# -- Todo ----------------------------------------------------------------------
+todo_include_todos = False  # ustaw True, jeśli chcesz renderować .. todo::
+
+# -- Build hooks (opcjonalne) --------------------------------------------------
+def setup(app):
+    # Jeżeli masz własne CSS/JS do wstrzyknięcia warunkowo — zrób to tutaj
+    pass
