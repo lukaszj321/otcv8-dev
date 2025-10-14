@@ -14,8 +14,6 @@ ROOT = Path(__file__).resolve().parents[1]
 AUTHORING = ROOT / "docs" / "authoring"
 SOURCES = AUTHORING / "_sources"
 
-# Mapping of chapter numbers to directories
-
 def parse_source_file(source_path: Path) -> Dict[str, str]:
     """Extract metadata and intro from source file."""
     content = source_path.read_text(encoding='utf-8')
