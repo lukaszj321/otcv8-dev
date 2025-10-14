@@ -38,8 +38,12 @@ jobs:
             Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "${{ runner.workspace }}\vcpkg"
             git clone https://github.com/microsoft/vcpkg.git "${{ runner.workspace }}\vcpkg"
             cd "${{ runner.workspace }}\vcpkg"
+            .\bootstrap-vcpkg.bat
           }
+          .\bootstrap-vcpkg.bat
           ./vcpkg update
+        shell: pwsh
+
       - name: Cache vcpkg artifacts
         uses: actions/cache@v4
         with:
