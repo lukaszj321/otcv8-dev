@@ -1,7 +1,8 @@
 # Authoring Documentation Completeness Report
 
 **Generated:** 2025-10-14  
-**Status:** ✅ Complete
+**Updated:** 2025-10-14  
+**Status:** ✅ Complete — All chapters enriched with intro text
 
 ## Overview
 
@@ -30,6 +31,11 @@ All chapters have been fully generated with the following structure:
 ## Required Sections
 
 Each chapter includes:
+
+### ✅ Intro Sections
+- Each chapter has a concise intro (2-4 sentences) after the title
+- Intro text extracted from `_sources/chapter_*.md` frontmatter and executive summaries
+- Provides context and purpose for each chapter
 
 ### ✅ Datasets
 - CSV tables embedded with `{csv-table}` directives
@@ -72,11 +78,11 @@ Each chapter includes:
 ## Statistics
 
 Total across all chapters:
-- **Chapters:** 12
-- **CSV Tables:** 60+
-- **Mermaid Diagrams:** 100+
-- **Facet Anchors:** 180+
-- **Cross-References:** 27+ (where applicable)
+- **Chapters:** 12 (01_core, 01_runtime, 02_events, 03_modules, 04_ui, 05_events, 05_network, 06_assets, 07_settings_crypto, 08_audio, 09_logging, 10_game_runtime)
+- **CSV Tables:** 60
+- **Mermaid Diagrams:** 121
+- **Facet Anchors:** 181
+- **Cross-References:** 27
 
 ## Main Index
 

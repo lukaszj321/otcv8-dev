@@ -4,6 +4,8 @@ title: 04_ui - Ui
 
 # 04_ui - Ui
 
+inwentaryzacja widzetow (klasa, id, widocznosc, stan, geometria) oraz budowa drzew UI dla wskazanych ekranow OTUI.
+
 ```{contents} Table of contents
 :depth: 2
 :local:

@@ -4,6 +4,8 @@ title: 07_settings_crypto - Settings crypto
 
 # 07_settings_crypto - Settings crypto
 
+kontrolowana inwentaryzacja wybranych ustawien (whitelist) oraz metadane protokolu/crypto (wersje, RSA info) z klienta.
+
 ```{contents} Table of contents
 :depth: 2
 :local:

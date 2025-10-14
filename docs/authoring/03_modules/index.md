@@ -4,6 +4,8 @@ title: 03_modules - Modules
 
 # 03_modules - Modules
 
+metadane modulow (.otmod), w tym nazwa, autor, flagi (reloadable, sandboxed), listy skryptow i hookow, oraz relacje do UI i runtime.
+
 ```{contents} Table of contents
 :depth: 2
 :local:

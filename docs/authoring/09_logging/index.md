@@ -4,6 +4,8 @@ title: 09_logging - Logging
 
 # 09_logging - Logging
 
+unifikacja logow z klienta lub plikow zewnetrznych (level, tag, ts, message lub hash), korelacja z runtime i eventami.
+
 ```{contents} Table of contents
 :depth: 2
 :local:

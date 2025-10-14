@@ -4,6 +4,8 @@ title: 06_assets - Assets
 
 # 06_assets - Assets
 
+indeks zasobow i ich stan (istnieje/nie), rozmiar, checksum, przypisana kategoria, relacje do modulow i UI.
+
 ```{contents} Table of contents
 :depth: 2
 :local:
