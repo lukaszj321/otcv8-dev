@@ -1,0 +1,326 @@
+[
+  {
+    "from": {
+      "c": "01_core",
+      "f": "01_core"
+    },
+    "to": {
+      "c": "03_modules",
+      "f": "03_modules.lua_exports"
+    },
+    "type": "uses",
+    "evidence": "docs/authoring/03_modules/datasets/lua_exports.csv"
+  },
+  {
+    "from": {
+      "c": "01_core",
+      "f": "01_core"
+    },
+    "to": {
+      "c": "04_ui",
+      "f": "04_ui.ui_widgets"
+    },
+    "type": "renders",
+    "evidence": "docs/authoring/04_ui/datasets/ui_widgets.csv"
+  },
+  {
+    "from": {
+      "c": "01_core",
+      "f": "01_core"
+    },
+    "to": {
+      "c": "02_events",
+      "f": "02_events.events_matrix"
+    },
+    "type": "emits",
+    "evidence": "docs/authoring/02_events/datasets/events_matrix.csv"
+  },
+  {
+    "from": {
+      "c": "01_core",
+      "f": "01_core"
+    },
+    "to": {
+      "c": "09_logging",
+      "f": "09_logging.logging_categories"
+    },
+    "type": "logs",
+    "evidence": "docs/authoring/09_logging/datasets/logging_categories.csv"
+  },
+  {
+    "from": {
+      "c": "02_events",
+      "f": "02_events"
+    },
+    "to": {
+      "c": "03_modules",
+      "f": "03_modules.lua_exports"
+    },
+    "type": "handled_by",
+    "evidence": "docs/authoring/03_modules/datasets/lua_exports.csv"
+  },
+  {
+    "from": {
+      "c": "02_events",
+      "f": "02_events"
+    },
+    "to": {
+      "c": "04_ui",
+      "f": "04_ui.signals"
+    },
+    "type": "emits",
+    "evidence": "docs/authoring/04_ui/datasets/signals.csv"
+  },
+  {
+    "from": {
+      "c": "02_events",
+      "f": "02_events"
+    },
+    "to": {
+      "c": "09_logging",
+      "f": "09_logging.logging_categories"
+    },
+    "type": "logs",
+    "evidence": "docs/authoring/09_logging/datasets/logging_categories.csv"
+  },
+  {
+    "from": {
+      "c": "03_modules",
+      "f": "03_modules"
+    },
+    "to": {
+      "c": "04_ui",
+      "f": "04_ui.ui_widgets"
+    },
+    "type": "renders",
+    "evidence": "docs/authoring/04_ui/datasets/ui_widgets.csv"
+  },
+  {
+    "from": {
+      "c": "03_modules",
+      "f": "03_modules"
+    },
+    "to": {
+      "c": "02_events",
+      "f": "02_events.events_matrix"
+    },
+    "type": "handles",
+    "evidence": "docs/authoring/02_events/datasets/events_matrix.csv"
+  },
+  {
+    "from": {
+      "c": "03_modules",
+      "f": "03_modules"
+    },
+    "to": {
+      "c": "09_logging",
+      "f": "09_logging.logging_categories"
+    },
+    "type": "logs",
+    "evidence": "docs/authoring/09_logging/datasets/logging_categories.csv"
+  },
+  {
+    "from": {
+      "c": "04_ui",
+      "f": "04_ui"
+    },
+    "to": {
+      "c": "03_modules",
+      "f": "03_modules.lua_exports"
+    },
+    "type": "renders",
+    "evidence": "docs/authoring/03_modules/datasets/lua_exports.csv"
+  },
+  {
+    "from": {
+      "c": "04_ui",
+      "f": "04_ui"
+    },
+    "to": {
+      "c": "02_events",
+      "f": "02_events.events_matrix"
+    },
+    "type": "emits",
+    "evidence": "docs/authoring/02_events/datasets/events_matrix.csv"
+  },
+  {
+    "from": {
+      "c": "04_ui",
+      "f": "04_ui"
+    },
+    "to": {
+      "c": "06_assets",
+      "f": "06_assets.assets_index"
+    },
+    "type": "uses",
+    "evidence": "docs/authoring/06_assets/datasets/assets_index.csv"
+  },
+  {
+    "from": {
+      "c": "04_ui",
+      "f": "04_ui"
+    },
+    "to": {
+      "c": "09_logging",
+      "f": "09_logging.logging_categories"
+    },
+    "type": "logs",
+    "evidence": "docs/authoring/09_logging/datasets/logging_categories.csv"
+  },
+  {
+    "from": {
+      "c": "05_network",
+      "f": "05_network"
+    },
+    "to": {
+      "c": "10_game_runtime",
+      "f": "10_game_runtime.game_state"
+    },
+    "type": "influences",
+    "evidence": "docs/authoring/10_game_runtime/datasets/game_state.csv"
+  },
+  {
+    "from": {
+      "c": "05_network",
+      "f": "05_network"
+    },
+    "to": {
+      "c": "09_logging",
+      "f": "09_logging.logging_categories"
+    },
+    "type": "logs",
+    "evidence": "docs/authoring/09_logging/datasets/logging_categories.csv"
+  },
+  {
+    "from": {
+      "c": "06_assets",
+      "f": "06_assets"
+    },
+    "to": {
+      "c": "10_game_runtime",
+      "f": "10_game_runtime.resources"
+    },
+    "type": "provides",
+    "evidence": "docs/authoring/10_game_runtime/datasets/resources.csv"
+  },
+  {
+    "from": {
+      "c": "06_assets",
+      "f": "06_assets"
+    },
+    "to": {
+      "c": "04_ui",
+      "f": "04_ui.ui_widgets"
+    },
+    "type": "used_by",
+    "evidence": "docs/authoring/04_ui/datasets/ui_widgets.csv"
+  },
+  {
+    "from": {
+      "c": "07_settings_crypto",
+      "f": "07_settings_crypto"
+    },
+    "to": {
+      "c": "01_runtime",
+      "f": "01_runtime.counters"
+    },
+    "type": "affects",
+    "evidence": "docs/authoring/01_runtime/datasets/counters.csv"
+  },
+  {
+    "from": {
+      "c": "07_settings_crypto",
+      "f": "07_settings_crypto"
+    },
+    "to": {
+      "c": "05_network",
+      "f": "05_network.network_messages"
+    },
+    "type": "secures",
+    "evidence": "docs/authoring/05_network/datasets/network_messages.csv"
+  },
+  {
+    "from": {
+      "c": "08_audio",
+      "f": "08_audio"
+    },
+    "to": {
+      "c": "10_game_runtime",
+      "f": "10_game_runtime.tick"
+    },
+    "type": "syncs_with",
+    "evidence": "docs/authoring/10_game_runtime/datasets/ticks.csv"
+  },
+  {
+    "from": {
+      "c": "08_audio",
+      "f": "08_audio"
+    },
+    "to": {
+      "c": "06_assets",
+      "f": "06_assets.assets_index"
+    },
+    "type": "uses",
+    "evidence": "docs/authoring/06_assets/datasets/assets_index.csv"
+  },
+  {
+    "from": {
+      "c": "09_logging",
+      "f": "09_logging"
+    },
+    "to": {
+      "c": "02_events",
+      "f": "02_events.events_matrix"
+    },
+    "type": "observes",
+    "evidence": "docs/authoring/02_events/datasets/events_matrix.csv"
+  },
+  {
+    "from": {
+      "c": "09_logging",
+      "f": "09_logging"
+    },
+    "to": {
+      "c": "05_network",
+      "f": "05_network.network_messages"
+    },
+    "type": "observes",
+    "evidence": "docs/authoring/05_network/datasets/network_messages.csv"
+  },
+  {
+    "from": {
+      "c": "10_game_runtime",
+      "f": "10_game_runtime"
+    },
+    "to": {
+      "c": "06_assets",
+      "f": "06_assets.assets_index"
+    },
+    "type": "consumes",
+    "evidence": "docs/authoring/06_assets/datasets/assets_index.csv"
+  },
+  {
+    "from": {
+      "c": "10_game_runtime",
+      "f": "10_game_runtime"
+    },
+    "to": {
+      "c": "05_network",
+      "f": "05_network.flows"
+    },
+    "type": "driven_by",
+    "evidence": "docs/authoring/05_network/datasets/flows.csv"
+  },
+  {
+    "from": {
+      "c": "10_game_runtime",
+      "f": "10_game_runtime"
+    },
+    "to": {
+      "c": "08_audio",
+      "f": "08_audio.events"
+    },
+    "type": "syncs",
+    "evidence": "docs/authoring/08_audio/datasets/events.csv"
+  }
+]

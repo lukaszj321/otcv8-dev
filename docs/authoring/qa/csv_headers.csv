@@ -1,0 +1,5 @@
+chapter,file,issue,expected,actual
+01_core,entities.csv,Header mismatch,"id, name, kind, path, notes","Entity Type, Count, Description"
+07_settings_crypto,settings.csv,Header mismatch,"key, scope, type, default, notes","key, default, type, scope, notes"
+08_audio,audio_assets.csv,Header mismatch,"id, type, path, duration_ms, channels, notes","id, type, path, duration, notes"
+10_game_runtime,game_state.csv,Header mismatch,"name, value, updated_at, notes","key, value, notes"
