@@ -12,14 +12,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [ x64, Win32 ]   # Win32 = x86 w MSBuild
+        platform: [ x64, Win32 ]          # Win32 = x86
         configuration: [ Release ]
 
     env:
-      VCPKG_DEFAULT_TRIPLET: ${{ matrix.platform == 'x64' && 'x64-windows' || 'x86-windows' }}
+      VCPKG_ROOT: ${{ github.workspace }}\vcpkg
+      TRIPLET: ${{ matrix.platform == 'x64' && 'x64-windows-static' || 'x86-windows-static' }}
+      VCPKG_DEFAULT_TRIPLET: ${{ matrix.platform == 'x64' && 'x64-windows-static' || 'x86-windows-static' }}
 
     steps:
-      - name: Checkout (with submodules)
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
@@ -27,12 +29,28 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Restore deps via vcpkg (manifest mode + cache)
-        uses: lukka/run-vcpkg@v11
-        with:
-          vcpkgJsonGlob: '**/vcpkg.json'
-          runVcpkgInstall: true
-          appendedCacheKey: windows-${{ env.VCPKG_DEFAULT_TRIPLET }}
+      - name: Install vcpkg (classic)
+        shell: pwsh
+        run: |
+          git clone https://github.com/microsoft/vcpkg $env:VCPKG_ROOT
+          cd $env:VCPKG_ROOT
+          .\bootstrap-vcpkg.bat
+          .\vcpkg.exe integrate install
+          # (opcjonalnie pin wg README:)
+          # git checkout 3b3bd424827a1f7f4813216f6b32b6c61e386b2e
+
+      - name: Install deps via vcpkg
+        shell: pwsh
+        run: |
+          $pkgs = @(
+            "boost-iostreams","boost-asio","boost-beast","boost-system",
+            "boost-variant","boost-lockfree","boost-process","boost-program-options",
+            "boost-filesystem","boost-uuid","glew","luajit","physfs",
+            "openal-soft","libogg","libvorbis","zlib","libzip","openssl"
+          )
+          foreach ($p in $pkgs) {
+            & $env:VCPKG_ROOT\vcpkg.exe install "$p:$env:TRIPLET" --recurse
+          }
 
       - name: Build ${{ matrix.configuration }} ${{ matrix.platform }}
         shell: pwsh
