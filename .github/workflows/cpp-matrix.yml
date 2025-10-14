@@ -34,7 +34,6 @@ jobs:
         if: startsWith(matrix.os, 'macos')
         run: |
           brew update
-          brew install svn
           brew install cmake ninja sdl2 glew physfs doxygen graphviz \
             boost libzip zlib
 
@@ -48,38 +47,24 @@ jobs:
         shell: pwsh
         run: |
           choco install --no-progress ninja git
-          git clone https://github.com/microsoft/vcpkg $env:GITHUB_WORKSPACE\vcpkg
+          git clone --depth=1 https://github.com/microsoft/vcpkg $env:GITHUB_WORKSPACE\vcpkg
           & $env:GITHUB_WORKSPACE\vcpkg\bootstrap-vcpkg.bat
           $triplet = "x64-windows-static"
-          & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe remove zlib --recurse
-          & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install zlib:$triplet --recurse
-          & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install libzip:$triplet --recurse
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install `
-            boost-iostreams boost-asio boost-beast boost-system `
-            boost-variant boost-lockfree boost-process boost-program-options `
-            boost-filesystem boost-uuid glew luajit physfs openal-soft `
-            libogg libvorbis zlib libzip openssl sdl2 `
+            boost-filesystem boost-system `
+            zlib bzip2 libzip `
+            sdl2 glew physfs luajit `
             --triplet $triplet
           echo "VCPKG_ROOT=$env:GITHUB_WORKSPACE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Append
           echo "VCPKG_TRIPLET=$triplet" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       # ---------- Configure ----------
-      - name: Configure (Linux)
-        if: matrix.os == 'ubuntu-latest'
+      - name: Configure (Linux/macOS)
+        if: matrix.os == 'ubuntu-latest' || startsWith(matrix.os, 'macos')
         run: |
           cmake -S . -B build -G Ninja \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-            -DLIBZIP_LIBRARY=/usr/lib/x86_64-linux-gnu/libzip.so \
-            -DLIBZIP_INCLUDE_DIR=/usr/include
-
-      - name: Configure (macOS)
-        if: startsWith(matrix.os, 'macos')
-        run: |
-          cmake -S . -B build -G Ninja \
-            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-            -DCMAKE_PREFIX_PATH=$(brew --prefix boost)
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
       - name: Configure (Windows MSVC + vcpkg)
         if: startsWith(matrix.os, 'windows')
@@ -95,34 +80,10 @@ jobs:
       - name: Build
         run: cmake --build build --config ${{ matrix.build_type }} --parallel
 
-      # ---------- Optional: Doxygen XML (Linux only) ----------
-      - name: Doxygen XML (Linux)
-        if: startsWith(matrix.os, 'ubuntu')
-        run: |
-          doxygen -g doxygen.conf
-          sed -i 's/GENERATE_HTML.*/GENERATE_HTML = NO/' doxygen.conf
-          sed -i 's/GENERATE_XML.*/GENERATE_XML = YES/' doxygen.conf
-          sed -i 's/RECURSIVE.*/RECURSIVE = YES/' doxygen.conf
-          sed -i 's/INPUT.*/INPUT = src include/' doxygen.conf
-          doxygen doxygen.conf
-          mkdir -p build_artifacts/linux/doxygen
-          cp -r xml build_artifacts/linux/doxygen/xml
-
-      # ---------- Collect intel ----------
-      - name: Collect build intel
-        shell: bash
-        run: |
-          mkdir -p build_artifacts/${{ runner.os }}
-          cp build/compile_commands.json build_artifacts/${{ runner.os }}/ || true
-          if [[ "$RUNNER_OS" == "Linux" || "$RUNNER_OS" == "macOS" ]]; then
-            find build -type f -perm -111 -maxdepth 2 -print0 \
-              | xargs -0 -I{} sh -c 'file "{}" | grep -Eq "ELF|Mach-O" || exit 0; nm -gU "{}" > "{}".nm || true'
-            tar czf build_artifacts/${{ runner.os }}/symbols.tgz $(find build -name "*.nm" || true)
-          fi
-
+      # ---------- Upload artifacts ----------
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: otclient-${{ matrix.os }}-${{ matrix.build_type }}
-          path: build_artifacts/${{ runner.os }}
+          path: build/
           if-no-files-found: ignore
