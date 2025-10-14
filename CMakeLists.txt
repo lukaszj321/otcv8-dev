@@ -22,16 +22,6 @@ set(executable_SOURCES
     src/main.cpp
 )
 
-# Dodaj źródła archiwizerów PhysFS
-set(PHYSFS_ARCHIVER_SOURCES
-    src/physfs/physfs_archiver_vdf.c
-    src/physfs/physfs_archiver_zip.c
-    # jeśli masz inne archiwizery, dodaj je tutaj
-)
-
-# Dodaj do kompilacji
-set(client_SOURCES ${client_SOURCES} ${PHYSFS_ARCHIVER_SOURCES})
-
 # Ikona dla Windows
 if(WIN32)
     add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/otcicon.o
