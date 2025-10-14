@@ -51,7 +51,6 @@ jobs:
           git clone https://github.com/microsoft/vcpkg $env:GITHUB_WORKSPACE\vcpkg
           & $env:GITHUB_WORKSPACE\vcpkg\bootstrap-vcpkg.bat
           $triplet = "x64-windows-static"
-          # Fix for broken zlib/libzip in vcpkg
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe remove zlib --recurse
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install zlib:$triplet --recurse
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install libzip:$triplet --recurse
@@ -65,12 +64,22 @@ jobs:
           echo "VCPKG_TRIPLET=$triplet" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       # ---------- Configure ----------
-      - name: Configure (Linux/macOS)
-        if: matrix.os == 'ubuntu-latest' || startsWith(matrix.os, 'macos')
+      - name: Configure (Linux)
+        if: matrix.os == 'ubuntu-latest'
         run: |
           cmake -S . -B build -G Ninja \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DLIBZIP_LIBRARY=/usr/lib/x86_64-linux-gnu/libzip.so \
+            -DLIBZIP_INCLUDE_DIR=/usr/include
+
+      - name: Configure (macOS)
+        if: startsWith(matrix.os, 'macos')
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DCMAKE_PREFIX_PATH=$(brew --prefix boost)
 
       - name: Configure (Windows MSVC + vcpkg)
         if: startsWith(matrix.os, 'windows')
