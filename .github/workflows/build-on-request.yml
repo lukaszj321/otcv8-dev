@@ -33,18 +33,16 @@ jobs:
             boost-process boost-program-options boost-uuid boost-filesystem
             luajit glew physfs openal-soft libogg libvorbis zlib libzip bzip2 openssl
             --triplet ${{ env.VCPKG_DEFAULT_TRIPLET }}
-
       - name: vcpkg integrate
         run: |
           "${{ runner.workspace }}\vcpkg\vcpkg.exe" integrate install
-
       - name: Build DirectX
         working-directory: ./vc16
         run: msbuild /p:Configuration=DirectX /p:BUILD_REVISION=${{ github.run_number }}
 
       - name: Build OpenGL
         working-directory: ./vc16
-        run: msbuild /p:Configuration=OpenGL  /p:BUILD_REVISION=${{ github.run_number }}
+        run: msbuild /p:Configuration=OpenGL /p:BUILD_REVISION=${{ github.run_number }}
 
       - name: Upload binaries
         uses: actions/upload-artifact@v4
@@ -88,9 +86,7 @@ jobs:
       - name: Prepare android assets
         shell: pwsh
         run: |
-          if (Test-Path .\create_android_assets.ps1) {
-            powershell -ExecutionPolicy Bypass -File .\create_android_assets.ps1
-          }
+          pwsh -ExecutionPolicy Bypass -File ./android/create_android_assets.ps1
 
       - name: Unpack prebuilt android libs (if present)
         shell: pwsh
@@ -127,6 +123,9 @@ jobs:
         run: |
           brew update
           brew install cmake ninja physfs pkgconf luajit xquartz glew openal-soft libogg libvorbis libzip bzip2 openssl@3
+
+      - name: Fix openssl@3 postinstall
+        run: brew postinstall openssl@3
 
       - name: Configure
         run: |
