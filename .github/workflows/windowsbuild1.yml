@@ -40,9 +40,16 @@ jobs:
             cd "${{ runner.workspace }}\vcpkg"
           }
           ./vcpkg update
-      - name: Clear vcpkg cache
-        run: |
-          Remove-Item -Recurse -Force -ErrorAction SilentlyContinue ${{ runner.workspace }}\vcpkg\packages, ${{ runner.workspace }}\vcpkg\buildtrees, ${{ runner.workspace }}\vcpkg\downloads
+      - name: Cache vcpkg artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ runner.workspace }}\vcpkg\packages
+            ${{ runner.workspace }}\vcpkg\buildtrees
+            ${{ runner.workspace }}\vcpkg\downloads
+          key: vcpkg-${{ hashFiles('**/vcpkg.json') }}-${{ steps.setup_msbuild.outputs.msbuildPath }}-${{ github.ref }}-${{ github.sha }}
+          restore-keys: |
+            vcpkg-
       - name: Setup MSBuild and add to PATH
         uses: microsoft/setup-msbuild@v1.0.2
         id: setup_msbuild
