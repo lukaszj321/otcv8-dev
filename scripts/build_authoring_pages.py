@@ -35,6 +35,7 @@ def generate_crossref_section(chapter: str) -> str:
     """Generate cross-references section from source metadata"""
     sources_dir = AUTHORING / "_sources"
     if not sources_dir.exists():
+        print(f"[WARN] Missing sources directory: {sources_dir}")
         return ""
     
     # Try to find matching source file by checking frontmatter
