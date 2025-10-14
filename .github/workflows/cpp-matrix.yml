@@ -26,7 +26,8 @@ jobs:
             libsdl2-dev libglew-dev libphysfs-dev \
             libboost-filesystem-dev libboost-system-dev \
             zlib1g-dev libbz2-dev libzip-dev \
-            doxygen graphviz
+            doxygen graphviz \
+            luajit libluajit-5.1-dev
 
       # ---------- macOS ----------
       - name: Install deps (macOS)
@@ -48,14 +49,17 @@ jobs:
           choco install --no-progress ninja git
           git clone https://github.com/microsoft/vcpkg $env:GITHUB_WORKSPACE\vcpkg
           & $env:GITHUB_WORKSPACE\vcpkg\bootstrap-vcpkg.bat
-          $triplet = "x64-windows"
-          # Fix for broken zlib in vcpkg
+          $triplet = "x64-windows-static"
+          # Fix for broken zlib/libzip in vcpkg
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe remove zlib --recurse
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install zlib:$triplet --recurse
+          & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install libzip:$triplet --recurse
           & $env:GITHUB_WORKSPACE\vcpkg\vcpkg.exe install `
-            boost-filesystem boost-system `
-            zlib bzip2 libzip `
-            sdl2 glew physfs `
+            boost-iostreams boost-asio boost-beast boost-system `
+            boost-variant boost-lockfree boost-process boost-program-options `
+            boost-filesystem boost-uuid glew luajit physfs openal-soft `
+            libogg libvorbis zlib libzip openssl `
+            sdl2 `
             --triplet $triplet
           echo "VCPKG_ROOT=$env:GITHUB_WORKSPACE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Append
           echo "VCPKG_TRIPLET=$triplet" | Out-File -FilePath $env:GITHUB_ENV -Append
