@@ -36,12 +36,18 @@ jobs:
           choco install boost-msvc14 glew physfs openssl lua conan
           python -m pip install conan
 
-      - name: Install dependencies (macOS)
+      - name: Build Lua 5.1 from source (macOS)
         if: matrix.os == 'macos-latest'
         run: |
           brew update
-          brew install boost glew physfs openssl lua@5.3
+          brew install boost glew physfs openssl
           pip install conan
+          curl -R -O http://www.lua.org/ftp/lua-5.1.5.tar.gz
+          tar zxf lua-5.1.5.tar.gz
+          cd lua-5.1.5
+          make macosx
+          sudo make install
+          cd ..
 
       - name: Configure
         run: |
