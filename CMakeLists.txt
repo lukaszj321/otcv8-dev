@@ -33,12 +33,12 @@ if(WIN32)
 endif()
 
 if(VERSION)
-    add_definitions(-DVERSION="${VERSION}")
+    add_definitions(-DVERSION=\"${VERSION}\")
 endif()
 
 add_executable(${PROJECT_NAME} ${framework_SOURCES} ${client_SOURCES} ${executable_SOURCES})
 target_link_libraries(${PROJECT_NAME} ${framework_LIBRARIES})
 
 if(APPLE AND USE_STATIC_LIBS)
-    target_link_libraries(${PROJECT_NAME} "-framework Foundation" "-framework IOKit")
+    target_link_libraries(${PROJECT_NAME} \"-framework Foundation\" \"-framework IOKit\")
 endif()
