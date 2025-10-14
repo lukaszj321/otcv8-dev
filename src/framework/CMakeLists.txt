@@ -309,7 +309,7 @@ if(NOT WASM)
         ${OPENSSL_LIBRARIES}
         ${ZLIB_LIBRARY}
         ${LIBZIP_LIBRARY}
-	${BZIP2_LIBRARIES}
+        ${BZIP2_LIBRARIES}
     )
 
     if(WIN32)
