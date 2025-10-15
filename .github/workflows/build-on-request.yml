@@ -33,11 +33,9 @@ jobs:
             boost-process boost-program-options boost-uuid boost-filesystem
             luajit glew physfs openal-soft libogg libvorbis zlib libzip bzip2 openssl
             --triplet ${{ env.VCPKG_DEFAULT_TRIPLET }}
-
       - name: vcpkg integrate
         run: |
           "${{ runner.workspace }}\vcpkg\vcpkg.exe" integrate install
-
       - name: Build DirectX
         working-directory: ./vc16
         run: msbuild /p:Configuration=DirectX /p:BUILD_REVISION=${{ github.run_number }}
@@ -84,21 +82,34 @@ jobs:
           $sdkRoot = "${env:ANDROID_SDK_ROOT}"
           & "$sdkRoot\cmdline-tools\latest\bin\sdkmanager.bat" --install "ndk;21.4.7075529"
           echo "VS_NdkRoot=$sdkRoot\ndk\21.4.7075529" | Out-File -FilePath $env:GITHUB_ENV -Encoding ascii -Append
-
       - name: Prepare android assets
         shell: pwsh
         run: |
           if (Test-Path .\create_android_assets.ps1) {
             powershell -ExecutionPolicy Bypass -File .\create_android_assets.ps1
           }
-
+      - name: Generate data.zip for Android
+        shell: pwsh
+        run: |
+          $assetsDir = "android/otclientv8/assets"
+          $dataDir = "assets/data"
+          if (!(Test-Path $assetsDir)) {
+            New-Item -ItemType Directory -Path $assetsDir | Out-Null
+          }
+          if (Test-Path $dataDir) {
+            Add-Type -AssemblyName System.IO.Compression.FileSystem
+            $zipPath = "$assetsDir/data.zip"
+            if (Test-Path $zipPath) { Remove-Item $zipPath }
+            [System.IO.Compression.ZipFile]::CreateFromDirectory($dataDir, $zipPath)
+          } else {
+            Write-Host "Brak folderu assets/data – ZIP nie zostanie wygenerowany."
+          }
       - name: Unpack prebuilt android libs (if present)
         shell: pwsh
         run: |
           if (Test-Path .\android_libs.7z) {
             7z x android_libs.7z -aoa -oC:\android
           }
-
       - name: Build (ARM64 Release)
         shell: pwsh
         working-directory: ./android
@@ -126,20 +137,21 @@ jobs:
       - name: Install deps (brew)
         run: |
           brew update
-          brew install cmake ninja physfs pkgconf luajit xquartz glew openal-soft libogg libvorbis libzip bzip2 openssl@3
-
+          brew install cmake ninja physfs pkgconf luajit xquartz glew openal-soft libogg libvorbis libzip bzip2 openssl@3 || true
+      - name: Set env for keg-only libs
+        run: |
+          echo 'LDFLAGS="-L/usr/local/opt/openal-soft/lib -L/usr/local/opt/bzip2/lib"' >> $GITHUB_ENV
+          echo 'CPPFLAGS="-I/usr/local/opt/openal-soft/include -I/usr/local/opt/bzip2/include"' >> $GITHUB_ENV
+          echo 'PKG_CONFIG_PATH="/usr/local/opt/openal-soft/lib/pkgconfig:/usr/local/opt/bzip2/lib/pkgconfig"' >> $GITHUB_ENV
       - name: Configure
         run: |
           cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-
       - name: Build
         run: |
           cmake --build build --parallel
-
       - name: Rename binary
         run: |
           if [ -f build/otclient ]; then mv build/otclient build/otclient_mac; fi
-
       - name: Upload mac binary
         uses: actions/upload-artifact@v4
         with:
@@ -164,23 +176,16 @@ jobs:
           sudo apt-get install -y build-essential ninja-build cmake \
             libglew-dev liblua5.1-0-dev libluajit-5.1-dev \
             libogg-dev libvorbis-dev zlib1g-dev libzip-dev \
-            libopenal-dev libbz2-dev libssl-dev libphysfs-dev
-
-      - name: Configure
+            libopenal-dev libbz2-dev libssl-dev libphysfs-dev \
+            libboost-system-dev libboost-filesystem-dev
+          pip install conan
+      - name: Install vcpkg (stable 2024.05.24)
         run: |
-          cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-
-      - name: Build
-        run: |
-          cmake --build build --parallel
-
-      - name: Rename binary
-        run: |
-          if [ -f build/otclient ]; then mv build/otclient build/otclient_linux; fi
-
-      - name: Upload linux binary
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux-binary
-          path: build/otclient_linux
-          if-no-files-found: error
+          git clone https://github.com/microsoft/vcpkg.git
+          cd vcpkg
+          git checkout 2024.05.24
+          ./bootstrap-vcpkg.sh
+          cd ..
+      - name: Fix libphysfs.a index
+        run: sudo ranlib /usr/lib/x86_64-linux-gnu/libphysfs](#)**
+

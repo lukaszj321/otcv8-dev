@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.15)
 project(otclient)
 
 if(CMAKE_BASE_NAME STREQUAL "em++")
@@ -16,6 +16,9 @@ option(FRAMEWORK_SOUND "Use SOUND " OFF)
 option(FRAMEWORK_GRAPHICS "Use GRAPHICS " ON)
 option(FRAMEWORK_XML "Use XML " ON)
 option(FRAMEWORK_NET "Use NET " ON)
+
+find_package(ZLIB REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system filesystem)
 
 include(src/framework/CMakeLists.txt)
 include(src/client/CMakeLists.txt)
@@ -45,6 +48,10 @@ endif()
 
 # add client executable
 add_executable(${PROJECT_NAME} ${framework_SOURCES} ${client_SOURCES} ${executable_SOURCES})
+
+# POPRAWKA: dodajemy include do src/framework, aby rozwiązać błąd z application.h
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/framework)
+
 target_link_libraries(${PROJECT_NAME} ${framework_LIBRARIES})
 
 if(APPLE AND USE_STATIC_LIBS)
