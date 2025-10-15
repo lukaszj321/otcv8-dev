@@ -1,0 +1,4 @@
+abi,lib_name,full_path,required,min_sdk,note
+armeabi-v7a,libotclientv8.so,android/otclientv8_lib/libs/armeabi-v7a/libotclientv8.so,yes,21,Główna biblioteka JNI
+arm64-v8a,libotclientv8.so,android/otclientv8_lib/libs/arm64-v8a/libotclientv8.so,yes,21,Zalecane dla urządzeń 64-bit
+x86_64,libotclientv8.so,android/otclientv8_lib/libs/x86_64/libotclientv8.so,optional,21,Wsparcie emulatorów

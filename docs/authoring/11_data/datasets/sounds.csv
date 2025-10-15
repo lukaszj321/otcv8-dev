@@ -1,0 +1,2 @@
+sound_id,rel_path,format,length_ms,used_in_files,note
+ui.click,sounds/ui/click.wav,wav,120,04_ui/otui/common.otui,

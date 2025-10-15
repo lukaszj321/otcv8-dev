@@ -1,0 +1,2 @@
+module,otui_file,widget_root,widgets_count,images_count,fonts_used,styles_used
+game_interface,modules/game_interface/interface.otui,MiniWindow,42,21,4,8

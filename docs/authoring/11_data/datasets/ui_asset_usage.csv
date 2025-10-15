@@ -1,0 +1,2 @@
+widget_path,widget_class,prop,value,asset_rel_path,resolved_asset_id,source_file,line
+/TabBar/Button[0],UIButton,image-source,/images/ui/tabbutton_square,images/ui/tabbutton_square.png,tabbutton.square,04_ui/otui/common.otui,25

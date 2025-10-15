@@ -1,0 +1,3 @@
+path,kind,width,height,theme,used_by_ui_ids,notes
+data/images/topbuttons/skills.png,png,16,16,neutral,ui.skills_window;ui.topbar,Ikona przycisku Skills
+data/images/ui/tabbutton_square.png,png,96,22,neutral,ui.tabbar;ui.moveable_tabbar,Przycisk zakładki

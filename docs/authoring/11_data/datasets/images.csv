@@ -1,0 +1,3 @@
+asset_id,rel_path,category,format,size_px,used_in_files,used_in_widgets,note
+img.topbuttons.skills,images/topbuttons/skills.png,icon,png,96x22,04_ui/otui/skills.otui,TabBarButton,example entry
+img.ui.tabbutton_square,images/ui/tabbutton_square.png,ui,png,98x18,04_ui/otui/common.otui,UIButton,primary button sprite

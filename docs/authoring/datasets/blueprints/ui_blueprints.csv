@@ -1,0 +1,3 @@
+blueprint_id,widget,id,class,parents,key_props,assets_refs,notes
+tabbar_family,TabBarRoundedButton,,UIButton,"TabBarRounded->TabBar->Panel","image-source=/images/ui/tabbutton_rounded; image-border=3","/images/ui/tabbutton_rounded","uniwersalny tab; ma stany hover/checked"
+skills_window,MiniWindow,skillWindow,MiniWindow,"root","icon=/images/topbuttons/skills; layout=verticalBox","/images/topbuttons/skills","zależny od stylu; dynamiczne paski postępu"

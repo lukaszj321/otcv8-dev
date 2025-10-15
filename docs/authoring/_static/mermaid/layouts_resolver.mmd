@@ -1,0 +1,8 @@
+%%{init: { 'theme': 'neutral' }}%%
+flowchart TD
+  A[Request asset path] --> B{layouts/<active>/... exists?}
+  B -- yes --> C[Use layout asset]
+  B -- no --> D[Use data asset]
+  C --> E[Style Engine]
+  D --> E[Style Engine]
+  E --> F[Render]

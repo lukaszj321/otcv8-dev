@@ -1,0 +1,13 @@
+%%{init: { 'theme': 'neutral' }}%%
+sequenceDiagram
+  participant A as Activity
+  participant J as Java Glue
+  participant N as JNI (libotclientv8.so)
+  participant E as Engine
+  A->>J: onCreate()
+  J->>N: System.loadLibrary("otclientv8")
+  J->>N: nativeInit(width, height)
+  N->>E: Engine::init()
+  A->>J: onResume/onPause
+  J->>N: nativeEvent(type, payload)
+  N->>E: dispatch()

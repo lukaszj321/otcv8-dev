@@ -1,3 +1,80 @@
+---
+chapter: "10_game_runtime"
+slug: "10_game_runtime"
+title: "Game runtime — export kit"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "10_game_runtime.summary"
+    - id: "game_state"
+      file: "game_state.csv"
+      headers: ["name","value","updated_at","notes"]
+      facet: "10_game_runtime.game_state"
+    - id: "ticks"
+      file: "ticks.csv"
+      headers: ["ts","dt_ms","phase","handlers","notes"]
+      facet: "10_game_runtime.ticks"
+    - id: "resources"
+      file: "resources.csv"
+      headers: ["type","id","state","owner","notes"]
+      facet: "10_game_runtime.resources"
+  diagrams:
+    - id: "loop"
+      file: "loop.mmd"
+      facet: "10_game_runtime.loop"
+xrefs:
+  - to: "06_assets.assets_index"
+    type: "consumes"
+    evidence: "docs/authoring/06_assets/datasets/assets_index.csv"
+  - to: "05_network.flows"
+    type: "driven_by"
+    evidence: "docs/authoring/05_network/datasets/flows.csv"
+  - to: "08_audio.events"
+    type: "syncs"
+    evidence: "docs/authoring/08_audio/datasets/events.csv"
+tags: ["runtime","ticks","state"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# Game Runtime
+
+(facet-10_game_runtime.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `10_game_runtime.summary`
+
+(facet-10_game_runtime.game_state)=
+## Dataset: game_state
+- headers: `name,value,updated_at,notes`
+- facet: `10_game_runtime.game_state`
+
+(facet-10_game_runtime.ticks)=
+## Dataset: ticks
+- headers: `ts,dt_ms,phase,handlers,notes`
+- facet: `10_game_runtime.ticks`
+
+(facet-10_game_runtime.resources)=
+## Dataset: resources
+- headers: `type,id,state,owner,notes`
+- facet: `10_game_runtime.resources`
+
+(facet-10_game_runtime.loop)=
+## Diagram: loop
+- facet: `10_game_runtime.loop`
+
+## Relacje
+- consumes → `06_assets.assets_index`
+- driven_by → `05_network.flows`
+- syncs → `08_audio.events`
+
+---
+
 # Chapter 10 - Game Runtime
 
 ### Professional Pro Template - Agent-Ready - OTClient v8

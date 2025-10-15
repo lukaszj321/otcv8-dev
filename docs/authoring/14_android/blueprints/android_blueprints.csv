@@ -1,0 +1,3 @@
+template,description,abi,notes
+release_min,"Release AAB/APK",arm64-v8a;armeabi-v7a,"włącz minify i shrinkResources"
+debug_dev,"Debug APK",arm64-v8a;x86_64,"pełne logi i symbole"

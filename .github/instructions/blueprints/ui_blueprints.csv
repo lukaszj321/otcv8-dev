@@ -1,0 +1,3 @@
+ui_blueprint_id,category,otui_snippet,expected_widgets,required_assets,notes
+bp.tabbar.square,navigation,TabBarButton < UIButton\n  image-source: /images/ui/tabbutton_square\n  image-clip: 0 0 98 18,"TabBar,TabBarButton",/images/ui/tabbutton_square,Square tab buttons
+bp.skills.window,panel,MiniWindow\n  id: skillWindow\n  icon: /images/topbuttons/skills,"MiniWindow,SkillButton,Labels",/images/topbuttons/skills;verdana-11px-monochrome,Skills mini window

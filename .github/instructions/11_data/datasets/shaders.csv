@@ -1,0 +1,3 @@
+name,type,file,uniforms,includes
+grayscale,fragment,data/shaders/grayscale.frag,u_strength,common.glsl
+ui_mask,fragment,data/shaders/ui_mask.frag,u_maskTex;u_threshold,

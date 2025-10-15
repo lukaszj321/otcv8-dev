@@ -1,3 +1,76 @@
+---
+chapter: "08_audio"
+slug: "08_audio"
+title: "Audio system — export kit"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "08_audio.summary"
+    - id: "audio_assets"
+      file: "audio_assets.csv"
+      headers: ["id","type","path","duration_ms","channels","notes"]
+      facet: "08_audio.audio_assets"
+    - id: "channels"
+      file: "channels.csv"
+      headers: ["name","type","volume","ducking","notes"]
+      facet: "08_audio.channels"
+    - id: "events"
+      file: "events.csv"
+      headers: ["id","name","trigger","payload_schema","notes"]
+      facet: "08_audio.events"
+  diagrams:
+    - id: "routing"
+      file: "routing.mmd"
+      facet: "08_audio.routing"
+xrefs:
+  - to: "10_game_runtime.tick"
+    type: "syncs_with"
+    evidence: "docs/authoring/10_game_runtime/datasets/ticks.csv"
+  - to: "06_assets.assets_index"
+    type: "uses"
+    evidence: "docs/authoring/06_assets/datasets/assets_index.csv"
+tags: ["audio","routing","channels","events"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# Audio
+
+(facet-08_audio.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `08_audio.summary`
+
+(facet-08_audio.audio_assets)=
+## Dataset: audio_assets
+- headers: `id,type,path,duration_ms,channels,notes`
+- facet: `08_audio.audio_assets`
+
+(facet-08_audio.channels)=
+## Dataset: channels
+- headers: `name,type,volume,ducking,notes`
+- facet: `08_audio.channels`
+
+(facet-08_audio.events)=
+## Dataset: events
+- headers: `id,name,trigger,payload_schema,notes`
+- facet: `08_audio.events`
+
+(facet-08_audio.routing)=
+## Diagram: routing
+- facet: `08_audio.routing`
+
+## Relacje
+- syncs_with → `10_game_runtime.tick`
+- uses → `06_assets.assets_index`
+
+---
+
 # Chapter 08 - Audio
 
 ### Professional Pro Template - Agent-Ready - OTClient v8

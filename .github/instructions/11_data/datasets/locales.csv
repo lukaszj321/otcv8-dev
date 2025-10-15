@@ -1,0 +1,3 @@
+lang,key,value,source_file
+en,ui.skills,Skills,data/locales/en/strings.json
+pl,ui.skills,Umiejętności,data/locales/pl/strings.json

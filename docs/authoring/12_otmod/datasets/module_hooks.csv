@@ -1,0 +1,3 @@
+module,hook,function,priority,source_file,line
+game_interface,@onLoad,init,100,modules/game_interface/gameinterface.lua,12
+game_interface,@onUnload,terminate,100,modules/game_interface/gameinterface.lua,410

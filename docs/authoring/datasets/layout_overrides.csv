@@ -1,0 +1,6 @@
+layout,type,source_path,override_path,note
+retro,image,/data/images/ui/tabbutton_square.png,/layouts/retro/images/ui/tabbutton_square.png,Retina sprite; wymaga korekty image-clip
+retro,style,/data/styles/tabs.otui,/layouts/retro/styles/tabs.otui,Zmiana kolorystyki + padding
+mobile,style,/data/styles/console.otui,/layouts/mobile/styles/console.otui,"Większa czcionka, większe przyciski"
+mobile,image,/data/images/cursors/cursor.png,/layouts/mobile/images/cursors/cursor.png,Dotykowy kursor
+dragonball,image,/data/images/topbuttons/skills.png,/layouts/dragonball/images/topbuttons/skills.png,Ikona dopasowana do motywu

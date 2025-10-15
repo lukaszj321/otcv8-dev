@@ -1,0 +1,6 @@
+component,include_path,short_desc,remarks
+EGL,vc16/include/EGL/egl.h,Główne API EGL,"Konteksty, konfiguracje, powierzchnie"
+EGL,vc16/include/EGL/eglext.h,Rozszerzenia EGL,Wersje funkcji zależne od runtime
+GLES2,vc16/include/GLES2/gl2.h,OpenGL ES 2.0,Podstawowy zestaw funkcji
+GLES2,vc16/include/GLES2/gl2ext.h,Rozszerzenia GLES2,Dodatkowe stałe i funkcje
+KHR,vc16/include/KHR/khrplatform.h,Typy bazowe KHR,Makra i typedefy

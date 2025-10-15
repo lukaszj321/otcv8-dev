@@ -1,0 +1,11 @@
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+sequenceDiagram
+  participant L as Loader
+  participant M as Module(OTMOD)
+  participant S as Scripts(Lua)
+  L->>M: load()
+  M->>S: scripts[] bootstrap
+  M->>S: @onLoad -> init()
+  S-->>M: ready()
+  L->>M: unload()
+  M->>S: @onUnload -> terminate()

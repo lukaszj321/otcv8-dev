@@ -1,0 +1,3 @@
+widget_id,widget_class,parent,source_file,props_json,events,images,fonts,styles_ref,notes
+GameSkills/SkillButton,UIButton,MiniWindowContents,modules/game_skills/skills.otui,"{""height"":21,""margin-bottom"":2}","onSkillButtonClick","/images/ui/tabbutton_square","verdana-11px-monochrome","TabBar,TabBarButton",""
+GameSkills/SkillPercentPanel,ProgressBar,SkillButton,modules/game_skills/skills.otui,"{""height"":5,""background-color"":""red""}",,"",,,"used for level/stamina bars"

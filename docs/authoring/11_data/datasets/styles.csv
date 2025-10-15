@@ -1,0 +1,3 @@
+style_id,file,widget_class,prop,value,scope,theme,note
+tabbutton.square,styles/ui/tabbutton_square.otui,UIButton,image-source,/images/ui/tabbutton_square,global,any,
+btn.primary,styles/ui/button_primary.otui,UIButton,color,#dfdfdf,global,light|dark,primary palette

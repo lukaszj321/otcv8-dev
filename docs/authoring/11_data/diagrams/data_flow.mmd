@@ -1,0 +1,7 @@
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+flowchart LR
+  A[data/*] --> B[Indexer CSV]
+  B --> C[Datasets]
+  C --> D[UI Pages]
+  B --> E[Crosslinks]
+  D --> F[RAG]

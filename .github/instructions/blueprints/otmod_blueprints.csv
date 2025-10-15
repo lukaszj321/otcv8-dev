@@ -1,0 +1,3 @@
+otmod_blueprint_id,name,has_hooks,scripts_pattern,deps_pattern,notes
+bp.module.basic,Module with init/terminate,"@onLoad,@onUnload","[ main, widgets/* ]",optional,Common baseline
+bp.module.ui,Module with UI file,@onLoad,"[ main, ui/* ]",game_interface,Loads and manages window

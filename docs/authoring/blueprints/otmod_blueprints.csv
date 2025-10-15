@@ -1,0 +1,4 @@
+module,description,scripts,load_later,dependencies,onLoad,onUnload
+game_interface,Ingame UI i pętle zdarzeń,"[ widgets/uigamemap, gameinterface ]","[ game_buttons, game_hotkeys, game_console, game_skills, game_inventory ]",[],init(),terminate()
+game_skills,Okno statystyk gracza,[ skills ],[],[ game_interface ],init(),terminate()
+game_console,Konsola chat/log,[ console ],"[ game_channels, game_npc ]",[ game_interface ],init(),terminate()

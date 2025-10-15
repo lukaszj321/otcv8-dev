@@ -1,0 +1,3 @@
+template,description,required_dirs,notes
+mobile_minimal,"Ikony większe pod dotyk","images;styles","podmień podstawowe przyciski"
+retro_theme,"Pixel-art styl","images;styles","zachowaj rozmiary sprite'ów"

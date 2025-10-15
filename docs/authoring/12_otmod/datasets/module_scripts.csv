@@ -1,0 +1,2 @@
+module,script,order,source_file,lines,exports,requires
+game_interface,gameinterface,1,modules/game_interface/gameinterface.lua,420,"{init, terminate}",{}

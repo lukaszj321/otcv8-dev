@@ -1,0 +1,5 @@
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  I[OTUI property] -->|image-source/icon/font| ASSET[(Asset file)]
+  ASSET --> INDEX[images.csv/fonts.csv/...]
+  INDEX --> UI[Widgets Index]

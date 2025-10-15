@@ -1,0 +1,2 @@
+module,description,author,sandboxed,scripts,load_later,dependencies,website,path
+game_interface,Create the game interface,OTClient team,true,"[widgets/uigamemap, gameinterface]","[game_skills, game_inventory, game_console]",[],https://github.com/edubart/otclient,modules/game_interface/game_interface.otmod

@@ -1,3 +1,76 @@
+---
+chapter: "09_logging"
+slug: "09_logging"
+title: "Logging system — export kit"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "09_logging.summary"
+    - id: "logging_categories"
+      file: "logging_categories.csv"
+      headers: ["category","level_default","sinks","notes"]
+      facet: "09_logging.logging_categories"
+    - id: "emitters"
+      file: "emitters.csv"
+      headers: ["source","category","rate","notes"]
+      facet: "09_logging.emitters"
+    - id: "sinks"
+      file: "sinks.csv"
+      headers: ["name","type","path","rotation","notes"]
+      facet: "09_logging.sinks"
+  diagrams:
+    - id: "flow"
+      file: "flow.mmd"
+      facet: "09_logging.flow"
+xrefs:
+  - to: "02_events.events_matrix"
+    type: "observes"
+    evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
+  - to: "05_network.network_messages"
+    type: "observes"
+    evidence: "docs/authoring/05_network/datasets/network_messages.csv"
+tags: ["logging","observability","sinks"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# Logging
+
+(facet-09_logging.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `09_logging.summary`
+
+(facet-09_logging.logging_categories)=
+## Dataset: logging_categories
+- headers: `category,level_default,sinks,notes`
+- facet: `09_logging.logging_categories`
+
+(facet-09_logging.emitters)=
+## Dataset: emitters
+- headers: `source,category,rate,notes`
+- facet: `09_logging.emitters`
+
+(facet-09_logging.sinks)=
+## Dataset: sinks
+- headers: `name,type,path,rotation,notes`
+- facet: `09_logging.sinks`
+
+(facet-09_logging.flow)=
+## Diagram: flow
+- facet: `09_logging.flow`
+
+## Relacje
+- observes → `02_events.events_matrix`
+- observes → `05_network.network_messages`
+
+---
+
 # Chapter 09 - Logging
 
 ### Professional Pro Template - Agent-Ready - OTClient v8 (Consolidated with Fix Pack 01)

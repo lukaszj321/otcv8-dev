@@ -1,6 +1,16 @@
-
 ---
-title: 09 — QA Checks (Authoring)
+name: qa-analytics
+applyTo: "docs/authoring/**/*"
+read:
+  - "docs/authoring/**"
+write:
+  - "docs/authoring/qa/**"
+  - "docs/authoring/analytics/**"
+constraints:
+  - "UTF-8"
+  - "LF"
+  - "idempotent"
+---
 purpose: Validate structure, schemas, anchors, and Sphinx render.
 checks:
   structure:
@@ -24,3 +34,24 @@ report:
   - headers: ["chapter","check","status","details"]
 acceptance:
   - [ ] qa_report.csv exists; any FAILs clearly listed
+
+
+# QA + Analytics — Instructions
+
+## QA outputs
+- `qa/frontmatter_issues.csv`
+- `qa/link_lint.csv`
+- `qa/chunking_report.csv`
+- `qa/dataset_sanity.csv`
+- `qa/diagram_lint.csv`
+- `qa/idempotency.md`
+- `qa/qa_summary.md`
+
+## Analytics outputs
+- `analytics/coverage.csv`
+- `analytics/gaps.csv`
+- `analytics/xref_stats.csv`
+- `analytics/coverage_matrix.md`
+- `analytics/overview.mmd`
+- `analytics/run_summary.json`
+- `analytics/errors.md`

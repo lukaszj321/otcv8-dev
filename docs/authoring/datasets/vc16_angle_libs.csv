@@ -1,0 +1,4 @@
+dll,import_lib,desc,packaging,required
+libEGL.dll,libEGL.dll.lib,EGL runtime (ANGLE),AppLocal (obok .exe),yes
+libGLESv2.dll,libGLESv2.dll.lib,GLES2 runtime (ANGLE),AppLocal (obok .exe),yes
+d3dcompiler_47.dll,,Kompilator shaderów HLSL,AppLocal lub system,optional

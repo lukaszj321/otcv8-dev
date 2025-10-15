@@ -1,0 +1,3 @@
+style_id,source_file,selector,property,value,resolved_asset
+TabBarButton,data/styles/widgets/tabbar.otui,TabBarButton,image-source,/images/ui/tabbutton_square,data/images/ui/tabbutton_square.png
+SkillNameLabel,data/styles/widgets/skills.otui,SkillNameLabel,font,verdana-11px-monochrome,data/fonts/verdana-11px.ttf

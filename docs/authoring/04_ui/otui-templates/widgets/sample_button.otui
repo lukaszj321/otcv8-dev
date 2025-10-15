@@ -1,0 +1,6 @@
+
+Button
+  id: sample_button
+  anchors.top: parent.top
+  anchors.left: parent.left
+  text: "Click me"

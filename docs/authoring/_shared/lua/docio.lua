@@ -1,139 +1,125 @@
--- docio.lua
--- Shared IO utilities for documentation extraction
--- UTF-8 safe, LF line endings, rotation support
-
+-- docio.lua (improved)
 local docio = {}
-
--- Maximum file size before rotation (50MB)
 docio.MAX_BYTES = 50 * 1024 * 1024
 
--- Write content to file (UTF-8, LF)
+local function as_lf(s) return (tostring(s or ""):gsub("\r\n", "\n"):gsub("\r", "\n")) end
+
+local function dirname(path)
+  local sep = package.config:sub(1, 1)
+  return path:match("^(.*" .. sep .. ")") and path:match("^(.*" .. sep .. ")"):sub(1, -2) or "."
+end
+
+local function mkdir_p(dir)
+  if dir == "" or dir == "." or not dir then return true end
+  local sep = package.config:sub(1, 1)
+  local parts = {}
+  for part in string.gmatch(dir, "[^" .. sep .. "]+") do table.insert(parts, part) end
+  local acc = ""
+  for i = 1, #parts do
+    acc = (acc == "") and parts[i] or (acc .. sep .. parts[i])
+    local cmd
+    if sep == "\\" then
+      cmd = string.format(
+      'powershell -NoProfile -Command "New-Item -ItemType Directory -Force -Path \\"%s\\" | Out-Null"', acc)
+    else
+      cmd = string.format('mkdir -p "%s"', acc)
+    end
+    os.execute(cmd)
+  end
+  return true
+end
+
 function docio.writeAll(path, content)
-    local f = io.open(path, 'wb')
-    if not f then
-        error('Cannot open file for writing: ' .. path)
-    end
-    
-    -- Ensure LF line endings
-    content = content:gsub('\r\n', '\n')
-    
-    f:write(content)
-    f:close()
+  mkdir_p(dirname(path))
+  local f, err = io.open(path, "wb")
+  assert(f, "Cannot open for write: " .. tostring(err))
+  f:write(as_lf(content))
+  f:close()
 end
 
--- Read entire file
 function docio.readAll(path)
-    local f = io.open(path, 'rb')
-    if not f then
-        return nil
-    end
-    
-    local content = f:read('*all')
-    f:close()
-    
-    return content
+  local f = io.open(path, "rb")
+  if not f then return nil end
+  local s = f:read("*all")
+  f:close()
+  return s
 end
 
--- Append to file
 function docio.append(path, content)
-    local f = io.open(path, 'ab')
-    if not f then
-        error('Cannot open file for appending: ' .. path)
-    end
-    
-    content = content:gsub('\r\n', '\n')
-    f:write(content)
-    f:close()
+  mkdir_p(dirname(path))
+  local f, err = io.open(path, "ab")
+  assert(f, "Cannot open for append: " .. tostring(err))
+  f:write(as_lf(content))
+  f:close()
 end
 
--- Check if file needs rotation
+function docio.fileSize(path)
+  local f = io.open(path, "rb")
+  if not f then return 0 end
+  local sz = f:seek("end")
+  f:close()
+  return sz or 0
+end
+
 function docio.needsRotation(path)
-    local f = io.open(path, 'rb')
-    if not f then
-        return false
-    end
-    
-    local size = f:seek('end')
-    f:close()
-    
-    return size >= docio.MAX_BYTES
+  return docio.fileSize(path) >= docio.MAX_BYTES
 end
 
--- Rotate file (rename to timestamped version)
 function docio.rotate(path)
-    local timestamp = os.date('%Y%m%d-%H%M')
-    local dir = path:match('(.+)/[^/]+$') or '.'
-    local base = path:match('([^/]+)$')
-    local name, ext = base:match('(.+)%.(.+)$')
-    
-    if not name then
-        name = base
-        ext = ''
-    end
-    
-    local chunkDir = dir .. '/chunks'
-    
-    -- Create chunks directory if it doesn't exist
-    os.execute('mkdir -p "' .. chunkDir .. '"')
-    
-    local newPath = chunkDir .. '/' .. name .. '.' .. timestamp .. '.' .. ext
-    
-    -- Rename
-    os.rename(path, newPath)
-    
-    return newPath
+  local sep = package.config:sub(1, 1)
+  local dir = dirname(path)
+  local base = path:match("[^" .. sep .. "]+$") or path
+  local name, ext = base:match("(.+)%.([^%.]+)$")
+  if not name then name, ext = base, "" end
+  local chunkDir = dir .. sep .. "chunks"
+  mkdir_p(chunkDir)
+  local ts = os.date("!%Y%m%d-%H%M%S")
+  local newPath = chunkDir .. sep .. name .. "." .. ts .. (ext ~= "" and "." .. ext or "")
+  os.rename(path, newPath)
+  return newPath
 end
 
--- Write CSV with rotation support
+local function csv_escape(v)
+  local s = tostring(v or "")
+  s = s:gsub('"', '""')
+  if s:find('[,"\n]') then s = '"' .. s .. '"' end
+  return s
+end
+
 function docio.writeCSV(path, headers, rows)
-    -- Check if rotation needed
-    if docio.needsRotation(path) then
-        docio.rotate(path)
+  if docio.needsRotation(path) then docio.rotate(path) end
+  local out = {}
+  out[#out + 1] = table.concat(headers, ",")
+  for _, row in ipairs(rows or {}) do
+    local line = {}
+    for _, h in ipairs(headers) do
+      local val = row[h]
+      if type(val) == "table" then
+        local tmp = {}
+        for i, v in ipairs(val) do tmp[i] = tostring(v) end
+        val = table.concat(tmp, "|")
+      end
+      line[#line + 1] = csv_escape(val)
     end
-    
-    -- Write CSV
-    local lines = {}
-    table.insert(lines, table.concat(headers, ','))
-    
-    for _, row in ipairs(rows) do
-        local values = {}
-        for _, header in ipairs(headers) do
-            local value = tostring(row[header] or '')
-            -- Escape commas and quotes
-            if value:find('[,"]') then
-                value = '"' .. value:gsub('"', '""') .. '"'
-            end
-            table.insert(values, value)
-        end
-        table.insert(lines, table.concat(values, ','))
-    end
-    
-    docio.writeAll(path, table.concat(lines, '\n') .. '\n')
+    out[#out + 1] = table.concat(line, ",")
+  end
+  docio.writeAll(path, table.concat(out, "\n") .. "\n")
 end
 
--- Write NDJSON with rotation support
 function docio.writeNDJSON(path, records)
-    -- Check if rotation needed
-    if docio.needsRotation(path) then
-        docio.rotate(path)
-    end
-    
-    -- Write NDJSON
-    local lines = {}
-    for _, record in ipairs(records) do
-        -- Assume json encode function exists
-        local json = require('json')
-        table.insert(lines, json.encode(record))
-    end
-    
-    docio.writeAll(path, table.concat(lines, '\n') .. '\n')
+  if docio.needsRotation(path) then docio.rotate(path) end
+  local ok, json = pcall(require, "dkjson")
+  if not ok then ok, json = pcall(require, "cjson") end
+  if not ok then ok, json = pcall(require, "json") end
+  assert(ok and json and (json.encode or json.encode_sparse_array), "No JSON lib found (dkjson/cjson/json)")
+  local enc = json.encode or json.encode_sparse_array
+  local lines = {}
+  for _, rec in ipairs(records or {}) do
+    lines[#lines + 1] = enc(rec)
+  end
+  docio.writeAll(path, table.concat(lines, "\n") .. "\n")
 end
 
--- ISO timestamp
-function docio.isoTimestamp()
-    local t = os.date('!*t')
-    return string.format('%04d-%02d-%02dT%02d:%02d:%02dZ',
-        t.year, t.month, t.day, t.hour, t.min, t.sec)
-end
+function docio.isoTimestamp() return os.date("!%Y-%m-%dT%H:%M:%SZ") end
 
 return docio

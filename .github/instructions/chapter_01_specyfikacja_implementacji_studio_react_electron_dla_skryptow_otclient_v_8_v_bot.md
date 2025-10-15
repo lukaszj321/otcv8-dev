@@ -1,4 +1,103 @@
-# Chapter 01 - Runtime
+---
+chapter: "01_core"
+slug: "01_core"
+title: "Specyfikacja: Studio (React/Electron) dla skryptów OTClient v8/vBot"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "01_core.summary"
+      preview_rows: 150
+    - id: "entities"
+      file: "entities.csv"
+      headers: ["id","name","kind","path","notes"]
+      facet: "01_core.entities"
+    - id: "cpp_headers"
+      file: "cpp_headers.csv"
+      headers: ["path","public","includes","symbols","notes"]
+      facet: "01_core.cpp_headers"
+    - id: "cpp_symbols"
+      file: "cpp_symbols.csv"
+      headers: ["symbol","kind","file","line","visibility","notes"]
+      facet: "01_core.cpp_symbols"
+  diagrams:
+    - id: "architecture"
+      file: "architecture.mmd"
+      facet: "01_core.architecture"
+    - id: "flow"
+      file: "flow.mmd"
+      facet: "01_core.flow"
+xrefs:
+  - to: "03_modules.lua_exports"
+    type: "uses"
+    evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
+  - to: "04_ui.ui_widgets"
+    type: "renders"
+    evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
+  - to: "02_events.events_matrix"
+    type: "emits"
+    evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
+  - to: "09_logging.logging_categories"
+    type: "logs"
+    evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+tags: ["otclient","v8","cpp","api","studio","electron","react"]
+provenance:
+  - path: "src/**"
+  - path: "include/**"
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# Studio (React/Electron) + Core API
+
+Punktem wyjścia są interfejsy i symbole C++ (headers/symbols), które stanowią kontrakt runtime dla IDE/Studio.
+
+(facet-01_core.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `01_core.summary`
+- opis: podstawowe metryki rdzenia (liczba plików nagłówkowych, symboli, przestrzeni nazw).
+
+(facet-01_core.entities)=
+## Dataset: entities
+- headers: `id,name,kind,path,notes`
+- facet: `01_core.entities`
+- opis: spis bytów (klasy, funkcje, przestrzenie nazw) z mapowaniem do plików.
+
+(facet-01_core.cpp_headers)=
+## Dataset: cpp_headers
+- headers: `path,public,includes,symbols,notes`
+- facet: `01_core.cpp_headers`
+- opis: analiza nagłówków C++ (widoczność publiczna, zależności).
+
+(facet-01_core.cpp_symbols)=
+## Dataset: cpp_symbols
+- headers: `symbol,kind,file,line,visibility,notes`
+- facet: `01_core.cpp_symbols`
+- opis: indeks eksportowanych symboli.
+
+(facet-01_core.architecture)=
+## Diagram: architecture
+- facet: `01_core.architecture`
+- opis: wysokopoziomowy podział: Core → Framework → Modules → UI.
+
+(facet-01_core.flow)=
+## Diagram: flow
+- facet: `01_core.flow`
+- opis: przepływy danych pomiędzy rdzeniem, zdarzeniami i modułami.
+
+## Relacje
+- uses → `03_modules.lua_exports`
+- renders → `04_ui.ui_widgets`
+- emits → `02_events.events_matrix`
+- logs → `09_logging.logging_categories`
+
+---
+
+# Chapter 01 - Core
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
 
