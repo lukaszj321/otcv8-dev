@@ -84,7 +84,7 @@ Wszystkie rozdzialy z `docs/authoring/**` renderowane inline.
 
 ```{toctree}
 :caption: Rozdzialy
-:maxdepth: 1
+:maxdepth: 2
 :titlesonly:
 01_core/index
 01_runtime/index
