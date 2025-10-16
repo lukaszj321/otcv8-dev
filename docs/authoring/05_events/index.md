@@ -1058,8 +1058,7 @@ function Security:sanitizeString(input, maxLength)
     -- Remove control characters (except newline/tab)
     input = input:gsub("[%c]", function(c)
         local byte = string.byte(c)
-        if byte == 10 or byte == 9 then  -- 
- or 	
+        if byte == 10 or byte == 9 then  -- newline or tab
             return c
         end
         return ""
