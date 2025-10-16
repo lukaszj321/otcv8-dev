@@ -70,19 +70,19 @@ komplet metryk runtime + wyjasnienia jak je czytac i uzywac (UI scaling, wydajno
 ### architecture
         *Facet:* [`01_core.architecture`](#facet-01_core.architecture)
 
-        ```{mermaid}
+```{mermaid}
         %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   Architecture[01_core:architecture] --> Data[Datasets]
   Data --> Page[Index]
 
 click Architecture "./index.html#facet-01_core.architecture" "Open architecture"
-        ```
+```
 
 ### flow
         *Facet:* [`01_core.flow`](#facet-01_core.flow)
 
-        ```{mermaid}
+```{mermaid}
         %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Core API] --> B[Data Collection]
@@ -93,7 +93,7 @@ graph TD
     E --> G[Statistics]
     G --> H[Reports]
     F --> H
-        ```
+```
 
 ## Podkatalogi
 
