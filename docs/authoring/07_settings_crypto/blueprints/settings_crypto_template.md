@@ -1,0 +1,72 @@
+---
+title: "Blueprint: settings_crypto Template"
+type: "blueprint"
+---
+
+# settings_crypto Blueprint
+
+## Overview
+
+This blueprint provides a reusable template for settings_crypto implementation.
+
+## Structure
+
+```lua
+-- Blueprint structure
+local settings_cryptoTemplate = {
+    name = "template",
+    version = "1.0",
+    
+    initialize = function(self)
+        -- Initialization logic
+    end,
+    
+    process = function(self, data)
+        -- Processing logic
+        return data
+    end,
+    
+    cleanup = function(self)
+        -- Cleanup logic
+    end
+}
+
+return settings_cryptoTemplate
+```
+
+## Usage Example
+
+```lua
+local template = require('settings_crypto_template')
+
+-- Initialize
+template:initialize()
+
+-- Process data
+local result = template:process(inputData)
+
+-- Cleanup when done
+template:cleanup()
+```
+
+## Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| name | string | "template" | Template name |
+| version | string | "1.0" | Version number |
+| enabled | boolean | true | Enable/disable |
+
+## Integration Points
+
+This blueprint integrates with:
+- Core system
+- Event system
+- Data layer
+
+## Notes
+
+- This is a template - customize for your needs
+- Follow naming conventions
+- Document any changes
+
