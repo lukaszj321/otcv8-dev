@@ -274,7 +274,7 @@ end
 
 - Waliduj dane wejściowe
 - Używaj bezpiecznych funkcji API
-- UnikajSQL injection
+- Unikaj SQL injection
 - Szyfruj wrażliwe dane
 
 ### Testowalność
