@@ -43,7 +43,7 @@ chapter_index_template: |
   ```
   ## Diagrams
   ```{mermaid}
-  %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+  %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
   graph LR
     A[Source] --> B[Dataset]
   ```
