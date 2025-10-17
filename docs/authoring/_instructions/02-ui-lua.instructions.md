@@ -56,6 +56,8 @@ diagrams:
 index_requirements:
   - Embed both CSVs and both diagrams
   - Crosslink to Modules chapter (Lua exports) and Events
+  - Add anchors in index.md: facet-04_ui.widgets_hierarchy, facet-04_ui.signals_matrix
+  - CSV arrays serialized as JSON (["a","b"])
 acceptance:
   - [ ] Headers exactly as specified
   - [ ] Click anchors present in Mermaid
