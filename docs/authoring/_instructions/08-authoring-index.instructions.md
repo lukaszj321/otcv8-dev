@@ -175,11 +175,11 @@ landing_template: |
   :::
 
 acceptance:
-   "[ ] Landing pokazuje wszystkie rozdziały (01..15) z działającymi linkami"
-   "[ ] Każdy rozdział ma frontmatter, `{contents} :local:`, ≥1 `{csv-table}`, ≥1 `{mermaid}`"
-   "[ ] `summary.csv` istnieje w `datasets/` lub sekcja Datasets ukryta warunkowo"
-   "[ ] Brak błędów linków (nitpicky) przy `sphinx-build -W`"
-   "[ ] Anchory `facet-<chapter>.<stem>` obecne (jeśli są stem-y)"
+   [ ] Landing pokazuje wszystkie rozdziały (01..15) z działającymi linkami"
+   [ ] Każdy rozdział ma frontmatter, `{contents} :local:`, ≥1 `{csv-table}`, ≥1 `{mermaid}`"
+  "[ ] `summary.csv` istnieje w `datasets/` lub sekcja Datasets ukryta warunkowo"
+  [ ] Brak błędów linków (nitpicky) przy `sphinx-build -W`
+  "[ ] Anchory `facet-<chapter>.<stem>` obecne (jeśli są stem-y)"
 
 ## IPC
 
