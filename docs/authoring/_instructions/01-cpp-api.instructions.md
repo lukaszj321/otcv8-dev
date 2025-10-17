@@ -84,7 +84,7 @@ index:
       ---
       title: 01 — Core
       ---
-      # 01 — Core
+  # 01 — Core
 
       ```{toctree}
       :hidden:
