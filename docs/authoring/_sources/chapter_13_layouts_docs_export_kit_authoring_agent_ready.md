@@ -37,12 +37,11 @@ artifacts:
 xrefs:
   - to: "11_data.ui_asset_usage"
     type: "overrides"
-    evidence: "docs/authoring/11_data/datasets/ui_asset_usage.csv"
+    evidence: "docs/11_data/datasets/ui_asset_usage.csv"
   - to: "12_otmod.module_ui_links"
     type: "renders"
-    evidence: "docs/authoring/12_otmod/datasets/module_ui_links.csv"
+    evidence: "docs/12_otmod/datasets/module_ui_links.csv"
 ---
-
 
 # 13_layouts — system motywów i nadpisań zasobów
 
@@ -51,7 +50,7 @@ xrefs:
 ```{contents}
 :local:
 :depth: 2
-```
+````
 
 ---
 
@@ -100,7 +99,7 @@ def resolve(path, layout):
 **Kolumny:** `layout,path,type,resolved_from,original_path,dims_old,dims_new,clips_changed,note`
 
 * `layout` – identyfikator aktywnego motywu, np. `retro`.
-* `path` – ścieżka absolutna w dokumentacji (np. `layouts/retro/images/ui/tabbutton_square.png`).
+* `path` – ścieżka absolutna w repo (np. `layouts/retro/images/ui/tabbutton_square.png`).
 * `type` – `image|style|sound|shader|cursor`.
 * `resolved_from` – `layouts|data` (źródło wyniku `resolve`).
 * `original_path` – oryginał w `data/**` (jeśli istnieje).
@@ -120,8 +119,7 @@ retro,layouts/retro/sounds/ui/click.ogg,sound,layouts,data/sounds/ui/click.ogg,,
 ### `sprite_grid_report.csv` *(facet: {ref}`facet-13_layouts.sprite_grid_report`)*
 
 **Kolumny:** `layout,asset,w_old,h_old,w_new,h_new,frames_old,frames_new,status,note`
-
-* `status` – `OK|WARN|FAIL`.
+`status` – `OK|WARN|FAIL`.
 
 **Przykład:**
 
@@ -182,18 +180,16 @@ TabBarButton < UIButton
 * `studio:render.smoke` `{ layout: string }` → smoke-test: TabBar, Skills, Inventory.
 * `studio:open.layouts` `{ facet: "13_layouts.overrides" | "13_layouts.sprite_grid_report" }` → otwiera dataset w Studio.
 
-**Preload:** `contextIsolation: true`, `nodeIntegration: false` — udostępniaj tylko bezpieczne API (proxy do narzędzi).
+**Preload:** `contextIsolation: true`, `nodeIntegration: false` — udostępniaj wyłącznie bezpieczne API (proxy do narzędzi).
 
 ---
 
 ## 6) Sanity & QA (automaty)
 
-Minimalny zestaw testów, spójny z innymi rozdziałami:
-
 1. **layout_overrides sanity**
 
    * Puste kolumny niedozwolone (poza `note`).
-   * Ścieżki **względne** wobec katalogu dokumentacji; brak spacji; separator `/`.
+   * Ścieżki **względne** wobec repo; brak spacji; separator `/`.
 
 2. **sprite grid check**
 
@@ -213,10 +209,7 @@ Minimalny zestaw testów, spójny z innymi rozdziałami:
    * Drugi przebieg `studio:layouts.diff` nie zmienia CSV (idempotentnie).
 
 **Wyjścia:**
-
-* `datasets/layout_overrides.csv`
-* `datasets/sprite_grid_report.csv`
-* `datasets/style_states_map.csv`
+`datasets/layout_overrides.csv`, `datasets/sprite_grid_report.csv`, `datasets/style_states_map.csv`
 
 ---
 
@@ -289,7 +282,7 @@ Toggle < UIButton
 
 ## 9) Integracja z OTMOD & 11_data (crosslinks)
 
-* `11_data.ui_asset_usage.csv` – wskazuje gdzie asset jest **użyty** (kolumny `ui_id, ui_file, widget_path, prop`).
+* `11_data.ui_asset_usage.csv` – wskazuje gdzie asset jest **użyty** (`ui_id, ui_file, widget_path, prop`).
 * `12_otmod.module_ui_links.csv` – które moduły **renderują** dane OTUI.
 
 **Praktyka:** po `studio:layouts.diff` wykonaj `studio:open.layouts` dla obu facetów, aby sprawdzić spójność.
@@ -300,17 +293,17 @@ Toggle < UIButton
 
 ```js
 // aktywuj layout
-ipcRenderer.invoke('studio:layouts.setActive', { name: 'retro' })
+ipcRenderer.invoke('studio:layouts.setActive', { name: 'retro' });
 
 // zrób diff i sanity
-await ipcRenderer.invoke('studio:layouts.diff', { layout: 'retro' })
-await ipcRenderer.invoke('studio:lint.layouts')
+await ipcRenderer.invoke('studio:layouts.diff', { layout: 'retro' });
+await ipcRenderer.invoke('studio:lint.layouts');
 
 // render smoke test
-await ipcRenderer.invoke('studio:render.smoke', { layout: 'retro' })
+await ipcRenderer.invoke('studio:render.smoke', { layout: 'retro' });
 
 // otwórz dataset w Studio
-ipcRenderer.invoke('studio:open.layouts', { facet: '13_layouts.overrides' })
+ipcRenderer.invoke('studio:open.layouts', { facet: '13_layouts.overrides' });
 ```
 
 ---
@@ -336,7 +329,7 @@ jobs:
       - run: studio cli studio:layouts.diff --layout retro --out datasets/
       - run: sprite-diff --base data/images --layout layouts/retro/images --report datasets/sprite_grid_report.csv
       - run: otui-lint layouts/retro/styles/*.otui --report datasets/style_states_map.csv
-      - run: link-lint docs/authoring/13_layouts/*.md
+      - run: link-lint docs/13_layouts/*.md
 ```
 
 ---
