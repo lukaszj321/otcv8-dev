@@ -37,10 +37,10 @@ artifacts:
 xrefs:
   - to: "11_data.ui_asset_usage"
     type: "overrides"
-    evidence: "docs/11_data/datasets/ui_asset_usage.csv"
+    evidence: "docs/authoring/11_data/datasets/ui_asset_usage.csv"
   - to: "12_otmod.module_ui_links"
     type: "renders"
-    evidence: "docs/12_otmod/datasets/module_ui_links.csv"
+    evidence: "docs/authoring/12_otmod/datasets/module_ui_links.csv"
 ---
 
 # 13_layouts — system motywów i nadpisań zasobów
