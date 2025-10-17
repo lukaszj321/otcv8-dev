@@ -27,10 +27,10 @@ report:
   headers: ["chapter","check","status","details"]
 
 acceptance:
-  - [ ] docs/authoring/_data/qa_report.csv exists"
-  - [ ] No FAIL status rows"
-  - [ ] sequence diagrams contain no `click` directives"
-  - [ ] flowcharts with facets have valid `click` targets"
+  - [ ] docs/authoring/_data/qa_report.csv exists
+  - [ ] No FAIL status rows
+  - [ ] sequence diagrams contain no `click` directives
+  - [ ] flowcharts with facets have valid `click` targets
 ---
 
 ## IPC
