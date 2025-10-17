@@ -51,3 +51,29 @@ Zbuduj inwentarz zasobów z `data/**` (obrazy, fonty, dźwięki, style, configi)
 - [ ] Istnieje `data_assets.csv` **lub** `data_assets.ndjson`.
 - [ ] Kolumny/klucze zgodne ze specyfikacją; listy jako JSON arrays.
 - [ ] (Jeśli diagram) Mermaid renderuje się poprawnie.
+
+## IPC
+
+**Kanały IPC (Studio/Electron)**
+
+- `studio:data.inventory.run` — skanuje `data/**` + `layouts/**` i generuje CSV: images/fonts/styles/locales/sounds/shaders/ui_asset_usage.
+- `studio:data.aggregate` — tworzy `stats.json` + `stats.md` na podstawie CSV.
+- `studio:data.open` `{ which }` — otwiera wybrany dataset (`images|fonts|styles|locales|sounds|shaders|ui`).
+
+## Sanity
+
+Sanity / acceptance:
+
+- [ ] CSV mają stałe nagłówki (`images.csv`, `fonts.csv`, `styles.csv`, `locales.csv`, `sounds.csv`, `shaders.csv`, `ui_asset_usage.csv`).
+- [ ] Puste wartości zapisywane jako `""`; brak kolumn nieudokumentowanych.
+- [ ] `ui_asset_usage.csv.resolved_path` wskazuje istniejący plik (po uwzględnieniu `layouts/<active>`).
+- [ ] `stats.json` i `stats.md` deterministyczne przy powtórnym uruchomieniu.
+
+## Przykłady
+
+**Przykład `ui_asset_usage.csv` (wycinek)**
+
+```csv
+ui_id,ui_file,widget_path,prop,value,asset_path,resolved_path,notes
+inventoryWindow,modules/game_inventory/inventory.otui,MiniWindow/icon,icon,/images/topbuttons/inventory,data/images/topbuttons/inventory.png,data/images/topbuttons/inventory.png,""
+```
