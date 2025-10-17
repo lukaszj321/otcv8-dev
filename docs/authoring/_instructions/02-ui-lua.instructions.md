@@ -103,6 +103,13 @@ graph TD
 > Uwaga: `click` działa w `graph/flowchart`. Dla sekwencji pomiń `click`.
 
 ## Appendix / Facets
-<span id="facet-04_ui.widgets_hierarchy"></span>
-<span id="facet-04_ui.signals_matrix"></span>
-<span id="facet-03_modules.lua_exports"></span>
+
+(facet-04_ui.widgets_hierarchy)=
+### Facet: `04_ui.widgets_hierarchy`
+
+(facet-04_ui.signals_matrix)=
+### Facet: `04_ui.signals_matrix`
+
+(facet-03_modules.lua_exports)=
+### Facet: `03_modules.lua_exports`
+
