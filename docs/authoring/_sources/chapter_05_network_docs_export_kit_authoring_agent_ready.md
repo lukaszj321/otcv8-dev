@@ -24,7 +24,7 @@ artifacts:
       facet: "05_network.flows"
   diagrams:
     - id: "handshake"
-      file: "handshake.mmd"
+      file: "login_handshake.mmd"
       facet: "05_network.handshake"
 xrefs:
   - to: "10_game_runtime.game_state"
