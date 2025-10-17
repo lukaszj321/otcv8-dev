@@ -583,7 +583,6 @@ run()
 **diagrams/lifecycle.mmd**
 
 ```mermaid
-%%{init: { 'theme': 'neutral' }}%%
 sequenceDiagram
   participant Loader
   participant Module as OTMOD
@@ -599,7 +598,6 @@ sequenceDiagram
 **diagrams/deps.mmd**
 
 ```mermaid
-%%{init: { 'theme': 'neutral' }}%%
 graph TD
   A[game_interface] --> B[game_skills]
   A --> C[game_inventory]
