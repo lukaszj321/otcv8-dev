@@ -71,3 +71,38 @@ acceptance:
   - "[ ] Click anchors present in Mermaid"
   - "[ ] index.md contains toctree/contents + csv-table + mermaid + facets"
 ---
+
+# 02 — UI (OTUI) & Lua API — plan authoringu
+
+## Artefakty (skrót)
+- CSV: `ui_widgets.csv`, `ui_signals.csv`, `lua_exports.csv`
+- Diagramy: `widgets_hierarchy.mmd`, `signals_matrix.mmd`
+- Indeksy: `04_ui/index.md`, `03_modules/index.md`
+
+## Datasets — embed przykładowy
+```{csv-table} UI widgets (sample)
+:header-rows: 1
+:file: ./datasets/ui_widgets.csv
+```
+
+```{csv-table} UI signals (sample)
+:header-rows: 1
+:file: ./datasets/ui_signals.csv
+```
+
+## Diagramy — podgląd i klikalne kotwice
+
+```mermaid
+%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+graph TD
+  WidgetsHierarchy[Widgets Hierarchy] --> SignalsMatrix[Signals Matrix]
+  click WidgetsHierarchy "./index.html#facet-04_ui.widgets_hierarchy" "Open widgets"
+  click SignalsMatrix "./index.html#facet-04_ui.signals_matrix" "Open signals"
+```
+
+> Uwaga: `click` działa w `graph/flowchart`. Dla sekwencji pomiń `click`.
+
+## Appendix / Facets
+<span id="facet-04_ui.widgets_hierarchy"></span>
+<span id="facet-04_ui.signals_matrix"></span>
+<span id="facet-03_modules.lua_exports"></span>
