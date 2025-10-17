@@ -77,4 +77,3 @@ Zmapuj pakiety/moduły (OTMOD): manifesty, zależności, eksporty, powiązane za
 - [ ] Listy w CSV są **JSON arrays** (np. `["a","b"]`)
 - [ ] (Jeśli diagram) Mermaid renderuje się poprawnie (init w 1. linii, brak Unicode strzałek)
 - [ ] Crosslinki do `03_modules`, `11_data`, `04_ui` istnieją
-
