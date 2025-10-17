@@ -169,7 +169,7 @@ tags: ["ui","widgets","otui","inventory","agent"]
 related:
   - ../03_modules/README.md
   - ../01_runtime/README.md
-  - ../05_assets/README.md
+  - ../06_assets/README.md
 outputs:
   - ./datasets/widgets.dataset.jsonl
   - ./datasets/widgets.dataset.csv
@@ -198,7 +198,7 @@ Quick links
 Crosslinks
 - Modules: ../03_modules/README.md
 - Runtime: ../01_runtime/README.md
-- Assets: ../05_assets/README.md
+- Assets: ../06_assets/README.md
 
 CSV header (widgets.dataset.csv)
 
@@ -604,7 +604,7 @@ graph TD
     "crossChapter": {
       "modules": "../03_modules/README.md",
       "runtime": "../01_runtime/README.md",
-      "assets": "../05_assets/README.md"
+      "assets": "../06_assets/README.md"
     }
   },
   "agent": {
@@ -638,5 +638,5 @@ graph TD
 - [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list; brak bledow w parsowaniu).
 - [ ] Uzupelniono sections/00..05 i analysis/findings.md (AGENT:INSERT wypelnione realnymi danymi).
 - [ ] Diagram ui_flow.mmd istnieje i jest logiczny.
-- [ ] meta.json ma poprawne crosslinks: ../03_modules, ../01_runtime, ../05_assets.
+- [ ] meta.json ma poprawne crosslinks: ../03_modules, ../01_runtime, ../06_assets.
 - [ ] Walidacja probki 20 linii NDJSON przeciw widget.schema.json zakonczona bez bledow.
