@@ -3,6 +3,8 @@ title: 06 — Diagrams Authoring
 purpose: Unify diagram style and interactivity across chapters.
 rules:
   mermaid_init: "%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
+  first_line_required: true
+  ascii_arrows_only: true
   theme: neutral
   background: transparent
   ids: "CamelCase of stem or semantic id (e.g., WidgetsHierarchy)"
