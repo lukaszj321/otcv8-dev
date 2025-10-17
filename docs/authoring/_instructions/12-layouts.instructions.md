@@ -1,28 +1,18 @@
 
----
-name: layouts
-applyTo:
-  - "layouts/**/*"
-read:
-  - "layouts/**"
-  - "modules/**"
-  - "data/**"
-write:
-  - "docs/authoring/13_layouts/**"
-constraints:
-  - "UTF-8"
-  - "LF"
-  - "idempotent"
----
+## Crosslinks
+- Dodaj xref do `04_ui` (OTUI) oraz `11_data` (assets).
 
-# Layouts — Instructions
+## Index
+- `index.md`: frontmatter, `{toctree}` hidden, `{contents} :local:`,
+`{csv-table}` z `layouts.csv`, `{mermaid}` (jeśli jest diagram),
+sekcja **Appendix / Facets** (jeśli używasz facetów).
 
-## Goal
-Inwentarz layoutów (ekrany/sekcje) z `layouts/**` i ich referencji do obrazów/fontów/OTUI.
+## Notes
+- Typ rozpoznawaj po ścieżce/nazwie; referencje wyciągaj grepem z `.otui`, `.lua` i plików layoutów.
+- Listy w CSV serializuj jako **JSON arrays** (`[]`), ścieżki względne do repo.
 
-## Output
-- `docs/authoring/13_layouts/index.md` (intro, TOC)
-- `docs/authoring/13_layouts/datasets/layouts.csv|ndjson`
-  - kolumny: `layout_id,path,type,section,uses_images[],uses_fonts[],uses_otui[],notes`
-- `diagrams/*.mmd` — graf powiązań (graph TD), ≤ 80 linii
-- Crosslinks do `04_ui` i `11_data`.
+## Acceptance
+- [ ] `index.md` wygenerowany
+- [ ] `layouts.csv` **lub** `.ndjson` (kolumny jak wyżej)
+- [ ] (Jeśli diagram) Mermaid renderuje się (init w 1. linii, ASCII strzałki)
+- [ ] Crosslinki do `04_ui` i `11_data` istnieją
