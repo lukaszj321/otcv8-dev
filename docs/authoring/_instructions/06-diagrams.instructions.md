@@ -2,10 +2,10 @@
 title: "06 — Diagrams Authoring"
 purpose: "Unify diagram style and interactivity across chapters."
 rules:
-  mermaid_init: "%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
+  mermaid_init: "%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
   first_line_required: true
   ascii_arrows_only: true
-  theme: "neutral"
+  theme: "dark"
   background: "transparent"
   ids: "CamelCase of stem or semantic id (e.g., WidgetsHierarchy)"
   click_anchor: 'click <ID> "./index.html#facet-<chapter>.<stem>" "Open <stem>"'
@@ -16,7 +16,7 @@ templates:
   graph:
     file: "graph_template.mmd"
     body: |
-      %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+      %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
       graph LR
         UI[Dashboard (SPA)] -->|handshake (JWT/token)| WS[(WebSocket)]
         WS -->|connect| S[Server (Node)]
@@ -29,7 +29,7 @@ templates:
   sequence:
     file: "sequence_template.mmd"
     body: |
-      %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+      %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
       sequenceDiagram
         participant UI as Dashboard (SPA)
         participant WS as WebSocket (wss)
@@ -54,7 +54,7 @@ acceptance:
 
 ## Sanity
 
-* [ ] Pierwsza linia `%%{init: ...}%%`, theme neutral.
+* [ ] Pierwsza linia `%%{init: ...}%%`, theme dark.
 * [ ] Brak `click` w `sequenceDiagram`.
 * [ ] Flowcharty mają min. jeden `click` do istniejącego facetu.
 * [ ] Pliki w `docs/authoring/<chapter>/diagrams/*.mmd`, embedowane `{mermaid}`.
