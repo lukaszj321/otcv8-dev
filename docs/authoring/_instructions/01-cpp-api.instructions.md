@@ -71,42 +71,42 @@ diagrams:
       must_click_anchor: "01_core.include_graph"
 
 # 3) Chapter index.md
-index:
-  must_have:
-    - "Contents block (MyST: ```{contents} :local:```)"
-    - "Hidden toctree (optional children)"
-    - "\"Datasets\" section with at least one {csv-table}"
-    - "\"Diagrams\" section with at least one ```{mermaid}```"
-    - "\"Appendix / Facets\" anchors (for all stems)"
-  snippet:
-    markdown: |
-      ---
-      title: 01 — Core
-      ---
-      # 01 — Core
+---
 
-      ```{toctree}
-      :hidden:
-      :maxdepth: 2
-      ```
+## title: 01 — Core
 
-      :depth: 2
-      :local:
+# 01 — Core
 
-      ## Datasets
-      :file: ./datasets/summary.csv
-      :header-rows: 1
-      :widths: auto
+```{toctree}
+:hidden:
+:maxdepth: 2
+```
 
-      ## Diagrams
-      %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-      graph TD
-        Core[Core] --> Subsystems[Subsystems]
-      click Core "./index.html#facet-01_core.architecture" "Open architecture"
+```{contents} Table of contents
+:depth: 2
+:local:
+```
 
-      ## Appendix / Facets
-      <span id="facet-01_core.architecture"></span>
-      <span id="facet-01_core.include_graph"></span>
+## Datasets
+
+```{csv-table} Core API Summary
+:file: ./datasets/summary.csv
+:header-rows: 1
+:widths: auto
+```
+
+## Diagrams
+
+```{mermaid}
+%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+  Core[Core] --> Subsystems[Subsystems]
+click Core "./index.html#facet-01_core.architecture" "Open architecture"
+```
+
+## Appendix / Facets
+
+<span id="facet-01_core.architecture"></span> <span id="facet-01_core.include_graph"></span>
 
 # 4) Acceptance checklist (DoD)
 acceptance:
