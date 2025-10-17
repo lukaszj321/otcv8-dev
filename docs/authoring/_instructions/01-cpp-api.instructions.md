@@ -85,10 +85,10 @@ index:
       ---
       # 01 — Core
 
-```{contents}
+    ```{contents}
 :local:
 :depth: 2
-```
+    ```
 
       :depth: 2
       :local:
