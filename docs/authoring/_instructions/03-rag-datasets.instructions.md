@@ -44,3 +44,19 @@ acceptance:
   - No PII or secrets (basic scrubbing rules applied)
   - rag_index.json builds and has no duplicate hashes
 ---
+
+# 03 — RAG Datasets (plan)
+
+## Embedy do `index.md`
+
+```{csv-table} RAG chunks (sample)
+:header-rows: 1
+:file: ./datasets/rag_chunks.csv
+```
+
+## Facet anchors (MyST)
+
+(facet-<chapter>.<stem>)=
+### Facet: `<chapter>.<stem>`
+
+> Zamień `<chapter>` i `<stem>` na właściwe wartości (np. `11_data.images`).
