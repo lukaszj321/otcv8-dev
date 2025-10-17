@@ -75,15 +75,13 @@ index.must_embed:
 ## Diagram
 
 ```mermaid
-%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 sequenceDiagram
   participant C as Client
   participant S as Server
   C->>S: Login request
   S-->>C: Characters list
 ```
-
-
 
 ## Appendix / Facets
 <span id="facet-02_events.event_flow"></span>
