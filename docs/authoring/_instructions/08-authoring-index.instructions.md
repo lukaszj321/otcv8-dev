@@ -17,6 +17,8 @@ requirements:
   - "Frontmatter present on landing + all chapter pages"
   - "Use MyST directives (not raw HTML)"
 
+---
+
 chapter_index_template: |
   ---
   title: {chapter_title}
@@ -178,7 +180,6 @@ acceptance:
   - "[ ] `summary.csv` istnieje w `datasets/` lub sekcja Datasets ukryta warunkowo"
   - "[ ] Brak błędów linków (nitpicky) przy `sphinx-build -W`"
   - "[ ] Anchory `facet-<chapter>.<stem>` obecne (jeśli są stem-y)"
----
 
 ## IPC
 
