@@ -109,12 +109,11 @@ title: 01 — Core
 graph TD
   Core[Core] --> Subsystems[Subsystems]
 click Core "./index.html#facet-01_core.architecture" "Open architecture"
-  ```
+    ```
 
 ## Appendix / Facets
 <span id="facet-01_core.architecture"></span>
 <span id="facet-01_core.include_graph"></span>
-```
 
 # 4) Acceptance checklist (DoD)
 
