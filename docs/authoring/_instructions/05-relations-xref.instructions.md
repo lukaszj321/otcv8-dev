@@ -1,22 +1,26 @@
-
 ---
-title: 05 — Relations & Cross‑References
-purpose: Build cross‑chapter references (UI ↔ Events ↔ Modules ↔ Core ↔ Network).
+title: 05 — Relations & Cross-References
+purpose: Build cross-chapter references (UI ↔ Events ↔ Modules ↔ Core ↔ Network).
 constraints:
-  - Use only in‑repo sources
+  - Use only in-repo sources
   - Output CSV + optional JSON map
 
 outputs:
-  - docs/authoring/_data/xref.csv
+  - file: docs/authoring/_data/xref.csv
     header: ["from_chapter","from_facet","to_chapter","to_facet","type","evidence_path","note"]
-  - docs/authoring/_data/xref.json
-    schema: [ { "from": {"c":"<ch>","f":"<facet>"}, "to": {...}, "type": "uses|emits|handles|includes|calls", "evidence": "<path>" } ]
+  - file: docs/authoring/_data/xref.json
+    schema:
+      - from: { c: "<ch>", f: "<facet>" }
+        to:   { c: "<ch>", f: "<facet>" }
+        type: "uses|emits|handles|includes|calls"
+        evidence: "<path>"
 
 builder:
-  - If `authoring/_tools/xref_builder.py` exists, use it; else, infer from datasets keys (widget names, event names, module exports)
-  - Normalize facet IDs to "<chapter>.<stem>"
-  - Types allowed: uses|emits|handles|includes|calls
+  tool: "authoring/_tools/xref_builder.py"   # use if exists
+  fallback: "infer from datasets (widgets, events, module exports)"
+  normalize_rule: 'facet = "<chapter>.<stem>"'
+  types_allowed: ["uses","emits","handles","includes","calls"]
 
 acceptance:
-  - [ ] xref.csv exists with >= N rows (best effort)
+  - [ ] docs/authoring/_data/xref.csv exists with >= N rows (best effort)
   - [ ] At least one crosslink UI↔Events and Modules↔Core
