@@ -1,55 +1,53 @@
----
 chapter: "01_runtime"
 slug: "01_runtime"
 title: "Specyfikacja: Studio (React/Electron) dla skryptów OTClient v8/vBot"
 status: "agent_ready"
 owners: ["github:lukaszj321"]
 artifacts:
-datasets:
-- id: "summary"
-file: "summary.csv"
-headers: ["metric","value","note"]
-facet: "01_runtime.summary"
-preview_rows: 150
-- id: "entities"
-file: "entities.csv"
-headers: ["id","name","kind","path","notes"]
-facet: "01_runtime.entities"
-- id: "cpp_headers"
-file: "cpp_headers.csv"
-headers: ["path","public","includes","symbols","notes"]  # includes/symbols = JSON arrays
-facet: "01_runtime.cpp_headers"
-- id: "cpp_symbols"
-file: "cpp_symbols.csv"
-headers: ["symbol","kind","file","line","visibility","notes"]
-facet: "01_runtime.cpp_symbols"
-diagrams:
-- id: "architecture"
-file: "architecture.mmd"
-facet: "01_runtime.architecture"
-- id: "flow"
-file: "flow.mmd"
-facet: "01_runtime.flow"
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "01_runtime.summary"
+      preview_rows: 150
+    - id: "entities"
+      file: "entities.csv"
+      headers: ["id","name","kind","path","notes"]
+      facet: "01_runtime.entities"
+    - id: "cpp_headers"
+      file: "cpp_headers.csv"
+      headers: ["path","public","includes","symbols","notes"]
+      facet: "01_runtime.cpp_headers"
+    - id: "cpp_symbols"
+      file: "cpp_symbols.csv"
+      headers: ["symbol","kind","file","line","visibility","notes"]
+      facet: "01_runtime.cpp_symbols"
+  diagrams:
+    - id: "architecture"
+      file: "architecture.mmd"
+      facet: "01_runtime.architecture"
+    - id: "flow"
+      file: "flow.mmd"
+      facet: "01_runtime.flow"
 xrefs:
-
-* to: "03_modules.lua_exports"
-  type: "uses"
-  evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
-* to: "04_ui.ui_widgets"
-  type: "uses"
-  evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
-* to: "02_events.events_matrix"
-  type: "emits"
-  evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
-* to: "09_logging.logging_categories"
-  type: "emits"
-  evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
-  tags: ["otclient","v8","cpp","api","studio","electron","react"]
-  provenance:
-* path: "src/**"
-* path: "include/**"
-  version: "1.0"
-  updated: "2025-10-17"
+  - to: "03_modules.lua_exports"
+    type: "uses"
+    evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
+  - to: "04_ui.ui_widgets"
+    type: "uses"
+    evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
+  - to: "02_events.events_matrix"
+    type: "emits"
+    evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
+  - to: "09_logging.logging_categories"
+    type: "emits"
+    evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+tags: ["otclient","v8","cpp","api","studio","electron","react"]
+provenance:
+  - path: "src/**"
+  - path: "include/**"
+version: "1.0"
+updated: "2025-10-17"
 
 ---
 
