@@ -43,7 +43,7 @@ Standaryzacja tworzenia i walidacji diagramów **Mermaid** w rozdziałach; kotwi
 ## Zasady Mermaid (lint)
 1. **Init w 1. linii** bloku:
    ```
-   %%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+   %%{init: {'theme':'dark','securityLevel':'loose'}}%%
    ```
 2. **Deterministyczność**: stabilne ID/nazwy węzłów.
 3. **Klikalne linki** (gdy istnieje facet o tym samym `stem`):
@@ -102,7 +102,7 @@ Przykład:
 **11_data / `asset_linking.mmd`**
 
 ```mermaid
-%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   OTUI[OTUI property] -->|image-source / icon / font| ASSET["data/** &#124; layouts/**"]
   ASSET --> INDEX["images.csv / fonts.csv"]
@@ -113,7 +113,7 @@ graph TD
 **12_otmod / `deps.mmd`**
 
 ```mermaid
-%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   A[game_interface] --> B[game_skills]
   A --> C[game_inventory]
@@ -123,7 +123,7 @@ graph TD
 **13_layouts / `resolve_flow.mmd`**
 
 ```mermaid
-%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   Theme[Layout overrides] --> Resolve[Resolver]
   Resolve --> Output[layout_overrides.csv]
