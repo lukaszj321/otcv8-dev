@@ -73,6 +73,7 @@ index.must_embed:
 ```
 
 ## Diagram
+
 ```{mermaid}
 %%{init: {'theme':'neutral'}}%%
 sequenceDiagram
