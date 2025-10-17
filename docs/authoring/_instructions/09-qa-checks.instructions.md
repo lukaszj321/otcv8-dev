@@ -1,6 +1,6 @@
 ---
-title: 09 — QA Checks (Authoring)
-purpose: Validate structure, schemas, anchors, and Sphinx render.
+title: "09 — QA Checks (Authoring)"
+purpose: "Validate structure, schemas, anchors, and Sphinx render."
 
 checks:
   structure:
@@ -27,7 +27,22 @@ report:
   headers: ["chapter","check","status","details"]
 
 acceptance:
-  - [ ] "docs/authoring/_data/qa_report.csv exists"
-  - [ ] "No FAIL status rows"
-  - [ ] "sequence diagrams contain no `click` directives"
-  - [ ] "flowcharts with facets have valid `click` targets"
+  - [ ] docs/authoring/_data/qa_report.csv exists"
+  - [ ] No FAIL status rows"
+  - [ ] sequence diagrams contain no `click` directives"
+  - [ ] flowcharts with facets have valid `click` targets"
+---
+
+## IPC
+
+**Kanały IPC (Studio/Electron)**
+
+- `studio:qa.run` `{ suite }` — uruchamia zdefiniowany zestaw testów (linty, sanity, smoke).
+- `studio:qa.open` `{ report }` — otwiera raport QA (CSV/MD/HTML) dla bieżącego rozdziału.
+- `studio:qa.baseline` — zapisuje/porównuje baseline wyników (idempotency).
+
+## Sanity
+
+- [ ] Wszystkie testy krytyczne (linty, sanity) mają status PASS; FAIL wymaga `note` i ticketu.
+- [ ] Raport QA zawiera sumy kontrolne (SHA256) kluczowych artefaktów (jeśli dotyczy).
+- [ ] Idempotencja: ponowny bieg `studio:qa.run` nie zmienia wyników (poza timestampem).
