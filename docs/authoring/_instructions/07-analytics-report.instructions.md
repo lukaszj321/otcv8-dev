@@ -1,60 +1,53 @@
 ---
-title: "06 — Diagrams Authoring"
-purpose: "Unify diagram style and interactivity across chapters."
-rules:
-  mermaid_init: "%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
-  first_line_required: true
-  ascii_arrows_only: true
-  theme: "neutral"
-  background: "transparent"
-  ids: "CamelCase of stem or semantic id (e.g., WidgetsHierarchy)"
-  click_anchor: 'click <ID> "./index.html#facet-<chapter>.<stem>" "Open <stem>"'
-  store_under: "docs/authoring/<chapter>/diagrams/*.mmd"
-  include_in_index: "MyST {mermaid} blocks (not PNG)"
+title: "07 — Analytics & Report (Authoring)"
+purpose: "Produce per-chapter analytics CSV and short narrative."
 
-templates:
-  graph:
-    file: "graph_template.mmd"
-    body: |
-      %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-      graph LR
-        UI[Dashboard (SPA)] -->|handshake (JWT/token)| WS[(WebSocket)]
-        WS -->|connect| S[Server (Node)]
-        S -->|events: metrics, logs, char_info| UI
-        UI -->|cmd: START/STOP, settings| S
+outputs:
+  - "docs/authoring/<chapter>/datasets/summary.csv"
+  - "docs/authoring/<chapter>/analysis.md"
 
-      click UI "./index.html#facet-06.UI" "Open UI"
-      click WS "./index.html#facet-06.WS" "Open WS"
-      click S "./index.html#facet-06.Server" "Open Server"
-  sequence:
-    file: "sequence_template.mmd"
-    body: |
-      %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-      sequenceDiagram
-        participant UI as Dashboard (SPA)
-        participant WS as WebSocket (wss)
-        participant S as Server (Node)
+summary:
+  headers: ["metric","value","note"]
+  metrics_examples:
+    - { metric: "entities_total",  type: "<int>", note: "Count of primary entities in chapter" }
+    - { metric: "datasets_count",  type: "<int>", note: "Number of CSV datasets" }
+    - { metric: "diagrams_count",  type: "<int>", note: "Number of Mermaid diagrams" }
+    - { metric: "crosslinks_out",  type: "<int>", note: "Outgoing xref edges" }
+    - { metric: "crosslinks_in",   type: "<int>", note: "Incoming xref edges" }
 
-        UI->>WS: handshake (JWT / token)
-        WS->>S: connect
-        S-->>UI: events: metrics, logs, char_info
-        UI->>S: cmd: START/STOP, settings
+analysis_md:
+  template: |
+    # Analysis
+    This chapter contains **{entities_total} entities** across **{datasets_count} datasets** and **{diagrams_count} diagrams**.
+    Crosslinks: out={crosslinks_out}, in={crosslinks_in}.
 
 acceptance:
-  - "[ ] First line is `%%{init: ...}%%`"
-  - "[ ] No `click` in `sequenceDiagram`"
-  - "[ ] Flowcharts have at least one valid `click` (if facet exists)"
+  - "[ ] summary.csv present with required headers"
+  - "[ ] Values are integers (0 allowed) and match filesystem scan"
 ---
 
 ## IPC
 
-- `studio:diagrams.validate` — walidacja bloków Mermaid.
-- `studio:diagrams.scan` — skan `diagrams/*.mmd`.
-- `studio:diagrams.open { id | file }` — podgląd.
+**Kanały IPC (Studio/Electron)**
+
+- `studio:analytics.compute` — skanuje rozdział i generuje `datasets/summary.csv` + `analysis.md` wg szablonu.
+- `studio:analytics.open` `{ file: 'summary'|'analysis' }` — otwiera wygenerowane artefakty.
+- `studio:analytics.validate` — sprawdza typy wartości i spójność z filesystem scan.
 
 ## Sanity
 
-- [ ] Pierwsza linia `%%{init: ...}%%`, theme neutral.
-- [ ] Brak `click` w `sequenceDiagram`.
-- [ ] Flowcharty mają min. jeden `click` do istniejącego facetu.
-- [ ] Pliki w `docs/authoring/<chapter>/diagrams/*.mmd`, embedowane `{mermaid}`.
+- [ ] `summary.csv` istnieje i posiada nagłówki: `metric,value,note`.
+- [ ] Wszystkie `value` to liczby całkowite (0 dozwolone) dopasowane do realnego skanu katalogu.
+- [ ] `analysis.md` (opcjonalny) wypełniony na podstawie `summary.csv` i szablonu.
+
+## Przykłady
+
+**Przykład `summary.csv`**
+```csv
+metric,value,note
+entities_total,42,"Łączna liczba bytów"
+datasets_count,5,"CSV w rozdziale"
+diagrams_count,3,"Mermaid w rozdziale"
+crosslinks_out,7,"Zewnętrzne xrefy"
+crosslinks_in,2,"Przychodzące xrefy"
+```
