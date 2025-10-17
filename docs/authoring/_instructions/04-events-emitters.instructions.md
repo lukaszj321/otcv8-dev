@@ -74,14 +74,15 @@ index.must_embed:
 
 ## Diagram
 
-```{mermaid}
-%%{init: {'theme':'neutral'}}%%
+```mermaid
+%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
 sequenceDiagram
   participant C as Client
   participant S as Server
   C->>S: Login request
   S-->>C: Characters list
 ```
+
 
 
 ## Appendix / Facets
