@@ -1,56 +1,101 @@
 ---
+
 id: "chapter:data"
 chapter: "11_data"
 slug: "11_data"
 title: "Data — Assets, Styles, Locales, Shaders, Sounds"
 status: "agent_ready"
 owners:
-  - "docs-export"
-  - "github:lukaszj321"
-version: "1.0"
-last_updated: "2025-10-15"
-language: "pl"
-tags: ["otclient","data","assets","otui","styles","locales","shaders","sounds","rag","agent"]
+
+* "docs-export"
+* "github:lukaszj321"
+  version: "1.0"
+  last_updated: "2025-10-15"
+  language: "pl"
+  tags: ["otclient","data","assets","otui","styles","locales","shaders","sounds","rag","agent"]
 
 related:
-  - "../04_ui/README.md"
-  - "../06_assets/README.md"
-  - "../12_otmod/README.md"
+
+* "../04_ui/README.md"
+* "../06_assets/README.md"
+* "../12_otmod/README.md"
+
+# ARTIFACTS 
+
+artifacts:
+datasets:
+- id: "images"
+file: "./datasets/images.csv"
+headers: ["path","kind","width","height","theme","used_by_ui_ids","notes"]
+facet: "11_data.images"
+- id: "fonts"
+file: "./datasets/fonts.csv"
+headers: ["font_id","file","size","weight","mono","fallbacks"]
+facet: "11_data.fonts"
+- id: "styles"
+file: "./datasets/styles.csv"
+headers: ["style_id","source_file","selector","property","value","resolved_asset"]
+facet: "11_data.styles"
+- id: "locales"
+file: "./datasets/locales.csv"
+headers: ["lang","key","value","source_file"]
+facet: "11_data.locales"
+- id: "sounds"
+file: "./datasets/sounds.csv"
+headers: ["path","duration_ms","channels","rate_hz","kind","used_by"]
+facet: "11_data.sounds"
+- id: "shaders"
+file: "./datasets/shaders.csv"
+headers: ["name","type","file","uniforms","includes"]
+facet: "11_data.shaders"
+- id: "ui_asset_usage"
+file: "./datasets/ui_asset_usage.csv"
+headers: ["ui_id","ui_file","widget_path","prop","value","asset_path","resolved_path","notes"]
+facet: "11_data.ui_asset_usage"
+diagrams:
+- id: "data_flow"
+file: "./diagrams/data_flow.mmd"
+facet: "11_data.data_flow"
+- id: "asset_linking"
+file: "./diagrams/asset_linking.mmd"
+facet: "11_data.asset_linking"
+
+# OUTPUTS (zachowane dla zgodności ze skryptami)
 
 outputs:
-  - "./datasets/images.csv"
-  - "./datasets/fonts.csv"
-  - "./datasets/styles.csv"
-  - "./datasets/locales.csv"
-  - "./datasets/sounds.csv"
-  - "./datasets/shaders.csv"
-  - "./datasets/ui_asset_usage.csv"
-  - "./stats/stats.json"
-  - "./stats/stats.md"
 
-encoding: "UTF-8 (no BOM)"
----
+* "./datasets/images.csv"
+* "./datasets/fonts.csv"
+* "./datasets/styles.csv"
+* "./datasets/locales.csv"
+* "./datasets/sounds.csv"
+* "./datasets/shaders.csv"
+* "./datasets/ui_asset_usage.csv"
+* "./stats/stats.json"
+* "./stats/stats.md"
+
+## encoding: "UTF-8 (no BOM)"
 
 # Data — Assets, Styles, Locales, Shaders, Sounds (Export Kit)
 
-**Cel:** Spójne, agent‑ready indeksy zasobów z `data/**` + *override* z `layouts/**`, wraz z mapowaniem **OTUI → asset** i metadanymi pod RAG/Studio. ASCII‑only, UTF‑8 bez BOM, LF.
+**Cel:** Spójne, agent-ready indeksy zasobów z `data/**` + *override* z `layouts/**`, wraz z mapowaniem **OTUI → asset** i metadanymi pod RAG/Studio. ASCII-only, UTF-8 bez BOM, LF.
 
 ## 0) Executive summary
 
-* Co: inwentaryzacja obrazów, czcionek, styli, lokalizacji, shaderów i dźwięków oraz automatyczne **powiązanie z OTUI**.
-* Dla kogo: dev/QA, narzędzia BI, RAG, Electron Studio.
-* Output: CSV (spłaszczone), statystyki (JSON/MD), diagramy (Mermaid), opcjonalnie NDJSON (dla pełnych rekordów).
-* Agent‑ready: punkty wstrzyknięć (AGENT:INSERT), IO setup, stałe nagłówki CSV, checklist DoD.
+* **Co:** inwentaryzacja obrazów, czcionek, styli, lokalizacji, shaderów i dźwięków oraz automatyczne **powiązanie z OTUI**.
+* **Dla kogo:** dev/QA, narzędzia BI, RAG, Electron Studio.
+* **Output:** CSV (spłaszczone), statystyki (JSON/MD), diagramy (Mermaid), opcjonalnie NDJSON.
+* **Agent-ready:** stałe nagłówki CSV, punkty IPC, sanity & QA, deterministyczne sortowanie.
 
 ---
 
-## 1) Struktura folderu (wzorzec jak rozdziały 06/07/08/09/10)
+## 1) Struktura folderu
 
 ```bash
 11_data/
-  README.md                      # narracja + TOC + nawigacja (ten plik)
-  meta.json                      # mapa plików + zadania + tags (machine-readable)
-  schemas/                       # schematy CSV/NDJSON (opcjonalne)
+  README.md
+  meta.json
+  schemas/
     images.schema.json
     fonts.schema.json
     styles.schema.json
@@ -59,12 +104,12 @@ encoding: "UTF-8 (no BOM)"
     shaders.schema.json
     ui_asset_usage.schema.json
   sections/
-    00_data_basics.md            # wprowadzenie do katalogu data/** + layouts/**
-    01_overrides_and_theme.md    # reguły override (layouts) i motywy
-    02_models.md                 # słowniki pól + przykłady
-    03_collection_methods.md     # jak zbieramy (skan + OTUI resolver)
-    04_quality_and_limits.md     # jakość, ograniczenia, SLO
-    05_how_to_read_stats.md      # jak czytać statystyki i znaleźć braki
+    00_data_basics.md
+    01_overrides_and_theme.md
+    02_models.md
+    03_collection_methods.md
+    04_quality_and_limits.md
+    05_how_to_read_stats.md
   datasets/
     images.csv
     fonts.csv
@@ -73,8 +118,7 @@ encoding: "UTF-8 (no BOM)"
     sounds.csv
     shaders.csv
     ui_asset_usage.csv
-    chunks/
-      README.md
+    chunks/README.md
   stats/
     stats.json
     stats.md
@@ -83,118 +127,89 @@ encoding: "UTF-8 (no BOM)"
     gaps.md
     figures/
   extractors/
-    data_inventory.lua           # skan plików data/** + layouts/**
-    ui_usage_scan.lua            # parser OTUI → ui_asset_usage.csv
-    data_stats.lua               # agregacje → stats.json + stats.md
+    data_inventory.lua
+    ui_usage_scan.lua
+    data_stats.lua
   config/
-    data.scan_roots.txt          # listy korzeni do skanu (opcjonalnie)
-    ui.scan_paths.txt            # globy *.otui do mapowania assetów
-    layout.active.txt            # nazwa aktywnego layoutu (opcjonalnie)
+    data.scan_roots.txt
+    ui.scan_paths.txt
+    layout.active.txt
   diagrams/
     data_flow.mmd
     asset_linking.mmd
 ```
 
-> Note: IO setup jak w innych rozdziałach — `dofile('../../_shared/lua/docio.lua')` z poziomu `extractors/`.
+> IO setup jak w innych rozdziałach — `dofile('../../_shared/lua/docio.lua')` z poziomu `extractors/`.
 
 ---
 
-## 2) README – skrót operacyjny (Agent‑friendly)
+## 2) README – skrót operacyjny (Agent-friendly)
 
 **CSV headers (stałe):**
 
-* `images.csv`
-
-```
-path,kind,width,height,theme,used_by_ui_ids,notes
-```
-
-* `fonts.csv`
-
-```
-font_id,file,size,weight,mono,fallbacks
-```
-
-* `styles.csv`
-
-```
-style_id,source_file,selector,property,value,resolved_asset
-```
-
-* `locales.csv`
-
-```
-lang,key,value,source_file
-```
-
-* `sounds.csv`
-
-```
-path,duration_ms,channels,rate_hz,kind,used_by
-```
-
-* `shaders.csv`
-
-```
-name,type,file,uniforms,includes
-```
-
-* `ui_asset_usage.csv`
-
-```
-ui_id,ui_file,widget_path,prop,value,asset_path,resolved_path,notes
-```
+* `images.csv` → `path,kind,width,height,theme,used_by_ui_ids,notes`
+* `fonts.csv` → `font_id,file,size,weight,mono,fallbacks`
+* `styles.csv` → `style_id,source_file,selector,property,value,resolved_asset`
+* `locales.csv` → `lang,key,value,source_file`
+* `sounds.csv` → `path,duration_ms,channels,rate_hz,kind,used_by`
+* `shaders.csv` → `name,type,file,uniforms,includes`
+* `ui_asset_usage.csv` → `ui_id,ui_file,widget_path,prop,value,asset_path,resolved_path,notes`
 
 **Override (layouts):** `layouts/<ACTIVE>/**` ma **wyższy priorytet** niż `data/**`. Nie używaj nazwy layoutu `default`.
 
-**Studio hooks (Electron):**
+**Studio IPC hooks (Electron):**
 
-* `studio:data.inventory.run` → `data_inventory.lua`
-* `studio:data.ui.scan` → `ui_usage_scan.lua`
-* `studio:aggregate.data` → `data_stats.lua`
-* `studio:open.data` `{type:'csv', which:'images|fonts|...|ui'}`
+* `studio:data.inventory.run` → `extractors/data_inventory.lua`
+* `studio:data.ui.scan` → `extractors/ui_usage_scan.lua`
+* `studio:aggregate.data` → `extractors/data_stats.lua`
+* `studio:open.data` `{type:'csv', which:'images|fonts|styles|locales|sounds|shaders|ui'}`
 
 ---
 
-## 3) Słowniki pól (zgodne z resztą rozdziałów)
+## 3) Słowniki pól (z przykładami)
 
-### Images (images.csv)
+### Images (`images.csv`)
 
-| Pole           | Typ    | Przykład                              | Znaczenie                              |      |         |        |
-| -------------- | ------ | ------------------------------------- | -------------------------------------- | ---- | ------- | ------ |
-| path           | string | `data/images/ui/tabbutton_square.png` | Absolutna ścieżka w repo dokumentacji. |      |         |        |
-| kind           | string | `png`                                 | Format pliku.                          |      |         |        |
-| width          | number | `98`                                  | Szerokość px.                          |      |         |        |
-| height         | number | `18`                                  | Wysokość px.                           |      |         |        |
-| theme          | string | `neutral`                             | `light                                 | dark | neutral | auto`. |
-| used_by_ui_ids | string | `ui.skills_window;ui.topbar`          | Lista `;`‑separowana.                  |      |         |        |
-| notes          | string | `Ikona przycisku Skills`              | Dowolny komentarz.                     |      |         |        |
+| path                                | kind | width | height | theme   | used_by_ui_ids               | notes          |
+| ----------------------------------- | ---: | ----: | -----: | ------- | ---------------------------- | -------------- |
+| `data/images/topbuttons/skills.png` |  png |    16 |     16 | neutral | `ui.skills_window;ui.topbar` | Ikona „Skills” |
 
-### Fonts (fonts.csv)
+### Fonts (`fonts.csv`)
 
-| font_id                   | file                     | size | weight   | mono   | fallbacks |
-| ------------------------- | ------------------------ | ---- | -------- | ------ | --------- |
-| `verdana-11px-monochrome` | `data/fonts/verdana.ttf` | `11` | `normal` | `true` | `""`      |
+| font_id                 | file                     | size | weight | mono | fallbacks |
+| ----------------------- | ------------------------ | ---: | ------ | ---- | --------- |
+| verdana-11px-monochrome | `data/fonts/verdana.ttf` |   11 | normal | true | `""`      |
 
-### Styles (styles.csv)
+### Styles (`styles.csv`) — przykłady rekordów
 
-Zrzut par `selector.prop=value` (uwzględniając stany `$hover/$checked/$disabled`). `resolved_asset` uzupełniamy, gdy `property` wskazuje na zasób (`image-source`, `icon`, `background`).
+| style_id                                 | source_file                       | selector       | property     | value                         | resolved_asset                        |
+| ---------------------------------------- | --------------------------------- | -------------- | ------------ | ----------------------------- | ------------------------------------- |
+| `skills.otui:/TabBarButton:image-source` | `modules/game_skills/skills.otui` | `TabBarButton` | image-source | `/images/ui/tabbutton_square` | `data/images/ui/tabbutton_square.png` |
+| `skills.otui:/TabBarButton:font`         | `modules/game_skills/skills.otui` | `TabBarButton` | font         | `verdana-11px-monochrome`     | `""`                                  |
 
-### Locales (locales.csv)
+### Locales (`locales.csv`)
 
-Ekstrakcja kluczy z `tr('...')` i `!text: tr('...')` (z `.otui` i `.lua`).
+| lang | key               | value | source_file                       |
+| ---- | ----------------- | ----- | --------------------------------- |
+|      | `ui.skills.title` |       | `modules/game_skills/skills.otui` |
 
-### Sounds (sounds.csv)
+### Sounds (`sounds.csv`)
 
-Metadane audio i powiązania z UI lub modułami.
+| path                       | duration_ms | channels | rate_hz | kind | used_by     |
+| -------------------------- | ----------: | -------: | ------: | ---- | ----------- |
+| `data/sounds/ui/click.ogg` |             |          |         | sfx  | `ui.button` |
 
-### Shaders (shaders.csv)
+### Shaders (`shaders.csv`)
 
-Lista shaderów wraz z typem (fragment/vertex) i uniformami.
+| name      | type     | file                        | uniforms            | includes |
+| --------- | -------- | --------------------------- | ------------------- | -------- |
+| `uipulse` | fragment | `data/shaders/uipulse.frag` | `u_time;u_strength` |          |
 
-### UI Asset Usage (ui_asset_usage.csv)
+### UI Asset Usage (`ui_asset_usage.csv`)
 
-Mapowanie **OTUI → asset** z rozstrzygniętą ścieżką (`resolved_path`) wg aktywnego layoutu.
+| ui_id         | ui_file                           | widget_path               | prop         | value                         | asset_path                            | resolved_path                                  | notes |
+| ------------- | --------------------------------- | ------------------------- | ------------ | ----------------------------- | ------------------------------------- | ---------------------------------------------- | ----- |
+| `skillWindow` | `modules/game_skills/skills.otui` | `MiniWindow/TabBarButton` | image-source | `/images/ui/tabbutton_square` | `data/images/ui/tabbutton_square.png` | `layouts/retro/images/ui/tabbutton_square.png` |       |
 
 ---
 
@@ -233,10 +248,7 @@ local function pushCsv(which, row)
   docio.appendCsvRow(file, HEADERS[which], row, MAX_BYTES)
 end
 
--- Light helpers (best-effort; szczegóły wymiarów/formatów mogą być uzupełniane offline)
-local function extOf(path)
-  return (path:match('%.([A-Za-z0-9]+)$') or ''):lower()
-end
+local function extOf(path) return (path:match('%.([A-Za-z0-9]+)$') or ''):lower() end
 
 local function scanImages(root)
   local list = docio.listFilesRecursive and docio.listFilesRecursive(root .. '/images') or {}
@@ -281,13 +293,11 @@ local function scanShaders(root)
   end
 end
 
--- styles/locales zwykle wyprowadzamy poprzez ui_usage_scan.lua i parsowanie OTUI; tutaj tylko placeholder
 local function run()
   local layout = readActiveLayout()
-  scanImages('data')
-  if layout then scanImages('layouts/' .. layout) end
-  scanFonts('data'); if layout then scanFonts('layouts/' .. layout) end
-  scanSounds('data'); if layout then scanSounds('layouts/' .. layout) end
+  scanImages('data');  if layout then scanImages('layouts/' .. layout) end
+  scanFonts('data');   if layout then scanFonts('layouts/' .. layout) end
+  scanSounds('data');  if layout then scanSounds('layouts/' .. layout) end
   scanShaders('data'); if layout then scanShaders('layouts/' .. layout) end
 end
 
@@ -317,8 +327,7 @@ end
 
 local function normImagePath(v)
   if not v or v == '' then return '', '' end
-  local path = tostring(v)
-  path = path:gsub('^/+','') -- usuń wiodące '/'
+  local path = tostring(v):gsub('^/+','')
   if not path:match('%.%w+$') then path = path .. '.png' end
   return 'data/' .. path, path
 end
@@ -339,19 +348,16 @@ local function push(which, row, headers)
 end
 
 local function parseOtui(text, source_file)
-  -- Bardzo uproszczone: wyciąga linie z image-source, icon, font, !text: tr('...')
-  local ui_id = ''
-  local widget_path = ''
+  local ui_id, widget_path = '', ''
   for line in (text or ''):gmatch('[^\r\n]+') do
     local imgk, imgv = line:match('^%s*(image%-source|icon|background)%s*:%s*([%w%./_-]+)')
     if imgk and imgv then
-      local abs, rel = normImagePath(imgv:gsub('^/',''))
+      local abs, rel = normImagePath(imgv)
       local resolved = resolvePath(rel)
       push('ui_asset_usage', {
         ui_id = ui_id, ui_file = source_file, widget_path = widget_path,
         prop = imgk, value = imgv, asset_path = abs, resolved_path = resolved, notes = ''
       }, UI_HEADERS)
-      -- styles echo (selector szczątkowo = widget_path lub source_file)
       push('styles', {
         style_id = source_file .. ':' .. (widget_path or '') .. ':' .. imgk,
         source_file = source_file, selector = widget_path, property = imgk, value = imgv, resolved_asset = resolved
@@ -368,15 +374,13 @@ local function parseOtui(text, source_file)
     if key then
       push('locales', { lang = '', key = key, value = '', source_file = source_file }, LOC_HEADERS)
     end
-    -- bardzo proste śledzenie widget_path (np. "Panel"/"UIButton"): informacyjne
     local wid = line:match('^%s*([A-Za-z_][%w_]*)%s*<%s*[A-Za-z_][%w_]*') or line:match('^%s*([A-Za-z_][%w_]*)%s*$')
     if wid then widget_path = (widget_path == '' and wid) or (widget_path .. '/' .. wid) end
-    if line:match('^%s*id:%s*([%w_%-]+)') then ui_id = line:match('^%s*id:%s*([%w_%-]+)') end
+    local idv = line:match('^%s*id:%s*([%w_%-]+)'); if idv then ui_id = idv end
   end
 end
 
 local function run()
-  -- Ścieżki plików *.otui do skanu z config/ui.scan_paths.txt (po jednej linii)
   local listtxt = docio.readAll('docs/11_data/config/ui.scan_paths.txt') or ''
   for path in listtxt:gmatch('[^\r\n]+') do
     local p = path:gsub('^%s+',''):gsub('%s+$','')
@@ -400,11 +404,11 @@ local json = require('json')
 
 local function readCsv(path)
   local t = docio.readAll(path)
-  local rows = {}
+  local rows, header = {}, nil
   if not t or #t == 0 then return rows end
-  local header
   for line in t:gmatch('[^\r\n]+') do
-    if not header then header = docio.parseCsvHeader(line) else rows[#rows+1] = docio.parseCsvRow(header, line) end
+    if not header then header = docio.parseCsvHeader(line)
+    else rows[#rows+1] = docio.parseCsvRow(header, line) end
   end
   return rows
 end
@@ -439,7 +443,7 @@ run()
 
 ## 5) Diagramy (Mermaid)
 
-`diagrams/data_flow.mmd`
+### `data_flow.mmd` *(facet: 11_data.data_flow)*
 
 ```mermaid
 graph TD
@@ -456,39 +460,43 @@ graph TD
   Stats --> Studio
 ```
 
-`diagrams/asset_linking.mmd`
+### `asset_linking.mmd` *(facet: 11_data.asset_linking)*
 
 ```mermaid
 graph TD
-  OTUI[OTUI property] -->|image-source / icon / font| Asset["data/\*\* \| layouts/\*\*"]
-  Asset --> Indexes["images.csv / fonts.csv"]
+  OTUI[OTUI property] -->|image-source / icon / font| Asset["data/** | layouts/**"]
+  Asset --> Indexes["images.csv / fonts.csv / shaders.csv / sounds.csv"]
   Indexes --> Usage["ui_asset_usage.csv"]
-
 ```
 
 ---
 
-## 6) Quality, SLO i bezpieczeństwo
+## 6) Quality, SLO i bezpieczeństwo (SANITY)
 
-* CSV mają **nagłówki stałe**; puste pola zapisuj jako `""`.
-* Nie zapisujemy treści obrazów/soundów; tylko metadane.
-* Layout `default` jest zabroniony — brak mylenia z bazowym `data/**`.
-* Idempotency: drugi przebieg ekstraktorów nie zmienia plików (poza dopisaniem nowych rekordów).
+* CSV mają **nagłówki stałe** dokładnie jak w `artifacts.datasets.headers`; puste pola zapisuj jako `""`.
+* **Idempotency**: drugi przebieg ekstraktorów nie zmienia plików (poza dopisaniem nowych rekordów).
+* **layout.active.txt**: `""` lub brak = brak override; wartość `default` jest **zabroniona**.
+* **link-lint**: wszystkie odwołania do facetów z sekcji *Appendix / Facets* muszą działać.
+* **dataset sanity**:
 
----
-
-## 7) DoD Checklist (spójne z innymi rozdziałami)
-
-* [ ] `images.csv/fonts.csv/styles.csv/locales.csv/sounds.csv/shaders.csv/ui_asset_usage.csv` wygenerowane (≥ sensowna próbka).
-* [ ] `stats.json` i `stats.md` wygenerowane (deterministyczne sekcje).
-* [ ] `sections/*` uzupełnione: 00/01/02/03.
-* [ ] `analysis/gaps.md` zawiera listę braków (np. `resolved_path` bez pliku).
-* [ ] Diagramy `data_flow.mmd` i `asset_linking.mmd` istnieją i renderują się.
-* [ ] `meta.json` ma poprawne crosslinks do `04_ui`, `06_assets`, `12_otmod`.
+  * brak `NaN`/`null`; brak pustych nazw kolumn,
+  * ścieżki `path` zaczynają się od `data/` lub `layouts/`,
+  * `resolved_path` wskazuje istniejący plik (dla aktywnego layoutu), inaczej raport w `stats.md`.
 
 ---
 
-## 8) meta.json – wzorzec
+## 7) DoD Checklist
+
+* [ ] Wygenerowane: `images.csv`, `fonts.csv`, `styles.csv`, `locales.csv`, `sounds.csv`, `shaders.csv`, `ui_asset_usage.csv`.
+* [ ] `stats.json` i `stats.md` utworzone, deterministyczne.
+* [ ] `sections/*` wypełnione: 00–05.
+* [ ] `analysis/gaps.md` posiada listę braków (puste `value` w locales, brak plików na `resolved_path`).
+* [ ] Diagramy renderują się poprawnie.
+* [ ] `meta.json` ma crosslinks do `04_ui`, `06_assets`, `12_otmod`.
+
+---
+
+## 8) `meta.json` – wzorzec
 
 ```json
 {
@@ -580,7 +588,7 @@ graph TD
 
 ---
 
-## 9) Schematy (skrót; opcjonalne w CI)
+## 9) Schematy (opcjonalne w CI)
 
 `schemas/ui_asset_usage.schema.json`
 
@@ -605,11 +613,11 @@ graph TD
 
 ---
 
-## 10) Appendix – reguły parsowania OTUI (regex, jak w briefie)
+## 10) Reguły parsowania OTUI (regex)
 
 ```text
 # image-source / icon / background
-(?m)^(?:\s*)(image-source|icon|background)\s*:\s*([\w\/-\.]+)
+(?m)^(?:\s*)(image-source|icon|background)\s*:\s*([\w\/\.-]+)
 
 # font
 (?m)^(?:\s*)font\s*:\s*([\w\-]+)
@@ -620,8 +628,103 @@ graph TD
 
 ---
 
-## 11) See also / Crosslinks
+## 11) Datasets (podgląd)
 
-* `04_ui` – OTUI i widgety
-* `06_assets` – niski poziom assetów i suma kontrolna
-* `12_otmod` – powiązania modułów → UI
+```{csv-table} images
+:header-rows: 1
+:file: ./datasets/images.csv
+:widths: auto
+```
+
+```{csv-table} fonts
+:header-rows: 1
+:file: ./datasets/fonts.csv
+:widths: auto
+```
+
+```{csv-table} styles
+:header-rows: 1
+:file: ./datasets/styles.csv
+:widths: auto
+```
+
+```{csv-table} locales
+:header-rows: 1
+:file: ./datasets/locales.csv
+:widths: auto
+```
+
+```{csv-table} sounds
+:header-rows: 1
+:file: ./datasets/sounds.csv
+:widths: auto
+```
+
+```{csv-table} shaders
+:header-rows: 1
+:file: ./datasets/shaders.csv
+:widths: auto
+```
+
+```{csv-table} ui_asset_usage
+:header-rows: 1
+:file: ./datasets/ui_asset_usage.csv
+:widths: auto
+```
+
+---
+
+## 12) Diagramy
+
+### `data_flow.mmd` *(facet: 11_data.data_flow)*
+
+```{mermaid}
+%%{init: { 'theme': 'neutral' }}%%
+flowchart LR
+  A[data/*] --> B[Indexer CSV]
+  B --> C[Datasets]
+  C --> D[UI Pages]
+  B --> E[Crosslinks]
+  D --> F[RAG]
+```
+
+### `asset_linking.mmd` *(facet: 11_data.asset_linking)*
+
+```{mermaid}
+%%{init: { 'theme': 'neutral' }}%%
+graph TD
+  I[OTUI property] -->|image-source/icon/font| ASSET[(Asset file)]
+  ASSET --> INDEX[images.csv/fonts.csv/...]
+  INDEX --> UI[ui_asset_usage.csv]
+```
+
+---
+
+## 13) IPC (Studio ↔ Data)
+
+* `studio:data.scan` → buduje `images.csv`, `fonts.csv`, `sounds.csv`, `shaders.csv`.
+* `studio:data.ui.map` → wypełnia `ui_asset_usage.csv`, `styles.csv`, `locales.csv`.
+* `studio:data.locales.scan` → waliduje `locales.csv` i raportuje braki.
+* `studio:data.aggregate` → tworzy `stats.json` i `stats.md`.
+
+---
+
+## 14) RAG & chunking
+
+* Chunkuj po **H2–H4**, ≤ **1200 tokenów**, **overlap ~10%**.
+* Nie tnij tabel CSV ani bloków `otui`.
+* *See also* i cross-linki: `11_data` ↔ `04_ui` ↔ `12_otmod`.
+
+---
+
+## 15) Appendix / Facets
+
+(facet-11_data.images)=**Facet: `11_data.images`** — dataset
+(facet-11_data.fonts)=**Facet: `11_data.fonts`** — dataset
+(facet-11_data.styles)=**Facet: `11_data.styles`** — dataset
+(facet-11_data.locales)=**Facet: `11_data.locales`** — dataset
+(facet-11_data.sounds)=**Facet: `11_data.sounds`** — dataset
+(facet-11_data.shaders)=**Facet: `11_data.shaders`** — dataset
+(facet-11_data.ui_asset_usage)=**Facet: `11_data.ui_asset_usage`** — dataset
+(facet-11_data.data_flow)=**Facet: `11_data.data_flow`** — diagram
+(facet-11_data.asset_linking)=**Facet: `11_data.asset_linking`** — diagram
