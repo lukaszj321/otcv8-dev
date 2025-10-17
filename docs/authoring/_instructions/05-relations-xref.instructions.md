@@ -8,12 +8,19 @@ constraints:
 outputs:
   - file: docs/authoring/_data/xref.csv
     header: ["from_chapter","from_facet","to_chapter","to_facet","type","evidence_path","note"]
+    rules:
+      - 'type ∈ {"uses","emits","handles","includes","calls"}'
+      - "evidence_path is relative (./...)"
+      - "from_chapter,from_facet != to_chapter,to_facet"
   - file: docs/authoring/_data/xref.json
     schema:
       - from: { c: "<ch>", f: "<facet>" }
         to:   { c: "<ch>", f: "<facet>" }
         type: "uses|emits|handles|includes|calls"
         evidence: "<path>"
+    rules:
+      - "deduplicate identical {from,to,type}"
+      - 'facet format: "<chapter>.<stem>"'
 
 builder:
   tool: "authoring/_tools/xref_builder.py"   # use if exists
