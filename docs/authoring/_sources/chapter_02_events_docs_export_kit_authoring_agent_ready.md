@@ -5,45 +5,46 @@ title: "Event system and signals — export kit"
 status: "agent_ready"
 owners: ["github:lukaszj321"]
 artifacts:
-datasets:
-- id: "summary"
-file: "summary.csv"
-headers: ["metric","value","note"]
-facet: "02_events.summary"
-- id: "events_matrix"
-file: "events_matrix.csv"
-headers: ["id","ts","source","event","payload_schema","handlers","notes"]   # handlers = JSON array
-facet: "02_events.events_matrix"
-- id: "emitters"
-file: "emitters.csv"
-headers: ["emitter","event","args","notes"]                                  # args = JSON array
-facet: "02_events.emitters"
-- id: "handlers"
-file: "handlers.csv"
-headers: ["handler","event","callback","threading","notes"]
-facet: "02_events.handlers"
-diagrams:
-- id: "bus"
-file: "bus.mmd"
-facet: "02_events.bus"
-- id: "propagation"
-file: "propagation.mmd"
-facet: "02_events.propagation"
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "02_events.summary"
+    - id: "events_matrix"
+      file: "events_matrix.csv"
+      headers: ["id","ts","source","event","payload_schema","handlers","notes"]   # handlers = JSON array
+      facet: "02_events.events_matrix"
+    - id: "emitters"
+      file: "emitters.csv"
+      headers: ["emitter","event","args","notes"]                                  # args = JSON array
+      facet: "02_events.emitters"
+    - id: "handlers"
+      file: "handlers.csv"
+      headers: ["handler","event","callback","threading","notes"]
+      facet: "02_events.handlers"
+  diagrams:
+    - id: "bus"
+      file: "bus.mmd"
+      facet: "02_events.bus"
+    - id: "propagation"
+      file: "propagation.mmd"
+      facet: "02_events.propagation"
 xrefs:
+  - to: "03_modules.lua_exports"
+    type: "handles"
+    evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
+  - to: "04_ui.signals_matrix"
+    type: "emits"
+    evidence: "docs/authoring/04_ui/datasets/ui_signals.csv"
+  - to: "09_logging.logging_categories"
+    type: "uses"
+    evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+tags: ["events","signals","otclient","v8"]
+provenance: []
+version: "1.0"
+updated: "2025-10-17"
+---
 
-* to: "03_modules.lua_exports"
-  type: "handles"
-  evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
-* to: "04_ui.signals_matrix"
-  type: "emits"
-  evidence: "docs/authoring/04_ui/datasets/ui_signals.csv"
-* to: "09_logging.logging_categories"
-  type: "uses"
-  evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
-  tags: ["events","signals","otclient","v8"]
-  provenance: []
-  version: "1.0"
-  updated: "2025-10-17"
 
 ---
 
