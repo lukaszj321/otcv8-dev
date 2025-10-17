@@ -37,6 +37,14 @@ artifacts:
     - id: "jni_flow"
       file: "jni_flow.mmd"
       facet: "14_android.jni_flow"
+xrefs:
+  - to: "11_data.ui_asset_usage"
+    type: "assets"
+    evidence: "docs/11_data/datasets/ui_asset_usage.csv"
+  - to: "12_otmod.module_ui_links"
+    type: "renders"
+    evidence: "docs/12_otmod/datasets/module_ui_links.csv"
+encoding: "UTF-8 (no BOM)"
 ---
 
 ```{contents}
@@ -252,25 +260,11 @@ Kanały IPC (używane przez Studio/Electron):
 
 # 10) Sanity (automaty)
 
-**android_libs.csv**
-
-* `so_name` niepuste, `size_bytes>0`, `sha256=[0-9a-f]{64}`, `abi∈{armeabi-v7a,arm64-v8a,x86_64}`.
-
-**android_assets.csv**
-
-* `path` względny do `assets/`, `bytes>0`, `bundle∈{data,shaders,configs,other}`.
-
-**abi_matrix.csv**
-
-* `present_in_apk∈{true,false}`, `load_ok∈{true,false}`, `java_calls>=0`, `jni_exports>=0`.
-
-**jni_signatures.csv**
-
-* `status∈{ok,missing_java,missing_cpp,sig_mismatch}`.
-
-**fps_report.csv**
-
-* `avg_fps>0`, `p99_frametime_ms>0` (ms), scena z predefiniowanej listy (`login,map,skills,inventory`).
+**android_libs.csv** — `so_name` niepuste, `size_bytes>0`, `sha256=[0-9a-f]{64}`, `abi∈{armeabi-v7a,arm64-v8a,x86_64}`.
+**android_assets.csv** — `path` względny do `assets/`, `bytes>0`, `bundle∈{data,shaders,configs,other}`.
+**abi_matrix.csv** — `present_in_apk∈{true,false}`, `load_ok∈{true,false}`, `java_calls>=0`, `jni_exports>=0`.
+**jni_signatures.csv** — `status∈{ok,missing_java,missing_cpp,sig_mismatch}`.
+**fps_report.csv** — `avg_fps>0`, `p99_frametime_ms>0` (ms), scena z listy (`login,map,skills,inventory`).
 
 # 11) QA (Android)
 
@@ -314,7 +308,6 @@ sequenceDiagram
   Eng-->>JNI: ok
   JNI-->>Java: return
 ```
-
 
 (facet-14_android.jni_flow)=
 
@@ -412,4 +405,48 @@ jobs:
   done
   ```
 
-```
+---
+
+## Facets (kotwice)
+
+(facet-14_android.libs)=
+
+### Facet: `14_android.libs`
+
+Type: dataset
+
+(facet-14_android.assets)=
+
+### Facet: `14_android.assets`
+
+Type: dataset
+
+(facet-14_android.abi_matrix)=
+
+### Facet: `14_android.abi_matrix`
+
+Type: dataset
+
+(facet-14_android.jni_signatures)=
+
+### Facet: `14_android.jni_signatures`
+
+Type: dataset
+
+(facet-14_android.fps_report)=
+
+### Facet: `14_android.fps_report`
+
+Type: dataset
+
+(facet-14_android.pipeline)=
+
+### Facet: `14_android.pipeline`
+
+Type: diagram
+
+(facet-14_android.jni_flow)=
+
+### Facet: `14_android.jni_flow`
+
+Type: diagram
