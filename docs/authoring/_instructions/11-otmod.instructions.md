@@ -1,4 +1,3 @@
-
 ---
 name: "otmod"
 applyTo:
@@ -54,6 +53,7 @@ Zmapuj pakiety/moduły (OTMOD): manifesty, zależności, eksporty, powiązane za
 ## Diagrams (opcjonalnie)
 - `docs/authoring/12_otmod/diagrams/modules_deps.mmd` — zależności modułów (flowchart).
 - **Pierwsza linia wymagana**:
+
 ```
 
 %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
