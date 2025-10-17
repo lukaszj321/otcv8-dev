@@ -7,7 +7,7 @@ owner: authoring-agent
 constraints:
   - Run only in GitHub Actions (no local/manual runs required)
   - Do NOT create new workflows; use existing ones
-  - All outputs must live under docs/authoring/** (not reposzablony)
+  - All outputs must live under docs/authoring/** (not repo szablony)
 
 outputs:
   - "datasets/*.csv"
@@ -85,10 +85,10 @@ index:
       ---
       # 01 — Core
 
-      ```{toctree}
-      :hidden:
-      :maxdepth: 2
-      ```
+      ```{contents}
+:local:
+:depth: 2
+```
 
       :depth: 2
       :local:
