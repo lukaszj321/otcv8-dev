@@ -3,7 +3,9 @@ chapter: "05_network"
 slug: "05_network"
 title: "Network protocol — export kit"
 status: "agent_ready"
-owners: ["github:lukaszj321"]
+owners:
+  - "github:lukaszj321"
+
 artifacts:
   datasets:
     - id: "summary"
@@ -24,8 +26,9 @@ artifacts:
       facet: "05_network.flows"
   diagrams:
     - id: "handshake"
-      file: "handshake.mmd"
+      file: "login_handshake.mmd"
       facet: "05_network.handshake"
+
 xrefs:
   - to: "10_game_runtime.game_state"
     type: "influences"
@@ -33,41 +36,54 @@ xrefs:
   - to: "09_logging.logging_categories"
     type: "logs"
     evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+
 tags: ["network","protocol","opcodes"]
 provenance: []
 version: "1.0"
 updated: "2025-10-14"
 ---
 
+
 # Sieć i protokół
 
 (facet-05_network.summary)=
+
 ## Dataset: summary
-- headers: `metric,value,note`
-- facet: `05_network.summary`
+
+* headers: `metric,value,note`
+* facet: `05_network.summary`
 
 (facet-05_network.network_messages)=
+
 ## Dataset: network_messages
-- headers: `id,name,direction,fields,notes`
-- facet: `05_network.network_messages`
+
+* headers: `id,name,direction,fields,notes`
+* facet: `05_network.network_messages`
 
 (facet-05_network.opcodes)=
+
 ## Dataset: opcodes
-- headers: `opcode,name,direction,notes`
-- facet: `05_network.opcodes`
+
+* headers: `opcode,name,direction,notes`
+* facet: `05_network.opcodes`
 
 (facet-05_network.flows)=
+
 ## Dataset: flows
-- headers: `name,client_state,server_state,steps,notes`
-- facet: `05_network.flows`
+
+* headers: `name,client_state,server_state,steps,notes`
+* facet: `05_network.flows`
 
 (facet-05_network.handshake)=
+
 ## Diagram: handshake
-- facet: `05_network.handshake`
+
+* facet: `05_network.handshake`
 
 ## Relacje
-- influences → `10_game_runtime.game_state`
-- logs → `09_logging.logging_categories`
+
+* influences → `10_game_runtime.game_state`
+* logs → `09_logging.logging_categories`
 
 ---
 
@@ -81,10 +97,10 @@ updated: "2025-10-14"
 
 ### 0) Executive summary
 
-- Co: snapshot/y konfiguracji protokolu (clientVersion, customOs, RSA – tylko skrót, bez klucza), zebrane z runtime (jesli API obecne) i/lub z plików repo (skan – wzorce tekstowe).
-- Dla kogo: inzynierowie klienta, integratorzy, narzedzia AI/RAG i Studio (Electron/React).
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings), diagramy (Mermaid), narracja (sekcje merytoryczne).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, IPC hooki Studio, checklist DoD.
+* Co: snapshot/y konfiguracji protokolu (clientVersion, customOs, RSA – tylko skrót, bez klucza), zebrane z runtime (jesli API obecne) i/lub z plików repo (skan – wzorce tekstowe).
+* Dla kogo: inzynierowie klienta, integratorzy, narzedzia AI/RAG i Studio (Electron/React).
+* Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings), diagramy (Mermaid), narracja (sekcje merytoryczne).
+* Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, IPC hooki Studio, checklist DoD.
 
 ---
 
@@ -92,38 +108,34 @@ updated: "2025-10-14"
 
 ```bash
 05_network/
-  README.md                       # narracja + TOC + nawigacja (ten plik)
-  meta.json                       # mapa plikow + zadania + tags (machine-readable)
-  protocol.schema.json            # walidacja rekordow NDJSON (protocol)
+  README.md
+  meta.json
+  protocol.schema.json
   sections/
-    00_network_basics.md          # podstawy protokolu (dla nowych dev)
-    01_introduction.md            # po co zrzucac parametry protokolu
-    02_protocol_model.md          # slownik pol protokolu + przyklady
-    03_collection_methods.md      # jak zbieramy (runtime API + skan plikow)
-    04_quality_and_limits.md      # jakosc, ograniczenia, SLO
-    05_how_to_read_stats.md       # jak czytac statystyki i korelowac
   datasets/
-    protocol.dataset.jsonl        # NDJSON (append-only)
-    protocol.dataset.csv          # CSV (naglowek staly)
+    protocol.dataset.jsonl
+    protocol.dataset.csv
+    network_messages.csv
+    opcodes.csv
+    flows.csv
     chunks/
-      README.md                   # polityka dzielenia
   stats/
-    stats.json                    # metryki zbiorcze (wersje, OS, RSA-hashy)
-    stats.md                      # raport czytelny dla ludzi
   analysis/
-    findings.md                   # wnioski z danych + linki do rekordow
-    figures/                      # wykresy i tabele eksportowane
   extractors/
-    protocol_inventory.lua        # snapshot runtime + skan plikow -> NDJSON+CSV
-    protocol_stats.lua            # agregacje -> stats.json + stats.md
+    protocol_inventory.lua
+    protocol_stats.lua
+    network_messages_inventory.lua   # ← NOWE (CSV: network_messages/opcodes)
+    flows_builder.lua                # ← NOWE (CSV: flows)
   config/
-    protocol.targets.txt          # lista sciezek do skanu (regex/patterny)
+    protocol.targets.txt
+    network_messages.src.lua         # ← NOWE (data-source dla messages/opcodes)
+    flows.src.lua                    # ← NOWE (data-source dla flows)
   diagrams/
-    network_flow.mmd              # Mermaid: przeplyw inwentaryzacji
-    login_handshake.mmd           # Mermaid: sekwencja (wysoki poziom)
+    network_flow.mmd
+    login_handshake.mmd
 ```
 
-> Note: IO setup w README ponizej. Zawsze ASCII-only, UTF-8 bez BOM, LF konce linii.
+> Note: IO setup w README ponizej. ASCII-only, UTF-8 bez BOM, LF.
 
 ---
 
@@ -145,206 +157,182 @@ related:
 outputs:
   - ./datasets/protocol.dataset.jsonl
   - ./datasets/protocol.dataset.csv
+  - ./datasets/network_messages.csv
+  - ./datasets/opcodes.csv
+  - ./datasets/flows.csv
   - ./stats/stats.json
   - ./stats/stats.md
 encoding: UTF-8 (no BOM)
 ---
-Short: rozdzial zbiera parametry protokolu (z runtime jesli API jest dostepne; w przeciwnym razie skan plikow repo wedlug wzorcow) i publikuje znormalizowane rekordy.
+Short: protokol + wiadomosci/opcodes + przeplywy. Wszystko eksportowane do CSV/NDJSON.
 
-Table of contents
-- [0. Network basics](./sections/00_network_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model protokolu (slownik)](./sections/02_protocol_model.md)
-- [3. Zbieranie (runtime + skan plikow)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
-
-Quick links
-- Schema: [protocol.schema.json](./protocol.schema.json)
-- NDJSON: [datasets/protocol.dataset.jsonl](./datasets/protocol.dataset.jsonl)
-- CSV: [datasets/protocol.dataset.csv](./datasets/protocol.dataset.csv)
-- Diagrams: [diagrams/network_flow.mmd](./diagrams/network_flow.mmd), [diagrams/login_handshake.mmd](./diagrams/login_handshake.mmd)
-
-Crosslinks
-- Runtime: ../01_runtime/README.md
-- Events: ../02_events/README.md
-- Logging: ../09_logging/README.md
-
-id,ts,clientVersion,customOs,rsaHash,features_json,source_json
-
-Header jest staly - narzedzia BI moga cachowac schemat.
+CSV headers
+- protocol.dataset.csv → `id,ts,clientVersion,customOs,rsaHash,features_json,source_json`
+- network_messages.csv → `id,name,direction,fields,notes`
+- opcodes.csv → `opcode,name,direction,notes`
+- flows.csv → `name,client_state,server_state,steps,notes`
 
 IO setup
-- Default: dofile('../../_shared/lua/docio.lua')
-- Isolated: copy to 05_network/_local/docio.lua and use dofile('../_local/docio.lua')
+- Default: `dofile('../../_shared/lua/docio.lua')`
+- Isolated: kopiuj do `05_network/_local/docio.lua` i użyj `dofile('../_local/docio.lua')`
 
-Skad do _shared
-| Start location | Path to _shared |
-|---|---|
-| 05_network/extractors | ../../_shared/lua/docio.lua |
-| 05_network | ../_shared/lua/docio.lua |
-
-Chunks aggregation
-- Aggregator czyta glowny plik oraz opcjonalny indeks: docs/05_network/datasets/chunks/index.json (JSON array nazw chunkow).
-
-Studio hooks (Electron) - skrot
-- IPC: 'studio:network.protocol.scan' -> uruchamia protocol_inventory.lua (jednorazowy snapshot)
-- IPC: 'studio:aggregate.network' -> uruchamia protocol_stats.lua
-- IPC: 'studio:open.network' {type: 'jsonl'|'csv'} -> otwiera dataset w Studio
-- Preload: contextIsolation: true; nodeIntegration: false; eksponuj bezpieczne API
-- Sandbox: wszystkie zapisy ida przez docio.lua pod 05_network
-- View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
+Studio hooks
+- IPC: `studio:network.protocol.scan` → `protocol_inventory.lua`
+- IPC: `studio:network.messages.scan` → `network_messages_inventory.lua`
+- IPC: `studio:network.flows.build` → `flows_builder.lua`
+- IPC: `studio:aggregate.network` → `protocol_stats.lua`
 ```
 
 ---
 
-### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
+### 3) Nowe extractory CSV (gotowe)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| protocol.schema.json | walidacja rekordow protokolu | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | inventory | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | inventory | features_json, source_json jako string |
-| stats/*.json\|md | metryki zbiorcze | aggregator | rozklad wersji/os/hashy |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i korelacje | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+**extractors/network_messages_inventory.lua**
 
----
+```lua
+-- 05_network/extractors/network_messages_inventory.lua
+-- Generuje CSV: network_messages.csv oraz opcodes.csv na podstawie config/network_messages.src.lua
+-- ASCII-only; UTF-8 bez BOM; LF
+local docio = dofile('../../_shared/lua/docio.lua')
 
-### 4) Slownik protokolu (data dictionary)
+local MSG_HEADER = { 'id','name','direction','fields','notes' }
+local OPC_HEADER = { 'opcode','name','direction','notes' }
+local MAX_BYTES = 50*1024*1024
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | proto:1097@2025-10-08T12:00:00Z | Unikat: proto:`<clientVersion>`@`<ISO>` (gdy brak wersji -> proto:unknown@`<ISO>`). |
-| type | string | protocol | Stala wartosc: protocol. |
-| ts | string | 2025-10-08T12:00:00Z | Czas snapshotu (UTC). |
-| clientVersion | number\|string | 1097 | Wersja klienta/protokolu. |
-| customOs | string | OTCv8 | Oznaczenie OS/klienta, jesli specyficzne. |
-| rsaHash | string | fnv1a32:ab12cd34 | Skrót klucza publicznego (bez ujawniania tresci). |
-| features | object | {"bless":true} | Dodatkowe cechy/feature flags (opcjonalne). |
-| source | object | {"runtime":true,"files":["/path/..."]} | Skad pozyskano informacje. |
-| links[] | string[] | events:..., runtime:... | Powiazania z innymi rozdzialami. |
+local function loadSource()
+  -- Plik konfiguracyjny zwraca tabele: { messages = {...}, opcodes = {...} }
+  local ok, src = pcall(dofile, 'docs/05_network/config/network_messages.src.lua')
+  if ok and type(src) == 'table' then return src end
+  return { messages = {}, opcodes = {} }
+end
 
-> Agent tip: w sections/02_protocol_model.md wstaw 3-5 realnych rekordow z NDJSON + komentarz skad pochodza pola (runtime vs skan).
+local function serializeFields(fields)
+  if type(fields) ~= 'table' then return '' end
+  -- format: key:type;key:type
+  local parts = {}
+  for i, f in ipairs(fields) do
+    local k = tostring(f.name or ('f'..i))
+    local t = tostring(f.type or 'u8')
+    parts[#parts+1] = k .. ':' .. t
+  end
+  return table.concat(parts, ';')
+end
 
----
+local function run()
+  local src = loadSource()
+  -- CSV headers
+  docio.writeCsvHeader('docs/05_network/datasets/network_messages.csv', MSG_HEADER)
+  docio.writeCsvHeader('docs/05_network/datasets/opcodes.csv', OPC_HEADER)
 
-### 5) Pipeline danych (odczyt -> zapis -> analiza)
+  -- messages
+  for _,m in ipairs(src.messages or {}) do
+    local row = {
+      id = tostring(m.id or ''),
+      name = tostring(m.name or ''),
+      direction = tostring(m.direction or ''),
+      fields = serializeFields(m.fields),
+      notes = tostring(m.notes or '')
+    }
+    docio.appendCsvRow('docs/05_network/datasets/network_messages.csv', MSG_HEADER, row, MAX_BYTES)
+  end
 
-1. Inventory: proba pobrania z runtime (API), jesli brak -> skan plikow z config/protocol.targets.txt; wynik laczony w jeden rekord.
-2. Aggregator: liczy rozklady wersji/OS/hashy i zapisuje stats.*.
-3. Narracja: sekcje opisowe z przykladami i zrodlami.
-4. Analizy: findings i korelacje (np. wersja protokolu vs eventy logowania).
-5. Publikacja: sprawdz checklist DoD.
+  -- opcodes
+  for _,o in ipairs(src.opcodes or {}) do
+    local row = {
+      opcode = tostring(o.opcode or ''),
+      name = tostring(o.name or ''),
+      direction = tostring(o.direction or ''),
+      notes = tostring(o.notes or '')
+    }
+    docio.appendCsvRow('docs/05_network/datasets/opcodes.csv', OPC_HEADER, row, MAX_BYTES)
+  end
+end
 
----
-
-### 6) Sekcje merytoryczne - szablony i wprowadzenie do Network
-
-sections/00_network_basics.md
-
-```markdown
-# Network basics - dla nowych dev
-Protokol klienta obejmuje wersje (clientVersion), system/OS (customOs) oraz kryptografie (klucz publiczny RSA do weryfikacji). W roznych forkach wartosci moga sie roznic.
-
-Pojecia
-- clientVersion: numer protokolu-klienta wymagany przez serwer.
-- customOs: identyfikator (np. nazwa klienta/OS), jesli stosowany.
-- RSA public key: klucz publiczny; **nie zapisujemy tresci** tylko hash (rsaHash).
+run()
 ```
 
-sections/01_introduction.md
+**extractors/flows_builder.lua**
 
-```markdown
-# Wprowadzenie - po co zbierac parametry protokolu
-Aby zapewnic spojnosc builda i zgodnosc z serwerami. Pozwala to rowniez odtwarzac problemy z logowaniem (np. niedopasowana wersja) i ujednolac dokumentacje.
+```lua
+-- 05_network/extractors/flows_builder.lua
+-- Generuje CSV: flows.csv na podstawie config/flows.src.lua
+-- ASCII-only; UTF-8 bez BOM; LF
+local docio = dofile('../../_shared/lua/docio.lua')
 
-Kiedy uzywac
-- audyt builda i zgodnosci,
-- analiza regresji po zmianach protokolu,
-- wsparcie dla generatora konfiguracji klienta.
-```
+local FLOW_HEADER = { 'name','client_state','server_state','steps','notes' }
+local MAX_BYTES = 50*1024*1024
 
-sections/02_protocol_model.md
+local function loadSource()
+  local ok, src = pcall(dofile, 'docs/05_network/config/flows.src.lua')
+  if ok and type(src) == 'table' then return src end
+  return { flows = {} }
+end
 
-```markdown
-# Model protokolu - definicje i przyklady
-Zobacz slownik w README. Wstaw przyklady z NDJSON i krotkie komentarze o pochodzeniu pol (runtime vs pliki).
+local function serializeSteps(steps)
+  if type(steps) ~= 'table' then return '' end
+  -- format: step1 > step2 > step3
+  return table.concat(steps, ' > ')
+end
 
-<!-- AGENT:INSERT:PROTO-EXAMPLES -->
-```
+local function run()
+  local src = loadSource()
+  docio.writeCsvHeader('docs/05_network/datasets/flows.csv', FLOW_HEADER)
+  for _,f in ipairs(src.flows or {}) do
+    local row = {
+      name = tostring(f.name or ''),
+      client_state = tostring(f.client_state or ''),
+      server_state = tostring(f.server_state or ''),
+      steps = serializeSteps(f.steps),
+      notes = tostring(f.notes or '')
+    }
+    docio.appendCsvRow('docs/05_network/datasets/flows.csv', FLOW_HEADER, row, MAX_BYTES)
+  end
+end
 
-sections/03_collection_methods.md
-
-```markdown
-# Zbieranie (runtime + skan plikow)
-- Najpierw runtime: proba wywolania API (pcall), bez twardych zaleznosci na funkcje.
-- Jesli runtime nie zwroci danych, skanuj pliki z config/protocol.targets.txt regexami.
-- Studio: uruchamiaj snapshot przez IPC (patrz README Studio hooks).
-```
-
-sections/04_quality_and_limits.md
-
-```markdown
-# Jakosc i ograniczenia
-- Rozne forki moga miec inne miejsca deklaracji wartosci; skan opiera sie na wzorcach.
-- Nie zapisujemy tresci klucza RSA – tylko skrót.
-- Wartosci dynamiczne moga wymagac korelacji z eventami logowania.
-```
-
-sections/05_how_to_read_stats.md
-
-```markdown
-# Jak czytac statystyki
-- Sprawdz rozklad wersji i OS – wykryj rozjazdy miedzy buildami.
-- Zestaw rsaHash z wersja; nagle zmiany moga wskazywac na rekonfiguracje kluczy.
-
-<!-- AGENT:INSERT:READING-GUIDE -->
-```
-
----
-
-### 7) Polityka dzielenia danych - datasets/chunks/README.md
-
-```markdown
-# Chunks - polityka
-- Utrzymuj glowne pliki do ok. 50 MB.
-- Starsze dane przenos do protocol.dataset.<YYYYMMDD-HHMM>.jsonl oraz .csv.
-- Po przeniesieniu chunkow traktuj je jako read-only.
-- Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni sie nazwa katalogu.
+run()
 ```
 
 ---
 
-### 8) Schema - protocol.schema.json
+### 4) Pliki konfiguracyjne źródłowe (proste do edycji)
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "protocol.record",
-  "type": "object",
-  "required": ["id","type","ts"],
-  "properties": {
-    "id": {"type":"string","pattern":"^proto:[A-Za-z0-9_.-]+@[0-9TZ:-]+$"},
-    "type": {"type":"string","const":"protocol"},
-    "ts": {"type":"string","format":"date-time"},
-    "clientVersion": {"oneOf":[{"type":"number"},{"type":"string"}]},
-    "customOs": {"type":"string"},
-    "rsaHash": {"type":"string"},
-    "features": {"type":"object"},
-    "source": {"type":"object"},
-    "links": {"type":"array","items":{"type":"string"}}
+**config/network_messages.src.lua** (przykład minimalny, możesz rozszerzać)
+
+```lua
+-- Zwracaj TYLKO tabele: messages/opcodes; bez require, bez IO
+return {
+  messages = {
+    { id = 'MSG_LOGIN', name = 'Login', direction = 'C→S', fields = {
+        {name='version', type='u16'}, {name='account', type='string'}, {name='password', type='string'}
+      }, notes = 'Pierwszy pakiet logowania' },
+    { id = 'MSG_PING',  name = 'Ping',  direction = 'C→S', fields = {{name='seq', type='u32'}}, notes = '' },
+    { id = 'MSG_PONG',  name = 'Pong',  direction = 'S→C', fields = {{name='seq', type='u32'}}, notes = '' }
+  },
+  opcodes = {
+    { opcode = '0x01', name = 'Login', direction = 'C→S', notes = '' },
+    { opcode = '0x1D', name = 'Ping',  direction = 'C→S', notes = '' },
+    { opcode = '0x1E', name = 'Pong',  direction = 'S→C', notes = '' }
+  }
+}
+```
+
+**config/flows.src.lua** (przykład login)
+
+```lua
+return {
+  flows = {
+    { name = 'login_handshake', client_state = 'client-start', server_state = 'auth-pending',
+      steps = { 'Client:Login(version,account,pass)', 'Server:Challenge?', 'Client:Response?', 'Server:CharacterList' },
+      notes = 'Wariant bez dodatkowych rozszerzeń' }
   }
 }
 ```
 
 ---
 
-### 9) Extractors (Lua) - gotowe pliki
+### 5) Istniejące extractory (bez zmian)
 
-extractors/protocol_inventory.lua
+Używaj nadal `protocol_inventory.lua` i `protocol_stats.lua` (poniżej niezmienione kopie):
 
 ```lua
 -- 05_network/extractors/protocol_inventory.lua
@@ -383,24 +371,16 @@ end
 local function parseCandidates(text, acc)
   acc = acc or {}
   for line in (text or ''):gmatch('[^\r\n]+') do
-    -- clientVersion (np. clientVersion = 1097)
     local ver = line:match('[Cc]lient[Vv]ersion%W*[:=]%W*([0-9]+)')
     if ver then acc.clientVersion = tonumber(ver) or ver end
-    -- customOs (np. customOs = "OTCv8")
     local osn = line:match('[Cc]ustom[Oo][Ss]%W*[:=]%W*"([^"]+)"')
     if osn then acc.customOs = osn end
-    -- RSA (np. RSA.*"LONGKEY..." lub klucz w wielu liniach - bierz wierszowe ciagi)
     local rsa = line:match('RSA[^\"]*"([A-Fa-f0-9%s]+)"') or line:match('RSA[^\"]*"([%+/%=A-Za-z0-9%s]+)"')
-    if rsa and #rsa > 32 then
-      rsa = rsa:gsub('%s+','')
-      acc.rsaHash = fnv1a32(rsa)
-    end
-    -- features (np. feature.xxx = true/false/123)
+    if rsa and #rsa > 32 then rsa = rsa:gsub('%s+',''); acc.rsaHash = fnv1a32(rsa) end
     local fkey, fval = line:match('[Ff]eature%.([A-Za-z0-9_]+)%W*[:=]%W*([A-Za-z0-9_]+)')
     if fkey and fval then
       local v = (fval == 'true') and true or (fval == 'false') and false or tonumber(fval) or fval
-      acc.features = acc.features or {}
-      acc.features[fkey] = v
+      acc.features = acc.features or {}; acc.features[fkey] = v
     end
   end
   return acc
@@ -420,21 +400,18 @@ end
 
 local function snapshot()
   local s = { ts = nowIso(), source = { runtime = false, files = {} } }
-  -- Proby runtime (bezpieczne; brak zaleznosci twardych)
   local gv = trymethod(g_game, 'getClientVersion') or trymethod(g_game, 'getProtocolVersion')
   if gv then s.clientVersion = gv; s.source.runtime = true end
   local osname = trymethod(g_window, 'getPlatform') or trymethod(g_app, 'getName')
   if osname then s.customOs = osname; s.source.runtime = true end
-  -- skan plikow
   local targets = loadTargets()
   for _,path in ipairs(targets) do
-      if g_resources and g_resources.fileExists and g_resources.fileExists(path) then
+    if g_resources and g_resources.fileExists and g_resources.fileExists(path) then
       local txt = g_resources.readFileContents(path)
       parseCandidates(txt, s)
       s.source.files[#s.source.files+1] = path
     end
   end
-  -- identyfikator i domkniecie pol
   s.id = string.format('proto:%s@%s', tostring(s.clientVersion or 'unknown'), s.ts)
   s.type = 'protocol'
   s.features = s.features or {}
@@ -451,16 +428,14 @@ local function run()
     id = rec.id, ts = rec.ts,
     clientVersion = rec.clientVersion, customOs = rec.customOs,
     rsaHash = rec.rsaHash,
-    features_json = json.encode(rec.features or {}),
-    source_json = json.encode(rec.source or {})
+    features_json = require('json').encode(rec.features or {}),
+    source_json = require('json').encode(rec.source or {})
   }
   docio.appendCsvRow('docs/05_network/datasets/protocol.dataset.csv', CSV_HEADER, row, MAX_BYTES)
 end
 
 run()
 ```
-
-extractors/protocol_stats.lua
 
 ```lua
 -- 05_network/extractors/protocol_stats.lua
@@ -557,9 +532,9 @@ run()
 
 ---
 
-### 10) Diagramy (Mermaid)
+### 6) Diagramy (Mermaid) – bez zmian stylistyki
 
-diagrams/network_flow.mmd
+`diagrams/network_flow.mmd`
 
 ```mermaid
 graph TD
@@ -571,7 +546,7 @@ graph TD
   Stats --> Studio
 ```
 
-diagrams/login_handshake.mmd
+`diagrams/login_handshake.mmd`
 
 ```mermaid
 sequenceDiagram
@@ -586,98 +561,10 @@ sequenceDiagram
 
 ---
 
-### 11) Encoding i formatowanie (UTF-8 safe)
+### 7) DoD – uzupełnione o CSV messages/opcodes/flows
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
-
----
-
-### 12) Jakosc, SLO i bezpieczenstwo (krotko)
-
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- **Bezpieczenstwo**: nie zapisujemy tresci RSA – tylko skrót (rsaHash).
-- Skan plikow to best-effort; trzymaj aktualna liste targetow w config.
-
----
-
-### 13) DoD Checklist - Agent clickable
-
-- [ ] Zapis do docs/05_network/datasets/protocol.dataset.jsonl i protocol.dataset.csv dziala (>= 1 snapshot; runtime i/lub skan plikow).
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_network_basics.md, 01_introduction.md, 02_protocol_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/findings.md dodano min. 1 obserwacje (np. roznice miedzy buildami/forkami).
-- [ ] Diagramy network_flow.mmd i login_handshake.mmd istnieja i sa logiczne.
-- [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../09_logging.
-- [ ] Walidacja probki 10 linii NDJSON przeciw protocol.schema.json zakonczona bez bledow.
-
----
-
-### 14) meta.json - wzorzec z tagami i linkowaniem
-
-```json
-{
-  "$schemaVersion": 1,
-  "chapterId": "chapter:network",
-  "title": "Network - Protocol and Handshake",
-  "owners": ["docs-export"],
-  "tags": ["network","protocol","rsa","clientVersion","otclient","agent"],
-  "fileMap": {
-    "readme": "./README.md",
-    "schema": "./protocol.schema.json",
-    "sections": [
-      "./sections/00_network_basics.md",
-      "./sections/01_introduction.md",
-      "./sections/02_protocol_model.md",
-      "./sections/03_collection_methods.md",
-      "./sections/04_quality_and_limits.md",
-      "./sections/05_how_to_read_stats.md"
-    ],
-    "datasets": {
-      "jsonl": "./datasets/protocol.dataset.jsonl",
-      "csv": "./datasets/protocol.dataset.csv",
-      "chunksDir": "./datasets/chunks"
-    },
-    "stats": {
-      "json": "./stats/stats.json",
-      "md": "./stats/stats.md"
-    },
-    "analysis": {
-      "findings": "./analysis/findings.md",
-      "figuresDir": "./analysis/figures"
-    },
-    "extractors": [
-      "./extractors/protocol_inventory.lua",
-      "./extractors/protocol_stats.lua"
-    ],
-    "diagrams": [
-      "./diagrams/network_flow.mmd",
-      "./diagrams/login_handshake.mmd"
-    ],
-    "config": {
-      "targets": "./config/protocol.targets.txt"
-    }
-  },
-  "linking": {
-    "recordIdPattern": "proto:<clientVersion>@<ISO8601>",
-    "crossChapter": {
-      "runtime": "../01_runtime/README.md",
-      "events": "../02_events/README.md",
-      "logging": "../09_logging/README.md"
-    }
-  },
-  "agent": {
-    "tasks": [
-      {"id": "inventory", "desc": "Snapshot protokolu (runtime+scan) do JSONL/CSV", "outputs": ["datasets.jsonl", "datasets.csv"]},
-      {"id": "aggregate", "desc": "Agregacja do stats.json/stats.md", "outputs": ["stats.json", "stats.md"]},
-      {"id": "author", "desc": "Uzupelnienie sekcji i findings + wstrzykniecia danych", "targets": ["sections/*", "analysis/*"]}
-    ],
-    "insertPoints": {
-      "sections/02_protocol_model.md": ["AGENT:INSERT:PROTO-EXAMPLES"],
-      "sections/05_how_to_read_stats.md": ["AGENT:INSERT:READING-GUIDE"],
-      "analysis/findings.md": ["AGENT:INSERT:FINDINGS"]
-    }
-  }
-}
-```
+* [ ] Uruchom `network_messages_inventory.lua` → generuje `datasets/network_messages.csv` i `datasets/opcodes.csv` na bazie `config/network_messages.src.lua`.
+* [ ] Uruchom `flows_builder.lua` → generuje `datasets/flows.csv` na bazie `config/flows.src.lua`.
+* [ ] Uruchom `protocol_inventory.lua` → `protocol.dataset.jsonl/csv`.
+* [ ] Uruchom `protocol_stats.lua` → `stats.json/md`.
+* [ ] Waliduj próbki zgodnie ze schematami i sprawdź linki w README.

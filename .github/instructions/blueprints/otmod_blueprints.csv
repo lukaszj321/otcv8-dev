@@ -1,3 +1,4 @@
-otmod_blueprint_id,name,has_hooks,scripts_pattern,deps_pattern,notes
-bp.module.basic,Module with init/terminate,"@onLoad,@onUnload","[ main, widgets/* ]",optional,Common baseline
-bp.module.ui,Module with UI file,@onLoad,"[ main, ui/* ]",game_interface,Loads and manages window
+module,description,scripts,load_later,dependencies,onLoad,onUnload
+game_interface,Ingame UI i pętle zdarzeń,"[ widgets/uigamemap, gameinterface ]","[ game_buttons, game_hotkeys, game_console, game_skills, game_inventory ]",[],init(),terminate()
+game_skills,Okno statystyk gracza,[ skills ],[],[ game_interface ],init(),terminate()
+game_console,Konsola chat/log,[ console ],"[ game_channels, game_npc ]",[ game_interface ],init(),terminate()

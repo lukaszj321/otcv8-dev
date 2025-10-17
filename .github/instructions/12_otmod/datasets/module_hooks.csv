@@ -1,4 +1,0 @@
-module_name,hook,impl_file,signature,notes
-game_interface,@onLoad,modules/game_interface/gameinterface.lua,init(),"registers UI, events, hotkeys"
-game_interface,@onUnload,modules/game_interface/gameinterface.lua,terminate(),cleanup
-game_skills,@onLoad,modules/game_skills/skills.lua,init(),builds skill window

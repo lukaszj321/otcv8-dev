@@ -1,3 +1,0 @@
-path,duration_ms,channels,rate_hz,kind,used_by
-data/sounds/ui/click.wav,120,2,44100,ui,ui.button
-data/sounds/game/levelup.ogg,1800,2,44100,fx,ui.level_up

@@ -1,0 +1,7 @@
+id,widget,props,states,events,notes
+btn.primary,UIButton,size=96 22; image-source=/images/ui/button; image-border=3,"$hover,$checked,$disabled",&onClick,Neutralny button z borderem
+tab.button.square,UIButton,size=17 18; image-source=/images/ui/tabbutton_square; image-clip=0 0 98 18,"$hover,$checked,$disabled",&onClick,Do TabBar (poziomy)
+tab.button.rounded,UIButton,inherits=tab.button.square; image-source=/images/ui/tabbutton_rounded,"$hover,$checked,$disabled",&onClick,Zaokrąglony wariant
+window.mini,MiniWindow,id=?; !text=?; icon=?; &save=true; &autoOpen=false,$on,@onClose,"Okna HUD (skills, map, inventory)"
+label.game,GameLabel,font=verdana-11px-monochrome; text-align=topright,(none),(none),Standardowy label HUD
+progress.hp,ProgressBar,height=5; background-color=red; anchors=top,(none),(none),Pasek HP (użycie w skills)

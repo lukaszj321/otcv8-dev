@@ -1,3 +1,0 @@
-module_name,description,author,website,sandboxed,root_dir,otmod_file
-game_interface,Create the main game interface,OTClient team,https://github.com/edubart/otclient,true,modules/game_interface,modules/game_interface/game_interface.otmod
-game_skills,Manage skills window,"baxnie, edubart",https://github.com/edubart/otclient,true,modules/game_skills,modules/game_skills/game_skills.otmod

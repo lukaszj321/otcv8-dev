@@ -1,6 +1,6 @@
 ---
-chapter: "01_core"
-slug: "01_core"
+chapter: "01_runtime"
+slug: "01_runtime"
 title: "Specyfikacja: Studio (React/Electron) dla skryptów OTClient v8/vBot"
 status: "agent_ready"
 owners: ["github:lukaszj321"]
@@ -9,108 +9,122 @@ artifacts:
     - id: "summary"
       file: "summary.csv"
       headers: ["metric","value","note"]
-      facet: "01_core.summary"
+      facet: "01_runtime.summary"
       preview_rows: 150
     - id: "entities"
       file: "entities.csv"
       headers: ["id","name","kind","path","notes"]
-      facet: "01_core.entities"
+      facet: "01_runtime.entities"
     - id: "cpp_headers"
       file: "cpp_headers.csv"
       headers: ["path","public","includes","symbols","notes"]
-      facet: "01_core.cpp_headers"
+      facet: "01_runtime.cpp_headers"
     - id: "cpp_symbols"
       file: "cpp_symbols.csv"
       headers: ["symbol","kind","file","line","visibility","notes"]
-      facet: "01_core.cpp_symbols"
+      facet: "01_runtime.cpp_symbols"
   diagrams:
     - id: "architecture"
       file: "architecture.mmd"
-      facet: "01_core.architecture"
+      facet: "01_runtime.architecture"
     - id: "flow"
       file: "flow.mmd"
-      facet: "01_core.flow"
+      facet: "01_runtime.flow"
 xrefs:
   - to: "03_modules.lua_exports"
     type: "uses"
     evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
   - to: "04_ui.ui_widgets"
-    type: "renders"
+    type: "uses"
     evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
   - to: "02_events.events_matrix"
     type: "emits"
     evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
   - to: "09_logging.logging_categories"
-    type: "logs"
+    type: "emits"
     evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
 tags: ["otclient","v8","cpp","api","studio","electron","react"]
 provenance:
   - path: "src/**"
   - path: "include/**"
 version: "1.0"
-updated: "2025-10-14"
+updated: "2025-10-17"
+
 ---
 
-# Studio (React/Electron) + Core API
+# Studio (React/Electron) + Core/Runtime API
 
 Punktem wyjścia są interfejsy i symbole C++ (headers/symbols), które stanowią kontrakt runtime dla IDE/Studio.
 
-(facet-01_core.summary)=
+(facet-01_runtime.summary)=
+
 ## Dataset: summary
-- headers: `metric,value,note`
-- facet: `01_core.summary`
-- opis: podstawowe metryki rdzenia (liczba plików nagłówkowych, symboli, przestrzeni nazw).
 
-(facet-01_core.entities)=
+* headers: `metric,value,note`
+* facet: `01_runtime.summary`
+* opis: podstawowe metryki rdzenia (liczba plików nagłówkowych, symboli, przestrzeni nazw).
+
+(facet-01_runtime.entities)=
+
 ## Dataset: entities
-- headers: `id,name,kind,path,notes`
-- facet: `01_core.entities`
-- opis: spis bytów (klasy, funkcje, przestrzenie nazw) z mapowaniem do plików.
 
-(facet-01_core.cpp_headers)=
+* headers: `id,name,kind,path,notes`
+* facet: `01_runtime.entities`
+* opis: spis bytów (klasy, funkcje, przestrzenie nazw) z mapowaniem do plików.
+
+(facet-01_runtime.cpp_headers)=
+
 ## Dataset: cpp_headers
-- headers: `path,public,includes,symbols,notes`
-- facet: `01_core.cpp_headers`
-- opis: analiza nagłówków C++ (widoczność publiczna, zależności).
 
-(facet-01_core.cpp_symbols)=
+* headers: `path,public,includes,symbols,notes` (listy jako JSON arrays)
+* facet: `01_runtime.cpp_headers`
+* opis: analiza nagłówków C++ (widoczność publiczna, zależności).
+
+(facet-01_runtime.cpp_symbols)=
+
 ## Dataset: cpp_symbols
-- headers: `symbol,kind,file,line,visibility,notes`
-- facet: `01_core.cpp_symbols`
-- opis: indeks eksportowanych symboli.
 
-(facet-01_core.architecture)=
+* headers: `symbol,kind,file,line,visibility,notes`
+* facet: `01_runtime.cpp_symbols`
+* opis: indeks eksportowanych symboli.
+
+(facet-01_runtime.architecture)=
+
 ## Diagram: architecture
-- facet: `01_core.architecture`
-- opis: wysokopoziomowy podział: Core → Framework → Modules → UI.
 
-(facet-01_core.flow)=
+* facet: `01_runtime.architecture`
+* opis: wysokopoziomowy podział: Core → Framework → Modules → UI.
+
+(facet-01_runtime.flow)=
+
 ## Diagram: flow
-- facet: `01_core.flow`
-- opis: przepływy danych pomiędzy rdzeniem, zdarzeniami i modułami.
+
+* facet: `01_runtime.flow`
+* opis: przepływy danych pomiędzy rdzeniem, zdarzeniami i modułami.
 
 ## Relacje
-- uses → `03_modules.lua_exports`
-- renders → `04_ui.ui_widgets`
-- emits → `02_events.events_matrix`
-- logs → `09_logging.logging_categories`
+
+* uses → `03_modules.lua_exports`
+* uses → `04_ui.ui_widgets`
+* emits → `02_events.events_matrix`
+* emits → `09_logging.logging_categories`
 
 ---
 
-# Chapter 01 - Core
+# Chapter 01 - Runtime
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
 
-> Cel: rozdzial ma byc zrodlem prawdy o srodowisku uruchomieniowym klienta (FPS/UPS, pamiec, okno/OS, build). Laczy surowe dane z opisem, kontekstem, przykladami, zadaniami dla Agenta AI i jasnymi kryteriami ukonczenia. Styl jest elastyczny i konkretny. Caly dokument i kod sa ASCII-only, kodowanie UTF-8 bez BOM.
+> Cel: rozdział ma być źródłem prawdy o środowisku uruchomieniowym klienta (FPS/UPS, pamięć, okno/OS, build). Łączy surowe dane z opisem, kontekstem, przykładami, zadaniami dla Agenta AI i jasnymi kryteriami ukończenia. Kod/diagramy/CSV — ASCII-safe; cały projekt w UTF-8 (LF).
 
 ---
 
 ### 0) Executive summary
 
-- Co: komplet metryk runtime + wyjasnienia jak je czytac i uzywac (UI scaling, wydajnosc, korelacje z eventami i logami).
-- Dla kogo: inzynierowie, autorzy skryptow (OTUI/vBot), systemy AI/RAG.
-- Wyniki: NDJSON (pelne), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, comparisons), diagram (Mermaid), narracja (sekcje merytoryczne).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), tags, spis tresci i linkowanie, checklist DoD z polami do odhaczania.
+* Co: komplet metryk runtime + wyjaśnienia jak je czytać i używać (UI scaling, wydajność, korelacje z eventami i logami).
+* Dla kogo: inżynierowie, autorzy skryptów (OTUI/vBot), systemy AI/RAG.
+* Wyniki: NDJSON (pełne), CSV (spłaszczony), statystyki (JSON/MD), analizy (findings, comparisons), diagram (Mermaid), narracja (sekcje merytoryczne).
+* Agent-ready: mapa plików, punkty wstrzyknięć (AGENT:INSERT), tags, spis treści i linkowanie, checklist DoD z polami do odhaczania.
 
 ---
 
@@ -119,32 +133,32 @@ Punktem wyjścia są interfejsy i symbole C++ (headers/symbols), które stanowi�
 ```bash
 01_runtime/
   README.md                     # narracja + TOC + nawigacja (ten plik)
-  meta.json                     # mapa plikow + zadania + tags (machine-readable)
-  runtime.schema.json           # walidacja rekordow NDJSON
+  meta.json                     # mapa plików + zadania + tags (machine-readable)
+  runtime.schema.json           # walidacja rekordów NDJSON
   sections/
     00_otclient_basics.md      # wprowadzenie do OTClient (dla nowych dev)
-    01_introduction.md          # po co mierzymy runtime (kontekst)
-    02_runtime_model.md         # slownik pol + przyklady + pulapki
-    03_collection_methods.md    # jak zbieramy (ekstraktory, czestotliwosc)
-    04_quality_and_limits.md    # jakosc, ograniczenia, SLO
-    05_how_to_read_stats.md     # jak czytac statystyki + interpretacje
+    01_introduction.md         # po co mierzymy runtime (kontekst)
+    02_runtime_model.md        # słownik pól + przykłady + pułapki
+    03_collection_methods.md   # jak zbieramy (ekstraktory, częstotliwość)
+    04_quality_and_limits.md   # jakość, ograniczenia, SLO
+    05_how_to_read_stats.md    # jak czytać statystyki + interpretacje
   datasets/
-    runtime.dataset.jsonl       # NDJSON (append-only)
-    runtime.dataset.csv         # CSV (naglowek staly)
-    chunks/                     # partycje przy duzych wolumenach
-      README.md                 # polityka dzielenia
+    runtime.dataset.jsonl      # NDJSON (append-only)
+    runtime.dataset.csv        # CSV (nagłówek stały)
+    chunks/                    # partycje przy dużych wolumenach
+      README.md                # polityka dzielenia
   stats/
-    stats.json                  # metryki zbiorcze (min/avg/max, itp.)
-    stats.md                    # raport czytelny dla ludzi
+    stats.json                 # metryki zbiorcze (min/avg/max, itp.)
+    stats.md                   # raport czytelny dla ludzi
   analysis/
-    findings.md                 # wnioski z danych + linki do rekordow
-    comparisons.md              # porownania buildow/konfiguracji
-    figures/                    # obrazy (wykresy, tabele eksportowane)
+    findings.md                # wnioski z danych + linki do rekordów
+    comparisons.md             # porównania buildów/konfiguracji
+    figures/                   # obrazy (wykresy, tabele eksportowane)
   extractors/
-    runtime_extractor.lua       # snapshot -> JSONL + CSV (rotacja, flatten)
-    runtime_stats.lua           # agregacja -> stats.json + stats.md
+    runtime_extractor.lua      # snapshot -> JSONL + CSV (rotacja, flatten)
+    runtime_stats.lua          # agregacja -> stats.json + stats.md
   diagrams/
-    runtime_stack.mmd           # Mermaid: przeplyw danych i kontekst
+    runtime_stack.mmd          # Mermaid: przepływ danych i kontekst
 ```
 
 > Note: zobacz README sekcja IO setup.
@@ -159,7 +173,7 @@ id: chapter:runtime
 title: Runtime and Build - Snapshots
 authors: ["docs-export"]
 version: 1.0
-last_updated: 2025-10-08
+last_updated: 2025-10-17
 status: draft
 tags: ["runtime","performance","ui","otclient","agent"]
 related:
@@ -172,15 +186,15 @@ outputs:
   - ./stats/stats.md
 encoding: UTF-8 (no BOM)
 ---
-Short: rozdzial zbiera metryki runtime i tlumaczy, jak je czytac. Uzywaj jako kontekstu przy pracy nad UI, automatyzacja (vBot) i analizach wydajnosci.
+Short: rozdział zbiera metryki runtime i tłumaczy, jak je czytać. Używaj jako kontekstu przy pracy nad UI, automatyzacji (vBot) i analizach wydajności.
 
 Table of contents
 - [0. OTClient - podstawy](./sections/00_otclient_basics.md)
 - [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model danych (slownik)](./sections/02_runtime_model.md)
+- [2. Model danych (słownik)](./sections/02_runtime_model.md)
 - [3. Zbieranie danych (ekstraktory)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
+- [4. Jakość i ograniczenia](./sections/04_quality_and_limits.md)
+- [5. Jak czytać statystyki](./sections/05_how_to_read_stats.md)
 - [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
 
 Quick links
@@ -191,15 +205,15 @@ Quick links
 
 Crosslinks
 - Events: .../02_events/README.md (korelacje logowania z FPS/UPS)
-- UI: .../04_ui/README.md (wplyw window.displaySize na layout)
-- Logging: .../09_logging/README.md (kontekst zdarzen i czasu)
+- UI: .../04_ui/README.md (wpływ window.displaySize na layout)
+- Logging: .../09_logging/README.md (kontekst zdarzeń i czasu)
 
 How to work (for Agent)
 1) Uruchom extractors/runtime_extractor.lua (cyklicznie lub on-demand).
-2) Uruchom extractors/runtime_stats.lua -> odswiez stats/.
-3) Uzupelnij sekcje w sections/ i wstaw przyklady w miejscach <!-- AGENT:INSERT:... -->.
-4) Zapisz obserwacje w analysis/findings.md i porownania w analysis/comparisons.md.
-5) Sprawdz checklist DoD na koncu tego dokumentu.
+2) Uruchom extractors/runtime_stats.lua -> odśwież stats/.
+3) Uzupełnij sekcje w sections/ i wstaw przykłady w miejscach <!-- AGENT:INSERT:... -->.
+4) Zapisz obserwacje w analysis/findings.md i porównania w analysis/comparisons.md.
+5) Sprawdź checklist DoD na końcu tego dokumentu.
 
 ### CSV header (runtime.dataset.csv)
 
@@ -209,58 +223,57 @@ id,ts,fps,ups,memoryKB,window.displaySize,window.isMaximized,window.platform,bui
 - Default: dofile('../../_shared/lua/docio.lua')
 - Isolated: copy to 01_runtime/_local/docio.lua and use dofile('../_local/docio.lua')
 
-Skad do _shared
+Skąd do _shared
 | Start location | Path to _shared |
 |---|---|
 | 01_runtime/extractors | ../../_shared/lua/docio.lua |
 | 01_runtime | ../_shared/lua/docio.lua |
 
-### Studio hooks (Electron) - skrot
+### Studio hooks (Electron) - skrót
 - IPC: 'studio:extract.runtime.tick' uruchamia runtime_extractor.lua (pojedynczy snapshot)
 - IPC: 'studio:aggregate.runtime' uruchamia runtime_stats.lua (agregacja)
-- IPC: 'studio:open.dataset' {type: 'jsonl' lub 'csv'} otwiera podglad w Studio
+- IPC: 'studio:open.dataset' {type: 'jsonl' lub 'csv'} otwiera podgląd w Studio
 - Preload: contextIsolation: true; nodeIntegration: false; eksponuj tylko bezpieczne API do renderer
-- Sandbox: wszystkie zapisy ida przez docio.lua pod 01_runtime
-- View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
-
+- Sandbox: wszystkie zapisy idą przez docio.lua pod 01_runtime
+- View: podgląd stats.md + tabela CSV; linki do rekordów po id w NDJSON
 ```
 
 ---
 
-### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
+### 3) Mapa plików i odpowiedzialności (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| runtime.schema.json | walidacja rekordow NDJSON | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne dane (append) | extractor | rozmiar kontroluj przez chunks/ |
-| datasets/*.csv | widok splaszczony | extractor | staly naglowek; zlozone -> *_json |
-| stats/*.json\|md | metryki zbiorcze | extractor | stats.md jest czytelne dla ludzi |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | wstaw dane w AGENT:INSERT |
-| analysis/* | wnioski i porownania | Agent/Analityk | linkuj id rekordow z JSONL |
-| extractors/*.lua | zrzut i agregacja | system | nie modyfikuj API zapisu |
+| Plik / Katalog      | Rola                      | Kto uzupełnia  | Uwagi                             |
+| ------------------- | ------------------------- | -------------- | --------------------------------- |
+| runtime.schema.json | walidacja rekordów NDJSON | Agent/CI       | waliduj linie po linii            |
+| datasets/*.jsonl    | pełne dane (append)       | extractor      | rozmiar kontroluj przez chunks/   |
+| datasets/*.csv      | widok spłaszczony         | extractor      | stały nagłówek; złożone -> *_json |
+| stats/*.json|md     | metryki zbiorcze          | extractor      | stats.md jest czytelne dla ludzi  |
+| sections/*.md       | narracja i wyjaśnienia    | Agent/Autor    | wstaw dane w AGENT:INSERT         |
+| analysis/*          | wnioski i porównania      | Agent/Analityk | linkuj id rekordów z JSONL        |
+| extractors/*.lua    | zrzut i agregacja         | system         | nie modyfikuj API zapisu          |
 
 ---
 
-### 4) Slownik pol (data dictionary)
+### 4) Słownik pól (data dictionary)
 
-Cel: jednoznacznie nazwac i zrozumiec kazde pole rekordu runtime.
+Cel: jednoznacznie nazwać i zrozumieć każde pole rekordu runtime.
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | runtime:2025-10-08T12:00:00Z | Unikat pomiaru (UTC ISO8601). |
-| ts | string | 2025-10-08T12:00:00Z | Czas pomiaru (UTC). |
-| fps | number | 144 | Klatki/s (rendering). Wplyw: GPU, VSync, scena. |
-| ups | number | 60 | Aktualizacje/s (logika gry). |
-| memoryKB | number | 512000 | Przyblizone zuzycie RAM procesu. |
-| window.displaySize | string | 1920x1080 | Rozmiar obszaru renderowania; wplywa na layout UI. |
-| window.isMaximized | boolean | true | Czy okno jest zmaksymalizowane. |
-| window.platform | string | win | Identyfikator platformy (win, linux, mac). |
-| build.name | string | OTClient | Nazwa aplikacji. |
-| build.version | string | 8.0.0 | Wersja logiczna. |
-| build.buildVersion | string | build-1234 | Identyfikator builda. |
-| build.arch | string | x64 | Architektura procesu. |
-| build.graphics | string | OpenGL | Backend grafiki. |
-| links[] | string[] | proto:..., ui:... | Powiazania z innymi rozdzialami. |
+| Pole               | Typ      | Przykład                     | Znaczenie                                          |
+| ------------------ | -------- | ---------------------------- | -------------------------------------------------- |
+| id                 | string   | runtime:2025-10-08T12:00:00Z | Unikat pomiaru (UTC ISO8601).                      |
+| ts                 | string   | 2025-10-08T12:00:00Z         | Czas pomiaru (UTC).                                |
+| fps                | number   | 144                          | Klatki/s (rendering). Wpływ: GPU, VSync, scena.    |
+| ups                | number   | 60                           | Aktualizacje/s (logika gry).                       |
+| memoryKB           | number   | 512000                       | Przybliżone zużycie RAM procesu.                   |
+| window.displaySize | string   | 1920x1080                    | Rozmiar obszaru renderowania; wpływa na layout UI. |
+| window.isMaximized | boolean  | true                         | Czy okno jest zmaksymalizowane.                    |
+| window.platform    | string   | win                          | Identyfikator platformy (win, linux, mac).         |
+| build.name         | string   | OTClient                     | Nazwa aplikacji.                                   |
+| build.version      | string   | 8.0.0                        | Wersja logiczna.                                   |
+| build.buildVersion | string   | build-1234                   | Identyfikator builda.                              |
+| build.arch         | string   | x64                          | Architektura procesu.                              |
+| build.graphics     | string   | OpenGL                       | Backend grafiki.                                   |
+| links[]            | string[] | proto:..., ui:...            | Powiązania z innymi rozdziałami.                   |
 
 > Agent tip: w sections/02_runtime_model.md wstaw 2-3 realne rekordy z NDJSON i jednozdaniowe interpretacje.
 
@@ -270,9 +283,9 @@ Cel: jednoznacznie nazwac i zrozumiec kazde pole rekordu runtime.
 
 1. Snapshot (extractor) -> dopisz rekord do datasets/runtime.dataset.jsonl i wiersz do datasets/runtime.dataset.csv.
 2. Agregacja -> przelicz stats.json i wygeneruj stats.md.
-3. Narracja -> uzupelnij sections/* przykladami i komentarzem.
-4. Analizy -> dodaj wnioski i porownania (analysis/*) z linkami do id rekordow.
-5. Publikacja -> sprawdz checklist DoD i oznacz rozdzial jako ready.
+3. Narracja -> uzupełnij sections/* przykładami i komentarzem.
+4. Analizy -> dodaj wnioski i porównania (analysis/*) z linkami do id rekordów.
+5. Publikacja -> sprawdź checklist DoD i oznacz rozdział jako ready.
 
 ---
 
@@ -282,37 +295,37 @@ sections/00_otclient_basics.md
 
 ```markdown
 # OTClient - podstawy dla nowych dev
-Ten plik daje lekki kontekst: co to jest OTClient, jakich ma menedzerow i gdzie znajdziesz interfejsy, z ktorych korzystamy w tym rozdziale.
+Ten plik daje lekki kontekst: co to jest OTClient, jakich ma menedżerów i gdzie znajdziesz interfejsy, z których korzystamy w tym rozdziale.
 
-Najwazniejsze pojecia
-- g_client: metryki klienta (fps, ups, pamiec, architektura).
-- g_window: srodowisko okna (rozmiar, platforma, stan okna).
+Najważniejsze pojęcia
+- g_client: metryki klienta (fps, ups, pamięć, architektura).
+- g_window: środowisko okna (rozmiar, platforma, stan okna).
 - g_app: metadane aplikacji (nazwa, wersja, buildVersion).
-- modules: modulowa struktura kodu, w tym skrypty i pliki OTUI.
-- OTUI: opis interfejsu w plikach .otui (drzewa widzetow), istotne przy zaleznosci od rozmiaru okna.
+- modules: modułowa struktura kodu, w tym skrypty i pliki OTUI.
+- OTUI: opis interfejsu w plikach .otui (drzewa widżetów), istotne przy zależności od rozmiaru okna.
 
-Jak to laczy sie z runtime
-- runtime to widok „tu i teraz” srodowiska klienta.
-- dane z runtime sa czesto korelowane z eventami (logowanie) i z UI (skalowanie).
+Jak to łączy się z runtime
+- runtime to widok „tu i teraz” środowiska klienta.
+- dane z runtime są często korelowane z eventami (logowanie) i z UI (skalowanie).
 ```
 
 sections/01_introduction.md
 
 ```markdown
 # Wprowadzenie - po co mierzymy runtime
-Rama: patrzymy na sygnaly widoczne z poziomu klienta. Celem nie jest pelny profiling, tylko szybkie uchwycenie trendow (fps/ups, pamiec, okno/os, build) i ich wplywu na UX/UI.
+Rama: patrzymy na sygnały widoczne z poziomu klienta. Celem nie jest pełny profiling, tylko szybkie uchwycenie trendów (fps/ups, pamięć, okno/os, build) i ich wpływu na UX/UI.
 
-Kiedy uzywac
-- porownania buildow,
+Kiedy używać
+- porównania buildów,
 - decyzje o skalowaniu UI,
-- kontekst dla skryptow automatyzujacych.
+- kontekst dla skryptów automatyzujących.
 ```
 
 sections/02_runtime_model.md
 
 ```markdown
-# Model danych - definicje i przyklady
-Uzyj tabeli w README jako slownika. Wstaw krotki wycinek danych i komentarz.
+# Model danych - definicje i przykłady
+Użyj tabeli w README jako słownika. Wstaw krótki wycinek danych i komentarz.
 
 <!-- AGENT:INSERT:MODEL-EXAMPLES -->
 ```
@@ -324,24 +337,24 @@ sections/03_collection_methods.md
 - runtime_extractor.lua -> JSONL/CSV (append), rotacja.
 - runtime_stats.lua -> stats.json i stats.md.
 
-Czestotliwosc: 1-5 s (ciagle) lub on-demand. Przy dluzszych sesjach uzyj datasets/chunks.
+Częstotliwość: 1-5 s (ciągle) lub on-demand. Przy dłuższych sesjach użyj datasets/chunks.
 ```
 
 sections/04_quality_and_limits.md
 
 ```markdown
-# Jakosc i ograniczenia
-- FPS/UPS zalezne od sceny, sterownikow i OS.
-- memoryKB jest przyblizeniem; porownuj warunki do warunkow.
-- Roznice miedzy forkami opisz w analysis/findings.md.
+# Jakość i ograniczenia
+- FPS/UPS zależne od sceny, sterowników i OS.
+- memoryKB jest przybliżeniem; porównuj warunki do warunków.
+- Różnice między forkami opisz w analysis/findings.md.
 ```
 
 sections/05_how_to_read_stats.md
 
 ```markdown
-# Jak czytac statystyki (bez nadinterpretacji)
+# Jak czytać statystyki (bez nadinterpretacji)
 - min/avg/max to szybki opis trendu.
-- Porownuj podobne warunki (scena, okno, build).
+- Porównuj podobne warunki (scena, okno, build).
 
 <!-- AGENT:INSERT:READING-GUIDE -->
 ```
@@ -352,10 +365,10 @@ sections/05_how_to_read_stats.md
 
 ```markdown
 # Chunks - polityka
-- Utrzymuj glowne pliki do ok. 50 MB.
-- Starsze dane przenos do runtime.dataset.<YYYYMMDD-HHMM>.jsonl oraz .csv.
-- Po przeniesieniu chunkow traktuj je jako read-only.
-- Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni sie nazwa katalogu.
+- Utrzymuj główne pliki do ok. 50 MB.
+- Starsze dane przenieś do runtime.dataset.<YYYYMMDD-HHMM>.jsonl oraz .csv.
+- Po przeniesieniu chunków traktuj je jako read-only.
+- Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni się nazwa katalogu.
 ```
 
 ---
@@ -366,7 +379,7 @@ extractors/runtime_extractor.lua
 
 ```lua
 -- Snapshot runtime + build -> JSONL + CSV (rotacja, flatten)
--- Agent: uruchamiaj cyklicznie lub na zadanie, potem odpal agregator.
+-- Agent: uruchamiaj cyklicznie lub na żądanie, potem odpal agregator.
 local docio = dofile('../../_shared/lua/docio.lua')
 local json = require('json')
 local CSV_HEADER = {
@@ -463,7 +476,7 @@ local function writeMD(s)
     string.format('- FPS min/avg/max: %s / %.2f / %s\n', tostring(s.fps.min or '-'), s.fps.avg or 0, tostring(s.fps.max or '-')),
     string.format('- UPS min/avg/max: %s / %.2f / %s\n', tostring(s.ups.min or '-'), s.ups.avg or 0, tostring(s.ups.max or '-')),
     string.format('- memoryKB min/avg/max: %s / %.2f / %s\n', tostring(s.memoryKB.min or '-'), s.memoryKB.avg or 0, tostring(s.memoryKB.max or '-')),
-    '\nHint: porownuj warunki (ta sama scena/okno/build).\n'
+    '\nHint: porównuj warunki (ta sama scena/okno/build).\n'
   })
 end
 local function run()
@@ -497,35 +510,36 @@ graph TD
   Stats --> Studio
 ```
 
+
 ---
 
 ### 10) Encoding i formatowanie (UTF-8 safe)
 
-- Zawsze zapisuj pliki w UTF-8 bez BOM.
-- Uzywaj ASCII w tresci (kreska '-', cudzyslow ", apostrof '). Unikaj znakow specjalnych (np. •, —, …, ->).
-- Zlamy wierszy: LF (\n). W Mermaid i tabelach uzywaj ASCII.
-- Naglowki: tytul H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Zawsze zapisuj pliki w UTF-8 bez BOM.
+* W kodzie/diagramach/CSV używaj ASCII; w treści PL diakrytyki dozwolone.
+* Złamy wierszy: LF (\n). W Mermaid i tabelach używaj ASCII.
+* Nagłówki: tytuł H1 (#), pozostałe H3 (###) aby Sphinx parsował łagodniej.
 
 ---
 
-### 11) Jakosc, SLO i bezpieczenstwo (krotko)
+### 11) Jakość, SLO i bezpieczeństwo (krótko)
 
-- ID/czas: id = `runtime:<ISO8601>`, ts w UTC.
-- CSV: staly naglowek, tylko skalary; zlozone pola do *_json.
-- IO SLO: snapshot lekki; dlugie sesje -> chunks/.
-- Bezpieczenstwo: brak danych wrazliwych; nie zapisuj prywatnych sciezek ani kluczy.
+* ID/czas: id = `runtime:<ISO8601>`, ts w UTC.
+* CSV: stały nagłówek, tylko skalary; złożone pola do *_json lub JSON arrays.
+* IO SLO: snapshot lekki; długie sesje -> chunks/.
+* Bezpieczeństwo: brak danych wrażliwych; nie zapisuj prywatnych ścieżek ani kluczy.
 
 ---
 
 ### 12) DoD Checklist - Agent clickable
 
-- [ ] Zebrano >= 1 rekord w datasets/runtime.dataset.jsonl i dopisano do runtime.dataset.csv.
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md.
-- [ ] Uzupelniono sekcje: 00_otclient_basics.md, 01_introduction.md, 02_runtime_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/findings.md zapisano >= 2 obserwacje z linkami do id rekordow; w razie porownan uzupelniono analysis/comparisons.md.
-- [ ] Diagram diagrams/runtime_stack.mmd istnieje i odzwierciedla przeplyw danych.
-- [ ] meta.json zawiera poprawne sciezki, tags, agent.tasks, insertPoints.
-- [ ] Walidacja probki 10 linii NDJSON przeciw runtime.schema.json zakonczona bez bledow.
+* [ ] Zebrano ≥ 1 rekord w datasets/runtime.dataset.jsonl i dopisano do runtime.dataset.csv.
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md.
+* [ ] Uzupełniono sekcje: 00_otclient_basics.md, 01_introduction.md, 02_runtime_model.md (z przykładami), 03_collection_methods.md.
+* [ ] W analysis/findings.md zapisano ≥ 2 obserwacje z linkami do id rekordów; w razie porównań uzupełniono analysis/comparisons.md.
+* [ ] Diagram diagrams/runtime_stack.mmd istnieje i odzwierciedla przepływ danych.
+* [ ] meta.json zawiera poprawne ścieżki, tags, agent.tasks, insertPoints.
+* [ ] Walidacja próbki 10 linii NDJSON przeciw runtime.schema.json zakończona bez błędów.
 
 ---
 
@@ -579,9 +593,9 @@ graph TD
   },
   "agent": {
     "tasks": [
-      {"id": "collect", "desc": "Zbieranie snapshotow do JSONL/CSV", "outputs": ["datasets.jsonl", "datasets.csv"]},
+      {"id": "collect", "desc": "Zbieranie snapshotów do JSONL/CSV", "outputs": ["datasets.jsonl", "datasets.csv"]},
       {"id": "aggregate", "desc": "Agregacja do stats.json/stats.md", "outputs": ["stats.json", "stats.md"]},
-      {"id": "author", "desc": "Uzupelnienie sekcji merytorycznych + wstrzykniecia danych", "targets": ["sections/*", "analysis/*"]}
+      {"id": "author", "desc": "Uzupełnienie sekcji merytorycznych + wstrzyknięcia danych", "targets": ["sections/*", "analysis/*"]}
     ],
     "insertPoints": {
       "sections/02_runtime_model.md": ["AGENT:INSERT:MODEL-EXAMPLES"],

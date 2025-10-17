@@ -1,3 +1,0 @@
-module_name,ui_file,ui_id,widget_count,assets_refs
-game_skills,modules/game_skills/skills.otui,skillWindow,37,/images/topbuttons/skills;verdana-11px-monochrome
-game_interface,modules/game_interface/interface.otui,topBar,12,/images/ui/tabbutton_square

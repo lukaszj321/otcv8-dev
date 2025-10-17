@@ -3,7 +3,9 @@ chapter: "03_modules"
 slug: "03_modules"
 title: "Lua modules — export kit"
 status: "agent_ready"
-owners: ["github:lukaszj321"]
+owners:
+  - "github:lukaszj321"
+
 artifacts:
   datasets:
     - id: "summary"
@@ -26,52 +28,66 @@ artifacts:
     - id: "modules_graph"
       file: "modules_graph.mmd"
       facet: "03_modules.modules_graph"
+
 xrefs:
   - to: "04_ui.ui_widgets"
-    type: "renders"
+    type: "uses"
     evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
   - to: "02_events.events_matrix"
     type: "handles"
     evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
   - to: "09_logging.logging_categories"
-    type: "logs"
+    type: "uses"
     evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+
 tags: ["lua","modules","otclient","vBot"]
 provenance: []
 version: "1.0"
-updated: "2025-10-14"
+updated: "2025-10-17"
 ---
+
 
 # Moduły Lua
 
 (facet-03_modules.summary)=
+
 ## Dataset: summary
-- headers: `metric,value,note`
-- facet: `03_modules.summary`
+
+* headers: `metric,value,note`
+* facet: `03_modules.summary`
 
 (facet-03_modules.lua_exports)=
+
 ## Dataset: lua_exports
-- headers: `module,function,params,returns,raises,availability,notes`
-- facet: `03_modules.lua_exports`
+
+* headers: `module,function,params,returns,raises,availability,notes`
+* facet: `03_modules.lua_exports`
 
 (facet-03_modules.modules_index)=
+
 ## Dataset: modules_index
-- headers: `id,name,path,scripts_count,reloadable,sandboxed,author,website`
-- facet: `03_modules.modules_index`
+
+* headers: `id,name,path,scripts_count,reloadable,sandboxed,author,website`
+* facet: `03_modules.modules_index`
 
 (facet-03_modules.hot_reload)=
+
 ## Dataset: hot_reload
-- headers: `module,file,watched,last_reload,errors`
-- facet: `03_modules.hot_reload`
+
+* headers: `module,file,watched,last_reload,errors`
+* facet: `03_modules.hot_reload`
 
 (facet-03_modules.modules_graph)=
+
 ## Diagram: modules_graph
-- facet: `03_modules.modules_graph`
+
+* facet: `03_modules.modules_graph`
 
 ## Relacje
-- renders → `04_ui.ui_widgets`
-- handles → `02_events.events_matrix`
-- logs → `09_logging.logging_categories`
+
+* uses → `04_ui.ui_widgets`
+* handles → `02_events.events_matrix`
+* uses → `09_logging.logging_categories`
 
 ---
 
@@ -79,54 +95,54 @@ updated: "2025-10-14"
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
 
-> Cel: ten rozdzial inwentaryzuje moduly OTClienta na podstawie plikow .otmod, generuje dane w NDJSON i CSV, tlumaczy pola i relacje, oraz dostarcza gotowe ekstraktory i statystyki. Styl jest elastyczny i konkretny. Calosc ASCII-only, UTF-8 bez BOM.
+> Cel: ten rozdział inwentaryzuje moduły OTClienta na podstawie plików .otmod, generuje dane w NDJSON i CSV, tłumaczy pola i relacje, oraz dostarcza gotowe ekstraktory i statystyki. Styl elastyczny i konkretny. Całość ASCII-only, UTF-8 bez BOM.
 
 ---
 
 ### 0) Executive summary
 
-- Co: metadane modulow (.otmod), w tym nazwa, autor, flagi (reloadable, sandboxed), listy skryptow i hookow, oraz relacje do UI i runtime.
-- Dla kogo: inzynierowie, maintainerzy modulow, narzedzia AI/RAG i Studio (Electron/React).
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, correlations), diagramy (Mermaid), narracja (sekcje merytoryczne).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, IPC hooki Studio, checklist DoD.
+* Co: metadane modułów (.otmod), w tym nazwa, autor, flagi (reloadable, sandboxed), listy skryptów i hooków, oraz relacje do UI i runtime.
+* Dla kogo: inżynierowie, maintainerzy modułów, narzędzia AI/RAG i Studio (Electron/React).
+* Output: NDJSON (pełny), CSV (spłaszczony), statystyki (JSON/MD), analizy (findings, correlations), diagramy (Mermaid), narracja (sekcje merytoryczne).
+* Agent-ready: mapa plików, punkty wstrzyknięć (AGENT:INSERT), IO setup, CSV header, IPC hooki Studio, checklist DoD.
 
 ---
 
 ### 1) Struktura folderu i linkowanie
 
 ```bash
-03_modules/
+docs/authoring/03_modules/
   README.md                      # narracja + TOC + nawigacja (ten plik)
-  meta.json                      # mapa plikow + zadania + tags (machine-readable)
-  modules.schema.json            # walidacja rekordow NDJSON (module)
+  meta.json                      # mapa plików + zadania + tags (machine-readable)
+  modules.schema.json            # walidacja rekordów NDJSON (module)
   sections/
-    00_otclient_modules_basics.md # wprowadzenie do modulow i .otmod
-    01_introduction.md            # po co inwentaryzowac moduly (kontekst)
-    02_module_model.md            # slownik pol modulu + przyklady + pulapki
-    03_collection_methods.md      # jak zbieramy (skan .otmod, zrodla, fallbacki)
-    04_quality_and_limits.md      # jakosc, ograniczenia, SLO
-    05_how_to_read_stats.md       # jak czytac statystyki i korelowac
+    00_otclient_modules_basics.md
+    01_introduction.md
+    02_module_model.md
+    03_collection_methods.md
+    04_quality_and_limits.md
+    05_how_to_read_stats.md
   datasets/
-    modules.dataset.jsonl         # NDJSON (append-only)
-    modules.dataset.csv           # CSV (naglowek staly)
+    modules.dataset.jsonl        # NDJSON (append-only)
+    modules.dataset.csv          # CSV (nagłówek stały)
     chunks/
-      README.md                   # polityka dzielenia
+      README.md
   stats/
-    stats.json                    # metryki zbiorcze (np. rozklad flag)
-    stats.md                      # raport czytelny dla ludzi
+    stats.json
+    stats.md
   analysis/
-    findings.md                   # wnioski z danych + linki do rekordow
-    correlations.md               # korelacje z runtime/events/ui
-    figures/                      # wykresy i tabele eksportowane
+    findings.md
+    correlations.md
+    figures/
   extractors/
-    modules_inventory.lua         # skan .otmod -> NDJSON+CSV
-    modules_stats.lua             # agregacje -> stats.json + stats.md
+    modules_inventory.lua
+    modules_stats.lua
   diagrams/
-    modules_flow.mmd              # Mermaid: przeplyw inwentaryzacji
-    modules_relations.mmd         # Mermaid: relacje modul - UI - runtime
+    modules_flow.mmd
+    modules_relations.mmd
 ```
 
-Note: IO setup w README ponizej. Zawsze ASCII-only, UTF-8 bez BOM, LF konce linii.
+Note: IO setup w README poniżej. Zawsze ASCII-only, UTF-8 bez BOM, LF końce linii.
 
 ---
 
@@ -152,15 +168,15 @@ outputs:
   - ./stats/stats.md
 encoding: UTF-8 (no BOM)
 ---
-Short: rozdzial kataloguje moduly (.otmod), ich metadane i relacje. Dane sa pod RAG i analizy oraz do walidacji spojnosc builda.
+Short: rozdział kataloguje moduły (.otmod), ich metadane i relacje. Dane są pod RAG i analizy oraz do walidacji spójności builda.
 
 Table of contents
 - [0. OTClient - modules basics](./sections/00_otclient_modules_basics.md)
 - [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model modulu (slownik)](./sections/02_module_model.md)
+- [2. Model modułu (słownik)](./sections/02_module_model.md)
 - [3. Zbieranie (skan .otmod)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
+- [4. Jakość i ograniczenia](./sections/04_quality_and_limits.md)
+- [5. Jak czytać statystyki](./sections/05_how_to_read_stats.md)
 - [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
 
 Quick links
@@ -178,76 +194,76 @@ CSV header (modules.dataset.csv)
 
 id,ts,name,reloadable,sandboxed,scripts_count,loadLater_count,author,website
 
-Header jest staly - narzedzia BI moga cachowac schemat.
+Header jest stały - narzędzia BI mogą cachować schemat.
 
 IO setup
 - Default: dofile('../../_shared/lua/docio.lua')
 - Isolated: copy to 03_modules/_local/docio.lua and use dofile('../_local/docio.lua')
 
-Skad do _shared
+Skąd do _shared
 | Start location | Path to _shared |
 |---|---|
-| 03_modules/extractors | ../../_shared/lua/docio.lua |
-| 03_modules | ../_shared/lua/docio.lua |
+| docs/authoring/03_modules/extractors | ../../_shared/lua/docio.lua |
+| docs/authoring/03_modules | ../_shared/lua/docio.lua |
 
 Chunks aggregation
-- Aggregator czyta glowny plik oraz opcjonalny indeks: docs/03_modules/datasets/chunks/index.json (JSON array nazw chunkow).
+- Aggregator czyta główny plik oraz opcjonalny indeks: docs/authoring/03_modules/datasets/chunks/index.json (JSON array nazw chunków).
 
-Studio hooks (Electron) - skrot
+Studio hooks (Electron) - skrót
 - IPC: 'studio:modules.inventory.scan' -> uruchamia modules_inventory.lua
 - IPC: 'studio:aggregate.modules' -> uruchamia modules_stats.lua
 - IPC: 'studio:open.modules' {type: 'jsonl'|'csv'} -> otwiera dataset w Studio
 - Preload: contextIsolation: true; nodeIntegration: false; eksponuj bezpieczne API
-- Sandbox: wszystkie zapisy ida przez docio.lua pod 03_modules
-- View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
+- Sandbox: wszystkie zapisy idą przez docio.lua pod docs/authoring/03_modules
+- View: podgląd stats.md + tabela CSV; linki do rekordów po id w NDJSON
 ```
 
 ---
 
-### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
+### 3) Mapa plików i odpowiedzialności (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| modules.schema.json | walidacja rekordow modulu | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | inventory | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | inventory | liczby skryptow w kolumnach |
-| stats/*.json\|md | metryki zbiorcze | aggregator | rozklad flag, top scripts |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i korelacje | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+| Plik / Katalog      | Rola                      | Kto uzupełnia  | Uwagi                       |
+| ------------------- | ------------------------- | -------------- | --------------------------- |
+| modules.schema.json | walidacja rekordów modułu | Agent/CI       | waliduj linie po linii      |
+| datasets/*.jsonl    | pełne rekordy (append)    | inventory      | rotacja w chunks/           |
+| datasets/*.csv      | widok spłaszczony         | inventory      | liczby skryptów w kolumnach |
+| stats/*.json|md     | metryki zbiorcze          | aggregator     | rozkład flag, top scripts   |
+| sections/*.md       | narracja i wyjaśnienia    | Agent/Autor    | AGENT:INSERT punkty         |
+| analysis/*          | wnioski i korelacje       | Agent/Analityk | linkuj id rekordów          |
+| extractors/*.lua    | zrzut i agregacja         | system         | nie zmieniaj API zapisu     |
 
 ---
 
-### 4) Slownik modulu (data dictionary)
+### 4) Słownik modułu (data dictionary)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | mod:client | Unikat modulu: `mod:<name>`. |
-| type | string | module | Stala wartosc: module. |
-| ts | string | 2025-10-08T12:00:00Z | Czas inwentaryzacji (UTC). |
-| name | string | client | Nazwa modulu z .otmod. |
-| description | string | Client base module | Opis (jesli wystepuje). |
-| author | string | Example Author | Autor modulu. |
-| website | string | <https://example.tld> | Witryna (opcjonalna). |
-| reloadable | boolean | true | Czy modul mozna przezaladowac. |
-| sandboxed | boolean | false | Czy modul dziala w piaskownicy. |
-| scripts[] | string[] | [main.lua,...] | Lista skryptow ladowanych. |
-| loadLater[] | string[] | [extra.lua] | Lista skryptow ladowanych pozniej. |
-| onLoad | string | handler | Nazwa hooka onLoad (opcjonalnie). |
-| onUnload | string | handler | Nazwa hooka onUnload (opcjonalnie). |
-| links[] | string[] | ui:..., runtime:... | Powiazania z innymi rozdzialami. |
+| Pole        | Typ      | Przykład                                   | Znaczenie                           |
+| ----------- | -------- | ------------------------------------------ | ----------------------------------- |
+| id          | string   | mod:client                                 | Unikat modułu: `mod:<name>`.        |
+| type        | string   | module                                     | Stała wartość: module.              |
+| ts          | string   | 2025-10-08T12:00:00Z                       | Czas inwentaryzacji (UTC).          |
+| name        | string   | client                                     | Nazwa modułu z .otmod.              |
+| description | string   | Client base module                         | Opis (jeśli występuje).             |
+| author      | string   | Example Author                             | Autor modułu.                       |
+| website     | string   | [https://example.tld](https://example.tld) | Witryna (opcjonalna).               |
+| reloadable  | boolean  | true                                       | Czy moduł można przeładować.        |
+| sandboxed   | boolean  | false                                      | Czy moduł działa w piaskownicy.     |
+| scripts[]   | string[] | [main.lua,...]                             | Lista skryptów ładowanych.          |
+| loadLater[] | string[] | [extra.lua]                                | Lista skryptów ładowanych później.  |
+| onLoad      | string   | handler                                    | Nazwa hooka onLoad (opcjonalnie).   |
+| onUnload    | string   | handler                                    | Nazwa hooka onUnload (opcjonalnie). |
+| links[]     | string[] | ui:..., runtime:...                        | Powiązania z innymi rozdziałami.    |
 
-> Agent tip: w sections/02_module_model.md wstaw 3-5 realnych modulow z NDJSON i jednozdaniowy komentarz do kazdego.
+> Agent tip: w sections/02_module_model.md wstaw 3–5 realnych modułów z NDJSON i jednozdaniowy komentarz do każdego.
 
 ---
 
 ### 5) Pipeline danych (odczyt -> zapis -> analiza)
 
 1. Inventory skanuje wskazane .otmod i dopisuje rekordy do NDJSON + CSV.
-2. Aggregator liczy metryki (rozklad reloadable/sandboxed, top scripts) i zapisuje stats.*.
-3. Narracja: sekcje opisowe z przykladami i odwolaniami do id modulow.
-4. Analizy: findings i correlations (np. modul vs ekran UI, modul vs eventy).
-5. Publikacja: sprawdz checklist DoD i oznacz rozdzial jako ready.
+2. Aggregator liczy metryki (rozkład reloadable/sandboxed, top scripts) i zapisuje stats.*.
+3. Narracja: sekcje opisowe z przykładami i odwołaniami do id modułów.
+4. Analizy: findings i correlations (np. moduł vs ekran UI, moduł vs eventy).
+5. Publikacja: sprawdź checklist DoD i oznacz rozdział jako ready.
 
 ---
 
@@ -257,31 +273,31 @@ sections/00_otclient_modules_basics.md
 
 ```markdown
 # Modules - podstawy dla nowych dev
-Moduly to jednostki funkcjonalne OTClienta, zdefiniowane przez pliki .otmod (manifesty). Okreslaja metadane, listy skryptow i zasoby.
+Moduły to jednostki funkcjonalne OTClienta, zdefiniowane przez pliki .otmod (manifesty). Określają metadane, listy skryptów i zasoby.
 
-Pojecia
+Pojęcia
 - .otmod: manifest z polami name, description, author, website, reloadable, sandboxed, scripts, load-later, onLoad, onUnload.
-- Kolejnosc ladowania: czesto istotna dla zaleznosci miedzy modulami.
-- Relacje: moduly dostarczaja OTUI i skrypty, wplywajac na runtime i eventy.
+- Kolejność ładowania: często istotna dla zależności między modułami.
+- Relacje: moduły dostarczają OTUI i skrypty, wpływając na runtime i eventy.
 ```
 
 sections/01_introduction.md
 
 ```markdown
-# Wprowadzenie - po co inwentaryzowac moduly
-Inventory daje caly obraz konfiguracji i skladu klienta: kto jest wlascicielem funkcji, jak rozkladac odpowiedzialnosci, jakie skrypty wchodza w sklad, oraz ktore moduly sa reloadable.
+# Wprowadzenie - po co inwentaryzować moduły
+Inventory daje cały obraz konfiguracji i składu klienta: kto jest właścicielem funkcji, jak rozkładać odpowiedzialności, jakie skrypty wchodzą w skład, oraz które moduły są reloadable.
 
-Kiedy uzywac
-- diagnoza problemow ladowania,
-- analiza bezpieczenstwa (sandboxed),
-- przeglad zaleznosci i spojnosc builda.
+Kiedy używać
+- diagnoza problemów ładowania,
+- analiza bezpieczeństwa (sandboxed),
+- przegląd zależności i spójność builda.
 ```
 
 sections/02_module_model.md
 
 ```markdown
-# Model modulu - definicje i przyklady
-Zobacz slownik w README. Wstaw krótkie przyklady z pliku NDJSON i krotki komentarz.
+# Model modułu - definicje i przykłady
+Zobacz słownik w README. Wstaw krótkie przykłady z pliku NDJSON i krótki komentarz.
 
 <!-- AGENT:INSERT:MODULE-EXAMPLES -->
 ```
@@ -290,26 +306,26 @@ sections/03_collection_methods.md
 
 ```markdown
 # Zbieranie (skan .otmod)
-- modules_inventory.lua czyta sciezki do .otmod z configu lub z listy domyslnej.
-- payload recordu zawiera pelne metadane i listy skryptow; CSV dostaje zliczenia.
+- modules_inventory.lua czyta ścieżki do .otmod z configu lub z listy domyślnej.
+- payload rekordu zawiera pełne metadane i listy skryptów; CSV dostaje zliczenia.
 - Studio: uruchamiaj inventory przez IPC (patrz README Studio hooks).
 ```
 
 sections/04_quality_and_limits.md
 
 ```markdown
-# Jakosc i ograniczenia
-- Format .otmod w forkach moze byc rozszerzony - opisz to w analysis/findings.md.
-- Nazwy modulow musza byc stabilne - zmiana wymaga mapy aliasow.
-- Jesli modul nie ma wszystkich pol, rekord pozostaje czesciowy; nie przerywaj inwentaryzacji.
+# Jakość i ograniczenia
+- Format .otmod w forkach może być rozszerzony — opisz to w analysis/findings.md.
+- Nazwy modułów muszą być stabilne — zmiana wymaga mapy aliasów.
+- Jeśli moduł nie ma wszystkich pól, rekord pozostaje częściowy; nie przerywaj inwentaryzacji.
 ```
 
 sections/05_how_to_read_stats.md
 
 ```markdown
-# Jak czytac statystyki
-- Rozklad reloadable i sandboxed pokazuje gotowosc builda do hot-reload i bezpieczenstwo.
-- Top modules by scripts_count wskazuje zlozone komponenty - dobry kandydat do przegladów.
+# Jak czytać statystyki
+- Rozkład reloadable i sandboxed pokazuje gotowość builda do hot-reload i bezpieczeństwo.
+- Top modules by scripts_count wskazuje złożone komponenty — dobry kandydat do przeglądów.
 
 <!-- AGENT:INSERT:READING-GUIDE -->
 ```
@@ -320,10 +336,10 @@ sections/05_how_to_read_stats.md
 
 ```markdown
 # Chunks - polityka
-- Utrzymuj glowne pliki do ok. 50 MB.
-- Starsze dane przenos do modules.dataset.<YYYYMMDD-HHMM>.jsonl oraz .csv.
-- Po przeniesieniu chunkow traktuj je jako read-only.
-- Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni sie nazwa katalogu.
+- Utrzymuj główne pliki do ok. 50 MB.
+- Starsze dane przenieś do modules.dataset.<YYYYMMDD-HHMM>.jsonl oraz .csv.
+- Po przeniesieniu chunków traktuj je jako read-only.
+- Zaktualizuj meta.json (datasets.chunksDir) gdy zmieni się nazwa katalogu.
 ```
 
 ---
@@ -362,8 +378,8 @@ sections/05_how_to_read_stats.md
 extractors/modules_inventory.lua
 
 ```lua
--- 03_modules/extractors/modules_inventory.lua
--- Inwentaryzacja plikow .otmod -> JSONL + CSV (splaszczone kluczowe pola)
+-- docs/authoring/03_modules/extractors/modules_inventory.lua
+-- Inwentaryzacja plików .otmod -> JSONL + CSV (spłaszczone kluczowe pola)
 -- ASCII-only; UTF-8 bez BOM; LF
 local docio = dofile('../../_shared/lua/docio.lua')
 local json = require('json')
@@ -415,11 +431,9 @@ local function addModule(fpath)
   local txt = g_resources.readFileContents(fpath)
   local m = parseOtmod(txt)
   if m.name == '' then
-    -- nazwij tymczasowo po sciezce
     m.name = fpath:match('([^/]+)%.otmod$') or fpath
   end
   if m.name == '' then
-    -- fallback: basename pliku .otmod, nastepnie sanitizacja pod schema
     local base = fpath:match('([^/]+)%.otmod$') or fpath:match('([^/]+)$') or 'module'
     m.name = sanitizeName(base)
   else
@@ -442,21 +456,20 @@ local function addModule(fpath)
     links = {}
   }
   -- JSONL
-  docio.appendJsonl('docs/03_modules/datasets/modules.dataset.jsonl', rec, MAX_BYTES)
+  docio.appendJsonl('docs/authoring/03_modules/datasets/modules.dataset.jsonl', rec, MAX_BYTES)
   -- CSV
-  docio.writeCsvHeader('docs/03_modules/datasets/modules.dataset.csv', CSV_HEADER)
+  docio.writeCsvHeader('docs/authoring/03_modules/datasets/modules.dataset.csv', CSV_HEADER)
   local row = {
     id = rec.id, ts = rec.ts, name = rec.name,
     reloadable = rec.reloadable, sandboxed = rec.sandboxed,
     scripts_count = #rec.scripts, loadLater_count = #rec.loadLater,
     author = rec.author, website = rec.website
   }
-  docio.appendCsvRow('docs/03_modules/datasets/modules.dataset.csv', CSV_HEADER, row, MAX_BYTES)
+  docio.appendCsvRow('docs/authoring/03_modules/datasets/modules.dataset.csv', CSV_HEADER, row, MAX_BYTES)
 end
 
 local function loadTargets()
-  -- Priorytet: jesli istnieje lista sciezek z configu, uzyj jej
-  local cfg = docio.readAll('docs/03_modules/config/modules.paths.txt')
+  local cfg = docio.readAll('docs/authoring/03_modules/config/modules.paths.txt')
   local out = {}
   if cfg and #cfg > 0 then
     for line in cfg:gmatch('[^\r\n]+') do
@@ -465,7 +478,6 @@ local function loadTargets()
     end
     return out
   end
-  -- Fallback: heurystyczna lista najczestszych modulow
   return {
     '/modules/client/client.otmod',
     '/modules/entergame/entergame.otmod',
@@ -486,7 +498,7 @@ run()
 extractors/modules_stats.lua
 
 ```lua
--- 03_modules/extractors/modules_stats.lua
+-- docs/authoring/03_modules/extractors/modules_stats.lua
 -- Agregacja NDJSON -> stats.json + stats.md (deterministyczny output)
 -- ASCII-only; UTF-8 bez BOM; LF
 local docio = dofile('../../_shared/lua/docio.lua')
@@ -504,17 +516,17 @@ end
 
 local function loadAllRecords()
   local recs = {}
-  local head = docio.readAll('docs/03_modules/datasets/modules.dataset.jsonl')
+  local head = docio.readAll('docs/authoring/03_modules/datasets/modules.dataset.jsonl')
   local headList = parseLines(head)
   for i=1,#headList do recs[#recs+1] = headList[i] end
-  local indexText = docio.readAll('docs/03_modules/datasets/chunks/index.json')
+  local indexText = docio.readAll('docs/authoring/03_modules/datasets/chunks/index.json')
   if indexText and #indexText > 0 then
     local ok, list = pcall(function() return json.decode(indexText) end)
     if ok and type(list) == 'table' then
       for _,fname in ipairs(list) do
         local path = fname
         if not tostring(fname):match('^docs/') then
-          path = 'docs/03_modules/datasets/chunks/' .. tostring(fname)
+          path = 'docs/authoring/03_modules/datasets/chunks/' .. tostring(fname)
         end
         local t = docio.readAll(path)
         local more = parseLines(t)
@@ -547,15 +559,15 @@ local function writeMD(s)
   for k,_ in pairs(s.topScripts) do names[#names+1] = k end
   table.sort(names)
   for _,k in ipairs(names) do md[#md+1] = string.format('- %s: %d\n', k, s.topScripts[k]) end
-  md[#md+1] = '\nHint: duza liczba skryptow moze wskazywac na zlozony modul wymagajacy wiekszej uwagi.\n'
+  md[#md+1] = '\nHint: duża liczba skryptów może wskazywać na złożony moduł wymagający większej uwagi.\n'
   return table.concat(md)
 end
 
 local function run()
   local recs = loadAllRecords()
   local s = stats(recs)
-  docio.writeAll('docs/03_modules/stats/stats.json', json.encode(s))
-  docio.writeAll('docs/03_modules/stats/stats.md', writeMD(s))
+  docio.writeAll('docs/authoring/03_modules/stats/stats.json', json.encode(s))
+  docio.writeAll('docs/authoring/03_modules/stats/stats.md', writeMD(s))
 end
 
 run()
@@ -596,29 +608,29 @@ graph TD
 
 ### 11) Encoding i formatowanie (UTF-8 safe)
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Pliki: UTF-8 bez BOM, ASCII-only w treści (kreska '-', cudzysłów ", apostrof ').
+* Koniec linii: LF. Unikaj znaków specjalnych i długich myślników.
+* Nagłówki: H1 (#), pozostałe H3 (###) aby Sphinx parsował łagodniej.
 
 ---
 
-### 12) Jakosc, SLO i bezpieczenstwo (krotko)
+### 12) Jakość, SLO i bezpieczeństwo (krótko)
 
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- CSV zawiera zliczenia skryptow; pelne listy tylko w NDJSON.
-- Brak danych wrazliwych; zachowaj ostroznosc przy polach description lub website.
+* NDJSON append-only; przy dużych wolumenach użyj chunks.
+* CSV zawiera zliczenia skryptów; pełne listy tylko w NDJSON.
+* Brak danych wrażliwych; zachowaj ostrożność przy polach description lub website.
 
 ---
 
 ### 13) DoD Checklist - Agent clickable
 
-- [ ] Zapis do docs/03_modules/datasets/modules.dataset.jsonl i modules.dataset.csv dziala (>= 5 modulow, jesli dostepne).
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_otclient_modules_basics.md, 01_introduction.md, 02_module_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/correlations.md dodano min. 1 korelacje modul -> UI lub modul -> events.
-- [ ] Diagramy modules_flow.mmd i modules_relations.mmd istnieja i sa logiczne.
-- [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../04_ui.
-- [ ] Walidacja probki 10 linii NDJSON przeciw modules.schema.json zakonczona bez bledow.
+* [ ] Zapis do docs/authoring/03_modules/datasets/modules.dataset.jsonl i modules.dataset.csv działa (≥ 5 modułów, jeśli dostępne).
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
+* [ ] Uzupełniono sekcje: 00_otclient_modules_basics.md, 01_introduction.md, 02_module_model.md (z przykładami), 03_collection_methods.md.
+* [ ] W analysis/correlations.md dodano min. 1 korelację moduł -> UI lub moduł -> events.
+* [ ] Diagramy modules_flow.mmd i modules_relations.mmd istnieją i są logiczne.
+* [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../04_ui.
+* [ ] Walidacja próbki 10 linii NDJSON przeciw modules.schema.json zakończona bez błędów.
 
 ---
 
@@ -677,7 +689,7 @@ graph TD
     "tasks": [
       {"id": "inventory", "desc": "Skan .otmod do JSONL/CSV", "outputs": ["datasets.jsonl", "datasets.csv"]},
       {"id": "aggregate", "desc": "Agregacja do stats.json/stats.md", "outputs": ["stats.json", "stats.md"]},
-      {"id": "author", "desc": "Uzupelnienie sekcji i korelacji + wstrzykniecia danych", "targets": ["sections/*", "analysis/*"]}
+      {"id": "author", "desc": "Uzupełnienie sekcji i korelacji + wstrzyknięcia danych", "targets": ["sections/*", "analysis/*"]}
     ],
     "insertPoints": {
       "sections/02_module_model.md": ["AGENT:INSERT:MODULE-EXAMPLES"],

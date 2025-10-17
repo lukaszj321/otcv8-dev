@@ -1,0 +1,12 @@
+Module
+  name: example_module
+  description: Short module description
+  author: yourname
+  website: https://example.com
+  sandboxed: true
+  reloadable: false
+  scripts: [ example ]
+  @onLoad: init()
+  @onUnload: terminate()
+  dependencies:
+    - game_interface

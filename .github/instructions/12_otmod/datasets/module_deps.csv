@@ -1,4 +1,0 @@
-module_name,depends_on
-game_skills,game_interface
-game_stats,game_interface
-game_hotkeys,game_interface

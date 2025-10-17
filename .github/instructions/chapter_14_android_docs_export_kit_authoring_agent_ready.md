@@ -7,46 +7,93 @@ doc_class: platform/android
 language: pl
 title: 14_android — struktura projektu, ABI i pakowanie zasobów
 summary: Warstwa Java/JNI, matryca ABI, pakowanie assets oraz wskazówki CMake/Gradle do stabilnego builda i dystrybucji.
-tags: [android, ndk, jni, abi, assets, cmake, gradle]
+tags: [android, ndk, jni, abi, assets, cmake, gradle, agent, ipc]
+artifacts:
+  datasets:
+    - id: "android_libs"
+      file: "android_libs.csv"
+      headers: ["abi","so_name","size_bytes","sha256","min_sdk","stl","notes"]
+      facet: "14_android.libs"
+    - id: "android_assets"
+      file: "android_assets.csv"
+      headers: ["path","kind","bytes","sha256","bundle","notes"]
+      facet: "14_android.assets"
+    - id: "abi_matrix"
+      file: "abi_matrix.csv"
+      headers: ["abi","present_in_apk","load_ok","java_calls","jni_exports","notes"]
+      facet: "14_android.abi_matrix"
+    - id: "jni_signatures"
+      file: "jni_signatures.csv"
+      headers: ["java_class","java_method","java_sig","cpp_symbol","status","notes"]
+      facet: "14_android.jni_signatures"
+    - id: "fps_report"
+      file: "fps_report.csv"
+      headers: ["device","abi","scene","avg_fps","p1_fps","p99_frametime_ms","notes"]
+      facet: "14_android.fps_report"
+  diagrams:
+    - id: "pipeline"
+      file: "pipeline.mmd"
+      facet: "14_android.pipeline"
+    - id: "jni_flow"
+      file: "jni_flow.mmd"
+      facet: "14_android.jni_flow"
+xrefs:
+  - to: "11_data.ui_asset_usage"
+    type: "assets"
+    evidence: "docs/11_data/datasets/ui_asset_usage.csv"
+  - to: "12_otmod.module_ui_links"
+    type: "renders"
+    evidence: "docs/12_otmod/datasets/module_ui_links.csv"
+encoding: "UTF-8 (no BOM)"
 ---
 
 ```{contents}
 :local:
 :depth: 2
-```
+````
 
-## 1. Przegląd projektu
+# 0) Executive summary
 
-Katalog `android/` zawiera elementy wymagane do budowy aplikacji: manifest, zasoby (`res/`),
-warstwę Java (`src/com/otclientv8`) i bibliotekę JNI (`otclientv8_lib`) z `.so` per ABI.
-Zasoby aplikacji (`assets/`) są **wspólne** dla wszystkich ABI.
+* **Co:** build Android z warstwą **Java/JNI**, **matrycą ABI** (`armeabi-v7a`, `arm64-v8a`, `x86_64`), **wspólnymi assets** oraz stabilnym CMake/Gradle.
+* **Dla kogo:** inżynierowie, QA, Studio (Electron) — sterowanie ADB i sanity przez **IPC**.
+* **Output:** CSV (libs/assets/abi/jni/fps), raporty QA, diagramy Mermaid, przykłady kodu.
+* **Privacy & size:** brak danych wrażliwych; kontrola rozmiaru APK/AAB i zasobów.
 
-## 2. Struktura (kontrakt)
+---
+
+# 1) Przegląd projektu
+
+Katalog `android/` zawiera manifest, zasoby (`res/`), warstwę Java (`src/com/otclientv8`) i bibliotekę JNI (`.so` per ABI). Zasoby (`assets/`) są **wspólne** dla wszystkich ABI.
+
+# 2) Struktura (kontrakt)
 
 ```{list-table} Katalogi Android
 :header-rows: 1
 * - ścieżka
   - opis
 * - android/AndroidManifest.xml
-  - Główne ustawienia aplikacji, GL ES, uprawnienia
-* - android/otclientv8_lib/jni
-  - Kod C/C++ (NDK), konfiguracje kompilacji
-* - android/otclientv8_lib/libs/<abi>/
-  - Artefakty `.so` dostarczane do APK/AAB (per ABI)
-* - android/assets
-  - Zasoby (data/, shaders/, configs/)
-* - android/res
-  - Layouty natywne Android (nie mylić z OTUI), ikonografia
+  - Ustawienia aplikacji, GL ES, uprawnienia
+* - android/app/src/main/java/com/otclientv8
+  - Kod Java/Kotlin (Bridge, MainActivity, Renderer)
+* - android/app/src/main/cpp
+  - Kod C/C++ (NDK), pliki JNI
+* - android/app/src/main/jniLibs/<abi>/
+  - Artefakty `.so` w debug lub prebuilt
+* - android/app/src/main/assets
+  - Zasoby współdzielone (data/, shaders/, configs/)
+* - android/app/src/main/res
+  - Layouty/ikonografia Android (nie mylić z OTUI)
 ```
 
-## 3. ABI i biblioteki JNI
+# 3) ABI i biblioteki JNI
 
-Obsługujemy: `armeabi-v7a`, `arm64-v8a`, `x86_64`. Każdy wariant generuje bibliotekę `libotclientv8.so`
-o identycznym API JNI. Zalecenia:
+Obsługiwane ABI: `armeabi-v7a`, `arm64-v8a`, `x86_64`. Każdy wariant generuje `libotclientv8.so` z tym samym API.
 
-- Wersjonowanie semantyczne w metadanych (np. `JNI_API=1`).
-- Smoke-test ładowania na emulatorze dla każdego ABI.
-- Weryfikacja symboli (`readelf -Ws` / `llvm-nm`) aby uniknąć konfliktów.
+Rekomendacje:
+
+* **SEMVER API:** `JNI_API=1` w `target_compile_definitions`.
+* **Smoke-test** ładowania każdej `.so` na emulatorze/urządzeniu.
+* **Weryfikacja symboli:** `readelf -Ws`, `llvm-nm` — brak konfliktów i nieużywanych exportów.
 
 ```{csv-table} android_libs
 :header-rows: 1
@@ -58,15 +105,11 @@ o identycznym API JNI. Zalecenia:
 
 ### Facet: `14_android.libs`
 
-Identyfikator datasetu dla linterów QA.
+# 4) Assets: pakowanie i spójność
 
-## 4. Assets: pakowanie i spójność
-
-Zasoby są wspólne (data/shaders/configs). Rekomendacje:
-
-- **Hashing** w raporcie CI (nie w repo) – spójność między branchami.
-- **Struktura** jak w projekcie desktopowym (`data/`, `shaders/`) dla łatwej synchronizacji.
-- **Rozmiary** – unikaj plików > 5 MB; rozważ kompresję PNG/JPG przy zachowaniu jakości.
+* Struktura jak desktop (`data/`, `shaders/`, `configs/`), by łatwo diffować.
+* **Rozmiary:** unikaj > 5 MB/plik; PNG/JPG/WebP z kontrolą jakości.
+* **Hashing w CI:** spójność między branchami bez commitu do repo.
 
 ```{csv-table} android_assets
 :header-rows: 1
@@ -78,264 +121,16 @@ Zasoby są wspólne (data/shaders/configs). Rekomendacje:
 
 ### Facet: `14_android.assets`
 
-Ułatwia linkowanie w innych rozdziałach.
+# 5) JNI: kontrakt i zdarzenia (przykłady)
 
-## 5. JNI: kontrakt i zdarzenia
-
-Interfejs JNI obsługuje inicjalizację i zdarzenia wejścia. Przykładowe sygnatury:
-
-```java
-public class Bridge {
-  static { System.loadLibrary("otclientv8"); }
-  public static native void nativeInit(int width, int height);
-  public static native void nativeEvent(int type, String payload);
-}
-```
-
-Składnik C++ (mostek):
-
-```cpp
-extern "C" JNIEXPORT void JNICALL
-Java_com_otclientv8_Bridge_nativeInit(JNIEnv* env, jclass, jint w, jint h) {
-  Engine::instance().init(w, h);
-}
-```
-
-## 6. CMake / Gradle (integracja)
-
-Fragment `CMakeLists.txt`:
-
-```cmake
-add_library(otclientv8 SHARED
-  src/main/cpp/main.cpp
-  src/main/cpp/bridge_jni.cpp)
-
-find_library(log-lib log)
-target_link_libraries(otclientv8 PRIVATE ${log-lib})
-target_compile_definitions(otclientv8 PRIVATE JNI_API=1)
-```
-
-Gradle (splity ABI i AAB):
-
-```gradle
-android {
-  defaultConfig { ndk { abiFilters "armeabi-v7a","arm64-v8a","x86_64" } }
-  bundle { abi { enableSplit = true } }
-}
-```
-
-## 7. GL konfiguracja i wydajność
-
-- Ustaw w Manifeście `android:glEsVersion="0x00020000"` (GLES2) lub wyżej.
-- Dostosuj rozdzielczość bufora (np. `EGL_BUFFER_PRESERVED` zależnie od urządzenia).
-- Włącz `android:largeHeap="true"` tylko jeśli to uzasadnione pamięciowo.
-
-## 8. QA (Android)
-
-- **abi-matrix** – wszystkie `.so` załadowane; raport zawiera ścieżkę i SHA.
-- **asset-hash** – porównanie `assets/` z datasetami.
-- **jni-signature** – porównanie sygnatur Java vs C++.
-- **fps** – minimalny FPS na scenie testowej.
-
-## 9. FAQ
-
-**Czy można dodać zasób tylko dla jednego ABI?**  
-Nie – assets są wspólne. ABI dotyczy wyłącznie `.so`.
-
-**Jak debugować JNI?**  
-Użyj LLDB w Android Studio, włącz symbole (`-g`) i nieobfuscowane nazwy.
-
----
-
-## Aneks redakcyjny (merytoryczne uzupełnienia)
-
-### Manifest (fragment GL ES)
-
-```xml
-<uses-feature android:glEsVersion="0x00020000" android:required="true"/>
-```
-
-### LLDB (kroki skrócone)
-
-1) Build debug; 2) uruchom APK; 3) Attach LLDB do procesu.
-
-### Skrypt CI (pseudo)
-
-```bash
-for abi in armeabi-v7a arm64-v8a x86_64; do
-  adb install --abi $abi app.apk || exit 1
-  adb shell am start -n com.otclientv8/.Main
-  sleep 5; adb shell am force-stop com.otclientv8
-done
-```
-
-## 10. Manifest minimalny (pełny przykład)
-
-```xml
-<manifest package="com.otclientv8" xmlns:android="http://schemas.android.com/apk/res/android">
-  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>
-  <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <application android:label="@string/app_name" android:icon="@mipmap/ic_launcher">
-    <activity android:name=".MainActivity"
-      android:configChanges="orientation|keyboardHidden|screenSize">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-  </application>
-</manifest>
-```
-
-## 11. Konfiguracja Gradle (KTS) i NDK flags
-
-```kotlin
-android {
-  defaultConfig {
-    ndk { abiFilters += listOf("armeabi-v7a","arm64-v8a","x86_64") }
-    externalNativeBuild {
-      cmake {
-        cppFlags += "-std=c++17 -fvisibility=hidden -fno-exceptions -fno-rtti"
-        arguments += listOf("-DANDROID_STL=c++_shared","-DJNI_API=1")
-      }
-    }
-  }
-  buildTypes {
-    getByName("release") { isMinifyEnabled = false }
-  }
-}
-```
-
-## 12. Wysyłka AAB i testy na Play
-
-- Zbuduj `:app:bundleRelease`.
-- Sprawdź *ABI splits* w `bundletool dump manifest`.
-- Przetestuj instalację dynamiczną: `bundletool install-apks` na każdym ABI.
-
-## 13. Obsługa rotacji i powierzchni GL
-
-- Użyj `onConfigurationChanged` aby odświeżyć viewport.
-- Utrzymuj proporcje UI: przelicz anchory i paddingi po zmianie orientacji.
-- Testuj `EGL_SWAP_BEHAVIOR_PRESERVED_BIT` vs wymuszony clear.
-
-## 14. Skrypty pomocnicze (bash/powershell)
-
-```bash
-#!/usr/bin/env bash
-set -e
-ABIS=("armeabi-v7a" "arm64-v8a" "x86_64")
-for abi in "${ABIS[@]}"; do
-  echo ":: Testing $abi"
-  adb shell setprop debug.otc.abi "$abi" || true
-  adb shell am start -n com.otclientv8/.Main
-  sleep 3
-  adb shell am force-stop com.otclientv8
-done
-```
-
-## Dodatek: przykłady konfiguracyjne (unikalne)
-
-### Przykład 1
-
-```text
-Case-1: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 2
-
-```text
-Case-2: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 3
-
-```text
-Case-3: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 4
-
-```text
-Case-4: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 5
-
-```text
-Case-5: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 6
-
-```text
-Case-6: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 7
-
-```text
-Case-7: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 8
-
-```text
-Case-8: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 9
-
-```text
-Case-9: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 10
-
-```text
-Case-10: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 11
-
-```text
-Case-11: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 12
-
-```text
-Case-12: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 13
-
-```text
-Case-13: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 14
-
-```text
-Case-14: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-### Przykład 15
-
-```text
-Case-15: Opis konkretnego kroku integracji bez powtórzeń.
-```
-
-## 15. JNI — nagłówek i implementacja
-
-Plik Java:
+Java/Kotlin (Bridge):
 
 ```java
 package com.otclientv8;
 public final class Bridge {
   static { System.loadLibrary("otclientv8"); }
   public static native void nativeInit(int width, int height);
-  public static native void nativeEvent(int type, String payload);
+  public static native void nativeEvent(int type, String payloadJson);
 }
 ```
 
@@ -345,14 +140,18 @@ C++ (bridge):
 #include <jni.h>
 #include "Engine.hpp"
 extern "C" JNIEXPORT void JNICALL
+Java_com_otclientv8_Bridge_nativeInit(JNIEnv* env, jclass, jint w, jint h) {
+  Engine::instance().init((int)w, (int)h);
+}
+extern "C" JNIEXPORT void JNICALL
 Java_com_otclientv8_Bridge_nativeEvent(JNIEnv* env, jclass, jint type, jstring payload){
   const char* s = env->GetStringUTFChars(payload, nullptr);
-  Engine::instance().onEvent(type, s);
+  Engine::instance().onEvent((int)type, s ? s : "{}");
   env->ReleaseStringUTFChars(payload, s);
 }
 ```
 
-## 16. Mapowanie zdarzeń wejścia
+Mapowanie zdarzeń (JSON payload):
 
 ```{list-table} Event map
 :header-rows: 1
@@ -368,147 +167,161 @@ Java_com_otclientv8_Bridge_nativeEvent(JNIEnv* env, jclass, jint type, jstring p
 * - 3
   - {"action":"key","code":13}
   - Klawiatura — Enter
+* - 100
+  - {"resize":"1080x2400"}
+  - Zmiana powierzchni
+* - 200
+  - {"tick":1}
+  - Pętla renderu (heartbeat)
 ```
 
-## 17. Debug i profilowanie
-
-- `adb logcat | grep OTC` — logi modułów
-- Perfetto/Android Studio Profiler — CPU/Memory
-- `systrace` — analiza klatek GL
-
-## 18. Zarządzanie pamięcią i GL
-
-- Utrzymuj `EGLContext` podczas `onPause` jeśli to możliwe (oszczędność czasu na kompilację shaderów).
-- W przeciwnym razie — szybkie odtworzenie zasobów po `onResume` (cache shaderów).
-
-## 19. Publikacja na urządzeniach klasy low-end
-
-- Redukuj rozmiar atlasów (podział na segmenty).
-- Ogranicz alpha-blend w UI (tańsze compositing).
-
-## 20. Tabela problemów i rozwiązań
-
-```{list-table} Troubleshooting
+```{csv-table} jni_signatures
 :header-rows: 1
-* - problem
-  - diagnoza
-  - rozwiązanie
-* - java.lang.UnsatisfiedLinkError
-  - Brak `.so` dla ABI
-  - Dodaj do `abiFilters`, sprawdź `lib/` w APK
-* - czarny ekran po starcie
-  - Brak GL surface / błąd EGL
-  - Zweryfikuj `glEsVersion`, sekwencję init
-* - input lag
-  - Zbyt długie event loop
-  - Batchuj zdarzenia, profiluj w profilerze
+:file: ../datasets/jni_signatures.csv
+:widths: auto
 ```
 
-## 21. Konfiguracja symboli i crash dump
+(facet-14_android.jni_signatures)=
 
-- Włącz `-g` i zachowaj `*.so` z symbolami dla deobfuskacji.
-- Użyj `ndk-stack` do analizy zrzutów.
+### Facet: `14_android.jni_signatures`
 
-## 22. Przykładowy pipeline CI (YAML szkic)
+# 6) CMake / Gradle (integracja, przykłady)
 
-```yaml
-steps:
-  - script: ./gradlew :app:assembleRelease
-  - script: ./gradlew :app:bundleRelease
-  - script: ./gradlew :app:connectedCheck
-  - publish: app/build/outputs
-```
-
-## 23. Testy instrumentacyjne (szkic)
-
-```java
-@RunWith(AndroidJUnit4.class)
-public class SmokeTest {
-  @Test public void appStarts() {
-    ActivityScenario<MainActivity> s = ActivityScenario.launch(MainActivity.class);
-    assertNotNull(s);
-  }
-}
-```
-
-## 24. Proguard/R8 — reguły zachowania JNI
-
-```proguard
--keep class com.otclientv8.Bridge { *; }
--keepclassmembers class * {
-    native <methods>;
-}
-```
-
-Komentarz: zachowujemy klasę mostka JNI i metody natywne, aby uniknąć stripowania.
-
-## 25. CMake — użycie prebuiltów i OpenMP (opcjonalnie)
+CMake:
 
 ```cmake
-add_library(otclientv8 SHARED IMPORTED GLOBAL)
-set_target_properties(otclientv8 PROPERTIES
-  IMPORTED_LOCATION_${CMAKE_BUILD_TYPE} ${CMAKE_SOURCE_DIR}/prebuilt/${ANDROID_ABI}/libotclientv8.so
-  IMPORTED_NO_SONAME TRUE)
-# Przykład dodatkowej biblioteki:
-find_library(android-log log)
-# OpenMP (jeśli wykorzystywany w przetwarzaniu):
-find_package(OpenMP)
-if(OpenMP_CXX_FOUND)
-  target_link_libraries(${PROJECT_NAME} PRIVATE OpenMP::OpenMP_CXX)
-endif()
+add_library(otclientv8 SHARED
+  src/main/cpp/main.cpp
+  src/main/cpp/bridge_jni.cpp)
+
+find_library(log-lib log)
+target_link_libraries(otclientv8 PRIVATE ${log-lib})
+target_compile_definitions(otclientv8 PRIVATE JNI_API=1)
+target_compile_options(otclientv8 PRIVATE -fvisibility=hidden -fno-exceptions -fno-rtti)
 ```
 
-## 26. Podpisywanie i konfiguracja release
+Gradle (splity ABI + AAB):
 
-```properties
-# gradle.properties (przykład)
-RELEASE_STORE_FILE=/keystore/release.jks
-RELEASE_STORE_PASSWORD=***
-RELEASE_KEY_ALIAS=otc
-RELEASE_KEY_PASSWORD=***
-```
-
-```kotlin
-android { 
-  signingConfigs {
-    create("release") {
-      storeFile = file(prop("RELEASE_STORE_FILE"))
-      storePassword = prop("RELEASE_STORE_PASSWORD")
-      keyAlias = prop("RELEASE_KEY_ALIAS")
-      keyPassword = prop("RELEASE_KEY_PASSWORD")
+```gradle
+android {
+  defaultConfig {
+    ndk { abiFilters "armeabi-v7a","arm64-v8a","x86_64" }
+    externalNativeBuild.cmake {
+      cppFlags "-std=c++17 -fvisibility=hidden -fno-exceptions -fno-rtti"
+      arguments "-DANDROID_STL=c++_shared","-DJNI_API=1"
     }
   }
+  bundle { abi { enableSplit = true } }
+  packagingOptions { jniLibs.keepDebugSymbols += ["**/*.so"] }
 }
 ```
 
-## 27. Weryfikacja zawartości APK/AAB
+# 7) GL konfiguracja i wydajność
 
-```bash
-unzip -l app-release.apk | grep -E "lib/|assets/"
-bundletool dump manifest --bundle app-release.aab | sed -n '1,80p'
+* Manifest: `android:glEsVersion="0x00020000"` (GLES2) lub wyżej.
+* Bufor i swap: dobierz strategię do urządzenia (preserve vs clear).
+* `largeHeap` tylko gdy uzasadnione.
+
+# 8) ABI-matrix i FPS (datasety)
+
+```{csv-table} abi_matrix
+:header-rows: 1
+:file: ../datasets/abi_matrix.csv
+:widths: auto
 ```
 
-## 28. Rozwiązywanie problemów GL na różnych GPU
+(facet-14_android.abi_matrix)=
 
-- Ustaw ręcznie format bufora kolorów (RGB565 vs RGBA8888) podczas wyboru konfiguracji.
+### Facet: `14_android.abi_matrix`
 
-- Sprawdź `EGL_SWAP_BEHAVIOR` i wymuś clear klatki jeśli tearing/ghosting.
-
-- Przy problemach z precision — ustaw `precision mediump float` w shaderach UI.
-
-## 29. Rozszerzona FAQ
-
-**Czy muszę dodawać `c++_shared.so`?** — Tylko jeśli linkujesz do c++_shared; preferuj `-static` gdy to możliwe.  
-**Jak rejestrować klucze w input?** — Twórz mapę `AndroidKeyCode -> EngineKey`.  
-**Czy tryb fullscreen wymaga specjalnych flag?** — Tak, użyj `WindowCompat.setDecorFitsSystemWindows(window, false)` i ukryj system bars.
-
-## 30. Przykłady logcat filtrów
-
-```bash
-adb logcat | grep -E "OTC|EGL|GLES|JNI"
+```{csv-table} fps_report
+:header-rows: 1
+:file: ../datasets/fps_report.csv
+:widths: auto
 ```
 
-## 31. Przykładowa MainActivity (GLSurfaceView)
+(facet-14_android.fps_report)=
+
+### Facet: `14_android.fps_report`
+
+# 9) IPC (Studio ↔ Android/ADB/JNI)
+
+Kanały IPC (używane przez Studio/Electron):
+
+* `studio:android.build` → buduje APK/AAB (Gradle), zwraca ścieżki artefaktów.
+* `studio:android.install` `{device, variant}` → instaluje na `adb`.
+* `studio:android.run` `{activity, extras}` → startuje `am start` i loguje `logcat`.
+* `studio:android.abi-matrix` → skanuje APK pod kątem `.so`, weryfikuje load na emulatorach; wypełnia `abi_matrix.csv`.
+* `studio:android.assets.hash` → liczy SHA256 assets i uzupełnia `android_assets.csv`.
+* `studio:android.jni.check` → parsuje `javap` + `nm` i wypełnia `jni_signatures.csv`.
+* `studio:android.fps.sample` `{scene, duration_s}` → pobiera próbkę FPS i dopisuje do `fps_report.csv`.
+
+**Uwaga:** IPC zapisuje wyniki pod `docs/14_android/datasets/*.csv` poprzez wspólne API `docio.lua`.
+
+# 10) Sanity (automaty)
+
+**android_libs.csv** — `so_name` niepuste, `size_bytes>0`, `sha256=[0-9a-f]{64}`, `abi∈{armeabi-v7a,arm64-v8a,x86_64}`.
+**android_assets.csv** — `path` względny do `assets/`, `bytes>0`, `bundle∈{data,shaders,configs,other}`.
+**abi_matrix.csv** — `present_in_apk∈{true,false}`, `load_ok∈{true,false}`, `java_calls>=0`, `jni_exports>=0`.
+**jni_signatures.csv** — `status∈{ok,missing_java,missing_cpp,sig_mismatch}`.
+**fps_report.csv** — `avg_fps>0`, `p99_frametime_ms>0` (ms), scena z listy (`login,map,skills,inventory`).
+
+# 11) QA (Android)
+
+* **abi-matrix** — `.so` wykryte i załadowane; SHA spójne.
+* **asset-hash** — porównanie `assets/` z datasetami.
+* **jni-signature** — zgodność sygnatur Java↔C++.
+* **fps** — minimalny FPS na scenie testowej (np. `>= 55` na „map” dla urządzeń referencyjnych).
+
+# 12) Diagramy
+
+## Pipeline (build/test)
+
+```mermaid
+graph TD
+A[Gradle build]-->B[APK/AAB]
+B-->C[ABI scan]
+C-->D[abi_matrix.csv]
+B-->E[Install adb]
+E-->F[Run/Logcat]
+F-->G[FPS sampler]
+G-->H[fps_report.csv]
+B-->I[Assets hash]
+I-->J[android_assets.csv]
+```
+
+(facet-14_android.pipeline)=
+
+### Facet: `14_android.pipeline`
+
+## JNI flow
+
+```mermaid
+sequenceDiagram
+  participant Java as Bridge(Java/Kotlin)
+  participant JNI as C++ JNI
+  participant Eng as Engine
+  Java->>JNI: nativeInit(w,h)
+  JNI->>Eng: Engine.init(w,h)
+  Java->>JNI: nativeEvent(type, json)
+  JNI->>Eng: Engine.onEvent(type, json)
+  Eng-->>JNI: ok
+  JNI-->>Java: return
+```
+
+(facet-14_android.jni_flow)=
+
+### Facet: `14_android.jni_flow`
+
+# 13) Manifest i MainActivity (przykład)
+
+Manifest (GL ES):
+
+```xml
+<uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+```
+
+Minimalna `MainActivity` (GLSurfaceView):
 
 ```java
 public class MainActivity extends Activity {
@@ -525,195 +338,115 @@ public class MainActivity extends Activity {
 }
 ```
 
-Uwaga: w niektórych projektach korzystamy z natywnego EGL, ale GLSurfaceView upraszcza cykl życia.
-
-## 32. ANR i watchdog
-
-- Główna pętla nie może wykonywać ciężkich operacji I/O — przenieś do wątków pomocniczych.
-
-- Włącz sygnalizację „frame time” — jeśli > 16.6 ms (60 FPS), loguj ostrzeżenie.
-
-## 33. Matryca urządzeń (przykładowa)
-
-```{list-table} Devices
-:header-rows: 1
-* - producent
-  - model
-  - ABI
-  - uwagi
-* - Google
-  - Pixel 6
-  - arm64-v8a
-  - OK
-* - Samsung
-  - A52
-  - arm64-v8a
-  - Wymaga mniejszego atlasu
-* - Emulator
-  - x86_64
-  - x86_64
-  - Test wejścia i rotacji
-```
-
-## 34. Zasady logowania
-
-- Prefiksuj logi `OTC/` + komponent (np. `OTC/Engine`).
-
-- Ogranicz spam w RELEASE; podnieś poziom w DEBUG.
-
-## 35. Dodatkowe przykłady Gradle
-
-```gradle
-android {
-  packagingOptions {
-    jniLibs.keepDebugSymbols += ["**/*.so"]
-  }
-  aaptOptions { cruncherEnabled = false }
-}
-```
-
-## 36. Android.mk / ndk-build (alternatywa)
-
-```make
-LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
-LOCAL_MODULE    := otclientv8
-LOCAL_SRC_FILES := main.cpp bridge_jni.cpp
-LOCAL_LDLIBS    := -llog -landroid
-LOCAL_CPPFLAGS  := -std=c++17 -fvisibility=hidden -fno-exceptions -fno-rtti -DJNI_API=1
-include $(BUILD_SHARED_LIBRARY)
-```
-
-## 37. Wątki JNI — attach/detach
-
-```cpp
-JavaVM* g_vm = nullptr;
-jint JNI_OnLoad(JavaVM* vm, void*){ g_vm = vm; return JNI_VERSION_1_6; }
-void postToJava(std::function<void(JNIEnv*)> fn){
-  JNIEnv* env=nullptr; bool detach=false;
-  if(g_vm->GetEnv((void**)&env, JNI_VERSION_1_6) != JNI_OK){
-    g_vm->AttachCurrentThread(&env, nullptr); detach=true;
-  }
-  fn(env);
-  if(detach) g_vm->DetachCurrentThread();
-}
-```
-
-## 38. Cykl powierzchni (edge-case)
-
-- `SurfaceTexture` może zostać zniszczona podczas `onPause`; odtwórz kontekst lub zasoby po `onResume`.
-
-- Różne urządzenia stosują inne strategie; przygotuj ścieżki fallback.
-
-## 39. Zaawansowane reguły R8 (przykład)
-
-```proguard
-# Zachowaj klasy z adnotacją @Keep
--keep @interface androidx.annotation.Keep
--keep @androidx.annotation.Keep class * { *; }
--keepclasseswithmembernames class * { @androidx.annotation.Keep *; }
-```
-
-## 40. Dodatkowe testy E2E
-
-- Automatyczne klikanie w UI (UIAutomator/Espresso) — sprawdzanie reakcji i stabilności.
-
-- Długie sesje (30 min) — wycieki pamięci i stabilność FPS.
-
-## 41. GLSurfaceView.Renderer (szkic implementacji)
+Renderer (szkic):
 
 ```java
 final class Renderer implements GLSurfaceView.Renderer {
   @Override public void onSurfaceCreated(GL10 gl, EGLConfig cfg) {
-    Bridge.nativeInit(0, 0); // silnik sam wykryje wymiary
+    Bridge.nativeInit(0, 0);
   }
   @Override public void onSurfaceChanged(GL10 gl, int w, int h) {
-    Bridge.nativeEvent(100, "{"resize":"+w+"x"+h+"}");
+    Bridge.nativeEvent(100, "{\"resize\":\""+w+"x"+h+"\"}");
   }
   @Override public void onDrawFrame(GL10 gl) {
-    Bridge.nativeEvent(200, "{"tick":1}");
+    Bridge.nativeEvent(200, "{\"tick\":1}");
   }
 }
 ```
 
-## 42. Sterowanie energią i wydajnością
+# 14) CI (skróty)
 
-- Uśpij pętlę renderu przy braku aktywnych animacji (oszczędność baterii).
-
-- Ogranicz liczbę alokacji w `onDrawFrame` — używaj buforów stałych.
-
-## 43. Skanowanie APK pod kątem rozmiaru
-
-```bash
-zipinfo -l app-release.apk | sort -k1,1 -nr | head -n 50
+```yaml
+jobs:
+  android_build:
+    steps:
+      - run: ./gradlew :app:assembleRelease :app:bundleRelease
+      - run: unzip -l app/build/outputs/apk/release/app-release.apk | grep -E "lib/|assets/"
+      - run: bundletool dump manifest --bundle app/build/outputs/bundle/release/app-release.aab | head -n 80
+  android_sanity:
+    steps:
+      - run: tools/scan-abi --apk app-release.apk > docs/14_android/datasets/abi_matrix.csv
+      - run: tools/hash-assets assets > docs/14_android/datasets/android_assets.csv
+      - run: tools/jni-check > docs/14_android/datasets/jni_signatures.csv
 ```
 
-## 44. Wytyczne dotyczące wersjonowania aplikacji
+# 15) DoD checklist (Agent clickable)
 
-- `versionCode` rośnie monotonicznie; `versionName` odzwierciedla semver.
+* [ ] `android_libs.csv` zawiera wpisy dla wszystkich ABI; SHA256 poprawne.
+* [ ] `android_assets.csv` wygenerowany i zhashowany; brak pustych pól.
+* [ ] `abi_matrix.csv`: `present_in_apk=true` i `load_ok=true` dla każdego wspieranego ABI.
+* [ ] `jni_signatures.csv`: `status=ok` dla wszystkich metod mostka.
+* [ ] `fps_report.csv`: próba `>= 60 s` na scenie „map”; `avg_fps` w normie.
+* [ ] Diagramy `pipeline.mmd`, `jni_flow.mmd` istnieją i parsują się.
+* [ ] Manifest i Gradle zgodne z kontraktem (`abiFilters`, `bundle.abi.enableSplit=true`).
+* [ ] Smoke-test instalacji przez IPC: `studio:android.install` + `studio:android.run` działa.
 
-- ABIs nie wpływają na `versionCode` przy AAB (splity generowane przez Play).
+# 16) FAQ (skrót)
 
-```gradle
-android { defaultConfig { versionCode 102; versionName "1.0.2" } }
-```
+**Czy można dodać asset tylko dla jednego ABI?** — Nie, assets są wspólne; ABI dotyczy `.so`.
+**Jak debugować JNI?** — LLDB w Android Studio; kompiluj z symbolami (`-g`), włącz `packagingOptions.jniLibs.keepDebugSymbols`.
+**Jak ograniczyć rozmiar?** — Splity ABI w AAB + kompresja assets, WebP/ETC2 gdzie sensowne.
 
-## 45. Obsługa rotacji — przykład
+# 17) Aneks: narzędzia, testy, publikacja (wybór)
 
-```java
-@Override public void onConfigurationChanged(Configuration newConfig){
-  super.onConfigurationChanged(newConfig);
-  int w = getWindow().getDecorView().getWidth();
-  int h = getWindow().getDecorView().getHeight();
-  Bridge.nativeEvent(101, "{"rotate":"+w+"x"+h+"}");
-}
-```
+* **Logcat filtry:** `adb logcat | grep -E "OTC|EGL|GLES|JNI"`.
+* **ABI presence:**
 
-## 46. Pseudokod hashowania assets
+  ```bash
+  unzip -l app-release.apk | grep "lib/.*/libotclientv8.so"
+  ```
+* **Instalacja per ABI (pseudociąg):**
 
-```python
-import hashlib, pathlib, json
-def dir_hash(p):
-  h = hashlib.sha256()
-  for f in sorted(pathlib.Path(p).rglob('*')):
-    if f.is_file():
-      h.update(f.name.encode()); h.update(f.read_bytes())
-  return h.hexdigest()
-print(json.dumps({
-  "data": dir_hash("assets/data"),
-  "shaders": dir_hash("assets/shaders"),
-  "configs": dir_hash("assets/configs"),
-}, indent=2))
-```
+  ```bash
+  for abi in armeabi-v7a arm64-v8a x86_64; do
+    adb install --abi $abi app-release.apk || exit 1
+    adb shell am start -n com.otclientv8/.MainActivity
+    sleep 5; adb shell am force-stop com.otclientv8
+  done
+  ```
 
-## 47. Sprawdzanie klasy pamięci i budżetu tekstur
+---
 
-```java
-ActivityManager am = (ActivityManager)getSystemService(ACTIVITY_SERVICE);
-ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-am.getMemoryInfo(mi);
-Log.i("OTC/MEM", "availMB=" + (mi.availMem/1024/1024));
-```
+## Facets (kotwice)
 
-## 48. Skrypt testów ABI (szerszy)
+(facet-14_android.libs)=
 
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
-APKS=app/build/outputs/apk/release/app-release.apk
-for abi in armeabi-v7a arm64-v8a x86_64; do
-  echo "== Testing ${abi} =="
-  if unzip -l "$APKS" | grep -q "lib/${abi}/libotclientv8.so"; then
-    echo "OK: lib present"
-  else
-    echo "MISSING: ${abi}"
-    exit 1
-  fi
-done
-```
+### Facet: `14_android.libs`
 
-## 49. Dodatkowe wskazówki publikacyjne
+Type: dataset
 
-- Ustaw kategorię gry/aplikacji w Play, dodaj zrzuty 7-cal/10-cal.
+(facet-14_android.assets)=
 
-- Zadbaj o krótkie i długie opisy w dwóch językach.
+### Facet: `14_android.assets`
+
+Type: dataset
+
+(facet-14_android.abi_matrix)=
+
+### Facet: `14_android.abi_matrix`
+
+Type: dataset
+
+(facet-14_android.jni_signatures)=
+
+### Facet: `14_android.jni_signatures`
+
+Type: dataset
+
+(facet-14_android.fps_report)=
+
+### Facet: `14_android.fps_report`
+
+Type: dataset
+
+(facet-14_android.pipeline)=
+
+### Facet: `14_android.pipeline`
+
+Type: diagram
+
+(facet-14_android.jni_flow)=
+
+### Facet: `14_android.jni_flow`
+
+Type: diagram

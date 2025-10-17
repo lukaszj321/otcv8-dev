@@ -1,0 +1,23 @@
+{
+  "widgets": [
+    {
+      "widget_id": "Example/SkillButton",
+      "class": "UIButton",
+      "parent": "MiniWindowContents",
+      "source_file": "modules/example_module/example.otui",
+      "width": "",
+      "height": "21",
+      "anchors": "left:parent.left;right:parent.right",
+      "margins": "bottom:2",
+      "paddings": "",
+      "font": "verdana-11px-monochrome",
+      "text_align": "center",
+      "image_source": "/images/ui/tabbutton_square",
+      "onClick": "onSkillButtonClick",
+      "onSetup": "",
+      "onDestroy": "",
+      "i18n_required": "True",
+      "notes": "GEOMETRIA→STYL→ZACHOWANIE; zdarzenia jako @onX"
+    }
+  ]
+}

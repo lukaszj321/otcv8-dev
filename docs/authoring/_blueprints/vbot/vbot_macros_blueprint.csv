@@ -1,0 +1,2 @@
+module,macro_id,title,description,interval_ms,enabled_by_default,condition_lua,action_lua,hotkey,storage_key,panel_id,macro_group,panel_order,macro_icon
+example_module,ex_auto_heal,Auto Heal,Casts heal when HP below 50%,200,True,return hppercent() < 50,say('exura'),F1,ex_auto_heal_enabled,example,Core,1,icon-heal

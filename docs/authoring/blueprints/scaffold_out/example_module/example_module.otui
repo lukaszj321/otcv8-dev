@@ -1,0 +1,13 @@
+MiniWindow
+  # GEOMETRIA
+  id: example_module_window
+  width: 240
+  height: 160
+
+  # STYL
+  text: tr('example_module')
+  @onClose: toggle
+
+  MiniWindowContents
+    id: example_module_contents
+    # AUTO-INJECTED WIDGET INSTANCES BELOW

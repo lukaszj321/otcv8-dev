@@ -1,9 +1,0 @@
-%%{init: { 'theme': 'neutral' }}%%
-sequenceDiagram
-  participant Loader
-  participant Module as game_interface
-  participant UI as OTUI
-  Loader->>Module: @onLoad → init()
-  Module->>UI: load skills.otui
-  Module-->>Loader: ready
-  Loader->>Module: @onUnload → terminate()
