@@ -15,7 +15,6 @@ api/index
 modules/index
 ui/index
 authoring/index
-reposzablony/index
 rag/index
 ```
 
