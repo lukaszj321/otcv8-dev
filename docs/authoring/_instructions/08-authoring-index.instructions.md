@@ -1,35 +1,35 @@
----
 
+---
 title: 08 — Authoring Index & Navigation
 purpose: Build landing pages and TOC for authoring chapters.
+
 outputs:
+  - "docs/authoring/index.md"
+  - "docs/authoring/<chapter>/index.md"
 
-* docs/authoring/index.md
-* docs/authoring/<chapter>/index.md
-  requirements:
-* Use PyData grid cards + toctree
-* Each chapter index must include:
+requirements:
+  - "Use PyData grid cards + toctree"
+  - "Each chapter index must include:"
+  - "  • Contents ({contents} :local:)"
+  - "  • Datasets ({csv-table} with at least one CSV)"
+  - "  • Diagrams ({mermaid} with at least one diagram)"
+  - "  • Appendix / Facets anchors for all stems"
+  - "All intra-site links relative (./) and validated by Sphinx"
+  - "Frontmatter present on landing + all chapter pages"
+  - "Use MyST directives (not raw HTML)"
 
-  * Contents (`{contents} :local:`)
-  * Datasets ({csv-table} with at least one CSV)
-  * Diagrams ({mermaid} with at least one diagram)
-  * Appendix / Facets anchors for all stems
-* All intra-site links relative (./) and validated by Sphinx
-* Frontmatter present on landing + all chapter pages
-* Use MyST directives (not raw HTML)
+chapter.index.template: |
+  ---
+  title: {chapter_title}
+  ---
+  # {chapter_title}
 
-## chapter.index.template: |
+  ```{toctree}
+  :hidden:
+  :maxdepth: 2
+````
 
-## title: {chapter_title}
-
-# {chapter_title}
-
-```{toctree}
-:hidden:
-:maxdepth: 2
-
-# add child pages here if any
-```
+  <!-- add child pages here if any -->
 
 ```{contents} Table of contents
 :depth: 2
@@ -181,8 +181,11 @@ Toolchain VC16, kompilacja, CI.
 
 acceptance:
 
-* [ ] Landing pokazuje wszystkie rozdziały (01..10) z działającymi linkami
+* [ ] Landing pokazuje wszystkie rozdziały (01..15) z działającymi linkami
 * [ ] Każdy rozdział ma frontmatter, `{contents} :local:`, ≥1 `{csv-table}`, ≥1 `{mermaid}`
-* [ ] `summary.csv` istnieje w `datasets/` lub sekcja Datasets jest ukryta warunkowo
+* [ ] `summary.csv` istnieje w `datasets/` lub sekcja Datasets ukryta warunkowo
 * [ ] Brak błędów linków (nitpicky) przy `sphinx-build -W`
 * [ ] Anchory `facet-<chapter>.<stem>` obecne (jeśli są stem-y)
+
+```
+```
