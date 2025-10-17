@@ -1,5 +1,4 @@
 ---
-
 chapter: "02_events"
 slug: "02_events"
 title: "Event system and signals — export kit"
