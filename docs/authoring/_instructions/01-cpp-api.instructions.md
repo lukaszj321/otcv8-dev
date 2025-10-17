@@ -106,11 +106,13 @@ title: 01 — Core
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
+%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
 graph TD
   Core[Core] --> Subsystems[Subsystems]
   click Core "./index.html#facet-01_core.architecture" "Open architecture"
 ```
+
 
 
 ## Appendix / Facets
