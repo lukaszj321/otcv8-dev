@@ -88,23 +88,23 @@ index:
       ```{contents}
 :local:
 :depth: 2
-```
+      ```
 
       :depth: 2
       :local:
 
-      ## Datasets
+  ## Datasets
       :file: ./datasets/summary.csv
       :header-rows: 1
       :widths: auto
 
-      ## Diagrams
+  ## Diagrams
       %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
       graph TD
         Core[Core] --> Subsystems[Subsystems]
       click Core "./index.html#facet-01_core.architecture" "Open architecture"
 
-      ## Appendix / Facets
+  ## Appendix / Facets
       <span id="facet-01_core.architecture"></span>
       <span id="facet-01_core.include_graph"></span>
 
