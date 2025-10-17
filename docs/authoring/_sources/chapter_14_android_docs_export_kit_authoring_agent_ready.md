@@ -284,18 +284,17 @@ Kanały IPC (używane przez Studio/Electron):
 ## Pipeline (build/test)
 
 ```{mermaid}
-flowchart LR
+graph LR
   A[Gradle build] --> B[APK/AAB]
   B --> C[ABI scan]
-  C --> D[(abi_matrix.csv)]
+  C --> D[abi_matrix.csv]
   B --> E[Install adb]
   E --> F[Run/Logcat]
   F --> G[FPS sampler]
-  G --> H[(fps_report.csv)]
+  G --> H[fps_report.csv]
   B --> I[Assets hash]
-  I --> J[(android_assets.csv)]
+  I --> J[android_assets.csv]
 ```
-
 
 (facet-14_android.pipeline)=
 
