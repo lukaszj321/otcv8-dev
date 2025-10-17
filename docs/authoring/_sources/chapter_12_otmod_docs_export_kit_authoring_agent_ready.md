@@ -10,31 +10,91 @@ owners:
 tags: ["otmod","modules","lua","ui","lifecycle","authoring","rag"]
 version: "1.0"
 updated: "2025-10-15"
+language: "pl"
 encoding: "UTF-8 (no BOM)"
----
 
+related:
+  - "../04_ui/README.md"
+  - "../11_data/README.md"
+  - "../13_layouts/README.md"
+
+artifacts:
+  datasets:
+    - id: "modules_index"
+      file: "./datasets/modules_index.csv"
+      headers: ["module","description","author","sandboxed","scripts","load_later","dependencies","website","path"]
+      facet: "12_otmod.modules_index"
+    - id: "module_scripts"
+      file: "./datasets/module_scripts.csv"
+      headers: ["module","script","order","source_file","lines","exports","requires"]
+      facet: "12_otmod.module_scripts"
+    - id: "module_deps"
+      file: "./datasets/module_deps.csv"
+      headers: ["module","depends_on","type","note"]
+      facet: "12_otmod.module_deps"
+    - id: "module_hooks"
+      file: "./datasets/module_hooks.csv"
+      headers: ["module","hook","function","priority","source_file","line"]
+      facet: "12_otmod.module_hooks"
+    - id: "module_ui_links"
+      file: "./datasets/module_ui_links.csv"
+      headers: ["module","otui_file","widget_root","widgets_count","images_count","fonts_used","styles_used"]
+      facet: "12_otmod.module_ui_links"
+  ndjson:
+    - id: "modules_index_nd"
+      file: "./datasets/ndjson/modules_index.jsonl"
+    - id: "module_scripts_nd"
+      file: "./datasets/ndjson/module_scripts.jsonl"
+    - id: "module_deps_nd"
+      file: "./datasets/ndjson/module_deps.jsonl"
+    - id: "module_hooks_nd"
+      file: "./datasets/ndjson/module_hooks.jsonl"
+    - id: "module_ui_links_nd"
+      file: "./datasets/ndjson/module_ui_links.jsonl"
+  diagrams:
+    - id: "lifecycle"
+      file: "./diagrams/lifecycle.mmd"
+      facet: "12_otmod.lifecycle"
+    - id: "deps"
+      file: "./diagrams/deps.mmd"
+      facet: "12_otmod.deps"
+
+outputs:
+  - "./datasets/modules_index.csv"
+  - "./datasets/module_scripts.csv"
+  - "./datasets/module_deps.csv"
+  - "./datasets/module_hooks.csv"
+  - "./datasets/module_ui_links.csv"
+  - "./datasets/ndjson/modules_index.jsonl"
+  - "./datasets/ndjson/module_scripts.jsonl"
+  - "./datasets/ndjson/module_deps.jsonl"
+  - "./datasets/ndjson/module_hooks.jsonl"
+  - "./datasets/ndjson/module_ui_links.jsonl"
+  - "./stats/stats.json"
+  - "./stats/stats.md"
+---
 
 # OTMOD — Moduły, hooki, zależności, UI i lifecycle (specyfikacja + praktyka)
 
-> Cel: **standaryzowany rozdział agent-ready** do inwentaryzacji modułów `.otmod`, ich skryptów Lua, hooków cyklu życia i powiązań z OTUI. Publikuje **CSV (kontraktowe)**, opcjonalne **NDJSON** (pełne rekordy), statystyki oraz diagramy. Styl zgodny z rozdziałami 07/08/09/10.
+**Cel:** Standaryzowany **export kit** do inwentaryzacji modułów `.otmod`, ich skryptów Lua, hooków cyklu życia, zależności (`hard/soft`) i powiązań z OTUI. Publikuje kontraktowe **CSV**, opcjonalny **NDJSON**, **statystyki**, **diagramy** i **sanity/QA**. Styl i IPC spójne z `11_data`, `13_layouts`, `14_android`, `15_vc16`.
 
 ---
 
 ## 0) Executive summary
 
-* **Co**: indeks modułów (manifesty, skrypty, zależności), hooki `@onLoad/@onUnload`, linki do OTUI, prosty graf deps i lifecycle.
-* **Dla kogo**: inżynierowie klienta, QA, narzędzia BI/RAG, Studio (Electron/React).
-* **Output**: CSV (kontraktowe), NDJSON (opcjonalnie), statystyki (`stats.json`/`stats.md`), diagramy (Mermaid), narracja.
-* **Agent-ready**: mapa plików, punkty wstrzyknięć (AGENT:INSERT), IO setup, stałe nagłówki CSV, Studio hooks, DoD checklist.
+- **Co:** indeks manifestów `.otmod`, skryptów (kolejność, linie, exports/requires), deps (`hard/soft`), hooki, linki do `.otui`.  
+- **Dla kogo:** dev/QA/BI/RAG/Studio.  
+- **Output:** CSV + NDJSON + `stats.{json,md}` + Mermaid.  
+- **Agent-ready:** stałe nagłówki, IPC, sanity/QA, idempotentne extractory.
 
 ---
 
-## 1) Struktura folderu i linkowanie
+## 1) Struktura folderu (jak 11_data)
 
 ```bash
 docs/12_otmod/
-  README.md                        # ten plik (nawigacja + TOC)
-  meta.json                        # mapa plików + zadania + tags (machine-readable)
+  README.md
+  meta.json
   schemas/
     modules_index.schema.json
     module_scripts.schema.json
@@ -42,24 +102,19 @@ docs/12_otmod/
     module_hooks.schema.json
     module_ui_links.schema.json
   sections/
-    00_otmod_basics.md             # podstawy OTMOD
-    01_manifest_and_rules.md       # zasady manifestu i porządek ładowania
-    02_models.md                   # słowniki pól + przykłady (AGENT:INSERT)
-    03_collection_methods.md       # jak zbieramy (parser .otmod, Lua exports)
-    04_quality_and_limits.md       # jakość, ograniczenia, SLO
-    05_how_to_read_stats.md        # jak czytać statystyki i wykresy
+    00_otmod_basics.md
+    01_manifest_and_rules.md
+    02_models.md
+    03_collection_methods.md
+    04_quality_and_limits.md
+    05_how_to_read_stats.md
   datasets/
     modules_index.csv
     module_scripts.csv
     module_deps.csv
     module_hooks.csv
     module_ui_links.csv
-    ndjson/
-      modules_index.jsonl          # opcjonalnie pełne rekordy
-      module_scripts.jsonl
-      module_deps.jsonl
-      module_hooks.jsonl
-      module_ui_links.jsonl
+    ndjson/*.jsonl
   stats/
     stats.json
     stats.md
@@ -68,41 +123,20 @@ docs/12_otmod/
     compliance.md
     figures/
   extractors/
-    otmod_indexer.lua              # skan .otmod + lua → CSV/NDJSON
-    otmod_stats.lua                # agregacje → stats.json + stats.md
+    otmod_indexer.lua
+    otmod_stats.lua
   diagrams/
     lifecycle.mmd
     deps.mmd
-```
+````
 
-> **IO setup:** `dofile('../../_shared/lua/docio.lua')` (jak w poprzednich rozdziałach). Wersja izolowana: skopiuj do `12_otmod/_local/docio.lua` i użyj `dofile('../_local/docio.lua')`.
+> **IO setup:** `dofile('../../_shared/lua/docio.lua')` w extractorach. Outputy zgodnie z `artifacts/outputs`.
 
 ---
 
-## 2) README — nawigacja i instrukcje (Agent-friendly)
+## 2) README — skrót operacyjny (Agent-friendly)
 
-**Table of contents**
-
-* [0. OTMOD basics](./sections/00_otmod_basics.md)
-* [1. Manifest i zasady ładowania](./sections/01_manifest_and_rules.md)
-* [2. Modele danych](./sections/02_models.md)
-* [3. Zbieranie (parser + Lua)](./sections/03_collection_methods.md)
-* [4. Jakość i ograniczenia](./sections/04_quality_and_limits.md)
-* [5. Jak czytać statystyki](./sections/05_how_to_read_stats.md)
-* [Statystyki](./stats/stats.md) — [Datasety](./datasets/) — [Analizy](./analysis/findings.md)
-
-**Quick links**
-
-* Schemas: [`schemas/*.schema.json`](./schemas)
-* Datasets: [`datasets/*.csv`](./datasets)
-* Diagrams: [`diagrams/lifecycle.mmd`](./diagrams/lifecycle.mmd), [`diagrams/deps.mmd`](./diagrams/deps.mmd)
-
-**Crosslinks**
-
-* UI: `../04_ui/README.md`
-* Data: `../11_data/README.md`
-
-**CSV headers (kontrakt)**
+**CSV headers (stałe):**
 
 ```
 modules_index.csv
@@ -121,393 +155,203 @@ module_ui_links.csv
 module,otui_file,widget_root,widgets_count,images_count,fonts_used,styles_used
 ```
 
-Header jest **stały** — narzędzia BI/RAG mogą cachować schemat.
+**IPC (Electron Studio):**
 
-**Studio hooks (Electron)**
+* `studio:otmod.index` → `extractors/otmod_indexer.lua`
+* `studio:aggregate.otmod` → `extractors/otmod_stats.lua`
+* `studio:open.otmod` `{file:'modules_index'|'module_scripts'|'module_deps'|'module_hooks'|'module_ui_links'}`
+* Sandbox: `contextIsolation:true`, `nodeIntegration:false` (jak w 11/13).
 
-* IPC: `studio:otmod.index` → uruchamia `extractors/otmod_indexer.lua`
-* IPC: `studio:aggregate.otmod` → uruchamia `extractors/otmod_stats.lua`
-* IPC: `studio:open.otmod` `{file: 'modules_index'|'module_scripts'|...}` → otwarcie datasetu
-* Preload: `contextIsolation: true`, `nodeIntegration: false`
-* Sandbox: wszystkie zapisy idą przez `docio.lua` pod `12_otmod`
-
----
-
-## 3) Mapowanie plików i odpowiedzialności (reference for Agents)
-
-| Plik/Katalog              | Rola                        | Kto uzupełnia    | Uwagi                               |                               |
-| ------------------------- | --------------------------- | ---------------- | ----------------------------------- | ----------------------------- |
-| `schemas/*.schema.json`   | walidacja CSV/NDJSON        | Agent/CI         | waliduj w CI                        |                               |
-| `datasets/*.csv`          | kontrakt danych             | indexer          | tylko wartości skalarne (listy `;`) |                               |
-| `datasets/ndjson/*.jsonl` | pełne rekordy (opcjonalnie) | indexer          | append-only                         |                               |
-| `stats/*.json             | md`                         | metryki zbiorcze | aggregator                          | licznik modułów, deps, hooków |
-| `sections/*`              | narracja                    | Autor/Agent      | punkty `AGENT:INSERT`               |                               |
-| `analysis/*`              | wnioski i compliance        | Analityk         | linkuj moduły                       |                               |
-| `extractors/*.lua`        | zrzut i agregacja           | system           | nie zmieniaj API zapisu             |                               |
+**Crosslinks:** UI (`../04_ui`), Data (`../11_data`), Layouts (`../13_layouts`).
 
 ---
 
-## 4) Słowniki pól (data dictionaries)
+## 3) Modele danych (słowniki + przykłady)
 
-**modules_index (CSV/NDJSON)**
+### modules_index.csv
 
-| Pole         | Typ     | Przykład                                      | Znaczenie                           |
-| ------------ | ------- | --------------------------------------------- | ----------------------------------- |
-| module       | string  | `game_interface`                              | Unikalna nazwa modułu (kebab_case). |
-| description  | string  | `Create the game interface`                   | Opis z manifestu.                   |
-| author       | string  | `OTClient team`                               | Autor/autorzy.                      |
-| sandboxed    | boolean | `true`                                        | Flaga sandboxu.                     |
-| scripts      | string  | `widgets/uigamemap;gameinterface`             | Lista `;` w kolejności.             |
-| load_later   | string  | `game_skills;game_inventory`                  | Miękkie zależności.                 |
-| dependencies | string  | `game_interface`                              | Twarde deps (opcjonalnie).          |
-| website      | string  | `https://...`                                 | URL projektu.                       |
-| path         | string  | `modules/game_interface/game_interface.otmod` | Ścieżka pliku.                      |
+| Pole         | Typ     | Opis                                                   |
+| ------------ | ------- | ------------------------------------------------------ |
+| module       | string  | Unikalna nazwa (kebab_case).                           |
+| description  | string  | Opis z manifestu.                                      |
+| author       | string  | Autor/autorzy.                                         |
+| sandboxed    | boolean | `true/false`.                                          |
+| scripts      | string  | Lista `;` w kolejności (bootstrap→widgets→integracje). |
+| load_later   | string  | Miękkie zależności (`;`).                              |
+| dependencies | string  | Twarde zależności (`;`).                               |
+| website      | string  | URL.                                                   |
+| path         | string  | Ścieżka do `.otmod`.                                   |
 
-**module_scripts** — skrypty Lua zliczone i wzbogacone o `exports` / `requires` (heurystyka przez regex).
+**Przykład (record):**
 
-**module_deps** — wiersz per krawędź (`type=hard|soft`).
+```
+game_interface,Create the game interface,OTClient team,true,widgets/uigamemap;gameinterface,game_skills;game_inventory,,https://github.com/edubart/otclient,modules/game_interface/game_interface.otmod
+```
 
-**module_hooks** — hooki z manifestu i te wykryte w Lua (np. `connect`, `disconnect`).
+### module_scripts.csv
 
-**module_ui_links** — powiązanie z `.otui` (root, liczby widgetów, assets, fonts/styles).
+Zliczamy linie, heurystycznie wykrywamy `exports` (`modules.<name>.*`) i `requires` (`require('...')`).
 
-> **AGENT:INSERT:OTMOD-EXAMPLES** — wstaw 3–5 przykładów modułów (zanonimizowanych) z `*.otmod` + krótki komentarz.
+### module_deps.csv
+
+`type = hard|soft` (odpowiednio `dependencies` / `load-later`).
+
+### module_hooks.csv
+
+Hooki z manifestu (`@onLoad/@onUnload`), opcjonalnie z Lua (jeśli wykryte).
+
+### module_ui_links.csv
+
+Powiązania `.otui` wykryte w katalogu modułu (policz widgety/obrazy/fonty/style).
 
 ---
 
-## 5) Pipeline danych
+## 4) Przykłady manifestów i powiązań (AGENT examples)
 
-1. **Indexer** skanuje katalog `modules/**` w poszukiwaniu `*.otmod` → wypełnia `modules_index.csv` i rozwija listy: `scripts`, `load-later`, `dependencies` → `module_scripts.csv`, `module_deps.csv`.
-2. Analiza Lua: dla każdej pozycji w `scripts` znajduje pliki `.lua`, liczy linie, heurystycznie wykrywa `exports` (np. `modules.game_skills.*`) i `requires` (`require('...')`).
-3. Linki do OTUI: w katalogu modułu wyszukuje `*.otui`, liczy widgety i assety (spójnie z rozdz. **11_data**).
-4. **Aggregator** liczy statystyki: liczba modułów, rozkład `sandboxed`, top deps, top hooki; zapisuje `stats.*`.
-
----
-
-## 6) Sekcje merytoryczne — szablony
-
-**sections/00_otmod_basics.md**
-
-```markdown
-# OTMOD — podstawy dla nowych dev
-Plik `.otmod` opisuje moduł OTClient (manifest + lista skryptów + hooki). Utrzymuj deterministyczny porządek ładowania i korzystaj z `sandboxed: true` tam, gdzie to możliwe.
+```otmod
+Module
+  name: game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later: [ game_skills, game_inventory, game_console ]
+  @onLoad: init()
+  @onUnload: terminate()
 ```
 
-**sections/01_manifest_and_rules.md**
-
-```markdown
-# Manifest i zasady ładowania
-- `scripts`: kolejność ma znaczenie (bootstrap → widgets → integracje).
-- `load-later`: miękkie zależności; nie wymusza natychmiastowego ładowania.
-- `dependencies`: twarde zależności — budują graf ładowania.
-- Hooki: `@onLoad: init()` / `@onUnload: terminate()`.
+```otmod
+Module
+  name: game_skills
+  description: Manage skills window
+  author: baxnie, edubart
+  sandboxed: true
+  scripts: [ skills ]
+  dependencies: [ game_interface ]
+  @onLoad: init()
+  @onUnload: terminate()
 ```
 
-**sections/02_models.md**
+**Fragment OTUI (link):**
 
-```markdown
-# Modele danych — definicje i przykłady
-Zobacz słowniki w README. Poniżej przykłady rekordów (zanonimizowane).
-
-<!-- AGENT:INSERT:OTMOD-EXAMPLES -->
-```
-
-**sections/03_collection_methods.md**
-
-```markdown
-# Zbieranie (parser + Lua)
-- otmod_indexer.lua skanuje `*.otmod` i katalogi modułów.
-- Lua: liczy linie w skryptach, szuka `exports`/`requires` (regex), wykrywa hooki i `.otui`.
-- Studio: IPC `studio:otmod.index`, `studio:aggregate.otmod`.
-```
-
-**sections/04_quality_and_limits.md**
-
-```markdown
-# Jakość i ograniczenia
-- Format `.otmod` bywa niespójny (spacje, przecinki); parser jest defensywny.
-- Eksporty Lua wyznaczamy heurystycznie; potwierdzaj w code review.
-- UI links: niektóre moduły ładują `.otui` dynamicznie — oznacz `widgets_count=0` i notuj.
-```
-
-**sections/05_how_to_read_stats.md**
-
-```markdown
-# Jak czytać statystyki
-- Rozkład `sandboxed` vs niesandboxowane — ryzyko side-effects.
-- Top deps i głębokość grafu — miejsca o dużej centralności.
-- Top hooki — wąskie gardła inicjalizacji.
+```otui
+MiniWindow
+  id: skillWindow
+  !text: tr('Skills')
+  icon: /images/topbuttons/skills
+  @onClose: modules.game_skills.onMiniWindowClose()
 ```
 
 ---
 
-## 7) Schematy (JSON Schema) — walidacja CSV/NDJSON
-
-`schemas/modules_index.schema.json`
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "modules_index.record",
-  "type": "object",
-  "required": ["module","path"],
-  "properties": {
-    "module": {"type":"string"},
-    "description": {"type":"string"},
-    "author": {"type":"string"},
-    "sandboxed": {"type":"boolean"},
-    "scripts": {"type":"string"},
-    "load_later": {"type":"string"},
-    "dependencies": {"type":"string"},
-    "website": {"type":"string"},
-    "path": {"type":"string"}
-  }
-}
-```
-
-`schemas/module_scripts.schema.json`
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "module_scripts.record",
-  "type": "object",
-  "required": ["module","script","order"],
-  "properties": {
-    "module": {"type":"string"},
-    "script": {"type":"string"},
-    "order": {"type":"number"},
-    "source_file": {"type":"string"},
-    "lines": {"type":"number"},
-    "exports": {"type":"string"},
-    "requires": {"type":"string"}
-  }
-}
-```
-
-`schemas/module_deps.schema.json`
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "module_deps.record",
-  "type": "object",
-  "required": ["module","depends_on","type"],
-  "properties": {
-    "module": {"type":"string"},
-    "depends_on": {"type":"string"},
-    "type": {"type":"string","enum":["hard","soft"]},
-    "note": {"type":"string"}
-  }
-}
-```
-
-`schemas/module_hooks.schema.json`
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "module_hooks.record",
-  "type": "object",
-  "required": ["module","hook","function"],
-  "properties": {
-    "module": {"type":"string"},
-    "hook": {"type":"string"},
-    "function": {"type":"string"},
-    "priority": {"type":"number"},
-    "source_file": {"type":"string"},
-    "line": {"type":"number"}
-  }
-}
-```
-
-`schemas/module_ui_links.schema.json`
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "module_ui_links.record",
-  "type": "object",
-  "required": ["module","otui_file","widget_root"],
-  "properties": {
-    "module": {"type":"string"},
-    "otui_file": {"type":"string"},
-    "widget_root": {"type":"string"},
-    "widgets_count": {"type":"number"},
-    "images_count": {"type":"number"},
-    "fonts_used": {"type":"string"},
-    "styles_used": {"type":"string"}
-  }
-}
-```
-
----
-
-## 8) Extractors (Lua) — gotowe pliki
+## 5) Extractors (Lua) — gotowe pliki
 
 **extractors/otmod_indexer.lua**
 
 ```lua
 -- docs/12_otmod/extractors/otmod_indexer.lua
 -- Indeksuje *.otmod + Lua + OTUI → CSV oraz opcjonalnie NDJSON
--- ASCII-only; UTF-8 bez BOM; LF
+-- ASCII-only; UTF-8 without BOM; LF
 local docio = dofile('../../_shared/lua/docio.lua')
 local json = require('json')
 
-local CSV_HDR_MI = { 'module','description','author','sandboxed','scripts','load_later','dependencies','website','path' }
-local CSV_HDR_MS = { 'module','script','order','source_file','lines','exports','requires' }
-local CSV_HDR_MD = { 'module','depends_on','type','note' }
-local CSV_HDR_MH = { 'module','hook','function','priority','source_file','line' }
-local CSV_HDR_MU = { 'module','otui_file','widget_root','widgets_count','images_count','fonts_used','styles_used' }
+local HDR_MI = {'module','description','author','sandboxed','scripts','load_later','dependencies','website','path'}
+local HDR_MS = {'module','script','order','source_file','lines','exports','requires'}
+local HDR_MD = {'module','depends_on','type','note'}
+local HDR_MH = {'module','hook','function','priority','source_file','line'}
+local HDR_MU = {'module','otui_file','widget_root','widgets_count','images_count','fonts_used','styles_used'}
 local MAX_BYTES = 50*1024*1024
 
+local function wcsv(file, hdr, row) docio.writeCsvHeader(file, hdr); docio.appendCsvRow(file, hdr, row, MAX_BYTES) end
+local function wjsonl(file, obj) docio.appendJsonl(file, obj, MAX_BYTES) end
 local function trim(s) return (tostring(s or ''):gsub('^%s+',''):gsub('%s+$','')) end
-local function split_list(s)
-  local out = {}
-  for token in tostring(s or ''):gmatch('[^,;%s]+') do out[#out+1] = token end
-  return out
-end
+local function split(s) local t={}; for x in tostring(s or ''):gmatch('[^,;%s]+') do t[#t+1]=x end; return t end
 
-local function readFile(path)
-  if g_resources and g_resources.fileExists and g_resources:fileExists(path) then
-    return g_resources:readFileContents(path)
-  end
+local function rd(path)
+  if g_resources and g_resources.fileExists and g_resources:fileExists(path) then return g_resources:readFileContents(path) end
   return docio.readAll(path)
 end
 
-local function write_csv_row(path, header, row)
-  docio.writeCsvHeader(path, header)
-  docio.appendCsvRow(path, header, row, MAX_BYTES)
-end
-
-local function append_ndjson(path, obj)
-  docio.appendJsonl(path, obj, MAX_BYTES)
-end
-
--- Minimalny parser *.otmod (defensywny; dopuszcza listy w [] lub ,/;)
-local function parse_otmod(text)
-  local t = text or ''
+local function parse_otmod(t)
   local M = {}
-  M.name = trim(t:match('\n%s*name:%s*([%w_%-]+)'))
-  M.description = trim((t:match('\n%s*description:%s*(.-)\n') or ''):gsub('[\r]',''))
-  M.author = trim((t:match('\n%s*author:%s*(.-)\n') or ''))
-  M.website = trim((t:match('\n%s*website:%s*(.-)\n') or ''))
-  local sandbox = t:match('\n%s*sandboxed:%s*(%a+)')
-  M.sandboxed = (sandbox and sandbox:lower() == 'true') or false
-  local scripts = t:match('scripts:%s*%[(.-)%]') or t:match('\n%s*scripts:%s*(.-)\n') or ''
-  local loadlater = t:match('load%-later:%s*%[(.-)%]') or t:match('\n%s*load%-later:%s*(.-)\n') or ''
-  local deps = t:match('dependencies:%s*%[(.-)%]') or t:match('\n%s*dependencies:%s*(.-)\n') or ''
-  M.scripts = table.concat(split_list(scripts), ';')
-  M.load_later = table.concat(split_list(loadlater), ';')
-  M.dependencies = table.concat(split_list(deps), ';')
-  -- Hooki bez priorytetów
-  local onLoad = t:match('@onLoad:%s*([%w_%.]+)')
-  local onUnload = t:match('@onUnload:%s*([%w_%.]+)')
+  M.name = trim((t:match('%f[%w]name:%s*([%w_%-]+)') or ''))
+  M.description = trim((t:match('%f[%w]description:%s*(.-)\n') or ''):gsub('\r',''))
+  M.author = trim((t:match('%f[%w]author:%s*(.-)\n') or ''))
+  M.website = trim((t:match('%f[%w]website:%s*(.-)\n') or ''))
+  M.sandboxed = ((t:match('%f[%w]sandboxed:%s*(%a+)') or ''):lower()=='true')
+  local scripts = t:match('scripts:%s*%[(.-)%]') or t:match('%f[%w]scripts:%s*(.-)\n') or ''
+  local ll = t:match('load%-later:%s*%[(.-)%]') or t:match('%f[%w]load%-later:%s*(.-)\n') or ''
+  local deps = t:match('dependencies:%s*%[(.-)%]') or t:match('%f[%w]dependencies:%s*(.-)\n') or ''
+  M.scripts = table.concat(split(scripts), ';'); M.load_later = table.concat(split(ll), ';'); M.dependencies = table.concat(split(deps), ';')
   M.hooks = {}
-  if onLoad then table.insert(M.hooks, { hook='@onLoad', fn=onLoad }) end
-  if onUnload then table.insert(M.hooks, { hook='@onUnload', fn=onUnload }) end
+  local onLoad = t:match('@onLoad:%s*([%w_%.]+)'); if onLoad then table.insert(M.hooks, {hook='@onLoad', fn=onLoad}) end
+  local onUnload = t:match('@onUnload:%s*([%w_%.]+)'); if onUnload then table.insert(M.hooks, {hook='@onUnload', fn=onUnload}) end
   return M
 end
 
--- Heurystyka Lua: policz linie, exports (modules.<name>.*) i requires
-local function analyze_lua(moduleName, luaPath)
-  local txt = readFile(luaPath) or ''
-  local lines = 0; for _ in txt:gmatch('\n') do lines = lines + 1 end
-  local exports = {}
-  for sym in txt:gmatch('modules%.'..moduleName:gsub('%-','_')..'%.[%w_]+') do exports[#exports+1] = sym end
-  local requires = {}
-  for rq in txt:gmatch("require%(['\"]([%w_%./%-]+)['\"]%)") do requires[#requires+1] = rq end
-  return lines, table.concat(exports,'|'), table.concat(requires,'|')
+local function analyze_lua(mod, path)
+  local txt = rd(path) or ''
+  local lines = select(2, txt:gsub('\n','\n'))
+  local exps, reqs = {}, {}
+  local ns = mod:gsub('%-','_')
+  for s in txt:gmatch('modules%.'..ns..'%.[%w_]+') do exps[#exps+1]=s end
+  for r in txt:gmatch("require%(['\"]([%w_%./%-]+)['\"]%)") do reqs[#reqs+1]=r end
+  return lines, table.concat(exps,'|'), table.concat(reqs,'|')
 end
 
--- Heurystyka OTUI: policz widgety/assetowe właściwości
-local function analyze_otui(otuiPath)
-  local txt = readFile(otuiPath) or ''
-  local widgets = 0
-  for _ in txt:gmatch('\n[%w_]+%s*<%s*[%w_]') do widgets = widgets + 1 end
-  local images = 0; for _ in txt:gmatch('image%-source%s*:') do images = images + 1 end
-  local fonts = 0; for _ in txt:gmatch('\n%s*font%s*:') do fonts = fonts + 1 end
-  local styles = 0; for _ in txt:gmatch('image%-clip%s*:') do styles = styles + 1 end
-  return widgets, images, fonts, styles
+local function analyze_otui(path)
+  local txt = rd(path) or ''
+  local w=0; for _ in txt:gmatch('\n[%w_]+%s*<%s*[%w_]') do w=w+1 end
+  local i=0; for _ in txt:gmatch('image%-source%s*:') do i=i+1 end
+  local f=0; for _ in txt:gmatch('\n%s*font%s*:') do f=f+1 end
+  local st=0; for _ in txt:gmatch('image%-clip%s*:') do st=st+1 end
+  return w,i,f,st
 end
 
-local function index_module(otmodPath)
-  local text = readFile(otmodPath) or ''
-  local M = parse_otmod(text)
-  if not M.name or M.name == '' then return end
-  local moduleName = M.name
-
+local function index_one(otmodPath)
+  local t = rd(otmodPath) or ''
+  local M = parse_otmod(t)
+  if not M.name or M.name=='' then return end
   -- modules_index
-  write_csv_row('docs/12_otmod/datasets/modules_index.csv', CSV_HDR_MI, {
-    module = moduleName,
-    description = M.description or '',
-    author = M.author or '',
-    sandboxed = tostring(M.sandboxed),
-    scripts = M.scripts or '',
-    load_later = M.load_later or '',
-    dependencies = M.dependencies or '',
-    website = M.website or '',
-    path = otmodPath
+  wcsv('docs/12_otmod/datasets/modules_index.csv', HDR_MI, {
+    module=M.name, description=M.description, author=M.author, sandboxed=tostring(M.sandboxed),
+    scripts=M.scripts, load_later=M.load_later, dependencies=M.dependencies, website=M.website, path=otmodPath
   })
-  append_ndjson('docs/12_otmod/datasets/ndjson/modules_index.jsonl', {
-    module = moduleName, description = M.description, author = M.author, sandboxed = M.sandboxed,
-    scripts = split_list(M.scripts), load_later = split_list(M.load_later), dependencies = split_list(M.dependencies),
-    website = M.website, path = otmodPath
+  wjsonl('docs/12_otmod/datasets/ndjson/modules_index.jsonl', {
+    module=M.name, description=M.description, author=M.author, sandboxed=M.sandboxed,
+    scripts=split(M.scripts), load_later=split(M.load_later), dependencies=split(M.dependencies),
+    website=M.website, path=otmodPath
   })
-
   -- hooks
-  for _,h in ipairs(M.hooks or {}) do
-    write_csv_row('docs/12_otmod/datasets/module_hooks.csv', CSV_HDR_MH, {
-      module = moduleName, hook = h.hook, ['function'] = h.fn, priority = '', source_file = otmodPath, line = ''
-    })
-    append_ndjson('docs/12_otmod/datasets/ndjson/module_hooks.jsonl', {
-      module = moduleName, hook = h.hook, func = h.fn, source = otmodPath
-    })
+  for _,h in ipairs(M.hooks) do
+    wcsv('docs/12_otmod/datasets/module_hooks.csv', HDR_MH, {module=M.name, hook=h.hook, ['function']=h.fn, priority='', source_file=otmodPath, line='' })
+    wjsonl('docs/12_otmod/datasets/ndjson/module_hooks.jsonl', {module=M.name, hook=h.hook, func=h.fn, source=otmodPath})
   end
-
-  -- deps (hard/soft)
-  for _,d in ipairs(split_list(M.dependencies)) do
-    if d ~= '' then write_csv_row('docs/12_otmod/datasets/module_deps.csv', CSV_HDR_MD, { module = moduleName, depends_on = d, type = 'hard', note = '' }) end
-  end
-  for _,d in ipairs(split_list(M.load_later)) do
-    if d ~= '' then write_csv_row('docs/12_otmod/datasets/module_deps.csv', CSV_HDR_MD, { module = moduleName, depends_on = d, type = 'soft', note = '' }) end
-  end
-
+  -- deps
+  for _,d in ipairs(split(M.dependencies)) do if d~='' then wcsv('docs/12_otmod/datasets/module_deps.csv', HDR_MD, {module=M.name, depends_on=d, type='hard', note=''}) end end
+  for _,d in ipairs(split(M.load_later)) do if d~='' then wcsv('docs/12_otmod/datasets/module_deps.csv', HDR_MD, {module=M.name, depends_on=d, type='soft', note=''}) end end
   -- scripts
-  local order = 0
-  for _,s in ipairs(split_list(M.scripts)) do
-    if s ~= '' then
-      order = order + 1
-      local luaPath = ('modules/%s/%s.lua'):format(moduleName, s)
-      local lines, exports, requires = analyze_lua(moduleName, luaPath)
-      write_csv_row('docs/12_otmod/datasets/module_scripts.csv', CSV_HDR_MS, {
-        module = moduleName, script = s, order = order, source_file = luaPath, lines = lines, exports = exports, requires = requires
-      })
-      append_ndjson('docs/12_otmod/datasets/ndjson/module_scripts.jsonl', {
-        module = moduleName, script = s, order = order, source_file = luaPath, lines = lines,
-        exports = exports, requires = requires
-      })
+  local idx=0
+  for _,s in ipairs(split(M.scripts)) do
+    if s~='' then
+      idx = idx + 1
+      local luaPath = ('modules/%s/%s.lua'):format(M.name, s)
+      local lines, ex, rq = analyze_lua(M.name, luaPath)
+      wcsv('docs/12_otmod/datasets/module_scripts.csv', HDR_MS, {module=M.name, script=s, order=idx, source_file=luaPath, lines=lines, exports=ex, requires=rq})
+      wjsonl('docs/12_otmod/datasets/ndjson/module_scripts.jsonl', {module=M.name, script=s, order=idx, source_file=luaPath, lines=lines, exports=ex, requires=rq})
     end
   end
-
-  -- ui links
-  local otuiMain = ('modules/%s/*.otui'):format(moduleName)
-  local files = docio.glob and docio.glob(otuiMain) or {}
-  for _,p in ipairs(files) do
+  -- otui
+  for _,p in ipairs(docio.glob(('modules/%s/*.otui'):format(M.name)) or {}) do
     local w,i,f,st = analyze_otui(p)
-    write_csv_row('docs/12_otmod/datasets/module_ui_links.csv', CSV_HDR_MU, {
-      module = moduleName, otui_file = p, widget_root = moduleName, widgets_count = w, images_count = i, fonts_used = f, styles_used = st
-    })
-    append_ndjson('docs/12_otmod/datasets/ndjson/module_ui_links.jsonl', {
-      module = moduleName, otui_file = p, widget_root = moduleName, widgets_count = w, images_count = i, fonts_used = f, styles_used = st
-    })
+    wcsv('docs/12_otmod/datasets/module_ui_links.csv', HDR_MU, {module=M.name, otui_file=p, widget_root=M.name, widgets_count=w, images_count=i, fonts_used=f, styles_used=st})
+    wjsonl('docs/12_otmod/datasets/ndjson/module_ui_links.jsonl', {module=M.name, otui_file=p, widget_root=M.name, widgets_count=w, images_count=i, fonts_used=f, styles_used=st})
   end
 end
 
 local function run()
-  -- Uwaga: dostosuj glob do Twojego drzewa
-  local list = docio.glob('modules/**/**.otmod') or {}
-  for _,path in ipairs(list) do index_module(path) end
+  for _,p in ipairs(docio.glob('modules/**/**.otmod') or {}) do index_one(p) end
 end
 
 run()
@@ -517,60 +361,55 @@ run()
 
 ```lua
 -- docs/12_otmod/extractors/otmod_stats.lua
--- Agregacja → stats.json + stats.md (deterministyczny output)
--- ASCII-only; UTF-8 bez BOM; LF
+-- Agregacja → stats.json + stats.md (deterministycznie)
+-- ASCII-only; UTF-8 without BOM; LF
 local docio = dofile('../../_shared/lua/docio.lua')
 local json = require('json')
 
 local function read_csv(path)
-  local t = docio.readAll(path)
-  if not t or #t == 0 then return {}, {} end
+  local t = docio.readAll(path); if not t or #t==0 then return {},{} end
   local rows, header = {}, nil
   for line in t:gmatch('[^\r\n]+') do
-    if not header then header = {}; for c in line:gmatch('[^,]+') do header[#header+1] = c end
-    else
-      local row, i = {}, 1
-      for c in line:gmatch('([^,]*)') do if c == '' and i > #header then break end row[header[i]] = c; i = i + 1 end
-      rows[#rows+1] = row
-    end
+    if not header then header=docio.parseCsvHeader(line)
+    else rows[#rows+1]=docio.parseCsvRow(header,line) end
   end
   return rows, header
 end
 
-local function stats()
-  local s = { modules = 0, sandboxed = {true=0,false=0}, hooks = {}, deps = {hard=0, soft=0}, scripts = {count=0, lines=0} }
+local function build_stats()
+  local s = { modules=0, sandboxed={true=0,false=0}, deps={hard=0,soft=0}, hooks={}, scripts={count=0,lines=0} }
   local mi = read_csv('docs/12_otmod/datasets/modules_index.csv')
   for _,r in ipairs(mi) do
     s.modules = s.modules + 1
-    local sb = (r.sandboxed == 'true') and 'true' or 'false'
-    s.sandboxed[sb == 'true'] = (s.sandboxed[sb == 'true'] or 0) + 1
+    local sb = tostring(r.sandboxed or ''):lower()=='true'
+    s.sandboxed[sb] = (s.sandboxed[sb] or 0) + 1
   end
+  local md = read_csv('docs/12_otmod/datasets/module_deps.csv')
+  for _,r in ipairs(md) do s.deps[(r.type=='hard') and 'hard' or 'soft'] = s.deps[(r.type=='hard') and 'hard' or 'soft'] + 1 end
   local mh = read_csv('docs/12_otmod/datasets/module_hooks.csv')
   for _,r in ipairs(mh) do s.hooks[r.hook or ''] = (s.hooks[r.hook or ''] or 0) + 1 end
-  local md = read_csv('docs/12_otmod/datasets/module_deps.csv')
-  for _,r in ipairs(md) do s.deps[r.type or 'soft'] = (s.deps[r.type or 'soft'] or 0) + 1 end
   local ms = read_csv('docs/12_otmod/datasets/module_scripts.csv')
   for _,r in ipairs(ms) do s.scripts.count = s.scripts.count + 1; s.scripts.lines = s.scripts.lines + (tonumber(r.lines or '0') or 0) end
   return s
 end
 
-local function writeMD(s)
-  local md = {}
-  md[#md+1] = '# OTMOD — Statystyki\n\n'
-  md[#md+1] = ('- Moduły: %d\n'):format(s.modules)
-  md[#md+1] = ('- Sandboxed: true=%d, false=%d\n'):format(s.sandboxed.true or 0, s.sandboxed.false or 0)
-  md[#md+1] = ('- Deps: hard=%d, soft=%d\n'):format(s.deps.hard or 0, s.deps.soft or 0)
-  md[#md+1] = ('- Skrypty: %d plików, %d linii (razem)\n\n'):format(s.scripts.count or 0, s.scripts.lines or 0)
-  md[#md+1] = '## Hooki\n'
-  for k,v in pairs(s.hooks) do md[#md+1] = ('- %s: %d\n'):format(k, v) end
-  md[#md+1] = '\nHint: sprawdź moduły niesandboxowane i głębokie łańcuchy zależności.\n'
-  return table.concat(md)
+local function write_md(s)
+  local out = {}
+  out[#out+1] = '# OTMOD — Statystyki\n\n'
+  out[#out+1] = ('- Moduły: %d\n'):format(s.modules)
+  out[#out+1] = ('- Sandboxed: true=%d, false=%d\n'):format(s.sandboxed.true or 0, s.sandboxed.false or 0)
+  out[#out+1] = ('- Zależności: hard=%d, soft=%d\n'):format(s.deps.hard or 0, s.deps.soft or 0)
+  out[#out+1] = ('- Skrypty: %d plików, %d linii\n\n'):format(s.scripts.count, s.scripts.lines)
+  out[#out+1] = '## Hooki\n'
+  for k,v in pairs(s.hooks) do out[#out+1] = ('- %s: %d\n'):format(k, v) end
+  out[#out+1] = '\nWnioski: zweryfikuj moduły niesandboxowane i długie łańcuchy deps.\n'
+  return table.concat(out)
 end
 
 local function run()
-  local s = stats()
+  local s = build_stats()
   docio.writeAll('docs/12_otmod/stats/stats.json', json.encode(s))
-  docio.writeAll('docs/12_otmod/stats/stats.md', writeMD(s))
+  docio.writeAll('docs/12_otmod/stats/stats.md', write_md(s))
 end
 
 run()
@@ -578,63 +417,87 @@ run()
 
 ---
 
-## 9) Diagramy (Mermaid)
+## 6) Schematy (JSON Schema) — walidacja
 
-**diagrams/lifecycle.mmd**
+*(pliki pełne w `schemas/` — poniżej skrót pól wymaganych):*
+
+* `modules_index.schema.json` — required: `["module","path"]`
+* `module_scripts.schema.json` — required: `["module","script","order"]`
+* `module_deps.schema.json` — required: `["module","depends_on","type"]` (`hard|soft`)
+* `module_hooks.schema.json` — required: `["module","hook","function"]`
+* `module_ui_links.schema.json` — required: `["module","otui_file","widget_root"]`
+
+---
+
+## 7) Sanity + IPC + QA
+
+* **headers-invariant:** nagłówki CSV *dokładnie* jak w sekcji #2.
+* **list-format:** listy w `;` (bez spacji), np. `a;b;c`.
+* **hook-clean:** `@onLoad/@onUnload` → istnieją funkcje Lua `init/terminate` (jeśli brak — wpis w `analysis/findings.md`).
+* **deps-acyclic:** raportuj cykle w `module_deps.csv` (skrypt QA poza zakresem indeksu).
+* **ui-links:** `widgets_count/images_count/fonts_used/styles_used` są liczbami ≥ 0.
+* **idempotency:** drugi bieg nie zmienia istniejących wierszy.
+* **encoding:** UTF-8 (no BOM), **LF**.
+* **IPC:** odbiór komunikatów tylko z zaufanego procesu (Electron preload); ścieżki zapisu whitelisted pod `docs/12_otmod`.
+
+---
+
+## 8) Diagramy (Mermaid)
+
+**diagrams/lifecycle.mmd** *(facet: 12_otmod.lifecycle)*
 
 ```mermaid
 sequenceDiagram
   participant Loader
   participant Module as OTMOD
   participant Lua as Scripts
+  participant UI as OTUI
   Loader->>Module: parse manifest
   Module->>Lua: scripts[] (ordered)
   Module->>Lua: @onLoad → init()
+  Lua->>UI: load *.otui / bind signals
   Lua-->>Module: ready()
   Loader->>Module: unload
   Module->>Lua: @onUnload → terminate()
 ```
 
-**diagrams/deps.mmd**
+**diagrams/deps.mmd** *(facet: 12_otmod.deps)*
 
 ```mermaid
 graph TD
-  A[game_interface] --> B[game_skills]
-  A --> C[game_inventory]
-  B --> D[game_stats]
+  A[game_interface] -->|soft| B[game_skills]
+  A -->|soft| C[game_inventory]
+  B -->|hard| D[game_stats]
 ```
 
 ---
 
-## 10) Encoding i formatowanie (UTF-8 safe)
+## 9) Appendix — Regexy parsera (skrót)
 
-* Pliki: UTF-8 bez BOM, ASCII-only w treści.
-* Koniec linii: LF.
-* Nagłówki: `#` dla H1, dalej `###`/`##` wg potrzeb.
+```text
+# lists: [a, b] lub "a, b" / "a; b"
+(?m)^\s*(scripts|load-later|dependencies)\s*:\s*(?:\[(.*?)\]|(.*)$)
 
----
-
-## 11) Jakość, SLO i bezpieczeństwo (krótko)
-
-* CSV: kolumny zawsze kompletne (puste → `""`).
-* NDJSON: append-only; rotacja wg potrzeb.
-* Parser `.otmod`: defensywny; nie wykonuje kodu.
+# hooki
+(?m)@onLoad:\s*([\w_.]+)
+(?m)@onUnload:\s*([\w_.]+)
+```
 
 ---
 
-## 12) DoD Checklist — Agent clickable
+## 10) DoD Checklist
 
-* [ ] Wygenerowano `datasets/modules_index.csv`, `module_scripts.csv`, `module_deps.csv`, `module_hooks.csv`, `module_ui_links.csv`.
-* [ ] (Opcja) NDJSON w `datasets/ndjson/*.jsonl` utworzone.
-* [ ] `stats/stats.json` i `stats/stats.md` wygenerowane (deterministyczny output list).
-* [ ] Uzupełniono sekcje `00..05` (minimum 02_models.md z przykładami via `AGENT:INSERT`).
-* [ ] Diagramy `lifecycle.mmd` i `deps.mmd` istnieją i parsują się.
-* [ ] `meta.json` ma poprawne crosslinks do `../04_ui` i `../11_data`.
-* [ ] Walidacja próbki 20 wierszy CSV/NDJSON przeciw `schemas/*.schema.json` bez błędów.
+* [ ] Wygenerowane CSV: `modules_index`, `module_scripts`, `module_deps`, `module_hooks`, `module_ui_links`.
+* [ ] NDJSON (opcjonalne) wszystkich pięciu tabel.
+* [ ] `stats.json` i `stats.md` (deterministyczne).
+* [ ] Sekcje `00..05` istnieją; `02_models.md` ma przykłady (AGENT INSERT).
+* [ ] Diagramy `lifecycle.mmd` i `deps.mmd` renderują się.
+* [ ] Sanity (headers/list-format/hook-clean/deps-acyclic/idempotency) — PASS.
+* [ ] `meta.json` zawiera linki do `../04_ui` i `../11_data`.
 
 ---
 
-## 13) meta.json — wzorzec z tagami i linkowaniem
+## 11) meta.json — wzorzec
 
 ```json
 {
@@ -697,14 +560,15 @@ graph TD
   "linking": {
     "crossChapter": {
       "ui": "../04_ui/README.md",
-      "data": "../11_data/README.md"
+      "data": "../11_data/README.md",
+      "layouts": "../13_layouts/README.md"
     }
   },
   "agent": {
     "tasks": [
       {"id":"index","desc":"Indeksacja .otmod + Lua + OTUI do CSV/NDJSON","outputs":["datasets.csv","datasets.ndjson"]},
       {"id":"aggregate","desc":"Agregacja do stats.json/stats.md","outputs":["stats.json","stats.md"]},
-      {"id":"author","desc":"Uzupełnienie sekcji i compliance + przykłady","targets":["sections/*","analysis/*"]}
+      {"id":"author","desc":"Uzupełnienie sekcji + przykłady + compliance","targets":["sections/*","analysis/*"]}
     ],
     "insertPoints": {
       "sections/02_models.md": ["AGENT:INSERT:OTMOD-EXAMPLES"],
@@ -717,10 +581,67 @@ graph TD
 
 ---
 
-## 14) Zgodność z resztą rozdziałów (alignment fix)
+## 12) Sekcje (szablony do wypełnienia)
 
-* **Nazewnictwo IPC**: `studio:otmod.index`, `studio:aggregate.otmod`, `studio:open.otmod` — spójnie z 07/08/09/10.
-* **Stałe nagłówki CSV**: wyszczególnione wyżej (jak w 08/09/10).
-* **DocIO**: ten sam kontrakt (`appendJsonl`, `writeCsvHeader`, `appendCsvRow`).
-* **Mermaid**: inic `theme: neutral`, brak niestandardowych klas.
-* **DoD**: checkboxy jak w innych rozdziałach.
+**sections/00_otmod_basics.md**
+
+```markdown
+# OTMOD — podstawy
+`.otmod` definiuje moduł (manifest, skrypty, hooki, deps). Dbaj o deterministyczne ładowanie i `sandboxed: true`.
+```
+
+**sections/01_manifest_and_rules.md**
+
+```markdown
+# Manifest i zasady ładowania
+- `scripts` (kolejność → determinizm)
+- `load-later` (miękkie deps)
+- `dependencies` (twarde deps)
+- Hooki: `@onLoad: init()`, `@onUnload: terminate()`
+```
+
+**sections/02_models.md**
+
+```markdown
+# Modele danych — przykłady
+<!-- AGENT:INSERT:OTMOD-EXAMPLES -->
+```
+
+**sections/03_collection_methods.md**
+
+```markdown
+# Zbieranie
+- `otmod_indexer.lua` → CSV/NDJSON
+- Heurystyki `exports/requires`, skan `.otui`
+- IPC: `studio:otmod.index`, `studio:aggregate.otmod`
+```
+
+**sections/04_quality_and_limits.md**
+
+```markdown
+# Jakość i ograniczenia
+- Parser defensywny list/whitespace
+- Eksporty heurystyczne — potwierdzaj ręcznie
+- UI ładowane dynamicznie może nie trafić do `module_ui_links`
+```
+
+**sections/05_how_to_read_stats.md**
+
+```markdown
+# Jak czytać statystyki
+- Sandboxed vs non-sandboxed → ryzyka
+- Deps: centralność/hotspoty
+- Hooki: kolejność inicjalizacji
+```
+
+---
+
+## 13) Facets
+
+* (facet-12_otmod.modules_index)=**Facet: `12_otmod.modules_index`** — dataset
+* (facet-12_otmod.module_scripts)=**Facet: `12_otmod.module_scripts`** — dataset
+* (facet-12_otmod.module_deps)=**Facet: `12_otmod.module_deps`** — dataset
+* (facet-12_otmod.module_hooks)=**Facet: `12_otmod.module_hooks`** — dataset
+* (facet-12_otmod.module_ui_links)=**Facet: `12_otmod.module_ui_links`** — dataset
+* (facet-12_otmod.lifecycle)=**Facet: `12_otmod.lifecycle`** — diagram
+* (facet-12_otmod.deps)=**Facet: `12_otmod.deps`** — diagram
