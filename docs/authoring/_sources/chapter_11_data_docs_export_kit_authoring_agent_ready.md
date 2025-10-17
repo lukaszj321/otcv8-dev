@@ -1,80 +1,74 @@
 ---
-
 id: "chapter:data"
 chapter: "11_data"
 slug: "11_data"
 title: "Data — Assets, Styles, Locales, Shaders, Sounds"
 status: "agent_ready"
 owners:
-
-* "docs-export"
-* "github:lukaszj321"
-  version: "1.0"
-  last_updated: "2025-10-15"
-  language: "pl"
-  tags: ["otclient","data","assets","otui","styles","locales","shaders","sounds","rag","agent"]
+  - "docs-export"
+  - "github:lukaszj321"
+version: "1.0"
+last_updated: "2025-10-15"
+language: "pl"
+tags: ["otclient","data","assets","otui","styles","locales","shaders","sounds","rag","agent"]
 
 related:
-
-* "../04_ui/README.md"
-* "../06_assets/README.md"
-* "../12_otmod/README.md"
-
-# ARTIFACTS 
+  - "../04_ui/README.md"
+  - "../06_assets/README.md"
+  - "../12_otmod/README.md"
 
 artifacts:
-datasets:
-- id: "images"
-file: "./datasets/images.csv"
-headers: ["path","kind","width","height","theme","used_by_ui_ids","notes"]
-facet: "11_data.images"
-- id: "fonts"
-file: "./datasets/fonts.csv"
-headers: ["font_id","file","size","weight","mono","fallbacks"]
-facet: "11_data.fonts"
-- id: "styles"
-file: "./datasets/styles.csv"
-headers: ["style_id","source_file","selector","property","value","resolved_asset"]
-facet: "11_data.styles"
-- id: "locales"
-file: "./datasets/locales.csv"
-headers: ["lang","key","value","source_file"]
-facet: "11_data.locales"
-- id: "sounds"
-file: "./datasets/sounds.csv"
-headers: ["path","duration_ms","channels","rate_hz","kind","used_by"]
-facet: "11_data.sounds"
-- id: "shaders"
-file: "./datasets/shaders.csv"
-headers: ["name","type","file","uniforms","includes"]
-facet: "11_data.shaders"
-- id: "ui_asset_usage"
-file: "./datasets/ui_asset_usage.csv"
-headers: ["ui_id","ui_file","widget_path","prop","value","asset_path","resolved_path","notes"]
-facet: "11_data.ui_asset_usage"
-diagrams:
-- id: "data_flow"
-file: "./diagrams/data_flow.mmd"
-facet: "11_data.data_flow"
-- id: "asset_linking"
-file: "./diagrams/asset_linking.mmd"
-facet: "11_data.asset_linking"
-
-# OUTPUTS (zachowane dla zgodności ze skryptami)
+  datasets:
+    - id: "images"
+      file: "./datasets/images.csv"
+      headers: ["path","kind","width","height","theme","used_by_ui_ids","notes"]
+      facet: "11_data.images"
+    - id: "fonts"
+      file: "./datasets/fonts.csv"
+      headers: ["font_id","file","size","weight","mono","fallbacks"]
+      facet: "11_data.fonts"
+    - id: "styles"
+      file: "./datasets/styles.csv"
+      headers: ["style_id","source_file","selector","property","value","resolved_asset"]
+      facet: "11_data.styles"
+    - id: "locales"
+      file: "./datasets/locales.csv"
+      headers: ["lang","key","value","source_file"]
+      facet: "11_data.locales"
+    - id: "sounds"
+      file: "./datasets/sounds.csv"
+      headers: ["path","duration_ms","channels","rate_hz","kind","used_by"]
+      facet: "11_data.sounds"
+    - id: "shaders"
+      file: "./datasets/shaders.csv"
+      headers: ["name","type","file","uniforms","includes"]
+      facet: "11_data.shaders"
+    - id: "ui_asset_usage"
+      file: "./datasets/ui_asset_usage.csv"
+      headers: ["ui_id","ui_file","widget_path","prop","value","asset_path","resolved_path","notes"]
+      facet: "11_data.ui_asset_usage"
+  diagrams:
+    - id: "data_flow"
+      file: "./diagrams/data_flow.mmd"
+      facet: "11_data.data_flow"
+    - id: "asset_linking"
+      file: "./diagrams/asset_linking.mmd"
+      facet: "11_data.asset_linking"
 
 outputs:
+  - "./datasets/images.csv"
+  - "./datasets/fonts.csv"
+  - "./datasets/styles.csv"
+  - "./datasets/locales.csv"
+  - "./datasets/sounds.csv"
+  - "./datasets/shaders.csv"
+  - "./datasets/ui_asset_usage.csv"
+  - "./stats/stats.json"
+  - "./stats/stats.md"
 
-* "./datasets/images.csv"
-* "./datasets/fonts.csv"
-* "./datasets/styles.csv"
-* "./datasets/locales.csv"
-* "./datasets/sounds.csv"
-* "./datasets/shaders.csv"
-* "./datasets/ui_asset_usage.csv"
-* "./stats/stats.json"
-* "./stats/stats.md"
+encoding: "UTF-8 (no BOM)"
+---
 
-## encoding: "UTF-8 (no BOM)"
 
 # Data — Assets, Styles, Locales, Shaders, Sounds (Export Kit)
 
