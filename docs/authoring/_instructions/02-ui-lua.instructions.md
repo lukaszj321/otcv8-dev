@@ -47,7 +47,7 @@ datasets:
 
 diagrams:
   style:
-    mermaid_init: "%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
+    mermaid_init: "%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
     first_line_required: true
     click_rule:
       - 'click WidgetsHierarchy "./index.html#facet-04_ui.widgets_hierarchy" "Open widgets"'
@@ -93,7 +93,7 @@ acceptance:
 ## Diagramy — podgląd i klikalne kotwice
 
 ```mermaid
-%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   WidgetsHierarchy[Widgets Hierarchy] --> SignalsMatrix[Signals Matrix]
   click WidgetsHierarchy "./index.html#facet-04_ui.widgets_hierarchy" "Open widgets"
