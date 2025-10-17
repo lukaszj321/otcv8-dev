@@ -1,4 +1,4 @@
-metric,value,note
-entities_total,0,starter
-datasets_count,1,starter
-diagrams_count,1,starter
+metric,value,notes
+chapter_number,10,Chapter 10
+chapter_name,game_runtime,Game Runtime
+status,generated,Auto-generated

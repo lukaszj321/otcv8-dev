@@ -1,1 +1,3 @@
-layout_id,path,type,section,uses_images[],uses_fonts[],uses_otui[],notes
+name,path,file_count,notes
+mobile,layouts/mobile,6,
+retro,layouts/retro,114,

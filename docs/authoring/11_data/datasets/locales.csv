@@ -1,2 +1,7 @@
-locale,key,text,source_file,line,context
-pl,Skills,Umiejętności,04_ui/otui/skills.otui,10,label
+lang,key,value,source_file
+de,,,locales/de.lua
+en,,,locales/en.lua
+es,,,locales/es.lua
+pl,,,locales/pl.lua
+pt,,,locales/pt.lua
+sv,,,locales/sv.lua

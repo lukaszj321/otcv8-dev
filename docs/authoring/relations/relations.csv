@@ -1,38 +1,4 @@
-from_chapter,from_facet,to_chapter,to_facet,rel_type,evidence_path,note
-01_core,cpp_api,03_modules,lua_exports,uses,docs/authoring/03_modules/datasets/lua_exports.csv,C++ bindings to Lua
-01_core,cpp_api,04_ui,widgets,renders,docs/authoring/04_ui/datasets/ui_widgets.csv,Core renders UI widgets
-01_core,cpp_api,02_events,events_matrix,emits,docs/authoring/02_events/datasets/events_matrix.csv,Core emits system events
-01_core,cpp_api,09_logging,logging_categories,logs,docs/authoring/09_logging/datasets/logging_categories.csv,Core uses logging
-01_runtime,scheduler,02_events,events_matrix,handles,docs/authoring/02_events/datasets/events_matrix.csv,Runtime handles events
-01_runtime,dispatcher,01_core,cpp_api,uses,docs/authoring/01_core/datasets/cpp_symbols.csv,Runtime uses core API
-02_events,events_matrix,03_modules,lua_exports,emits,docs/authoring/03_modules/datasets/lua_exports.csv,Events emitted from Lua
-02_events,events_matrix,04_ui,widgets,handles,docs/authoring/04_ui/datasets/ui_widgets.csv,UI handles events
-03_modules,lua_exports,01_core,cpp_api,calls,docs/authoring/01_core/datasets/cpp_symbols.csv,Lua calls C++ functions
-03_modules,lua_exports,04_ui,widgets,uses,docs/authoring/04_ui/datasets/ui_widgets.csv,Modules manipulate UI
-03_modules,lua_exports,02_events,events_matrix,emits,docs/authoring/02_events/datasets/events_matrix.csv,Modules emit events
-04_ui,widgets,11_data,assets_catalog,uses,docs/authoring/11_data/datasets/assets_catalog.csv,UI uses data assets
-04_ui,widgets,13_layouts,layouts,uses,docs/authoring/13_layouts/datasets/layouts.csv,UI uses layout overrides
-04_ui,widgets,02_events,events_matrix,emits,docs/authoring/02_events/datasets/events_matrix.csv,UI emits user events
-05_network,protocol,01_core,cpp_api,uses,docs/authoring/01_core/datasets/cpp_symbols.csv,Network uses core classes
-05_network,protocol,02_events,events_matrix,emits,docs/authoring/02_events/datasets/events_matrix.csv,Network emits connection events
-05_network,protocol,09_logging,logging_categories,logs,docs/authoring/09_logging/datasets/logging_categories.csv,Network logs traffic
-06_assets,pipeline,11_data,assets_catalog,processes,docs/authoring/11_data/datasets/assets_catalog.csv,Pipeline processes assets
-06_assets,pipeline,04_ui,widgets,renders,docs/authoring/04_ui/datasets/ui_widgets.csv,Assets rendered by UI
-07_settings_crypto,config,01_core,cpp_api,uses,docs/authoring/01_core/datasets/cpp_symbols.csv,Settings use core storage
-07_settings_crypto,crypto,05_network,protocol,uses,docs/authoring/05_network/datasets/protocol.csv,Crypto used for network
-08_audio,sound_system,11_data,assets_catalog,uses,docs/authoring/11_data/datasets/assets_catalog.csv,Audio uses sound files
-08_audio,sound_system,02_events,events_matrix,handles,docs/authoring/02_events/datasets/events_matrix.csv,Audio responds to events
-09_logging,logging_categories,01_core,cpp_api,uses,docs/authoring/01_core/datasets/cpp_symbols.csv,Logging uses core classes
-10_game_runtime,game_loop,01_runtime,scheduler,uses,docs/authoring/01_runtime/datasets/summary.csv,Game loop uses scheduler
-10_game_runtime,game_loop,02_events,events_matrix,emits,docs/authoring/02_events/datasets/events_matrix.csv,Game emits gameplay events
-10_game_runtime,game_loop,04_ui,widgets,updates,docs/authoring/04_ui/datasets/ui_widgets.csv,Game updates UI
-11_data,assets_catalog,04_ui,widgets,owns,docs/authoring/04_ui/datasets/ui_widgets.csv,Data owns UI assets
-11_data,assets_catalog,13_layouts,layouts,owns,docs/authoring/13_layouts/datasets/layouts.csv,Data owns layout assets
-12_otmod,modules,03_modules,lua_exports,loads,docs/authoring/03_modules/datasets/modules_index.csv,OTMOD loads Lua modules
-12_otmod,modules,04_ui,widgets,uses,docs/authoring/04_ui/datasets/ui_widgets.csv,OTMOD uses UI
-12_otmod,modules,11_data,assets_catalog,uses,docs/authoring/11_data/datasets/assets_catalog.csv,OTMOD uses assets
-13_layouts,layouts,11_data,assets_catalog,overrides,docs/authoring/11_data/datasets/assets_catalog.csv,Layouts override data assets
-13_layouts,layouts,04_ui,widgets,uses,docs/authoring/04_ui/datasets/ui_widgets.csv,Layouts used by UI
-14_android,platform,11_data,assets_catalog,packages,docs/authoring/11_data/datasets/assets_catalog.csv,Android packages assets
-14_android,platform,12_otmod,modules,packages,docs/authoring/12_otmod/datasets/modules.csv,Android packages modules
-15_vc16,build_system,01_core,cpp_api,compiles,docs/authoring/01_core/datasets/cpp_headers.csv,VC16 compiles core
+from_id,to_id,rel_type,src_path,line,notes
+module:game_skills,otui:modules/game_skills/skills.otui,renders,docs/authoring/03_modules/datasets/modules_index.csv,,
+otui:modules/game_skills/skills.otui,asset:data/images/ui/skill_button.png,uses,docs/authoring/11_data/datasets/images.csv,,
+layout:mobile:images/ui/button.png,asset:data/images/ui/button.png,overrides,docs/authoring/13_layouts/datasets/layouts.csv,,
