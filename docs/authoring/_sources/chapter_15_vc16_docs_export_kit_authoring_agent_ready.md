@@ -12,11 +12,11 @@ artifacts:
   datasets:
     - id: "vc16_angle_headers"
       file: "vc16_angle_headers.csv"
-      headers: ["file","size_bytes","sha256","rel_path","note"]
+      headers: ["header","path","size_bytes","sha256","note"]
       facet: "15_vc16.headers"
     - id: "vc16_angle_libs"
       file: "vc16_angle_libs.csv"
-      headers: ["name","kind","arch","size_bytes","sha256","depends","note"]
+      headers: ["name","type","path","size_bytes","sha256","note"]
       facet: "15_vc16.libs"
     - id: "dll_manifest"
       file: "dll_manifest.csv"
