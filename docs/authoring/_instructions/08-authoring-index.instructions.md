@@ -186,6 +186,3 @@ acceptance:
 * [ ] `summary.csv` istnieje w `datasets/` lub sekcja Datasets ukryta warunkowo
 * [ ] Brak błędów linków (nitpicky) przy `sphinx-build -W`
 * [ ] Anchory `facet-<chapter>.<stem>` obecne (jeśli są stem-y)
-
-```
-```
