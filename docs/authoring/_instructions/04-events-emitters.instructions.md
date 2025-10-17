@@ -42,13 +42,13 @@ Styl globalny (zalecany w `conf.py`) lub na początku pliku `.mmd`.
 ```yaml
 diagrams:
   style:
-    mermaid_init: "%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
+    mermaid_init: "%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
     first_line_required: true
   files:
     - file: event_flow.mmd
       desc: "Typical client lifecycle (sequenceDiagram)"
       template: |
-        %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+        %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
         sequenceDiagram
           participant C as Client
           participant S as Server
