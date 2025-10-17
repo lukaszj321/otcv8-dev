@@ -284,7 +284,6 @@ Kanały IPC (używane przez Studio/Electron):
 ## Pipeline (build/test)
 
 ```{mermaid}
-%%{init: { 'theme': 'neutral' }}%%
 flowchart LR
   A[Gradle build] --> B[APK/AAB]
   B --> C[ABI scan]
@@ -297,14 +296,14 @@ flowchart LR
   I --> J[(android_assets.csv)]
 ```
 
+
 (facet-14_android.pipeline)=
 
 ### Facet: `14_android.pipeline`
 
 ## JNI flow
 
-```{mermaid}
-%%{init: { 'theme': 'neutral' }}%%
+```mermaid
 sequenceDiagram
   participant Java as Bridge(Java/Kotlin)
   participant JNI as C++ JNI
@@ -316,6 +315,7 @@ sequenceDiagram
   Eng-->>JNI: ok
   JNI-->>Java: return
 ```
+
 
 (facet-14_android.jni_flow)=
 
