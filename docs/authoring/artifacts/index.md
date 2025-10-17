@@ -8,5 +8,5 @@ Na tej stronie będą pojawiać się **automatycznie** podlinkowane pliki genero
 
 ```{admonition} Na razie pusto
 :class: note
-Jeśli nie ma tu nic, to znaczy, że workflow/agent jeszcze nie zapisał artefaktów do `docs/reposzablony/artifacts/`.
+Jeśli nie ma tu nic, to znaczy, że workflow/agent jeszcze nie zapisał artefaktów do `docs/authoring/artifacts/`.
 ```
