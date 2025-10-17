@@ -42,7 +42,7 @@ Inwentarz layoutów (ekrany/sekcje) z `layouts/**` i ich referencji do obrazów/
 - 1. linia wymagana:
 ```
 
-%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 
 ```
 

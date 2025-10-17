@@ -38,7 +38,7 @@ Zbuduj inwentarz zasobów z `data/**` (obrazy, fonty, dźwięki, style, configi)
 
 ## Diagrams (opcjonalnie)
 - `docs/authoring/11_data/diagrams/assets_links.mmd` — graf powiązań zasób ↔ UI/Layouts  
-  (pierwsza linia: `%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%`)
+  (pierwsza linia: `%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%`)
 
 ## Notes
 - Rozpoznawaj typ po rozszerzeniu/folderze; przy braku metadanych użyj heurystyk:

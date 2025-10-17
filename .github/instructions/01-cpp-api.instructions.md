@@ -65,7 +65,7 @@ datasets:
 ```yaml
 diagrams:
   style:
-    mermaid_init: "%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
+    mermaid_init: "%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
     node_ids: "CamelCase(stem)"
     click_rule: "click <NodeId> \"./index.html#facet-01_core.<stem>\" \"Open <stem>\""
     first_line_required: true
@@ -107,7 +107,7 @@ title: 01 — Core
 ## Diagrams
 
 ```mermaid
-%%{init: {'theme':'neutral','securityLevel':'loose'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   Core[Core] --> Subsystems[Subsystems]
   click Core "./index.html#facet-01_core.architecture" "Open architecture"

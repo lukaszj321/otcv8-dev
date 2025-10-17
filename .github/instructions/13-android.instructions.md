@@ -36,7 +36,7 @@ Zindeksuj artefakty Android: Manifest/permissions, moduły Gradle, ABI, CMake/ND
 - 1. linia wymagana:
 ```
 
-%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 
 ```
 

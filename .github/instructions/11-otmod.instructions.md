@@ -56,7 +56,7 @@ Zmapuj pakiety/moduły (OTMOD): manifesty, zależności, eksporty, powiązane za
 
 ```
 
-%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 
 ```
 - Uwaga: `click` tylko w flowchart/graph (nie w `sequenceDiagram`).
