@@ -58,9 +58,8 @@ datasets:
 # NOTE: `click` works in flowchart/graph only (NOT in sequenceDiagram)
 diagrams:
   style:
-    # Wstrzykuj jako 1. linia w każdym bloku Mermaid (bez cytowania w samym bloku)
     mermaid_init: "%%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%"
-    node_ids: "CamelCase(stem)"   # must match node IDs in .mmd
+    node_ids: "CamelCase(stem)"
     click_rule: "click <NodeId> \"./index.html#facet-01_core.<stem>\" \"Open <stem>\""
     first_line_required: true
   files:
@@ -84,7 +83,7 @@ index:
       ---
       title: 01 — Core
       ---
-  # 01 — Core
+      # 01 — Core
 
       ```{toctree}
       :hidden:
@@ -94,18 +93,18 @@ index:
       :depth: 2
       :local:
 
-  ## Datasets
+      ## Datasets
       :file: ./datasets/summary.csv
       :header-rows: 1
       :widths: auto
 
-  ## Diagrams
+      ## Diagrams
       %%{init: {'theme':'neutral','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
       graph TD
         Core[Core] --> Subsystems[Subsystems]
       click Core "./index.html#facet-01_core.architecture" "Open architecture"
 
-  ## Appendix / Facets
+      ## Appendix / Facets
       <span id="facet-01_core.architecture"></span>
       <span id="facet-01_core.include_graph"></span>
 
