@@ -460,9 +460,10 @@ graph TD
 
 ```mermaid
 graph TD
-  OTUI[OTUI property] -->|image-source/icon/font| Asset[(data/** | layouts/**)]
-  Asset --> Indexes[images.csv / fonts.csv]
-  Indexes --> Usage((ui_asset_usage.csv))
+  OTUI[OTUI property] -->|image-source / icon / font| Asset["data/\*\* \| layouts/\*\*"]
+  Asset --> Indexes["images.csv / fonts.csv"]
+  Indexes --> Usage["ui_asset_usage.csv"]
+
 ```
 
 ---
