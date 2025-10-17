@@ -69,71 +69,113 @@ graph LR
 :::{grid} 1 1 2 3
 :gutter: 2
 
-::::{grid-item-card} 01 — Core
+:::{grid-item-card} Authoring — Overview
+:link: index
+:link-type: doc
+Strona główna sekcji Authoring.
+:::
+
+:::{grid-item-card} 01 — Core
 :link: 01_core/index
 :link-type: doc
 Podstawy klienta, framework, C++ i API.
-::::
+:::
 
-::::{grid-item-card} 01 — Runtime
+:::{grid-item-card} 01 — Runtime
 :link: 01_runtime/index
 :link-type: doc
-Wykonanie, pętla gry, kontekst.
-::::
+Wykonanie, pętla, kontekst.
+:::
 
-::::{grid-item-card} 02 — Events
+:::{grid-item-card} 02 — Events
 :link: 02_events/index
 :link-type: doc
 Zdarzenia i sygnały.
-::::
+:::
 
-::::{grid-item-card} 03 — Modules
+:::{grid-item-card} 03 — Modules
 :link: 03_modules/index
 :link-type: doc
 Moduły i rozszerzenia.
-::::
+:::
 
-::::{grid-item-card} 04 — UI
+:::{grid-item-card} 04 — UI
 :link: 04_ui/index
 :link-type: doc
 Interfejs, widżety, motywy.
-::::
+:::
 
-::::{grid-item-card} 05 — Network
+:::{grid-item-card} 05 — Events (II)
+:link: 05_events/index
+:link-type: doc
+Zaawansowane wzorce zdarzeń.
+:::
+
+:::{grid-item-card} 05 — Network
 :link: 05_network/index
 :link-type: doc
-Warstwa sieciowa.
-::::
+Warstwa sieciowa i protokoły.
+:::
 
-::::{grid-item-card} 06 — Authoring
-:link: 06_authoring/index
+:::{grid-item-card} 06 — Assets
+:link: 06_assets/index
 :link-type: doc
-Pipeline tworzenia treści i diagramów.
-::::
+Zasoby, pipeline, wersjonowanie.
+:::
 
-::::{grid-item-card} 07 — Assets & Crypto
+:::{grid-item-card} 07 — Settings & Crypto
 :link: 07_settings_crypto/index
 :link-type: doc
-Ustawienia i kryptografia.
-::::
+Konfiguracja, bezpieczeństwo, kryptografia.
+:::
 
-::::{grid-item-card} 08 — Audio
+:::{grid-item-card} 08 — Audio
 :link: 08_audio/index
 :link-type: doc
-Dźwięk i miks.
-::::
+Dźwięk, miks, efekty.
+:::
 
-::::{grid-item-card} 09 — Logging
+:::{grid-item-card} 09 — Logging
 :link: 09_logging/index
 :link-type: doc
-Logowanie i diagnostyka.
-::::
+Logowanie, diagnostyka, observability.
+:::
 
-::::{grid-item-card} 10 — Game Runtime
+:::{grid-item-card} 10 — Game Runtime
 :link: 10_game_runtime/index
 :link-type: doc
 Uruchomienie gry, sceny, pętle.
-::::
+:::
+
+:::{grid-item-card} 11 — Data
+:link: 11_data/index
+:link-type: doc
+Dane, modele, migracje.
+:::
+
+:::{grid-item-card} 12 — OTMod
+:link: 12_otmod/index
+:link-type: doc
+Format OTMod, specyfikacje, narzędzia.
+:::
+
+:::{grid-item-card} 13 — Layouts
+:link: 13_layouts/index
+:link-type: doc
+Layouty, siatki, responsywność.
+:::
+
+:::{grid-item-card} 14 — Android
+:link: 14_android/index
+:link-type: doc
+Android/ABI, buildy, UX mobilny.
+:::
+
+:::{grid-item-card} 15 — VC16
+:link: 15_vc16/index
+:link-type: doc
+Toolchain VC16, kompilacja, CI.
+:::
 
 :::
 
