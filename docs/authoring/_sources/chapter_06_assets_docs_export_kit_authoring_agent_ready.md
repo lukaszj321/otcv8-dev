@@ -3,7 +3,9 @@ chapter: "06_assets"
 slug: "06_assets"
 title: "Assets — export kit"
 status: "agent_ready"
-owners: ["github:lukaszj321"]
+owners:
+  - "github:lukaszj321"
+
 artifacts:
   datasets:
     - id: "summary"
@@ -26,6 +28,7 @@ artifacts:
     - id: "pipeline_flow"
       file: "pipeline_flow.mmd"
       facet: "06_assets.pipeline_flow"
+
 xrefs:
   - to: "10_game_runtime.resources"
     type: "provides"
@@ -33,42 +36,54 @@ xrefs:
   - to: "04_ui.ui_widgets"
     type: "used_by"
     evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
+
 tags: ["assets","pipeline","sprites"]
 provenance: []
 version: "1.0"
 updated: "2025-10-14"
 ---
 
+
 # Assets
 
 (facet-06_assets.summary)=
+
 ## Dataset: summary
-- headers: `metric,value,note`
-- facet: `06_assets.summary`
+
+* headers: `metric,value,note`
+* facet: `06_assets.summary`
 
 (facet-06_assets.assets_index)=
+
 ## Dataset: assets_index
-- headers: `id,type,path,size,hash,notes`
-- facet: `06_assets.assets_index`
+
+* headers: `id,type,path,size,hash,notes`
+* facet: `06_assets.assets_index`
 
 (facet-06_assets.pipelines)=
+
 ## Dataset: pipelines
-- headers: `name,inputs,steps,outputs,notes`
-- facet: `06_assets.pipelines`
+
+* headers: `name,inputs,steps,outputs,notes`
+* facet: `06_assets.pipelines`
 
 (facet-06_assets.spritesheets)=
+
 ## Dataset: spritesheets
-- headers: `id,path,frames,frame_w,frame_h,notes`
-- facet: `06_assets.spritesheets`
+
+* headers: `id,path,frames,frame_w,frame_h,notes`
+* facet: `06_assets.spritesheets`
 
 (facet-06_assets.pipeline_flow)=
+
 ## Diagram: pipeline_flow
-- facet: `06_assets.pipeline_flow`
+
+* facet: `06_assets.pipeline_flow`
 
 ## Relacje
-- provides → `10_game_runtime.resources`
-- used_by → `04_ui.ui_widgets`
 
+* provides → `10_game_runtime.resources`
+* used_by → `04_ui.ui_widgets`
 
 ---
 
@@ -82,10 +97,10 @@ updated: "2025-10-14"
 
 ### 0) Executive summary
 
-- Co: indeks zasobow i ich stan (istnieje/nie), rozmiar, checksum, przypisana kategoria, relacje do modulow i UI.
-- Dla kogo: inzynierowie, maintainerzy builda, narzedzia AI/RAG i Studio (Electron/React).
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, gaps), diagramy (Mermaid), narracja (sekcje merytoryczne).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
+* Co: indeks zasobow i ich stan (istnieje/nie), rozmiar, checksum, przypisana kategoria, relacje do modulow i UI.
+* Dla kogo: inzynierowie, maintainerzy builda, narzedzia AI/RAG i Studio (Electron/React).
+* Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, gaps), diagramy (Mermaid), narracja (sekcje merytoryczne).
+* Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
 
 ---
 
@@ -207,30 +222,30 @@ Header jest staly - narzedzia BI moga cachowac schemat.
 
 ### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| assets.schema.json | walidacja rekordow assets | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | inventory | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | inventory | tylko skalary |
-| stats/*.json\|md | metryki zbiorcze | aggregator | kategorie, braki |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i braki | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+| Plik / Katalog     | Rola                      | Kto uzupelnia  | Uwagi                   |
+| ------------------ | ------------------------- | -------------- | ----------------------- |
+| assets.schema.json | walidacja rekordow assets | Agent/CI       | waliduj linie po linii  |
+| datasets/*.jsonl   | pelne rekordy (append)    | inventory      | rotacja w chunks/       |
+| datasets/*.csv     | widok splaszczony         | inventory      | tylko skalary           |
+| stats/*.json|md    | metryki zbiorcze          | aggregator     | kategorie, braki        |
+| sections/*.md      | narracja i wyjasnienia    | Agent/Autor    | AGENT:INSERT punkty     |
+| analysis/*         | wnioski i braki           | Agent/Analityk | linkuj id rekordow      |
+| extractors/*.lua   | zrzut i agregacja         | system         | nie zmieniaj API zapisu |
 
 ---
 
 ### 4) Slownik assetu (data dictionary)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | res:/data/images/ui/login.png | Unikat: `res:<sciezka>` |
-| path | string | /data/images/ui/login.png | Sciezka w zasobach. |
-| exists | boolean | true | Czy plik istnieje wg g_resources. |
-| checksum | string | fnv1a32:ab12cd34 | Kontrola integralnosci (FNV-1a 32-bit). |
-| sizeBytes | number | 45678 | Rozmiar pliku w bajtach. |
-| ext | string | png | Rozszerzenie. |
-| category | string | image | Kategoria (image,audio,font,otui,otml,lua,json,otmod,other). |
-| links[] | string[] | mod:..., ui:... | Powiazania z modulami i UI. |
+| Pole      | Typ      | Przyklad                      | Znaczenie                                                    |
+| --------- | -------- | ----------------------------- | ------------------------------------------------------------ |
+| id        | string   | res:/data/images/ui/login.png | Unikat: `res:<sciezka>`                                      |
+| path      | string   | /data/images/ui/login.png     | Sciezka w zasobach.                                          |
+| exists    | boolean  | true                          | Czy plik istnieje wg g_resources.                            |
+| checksum  | string   | fnv1a32:ab12cd34              | Kontrola integralnosci (FNV-1a 32-bit).                      |
+| sizeBytes | number   | 45678                         | Rozmiar pliku w bajtach.                                     |
+| ext       | string   | png                           | Rozszerzenie.                                                |
+| category  | string   | image                         | Kategoria (image,audio,font,otui,otml,lua,json,otmod,other). |
+| links[]   | string[] | mod:..., ui:...               | Powiazania z modulami i UI.                                  |
 
 > Agent tip: w sections/02_asset_model.md wstaw 5-8 realnych rekordow z NDJSON i krotki komentarz do kazdego.
 
@@ -548,29 +563,29 @@ graph TD
 
 ### 11) Encoding i formatowanie (UTF-8 safe)
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
+* Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
+* Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
 
 ---
 
 ### 12) Jakosc, SLO i bezpieczenstwo (krotko)
 
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- CSV zawiera tylko skalary; pelne zaleznosci w links[].
-- Nie zapisuj tresci plikow; tylko checksum i metadane.
+* NDJSON append-only; przy duzych wolumenach uzyj chunks.
+* CSV zawiera tylko skalary; pelne zaleznosci w links[].
+* Nie zapisuj tresci plikow; tylko checksum i metadane.
 
 ---
 
 ### 13) DoD Checklist - Agent clickable
 
-- [ ] Zapis do docs/06_assets/datasets/assets.dataset.jsonl i assets.dataset.csv dziala (>= 100 rekordow lub zgodnie z targets).
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_assets_basics.md, 01_introduction.md, 02_asset_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/gaps.md dodano min. 1 liste brakow z linkami do miejsc uzycia (jesli znane).
-- [ ] Diagram assets_flow.mmd istnieje i jest logiczny.
-- [ ] meta.json ma poprawne crosslinks: ../03_modules, ../04_ui, ../01_runtime.
-- [ ] Walidacja probki 20 linii NDJSON przeciw assets.schema.json zakonczona bez bledow.
+* [ ] Zapis do docs/06_assets/datasets/assets.dataset.jsonl i assets.dataset.csv dziala (>= 100 rekordow lub zgodnie z targets).
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
+* [ ] Uzupelniono sekcje: 00_assets_basics.md, 01_introduction.md, 02_asset_model.md (z przykladami), 03_collection_methods.md.
+* [ ] W analysis/gaps.md dodano min. 1 liste brakow z linkami do miejsc uzycia (jesli znane).
+* [ ] Diagram assets_flow.mmd istnieje i jest logiczny.
+* [ ] meta.json ma poprawne crosslinks: ../03_modules, ../04_ui, ../01_runtime.
+* [ ] Walidacja probki 20 linii NDJSON przeciw assets.schema.json zakonczona bez bledow.
 
 ---
 
