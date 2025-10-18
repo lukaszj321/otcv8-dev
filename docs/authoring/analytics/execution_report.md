@@ -3,6 +3,18 @@ doc_id: execution_report_mermaid_fix
 title: "Mermaid Rendering Fix - Execution Report"
 date: "2025-10-18"
 status: "Complete"
+source_path: docs/authoring/analytics/execution_report.md
+source_sha: TODO
+last_sync_iso: TODO
+doc_class: fixlog
+language: en
+summary: "Fixes for Mermaid diagram rendering issues in authoring documentation, including escape sequence handling and MyST configuration."
+tags:
+  - mermaid
+  - myst
+  - documentation
+  - rendering
+  - fix
 ---
 
 # Mermaid Rendering Fix - Execution Report
