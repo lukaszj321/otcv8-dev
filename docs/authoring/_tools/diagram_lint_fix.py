@@ -45,13 +45,15 @@ def fix_mermaid_blocks_in_md(path: Path) -> List[Tuple[int, str, str]]:
         # Find all mermaid blocks
         pattern = r'```mermaid\n([\s\S]*?)\n```'
         matches = list(re.finditer(pattern, content))
-        
-        for idx, match in enumerate(matches):
+        modifications: List[Tuple[int, int, str, str]] = []
+
+        # Process matches in reverse order to avoid adjusting indices of earlier matches.
+        for match in reversed(matches):
             block_content = match.group(1)
             block_start = match.start()
             fixed = False
             actions = []
-            
+
             # Check for init header
             has_init = '%%{init:' in block_content
             if not has_init:
@@ -59,29 +61,29 @@ def fix_mermaid_blocks_in_md(path: Path) -> List[Tuple[int, str, str]]:
                 block_content = INIT_HEADER + '\n' + block_content
                 fixed = True
                 actions.append('added_init')
-            
+
             # Check for stray backticks
             if '```' in block_content:
                 # Remove stray backticks
                 block_content = block_content.replace('```', '')
                 fixed = True
                 actions.append('removed_stray_backticks')
-            
+
             if fixed:
                 # Replace the block
                 new_block = f'```mermaid\n{block_content}\n```'
                 content = content[:match.start()] + new_block + content[match.end():]
-                # Adjust for length change
-                offset = len(new_block) - len(match.group(0))
-                for future_match in matches[idx+1:]:
-                    future_match.regs = tuple((start + offset, end + offset) for start, end in future_match.regs)
-                
+
                 line_num = original_content[:block_start].count('\n') + 1
-                fixes.append((line_num, ', '.join(actions), 'FIXED'))
-        
+                modifications.append((block_start, line_num, ', '.join(actions), 'FIXED'))
+
+        if modifications:
+            for _, line_num, action, status in sorted(modifications, key=lambda m: m[0]):
+                fixes.append((line_num, action, status))
+
         if content != original_content:
             path.write_text(content, encoding='utf-8')
-        
+
         return fixes
     except Exception as e:
         return [(0, f'Error: {str(e)}', 'ERROR')]
