@@ -7,7 +7,7 @@
 from pathlib import Path
 import re
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]  # Go up 3 levels from _tools
 AUTHORING = ROOT / "docs" / "authoring"
 
 INIT = "%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%"

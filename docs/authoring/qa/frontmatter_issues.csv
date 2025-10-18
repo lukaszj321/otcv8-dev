@@ -4,6 +4,7 @@ index_old.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-17T23:29:18Z"""
 MERMAID_FIX_COMPLETE.md,1,missing_frontmatter,No front-matter block found
 COMPLETENESS_v1.md,1,missing_frontmatter,No front-matter block found
 BATCH3_COMPLETE.md,1,missing_frontmatter,No front-matter block found
+MERMAID_YAML_FIX_COMPLETE.md,1,missing_frontmatter,No front-matter block found
 COMPLETION_SUMMARY.md,1,missing_frontmatter,No front-matter block found
 EXECUTION_SUMMARY.md,1,missing_frontmatter,No front-matter block found
 facets.md,1,missing_frontmatter,No front-matter block found
@@ -11,7 +12,7 @@ README.old.md,1,missing_frontmatter,No front-matter block found
 SPRINT_TOP15_COMPLETE.md,1,missing_frontmatter,No front-matter block found
 BATCH2_COMPLETE.md,1,missing_frontmatter,No front-matter block found
 REBUILD_COMPLETE.md,1,missing_frontmatter,No front-matter block found
-index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:42:00Z"""
+index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 COMPLETENESS.md,1,missing_frontmatter,No front-matter block found
 relations.md,1,missing_frontmatter,No front-matter block found
 datasets/index.md,1,missing_frontmatter,No front-matter block found
@@ -31,10 +32,13 @@ artifacts/README.md,1,missing_frontmatter,No front-matter block found
 artifacts/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 03_modules/README.md,1,missing_frontmatter,No front-matter block found
 03_modules/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.411138Z"""
+analytics/index_diff_09_logging.md,1,missing_frontmatter,No front-matter block found
 analytics/gaps.md,1,missing_frontmatter,No front-matter block found
-analytics/execution_report.md,1,missing_frontmatter,No front-matter block found
+analytics/index_diff_06_assets.md,1,missing_frontmatter,No front-matter block found
+analytics/index_indentation_root_cause.md,1,missing_frontmatter,No front-matter block found
 analytics/index.md,1,missing_frontmatter,No front-matter block found
 analytics/errors.md,1,missing_frontmatter,No front-matter block found
+analytics/index_diff_03_modules.md,1,missing_frontmatter,No front-matter block found
 01_runtime/README.md,1,missing_frontmatter,No front-matter block found
 01_runtime/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.410718Z"""
 05_network/README.md,1,missing_frontmatter,No front-matter block found
@@ -89,12 +93,14 @@ datasets/ui/index.md,1,missing_frontmatter,No front-matter block found
 datasets/chunks/index.md,1,missing_frontmatter,No front-matter block found
 11_data/datasets/index.md,1,missing_frontmatter,No front-matter block found
 11_data/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+11_data/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 11_data/datasets/index_parts/overview.md,1,missing_frontmatter,No front-matter block found
 04_ui/datasets/index.md,1,missing_frontmatter,No front-matter block found
 04_ui/otui/index.md,1,missing_frontmatter,No front-matter block found
 04_ui/otui-templates/README.md,1,missing_frontmatter,No front-matter block found
 04_ui/otui-templates/index.md,1,missing_frontmatter,No front-matter block found
 04_ui/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+04_ui/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 04_ui/otui/game_questlog/questlogwindow.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-09T10:29:14Z"""
 04_ui/otui/game_questlog/index.md,1,missing_frontmatter,No front-matter block found
 04_ui/otui/game_spelllist/spelllist.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-09T10:29:14Z"""
@@ -292,9 +298,11 @@ datasets/chunks/index.md,1,missing_frontmatter,No front-matter block found
 04_ui/otui-templates/diagrams/index.md,1,missing_frontmatter,No front-matter block found
 09_logging/datasets/index.md,1,missing_frontmatter,No front-matter block found
 09_logging/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+09_logging/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 03_modules/datasets/index.md,1,missing_frontmatter,No front-matter block found
 03_modules/diagrams/index.md,1,missing_frontmatter,No front-matter block found
 03_modules/lua/index.md,1,missing_frontmatter,No front-matter block found
+03_modules/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 03_modules/lua/game_questlog/questlog.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-09T10:29:06Z"""
 03_modules/lua/game_questlog/index.md,1,missing_frontmatter,No front-matter block found
 03_modules/lua/game_spelllist/spelllist.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-09T10:29:06Z"""
@@ -687,13 +695,17 @@ datasets/chunks/index.md,1,missing_frontmatter,No front-matter block found
 01_runtime/diagrams/index.md,1,missing_frontmatter,No front-matter block found
 05_network/datasets/index.md,1,missing_frontmatter,No front-matter block found
 05_network/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+05_network/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 02_events/datasets/index.md,1,missing_frontmatter,No front-matter block found
 02_events/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+02_events/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 08_audio/datasets/index.md,1,missing_frontmatter,No front-matter block found
 08_audio/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+08_audio/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 01_core/datasets/index.md,1,missing_frontmatter,No front-matter block found
 01_core/api/index.md,1,missing_frontmatter,No front-matter block found
 01_core/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+01_core/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 01_core/api/cpp/resource.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-09T10:28:07Z"""
 01_core/api/cpp/index.md,1,missing_frontmatter,No front-matter block found
 01_core/api/cpp/framework/const.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-09T10:28:07Z"""
@@ -912,7 +924,11 @@ datasets/chunks/index.md,1,missing_frontmatter,No front-matter block found
 05_events/diagrams/index.md,1,missing_frontmatter,No front-matter block found
 07_settings_crypto/datasets/index.md,1,missing_frontmatter,No front-matter block found
 07_settings_crypto/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+07_settings_crypto/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 06_assets/datasets/index.md,1,missing_frontmatter,No front-matter block found
 06_assets/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+06_assets/blueprints/index.md,1,missing_frontmatter,No front-matter block found
+12_otmod/blueprints/index.md,1,missing_frontmatter,No front-matter block found
 10_game_runtime/datasets/index.md,1,missing_frontmatter,No front-matter block found
 10_game_runtime/diagrams/index.md,1,missing_frontmatter,No front-matter block found
+10_game_runtime/blueprints/index.md,1,missing_frontmatter,No front-matter block found

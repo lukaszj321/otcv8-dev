@@ -18,7 +18,7 @@ Since a full Sphinx build requires additional dependencies and takes significant
    cd docs
    sphinx-build -b html . _build/html
    # Copy relevant index.html files to _proofs
-   ```
+```
 
 2. **GitHub Pages** (live deployment):
    - Check: https://lukaszj321.github.io/otcv8-dev/authoring/03_modules/index.html

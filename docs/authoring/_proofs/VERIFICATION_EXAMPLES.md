@@ -53,11 +53,11 @@ tags:
 ```markdown
 ### architecture
 
-        *Facet:* [`05_events.architecture`](#facet-05_events-architecture)
+*Facet:* [`05_events.architecture`](#facet-05_events-architecture)
 
-        ```{mermaid}
+```{mermaid}
         :file: ./diagrams/event_flow.mmd
-        ```
+```
 ```
 
 **Issue:**
