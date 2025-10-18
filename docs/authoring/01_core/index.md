@@ -1,6 +1,13 @@
 ---
-doc_id: 01_core, source_path: docs/authoring/01_core, source_sha: 899f3a9, last_sync_iso: 2025-10-18T01:36:41.410424Z, doc_class: api, language: pl, title: 01 - Core C++ API, summary: Core C++ framework and client classes, types, functions, and class diagrams for OTClient v8., tags: cpp,api,core,framework
+doc_id: 01_core
+source_path: docs/authoring/01_core
+source_sha: 899f3a9
+last_sync_iso: "2025-10-18T01:36:41.410424Z"
+doc_class: api
+language: pl
+title: 01 - Core C++ API
 ---
+
 
 # 01 - Core C++ API
 

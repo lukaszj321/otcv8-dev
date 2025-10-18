@@ -1,6 +1,13 @@
 ---
-doc_id: 07_settings_crypto, source_path: docs/authoring/07_settings_crypto, source_sha: fab0cef, last_sync_iso: 2025-10-18T01:36:41.411933Z, doc_class: spec, language: pl, title: 07 - Settings & Crypto, summary: Settings formats, profiles, keys, and cryptographic flows., tags: settings,crypto,keys,config
+doc_id: 07_settings_crypto
+source_path: docs/authoring/07_settings_crypto
+source_sha: fab0cef
+last_sync_iso: "2025-10-18T01:36:41.411933Z"
+doc_class: spec
+language: pl
+title: 07 - Settings & Crypto
 ---
+
 
 # 07 - Settings & Crypto
 

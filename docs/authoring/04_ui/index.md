@@ -1,6 +1,13 @@
 ---
-doc_id: 04_ui, source_path: docs/authoring/04_ui, source_sha: 962d6b1, last_sync_iso: 2025-10-18T01:36:41.411326Z, doc_class: ui, language: pl, title: 04 - UI/OTUI, summary: UI widget hierarchy, styles, fonts, images, and links to data assets., tags: ui,otui,widgets,styles
+doc_id: 04_ui
+source_path: docs/authoring/04_ui
+source_sha: 962d6b1
+last_sync_iso: "2025-10-18T01:36:41.411326Z"
+doc_class: ui
+language: pl
+title: 04 - UI/OTUI
 ---
+
 
 # 04 - UI/OTUI
 

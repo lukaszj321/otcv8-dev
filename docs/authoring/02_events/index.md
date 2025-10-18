@@ -1,6 +1,13 @@
 ---
-doc_id: 02_events, source_path: docs/authoring/02_events, source_sha: 9609119, last_sync_iso: 2025-10-18T01:36:41.410923Z, doc_class: api, language: pl, title: 02 - Events, summary: C++ and Lua event emission, dispatch, signals, and emitter-handler mappings., tags: events,signals,dispatcher,cpp,lua
+doc_id: 02_events
+source_path: docs/authoring/02_events
+source_sha: 9609119
+last_sync_iso: "2025-10-18T01:36:41.410923Z"
+doc_class: api
+language: pl
+title: 02 - Events
 ---
+
 
 # 02 - Events
 

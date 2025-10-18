@@ -1,6 +1,14 @@
 ---
-doc_id: 11_data, source_path: docs/authoring/11_data, source_sha: e509d47, last_sync_iso: 2025-10-18T01:36:41.412740Z, doc_class: spec, language: pl, title: 11 - Data, summary: Complete data taxonomy and mapping to OTUI widgets., tags: data,assets,taxonomy
+doc_id: 11_data
+source_path: docs/authoring/11_data
+source_sha: e509d47
+last_sync_iso: "2025-10-18T01:36:41.412740Z"
+doc_class: spec
+language: pl
+title: 11 - Data
+summary: Complete data taxonomy and mapping to OTUI widgets.
 ---
+
 
 # 11 - Data
 

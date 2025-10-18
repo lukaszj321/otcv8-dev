@@ -1,6 +1,13 @@
 ---
-doc_id: 15_vc16, source_path: docs/authoring/15_vc16, source_sha: 0da9180, last_sync_iso: 2025-10-18T01:36:41.413535Z, doc_class: guide, language: pl, title: 15 - VC16/ANGLE, summary: EGL/GLES headers, libraries, DLL distribution, and sanity tests., tags: vc16,angle,egl,gles
+doc_id: 15_vc16
+source_path: docs/authoring/15_vc16
+source_sha: 0da9180
+last_sync_iso: "2025-10-18T01:36:41.413535Z"
+doc_class: guide
+language: pl
+title: 15 - VC16/ANGLE
 ---
+
 
 # 15 - VC16/ANGLE
 

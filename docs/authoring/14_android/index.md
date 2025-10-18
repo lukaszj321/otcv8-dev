@@ -1,6 +1,13 @@
 ---
-doc_id: 14_android, source_path: docs/authoring/14_android, source_sha: 92cffc0, last_sync_iso: 2025-10-18T01:36:41.413344Z, doc_class: guide, language: pl, title: 14 - Android, summary: Android assets, ABI-specific .so files, AAB/APK builds, and signing., tags: android,abi,build
+doc_id: 14_android
+source_path: docs/authoring/14_android
+source_sha: 92cffc0
+last_sync_iso: "2025-10-18T01:36:41.413344Z"
+doc_class: guide
+language: pl
+title: 14 - Android
 ---
+
 
 # 14 - Android
 

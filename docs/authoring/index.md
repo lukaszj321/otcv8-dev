@@ -1,6 +1,14 @@
 ---
-doc_id: authoring.main, source_path: docs/authoring, source_sha: main001, last_sync_iso: 2025-10-18T01:42:00Z, doc_class: guide, language: pl, title: OTClient v8 Documentation & RAG - Authoring Guide, summary: Complete technical documentation and RAG datasets for OTClient v8 covering all 16 chapters from Core API to VC16/ANGLE, tags: documentation,rag,otclient,authoring,guide
+doc_id: authoring.main
+source_path: docs/authoring
+source_sha: main001
+last_sync_iso: "2025-10-18T01:42:00Z"
+doc_class: guide
+language: pl
+title: OTClient v8 Documentation & RAG - Authoring Guide
+summary: Complete technical documentation and RAG datasets for OTClient v8 covering all 16 chapters from Core API to VC16/ANGLE
 ---
+
 
 # OTClient v8 Documentation & RAG - Authoring Guide
 

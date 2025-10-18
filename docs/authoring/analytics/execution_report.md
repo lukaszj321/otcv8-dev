@@ -87,13 +87,13 @@ Modified `docs/authoring/_tools/qa_rerun.sh`:
 **Before (05_events/index.md, line 44-56):**
 ```markdown
 ### architecture
-        *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
+*Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-        ```{mermaid}
+```{mermaid}
         %%{init: { 'theme': 'neutral', ... }}%%
         graph LR
             ...
-        ```
+```
 ```
 
 **After (05_events/index.md, line 43-56):**

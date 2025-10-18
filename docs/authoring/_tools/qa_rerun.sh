@@ -1,6 +1,6 @@
 #!/bin/bash
 # QA Rerun Script for OTClient v8 Documentation
-# Runs diagram fix, link-lint, and csv-sanity checks
+# Runs fixers first, then validation checks
 
 set -e
 
@@ -11,12 +11,43 @@ echo ""
 # Change to repo root
 cd "$(dirname "$0")/../../.."
 
-# 1. MyST Dedent Fix (must run before diagram checks)
+echo "== PHASE 1: FIXERS =="
+echo ""
+
+# 1. Front-matter Fix (must run first to normalize YAML)
+echo "==> Running front-matter fix..."
+python3 docs/authoring/_tools/frontmatter_fix.py
+echo ""
+
+# 2. MyST Dedent Fix (must run before diagram checks)
 echo "==> Running MyST dedent fix..."
 python3 docs/authoring/_tools/myst_dedent_fix.py
 echo ""
 
-# 2. Diagram Lint & Fix
+# 3. Mermaid Lint & Fix
+echo "==> Running Mermaid lint & fix..."
+python3 docs/authoring/_tools/mermaid_lint_fix.py
+echo ""
+
+echo "== PHASE 2: VALIDATION & REPORTS =="
+echo ""
+
+# 1. Front-matter Scanner (generate report)
+echo "==> Running front-matter scanner..."
+python3 docs/authoring/_tools/frontmatter_scanner.py
+echo ""
+
+# 2. MyST Indent Scanner (generate report)
+echo "==> Running MyST indent scanner..."
+python3 docs/authoring/_tools/myst_indent_scanner.py
+echo ""
+
+# 3. Mermaid Scanner (generate report)
+echo "==> Running Mermaid scanner..."
+python3 docs/authoring/_tools/mermaid_scanner.py
+echo ""
+
+# 4. Diagram Lint & Fix
 echo "==> Running diagram lint & fix..."
 python3 docs/authoring/_tools/diagram_lint_fix.py
 echo ""
@@ -95,7 +126,9 @@ echo ""
 echo "=== QA Rerun Complete ==="
 echo ""
 echo "Reports generated:"
+echo "  - docs/authoring/qa/frontmatter_issues.csv"
 echo "  - docs/authoring/qa/myst_indent_report.csv"
+echo "  - docs/authoring/qa/mermaid_parse_issues.csv"
 echo "  - docs/authoring/qa/diagram_lint.csv"
 echo "  - docs/authoring/qa/link_lint.csv"
 echo "  - docs/authoring/qa/dataset_sanity.csv"
