@@ -1,4 +1,0 @@
-from_id,to_id,rel_type,src_path,line,notes
-module:game_skills,otui:modules/game_skills/skills.otui,renders,docs/authoring/03_modules/datasets/modules_index.csv,,
-otui:modules/game_skills/skills.otui,asset:data/images/ui/skill_button.png,uses,docs/authoring/11_data/datasets/images.csv,,
-layout:mobile:images/ui/button.png,asset:data/images/ui/button.png,overrides,docs/authoring/13_layouts/datasets/layouts.csv,,

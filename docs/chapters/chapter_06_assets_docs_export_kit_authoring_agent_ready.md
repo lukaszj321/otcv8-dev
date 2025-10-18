@@ -1,4 +1,93 @@
-# Chapter 05 - Assets
+---
+chapter: "06_assets"
+slug: "06_assets"
+title: "Assets — export kit"
+status: "agent_ready"
+owners:
+  - "github:lukaszj321"
+
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "06_assets.summary"
+    - id: "assets_index"
+      file: "assets_index.csv"
+      headers: ["id","type","path","size","hash","notes"]
+      facet: "06_assets.assets_index"
+    - id: "pipelines"
+      file: "pipelines.csv"
+      headers: ["name","inputs","steps","outputs","notes"]
+      facet: "06_assets.pipelines"
+    - id: "spritesheets"
+      file: "spritesheets.csv"
+      headers: ["id","path","frames","frame_w","frame_h","notes"]
+      facet: "06_assets.spritesheets"
+  diagrams:
+    - id: "pipeline_flow"
+      file: "pipeline_flow.mmd"
+      facet: "06_assets.pipeline_flow"
+
+xrefs:
+  - to: "10_game_runtime.resources"
+    type: "provides"
+    evidence: "docs/authoring/10_game_runtime/datasets/resources.csv"
+  - to: "04_ui.ui_widgets"
+    type: "used_by"
+    evidence: "docs/authoring/04_ui/datasets/ui_widgets.csv"
+
+tags: ["assets","pipeline","sprites"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+
+# Assets
+
+(facet-06_assets.summary)=
+
+## Dataset: summary
+
+* headers: `metric,value,note`
+* facet: `06_assets.summary`
+
+(facet-06_assets.assets_index)=
+
+## Dataset: assets_index
+
+* headers: `id,type,path,size,hash,notes`
+* facet: `06_assets.assets_index`
+
+(facet-06_assets.pipelines)=
+
+## Dataset: pipelines
+
+* headers: `name,inputs,steps,outputs,notes`
+* facet: `06_assets.pipelines`
+
+(facet-06_assets.spritesheets)=
+
+## Dataset: spritesheets
+
+* headers: `id,path,frames,frame_w,frame_h,notes`
+* facet: `06_assets.spritesheets`
+
+(facet-06_assets.pipeline_flow)=
+
+## Diagram: pipeline_flow
+
+* facet: `06_assets.pipeline_flow`
+
+## Relacje
+
+* provides → `10_game_runtime.resources`
+* used_by → `04_ui.ui_widgets`
+
+---
+
+# Chapter 06 - Assets
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
 
@@ -8,17 +97,17 @@
 
 ### 0) Executive summary
 
-- Co: indeks zasobow i ich stan (istnieje/nie), rozmiar, checksum, przypisana kategoria, relacje do modulow i UI.
-- Dla kogo: inzynierowie, maintainerzy builda, narzedzia AI/RAG i Studio (Electron/React).
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, gaps), diagramy (Mermaid), narracja (sekcje merytoryczne).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
+* Co: indeks zasobow i ich stan (istnieje/nie), rozmiar, checksum, przypisana kategoria, relacje do modulow i UI.
+* Dla kogo: inzynierowie, maintainerzy builda, narzedzia AI/RAG i Studio (Electron/React).
+* Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, gaps), diagramy (Mermaid), narracja (sekcje merytoryczne).
+* Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
 
 ---
 
 ### 1) Struktura folderu i linkowanie
 
 ```bash
-05_assets/
+06_assets/
   README.md                         # narracja + TOC + nawigacja (ten plik)
   meta.json                         # mapa plikow + zadania + tags (machine-readable)
   assets.schema.json                # walidacja rekordow NDJSON (asset)
@@ -109,23 +198,23 @@ Header jest staly - narzedzia BI moga cachowac schemat.
 
 `IO setup`
 - Default: dofile('../../_shared/lua/docio.lua')
-- Isolated: copy to 05_assets/_local/docio.lua and use dofile('../_local/docio.lua')
+- Isolated: copy to 06_assets/_local/docio.lua and use dofile('../_local/docio.lua')
 
 `Skad do _shared`
 | Start location | Path to _shared |
 |---|---|
-| 05_assets/extractors | ../../_shared/lua/docio.lua |
-| 05_assets | ../_shared/lua/docio.lua |
+| 06_assets/extractors | ../../_shared/lua/docio.lua |
+| 06_assets | ../_shared/lua/docio.lua |
 
 `Chunks aggregation`
-- Aggregator czyta glowny plik oraz opcjonalny indeks: docs/05_assets/datasets/chunks/index.json (JSON array nazw chunkow).
+- Aggregator czyta glowny plik oraz opcjonalny indeks: docs/06_assets/datasets/chunks/index.json (JSON array nazw chunkow).
 
 `Studio hooks (Electron) - skrot`
 - IPC: 'studio:assets.inventory.scan' -> uruchamia assets_inventory.lua
 - IPC: 'studio:aggregate.assets' -> uruchamia assets_stats.lua
 - IPC: 'studio:open.assets' {type: 'jsonl'|'csv'} -> otwiera dataset w Studio
 - Preload: contextIsolation: true; nodeIntegration: false; eksponuj bezpieczne API
-- Sandbox: wszystkie zapisy ida przez docio.lua pod 05_assets
+- Sandbox: wszystkie zapisy ida przez docio.lua pod 06_assets
 - View: podglad stats.md + tabela CSV; linki do rekordow po id w NDJSON
 ```
 
@@ -133,30 +222,30 @@ Header jest staly - narzedzia BI moga cachowac schemat.
 
 ### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| assets.schema.json | walidacja rekordow assets | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | inventory | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | inventory | tylko skalary |
-| stats/*.json\|md | metryki zbiorcze | aggregator | kategorie, braki |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i braki | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+| Plik / Katalog     | Rola                      | Kto uzupelnia  | Uwagi                   |
+| ------------------ | ------------------------- | -------------- | ----------------------- |
+| assets.schema.json | walidacja rekordow assets | Agent/CI       | waliduj linie po linii  |
+| datasets/*.jsonl   | pelne rekordy (append)    | inventory      | rotacja w chunks/       |
+| datasets/*.csv     | widok splaszczony         | inventory      | tylko skalary           |
+| stats/*.json|md    | metryki zbiorcze          | aggregator     | kategorie, braki        |
+| sections/*.md      | narracja i wyjasnienia    | Agent/Autor    | AGENT:INSERT punkty     |
+| analysis/*         | wnioski i braki           | Agent/Analityk | linkuj id rekordow      |
+| extractors/*.lua   | zrzut i agregacja         | system         | nie zmieniaj API zapisu |
 
 ---
 
 ### 4) Slownik assetu (data dictionary)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | res:/data/images/ui/login.png | Unikat: `res:<sciezka>` |
-| path | string | /data/images/ui/login.png | Sciezka w zasobach. |
-| exists | boolean | true | Czy plik istnieje wg g_resources. |
-| checksum | string | fnv1a32:ab12cd34 | Kontrola integralnosci (FNV-1a 32-bit). |
-| sizeBytes | number | 45678 | Rozmiar pliku w bajtach. |
-| ext | string | png | Rozszerzenie. |
-| category | string | image | Kategoria (image,audio,font,otui,otml,lua,json,otmod,other). |
-| links[] | string[] | mod:..., ui:... | Powiazania z modulami i UI. |
+| Pole      | Typ      | Przyklad                      | Znaczenie                                                    |
+| --------- | -------- | ----------------------------- | ------------------------------------------------------------ |
+| id        | string   | res:/data/images/ui/login.png | Unikat: `res:<sciezka>`                                      |
+| path      | string   | /data/images/ui/login.png     | Sciezka w zasobach.                                          |
+| exists    | boolean  | true                          | Czy plik istnieje wg g_resources.                            |
+| checksum  | string   | fnv1a32:ab12cd34              | Kontrola integralnosci (FNV-1a 32-bit).                      |
+| sizeBytes | number   | 45678                         | Rozmiar pliku w bajtach.                                     |
+| ext       | string   | png                           | Rozszerzenie.                                                |
+| category  | string   | image                         | Kategoria (image,audio,font,otui,otml,lua,json,otmod,other). |
+| links[]   | string[] | mod:..., ui:...               | Powiazania z modulami i UI.                                  |
 
 > Agent tip: w sections/02_asset_model.md wstaw 5-8 realnych rekordow z NDJSON i krotki komentarz do kazdego.
 
@@ -277,7 +366,7 @@ Zobacz slownik w README. Wstaw przyklady z NDJSON i krotkie komentarze.
 `extractors/assets_inventory.lua`
 
 ```lua
--- 05_assets/extractors/assets_inventory.lua
+-- 06_assets/extractors/assets_inventory.lua
 -- Inwentaryzacja assets -> JSONL + CSV (splaszczone kluczowe pola)
 -- ASCII-only; UTF-8 bez BOM; LF
 local docio = dofile('../../_shared/lua/docio.lua')
@@ -329,13 +418,13 @@ local function addAsset(path)
     category = categoryOf(ext),
     links = {}
   }
-  docio.appendJsonl('docs/05_assets/datasets/assets.dataset.jsonl', rec, MAX_BYTES)
-  docio.writeCsvHeader('docs/05_assets/datasets/assets.dataset.csv', CSV_HEADER)
+  docio.appendJsonl('docs/06_assets/datasets/assets.dataset.jsonl', rec, MAX_BYTES)
+  docio.writeCsvHeader('docs/06_assets/datasets/assets.dataset.csv', CSV_HEADER)
   local row = {
     id = rec.id, path = rec.path, exists = rec.exists, checksum = rec.checksum,
     sizeBytes = rec.sizeBytes, ext = rec.ext, category = rec.category
   }
-  docio.appendCsvRow('docs/05_assets/datasets/assets.dataset.csv', CSV_HEADER, row, MAX_BYTES)
+  docio.appendCsvRow('docs/06_assets/datasets/assets.dataset.csv', CSV_HEADER, row, MAX_BYTES)
 end
 
 local function readLines(path)
@@ -351,10 +440,10 @@ end
 
 local function loadTargets()
   local targets = {}
-  local t = readLines('docs/05_assets/config/assets.targets.txt')
+  local t = readLines('docs/06_assets/config/assets.targets.txt')
   for _,entry in ipairs(t) do
     if entry:match('^@filelist$') then
-      local fl = readLines('docs/05_assets/config/assets.files.txt')
+      local fl = readLines('docs/06_assets/config/assets.files.txt')
       for i=1,#fl do targets[#targets+1] = fl[i] end
     else
       targets[#targets+1] = entry
@@ -374,7 +463,7 @@ run()
 `extractors/assets_stats.lua`
 
 ```lua
--- 05_assets/extractors/assets_stats.lua
+-- 06_assets/extractors/assets_stats.lua
 -- Agregacja assets -> stats.json + stats.md (deterministyczny output)
 -- ASCII-only; UTF-8 bez BOM; LF
 local docio = dofile('../../_shared/lua/docio.lua')
@@ -392,17 +481,17 @@ end
 
 local function loadAllRecords()
   local recs = {}
-  local head = docio.readAll('docs/05_assets/datasets/assets.dataset.jsonl')
+  local head = docio.readAll('docs/06_assets/datasets/assets.dataset.jsonl')
   local headList = parseLines(head)
   for i=1,#headList do recs[#recs+1] = headList[i] end
-  local indexText = docio.readAll('docs/05_assets/datasets/chunks/index.json')
+  local indexText = docio.readAll('docs/06_assets/datasets/chunks/index.json')
   if indexText and #indexText > 0 then
     local ok, list = pcall(function() return json.decode(indexText) end)
     if ok and type(list) == 'table' then
       for _,fname in ipairs(list) do
         local path = fname
         if not tostring(fname):match('^docs/') then
-          path = 'docs/05_assets/datasets/chunks/' .. tostring(fname)
+          path = 'docs/06_assets/datasets/chunks/' .. tostring(fname)
         end
         local t = docio.readAll(path)
         local more = parseLines(t)
@@ -447,8 +536,8 @@ end
 local function run()
   local recs = loadAllRecords()
   local s = stats(recs)
-  docio.writeAll('docs/05_assets/stats/stats.json', json.encode(s))
-  docio.writeAll('docs/05_assets/stats/stats.md', writeMD(s))
+  docio.writeAll('docs/06_assets/stats/stats.json', json.encode(s))
+  docio.writeAll('docs/06_assets/stats/stats.md', writeMD(s))
 end
 
 run()
@@ -474,29 +563,29 @@ graph TD
 
 ### 11) Encoding i formatowanie (UTF-8 safe)
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
+* Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
+* Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
 
 ---
 
 ### 12) Jakosc, SLO i bezpieczenstwo (krotko)
 
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- CSV zawiera tylko skalary; pelne zaleznosci w links[].
-- Nie zapisuj tresci plikow; tylko checksum i metadane.
+* NDJSON append-only; przy duzych wolumenach uzyj chunks.
+* CSV zawiera tylko skalary; pelne zaleznosci w links[].
+* Nie zapisuj tresci plikow; tylko checksum i metadane.
 
 ---
 
 ### 13) DoD Checklist - Agent clickable
 
-- [ ] Zapis do docs/05_assets/datasets/assets.dataset.jsonl i assets.dataset.csv dziala (>= 100 rekordow lub zgodnie z targets).
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_assets_basics.md, 01_introduction.md, 02_asset_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/gaps.md dodano min. 1 liste brakow z linkami do miejsc uzycia (jesli znane).
-- [ ] Diagram assets_flow.mmd istnieje i jest logiczny.
-- [ ] meta.json ma poprawne crosslinks: ../03_modules, ../04_ui, ../01_runtime.
-- [ ] Walidacja probki 20 linii NDJSON przeciw assets.schema.json zakonczona bez bledow.
+* [ ] Zapis do docs/06_assets/datasets/assets.dataset.jsonl i assets.dataset.csv dziala (>= 100 rekordow lub zgodnie z targets).
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
+* [ ] Uzupelniono sekcje: 00_assets_basics.md, 01_introduction.md, 02_asset_model.md (z przykladami), 03_collection_methods.md.
+* [ ] W analysis/gaps.md dodano min. 1 liste brakow z linkami do miejsc uzycia (jesli znane).
+* [ ] Diagram assets_flow.mmd istnieje i jest logiczny.
+* [ ] meta.json ma poprawne crosslinks: ../03_modules, ../04_ui, ../01_runtime.
+* [ ] Walidacja probki 20 linii NDJSON przeciw assets.schema.json zakonczona bez bledow.
 
 ---
 

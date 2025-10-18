@@ -1,3 +1,92 @@
+---
+chapter: "09_logging"
+slug: "09_logging"
+title: "Logging system — export kit"
+status: "agent_ready"
+owners:
+  - "github:lukaszj321"
+
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "09_logging.summary"
+    - id: "logging_categories"
+      file: "logging_categories.csv"
+      headers: ["category","level_default","sinks","notes"]
+      facet: "09_logging.logging_categories"
+    - id: "emitters"
+      file: "emitters.csv"
+      headers: ["source","category","rate","notes"]
+      facet: "09_logging.emitters"
+    - id: "sinks"
+      file: "sinks.csv"
+      headers: ["name","type","path","rotation","notes"]
+      facet: "09_logging.sinks"
+  diagrams:
+    - id: "flow"
+      file: "flow.mmd"
+      facet: "09_logging.flow"
+
+xrefs:
+  - to: "02_events.events_matrix"
+    type: "observes"
+    evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
+  - to: "05_network.network_messages"
+    type: "observes"
+    evidence: "docs/authoring/05_network/datasets/network_messages.csv"
+
+tags: ["logging","observability","sinks"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+
+# Logging
+
+(facet-09_logging.summary)=
+
+## Dataset: summary
+
+* headers: `metric,value,note`
+* facet: `09_logging.summary`
+
+(facet-09_logging.logging_categories)=
+
+## Dataset: logging_categories
+
+* headers: `category,level_default,sinks,notes`
+* facet: `09_logging.logging_categories`
+
+(facet-09_logging.emitters)=
+
+## Dataset: emitters
+
+* headers: `source,category,rate,notes`
+* facet: `09_logging.emitters`
+
+(facet-09_logging.sinks)=
+
+## Dataset: sinks
+
+* headers: `name,type,path,rotation,notes`
+* facet: `09_logging.sinks`
+
+(facet-09_logging.flow)=
+
+## Diagram: flow
+
+* facet: `09_logging.flow`
+
+## Relacje
+
+* observes → `02_events.events_matrix`
+* observes → `05_network.network_messages`
+
+---
+
 # Chapter 09 - Logging
 
 ### Professional Pro Template - Agent-Ready - OTClient v8 (Consolidated with Fix Pack 01)
@@ -8,10 +97,10 @@
 
 ### 0) Executive summary
 
-- Co: unifikacja logow z klienta lub plikow zewnetrznych (level, tag, ts, message lub hash), korelacja z runtime i eventami.
-- Dla kogo: inzynierowie, QA, narzedzia AI/RAG i Studio (Electron/React).
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, correlations), diagramy (Mermaid), narracja (sekcje merytoryczne).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
+* Co: unifikacja logow z klienta lub plikow zewnetrznych (level, tag, ts, message lub hash), korelacja z runtime i eventami.
+* Dla kogo: inzynierowie, QA, narzedzia AI/RAG i Studio (Electron/React).
+* Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, correlations), diagramy (Mermaid), narracja (sekcje merytoryczne).
+* Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
 
 ---
 
@@ -136,32 +225,32 @@ Header jest staly - narzedzia BI moga cachowac schemat.
 
 ### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| logs.schema.json | walidacja rekordow logow | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | sniffer | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | sniffer | messageHash zamiast tresci |
-| stats/*.json\|md | metryki zbiorcze | aggregator | level, tag, hash |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i korelacje | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+| Plik / Katalog   | Rola                     | Kto uzupelnia  | Uwagi                      |
+| ---------------- | ------------------------ | -------------- | -------------------------- |
+| logs.schema.json | walidacja rekordow logow | Agent/CI       | waliduj linie po linii     |
+| datasets/*.jsonl | pelne rekordy (append)   | sniffer        | rotacja w chunks/          |
+| datasets/*.csv   | widok splaszczony        | sniffer        | messageHash zamiast tresci |
+| stats/*.json|md  | metryki zbiorcze         | aggregator     | level, tag, hash           |
+| sections/*.md    | narracja i wyjasnienia   | Agent/Autor    | AGENT:INSERT punkty        |
+| analysis/*       | wnioski i korelacje      | Agent/Analityk | linkuj id rekordow         |
+| extractors/*.lua | zrzut i agregacja        | system         | nie zmieniaj API zapisu    |
 
 ---
 
 ### 4) Slownik logu (data dictionary)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | log:ERROR/engine@2025-10-08T12:00:00Z | Unikat: `log:<LEVEL>/<TAG_SAFE>@<ISO>`. |
-| type | string | log | Stala wartosc: log. |
-| ts | string | 2025-10-08T12:00:00Z | Czas wystapienia (UTC). |
-| level | string | INFO | Poziom (DEBUG, INFO, WARN, ERROR). |
-| tag | string | engine-core | Krotki identyfikator zrodla (oryginal, bez sanitizacji). |
-| hasMessage | boolean | true | Czy tresc istniala. |
-| messageHash | string | fnv1a32:ab12cd34 | Hash tresci (nie zapisujemy raw by default). |
-| extras | object | {"line":123} | Opcjonalny kontekst. |
-| source | string | proxy\|tail | Zrodlo rekordu (proxy logger lub tail pliku). |
-| links[] | string[] | runtime:..., evt:... | Powiazania z innymi rozdzialami. |
+| Pole        | Typ      | Przyklad                              | Znaczenie                                                |
+| ----------- | -------- | ------------------------------------- | -------------------------------------------------------- |
+| id          | string   | log:ERROR/engine@2025-10-08T12:00:00Z | Unikat: `log:<LEVEL>/<TAG_SAFE>@<ISO>`.                  |
+| type        | string   | log                                   | Stala wartosc: log.                                      |
+| ts          | string   | 2025-10-08T12:00:00Z                  | Czas wystapienia (UTC).                                  |
+| level       | string   | INFO                                  | Poziom (DEBUG, INFO, WARN, ERROR).                       |
+| tag         | string   | engine-core                           | Krotki identyfikator zrodla (oryginal, bez sanitizacji). |
+| hasMessage  | boolean  | true                                  | Czy tresc istniala.                                      |
+| messageHash | string   | fnv1a32:ab12cd34                      | Hash tresci (nie zapisujemy raw by default).             |
+| extras      | object   | {"line":123}                          | Opcjonalny kontekst.                                     |
+| source      | string   | proxy|tail                            | Zrodlo rekordu (proxy logger lub tail pliku).            |
+| links[]     | string[] | runtime:..., evt:...                  | Powiazania z innymi rozdzialami.                         |
 
 > Agent tip: w sections/02_log_model.md wstaw 5 realnych logow z NDJSON (zanonimizowanych) i jednozdaniowy komentarz.
 
@@ -263,7 +352,7 @@ Zobacz slownik w README. Wstaw przyklady z NDJSON oraz informacje o zrodle (prox
   "type": "object",
   "required": ["id","type","ts","level","tag","hasMessage","messageHash","source"],
   "properties": {
-    "id": {"type":"string","pattern":"^log:[A-Z]+\/[A-Za-z0-9_.-]+@[0-9TZ:-]+$"},
+    "id": {"type":"string","pattern":"^log:[A-Z]+\\/[A-Za-z0-9_.-]+@[0-9TZ:-]+$"},
     "type": {"type":"string","const":"log"},
     "ts": {"type":"string","format":"date-time"},
     "level": {"type":"string"},
@@ -565,30 +654,30 @@ sequenceDiagram
 
 ### 11) Encoding i formatowanie (UTF-8 safe)
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
+* Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
+* Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
 
 ---
 
 ### 12) Jakosc, SLO i bezpieczenstwo (krotko)
 
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- Prywatnosc: storeMessage=false domyslnie; zapisujemy tylko hash.
-- Tail: format nie jest gwarantowany; stosuj regexy w logging.parsers.json.
+* NDJSON append-only; przy duzych wolumenach uzyj chunks.
+* Prywatnosc: storeMessage=false domyslnie; zapisujemy tylko hash.
+* Tail: format nie jest gwarantowany; stosuj regexy w logging.parsers.json.
 
 ---
 
 ### 13) DoD Checklist - Agent clickable
 
-- [ ] Zapis do docs/09_logging/datasets/logs.dataset.jsonl i logs.dataset.csv dziala (>= 50 rekordow lub zgodnie z targets).
-- [ ] Dziala start/stop sniffera (proxy + tail) przez IPC.
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_logging_basics.md, 01_introduction.md, 02_log_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/correlations.md dodano min. 1 korelacje log -> event/runtime.
-- [ ] Diagramy logging_flow.mmd i error_timeline.mmd istnieja i sa logiczne.
-- [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../06_network.
-- [ ] Walidacja probki 20 linii NDJSON przeciw logs.schema.json zakonczona bez bledow.
+* [ ] Zapis do docs/09_logging/datasets/logs.dataset.jsonl i logs.dataset.csv dziala (>= 50 rekordow lub zgodnie z targets).
+* [ ] Dziala start/stop sniffera (proxy + tail) przez IPC.
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
+* [ ] Uzupelniono sekcje: 00_logging_basics.md, 01_introduction.md, 02_log_model.md (z przykladami), 03_collection_methods.md.
+* [ ] W analysis/correlations.md dodano min. 1 korelacje log -> event/runtime.
+* [ ] Diagramy logging_flow.mmd i error_timeline.mmd istnieja i sa logiczne.
+* [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../06_network.
+* [ ] Walidacja probki 20 linii NDJSON przeciw logs.schema.json zakonczona bez bledow.
 
 ---
 

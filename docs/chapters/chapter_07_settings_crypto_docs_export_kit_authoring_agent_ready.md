@@ -1,3 +1,92 @@
+---
+chapter: "07_settings_crypto"
+slug: "07_settings_crypto"
+title: "Settings & Cryptography — export kit"
+status: "agent_ready"
+owners:
+  - "github:lukaszj321"
+
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "07_settings_crypto.summary"
+    - id: "settings"
+      file: "settings.csv"
+      headers: ["key","scope","type","default","notes"]
+      facet: "07_settings_crypto.settings"
+    - id: "secrets"
+      file: "secrets.csv"
+      headers: ["name","provider","location","rotation","notes"]
+      facet: "07_settings_crypto.secrets"
+    - id: "crypto_primitives"
+      file: "crypto_primitives.csv"
+      headers: ["name","type","params","usage","notes"]
+      facet: "07_settings_crypto.crypto_primitives"
+  diagrams:
+    - id: "config_flow"
+      file: "config_flow.mmd"
+      facet: "07_settings_crypto.config_flow"
+
+xrefs:
+  - to: "01_runtime.counters"
+    type: "affects"
+    evidence: "docs/authoring/01_runtime/datasets/counters.csv"
+  - to: "05_network.network_messages"
+    type: "secures"
+    evidence: "docs/authoring/05_network/datasets/network_messages.csv"
+
+tags: ["settings","crypto","security"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+
+# Ustawienia i kryptografia
+
+(facet-07_settings_crypto.summary)=
+
+## Dataset: summary
+
+* headers: `metric,value,note`
+* facet: `07_settings_crypto.summary`
+
+(facet-07_settings_crypto.settings)=
+
+## Dataset: settings
+
+* headers: `key,scope,type,default,notes`
+* facet: `07_settings_crypto.settings`
+
+(facet-07_settings_crypto.secrets)=
+
+## Dataset: secrets
+
+* headers: `name,provider,location,rotation,notes`
+* facet: `07_settings_crypto.secrets`
+
+(facet-07_settings_crypto.crypto_primitives)=
+
+## Dataset: crypto_primitives
+
+* headers: `name,type,params,usage,notes`
+* facet: `07_settings_crypto.crypto_primitives`
+
+(facet-07_settings_crypto.config_flow)=
+
+## Diagram: config_flow
+
+* facet: `07_settings_crypto.config_flow`
+
+## Relacje
+
+* affects → `01_runtime.counters`
+* secures → `05_network.network_messages`
+
+---
+
 # Chapter 07 - Settings & Crypto
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
@@ -8,10 +97,10 @@
 
 ### 0) Executive summary
 
-- Co: kontrolowana inwentaryzacja wybranych ustawien (whitelist) oraz metadane protokolu/crypto (wersje, RSA info) z klienta.
-- Dla kogo: inzynierowie, integratorzy builda, narzedzia AI/RAG i Studio (Electron/React).
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, compliance), diagramy (Mermaid), narracja (sekcje merytoryczne).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV headers, Studio hooks, checklist DoD.
+* Co: kontrolowana inwentaryzacja wybranych ustawien (whitelist) oraz metadane protokolu/crypto (wersje, RSA info) z klienta.
+* Dla kogo: inzynierowie, integratorzy builda, narzedzia AI/RAG i Studio (Electron/React).
+* Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), analizy (findings, compliance), diagramy (Mermaid), narracja (sekcje merytoryczne).
+* Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV headers, Studio hooks, checklist DoD.
 
 ---
 
@@ -148,16 +237,16 @@ Studio hooks (Electron) - skrot
 
 ### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| settings.schema.json | walidacja rekordow settings | Agent/CI | waliduj linie po linii |
-| crypto.schema.json | walidacja rekordow crypto | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | exporters | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | exporters | only scalars + value_json |
-| stats/*.json\|md | metryki zbiorcze | aggregator | coverage, warianty |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i compliance | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+| Plik / Katalog       | Rola                        | Kto uzupelnia  | Uwagi                     |
+| -------------------- | --------------------------- | -------------- | ------------------------- |
+| settings.schema.json | walidacja rekordow settings | Agent/CI       | waliduj linie po linii    |
+| crypto.schema.json   | walidacja rekordow crypto   | Agent/CI       | waliduj linie po linii    |
+| datasets/*.jsonl     | pelne rekordy (append)      | exporters      | rotacja w chunks/         |
+| datasets/*.csv       | widok splaszczony           | exporters      | only scalars + value_json |
+| stats/*.json|md      | metryki zbiorcze            | aggregator     | coverage, warianty        |
+| sections/*.md        | narracja i wyjasnienia      | Agent/Autor    | AGENT:INSERT punkty       |
+| analysis/*           | wnioski i compliance        | Agent/Analityk | linkuj id rekordow        |
+| extractors/*.lua     | zrzut i agregacja           | system         | nie zmieniaj API zapisu   |
 
 ---
 
@@ -165,28 +254,28 @@ Studio hooks (Electron) - skrot
 
 Settings record (NDJSON)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | set:window.displaySize | Unikat: `set:<key>`. |
-| type | string | setting | Stala wartosc: setting. |
-| key | string | window.displaySize | Klucz ustawienia (whitelist). |
-| value | any | "1024x768" lub 60 | Wartosc (dowolna). |
-| source | string | runtime\|ui\|module\|file | Zrodlo wartosci. |
-| links[] | string[] | ui:..., mod:..., runtime:... | Powiazania. |
+| Pole    | Typ      | Przyklad                     | Znaczenie                     |
+| ------- | -------- | ---------------------------- | ----------------------------- |
+| id      | string   | set:window.displaySize       | Unikat: `set:<key>`.          |
+| type    | string   | setting                      | Stala wartosc: setting.       |
+| key     | string   | window.displaySize           | Klucz ustawienia (whitelist). |
+| value   | any      | "1024x768" lub 60            | Wartosc (dowolna).            |
+| source  | string   | runtime|ui|module|file       | Zrodlo wartosci.              |
+| links[] | string[] | ui:..., mod:..., runtime:... | Powiazania.                   |
 
 Crypto/Protocol record (NDJSON)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | proto:active | Unikat: `proto:<label>`. |
-| type | string | crypto | Stala wartosc: crypto. |
-| ts | string | 2025-10-08T12:00:00Z | Czas snapshotu. |
-| clientVersion | string | "v8.XX" | Wersja klienta (jesli dostepna). |
-| protoVersion | string | "10.98" | Wersja protokolu (jesli dostepna). |
-| customOs | boolean | true | Opcja custom OS (jesli dot.). |
-| rsaBits | number | 1024 | Dlugosc klucza RSA (jesli dot.). |
-| rsaPrefix | string | "03 01 00 01 ..." | Prefix/modulus summary (bez wrażliwych danych). |
-| links[] | string[] | runtime:..., events:... | Powiazania. |
+| Pole          | Typ      | Przyklad                | Znaczenie                                       |
+| ------------- | -------- | ----------------------- | ----------------------------------------------- |
+| id            | string   | proto:active            | Unikat: `proto:<label>`.                        |
+| type          | string   | crypto                  | Stala wartosc: crypto.                          |
+| ts            | string   | 2025-10-08T12:00:00Z    | Czas snapshotu.                                 |
+| clientVersion | string   | "v8.XX"                 | Wersja klienta (jesli dostepna).                |
+| protoVersion  | string   | "10.98"                 | Wersja protokolu (jesli dostepna).              |
+| customOs      | boolean  | true                    | Opcja custom OS (jesli dot.).                   |
+| rsaBits       | number   | 1024                    | Dlugosc klucza RSA (jesli dot.).                |
+| rsaPrefix     | string   | "03 01 00 01 ..."       | Prefix/modulus summary (bez wrażliwych danych). |
+| links[]       | string[] | runtime:..., events:... | Powiazania.                                     |
 
 ---
 
@@ -593,29 +682,29 @@ graph TD
 
 ### 11) Encoding i formatowanie (UTF-8 safe)
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
+* Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
+* Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
 
 ---
 
 ### 12) Jakosc, SLO i bezpieczenstwo (krotko)
 
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- Settings: tylko whitelist; **nie** zbieraj danych wrazliwych (PII, sekrety).
-- Crypto: wystrzegaj sie zapisu pelnych materialow kluczowych; tylko metadane.
+* NDJSON append-only; przy duzych wolumenach uzyj chunks.
+* Settings: tylko whitelist; **nie** zbieraj danych wrazliwych (PII, sekrety).
+* Crypto: wystrzegaj sie zapisu pelnych materialow kluczowych; tylko metadane.
 
 ---
 
 ### 13) DoD Checklist - Agent clickable
 
-- [ ] Zapis do docs/07_settings_crypto/datasets/settings.dataset.jsonl/.csv oraz crypto.dataset.jsonl/.csv dziala.
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_settings_basics.md, 01_crypto_protocol_basics.md, 02_models.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/compliance.md dodano min. 1 regule compliance (np. dopuszczalne protoVersion lub RSA bits >= N).
-- [ ] Diagram settings_crypto_flow.mmd istnieje i jest logiczny.
-- [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../06_network.
-- [ ] Walidacja probki 10 linii NDJSON przeciw schemas zakonczona bez bledow.
+* [ ] Zapis do docs/07_settings_crypto/datasets/settings.dataset.jsonl/.csv oraz crypto.dataset.jsonl/.csv dziala.
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
+* [ ] Uzupelniono sekcje: 00_settings_basics.md, 01_crypto_protocol_basics.md, 02_models.md (z przykladami), 03_collection_methods.md.
+* [ ] W analysis/compliance.md dodano min. 1 regule compliance (np. dopuszczalne protoVersion lub RSA bits >= N).
+* [ ] Diagram settings_crypto_flow.mmd istnieje i jest logiczny.
+* [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../06_network.
+* [ ] Walidacja probki 10 linii NDJSON przeciw schemas zakonczona bez bledow.
 
 ---
 

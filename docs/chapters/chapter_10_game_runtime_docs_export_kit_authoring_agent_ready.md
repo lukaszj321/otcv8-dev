@@ -1,3 +1,96 @@
+---
+chapter: "10_game_runtime"
+slug: "10_game_runtime"
+title: "Game runtime — export kit"
+status: "agent_ready"
+owners:
+  - "github:lukaszj321"
+
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "10_game_runtime.summary"
+    - id: "game_state"
+      file: "game_state.csv"
+      headers: ["name","value","updated_at","notes"]
+      facet: "10_game_runtime.game_state"
+    - id: "ticks"
+      file: "ticks.csv"
+      headers: ["ts","dt_ms","phase","handlers","notes"]
+      facet: "10_game_runtime.ticks"
+    - id: "resources"
+      file: "resources.csv"
+      headers: ["type","id","state","owner","notes"]
+      facet: "10_game_runtime.resources"
+  diagrams:
+    - id: "loop"
+      file: "loop.mmd"
+      facet: "10_game_runtime.loop"
+
+xrefs:
+  - to: "06_assets.assets_index"
+    type: "consumes"
+    evidence: "docs/authoring/06_assets/datasets/assets_index.csv"
+  - to: "05_network.flows"
+    type: "driven_by"
+    evidence: "docs/authoring/05_network/datasets/flows.csv"
+  - to: "08_audio.events"
+    type: "syncs"
+    evidence: "docs/authoring/08_audio/datasets/events.csv"
+
+tags: ["runtime","ticks","state"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+
+# Game Runtime
+
+(facet-10_game_runtime.summary)=
+
+## Dataset: summary
+
+* headers: `metric,value,note`
+* facet: `10_game_runtime.summary`
+
+(facet-10_game_runtime.game_state)=
+
+## Dataset: game_state
+
+* headers: `name,value,updated_at,notes`
+* facet: `10_game_runtime.game_state`
+
+(facet-10_game_runtime.ticks)=
+
+## Dataset: ticks
+
+* headers: `ts,dt_ms,phase,handlers,notes`
+* facet: `10_game_runtime.ticks`
+
+(facet-10_game_runtime.resources)=
+
+## Dataset: resources
+
+* headers: `type,id,state,owner,notes`
+* facet: `10_game_runtime.resources`
+
+(facet-10_game_runtime.loop)=
+
+## Diagram: loop
+
+* facet: `10_game_runtime.loop`
+
+## Relacje
+
+* consumes → `06_assets.assets_index`
+* driven_by → `05_network.flows`
+* syncs → `08_audio.events`
+
+---
+
 # Chapter 10 - Game Runtime
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
@@ -8,10 +101,10 @@
 
 ### 0) Executive summary
 
-- Co: obserwacje runtime gry w czasie (hp/mp, poziom, predkosc, pozycja, tryby walki, proste liczebnosci). Bez danych wrazliwych ani tresci czatu.
-- Dla kogo: inzynierowie, QA, narzedzia AI/RAG i Studio (Electron/React).
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), narracja (sekcje). Opcjonalnie wykresy (figures) generowane poza klientem.
-- Agent-ready: mapa plikow, AGENT:INSERT, IO setup, CSV header, Studio hooks, checklist DoD.
+* Co: obserwacje runtime gry w czasie (hp/mp, poziom, predkosc, pozycja, tryby walki, proste liczebnosci). Bez danych wrazliwych ani tresci czatu.
+* Dla kogo: inzynierowie, QA, narzedzia AI/RAG i Studio (Electron/React).
+* Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), narracja (sekcje). Opcjonalnie wykresy (figures) generowane poza klientem.
+* Agent-ready: mapa plikow, AGENT:INSERT, IO setup, CSV header, Studio hooks, checklist DoD.
 
 ---
 
@@ -137,38 +230,38 @@ Studio hooks (Electron) - skrot
 
 ### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| game_runtime.schema.json | walidacja rekordow snapshotu | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | snapshot | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | snapshot | tylko skalary i krotkie stringi |
-| stats/*.json\|md | metryki zbiorcze | aggregator | hp%, mp%, tryby |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i korelacje | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+| Plik / Katalog           | Rola                         | Kto uzupelnia  | Uwagi                           |
+| ------------------------ | ---------------------------- | -------------- | ------------------------------- |
+| game_runtime.schema.json | walidacja rekordow snapshotu | Agent/CI       | waliduj linie po linii          |
+| datasets/*.jsonl         | pelne rekordy (append)       | snapshot       | rotacja w chunks/               |
+| datasets/*.csv           | widok splaszczony            | snapshot       | tylko skalary i krotkie stringi |
+| stats/*.json|md          | metryki zbiorcze             | aggregator     | hp%, mp%, tryby                 |
+| sections/*.md            | narracja i wyjasnienia       | Agent/Autor    | AGENT:INSERT punkty             |
+| analysis/*               | wnioski i korelacje          | Agent/Analityk | linkuj id rekordow              |
+| extractors/*.lua         | zrzut i agregacja            | system         | nie zmieniaj API zapisu         |
 
 ---
 
 ### 4) Slownik snapshotu (data dictionary)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | grt:2025-10-08T12:00:00Z | Unikat: grt:\<ISO8601\>. |
-| type | string | game_runtime | Stala wartosc: game_runtime. |
-| ts | string | 2025-10-08T12:00:00Z | Czas snapshotu (UTC). |
-| player.level | number | 123 | Poziom postaci. |
-| player.hp | number | 500 | HP aktualne. |
-| player.maxHp | number | 1000 | HP maksymalne. |
-| player.mana | number | 300 | Mana aktualna. |
-| player.maxMana | number | 900 | Mana maksymalna. |
-| player.cap | number | 1200 | Pojemnosc (capacity). |
-| player.soul | number | 100 | Soul points. |
-| player.speed | number | 410 | Predkosc. |
-| player.pos | string | 32369,32241,7 | Pozycja jako CSV x,y,z. |
-| combat.fightMode | string | offensive | Tryb walki. |
-| combat.pvpMode | string | secure | Tryb PvP. |
-| combat.inFight | boolean | false | Flaga walki. |
-| links[] | string[] | evt:..., ui:... | Powiazania z innymi rozdzialami. |
+| Pole             | Typ      | Przyklad                 | Znaczenie                        |
+| ---------------- | -------- | ------------------------ | -------------------------------- |
+| id               | string   | grt:2025-10-08T12:00:00Z | Unikat: grt:<ISO8601>.           |
+| type             | string   | game_runtime             | Stala wartosc: game_runtime.     |
+| ts               | string   | 2025-10-08T12:00:00Z     | Czas snapshotu (UTC).            |
+| player.level     | number   | 123                      | Poziom postaci.                  |
+| player.hp        | number   | 500                      | HP aktualne.                     |
+| player.maxHp     | number   | 1000                     | HP maksymalne.                   |
+| player.mana      | number   | 300                      | Mana aktualna.                   |
+| player.maxMana   | number   | 900                      | Mana maksymalna.                 |
+| player.cap       | number   | 1200                     | Pojemnosc (capacity).            |
+| player.soul      | number   | 100                      | Soul points.                     |
+| player.speed     | number   | 410                      | Predkosc.                        |
+| player.pos       | string   | 32369,32241,7            | Pozycja jako CSV x,y,z.          |
+| combat.fightMode | string   | offensive                | Tryb walki.                      |
+| combat.pvpMode   | string   | secure                   | Tryb PvP.                        |
+| combat.inFight   | boolean  | false                    | Flaga walki.                     |
+| links[]          | string[] | evt:..., ui:...          | Powiazania z innymi rozdzialami. |
 
 > Agent tip: w sections/02_game_runtime_model.md wstaw 3-5 realnych snapshotow (anonimizuj nazwe postaci jesli logujesz) i skomentuj krótko.
 
@@ -544,29 +637,29 @@ graph TD
 
 ### 11) Encoding i formatowanie (UTF-8 safe)
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
+* Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
+* Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
 
 ---
 
 ### 12) Jakosc, SLO i bezpieczenstwo (krotko)
 
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- Prywatnosc: domyslnie nie zapisujemy nazw postaci ani czatu.
-- Snapshot tick nie powinien przekraczac 1-2 Hz w srodowisku produkcyjnym.
+* NDJSON append-only; przy duzych wolumenach uzyj chunks.
+* Prywatnosc: domyslnie nie zapisujemy nazw postaci ani czatu.
+* Snapshot tick nie powinien przekraczac 1-2 Hz w srodowisku produkcyjnym.
 
 ---
 
 ### 13) DoD Checklist - Agent clickable
 
-- [ ] Zapis do docs/10_game_runtime/datasets/game_runtime.dataset.jsonl i game_runtime.dataset.csv dziala (>= 300 rekordow z 5-min przebiegu przy 1 Hz).
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_game_runtime_basics.md, 01_introduction.md, 02_game_runtime_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/correlations.md dodano min. 1 korelacje game_runtime -> events/ui/logging.
-- [ ] Diagram game_runtime_flow.mmd istnieje i jest logiczny.
-- [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../04_ui, ../09_logging.
-- [ ] Walidacja probki 20 linii NDJSON przeciw game_runtime.schema.json zakonczona bez bledow.
+* [ ] Zapis do docs/10_game_runtime/datasets/game_runtime.dataset.jsonl i game_runtime.dataset.csv dziala (>= 300 rekordow z 5-min przebiegu przy 1 Hz).
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
+* [ ] Uzupelniono sekcje: 00_game_runtime_basics.md, 01_introduction.md, 02_game_runtime_model.md (z przykladami), 03_collection_methods.md.
+* [ ] W analysis/correlations.md dodano min. 1 korelacje game_runtime -> events/ui/logging.
+* [ ] Diagram game_runtime_flow.mmd istnieje i jest logiczny.
+* [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../04_ui, ../09_logging.
+* [ ] Walidacja probki 20 linii NDJSON przeciw game_runtime.schema.json zakonczona bez bledow.
 
 ---
 

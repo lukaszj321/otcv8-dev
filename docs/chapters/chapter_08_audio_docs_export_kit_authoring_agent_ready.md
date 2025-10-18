@@ -1,3 +1,92 @@
+---
+chapter: "08_audio"
+slug: "08_audio"
+title: "Audio system — export kit"
+status: "agent_ready"
+owners:
+  - "github:lukaszj321"
+
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "08_audio.summary"
+    - id: "audio_assets"
+      file: "audio_assets.csv"
+      headers: ["id","type","path","duration_ms","channels","notes"]
+      facet: "08_audio.audio_assets"
+    - id: "channels"
+      file: "channels.csv"
+      headers: ["name","type","volume","ducking","notes"]
+      facet: "08_audio.channels"
+    - id: "events"
+      file: "events.csv"
+      headers: ["id","name","trigger","payload_schema","notes"]
+      facet: "08_audio.events"
+  diagrams:
+    - id: "routing"
+      file: "routing.mmd"
+      facet: "08_audio.routing"
+
+xrefs:
+  - to: "10_game_runtime.tick"
+    type: "syncs_with"
+    evidence: "docs/authoring/10_game_runtime/datasets/ticks.csv"
+  - to: "06_assets.assets_index"
+    type: "uses"
+    evidence: "docs/authoring/06_assets/datasets/assets_index.csv"
+
+tags: ["audio","routing","channels","events"]
+provenance: []
+version: "1.0"
+updated: "2025-10-14"
+---
+
+
+# Audio
+
+(facet-08_audio.summary)=
+
+## Dataset: summary
+
+* headers: `metric,value,note`
+* facet: `08_audio.summary`
+
+(facet-08_audio.audio_assets)=
+
+## Dataset: audio_assets
+
+* headers: `id,type,path,duration_ms,channels,notes`
+* facet: `08_audio.audio_assets`
+
+(facet-08_audio.channels)=
+
+## Dataset: channels
+
+* headers: `name,type,volume,ducking,notes`
+* facet: `08_audio.channels`
+
+(facet-08_audio.events)=
+
+## Dataset: events
+
+* headers: `id,name,trigger,payload_schema,notes`
+* facet: `08_audio.events`
+
+(facet-08_audio.routing)=
+
+## Diagram: routing
+
+* facet: `08_audio.routing`
+
+## Relacje
+
+* syncs_with → `10_game_runtime.tick`
+* uses → `06_assets.assets_index`
+
+---
+
 # Chapter 08 - Audio
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
@@ -8,10 +97,10 @@
 
 ### 0) Executive summary
 
-- Co: snapshot(y) konfiguracji i stanu audio: masterVolume, per-channel volume, muted, lista grajacych zrodel (jesli API na to pozwala). Best-effort z runtime; fallback do statycznych list kanalow z config.
-- Dla kogo: inzynierowie klienta, QA, narzedzia AI/RAG i Studio.
-- Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), narracja (sekcje merytoryczne), diagram (Mermaid).
-- Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
+* Co: snapshot(y) konfiguracji i stanu audio: masterVolume, per-channel volume, muted, lista grajacych zrodel (jesli API na to pozwala). Best-effort z runtime; fallback do statycznych list kanalow z config.
+* Dla kogo: inzynierowie klienta, QA, narzedzia AI/RAG i Studio.
+* Output: NDJSON (pelny), CSV (splaszczony), statystyki (JSON/MD), narracja (sekcje merytoryczne), diagram (Mermaid).
+* Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
 
 ---
 
@@ -132,32 +221,32 @@ Studio hooks (Electron) - skrot
 
 ### 3) Mapa plikow i odpowiedzialnosci (reference for Agents)
 
-| Plik / Katalog | Rola | Kto uzupelnia | Uwagi |
-|---|---|---|---|
-| audio.schema.json | walidacja rekordow audio | Agent/CI | waliduj linie po linii |
-| datasets/*.jsonl | pelne rekordy (append) | snapshot | rotacja w chunks/ |
-| datasets/*.csv | widok splaszczony | snapshot | tylko skalary; state_json jako string |
-| stats/*.json\|md | metryki zbiorcze | aggregator | rozklad mute, volume bins |
-| sections/*.md | narracja i wyjasnienia | Agent/Autor | AGENT:INSERT punkty |
-| analysis/* | wnioski i korelacje | Agent/Analityk | linkuj id rekordow |
-| extractors/*.lua | zrzut i agregacja | system | nie zmieniaj API zapisu |
+| Plik / Katalog    | Rola                     | Kto uzupelnia  | Uwagi                                 |
+| ----------------- | ------------------------ | -------------- | ------------------------------------- |
+| audio.schema.json | walidacja rekordow audio | Agent/CI       | waliduj linie po linii                |
+| datasets/*.jsonl  | pelne rekordy (append)   | snapshot       | rotacja w chunks/                     |
+| datasets/*.csv    | widok splaszczony        | snapshot       | tylko skalary; state_json jako string |
+| stats/*.json|md   | metryki zbiorcze         | aggregator     | rozklad mute, volume bins             |
+| sections/*.md     | narracja i wyjasnienia   | Agent/Autor    | AGENT:INSERT punkty                   |
+| analysis/*        | wnioski i korelacje      | Agent/Analityk | linkuj id rekordow                    |
+| extractors/*.lua  | zrzut i agregacja        | system         | nie zmieniaj API zapisu               |
 
 ---
 
 ### 4) Slownik audio (data dictionary)
 
-| Pole | Typ | Przyklad | Znaczenie |
-|---|---|---|---|
-| id | string | audio:master@2025-10-08T12:00:00Z | Unikat: audio:`<channel>`@`<ISO>`. |
-| type | string | audio | Stala wartosc: audio. |
-| ts | string | 2025-10-08T12:00:00Z | Czas snapshotu (UTC). |
-| channel | string | master | Nazwa kanalu (master, music, sfx, ui, voice itp.). |
-| playing | boolean | true | Czy gra cokolwiek na kanale (jesli API dostepne). |
-| masterVolume | number | 0.80 | Poziom master (0..1 lub 0..100, ujednolicone do 0..1). |
-| channelVolume | number | 0.70 | Poziom kanalu (0..1). |
-| muted | boolean | false | Czy kanal wyciszony. |
-| state | object | {"sources":2} | Surowe pola zwrocone przez runtime (opcjonalnie). |
-| links[] | string[] | res:..., evt:..., runtime:... | Powiazania z innymi rozdzialami.
+| Pole          | Typ      | Przyklad                          | Znaczenie                                              |
+| ------------- | -------- | --------------------------------- | ------------------------------------------------------ |
+| id            | string   | audio:master@2025-10-08T12:00:00Z | Unikat: audio:`<channel>`@`<ISO>`.                     |
+| type          | string   | audio                             | Stala wartosc: audio.                                  |
+| ts            | string   | 2025-10-08T12:00:00Z              | Czas snapshotu (UTC).                                  |
+| channel       | string   | master                            | Nazwa kanalu (master, music, sfx, ui, voice itp.).     |
+| playing       | boolean  | true                              | Czy gra cokolwiek na kanale (jesli API dostepne).      |
+| masterVolume  | number   | 0.80                              | Poziom master (0..1 lub 0..100, ujednolicone do 0..1). |
+| channelVolume | number   | 0.70                              | Poziom kanalu (0..1).                                  |
+| muted         | boolean  | false                             | Czy kanal wyciszony.                                   |
+| state         | object   | {"sources":2}                     | Surowe pola zwrocone przez runtime (opcjonalnie).      |
+| links[]       | string[] | res:..., evt:..., runtime:...     | Powiazania z innymi rozdzialami.                       |
 
 Agent tip: w sections/02_audio_model.md wstaw 3-5 realnych przykladow z NDJSON i krotki komentarz skad pochodza (runtime vs fallback).
 
@@ -485,29 +574,29 @@ graph TD
 
 ### 11) Encoding i formatowanie (UTF-8 safe)
 
-- Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
-- Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
-- Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
+* Pliki: UTF-8 bez BOM, ASCII-only w tresci (kreska '-', cudzyslow ", apostrof ').
+* Koniec linii: LF. Unikaj znakow specjalnych i dlugich myslnikow.
+* Naglowki: H1 (#), pozostale H3 (###) aby Sphinx parsowal lagodniej.
 
 ---
 
 ### 12) Jakosc, SLO i bezpieczenstwo (krotko)
 
-- NDJSON append-only; przy duzych wolumenach uzyj chunks.
-- Nie zapisujemy surowych strumieni audio; tylko metadane stanu.
-- Per-channel API moze nie istniec; zachowaj best-effort z pcall i fallback.
+* NDJSON append-only; przy duzych wolumenach uzyj chunks.
+* Nie zapisujemy surowych strumieni audio; tylko metadane stanu.
+* Per-channel API moze nie istniec; zachowaj best-effort z pcall i fallback.
 
 ---
 
 ### 13) DoD Checklist - Agent clickable
 
-- [ ] Zapis do docs/08_audio/datasets/audio.dataset.jsonl i audio.dataset.csv dziala (>= 1 snapshot; >= 3 kanaly).
-- [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
-- [ ] Uzupelniono sekcje: 00_audio_basics.md, 01_introduction.md, 02_audio_model.md (z przykladami), 03_collection_methods.md.
-- [ ] W analysis/correlations.md dodano min. 1 korelacje audio -> runtime/events.
-- [ ] Diagram audio_flow.mmd istnieje i jest logiczny.
-- [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../05_assets.
-- [ ] Walidacja probki 10 linii NDJSON przeciw audio.schema.json zakonczona bez bledow.
+* [ ] Zapis do docs/08_audio/datasets/audio.dataset.jsonl i audio.dataset.csv dziala (>= 1 snapshot; >= 3 kanaly).
+* [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list).
+* [ ] Uzupelniono sekcje: 00_audio_basics.md, 01_introduction.md, 02_audio_model.md (z przykladami), 03_collection_methods.md.
+* [ ] W analysis/correlations.md dodano min. 1 korelacje audio -> runtime/events.
+* [ ] Diagram audio_flow.mmd istnieje i jest logiczny.
+* [ ] meta.json ma poprawne crosslinks: ../01_runtime, ../02_events, ../05_assets.
+* [ ] Walidacja probki 10 linii NDJSON przeciw audio.schema.json zakonczona bez bledow.
 
 ---
 

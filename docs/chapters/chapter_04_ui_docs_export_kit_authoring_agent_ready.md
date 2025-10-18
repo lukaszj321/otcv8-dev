@@ -1,3 +1,102 @@
+---
+chapter: "04_ui"
+slug: "04_ui"
+title: "UI — OTUI widget hierarchy — export kit"
+status: "agent_ready"
+owners: ["github:lukaszj321"]
+artifacts:
+  datasets:
+    - id: "summary"
+      file: "summary.csv"
+      headers: ["metric","value","note"]
+      facet: "04_ui.summary"
+      preview_rows: 150
+    - id: "ui_widgets"
+      file: "ui_widgets.csv"
+      headers: ["id","widget","parent","inherits","otui_file","properties_count","signals_count","notes"]
+      facet: "04_ui.ui_widgets"
+    - id: "otui_files"
+      file: "otui_files.csv"
+      headers: ["otui_file","widgets","includes","path","notes"]
+      facet: "04_ui.otui_files"
+    - id: "signals"
+      file: "signals.csv"
+      headers: ["widget","signal","args","connected_to","notes"]
+      facet: "04_ui.signals"
+  diagrams:
+    - id: "ui_flow"
+      file: "ui_flow.mmd"
+      facet: "04_ui.ui_flow"
+    - id: "hierarchy"
+      file: "hierarchy.mmd"
+      facet: "04_ui.hierarchy"
+xrefs:
+  - to: "03_modules.lua_exports"
+    type: "renders"
+    evidence: "docs/authoring/03_modules/datasets/lua_exports.csv"
+  - to: "02_events.events_matrix"
+    type: "emits"
+    evidence: "docs/authoring/02_events/datasets/events_matrix.csv"
+  - to: "06_assets.assets_index"
+    type: "uses"
+    evidence: "docs/authoring/06_assets/datasets/assets_index.csv"
+  - to: "09_logging.logging_categories"
+    type: "logs"
+    evidence: "docs/authoring/09_logging/datasets/logging_categories.csv"
+tags: ["otui","ui","widgets","otclient","v8"]
+provenance:
+  - path: "data/ui/**"
+  - path: "modules/**"
+version: "1.0"
+updated: "2025-10-14"
+---
+
+# UI — OTUI widget hierarchy
+
+Inwentaryzacja hierarchii widżetów OTUI, ich właściwości, sygnałów i powiązań. Dane są źródłem dla Studio (React/Electron), narzędzi analitycznych i RAG.
+
+(facet-04_ui.summary)=
+## Dataset: summary
+- headers: `metric,value,note`
+- facet: `04_ui.summary`
+- opis: zwięzłe metryki UI (liczba plików .otui, klas, widżetów, sygnałów).
+
+(facet-04_ui.ui_widgets)=
+## Dataset: ui_widgets
+- headers: `id,widget,parent,inherits,otui_file,properties_count,signals_count,notes`
+- facet: `04_ui.ui_widgets`
+- opis: spłaszczony rejestr widżetów z przypisaniem do plików OTUI i relacji rodzic/dziecko.
+
+(facet-04_ui.otui_files)=
+## Dataset: otui_files
+- headers: `otui_file,widgets,includes,path,notes`
+- facet: `04_ui.otui_files`
+- opis: indeks plików OTUI, liczność widżetów i include’y.
+
+(facet-04_ui.signals)=
+## Dataset: signals
+- headers: `widget,signal,args,connected_to,notes`
+- facet: `04_ui.signals`
+- opis: sygnały i połączenia (emit/subscribe), baza do korelacji z Events/Modules.
+
+(facet-04_ui.ui_flow)=
+## Diagram: ui_flow
+- facet: `04_ui.ui_flow`
+- opis: pipeline zbierania danych UI i agregacji statystyk.
+
+(facet-04_ui.hierarchy)=
+## Diagram: hierarchy
+- facet: `04_ui.hierarchy`
+- opis: relacje klas widżetów / przykładowa struktura drzewa.
+
+## Relacje
+- renders → `03_modules.lua_exports`
+- emits → `02_events.events_matrix`
+- uses → `06_assets.assets_index`
+- logs → `09_logging.logging_categories`
+
+---
+
 # Chapter 04 - UI (Corrected FULL)
 
 ### Professional Pro Template - Agent-Ready - OTClient v8
@@ -8,7 +107,7 @@
 
 ### 0) Executive summary
 
-- Co: inwentaryzacja widzetow (klasa, id, widocznosc, stan, geometriia) oraz budowa drzew UI dla wskazanych ekranow OTUI.
+- Co: inwentaryzacja widzetow (klasa, id, widocznosc, stan, geometria) oraz budowa drzew UI dla wskazanych ekranow OTUI.
 - Dla kogo: inzynierowie, autorzy skryptow OTUI, narzedzia AI/RAG, Studio (Electron/React).
 - Output: NDJSON (widgets), CSV (splaszczone kluczowe pola), JSON (pelne drzewa), statystyki (JSON/MD), analizy (findings, mappings), diagramy (Mermaid), narracja (sekcje merytoryczne).
 - Agent-ready: mapa plikow, punkty wstrzykniec (AGENT:INSERT), IO setup, CSV header, Studio hooks, checklist DoD.
@@ -70,7 +169,7 @@ tags: ["ui","widgets","otui","inventory","agent"]
 related:
   - ../03_modules/README.md
   - ../01_runtime/README.md
-  - ../05_assets/README.md
+  - ../06_assets/README.md
 outputs:
   - ./datasets/widgets.dataset.jsonl
   - ./datasets/widgets.dataset.csv
@@ -99,7 +198,7 @@ Quick links
 Crosslinks
 - Modules: ../03_modules/README.md
 - Runtime: ../01_runtime/README.md
-- Assets: ../05_assets/README.md
+- Assets: ../06_assets/README.md
 
 CSV header (widgets.dataset.csv)
 
@@ -505,7 +604,7 @@ graph TD
     "crossChapter": {
       "modules": "../03_modules/README.md",
       "runtime": "../01_runtime/README.md",
-      "assets": "../05_assets/README.md"
+      "assets": "../06_assets/README.md"
     }
   },
   "agent": {
@@ -539,5 +638,5 @@ graph TD
 - [ ] Wygenerowano stats/stats.json oraz stats/stats.md (deterministyczny output list; brak bledow w parsowaniu).
 - [ ] Uzupelniono sections/00..05 i analysis/findings.md (AGENT:INSERT wypelnione realnymi danymi).
 - [ ] Diagram ui_flow.mmd istnieje i jest logiczny.
-- [ ] meta.json ma poprawne crosslinks: ../03_modules, ../01_runtime, ../05_assets.
+- [ ] meta.json ma poprawne crosslinks: ../03_modules, ../01_runtime, ../06_assets.
 - [ ] Walidacja probki 20 linii NDJSON przeciw widget.schema.json zakonczona bez bledow.

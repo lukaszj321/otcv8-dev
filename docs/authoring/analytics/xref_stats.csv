@@ -1,5 +1,0 @@
-from_chapter,to_chapter,relation_type,count,notes
-03_modules,04_ui,uses,15,modules use UI widgets
-04_ui,11_data,uses,45,UI uses data assets
-12_otmod,03_modules,depends,25,otmod depends on modules
-13_layouts,11_data,overrides,30,layouts override data assets
