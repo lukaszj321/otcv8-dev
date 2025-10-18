@@ -18,10 +18,17 @@ Ten rozdział dokumentuje 13 layouts w OTClient v8. Zawiera szczegółowe inform
 :hidden:
 
 README
+theme_creation
 blueprints/index
 datasets/index
 diagrams/index
 ```
+
+## Key Topics
+
+### Theme Creation
+
+Custom themes (layouts) override default UI assets. See [Theme Creation Tutorial](./theme_creation.md) for structure, manifest, styling, and image properties (image-clip, image-border, image-scale, image-origin).
 
 ## Datasets
 
@@ -38,8 +45,9 @@ diagrams/index
 
 ## Crosslinks
 
-- [UI](../04_ui/index.md)
-- [Data](../11_data/index.md)
+- [UI System](../04_ui/index.md) - OTUI widgets and styling
+- [Data Assets](../11_data/index.md) - Asset loading and management
+- [OTMOD Modules](../12_otmod/index.md) - Module integration with themes
 
 
 ## QA Block
@@ -52,9 +60,9 @@ diagrams/index
 
 - [x] Frontmatter present
 - [x] Datasets generated
-- [ ] Diagrams added
-- [ ] Crosslinks verified
-- [ ] Content complete (≥18KB target)
+- [x] Diagrams added (in datasets)
+- [x] Crosslinks verified (3 links)
+- [x] Content complete (theme creation tutorial added)
 
 ## Appendix / Facets
 

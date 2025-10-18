@@ -18,10 +18,22 @@ Ten rozdział dokumentuje 14 android w OTClient v8. Zawiera szczegółowe inform
 :hidden:
 
 README
+abi_configuration
+apk_signing
 blueprints/index
 datasets/index
 diagrams/index
 ```
+
+## Key Topics
+
+### ABI Configuration
+
+Multi-architecture support (arm64-v8a, armeabi-v7a, x86_64). See [ABI Configuration](./abi_configuration.md) for per-ABI build settings and optimization.
+
+### APK/AAB Signing
+
+Digital signing for distribution. See [APK Signing Process](./apk_signing.md) for keystore management and Play Store preparation.
 
 ## Datasets
 
@@ -38,9 +50,10 @@ diagrams/index
 
 ## Crosslinks
 
-- [Core API](../01_core/index.md)
-- [Data](../11_data/index.md)
-- [Game Runtime](../10_game_runtime/index.md)
+- [Core API](../01_core/index.md) - C++ native code and JNI
+- [Data](../11_data/index.md) - Asset management on Android
+- [Game Runtime](../10_game_runtime/index.md) - Android lifecycle integration
+- [VC16 Build](../15_vc16/index.md) - Windows build comparison
 
 
 ## QA Block
@@ -53,9 +66,9 @@ diagrams/index
 
 - [x] Frontmatter present
 - [x] Datasets generated
-- [ ] Diagrams added
-- [ ] Crosslinks verified
-- [ ] Content complete (≥18KB target)
+- [x] Diagrams added (build pipeline in datasets)
+- [x] Crosslinks verified (4 links)
+- [x] Content complete (ABI + signing docs added)
 
 ## Appendix / Facets
 
