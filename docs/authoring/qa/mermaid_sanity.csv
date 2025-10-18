@@ -1,0 +1,31 @@
+file,blockNo,status,problem
+REBUILD_COMPLETE.md,1,OK,
+index.md,1,OK,
+_sources/chapter_06_assets_docs_export_kit_authoring_agent_ready.md,1,OK,
+_sources/chapter_02_events_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_02_events_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_04_ui_docs_export_kit_authoring_agent_ready.md,1,OK,
+_sources/chapter_12_otmod_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_12_otmod_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_10_game_runtime_docs_export_kit_authoring_agent_ready.md,1,OK,
+_sources/chapter_05_network_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_05_network_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_07_settings_crypto_docs_export_kit_authoring_agent_ready.md,1,OK,
+_sources/chapter_15_vc16_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_15_vc16_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_14_android_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_14_android_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_08_audio_docs_export_kit_authoring_agent_ready.md,1,OK,
+_sources/chapter_11_data_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_11_data_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_01_specyfikacja_implementacji_studio_react_electron_dla_skryptow_otclient_v_8_v_bot.md,1,OK,
+_sources/chapter_13_layouts_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_13_layouts_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_09_logging_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_09_logging_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+_sources/chapter_03_modules_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
+_sources/chapter_03_modules_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
+05_network/appendix_tfs_extendedopcode.md,1,OK,
+_instructions/04-events-emitters.instructions.md,1,OK,
+_instructions/01-cpp-api.instructions.md,1,OK,
+_instructions/02-ui-lua.instructions.md,1,OK,

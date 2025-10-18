@@ -1,0 +1,27 @@
+chapter,issue,severity,action,status
+01_runtime,Size < 18KB,WARN,Add more content sections and examples,PENDING
+02_events,Size < 18KB,WARN,Add more content sections and examples,PENDING
+05_network,Size < 18KB,WARN,Add more content sections and examples,PENDING
+06_assets,Size < 18KB,WARN,Add more content sections and examples,PENDING
+07_settings_crypto,Size < 18KB,WARN,Add more content sections and examples,PENDING
+08_audio,Size < 18KB,WARN,Add more content sections and examples,PENDING
+09_logging,Size < 18KB,WARN,Add more content sections and examples,PENDING
+10_game_runtime,Size < 18KB,WARN,Add more content sections and examples,PENDING
+12_otmod,Size < 18KB,WARN,Add more content sections and examples,PENDING
+13_layouts,Size < 18KB,WARN,Add more content sections and examples,PENDING
+14_android,Size < 18KB,WARN,Add more content sections and examples,PENDING
+15_vc16,Size < 18KB,WARN,Add more content sections and examples,PENDING
+07_settings_crypto,Only 2 crosslinks,WARN,Add at least 1 more crosslink,PENDING
+08_audio,Only 2 crosslinks,WARN,Add at least 1 more crosslink,PENDING
+09_logging,Only 2 crosslinks,WARN,Add at least 1 more crosslink,PENDING
+13_layouts,Only 2 crosslinks,WARN,Add at least 1 more crosslink,PENDING
+15_vc16,Only 2 crosslinks,WARN,Add at least 1 more crosslink,PENDING
+01_core,cpp_symbols.csv empty,WARN,Extract C++ symbols from src/,PENDING
+01_core,lua_bindings.csv empty,WARN,Run lua-binding-generator,PENDING
+01_runtime,runtime_stats.csv empty,WARN,Generate runtime statistics,PENDING
+02_events,handlers.csv empty,WARN,Extract event handlers,PENDING
+02_events,events_matrix.csv empty,WARN,Generate events matrix,PENDING
+03_modules,hot_reload.csv empty,WARN,Track hot-reload modules,PENDING
+03_modules,lua_exports.csv empty,WARN,Extract Lua exports,PENDING
+04_ui,signals.csv empty,WARN,Extract UI signals,PENDING
+04_ui,needed_translations.csv empty,WARN,Generate translation needs,PENDING

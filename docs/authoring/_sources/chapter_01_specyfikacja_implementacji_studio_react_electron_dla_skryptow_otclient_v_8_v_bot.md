@@ -494,6 +494,7 @@ run()
 ### 9) Diagram (Mermaid) - diagrams/runtime_stack.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC extract or aggregate| Extractors
   subgraph Client

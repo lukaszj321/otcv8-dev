@@ -624,6 +624,7 @@ run()
 diagrams/game_runtime_flow.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC start/stop| Snapshotter
   Snapshotter --> NDJSON[(game_runtime.dataset.jsonl)]

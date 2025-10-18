@@ -561,6 +561,7 @@ run()
 diagrams/audio_flow.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC snapshot| Snapshot
   Snapshot --> NDJSON[(audio.dataset.jsonl)]
