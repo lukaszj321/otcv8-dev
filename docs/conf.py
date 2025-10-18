@@ -79,7 +79,7 @@ myst_enable_extensions = [
 myst_heading_anchors = 3
 
 # Treat certain fence types as directives (allows ```mermaid to be treated as {mermaid} directive)
-myst_fence_as_directive = ["mermaid"]
+myst_fence_as_directive = {"mermaid": "mermaid"}
 
 # Labelowanie nagłówków bez kolizji
 autosectionlabel_prefix_document = True
