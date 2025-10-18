@@ -1,0 +1,42 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TB
+    subgraph Status["Coverage Status"]
+        PASS["✅ PASS: 4 chapters<br/>01_core, 03_modules<br/>04_ui, 11_data"]
+        WARN["⚠️ WARN: 12 chapters<br/>Need content enrichment"]
+        FAIL["❌ FAIL: 0 chapters"]
+    end
+    
+    subgraph Metrics["Key Metrics"]
+        MD["854 MD files"]
+        SIZE["2.0 MB total"]
+        DS["95 datasets"]
+        DIAG["142 diagrams"]
+    end
+    
+    subgraph QA["QA Status"]
+        QAFAIL["0 FAIL checks"]
+        QAWARN["21 WARN checks"]
+        QAPASS["59 PASS checks"]
+    end
+    
+    subgraph Gaps["Tool GAPs"]
+        LUA["Lua bindings<br/>(optional)"]
+        GIMP["Bitmap fonts<br/>(optional)"]
+    end
+    
+    PASS --> MD
+    WARN --> DS
+    MD --> DIAG
+    DS --> QA
+    DIAG --> QA
+    
+    QA --> Gaps
+    
+    style PASS fill:#2d5016,stroke:#4a7f2a
+    style WARN fill:#5c4a1f,stroke:#8b7332
+    style FAIL fill:#3d1f1f,stroke:#6b3535
+    style QAFAIL fill:#2d5016,stroke:#4a7f2a
+    
+    click PASS "../index.html#coverage" "View Coverage Details"
+    click WARN "../analytics/gaps.html" "View Gaps"
+    click QA "../qa/index.html" "View QA Reports"
