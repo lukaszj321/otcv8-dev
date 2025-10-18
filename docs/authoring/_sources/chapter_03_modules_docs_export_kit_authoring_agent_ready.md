@@ -580,6 +580,7 @@ run()
 diagrams/modules_flow.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
   Inventory --> NDJSON[(modules.dataset.jsonl)]
@@ -592,6 +593,7 @@ graph TD
 diagrams/modules_relations.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   subgraph Modules
     M1[mod:client]

@@ -440,6 +440,7 @@ run()
 ### `data_flow.mmd` *(facet: 11_data.data_flow)*
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
   Inventory --> IMAGES[(images.csv)]
@@ -457,6 +458,7 @@ graph TD
 ### `asset_linking.mmd` *(facet: 11_data.asset_linking)*
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   OTUI[OTUI property] -->|image-source / icon / font| Asset["data/** | layouts/**"]
   Asset --> Indexes["images.csv / fonts.csv / shaders.csv / sounds.csv"]

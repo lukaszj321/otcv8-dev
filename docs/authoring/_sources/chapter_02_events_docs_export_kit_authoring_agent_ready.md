@@ -543,6 +543,7 @@ run()
 diagrams/login_sequence.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
   participant Client
   participant Game as g_game
@@ -563,6 +564,7 @@ sequenceDiagram
 diagrams/events_flow.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC start/stop| Sniffer
   Sniffer --> NDJSON[(events.dataset.jsonl)]

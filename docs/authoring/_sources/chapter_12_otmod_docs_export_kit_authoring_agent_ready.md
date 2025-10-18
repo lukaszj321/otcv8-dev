@@ -447,6 +447,7 @@ run()
 **diagrams/lifecycle.mmd** *(facet: 12_otmod.lifecycle)*
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
   participant Loader
   participant Module as OTMOD
@@ -464,6 +465,7 @@ sequenceDiagram
 **diagrams/deps.mmd** *(facet: 12_otmod.deps)*
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   A[game_interface] -->|soft| B[game_skills]
   A -->|soft| C[game_inventory]
