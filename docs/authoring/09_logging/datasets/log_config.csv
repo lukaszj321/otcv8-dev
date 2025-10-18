@@ -1,0 +1,5 @@
+config_param,type,default_value,c_api,lua_api,description,notes
+logFile,string,log.txt,setLogFile(),N/A,"Set log file path","File sink configuration"
+onLogCallback,function,nullptr,setOnLog(),g_logger.setOnLog(),"Custom log handler","Callback sink for UI integration"
+maxHistory,integer,1000,MAX_LOG_HISTORY,N/A,"Maximum log messages in memory","Circular buffer size"
+testingMode,boolean,false,setTestingMode(),N/A,"Enable testing mode","Modifies logging behavior for tests"

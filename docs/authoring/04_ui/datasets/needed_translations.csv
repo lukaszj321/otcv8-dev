@@ -1,1 +1,21 @@
-key
+key,english_text,context,module,file,status
+Quest Log,Quest Log,window_title,game_questlog,questlog.lua,exists
+Quest Tracker,Quest Tracker,window_title,game_questlog,questlogwindow.otui,exists
+Show in quest tracker,Show in quest tracker,checkbox_label,game_questlog,questlogwindow.otui,exists
+Close,Close,button_label,game_questlog,questlogwindow.otui,exists
+Spell List,Spell List,window_title,game_spelllist,spelllist.otui,exists
+Filters,Filters,section_label,game_spelllist,spelllist.otui,exists
+Level,Level,filter_label,game_spelllist,spelllist.otui,exists
+Vocation,Vocation,filter_label,game_spelllist,spelllist.otui,exists
+Formula,Formula,field_label,game_spelllist,spelllist.otui,exists
+Cooldown,Cooldown,field_label,game_spelllist,spelllist.otui,exists
+Mana,Mana,resource_label,game_spelllist,spelllist.otui,exists
+Soul,Soul,resource_label,game_spelllist,spelllist.otui,exists
+Premium,Premium,field_label,game_spelllist,spelllist.otui,exists
+Description,Description,field_label,game_spelllist,spelllist.otui,exists
+Sorcerer,Sorcerer,vocation_name,game_spelllist,spelllist.otui,exists
+Druid,Druid,vocation_name,game_spelllist,spelllist.otui,exists
+Accept,Accept,button_label,game_playertrade,tradewindow.otui,missing
+Reject,Reject,button_label,game_playertrade,tradewindow.otui,missing
+Add Hotkey,Add Hotkey,button_label,game_hotkeys,hotkeys_manager.otui,missing
+Remove Hotkey,Remove Hotkey,button_label,game_hotkeys,hotkeys_manager.otui,missing

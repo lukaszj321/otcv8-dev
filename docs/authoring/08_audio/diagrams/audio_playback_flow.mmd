@@ -1,0 +1,29 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant App as Application
+    participant SM as SoundManager
+    participant CH as SoundChannel
+    participant SS as SoundSource
+    participant AL as OpenAL
+    
+    App->>SM: init()
+    SM->>AL: Create device & context
+    
+    App->>SM: getChannel(1)
+    SM-->>App: SoundChannel (Music)
+    
+    App->>CH: play("/sounds/startup")
+    CH->>SM: createSoundSource()
+    SM->>SS: Create SoundSource
+    SM->>AL: Load buffer
+    SS->>AL: alSourcePlay()
+    
+    App->>CH: setGain(0.8)
+    CH->>SS: Update gain
+    SS->>AL: alSourcef(AL_GAIN)
+    
+    App->>SM: stopAll()
+    SM->>SS: stop()
+    SS->>AL: alSourceStop()
+    
+    click SM "../index.html#facet-08_audio.audio_flow" "Audio Flow"

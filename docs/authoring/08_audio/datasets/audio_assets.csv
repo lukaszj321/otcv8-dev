@@ -1,1 +1,9 @@
 id,type,path,duration,notes
+player_detected,alarm,data/sounds/Player_Detected.ogg,2.1s,"Bot alarm for player detection"
+magnum,alarm,data/sounds/magnum.ogg,1.5s,"High priority alarm sound"
+alarm,alarm,data/sounds/alarm.ogg,1.8s,"Default alarm sound"
+player_attack,combat,data/sounds/Player_Attack.ogg,1.6s,"Player attack notification"
+low_mana,warning,data/sounds/Low_Mana.ogg,1.3s,"Low mana threshold alarm"
+low_health,warning,data/sounds/Low_Health.ogg,1.3s,"Low health threshold alarm"
+creature_detected,alarm,data/sounds/Creature_Detected.ogg,2.0s,"Creature detection alarm"
+private_message,notification,data/sounds/Private_Message.ogg,1.1s,"Private message notification"

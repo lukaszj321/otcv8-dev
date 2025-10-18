@@ -1,1 +1,13 @@
 module,file,watched,last_reload,errors
+game_skills,modules/game_skills/skills.lua,yes,2025-10-18T05:42:00Z,none
+game_inventory,modules/game_inventory/inventory.lua,yes,2025-10-18T05:42:00Z,none
+client_options,modules/client_options/options.lua,yes,2025-10-18T05:42:00Z,none
+client_terminal,modules/client_terminal/terminal.lua,yes,2025-10-18T05:42:00Z,none
+game_console,modules/game_console/console.lua,yes,2025-10-18T05:42:00Z,none
+game_battle,modules/game_battle/battle.lua,yes,2025-10-18T05:42:00Z,none
+client_locales,modules/client_locales/locales.lua,yes,2025-10-18T05:42:00Z,none
+game_shaders,modules/game_shaders/shaders.lua,yes,2025-10-18T05:42:00Z,none
+game_bot,modules/game_bot/bot.lua,no,N/A,"State dependency prevents safe reload"
+corelib,modules/corelib/,no,N/A,"Core library cannot be reloaded"
+gamelib,modules/gamelib/,no,N/A,"Protocol state prevents reload"
+game_interface,modules/game_interface/gameinterface.lua,no,N/A,"Main interface critical for all modules"

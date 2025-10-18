@@ -1,0 +1,40 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    subgraph "Core Libraries"
+        CL[corelib]
+        GL[gamelib]
+    end
+    
+    subgraph "Client Modules"
+        CO[client_options]
+        CT[client_terminal]
+        CM[client_mobile]
+        CS[client_styles]
+    end
+    
+    subgraph "Game Modules"
+        GI[game_interface]
+        GS[game_skills]
+        GIN[game_inventory]
+        GB[game_battle]
+        GC[game_console]
+        GBOT[game_bot]
+    end
+    
+    CL --> CO
+    CL --> CT
+    CL --> GI
+    GL --> GI
+    GI --> GS
+    GI --> GIN
+    GI --> GB
+    GI --> GC
+    GI --> GBOT
+    
+    CO -.reload.-> CO
+    GS -.reload.-> GS
+    GIN -.reload.-> GIN
+    GC -.reload.-> GC
+    
+    click GS "../index.html#facet-03_modules.lua_exports" "Lua Exports"
+    click GBOT "../index.html#facet-03_modules.hot_reload" "Hot Reload"

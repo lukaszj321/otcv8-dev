@@ -1,0 +1,46 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    subgraph "Core Singletons"
+        APP[g_app Application]
+        LOG[g_logger Logger]
+        CLK[g_clock Clock]
+        DISP[g_dispatcher EventDispatcher]
+        RES[g_resources ResourceManager]
+        MOD[g_modules ModuleManager]
+        CFG[g_configs ConfigManager]
+    end
+    
+    subgraph "Graphics Singletons"
+        GFX[g_graphics Graphics]
+        FONT[g_fonts FontManager]
+        SHDR[g_shaders ShaderManager]
+        WIN[g_window PlatformWindow]
+    end
+    
+    subgraph "Audio Singletons"
+        SND[g_sounds SoundManager]
+    end
+    
+    subgraph "UI Singletons"
+        UI[g_ui UIManager]
+    end
+    
+    subgraph "Game Singletons"
+        GAME[g_game Game]
+        MAP[g_map Map]
+    end
+    
+    APP --> LOG
+    APP --> CLK
+    APP --> DISP
+    APP --> RES
+    APP --> MOD
+    
+    GFX --> FONT
+    GFX --> SHDR
+    GFX --> WIN
+    
+    GAME --> MAP
+    
+    click APP "../index.html#facet-01_core.singletons" "Core Singletons"
+    click GAME "../index.html#facet-01_core.game_api" "Game API"

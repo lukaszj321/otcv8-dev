@@ -1,1 +1,6 @@
 category,level_default,sinks,notes
+Debug,Fw::LogDebug,"console,file","Detailed debug information for development"
+Info,Fw::LogInfo,"console,file","General informational messages"
+Warning,Fw::LogWarning,"console,file","Warning messages for potential issues"
+Error,Fw::LogError,"console,file,callback","Error messages for recoverable failures"
+Fatal,Fw::LogFatal,"console,file,callback","Critical fatal errors"

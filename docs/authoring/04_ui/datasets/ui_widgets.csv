@@ -1,1 +1,14 @@
 id,widget,parent,inherits,otui_file,properties_count,signals_count,notes
+questLogButton,Button,UIWidget,Button,modules/game_questlog/questlogwindow.otui,8,1,"Quest log toggle button"
+questLogWindow,MiniWindow,UIWidget,MiniWindow,modules/game_questlog/questlogwindow.otui,12,2,"Quest log main window"
+spelllistWindow,MiniWindow,UIWidget,MiniWindow,modules/game_spelllist/spelllist.otui,10,1,"Spell list window"
+inventoryWindow,MiniWindow,UIWidget,MiniWindow,modules/game_inventory/inventory.otui,9,1,"Inventory window"
+skillsWindow,MiniWindow,UIWidget,MiniWindow,modules/game_skills/skills.otui,11,1,"Skills window"
+battleWindow,MiniWindow,UIWidget,MiniWindow,modules/game_battle/battle.otui,13,2,"Battle list window"
+hotkeysWindow,Window,UIWidget,Window,modules/game_hotkeys/hotkeys_manager.otui,15,5,"Hotkeys manager window"
+optionsWindow,Window,UIWidget,Window,modules/client_options/options.otui,14,3,"Options configuration window"
+consolePanel,Panel,UIWidget,Panel,modules/game_console/console.otui,7,2,"Game console panel"
+shopWindow,Window,UIWidget,Window,modules/game_shop/shop.otui,12,3,"Shop window"
+outfitWindow,Window,UIWidget,Window,modules/game_outfit/outfitwindow.otui,16,4,"Outfit selection window"
+gameMapPanel,UIGameMap,UIWidget,UIGameMap,modules/game_interface/gameinterface.otui,20,8,"Main game map widget"
+

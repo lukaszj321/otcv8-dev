@@ -1,0 +1,8 @@
+example_id,category,code_snippet,file_path,description,notes
+info_exit,info,"g_logger.info('Exiting application..')",modules/client/client.lua,"Log application exit","Informational message"
+error_http,error,"g_logger.warning('HTTP error: ' .. err)",modules/game_shop/shop.lua,"Log HTTP request errors","Network error handling"
+error_json,error,"g_logger.error('[saveSettings] Couldn't load JSON: ' .. json_data)",modules/game_outfit/outfit.lua,"Log JSON parsing errors","Data validation error"
+callback_setup,config,"g_logger.setOnLog(onLog)",modules/updater/updater.lua,"Set custom log callback","UI integration for updater"
+last_log,query,"local clientLog = g_logger.getLastLog()",modules/crash_reporter/crash_reporter.lua,"Get last log message","Crash reporting"
+trace_debug,debug,"traceDebug('Connection established')",src/framework/net/connection.cpp,"Trace-level debug with function","C++ debugging macro"
+trace_warning,warning,"traceWarning('Deprecated API call')",src/framework/core/application.cpp,"Trace warning with function","C++ warning macro"

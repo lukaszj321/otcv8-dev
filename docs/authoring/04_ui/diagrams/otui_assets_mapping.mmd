@@ -1,0 +1,33 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    OTUI[OTUI Widget] -->|references| Asset[Asset Path]
+    
+    subgraph "Image Assets"
+        I1[/images/topbuttons/]
+        I2[/images/ui/]
+        I3[/images/game/]
+    end
+    
+    subgraph "Font Assets"
+        F1[verdana-11px-antialised]
+        F2[verdana-11px-rounded]
+        F3[terminus-14px-bold]
+    end
+    
+    Asset -->|icon| I1
+    Asset -->|background| I2
+    Asset -->|texture| I3
+    Asset -->|font| F1
+    Asset -->|font| F2
+    Asset -->|font| F3
+    
+    I1 -->|stored in| DataDir[data/images/topbuttons/]
+    I2 -->|stored in| DataDir2[data/images/ui/]
+    I3 -->|stored in| DataDir3[data/images/game/]
+    
+    F1 -->|defined in| FontsDir[data/fonts/]
+    F2 -->|defined in| FontsDir
+    F3 -->|defined in| FontsDir
+    
+    click Asset "../index.html#facet-04_ui.assets" "UI Assets"
+    click OTUI "../index.html#facet-04_ui.otui_data" "OTUI-Data Mapping"
