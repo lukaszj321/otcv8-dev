@@ -46,13 +46,13 @@ Each chapter includes:
 ### ✅ Diagrams
 - Mermaid diagrams embedded with `{mermaid}` directive
 - All diagrams have the required init block:
-  ```
+```
   %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-  ```
+```
 - Clickable nodes with facet anchors:
-  ```
+```
   click NodeId "./index.html#facet-chapter.stem" "Open description"
-  ```
+```
 
 ### ✅ Podkatalogi (Subdirectories)
 - Present in chapters with subdirectories (01_core, 03_modules, 04_ui)
@@ -69,11 +69,11 @@ Each chapter includes:
 ### ✅ Appendix / Facets
 - Every CSV and diagram has a facet anchor
 - Format:
-  ```
+```
   (facet-chapter.stem)=
   ### Facet: `chapter.stem`
   Type: dataset|diagram
-  ```
+```
 
 ## Statistics
 

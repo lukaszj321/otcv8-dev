@@ -291,25 +291,25 @@ When upgrading server protocol version:
    ```lua
    -- modules/client/config.lua
    PROTOCOL_VERSION = 1098  -- Update to new version
-   ```
+```
 
 2. **Test Feature Compatibility**
    ```bash
    # Run compatibility test suite
    ./test_protocol_compatibility.sh 1098
-   ```
+```
 
 3. **Update Extended Opcodes**
    ```cpp
    // Recompile with new protocol definitions
    #define PROTOCOL_VERSION 1098
-   ```
+```
 
 4. **Verify Assets**
    ```bash
    # Ensure assets match protocol version
    ./verify_assets.sh --version 1098
-   ```
+```
 
 ## Troubleshooting
 

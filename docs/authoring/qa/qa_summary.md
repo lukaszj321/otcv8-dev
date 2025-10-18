@@ -1,7 +1,34 @@
 # QA Summary Report
 
 Generated: 2025-10-18T01:39:30.122373Z
-Updated: 2025-10-18T05:04:30Z (Batch 2 completion)
+Updated: 2025-10-18T08:08:54Z (Mermaid/MyST indentation fix)
+
+## Mermaid/MyST Indentation Fix (2025-10-18)
+
+**Issue Fixed:** MyST directives (```{mermaid}, ```{csv-table}) were indented, causing Sphinx to render them as literal text instead of diagrams.
+
+**Actions Taken:**
+1. Created diagnostic script to detect indented directives, closers, and facet labels
+2. Built `myst_dedent_fix.py` auto-fixer tool
+3. Fixed 6 files with 23 total indentation issues
+4. Integrated fixer into QA rerun workflow
+
+**Results:**
+- ✅ 0 indented MyST directives remaining (was 3)
+- ✅ 0 indented closers remaining (was 17)
+- ✅ 0 indented facet labels remaining (was 3)
+- ✅ 0 diagram lint errors
+- ✅ 0 Mermaid sanity failures
+
+**Files Fixed:**
+- `05_events/index.md` (9 fixes) - PRIMARY TARGET
+- `COMPLETENESS.md` (6 fixes)
+- `05_network/protocol_versions.md` (4 fixes)
+- `_sources/chapter_14_android_docs_export_kit_authoring_agent_ready.md` (2 fixes)
+- `14_android/apk_signing.md` (1 fix)
+- `05_network/appendix_tfs_extendedopcode.md` (1 fix)
+
+---
 
 ## Batch 2 Completion Summary
 

@@ -41,9 +41,9 @@ Extended event system documentation covering additional event handlers, emitters
 
 ## Diagrams
 ### architecture
-        *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
+*Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-        ```{mermaid}
+```{mermaid}
         %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Event Details
@@ -53,24 +53,24 @@ graph LR
         E0 --> E1
         E1 --> E2
     end
-        ```
+```
 
 ### events_overview
-        *Facet:* [`05_events.events_overview`](#facet-05_events.events_overview)
+*Facet:* [`05_events.events_overview`](#facet-05_events.events_overview)
 
-        ```{mermaid}
+```{mermaid}
         %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   EventOverview[05_events:events_overview] --> Data[Datasets]
   Data --> Page[Index]
 
 click EventOverview "./index.html#facet-05_events.events_overview" "Open events_overview"
-        ```
+```
 
 ### flow
-        *Facet:* [`05_events.flow`](#facet-05_events.flow)
+*Facet:* [`05_events.flow`](#facet-05_events.flow)
 
-        ```{mermaid}
+```{mermaid}
         %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Event Details] --> B[Data Collection]
@@ -81,7 +81,7 @@ graph TD
     E --> G[Statistics]
     G --> H[Reports]
     F --> H
-        ```
+```
 
 
 

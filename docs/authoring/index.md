@@ -33,6 +33,7 @@ Ten katalog zawiera pełną, strukturalną dokumentację projektu OTClient v8, w
 :caption: Events & Modules
 
 02_events/index
+05_events/index
 03_modules/index
 ```
 
