@@ -1,0 +1,7 @@
+setting,type,default_value,range,description,notes
+audioEnabled,boolean,true,true/false,"Master audio enable/disable","Controls global audio system"
+musicEnabled,boolean,true,true/false,"Music channel enable","Channel 1 (Music) control"
+musicVolume,integer,100,0-100,"Music volume percentage","Channel 1 gain control"
+botSoundVolume,integer,100,0-100,"Bot sound volume percentage","Channel 4 (Bot) gain control"
+maxCacheSize,integer,100000,1000-1000000,"Sound buffer cache size","SoundManager::MAX_CACHE_SIZE"
+pollDelay,integer,100,10-1000,"Audio polling delay (ms)","SoundManager::POLL_DELAY"

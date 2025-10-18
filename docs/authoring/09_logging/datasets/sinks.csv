@@ -1,1 +1,5 @@
 name,type,path,rotation,notes
+Console,stdout,N/A,none,"Standard output for real-time logging"
+File,file,log.txt,manual,"Log file output set via setLogFile()"
+Callback,custom,N/A,none,"Custom callback via setOnLog() for UI integration"
+History,memory,N/A,circular,"In-memory buffer (MAX_LOG_HISTORY=1000)"

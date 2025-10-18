@@ -1,0 +1,9 @@
+example_id,category,code_snippet,file_path,description,notes
+play_music,music,"musicChannel = g_sounds.getChannel(1); musicChannel:play('/sounds/startup')",modules/client/client.lua,"Play background music on channel 1","Used at client startup"
+enable_audio,config,"g_sounds.setAudioEnabled(true)",modules/client_options/options.lua,"Enable/disable audio system","Master audio control"
+set_music_volume,config,"g_sounds.getChannel(SoundChannels.Music):setGain(value/100)",modules/client_options/options.lua,"Set music volume (0-100)","Converts percentage to gain"
+bot_alarm,effect,"playSound('/sounds/alarm.ogg')",modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua,"Play bot alarm sound","Bot notification system"
+low_health_alert,effect,"playSound('/sounds/Low_Health.ogg')",modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua,"Low health warning sound","Health threshold alarm"
+stop_all,control,"g_sounds.stopAll()",modules/client/client.lua,"Stop all playing sounds","Cleanup on exit"
+preload_sound,optimization,"g_sounds.preload(musicFilename)",modules/client/client.lua,"Preload sound into cache","Reduces latency"
+channel_enable,control,"g_sounds.getChannel(SoundChannels.Music):setEnabled(true)",modules/client_options/options.lua,"Enable specific channel","Per-channel control"

@@ -1,0 +1,6 @@
+level_name,level_value,c_api,lua_api,macro_trace,description,use_case
+LogDebug,0,g_logger.debug(),g_logger.debug(),traceDebug(),"Detailed debugging information","Development and troubleshooting"
+LogInfo,1,g_logger.info(),g_logger.info(),traceInfo(),"General informational messages","Application state changes"
+LogWarning,2,g_logger.warning(),g_logger.warning(),traceWarning(),"Warning messages","Potential issues and deprecations"
+LogError,3,g_logger.error(),g_logger.error(),traceError(),"Error messages","Recoverable errors"
+LogFatal,4,g_logger.fatal(),g_logger.fatal(),N/A,"Fatal error messages","Critical failures causing termination"
