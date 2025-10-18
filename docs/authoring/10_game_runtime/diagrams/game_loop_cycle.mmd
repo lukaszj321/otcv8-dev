@@ -1,0 +1,26 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    Start[Frame Start] --> PollInput[Poll Input Events]
+    PollInput --> PollEvents[EventDispatcher Poll]
+    PollEvents --> UpdateGame[Game State Update]
+    
+    UpdateGame --> ProcessProtocol[Process Protocol Messages]
+    ProcessProtocol --> UpdateCreatures[Update Creatures]
+    UpdateCreatures --> UpdateAnimations[Update Animations]
+    UpdateAnimations --> UpdateEffects[Update Effects]
+    
+    UpdateEffects --> CullMap[Map Culling]
+    CullMap --> RenderTiles[Render Map Tiles]
+    RenderTiles --> RenderCreatures[Render Creatures]
+    RenderCreatures --> RenderEffects[Render Effects]
+    RenderEffects --> RenderUI[Render UI]
+    
+    RenderUI --> SwapBuffers[Swap Buffers]
+    SwapBuffers --> FrameLimit[Frame Limiter]
+    FrameLimit --> Start
+    
+    PollEvents -.->|Parallel| GraphicsPoll[Graphics Dispatcher Poll]
+    GraphicsPoll -.-> RenderTiles
+    
+    click UpdateGame "./index.html#facet-10_game_runtime.game_loop_phases" "Game Loop Phases"
+    click RenderTiles "./index.html#facet-10_game_runtime.rendering_pipeline" "Rendering Pipeline"

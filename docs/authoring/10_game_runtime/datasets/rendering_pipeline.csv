@@ -1,0 +1,13 @@
+pipeline_stage,component,input,output,performance_target,bottleneck_risk,optimization_notes
+Input Polling,InputManager,OS events,Input state,<1ms,low,Batched event processing
+Event Processing,EventDispatcher,Event queue,Callback execution,<5ms,medium,Prioritize critical events
+Game State Update,Game,Protocol messages,World state changes,<10ms,high,Incremental updates
+Creature Animation,CreatureManager,Creature state,Animation frames,<3ms,medium,Sprite caching
+Map Culling,Map,Viewport + position,Visible tiles,<2ms,low,Spatial indexing
+Tile Rendering,Map,Visible tiles,Draw calls,<15ms,high,Batch rendering
+Creature Rendering,CreatureManager,Visible creatures,Sprite draws,<8ms,medium,Z-order batching
+Effect Rendering,EffectManager,Active effects,Particle draws,<3ms,low,Effect pooling
+UI Rendering,UIManager,Widget tree,UI draws,<5ms,medium,Dirty region tracking
+Post Processing,Graphics,Framebuffer,Final frame,<2ms,low,Shader optimization
+Buffer Swap,Platform,Rendered frame,Display,<1ms,low,VSync dependent
+Frame Limiting,Application,Frame timing,Sleep duration,variable,low,Adaptive throttling

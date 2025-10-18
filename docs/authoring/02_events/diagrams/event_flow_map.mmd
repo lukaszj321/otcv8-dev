@@ -1,0 +1,29 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    Server[Game Server] -->|Protocol Messages| Protocol[ProtocolGame]
+    
+    Protocol -->|onLogin| Lifecycle[Lifecycle Events]
+    Protocol -->|onGameStart| Lifecycle
+    Protocol -->|onGameEnd| Lifecycle
+    
+    Protocol -->|Player Updates| PlayerEvents[Player Events]
+    PlayerEvents -->|onHealthChange| HealthHandlers[Health Handlers]
+    PlayerEvents -->|onManaChange| ManaHandlers[Mana Handlers]
+    PlayerEvents -->|onStatsChange| StatsHandlers[Stats Handlers]
+    PlayerEvents -->|onSkillChange| SkillHandlers[Skill Handlers]
+    
+    Protocol -->|Creature Updates| CreatureEvents[Creature Events]
+    CreatureEvents -->|onAppear| BattleList[Battle List]
+    CreatureEvents -->|onDisappear| BattleList
+    CreatureEvents -->|onPositionChange| MapRenderer[Map Renderer]
+    CreatureEvents -->|onOutfitChange| OutfitHandlers[Outfit Handlers]
+    
+    Protocol -->|Extended Opcodes| CustomEvents[Custom Events]
+    CustomEvents -->|onExtendedOpcode| ExtHandlers[Extended Handlers]
+    
+    Protocol -->|Container Updates| ContainerEvents[Container Events]
+    ContainerEvents -->|onOpen| ContainerUI[Container UI]
+    ContainerEvents -->|onUpdateItem| ContainerUI
+    
+    click Lifecycle "./index.html#facet-02_events.event_catalog" "Event Catalog"
+    click PlayerEvents "./index.html#facet-02_events.event_catalog" "Event Catalog"

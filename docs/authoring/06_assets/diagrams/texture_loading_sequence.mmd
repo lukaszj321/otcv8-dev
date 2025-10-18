@@ -1,0 +1,36 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant App as Application
+    participant TM as TextureManager
+    participant FS as FileSystem
+    participant Decoder as ImageDecoder
+    participant GPU as OpenGL
+    participant Cache as TextureCache
+
+    App->>TM: getTexture(path)
+    TM->>Cache: lookup(path)
+    
+    alt Cache Hit
+        Cache-->>TM: Return cached texture
+        TM-->>App: Texture handle
+    else Cache Miss
+        TM->>FS: readFile(path)
+        FS-->>TM: File bytes
+        
+        TM->>Decoder: decode(bytes)
+        Decoder-->>TM: RGBA pixels
+        
+        TM->>GPU: glGenTextures()
+        GPU-->>TM: Texture ID
+        
+        TM->>GPU: glBindTexture(ID)
+        TM->>GPU: glTexImage2D(pixels)
+        
+        TM->>Cache: store(path, ID)
+        TM-->>App: Texture handle
+    end
+    
+    App->>TM: bindTexture(handle)
+    TM->>GPU: glBindTexture(handle)
+    
+    App->>App: Render with texture

@@ -1,0 +1,19 @@
+setting_key,type,default_value,storage_location,encrypted,migration_strategy,example_value
+graphics-engine,string,opengl2,config.otml,no,Direct copy,"opengl1, opengl2, directx11"
+vsync,boolean,true,config.otml,no,Direct copy,"true, false"
+max-fps,integer,60,config.otml,no,Direct copy,"60, 120, 144, unlimited"
+fullscreen,boolean,false,config.otml,no,Direct copy,"true, false"
+display-mode,string,windowed,config.otml,no,Direct copy,"windowed, borderless, fullscreen"
+resolution,string,1920x1080,config.otml,no,Direct copy,WIDTHxHEIGHT format
+volume-music,integer,100,config.otml,no,Direct copy,0-100
+volume-effects,integer,100,config.otml,no,Direct copy,0-100
+language,string,en,config.otml,no,Update locale codes,ISO language code
+show-fps,boolean,false,config.otml,no,Direct copy,"true, false"
+ambient-light,integer,100,config.otml,no,Direct copy,0-100 percentage
+auto-login,boolean,false,config.otml,no,Direct copy,"true, false"
+saved-password,string,empty,config.otml,yes,Re-encrypt with new key,Encrypted string
+saved-account,string,empty,config.otml,no,Direct copy,Account name
+last-server,string,empty,config.otml,no,Direct copy,Server hostname
+creature-names,boolean,true,config.otml,no,Direct copy,"true, false"
+health-bars,boolean,true,config.otml,no,Direct copy,"true, false"
+mana-bars,boolean,false,config.otml,no,Direct copy,"true, false"

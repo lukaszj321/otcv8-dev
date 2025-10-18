@@ -1,0 +1,15 @@
+phase,order,component,function,purpose,frequency,dependencies,notes
+1,1,Application,init(),Initialize framework and platform,once,none,Main entry point
+2,2,GraphicsManager,init(),Setup OpenGL context,once,Application init,Graphics system ready
+3,3,ResourceManager,init(),Load resources and textures,once,Graphics init,Assets available
+4,4,LuaInterface,init(),Initialize Lua VM,once,Application init,Scripting ready
+5,5,Game,init(),Initialize game state,once,All systems,Game object ready
+6,6,EventDispatcher,Start main loop,Begin event processing,continuous,All init complete,Enter game loop
+7,7,Poll Input,Process input events,Handle keyboard/mouse,every frame,Main loop,Input queue processed
+8,8,Poll Events,EventDispatcher::poll(),Execute queued events,every frame,Main loop,Event callbacks fired
+9,9,Update Game,Game::update(),Update game state,every frame,Event poll,Creatures/items updated
+10,10,Render Map,Map::render(),Draw game world,every frame,Update complete,Tiles/creatures drawn
+11,11,Render UI,UIManager::render(),Draw interface,every frame,Map render,Widgets rendered
+12,12,Swap Buffers,Present frame,Display rendered frame,every frame,All render complete,Frame displayed
+13,13,Frame Limit,Sleep/throttle,Maintain target FPS,every frame,Buffer swap,CPU yielded
+14,14,Graphics Poll,GraphicsDispatcher::poll(),Process graphics events,every frame,Main loop,Parallel to main

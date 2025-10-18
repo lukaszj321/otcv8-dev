@@ -1,0 +1,9 @@
+stage,component,input_format,process,output,caching,compression,notes
+1.Load,FileSystem,PNG/JPG/OGG/DAT,Read file bytes,Raw binary data,no,on-disk,File I/O from data/ or layouts/
+2.Decode,ImageDecoder,PNG/JPG bytes,Decompress image,RGBA pixels,no,runtime,libpng/libjpeg decompression
+3.Upload,TextureManager,RGBA pixels,glTexImage2D,GPU texture,yes,GPU,OpenGL texture object creation
+4.Cache,TextureManager,Texture path,Lookup/store,Cached handle,yes,memory,Prevent duplicate loads
+5.Atlas,SpriteManager,Multiple sprites,Pack sprites,Texture atlas,yes,GPU,Reduce draw calls
+6.Bind,Renderer,Texture handle,glBindTexture,Active texture,no,none,Set for drawing operations
+7.Draw,Renderer,Vertices + texture,Draw call,Rendered quad,no,none,Actual rendering
+8.Unload,TextureManager,Texture handle,glDeleteTextures,Free memory,no,none,Cleanup when not needed

@@ -1,0 +1,19 @@
+api_function,category,input,output,use_case,security_level,lua_binding,notes
+base64Encode,encoding,string,base64 string,Encode binary data for text transmission,low,g_crypt,Standard Base64 encoding
+base64Decode,encoding,base64 string,decoded string,Decode Base64 to binary,low,g_crypt,Reverse of base64Encode
+xorCrypt,cipher,buffer + key,encrypted buffer,Simple XOR encryption,very low,g_crypt,NOT secure; obfuscation only
+encrypt,cipher,plaintext,ciphertext,Encrypt data with machine UUID,medium,g_crypt,Uses machine-specific key
+decrypt,cipher,ciphertext,plaintext,Decrypt data with machine UUID,medium,g_crypt,Reverse of encrypt
+md5Encode,hash,string,MD5 hash,Generate MD5 checksum,low,g_crypt,Collision vulnerable; legacy only
+sha1Encode,hash,string,SHA1 hash,Generate SHA1 hash,low,g_crypt,Better than MD5 but deprecated
+sha256Encode,hash,string,SHA256 hash,Generate SHA256 hash,high,g_crypt,Recommended for checksums
+sha512Encode,hash,string,SHA512 hash,Generate SHA512 hash,very high,g_crypt,Most secure hash available
+crc32,checksum,string,CRC32 value,Fast integrity check,very low,g_crypt,Not cryptographic; detect corruption
+genUUID,identifier,none,UUID string,Generate unique identifier,n/a,g_crypt,Random UUID v4
+getMachineUUID,identifier,none,UUID string,Get machine identifier,n/a,g_crypt,Hardware-based ID
+setMachineUUID,identifier,UUID string,boolean,Set custom machine UUID,n/a,g_crypt,Override hardware ID
+rsaGenerateKey,asymmetric,bits + exponent,key pair,Generate RSA key pair,very high,g_crypt,Public key cryptography
+rsaSetPublicKey,asymmetric,n + e,none,Set RSA public key,very high,g_crypt,For encryption/verification
+rsaSetPrivateKey,asymmetric,p + q + d,none,Set RSA private key,very high,g_crypt,For decryption/signing
+rsaEncrypt,asymmetric,message,encrypted,RSA public key encryption,very high,g_crypt,Asymmetric encryption
+rsaDecrypt,asymmetric,encrypted,message,RSA private key decryption,very high,g_crypt,Asymmetric decryption

@@ -1,0 +1,11 @@
+component,type,class_name,method,description,thread_safe,lua_binding,source_file
+EventDispatcher,event,EventDispatcher,addEventEx,Add event to queue with optional pushFront,yes,g_dispatcher,src/framework/core/eventdispatcher.h
+EventDispatcher,scheduled,EventDispatcher,scheduleEventEx,Schedule event with delay (ms),yes,g_dispatcher,src/framework/core/eventdispatcher.h
+EventDispatcher,cycle,EventDispatcher,cycleEventEx,Schedule recurring event with interval,yes,g_dispatcher,src/framework/core/eventdispatcher.h
+EventDispatcher,poll,EventDispatcher,poll,Process pending events in queue,no,g_dispatcher,src/framework/core/eventdispatcher.h
+EventDispatcher,shutdown,EventDispatcher,shutdown,Clean up dispatcher and cancel events,no,g_dispatcher,src/framework/core/eventdispatcher.h
+GraphicsDispatcher,event,EventDispatcher,addEventEx,Graphics thread event queue,yes,g_graphicsDispatcher,src/framework/core/eventdispatcher.h
+AsyncDispatcher,async,AsyncDispatcher,schedule,Schedule async task with future return,yes,g_asyncDispatcher,src/framework/core/asyncdispatcher.h
+AsyncDispatcher,dispatch,AsyncDispatcher,dispatch,Dispatch void task to worker thread,yes,g_asyncDispatcher,src/framework/core/asyncdispatcher.h
+AsyncDispatcher,spawn,AsyncDispatcher,spawn_thread,Create new worker thread,no,g_asyncDispatcher,src/framework/core/asyncdispatcher.h
+AsyncDispatcher,stop,AsyncDispatcher,stop,Stop all worker threads,no,g_asyncDispatcher,src/framework/core/asyncdispatcher.h

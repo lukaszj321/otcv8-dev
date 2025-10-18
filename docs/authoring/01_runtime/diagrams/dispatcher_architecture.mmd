@@ -1,0 +1,22 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    Client[Client Code] -->|addEvent| ED[EventDispatcher]
+    Client -->|scheduleEvent| ED
+    Client -->|cycleEvent| ED
+    Client -->|async task| AD[AsyncDispatcher]
+    
+    ED -->|immediate| Queue[Event Queue]
+    ED -->|delayed| Scheduled[Scheduled Priority Queue]
+    
+    Queue -->|poll| Executor[Event Executor]
+    Scheduled -->|delay expired| Executor
+    
+    AD -->|dispatch| TaskQueue[Task Queue]
+    TaskQueue -->|worker thread| AsyncExec[Async Executor]
+    
+    Executor -->|VALIDATE_DISPATCHER_THREAD| DT[Dispatcher Thread]
+    
+    GD[GraphicsDispatcher] -->|VALIDATE_GRAPHICS_THREAD| GT[Graphics Thread]
+    
+    click ED "./index.html#facet-01_runtime.scheduler_dispatcher" "Scheduler & Dispatcher"
+    click AD "./index.html#facet-01_runtime.thread_pools" "Thread Pools"

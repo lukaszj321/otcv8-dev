@@ -1,0 +1,13 @@
+event_type,source,trigger,handler,dispatch_thread,priority,notes
+KeyPress,OS/Platform,User keyboard input,InputManager::onKeyPress,Main,high,Immediate processing
+MouseMove,OS/Platform,Mouse movement,InputManager::onMouseMove,Main,medium,Throttled updates
+MouseClick,OS/Platform,Mouse button,InputManager::onMouseClick,Main,high,UI interaction
+ProtocolMessage,Network,Server packet,ProtocolGame::parseMessage,Dispatcher,high,Game state changes
+ScheduledEvent,EventDispatcher,Timer expiry,User callback,Dispatcher,medium,Delayed execution
+CycleEvent,EventDispatcher,Interval timer,User callback,Dispatcher,medium,Recurring tasks
+CreatureMove,Game State,Position update,Map::onCreatureMove,Dispatcher,medium,Animation trigger
+InventoryChange,Game State,Item update,LocalPlayer::onInventoryChange,Dispatcher,medium,UI refresh
+HealthChange,Game State,HP update,LocalPlayer::onHealthChange,Dispatcher,high,Critical UI update
+TextMessage,Protocol,Server message,Game::onTextMessage,Dispatcher,low,Console output
+ContainerUpdate,Game State,Container change,Container::onUpdate,Dispatcher,medium,Container UI refresh
+OutfitChange,Game State,Appearance update,Creature::onOutfitChange,Dispatcher,low,Visual refresh

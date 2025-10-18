@@ -1,0 +1,9 @@
+stage,phase,component,action,order,dependencies,notes
+1,init,AsyncDispatcher,init(),1,none,Initialize async dispatcher
+2,init,AsyncDispatcher,spawn_thread(),2,AsyncDispatcher::init,Create worker threads
+3,runtime,EventDispatcher,poll(),3,running,Process queued events each frame
+4,runtime,ScheduledEvent,check delay,4,EventDispatcher::poll,Execute when delay expires
+5,runtime,CycleEvent,reschedule,5,ScheduledEvent complete,Re-queue with interval
+6,shutdown,EventDispatcher,shutdown(),6,application exit,Clear pending events
+7,shutdown,AsyncDispatcher,stop(),7,EventDispatcher shutdown,Terminate worker threads
+8,shutdown,AsyncDispatcher,terminate(),8,AsyncDispatcher::stop,Final cleanup
