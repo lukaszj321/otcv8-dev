@@ -18,10 +18,27 @@ Ten rozdział dokumentuje 15 vc16 w OTClient v8. Zawiera szczegółowe informacj
 :hidden:
 
 README
+angle_integration
+egl_initialization
+dll_deployment
 blueprints/index
 datasets/index
 diagrams/index
 ```
+
+## Key Topics
+
+### ANGLE Integration
+
+ANGLE (Almost Native Graphics Layer Engine) provides OpenGL ES on Windows via Direct3D 11. See [ANGLE Integration Guide](./angle_integration.md) for setup, initialization, and usage patterns.
+
+### EGL Initialization
+
+EGL manages graphics contexts and surfaces. See [EGL Initialization](./egl_initialization.md) for quick reference and configuration options.
+
+### DLL Deployment
+
+Runtime DLL management is critical for Windows distribution. See [DLL Deployment Checklist](./dll_deployment.md) for verification scripts and packaging guidelines.
 
 ## Datasets
 
@@ -38,8 +55,10 @@ diagrams/index
 
 ## Crosslinks
 
-- [Core API](../01_core/index.md)
-- [Network](../05_network/index.md)
+- [Core API](../01_core/index.md) - C++ core and graphics infrastructure
+- [Network](../05_network/index.md) - Network protocol implementation
+- [Android Build](../14_android/index.md) - Cross-platform build comparison
+- [Assets](../06_assets/index.md) - Graphics assets and textures
 
 
 ## QA Block
@@ -52,9 +71,9 @@ diagrams/index
 
 - [x] Frontmatter present
 - [x] Datasets generated
-- [ ] Diagrams added
-- [ ] Crosslinks verified
-- [ ] Content complete (≥18KB target)
+- [x] Diagrams added (in ANGLE integration guide)
+- [x] Crosslinks verified (4 links)
+- [x] Content complete (ANGLE + EGL + DLL deployment docs added)
 
 ## Appendix / Facets
 
@@ -62,3 +81,13 @@ diagrams/index
 ### Facet: `15_vc16.main`
 
 Main documentation facet for 15_vc16.
+
+(facet-15_vc16.angle)=
+### Facet: `15_vc16.angle`
+
+ANGLE integration, EGL initialization, and OpenGL ES usage.
+
+(facet-15_vc16.deployment)=
+### Facet: `15_vc16.deployment`
+
+DLL deployment, verification, and packaging.

@@ -1,0 +1,44 @@
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant Client as OTClient Core
+    participant Loader as Module Loader
+    participant Sandbox as Sandbox Layer
+    participant Module as User Module
+    participant Game as Game Interface
+    
+    Note over Client,Game: Module Loading Phase
+    Client->>Loader: Load modules
+    Loader->>Loader: Parse manifests
+    Loader->>Loader: Resolve dependencies
+    
+    Note over Loader: Phase 1: Core Modules
+    Loader->>Module: Load core modules (sandboxed=false)
+    Module-->>Loader: Initialized
+    
+    Note over Loader: Phase 2: Regular Modules
+    Loader->>Sandbox: Create sandbox environment
+    Sandbox->>Module: Load module (sandboxed=true)
+    Module->>Module: init()
+    Module-->>Sandbox: Initialized
+    Sandbox-->>Loader: Success
+    
+    Note over Loader: Phase 3: Load-Later Modules
+    Loader->>Game: Wait for game interface
+    Game-->>Loader: Interface ready
+    Loader->>Sandbox: Load load-later modules
+    Sandbox->>Module: Load with dependencies ready
+    Module->>Module: init()
+    Module->>Game: Register extensions
+    Module-->>Loader: Complete
+    
+    Note over Client,Game: Runtime Phase
+    Game->>Module: Fire events
+    Module->>Sandbox: Call approved APIs
+    Sandbox->>Sandbox: Validate permissions
+    Sandbox-->>Module: Result
+    
+    Note over Client,Game: Unload Phase
+    Client->>Loader: Shutdown
+    Loader->>Module: terminate()
+    Module->>Module: Cleanup
+    Module-->>Loader: Unloaded

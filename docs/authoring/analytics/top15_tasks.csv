@@ -1,0 +1,16 @@
+priority,chapter,task_type,description,next_steps,estimated_impact
+1,12_otmod,content,Add load-later mechanism and sandbox security docs,"Add load-later patterns section; Add sandbox security guide; Create module lifecycle diagram",MEDIUM
+2,15_vc16,content,Add ANGLE integration and EGL examples,"Add ANGLE setup examples; Document EGL initialization; Create DLL deployment checklist",MEDIUM
+3,05_network,content,Add protocol version compatibility and packet structure,"Add protocol version compatibility matrix; Document packet structure examples; Expand extended opcode patterns",HIGH
+4,14_android,content,Add ABI build config and signing process,"Document NDK build per ABI; Add AAB/APK signing playbook; Create asset packaging guide",HIGH
+5,13_layouts,content,Add theme creation tutorial and image properties,"Add theme creation guide; Document image-clip/scale/origin properties; Expand override examples",MEDIUM
+6,01_runtime,content,Add scheduler/dispatcher and thread pool docs,"Add C++ scheduler usage examples; Document dispatcher patterns; Create thread pool config guide; Add lifecycle sequence diagrams",HIGH
+7,02_events,content,Add event emitter catalog and custom event tutorial,"Create comprehensive emitter list (C++ and Lua); Add signal/slot usage examples; Tutorial for custom events; Add sequence diagrams for Login/Movement/Combat",HIGH
+8,10_game_runtime,content,Add game loop internals and rendering pipeline,"Document game loop tick cycle; Add input event handling guide; Create map rendering flowchart",HIGH
+9,06_assets,content,Add asset pipeline and compression strategies,"Document asset loading pipeline; Create compression comparison table; Add atlas generation tutorial",MEDIUM
+10,07_settings_crypto,content,Add encryption examples and key management,"Add crypto API examples; Document key storage patterns; Create settings migration playbook",MEDIUM
+11,08_audio,content,Add audio channel config and sound examples,"Document audio channel setup; Add sound effect playback examples; Create music streaming guide",MEDIUM
+12,09_logging,content,Add log configuration and custom targets,"Document log level setup; Create custom target tutorial; Add trace debugging guide",MEDIUM
+13,03_modules,dataset,Complete lua_exports.csv and hot_reload.csv,"Extract Lua module exports from existing modules.csv; Add hot-reload tracking data",HIGH
+14,04_ui,dataset,Complete signals.csv and needed_translations.csv,"Extract UI signals from existing ui.csv; Generate needed translations list",HIGH
+15,01_core,dataset,Complete cpp_symbols.csv and lua_bindings.csv,"Extract C++ symbols from src/; Run lua-binding-generator tool if available",HIGH

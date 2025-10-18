@@ -664,6 +664,7 @@ run()
 diagrams/settings_crypto_flow.mmd
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC export| SettingsExport
   Studio -->|IPC export| CryptoExport
