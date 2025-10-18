@@ -1,3 +1,10 @@
 %%{init: { 'theme': 'neutral' }}%%
-    %% sequenceDiagram; UI->>Resolver: path; alt exists; Resolver-->>UI: layout; else not; Resolver-->>UI: data; end;
-    %% click OverrideResolution "./index.html#facet-13_layouts.override_resolution" "Open override_resolution" %% REMOVED: click not supported in sequenceDiagram
+sequenceDiagram
+    participant UI
+    participant Resolver
+    UI->>Resolver: path
+    alt exists
+        Resolver-->>UI: layout
+    else not
+        Resolver-->>UI: data
+   end
