@@ -1,193 +1,121 @@
 ---
-doc_id: 07_settings_crypto
-source_path: docs/authoring/07_settings_crypto
-source_sha: fab0cef
-last_sync_iso: "2025-10-18T01:36:41.411933Z"
-doc_class: spec
-language: pl
-title: 07 - Settings & Crypto
+title: 07_settings_crypto - Settings crypto
 ---
 
+# 07_settings_crypto - Settings crypto
 
-# 07 - Settings & Crypto
-
-Settings formats, profiles, keys, and cryptographic flows.
-
-## Przegląd
-
-Ten rozdział dokumentuje 07 settings crypto w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
-
-## Zawartość
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-README
-blueprints/index
-datasets/index
-diagrams/index
-```
-
-## Cryptography API
-
-OTClient v8 provides comprehensive cryptographic functions through the `g_crypt` singleton, exposed to Lua for secure data handling.
-
-### Hash Functions
-
-Used for integrity checking and password storage (with salt):
-
-- **MD5** - Legacy; collision vulnerable
-- **SHA1** - Deprecated; better than MD5
-- **SHA256** - Recommended for checksums and hashes
-- **SHA512** - Most secure hash; use for sensitive data
-- **CRC32** - Fast non-cryptographic checksum
-
-Example:
-```lua
-local hash = g_crypt.sha256Encode("my data", false)
--- Returns SHA256 hash in lowercase hex
-```
-
-### Symmetric Encryption
-
-For encrypting local data:
-
-- **encrypt()/decrypt()** - Uses machine UUID as key; binds to device
-- **xorCrypt()** - Simple XOR; obfuscation only (NOT secure)
-
-Example:
-```lua
-local encrypted = g_crypt.encrypt("sensitive data")
--- Decrypts only on same machine
-local decrypted = g_crypt.decrypt(encrypted)
-```
-
-### Asymmetric Encryption (RSA)
-
-Public key cryptography for server-client authentication:
-
-- **rsaGenerateKey()** - Generate key pair
-- **rsaSetPublicKey()** - Set public key for encryption
-- **rsaSetPrivateKey()** - Set private key for decryption
-- **rsaEncrypt()/rsaDecrypt()** - Perform RSA operations
-
-### Machine Identity
-
-- **getMachineUUID()** - Hardware-based identifier
-- **genUUID()** - Generate random UUID v4
-
-## Settings Management
-
-Settings are stored in `config.otml` using OTML (OpenTibia Markup Language) format.
-
-### Config API
-
-```lua
--- Load config
-g_configs.load("config.otml")
-
--- Read settings
-local value = g_configs.get("graphics-engine")
-local fps = g_configs.getNumber("max-fps")
-
--- Write settings
-g_configs.set("vsync", true)
-g_configs.set("max-fps", 144)
-
--- Save to disk
-g_configs.save()
-```
-
-### Encrypted Settings
-
-Sensitive settings like passwords use machine-specific encryption:
-
-```lua
--- Store encrypted
-local password = "user_password"
-local encrypted = g_crypt.encrypt(password)
-g_configs.set("saved-password", encrypted)
-g_configs.save()
-
--- Retrieve and decrypt
-local encrypted = g_configs.get("saved-password")
-local password = g_crypt.decrypt(encrypted)
-```
-
-## Key Management Patterns
-
-Different use cases require different cryptographic approaches:
-
-| Use Case | Method | Security Level |
-|----------|--------|----------------|
-| Password Storage | SHA256 hash + salt | High |
-| Auto-login Token | encrypt() with UUID | Medium |
-| Session Token | SHA256 + random | High |
-| API Key Obfuscation | Base64 + XOR | Very Low |
-| License Verification | RSA signature | Very High |
-| Save File Integrity | SHA256 checksum | Medium |
-
-### Best Practices
-
-1. **Never store plaintext passwords** - Always hash
-2. **Use machine UUID encryption** for local-only secrets
-3. **Rotate keys** when compromised
-4. **Use SHA256 or better** for new code
-5. **Add salt to hashes** to prevent rainbow tables
-
-## Settings Migration
-
-When updating client versions, settings may need migration:
-
-1. **Detect old format** - Check version key
-2. **Transform values** - Convert as needed
-3. **Re-encrypt secrets** - Use new encryption if changed
-4. **Preserve user data** - Don't reset unnecessarily
-5. **Save migrated config** - Update version marker
-
-Example migration flow:
-```lua
-local configVersion = g_configs.getNumber("config-version") or 1
-if configVersion < 2 then
-  -- Migrate old settings
-  local oldEngine = g_configs.get("engine")
-  g_configs.set("graphics-engine", oldEngine)
-  g_configs.remove("engine")
-  g_configs.set("config-version", 2)
-  g_configs.save()
-end
+```{contents} Table of contents
+:depth: 2
+:local:
 ```
 
 ## Datasets
+### crypto_api
+*Facet:* [`07_settings_crypto.crypto_api`](#facet-07_settings_crypto.crypto_api)
 
-```{csv-table} Crypto API Functions
+```{csv-table} crypto_api
 :header-rows: 1
 :file: ./datasets/crypto_api.csv
+:widths: auto
 ```
 
-```{csv-table} Key Management Patterns
+### crypto_primitives
+*Facet:* [`07_settings_crypto.crypto_primitives`](#facet-07_settings_crypto.crypto_primitives)
+
+```{csv-table} crypto_primitives
+:header-rows: 1
+:file: ./datasets/crypto_primitives.csv
+:widths: auto
+```
+
+### entities
+*Facet:* [`07_settings_crypto.entities`](#facet-07_settings_crypto.entities)
+
+```{csv-table} entities
+:header-rows: 1
+:file: ./datasets/entities.csv
+:widths: auto
+```
+
+### key_management
+*Facet:* [`07_settings_crypto.key_management`](#facet-07_settings_crypto.key_management)
+
+```{csv-table} key_management
 :header-rows: 1
 :file: ./datasets/key_management.csv
+:widths: auto
 ```
 
-```{csv-table} Settings Migration Guide
+### secrets
+*Facet:* [`07_settings_crypto.secrets`](#facet-07_settings_crypto.secrets)
+
+```{csv-table} secrets
+:header-rows: 1
+:file: ./datasets/secrets.csv
+:widths: auto
+```
+
+### settings
+*Facet:* [`07_settings_crypto.settings`](#facet-07_settings_crypto.settings)
+
+```{csv-table} settings
+:header-rows: 1
+:file: ./datasets/settings.csv
+:widths: auto
+```
+
+### settings_migration
+*Facet:* [`07_settings_crypto.settings_migration`](#facet-07_settings_crypto.settings_migration)
+
+```{csv-table} settings_migration
 :header-rows: 1
 :file: ./datasets/settings_migration.csv
+:widths: auto
 ```
 
-Legacy datasets:
-- `crypto_primitives.csv`
-- `entities.csv`
-- `secrets.csv`
-- `settings.csv`
-- `summary.csv`
+### summary
+*Facet:* [`07_settings_crypto.summary`](#facet-07_settings_crypto.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
 
 ## Diagrams
+### architecture
+*Facet:* [`07_settings_crypto.architecture`](#facet-07_settings_crypto.architecture)
 
 ```{mermaid}
-:caption: Cryptography Flow
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Settings & Crypto
+        E0[Settings]
+        E1[Crypto Functions]
+        E2[Config Options]
+        E0 --> E1
+        E1 --> E2
+    end
+click Architecture "./index.html#facet-07_settings_crypto.architecture" "Open architecture"
+```
+
+### config_flow
+*Facet:* [`07_settings_crypto.config_flow`](#facet-07_settings_crypto.config_flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[07_settings_crypto.config_flow] --> B[Dataset]
+    B --> C[Page]
+
+click A "./index.html#facet-07_settings_crypto.config_flow" "Open config_flow"
+click ConfigFlow "./index.html#facet-07_settings_crypto.config_flow" "Open config_flow"
+```
+
+### crypto_flow
+*Facet:* [`07_settings_crypto.crypto_flow`](#facet-07_settings_crypto.crypto_flow)
+
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     Input[Sensitive Data] --> Choice{Security Need?}
@@ -218,10 +146,58 @@ graph TD
     
     DecryptFunc --> Use[Use Value]
     Direct --> Use
+    
+    click MachineEnc "./index.html#facet-07_settings_crypto.crypto_api" "Crypto API"
+    click ConfigFile "./index.html#facet-07_settings_crypto.settings_migration" "Settings"
+click CryptoFlow "./index.html#facet-07_settings_crypto.crypto_flow" "Open crypto_flow"
 ```
 
+### crypto_overview
+*Facet:* [`07_settings_crypto.crypto_overview`](#facet-07_settings_crypto.crypto_overview)
+
 ```{mermaid}
-:caption: Settings Encryption Sequence
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  CryptoOverview[07_settings_crypto:crypto_overview] --> Data[Datasets]
+  Data --> Page[Index]
+
+click CryptoOverview "./index.html#facet-07_settings_crypto.crypto_overview" "Open crypto_overview"
+click CryptoOverview "./index.html#facet-07_settings_crypto.crypto_overview" "Open crypto_overview"
+```
+
+### flow
+*Facet:* [`07_settings_crypto.flow`](#facet-07_settings_crypto.flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Settings & Crypto] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H
+click Flow "./index.html#facet-07_settings_crypto.flow" "Open flow"
+```
+
+### overview
+*Facet:* [`07_settings_crypto.overview`](#facet-07_settings_crypto.overview)
+
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    A[Settings & Crypto] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
+click Overview "./index.html#facet-07_settings_crypto.overview" "Open overview"
+```
+
+### settings_encryption_flow
+*Facet:* [`07_settings_crypto.settings_encryption_flow`](#facet-07_settings_crypto.settings_encryption_flow)
+
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant User as User Action
@@ -260,61 +236,81 @@ sequenceDiagram
     deactivate Crypt
     
     App->>App: Auto-login with password
+    %% click SettingsEncryptionFlow "./index.html#facet-07_settings_crypto.settings_encryption_flow" "Open settings_encryption_flow" %% REMOVED: click not supported in sequenceDiagram
 ```
 
-```{contents}
-:local:
-:depth: 2
+## Podkatalogi
+
+```{toctree}
+:maxdepth: 1
+:titlesonly:
+blueprints/index
 ```
 
 ## Crosslinks
 
-Internal references:
-- [Core API](../01_core/index.md) - C++ crypto implementation
-- [Modules](../03_modules/index.md) - Lua config usage patterns
-- [Network](../05_network/index.md) - RSA for protocol encryption
-- [Runtime](../01_runtime/index.md) - Config loading at startup
-- [Data](../11_data/index.md) - Config file location
-
-External source files:
-- `src/framework/util/crypt.h` - Cryptography class
-- `src/framework/util/crypt.cpp` - Crypto implementation
-- `src/framework/core/config.h` - Config manager
-- `src/framework/core/config.cpp` - Settings persistence
-
-
-## QA Block
-
-**Status:** ✅ Dataset generated  
-**Coverage:** In progress  
-**Last Updated:** 2025-10-18T01:36:41.411933Z
-
-### Checklist
-
-- [x] Frontmatter present
-- [x] Datasets generated
-- [ ] Diagrams added
-- [ ] Crosslinks verified
-- [ ] Content complete (≥18KB target)
+- **affects** → `01_runtime.counters` (evidence: `docs/authoring/01_runtime/datasets/counters.csv`)
+- **secures** → `05_network.network_messages` (evidence: `docs/authoring/05_network/datasets/network_messages.csv`)
 
 ## Appendix / Facets
 
-(facet-07_settings_crypto.main)=
-### Facet: `07_settings_crypto.main`
+(facet-07_settings_crypto.architecture)=
+### Facet: `07_settings_crypto.architecture`
+Type: diagram
 
-Main documentation facet for 07_settings_crypto.
+(facet-07_settings_crypto.config_flow)=
+### Facet: `07_settings_crypto.config_flow`
+Type: diagram
 
 (facet-07_settings_crypto.crypto_api)=
 ### Facet: `07_settings_crypto.crypto_api`
+Type: dataset
 
-Complete crypto API reference including hash functions (MD5, SHA1, SHA256, SHA512), symmetric encryption (encrypt/decrypt, XOR), asymmetric encryption (RSA), and machine identity functions.
+(facet-07_settings_crypto.crypto_flow)=
+### Facet: `07_settings_crypto.crypto_flow`
+Type: diagram
+
+(facet-07_settings_crypto.crypto_overview)=
+### Facet: `07_settings_crypto.crypto_overview`
+Type: diagram
+
+(facet-07_settings_crypto.crypto_primitives)=
+### Facet: `07_settings_crypto.crypto_primitives`
+Type: dataset
+
+(facet-07_settings_crypto.entities)=
+### Facet: `07_settings_crypto.entities`
+Type: dataset
+
+(facet-07_settings_crypto.flow)=
+### Facet: `07_settings_crypto.flow`
+Type: diagram
 
 (facet-07_settings_crypto.key_management)=
 ### Facet: `07_settings_crypto.key_management`
+Type: dataset
 
-Key management patterns and best practices for different use cases including password storage, session tokens, API keys, license verification, and auto-login tokens.
+(facet-07_settings_crypto.overview)=
+### Facet: `07_settings_crypto.overview`
+Type: diagram
+
+(facet-07_settings_crypto.secrets)=
+### Facet: `07_settings_crypto.secrets`
+Type: dataset
+
+(facet-07_settings_crypto.settings)=
+### Facet: `07_settings_crypto.settings`
+Type: dataset
+
+(facet-07_settings_crypto.settings_encryption_flow)=
+### Facet: `07_settings_crypto.settings_encryption_flow`
+Type: diagram
 
 (facet-07_settings_crypto.settings_migration)=
 ### Facet: `07_settings_crypto.settings_migration`
+Type: dataset
 
-Settings migration guide covering common settings, storage locations, encryption requirements, and migration strategies for client version updates.
+(facet-07_settings_crypto.summary)=
+### Facet: `07_settings_crypto.summary`
+Type: dataset
+

@@ -1,138 +1,108 @@
 ---
-doc_id: 06_assets
-source_path: docs/authoring/06_assets
-source_sha: f715219
-last_sync_iso: "2025-10-18T01:36:41.411736Z"
-doc_class: guide
-language: pl
-title: 06 - Assets Pipeline
+title: 06_assets - Assets
 ---
 
+# 06_assets - Assets
 
-# 06 - Assets Pipeline
-
-Asset atlas, versioning, compression, and differences from data chapter.
-
-## Przegląd
-
-Ten rozdział dokumentuje 06 assets w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
-
-## Zawartość
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-README
-blueprints/index
-datasets/index
-diagrams/index
+```{contents} Table of contents
+:depth: 2
+:local:
 ```
-
-## Assets vs Data Chapter Distinction
-
-**This chapter (06_assets)** focuses on the **technical pipeline** for loading, processing, and optimizing assets (textures, sprites, sounds).
-
-**Chapter 11_data** documents the **inventory and organization** of actual asset files in `data/**` and their usage in OTUI files.
-
-### Key Differences
-
-| Aspect | 06_assets (this chapter) | 11_data |
-|--------|-------------------------|---------|
-| Focus | Pipeline, loading, optimization | File inventory, usage tracking |
-| Content | Technical implementation | Asset catalog, cross-references |
-| Datasets | Loading stages, compression | Asset lists, UI usage links |
-| Use Case | Developers optimizing performance | Developers finding/using assets |
-
-## Asset Loading Pipeline
-
-The asset pipeline processes files from disk to GPU in multiple stages:
-
-1. **File I/O** - Read binary data from `data/` or `layouts/`
-2. **Decoding** - Decompress PNG/JPG/OGG to raw format
-3. **GPU Upload** - Transfer to video memory via OpenGL
-4. **Caching** - Store texture handles to prevent reloading
-5. **Atlas Packing** - Combine sprites into larger textures
-6. **Binding** - Activate texture for rendering
-7. **Drawing** - Use in actual render calls
-
-### Performance Characteristics
-
-- **Cache hit**: ~0.001ms (hash lookup)
-- **Disk load + decode**: 5-50ms depending on size
-- **GPU upload**: 1-10ms depending on size
-- **Atlas benefit**: 50-90% reduction in draw calls
-
-## Compression Strategies
-
-Different asset types benefit from different compression approaches:
-
-### Images
-- **UI elements**: PNG (lossless, exact colors)
-- **Backgrounds**: PNG or high-quality JPG
-- **Sprites**: PNG in texture atlas
-
-### Audio
-- **Music**: OGG Vorbis (10-20x compression)
-- **Sound effects**: WAV (uncompressed, low latency)
-
-### Advanced Techniques
-- **Spritesheet packing**: Combine multiple sprites
-- **Mipmapping**: Generate LOD chain for distance rendering
-- **POT sizing**: Use power-of-2 dimensions for compatibility
-
-## Optimization Techniques
-
-Key strategies for asset optimization:
-
-### Texture Atlas Generation
-Combine multiple small sprites into larger textures to reduce:
-- OpenGL state changes
-- Draw call overhead
-- Texture binding costs
-
-Example: 100 sprites in 10 atlases = ~90% fewer draw calls
-
-### Lazy Loading
-Load assets on-demand rather than at startup:
-- Faster initial load time
-- Lower memory footprint
-- Eliminate loading stutters with async loading
-
-### Memory Management
-- **Reference counting**: Automatic cleanup when unused
-- **Resource pools**: Reuse texture objects
-- **Unloading**: Free textures when switching areas
 
 ## Datasets
+### asset_loading_pipeline
+*Facet:* [`06_assets.asset_loading_pipeline`](#facet-06_assets.asset_loading_pipeline)
 
-```{csv-table} Asset Loading Pipeline
+```{csv-table} asset_loading_pipeline
 :header-rows: 1
 :file: ./datasets/asset_loading_pipeline.csv
+:widths: auto
 ```
 
-```{csv-table} Compression Strategies Comparison
+### assets_index
+*Facet:* [`06_assets.assets_index`](#facet-06_assets.assets_index)
+
+```{csv-table} assets_index
+:header-rows: 1
+:file: ./datasets/assets_index.csv
+:widths: auto
+```
+
+### compression_strategies
+*Facet:* [`06_assets.compression_strategies`](#facet-06_assets.compression_strategies)
+
+```{csv-table} compression_strategies
 :header-rows: 1
 :file: ./datasets/compression_strategies.csv
+:widths: auto
 ```
 
-```{csv-table} Optimization Techniques
+### entities
+*Facet:* [`06_assets.entities`](#facet-06_assets.entities)
+
+```{csv-table} entities
+:header-rows: 1
+:file: ./datasets/entities.csv
+:widths: auto
+```
+
+### optimization_techniques
+*Facet:* [`06_assets.optimization_techniques`](#facet-06_assets.optimization_techniques)
+
+```{csv-table} optimization_techniques
 :header-rows: 1
 :file: ./datasets/optimization_techniques.csv
+:widths: auto
 ```
 
-Legacy datasets:
-- `assets_index.csv`
-- `entities.csv`
-- `pipelines.csv`
-- `spritesheets.csv`
-- `summary.csv`
+### pipelines
+*Facet:* [`06_assets.pipelines`](#facet-06_assets.pipelines)
+
+```{csv-table} pipelines
+:header-rows: 1
+:file: ./datasets/pipelines.csv
+:widths: auto
+```
+
+### spritesheets
+*Facet:* [`06_assets.spritesheets`](#facet-06_assets.spritesheets)
+
+```{csv-table} spritesheets
+:header-rows: 1
+:file: ./datasets/spritesheets.csv
+:widths: auto
+```
+
+### summary
+*Facet:* [`06_assets.summary`](#facet-06_assets.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
 
 ## Diagrams
+### architecture
+*Facet:* [`06_assets.architecture`](#facet-06_assets.architecture)
 
 ```{mermaid}
-:caption: Asset Pipeline Flowchart
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Assets
+        E0[Sprites]
+        E1[Textures]
+        E2[Asset References]
+        E0 --> E1
+        E1 --> E2
+    end
+click Architecture "./index.html#facet-06_assets.architecture" "Open architecture"
+```
+
+### asset_pipeline
+*Facet:* [`06_assets.asset_pipeline`](#facet-06_assets.asset_pipeline)
+
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     Request[Asset Request] --> Cache{In Cache?}
@@ -156,10 +126,71 @@ graph TD
     
     Pack --> Store
     Individual --> Store
+    
+    click Cache "./index.html#facet-06_assets.asset_loading_pipeline" "Loading Pipeline"
+    click Atlas "./index.html#facet-06_assets.optimization_techniques" "Optimizations"
+click AssetPipeline "./index.html#facet-06_assets.asset_pipeline" "Open asset_pipeline"
 ```
 
+### assets_pipeline
+*Facet:* [`06_assets.assets_pipeline`](#facet-06_assets.assets_pipeline)
+
 ```{mermaid}
-:caption: Texture Loading Sequence
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  AEtPipeline[06_assets:assets_pipeline] --> Data[Datasets]
+  Data --> Page[Index]
+
+click AEtPipeline "./index.html#facet-06_assets.assets_pipeline" "Open assets_pipeline"
+click AssetsPipeline "./index.html#facet-06_assets.assets_pipeline" "Open assets_pipeline"
+```
+
+### flow
+*Facet:* [`06_assets.flow`](#facet-06_assets.flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Assets] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H
+click Flow "./index.html#facet-06_assets.flow" "Open flow"
+```
+
+### overview
+*Facet:* [`06_assets.overview`](#facet-06_assets.overview)
+
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    A[Assets Pipeline] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
+click Overview "./index.html#facet-06_assets.overview" "Open overview"
+```
+
+### pipeline_flow
+*Facet:* [`06_assets.pipeline_flow`](#facet-06_assets.pipeline_flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[06_assets.pipeline_flow] --> B[Dataset]
+    B --> C[Page]
+
+click A "./index.html#facet-06_assets.pipeline_flow" "Open pipeline_flow"
+click PipelineFlow "./index.html#facet-06_assets.pipeline_flow" "Open pipeline_flow"
+```
+
+### texture_loading_sequence
+*Facet:* [`06_assets.texture_loading_sequence`](#facet-06_assets.texture_loading_sequence)
+
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant App as Application
@@ -196,62 +227,81 @@ sequenceDiagram
     TM->>GPU: glBindTexture(handle)
     
     App->>App: Render with texture
+    %% click TextureLoadingSequence "./index.html#facet-06_assets.texture_loading_sequence" "Open texture_loading_sequence" %% REMOVED: click not supported in sequenceDiagram
 ```
 
-```{contents}
-:local:
-:depth: 2
+## Podkatalogi
+
+```{toctree}
+:maxdepth: 1
+:titlesonly:
+blueprints/index
 ```
 
 ## Crosslinks
 
-Internal references:
-- [Data](../11_data/index.md) - Asset inventory and file organization
-- [UI](../04_ui/index.md) - UI widget image properties
-- [Layouts](../13_layouts/index.md) - Layout-specific asset overrides
-- [Game Runtime](../10_game_runtime/index.md) - Rendering integration
-- [Core API](../01_core/index.md) - C++ texture management classes
-- [Runtime](../01_runtime/index.md) - Async loading with AsyncDispatcher
-
-External source files:
-- `src/framework/graphics/texturemanager.cpp` - Texture cache and loading
-- `src/framework/graphics/texture.cpp` - Texture class implementation
-- `src/client/spritemanager.cpp` - Sprite atlas management
-- `src/framework/graphics/image.cpp` - Image decoding
-
-
-## QA Block
-
-**Status:** ✅ Dataset generated  
-**Coverage:** In progress  
-**Last Updated:** 2025-10-18T01:36:41.411736Z
-
-### Checklist
-
-- [x] Frontmatter present
-- [x] Datasets generated
-- [ ] Diagrams added
-- [ ] Crosslinks verified
-- [ ] Content complete (≥18KB target)
+- **provides** → `10_game_runtime.resources` (evidence: `docs/authoring/10_game_runtime/datasets/resources.csv`)
+- **used_by** → `04_ui.ui_widgets` (evidence: `docs/authoring/04_ui/datasets/ui_widgets.csv`)
 
 ## Appendix / Facets
 
-(facet-06_assets.main)=
-### Facet: `06_assets.main`
-
-Main documentation facet for 06_assets.
+(facet-06_assets.architecture)=
+### Facet: `06_assets.architecture`
+Type: diagram
 
 (facet-06_assets.asset_loading_pipeline)=
 ### Facet: `06_assets.asset_loading_pipeline`
+Type: dataset
 
-Complete asset loading pipeline from disk I/O through GPU upload, including caching, atlas packing, and performance characteristics for each stage.
+(facet-06_assets.asset_pipeline)=
+### Facet: `06_assets.asset_pipeline`
+Type: diagram
+
+(facet-06_assets.assets_index)=
+### Facet: `06_assets.assets_index`
+Type: dataset
+
+(facet-06_assets.assets_pipeline)=
+### Facet: `06_assets.assets_pipeline`
+Type: diagram
 
 (facet-06_assets.compression_strategies)=
 ### Facet: `06_assets.compression_strategies`
+Type: dataset
 
-Compression strategy comparison for different asset types (PNG, JPG, OGG, etc.) including compression ratios, quality trade-offs, and recommendations.
+(facet-06_assets.entities)=
+### Facet: `06_assets.entities`
+Type: dataset
+
+(facet-06_assets.flow)=
+### Facet: `06_assets.flow`
+Type: diagram
 
 (facet-06_assets.optimization_techniques)=
 ### Facet: `06_assets.optimization_techniques`
+Type: dataset
 
-Asset optimization techniques including texture atlasing, lazy loading, memory management, and performance impact analysis.
+(facet-06_assets.overview)=
+### Facet: `06_assets.overview`
+Type: diagram
+
+(facet-06_assets.pipeline_flow)=
+### Facet: `06_assets.pipeline_flow`
+Type: diagram
+
+(facet-06_assets.pipelines)=
+### Facet: `06_assets.pipelines`
+Type: dataset
+
+(facet-06_assets.spritesheets)=
+### Facet: `06_assets.spritesheets`
+Type: dataset
+
+(facet-06_assets.summary)=
+### Facet: `06_assets.summary`
+Type: dataset
+
+(facet-06_assets.texture_loading_sequence)=
+### Facet: `06_assets.texture_loading_sequence`
+Type: diagram
+

@@ -2,10 +2,6 @@
 title: Authoring (embedded)
 ---
 
-
-
-
-
 # Authoring - embedded
 
 Wszystkie rozdzialy z `docs/authoring/**` renderowane inline.

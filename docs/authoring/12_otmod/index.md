@@ -1,116 +1,285 @@
 ---
-doc_id: 12_otmod
-source_path: docs/authoring/12_otmod
-source_sha: adcc8b9
-last_sync_iso: "2025-10-18T01:36:41.412944Z"
-doc_class: spec
-language: pl
-title: 12 - OTMOD
+title: 12_otmod - Otmod
 ---
 
+# 12_otmod - Otmod
 
-# 12 - OTMOD
-
-Module structure, hooks, dependencies, load-later, sandbox, and blueprints.
-
-## Przegląd
-
-Ten rozdział dokumentuje 12 otmod w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
-
-## Zawartość
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-README
-load_later_patterns
-sandbox_security
-blueprints/index
-datasets/index
-diagrams/index
+```{contents} Table of contents
+:depth: 2
+:local:
 ```
 
-## Key Topics
+## Datasets
+### lua_exports
+*Facet:* [`12_otmod.lua_exports`](#facet-12_otmod.lua_exports)
 
-### Load-Later Mechanism
+```{csv-table} lua_exports
+:header-rows: 1
+:file: ./datasets/lua_exports.csv
+:widths: auto
+```
 
-The **load-later** pattern allows modules to defer initialization until dependencies are ready. See [Load-Later Patterns](./load_later_patterns.md) for detailed examples and best practices.
+### module_deps
+*Facet:* [`12_otmod.module_deps`](#facet-12_otmod.module_deps)
 
-### Sandbox Security
+```{csv-table} module_deps
+:header-rows: 1
+:file: ./datasets/module_deps.csv
+:widths: auto
+```
 
-OTClient v8 implements sandboxed Lua environments for user modules. See [Sandbox Security](./sandbox_security.md) for security patterns and guidelines.
+### module_hooks
+*Facet:* [`12_otmod.module_hooks`](#facet-12_otmod.module_hooks)
 
-### Module Lifecycle
+```{csv-table} module_hooks
+:header-rows: 1
+:file: ./datasets/module_hooks.csv
+:widths: auto
+```
+
+### module_scripts
+*Facet:* [`12_otmod.module_scripts`](#facet-12_otmod.module_scripts)
+
+```{csv-table} module_scripts
+:header-rows: 1
+:file: ./datasets/module_scripts.csv
+:widths: auto
+```
+
+### module_ui_links
+*Facet:* [`12_otmod.module_ui_links`](#facet-12_otmod.module_ui_links)
+
+```{csv-table} module_ui_links
+:header-rows: 1
+:file: ./datasets/module_ui_links.csv
+:widths: auto
+```
+
+### modules_index
+*Facet:* [`12_otmod.modules_index`](#facet-12_otmod.modules_index)
+
+```{csv-table} modules_index
+:header-rows: 1
+:file: ./datasets/modules_index.csv
+:widths: auto
+```
+
+### otmod_packages
+*Facet:* [`12_otmod.otmod_packages`](#facet-12_otmod.otmod_packages)
+
+```{csv-table} otmod_packages
+:header-rows: 1
+:file: ./datasets/otmod_packages.csv
+:widths: auto
+```
+
+### summary
+*Facet:* [`12_otmod.summary`](#facet-12_otmod.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
+
+## Diagrams
+### deps
+*Facet:* [`12_otmod.deps`](#facet-12_otmod.deps)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Module A] --> B[Module B]
+    A --> C[Module C]
+    click A "./index.html#facet-12_otmod.modules_index" "Open modules index"
+click Deps "./index.html#facet-12_otmod.deps" "Open deps"
+```
+
+### deps_graph
+*Facet:* [`12_otmod.deps_graph`](#facet-12_otmod.deps_graph)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  game_interface --> game_skills
+  game_interface --> game_inventory
+  game_interface --> game_console
+  game_skills --> game_stats
+click DepsGraph "./index.html#facet-12_otmod.deps_graph" "Open deps_graph"
+```
+
+### lifecycle
+*Facet:* [`12_otmod.lifecycle`](#facet-12_otmod.lifecycle)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+sequenceDiagram
+  participant L as Loader
+  participant M as Module(OTMOD)
+  participant S as Scripts(Lua)
+  L->>M: load()
+  M->>S: scripts[] bootstrap
+  M->>S: @onLoad -> init()
+  S-->>M: ready()
+  L->>M: unload()
+  M->>S: @onUnload -> terminate()
+    %% click Lifecycle "./index.html#facet-12_otmod.lifecycle" "Open lifecycle" %% REMOVED: click not supported in sequenceDiagram
+```
+
+### module_lifecycle
+*Facet:* [`12_otmod.module_lifecycle`](#facet-12_otmod.module_lifecycle)
 
 ```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph LR
-    A[Parse Manifest] --> B[Check Dependencies]
-    B --> C{Load-Later?}
-    C -->|No| D[Create Sandbox]
-    C -->|Yes| E[Defer to Phase 3]
-    D --> F[Call init]
-    E --> G[Wait for Dependencies]
-    G --> D
-    F --> H[Module Ready]
+sequenceDiagram
+    participant Client as OTClient Core
+    participant Loader as Module Loader
+    participant Sandbox as Sandbox Layer
+    participant Module as User Module
+    participant Game as Game Interface
     
-    style C fill:#6a4,stroke:#8c6
-    style D fill:#46a,stroke:#68c
+    Note over Client,Game: Module Loading Phase
+    Client->>Loader: Load modules
+    Loader->>Loader: Parse manifests
+    Loader->>Loader: Resolve dependencies
+    
+    Note over Loader: Phase 1: Core Modules
+    Loader->>Module: Load core modules (sandboxed=false)
+    Module-->>Loader: Initialized
+    
+    Note over Loader: Phase 2: Regular Modules
+    Loader->>Sandbox: Create sandbox environment
+    Sandbox->>Module: Load module (sandboxed=true)
+    Module->>Module: init()
+    Module-->>Sandbox: Initialized
+    Sandbox-->>Loader: Success
+    
+    Note over Loader: Phase 3: Load-Later Modules
+    Loader->>Game: Wait for game interface
+    Game-->>Loader: Interface ready
+    Loader->>Sandbox: Load load-later modules
+    Sandbox->>Module: Load with dependencies ready
+    Module->>Module: init()
+    Module->>Game: Register extensions
+    Module-->>Loader: Complete
+    
+    Note over Client,Game: Runtime Phase
+    Game->>Module: Fire events
+    Module->>Sandbox: Call approved APIs
+    Sandbox->>Sandbox: Validate permissions
+    Sandbox-->>Module: Result
+    
+    Note over Client,Game: Unload Phase
+    Client->>Loader: Shutdown
+    Loader->>Module: terminate()
+    Module->>Module: Cleanup
+    Module-->>Loader: Unloaded
+    %% click ModuleLifecycle "./index.html#facet-12_otmod.module_lifecycle" "Open module_lifecycle" %% REMOVED: click not supported in sequenceDiagram
 ```
 
-See [Module Lifecycle Diagram](./diagrams/module_lifecycle.mmd) for detailed sequence.
+### modules_deps
+*Facet:* [`12_otmod.modules_deps`](#facet-12_otmod.modules_deps)
 
-## Datasets
-
-- `lua_exports.csv`
-- `module_deps.csv`
-- `module_hooks.csv`
-
-## Diagramy
-
-```{contents}
-:local:
-:depth: 2
+```{mermaid}
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    MOD["Module<br/>(*.otmod)"] --> MANIFEST["Manifest<br/>dependencies<br/>load-later"]
+    MOD --> LUA["Lua Scripts<br/>(*.lua)"]
+    MOD --> OTUI["UI Files<br/>(*.otui)"]
+    
+    MANIFEST --> DEPS["Module Dependencies<br/>module_deps.csv"]
+    LUA --> EXPORTS["Lua Exports<br/>lua_exports.csv"]
+    LUA --> HOOKS["Hooks<br/>@onLoad/@onUnload"]
+    OTUI --> UILINKS["UI Links<br/>module_ui_links.csv"]
+    
+    HOOKS --> LIFECYCLE["Module Lifecycle"]
+    
+    DEPS --> INDEX["Modules Index<br/>modules_index.csv"]
+    EXPORTS --> INDEX
+    UILINKS --> INDEX
+    
+    click INDEX "../12_otmod/index.html#facet-12_otmod.main" "Open OTMOD Index"
+    click DEPS "../12_otmod/index.html#facet-12_otmod.module_deps" "Open Module Dependencies"
+click ModulesDeps "./index.html#facet-12_otmod.modules_deps" "Open modules_deps"
 ```
 
-## Crosslinks
+### overview
+*Facet:* [`12_otmod.overview`](#facet-12_otmod.overview)
 
-- [Modules (Lua API)](../03_modules/index.md) - Lua scripting and API reference
-- [Data Assets](../11_data/index.md) - Asset loading and management
-- [UI System](../04_ui/index.md) - OTUI widget system
-- [Core C++ API](../01_core/index.md) - C++ core functionality and bindings
-- [Events System](../02_events/index.md) - Event handling and hooks
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    A[OTMOD Packages] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
+click Overview "./index.html#facet-12_otmod.overview" "Open overview"
+```
+
+## Podkatalogi
+
+```{toctree}
+:maxdepth: 1
+:titlesonly:
+blueprints/index
+```
 
 
-## QA Block
-
-**Status:** ✅ Dataset generated  
-**Coverage:** In progress  
-**Last Updated:** 2025-10-18T01:36:41.412944Z
-
-### Checklist
-
-- [x] Frontmatter present
-- [x] Datasets generated
-- [x] Diagrams added (module_lifecycle.mmd)
-- [x] Crosslinks verified (5 links)
-- [x] Content complete (load-later + sandbox docs added)
 
 ## Appendix / Facets
 
-(facet-12_otmod.main)=
-### Facet: `12_otmod.main`
+(facet-12_otmod.deps)=
+### Facet: `12_otmod.deps`
+Type: diagram
 
-Main documentation facet for 12_otmod.
+(facet-12_otmod.deps_graph)=
+### Facet: `12_otmod.deps_graph`
+Type: diagram
 
-(facet-12_otmod.load_later)=
-### Facet: `12_otmod.load_later`
+(facet-12_otmod.lifecycle)=
+### Facet: `12_otmod.lifecycle`
+Type: diagram
 
-Load-later patterns and dependency management.
+(facet-12_otmod.lua_exports)=
+### Facet: `12_otmod.lua_exports`
+Type: dataset
 
-(facet-12_otmod.sandbox)=
-### Facet: `12_otmod.sandbox`
+(facet-12_otmod.module_deps)=
+### Facet: `12_otmod.module_deps`
+Type: dataset
 
-Sandbox security and permission model.
+(facet-12_otmod.module_hooks)=
+### Facet: `12_otmod.module_hooks`
+Type: dataset
+
+(facet-12_otmod.module_lifecycle)=
+### Facet: `12_otmod.module_lifecycle`
+Type: diagram
+
+(facet-12_otmod.module_scripts)=
+### Facet: `12_otmod.module_scripts`
+Type: dataset
+
+(facet-12_otmod.module_ui_links)=
+### Facet: `12_otmod.module_ui_links`
+Type: dataset
+
+(facet-12_otmod.modules_deps)=
+### Facet: `12_otmod.modules_deps`
+Type: diagram
+
+(facet-12_otmod.modules_index)=
+### Facet: `12_otmod.modules_index`
+Type: dataset
+
+(facet-12_otmod.otmod_packages)=
+### Facet: `12_otmod.otmod_packages`
+Type: dataset
+
+(facet-12_otmod.overview)=
+### Facet: `12_otmod.overview`
+Type: diagram
+
+(facet-12_otmod.summary)=
+### Facet: `12_otmod.summary`
+Type: dataset
+

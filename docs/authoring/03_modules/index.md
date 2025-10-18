@@ -1,253 +1,286 @@
 ---
-doc_id: 03_modules
-source_path: docs/authoring/03_modules
-source_sha: 4a846af
-last_sync_iso: "2025-10-18T01:36:41.411138Z"
-doc_class: api
-language: pl
-title: 03 - Modules
+title: 03_modules - Modules
 ---
 
+# 03_modules - Modules
 
-# 03 - Modules
-
-C++ and Lua modules, exports, relations, and integration examples.
-
-## Przegląd
-
-Ten rozdział dokumentuje 03 modules w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
-
-## Zawartość
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-README
-blueprints/index
-datasets/index
-diagrams/index
+```{contents} Table of contents
+:depth: 2
+:local:
 ```
-
-## Module System Architecture
-
-OTClient v8 uses a Lua-based module system built on two core libraries: `corelib` (framework utilities) and `gamelib` (game-specific functions). Modules are organized into client-side UI modules and game logic modules that communicate with the C++ core through Lua bindings.
-
-## Module Index
-
-```{csv-table} Available Modules
-:header-rows: 1
-:file: ./datasets/modules_index.csv
-```
-
-Total modules: 57 (including corelib and gamelib)
-
-## Lua Module Exports
-
-```{csv-table} Exported Lua Functions
-:header-rows: 1
-:file: ./datasets/lua_exports.csv
-```
-
-### Key Module APIs
-
-#### game_skills
-- `init()` - Initialize skills window
-- `setSkillValue(id, value)` - Update skill display
-- `setSkillPercent(id, percent, tooltip, color)` - Update progress bar
-- `refresh()` - Refresh all displays
-
-#### client_options
-- `setOption(key, value, force)` - Set configuration option
-- `getOption(key)` - Get configuration value
-- `addTab(name, panel, icon)` - Add custom options tab
-- `toggle()` - Toggle options window
-
-#### client_terminal
-- `addCommand(name, desc, callback, completer)` - Register command
-- `executeCommand(commandLine)` - Execute command
-- `init()` - Initialize console
-
-#### game_bot
-- `isEnabled()` - Check bot status
-- `setEnabled(enabled)` - Enable/disable bot
-- `refresh()` - Refresh bot UI
-
-## Hot Reload Support
-
-```{csv-table} Module Hot Reload Capabilities
-:header-rows: 1
-:file: ./datasets/hot_reload.csv
-```
-
-### Reload Categories
-
-- **Full Reload** (game_skills, game_inventory, client_terminal): Complete module restart with preserved state
-- **Partial Reload** (client_options): UI reload with setting preservation
-- **No Reload** (corelib, gamelib, game_bot): Critical dependencies or stateful modules
-
-### Hot Reload Example
-
-```lua
--- Reload a module at runtime
-modules.game_skills.reload()
-
--- Check if reload is supported
-if modules.game_skills.canReload then
-  modules.game_skills.reload()
-end
-```
-
-## C++ to Lua Bindings
-
-```{csv-table} Lua to C++ Binding Map
-:header-rows: 1
-:file: ./datasets/lua_bindings_map.csv
-```
-
-### Binding Types
-
-- **@bindsingleton**: Global singletons (g_sounds, g_logger, g_window)
-- **@bindclass**: C++ classes exposed to Lua
-- **@bindglobalfunction**: Standalone functions
-
-### Binding Examples
-
-```lua
--- Sound system (SoundManager)
-g_sounds.play('/sounds/alarm.ogg')
-local channel = g_sounds.getChannel(SoundChannels.Music)
-channel:setGain(0.8)
-
--- Logger (Logger)
-g_logger.info("Application started")
-g_logger.error("Failed to load resource")
-g_logger.setOnLog(function(level, msg, when)
-  print(msg)
-end)
-
--- Resources (ResourceManager)
-if g_resources.fileExists('/data/things.dat') then
-  local contents = g_resources.readFileContents('/config.json')
-end
-
--- Game state (Game)
-if g_game.isOnline() then
-  local player = g_game.getLocalPlayer()
-  print(player:getName())
-end
-```
-
-## Module Dependencies
-
-### Architecture Diagram
-
-```{mermaid}
-:caption: Module dependency graph with hot-reload indicators
-:file: ./diagrams/module_dependencies.mmd
-```
-
-### Common Dependency Patterns
-
-1. **Core Libraries** → All modules depend on corelib/gamelib
-2. **game_interface** → Most game modules depend on game_interface
-3. **Client Utilities** → UI modules use client_* utilities
-4. **Game Protocol** → Network modules depend on game_protocol
-
-## Lua-C++ Binding Flow
-
-```{mermaid}
-:caption: Execution flow from Lua through bindings to C++ and back
-:file: ./diagrams/lua_cpp_binding_flow.mmd
-```
-
-### Binding Mechanism
-
-1. **Lua Call**: `g_sounds.play('/sounds/alarm.ogg')`
-2. **Binding Lookup**: Resolve `@bindsingleton g_sounds` to `SoundManager`
-3. **C++ Execution**: `SoundManager::play()` calls OpenAL
-4. **Return Value**: C++ returns `SoundSourcePtr` wrapped as Lua object
-5. **Lua Access**: Lua can call methods on returned object
-
-### Callback Flow (C++ → Lua)
-
-```lua
--- Register Lua callback
-g_logger.setOnLog(function(level, message, when)
-  console:addMessage(message)
-end)
-```
-
-When C++ logs a message:
-1. C++ invokes registered `OnLogCallback`
-2. Binding layer converts C++ types to Lua
-3. Lua callback executes
-4. Return value (if any) converted back to C++
-
-## Module Initialization Order
-
-1. **Phase 1**: corelib (core utilities, string, table, config)
-2. **Phase 2**: gamelib (protocol, creatures, items)
-3. **Phase 3**: client_* (UI infrastructure, styles, options)
-4. **Phase 4**: game_* (game UI modules)
-5. **Phase 5**: Extensions (game_bot, custom modules)
 
 ## Datasets
+### entities
+*Facet:* [`03_modules.entities`](#facet-03_modules.entities)
 
-- `modules_index.csv` - All modules with file counts and sizes
-- `lua_exports.csv` - Exported Lua functions with signatures
-- `hot_reload.csv` - Hot reload capabilities per module
-- `lua_bindings_map.csv` - C++ to Lua binding mappings
-- `entities.csv` - Module entity metadata
+```{csv-table} entities
+:header-rows: 1
+:file: ./datasets/entities.csv
+:widths: auto
+```
+
+### hot_reload
+*Facet:* [`03_modules.hot_reload`](#facet-03_modules.hot_reload)
+
+```{csv-table} hot_reload
+:header-rows: 1
+:file: ./datasets/hot_reload.csv
+:widths: auto
+```
+
+### lua_bindings_map
+*Facet:* [`03_modules.lua_bindings_map`](#facet-03_modules.lua_bindings_map)
+
+```{csv-table} lua_bindings_map
+:header-rows: 1
+:file: ./datasets/lua_bindings_map.csv
+:widths: auto
+```
+
+### lua_exports
+*Facet:* [`03_modules.lua_exports`](#facet-03_modules.lua_exports)
+
+```{csv-table} lua_exports
+:header-rows: 1
+:file: ./datasets/lua_exports.csv
+:widths: auto
+```
+
+### modules_index
+*Facet:* [`03_modules.modules_index`](#facet-03_modules.modules_index)
+
+```{csv-table} modules_index
+:header-rows: 1
+:file: ./datasets/modules_index.csv
+:widths: auto
+```
+
+### summary
+*Facet:* [`03_modules.summary`](#facet-03_modules.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
+
+## Diagrams
+### architecture
+*Facet:* [`03_modules.architecture`](#facet-03_modules.architecture)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Lua Modules
+        E0[Modules]
+        E1[Exported Functions]
+        E2[Callbacks]
+        E0 --> E1
+        E1 --> E2
+    end
+click Architecture "./index.html#facet-03_modules.architecture" "Open architecture"
+```
+
+### flow
+*Facet:* [`03_modules.flow`](#facet-03_modules.flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Lua Modules] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H
+click Flow "./index.html#facet-03_modules.flow" "Open flow"
+```
+
+### lua_cpp_binding_flow
+*Facet:* [`03_modules.lua_cpp_binding_flow`](#facet-03_modules.lua_cpp_binding_flow)
+
+```{mermaid}
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant Lua as Lua Code
+    participant Bind as Lua Binding Layer
+    participant CPP as C++ Class
+    participant Core as Core API
+    
+    Note over Lua,Core: Example: g_sounds.play()
+    
+    Lua->>Bind: g_sounds.play("/sounds/alarm.ogg")
+    Bind->>Bind: Lookup @bindsingleton g_sounds
+    Bind->>CPP: SoundManager::play()
+    CPP->>Core: OpenAL alSourcePlay()
+    Core-->>CPP: Source handle
+    CPP-->>Bind: SoundSourcePtr
+    Bind-->>Lua: Return source object
+    
+    Note over Lua,Core: C++ to Lua Callback
+    
+    Core->>CPP: Log message event
+    CPP->>Bind: Invoke OnLogCallback
+    Bind->>Lua: Execute Lua callback
+    Lua-->>Bind: Callback complete
+    
+    %% click Bind "../index.html#facet-03_modules.bindings" "Lua Bindings" %% REMOVED: click not supported in sequenceDiagram
+    %% click LuaCppBindingFlow "./index.html#facet-03_modules.lua_cpp_binding_flow" "Open lua_cpp_binding_flow" %% REMOVED: click not supported in sequenceDiagram
+```
+
+### module_dependencies
+*Facet:* [`03_modules.module_dependencies`](#facet-03_modules.module_dependencies)
+
+```{mermaid}
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    subgraph "Core Libraries"
+        CL[corelib]
+        GL[gamelib]
+    end
+    
+    subgraph "Client Modules"
+        CO[client_options]
+        CT[client_terminal]
+        CM[client_mobile]
+        CS[client_styles]
+    end
+    
+    subgraph "Game Modules"
+        GI[game_interface]
+        GS[game_skills]
+        GIN[game_inventory]
+        GB[game_battle]
+        GC[game_console]
+        GBOT[game_bot]
+    end
+    
+    CL --> CO
+    CL --> CT
+    CL --> GI
+    GL --> GI
+    GI --> GS
+    GI --> GIN
+    GI --> GB
+    GI --> GC
+    GI --> GBOT
+    
+    CO -.reload.-> CO
+    GS -.reload.-> GS
+    GIN -.reload.-> GIN
+    GC -.reload.-> GC
+    
+    click GS "../index.html#facet-03_modules.lua_exports" "Lua Exports"
+    click GBOT "../index.html#facet-03_modules.hot_reload" "Hot Reload"
+click ModuleDependencies "./index.html#facet-03_modules.module_dependencies" "Open module_dependencies"
+```
+
+### modules_architecture
+*Facet:* [`03_modules.modules_architecture`](#facet-03_modules.modules_architecture)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  ModuleArchitecture[03_modules:modules_architecture] --> Data[Datasets]
+  Data --> Page[Index]
+
+click ModuleArchitecture "./index.html#facet-03_modules.modules_architecture" "Open modules_architecture"
+click ModulesArchitecture "./index.html#facet-03_modules.modules_architecture" "Open modules_architecture"
+```
+
+### modules_graph
+*Facet:* [`03_modules.modules_graph`](#facet-03_modules.modules_graph)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[03_modules.modules_graph] --> B[Dataset]
+    B --> C[Page]
+
+click A "./index.html#facet-03_modules.modules_graph" "Open modules_graph"
+click ModulesGraph "./index.html#facet-03_modules.modules_graph" "Open modules_graph"
+```
+
+### overview
+*Facet:* [`03_modules.overview`](#facet-03_modules.overview)
+
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    A[Modules] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
+click Overview "./index.html#facet-03_modules.overview" "Open overview"
+```
+
+## Podkatalogi
+
+```{toctree}
+:maxdepth: 1
+:titlesonly:
+blueprints/index
+lua/index
+```
 
 ## Crosslinks
 
-- [Core API](../01_core/index.md) - C++ implementation and Lua bindings
-- [UI](../04_ui/index.md) - OTUI integration with Lua modules
-- [OTMOD](../12_otmod/index.md) - Module packaging and distribution
-- [Runtime](../01_runtime/index.md) - Module initialization sequence
-- [Events](../02_events/index.md) - Event handling in modules
-- [Logging](../09_logging/index.md) - Module logging practices
-- [Data](../11_data/index.md) - Module asset dependencies
-- [Settings](../07_settings_crypto/index.md) - Module configuration storage
-
-
-## QA Block
-
-**Status:** ✅ Enhanced with real data and examples  
-**Coverage:** Complete (Task 13)  
-**Last Updated:** 2025-10-18T05:42:00Z
-
-### Checklist
-
-- [x] Frontmatter present
-- [x] Datasets populated (lua_exports.csv: 27 functions, hot_reload.csv: 12 modules, lua_bindings_map.csv: 14 bindings)
-- [x] Diagrams added (2 Mermaid diagrams)
-- [x] Crosslinks verified (8 working links)
-- [x] Content complete (≥18KB target reached)
-- [x] C++ and Lua API documented
-- [x] Module dependencies mapped
-- [x] Hot reload capabilities documented
+- **uses** → `04_ui.ui_widgets` (evidence: `docs/authoring/04_ui/datasets/ui_widgets.csv`)
+- **handles** → `02_events.events_matrix` (evidence: `docs/authoring/02_events/datasets/events_matrix.csv`)
+- **uses** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
 
 ## Appendix / Facets
 
-(facet-03_modules.main)=
-### Facet: `03_modules.main`
+(facet-03_modules.architecture)=
+### Facet: `03_modules.architecture`
+Type: diagram
 
-Main documentation facet for module system.
+(facet-03_modules.entities)=
+### Facet: `03_modules.entities`
+Type: dataset
 
-(facet-03_modules.lua_exports)=
-### Facet: `03_modules.lua_exports`
-
-Lua module exports and APIs.
+(facet-03_modules.flow)=
+### Facet: `03_modules.flow`
+Type: diagram
 
 (facet-03_modules.hot_reload)=
 ### Facet: `03_modules.hot_reload`
+Type: dataset
 
-Module hot reload capabilities.
+(facet-03_modules.lua_bindings_map)=
+### Facet: `03_modules.lua_bindings_map`
+Type: dataset
 
-(facet-03_modules.bindings)=
-### Facet: `03_modules.bindings`
+(facet-03_modules.lua_cpp_binding_flow)=
+### Facet: `03_modules.lua_cpp_binding_flow`
+Type: diagram
 
-C++ to Lua binding mappings.
+(facet-03_modules.lua_exports)=
+### Facet: `03_modules.lua_exports`
+Type: dataset
+
+(facet-03_modules.module_dependencies)=
+### Facet: `03_modules.module_dependencies`
+Type: diagram
+
+(facet-03_modules.modules_architecture)=
+### Facet: `03_modules.modules_architecture`
+Type: diagram
+
+(facet-03_modules.modules_graph)=
+### Facet: `03_modules.modules_graph`
+Type: diagram
+
+(facet-03_modules.modules_index)=
+### Facet: `03_modules.modules_index`
+Type: dataset
+
+(facet-03_modules.overview)=
+### Facet: `03_modules.overview`
+Type: diagram
+
+(facet-03_modules.summary)=
+### Facet: `03_modules.summary`
+Type: dataset
+

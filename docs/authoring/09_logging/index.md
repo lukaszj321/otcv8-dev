@@ -1,280 +1,281 @@
 ---
-doc_id: 09_logging
-source_path: docs/authoring/09_logging
-source_sha: 2adc17d
-last_sync_iso: "2025-10-18T01:36:41.412346Z"
-doc_class: spec
-language: pl
-title: 09 - Logging
+title: 09_logging - Logging
 ---
 
+# 09_logging - Logging
 
-# 09 - Logging
-
-Logging levels, targets, examples, and runtime integration.
-
-## Przegląd
-
-Ten rozdział dokumentuje 09 logging w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
-
-## Zawartość
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-README
-blueprints/index
-datasets/index
-diagrams/index
-```
-
-## Logging System Architecture
-
-The OTClient v8 logging system provides a centralized logging mechanism accessible via `g_logger` singleton. It supports multiple log levels, output sinks, and custom handlers for integration with UI components.
-
-## Log Levels
-
-```{csv-table} Log Levels
-:header-rows: 1
-:file: ./datasets/log_levels.csv
-```
-
-### Level Hierarchy
-
-Log levels follow a priority hierarchy from Debug (0) to Fatal (4). Each level is progressively more severe:
-
-- **Debug (0)**: Detailed diagnostic information for development
-- **Info (1)**: General informational messages about application state
-- **Warning (2)**: Potential issues that don't prevent operation
-- **Error (3)**: Recoverable errors that need attention
-- **Fatal (4)**: Critical failures that may terminate the application
-
-## Log Sinks
-
-```{csv-table} Log Output Sinks
-:header-rows: 1
-:file: ./datasets/sinks.csv
-```
-
-### Sink Types
-
-The logging system supports multiple simultaneous output targets:
-
-- **Console**: Standard output for real-time monitoring
-- **File**: Persistent log file storage
-- **Callback**: Custom handlers for UI integration (e.g., console widget, crash reporter)
-- **History**: In-memory circular buffer for recent messages (MAX_LOG_HISTORY=1000)
-
-## Configuration
-
-```{csv-table} Logging Configuration
-:header-rows: 1
-:file: ./datasets/log_config.csv
-```
-
-## Usage Examples
-
-```{csv-table} Logging Examples
-:header-rows: 1
-:file: ./datasets/log_examples.csv
-```
-
-### C++ Logging
-
-```cpp
-// Basic logging
-g_logger.debug("Detailed debug information");
-g_logger.info("Application started");
-g_logger.warning("Deprecated API used");
-g_logger.error("Failed to load resource");
-g_logger.fatal("Critical system failure");
-
-// Trace macros with function names
-traceDebug("Connection established");
-traceInfo("Loading module");
-traceWarning("Using fallback");
-traceError("Network timeout");
-
-// Performance tracing
-void processFrame() {
-    logTraceFrameCounter(); // Logs frame count per second
-}
-```
-
-### Lua Logging
-
-```lua
--- Basic logging
-g_logger.debug("Debug message")
-g_logger.info("Exiting application..")
-g_logger.warning("HTTP error: " .. err)
-g_logger.error("Couldn't load JSON: " .. json_data)
-
--- Get last log message
-local lastLog = g_logger.getLastLog()
-
--- Custom log handler
-local function onLog(level, message, when)
-  -- Handle log message in UI
-  consoleWidget:addMessage(message)
-end
-g_logger.setOnLog(onLog)
-```
-
-## Architecture Diagrams
-
-### Logging Architecture
-
-```{mermaid}
-:caption: Logger architecture with sinks and levels
-:file: ./diagrams/logging_architecture.mmd
-```
-
-### Logging Flow
-
-```{mermaid}
-:caption: Message flow from application to sinks
-:file: ./diagrams/logging_flow.mmd
-```
-
-## C++ API Reference
-
-### Logger (g_logger)
-
-Main logging interface:
-
-- `void log(Fw::LogLevel level, const string& message)` - Log at specified level
-- `void logFunc(Fw::LogLevel level, const string& message, string prettyFunction)` - Log with function name
-- `void debug(const string& what)` - Log debug message
-- `void info(const string& what)` - Log info message
-- `void warning(const string& what)` - Log warning message
-- `void error(const string& what)` - Log error message
-- `void fatal(const string& what)` - Log fatal message
-- `void setLogFile(const string& file)` - Set log file path
-- `void setOnLog(OnLogCallback callback)` - Set custom log handler
-- `string getLastLog()` - Get most recent log message
-- `void fireOldMessages()` - Replay buffered messages
-- `void setTestingMode()` - Enable testing mode
-
-### Trace Macros
-
-```cpp
-trace()                    // Log entry to current function (debug level)
-traceDebug(msg)           // Debug with function name
-traceInfo(msg)            // Info with function name
-traceWarning(msg)         // Warning with function name
-traceError(msg)           // Error with function name
-logTraceCounter()         // Log call count per second
-logTraceFrameCounter()    // Log calls per frame
-```
-
-## Lua API Reference
-
-```lua
-g_logger.debug(message)        -- Log debug message
-g_logger.info(message)         -- Log info message
-g_logger.warning(message)      -- Log warning message
-g_logger.error(message)        -- Log error message
-g_logger.fatal(message)        -- Log fatal message
-g_logger.getLastLog()          -- Get last log message
-g_logger.setOnLog(callback)    -- Set custom handler
-```
-
-## Logging Categories
-
-```{csv-table} Logging Categories by Module
-:header-rows: 1
-:file: ./datasets/logging_categories.csv
-```
-
-## Custom Log Handlers
-
-### UI Console Integration
-
-```lua
--- Example: Integrate logger with UI console
-local function onLog(level, message, when)
-  local consoleWidget = modules.client_terminal.terminal
-  if consoleWidget then
-    consoleWidget:addMessage(message, level)
-  end
-end
-
-g_logger.setOnLog(onLog)
-g_logger.fireOldMessages() -- Replay buffered messages
-```
-
-### Crash Reporting
-
-```lua
--- Example: Capture logs for crash reports
-local function reportCrash()
-  local lastLog = g_logger.getLastLog()
-  sendCrashReport({
-    log = lastLog,
-    timestamp = os.time()
-  })
-end
+```{contents} Table of contents
+:depth: 2
+:local:
 ```
 
 ## Datasets
+### emitters
+*Facet:* [`09_logging.emitters`](#facet-09_logging.emitters)
 
-- `log_levels.csv` - Log level definitions and APIs
-- `sinks.csv` - Output sink configurations
-- `log_config.csv` - Logger configuration parameters
-- `log_examples.csv` - Usage examples
-- `logging_categories.csv` - Category to level mappings
-- `emitters.csv` - Log event emitters
-- `log_events.csv` - Log event types
+```{csv-table} emitters
+:header-rows: 1
+:file: ./datasets/emitters.csv
+:widths: auto
+```
+
+### entities
+*Facet:* [`09_logging.entities`](#facet-09_logging.entities)
+
+```{csv-table} entities
+:header-rows: 1
+:file: ./datasets/entities.csv
+:widths: auto
+```
+
+### log_config
+*Facet:* [`09_logging.log_config`](#facet-09_logging.log_config)
+
+```{csv-table} log_config
+:header-rows: 1
+:file: ./datasets/log_config.csv
+:widths: auto
+```
+
+### log_events
+*Facet:* [`09_logging.log_events`](#facet-09_logging.log_events)
+
+```{csv-table} log_events
+:header-rows: 1
+:file: ./datasets/log_events.csv
+:widths: auto
+```
+
+### log_examples
+*Facet:* [`09_logging.log_examples`](#facet-09_logging.log_examples)
+
+```{csv-table} log_examples
+:header-rows: 1
+:file: ./datasets/log_examples.csv
+:widths: auto
+```
+
+### log_levels
+*Facet:* [`09_logging.log_levels`](#facet-09_logging.log_levels)
+
+```{csv-table} log_levels
+:header-rows: 1
+:file: ./datasets/log_levels.csv
+:widths: auto
+```
+
+### logging_categories
+*Facet:* [`09_logging.logging_categories`](#facet-09_logging.logging_categories)
+
+```{csv-table} logging_categories
+:header-rows: 1
+:file: ./datasets/logging_categories.csv
+:widths: auto
+```
+
+### sinks
+*Facet:* [`09_logging.sinks`](#facet-09_logging.sinks)
+
+```{csv-table} sinks
+:header-rows: 1
+:file: ./datasets/sinks.csv
+:widths: auto
+```
+
+### summary
+*Facet:* [`09_logging.summary`](#facet-09_logging.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
+
+## Diagrams
+### architecture
+*Facet:* [`09_logging.architecture`](#facet-09_logging.architecture)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Logging
+        E0[Log Entries]
+        E1[Log Levels]
+        E2[Log Sources]
+        E0 --> E1
+        E1 --> E2
+    end
+click Architecture "./index.html#facet-09_logging.architecture" "Open architecture"
+```
+
+### flow
+*Facet:* [`09_logging.flow`](#facet-09_logging.flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Logging] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H
+click Flow "./index.html#facet-09_logging.flow" "Open flow"
+```
+
+### logging_architecture
+*Facet:* [`09_logging.logging_architecture`](#facet-09_logging.logging_architecture)
+
+```{mermaid}
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    App[Application Code] -->|log call| Logger[Logger g_logger]
+    
+    Logger --> Console[Console Sink stdout]
+    Logger --> File[File Sink log.txt]
+    Logger --> Callback[Callback Sink Custom Handler]
+    Logger --> History[Memory History 1000 msgs]
+    
+    subgraph "Log Levels"
+        L0[0-Debug]
+        L1[1-Info]
+        L2[2-Warning]
+        L3[3-Error]
+        L4[4-Fatal]
+    end
+    
+    Logger --> L0
+    Logger --> L1
+    Logger --> L2
+    Logger --> L3
+    Logger --> L4
+    
+    Callback -->|UI Display| UI[Console Widget]
+    History -->|getLastLog| Crash[Crash Reporter]
+    
+    click Logger "../index.html#facet-09_logging.architecture" "Logging Architecture"
+    click Console "../index.html#facet-09_logging.sinks" "Log Sinks"
+click LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "Open logging_architecture"
+```
+
+### logging_flow
+*Facet:* [`09_logging.logging_flow`](#facet-09_logging.logging_flow)
+
+```{mermaid}
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    autonumber
+    participant App as Application
+    participant Log as g_logger
+    participant File as Log File
+    participant CB as Callback
+    participant Hist as History Buffer
+
+    App->>Log: setLogFile("log.txt")
+    Log->>File: Open file stream
+
+    App->>Log: setOnLog(callback)
+    Log->>CB: Register callback
+
+    App->>Log: info("Starting application")
+    Log->>File: Write to file
+    Log->>CB: Invoke callback
+    Log->>Hist: Store in buffer (1/1000)
+
+    App->>Log: error("Network failure")
+    Log->>File: Write to file
+    Log->>CB: Invoke callback
+    Log->>Hist: Store in buffer (2/1000)
+
+    App->>Log: getLastLog()
+    Log-->>App: Return last message
+
+    Note over Log: [[../index.html#facet-09_logging.flow|Logging Flow]]
+    %% click LoggingFlow "./index.html#facet-09_logging.logging_flow" "Open logging_flow" %% REMOVED: click not supported in sequenceDiagram
+```
+
+### overview
+*Facet:* [`09_logging.overview`](#facet-09_logging.overview)
+
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    A[Logging System] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
+click Overview "./index.html#facet-09_logging.overview" "Open overview"
+```
+
+## Podkatalogi
+
+```{toctree}
+:maxdepth: 1
+:titlesonly:
+blueprints/index
+```
 
 ## Crosslinks
 
-- [Core API](../01_core/index.md) - Logger implementation (`src/framework/core/logger.h`)
-- [Runtime](../01_runtime/index.md) - Logging initialization and lifecycle
-- [Modules](../03_modules/index.md) - Lua logging usage examples
-- [Client Terminal](../03_modules/index.md#client-terminal) - Console widget integration
-- [Crash Reporter](../03_modules/index.md#crash-reporter) - Error logging and reporting
-- [Updater](../03_modules/index.md#updater) - Update progress logging
-- [Events](../02_events/index.md) - Log event emission
-- [Settings](../07_settings_crypto/index.md) - Log configuration persistence
-
-
-## QA Block
-
-**Status:** ✅ Enhanced with real data and examples  
-**Coverage:** Complete (Task 12)  
-**Last Updated:** 2025-10-18T05:42:00Z
-
-### Checklist
-
-- [x] Frontmatter present
-- [x] Datasets generated (7 CSVs with real data)
-- [x] Diagrams added (2 Mermaid diagrams)
-- [x] Crosslinks verified (8 working links)
-- [x] Content complete (≥18KB target reached)
-- [x] C++ and Lua API documented
-- [x] Usage examples provided
+- **observes** → `02_events.events_matrix` (evidence: `docs/authoring/02_events/datasets/events_matrix.csv`)
+- **observes** → `05_network.network_messages` (evidence: `docs/authoring/05_network/datasets/network_messages.csv`)
 
 ## Appendix / Facets
 
-(facet-09_logging.main)=
-### Facet: `09_logging.main`
-
-Main documentation facet for logging system.
-
 (facet-09_logging.architecture)=
 ### Facet: `09_logging.architecture`
+Type: diagram
 
-Logging architecture and sinks.
+(facet-09_logging.emitters)=
+### Facet: `09_logging.emitters`
+Type: dataset
 
-(facet-09_logging.sinks)=
-### Facet: `09_logging.sinks`
-
-Log output sinks configuration.
+(facet-09_logging.entities)=
+### Facet: `09_logging.entities`
+Type: dataset
 
 (facet-09_logging.flow)=
 ### Facet: `09_logging.flow`
+Type: diagram
 
-Logging message flow and sequence.
+(facet-09_logging.log_config)=
+### Facet: `09_logging.log_config`
+Type: dataset
+
+(facet-09_logging.log_events)=
+### Facet: `09_logging.log_events`
+Type: dataset
+
+(facet-09_logging.log_examples)=
+### Facet: `09_logging.log_examples`
+Type: dataset
+
+(facet-09_logging.log_levels)=
+### Facet: `09_logging.log_levels`
+Type: dataset
+
+(facet-09_logging.logging_architecture)=
+### Facet: `09_logging.logging_architecture`
+Type: diagram
+
+(facet-09_logging.logging_categories)=
+### Facet: `09_logging.logging_categories`
+Type: dataset
+
+(facet-09_logging.logging_flow)=
+### Facet: `09_logging.logging_flow`
+Type: diagram
+
+(facet-09_logging.overview)=
+### Facet: `09_logging.overview`
+Type: diagram
+
+(facet-09_logging.sinks)=
+### Facet: `09_logging.sinks`
+Type: dataset
+
+(facet-09_logging.summary)=
+### Facet: `09_logging.summary`
+Type: dataset
+

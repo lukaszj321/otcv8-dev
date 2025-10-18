@@ -1,107 +1,197 @@
 ---
-doc_id: 05_network
-source_path: docs/authoring/05_network
-source_sha: 0659034
-last_sync_iso: "2025-10-18T01:36:41.411532Z"
-doc_class: spec
-language: pl
-title: 05 - Network
-summary: Network protocol classes and TFS extended opcode patch appendix.
+title: 05_network - Network
 ---
 
+# 05_network - Network
 
-# 05 - Network
-
-Network protocol classes and TFS extended opcode patch appendix.
-
-## Przegląd
-
-Ten rozdział dokumentuje 05 network w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
-
-## Zawartość
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-README
-protocol_versions
-packet_structure
-extended_opcodes
-appendix_tfs_extendedopcode
-blueprints/index
-datasets/index
-diagrams/index
+```{contents} Table of contents
+:depth: 2
+:local:
 ```
 
-## Key Topics
-
-### Protocol Version Compatibility
-
-OTClient v8 supports protocols 7.4-12.0+. See [Protocol Versions](./protocol_versions.md) for compatibility matrix, version negotiation, and feature detection.
-
-### Packet Structure
-
-Binary packet format with length, opcode, and payload. See [Packet Structure](./packet_structure.md) for serialization examples, common patterns, and debugging tools.
-
-### Extended Opcodes
-
-Custom communication channel for server-specific features. See [Extended Opcodes Usage](./extended_opcodes.md) for registration, common patterns, and best practices.
-
 ## Datasets
+### entities
+*Facet:* [`05_network.entities`](#facet-05_network.entities)
 
-- `entities.csv`
-- `extended_opcodes.csv`
-- `flows.csv`
+```{csv-table} entities
+:header-rows: 1
+:file: ./datasets/entities.csv
+:widths: auto
+```
 
-## Diagramy
+### extended_opcodes
+*Facet:* [`05_network.extended_opcodes`](#facet-05_network.extended_opcodes)
 
-```{contents}
-:local:
-:depth: 2
+```{csv-table} extended_opcodes
+:header-rows: 1
+:file: ./datasets/extended_opcodes.csv
+:widths: auto
+```
+
+### flows
+*Facet:* [`05_network.flows`](#facet-05_network.flows)
+
+```{csv-table} flows
+:header-rows: 1
+:file: ./datasets/flows.csv
+:widths: auto
+```
+
+### network_messages
+*Facet:* [`05_network.network_messages`](#facet-05_network.network_messages)
+
+```{csv-table} network_messages
+:header-rows: 1
+:file: ./datasets/network_messages.csv
+:widths: auto
+```
+
+### opcodes
+*Facet:* [`05_network.opcodes`](#facet-05_network.opcodes)
+
+```{csv-table} opcodes
+:header-rows: 1
+:file: ./datasets/opcodes.csv
+:widths: auto
+```
+
+### summary
+*Facet:* [`05_network.summary`](#facet-05_network.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
+
+## Diagrams
+### architecture
+*Facet:* [`05_network.architecture`](#facet-05_network.architecture)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Network
+        E0[Network Messages]
+        E1[Protocol Handlers]
+        E2[Network Stats]
+        E0 --> E1
+        E1 --> E2
+    end
+click Architecture "./index.html#facet-05_network.architecture" "Open architecture"
+```
+
+### flow
+*Facet:* [`05_network.flow`](#facet-05_network.flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Network] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H
+click Flow "./index.html#facet-05_network.flow" "Open flow"
+```
+
+### handshake
+*Facet:* [`05_network.handshake`](#facet-05_network.handshake)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[05_network.handshake] --> B[Dataset]
+    B --> C[Page]
+
+click A "./index.html#facet-05_network.handshake" "Open handshake"
+click Handshake "./index.html#facet-05_network.handshake" "Open handshake"
+```
+
+### network_sequence
+*Facet:* [`05_network.network_sequence`](#facet-05_network.network_sequence)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  NetworkEquence[05_network:network_sequence] --> Data[Datasets]
+  Data --> Page[Index]
+
+click NetworkEquence "./index.html#facet-05_network.network_sequence" "Open network_sequence"
+click NetworkSequence "./index.html#facet-05_network.network_sequence" "Open network_sequence"
+```
+
+### overview
+*Facet:* [`05_network.overview`](#facet-05_network.overview)
+
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    A[Network Protocol] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
+click Overview "./index.html#facet-05_network.overview" "Open overview"
+```
+
+## Podkatalogi
+
+```{toctree}
+:maxdepth: 1
+:titlesonly:
+blueprints/index
 ```
 
 ## Crosslinks
 
-- [Core API](../01_core/index.md) - Network classes and protocol implementation
-- [Events](../02_events/index.md) - Network event handling
-- [Game Runtime](../10_game_runtime/index.md) - Game state synchronization
-- [Modules](../03_modules/index.md) - Lua network API
-
-
-## QA Block
-
-**Status:** ✅ Dataset generated  
-**Coverage:** In progress  
-**Last Updated:** 2025-10-18T01:36:41.411532Z
-
-### Checklist
-
-- [x] Frontmatter present
-- [x] Datasets generated
-- [x] Diagrams added (protocol negotiation sequence)
-- [x] Crosslinks verified (4 links)
-- [x] Content complete (protocol versions + packet structure + extended opcodes)
+- **influences** → `10_game_runtime.game_state` (evidence: `docs/authoring/10_game_runtime/datasets/game_state.csv`)
+- **logs** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
 
 ## Appendix / Facets
 
-(facet-05_network.main)=
-### Facet: `05_network.main`
+(facet-05_network.architecture)=
+### Facet: `05_network.architecture`
+Type: diagram
 
-Main documentation facet for 05_network.
+(facet-05_network.entities)=
+### Facet: `05_network.entities`
+Type: dataset
 
-(facet-05_network.protocol)=
-### Facet: `05_network.protocol`
+(facet-05_network.extended_opcodes)=
+### Facet: `05_network.extended_opcodes`
+Type: dataset
 
-Protocol version compatibility and negotiation.
+(facet-05_network.flow)=
+### Facet: `05_network.flow`
+Type: diagram
 
-(facet-05_network.packets)=
-### Facet: `05_network.packets`
+(facet-05_network.flows)=
+### Facet: `05_network.flows`
+Type: dataset
 
-Packet structure, serialization, and common patterns.
+(facet-05_network.handshake)=
+### Facet: `05_network.handshake`
+Type: diagram
 
-(facet-05_network.extended)=
-### Facet: `05_network.extended`
+(facet-05_network.network_messages)=
+### Facet: `05_network.network_messages`
+Type: dataset
 
-Extended opcodes usage and custom communication.
+(facet-05_network.network_sequence)=
+### Facet: `05_network.network_sequence`
+Type: diagram
+
+(facet-05_network.opcodes)=
+### Facet: `05_network.opcodes`
+Type: dataset
+
+(facet-05_network.overview)=
+### Facet: `05_network.overview`
+Type: diagram
+
+(facet-05_network.summary)=
+### Facet: `05_network.summary`
+Type: dataset
+
