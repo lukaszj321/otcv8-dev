@@ -1,2 +1,9 @@
-shader_id,rel_path,type,entry,uniforms,used_in_files,note
-glow,shaders/glow.frag,fragment,main,{intensity:float},04_ui/otui/common.otui,
+name,type,file,uniforms,includes
+map_default_fragment,fragment,shaders/map_default_fragment.frag,[],[]
+map_default_vertex,fragment,shaders/map_default_vertex.frag,[],[]
+map_rainbow_fragment,fragment,shaders/map_rainbow_fragment.frag,[],[]
+map_rainbow_vertex,fragment,shaders/map_rainbow_vertex.frag,[],[]
+outfit_default_fragment,fragment,shaders/outfit_default_fragment.frag,[],[]
+outfit_default_vertex,fragment,shaders/outfit_default_vertex.frag,[],[]
+outfit_rainbow_fragment,fragment,shaders/outfit_rainbow_fragment.frag,[],[]
+outfit_rainbow_vertex,fragment,shaders/outfit_rainbow_vertex.frag,[],[]

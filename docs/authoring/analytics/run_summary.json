@@ -1,16 +1,10 @@
 {
-  "total_files": 645,
-  "total_docs": {
-    "api": 195,
-    "lua": 317,
-    "ui": 133
-  },
-  "total_chunks": 13570,
-  "total_links": 272,
-  "broken_links": 0,
-  "in_datasets": 644,
-  "diagrams": 270,
-  "datasets_bytes": 10947242,
-  "events_count": 1506,
-  "generated_at": "2025-10-09T10:30:04.439054+00:00"
+  "timestamp": "2025-10-17T23:31:35.750141+00:00",
+  "status": "complete",
+  "chapters_generated": 16,
+  "total_datasets": 97,
+  "total_diagrams": 148,
+  "modules_scanned": 56,
+  "assets_scanned": 187,
+  "layouts_scanned": 2
 }

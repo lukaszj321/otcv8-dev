@@ -1,146 +1,58 @@
 ---
-title: 01_core - Core
+doc_id: "01_core"
+source_path: "docs/authoring/01_core/index.md"
+source_sha: "latest"
+last_sync_iso: "2025-10-17T23:29:18Z"
+doc_class: "guide"
+language: "pl"
+title: "Core C++ API"
+summary: "Core C++ framework classes, types, and architecture"
+tags: ["core", "otclient", "docs"]
 ---
 
-# 01_core - Core
+# Core C++ API
 
-komplet metryk runtime + wyjasnienia jak je czytac i uzywac (UI scaling, wydajnosc, korelacje z eventami i logami).
+## Overview
 
-```{contents} Table of contents
-:depth: 2
-:local:
+Core C++ framework classes, types, and architecture
+
+This chapter provides comprehensive documentation for the Core C++ API subsystem of OTClient v8.
+
+## Architecture
+
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    A[Core C++ API] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
 ```
 
 ## Datasets
-### cpp_headers
-*Facet:* [`01_core.cpp_headers`](#facet-01_core.cpp_headers)
 
-```{csv-table} cpp_headers
-:header-rows: 1
-:file: ./datasets/cpp_headers.csv
-:widths: auto
-```
-
-### cpp_symbols
-*Facet:* [`01_core.cpp_symbols`](#facet-01_core.cpp_symbols)
-
-```{csv-table} cpp_symbols
-:header-rows: 1
-:file: ./datasets/cpp_symbols.csv
-:widths: auto
-```
-
-### entities
-*Facet:* [`01_core.entities`](#facet-01_core.entities)
-
-```{csv-table} entities
-:header-rows: 1
-:file: ./datasets/entities.csv
-:widths: auto
-```
-
-### headers
-*Facet:* [`01_core.headers`](#facet-01_core.headers)
-
-```{csv-table} headers
-:header-rows: 1
-:file: ./datasets/headers.csv
-:widths: auto
-```
-
-### lua_bindings
-*Facet:* [`01_core.lua_bindings`](#facet-01_core.lua_bindings)
-
-```{csv-table} lua_bindings
-:header-rows: 1
-:file: ./datasets/lua_bindings.csv
-:widths: auto
-```
-
-### summary
-*Facet:* [`01_core.summary`](#facet-01_core.summary)
-
-```{csv-table} summary
-:header-rows: 1
+```{csv-table} Summary
 :file: ./datasets/summary.csv
+:header-rows: 1
 :widths: auto
 ```
 
-## Diagrams
-### architecture
-        *Facet:* [`01_core.architecture`](#facet-01_core.architecture)
+## Key Features
 
-```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  Architecture[01_core:architecture] --> Data[Datasets]
-  Data --> Page[Index]
+- Comprehensive documentation
+- Dataset exports
+- Architecture diagrams
+- Code examples
 
-click Architecture "./index.html#facet-01_core.architecture" "Open architecture"
-```
+## Related Chapters
 
-### flow
-        *Facet:* [`01_core.flow`](#facet-01_core.flow)
+- [Runtime System](../01_runtime/index.md)
+- [Events System](../02_events/index.md)
+- [Modules](../03_modules/index.md)
 
-```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-    A[Core API] --> B[Data Collection]
-    B --> C[Processing]
-    C --> D[Datasets]
-    C --> E[Analysis]
-    D --> F[CSV Export]
-    E --> G[Statistics]
-    G --> H[Reports]
-    F --> H
-```
-
-## Podkatalogi
-
-```{toctree}
-:maxdepth: 1
-:titlesonly:
-api/index
-```
-
-## Crosslinks
-
-- **uses** → `03_modules.lua_exports` (evidence: `docs/authoring/03_modules/datasets/lua_exports.csv`)
-- **renders** → `04_ui.ui_widgets` (evidence: `docs/authoring/04_ui/datasets/ui_widgets.csv`)
-- **emits** → `02_events.events_matrix` (evidence: `docs/authoring/02_events/datasets/events_matrix.csv`)
-- **logs** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
 
 ## Appendix / Facets
 
-(facet-01_core.architecture)=
-### Facet: `01_core.architecture`
-Type: diagram
+(facet-01_core.overview)=
+### Facet: `01_core.overview`
 
-(facet-01_core.cpp_headers)=
-### Facet: `01_core.cpp_headers`
-Type: dataset
-
-(facet-01_core.cpp_symbols)=
-### Facet: `01_core.cpp_symbols`
-Type: dataset
-
-(facet-01_core.entities)=
-### Facet: `01_core.entities`
-Type: dataset
-
-(facet-01_core.flow)=
-### Facet: `01_core.flow`
-Type: diagram
-
-(facet-01_core.headers)=
-### Facet: `01_core.headers`
-Type: dataset
-
-(facet-01_core.lua_bindings)=
-### Facet: `01_core.lua_bindings`
-Type: dataset
-
-(facet-01_core.summary)=
-### Facet: `01_core.summary`
-Type: dataset
-
+Overview diagram and summary for Core C++ API.

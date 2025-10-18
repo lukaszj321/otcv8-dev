@@ -1,6 +1,9 @@
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
-  Architecture[01_core:architecture] --> Data[Datasets]
-  Data --> Page[Index]
-
-click Architecture "./index.html#facet-01_core.architecture" "Open architecture"
+    Core[Core Framework] --> Graphics[Graphics System]
+    Core --> UI[UI System]
+    Core --> Net[Network Layer]
+    Core --> Sound[Sound System]
+    Graphics --> OpenGL[OpenGL/GLES]
+    UI --> Widgets[Widget Tree]
+    Net --> Protocol[Protocol Handler]

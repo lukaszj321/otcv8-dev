@@ -1,1010 +1,269 @@
 ---
-title: 05_network - Network
+doc_id: "05_network"
+source_path: "docs/authoring/05_network/index.md"
+source_sha: "latest"
+last_sync_iso: "2025-10-17T23:34:49Z"
+doc_class: "guide"
+language: "pl"
+title: "Network Protocol"
+summary: "Network communication protocol, packet structure, and TFS extended opcode"
+tags: ["network", "protocol", "tfs", "communication"]
 ---
 
-# 05_network - Network
+# Network Protocol
 
-snapshot/y konfiguracji protokolu (clientVersion, customOs, RSA – tylko skrót, bez klucza), zebrane z runtime (jesli API obecne) i/lub z plików repo (skan – wzorce tekstowe).
+## Overview
 
-```{contents} Table of contents
-:depth: 2
-:local:
-```
+The OTClient v8 network subsystem provides robust, secure communication between the client and game server. 
+It implements a custom protocol based on XTEA encryption and supports extended opcodes for custom functionality.
 
-## Datasets
-### entities
-*Facet:* [`05_network.entities`](#facet-05_network.entities)
+## Protocol Architecture
 
-```{csv-table} entities
-:header-rows: 1
-:file: ./datasets/entities.csv
-:widths: auto
-```
+The network protocol is built on several key layers:
 
-### extended_opcodes
-*Facet:* [`05_network.extended_opcodes`](#facet-05_network.extended_opcodes)
+1. **Transport Layer**: TCP/IP socket communication
+2. **Encryption Layer**: XTEA cipher for packet encryption
+3. **Protocol Layer**: Packet structure and opcode handling
+4. **Application Layer**: Game-specific message handling
 
-```{csv-table} extended_opcodes
-:header-rows: 1
-:file: ./datasets/extended_opcodes.csv
-:widths: auto
-```
-
-### flows
-*Facet:* [`05_network.flows`](#facet-05_network.flows)
-
-```{csv-table} flows
-:header-rows: 1
-:file: ./datasets/flows.csv
-:widths: auto
-```
-
-### network_messages
-*Facet:* [`05_network.network_messages`](#facet-05_network.network_messages)
-
-```{csv-table} network_messages
-:header-rows: 1
-:file: ./datasets/network_messages.csv
-:widths: auto
-```
-
-### opcodes
-*Facet:* [`05_network.opcodes`](#facet-05_network.opcodes)
-
-```{csv-table} opcodes
-:header-rows: 1
-:file: ./datasets/opcodes.csv
-:widths: auto
-```
-
-### summary
-*Facet:* [`05_network.summary`](#facet-05_network.summary)
-
-```{csv-table} summary
-:header-rows: 1
-:file: ./datasets/summary.csv
-:widths: auto
-```
-
-## Diagrams
-### architecture
-        *Facet:* [`05_network.architecture`](#facet-05_network.architecture)
-
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph LR
-    subgraph Network
-        E0[Network Messages]
-        E1[Protocol Handlers]
-        E2[Network Stats]
-        E0 --> E1
-        E1 --> E2
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant Client
+    participant Socket
+    participant Protocol
+    participant Server
+    
+    Client->>Socket: Connect
+    Socket->>Server: TCP Handshake
+    Server-->>Socket: Accept
+    Socket-->>Client: Connected
+    Client->>Protocol: Authenticate
+    Protocol->>Server: Login Packet
+    Server-->>Protocol: Character List
+    Protocol-->>Client: Available Characters
+    Client->>Protocol: Select Character
+    Protocol->>Server: Enter Game
+    Server-->>Protocol: Game World Data
+    loop Game Loop
+        Client->>Protocol: Player Actions
+        Protocol->>Server: Action Packets
+        Server-->>Protocol: World Updates
+        Protocol-->>Client: Render Updates
     end
-        ```
+```
 
-### flow
-        *Facet:* [`05_network.flow`](#facet-05_network.flow)
+## Packet Structure
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-    A[Network] --> B[Data Collection]
-    B --> C[Processing]
-    C --> D[Datasets]
-    C --> E[Analysis]
-    D --> F[CSV Export]
-    E --> G[Statistics]
-    G --> H[Reports]
-    F --> H
-        ```
+### Standard Packet Format
 
-### handshake
-        *Facet:* [`05_network.handshake`](#facet-05_network.handshake)
+Every packet follows this structure:
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-    A[05_network.handshake] --> B[Dataset]
-    B --> C[Page]
+```
+[Size: 2 bytes][Checksum: 4 bytes][Encrypted Payload]
+```
 
-click A "./index.html#facet-05_network.handshake" "Open handshake"
-        ```
+**Payload Structure:**
+```
+[Opcode: 1 byte][Data: N bytes]
+```
 
-### network_sequence
-        *Facet:* [`05_network.network_sequence`](#facet-05_network.network_sequence)
+### Encryption
 
-        ```{mermaid}
-        %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  NetworkEquence[05_network:network_sequence] --> Data[Datasets]
-  Data --> Page[Index]
+Packets are encrypted using XTEA (eXtended Tiny Encryption Algorithm) with a 128-bit key.
 
-click NetworkEquence "./index.html#facet-05_network.network_sequence" "Open network_sequence"
-        ```
+**XTEA Parameters:**
+- Block size: 64 bits (8 bytes)
+- Key size: 128 bits (16 bytes)
+- Rounds: 32
 
+## Core Opcodes
 
+### Client-to-Server Opcodes
 
-## Crosslinks
+| Opcode | Name | Description |
+|--------|------|-------------|
+| 0x0A | LoginServer | Login to server |
+| 0x14 | EnterGame | Enter game world |
+| 0x64 | Walk | Player movement |
+| 0x65 | WalkNorth | Move north |
+| 0x66 | WalkEast | Move east |
+| 0x67 | WalkSouth | Move south |
+| 0x68 | WalkWest | Move west |
+| 0x78 | Talk | Send chat message |
+| 0x82 | UseItem | Use item |
+| 0x96 | RequestTrade | Initiate trade |
 
-- **influences** → `10_game_runtime.game_state` (evidence: `docs/authoring/10_game_runtime/datasets/game_state.csv`)
-- **logs** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
+### Server-to-Client Opcodes
+
+| Opcode | Name | Description |
+|--------|------|-------------|
+| 0x0A | LoginSuccess | Login successful |
+| 0x14 | CharacterList | Available characters |
+| 0x64 | MapDescription | Map tile data |
+| 0x6D | TextMessage | Text message |
+| 0x78 | CreatureSay | Creature speech |
+| 0x8C | ContainerOpen | Open container |
+| 0xA0 | Stats | Player statistics |
+
+## TFS Extended Opcode
+
+The TFS (The Forgotten Server) extended opcode system allows custom client-server communication.
+
+### Patch Details
+
+The extended opcode patch adds support for custom opcodes beyond the standard protocol.
+
+**File:** `_static/patches/tfs_extendedopcode.diff`
+
+**Key Changes:**
+1. Adds `CREATURE_EVENT_EXTENDED_OPCODE` event type
+2. Implements `onExtendedOpcode` callback
+3. Supports custom opcode routing
+
+### Extended Opcode Structure
+
+```
+[Opcode: 0x32][Custom Opcode: 1 byte][Buffer: N bytes]
+```
+
+**Example Usage:**
+
+```lua
+-- Server-side (TFS)
+function onExtendedOpcode(player, opcode, buffer)
+    if opcode == 1 then
+        -- Custom handler for opcode 1
+        player:sendTextMessage(MESSAGE_INFO, "Extended opcode received: " .. buffer)
+    end
+end
+```
+
+```lua
+-- Client-side (OTClient)
+function sendExtendedOpcode(opcode, buffer)
+    local protocol = g_game.getProtocolGame()
+    if protocol then
+        protocol:sendExtendedOpcode(opcode, buffer)
+    end
+end
+```
+
+### Security Considerations
+
+**Risks:**
+- Extended opcodes bypass standard protocol validation
+- Potential for buffer overflow if not properly validated
+- Can be used for cheating if not properly secured
+
+**Mitigations:**
+1. Validate all buffer data on server side
+2. Implement rate limiting for custom opcodes
+3. Log all extended opcode usage
+4. Use checksums for critical data
+
+## Connection Flow
+
+```{mermaid}
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+stateDiagram-v2
+    [*] --> Disconnected
+    Disconnected --> Connecting: connect()
+    Connecting --> Authenticating: TCP established
+    Authenticating --> CharacterSelection: credentials valid
+    Authenticating --> Disconnected: auth failed
+    CharacterSelection --> EnteringGame: select character
+    CharacterSelection --> Disconnected: logout
+    EnteringGame --> InGame: world loaded
+    InGame --> Disconnected: disconnect
+    InGame --> InGame: playing
+```
+
+## Protocol Classes
+
+### ProtocolGame
+
+Main protocol handler for game communication.
+
+**Key Methods:**
+- `connect()`: Establish connection
+- `login()`: Authenticate user
+- `logout()`: Disconnect cleanly
+- `sendPacket()`: Send raw packet
+- `receivePacket()`: Receive and parse packet
+
+### InputMessage / OutputMessage
+
+Buffer classes for packet serialization.
+
+**InputMessage Methods:**
+- `getByte()`: Read 1 byte
+- `getU16()`: Read 2 bytes (unsigned)
+- `getU32()`: Read 4 bytes (unsigned)
+- `getString()`: Read length-prefixed string
+
+**OutputMessage Methods:**
+- `addByte()`: Write 1 byte
+- `addU16()`: Write 2 bytes (unsigned)
+- `addU32()`: Write 4 bytes (unsigned)
+- `addString()`: Write length-prefixed string
+
+## Error Handling
+
+### Connection Errors
+
+- **Timeout**: Connection attempt exceeds timeout limit
+- **Refused**: Server actively refused connection
+- **Reset**: Connection reset by peer
+- **Lost**: Connection unexpectedly dropped
+
+### Protocol Errors
+
+- **Invalid Packet**: Malformed packet structure
+- **Checksum Mismatch**: Packet integrity check failed
+- **Unknown Opcode**: Unsupported opcode received
+- **Decryption Failed**: Unable to decrypt packet
+
+## Performance Optimization
+
+### Packet Batching
+
+Multiple small packets can be batched into a single TCP send operation to reduce overhead.
+
+### Compression
+
+Large packets (e.g., map data) can be compressed using zlib to reduce bandwidth.
+
+### Priority Queuing
+
+Critical packets (e.g., player movement) are prioritized over non-critical packets (e.g., outfit changes).
+
+## Debugging
+
+### Packet Logging
+
+Enable packet logging to diagnose protocol issues:
+
+```lua
+g_network:setPacketLogging(true)
+```
+
+### Protocol Analyzer
+
+Use Wireshark with custom dissector to analyze OTClient protocol traffic.
+
+## Related Chapters
+
+- [Core](../01_core/index.md) - Core C++ API
+- [Events](../02_events/index.md) - Event system
+- [Settings & Crypto](../07_settings_crypto/index.md) - Encryption settings
 
 ## Appendix / Facets
 
-(facet-05_network.architecture)=
-### Facet: `05_network.architecture`
-Type: diagram
-
-(facet-05_network.entities)=
-### Facet: `05_network.entities`
-Type: dataset
-
-(facet-05_network.extended_opcodes)=
-### Facet: `05_network.extended_opcodes`
-Type: dataset
-
-(facet-05_network.flow)=
-### Facet: `05_network.flow`
-Type: diagram
-
-(facet-05_network.flows)=
-### Facet: `05_network.flows`
-Type: dataset
-
-(facet-05_network.handshake)=
-### Facet: `05_network.handshake`
-Type: diagram
-
-(facet-05_network.network_messages)=
-### Facet: `05_network.network_messages`
-Type: dataset
-
-(facet-05_network.network_sequence)=
-### Facet: `05_network.network_sequence`
-Type: diagram
-
-(facet-05_network.opcodes)=
-### Facet: `05_network.opcodes`
-Type: dataset
-
-(facet-05_network.summary)=
-### Facet: `05_network.summary`
-Type: dataset
-
-
-
-## Wprowadzenie
-
-Rozdział **05_network** dostarcza kompleksową dokumentację dotyczącą network w OTClient v8. 
-Ten dokument zawiera datasets, diagramy, blueprinty oraz przykłady wykorzystania w kontekście gry i rozwoju.
-
-### Cel rozdziału
-
-Celem tego rozdziału jest:
-- Dostarczenie pełnej dokumentacji technicznej
-- Zmapowanie relacji między komponentami
-- Udostępnienie blueprintów do ponownego wykorzystania
-- Zapewnienie przykładów kodu i scenariuszy użycia
-
-### Struktura rozdziału
-
-Rozdział składa się z następujących sekcji:
-- **Datasets** - Tabele CSV z danymi strukturalnymi
-- **Diagrams** - Diagramy Mermaid wizualizujące architekturę
-- **Blueprints** - Szablony do ponownego wykorzystania
-- **Examples** - Przykłady kodu i integracji
-- **API Reference** - Referencje API (jeśli dotyczy)
-
-
-
-
-## Architektura
-
-System jest zbudowany w oparciu o wzorce:
-- **Event-driven** - Architektura sterowana zdarzeniami
-- **Modular** - Podział na niezależne moduły
-- **Layered** - Struktura warstwowa
-- **Data-driven** - Konfiguracja przez dane
-
-### Komponenty główne
-
-Główne komponenty systemu to:
-1. **Core Layer** - Warstwa podstawowa z fundamental classes
-2. **Service Layer** - Warstwa usług biznesowych
-3. **Presentation Layer** - Warstwa prezentacji (UI)
-4. **Data Layer** - Warstwa dostępu do danych
-
-### Przepływ danych
-
-Dane przepływają przez system według schematu:
-```
-Input → Validation → Processing → Storage → Output
-```
-
-
-
-
-## Przykłady użycia
-
-### Podstawowy przykład
-
-```lua
--- Przykład podstawowego użycia
-local function initialize()
-    -- Inicjalizacja komponentu
-    local component = createComponent()
-    component:setup()
-    component:start()
-end
-```
-
-### Zaawansowany przykład
-
-```lua
--- Przykład zaawansowanej integracji
-local function advancedUsage()
-    local manager = getManager()
-    manager:registerHandler(function(event)
-        -- Obsługa zdarzenia
-        processEvent(event)
-    end)
-    
-    -- Uruchomienie
-    manager:start()
-end
-```
-
-### Integracja z innymi modułami
-
-```lua
--- Przykład integracji międzymodułowej
-local module1 = require('module1')
-local module2 = require('module2')
-
-local function integrate()
-    local data = module1:getData()
-    module2:process(data)
-end
-```
-
-
-
-
-## Najlepsze praktyki
-
-### Organizacja kodu
-
-- Zachowaj spójną strukturę katalogów
-- Używaj znaczących nazw plików
-- Grupuj powiązane funkcje
-- Dokumentuj nietrywialne rozwiązania
-
-### Wydajność
-
-- Unikaj zbędnych alokacji
-- Cachuj często używane wartości
-- Używaj leniwej inicjalizacji
-- Monitoruj zużycie pamięci
-
-### Bezpieczeństwo
-
-- Waliduj dane wejściowe
-- Używaj bezpiecznych funkcji API
-- Unikaj SQL injection
-- Szyfruj wrażliwe dane
-
-### Testowalność
-
-- Pisz kod testowalny
-- Używaj dependency injection
-- Mockuj zależności zewnętrzne
-- Twórz testy jednostkowe i integracyjne
-
-
-
-
-## Rozwiązywanie problemów
-
-### Częste problemy
-
-#### Problem 1: Nie działa inicjalizacja
-
-**Objawy:**
-- Moduł nie startuje
-- Brak komunikatów w logach
-- Błąd inicjalizacji
-
-**Rozwiązanie:**
-```lua
--- Sprawdź kolejność inicjalizacji
--- Upewnij się że zależności są załadowane
-if not isDependencyLoaded('required_module') then
-    error('Required module not loaded')
-end
-```
-
-#### Problem 2: Problemy z wydajnością
-
-**Objawy:**
-- Spadki FPS
-- Wysokie zużycie CPU/RAM
-- Opóźnienia w renderowaniu
-
-**Rozwiązanie:**
-- Sprawdź profilerem miejsca zużywające zasoby
-- Optymalizuj pętle i alokacje
-- Rozważ async processing dla ciężkich operacji
-
-#### Problem 3: Błędy synchronizacji
-
-**Objawy:**
-- Niespójne dane
-- Race conditions
-- Deadlocki
-
-**Rozwiązanie:**
-```lua
--- Używaj mutexów lub synchronizacji
-local mutex = createMutex()
-mutex:lock()
--- Krytyczna sekcja
-mutex:unlock()
-```
-
-### Debugging
-
-Włącz tryb debugowania:
-```lua
-setDebugMode(true)
-setLogLevel('DEBUG')
-```
-
-Użyj narzędzi deweloperskich:
-- Console do inspekcji stanu
-- Profiler do analizy wydajności
-- Debugger do śledzenia wykonania
-
-
-
-
-## Referencja API
-
-### Funkcje główne
-
-#### initialize()
-
-```lua
-function initialize()
-```
-
-Inicjalizuje moduł. Musi być wywołana przed użyciem innych funkcji.
-
-**Parametry:** brak
-
-**Zwraca:** `boolean` - true jeśli sukces
-
-**Przykład:**
-```lua
-if initialize() then
-    print("Module initialized successfully")
-end
-```
-
-#### configure(options)
-
-```lua
-function configure(options: table)
-```
-
-Konfiguruje moduł z podanymi opcjami.
-
-**Parametry:**
-- `options` (table) - Tabela z opcjami konfiguracyjnymi
-
-**Zwraca:** `boolean` - true jeśli sukces
-
-**Przykład:**
-```lua
-configure({
-    enabled = true,
-    debug = false,
-    timeout = 5000
-})
-```
-
-#### process(data)
-
-```lua
-function process(data: any)
-```
-
-Przetwarza dane według logiki modułu.
-
-**Parametry:**
-- `data` (any) - Dane do przetworzenia
-
-**Zwraca:** `any` - Wynik przetwarzania
-
-**Przykład:**
-```lua
-local result = process(inputData)
-```
-
-### Zdarzenia
-
-#### onInitialized
-
-Wywoływane po zainicjalizowaniu modułu.
-
-```lua
-connect(module, "onInitialized", function()
-    print("Module ready")
-end)
-```
-
-#### onError
-
-Wywoływane w przypadku błędu.
-
-```lua
-connect(module, "onError", function(error)
-    print("Error: " .. error)
-end)
-```
-
-### Stałe
-
-- `MODULE_VERSION` - Wersja modułu
-- `MAX_RETRIES` - Maksymalna liczba prób
-- `DEFAULT_TIMEOUT` - Domyślny timeout (ms)
-
-
-
-## Architektura Rozszerzona
-
-### Komponenty Systemu
-
-System składa się z następujących warstw:
-
-1. **Warstwa Prezentacji** - Interface użytkownika
-2. **Warstwa Logiki** - Biznesowa logika aplikacji  
-3. **Warstwa Danych** - Dostęp i zarządzanie danymi
-4. **Warstwa Infrastruktury** - Usługi wspierające
-
-### Wzorce Projektowe
-
-Wykorzystywane wzorce:
-
-- **Observer** - Dla systemu zdarzeń
-- **Factory** - Tworzenie obiektów
-- **Singleton** - Globalne instancje
-- **Strategy** - Wymienne algorytmy
-- **Command** - Enkapsulacja akcji
-
-## Szczegółowe Przykłady
-
-### Przykład 1: Podstawowa Implementacja
-
-```lua
--- Inicjalizacja modułu
-local MyModule = {}
-
-function MyModule.init()
-    print("Module initialized")
-    MyModule.setupHandlers()
-    MyModule.loadResources()
-end
-
-function MyModule.setupHandlers()
-    -- Rejestracja handlerów zdarzeń
-    connect(g_game, {
-        onGameStart = MyModule.onGameStart,
-        onGameEnd = MyModule.onGameEnd
-    })
-end
-
-function MyModule.loadResources()
-    -- Ładowanie zasobów
-    MyModule.config = g_resources.loadConfig("mymodule.json")
-end
-
-function MyModule.onGameStart()
-    print("Game started")
-end
-
-function MyModule.onGameEnd()
-    print("Game ended")
-    MyModule.cleanup()
-end
-
-function MyModule.cleanup()
-    -- Czyszczenie zasobów
-    collectgarbage("collect")
-end
-
-return MyModule
-```
-
-### Przykład 2: Zaawansowana Integracja
-
-```lua
--- Zaawansowany przykład z pełną integracją
-local AdvancedModule = {
-    version = "1.0.0",
-    author = "OTClient Team",
-    dependencies = {"core", "ui", "network"}
-}
-
-function AdvancedModule:init()
-    self:validateDependencies()
-    self:loadConfiguration()
-    self:registerCommands()
-    self:setupUI()
-    self:connectSignals()
-end
-
-function AdvancedModule:validateDependencies()
-    for _, dep in ipairs(self.dependencies) do
-        if not g_modules.isLoaded(dep) then
-            error("Required dependency not loaded: " .. dep)
-        end
-    end
-end
-
-function AdvancedModule:loadConfiguration()
-    local configPath = "modules/advanced/config.json"
-    self.config = g_resources.loadJSON(configPath)
-    
-    if not self.config then
-        self.config = self:getDefaultConfig()
-    end
-end
-
-function AdvancedModule:getDefaultConfig()
-    return {
-        enabled = true,
-        debug = false,
-        updateInterval = 1000,
-        maxRetries = 3
-    }
-end
-
-function AdvancedModule:registerCommands()
-    g_commands.register("mycommand", function(args)
-        self:handleCommand(args)
-    end)
-end
-
-function AdvancedModule:setupUI()
-    local ui = g_ui.loadUI("advanced_panel.otui")
-    ui:setVisible(false)
-    self.panel = ui
-    
-    -- Przypisanie handlerów
-    local closeButton = ui:getChildById("closeButton")
-    connect(closeButton, "onClick", function()
-        ui:setVisible(false)
-    end)
-end
-
-function AdvancedModule:connectSignals()
-    connect(g_game, "onLogin", function()
-        self:onPlayerLogin()
-    end)
-    
-    connect(g_game, "onLogout", function()
-        self:onPlayerLogout()
-    end)
-end
-
-function AdvancedModule:onPlayerLogin()
-    print("Player logged in")
-    self:startUpdateTimer()
-end
-
-function AdvancedModule:onPlayerLogout()
-    print("Player logged out")
-    self:stopUpdateTimer()
-end
-
-function AdvancedModule:startUpdateTimer()
-    self.updateTimer = scheduleEvent(function()
-        self:update()
-    end, self.config.updateInterval, true)
-end
-
-function AdvancedModule:stopUpdateTimer()
-    if self.updateTimer then
-        removeEvent(self.updateTimer)
-        self.updateTimer = nil
-    end
-end
-
-function AdvancedModule:update()
-    -- Periodic update logic
-    self:refreshData()
-    self:updateUI()
-end
-
-function AdvancedModule:refreshData()
-    -- Fetch fresh data
-    local data = self:fetchDataFromServer()
-    if data then
-        self:processData(data)
-    end
-end
-
-function AdvancedModule:processData(data)
-    -- Process received data
-    for key, value in pairs(data) do
-        self.cache[key] = value
-    end
-end
-
-function AdvancedModule:updateUI()
-    if not self.panel:isVisible() then
-        return
-    end
-    
-    -- Update UI elements
-    local label = self.panel:getChildById("statusLabel")
-    label:setText(self:getStatusText())
-end
-
-function AdvancedModule:handleCommand(args)
-    if #args == 0 then
-        print("Usage: mycommand <action> [params]")
-        return
-    end
-    
-    local action = args[1]
-    
-    if action == "show" then
-        self.panel:setVisible(true)
-    elseif action == "hide" then
-        self.panel:setVisible(false)
-    elseif action == "reload" then
-        self:reload()
-    else
-        print("Unknown action: " .. action)
-    end
-end
-
-function AdvancedModule:reload()
-    print("Reloading module...")
-    self:cleanup()
-    self:init()
-end
-
-function AdvancedModule:cleanup()
-    self:stopUpdateTimer()
-    
-    if self.panel then
-        self.panel:destroy()
-        self.panel = nil
-    end
-    
-    self.cache = {}
-end
-
-return AdvancedModule
-```
-
-### Przykład 3: Optymalizacje Wydajnościowe
-
-```lua
--- Performance-optimized implementation
-local PerformanceModule = {}
-
--- Object pooling
-PerformanceModule.objectPool = {}
-
-function PerformanceModule:getFromPool(objectType)
-    local pool = self.objectPool[objectType]
-    if not pool then
-        pool = {}
-        self.objectPool[objectType] = pool
-    end
-    
-    if #pool > 0 then
-        return table.remove(pool)
-    else
-        return self:createObject(objectType)
-    end
-end
-
-function PerformanceModule:returnToPool(objectType, object)
-    local pool = self.objectPool[objectType]
-    if not pool then
-        pool = {}
-        self.objectPool[objectType] = pool
-    end
-    
-    object:reset()
-    table.insert(pool, object)
-end
-
--- Memoization
-PerformanceModule.cache = {}
-
-function PerformanceModule:memoize(func)
-    return function(...)
-        local args = {...}
-        local key = table.concat(args, "_")
-        
-        if self.cache[key] then
-            return self.cache[key]
-        end
-        
-        local result = func(...)
-        self.cache[key] = result
-        return result
-    end
-end
-
--- Lazy initialization
-function PerformanceModule:getLazyResource(name)
-    if not self.lazyResources then
-        self.lazyResources = {}
-    end
-    
-    if not self.lazyResources[name] then
-        self.lazyResources[name] = self:loadResource(name)
-    end
-    
-    return self.lazyResources[name]
-end
-
-return PerformanceModule
-```
-
-## Integracja z Innymi Systemami
-
-### Integracja z UI
-
-```lua
--- UI integration example
-function integrateWithUI()
-    local mainWindow = g_ui.getRootWidget()
-    
-    -- Create custom widget
-    local customWidget = g_ui.createWidget("CustomWidget", mainWindow)
-    customWidget:setId("myCustomWidget")
-    
-    -- Setup widget
-    customWidget:setPosition({x = 100, y = 100})
-    customWidget:setSize({width = 200, height = 150})
-    
-    -- Add handlers
-    connect(customWidget, {
-        onClick = handleWidgetClick,
-        onHover = handleWidgetHover,
-        onLeave = handleWidgetLeave
-    })
-    
-    return customWidget
-end
-```
-
-### Integracja z Network
-
-```lua
--- Network integration
-function integrateWithNetwork()
-    local protocol = g_game.getProtocolGame()
-    
-    if not protocol then
-        print("Protocol not available")
-        return
-    end
-    
-    -- Register packet handler
-    protocol:registerOpcode(0xF1, function(msg)
-        handleCustomPacket(msg)
-    end)
-    
-    -- Send custom packet
-    local msg = OutputMessage.create()
-    msg:addU8(0xF1)
-    msg:addString("custom data")
-    protocol:send(msg)
-end
-```
-
-### Integracja z Storage
-
-```lua
--- Storage integration
-function integrateWithStorage()
-    -- Save data
-    g_storage.set("mymodule.data", {
-        value1 = 123,
-        value2 = "test",
-        value3 = {nested = true}
-    })
-    
-    -- Load data
-    local data = g_storage.get("mymodule.data")
-    if data then
-        print("Loaded:", data.value1, data.value2)
-    end
-    
-    -- Clear data
-    g_storage.remove("mymodule.data")
-end
-```
-
-## Testowanie i Debugowanie
-
-### Unit Testing
-
-```lua
--- Simple unit test framework
-local Tests = {}
-
-function Tests:assertEqual(actual, expected, message)
-    if actual ~= expected then
-        error(message or ("Expected " .. tostring(expected) .. ", got " .. tostring(actual)))
-    end
-end
-
-function Tests:assertTrue(condition, message)
-    if not condition then
-        error(message or "Expected true, got false")
-    end
-end
-
-function Tests:testBasicFunctionality()
-    local result = myFunction(10)
-    self:assertEqual(result, 20, "Function should double the input")
-end
-
-function Tests:testEdgeCases()
-    self:assertEqual(myFunction(0), 0)
-    self:assertEqual(myFunction(-5), -10)
-end
-
-function Tests:runAll()
-    local passed = 0
-    local failed = 0
-    
-    for name, test in pairs(self) do
-        if type(test) == "function" and name:match("^test") then
-            local success, error = pcall(test, self)
-            if success then
-                print("✓ " .. name)
-                passed = passed + 1
-            else
-                print("✗ " .. name .. ": " .. error)
-                failed = failed + 1
-            end
-        end
-    end
-    
-    print(string.format("Tests: %d passed, %d failed", passed, failed))
-end
-
-return Tests
-```
-
-### Debugowanie
-
-```lua
--- Debug utilities
-local Debug = {}
-
-function Debug:trace(...)
-    local info = debug.getinfo(2, "Sl")
-    print(string.format("[%s:%d] %s", 
-        info.short_src, 
-        info.currentline, 
-        table.concat({...}, " ")
-    ))
-end
-
-function Debug:dump(value, depth)
-    depth = depth or 0
-    local indent = string.rep("  ", depth)
-    
-    if type(value) == "table" then
-        print(indent .. "{")
-        for k, v in pairs(value) do
-            print(indent .. "  " .. tostring(k) .. " = ")
-            self:dump(v, depth + 1)
-        end
-        print(indent .. "}")
-    else
-        print(indent .. tostring(value))
-    end
-end
-
-function Debug:benchmark(func, iterations)
-    iterations = iterations or 1000
-    local start = g_clock.millis()
-    
-    for i = 1, iterations do
-        func()
-    end
-    
-    local duration = g_clock.millis() - start
-    print(string.format("Benchmark: %d iterations in %dms (%.2fms/iter)",
-        iterations, duration, duration / iterations))
-end
-
-return Debug
-```
-
-## Dokumentacja API
-
-### Główne Funkcje
-
-#### initialize()
-Inicjalizuje moduł. Wymagane przed użyciem.
-
-**Parametry:** brak  
-**Zwraca:** `boolean` - sukces/niepowodzenie  
-**Rzuca:** `error` jeśli zależności nie są spełnione
-
-**Przykład:**
-```lua
-if not module:initialize() then
-    error("Failed to initialize module")
-end
-```
-
-#### configure(options: table)
-Konfiguruje moduł z podanymi opcjami.
-
-**Parametry:**
-- `options` (table) - Tabela konfiguracyjna
-
-**Zwraca:** `boolean`
-
-**Przykład:**
-```lua
-module:configure({
-    enabled = true,
-    debug = false
-})
-```
-
-#### process(data: any)
-Przetwarza dane.
-
-**Parametry:**
-- `data` (any) - Dane do przetworzenia
-
-**Zwraca:** `any` - Wynik
-
-#### cleanup()
-Czyści zasoby modułu.
-
-**Parametry:** brak  
-**Zwraca:** brak
-
-### Events
-
-#### onInitialized
-Wywoływane po inicjalizacji.
-
-```lua
-connect(module, "onInitialized", function()
-    print("Module ready")
-end)
-```
-
-#### onError(error: string)
-Wywoływane przy błędzie.
-
-```lua
-connect(module, "onError", function(error)
-    print("Error:", error)
-end)
-```
-
-### Stałe
-
-- `VERSION` - Wersja modułu
-- `MAX_ITEMS` - Maksymalna liczba elementów
-- `TIMEOUT` - Timeout w ms
-
+(facet-05_network.protocol_flow)=
+### Facet: `05_network.protocol_flow`
+Network protocol flow and packet structure diagrams.
+
+(facet-05_network.extended_opcode)=
+### Facet: `05_network.extended_opcode`
+TFS extended opcode implementation and security considerations.
