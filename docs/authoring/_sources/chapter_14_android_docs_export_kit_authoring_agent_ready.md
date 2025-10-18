@@ -396,7 +396,7 @@ jobs:
 
   ```bash
   unzip -l app-release.apk | grep "lib/.*/libotclientv8.so"
-  ```
+```
 * **Instalacja per ABI (pseudociąg):**
 
   ```bash
@@ -405,7 +405,7 @@ jobs:
     adb shell am start -n com.otclientv8/.MainActivity
     sleep 5; adb shell am force-stop com.otclientv8
   done
-  ```
+```
 
 ---
 

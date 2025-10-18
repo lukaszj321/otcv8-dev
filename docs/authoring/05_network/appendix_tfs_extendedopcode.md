@@ -33,7 +33,7 @@ Extended opcodes pozwalają na:
    ```bash
    cd /path/to/tfs
    git apply tfs_extendedopcode.diff
-   ```
+```
 3. Skompiluj TFS ponownie
 4. Skonfiguruj extended opcodes według potrzeb
 

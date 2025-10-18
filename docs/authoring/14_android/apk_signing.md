@@ -170,7 +170,7 @@ keytool -genkeypair \
 1. Build AAB with upload key:
    ```bash
    ./gradlew bundleRelease
-   ```
+```
 
 2. Go to Play Console → Release → Setup → App integrity
 

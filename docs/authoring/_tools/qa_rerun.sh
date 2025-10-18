@@ -11,12 +11,17 @@ echo ""
 # Change to repo root
 cd "$(dirname "$0")/../../.."
 
-# 1. Diagram Lint & Fix
+# 1. MyST Dedent Fix (must run before diagram checks)
+echo "==> Running MyST dedent fix..."
+python3 docs/authoring/_tools/myst_dedent_fix.py
+echo ""
+
+# 2. Diagram Lint & Fix
 echo "==> Running diagram lint & fix..."
 python3 docs/authoring/_tools/diagram_lint_fix.py
 echo ""
 
-# 2. Link Lint (simple relative link checker)
+# 3. Link Lint (simple relative link checker)
 echo "==> Running link lint..."
 python3 - <<'PYLINT'
 import re, os, csv
@@ -47,14 +52,14 @@ print(f"  Broken links: {broken}")
 PYLINT
 echo ""
 
-# 3. CSV Sanity
+# 4. CSV Sanity
 echo "==> Running CSV sanity check..."
 python3 docs/authoring/_tools/csv_sanity.py \
   --in docs/authoring/datasets \
   --out docs/authoring/qa/dataset_sanity.csv || true
 echo ""
 
-# 4. Optional: Mermaid block sanity
+# 5. Optional: Mermaid block sanity
 echo "==> Running Mermaid block sanity check..."
 python3 - <<'PYMERMAID'
 import re, csv
@@ -90,6 +95,7 @@ echo ""
 echo "=== QA Rerun Complete ==="
 echo ""
 echo "Reports generated:"
+echo "  - docs/authoring/qa/myst_indent_report.csv"
 echo "  - docs/authoring/qa/diagram_lint.csv"
 echo "  - docs/authoring/qa/link_lint.csv"
 echo "  - docs/authoring/qa/dataset_sanity.csv"
