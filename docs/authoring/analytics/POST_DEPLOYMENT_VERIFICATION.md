@@ -89,10 +89,11 @@ Expected (correct):
 
 **NOT** (incorrect - this was the bug):
 ```
-    ```{mermaid}
+
+```{mermaid}
     :caption: Logger architecture
     :file: ./diagrams/logging_architecture.mmd
-    ```
+```
 ```
 
 Repeat for the other 2 chapters:
