@@ -1,28 +1,29 @@
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
+    autonumber
     participant App as Application
     participant Log as g_logger
     participant File as Log File
     participant CB as Callback
     participant Hist as History Buffer
-    
+
     App->>Log: setLogFile("log.txt")
     Log->>File: Open file stream
-    
+
     App->>Log: setOnLog(callback)
     Log->>CB: Register callback
-    
+
     App->>Log: info("Starting application")
     Log->>File: Write to file
     Log->>CB: Invoke callback
     Log->>Hist: Store in buffer (1/1000)
-    
+
     App->>Log: error("Network failure")
     Log->>File: Write to file
     Log->>CB: Invoke callback
     Log->>Hist: Store in buffer (2/1000)
-    
+
     App->>Log: getLastLog()
     Log-->>App: Return last message
-    
-    click Log "../index.html#facet-09_logging.flow" "Logging Flow"
+
+    Note over Log: [[../index.html#facet-09_logging.flow|Logging Flow]]
