@@ -22,6 +22,7 @@ _data/xref_graph.mmd,1,OK,Already has init header
 04_ui/diagrams/bugreport.mmd,1,OK,Already has init header
 04_ui/diagrams/textwindow.mmd,1,OK,Already has init header
 04_ui/diagrams/textedit.mmd,1,OK,Already has init header
+04_ui/diagrams/otui_assets_mapping.mmd,1,OK,Already has init header
 04_ui/diagrams/locales.mmd,1,OK,Already has init header
 04_ui/diagrams/editvip.mmd,1,OK,Already has init header
 04_ui/diagrams/itemdetails.mmd,1,OK,Already has init header
@@ -74,6 +75,7 @@ _data/xref_graph.mmd,1,OK,Already has init header
 04_ui/diagrams/icons.mmd,1,OK,Already has init header
 04_ui/diagrams/browse.mmd,1,OK,Already has init header
 04_ui/diagrams/pushmax.mmd,1,OK,Already has init header
+04_ui/diagrams/signal_flow.mmd,1,OK,Already has init header
 04_ui/diagrams/imbuing.mmd,1,OK,Already has init header
 04_ui/diagrams/widgets_hierarchy.mmd,1,OK,Already has init header
 04_ui/diagrams/cavebot.mmd,1,OK,Already has init header
@@ -99,6 +101,7 @@ _data/xref_graph.mmd,1,OK,Already has init header
 09_logging/diagrams/flow.mmd,1,OK,Already has init header
 09_logging/diagrams/logging_flow.mmd,1,OK,Already has init header
 09_logging/diagrams/architecture.mmd,1,OK,Already has init header
+09_logging/diagrams/logging_architecture.mmd,1,OK,Already has init header
 _static/mermaid/legend.mmd,1,OK,Already has init header
 _static/mermaid/layouts_resolver.mmd,1,OK,Already has init header
 _static/mermaid/android_jni_sequence.mmd,1,OK,Already has init header
@@ -106,8 +109,10 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 03_modules/diagrams/overview.mmd,1,OK,Already has init header
 03_modules/diagrams/flow.mmd,1,OK,Already has init header
 03_modules/diagrams/modules_architecture.mmd,1,OK,Already has init header
+03_modules/diagrams/lua_cpp_binding_flow.mmd,1,OK,Already has init header
 03_modules/diagrams/modules_graph.mmd,1,OK,Already has init header
 03_modules/diagrams/architecture.mmd,1,OK,Already has init header
+03_modules/diagrams/module_dependencies.mmd,1,OK,Already has init header
 01_runtime/diagrams/overview.mmd,1,OK,Already has init header
 01_runtime/diagrams/runtime_flow.mmd,1,OK,Already has init header
 01_runtime/diagrams/flow.mmd,1,OK,Already has init header
@@ -128,12 +133,16 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 02_events/diagrams/propagation.mmd,1,OK,Already has init header
 02_events/diagrams/event_flow_map.mmd,1,OK,Already has init header
 08_audio/diagrams/overview.mmd,1,OK,Already has init header
+08_audio/diagrams/audio_playback_flow.mmd,1,OK,Already has init header
 08_audio/diagrams/routing.mmd,1,OK,Already has init header
 08_audio/diagrams/audio_pipeline.mmd,1,OK,Already has init header
 08_audio/diagrams/flow.mmd,1,OK,Already has init header
+08_audio/diagrams/channels_hierarchy.mmd,1,OK,Already has init header
 08_audio/diagrams/architecture.mmd,1,OK,Already has init header
 01_core/diagrams/overview.mmd,1,OK,Already has init header
+01_core/diagrams/lua_binding_sequence.mmd,1,OK,Already has init header
 01_core/diagrams/flow.mmd,1,OK,Already has init header
+01_core/diagrams/cpp_singleton_hierarchy.mmd,1,OK,Already has init header
 01_core/diagrams/architecture.mmd,1,OK,Already has init header
 05_events/diagrams/flow.mmd,1,OK,Already has init header
 05_events/diagrams/architecture.mmd,1,OK,Already has init header
