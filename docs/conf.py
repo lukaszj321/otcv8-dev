@@ -126,7 +126,9 @@ html_context = {
 
 # -- Mermaid (sphinxcontrib-mermaid) -------------------------------------------
 mermaid_version = "10.9.0"
-mermaid_output_format = "svg"
+# Use "raw" output for client-side JavaScript rendering (GitHub Pages)
+# This outputs <pre class="mermaid"> tags that are rendered by mermaid.js
+mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'neutral'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
