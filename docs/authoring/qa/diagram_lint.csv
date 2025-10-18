@@ -148,6 +148,7 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 12_otmod/diagrams/deps_graph.mmd,1,OK,Already has init header
 12_otmod/diagrams/deps.mmd,1,OK,Already has init header
 12_otmod/diagrams/lifecycle.mmd,1,OK,Already has init header
+12_otmod/diagrams/module_lifecycle.mmd,1,OK,Already has init header
 12_otmod/diagrams/modules_deps.mmd,1,OK,Already has init header
 15_vc16/diagrams/overview.mmd,1,OK,Already has init header
 15_vc16/diagrams/solution_graph.mmd,1,OK,Already has init header

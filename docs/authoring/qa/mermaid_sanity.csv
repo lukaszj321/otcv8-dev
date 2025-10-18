@@ -26,6 +26,10 @@ _sources/chapter_09_logging_docs_export_kit_authoring_agent_ready.md,2,FAIL,miss
 _sources/chapter_03_modules_docs_export_kit_authoring_agent_ready.md,1,FAIL,missing init
 _sources/chapter_03_modules_docs_export_kit_authoring_agent_ready.md,2,FAIL,missing init
 05_network/appendix_tfs_extendedopcode.md,1,OK,
+05_network/protocol_versions.md,1,OK,
+12_otmod/load_later_patterns.md,1,OK,
+12_otmod/sandbox_security.md,1,OK,
+15_vc16/angle_integration.md,1,OK,
 _instructions/04-events-emitters.instructions.md,1,OK,
 _instructions/01-cpp-api.instructions.md,1,OK,
 _instructions/02-ui-lua.instructions.md,1,OK,
