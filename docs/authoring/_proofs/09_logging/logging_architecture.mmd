@@ -1,0 +1,29 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    App[Application Code] -->|log call| Logger[Logger g_logger]
+    
+    Logger --> Console[Console Sink stdout]
+    Logger --> File[File Sink log.txt]
+    Logger --> Callback[Callback Sink Custom Handler]
+    Logger --> History[Memory History 1000 msgs]
+    
+    subgraph "Log Levels"
+        L0[0-Debug]
+        L1[1-Info]
+        L2[2-Warning]
+        L3[3-Error]
+        L4[4-Fatal]
+    end
+    
+    Logger --> L0
+    Logger --> L1
+    Logger --> L2
+    Logger --> L3
+    Logger --> L4
+    
+    Callback -->|UI Display| UI[Console Widget]
+    History -->|getLastLog| Crash[Crash Reporter]
+    
+    click Logger "../index.html#facet-09_logging.architecture" "Logging Architecture"
+    click Console "../index.html#facet-09_logging.sinks" "Log Sinks"
+click LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "Open logging_architecture"

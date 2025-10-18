@@ -1,0 +1,26 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant Lua as Lua Code
+    participant Bind as Lua Binding Layer
+    participant CPP as C++ Class
+    participant Core as Core API
+    
+    Note over Lua,Core: Example: g_sounds.play()
+    
+    Lua->>Bind: g_sounds.play("/sounds/alarm.ogg")
+    Bind->>Bind: Lookup @bindsingleton g_sounds
+    Bind->>CPP: SoundManager::play()
+    CPP->>Core: OpenAL alSourcePlay()
+    Core-->>CPP: Source handle
+    CPP-->>Bind: SoundSourcePtr
+    Bind-->>Lua: Return source object
+    
+    Note over Lua,Core: C++ to Lua Callback
+    
+    Core->>CPP: Log message event
+    CPP->>Bind: Invoke OnLogCallback
+    Bind->>Lua: Execute Lua callback
+    Lua-->>Bind: Callback complete
+    
+    %% click Bind "../index.html#facet-03_modules.bindings" "Lua Bindings" %% REMOVED: click not supported in sequenceDiagram
+    %% click LuaCppBindingFlow "./index.html#facet-03_modules.lua_cpp_binding_flow" "Open lua_cpp_binding_flow" %% REMOVED: click not supported in sequenceDiagram

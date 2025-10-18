@@ -1,0 +1,10 @@
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Lua Modules
+        E0[Modules]
+        E1[Exported Functions]
+        E2[Callbacks]
+        E0 --> E1
+        E1 --> E2
+    end
+click Architecture "./index.html#facet-03_modules.architecture" "Open architecture"

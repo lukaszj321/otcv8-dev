@@ -1,0 +1,27 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    Request[Asset Request] --> Cache{In Cache?}
+    Cache -->|Yes| Return[Return Cached Texture]
+    Cache -->|No| Load[Load from Disk]
+    
+    Load --> Decode[Decode Image]
+    Decode --> Upload[Upload to GPU]
+    Upload --> Store[Store in Cache]
+    Store --> Return
+    
+    Return --> Bind[Bind Texture]
+    Bind --> Draw[Render]
+    
+    Load -.->|Async| Worker[Worker Thread]
+    Worker -.-> Decode
+    
+    Upload --> Atlas{Use Atlas?}
+    Atlas -->|Yes| Pack[Pack into Atlas]
+    Atlas -->|No| Individual[Individual Texture]
+    
+    Pack --> Store
+    Individual --> Store
+    
+    click Cache "./index.html#facet-06_assets.asset_loading_pipeline" "Loading Pipeline"
+    click Atlas "./index.html#facet-06_assets.optimization_techniques" "Optimizations"
+click AssetPipeline "./index.html#facet-06_assets.asset_pipeline" "Open asset_pipeline"
