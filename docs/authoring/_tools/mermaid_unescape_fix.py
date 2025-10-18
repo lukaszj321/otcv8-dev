@@ -88,18 +88,25 @@ def fix_mermaid_in_md(filepath: Path) -> Tuple[bool, int, str]:
         
         def replace_block(match):
             nonlocal blocks_fixed, reasons
-            block_content = match.group(1)
-            
+            header = match.group(1)
+            block_content = match.group(2)
+            closer = match.group(3)
+
+            # If :file: is present in the header or block, skip unescape
+            if ":file:" in header or ":file:" in block_content:
+                return match.group(0)
+
             if '\\n' in block_content or '\\"' in block_content:
                 fixed_content, was_modified = unescape_mermaid_content(block_content)
                 if was_modified:
                     blocks_fixed += 1
                     reasons.append('unescaped')
-                return f'```mermaid\n{fixed_content}\n```'
+                return f'{header}{fixed_content}{closer}'
             return match.group(0)
-        
-        # Handle both ```mermaid and ```{mermaid} forms
-        new_content = re.sub(r'```\{?mermaid\}?\n([\s\S]*?)\n```', replace_block, content)
+
+        # Handle both ```mermaid and directive-style fences, preserving header/options
+        pattern = r'(```\{?mermaid[^\n]*\n)([\s\S]*?)(\n```)'  # header, body, closer
+        new_content = re.sub(pattern, replace_block, content)
         
         if blocks_fixed > 0:
             filepath.write_text(new_content, encoding='utf-8')
