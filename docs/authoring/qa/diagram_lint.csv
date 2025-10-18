@@ -154,6 +154,25 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/crypto_flow.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/architecture.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/crypto_overview.mmd,1,OK,Already has init header
+_proofs/09_logging/overview.mmd,1,OK,Already has init header
+_proofs/09_logging/flow.mmd,1,OK,Already has init header
+_proofs/09_logging/logging_flow.mmd,1,OK,Already has init header
+_proofs/09_logging/architecture.mmd,1,OK,Already has init header
+_proofs/09_logging/logging_architecture.mmd,1,OK,Already has init header
+_proofs/03_modules/overview.mmd,1,OK,Already has init header
+_proofs/03_modules/flow.mmd,1,OK,Already has init header
+_proofs/03_modules/modules_architecture.mmd,1,OK,Already has init header
+_proofs/03_modules/lua_cpp_binding_flow.mmd,1,OK,Already has init header
+_proofs/03_modules/modules_graph.mmd,1,OK,Already has init header
+_proofs/03_modules/architecture.mmd,1,OK,Already has init header
+_proofs/03_modules/module_dependencies.mmd,1,OK,Already has init header
+_proofs/06_assets/overview.mmd,1,OK,Already has init header
+_proofs/06_assets/texture_loading_sequence.mmd,1,OK,Already has init header
+_proofs/06_assets/assets_pipeline.mmd,1,OK,Already has init header
+_proofs/06_assets/flow.mmd,1,OK,Already has init header
+_proofs/06_assets/pipeline_flow.mmd,1,OK,Already has init header
+_proofs/06_assets/asset_pipeline.mmd,1,OK,Already has init header
+_proofs/06_assets/architecture.mmd,1,OK,Already has init header
 06_assets/diagrams/overview.mmd,1,OK,Already has init header
 06_assets/diagrams/texture_loading_sequence.mmd,1,OK,Already has init header
 06_assets/diagrams/assets_pipeline.mmd,1,OK,Already has init header
@@ -181,3 +200,7 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/runtime_loop.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/frame_sequence.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/architecture.mmd,1,OK,Already has init header
+analytics/execution_report.md,109,FIXED,added_init
+analytics/execution_report.md,115,FIXED,added_init
+analytics/execution_report.md,121,FIXED,added_init
+analytics/execution_report.md,127,FIXED,added_init

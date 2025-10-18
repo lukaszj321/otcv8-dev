@@ -1,87 +1,136 @@
 ---
-doc_id: 01_runtime
-source_path: docs/authoring/01_runtime
-source_sha: 488402e
-last_sync_iso: "2025-10-18T01:36:41.410718Z"
-doc_class: spec
-language: pl
-title: 01 - Runtime
+title: 01_runtime - Runtime
 ---
 
+# 01_runtime - Runtime
 
-# 01 - Runtime
-
-Runtime lifecycle, scheduler/dispatcher, threading, and event queues.
-
-## Przegląd
-
-Ten rozdział dokumentuje 01 runtime w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
-
-## Zawartość
-
-```{toctree}
-:maxdepth: 2
-:titlesonly:
-:hidden:
-
-README
-datasets/index
-diagrams/index
+```{contents} Table of contents
+:depth: 2
+:local:
 ```
-
-## Scheduler & Dispatcher
-
-The runtime system uses multiple dispatchers for event processing:
-
-- **EventDispatcher** (`g_dispatcher`) - Main event queue for game logic
-- **GraphicsDispatcher** (`g_graphicsDispatcher`) - Separate queue for rendering
-- **AsyncDispatcher** (`g_asyncDispatcher`) - Worker thread pool for background tasks
-
-### Thread Model
-
-OTClient v8 uses a multi-threaded architecture with dedicated threads:
-
-- **Main Thread** - Application initialization and main loop
-- **Dispatcher Thread** - Event processing and game logic execution
-- **Graphics Thread** - Rendering operations with separate OpenGL context
-- **Worker Threads** - Async task execution pool
-
-Thread safety is enforced with validation macros: `VALIDATE_DISPATCHER_THREAD()` and `VALIDATE_GRAPHICS_THREAD()`.
-
-### Event Scheduling
-
-Events can be scheduled in multiple ways:
-
-- **Immediate** - `addEvent()` adds to queue, executed in next poll
-- **Delayed** - `scheduleEvent(delay)` executes after delay in milliseconds
-- **Cyclic** - `cycleEvent(interval)` re-schedules automatically after each execution
 
 ## Datasets
+### entities
+*Facet:* [`01_runtime.entities`](#facet-01_runtime.entities)
 
-```{csv-table} Scheduler & Dispatcher Methods
+```{csv-table} entities
 :header-rows: 1
-:file: ./datasets/scheduler_dispatcher.csv
+:file: ./datasets/entities.csv
+:widths: auto
 ```
 
-```{csv-table} Thread Pools
-:header-rows: 1
-:file: ./datasets/thread_pools.csv
-```
+### lifecycle_stages
+*Facet:* [`01_runtime.lifecycle_stages`](#facet-01_runtime.lifecycle_stages)
 
-```{csv-table} Lifecycle Stages
+```{csv-table} lifecycle_stages
 :header-rows: 1
 :file: ./datasets/lifecycle_stages.csv
+:widths: auto
 ```
 
-Legacy datasets:
-- `entities.csv`
-- `runtime_stats.csv`
-- `summary.csv`
+### runtime_stats
+*Facet:* [`01_runtime.runtime_stats`](#facet-01_runtime.runtime_stats)
+
+```{csv-table} runtime_stats
+:header-rows: 1
+:file: ./datasets/runtime_stats.csv
+:widths: auto
+```
+
+### scheduler_dispatcher
+*Facet:* [`01_runtime.scheduler_dispatcher`](#facet-01_runtime.scheduler_dispatcher)
+
+```{csv-table} scheduler_dispatcher
+:header-rows: 1
+:file: ./datasets/scheduler_dispatcher.csv
+:widths: auto
+```
+
+### summary
+*Facet:* [`01_runtime.summary`](#facet-01_runtime.summary)
+
+```{csv-table} summary
+:header-rows: 1
+:file: ./datasets/summary.csv
+:widths: auto
+```
+
+### thread_pools
+*Facet:* [`01_runtime.thread_pools`](#facet-01_runtime.thread_pools)
+
+```{csv-table} thread_pools
+:header-rows: 1
+:file: ./datasets/thread_pools.csv
+:widths: auto
+```
 
 ## Diagrams
+### architecture
+*Facet:* [`01_runtime.architecture`](#facet-01_runtime.architecture)
 
 ```{mermaid}
-:caption: Runtime Lifecycle Sequence
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph LR
+    subgraph Runtime
+        E0[Runtime Metrics]
+        E1[Performance Stats]
+        E2[Memory Usage]
+        E0 --> E1
+        E1 --> E2
+    end
+click Architecture "./index.html#facet-01_runtime.architecture" "Open architecture"
+```
+
+### dispatcher_architecture
+*Facet:* [`01_runtime.dispatcher_architecture`](#facet-01_runtime.dispatcher_architecture)
+
+```{mermaid}
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    Client[Client Code] -->|addEvent| ED[EventDispatcher]
+    Client -->|scheduleEvent| ED
+    Client -->|cycleEvent| ED
+    Client -->|async task| AD[AsyncDispatcher]
+    
+    ED -->|immediate| Queue[Event Queue]
+    ED -->|delayed| Scheduled[Scheduled Priority Queue]
+    
+    Queue -->|poll| Executor[Event Executor]
+    Scheduled -->|delay expired| Executor
+    
+    AD -->|dispatch| TaskQueue[Task Queue]
+    TaskQueue -->|worker thread| AsyncExec[Async Executor]
+    
+    Executor -->|VALIDATE_DISPATCHER_THREAD| DT[Dispatcher Thread]
+    
+    GD[GraphicsDispatcher] -->|VALIDATE_GRAPHICS_THREAD| GT[Graphics Thread]
+    
+    click ED "./index.html#facet-01_runtime.scheduler_dispatcher" "Scheduler & Dispatcher"
+    click AD "./index.html#facet-01_runtime.thread_pools" "Thread Pools"
+click DispatcherArchitecture "./index.html#facet-01_runtime.dispatcher_architecture" "Open dispatcher_architecture"
+```
+
+### flow
+*Facet:* [`01_runtime.flow`](#facet-01_runtime.flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+    A[Runtime] --> B[Data Collection]
+    B --> C[Processing]
+    C --> D[Datasets]
+    C --> E[Analysis]
+    D --> F[CSV Export]
+    E --> G[Statistics]
+    G --> H[Reports]
+    F --> H
+click Flow "./index.html#facet-01_runtime.flow" "Open flow"
+```
+
+### lifecycle_sequence
+*Facet:* [`01_runtime.lifecycle_sequence`](#facet-01_runtime.lifecycle_sequence)
+
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant App as Application
@@ -109,83 +158,90 @@ sequenceDiagram
     AD->>Worker: Signal terminate
     deactivate Worker
     App->>AD: terminate()
+    %% click LifecycleSequence "./index.html#facet-01_runtime.lifecycle_sequence" "Open lifecycle_sequence" %% REMOVED: click not supported in sequenceDiagram
 ```
+
+### overview
+*Facet:* [`01_runtime.overview`](#facet-01_runtime.overview)
 
 ```{mermaid}
-:caption: Dispatcher Architecture
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    Client[Client Code] -->|addEvent| ED[EventDispatcher]
-    Client -->|scheduleEvent| ED
-    Client -->|cycleEvent| ED
-    Client -->|async task| AD[AsyncDispatcher]
-    
-    ED -->|immediate| Queue[Event Queue]
-    ED -->|delayed| Scheduled[Scheduled Priority Queue]
-    
-    Queue -->|poll| Executor[Event Executor]
-    Scheduled -->|delay expired| Executor
-    
-    AD -->|dispatch| TaskQueue[Task Queue]
-    TaskQueue -->|worker thread| AsyncExec[Async Executor]
-    
-    Executor -->|VALIDATE_DISPATCHER_THREAD| DT[Dispatcher Thread]
-    
-    GD[GraphicsDispatcher] -->|VALIDATE_GRAPHICS_THREAD| GT[Graphics Thread]
+    A[Runtime System] --> B[Components]
+    A --> C[Datasets]
+    A --> D[Diagrams]
+click Overview "./index.html#facet-01_runtime.overview" "Open overview"
 ```
 
-```{contents}
-:local:
-:depth: 2
+### runtime_flow
+*Facet:* [`01_runtime.runtime_flow`](#facet-01_runtime.runtime_flow)
+
+```{mermaid}
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  RuntimeFlow[01_runtime:runtime_flow] --> Data[Datasets]
+  Data --> Page[Index]
+
+click RuntimeFlow "./index.html#facet-01_runtime.runtime_flow" "Open runtime_flow"
+click RuntimeFlow "./index.html#facet-01_runtime.runtime_flow" "Open runtime_flow"
 ```
+
+
 
 ## Crosslinks
 
-Internal references:
-- [Core API](../01_core/index.md) - C++ bindings and symbols
-- [Events](../02_events/index.md) - Event emission and handling
-- [Game Runtime](../10_game_runtime/index.md) - Game loop integration
-- [Modules (Lua)](../03_modules/index.md) - Lua event scheduling
-- [Network](../05_network/index.md) - Protocol dispatching
-
-External source files:
-- `src/framework/core/eventdispatcher.h` - EventDispatcher class
-- `src/framework/core/asyncdispatcher.h` - AsyncDispatcher class
-- `src/framework/stdext/thread.h` - Thread utilities
-
-
-## QA Block
-
-**Status:** ✅ Dataset generated  
-**Coverage:** In progress  
-**Last Updated:** 2025-10-18T01:36:41.410718Z
-
-### Checklist
-
-- [x] Frontmatter present
-- [x] Datasets generated
-- [ ] Diagrams added
-- [ ] Crosslinks verified
-- [ ] Content complete (≥18KB target)
+- **uses** → `03_modules.lua_exports` (evidence: `docs/authoring/03_modules/datasets/lua_exports.csv`)
+- **uses** → `04_ui.ui_widgets` (evidence: `docs/authoring/04_ui/datasets/ui_widgets.csv`)
+- **emits** → `02_events.events_matrix` (evidence: `docs/authoring/02_events/datasets/events_matrix.csv`)
+- **emits** → `09_logging.logging_categories` (evidence: `docs/authoring/09_logging/datasets/logging_categories.csv`)
 
 ## Appendix / Facets
 
-(facet-01_runtime.main)=
-### Facet: `01_runtime.main`
+(facet-01_runtime.architecture)=
+### Facet: `01_runtime.architecture`
+Type: diagram
 
-Main documentation facet for 01_runtime.
+(facet-01_runtime.dispatcher_architecture)=
+### Facet: `01_runtime.dispatcher_architecture`
+Type: diagram
 
-(facet-01_runtime.scheduler_dispatcher)=
-### Facet: `01_runtime.scheduler_dispatcher`
+(facet-01_runtime.entities)=
+### Facet: `01_runtime.entities`
+Type: dataset
 
-Scheduler and dispatcher methods including EventDispatcher, GraphicsDispatcher, and AsyncDispatcher APIs.
+(facet-01_runtime.flow)=
+### Facet: `01_runtime.flow`
+Type: diagram
 
-(facet-01_runtime.thread_pools)=
-### Facet: `01_runtime.thread_pools`
-
-Thread pool configuration and thread model documentation covering main, dispatcher, graphics, and worker threads.
+(facet-01_runtime.lifecycle_sequence)=
+### Facet: `01_runtime.lifecycle_sequence`
+Type: diagram
 
 (facet-01_runtime.lifecycle_stages)=
 ### Facet: `01_runtime.lifecycle_stages`
+Type: dataset
 
-Runtime lifecycle stages from initialization through shutdown, including dependencies and execution order.
+(facet-01_runtime.overview)=
+### Facet: `01_runtime.overview`
+Type: diagram
+
+(facet-01_runtime.runtime_flow)=
+### Facet: `01_runtime.runtime_flow`
+Type: diagram
+
+(facet-01_runtime.runtime_stats)=
+### Facet: `01_runtime.runtime_stats`
+Type: dataset
+
+(facet-01_runtime.scheduler_dispatcher)=
+### Facet: `01_runtime.scheduler_dispatcher`
+Type: dataset
+
+(facet-01_runtime.summary)=
+### Facet: `01_runtime.summary`
+Type: dataset
+
+(facet-01_runtime.thread_pools)=
+### Facet: `01_runtime.thread_pools`
+Type: dataset
+

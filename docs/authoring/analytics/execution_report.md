@@ -35,9 +35,9 @@ tags:
 ### Issue 1: Escape Sequences in Mermaid Files
 - **Root Cause:** Mermaid diagram files (`.mmd`) contained literal escape sequences like `\n` and `\"` that were being rendered as text instead of being interpreted as newlines and quotes.
 - **Example:** In `logging_architecture.mmd`, the last line had:
-  ```
+```
   \nclick LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "Open logging_architecture"\n
-  ```
+```
 - **Impact:** These escape sequences broke the Mermaid syntax and caused diagrams to render as code blocks.
 
 ### Issue 2: Missing MyST Configuration
@@ -68,7 +68,7 @@ This configuration allows both ` ```{mermaid}` and ` ```mermaid` syntax to be pr
 **Functionality:**
 - Scans all `.mmd` files and markdown files with embedded mermaid blocks
 - Removes literal `\n` sequences at line boundaries
-- Converts `\"` to proper quotes
+- Converts `"` to proper quotes
 - Preserves actual string content and valid escape sequences
 
 **Results:**
@@ -107,24 +107,28 @@ After running `docs/authoring/_tools/qa_rerun.sh`:
 
 **Before (logging_architecture.mmd):**
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     click Console "../index.html#facet-09_logging.sinks" "Log Sinks"
 \nclick LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "Open logging_architecture"\n
 ```
 
 **After (logging_architecture.mmd):**
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     click Console "../index.html#facet-09_logging.sinks" "Log Sinks"
 click LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "Open logging_architecture"
 ```
 
 **Before (logging_flow.mmd - sequence diagram):**
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     Note over Log: [[../index.html#facet-09_logging.flow|Logging Flow]]
-\nclick LoggingFlow "./index.html#facet-09_logging.logging_flow" "Open logging_flow"\n
+click LoggingFlow "./index.html#facet-09_logging.logging_flow" "Open logging_flow"
 ```
 
 **After (logging_flow.mmd):**
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     Note over Log: [[../index.html#facet-09_logging.flow|Logging Flow]]
     %% click LoggingFlow "./index.html#facet-09_logging.logging_flow" "Open logging_flow" %% REMOVED: click not supported in sequenceDiagram
 ```

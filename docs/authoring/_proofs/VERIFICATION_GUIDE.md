@@ -23,19 +23,19 @@ This directory contains proofs and verification materials for the Mermaid render
    ```bash
    find docs/authoring -name "*.mmd" | xargs grep '\\n' | wc -l
    # Should output: 0
-   ```
+```
 
 2. **Check QA reports:**
    ```bash
    cat docs/authoring/qa/mermaid_sanity.csv | grep FAIL | wc -l
    # Should output: 0
-   ```
+```
 
 3. **Verify conf.py has the fix:**
    ```bash
    grep "myst_fence_as_directive" docs/conf.py
    # Should show: myst_fence_as_directive = ["mermaid"]
-   ```
+```
 
 ### Post-Deployment Verification (Live Pages)
 
@@ -61,9 +61,9 @@ After GitHub Pages deployment, check these URLs:
 Compare before/after `_sources` content:
 
 1. Check a specific source file:
-   ```
+```
    https://lukaszj321.github.io/otcv8-dev/_sources/authoring/09_logging/index.md.txt
-   ```
+```
 
 2. Verify:
    - No indented ` ```{mermaid}` directives (should be at column 0)
