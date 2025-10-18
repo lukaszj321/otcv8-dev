@@ -18,13 +18,13 @@ def csv_block(p: pathlib.Path):
     fid = f"{chapter}.{p.stem}"
     return textwrap.dedent(f"""
     ### {p.stem}
-    *Facet:* [`{fid}`](#facet-{fid})
+*Facet:* [`{fid}`](#facet-{fid})
 
     ```{{csv-table}} {p.stem}
     :header-rows: 1
     :file: ./datasets/{p.name}
     :widths: auto
-    ```
+```
     """).strip()
 
 def mmd_block(p: pathlib.Path):
@@ -33,11 +33,11 @@ def mmd_block(p: pathlib.Path):
     fid = f"{chapter}.{p.stem}"
     return textwrap.dedent(f"""
     ### {p.stem}
-    *Facet:* [`{fid}`](#facet-{fid})
+*Facet:* [`{fid}`](#facet-{fid})
 
     ```{{mermaid}}
     {content}
-    ```
+```
     """).strip()
 ```
 

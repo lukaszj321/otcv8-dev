@@ -19,11 +19,11 @@ The script used `textwrap.dedent()` on f-string templates containing multi-line 
 def mmd_block(p: pathlib.Path):
     return textwrap.dedent(f"""
     ### {p.stem}
-    *Facet:* [`{fid}`](#facet-{fid})
+*Facet:* [`{fid}`](#facet-{fid})
 
     ```{{mermaid}}
     {content}
-    ```
+```
     """).strip()
 ```
 
@@ -190,10 +190,10 @@ Example (broken - treated as code):
 ```
 ## Section
 
-    ```{mermaid}
+```{mermaid}
     graph TD
       A --> B
-    ```
+```
 ```
 
 ### Mermaid Theme Requirements

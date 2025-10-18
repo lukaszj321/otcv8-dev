@@ -14,17 +14,22 @@ cd "$(dirname "$0")/../../.."
 echo "== PHASE 1: FIXERS =="
 echo ""
 
-# 1. Front-matter Fix (must run first to normalize YAML)
+# 1. Mermaid Unescape Fix (must run first to clean escape sequences)
+echo "==> Running Mermaid unescape fix..."
+python3 docs/authoring/_tools/mermaid_unescape_fix.py
+echo ""
+
+# 2. Front-matter Fix (must run to normalize YAML)
 echo "==> Running front-matter fix..."
 python3 docs/authoring/_tools/frontmatter_fix.py
 echo ""
 
-# 2. MyST Dedent Fix (must run before diagram checks)
+# 3. MyST Dedent Fix (must run before diagram checks)
 echo "==> Running MyST dedent fix..."
 python3 docs/authoring/_tools/myst_dedent_fix.py
 echo ""
 
-# 3. Mermaid Lint & Fix
+# 4. Mermaid Lint & Fix
 echo "==> Running Mermaid lint & fix..."
 python3 docs/authoring/_tools/mermaid_lint_fix.py
 echo ""

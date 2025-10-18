@@ -25,6 +25,7 @@ datasets/index.md,1,missing_frontmatter,No front-matter block found
 04_ui/README.md,1,missing_frontmatter,No front-matter block found
 04_ui/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.411326Z"""
 qa/qa_summary.md,1,missing_frontmatter,No front-matter block found
+qa/qa_summary_old.md,1,missing_frontmatter,No front-matter block found
 qa/index.md,1,missing_frontmatter,No front-matter block found
 09_logging/README.md,1,missing_frontmatter,No front-matter block found
 09_logging/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.412346Z"""
@@ -35,7 +36,9 @@ artifacts/index.md,2,single_line_yaml,Front-matter is single-line (should be mul
 analytics/index_diff_09_logging.md,1,missing_frontmatter,No front-matter block found
 analytics/gaps.md,1,missing_frontmatter,No front-matter block found
 analytics/index_diff_06_assets.md,1,missing_frontmatter,No front-matter block found
+analytics/POST_DEPLOYMENT_VERIFICATION.md,1,missing_frontmatter,No front-matter block found
 analytics/index_indentation_root_cause.md,1,missing_frontmatter,No front-matter block found
+analytics/SOLUTION_SUMMARY.md,1,missing_frontmatter,No front-matter block found
 analytics/index.md,1,missing_frontmatter,No front-matter block found
 analytics/errors.md,1,missing_frontmatter,No front-matter block found
 analytics/index_diff_03_modules.md,1,missing_frontmatter,No front-matter block found
