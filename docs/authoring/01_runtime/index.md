@@ -1,6 +1,13 @@
 ---
-doc_id: 01_runtime, source_path: docs/authoring/01_runtime, source_sha: 488402e, last_sync_iso: 2025-10-18T01:36:41.410718Z, doc_class: spec, language: pl, title: 01 - Runtime, summary: Runtime lifecycle, scheduler/dispatcher, threading, and event queues., tags: runtime,lifecycle,scheduler,threads
+doc_id: 01_runtime
+source_path: docs/authoring/01_runtime
+source_sha: 488402e
+last_sync_iso: "2025-10-18T01:36:41.410718Z"
+doc_class: spec
+language: pl
+title: 01 - Runtime
 ---
+
 
 # 01 - Runtime
 

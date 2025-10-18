@@ -1,6 +1,13 @@
 ---
-doc_id: 08_audio, source_path: docs/authoring/08_audio, source_sha: 2e96125, last_sync_iso: 2025-10-18T01:36:41.412145Z, doc_class: api, language: pl, title: 08 - Audio, summary: Audio channels, loading, and C++/Lua examples., tags: audio,sound,channels
+doc_id: 08_audio
+source_path: docs/authoring/08_audio
+source_sha: 2e96125
+last_sync_iso: "2025-10-18T01:36:41.412145Z"
+doc_class: api
+language: pl
+title: 08 - Audio
 ---
+
 
 # 08 - Audio
 

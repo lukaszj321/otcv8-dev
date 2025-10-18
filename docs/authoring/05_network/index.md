@@ -1,6 +1,14 @@
 ---
-doc_id: 05_network, source_path: docs/authoring/05_network, source_sha: 0659034, last_sync_iso: 2025-10-18T01:36:41.411532Z, doc_class: spec, language: pl, title: 05 - Network, summary: Network protocol classes and TFS extended opcode patch appendix., tags: network,protocol,tfs
+doc_id: 05_network
+source_path: docs/authoring/05_network
+source_sha: 0659034
+last_sync_iso: "2025-10-18T01:36:41.411532Z"
+doc_class: spec
+language: pl
+title: 05 - Network
+summary: Network protocol classes and TFS extended opcode patch appendix.
 ---
+
 
 # 05 - Network
 

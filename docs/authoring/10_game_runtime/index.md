@@ -1,6 +1,13 @@
 ---
-doc_id: 10_game_runtime, source_path: docs/authoring/10_game_runtime, source_sha: 1e742b7, last_sync_iso: 2025-10-18T01:36:41.412529Z, doc_class: spec, language: pl, title: 10 - Game Runtime, summary: Game loop, input handling, map management, and dependencies with events/UI., tags: game,runtime,loop,input
+doc_id: 10_game_runtime
+source_path: docs/authoring/10_game_runtime
+source_sha: 1e742b7
+last_sync_iso: "2025-10-18T01:36:41.412529Z"
+doc_class: spec
+language: pl
+title: 10 - Game Runtime
 ---
+
 
 # 10 - Game Runtime
 

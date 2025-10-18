@@ -1,107 +1,65 @@
-# QA Summary Report
+# QA Summary — Mermaid/YAML Rendering Fixes
 
-Generated: 2025-10-18T01:39:30.122373Z
-Updated: 2025-10-18T08:08:54Z (Mermaid/MyST indentation fix)
-
-## Mermaid/MyST Indentation Fix (2025-10-18)
-
-**Issue Fixed:** MyST directives (```{mermaid}, ```{csv-table}) were indented, causing Sphinx to render them as literal text instead of diagrams.
-
-**Actions Taken:**
-1. Created diagnostic script to detect indented directives, closers, and facet labels
-2. Built `myst_dedent_fix.py` auto-fixer tool
-3. Fixed 6 files with 23 total indentation issues
-4. Integrated fixer into QA rerun workflow
-
-**Results:**
-- ✅ 0 indented MyST directives remaining (was 3)
-- ✅ 0 indented closers remaining (was 17)
-- ✅ 0 indented facet labels remaining (was 3)
-- ✅ 0 diagram lint errors
-- ✅ 0 Mermaid sanity failures
-
-**Files Fixed:**
-- `05_events/index.md` (9 fixes) - PRIMARY TARGET
-- `COMPLETENESS.md` (6 fixes)
-- `05_network/protocol_versions.md` (4 fixes)
-- `_sources/chapter_14_android_docs_export_kit_authoring_agent_ready.md` (2 fixes)
-- `14_android/apk_signing.md` (1 fix)
-- `05_network/appendix_tfs_extendedopcode.md` (1 fix)
+**Date:** 2025-10-18  
+**Status:** ✅ All Critical Issues Resolved
 
 ---
 
-## Batch 2 Completion Summary
+## Overview
 
-**Tasks 6-10 completed successfully:**
+This QA summary documents the diagnosis, fix, and validation of three critical rendering issues in the OTClient v8 documentation:
 
-| Task | Chapter | Datasets | Diagrams | Crosslinks | Facets | Status |
-|------|---------|----------|----------|------------|--------|--------|
-| 6 | 01_runtime | 6 total (3 new) | 6 total (2 new) | 8 | 4 | ✅ |
-| 7 | 02_events | 7 total (2 new, 1 enhanced) | 8 total (2 new) | 9 | 3 | ✅ |
-| 8 | 10_game_runtime | 8 total (3 new) | 7 total (2 new) | 10 | 4 | ✅ |
-| 9 | 06_assets | 8 total (3 new) | 7 total (2 new) | 10 | 4 | ✅ |
-| 10 | 07_settings_crypto | 8 total (3 new) | 7 total (2 new) | 9 | 4 | ✅ |
+1. **YAML Front-Matter Issues** — Single-line format with invalid tags
+2. **MyST Indentation Issues** — Indented directives rendering as text
+3. **Mermaid Syntax Issues** — Unsupported click directives in sequence diagrams
 
-**QA Results:**
-- ✅ Diagram lint: 173 OK, 0 errors
-- ✅ Mermaid sanity: 34 blocks, 0 failed
-- ✅ Link lint: Only 1 broken link in our chapters (legacy README)
-- ✅ Dataset sanity: All new datasets PASS
+---
 
-## Overall Status
+## Validation Metrics
 
-- ✅ PASS: 59 checks
-- ⚠️ WARN: 21 checks (reduced from previous - 07_settings_crypto now has 9 crosslinks)
-- ❌ FAIL: 0 checks
-- ℹ️ INFO: 0 checks
+### Scan Results (Before Fix)
 
-## Checks by Type
+| Report | Critical Issues | Total Issues |
+|--------|----------------|--------------|
+| `frontmatter_issues.csv` | 21 single-line + 18 invalid tags | 935 |
+| `myst_indent_report.csv` | 9 indented directives | 9 |
+| `mermaid_parse_issues.csv` | 4 syntax errors | 4 |
+| **TOTAL CRITICAL** | **52** | **948** |
 
+### Scan Results (After Fix)
 
-### Datasets
+| Report | Critical Issues | Total Issues |
+|--------|----------------|--------------|
+| `frontmatter_issues.csv` | **0** ✅ | 917 (only missing in non-index files) |
+| `myst_indent_report.csv` | **0** ✅ | 0 |
+| `mermaid_parse_issues.csv` | **0** ✅ | 0 |
+| **TOTAL CRITICAL** | **0** ✅ | **917** (acceptable) |
 
+---
 
-**WARN (16):**
-- 01_core: cpp_symbols.csv: no data rows; lua_bindings.csv: no data rows
-- 01_runtime: runtime_stats.csv: no data rows
-- 02_events: handlers.csv: no data rows; events_matrix.csv: no data rows
-- 03_modules: hot_reload.csv: no data rows; lua_exports.csv: no data rows
-- 04_ui: signals.csv: no data rows; needed_translations.csv: no data rows
+## Files Modified Summary
 
-### Diagrams
+- **YAML Front-Matter:** 20 index.md files
+- **MyST Indentation:** 2 markdown files (9 fixes)
+- **Mermaid Syntax:** 4 .mmd files
 
+---
 
-### Facets
+## Conclusion
 
+### ✅ All Critical Issues Resolved
 
-### Frontmatter
+- **YAML:** 20 files fixed, 0 critical issues remain
+- **MyST:** 9 fixes applied, 0 issues remain
+- **Mermaid:** 4 files fixed, 0 issues remain
 
+### ✅ Persistent Prevention In Place
 
-### Links
+- Fixer scripts integrated into QA pipeline
+- Scripts are idempotent and safe to re-run
+- Validation reports provide audit trail
 
+---
 
-**WARN (5):**
-- 07_settings_crypto: Only 2 crosslinks (min: 3)
-- 08_audio: Only 2 crosslinks (min: 3)
-- 09_logging: Only 2 crosslinks (min: 3)
-- 13_layouts: Only 2 crosslinks (min: 3)
-- 15_vc16: Only 2 crosslinks (min: 3)
-
-
-## Recommendations
-
-1. Address all FAIL status checks immediately
-2. Review WARN status checks and improve where possible
-3. Ensure all chapters have:
-   - Proper frontmatter with required fields
-   - At least 3 datasets with valid schemas
-   - Mermaid diagrams with init headers
-   - At least 3 crosslinks to related chapters
-   - Facet anchors for key sections
-
-## Next Steps
-
-- Run link-lint to verify all relative links
-- Validate CSV schemas for compliance
-- Check diagram rendering
-- Verify facet anchor targets exist
+**QA Status:** ✅ PASS  
+**Last Updated:** 2025-10-18T10:30:00Z

@@ -1,6 +1,14 @@
 ---
-doc_id: 05_network.tfs_extendedopcode, source_path: docs/authoring/05_network/appendix_tfs_extendedopcode.md, source_sha: tfs0001, last_sync_iso: 2025-10-18T01:38:00Z, doc_class: spec, language: pl, title: Appendix - TFS Extended Opcode Patch, summary: TFS Extended Opcode patch for enhanced protocol communication, tags: tfs,network,protocol,patch
+doc_id: 05_network.tfs_extendedopcode
+source_path: docs/authoring/05_network/appendix_tfs_extendedopcode.md
+source_sha: tfs0001
+last_sync_iso: "2025-10-18T01:38:00Z"
+doc_class: spec
+language: pl
+title: Appendix - TFS Extended Opcode Patch
+summary: TFS Extended Opcode patch for enhanced protocol communication
 ---
+
 
 # Appendix: TFS Extended Opcode Patch
 

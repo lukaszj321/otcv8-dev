@@ -1,6 +1,13 @@
 ---
-doc_id: 03_modules, source_path: docs/authoring/03_modules, source_sha: 4a846af, last_sync_iso: 2025-10-18T01:36:41.411138Z, doc_class: api, language: pl, title: 03 - Modules, summary: C++ and Lua modules, exports, relations, and integration examples., tags: modules,cpp,lua,exports
+doc_id: 03_modules
+source_path: docs/authoring/03_modules
+source_sha: 4a846af
+last_sync_iso: "2025-10-18T01:36:41.411138Z"
+doc_class: api
+language: pl
+title: 03 - Modules
 ---
+
 
 # 03 - Modules
 

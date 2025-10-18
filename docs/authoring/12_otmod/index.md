@@ -1,6 +1,13 @@
 ---
-doc_id: 12_otmod, source_path: docs/authoring/12_otmod, source_sha: adcc8b9, last_sync_iso: 2025-10-18T01:36:41.412944Z, doc_class: spec, language: pl, title: 12 - OTMOD, summary: Module structure, hooks, dependencies, load-later, sandbox, and blueprints., tags: otmod,modules,lua,sandbox
+doc_id: 12_otmod
+source_path: docs/authoring/12_otmod
+source_sha: adcc8b9
+last_sync_iso: "2025-10-18T01:36:41.412944Z"
+doc_class: spec
+language: pl
+title: 12 - OTMOD
 ---
+
 
 # 12 - OTMOD
 

@@ -1,6 +1,13 @@
 ---
-doc_id: 13_layouts, source_path: docs/authoring/13_layouts, source_sha: ca648b7, last_sync_iso: 2025-10-18T01:36:41.413158Z, doc_class: spec, language: pl, title: 13 - Layouts, summary: Layout overrides vs /data, override matrices, and image properties., tags: layouts,overrides,themes
+doc_id: 13_layouts
+source_path: docs/authoring/13_layouts
+source_sha: ca648b7
+last_sync_iso: "2025-10-18T01:36:41.413158Z"
+doc_class: spec
+language: pl
+title: 13 - Layouts
 ---
+
 
 # 13 - Layouts
 

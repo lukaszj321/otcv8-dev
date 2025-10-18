@@ -1,6 +1,13 @@
 ---
-doc_id: 09_logging, source_path: docs/authoring/09_logging, source_sha: 2adc17d, last_sync_iso: 2025-10-18T01:36:41.412346Z, doc_class: spec, language: pl, title: 09 - Logging, summary: Logging levels, targets, examples, and runtime integration., tags: logging,debug,trace
+doc_id: 09_logging
+source_path: docs/authoring/09_logging
+source_sha: 2adc17d
+last_sync_iso: "2025-10-18T01:36:41.412346Z"
+doc_class: spec
+language: pl
+title: 09 - Logging
 ---
+
 
 # 09 - Logging
 

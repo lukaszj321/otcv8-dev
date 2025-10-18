@@ -94,13 +94,13 @@ mermaid_sanity.csv: 0 failed blocks (34 checked) ✅
 **Before:**
 ```markdown
 ### architecture
-        *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
+*Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-        ```{mermaid}
+```{mermaid}
         %%{init: { 'theme': 'neutral', ... }}%%
         graph LR
             ...
-        ```
+```
 ```
 
 **After:**
@@ -128,14 +128,14 @@ graph LR
    ```markdown
    Some text here.
 
-   ```{mermaid}
+```{mermaid}
    graph TD
-   ```
+```
 
 3. **Run QA before committing**
    ```bash
    bash docs/authoring/_tools/qa_rerun.sh
-   ```
+```
 
 ### For Generators/Scripts
 If you're creating tools that generate documentation:
