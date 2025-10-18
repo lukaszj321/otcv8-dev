@@ -6,7 +6,7 @@ OTClient v8 implements a **sandboxed Lua environment** for OTMOD modules to ensu
 
 ## Sandbox Architecture
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[User Module] --> B[Sandbox Layer]

@@ -200,7 +200,4 @@ _proofs/06_assets/architecture.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/runtime_loop.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/frame_sequence.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/architecture.mmd,1,OK,Already has init header
-analytics/execution_report.md,109,FIXED,added_init
-analytics/execution_report.md,115,FIXED,added_init
-analytics/execution_report.md,121,FIXED,added_init
-analytics/execution_report.md,127,FIXED,added_init
+_proofs/CHANGES_SUMMARY.md,131,FIXED,added_init

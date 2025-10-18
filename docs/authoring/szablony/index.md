@@ -8,6 +8,8 @@ title: Szablony — indeks
 
 
 
+
+
 # Szablony — indeks
 
 Poniżej spis gotowych plików szablonowych. Są to materiały dla agenta AI/CI i do łatwego włączania w kolejne repozytoria.

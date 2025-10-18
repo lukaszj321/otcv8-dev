@@ -91,7 +91,7 @@ tags:
 ### File: `docs/authoring/03_modules/diagrams/lua_cpp_binding_flow.mmd`
 
 **BEFORE (Broken - Click in Sequence):**
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant Lua as Lua Code
@@ -114,7 +114,7 @@ sequenceDiagram
 - Causes Mermaid parse error
 
 **AFTER (Fixed - Click Commented):**
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant Lua as Lua Code

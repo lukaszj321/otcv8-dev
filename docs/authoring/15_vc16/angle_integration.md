@@ -15,7 +15,7 @@ Traditional OpenGL drivers on Windows have several limitations:
 
 ## Architecture
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[OTClient Application] --> B[EGL API Layer]

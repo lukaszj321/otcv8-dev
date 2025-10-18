@@ -20,7 +20,7 @@ OTClient v8 supports multiple Tibia protocol versions, enabling connectivity to 
 
 ### Client-Server Handshake
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant C as Client
