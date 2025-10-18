@@ -38,6 +38,10 @@ def format_multiline_frontmatter(fields: Dict[str, str]) -> str:
         if key in fields:
             value = fields[key]
             
+            # Remove extra quotes from value if present
+            if value.startswith('""') and value.endswith('""'):
+                value = value[1:-1]  # Remove outer quotes, keep inner quotes
+            
             # Special handling for tags
             if key == 'tags':
                 # Convert comma-separated to YAML list
@@ -53,10 +57,16 @@ def format_multiline_frontmatter(fields: Dict[str, str]) -> str:
                     # Single tag
                     lines.append('tags:')
                     lines.append(f'  - {value}')
+            # Special handling for ISO timestamps
+            elif key == 'last_sync_iso':
+                # Ensure timestamp is quoted
+                if not (value.startswith('"') and value.endswith('"')):
+                    value = f'"{value}"'
+                lines.append(f'{key}: {value}')
             else:
                 # Quote values that contain commas, colons, or special chars
-                if ',' in value or ':' in value or value.startswith('"'):
-                    # Already quoted or needs quoting
+                # But don't double-quote
+                if ':' in value or ',' in value:
                     if not (value.startswith('"') and value.endswith('"')):
                         value = f'"{value}"'
                 lines.append(f'{key}: {value}')
@@ -64,8 +74,12 @@ def format_multiline_frontmatter(fields: Dict[str, str]) -> str:
     # Add any remaining fields not in key_order
     for key, value in fields.items():
         if key not in key_order:
+            # Remove extra quotes
+            if value.startswith('""') and value.endswith('""'):
+                value = value[1:-1]
             if ',' in value or ':' in value:
-                value = f'"{value}"'
+                if not (value.startswith('"') and value.endswith('"')):
+                    value = f'"{value}"'
             lines.append(f'{key}: {value}')
     
     lines.append('---')

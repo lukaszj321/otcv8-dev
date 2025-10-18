@@ -80,10 +80,10 @@ tags:
 ```markdown
 ## Diagram
 
-   ```{mermaid}
+```{mermaid}
    graph TD
       A --> B
-   ```
+```
 ```
 
 **Root Cause:** MyST parser requires directives to start at column 0. When indented (e.g., in nested lists or after headers), they render as literal text.
@@ -113,11 +113,12 @@ graph TD
 
 **Example (broken):**
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 sequenceDiagram
     participant Lua
     participant CPP
     Lua->>CPP: call
-    click CPP "../index.html#facet" "Link"
+    Note over CPP: Links not supported in sequence
 ```
 
 **Root Cause:** Mermaid's `sequenceDiagram` does not support `click` directives (only supported in flowcharts/graphs).
@@ -125,11 +126,12 @@ sequenceDiagram
 **Fix Applied:** Commented out `click` directives in sequence diagrams:
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 sequenceDiagram
     participant Lua
     participant CPP
     Lua->>CPP: call
-    %% click CPP "../index.html#facet" "Link" %% REMOVED: click not supported in sequenceDiagram
+    Note over CPP: Use graph TD for links
 ```
 
 **Files Fixed:**

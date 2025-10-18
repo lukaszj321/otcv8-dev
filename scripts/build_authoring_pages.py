@@ -108,29 +108,33 @@ def write_chapter(chapter: str):
 
     def csv_block(p: pathlib.Path):
         fid = f"{chapter}.{p.stem}"
-        return textwrap.dedent(f"""
-        ### {p.stem}
-        *Facet:* [`{fid}`](#facet-{fid})
-
-        ```{{csv-table}} {p.stem}
-        :header-rows: 1
-        :file: ./datasets/{p.name}
-        :widths: auto
-        ```
-        """).strip()
+        # Build block without indentation to prevent Sphinx treating it as code
+        lines = [
+            f"### {p.stem}",
+            f"*Facet:* [`{fid}`](#facet-{fid})",
+            "",
+            f"```{{csv-table}} {p.stem}",
+            ":header-rows: 1",
+            f":file: ./datasets/{p.name}",
+            ":widths: auto",
+            "```"
+        ]
+        return "\n".join(lines)
 
     def mmd_block(p: pathlib.Path):
         content = (diagrams / p.name).read_text(encoding="utf-8") if (diagrams / p.name).exists() else "graph TD\n  A[Error]"
         content = ensure_mermaid_init(content)
         fid = f"{chapter}.{p.stem}"
-        return textwrap.dedent(f"""
-        ### {p.stem}
-        *Facet:* [`{fid}`](#facet-{fid})
-
-        ```{{mermaid}}
-        {content}
-        ```
-        """).strip()
+        # Build block without indentation to prevent Sphinx treating it as code
+        lines = [
+            f"### {p.stem}",
+            f"*Facet:* [`{fid}`](#facet-{fid})",
+            "",
+            "```{mermaid}",
+            content,
+            "```"
+        ]
+        return "\n".join(lines)
 
     csv_section = "\n\n".join(csv_block(c) for c in csvs) if csvs else "_Brak CSV w tym rozdziale._"
     mmd_section = "\n\n".join(mmd_block(m) for m in mmds) if mmds else "_Brak diagramow w tym rozdziale._"

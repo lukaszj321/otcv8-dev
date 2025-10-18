@@ -1,3 +1,1 @@
 file,line,issue,details
-analytics/execution_report.md,83,indented_directive_opener,Directive indented by 3 spaces: ```{mermaid}
-analytics/execution_report.md,86,indented_directive_closer,Closer indented by 3 spaces
