@@ -1,58 +1,65 @@
 ---
-doc_id: "01_core"
-source_path: "docs/authoring/01_core/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Core C++ API"
-summary: "Core C++ framework classes, types, and architecture"
-tags: ["core", "otclient", "docs"]
+doc_id: 01_core, source_path: docs/authoring/01_core, source_sha: 899f3a9, last_sync_iso: 2025-10-18T01:36:41.410424Z, doc_class: api, language: pl, title: 01 - Core C++ API, summary: Core C++ framework and client classes, types, functions, and class diagrams for OTClient v8., tags: cpp,api,core,framework
 ---
 
-# Core C++ API
+# 01 - Core C++ API
 
-## Overview
+Core C++ framework and client classes, types, functions, and class diagrams for OTClient v8.
 
-Core C++ framework classes, types, and architecture
+## Przegląd
 
-This chapter provides comprehensive documentation for the Core C++ API subsystem of OTClient v8.
+Ten rozdział dokumentuje 01 core w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Core C++ API] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `cpp_headers.csv`
+- `cpp_symbols.csv`
+- `entities.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
-
-## Related Chapters
-
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+- [Runtime](../01_runtime/index.md)
+- [Events](../02_events/index.md)
 - [Modules](../03_modules/index.md)
 
 
+## QA Block
+
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.410424Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
+
 ## Appendix / Facets
 
-(facet-01_core.overview)=
-### Facet: `01_core.overview`
+(facet-01_core.main)=
+### Facet: `01_core.main`
 
-Overview diagram and summary for Core C++ API.
+Main documentation facet for 01_core.

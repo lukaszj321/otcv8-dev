@@ -1,58 +1,65 @@
 ---
-doc_id: "11_data"
-source_path: "docs/authoring/11_data/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Data Assets"
-summary: "Data directory assets catalog"
-tags: ["data", "otclient", "docs"]
+doc_id: 11_data, source_path: docs/authoring/11_data, source_sha: e509d47, last_sync_iso: 2025-10-18T01:36:41.412740Z, doc_class: spec, language: pl, title: 11 - Data, summary: Complete data taxonomy and mapping to OTUI widgets., tags: data,assets,taxonomy
 ---
 
-# Data Assets
+# 11 - Data
 
-## Overview
+Complete data taxonomy and mapping to OTUI widgets.
 
-Data directory assets catalog
+## Przegląd
 
-This chapter provides comprehensive documentation for the Data Assets subsystem of OTClient v8.
+Ten rozdział dokumentuje 11 data w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Data Assets] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `assets_catalog.csv`
+- `assets_summary.csv`
+- `data_assets.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [UI](../04_ui/index.md)
+- [Assets](../06_assets/index.md)
+- [Layouts](../13_layouts/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.412740Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-11_data.overview)=
-### Facet: `11_data.overview`
+(facet-11_data.main)=
+### Facet: `11_data.main`
 
-Overview diagram and summary for Data Assets.
+Main documentation facet for 11_data.

@@ -1,58 +1,64 @@
 ---
-doc_id: "13_layouts"
-source_path: "docs/authoring/13_layouts/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Layouts"
-summary: "Layout overrides and themes"
-tags: ["layouts", "otclient", "docs"]
+doc_id: 13_layouts, source_path: docs/authoring/13_layouts, source_sha: ca648b7, last_sync_iso: 2025-10-18T01:36:41.413158Z, doc_class: spec, language: pl, title: 13 - Layouts, summary: Layout overrides vs /data, override matrices, and image properties., tags: layouts,overrides,themes
 ---
 
-# Layouts
+# 13 - Layouts
 
-## Overview
+Layout overrides vs /data, override matrices, and image properties.
 
-Layout overrides and themes
+## Przegląd
 
-This chapter provides comprehensive documentation for the Layouts subsystem of OTClient v8.
+Ten rozdział dokumentuje 13 layouts w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Layouts] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `layout_images.csv`
+- `layout_index.csv`
+- `layout_overrides.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [UI](../04_ui/index.md)
+- [Data](../11_data/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.413158Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-13_layouts.overview)=
-### Facet: `13_layouts.overview`
+(facet-13_layouts.main)=
+### Facet: `13_layouts.main`
 
-Overview diagram and summary for Layouts.
+Main documentation facet for 13_layouts.

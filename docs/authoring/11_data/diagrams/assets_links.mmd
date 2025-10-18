@@ -1,0 +1,15 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    OTUI["OTUI Files<br/>(*.otui)"] --> PROPS["Properties:<br/>image-source<br/>icon<br/>font"]
+    PROPS --> RESOLVE["Asset Resolver"]
+    RESOLVE --> DATA["data/**<br/>(images/fonts/styles)"]
+    RESOLVE --> LAYOUT["layouts/**<br/>(overrides)"]
+    DATA --> INDEX["Asset Index<br/>data_assets.csv"]
+    LAYOUT --> OVERRIDE["layout_overrides.csv"]
+    INDEX --> USAGE["ui_asset_usage.csv"]
+    OVERRIDE --> USAGE
+    
+    USAGE --> STATS["Statistics<br/>stats.json"]
+    
+    click INDEX "../11_data/index.html#facet-11_data.main" "Open Data Index"
+    click USAGE "../11_data/index.html#facet-11_data.ui_asset_usage" "Open UI Asset Usage"

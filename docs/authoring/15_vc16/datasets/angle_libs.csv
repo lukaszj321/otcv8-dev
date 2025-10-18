@@ -1,0 +1,5 @@
+path,type,notes
+vc16/angle/lib/libEGL.dll.lib,lib,
+vc16/angle/lib/libGLESv2.dll.lib,lib,
+vc16/angle/lib/libEGL.dll,dll,
+vc16/angle/lib/libGLESv2.dll,dll,

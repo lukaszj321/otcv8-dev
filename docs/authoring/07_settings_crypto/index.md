@@ -1,58 +1,64 @@
 ---
-doc_id: "07_settings_crypto"
-source_path: "docs/authoring/07_settings_crypto/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Settings & Crypto"
-summary: "Configuration and cryptography"
-tags: ["settings_crypto", "otclient", "docs"]
+doc_id: 07_settings_crypto, source_path: docs/authoring/07_settings_crypto, source_sha: fab0cef, last_sync_iso: 2025-10-18T01:36:41.411933Z, doc_class: spec, language: pl, title: 07 - Settings & Crypto, summary: Settings formats, profiles, keys, and cryptographic flows., tags: settings,crypto,keys,config
 ---
 
-# Settings & Crypto
+# 07 - Settings & Crypto
 
-## Overview
+Settings formats, profiles, keys, and cryptographic flows.
 
-Configuration and cryptography
+## Przegląd
 
-This chapter provides comprehensive documentation for the Settings & Crypto subsystem of OTClient v8.
+Ten rozdział dokumentuje 07 settings crypto w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Settings & Crypto] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `crypto_primitives.csv`
+- `entities.csv`
+- `secrets.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Core API](../01_core/index.md)
+- [Modules](../03_modules/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.411933Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-07_settings_crypto.overview)=
-### Facet: `07_settings_crypto.overview`
+(facet-07_settings_crypto.main)=
+### Facet: `07_settings_crypto.main`
 
-Overview diagram and summary for Settings & Crypto.
+Main documentation facet for 07_settings_crypto.

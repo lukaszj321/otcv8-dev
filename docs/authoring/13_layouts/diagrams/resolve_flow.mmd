@@ -1,0 +1,16 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    REQ["UI Request<br/>image-source=/images/x.png"] --> RESOLVER["Layout Resolver"]
+    RESOLVER --> CHECK{Layout<br/>Override?}
+    
+    CHECK -->|Yes| LAYOUT["layouts/active/<br/>images/x.png"]
+    CHECK -->|No| DATA["data/<br/>images/x.png"]
+    
+    LAYOUT --> RESOLVED["Resolved Path"]
+    DATA --> RESOLVED
+    
+    RESOLVED --> RENDER["Render Widget"]
+    
+    LAYOUT -.-> OVERRIDE["layout_overrides.csv"]
+    
+    click OVERRIDE "../13_layouts/index.html#facet-13_layouts.resolve_flow" "Open Layout Overrides"

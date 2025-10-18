@@ -1,0 +1,81 @@
+chapter,check,status,details
+01_core,frontmatter,PASS,Frontmatter present
+01_core,datasets,WARN,cpp_symbols.csv: no data rows; lua_bindings.csv: no data rows
+01_core,diagrams,PASS,3 diagrams validated
+01_core,links,PASS,3 crosslinks found
+01_core,facets,PASS,1 facet(s) found
+01_runtime,frontmatter,PASS,Frontmatter present
+01_runtime,datasets,WARN,runtime_stats.csv: no data rows
+01_runtime,diagrams,PASS,4 diagrams validated
+01_runtime,links,PASS,3 crosslinks found
+01_runtime,facets,PASS,1 facet(s) found
+02_events,frontmatter,PASS,Frontmatter present
+02_events,datasets,WARN,handlers.csv: no data rows; events_matrix.csv: no data rows
+02_events,diagrams,PASS,6 diagrams validated
+02_events,links,PASS,3 crosslinks found
+02_events,facets,PASS,1 facet(s) found
+03_modules,frontmatter,PASS,Frontmatter present
+03_modules,datasets,WARN,hot_reload.csv: no data rows; lua_exports.csv: no data rows
+03_modules,diagrams,PASS,5 diagrams validated
+03_modules,links,PASS,3 crosslinks found
+03_modules,facets,PASS,1 facet(s) found
+04_ui,frontmatter,PASS,Frontmatter present
+04_ui,datasets,WARN,signals.csv: no data rows; needed_translations.csv: no data rows
+04_ui,diagrams,PASS,82 diagrams validated
+04_ui,links,PASS,3 crosslinks found
+04_ui,facets,PASS,1 facet(s) found
+05_network,frontmatter,PASS,Frontmatter present
+05_network,datasets,WARN,flows.csv: no data rows; network_messages.csv: no data rows
+05_network,diagrams,PASS,5 diagrams validated
+05_network,links,PASS,3 crosslinks found
+05_network,facets,PASS,1 facet(s) found
+06_assets,frontmatter,PASS,Frontmatter present
+06_assets,datasets,WARN,spritesheets.csv: no data rows; pipelines.csv: no data rows
+06_assets,diagrams,PASS,5 diagrams validated
+06_assets,links,PASS,3 crosslinks found
+06_assets,facets,PASS,1 facet(s) found
+07_settings_crypto,frontmatter,PASS,Frontmatter present
+07_settings_crypto,datasets,WARN,secrets.csv: no data rows; settings.csv: no data rows
+07_settings_crypto,diagrams,PASS,5 diagrams validated
+07_settings_crypto,links,WARN,Only 2 crosslinks (min: 3)
+07_settings_crypto,facets,PASS,1 facet(s) found
+08_audio,frontmatter,PASS,Frontmatter present
+08_audio,datasets,WARN,events.csv: no data rows; audio_assets.csv: no data rows
+08_audio,diagrams,PASS,5 diagrams validated
+08_audio,links,WARN,Only 2 crosslinks (min: 3)
+08_audio,facets,PASS,1 facet(s) found
+09_logging,frontmatter,PASS,Frontmatter present
+09_logging,datasets,WARN,sinks.csv: no data rows; log_events.csv: no data rows
+09_logging,diagrams,PASS,4 diagrams validated
+09_logging,links,WARN,Only 2 crosslinks (min: 3)
+09_logging,facets,PASS,1 facet(s) found
+10_game_runtime,frontmatter,PASS,Frontmatter present
+10_game_runtime,datasets,WARN,ticks.csv: no data rows; game_state.csv: no data rows
+10_game_runtime,diagrams,PASS,5 diagrams validated
+10_game_runtime,links,PASS,3 crosslinks found
+10_game_runtime,facets,PASS,1 facet(s) found
+11_data,frontmatter,PASS,Frontmatter present
+11_data,datasets,WARN,ui_assets_links.csv: no data rows
+11_data,diagrams,PASS,7 diagrams validated
+11_data,links,PASS,3 crosslinks found
+11_data,facets,PASS,1 facet(s) found
+12_otmod,frontmatter,PASS,Frontmatter present
+12_otmod,datasets,WARN,lua_exports.csv: no data rows
+12_otmod,diagrams,PASS,5 diagrams validated
+12_otmod,links,PASS,3 crosslinks found
+12_otmod,facets,PASS,1 facet(s) found
+13_layouts,frontmatter,PASS,Frontmatter present
+13_layouts,datasets,WARN,layout_overrides.csv: no data rows; layout_images.csv: no data rows
+13_layouts,diagrams,PASS,5 diagrams validated
+13_layouts,links,WARN,Only 2 crosslinks (min: 3)
+13_layouts,facets,PASS,1 facet(s) found
+14_android,frontmatter,PASS,Frontmatter present
+14_android,datasets,WARN,android_manifest.csv: no data rows; android_assets.csv: no data rows
+14_android,diagrams,PASS,4 diagrams validated
+14_android,links,PASS,3 crosslinks found
+14_android,facets,PASS,1 facet(s) found
+15_vc16,frontmatter,PASS,Frontmatter present
+15_vc16,datasets,WARN,defines.csv: no data rows; vc16_projects.csv: no data rows
+15_vc16,diagrams,PASS,2 diagrams validated
+15_vc16,links,WARN,Only 2 crosslinks (min: 3)
+15_vc16,facets,PASS,1 facet(s) found

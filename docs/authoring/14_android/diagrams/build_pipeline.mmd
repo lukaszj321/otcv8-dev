@@ -1,0 +1,19 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph LR
+    SRC["Source Code<br/>C++/Lua"] --> CMAKE["CMake Build"]
+    CMAKE --> NDK["Android NDK"]
+    
+    NDK --> ABI1["arm64-v8a<br/>libotclient.so"]
+    NDK --> ABI2["armeabi-v7a<br/>libotclient.so"]
+    NDK --> ABI3["x86_64<br/>libotclient.so"]
+    
+    ABI1 --> AAB["Android App Bundle<br/>(*.aab)"]
+    ABI2 --> AAB
+    ABI3 --> AAB
+    
+    ASSETS["Common Assets<br/>android/assets"] --> AAB
+    
+    AAB --> SIGN["Signing"]
+    SIGN --> DIST["Distribution<br/>Google Play"]
+    
+    click AAB "../14_android/index.html#facet-14_android.main" "Open Android Build"

@@ -1,58 +1,65 @@
 ---
-doc_id: "02_events"
-source_path: "docs/authoring/02_events/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Events System"
-summary: "Event emission, dispatch, and signal handling"
-tags: ["events", "otclient", "docs"]
+doc_id: 02_events, source_path: docs/authoring/02_events, source_sha: 9609119, last_sync_iso: 2025-10-18T01:36:41.410923Z, doc_class: api, language: pl, title: 02 - Events, summary: C++ and Lua event emission, dispatch, signals, and emitter-handler mappings., tags: events,signals,dispatcher,cpp,lua
 ---
 
-# Events System
+# 02 - Events
 
-## Overview
+C++ and Lua event emission, dispatch, signals, and emitter-handler mappings.
 
-Event emission, dispatch, and signal handling
+## Przegląd
 
-This chapter provides comprehensive documentation for the Events System subsystem of OTClient v8.
+Ten rozdział dokumentuje 02 events w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Events System] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `emitters.csv`
+- `entities.csv`
+- `events_matrix.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
-
-## Related Chapters
-
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
+- [Core API](../01_core/index.md)
 - [Modules](../03_modules/index.md)
+- [UI](../04_ui/index.md)
 
+
+## QA Block
+
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.410923Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-02_events.overview)=
-### Facet: `02_events.overview`
+(facet-02_events.main)=
+### Facet: `02_events.main`
 
-Overview diagram and summary for Events System.
+Main documentation facet for 02_events.
