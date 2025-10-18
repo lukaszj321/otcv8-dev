@@ -111,6 +111,8 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 01_runtime/diagrams/overview.mmd,1,OK,Already has init header
 01_runtime/diagrams/runtime_flow.mmd,1,OK,Already has init header
 01_runtime/diagrams/flow.mmd,1,OK,Already has init header
+01_runtime/diagrams/lifecycle_sequence.mmd,1,OK,Already has init header
+01_runtime/diagrams/dispatcher_architecture.mmd,1,OK,Already has init header
 01_runtime/diagrams/architecture.mmd,1,OK,Already has init header
 05_network/diagrams/overview.mmd,1,OK,Already has init header
 05_network/diagrams/handshake.mmd,1,OK,Already has init header
@@ -121,8 +123,10 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 02_events/diagrams/event_flow.mmd,1,OK,Already has init header
 02_events/diagrams/bus.mmd,1,OK,Already has init header
 02_events/diagrams/flow.mmd,1,OK,Already has init header
+02_events/diagrams/login_lifecycle.mmd,1,OK,Already has init header
 02_events/diagrams/architecture.mmd,1,OK,Already has init header
 02_events/diagrams/propagation.mmd,1,OK,Already has init header
+02_events/diagrams/event_flow_map.mmd,1,OK,Already has init header
 08_audio/diagrams/overview.mmd,1,OK,Already has init header
 08_audio/diagrams/routing.mmd,1,OK,Already has init header
 08_audio/diagrams/audio_pipeline.mmd,1,OK,Already has init header
@@ -136,13 +140,17 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 05_events/diagrams/events_overview.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/overview.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/config_flow.mmd,1,OK,Already has init header
+07_settings_crypto/diagrams/settings_encryption_flow.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/flow.mmd,1,OK,Already has init header
+07_settings_crypto/diagrams/crypto_flow.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/architecture.mmd,1,OK,Already has init header
 07_settings_crypto/diagrams/crypto_overview.mmd,1,OK,Already has init header
 06_assets/diagrams/overview.mmd,1,OK,Already has init header
+06_assets/diagrams/texture_loading_sequence.mmd,1,OK,Already has init header
 06_assets/diagrams/assets_pipeline.mmd,1,OK,Already has init header
 06_assets/diagrams/flow.mmd,1,OK,Already has init header
 06_assets/diagrams/pipeline_flow.mmd,1,OK,Already has init header
+06_assets/diagrams/asset_pipeline.mmd,1,OK,Already has init header
 06_assets/diagrams/architecture.mmd,1,OK,Already has init header
 12_otmod/diagrams/overview.mmd,1,OK,Already has init header
 12_otmod/diagrams/deps_graph.mmd,1,OK,Already has init header
@@ -160,14 +168,7 @@ _static/mermaid/vc16_pipeline.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/overview.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/loop.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/flow.mmd,1,OK,Already has init header
+10_game_runtime/diagrams/game_loop_cycle.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/runtime_loop.mmd,1,OK,Already has init header
+10_game_runtime/diagrams/frame_sequence.mmd,1,OK,Already has init header
 10_game_runtime/diagrams/architecture.mmd,1,OK,Already has init header
-_sources/chapter_02_events_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_12_otmod_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_05_network_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_15_vc16_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_14_android_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_11_data_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_13_layouts_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_09_logging_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable
-_sources/chapter_03_modules_docs_export_kit_authoring_agent_ready.md,0,ERROR,Error: attribute 'regs' of 're.Match' objects is not writable

@@ -1,0 +1,8 @@
+tutorial_name,difficulty,description,events_used,code_snippet,expected_outcome
+Custom Login Event,beginner,Create a custom event handler for login,"onLogin, onGameStart","connect(g_game, {onLogin=myLoginHandler})",Custom logic runs on login
+Health Monitor,beginner,Monitor and react to health changes,onHealthChange,"connect(player, {onHealthChange=checkHealth})",Alert when health is low
+Auto Loot Tracker,intermediate,Track items added to containers,"onUpdateItem, onOpen","connect(container, {onUpdateItem=trackLoot})",Log valuable loot
+Extended Opcode Handler,intermediate,Handle custom server messages,onExtendedOpcode,"connect(g_game, {onExtendedOpcode=handleCustom})",Process server-specific opcodes
+Combat Logger,intermediate,Log all combat events,"onCreatureHealthChange, onAttackingCreatureChange",Multiple event connections,Combat statistics tracking
+Position Tracker,advanced,Track player and creature positions,"onPositionChange, onAppear","Map position history",Movement analysis
+Custom Signal Creation,advanced,Create and emit custom signals,custom signal,"signalConnect/signalEmit",Module inter-communication

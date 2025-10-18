@@ -241,6 +241,8 @@ analytics/index.md,OK,gaps.md
 01_runtime/index.md,OK,../01_core/index.md
 01_runtime/index.md,OK,../02_events/index.md
 01_runtime/index.md,OK,../10_game_runtime/index.md
+01_runtime/index.md,OK,../03_modules/index.md
+01_runtime/index.md,OK,../05_network/index.md
 05_network/README.md,OK,./index.md
 05_network/README.md,OK,./datasets/
 05_network/README.md,OK,./diagrams/
@@ -276,8 +278,11 @@ analytics/index.md,OK,gaps.md
 02_events/README.md,OK,./blueprints/
 02_events/README.md,OK,./index.md
 02_events/index.md,OK,../01_core/index.md
+02_events/index.md,OK,../01_runtime/index.md
 02_events/index.md,OK,../03_modules/index.md
 02_events/index.md,OK,../04_ui/index.md
+02_events/index.md,OK,../05_network/index.md
+02_events/index.md,OK,../10_game_runtime/index.md
 08_audio/README.md,OK,./index.md
 08_audio/README.md,OK,./datasets/
 08_audio/README.md,OK,./diagrams/
@@ -300,6 +305,9 @@ analytics/index.md,OK,gaps.md
 07_settings_crypto/README.md,OK,./index.md
 07_settings_crypto/index.md,OK,../01_core/index.md
 07_settings_crypto/index.md,OK,../03_modules/index.md
+07_settings_crypto/index.md,OK,../05_network/index.md
+07_settings_crypto/index.md,OK,../01_runtime/index.md
+07_settings_crypto/index.md,OK,../11_data/index.md
 06_assets/README.md,OK,./index.md
 06_assets/README.md,OK,./datasets/
 06_assets/README.md,OK,./diagrams/
@@ -308,6 +316,9 @@ analytics/index.md,OK,gaps.md
 06_assets/index.md,OK,../11_data/index.md
 06_assets/index.md,OK,../04_ui/index.md
 06_assets/index.md,OK,../13_layouts/index.md
+06_assets/index.md,OK,../10_game_runtime/index.md
+06_assets/index.md,OK,../01_core/index.md
+06_assets/index.md,OK,../01_runtime/index.md
 12_otmod/README.md,OK,./index.md
 12_otmod/README.md,OK,./datasets/
 12_otmod/README.md,OK,./diagrams/
@@ -373,6 +384,9 @@ analytics/index.md,OK,gaps.md
 10_game_runtime/index.md,OK,../01_runtime/index.md
 10_game_runtime/index.md,OK,../02_events/index.md
 10_game_runtime/index.md,OK,../04_ui/index.md
+10_game_runtime/index.md,OK,../01_core/index.md
+10_game_runtime/index.md,OK,../05_network/index.md
+10_game_runtime/index.md,OK,../06_assets/index.md
 04_ui/otui/game_questlog/questlogwindow.md,BROKEN,../diagrams/questlogwindow.mmd
 04_ui/otui/game_spelllist/spelllist.md,BROKEN,../diagrams/spelllist.mmd
 04_ui/otui/client_locales/locales.md,BROKEN,../diagrams/locales.mmd

@@ -1,0 +1,34 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant Client as Client App
+    participant Server as Game Server
+    participant Protocol as ProtocolGame
+    participant Game as g_game
+    participant UI as UI Modules
+
+    Client->>Server: Connect
+    Server-->>Protocol: onRecvFirstMessage
+    Protocol->>Game: Process handshake
+    
+    Client->>Server: Login credentials
+    Server-->>Protocol: Login OK / Character list
+    Protocol->>Game: onLogin
+    Game->>UI: Emit onLogin
+    
+    Client->>Server: Enter game
+    Server-->>Protocol: Enter world success
+    Protocol->>Game: onGameStart
+    Game->>UI: Emit onGameStart
+    Note over UI: Initialize game modules
+    
+    loop Game Session
+        Server-->>Protocol: Game updates
+        Protocol->>Game: Various events
+        Game->>UI: onHealthChange, onPositionChange, etc.
+    end
+    
+    Client->>Server: Logout
+    Server-->>Protocol: Logout OK
+    Protocol->>Game: onGameEnd
+    Game->>UI: Emit onGameEnd
+    Note over UI: Cleanup game modules

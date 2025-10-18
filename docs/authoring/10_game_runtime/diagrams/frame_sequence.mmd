@@ -1,0 +1,46 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant App as Application
+    participant Input as InputManager
+    participant Dispatcher as EventDispatcher
+    participant Game as Game
+    participant Map as Map
+    participant UI as UIManager
+    participant Graphics as Graphics
+
+    Note over App: Frame Begin
+    
+    App->>Input: Poll OS events
+    Input->>Dispatcher: Queue input events
+    
+    App->>Dispatcher: poll()
+    activate Dispatcher
+    Dispatcher->>Dispatcher: Execute queued events
+    Dispatcher->>Game: Trigger game events
+    deactivate Dispatcher
+    
+    App->>Game: update()
+    activate Game
+    Game->>Game: Process protocol messages
+    Game->>Game: Update creatures
+    Game->>Game: Update animations
+    deactivate Game
+    
+    App->>Map: render()
+    activate Map
+    Map->>Map: Cull visible tiles
+    Map->>Graphics: Draw tiles
+    Map->>Graphics: Draw creatures
+    Map->>Graphics: Draw effects
+    deactivate Map
+    
+    App->>UI: render()
+    activate UI
+    UI->>Graphics: Draw widgets
+    deactivate UI
+    
+    App->>Graphics: swapBuffers()
+    Graphics-->>App: Frame displayed
+    
+    App->>App: Frame limiter
+    Note over App: Frame End

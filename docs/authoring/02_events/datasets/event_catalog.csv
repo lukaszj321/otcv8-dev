@@ -1,0 +1,25 @@
+event_category,event_name,emitter,handler_example,payload_schema,context,notes
+Lifecycle,onGameStart,g_game,modules/game_*/init,none,Game session,Character enters world
+Lifecycle,onGameEnd,g_game,modules/game_*/cleanup,none,Game session,Return to character list
+Lifecycle,onLogin,g_game,modules login handlers,{characterName},Server connection,Successful authentication
+Lifecycle,onLoginError,g_game,login error handlers,{message},Server connection,Login failed
+Lifecycle,onConnectionError,g_game,connection handlers,{message error},Network,Lost connection to server
+Player,onHealthChange,LocalPlayer,UI health bars,{current max},Player stats,HP update
+Player,onManaChange,LocalPlayer,UI mana bars,{current max},Player stats,Mana update
+Player,onStatsChange,LocalPlayer,stats/skills modules,{stats},Player stats,Level/XP change
+Player,onSkillChange,LocalPlayer,skills module,{skillId level percent},Player stats,Skill progress
+Player,onInventoryChange,LocalPlayer,inventory module,{slot item},Inventory,Equipment slot changed
+Creature,onAppear,Map/Tile,battle list module,{creature},Map/World,New creature visible
+Creature,onDisappear,Map/Tile,battle list module,{creature},Map/World,Creature removed
+Creature,onPositionChange,Creature,map renderer,{fromPos toPos},Map/World,Movement update
+Creature,onOutfitChange,Creature,outfit handlers,{outfit},Appearance,Look changed
+Protocol,onRecvFirstMessage,ProtocolGame,protocol module,{message},Network,Initial handshake
+Protocol,onExtendedOpcode,ProtocolGame,extended handlers,{opcode data},Network,Custom server message
+Protocol,onTextMessage,ProtocolGame,console/hud modules,{mode text},Chat/UI,Server text
+Container,onOpen,Container,container module,{container},Inventory,Container opened
+Container,onClose,Container,container module,{containerId},Inventory,Container closed
+Container,onUpdateItem,Container,container module,{slot item},Inventory,Container item changed
+Combat,onCreatureHealthChange,Creature,battle/healthbars,{creature hp max},Combat,Creature HP changed
+Combat,onAttackingCreatureChange,LocalPlayer,battle module,{creature},Combat,Target changed
+Input,onKeyPress,KeyboardController,hotkeys module,{keyCode modifiers},Input,Key pressed
+Input,onMouseMove,MouseController,map/ui handlers,{pos},Input,Mouse moved

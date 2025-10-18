@@ -1,0 +1,5 @@
+thread_id,thread_name,purpose,dispatcher_type,validation_macro,notes
+g_mainThreadId,Main,Application main loop and initialization,none,none,Primary application thread
+g_dispatcherThreadId,Dispatcher,Event processing and game logic,EventDispatcher,VALIDATE_DISPATCHER_THREAD,Main event queue processing
+g_graphicsThreadId,Graphics,Rendering and graphics operations,EventDispatcher,VALIDATE_GRAPHICS_THREAD,Separate graphics context thread
+AsyncWorker,AsyncWorker,Async task execution pool,AsyncDispatcher,none,Worker threads for background tasks

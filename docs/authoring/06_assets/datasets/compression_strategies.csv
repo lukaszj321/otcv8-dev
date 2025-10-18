@@ -1,0 +1,9 @@
+format,typical_use,compression_method,compression_ratio,quality_loss,load_time,memory_usage,recommendation
+PNG,UI elements/icons,DEFLATE,2-5x,lossless,medium,high,Best for UI and exact reproduction
+PNG-8,Simple graphics,Indexed palette,5-10x,palette limited,fast,low,Good for low-color graphics
+JPG,Photos/backgrounds,JPEG DCT,10-30x,lossy,fast,medium,Not recommended for pixel art
+OGG,Music/audio,Vorbis,10-20x,lossy,medium,low,Good for music files
+WAV,Sound effects,None,1x,lossless,very fast,very high,Use for short sound effects
+Spritesheet,Game sprites,PNG + atlas,3-8x,lossless,medium,medium,Best for game objects
+DDS,Precompressed textures,S3TC/DXT,4-8x,lossy,very fast,low,Desktop-only; fast GPU loading
+WebP,Modern alternative,WebP,5-15x,lossy/lossless,medium,medium,Future consideration

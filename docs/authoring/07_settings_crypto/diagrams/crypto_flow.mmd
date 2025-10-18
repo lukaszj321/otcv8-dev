@@ -1,0 +1,33 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    Input[Sensitive Data] --> Choice{Security Need?}
+    
+    Choice -->|High| Hash[Hash Functions]
+    Choice -->|Medium| Sym[Symmetric Encryption]
+    Choice -->|Low| Obf[Obfuscation]
+    
+    Hash --> SHA256[SHA256/SHA512]
+    Hash --> MD5[MD5 - Legacy Only]
+    
+    Sym --> MachineEnc[encrypt with UUID]
+    Sym --> XOR[XOR Cipher]
+    
+    Obf --> Base64[Base64 Encoding]
+    
+    SHA256 --> Store1[Store Hash Only]
+    MachineEnc --> Store2[Store Encrypted]
+    Base64 --> Store3[Store Encoded]
+    
+    Store1 --> ConfigFile[config.otml]
+    Store2 --> ConfigFile
+    Store3 --> ConfigFile
+    
+    Retrieve[Retrieve Setting] --> Decrypt{Encrypted?}
+    Decrypt -->|Yes| DecryptFunc[decrypt with UUID]
+    Decrypt -->|No| Direct[Use Directly]
+    
+    DecryptFunc --> Use[Use Value]
+    Direct --> Use
+    
+    click MachineEnc "./index.html#facet-07_settings_crypto.crypto_api" "Crypto API"
+    click ConfigFile "./index.html#facet-07_settings_crypto.settings_migration" "Settings"

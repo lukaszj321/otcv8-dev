@@ -1,0 +1,11 @@
+use_case,recommended_method,key_storage,key_rotation,threat_model,implementation_notes
+Password Storage,SHA256/SHA512 hash,Hash only; never store plaintext,n/a,Rainbow tables,Salt + hash; use bcrypt/scrypt if available
+Session Tokens,SHA256 + random salt,Server-side database,Per session,Token theft,Short-lived tokens preferred
+Account Credentials,RSA encrypt + server decrypt,RSA public key client-side; private server,Annual key rotation,Man-in-the-middle,Use TLS for transport
+Settings Encryption,encrypt() with machine UUID,Machine UUID (hardware-based),On machine change,Local file tampering,Binds to specific device
+API Keys,Base64 + XOR obfuscation,Obfuscated in config,On leak detection,Source code inspection,NOT secure; use for non-sensitive only
+License Keys,RSA signature verification,Public key in client,On version update,Piracy/tampering,Sign with server private key
+Save File Protection,SHA256 checksum,Embedded in save file,Per save,Cheating/corruption,Detect tampering; not prevent
+Network Protocol,Custom XOR + sequence,Hardcoded key + session key,Per connection,Packet inspection,Use for obfuscation; TLS preferred
+Character Password,MD5 hash (legacy),Server database,Never (legacy),Cracking,UPGRADE to SHA256+salt
+Auto-Login Token,encrypt() with UUID,Encrypted in config.otml,On password change,Device access,Invalidate on logout

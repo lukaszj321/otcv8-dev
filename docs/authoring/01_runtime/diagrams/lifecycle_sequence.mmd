@@ -1,0 +1,27 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant App as Application
+    participant AD as AsyncDispatcher
+    participant ED as EventDispatcher
+    participant GD as GraphicsDispatcher
+    participant Worker as WorkerThread
+
+    App->>AD: init()
+    AD->>Worker: spawn_thread()
+    activate Worker
+    
+    App->>ED: Start main loop
+    loop Game Loop
+        ED->>ED: poll()
+        Note over ED: Process events
+        ED->>ED: Execute scheduled events
+        GD->>GD: poll()
+        Note over GD: Render frame
+    end
+    
+    App->>ED: shutdown()
+    ED->>ED: Clear event queue
+    App->>AD: stop()
+    AD->>Worker: Signal terminate
+    deactivate Worker
+    App->>AD: terminate()

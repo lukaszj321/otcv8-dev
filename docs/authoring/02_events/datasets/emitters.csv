@@ -1,1 +1,22 @@
 source,event,count,notes
+g_game,onGameStart,1,Fired when game starts and character enters world
+g_game,onGameEnd,1,Fired when game ends and returns to login
+g_game,onLogin,1,Successful login to game server
+g_game,onLoginError,1,Login failed with error message
+g_game,onConnectionError,1,Connection to server lost
+LocalPlayer,onHealthChange,many,Player health points changed
+LocalPlayer,onManaChange,many,Player mana points changed
+LocalPlayer,onStatsChange,many,Player stats (level/experience) updated
+LocalPlayer,onSkillChange,many,Skill level or percentage changed
+LocalPlayer,onInventoryChange,many,Inventory slot item changed
+Creature,onAppear,many,Creature appears on screen
+Creature,onDisappear,many,Creature disappears from view
+Creature,onPositionChange,many,Creature moves to new position
+Creature,onOutfitChange,many,Creature outfit/appearance changed
+Protocol,onRecvFirstMessage,1,First protocol message received
+Protocol,onExtendedOpcode,many,Extended opcode packet received
+Protocol,onTextMessage,many,Server text message (console/status)
+Container,onOpen,many,Container window opened
+Container,onClose,many,Container window closed
+Container,onUpdateItem,many,Item in container changed
+

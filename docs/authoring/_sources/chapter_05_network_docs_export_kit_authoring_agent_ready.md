@@ -537,6 +537,7 @@ run()
 `diagrams/network_flow.mmd`
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
   Inventory --> NDJSON[(protocol.dataset.jsonl)]
@@ -549,6 +550,7 @@ graph TD
 `diagrams/login_handshake.mmd`
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
   participant Client
   participant Studio as Electron Studio

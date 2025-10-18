@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-18T01:38:32.884240Z",
+  "timestamp": "2025-10-18T05:03:18.162217Z",
   "chapters_total": 16,
-  "chapters_pass": 4,
-  "chapters_warn": 12,
+  "chapters_pass": 10,
+  "chapters_warn": 6,
   "chapters_fail": 0,
-  "total_md_files": 877,
-  "total_datasets": 99,
-  "total_diagrams": 152,
-  "total_size_kb": 1950.7
+  "total_md_files": 888,
+  "total_datasets": 113,
+  "total_diagrams": 163,
+  "total_size_kb": 2095.8
 }

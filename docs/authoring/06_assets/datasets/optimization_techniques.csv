@@ -1,0 +1,13 @@
+optimization,category,technique,benefit,complexity,impact,notes
+Texture Atlas,packing,Combine multiple sprites into single texture,Reduce draw calls and state changes,medium,high,Use SpriteManager for automatic packing
+Mipmapping,quality,Generate lower-res versions,Better quality at distance; reduce aliasing,low,medium,OpenGL automatic generation
+POT Sizing,compatibility,Use power-of-2 dimensions,Better GPU compatibility and compression,low,low,Recommended: 256x256, 512x512, 1024x1024
+Color Reduction,size,Reduce color palette for simple graphics,Smaller file size; faster load,medium,medium,PNG-8 for icons and simple UI
+Lazy Loading,performance,Load assets on-demand,Faster startup; lower initial memory,high,high,Load when entering new areas
+Preloading,UX,Load commonly-used assets at startup,Eliminate stutters during gameplay,medium,medium,Preload UI and common sprites
+Unloading,memory,Free unused textures,Lower memory footprint,medium,medium,Unload when switching areas
+Reference Counting,management,Track texture usage,Automatic cleanup when unused,low,low,Built into TextureManager
+Async Loading,performance,Load assets on worker thread,Non-blocking UI,high,high,Use AsyncDispatcher for large assets
+Sprite Caching,speed,Cache rendered sprite quads,Faster repeated draws,low,medium,Cache common UI elements
+Compression,size,Use appropriate format per asset type,Balance quality and file size,medium,high,See compression_strategies.csv
+Resource Pools,memory,Reuse texture objects,Reduce allocation overhead,medium,medium,Pool common sizes

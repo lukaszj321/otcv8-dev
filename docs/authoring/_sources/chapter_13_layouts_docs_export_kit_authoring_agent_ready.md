@@ -220,6 +220,7 @@ TabBarButton < UIButton
 ### Facet: `13_layouts.resolve_flow`
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 flowchart TD
   A[Request asset path] --> B{layouts/<active>/... exists?}
   B -- yes --> C[Use layout asset]
@@ -234,6 +235,7 @@ flowchart TD
 ### Facet: `13_layouts.layout_to_ui`
 
 ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph LR
   L[layouts/<active>] -->|override| D[data/**]
   L --> IMG[images]

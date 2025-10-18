@@ -1,0 +1,38 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant User as User Action
+    participant App as Application
+    participant Config as Config Manager
+    participant Crypt as g_crypt
+    participant File as config.otml
+
+    User->>App: Enable auto-login
+    App->>App: Get current password
+    
+    App->>Crypt: getMachineUUID()
+    Crypt-->>App: UUID
+    
+    App->>Crypt: encrypt(password)
+    activate Crypt
+    Crypt->>Crypt: Use UUID as key
+    Crypt-->>App: Encrypted password
+    deactivate Crypt
+    
+    App->>Config: setValue("saved-password", encrypted)
+    Config->>File: Write to disk
+    
+    Note over File: Encrypted password stored
+    
+    User->>App: Restart client
+    App->>Config: getValue("saved-password")
+    Config->>File: Read from disk
+    File-->>Config: Encrypted password
+    Config-->>App: Encrypted password
+    
+    App->>Crypt: decrypt(encrypted)
+    activate Crypt
+    Crypt->>Crypt: Use UUID as key
+    Crypt-->>App: Plaintext password
+    deactivate Crypt
+    
+    App->>App: Auto-login with password
