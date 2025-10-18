@@ -663,7 +663,7 @@ run()
 
 diagrams/settings_crypto_flow.mmd
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC export| SettingsExport

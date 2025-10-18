@@ -173,7 +173,7 @@ All CSV files include:
 ### Diagrams (129 total)
 
 All Mermaid diagrams include:
-```mermaid
+```{mermaid}
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 ```
 - Neutral theme for dark/light compatibility

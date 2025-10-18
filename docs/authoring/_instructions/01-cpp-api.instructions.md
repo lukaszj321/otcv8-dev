@@ -106,7 +106,7 @@ title: 01 — Core
 
 ## Diagrams
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   Core[Core] --> Subsystems[Subsystems]

@@ -541,7 +541,7 @@ run()
 
 `diagrams/ui_flow.mmd`
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC scan| Extractor

@@ -92,7 +92,7 @@ acceptance:
 
 ## Diagramy — podgląd i klikalne kotwice
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   WidgetsHierarchy[Widgets Hierarchy] --> SignalsMatrix[Signals Matrix]

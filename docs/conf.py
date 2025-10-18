@@ -79,7 +79,7 @@ myst_enable_extensions = [
 myst_heading_anchors = 3
 
 # Treat certain fence types as directives (allows ```mermaid to be treated as {mermaid} directive)
-# Must be a list/tuple/set, not dict (myst-nb requirement)
+# myst-nb requires list/tuple/set format (not dict)
 myst_fence_as_directive = ["mermaid"]
 
 # Labelowanie nagłówków bez kolizji
@@ -126,6 +126,9 @@ html_context = {
 
 # -- Mermaid (sphinxcontrib-mermaid) -------------------------------------------
 mermaid_version = "10.9.0"
+# Use "raw" output for client-side JavaScript rendering (GitHub Pages)
+# This outputs <pre class="mermaid"> tags that are rendered by mermaid.js
+mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'neutral'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------

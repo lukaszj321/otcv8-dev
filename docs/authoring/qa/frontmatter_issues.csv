@@ -17,22 +17,23 @@ COMPLETENESS.md,1,missing_frontmatter,No front-matter block found
 relations.md,1,missing_frontmatter,No front-matter block found
 datasets/index.md,1,missing_frontmatter,No front-matter block found
 11_data/README.md,1,missing_frontmatter,No front-matter block found
-11_data/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.412740Z"""
+11_data/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 14_android/README.md,1,missing_frontmatter,No front-matter block found
 14_android/abi_configuration.md,1,missing_frontmatter,No front-matter block found
 14_android/apk_signing.md,1,missing_frontmatter,No front-matter block found
 14_android/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.413344Z"""
 04_ui/README.md,1,missing_frontmatter,No front-matter block found
-04_ui/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.411326Z"""
+04_ui/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
+qa/QA_SUMMARY.md,1,missing_frontmatter,No front-matter block found
 qa/qa_summary.md,1,missing_frontmatter,No front-matter block found
 qa/qa_summary_old.md,1,missing_frontmatter,No front-matter block found
 qa/index.md,1,missing_frontmatter,No front-matter block found
 09_logging/README.md,1,missing_frontmatter,No front-matter block found
-09_logging/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.412346Z"""
+09_logging/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 artifacts/README.md,1,missing_frontmatter,No front-matter block found
 artifacts/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 03_modules/README.md,1,missing_frontmatter,No front-matter block found
-03_modules/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.411138Z"""
+03_modules/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 analytics/index_diff_09_logging.md,1,missing_frontmatter,No front-matter block found
 analytics/gaps.md,1,missing_frontmatter,No front-matter block found
 analytics/DEPLOYMENT_CHECKLIST.md,1,missing_frontmatter,No front-matter block found
@@ -45,22 +46,22 @@ analytics/index.md,1,missing_frontmatter,No front-matter block found
 analytics/errors.md,1,missing_frontmatter,No front-matter block found
 analytics/index_diff_03_modules.md,1,missing_frontmatter,No front-matter block found
 01_runtime/README.md,1,missing_frontmatter,No front-matter block found
-01_runtime/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.410718Z"""
+01_runtime/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 05_network/README.md,1,missing_frontmatter,No front-matter block found
 05_network/extended_opcodes.md,1,missing_frontmatter,No front-matter block found
 05_network/appendix_tfs_extendedopcode.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:38:00Z"""
 05_network/packet_structure.md,1,missing_frontmatter,No front-matter block found
-05_network/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.411532Z"""
+05_network/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 05_network/protocol_versions.md,1,missing_frontmatter,No front-matter block found
 02_events/README.md,1,missing_frontmatter,No front-matter block found
-02_events/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.410923Z"""
+02_events/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 08_audio/README.md,1,missing_frontmatter,No front-matter block found
-08_audio/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.412145Z"""
+08_audio/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 01_core/README.md,1,missing_frontmatter,No front-matter block found
-01_core/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.410424Z"""
+01_core/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 05_events/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 07_settings_crypto/README.md,1,missing_frontmatter,No front-matter block found
-07_settings_crypto/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.411933Z"""
+07_settings_crypto/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 szablony/changelog_release.md,1,missing_frontmatter,No front-matter block found
 szablony/diagrams.md,1,missing_frontmatter,No front-matter block found
 szablony/pr_template.md,1,missing_frontmatter,No front-matter block found
@@ -76,10 +77,10 @@ szablony/index.md,2,single_line_yaml,Front-matter is single-line (should be mult
 szablony/license_guide.md,1,missing_frontmatter,No front-matter block found
 szablony/codeowners.md,1,missing_frontmatter,No front-matter block found
 06_assets/README.md,1,missing_frontmatter,No front-matter block found
-06_assets/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.411736Z"""
+06_assets/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 12_otmod/README.md,1,missing_frontmatter,No front-matter block found
 12_otmod/load_later_patterns.md,1,missing_frontmatter,No front-matter block found
-12_otmod/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.412944Z"""
+12_otmod/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 12_otmod/sandbox_security.md,1,missing_frontmatter,No front-matter block found
 15_vc16/angle_integration.md,1,missing_frontmatter,No front-matter block found
 15_vc16/README.md,1,missing_frontmatter,No front-matter block found
@@ -90,7 +91,7 @@ szablony/codeowners.md,1,missing_frontmatter,No front-matter block found
 13_layouts/README.md,1,missing_frontmatter,No front-matter block found
 13_layouts/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.413158Z"""
 10_game_runtime/README.md,1,missing_frontmatter,No front-matter block found
-10_game_runtime/index.md,2,invalid_date_format,"Invalid ISO date: ""2025-10-18T01:36:41.412529Z"""
+10_game_runtime/index.md,2,single_line_yaml,Front-matter is single-line (should be multiline)
 relations/index.md,1,missing_frontmatter,No front-matter block found
 datasets/modules/index.md,1,missing_frontmatter,No front-matter block found
 datasets/api/index.md,1,missing_frontmatter,No front-matter block found

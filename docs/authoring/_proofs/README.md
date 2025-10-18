@@ -1,13 +1,43 @@
-# Proof Artifacts — Mermaid/YAML Rendering Fixes
+# Proof Artifacts — Mermaid Rendering Fix (LIVE)
 
-This directory contains proof artifacts demonstrating that the rendering issues have been fixed.
+This directory contains proof artifacts, verification guides, and test pages for the Mermaid rendering fix.
+
+## Key Files
+
+### Verification Guides
+
+- **LIVE_VERIFICATION.md** — Comprehensive guide for verifying Mermaid rendering fix on GitHub Pages
+- **mermaid_smoke.md** — Smoke test page with 3 sample Mermaid diagrams
+
+### Screenshots Directory
+
+`screenshots/` — Save proof screenshots here:
+- Rendered diagram examples from 03_modules, 06_assets, 09_logging
+- Page source views showing correct HTML structure (`<pre class="mermaid">`)
+- Browser console verification (no errors)
+
+### Other Files
+
+- **CHANGES_SUMMARY.md** — Summary of content hygiene changes
+- **VERIFICATION_EXAMPLES.md** — Examples and patterns for verification
+- **README.md** (this file) — Directory overview
+
+## Critical Fix Applied
+
+**Root Cause:** `mermaid_output_format = "svg"` in `docs/conf.py` required server-side rendering with `mmdc` CLI (not available), causing fallback to plain text.
+
+**Solution:** Changed to `mermaid_output_format = "raw"` for client-side JavaScript rendering via mermaid.js from CDN.
+
+**Result:** Mermaid blocks now render as `<pre class="mermaid">...</pre>` tags that are processed by mermaid.js to create interactive SVG diagrams.
 
 ## Expected Contents
 
 For each verified chapter (03_modules, 06_assets, 09_logging):
 
-- `<chapter>/index.html` — Rendered HTML showing Mermaid diagrams properly displayed
-- `<chapter>/screenshot.png` — Screenshot of rendered page with visible Mermaid diagrams
+- Mermaid diagrams render as interactive SVG (not code blocks)
+- HTML contains `<pre class="mermaid">` tags
+- mermaid.js v10.9.0 loaded from CDN
+- No browser console errors
 
 ## Verification Method
 

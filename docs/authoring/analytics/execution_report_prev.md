@@ -112,7 +112,7 @@ graph TD
 **Symptom:** Mermaid parse errors in sequence diagrams
 
 **Example (broken):**
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark'}}%%
 sequenceDiagram
     participant Lua
@@ -125,7 +125,7 @@ sequenceDiagram
 
 **Fix Applied:** Commented out `click` directives in sequence diagrams:
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark'}}%%
 sequenceDiagram
     participant Lua

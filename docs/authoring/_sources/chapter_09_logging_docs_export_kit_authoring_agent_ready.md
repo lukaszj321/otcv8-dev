@@ -624,7 +624,7 @@ run()
 
 `diagrams/logging_flow.mmd`
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC start/stop| Sniffer
@@ -637,7 +637,7 @@ graph TD
 
 `diagrams/error_timeline.mmd`
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
   participant Studio as Electron Studio

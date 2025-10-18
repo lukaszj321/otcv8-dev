@@ -25,8 +25,11 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          # Note: myst-nb (not myst-parser) is in requirements.txt and includes MyST functionality
-          pip install pydata-sphinx-theme sphinx-design sphinxcontrib-mermaid sphinx-copybutton
+          # Verify critical packages for Mermaid rendering
+          python - << 'PY'
+          import sphinxcontrib.mermaid, myst_nb, sphinx_design
+          print("✓ sphinxcontrib-mermaid, myst-nb, sphinx-design installed")
+          PY
 
       - name: Build docs
         run: |

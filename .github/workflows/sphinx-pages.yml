@@ -33,12 +33,16 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip wheel setuptools
+          # Install from requirements.txt first (ensures version consistency)
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          # Note: myst-nb (not myst-parser) is in requirements.txt and includes MyST functionality
-          pip install --upgrade sphinx==7.4.7 pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog
+          # Verify critical packages are loaded
           python - << 'PY'
-          import sphinx, pydata_sphinx_theme, sphinxcontrib.mermaid
-          print("OK: sphinx", sphinx.__version__)
+          import sphinx, pydata_sphinx_theme, sphinxcontrib.mermaid, myst_nb, sphinx_design
+          print("✓ sphinx", sphinx.__version__)
+          print("✓ pydata-sphinx-theme", pydata_sphinx_theme.__version__)
+          print("✓ sphinxcontrib-mermaid installed")
+          print("✓ myst-nb installed")
+          print("✓ sphinx-design installed")
           PY
 
       - name: Generate authoring pages

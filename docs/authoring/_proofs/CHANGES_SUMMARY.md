@@ -129,9 +129,10 @@ Ran `scripts/build_authoring_pages.py` to:
 ```
 ❌ Mermaid:
    ```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
    graph TD
      A --> B
-   ```
+```
    (shown as code block)
 
 ❌ Grid:

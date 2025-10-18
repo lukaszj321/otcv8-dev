@@ -1,20 +1,28 @@
 # system: sudo apt-get install -y doxygen graphviz
 
+# Core Sphinx
+sphinx>=7.2
+pydata-sphinx-theme>=0.15
+
+# MyST parsing - use myst-nb which includes myst-parser
+myst-nb>=1.0
+myst-parser>=2.0
+
+# Sphinx extensions (required for proper rendering)
+sphinxcontrib-mermaid>=0.9
+sphinx-design>=0.5
+sphinx-copybutton>=0.5.2
+linkify-it-py>=2.0
+
+# Additional extensions
 ablog>=0.11.12
 breathe
 exhale
-linkify-it-py>=2.0.2
 matplotlib>=3.8
-myst-nb
-myst-parser>=4.0.1
 pandas>=2.2.0
-pydata-sphinx-theme>=0.16.1
-sphinx==7.4.7
 sphinx-autoapi
 sphinx-autobuild
 sphinx-codeautolink>=0.15.0
-sphinx-copybutton>=0.5.2
-sphinx-design>=0.6.0
 sphinx-favicon>=1.0.1
 sphinx-hoverxref>=1.4.2,<1.5
 sphinx-last-updated-by-git
@@ -23,4 +31,3 @@ sphinxext-opengraph>=0.9.1
 sphinxext-rediraffe
 sphinxcontrib-bibtex
 sphinxcontrib-luadomain
-sphinxcontrib-mermaid>=0.9.2
