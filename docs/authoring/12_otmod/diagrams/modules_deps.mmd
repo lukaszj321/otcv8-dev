@@ -1,0 +1,19 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    MOD["Module<br/>(*.otmod)"] --> MANIFEST["Manifest<br/>dependencies<br/>load-later"]
+    MOD --> LUA["Lua Scripts<br/>(*.lua)"]
+    MOD --> OTUI["UI Files<br/>(*.otui)"]
+    
+    MANIFEST --> DEPS["Module Dependencies<br/>module_deps.csv"]
+    LUA --> EXPORTS["Lua Exports<br/>lua_exports.csv"]
+    LUA --> HOOKS["Hooks<br/>@onLoad/@onUnload"]
+    OTUI --> UILINKS["UI Links<br/>module_ui_links.csv"]
+    
+    HOOKS --> LIFECYCLE["Module Lifecycle"]
+    
+    DEPS --> INDEX["Modules Index<br/>modules_index.csv"]
+    EXPORTS --> INDEX
+    UILINKS --> INDEX
+    
+    click INDEX "../12_otmod/index.html#facet-12_otmod.main" "Open OTMOD Index"
+    click DEPS "../12_otmod/index.html#facet-12_otmod.module_deps" "Open Module Dependencies"

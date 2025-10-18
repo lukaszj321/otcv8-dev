@@ -1,58 +1,65 @@
 ---
-doc_id: "06_assets"
-source_path: "docs/authoring/06_assets/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Assets Pipeline"
-summary: "Asset processing and optimization"
-tags: ["assets", "otclient", "docs"]
+doc_id: 06_assets, source_path: docs/authoring/06_assets, source_sha: f715219, last_sync_iso: 2025-10-18T01:36:41.411736Z, doc_class: guide, language: pl, title: 06 - Assets Pipeline, summary: Asset atlas, versioning, compression, and differences from data chapter., tags: assets,pipeline,atlas
 ---
 
-# Assets Pipeline
+# 06 - Assets Pipeline
 
-## Overview
+Asset atlas, versioning, compression, and differences from data chapter.
 
-Asset processing and optimization
+## Przegląd
 
-This chapter provides comprehensive documentation for the Assets Pipeline subsystem of OTClient v8.
+Ten rozdział dokumentuje 06 assets w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Assets Pipeline] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `assets_index.csv`
+- `entities.csv`
+- `pipelines.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Data](../11_data/index.md)
+- [UI](../04_ui/index.md)
+- [Layouts](../13_layouts/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.411736Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-06_assets.overview)=
-### Facet: `06_assets.overview`
+(facet-06_assets.main)=
+### Facet: `06_assets.main`
 
-Overview diagram and summary for Assets Pipeline.
+Main documentation facet for 06_assets.

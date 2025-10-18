@@ -1,58 +1,65 @@
 ---
-doc_id: "14_android"
-source_path: "docs/authoring/14_android/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Android Platform"
-summary: "Android build and packaging"
-tags: ["android", "otclient", "docs"]
+doc_id: 14_android, source_path: docs/authoring/14_android, source_sha: 92cffc0, last_sync_iso: 2025-10-18T01:36:41.413344Z, doc_class: guide, language: pl, title: 14 - Android, summary: Android assets, ABI-specific .so files, AAB/APK builds, and signing., tags: android,abi,build
 ---
 
-# Android Platform
+# 14 - Android
 
-## Overview
+Android assets, ABI-specific .so files, AAB/APK builds, and signing.
 
-Android build and packaging
+## Przegląd
 
-This chapter provides comprehensive documentation for the Android Platform subsystem of OTClient v8.
+Ten rozdział dokumentuje 14 android w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Android Platform] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `android_assets.csv`
+- `android_build.csv`
+- `android_files.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Core API](../01_core/index.md)
+- [Data](../11_data/index.md)
+- [Game Runtime](../10_game_runtime/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.413344Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-14_android.overview)=
-### Facet: `14_android.overview`
+(facet-14_android.main)=
+### Facet: `14_android.main`
 
-Overview diagram and summary for Android Platform.
+Main documentation facet for 14_android.

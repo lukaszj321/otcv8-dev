@@ -1,58 +1,64 @@
 ---
-doc_id: "01_runtime"
-source_path: "docs/authoring/01_runtime/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Runtime System"
-summary: "Runtime lifecycle, scheduler, dispatcher, and threading"
-tags: ["runtime", "otclient", "docs"]
+doc_id: 01_runtime, source_path: docs/authoring/01_runtime, source_sha: 488402e, last_sync_iso: 2025-10-18T01:36:41.410718Z, doc_class: spec, language: pl, title: 01 - Runtime, summary: Runtime lifecycle, scheduler/dispatcher, threading, and event queues., tags: runtime,lifecycle,scheduler,threads
 ---
 
-# Runtime System
+# 01 - Runtime
 
-## Overview
+Runtime lifecycle, scheduler/dispatcher, threading, and event queues.
 
-Runtime lifecycle, scheduler, dispatcher, and threading
+## Przegląd
 
-This chapter provides comprehensive documentation for the Runtime System subsystem of OTClient v8.
+Ten rozdział dokumentuje 01 runtime w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Runtime System] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `entities.csv`
+- `runtime_stats.csv`
+- `summary.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Core API](../01_core/index.md)
+- [Events](../02_events/index.md)
+- [Game Runtime](../10_game_runtime/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Events System](../02_events/index.md)
-- [Modules](../03_modules/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.410718Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-01_runtime.overview)=
-### Facet: `01_runtime.overview`
+(facet-01_runtime.main)=
+### Facet: `01_runtime.main`
 
-Overview diagram and summary for Runtime System.
+Main documentation facet for 01_runtime.

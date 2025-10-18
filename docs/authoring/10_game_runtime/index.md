@@ -1,58 +1,65 @@
 ---
-doc_id: "10_game_runtime"
-source_path: "docs/authoring/10_game_runtime/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Game Runtime"
-summary: "Game loop and runtime"
-tags: ["game_runtime", "otclient", "docs"]
+doc_id: 10_game_runtime, source_path: docs/authoring/10_game_runtime, source_sha: 1e742b7, last_sync_iso: 2025-10-18T01:36:41.412529Z, doc_class: spec, language: pl, title: 10 - Game Runtime, summary: Game loop, input handling, map management, and dependencies with events/UI., tags: game,runtime,loop,input
 ---
 
-# Game Runtime
+# 10 - Game Runtime
 
-## Overview
+Game loop, input handling, map management, and dependencies with events/UI.
 
-Game loop and runtime
+## Przegląd
 
-This chapter provides comprehensive documentation for the Game Runtime subsystem of OTClient v8.
+Ten rozdział dokumentuje 10 game runtime w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Game Runtime] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `entities.csv`
+- `game_state.csv`
+- `resources.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Runtime](../01_runtime/index.md)
+- [Events](../02_events/index.md)
+- [UI](../04_ui/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.412529Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-10_game_runtime.overview)=
-### Facet: `10_game_runtime.overview`
+(facet-10_game_runtime.main)=
+### Facet: `10_game_runtime.main`
 
-Overview diagram and summary for Game Runtime.
+Main documentation facet for 10_game_runtime.

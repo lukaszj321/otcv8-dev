@@ -1,58 +1,64 @@
 ---
-doc_id: "09_logging"
-source_path: "docs/authoring/09_logging/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Logging System"
-summary: "Logging infrastructure"
-tags: ["logging", "otclient", "docs"]
+doc_id: 09_logging, source_path: docs/authoring/09_logging, source_sha: 2adc17d, last_sync_iso: 2025-10-18T01:36:41.412346Z, doc_class: spec, language: pl, title: 09 - Logging, summary: Logging levels, targets, examples, and runtime integration., tags: logging,debug,trace
 ---
 
-# Logging System
+# 09 - Logging
 
-## Overview
+Logging levels, targets, examples, and runtime integration.
 
-Logging infrastructure
+## Przegląd
 
-This chapter provides comprehensive documentation for the Logging System subsystem of OTClient v8.
+Ten rozdział dokumentuje 09 logging w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Logging System] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `emitters.csv`
+- `entities.csv`
+- `log_events.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Core API](../01_core/index.md)
+- [Runtime](../01_runtime/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.412346Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-09_logging.overview)=
-### Facet: `09_logging.overview`
+(facet-09_logging.main)=
+### Facet: `09_logging.main`
 
-Overview diagram and summary for Logging System.
+Main documentation facet for 09_logging.

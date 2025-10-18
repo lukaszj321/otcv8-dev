@@ -1,58 +1,65 @@
 ---
-doc_id: "12_otmod"
-source_path: "docs/authoring/12_otmod/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "OTMOD Packages"
-summary: "OTMOD module structure"
-tags: ["otmod", "otclient", "docs"]
+doc_id: 12_otmod, source_path: docs/authoring/12_otmod, source_sha: adcc8b9, last_sync_iso: 2025-10-18T01:36:41.412944Z, doc_class: spec, language: pl, title: 12 - OTMOD, summary: Module structure, hooks, dependencies, load-later, sandbox, and blueprints., tags: otmod,modules,lua,sandbox
 ---
 
-# OTMOD Packages
+# 12 - OTMOD
 
-## Overview
+Module structure, hooks, dependencies, load-later, sandbox, and blueprints.
 
-OTMOD module structure
+## Przegląd
 
-This chapter provides comprehensive documentation for the OTMOD Packages subsystem of OTClient v8.
+Ten rozdział dokumentuje 12 otmod w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[OTMOD Packages] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `lua_exports.csv`
+- `module_deps.csv`
+- `module_hooks.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Modules](../03_modules/index.md)
+- [Data](../11_data/index.md)
+- [UI](../04_ui/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.412944Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-12_otmod.overview)=
-### Facet: `12_otmod.overview`
+(facet-12_otmod.main)=
+### Facet: `12_otmod.main`
 
-Overview diagram and summary for OTMOD Packages.
+Main documentation facet for 12_otmod.

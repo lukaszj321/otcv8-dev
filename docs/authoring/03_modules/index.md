@@ -1,58 +1,65 @@
 ---
-doc_id: "03_modules"
-source_path: "docs/authoring/03_modules/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "Modules"
-summary: "C++ and Lua modules with exports and dependencies"
-tags: ["modules", "otclient", "docs"]
+doc_id: 03_modules, source_path: docs/authoring/03_modules, source_sha: 4a846af, last_sync_iso: 2025-10-18T01:36:41.411138Z, doc_class: api, language: pl, title: 03 - Modules, summary: C++ and Lua modules, exports, relations, and integration examples., tags: modules,cpp,lua,exports
 ---
 
-# Modules
+# 03 - Modules
 
-## Overview
+C++ and Lua modules, exports, relations, and integration examples.
 
-C++ and Lua modules with exports and dependencies
+## Przegląd
 
-This chapter provides comprehensive documentation for the Modules subsystem of OTClient v8.
+Ten rozdział dokumentuje 03 modules w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[Modules] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `entities.csv`
+- `hot_reload.csv`
+- `lua_exports.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Core API](../01_core/index.md)
+- [UI](../04_ui/index.md)
+- [OTMOD](../12_otmod/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.411138Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-03_modules.overview)=
-### Facet: `03_modules.overview`
+(facet-03_modules.main)=
+### Facet: `03_modules.main`
 
-Overview diagram and summary for Modules.
+Main documentation facet for 03_modules.

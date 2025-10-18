@@ -1,58 +1,64 @@
 ---
-doc_id: "15_vc16"
-source_path: "docs/authoring/15_vc16/index.md"
-source_sha: "latest"
-last_sync_iso: "2025-10-17T23:29:18Z"
-doc_class: "guide"
-language: "pl"
-title: "VC16/ANGLE"
-summary: "VC16 build and ANGLE libraries"
-tags: ["vc16", "otclient", "docs"]
+doc_id: 15_vc16, source_path: docs/authoring/15_vc16, source_sha: 0da9180, last_sync_iso: 2025-10-18T01:36:41.413535Z, doc_class: guide, language: pl, title: 15 - VC16/ANGLE, summary: EGL/GLES headers, libraries, DLL distribution, and sanity tests., tags: vc16,angle,egl,gles
 ---
 
-# VC16/ANGLE
+# 15 - VC16/ANGLE
 
-## Overview
+EGL/GLES headers, libraries, DLL distribution, and sanity tests.
 
-VC16 build and ANGLE libraries
+## Przegląd
 
-This chapter provides comprehensive documentation for the VC16/ANGLE subsystem of OTClient v8.
+Ten rozdział dokumentuje 15 vc16 w OTClient v8. Zawiera szczegółowe informacje techniczne, przykłady kodu, diagramy architektury oraz powiązania z innymi komponentami systemu.
 
-## Architecture
+## Zawartość
 
-```{mermaid}
-%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
-graph TD
-    A[VC16/ANGLE] --> B[Components]
-    A --> C[Datasets]
-    A --> D[Diagrams]
+```{toctree}
+:maxdepth: 2
+:titlesonly:
+:hidden:
+
+README
+blueprints/index
+datasets/index
+diagrams/index
 ```
 
 ## Datasets
 
-```{csv-table} Summary
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+- `angle_headers.csv`
+- `angle_libs.csv`
+- `defines.csv`
+
+## Diagramy
+
+```{contents}
+:local:
+:depth: 2
 ```
 
-## Key Features
+## Crosslinks
 
-- Comprehensive documentation
-- Dataset exports
-- Architecture diagrams
-- Code examples
+- [Core API](../01_core/index.md)
+- [Network](../05_network/index.md)
 
-## Related Chapters
 
-- [Core C++ API](../01_core/index.md)
-- [Runtime System](../01_runtime/index.md)
-- [Events System](../02_events/index.md)
+## QA Block
 
+**Status:** ✅ Dataset generated  
+**Coverage:** In progress  
+**Last Updated:** 2025-10-18T01:36:41.413535Z
+
+### Checklist
+
+- [x] Frontmatter present
+- [x] Datasets generated
+- [ ] Diagrams added
+- [ ] Crosslinks verified
+- [ ] Content complete (≥18KB target)
 
 ## Appendix / Facets
 
-(facet-15_vc16.overview)=
-### Facet: `15_vc16.overview`
+(facet-15_vc16.main)=
+### Facet: `15_vc16.main`
 
-Overview diagram and summary for VC16/ANGLE.
+Main documentation facet for 15_vc16.
