@@ -1,0 +1,30 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant Lua as Lua Script
+    participant Bind as Binding Layer
+    participant Sing as C++ Singleton
+    participant Impl as Implementation
+    
+    Note over Lua,Impl: Singleton Method Call
+    
+    Lua->>Bind: g_logger.info("message")
+    Bind->>Bind: Resolve g_logger singleton
+    Bind->>Sing: Logger::info()
+    Sing->>Impl: log(LogInfo, message)
+    Impl->>Impl: Write to file/console
+    Impl-->>Sing: Complete
+    Sing-->>Bind: void
+    Bind-->>Lua: Return
+    
+    Note over Lua,Impl: Class Instance Method
+    
+    Lua->>Bind: channel:setGain(0.8)
+    Bind->>Bind: Resolve SoundChannel instance
+    Bind->>Sing: SoundChannel::setGain()
+    Sing->>Impl: m_gain = 0.8
+    Sing->>Impl: Update OpenAL source
+    Impl-->>Sing: Complete
+    Sing-->>Bind: void
+    Bind-->>Lua: Return
+    
+    click Bind "../index.html#facet-01_core.bindings_flow" "Binding Flow"
