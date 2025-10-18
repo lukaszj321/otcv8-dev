@@ -1,0 +1,37 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    OTUI[OTUI File] -->|defines| Widget[UI Widget]
+    Widget -->|emits| Signal[@onClick @onDoubleClick etc]
+    Signal -->|connects to| LuaHandler[Lua Handler Function]
+    
+    subgraph "Signal Types"
+        S1[@onClick]
+        S2[@onDoubleClick]
+        S3[@onHoverChange]
+        S4[@onFocusChange]
+        S5[@onTextChange]
+    end
+    
+    Signal --> S1
+    Signal --> S2
+    Signal --> S3
+    Signal --> S4
+    Signal --> S5
+    
+    LuaHandler -->|calls| Module[Module Function]
+    Module -->|updates| Widget
+    
+    subgraph "Common Handlers"
+        H1[toggle]
+        H2[show/hide]
+        H3[setOption]
+        H4[refresh]
+    end
+    
+    Module --> H1
+    Module --> H2
+    Module --> H3
+    Module --> H4
+    
+    click Signal "../index.html#facet-04_ui.signals" "UI Signals"
+    click Widget "../index.html#facet-04_ui.widgets" "UI Widgets"
