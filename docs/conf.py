@@ -27,7 +27,7 @@ exclude_patterns = [
 ]
 
 # -- Extensions ----------------------------------------------------------------
-# Uwaga: NIE ładujemy jednocześnie "myst_parser" i "myst_nb".
+# Core extensions - always loaded
 extensions = [
     "myst_nb",                      # MyST + notebooki (wykonanie wyłączone poniżej)
     "sphinx.ext.autosectionlabel",  # zamiast pip-owego "sphinx-autosectionlabel"
@@ -37,14 +37,26 @@ extensions = [
     "sphinx.ext.duration",
 ]
 
-# Opcjonalne rozszerzenia — doładuj tylko jeśli są zainstalowane w CI
+# Critical extensions for Mermaid rendering - try to load, fail gracefully
+_critical_exts = [
+    "sphinxcontrib.mermaid",  # REQUIRED for Mermaid diagram rendering
+    "sphinx_design",          # REQUIRED for grid/card directives
+]
+
+for ext in _critical_exts:
+    try:
+        import_module(ext)
+        extensions.append(ext)
+        print(f"[conf.py] ✓ Critical extension loaded: {ext}")
+    except Exception as e:
+        print(f"[conf.py] ✗ CRITICAL extension failed to load: {ext} ({e})")
+
+# Optional extensions — doładuj tylko jeśli są zainstalowane w CI
 _optional_exts = [
     "sphinx_copybutton",
-    "sphinx_design",
     "sphinx_sitemap",
     "sphinxext.opengraph",
     "sphinx_favicon",
-    "sphinxcontrib.mermaid",
     "sphinx_codeautolink",
     "sphinxcontrib.jquery",
     "sphinx_hoverxref",
@@ -52,7 +64,6 @@ _optional_exts = [
 
 for ext in list(_optional_exts):
     try:
-        # import name == ext (kropki są poprawne, myślników nie używamy w nazwach)
         import_module(ext)
         extensions.append(ext)
     except Exception:
@@ -126,10 +137,10 @@ html_context = {
 
 # -- Mermaid (sphinxcontrib-mermaid) -------------------------------------------
 mermaid_version = "10.9.0"
-# Use "raw" output for client-side JavaScript rendering (GitHub Pages)
-# This outputs <pre class="mermaid"> tags that are rendered by mermaid.js
-mermaid_output_format = "raw"
-mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'neutral'});"
+# CRITICAL: Use SVG format for server-side rendering (better for CI/Pages)
+# This generates actual SVG elements that don't require client-side JS
+mermaid_output_format = "svg"
+mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
 ogp_site_url = html_baseurl
@@ -170,4 +181,55 @@ todo_include_todos = False
 
 # -- Build hooks ---------------------------------------------------------------
 def setup(app):
-    pass
+    """Setup hook to dump effective Sphinx configuration for QA"""
+    import json
+    from pathlib import Path
+    
+    def dump_sphinx_env(app, exception):
+        """Dump effective Sphinx environment after build"""
+        if exception is not None:
+            return
+        
+        qa_dir = Path(app.srcdir) / "authoring" / "qa"
+        qa_dir.mkdir(parents=True, exist_ok=True)
+        
+        env_data = {
+            "extensions": app.extensions.keys() if hasattr(app, 'extensions') else list(app.config.extensions),
+            "myst_enable_extensions": list(app.config.myst_enable_extensions) if hasattr(app.config, 'myst_enable_extensions') else [],
+            "myst_fence_as_directive": list(app.config.myst_fence_as_directive) if hasattr(app.config, 'myst_fence_as_directive') else [],
+            "mermaid_output_format": getattr(app.config, 'mermaid_output_format', 'unknown'),
+            "mermaid_version": getattr(app.config, 'mermaid_version', 'unknown'),
+            "html_theme": getattr(app.config, 'html_theme', 'unknown'),
+        }
+        
+        # Check if mermaid directive is registered
+        if hasattr(app.registry, 'directives'):
+            env_data["mermaid_directive_registered"] = 'mermaid' in app.registry.directives
+        
+        # Get package versions
+        try:
+            import sphinxcontrib.mermaid
+            env_data["sphinxcontrib_mermaid_version"] = getattr(sphinxcontrib.mermaid, '__version__', 'unknown')
+        except Exception:
+            env_data["sphinxcontrib_mermaid_version"] = "not installed"
+        
+        try:
+            import myst_nb
+            env_data["myst_nb_version"] = getattr(myst_nb, '__version__', 'unknown')
+        except Exception:
+            env_data["myst_nb_version"] = "not installed"
+        
+        try:
+            import sphinx_design
+            env_data["sphinx_design_version"] = getattr(sphinx_design, '__version__', 'unknown')
+        except Exception:
+            env_data["sphinx_design_version"] = "not installed"
+        
+        output_file = qa_dir / "sphinx_env.json"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(env_data, f, indent=2, sort_keys=True)
+        
+        print(f"\n[conf.py] ✓ Sphinx environment dumped to: {output_file.relative_to(app.srcdir)}")
+    
+    # Connect to build-finished event
+    app.connect('build-finished', dump_sphinx_env)

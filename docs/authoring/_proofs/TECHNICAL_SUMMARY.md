@@ -122,7 +122,7 @@ graph TD
 
 Converted fence syntax from:
 ```markdown
-```mermaid
+```{mermaid}
 graph TD
     A --> B
 ```
