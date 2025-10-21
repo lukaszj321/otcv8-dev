@@ -1,94 +1,113 @@
-# QA Summary - Mermaid & Grid Fix
+# QA Summary - Mermaid Rendering Fix (LIVE)
 
-## Overview
+**Date:** 2025-10-20  
+**Issue:** Mermaid diagrams rendering as code blocks on LIVE site across ALL chapter indexes  
+**Status:** 🔧 **Configuration Updated - Awaiting CI Build**
 
-All QA checks passed after implementing fixes for Mermaid and sphinx-design rendering.
+## Problem Analysis
 
-## QA Reports Status
+Previous fix addressed indentation issues, but LIVE site still shows Mermaid as code blocks.
+Root cause: `mermaid_output_format = "raw"` requires client-side JavaScript, which may not be loading correctly on GitHub Pages.
 
-### 1. mermaid_sanity.csv
-- **Status:** ✅ PASS
-- **Blocks checked:** 41
-- **Failures:** 0
-- All Mermaid blocks have proper init and no stray backticks
+## Solution Applied
 
-### 2. myst_indent_report.csv
-- **Status:** ✅ PASS
-- **Issues found:** 0
-- All MyST directives are properly dedented to column 0
+### 1. Sphinx Configuration Changes (`docs/conf.py`)
 
-### 3. frontmatter_issues.csv
-- **Status:** ✅ PASS (with notes)
-- **Files processed:** 939 lines
-- All frontmatter blocks normalized to single-line YAML where applicable
+**Critical Extension Loading:**
+```python
+# Explicitly load critical extensions with error reporting
+_critical_exts = [
+    "sphinxcontrib.mermaid",  # REQUIRED for Mermaid rendering
+    "sphinx_design",          # REQUIRED for grid/card directives
+]
+```
 
-### 4. mermaid_parse_issues.csv
-- **Status:** ✅ PASS
-- **Rows:** 5 (header + context)
-- No critical parsing issues found
+**Mermaid Configuration:**
+```python
+# CHANGED: raw → svg for server-side rendering
+mermaid_output_format = "svg"  # Generate actual SVG elements
+mermaid_version = "10.9.0"
+```
 
-### 5. diagram_lint.csv
-- **Status:** ✅ PASS
-- Generated during QA rerun
-- All diagrams pass linting checks
+**Setup Hook:**
+- Dumps effective config to `qa/sphinx_env.json` after build
+- Verifies extensions loaded and directive registered
 
-## Content Fixers Applied
+### 2. CI/CD Workflow Updates (`.github/workflows/docs.yml`)
 
-All content fixers ran successfully:
+**New Build Pipeline:**
+1. Install deps → Verify critical packages
+2. Run content hygiene fixers:
+   - `mermaid_force_directive.py`
+   - `mermaid_unescape_fix.py`
+   - `myst_dedent_fix.py`
+   - `frontmatter_fix.py`
+   - `mermaid_lint_fix.py`
+   - `qa_rerun.sh`
+3. Build docs
+4. **Verify Mermaid rendering** (`verify_mermaid_rendering.py`)
+5. **Generate LIVE proofs** (`generate_live_proofs.py`)
 
-1. ✅ `mermaid_unescape_fix.py` - 1 file modified, 2 blocks fixed
-2. ✅ `frontmatter_fix.py` - 3 files modified (single_line_fixed)
-3. ✅ `myst_dedent_fix.py` - 2 files modified, 7 fixes applied
-4. ✅ `mermaid_lint_fix.py` - 0 files modified (no issues found)
-5. ✅ `qa_rerun.sh` - Full QA suite completed
+### 3. New Verification Tools
 
-## Chapters with Mermaid Diagrams
+**`verify_mermaid_rendering.py`**
+- Scans HTML output for rendered Mermaid diagrams
+- Outputs: `qa/mermaid_render_matrix.csv`, `analytics/gaps.md`
 
-| Chapter | Mermaid Blocks | Status |
-|---------|----------------|--------|
-| 03_modules | 7 | ✅ Ready |
-| 06_assets | 7 | ✅ Ready |
-| 09_logging | 5 | ✅ Ready |
+**`generate_live_proofs.py`**
+- Saves `_sources` diffs for 5 random chapters
+- Creates diff reports in `analytics/`
 
-## Configuration Status
+## Content Status
 
-### docs/conf.py
-- ✅ `myst_fence_as_directive = ["mermaid"]` (corrected from dict to list)
-- ✅ `myst_enable_extensions` includes "colon_fence"
-- ✅ `extensions` includes "myst_nb", "sphinx_design", "sphinxcontrib.mermaid"
+✅ **164 Mermaid blocks** using `{mermaid}` directive  
+✅ **0 blocks** using incorrect ```mermaid syntax  
+✅ All content properly formatted
 
-### workflows
-- ✅ docs.yml: Installs from requirements.txt, no myst-parser conflict
-- ✅ sphinx-pages.yml: Installs from requirements.txt, no myst-parser conflict
+## Verification Pending
 
-## Test Build Results
+### Automated (CI)
+- ⏳ Sphinx build completes without errors
+- ⏳ `verify_mermaid_rendering.py` shows 0 failures
+- ⏳ `sphinx_env.json` shows all extensions loaded
+- ⏳ `mermaid_render_matrix.csv` all PASS
 
-Local test build of authoring/09_logging:
-- **Build:** ✅ SUCCESS
-- **Warnings:** 57 (expected - missing cross-references)
-- **Mermaid:** ✅ Rendered as `<pre class="mermaid">`
-- **Grid:** ✅ Rendered with sphinx-design classes
+### Manual (LIVE)
+- ⏳ Visit 15 chapter index pages
+- ⏳ Verify Mermaid diagrams render as SVG
+- ⏳ Capture screenshots (1 per chapter)
+- ⏳ Verify sphinx-design grids work
 
-## Expected Live Behavior
+## Expected Outputs
 
-When deployed to GitHub Pages:
+```
+qa/
+  ├── sphinx_env.json              # ⏳ Effective config dump
+  ├── mermaid_render_matrix.csv    # ⏳ Rendering verification
+  └── [other QA reports]
 
-1. **Mermaid diagrams will render** as interactive SVG graphics
-   - mermaid.js loaded from CDN
-   - All `<pre class="mermaid">` blocks processed
-   
-2. **Grid components will render** as styled card layouts
-   - sphinx-design CSS applied
-   - Cards display in responsive grid
+analytics/
+  ├── gaps.md                      # ⏳ Failed pages (should be empty)
+  └── index_diff_*.md              # ⏳ _sources diffs
 
-3. **No code blocks or raw text** for Mermaid or grid syntax
+_proofs/
+  └── <chapter>/
+      ├── index.md.txt             # ⏳ Built _sources
+      └── screenshot.png           # ⏳ Manual (LIVE)
+```
 
-## Conclusion
+## LIVE Page Links
 
-✅ **All acceptance criteria met:**
-- Configuration fixed (myst_fence_as_directive corrected)
-- Workflows updated (no myst-parser conflict)
-- Content fixers applied successfully
-- QA reports show 0 critical issues
-- Test build confirms Mermaid and grid render correctly
-- Three target chapters verified (03_modules, 06_assets, 09_logging)
+Base: https://lukaszj321.github.io/otcv8-dev/authoring/
+
+Chapters to verify: 01_core, 02_events, 03_modules, 04_ui, 05_network, 06_assets, 07_settings_crypto, 08_audio, 09_logging, 10_game_runtime, 11_data, 12_otmod, 13_layouts, 14_android, 15_vc16
+
+## Acceptance Criteria
+
+- [ ] `qa/mermaid_render_matrix.csv`: 0 FAIL
+- [ ] `qa/sphinx_env.json`: extensions verified
+- [ ] All QA CSVs: 0 critical issues
+- [ ] ≥10 LIVE screenshots showing rendered diagrams
+- [ ] `_sources` diffs confirm {mermaid} preserved
+
+**Next Action:** Await CI build completion, then verify LIVE site
