@@ -86,7 +86,13 @@ function HealthMonitor.onGameEnd()
 end
 
 function HealthMonitor.onHealthChange(localPlayer, health, maxHealth)
-  local healthPercent = (health / maxHealth) * 100
+  local healthPercent
+  if maxHealth > 0 then
+    healthPercent = (health / maxHealth) * 100
+  else
+    healthPercent = 0
+    g_logger.warning("[HealthMonitor] maxHealth is zero, cannot calculate health percent.")
+  end
   
   -- Aktualizuj UI
   if healthWindow then
