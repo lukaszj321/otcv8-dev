@@ -119,6 +119,14 @@ workbench/index
 
 ```{toctree}
 :hidden:
+:maxdepth: 2
+:caption: Copilot Docs
+
+dokumentacja copilot/sphinx/index
+```
+
+```{toctree}
+:hidden:
 :maxdepth: 1
 :caption: Zasoby
 

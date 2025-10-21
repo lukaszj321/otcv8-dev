@@ -1,1 +1,31 @@
 output_path,width,height,source_set,note
+data/fonts/cipsoftFont.png,256,64,data/fonts,Bitmap font - cipsoftFont
+data/fonts/sans-bold-16px_cp1252.png,384,336,data/fonts,Bitmap font - sans-bold-16px_cp1252
+data/fonts/small-9px.png,144,126,data/fonts,Bitmap font - small-9px
+data/fonts/terminus-10px.png,256,224,data/fonts,Bitmap font - terminus-10px
+data/fonts/terminus-14px-bold.png,256,224,data/fonts,Bitmap font - terminus-14px-bold
+data/fonts/verdana-11px-antialised_cp1250.png,256,224,data/fonts,Bitmap font - verdana-11px-antialised_cp1250
+data/fonts/verdana-11px-antialised_cp1252.png,256,224,data/fonts,Bitmap font - verdana-11px-antialised_cp1252
+data/fonts/verdana-11px-monochrome_cp1250.png,256,224,data/fonts,Bitmap font - verdana-11px-monochrome_cp1250
+data/fonts/verdana-11px-monochrome_cp1252.png,256,224,data/fonts,Bitmap font - verdana-11px-monochrome_cp1252
+data/fonts/verdana-11px-rounded_cp1250.png,256,224,data/fonts,Bitmap font - verdana-11px-rounded_cp1250
+data/fonts/verdana-11px-rounded_cp1252.png,256,224,data/fonts,Bitmap font - verdana-11px-rounded_cp1252
+data/fonts/verdana-9px-bold.png,208,182,data/fonts,Bitmap font - verdana-9px-bold
+data/fonts/verdana-9px-italic.png,208,182,data/fonts,Bitmap font - verdana-9px-italic
+data/fonts/verdana-9px.png,208,182,data/fonts,Bitmap font - verdana-9px
+data/images/background.png,1024,719,data/images,Large sprite sheet - 1024x719
+data/images/flags/de.png,256,256,data/images/flags,Large sprite sheet - 256x256
+data/images/flags/en.png,256,256,data/images/flags,Large sprite sheet - 256x256
+data/images/flags/es.png,256,256,data/images/flags,Large sprite sheet - 256x256
+data/images/flags/pl.png,256,256,data/images/flags,Large sprite sheet - 256x256
+data/images/flags/pt.png,256,256,data/images/flags,Large sprite sheet - 256x256
+data/images/flags/sv.png,256,256,data/images/flags,Large sprite sheet - 256x256
+data/images/game/spells/defaultspells.png,384,384,data/images/game/spells,Large sprite sheet - 384x384
+data/images/shaders/brazil.png,320,200,data/images/shaders,Large sprite sheet - 320x200
+data/images/shaders/gold.png,609,559,data/images/shaders,Large sprite sheet - 609x559
+data/images/shaders/rainbow.png,456,342,data/images/shaders,Large sprite sheet - 456x342
+data/images/ui/android.png,300,89,data/images/ui,Large sprite sheet - 300x89
+data/images/ui/icon_add.png,300,300,data/images/ui,Large sprite sheet - 300x300
+data/images/ui/ios.png,300,89,data/images/ui,Large sprite sheet - 300x89
+data/images/ui/panel_bottom2.png,942,60,data/images/ui,Large sprite sheet - 942x60
+data/images/ui/panel_top.png,256,36,data/images/ui,Large sprite sheet - 256x36
